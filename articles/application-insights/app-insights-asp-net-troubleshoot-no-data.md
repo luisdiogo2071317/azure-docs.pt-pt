@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bc4c0617ebf9b400260a217462abbcc439ae440
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228543"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284681"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Resolução de problemas sem dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alguns dos meus telemetria está em falta
@@ -175,8 +175,14 @@ Se a sua aplicação envia uma grande quantidade de dados e estiver a utilizar o
 
 Pode desativá-lo, mas isso não é recomendável. Amostragem foi concebida para que a telemetria relacionada corretamente é transmitida, para fins de diagnóstico. 
 
-## <a name="client-ip-address-is-0000"></a>Endereço IP do cliente for 0.0.0.0 
-Fevereiro de 2018, vamos [anunciado](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) que Removemos o registo do endereço IP de cliente. Isso não afeta a localização geográfica.
+## <a name="client-ip-address-is-0000"></a>Endereço IP do cliente for 0.0.0.0
+
+5 de Fevereiro 2018, anunciámos que Removemos o registo do endereço IP de cliente. Isso não afeta a localização geográfica.
+
+> [!NOTE]
+> Se precisar dos primeiros 3 octetos do endereço IP, pode utilizar um [inicializador de telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) para adicionar um atributo personalizado.
+> Isto não afeta os dados recolhidos antes de 5 de fevereiro de 2018.
+
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Dados geográficos errados na telemetria do utilizador
 A cidade, região e dimensões de país são derivadas de endereços IP e nem sempre são precisas. Estes endereços IP são processados pela primeira vez para a localização e, em seguida, alterados para 0.0.0.0 sejam armazenados.

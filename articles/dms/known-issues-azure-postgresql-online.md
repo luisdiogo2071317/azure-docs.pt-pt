@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: e30ffe2dd79d55e856ef297608745b60578cf7e7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131302"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282881"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Limitações de migração/problemas conhecidos com migrações online BD do Azure para PostgreSQL
 
 Problemas conhecidos e limitações associadas a migrações online, do PostgreSQL, para a base de dados do Azure para PostgreSQL são descritas nas seções a seguir. 
 
 ## <a name="online-migration-configuration"></a>Configuração de migração online
-- A servidor PostgreSQL de origem tem de executar a versão 9.5.11, 9.6.7 ou 10.3 ou posterior. Para obter mais informações, consulte o artigo [versões da base de dados PostgreSQL](1.2.%09https:/docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- A servidor PostgreSQL de origem tem de executar a versão 9.5.11, 9.6.7 ou 10.3 ou posterior. Para obter mais informações, consulte o artigo [versões da base de dados PostgreSQL](../postgresql/concepts-supported-versions.md).
 - Apenas a mesma versão as migrações são suportadas. Por exemplo, PostgreSQL migrar 9.5.11 à base de dados do Azure para PostgreSQL 9.6.7 não é suportada.
 - Para ativar a replicação de lógica na **da origem de PostgreSQL postgresql.conf** de ficheiros, defina os seguintes parâmetros:
     - **wal_level** = lógico
@@ -66,7 +66,7 @@ Problemas conhecidos e limitações associadas a migrações online, do PostgreS
     
     ```
 
-    Execute a chave estrangeira de soltar (que é a segunda coluna) no resultado da consulta.
+    Execute o script de remoção de chave externa (que é a segunda coluna) no resultado da consulta.
 
 - O esquema na base de dados do Azure para PostgreSQL destino não pode ter qualquer gatilhos. Utilize o seguinte para desativar disparadores no banco de dados de destino:
 

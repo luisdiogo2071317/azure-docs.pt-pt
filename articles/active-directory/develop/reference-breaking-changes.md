@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: da681500ccff24e6e9bfa6b7bb9e5a14a725f158
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8e00674f331a56be9abe6f2356aa88d7dcf1d0b0
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279640"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282389"
 ---
 # <a name="whats-new-for-authentication"></a>O que há de novo para a autenticação? 
 
@@ -56,7 +56,7 @@ A partir de 15 de Novembro de 2018, do Azure AD irá parar abertos ao recebiment
 
 Se a sua aplicação reutiliza os códigos de autorização para obter os tokens de vários recursos, recomendamos que utilize o código para obter um token de atualização e, em seguida, utilizar esse token de atualização para adquirir tokens adicionais para outros recursos. Códigos de autorização só podem ser utilizados uma vez, mas os tokens de atualização podem ser utilizadas várias vezes em vários recursos. Os novos aplicativos que tentam reutilizar um código de autenticação durante o fluxo de código do OAuth obterá um erro de invalid_grant.
 
-Para obter mais informações sobre os tokens de atualização, consulte [atualizar os tokens de acesso](v1-protocols-oauth-code.md#refreshing-the-access-tokens).
+Para obter mais informações sobre os tokens de atualização, consulte [atualizar os tokens de acesso](v1-protocols-oauth-code.md#refreshing-the-access-tokens).  Se utilizar a ADAL ou MSAL, isso é feito automaticamente pela biblioteca - substituir a segunda instância do AcquireTokenByAuthorizationCodeAsync com 'AcquireTokenSilentAsync'. 
 
 ## <a name="may-2018"></a>Maio de 2018
 

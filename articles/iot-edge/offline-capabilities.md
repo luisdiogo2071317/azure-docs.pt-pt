@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb44d6b0a4ea69d92f91af7ce1d6b19deff4e753
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3ab775d57ba188930cc66b0fa1655307e9a78179
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567031"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284647"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Compreender as capacidades offline expandidas para dispositivos do IoT Edge, módulos e dispositivos de subordinado (pré-visualização)
 
@@ -48,7 +48,7 @@ O exemplo seguinte mostra como um cenário de IoT Edge opera no modo offline:
 
 As capacidades offline expandidas descritas neste artigo estão disponíveis no [IoT Edge versão 1.0.4 ou superior](https://github.com/Azure/azure-iotedge/releases). Versões anteriores com um subconjunto de funcionalidades offline. Existente do IoT Edge dispositivos que não têm recursos offline expandidos não podem ser atualizados, alterando a versão de tempo de execução, mas têm de ser reconfigurados com uma nova identidade de dispositivo do IoT Edge para obter esses recursos. 
 
-O suporte offline expandido está disponível em todas as regiões onde o IoT Hub está disponível, com exceção do E.U.A. leste e Europa Ocidental. 
+O suporte offline expandido está disponível em todas as regiões onde o IoT Hub está disponível, **exceto** E.U.A. Leste.
 
 Apenas os dispositivos não Edge IoT podem ser adicionados como dispositivos de subordinados. 
 
@@ -65,6 +65,19 @@ Dispositivos filho podem ser qualquer dispositivo de não-Edge registado no mesm
    ![Gerir dispositivos de subordinado a partir da página de detalhes do dispositivo IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
 Dispositivos de principal podem ter vários dispositivos de subordinado, mas um dispositivo de subordinado só pode ter um elemento principal.
+
+### <a name="specifying-dns-servers"></a>Especificar os servidores DNS 
+
+Para melhorar a robustez, recomenda-se que especifique os endereços de servidor DNS utilizados no seu ambiente. Por exemplo, no Linux, atualize **/etc/docker/daemon.json** (poderá ter de criar o ficheiro) para incluir:
+
+```
+{
+    "dns": [“1.1.1.1”]
+}
+```
+
+Se estiver a utilizar um servidor DNS local, substitua o 1.1.1.1 o endereço IP do servidor DNS local. Reinicie o serviço de docker para que as alterações entrem em vigor.
+
 
 ## <a name="optional-offline-settings"></a>Definições opcionais de offline
 

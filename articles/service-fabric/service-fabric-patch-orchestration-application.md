@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a8b2070b6f5b10cb60c6658aefc8cc90331ecfd9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409361"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285055"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
 
@@ -167,7 +167,7 @@ O comportamento da aplicação de orquestração do patch pode ser configurado p
 
 1. Conclua todos os passos de pré-requisitos para preparar o cluster.
 2. Implemente a aplicação de orquestração do patch, como qualquer outra aplicação do Service Fabric. Pode implementar a aplicação com o PowerShell. Siga os passos em [implementar e remover aplicações com o PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications).
-3. Para configurar a aplicação no momento da implementação, de transmitir o `ApplicationParamater` para o `New-ServiceFabricApplication` cmdlet. Para sua conveniência, fornecemos o script Deploy.ps1 juntamente com a aplicação. Para utilizar o script:
+3. Para configurar a aplicação no momento da implementação, de transmitir o `ApplicationParameter` para o `New-ServiceFabricApplication` cmdlet. Para sua conveniência, fornecemos o script Deploy.ps1 juntamente com a aplicação. Para utilizar o script:
 
     - Ligar ao cluster do Service Fabric com `Connect-ServiceFabricCluster`.
     - Execute o script do PowerShell Deploy.ps1 com apropriado `ApplicationParameter` valor.

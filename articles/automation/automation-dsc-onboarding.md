@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: fea0a0dfd2e138fa4f33f4f489be74f5038b4ca6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50f8fea04da3b1e414917a6404cb3f6e838bf716
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244530"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284817"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Integrar computadores para gestão de configuração de estado de automatização do Azure
 
@@ -42,7 +42,7 @@ Com a configuração de estado de automatização do Azure, pode facilmente adic
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Na [portal do Azure](http://portal.azure.com/), clique em **procurar** -> **máquinas virtuais (clássicas)**. Selecione a VM do Windows que pretende carregar. No painel de dashboard da máquina virtual, clique em **todas as definições** -> **extensões** -> **adicionar** -> **Azure O Automation DSC** -> **criar**.
+Na [portal do Azure](https://portal.azure.com/), clique em **procurar** -> **máquinas virtuais (clássicas)**. Selecione a VM do Windows que pretende carregar. No painel de dashboard da máquina virtual, clique em **todas as definições** -> **extensões** -> **adicionar** -> **Azure O Automation DSC** -> **criar**.
 Introduza o [valores de Gestor de configuração Local do PowerShell DSC](/powershell/dsc/metaconfig4) necessária para seu caso de utilização, chave de registo da sua conta de automatização e URL de registo e, opcionalmente, uma configuração de nó a atribuir à VM.
 
 ![Extensões VM do Azure para DSC](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
@@ -132,7 +132,7 @@ Se a máquina não tiver instalado de extensão de estado pretendido do PowerShe
 
 Sob **Registro**, introduza o [valores de Gestor de configuração Local do PowerShell DSC](/powershell/dsc/metaconfig4) necessárias para seu caso de utilização e, opcionalmente, uma configuração de nó para atribuir à VM.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+![Integração](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 

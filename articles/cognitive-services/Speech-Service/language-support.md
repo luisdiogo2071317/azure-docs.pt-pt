@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622521"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284766"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Suporte de idioma e região para a API de serviço de voz
 
@@ -70,7 +70,6 @@ ar SA | Árabe (Arábia Saudita) | Masculino | "Microsoft Server voz texto para 
 bg-BG | Búlgaro | Masculino | "Microsoft Server voz texto em voz voz (bg-BG, Ivan)"
 ES de AC | Catalão | Feminino | "Microsoft Server voz texto em voz voz (AC-ES, HerenaRUS)"
 cs-CZ | Checo | Masculino | "Microsoft Server voz texto para voz de voz (cs-CZ, Jakub)"
-cs-CZ | Checo | Masculino | "Microsoft Server voz texto para voz de voz (cs-CZ, Vit)"
 da-DK | Dinamarquês | Feminino | "Microsoft Server voz texto para voz de voz (da-DK, HelleRUS)"
 Alemanha-AT | Alemão (Áustria) | Masculino | "Microsoft Server voz texto para voz de voz (Alemanha-AT, Michael)"
 Alemanha-CH | Alemão (Suíça) | Masculino | "Microsoft Server voz texto para voz de voz (Alemanha-CH, Karsten)"
@@ -86,7 +85,6 @@ en-GB | English (UK) | Feminino | "Microsoft Server voz texto para voz de voz (e
 | | |Feminino | "Microsoft Server voz texto para voz de voz (en-GB, HazelRUS)"
 | | |Masculino | "Microsoft Server voz texto para voz de voz (en-GB, George, Apollo)"
 EN-IE | Inglês (Irlanda) |Masculino | "Microsoft Server voz texto para voz de voz (en-IE, Sean)"
-EN-IE | Inglês (Irlanda) |Masculino | "Microsoft Server voz texto para voz de voz (en-IE, Shaun)"
 EN-IN | English (India) | Feminino | "Microsoft Server voz texto para voz de voz (en-IN, Heera, Apollo)"
 | | |Feminino | "Microsoft Server voz texto para voz de voz (en-IN, PriyaRUS)"
 | | |Masculino | "Microsoft Server voz texto para voz de voz (en-IN, Ravi, Apollo)"
@@ -153,10 +151,10 @@ zh-TW | Chinês (Taiwan)|Feminino | "Microsoft Server voz texto para voz de voz 
 
 ### <a name="customization"></a>Personalização
 
-Personalização de voz está disponível para inglês Americano (em inglês), continente chinês (zh-CN) e italiano (it-IT).
+Personalização de voz está disponível para nós inglês (en-US), continente chinês (zh-CN), francês (fr-FR), alemão (Alemanha-DE) e italiano (it-IT).
 
 > [!NOTE]
-> Formação de voz italiano começa com um conjunto de dados de expressões com mais de 2000. Modelos de bilingue chinês-inglês também são suportados com um conjunto de dados inicial de expressões com mais de 2000.
+> Francês, alemão e italiano formação de voz começa com um conjunto de dados de mais de 2000 expressões com. Modelos de bilingue chinês-inglês também são suportados com um conjunto de dados inicial de expressões com mais de 2000.
 
 ## <a name="speech-translation"></a>Tradução de Voz
 

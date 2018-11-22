@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 130d0154fc0558ae7284e8407ba88fda3a2a53d5
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: a2367eff3095df82662f7b56571ecdbd966609fd
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391305"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284017"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Acesso do Azure Data Lake Storage Gen1 de VMs dentro de uma VNET do Azure
 Geração de armazenamento 1 do Azure Data Lake é um serviço de PaaS que é executado em endereços de IP de Internet públicos. Qualquer servidor que pode ligar-se para a Internet pública, normalmente, pode ligar a pontos finais de geração 1 de armazenamento do Azure Data Lake também. Por predefinição, todas as VMs em VNETs do Azure podem aceder à Internet e, por conseguinte, podem aceder a geração 1 de armazenamento do Azure Data Lake. No entanto, é possível configurar as VMs numa VNET não ter acesso à Internet. Para essas VMs, acesso a geração 1 de armazenamento do Azure Data Lake é restrito também. Bloquear o acesso público à Internet para VMs em VNETs do Azure pode ser feito através de qualquer uma das seguintes abordagens:
@@ -29,7 +29,7 @@ Geração de armazenamento 1 do Azure Data Lake é um serviço de PaaS que é ex
 Neste artigo, aprenderá a ativar o acesso ao Azure Data Lake Storage Gen1 VMS do Azure, que foram restritos para aceder aos recursos através de um dos três métodos listados anteriormente.
 
 ## <a name="enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity"></a>Ativar a conectividade para geração 1 de armazenamento do Azure Data Lake das VMs com conectividade restrita
-Para acessar Gen1 de armazenamento do Azure Data Lake nessas VMs, tem de configurá-las para aceder ao endereço IP em que a conta de geração 1 de armazenamento do Azure Data Lake está disponível. Pode identificar os endereços IP para as suas contas do Data Lake Storage Gen1 resolvendo os nomes DNS das suas contas (`<account>.azuredatalakestore.net`). Para resolver nomes DNS das suas contas, pode usar ferramentas como **nslookup**. Abra um prompt de comando no seu computador e execute o seguinte comando:
+Para acessar Gen1 de armazenamento do Azure Data Lake nessas VMs, deve configurá-las para acessar o endereço IP para a região onde a conta de geração 1 de armazenamento do Azure Data Lake está disponível. Pode identificar os endereços IP para as regiões de conta do Data Lake Storage Gen1 resolvendo os nomes DNS das suas contas (`<account>.azuredatalakestore.net`). Para resolver nomes DNS das suas contas, pode usar ferramentas como **nslookup**. Abra um prompt de comando no seu computador e execute o seguinte comando:
 
     nslookup mydatastore.azuredatalakestore.net
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5133a3d724a362a3d022e0dfd29f798a509c4743
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 804ac964949c947baf5285b3ec591b3d28263f4d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275474"
+ms.locfileid: "52282742"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Cenário de automatização do Azure – aprovisionar uma máquina virtual do AWS
 Neste artigo, saiba como pode aproveitar a automatização do Azure para Aprovisionar uma máquina virtual na sua subscrição do serviço de Web da Amazon (AWS) e dê um nome específico – que AWS se refere a como "marcação" a VM a essa VM.
@@ -25,7 +25,7 @@ Para os fins deste artigo, tem de ter uma conta de automatização do Azure e um
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Implementar o módulo PowerShell do Amazon Web Services
 A runbook de aprovisionamento da VM utiliza o módulo do PowerShell de AWS para realizar seu trabalho. Execute os seguintes passos para adicionar o módulo para a sua conta de automatização que esteja configurada com as credenciais da sua subscrição do AWS.  
 
-1. Abra o browser e navegue para o [galeria do PowerShell](http://www.powershellgallery.com/packages/AWSPowerShell/) e clique nas **implementar no botão de automatização do Azure**.<br><br> ![Importação do módulo de PS de AWS](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
+1. Abra o browser e navegue para o [galeria do PowerShell](https://www.powershellgallery.com/packages/AWSPowerShell/) e clique nas **implementar no botão de automatização do Azure**.<br><br> ![Importação do módulo de PS de AWS](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
 2. É direcionado para a página de início de sessão do Azure e depois de autenticar, será encaminhado para o portal do Azure e apresentada a página seguinte:<br><br> ![Página de módulo de importação](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
 3. Selecione a conta de automatização para utilizar e clique em **OK** para iniciar a implementação.
 
@@ -60,7 +60,7 @@ Depois de ter sido implementado o módulo do PowerShell do AWS, pode agora criar
     > 
     > * O runbook contém um número de valores de parâmetro predefinidos. Avalie todos os valores predefinidos e atualizar sempre que necessário.
     > * Se armazenou suas credenciais do AWS como um recurso de credencial com o nome diferente do que **AWScred**, tem de atualizar o script na linha 57 para corresponder da mesma forma.  
-    > * Ao trabalhar com os comandos da CLI do AWS no PowerShell, especialmente com este runbook de exemplo, tem de especificar a região do AWS. Caso contrário, os cmdlets falhar. Tópico do modo de exibição AWS [especificar região de AWS](http://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) nas ferramentas do AWS para o documento de PowerShell para obter mais detalhes.  
+    > * Ao trabalhar com os comandos da CLI do AWS no PowerShell, especialmente com este runbook de exemplo, tem de especificar a região do AWS. Caso contrário, os cmdlets falhar. Tópico do modo de exibição AWS [especificar região de AWS](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) nas ferramentas do AWS para o documento de PowerShell para obter mais detalhes.  
     >
 
 7. Para obter uma lista de nomes de imagem da sua subscrição do AWS, inicie o ISE do PowerShell e importe o módulo PowerShell do AWS. Autenticar no AWS, substituindo **Get-AutomationPSCredential** no seu ambiente de ISE com **AWScred = Get-Credential**. Isso pede-lhe as suas credenciais e pode fornecer seus **ID de chave de acesso** para o nome de utilizador e **chave de acesso secreta** a palavra-passe. Veja o exemplo abaixo:  

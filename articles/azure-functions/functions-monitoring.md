@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 9bb703f822a9b9cafe8318bfb7f7cc64c3854868
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 5e5ba3c0d296a253e716e2944201834ff4482f64
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853664"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283995"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -343,6 +343,9 @@ O Application Insights tem um [amostragem](../application-insights/app-insights-
   }
 }
 ```
+
+> [!NOTE]
+> [Amostragem](../application-insights/app-insights-sampling.md) está ativada por predefinição. Se parecem ser os dados em falta, apenas terá de ajustar as definições de amostragem para se ajustarem ao seu cenário de monitorização específico.
 
 ## <a name="write-logs-in-c-functions"></a>Registos de escrita no c# das funções
 

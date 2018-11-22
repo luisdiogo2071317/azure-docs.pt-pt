@@ -1,3 +1,16 @@
+---
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: rogarana
+ms.openlocfilehash: aa701ada917811382351fee9469a5cfa9a7599b8
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279863"
+---
 Uma máquina virtual do Azure suporta anexar um número de discos de dados. Este artigo descreve as metas de escalabilidade e desempenho para discos de dados de uma VM. Utilize esses destinos para ajudar a decidir o número e tipo de disco que tem de satisfazer os seus requisitos de desempenho e a capacidade. 
 
 > [!IMPORTANT]
@@ -12,7 +25,6 @@ Uma máquina virtual do Azure suporta anexar um número de discos de dados. Este
 > | Managed Disks Premium | 10,000 | 50,000 |
 > | Instantâneos de Standard_LRS | 10,000 | 50,000 |
 > | Instantâneos de Standard_ZRS | 10,000 | 50,000 |
-> | Instantâneos de Premium_LRS | 10,000 | 50,000 |
 > | Imagem gerida | 10,000 | 50,000 |
 
 * **Para contas de armazenamento standard:** uma conta de armazenamento standard tem uma taxa de pedidos total máxima de 20.000 IOPS. O IOPS total em todos os discos da máquina virtual numa conta de armazenamento standard não deve exceder este limite.

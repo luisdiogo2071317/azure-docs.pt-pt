@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304446"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284528"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>Gerir o acesso para utilizadores externos através do RBAC
 
@@ -45,7 +45,7 @@ No portal do Azure, depois de iniciar sessão como administrador, selecione "Sub
 ![Painel de subscrição no portal do Azure](./media/role-assignments-external-users/0.png) por predefinição, se o utilizador de administrador tiver comprado a subscrição do Azure, o utilizador será apresentado como **administrador de conta**, é a função de subscrição. Para obter mais informações sobre as funções de subscrição do Azure, consulte [adicionar ou alterar os administradores de subscrição do Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Neste exemplo, o utilizador "alflanigan@outlook.com" é o **proprietário** da "Versão de avaliação gratuita" de subscrição no AAD inquilino "Padrão inquilino do Azure". Uma vez que este utilizador é o criador da subscrição do Azure com a inicial Account da Microsoft "Outlook" (Microsoft Account = Outlook, etc. Live) será o nome de domínio predefinido para todos os outros utilizadores adicionados neste inquilino **"\@ alflaniganuoutlook.onmicrosoft.com"**. Por predefinição, a sintaxe do novo domínio é formada pela juntar o nome de domínio e nome de utilizador do utilizador que criou o inquilino e adicionar a extensão **". onmicrosoft.com"**.
-Além disso, os utilizadores podem iniciar sessão com um nome de domínio personalizado no inquilino depois de adicionar e verificá-lo para o novo inquilino. Para obter mais informações sobre como verificar um nome de domínio personalizado num inquilino do Azure Active Directory, consulte [adicionar um nome de domínio personalizado ao seu diretório](/active-directory/active-directory-add-domain).
+Além disso, os utilizadores podem iniciar sessão com um nome de domínio personalizado no inquilino depois de adicionar e verificá-lo para o novo inquilino. Para obter mais informações sobre como verificar um nome de domínio personalizado num inquilino do Azure Active Directory, consulte [adicionar um nome de domínio personalizado ao seu diretório](../active-directory/fundamentals/add-custom-domain.md).
 
 Neste exemplo, o diretório de "Predefinição de inquilino do Azure" contém apenas os utilizadores com o nome de domínio "\@alflanigan.onmicrosoft.com".
 
@@ -85,7 +85,7 @@ Ao mesmo tempo que está a ser um convidado no diretório, o utilizador externo 
 
 ![acesso restringido ao portal do Azure do azure do Active Directory](./media/role-assignments-external-users/9.png)
 
-O Azure Active Directory e uma subscrição do Azure não tem uma relação de pai-filho como os outros recursos do Azure (por exemplo: máquinas virtuais, redes virtuais, aplicações web, armazenamento, etc.) com uma subscrição do Azure. Todos os a última opção é criado, geridos e faturados sob uma subscrição do Azure, ao passo que uma subscrição do Azure é utilizada para gerir o acesso a um diretório do Azure. Para obter mais informações, consulte [como uma subscrição do Azure está relacionada com o Azure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
+O Azure Active Directory e uma subscrição do Azure não tem uma relação de pai-filho como os outros recursos do Azure (por exemplo: máquinas virtuais, redes virtuais, aplicações web, armazenamento, etc.) com uma subscrição do Azure. Todos os a última opção é criado, geridos e faturados sob uma subscrição do Azure, ao passo que uma subscrição do Azure é utilizada para gerir o acesso a um diretório do Azure. Para obter mais informações, consulte [como uma subscrição do Azure está relacionada com o Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 De todas as funções RBAC incorporadas, **proprietário** e **contribuinte** oferecem acesso de gestão completa a todos os recursos no ambiente, a diferença é que um Contribuidor não é possível criar e eliminar novas funções do RBAC . Como as outras funções incorporadas **contribuinte de Máquina Virtual** ofereçam completa de gestão acesso apenas aos recursos indicado pelo nome, independentemente do **grupo de recursos** estão a ser criadas em.
 

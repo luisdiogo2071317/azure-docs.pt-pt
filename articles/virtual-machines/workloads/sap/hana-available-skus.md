@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9358f280efb847bdce802cc3a20e64710ffc3214
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 1f7bd4bc74e63e3b4dd25a7185ce3641712538f1
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275389"
+ms.locfileid: "52284392"
 ---
 # <a name="available-skus-for-hli"></a>SKUs disponíveis para HLI
 
@@ -52,7 +52,7 @@ Em muitos casos, estas configurações de servidor específicas do cliente reali
 
 | SKU|CPU | Memória | Armazenamento | Disponibilidade |
 | ---| --- | --- | --- | --- |
-| S96 | SAP HANA no Azure S96<br /> – 4 x Intel® Xeon® processador E7 8890 v4<br /> 48 núcleos de CPU e 96 threads de CPU |  768 TB |  3 TB | Disponível |
+| S96 | SAP HANA no Azure S96<br /> – 2 x Intel® Xeon® processador E7 8890 v4<br /> 48 núcleos de CPU e 96 threads de CPU |  768 TB |  3 TB | Disponível |
 
 
 | SKU do original que pode ser <br /> expandido na memória | CPU | Memória | Armazenamento | Disponibilidade |

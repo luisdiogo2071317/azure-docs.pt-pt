@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 99bac69d096095f660e2624194b72e1390c6fc22
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a4bb423dc5eddde0fd2d2b9b4f263ab39dbd801f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275569"
+ms.locfileid: "52284987"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-using-tags.md).
@@ -193,7 +193,6 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
 | DataBoxEdgeDevices | Sim | 
-| DataBoxEdgeDevices/checkNameAvailability | Não | 
 
 ## <a name="data-catalog"></a>Catálogo de Dados
 | Tipo de recurso | Suporta etiquetas |
@@ -451,8 +450,8 @@ Este artigo descreve se um tipo de recurso suporta [marcação](resource-group-u
 ## <a name="resources"></a>Recursos
 | Tipo de recurso | Suporta etiquetas |
 | ------------- | ----------- |
-| resourceGroups | Não | 
-| subscrições/resourceGroups | Não | 
+| resourceGroups | Sim | 
+| subscrições/resourceGroups | Sim | 
 
 ## <a name="scheduler"></a>Scheduler
 | Tipo de recurso | Suporta etiquetas |

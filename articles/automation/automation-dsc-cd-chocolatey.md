@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4172afc3adf23a05384fec0413465cf491af3a79
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: d3957038410e7a7d80e1ac710f0c227047b636a7
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275304"
+ms.locfileid: "52284800"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemplo de utilização: A implementação contínua para máquinas virtuais com a configuração de estado de automatização e Chocolatey
 
@@ -34,14 +34,14 @@ Depois dos dois desses processos de núcleo estão em vigor, é um breve passo p
 ## <a name="component-overview"></a>Visão geral de componentes
 
 Gestores de pacote, como [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) são muito bem conhecido no mundo do Linux, mas não tanto no mundo do Windows.
-[Chocolatey](https://chocolatey.org/) é essa coisa e Scott Hanselman [blog](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) sobre o assunto é uma excelente introdução. Em resumo, o Chocolatey permite-lhe instalar pacotes a partir de um repositório central de pacotes num sistema Windows com a linha de comandos. Pode criar e gerir o seu próprio repositório e o Chocolatey pode instalar os pacotes a partir de qualquer número de repositórios que designar.
+[Chocolatey](https://chocolatey.org/) é essa coisa e Scott Hanselman [blog](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) sobre o assunto é uma excelente introdução. Em resumo, o Chocolatey permite-lhe instalar pacotes a partir de um repositório central de pacotes num sistema Windows com a linha de comandos. Pode criar e gerir o seu próprio repositório e o Chocolatey pode instalar os pacotes a partir de qualquer número de repositórios que designar.
 
 Desired State Configuration (DSC) ([descrição geral](/powershell/dsc/overview)) é uma ferramenta do PowerShell que permite declarar a configuração que pretende para uma máquina. Por exemplo, pode dizer, "eu quero que o Chocolatey instalado, eu quero que o IIS instalado, quero que a porta 80 aberta, quero versão 1.0.0 do meu site instalado." O Gestor de DSC configuração Local (LCM) implementa essa configuração. Um servidor de solicitação de DSC contém um repositório de configurações para as suas máquinas. O LCM em cada máquina verifica periodicamente para ver se a sua configuração corresponde a configuração armazenada. Ela pode comunicou o estado de ou tentar trazer de volta a máquina em alinhamento com a configuração armazenado. Pode editar a configuração armazenada no servidor de solicitação para fazer com que uma máquina ou um conjunto de máquinas que entrem em alinhamento com a configuração foi alterado.
 
 A automatização do Azure é um serviço gerido do Microsoft Azure que permite-lhe automatizar várias tarefas, utilizando runbooks, nós, as credenciais, recursos e ativos como as agendas e variáveis globais.
 A configuração de estado de automatização do Azure amplia esse recurso de automatização para incluir ferramentas de DSC do PowerShell. Aqui é uma excelente [descrição geral](automation-dsc-overview.md).
 
-Um recurso de DSC é um módulo de código que tenha capacidades específicas, como a gestão de rede, Active Directory ou o SQL Server. O recurso de DSC Chocolatey sabe como aceder a um servidor do NuGet (entre outras), transferir pacotes, instalar pacotes e assim por diante. Existem muitos outros recursos de DSC na [galeria do PowerShell](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
+Um recurso de DSC é um módulo de código que tenha capacidades específicas, como a gestão de rede, Active Directory ou o SQL Server. O recurso de DSC Chocolatey sabe como aceder a um servidor do NuGet (entre outras), transferir pacotes, instalar pacotes e assim por diante. Existem muitos outros recursos de DSC na [galeria do PowerShell](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
 Estes módulos são instalados no seu servidor de solicitação de configuração do Azure Automation Estado (por si) para que possam ser utilizados por suas configurações.
 
 Modelos do Resource Manager proporcionam uma forma declarativa de gerar a sua infraestrutura - coisas como redes, sub-redes, segurança de rede e encaminhamento, balanceadores de carga, NICs, VMs e assim por diante. Aqui está uma [artigo](../azure-resource-manager/resource-manager-deployment-model.md) que compara o modelo de implementação Resource Manager (declarativo) com o modelo de implementação de gestão de serviço do Azure (ASM ou clássico) (imperativo) e aborda os principais fornecedores de recursos, computação, armazenamento e rede.
@@ -179,7 +179,7 @@ Resultado essas etapas numa nova configuração de nó com o nome "ISVBoxConfig.
 ## <a name="step-5-creating-and-maintaining-package-metadata"></a>Passo 5: Criar e manter metadados do pacote
 
 Para cada pacote que coloca no repositório do pacote, terá um nuspec que a descreve.
-Esse nuspec deve ser compilado e armazenado no seu servidor do NuGet. Este processo é descrito [aqui](http://docs.nuget.org/create/creating-and-publishing-a-package). Pode usar MyGet.org como um servidor do NuGet. Vender este serviço, mas têm uma SKU que é gratuito de arranque. Em NuGet.org, encontrará instruções sobre como instalar o seu próprio servidor do NuGet para seus pacotes privadas.
+Esse nuspec deve ser compilado e armazenado no seu servidor do NuGet. Este processo é descrito [aqui](https://docs.nuget.org/create/creating-and-publishing-a-package). Pode usar MyGet.org como um servidor do NuGet. Vender este serviço, mas têm uma SKU que é gratuito de arranque. Em NuGet.org, encontrará instruções sobre como instalar o seu próprio servidor do NuGet para seus pacotes privadas.
 
 ## <a name="step-6-tying-it-all-together"></a>Passo 6: Juntando as peças
 

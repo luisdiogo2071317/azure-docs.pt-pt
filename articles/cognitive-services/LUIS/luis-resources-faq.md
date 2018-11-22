@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649317"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284375"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -60,6 +60,16 @@ Cortana criados previamente as aplicações foram preteridas em 2017. Já não s
 
 ## <a name="luis-endpoint"></a>Ponto final de LUIS
 
+### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>Minha consulta de ponto final devolvidos resultados inesperados. O que devo fazer?
+
+Resultados da predição de consulta inesperada baseiam-se sobre o estado do modelo publicado. Para corrigir o modelo, pode precisar de precisar de alterar o modelo, formar e publicar novamente. 
+
+Como corrigir o modelo começa com [aprendizagem ativa](luis-how-to-review-endoint-utt.md).
+
+Pode remover o treinamento determinística ao atualizar o [aplicação API de definições de versão](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) para utilizar todos os dados de treinamento. 
+
+Reveja os [melhores práticas](luis-concept-best-practices.md) para outras sugestões. 
+
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Porquê o LUIS adiciona espaços para a consulta em torno ou no meio de palavras?
 LUIS [divide](luis-glossary.md#token) a expressão com base na [cultura](luis-language-support.md#tokenization). O valor original e o valor tokenized estão disponíveis para [extração de dados](luis-concept-data-extraction.md#tokenized-entity-returned).
 
@@ -67,7 +77,7 @@ LUIS [divide](luis-glossary.md#token) a expressão com base na [cultura](luis-la
 [Criar a chave de ponto final](luis-how-to-azure-subscription.md#create-luis-endpoint-key) no Azure para a sua [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) nível. [Atribuir a chave](luis-how-to-manage-keys.md#assign-endpoint-key) sobre o **[chaves e os pontos finais](luis-how-to-manage-keys.md)** página. Não há nenhuma API correspondente para esta ação. Em seguida, tem de alterar o pedido HTTP para o ponto final para [utilizar a nova chave de ponto final](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Como posso interpretar as pontuações de LUIS?
-O sistema deve utilizar a intenção de classificação mais elevada, independentemente de seu valor. Por exemplo, uma pontuação inferior a 0,5 (menos de 50%) não significa necessariamente que o LUIS tem confiança baixa. Fornecer mais dados de treinamento pode ajudar a aumentar a pontuação da maioria provavelmente intenção.
+O sistema deve utilizar a intenção de classificação mais elevada, independentemente de seu valor. Por exemplo, uma pontuação inferior a 0,5 (menos de 50%) não significa necessariamente que o LUIS tem confiança baixa. Para disponibilizar formação mais dados podem ajudar a aumentar a [pontuação](luis-concept-prediction-score.md) da intenção mais prováveis.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Por que motivo não vejo minhas acertos de ponto final no Dashboard da minha aplicação?
 As visitas de ponto de extremidade total no Dashboard da sua aplicação são atualizadas periodicamente, mas as métricas associadas à sua chave de ponto final de LUIS no portal do Azure são atualizadas com mais frequência.
@@ -117,7 +127,7 @@ Ver [diferenças de predição entre cópias da mesma aplicação](luis-concept-
 
 Ver [Train com todos os dados](luis-how-to-train.md#train-with-all-data).
 
-## <a name="app-publishing"></a>Publicação da aplicação
+## <a name="app-publishing"></a>Publicação de aplicações
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>O que é o ID de inquilino na janela "Adicionar uma chave à sua aplicação"?
 No Azure, um inquilino representa o cliente ou de uma organização que está associada um serviço. Encontrar o seu ID de inquilino no portal do Azure no **ID de diretório** caixa selecionando **Azure Active Directory** > **gerir**  >  **Propriedades**.

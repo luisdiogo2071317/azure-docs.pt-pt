@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1e9ca18d2075d40f6f55bc84723f79ae7e10850b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261218"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284545"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de ligação na automatização do Azure
 
@@ -102,11 +102,11 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 
 Adicionar uma **Get-AutomationConnection** atividade para um runbook gráfico clicar na ligação no painel de biblioteca de editor gráfico e selecionando **adicionar à tela**.
 
-![](media/automation-connections/connection-add-canvas.png)
+![Adicionar à tela](media/automation-connections/connection-add-canvas.png)
 
 A imagem seguinte mostra um exemplo de uso de uma ligação num runbook gráfico.  Este é o mesmo exemplo mostrado acima, para autenticação com a conta Run As com um runbook textual.  Este exemplo utiliza a **valor constante** conjunto de dados para o **obter ligação de RunAs** atividade que utiliza um objeto de conexão para autenticação.  R [ligação de pipeline](automation-graphical-authoring-intro.md#links-and-workflow) é utilizado aqui, uma vez que o conjunto de parâmetros ServicePrincipalCertificate está esperando um único objeto.
 
-![](media/automation-connections/automation-get-connection-object.png)
+![obter as ligações](media/automation-connections/automation-get-connection-object.png)
 
 ### <a name="python2-runbook-sample"></a>Exemplo de runbook Python2
 O exemplo a seguir mostra como autenticar a ligação Run As a utilizar num Python2 runbook.

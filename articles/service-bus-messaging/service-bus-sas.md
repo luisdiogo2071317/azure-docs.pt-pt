@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: ef1b8b2dd96a89a553239168d412d84e63a29f2a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254592"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284919"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso do Service Bus com assinaturas de acesso partilhado
 
@@ -31,7 +31,7 @@ SAS protege o acesso ao Service Bus com base nas regras de autorização. Esses 
 
 Assinaturas de acesso partilhado são um mecanismo de autorização baseada em declarações usando tokens simples. Através da SAS, as chaves são nunca transmitidas na conexão. Chaves são utilizadas para assinar criptograficamente informações que mais tarde podem ser verificadas pelo serviço. SAS pode ser utilizada semelhante a um esquema de nome de utilizador e palavra-passe em que o cliente está na posse imediata de um nome de regra de autorização e uma chave correspondente. SAS também pode ser utilizada semelhante a um modelo de segurança federada, onde o cliente recebe um token de acesso de tempo limitado e assinado de um serviço de token de segurança sem nunca chegam a posse da chave de assinatura.
 
-Se a autenticação SAS no Service Bus com o nome [regras de autorização de acesso partilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ter direitos de acesso e um par de chaves criptográficas primários e secundários associados. As chaves são valores de 256 bits na representação Base64. Pode configurar regras ao nível do espaço de nomes, no Service Bus [retransmite](../service-bus-relay/relay-what-is-it.md), [filas](/service-bus-messaging/service-bus-messaging-overview.md#queues), e [tópicos](/service-bus-messaging/service-bus-messaging-overview.md#topics).
+Se a autenticação SAS no Service Bus com o nome [regras de autorização de acesso partilhado](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ter direitos de acesso e um par de chaves criptográficas primários e secundários associados. As chaves são valores de 256 bits na representação Base64. Pode configurar regras ao nível do espaço de nomes, no Service Bus [retransmite](../service-bus-relay/relay-what-is-it.md), [filas](service-bus-messaging-overview.md#queues), e [tópicos](service-bus-messaging-overview.md#topics).
 
 O [assinatura de acesso partilhado](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) token contém o nome da regra de autorização escolhida, o URI do recurso que deve ser acessado, um instantâneo, de expiração e uma assinatura criptográfica do HMAC-SHA256 calculada com esses campos com o principal ou a chave criptográfica secundária da regra de autorização escolhida.
 

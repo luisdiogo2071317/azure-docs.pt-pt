@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038473"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284834"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -198,7 +198,9 @@ Para obter uma introdução de doze minutos e demonstração desta funcionalidad
 
 * A Azure PowerShell versão que suporte esta funcionalidade é 6.6.0 ou posterior (AzureRM.DataFactoryV2, 0.5.7 ou posterior).
 
-* Para conceder permissão, o utilizador tem a função de proprietário ou a função de proprietário herdada da fábrica de dados, onde existe o IR partilhado. 
+* Para conceder permissão, o utilizador tem a função de proprietário ou a função de proprietário herdada da fábrica de dados, onde existe o IR partilhado.
+
+* Recurso de compartilhamento funciona apenas para as fábricas de dados no mesmo inquilino do Azure Active Directory.
 
 * Para o Active Directory [utilizadores convidados](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), a funcionalidade de pesquisa (listagem de todas as fábricas de dados utilizando uma palavra-chave de pesquisa) na IU [não funciona](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). Mas, desde que o utilizador convidado é o proprietário da fábrica de dados, podem partilhar o runtime de integração sem a funcionalidade de pesquisa, ao escrever diretamente o MSI do data factory com a qual o runtime de integração precisa ser compartilhadas no **atribuir permissão** caixa de texto e selecionando **adicionar** na IU da fábrica de dados do Azure. 
 

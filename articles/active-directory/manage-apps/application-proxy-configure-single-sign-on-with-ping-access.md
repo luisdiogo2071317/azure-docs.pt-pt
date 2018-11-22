@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 53d613052713e5144cb9d96aeeb937392fd4736a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 200c87bdf2f0d686cd2e768d3b6b9a7fe3a5691b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902931"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282520"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para início de sessão único com o Proxy de aplicações e o PingAccess
 
@@ -151,7 +151,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
-Este exemplo utiliza a [portal do Azure](https://portal.azure.com) da atualização dos *acceptedMappedClaims* campo:
+Este exemplo utiliza a [portal do Azure](https://portal.azure.com) para atualizar a *acceptedMappedClaims* campo:
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com) como administrador global.
 2. Selecione **do Azure Active Directory** > **registos das aplicações**.
 3. Selecione a aplicação > **manifesto**.

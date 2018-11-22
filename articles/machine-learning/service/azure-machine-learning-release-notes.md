@@ -9,16 +9,50 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52c8eed7f8b5a65ef13215e677d52f44cb95fd64
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261587"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285004"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning. 
+
+## <a name="2018-11-20"></a>2018-11-20
+
+### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Azure Machine Learning SDK for Python v0.1.80
+
++ **Alterações recentes** 
+  * *azureml.Train.widget* espaço de nomes foi movido para *azureml.train*.
+  * *azureml.core.compute.AmlCompute* pretere *azureml.core.compute.BatchAICompute*. A segunda classe será removida em versões subsequentes.
+### <a name="azure-machine-learning-data-prep-sdk-v051"></a>SDK v0.5.1 de preparação de dados do Azure Machine Learning 
+Saiba mais sobre o SDK de preparação de dados, lendo [referenciar docs](https://aka.ms/data-prep-sdk).
++ **Novos recursos**
+   * Criar uma nova CLI de DataPrep para executar pacotes DataPrep e visualizar o perfil de dados para um conjunto de dados ou o fluxo de dados
+   * API de SetColumnType reestruturada para melhorar a usabilidade
+   * Smart_read_file nome mudado para auto_read_file
+   * Agora inclui skew e kurtosis no perfil de dados
+   * Pode exemplo com amostragem stratified
+   * Pode ler a partir de arquivos zip que contêm ficheiros CSV
+   * Pode dividir os conjuntos de dados inter-relacionam com divisão aleatório (por exemplo, para conjuntos de formação de teste).
+   * Pode obter todos os a coluna de tipos de dados de um fluxo de dados ou um perfil de dados ao chamar .dtypes
+   * Pode obter a contagem de linhas de um fluxo de dados ou um perfil de dados ao chamar .row_count
+
++ **Correções de erros**
+   * Fixo de tempo de conversão duplo 
+   * Foi corrigido---vyhodnocení depois de adicionar qualquer coluna 
+   * Foi corrigido um problema com FuzzyGrouping, onde ele não detectaria grupos em alguns casos
+   * Função de tipo fixo para respeitar a ordem de classificação de várias colunas
+   * Foi corrigido e/ou expressões para ser semelhante à forma como o Pandas processa-os
+   * Foi corrigido ler a partir do caminho de dbfs
+   * Feitas as mensagens de erro mais compreensível 
+   * Agora já não falha durante a leitura no destino de computação remota com o token de AML
+   * Agora já não ocorre uma falha do DSVM do Linux
+   * Agora já não é interrompida ao valores de cadeia de caracteres não são em predicados de cadeia de caracteres
+   * Agora manipula erros de asserção quando o fluxo de dados se falhar corretamente
+   * Suporta agora a localizações de armazenamento dbutils montado no Azure Databricks
 
 ## <a name="2018-11-05"></a>11-05 de 2018
 

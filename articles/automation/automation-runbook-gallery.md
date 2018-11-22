@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ca19ce2cca314950adc40bbf065dec80e7fa3e1f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a518d00a50c0fc6ec83626852f30f739d64b18ea
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227931"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283302"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de módulos e Runbooks de automatização do Azure
 Em vez de criar seus próprios runbooks e módulos na automatização do Azure, pode aceder a uma variedade de cenários que já foram criadas pela Microsoft e pela Comunidade.  Pode utilizar estes cenários sem modificações ou pode usá-los como um ponto de partida e editá-los às suas necessidades específicas.
@@ -68,7 +68,7 @@ A Microsoft incentiva a adicionar runbooks para a Galeria de Runbooks que acredi
 * Automatização atualiza a Galeria de uma vez por hora, para que não verá as suas contribuições imediatamente.
 
 ## <a name="modules-in-powershell-gallery"></a>Módulos na galeria do PowerShell
-Módulos do PowerShell contêm cmdlets que podem ser utilizados nos runbooks e módulos existentes que podem instalar na automatização do Azure estão disponíveis no [galeria do PowerShell](http://www.powershellgallery.com).  Pode iniciar esta galeria a partir do portal do Azure e instalá-los diretamente na automatização do Azure ou pode transferi-los e instalá-los manualmente.  
+Módulos do PowerShell contêm cmdlets que podem ser utilizados nos runbooks e módulos existentes que podem instalar na automatização do Azure estão disponíveis no [galeria do PowerShell](https://www.powershellgallery.com).  Pode iniciar esta galeria a partir do portal do Azure e instalá-los diretamente na automatização do Azure ou pode transferi-los e instalá-los manualmente.  
 
 ### <a name="to-import-a-module-from-the-automation-module-gallery-with-the-azure-portal"></a>Para importar um módulo a partir da galeria do módulo de automatização no portal do Azure
 1. No portal do Azure, abra a sua conta da Automatização.

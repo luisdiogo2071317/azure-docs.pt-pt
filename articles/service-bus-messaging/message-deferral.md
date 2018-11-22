@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: efe04b19188d7324c3f86565610040b8eaa97c43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 18e668249c50ffbc1020aa12455fdfb87dcb8a24
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855396"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282554"
 ---
 # <a name="message-deferral"></a>Diferimento de mensagens
 
@@ -40,7 +40,6 @@ Para obter uma mensagem diferida, o respetivo proprietário é responsável por 
 
 Se uma mensagem não é possível processar porque um recurso específico para processar essa mensagem está temporariamente indisponível, mas o processamento de mensagem não deve ser suspenso summarily, uma forma de colocar essa mensagem no lado durante alguns minutos, é se lembrar do  **SequenceNumber** num [mensagem agendada](message-sequencing.md) publicadas em alguns minutos e, novamente obter a mensagem diferida quando chega a mensagem agendada. Se um manipulador de mensagens depende de uma base de dados para todas as operações e essa base de dados está temporariamente indisponível, ele deve não utilizar diferimento, mas em vez disso, suspender o recebimento de mensagens totalmente até que a base de dados estiver novamente disponível.
 
-Adiar mensagens não afeta a expiração de mensagem, o que significa que mensagens diferidas ainda expiram na hora agendada inicialmente e, em seguida, são movidas para a fila de mensagens não entregues, se estiverem configurados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

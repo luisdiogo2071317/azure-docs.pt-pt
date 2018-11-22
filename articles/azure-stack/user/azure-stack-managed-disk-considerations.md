@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 2870bf8911c48ac4cbb442278f172b37a474152b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 4bd36744cc417e85f49e58f9a08d2b9006da9fe4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078058"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284034"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Pilha Managed Disks do Azure: Diferenças e considerações
 Este artigo resume as diferenças conhecidas entre Managed Disks do Azure Stack e Managed Disks do Azure. Para saber mais sobre das principais diferenças entre o Azure Stack e o Azure, consulte a [considerações da chave](azure-stack-considerations.md) artigo.
@@ -40,7 +40,7 @@ Discos geridos simplifica a gestão de discos para IaaS VMs ao gerir o [contas d
 |Discos Premium  |Totalmente suportado |Pode ser aprovisionado, mas sem limite de desempenho ou garantir  |
 |IOPs de discos Premium  |Depende do tamanho do disco  |2300 IOPs por disco |
 |Débito de discos Premium |Depende do tamanho do disco |145 MB por segundo por disco |
-|Tamanho máximo do disco  |4 TB       |1 TB       |
+|Tamanho do disco  |Disco Premium do Azure: P4 (32 GiB) para P80 (32 TiB)<br>Disco SSD Standard do Azure: E10 (128 GiB) para E80 (32 TiB)<br>Disco do Azure Standard HDD: S4 (32 GiB) para S80 (32 TiB) |M4: 32 GiB<br>M6: 64 GiB<br>M10: 128 GiB<br>M15: 256gib<br>M20: 512 GiB<br>M30: 1024 GiB |
 |Análise de desempenho de discos |Agregar as métricas e por métrica de disco suportada |Ainda não é suportado |
 |Migração      |Fornecer ferramenta para migrar de não gerido do Azure Resource Manager VMs existentes sem a necessidade de recriar a VM  |Ainda não é suportado |
 

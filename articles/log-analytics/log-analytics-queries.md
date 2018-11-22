@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 0a8a1ab41972aa2ae184b900c2dab94ec58f3e7c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 921be3f6cc793857a701cb56236d75680d0c1232
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612759"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282316"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analisar dados do Log Analytics no Azure Monitor
 
@@ -42,7 +42,7 @@ As diferentes formas que irá utilizar consultas do Log Analytics incluem o segu
 
 - **Portais.** Pode executar análises interativas de dados de registo no [portal do Azure](log-analytics-log-search-portals.md).  Isto permite-lhe editar a consulta e analisar os resultados numa variedade de formatos e visualizações.  
 - **Regras de alerta.** [Regras de alerta](../monitoring-and-diagnostics/monitoring-overview-alerts.md) identificar proativamente os problemas dos dados na sua área de trabalho.  Cada regra de alerta baseia-se uma pesquisa de registos que está a ser executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
-- **Dashboards.** Pode afixar os resultados de qualquer consulta numa [dashboard do Azure]() que permitem que visualize os dados de registos e de métricas em conjunto e, opcionalmente, partilhar com outros utilizadores do Azure. 
+- **Dashboards.** Pode afixar os resultados de qualquer consulta numa [dashboard do Azure](log-analytics-dashboards.md) que permitem que visualize os dados de registos e de métricas em conjunto e, opcionalmente, partilhar com outros utilizadores do Azure. 
 - **Modos de exibição.**  Pode criar visualizações de dados a serem incluídos nos dashboards do utilizador com [estruturador de vistas](log-analytics-view-designer.md).  Consultas de registo que fornecem os dados utilizados pelo [mosaicos](log-analytics-view-designer-tiles.md) e [partes de visualização](log-analytics-view-designer-parts.md) em cada vista.  
 - **Exportar.**  Quando importa dados da área de trabalho do Log Analytics para o Excel ou [Power BI](log-analytics-powerbi.md), cria uma consulta de registo para definir os dados para exportar.
 - **PowerShell.** Pode executar um script do PowerShell a partir de uma linha de comando ou um runbook da automatização do Azure que utiliza [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) para recuperar dados do Log Analytics.  Este cmdlet requer uma consulta para determinar os dados a obter.

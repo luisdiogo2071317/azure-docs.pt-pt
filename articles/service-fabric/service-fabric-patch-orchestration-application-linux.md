@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746722"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285157"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Linux no seu cluster do Service Fabric
 
@@ -147,7 +147,7 @@ O comportamento da aplicação de orquestração do patch pode ser configurado p
 
 1. Prepare o cluster ao concluir todos os passos de pré-requisitos.
 2. Implemente a aplicação de orquestração do patch, como qualquer outra aplicação do Service Fabric. Pode implementar a aplicação com o PowerShell ou CLI do Azure Service Fabric. Siga os passos em [implementar e remover aplicações com o PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) ou [implementar a aplicação com a CLI do Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)
-3. Para configurar a aplicação no momento da implementação, de transmitir o `ApplicationParamater` para o `New-ServiceFabricApplication` cmdlet ou os scripts fornecidos. Para sua comodidade, o powershell (Deploy.ps1) e scripts de bash (Deploy.sh) são fornecidas, juntamente com a aplicação. Para utilizar o script:
+3. Para configurar a aplicação no momento da implementação, de transmitir o `ApplicationParameter` para o `New-ServiceFabricApplication` cmdlet ou os scripts fornecidos. Para sua comodidade, o powershell (Deploy.ps1) e scripts de bash (Deploy.sh) são fornecidas, juntamente com a aplicação. Para utilizar o script:
 
     - Ligar a um cluster do Service Fabric.
     - Execute o script de implementar. Opcionalmente, transmita o parâmetro de aplicação para o script. Por exemplo:.\Deploy.ps1 - ApplicationParameter @{UpdateFrequency = "Diária, 11:00:00"} OR./Deploy.sh "{\"UpdateFrequency\":\"diariamente, 11:00:00\"}" 
@@ -273,7 +273,7 @@ Se o serviço de Daemon de agente de nó estiver desativado num nó, é gerado u
 
 P. **Por que motivo é que vejo o meu cluster em estado de erro quando a aplicação de orquestração do patch está em execução?**
 
-A. Durante o processo de instalação, a aplicação de orquestração do patch desativa ou reinicia nós. Esta operação temporariamente pode resultar em estado de funcionamento do cluster na direção para baixo.
+R. Durante o processo de instalação, a aplicação de orquestração do patch desativa ou reinicia nós. Esta operação temporariamente pode resultar em estado de funcionamento do cluster na direção para baixo.
 
 Com base na política para o aplicativo, seja um nó pode descer durante uma operação de aplicação de patches *ou* um todo domínio de atualização pode ser reduzidos em simultâneo.
 
@@ -287,15 +287,15 @@ Se o problema persistir, consulte a secção de resolução de problemas.
 
 P. **Aplicação de orquestração do patch está num Estado de aviso**
 
-A. Verifique se um relatório de estado de funcionamento lançado contra a aplicação é a causa raiz. Normalmente, o aviso contém detalhes do problema. Se o problema é transitório, espera-se a aplicação para recuperar automaticamente de neste estado.
+R. Verifique se um relatório de estado de funcionamento lançado contra a aplicação é a causa raiz. Normalmente, o aviso contém detalhes do problema. Se o problema é transitório, espera-se a aplicação para recuperar automaticamente de neste estado.
 
 P. **O que devo fazer se o meu cluster está em mau estado de funcionamento e o que preciso fazer uma atualização do sistema de operativo urgente?**
 
-A. A aplicação de orquestração do patch não instala atualizações enquanto o cluster está em mau estado de funcionamento. Para desbloquear o fluxo de trabalho de aplicação do patch orchestration, traga o seu cluster para um bom estado de funcionamento.
+R. A aplicação de orquestração do patch não instala atualizações enquanto o cluster está em mau estado de funcionamento. Para desbloquear o fluxo de trabalho de aplicação do patch orchestration, traga o seu cluster para um bom estado de funcionamento.
 
 P. **Por que a aplicação de patches em clusters demora tanto tempo para ser executado?**
 
-A. O tempo necessário para a aplicação de orquestração do patch principalmente está dependente dos seguintes fatores:
+R. O tempo necessário para a aplicação de orquestração do patch principalmente está dependente dos seguintes fatores:
 
 - A política do serviço de coordenador. 
   - A política predefinida, `NodeWise`, resulta na aplicação de patches apenas um nó por vez. Especialmente se houver um cluster maior, recomendamos que utilize o `UpgradeDomainWise` política para obter a aplicação de patches mais rápido em cluster.
@@ -305,26 +305,26 @@ A. O tempo necessário para a aplicação de orquestração do patch principalme
 
 P. **Como a aplicação de orquestração do patch faz decide quais atualizações são atualizações de segurança.**
 
-A. Aplicação de orquestração do patch utiliza lógica específica de distro para determinar quais são as atualizações entre as atualizações disponíveis atualizações de segurança. Por exemplo: no ubuntu, o aplicativo procura atualizações a partir de arquivos mortos $RELEASE-segurança, $RELEASE-atualizações ($RELEASE = xenial ou a versão de lançamento de base padrão do linux). 
+R. Aplicação de orquestração do patch utiliza lógica específica de distro para determinar quais são as atualizações entre as atualizações disponíveis atualizações de segurança. Por exemplo: no ubuntu, o aplicativo procura atualizações a partir de arquivos mortos $RELEASE-segurança, $RELEASE-atualizações ($RELEASE = xenial ou a versão de lançamento de base padrão do linux). 
 
  
 P. **Como bloquear logon numa versão específica do pacote**
 
-A. Utilize as definições de ApprovedPatches para bloquear os pacotes para uma versão específica. 
+R. Utilize as definições de ApprovedPatches para bloquear os pacotes para uma versão específica. 
 
 
 P. **O que acontece com as atualizações automáticas ativadas no Ubuntu?**
 
-A. Assim que instalar a aplicação de orquestração do patch no seu cluster, autônoma – as atualizações no seu nó de cluster serão desativadas. Todo o fluxo de trabalho de atualização periódica poderia ser orientado pela aplicação de orquestração do patch.
+R. Assim que instalar a aplicação de orquestração do patch no seu cluster, autônoma – as atualizações no seu nó de cluster serão desativadas. Todo o fluxo de trabalho de atualização periódica poderia ser orientado pela aplicação de orquestração do patch.
 Para que a consistência do ambiente de cluster, recomendamos que instale as atualizações por meio de apenas aplicação do patch orchestration. 
  
 P. **Publicar atualização o patch é aplicado fazer de aplicação de orquestração a limpeza de pacotes não utilizados?**
 
-A. Sim, a limpeza acontece como parte dos passos de pós-instalação. 
+R. Sim, a limpeza acontece como parte dos passos de pós-instalação. 
 
 P. **Aplicação de Patch Orchestration pode ser utilizada para corrigir o meu cluster de desenvolvimento (um nó de cluster)?**
 
-A. Não, não podem servir-se aplicações de orquestração do Patch para o cluster de um nó de patch. Esta limitação é por design, como [serviços do sistema de recursos de infraestrutura do serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou todas as aplicações cliente enfrentarão o tempo de inatividade e, por conseguinte, qualquer tarefa de reparação para aplicação de patches nunca seria obter aprovada pelo Gestor de reparação.
+R. Não, não podem servir-se aplicações de orquestração do Patch para o cluster de um nó de patch. Esta limitação é por design, como [serviços do sistema de recursos de infraestrutura do serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou todas as aplicações cliente enfrentarão o tempo de inatividade e, por conseguinte, qualquer tarefa de reparação para aplicação de patches nunca seria obter aprovada pelo Gestor de reparação.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

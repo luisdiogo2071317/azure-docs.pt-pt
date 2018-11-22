@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 8a2a9728a9fcc0c409cd2020c4aa831433538157
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: ef8a01228ff31afa78f469b2ad80b864fc9d3497
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976133"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283457"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico do Azure Stack
 
@@ -76,9 +76,6 @@ if($s)
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Para executar Get-AzureStackLog num sistema de Azure Stack Development Kit (ASDK)
 Utilize estes passos para executar Get-AzureStackLog num computador anfitrião ASDK.
 
-- Os parâmetros **OutputSharePath** e **OutputShareCredential** são utilizados para armazenar os registos de sessão de um utilizador especificado localização.
-- O **FromDate** e **ToDate** parâmetros podem ser utilizados para recolher registos de um período de tempo específico. Esses parâmetros são se não for especificados, os registos são recolhidos para as últimos quatro horas por predefinição.
-
 1. Inicie sessão como **AzureStack\CloudAdmin** no computador anfitrião ASDK.
 2. Abra uma nova janela do PowerShell como administrador.
 3. Executar o **Get-AzureStackLog** cmdlet do PowerShell.
@@ -111,7 +108,10 @@ Utilize estes passos para executar Get-AzureStackLog num computador anfitrião A
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Considerações de parâmetro para ASDK e sistemas integrados
 
-- Se o **FromDate** e **ToDate** não foram especificados parâmetros, os registos são recolhidos para as últimos quatro horas por predefinição.
+- Os parâmetros **OutputSharePath** e **OutputShareCredential** são utilizados para armazenar os registos de sessão de um utilizador especificado localização.
+
+- O **FromDate** e **ToDate** parâmetros podem ser utilizados para recolher registos de um período de tempo específico. Esses parâmetros são se não for especificados, os registos são recolhidos para as últimos quatro horas por predefinição.
+
 - Utilize o **FilterByNode** parâmetro para filtrar registos por nome do computador. Por exemplo:
 
     ```powershell
