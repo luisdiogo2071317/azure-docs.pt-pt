@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: batch
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: a8ea55a40f1ee4681b6aec147e02b7bce6f1d7cf
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279843"
+---
 ### <a name="retrieve-output-files"></a>Obter ficheiros de saída
 
 Pode utilizar o portal do Azure para transferir os ficheiros MP3 de saída gerados pelas tarefas ffmpeg. 

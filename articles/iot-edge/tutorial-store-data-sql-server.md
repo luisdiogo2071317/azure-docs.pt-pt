@@ -5,20 +5,20 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5c3b8d350b69996e2bbff4958dd0a3600c1b7518
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: fc83546080111554446cb8f7b7ca97026f99e02e
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566086"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283439"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na periferia com bases de dados do SQL Server
 
-Utilize o Azure IoT Edge e o SQL Server para armazenar e consultar dados na periferia. O Azure IoT Edge tem funcionalidades de armazenamento básicas incorporadas que colocam as mensagens em cache se um dispositivo ficar offline e em seguida, reencaminha-as quando a ligação é restabelecida. No entanto, pode querer capacidades de armazenamento mais avançadas, como a capacidade de consultar dados localmente. Ao incorporar bases de dados locais, os dispositivos IoT Edge podem efetuar uma computação mais complexa sem necessidade de manter uma ligação ao Hub IoT. Por exemplo, um técnico de campo pode visualizar os últimos dias de dados de sensor numa máquina localmente, apesar desses dados apenas serem carregados para a cloud uma vez por mês para ajudar a melhorar um modelo de machine learning.
+Utilize o Azure IoT Edge e o SQL Server para armazenar e consultar dados na periferia. O Azure IoT Edge tem capacidades de armazenamento básico em cache as mensagens se um dispositivo ficar offline e, em seguida, reencaminhe-os quando a ligação for restabelecida. No entanto, pode querer capacidades de armazenamento mais avançadas, como a capacidade de consultar dados localmente. Ao incorporar bases de dados locais, os dispositivos IoT Edge podem efetuar uma computação mais complexa sem necessidade de manter uma ligação ao Hub IoT. Por exemplo, um sensor num computador carrega dados para a cloud uma vez por mês para relatórios e melhorando a um módulo de aprendizagem automática. No entanto, se um técnico de campo está a funcionar na máquina, podem aceder a alguns últimos dias de dados de sensor localmente.
 
 Este artigo fornece instruções para implementar uma base de dados do SQL Server num dispositivo IoT Edge. As Funções do Azure, em execução no dispositivo IoT Edge, estruturam os dados recebidos e, em seguida, envia-os para a base de dados. Os passos neste artigo também podem ser aplicados a outras bases de dados que funcionam em contentores, como o MySQL ou o PostgreSQL.
 
@@ -45,26 +45,37 @@ Recursos da cloud:
 Recursos de desenvolvimento:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Extensão C# para o Visual Studio Code (com tecnologia da OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) para o Visual Studio Code. 
-* [Extensão Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para o Visual Studio Code. 
+* [C#para a extensão do Visual Studio Code (com tecnologia da omnisharp) para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
+* [Extensão Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [SDK de .NET Core 2.1](https://www.microsoft.com/net/download). 
 * [Docker CE](https://docs.docker.com/install/). 
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
-Neste tutorial, vai utilizar a extensão Azure IoT Edge para VS Code para criar um módulo e criar uma **imagem de contentor** a partir dos ficheiros. Em seguida, vai enviar essa imagem para um **registo** que armazena e gere as suas imagens. Por fim, vai implementar a imagem a partir do registo para ser executada no seu dispositivo IoT Edge.  
 
-Pode utilizar qualquer registo compatível com o Docker neste tutorial. O [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) e o [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) são dois populares serviços de registo do Docker que estão disponíveis na cloud. Este tutorial utiliza o Azure Container Registry. 
+Neste tutorial, vai utilizar a extensão Azure IoT Edge para Visual Studio Code para criar um módulo e criar um **imagem de contentor** dos arquivos. Em seguida, vai enviar essa imagem para um **registo** que armazena e gere as suas imagens. Por fim, vai implementar a imagem a partir do registo para ser executada no seu dispositivo IoT Edge.  
+
+Pode utilizar qualquer registo compatível com o Docker para armazenar as imagens de contentor. São dois populares serviços de registo de Docker [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) e [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Este tutorial utiliza o Azure Container Registry. 
 
 1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Contentores** > **Registo de Contentor**.
 
-    ![Criar registo de contentor](./media/tutorial-deploy-function/create-container-registry.png)
+    ![Criar um registo de contentores](./media/tutorial-deploy-function/create-container-registry.png)
 
-2. Atribua um nome ao registo e selecione uma subscrição.
-3. Para o grupo de recursos, é recomendado que utilize o mesmo nome do grupo de recursos que contém o seu Hub IoT. Ao manter todos os recursos no mesmo grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos utilizado para teste elimina todos os recursos de teste que se encontram no grupo. 
-4. Defina o SKU como **Básico** e **Utilizador administrador** como **Ativar**. 
-5. Clique em **Criar**.
-6. Assim que o registo de contentores for criado, navegue para o mesmo e selecione **Chaves de acesso**. 
-7. Copie os valores de **Servidor de início de sessão**, **Nome de utilizador** e **Palavra-passe**. Vai utilizá-los mais à frente no tutorial. 
+2. Indique os valores seguintes para criar o seu registo de contentor:
+
+   | Campo | Valor | 
+   | ----- | ----- |
+   | Nome de registo | Indique um nome exclusivo. |
+   | Subscrição | Selecione uma subscrição na lista pendente. |
+   | Grupo de recursos | Recomendamos que utilize o mesmo grupo de recursos para todos os recursos de teste que criou durante os inícios rápidos e tutoriais do IoT Edge. Por exemplo, **IoTEdgeResources**. |
+   | Localização | Escolha uma localização perto de si. |
+   | Utilizador admin | Defina para **Ativar**. |
+   | SKU | Selecione **Básico**. | 
+
+5. Selecione **Criar**.
+
+6. Depois de o registo de contentores ser criado, navegue para o mesmo e selecione **Chaves de acesso**. 
+
+7. Copie os valores de **Servidor de início de sessão**, **Nome de utilizador** e **Palavra-passe**. Utilize estes valores mais tarde no tutorial para fornecer acesso ao registo de contentor. 
 
 ## <a name="create-a-function-project"></a>Criar um projeto de função
 
@@ -73,113 +84,143 @@ Para enviar dados numa base de dados, precisa de um módulo que possa estruturar
 Os passos seguintes mostram-lhe como criar uma função do IoT Edge com o Visual Studio Code e a extensão Azure IoT Edge.
 
 1. Abra o Visual Studio Code.
-2. Abra o terminal integrado do VS Code ao selecionar **Ver** > **Terminal**.
-3. Abra a paleta de comandos do VS Code ao selecionar **Ver** > **Paleta de Comandos**.
-4. Na paleta de comandos, escreva e execute o comando **Azure: Sign in** e siga as instruções para iniciar sessão na sua conta do Azure. Se já iniciou sessão, pode ignorar este passo.
+
+2. Abra a paleta de comandos do VS Code ao selecionar **Ver** > **Paleta de Comandos**.
+
 3. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
-   1. Selecione a pasta onde quer criar a solução. 
-   2. Indique um nome para a sua solução ou aceite a predefinição **EdgeSolution**.
-   3. Selecione **Funções do Azure - C#** como modelo de módulo. 
-   4. Atribua o nome **sqlFunction** ao módulo. 
-   5. Especifique o Azure Container Registry que criou na secção anterior como repositório de imagens para o primeiro módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão que copiou. A cadeia final é semelhante a **\<nome do registo\>.azurecr.io/sqlFunction**.
 
-4. A janela do VS Code carrega a área de trabalho da solução do IoT Edge. Existe uma pasta **modules**, uma pasta **.vscode** e um ficheiro de modelo do manifesto de implementação. Abra **modules** > **sqlFunction** > **EdgeHubTrigger Csharp** > **run.csx**.
+   | Campo | Valor |
+   | ----- | ----- |
+   | Selecionar pasta | Escolha a localização no computador de desenvolvimento na qual o VS Code vai criar os ficheiros da solução. |
+   | Indicar um nome para a solução | Introduza um nome descritivo para a sua solução, como **SqlSolution**, ou aceite a predefinição. |
+   | Selecionar modelo de módulo | Escolher **as funções do Azure - C#** . |
+   | Indicar um nome para o módulo | Atribua o nome **sqlFunction** ao módulo. |
+   | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A imagem de contentor é pré-preenchida no passo anterior. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. A cadeia final se parece com \<nome do registo\>.azurecr.io/sqlFunction. |
 
-5. Substitua os conteúdos do ficheiro pelo seguinte código:
+   A janela do VS Code carrega a sua área de trabalho da solução do IoT Edge: uma \.pasta do vscode, uma pasta de módulos, um ficheiro modelo do manifesto de implementação. e um \.ficheiro env. 
+   
+4. Sempre que cria uma nova solução de IoT Edge, VS Code pede-lhe que forneça as suas credenciais de registo no \.ficheiro env. Este ficheiro é ignorado o git, e a extensão de IoT Edge usa mais tarde para fornecer acesso de registo para o seu dispositivo IoT Edge. Abra o \.ficheiro env. 
+
+5. No ficheiro .env, indique as suas credenciais de registo ao runtime do IoT Edge para que este possa aceder às imagens do módulo. Encontre as secções **CONTAINER_REGISTRY_USERNAME** e **CONTAINER_REGISTRY_PASSWORD** e insira as suas credenciais após o símbolo de igual: 
+
+   ```env
+   CONTAINER_REGISTRY_USERNAME_yourregistry=<username>
+   CONTAINER_REGISTRY_PASSWORD_yourregistry=<password>
+   ```
+
+6. Guarde o ficheiro. env.
+
+7. No Explorador do VS Code, abra **módulos** > **sqlFunction** > **sqlFunction.cs**.
+
+8. Substitua os conteúdos do ficheiro pelo seguinte código:
 
    ```csharp
-   #r "Microsoft.Azure.Devices.Client"
-   #r "Newtonsoft.Json"
-   #r "System.Data.SqlClient"
-
+   using System;
+   using System.Collections.Generic;
    using System.IO;
+   using System.Text;
+   using System.Threading.Tasks;
    using Microsoft.Azure.Devices.Client;
+   using Microsoft.Azure.WebJobs;
+   using Microsoft.Azure.WebJobs.Extensions.EdgeHub;
+   using Microsoft.Azure.WebJobs.Host;
+   using Microsoft.Extensions.Logging;
    using Newtonsoft.Json;
    using Sql = System.Data.SqlClient;
-   using System.Threading.Tasks;
 
-   // Filter messages based on the temperature value in the body of the message and the temperature threshold value.
-   public static async Task Run(Message messageReceived, IAsyncCollector<Message> output, TraceWriter log)
+   namespace Functions.Samples
    {
-       const int temperatureThreshold = 25;
-       byte[] messageBytes = messageReceived.GetBytes();
-       var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
-
-       if (!string.IsNullOrEmpty(messageString))
+       public static class sqlFunction
        {
-           // Get the body of the message and deserialize it
-           var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
-
-           //Store the data in SQL db
-           const string str = "<sql connection string>";
-           using (Sql.SqlConnection conn = new Sql.SqlConnection(str))
+           [FunctionName("sqlFunction")]
+           public static async Task FilterMessageAndSendMessage(
+               [EdgeHubTrigger("input1")] Message messageReceived,
+               [EdgeHub(OutputName = "output1")] IAsyncCollector<Message> output,
+               ILogger logger)
            {
-           conn.Open();
-           var insertMachineTemperature = "INSERT INTO MeasurementsDB.dbo.TemperatureMeasurements VALUES (CONVERT(DATETIME2,'" + messageBody.timeCreated + "', 127), 'machine', " + messageBody.machine.temperature + ");";
-           var insertAmbientTemperature = "INSERT INTO MeasurementsDB.dbo.TemperatureMeasurements VALUES (CONVERT(DATETIME2,'" + messageBody.timeCreated + "', 127), 'ambient', " + messageBody.ambient.temperature + ");"; 
-               using (Sql.SqlCommand cmd = new Sql.SqlCommand(insertMachineTemperature + "\n" + insertAmbientTemperature, conn))
-               {
-               //Execute the command and log the # rows affected.
-               var rows = await cmd.ExecuteNonQueryAsync();
-               log.Info($"{rows} rows were updated");
-               }
-           }
+               const int temperatureThreshold = 20;
+               byte[] messageBytes = messageReceived.GetBytes();
+               var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
 
-           if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
-           {
-               // Send the message to the output as the temperature value is greater than the threshold
-               var filteredMessage = new Message(messageBytes);
-               // Copy the properties of the original message into the new Message object
-               foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+               if (!string.IsNullOrEmpty(messageString))
                {
-                   filteredMessage.Properties.Add(prop.Key, prop.Value);
+                   logger.LogInformation("Info: Received one non-empty message");
+                   // Get the body of the message and deserialize it.
+                   var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
+
+                   //Store the data in SQL db
+                   const string str = "<sql connection string>";
+                   using (Sql.SqlConnection conn = new Sql.SqlConnection(str))
+                   {
+                       conn.Open();
+                       var insertMachineTemperature = "INSERT INTO MeasurementsDB.dbo.TemperatureMeasurements VALUES (CONVERT(DATETIME2,'" + messageBody.timeCreated + "', 127), 'machine', " + messageBody.machine.temperature + ");";
+                       var insertAmbientTemperature = "INSERT INTO MeasurementsDB.dbo.TemperatureMeasurements VALUES (CONVERT(DATETIME2,'" + messageBody.timeCreated + "', 127), 'ambient', " + messageBody.ambient.temperature + ");"; 
+                       using (Sql.SqlCommand cmd = new Sql.SqlCommand(insertMachineTemperature + "\n" + insertAmbientTemperature, conn))
+                       {
+                           //Execute the command and log the # rows affected.
+                           var rows = await cmd.ExecuteNonQueryAsync();
+                           log.Info($"{rows} rows were updated");
+                       }
+                   }
+
+                   if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+                   {
+                       // Send the message to the output as the temperature value is greater than the threashold.
+                       var filteredMessage = new Message(messageBytes);
+                       // Copy the properties of the original message into the new Message object.
+                       foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                       {filteredMessage.Properties.Add(prop.Key, prop.Value);}
+                       // Add a new property to the message to indicate it is an alert.
+                       filteredMessage.Properties.Add("MessageType", "Alert");
+                       // Send the message.       
+                       await output.AddAsync(filteredMessage);
+                       logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                   }
                }
-               // Add a new property to the message to indicate it is an alert
-               filteredMessage.Properties.Add("MessageType", "Alert");
-               // Send the message        
-               await output.AddAsync(filteredMessage);
-               log.Info("Received and transferred a message with temperature above the threshold");
            }
        }
-   }
-
-   //Define the expected schema for the body of incoming messages
-   class MessageBody
-   {
-       public Machine machine {get;set;}
-       public Ambient ambient {get; set;}
-       public string timeCreated {get; set;}
-   }
-   class Machine
-   {
-      public double temperature {get; set;}
-      public double pressure {get; set;}         
-   }
-   class Ambient
-   {
-      public double temperature {get; set;}
-      public int humidity {get; set;}         
+       //Define the expected schema for the body of incoming messages.
+       class MessageBody
+       {
+           public Machine machine {get; set;}
+           public Ambient ambient {get; set;}
+           public string timeCreated {get; set;}
+       }
+       class Machine
+       {
+           public double temperature {get; set;}
+           public double pressure {get; set;}         
+       }
+       class Ambient
+       {
+           public double temperature {get; set;}
+           public int humidity {get; set;}         
+       }
    }
    ```
 
-6. Na linha 24, substitua a cadeia **\<sql connection string\>** pela cadeia seguinte. A propriedade **Origem de Dados** referencia o nome do contentor do SQL Server, que irá criar com o nome **SQL** na secção seguinte. 
+6. Na linha 35, substitua a cadeia de caracteres **\<cadeia de ligação sql\>** com a seguinte cadeia de caracteres. O **origem de dados** propriedade referencia o nome do contentor do SQL Server, que pode ser criado com o nome **SQL** na próxima seção. 
 
-   ```C#
+   ```csharp
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
    ```
 
-7. Guarde o ficheiro **run.csx**. 
+7. Guardar a **sqlFunction.cs** ficheiro. 
 
 ## <a name="add-a-sql-server-container"></a>Adicionar um contentor do SQL Server
 
-Um [Manifesto de implementação](module-composition.md) declara os módulos que o runtime do IoT Edge irá instalar no seu dispositivo IoT Edge. Adicionou o código para criar um módulo de Função personalizado na secção anterior, mas o módulo do SQL Server já está incorporado. Apenas tem de indicar ao runtime do IoT Edge para o incluir e configurar no seu dispositivo. 
+Um [Manifesto de implementação](module-composition.md) declara os módulos que o runtime do IoT Edge irá instalar no seu dispositivo IoT Edge. Que forneceu o código para tornar um módulo de função personalizado na secção anterior, mas o módulo do SQL Server já está incorporado. Apenas tem de indicar ao runtime do IoT Edge para o incluir e configurar no seu dispositivo. 
 
 1. No explorador do Visual Studio Code, abra o ficheiro **deployment.template.json**. 
-2. Localize a secção **moduleContent.$edgeAgent.properties.desired.modules**. Devem existir dois módulos listados: **tempSensor**, que gera dados simulados, e o módulo **sqlFunction**.
+
+2. Encontrar o **módulos** secção. Devem existir dois módulos listados: **tempSensor**, que gera dados simulados, e o módulo **sqlFunction**.
+
 3. Se estiver a utilizar contentores do Windows, modifique a secção **sqlFunction.settings.image**.
-    ```json
-    "image": "${MODULES.sqlFunction.windows-amd64}"
-    ```
+
+   ```json
+   "image": "${MODULES.sqlFunction.windows-amd64}"
+   ```
+
 4. Adicione o código seguinte para declarar um terceiro módulo. Adicione uma vírgula depois da secção sqlFunction e insira:
 
    ```json
@@ -190,29 +231,58 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
        "restartPolicy": "always",
        "settings": {
            "image": "",
+           "environment": "",
            "createOptions": ""
        }
    }
    ```
 
-   Eis um exemplo, se houver uma confusão com a adição de um elemento JSON. ![Adicionar um contentor do sql server](./media/tutorial-store-data-sql-server/view_json_sql.png)
+   ![Adicionar um contentor do sql server](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
 5. Consoante o tipo de contentores do Docker no dispositivo IoT Edge, atualize os parâmetros **sql.settings** com o seguinte código:
 
    * Contentores do Windows:
 
-      ```json
-      "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
-      ```
+        ```json
+        {
+            "image": "microsoft/mssql-server-windows-developer",
+            "environment": {
+                "ACCEPT_EULA": "Y",
+                "SA_PASSWORD": "Strong!Passw0rd"
+            },
+            "createOptions": {
+                "HostConfig": {
+                    "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
+                    "PortBindings": {
+                        "1433/tcp": [{"HostPort": "1401"}]
+                    }
+                }
+            }
+        }
+        ```
+ 
 
    * Contentores do Linux:
 
-      ```json
-      "image": "mcr.microsoft.com/mssql/server:latest",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
-      ```
-
+        ```json
+        {
+            "image": "mcr.microsoft.com/mssql/server:latest",
+            "environment": {
+                "ACCEPT_EULA": "Y",
+                "SA_PASSWORD": "Strong!Passw0rd"
+            },
+            "createOptions": {
+                "HostConfig": {
+                    "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
+                    "PortBindings": {
+                        "1433/tcp": [{"HostPort": "1401"}]
+                    }
+                }
+            }
+        }
+        ```
+    
+    
    >[!Tip]
    >Sempre que criar um contentor do SQL Server num ambiente de produção, deve [alterar a palavra-passe de administrador do sistema predefinida](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
@@ -222,44 +292,46 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
 
 Nas secções anteriores, criou uma solução com um módulo e, em seguida, adicionou outra ao modelo de manifesto de implementação. Agora, tem de criar a solução, criar imagens de contentor para os módulos e enviar as imagens para o seu registo de contentor. 
 
-1. No ficheiro .env, indique as suas credenciais de registo ao runtime do IoT Edge para que este possa aceder às imagens do módulo. Encontre as secções **CONTAINER_REGISTRY_USERNAME** e **CONTAINER_REGISTRY_PASSWORD** e insira as suas credenciais após o símbolo de igual: 
-
-   ```env
-   CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
-   CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
-   ```
-
-2. Guarde o ficheiro. env.
-3. Inicie sessão no seu registo de contentor do Visual Studio Code para que possa enviar as imagens para o seu registo. Utilize as mesmas credenciais que adicionou ao ficheiro .env. Introduza o seguinte comando no terminal integrado:
+1. Inicie sessão no seu registo de contentor do Visual Studio Code para que possa enviar as imagens para o seu registo. Utilize as mesmas credenciais que adicionou ao ficheiro .env. Introduza o seguinte comando no terminal integrado:
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
-    Ser-lhe-á solicitada a palavra-passe. Cole a palavra-passe na linha de comandos e prima **Enter**.
+    
+    Lhe for pedida a palavra-passe. Cole a palavra-passe de linha de comandos (palavra-passe de está oculto para segurança) e prima **Enter**. 
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>
     Login Succeeded
     ```
 
-4. No explorador do VS Code, clique com o botão direito do rato no ficheiro **deployment.template.json** e selecione **Criar e Emitir solução do IoT Edge**. 
+2. No explorador do VS Code, clique com o botão direito do rato no ficheiro **deployment.template.json** e selecione **Criar e Emitir solução do IoT Edge**. 
+
+Quando indicar ao Visual Studio Code para criar a solução, este utiliza primeiro as informações no modelo de implementação e gera um ficheiro deployment.json numa nova pasta com o nome **config**. Em seguida, executa dois comandos no terminal integrado: `docker build` e `docker push`. Estes dois comandos Compile seu código, o módulo de colocar num contentor e, em seguida, enviar o código para o registo de contentor que especificou quando a solução é inicializado. 
 
 ## <a name="deploy-the-solution-to-a-device"></a>Implementar a solução num dispositivo
 
 Pode definir módulos num dispositivo através do Hub IoT, mas também pode aceder o seu Hub IoT e dispositivos através do Visual Studio Code. Nesta secção, pode configurar o acesso ao Hub IoT e, em seguida, utilizar o VS Code para implementar a solução no seu dispositivo IoT Edge. 
 
 1. Na paleta de comandos do VS Code, selecione **Azure IoT Hub: Select IoT Hub**.
+
 2. Siga os avisos para iniciar sessão na conta do Azure. 
+
 3. Na paleta de comandos, selecione a sua subscrição do Azure e, em seguida, selecione o seu Hub IoT. 
+
 4. No explorador do VS Code, expanda a secção **Dispositivos do Hub IoT do Azure**. 
+
 5. Clique com o botão direito do rato no dispositivo destinado à implementação e selecione **Criar Implementação para o único dispositivo**. 
+
+   ![Criar implementação para dispositivo único](./media/tutorial-store-data-sql-server/create-deployment.png)
+
 6. No explorador de ficheiros, navegue para a pasta **config** na solução e selecione **deployment.json**. Clique em **Selecionar manifesto de implementação do Edge**. 
 
-Se a implementação for efetuada com êxito, é apresentada uma mensagem de confirmação no resultado do VS Code. Também pode verificar se todos os módulos estão em execução no seu dispositivo. 
+Se a implementação for efetuada com êxito, é apresentada uma mensagem de confirmação no resultado do VS Code. 
 
-No dispositivo IoT Edge, execute o seguinte comando para ver o estado dos módulos. Esta operação poderá demorar alguns minutos.
+Também pode verificar se todos os módulos estão em execução no seu dispositivo. No dispositivo IoT Edge, execute o seguinte comando para ver o estado dos módulos. Esta operação poderá demorar alguns minutos.
 
-   ```PowerShell
+   ```cmd/sh
    iotedge list
    ```
 
@@ -269,7 +341,7 @@ Ao aplicar o manifesto de implementação ao seu dispositivo, obtém três módu
 
 Esta secção orienta-o na configuração da base de dados do SQL Server para armazenar os dados de temperatura. 
 
-1. Numa linha de comandos, ligue à base de dados. 
+1. Uma ferramenta de linha de comandos, ligar à base de dados. 
    * Contentor do Windows:
    
       ```cmd
@@ -279,7 +351,7 @@ Esta secção orienta-o na configuração da base de dados do SQL Server para ar
    * Contentor do Linux: 
 
       ```bash
-      docker exec -it sql bash
+      sudo docker exec -it sql bash
       ```
 
 2. Abra a ferramenta de comandos SQL.

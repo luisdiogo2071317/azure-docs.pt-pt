@@ -10,23 +10,23 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 911e825abb1290b534b0076bbcabcafd36b19854
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
+ms.openlocfilehash: 1bc7bc80eaf530f80732f3f73d9027e1933b645e
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248174"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284071"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Utilizar o Node.js para chamar o Serviço Cognitivo de Análise de Texto  
 <a name="HOLTop"></a>
 
-Este artigo explica como [detetar idiomas](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair expressões-chave](#KeyPhraseExtraction) e [identificar entidades ligadas](#Entities) através das [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711) com o Node.JS.
+Este artigo mostra-lhe como ao [detetar o idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair expressões-chave](#KeyPhraseExtraction), e [identificar entidades associadas](#Entities) usando o [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com node. js.
 
 Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter acesso à documentação técnica sobre APIs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Análise de Texto**. Pode utilizar o **escalão gratuito para 5000 transações/mês** para concluir este guia de introdução.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 Também tem de ter a [chave de ponto final e acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada automaticamente durante a sua inscrição. 
 
@@ -36,7 +36,7 @@ Também tem de ter a [chave de ponto final e acesso](../How-tos/text-analytics-h
 
 A API Deteção de Idioma deteta o idioma de um documento de texto através do [método Detetar Idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
-1. Crie um novo projeto de Node.JS no seu IDE preferido.
+1. Crie um novo projeto do Node.JS no seu IDE preferido.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua subscrição.
 4. Substitua a localização em `uri` (atualmente `westus`) pela região em que se inscreveu.
@@ -158,7 +158,7 @@ get_language (documents);
 
 A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos de texto através do [método Sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). O seguinte exemplo classifica dois documentos, um em inglês e outro em espanhol.
 
-1. Crie um novo projeto de Node.JS no seu IDE preferido.
+1. Crie um novo projeto do Node.JS no seu IDE preferido.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua subscrição.
 4. Substitua a localização em `uri` (atualmente `westus`) pela região em que se inscreveu.
@@ -253,7 +253,7 @@ get_sentiments (documents);
 
 A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). O seguinte exemplo extrai expressões-chave para o documento em inglês e o documento em espanhol.
 
-1. Crie um novo projeto de Node.JS no seu IDE preferido.
+1. Crie um novo projeto do Node.JS no seu IDE preferido.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua subscrição.
 4. Substitua a localização em `uri` (atualmente `westus`) pela região em que se inscreveu.
@@ -369,7 +369,7 @@ get_key_phrases (documents);
 
 A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). O seguinte exemplo identifica as entidades dos documentos em inglês.
 
-1. Crie um novo projeto de Node.JS no seu IDE preferido.
+1. Crie um novo projeto do Node.JS no seu IDE preferido.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua subscrição.
 4. Substitua a localização em `uri` (atualmente `westus`) pela região em que se inscreveu.
@@ -600,7 +600,7 @@ get_entities (documents);
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)

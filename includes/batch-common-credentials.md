@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: batch
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 7d90ccf55b10eff4299692b481a25ba4cdf41b8a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279853"
+---
 ## <a name="get-account-credentials"></a>Obter credenciais da conta
 
 Neste exemplo, tem de apresentar as credenciais para as contas do Batch e de Armazenamento. É uma forma simples de obter as credenciais necessárias no portal do Azure. (Também pode obter estas credenciais com as APIs do Azure ou as ferramentas de linha de comandos.)
