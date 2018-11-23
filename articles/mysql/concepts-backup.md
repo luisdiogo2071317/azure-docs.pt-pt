@@ -33,7 +33,7 @@ Em geral, cópias de segurança completas ocorrem semanalmente, cópias de segur
 Base de dados do Azure para MySQL fornece a flexibilidade de escolher entre o armazenamento de cópias de segurança localmente redundante ou georredundantes nas camadas de fins gerais e com otimização de memória. Quando as cópias de segurança são armazenadas no armazenamento de cópia de segurança georredundante, eles não são apenas armazenados dentro da região na qual o servidor está alojada, mas também são replicadas para um [Centro de dados emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isso fornece a melhor proteção e a capacidade de restaurar o servidor numa região diferente em caso de desastre. O escalão básico oferece apenas armazenamento localmente redundante de cópia de segurança.
 
 > [!IMPORTANT]
-> Configurar localmente redundante ou georredundantes para cópia de segurança só é permitida durante o servidor de criação de armazenamento. Assim que o servidor é aprovisionado, é possível alterar a opção de redundância de armazenamento de cópia de segurança.
+> A configuração do armazenamento com redundância local ou geográfica para backup só é permitida durante a criação do servidor. Depois de aprovisionado o servidor você não pode alterar a opção de redundância do armazenamento de backup.
 
 ### <a name="backup-storage-cost"></a>Custo de armazenamento de cópia de segurança
 
