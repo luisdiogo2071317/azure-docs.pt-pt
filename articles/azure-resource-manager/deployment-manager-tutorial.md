@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/08/2018
+ms.date: 11/21/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: af586656889919ed9b3407f2c41253dfadddc742
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345577"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291254"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Utilizar o Gestor de Implementação do Azure com modelos do Resource Manager (Pré-visualização privada)
 
@@ -50,12 +50,12 @@ Para concluir este artigo, precisa de:
 * Alguma experiência no desenvolvimento dos [modelos do Azure Resource Manager](./resource-group-overview.md).
 * O Gestor de Implementação do Azure está em pré-visualização privada. Para se inscrever com o Gestor de Implementações do Azure, preencha a [ficha de inscrição](https://aka.ms/admsignup). 
 * Azure PowerShell. Para obter mais informações, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
-* Cmdlets do Gestor de Implementações. Para instalar estes cmdlets de pré-lançamento, precisa da versão mais recente do PowerShellGet. Para obter a versão mais recente, veja [Installing PowerShellGet](/powershell/gallery/installing-psget) (Instalar o PowerShellGet). Depois de instalar o PowerShellGet, feche a janela do PowerShell. Abra uma janela nova do PowerShell e utilize o comando seguinte:
+* Cmdlets do Gestor de Implementações. Para instalar estes cmdlets de pré-lançamento, precisa da versão mais recente do PowerShellGet. Para obter a versão mais recente, veja [Installing PowerShellGet](/powershell/gallery/installing-psget) (Instalar o PowerShellGet). Depois de instalar o PowerShellGet, feche a janela do PowerShell. Abra uma janela nova elevada do PowerShell e utilize o seguinte comando:
 
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
-* [Explorador de Armazenamento do Microsoft Azure](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409). O Explorador de Armazenamento do Azure não é necessário, mas facilita.
+* [Explorador de Armazenamento do Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/). O Explorador de Armazenamento do Azure não é necessário, mas facilita.
 
 ## <a name="understand-the-scenario"></a>Compreender o cenário
 
@@ -145,10 +145,10 @@ Mais à frente no tutorial, vai implementar um lançamento. Para implementar aç
 Tem de criar uma identidade gerida atribuída pelo utilizador e configurar o controlo de acesso para a sua subscrição.
 
 > [!IMPORTANT]
-> A identidade gerida atribuída pelo utilizador tem de estar na mesma localização do [lançamento](#create-the-rollout-template). Atualmente, os recursos do Gestor de Implementações, incluindo o lançamento, só podem ser criados nos E.U.A. Central ou nos E.U.A. Leste 2.
+> A identidade gerida atribuída pelo utilizador tem de estar na mesma localização do [lançamento](#create-the-rollout-template). Atualmente, os recursos do Gestor de Implementações, incluindo o lançamento, só podem ser criados nos E.U.A. Central ou nos E.U.A. Leste 2. No entanto, isso só é verdadeiro para os recursos do Gestor de implementação (por exemplo, a topologia de serviço, serviços, unidades de serviço, implementação e passos). Os recursos de destino podem ser implementados para qualquer região do Azure suportada. Neste tutorial, por exemplo, o implementação do Gestor de recursos é implementado nos E.U.A. Central, mas os serviços são implementados nos E.U.A. leste e E.U.A. oeste. Esta restrição será elevada no futuro.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Crie uma [identidade gerida atribuída pelo utilizador](../active-directory/managed-identities-azure-resources/overview.md).
+2. Crie uma [identidade gerida atribuída pelo utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. No portal, selecione **Subscrições**, no menu do lado esquerdo, e selecione a sua subscrição.
 4. Selecione **Controlo de acesso (IAM)** e **Adicionar**.
 5. Introduza ou selecione os seguintes valores:
@@ -211,7 +211,7 @@ Vai criar um ficheiro de parâmetros que é utilizado com o modelo de topologia.
     - **azureResourceLocation**: se não estiver familiarizado com as localizações do Azure, utilize **centralus** neste tutorial.
     - **artifactSourceSASLocation**: introduza o URI de SAS para o diretório de raiz (o contentor de blobs) no qual os ficheiros do modelo de unidade de serviço e dos parâmetros são armazenados para implementação.  Veja [Preparar os artefactos](#prepare-the-artifacts).
     - **templateArtifactRoot**: a não ser que altere a estrutura de pastas dos artefactos, utilize **templates/1.0.0.0** neste tutorial.
-    - **tragetScriptionID**: introduza o ID da sua subscrição do Azure.
+    - **targetScriptionID**: introduza o ID de subscrição do Azure.
 
 > [!IMPORTANT]
 > O modelo de topologia e o modelo de lançamento partilham alguns parâmetros. Esses parâmetros têm de ter os mesmos valores. Os parâmetros são **namePrefix**, **azureResourceLocation** e **artifactSourceSASLocation** (ambas as origens dos artefactos partilham a mesma conta de armazenamento neste tutorial).
@@ -242,7 +242,7 @@ A secção de variáveis define os nomes dos recursos. Confirme que o nome da to
 
 Ao nível da raiz, há três recursos definidos, uma origem do artefacto, um passo e um lançamento.
 
-A definição da origem do artefacto é idêntica à que foi definida no modelo de topologia.  Veja [Criar o modelo de topologia de serviço](#create-the-service-topology-tempate) para obter mais informações.
+A definição da origem do artefacto é idêntica à que foi definida no modelo de topologia.  Veja [Criar o modelo de topologia de serviço](#create-the-service-topology-template) para obter mais informações.
 
 A captura de ecrã seguinte mostra a definição do passo de espera:
 
@@ -310,7 +310,7 @@ Para implementar os modelos, pode ser utilizado o Azure PowerShell.
 
     Para ver os recursos, **Mostrar tipos ocultos** tem de estar selecionado.
 
-3. Implementar o modelo de lançamento
+3. <a id="deploy-the-rollout-template"></a>Implemente o modelo de implementação:
 
     ```azurepowershell-interactive
     # Create the rollout
@@ -325,7 +325,7 @@ Para implementar os modelos, pode ser utilizado o Azure PowerShell.
 
     ```azurepowershell-interactive
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>"
+    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName
@@ -365,7 +365,7 @@ Quando tiver uma versão nova da aplicação Web (1.0.0.1), pode utilizar o proc
 
 1. Abra CreateADMRollout.Parameters.json.
 2. Atualize **binaryArtifactRoot** para **binaries/1.0.0.1**.
-3. Reimplemente o lançamento, conforme as instruções em [Implementar os modelos](#deploy-the-templates).
+3. Reimplemente o lançamento, conforme as instruções em [Implementar os modelos](#deploy-the-rollout-template).
 4. Verifique a implementação, conforme as instruções em [Verificar a implementação](#verify-the-deployment). A página Web deverá mostrar a versão 1.0.0.1.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
