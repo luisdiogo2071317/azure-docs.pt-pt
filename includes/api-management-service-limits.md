@@ -9,26 +9,37 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 676bd3b3a369e3f834016f626a8e69f6b41d9b23
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: e01eebe41010135d0dc0a2cb4170e6b6687ff546
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52170705"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52292704"
 ---
 | Recurso | Limite |
 | --- | --- |
-| Unidades de escala | 10 por região<sup>1</sup> |
-| Cache | 5 GB por unidade<sup>1</sup> |
-| Ligações de back-end em simultâneo<sup>2</sup> por uma autoridade HTTP | 2048 por unidade<sup>3</sup> |
+| Número máximo de unidades de escala | 10 por região<sup>1</sup> |
+| Tamanho da cache | 5 GB por unidade<sup>2</sup> |
+| Ligações de back-end em simultâneo<sup>3</sup> por uma autoridade HTTP | 2048 por unidade<sup>4</sup> |
 | Tamanho máximo da resposta em cache | 2MB |
-| Tamanho do documento de política máximo | 256KB |
-| Domínios de gateway personalizada máximo | 20 por instância de serviço<sup>4</sup> |
+| Tamanho do documento de política máximo | 256KB<sup>5</sup> | 
+| Domínios de gateway personalizada máximo por instância de serviço<sup>6</sup> | 20 | 
+| Número máximo de instâncias de serviço por assinatura<sup>7</sup> | 5 | 
+| Número máximo de subscrições por instância de serviço<sup>7</sup> | 500 |
+| Número máximo de certificados de cliente por instância de serviço<sup>7</sup> | 50 | 
+| Número máximo de APIs, por instância de serviço<sup>7</sup> | 50 | 
+| Número máximo de operações de API por instância de serviço<sup>7</sup> | 1000 | 
+| Duração de pedidos total máxima<sup>7</sup> | 30 segundos | 
+| Tamanho da carga de colocação em memória intermédia máximo<sup>7</sup> | 2MB | 
 
 
-<sup>1</sup>limites de gestão de API são diferentes para cada escalão de preço. Para ver os preços camadas e os respetivos limites de dimensionamento aceda a [preços da gestão de API](https://azure.microsoft.com/pricing/details/api-management/).
-<sup>2</sup> ligações são agrupadas e utilizadas voltar, a menos que explicitamente fechada pelo back-end.
-<sup>3</sup> por unidade de escalões Basic, Standard e Premium. Escalão de programador está limitado a 1024.
-<sup>4</sup> disponível em apenas no escalão Premium.
+<sup>1</sup> limites de dimensionamento dependem do escalão de preço. Para ver os preços camadas e os respetivos limites de dimensionamento aceda a [preços da gestão de API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
+<sup>2</sup> por cache unidade tamanho depende do escalão de preço. Para ver os preços camadas e os respetivos limites de dimensionamento aceda a [preços da gestão de API](https://azure.microsoft.com/pricing/details/api-management/).<br/>
+<sup>3</sup> ligações são agrupadas e utilizadas voltar, a menos que explicitamente fechada pelo back-end.<br/>
+<sup>4</sup> por unidade dos escalões básico, Standard e Premium. O escalão de programador está limitado a 1024. Não se aplica para o escalão de consumo.<br/> 
+<sup>5</sup> escalões no básico, Standard e Premium. O consumo de tamanho de escalão de documento de política está limitado a 4KB.<br/>
+<sup>6</sup> disponível no escalão Premium apenas.<br/>
+<sup>7</sup> aplica-se apenas na camada de consumo.<br/>
+
 
 

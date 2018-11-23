@@ -12,17 +12,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/29/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 6dee895ba9fc024baac0500619b7d6cc62167b6d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: ed6a709418871ededc8ddfe06b0eb1ab3e4546e1
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404482"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291084"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Análise de eventos e visualização com o Log Analytics
-Log Analytics recolhe e analisa a telemetria a partir de aplicações e serviços alojados na cloud e fornece ferramentas de análise para ajudar a maximizar a disponibilidade e desempenho. Este artigo descreve como executar consultas do Log Analytics para obter informações e resolver problemas relacionados com o que acontece no seu cluster. As seguintes perguntas comuns são abordadas:
+ Log Analytics recolhe e analisa a telemetria a partir de aplicações e serviços alojados na cloud e fornece ferramentas de análise para ajudar a maximizar a disponibilidade e desempenho. Este artigo descreve como executar consultas do Log Analytics para obter informações e resolver problemas relacionados com o que acontece no seu cluster. As seguintes perguntas comuns são abordadas:
 
 * Como posso resolver eventos de estado de funcionamento?
 * Como posso saber quando um nó ficar inativo?
@@ -30,9 +30,12 @@ Log Analytics recolhe e analisa a telemetria a partir de aplicações e serviço
 
 ## <a name="log-analytics-workspace"></a>Área de trabalho do Log Analytics
 
+>[!NOTE] 
+>Embora o armazenamento de diagnóstico está ativado por predefinição, o momento de criação de cluster, tem ainda de configurar a área de trabalho do Log Analytics para ler a partir do armazenamento do diagnóstico.
+
 O log Analytics recolhe dados de recursos geridos, incluindo uma tabela de armazenamento do Azure ou um agente e mantém-lo num repositório central. Os dados, em seguida, podem ser utilizado para análise, alertas e visualização, ou ainda mais a exportação. O log Analytics oferece suporte a eventos, dados de desempenho ou outros dados personalizados. Confira [passos para configurar a extensão de diagnóstico para agregar eventos](service-fabric-diagnostics-event-aggregation-wad.md) e [passos para criar uma área de trabalho do Log Analytics para ler a partir de eventos no armazenamento](service-fabric-diagnostics-oms-setup.md) para se certificar de que os dados estão a ser encaminhados para o Log Analytics .
 
-Depois de dados são recebidos pelo Log Analytics, o Azure tem várias *soluções de gestão* que são soluções previamente incluídas em pacotes para monitorizar os dados recebidos, personalizados para vários cenários. Estes incluem uma *análise do Service Fabric* solução e um *contentores* solução, que são as mais relevantes duas para diagnóstico e monitorização quando utilizar clusters do Service Fabric. Este artigo descreve como utilizar a solução de análise do Service Fabric, que é criada com a área de trabalho.
+Depois de dados são recebidos pelo Log Analytics, o Azure tem várias *soluções de gestão* que são soluções previamente incluídas em pacotes ou dashboards operacionais para monitorizar os dados recebidos, personalizados para vários cenários. Estes incluem uma *análise do Service Fabric* solução e um *contentores* solução, que são as mais relevantes duas para diagnóstico e monitorização quando utilizar clusters do Service Fabric. Este artigo descreve como utilizar a solução de análise do Service Fabric, que é criada com a área de trabalho.
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Acesso a solução de análise do Service Fabric
 
@@ -40,7 +43,7 @@ Depois de dados são recebidos pelo Log Analytics, o Azure tem várias *soluçõ
 
 2. Selecione o recurso **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-2. Em resumo, verá os mosaicos na forma de um gráfico para cada uma das soluções de ativadas, incluindo um para o Service Fabric. Clique nas **Service Fabric** graph (primeira imagem abaixo) para continuar para a solução de análise do Service Fabric (segunda imagem abaixo).
+2. No `Summary`, verá os mosaicos na forma de um gráfico para cada uma das soluções de ativadas, incluindo um para o Service Fabric. Clique nas **Service Fabric** graph (primeira imagem abaixo) para continuar para a solução de análise do Service Fabric (segunda imagem abaixo).
 
     ![Solução de Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
@@ -48,12 +51,12 @@ Depois de dados são recebidos pelo Log Analytics, o Azure tem várias *soluçõ
 
 A imagem acima é a home page da solução de análise do Service Fabric. Esta é uma vista de instantâneo do que está acontecendo no seu cluster. Se ativou o diagnóstico durante a criação de cluster, pode ver eventos para 
 
-* [Canal operacional](service-fabric-diagnostics-event-generation-operational.md): operações de nível superior que executa a plataforma do Service Fabric (coleção de serviços do sistema).
+* [Eventos de cluster do Service Fabric](service-fabric-diagnostics-event-generation-operational.md)
 * [Eventos do modelo de programação de Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Eventos do modelo de programação dos Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
->Além de canal operacional, mais detalhada de sistema de eventos pode ser recolhida pelo [atualizar a configuração da sua extensão de diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
+>Além dos eventos do Service Fabric prontos a utilizar, mais detalhada de sistema de eventos pode ser recolhida pelo [atualizar a configuração da sua extensão de diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Ver eventos de recursos de infraestrutura de serviços incluindo ações em nós
 

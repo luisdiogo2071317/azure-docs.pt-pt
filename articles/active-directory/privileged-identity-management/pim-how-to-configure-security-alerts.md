@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/01/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e7204c223681b9a33c439b0d9fc653167422384a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011702"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291220"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurar alertas de segurança para funções de diretório do Azure AD no PIM
 
@@ -34,6 +34,47 @@ Esta secção lista todos os alertas de segurança para funções de diretório,
 * **Médio**: não requerer ação imediata, mas sinaliza uma potencial violação de política.
 * **Baixa**: não requerer ação imediata, mas sugere uma alteração de política preferível.
 
+### <a name="administrators-arent-using-their-privileged-roles"></a>Os administradores não estiverem a utilizar as suas funções com privilégios
+
+| | |
+| --- | --- |
+| **Gravidade** | Baixa |
+| **Por que motivo recebo este alerta?** | Os utilizadores que tenham sido atribuídos a funções com privilégios que não precisam aumenta as chances de um ataque. Também é mais fácil para os atacantes permaneça despercebidas em contas que ativamente não estão a ser utilizadas. |
+| **Como corrigir?** | Rever os utilizadores na lista e removê-los a partir de funções com privilégios, não é necessário. |
+| **Prevenção** | Só atribua funções com privilégios para os utilizadores que tenham uma justificativa comercial. </br>Agendar regular [as revisões de acesso](pim-how-to-start-security-review.md) para verificar que os usuários ainda precisam de seu acesso. |
+| **Ação de redução de dentro do portal** | Remove a conta da respetiva função com privilégios. |
+| **Acionador** | Se um utilizador der um determinado período de tempo sem ativar uma função de acionada. |
+| **Número de dias** | Esta definição especifica o número de dias, de 0 a 100, o que um utilizador pode aceder sem ativar uma função.|
+
+### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>Funções não exigem autenticação multifator para a ativação
+
+| | |
+| --- | --- |
+| **Gravidade** | Baixa |
+| **Por que motivo recebo este alerta?** | Sem MFA, os utilizadores comprometidos podem ativarem funções com privilégios. |
+| **Como corrigir?** | Reveja a lista de funções e [exigir a MFA](pim-how-to-change-default-settings.md) para cada função. |
+| **Prevenção** | [Exigir a MFA](pim-how-to-change-default-settings.md) para cada função.  |
+| **Ação de redução de dentro do portal** | Torna o MFA necessária para a ativação da função com privilégios. |
+
+### <a name="the-tenant-doesnt-have-azure-ad-premium-p2"></a>O inquilino não tem o Azure AD Premium P2
+
+| | |
+| --- | --- |
+| **Gravidade** | Baixa |
+| **Por que motivo recebo este alerta?** | O inquilino atual não tem o Azure AD Premium P2. |
+| **Como corrigir?** | Rever as informações sobre [edições do Azure AD](../fundamentals/active-directory-whatis.md). Atualizar para o Azure AD Premium P2. |
+
+### <a name="potential-stale-accounts-in-a-privileged-role"></a>Contas obsoletas potenciais numa função com privilégios
+
+| | |
+| --- | --- |
+| **Gravidade** | Médio |
+| **Por que motivo recebo este alerta?** | Contas que não foram alterados a palavra-passe recentemente podem ser o serviço ou as contas que não estão a ser mantidas partilhadas. Estas contas nas funções privilegiadas são vulneráveis aos atacantes. |
+| **Como corrigir?** | Reveja as contas na lista. Se já não precisam de acesso, removê-los a partir de suas funções com privilégios. |
+| **Prevenção** | Certifique-se de que as contas que são partilhadas são a rotação das palavras-passe seguras quando existe uma alteração nos utilizadores que sabe a palavra-passe. </br>Rever regularmente as contas com funções com privilégios usando [as revisões de acesso](pim-how-to-start-security-review.md) e remover atribuições de funções que já não são necessários. |
+| **Ação de redução de dentro do portal** | Remove a conta da respetiva função com privilégios. |
+| **Melhores práticas** | Partilhado, serviço, e as contas de acesso de emergência que se autenticam utilizando uma palavra-passe e são atribuídas a funções administrativas com privilégios elevados, como Administrador Global ou administrador de segurança devem ter as palavras-passe giradas para os seguintes casos:<ul><li>Após um incidente de segurança que envolvem a utilizações indevidas ou o comprometimento dos direitos de acesso administrativo</li><li>Depois de privilégios de qualquer utilizador forem alterados, para que já não forem um administrador (por exemplo, após um funcionário que foi deixa um administrador IT ou sai da organização)</li><li>Em intervalos regulares (por exemplo, trimestralmente ou anual), mesmo se não ocorreu nenhuma violação conhecida ou a alteração para IT pessoal</li></ul>Uma vez que várias pessoas têm acesso às credenciais destas contas, as credenciais devem ser giradas para garantir que as pessoas que restam suas funções já não podem aceder as contas. [Saiba mais](https://aka.ms/breakglass) |
+
 ### <a name="roles-are-being-assigned-outside-of-pim"></a>Funções estão a ser atribuídas fora do PIM
 
 | | |
@@ -43,28 +84,6 @@ Esta secção lista todos os alertas de segurança para funções de diretório,
 | **Como corrigir?** | Rever os utilizadores na lista e removê-los a partir de funções com privilégios atribuídas fora do PIM. |
 | **Prevenção** | Investigar em que os utilizadores estão a ser atribuídos funções com privilégios fora do PIM e proibir futuras atribuições a partir daí. |
 | **Ação de redução de dentro do portal** | Remove a conta da respetiva função com privilégios. |
-
-### <a name="potential-stale-accounts-in-a-privileged-role"></a>Contas obsoletas potenciais numa função com privilégios
-
-| | |
-| --- | --- |
-| **Gravidade** | Médio |
-| **Por que motivo recebo este alerta?** | Contas que não foram alterados a palavra-passe recentemente podem ser o serviço ou as contas que não estão a ser mantidas partilhadas. Estas contas nas funções privilegiadas são vulneráveis aos atacantes. |
-| **Como corrigir?** | Reveja as contas na lista. Se já não precisam de acesso, removê-los a partir de suas funções com privilégios. |
-| **Prevenção** | Certifique-se de que as contas que são partilhadas são a rotação das palavras-passe seguras quando existe uma alteração nos utilizadores que sabe a palavra-passe. </br>Regularmente, reveja as contas com funções com privilégios com revisões de acesso e remover atribuições de funções que já não são necessários. |
-| **Ação de redução de dentro do portal** | Remove a conta da respetiva função com privilégios. |
-
-### <a name="users-arent-using-their-privileged-roles"></a>Os utilizadores não estiverem a utilizar as suas funções com privilégios
-
-| | |
-| --- | --- |
-| **Gravidade** | Baixa |
-| **Por que motivo recebo este alerta?** | Os utilizadores que tenham sido atribuídos a funções com privilégios que não precisam aumenta as chances de um ataque. Também é mais fácil para os atacantes permaneça despercebidas em contas que ativamente não estão a ser utilizadas. |
-| **Como corrigir?** | Rever os utilizadores na lista e removê-los a partir de funções com privilégios, não é necessário. |
-| **Prevenção** | Só atribua funções com privilégios para os utilizadores que tenham uma justificativa comercial. </br>Revisões de acesso normal de agenda para verificar que os usuários ainda tem o acesso. |
-| **Ação de redução de dentro do portal** | Remove a conta da respetiva função com privilégios. |
-| **Acionador** | Se um utilizador der um determinado período de tempo sem ativar uma função de acionada. |
-| **Número de dias** | Esta definição especifica o número de dias, de 0 a 100, o que um utilizador pode aceder sem ativar uma função.|
 
 ### <a name="there-are-too-many-global-administrators"></a>Existem muitos administradores globais
 
@@ -91,16 +110,6 @@ Esta secção lista todos os alertas de segurança para funções de diretório,
 | **Acionador** | Acionado se um utilizador ativa a mesma função com privilégios a várias vezes dentro de um período de tempo especificado. Pode configurar o período de tempo e o número de ativações. |
 | **Período de tempo de renovação de ativação** | Esta definição especifica em dias, horas, minutos e, segundo o período de tempo que pretende utilizar para controlar as renovações suspeitas. |
 | **Número de renovações de ativação** | Esta definição especifica o número de ativações, de 2 para 100, o que considerar digna de alerta, durante o período de tempo que escolheu. Pode alterar esta definição ao mover o controlo de deslize ou digitando um número na caixa de texto. |
-
-### <a name="roles-dont-require-mfa-for-activation"></a>Funções não exigem a MFA para ativação
-
-| | |
-| --- | --- |
-| **Gravidade** | Baixa |
-| **Por que motivo recebo este alerta?** | Sem MFA, os utilizadores comprometidos podem ativarem funções com privilégios. |
-| **Como corrigir?** | Reveja a lista de funções e [exigir a MFA](pim-how-to-change-default-settings.md) para cada função. |
-| **Prevenção** | [Exigir a MFA](pim-how-to-change-default-settings.md) para cada função.  |
-| **Ação de redução de dentro do portal** | Torna o MFA necessária para a ativação da função com privilégios. |
 
 ## <a name="configure-security-alert-settings"></a>Configurar definições de alerta de segurança
 

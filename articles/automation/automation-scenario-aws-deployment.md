@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 804ac964949c947baf5285b3ec591b3d28263f4d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 8a5b34cd92f3afd166d5d67ca445c99a52c684e2
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282742"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290897"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Cenário de automatização do Azure – aprovisionar uma máquina virtual do AWS
 Neste artigo, saiba como pode aproveitar a automatização do Azure para Aprovisionar uma máquina virtual na sua subscrição do serviço de Web da Amazon (AWS) e dê um nome específico – que AWS se refere a como "marcação" a VM a essa VM.
@@ -41,7 +41,7 @@ A runbook de aprovisionamento da VM utiliza o módulo do PowerShell de AWS para 
 Depois de ter sido implementado o módulo do PowerShell do AWS, pode agora criar um runbook para automatizar o provisionamento de uma máquina virtual no AWS através de um script do PowerShell. Os passos abaixo demonstram como tirar partido do script do PowerShell nativo na automatização do Azure.  
 
 > [!NOTE]
-> Para obter mais opções e informações sobre este script, visite o [galeria do PowerShell](https://www.powershellgallery.com/packages/New-AwsVM/DisplayScript).
+> Para obter mais opções e informações sobre este script, visite o [galeria do PowerShell](https://www.powershellgallery.com/packages/New-AwsVM/).
 > 
 
 1. Transfira o script do PowerShell New-AwsVM a partir da galeria do PowerShell ao abrir uma sessão do PowerShell e digitar o seguinte:<br>

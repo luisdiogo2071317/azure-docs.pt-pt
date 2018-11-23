@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: cde668fdeda7e484585a457a46fc5c25ce6ea6ae
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 5b39094ef081aadc813849399ebebc0c2e8a666d
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310543"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291305"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>Como utilizar o Twilio para voz e capacidades SMS do Azure
 Este guia demonstra como realizar tarefas comuns de programação com o serviço de Twilio API no Azure. Os cenários abrangidos incluem uma ligação telefônica e enviar uma mensagem de serviço de mensagens curtas (SMS). Para obter mais informações sobre o Twilio e voz e SMS a utilizar nas suas aplicações, consulte a [próximos passos](#NextSteps) secção.
@@ -29,9 +29,7 @@ Twilio é que alimenta o futuro das comunicações empresariais, permitindo que 
 
 **Serviços de voz Twilio** permite que seus aplicativos fazer e receber chamadas telefónicas. **Twilio SMS** permite que seus aplicativos enviar e receber mensagens SMS. **Cliente do Twilio** permite-lhe efetuar chamadas VoIP, de qualquer telefone, tablet ou navegador e oferece suporte WebRTC.
 
-## <a id="Pricing"></a>Preços do Twilio e ofertas especiais
-Os clientes do Azure recebem uma [oferta especial](http://www.twilio.com/azure): gratuitos US $10 do Twilio crédito quando atualiza a sua conta do Twilio. Este crédito Twilio pode ser aplicado a qualquer utilização do Twilio (crédito de US $10 equivalente ao enviar até 1000 mensagens SMS ou receber até 1000 entrados minutos de voz, consoante a localização do seu destino de número e a mensagem ou a chamada de telefone). Resgatar este crédito do Twilio e comece a utilizar [ahoy.twilio.com/azure](http://ahoy.twilio.com/azure).
-
+## <a id="Pricing"></a>Preços do Twilio
 Twilio é um serviço pay as you go. Existem sem taxas de configuração e pode fechar a sua conta em qualquer altura. Pode encontrar mais detalhes [Twilio preços](http://www.twilio.com/voice/pricing).
 
 ## <a id="Concepts"></a>Conceitos

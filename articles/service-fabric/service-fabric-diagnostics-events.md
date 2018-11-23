@@ -3,7 +3,7 @@ title: Eventos de recursos de infraestrutura do serviço do Azure | Documentos d
 description: Saiba mais sobre os eventos do Service Fabric vêm prontos para o ajudar a monitorizar o seu cluster do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
-ms.author: dekapur
-ms.openlocfilehash: ca63d67f6d7c19b4ca6928c4cc0f9ccb06eace2b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 11/21/2018
+ms.author: srrengar
+ms.openlocfilehash: 936a47593b9db6e4989c30b2df37dfd82c286c59
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402986"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290523"
 ---
 # <a name="service-fabric-events"></a>Eventos do Service Fabric 
 
-A plataforma do Service Fabric escreve vários eventos estruturados para as atividades operacionais chave acontecendo dentro do cluster. Estas variam desde atualizações de cluster para decisões de colocação de réplica. Cada evento que o Service Fabric expõe é mapeado para uma das seguintes entidades do cluster:
+A plataforma do Service Fabric escreve vários eventos estruturados para as atividades operacionais chave a acontecer no seu cluster. Estas variam desde atualizações de cluster para decisões de colocação de réplica. Cada evento que o Service Fabric expõe é mapeado para uma das seguintes entidades do cluster:
 * Cluster
 * Aplicação
 * Serviço
@@ -33,20 +33,20 @@ A plataforma do Service Fabric escreve vários eventos estruturados para as ativ
 
 Para ver uma lista completa dos eventos expostos pela plataforma - [eventos da lista de Service Fabric](service-fabric-diagnostics-event-generation-operational.md).
 
-Aqui estão alguns exemplos de cenários importantes que deve ver eventos no cluster. 
-1. Eventos de ciclo de vida de nó: como nós surgem, vá para baixo, são ativada/desativada ou reiniciados, eventos vão ser expostos mostrando a o que aconteceu e ajudar a identificar se existe um problema com a própria máquina ou se tiver ocorrido uma API que foi chamada por meio de SF para modificar o estado de um nó.
-1. Atualização do cluster: como o cluster é atualizado (SF versão ou configuração de alteração), verá a atualização iniciar, implementar através de cada um dos seus domínios de atualização e concluir (ou reversão). 
-1. As atualizações de aplicações: da mesma forma em cluster atualiza, há um conjunto abrangente de eventos, como a atualização é aplicada nos. Esses eventos podem ser útil para entender quando uma atualização foi agendada, o estado atual de uma atualização e a sequência geral de eventos. Isto é útil para observar novamente para ver o que as atualizações têm foi implementadas com êxito.
-1. Implementação de aplicações/serviços / eliminação: existem eventos para cada aplicação, o serviço e o contentor, que está a ser criada ou eliminada.
-1. Partição move (reconfiguração): sempre que uma partição com monitoração de estado fica através de uma reconfiguração (uma alteração no conjunto de réplica), um evento é registado. Isto é útil se estiver a tentar compreender a frequência com que seu conjunto de réplicas de partição está mudando ou controlar o nó que estava a ser executada a réplica primária a qualquer momento no tempo.
-1. Eventos de Chaos: ao utilizar o Service Fabric [Chaos](service-fabric-controlled-chaos.md) serviço, verá eventos sempre que o serviço é iniciado ou parado, ou quando ele injeta uma falha no sistema.
-1. Eventos de estado de funcionamento: O Service Fabric expõe eventos de estado de funcionamento sempre que é criado um aviso ou um relatório de estado de funcionamento de erro, ou uma entidade tem a ver com um Estado de funcionamento OK ou um relatório de estado de funcionamento expira. Esses eventos são muito úteis para controlar as estatísticas de históricos de estado de funcionamento de uma entidade. 
+Aqui estão alguns exemplos de cenários, verá os eventos para no seu cluster. 
+* Eventos de ciclo de vida de nó: como nós surgem, vão para baixo, dimensionar de entrada/saída, reiniciarem e são ativada/desativada, estes eventos vão ser expostos mostrando a o que aconteceu e ajudar a identificar se existe um problema com a própria máquina ou se tiver ocorrido uma API que foi chamado por meio de SF para modificar o estado de um nó.
+* Atualização do cluster: como o cluster é atualizado (SF versão ou configuração de alteração), verá a atualização iniciar, implementar através de cada um dos seus domínios de atualização e concluir (ou reversão). 
+* As atualizações de aplicações: tal como as atualizações de cluster, há um conjunto abrangente de eventos como a atualização é aplicada nos. Esses eventos podem ser útil para entender quando uma atualização foi agendada, o estado atual de uma atualização e a sequência geral de eventos. Isto é útil para voltando para ver o que as atualizações têm foi implementadas com êxito ou se foi acionada uma reversão.
+* Implementação de aplicações/serviços / eliminação: há eventos para cada aplicação, o serviço e o contentor, que está a ser criada ou eliminada e útil quando o dimensionamento dentro ou para fora por exemplo, aumento do número de réplicas
+* Partição move (reconfiguração): sempre que uma partição com monitoração de estado fica através de uma reconfiguração (uma alteração no conjunto de réplica), um evento é registado. Isto é útil se estiver a tentar compreender a frequência com que o seu conjunto de réplicas de partição é alterar ou efetuar a ativação pós-falha ou controlar o nó que estava a ser executada a réplica primária a qualquer momento no tempo.
+* Eventos de Chaos: ao utilizar o Service Fabric [Chaos](service-fabric-controlled-chaos.md) serviço, verá eventos sempre que o serviço é iniciado ou parado, ou quando ele injeta uma falha no sistema.
+* Eventos de estado de funcionamento: O Service Fabric expõe eventos de estado de funcionamento sempre que é criado um aviso ou um relatório de estado de funcionamento de erro, ou uma entidade tem a ver com um Estado de funcionamento OK ou um relatório de estado de funcionamento expira. Esses eventos são muito úteis para controlar as estatísticas de históricos de estado de funcionamento de uma entidade. 
 
 ## <a name="how-to-access-events"></a>Como os eventos de acesso
 
 Existem algumas formas diferentes através do qual os eventos do Service Fabric podem ser acessados:
-* através do canal operacional. Estes podem ser recolhidos através da extensão de diagnóstico do Azure e enviadas para uma tabela de armazenamento para consumo ou uma ingestão numa ferramenta como o Azure Log Analytics. Quando "diagnóstico" está ativado para um cluster, o agente de diagnóstico do Azure é implementado num cluster e é por predefinição, configuradas para ler nos registos do canal operacional. Leia mais sobre como configurar o [agente do diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) para modificar a configuração de diagnósticos do seu cluster para recolher mais registos ou contadores de desempenho. 
-* através de APIs de Rest do serviço de EventStore que permitem-lhe consultar o cluster diretamente ou por meio da biblioteca de cliente de recursos de infraestrutura do serviço. Ver [APIs de EventStore de consulta para eventos de cluster](service-fabric-diagnostics-eventstore-query.md).
+* Os eventos são registados através de canais standard como logs de eventos do ETW/Windows e podem ser visualizados por qualquer ferramenta de monitoramento que suporta estes, como o Log Analytics. Por predefinição, os clusters criados no portal do tem o diagnóstico ativado e têm o agente de diagnóstico do Windows Azure enviar eventos para o armazenamento de tabelas do Azure, mas ainda tem de integrar isso com o seu recurso do Log Analytics. Leia mais sobre como configurar o [agente do diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) para modificar a configuração de diagnósticos do seu cluster para recolher mais registos ou contadores de desempenho e a [integração do Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
+* APIs de Rest do serviço de EventStore que permitem-lhe consultar o cluster diretamente ou por meio da biblioteca de cliente de recursos de infraestrutura do serviço. Ver [APIs de EventStore de consulta para eventos de cluster](service-fabric-diagnostics-eventstore-query.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Obter mais informações na monitorização do seu cluster - [monitorizar o cluster e a plataforma](service-fabric-diagnostics-event-generation-infra.md).

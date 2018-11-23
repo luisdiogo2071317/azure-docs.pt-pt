@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 67cddf5eb3f675337afbb7e620bd135383f20960
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 611f7ccf9ef701bf589a8f9450f8f02695357224
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976082"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291186"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alterações de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -46,9 +46,9 @@ ms.locfileid: "51976082"
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 * Foi adicionado suporte para utilizar o arquivo personalizado para manter os tokens de continuação por partição.
   * Por exemplo, um arquivo de concessão personalizado pode ser a coleção de concessão do Azure Cosmos DB particionada de forma alguma personalizada.
-  * Arquivos de concessão personalizadas podem utilizar o novo ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) de ponto de extensibilidade e a interface pública de ILeaseStoreManager.
+  * Arquivos de concessão personalizadas podem utilizar o novo ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) de ponto de extensibilidade e a interface pública de ILeaseStoreManager.
   * Refatorada a interface de ILeaseManager em várias interfaces de função.
-* Alteração significativa secundárias: extensibilidade removida ponto ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), utilize ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) em vez disso.
+* Alteração significativa secundárias: extensibilidade removida ponto ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), utilize ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) em vez disso.
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 * Esta versão corrige um problema que ocorre durante o processamento de uma divisão na coleção monitorizada e utilizar uma coleção de concessão particionada. Ao processar uma concessão para a partição de divisão, a concessão correspondente a essa partição não pode ser eliminada. O problema é resolvido nesta versão.

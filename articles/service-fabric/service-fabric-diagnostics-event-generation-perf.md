@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 1e6ea5d6ae321a0443631ec928912611a68346c6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408018"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290778"
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 
@@ -31,6 +31,7 @@ Para as máquinas no seu cluster, considere os seguintes contadores de desempenh
 
 | Categoria do contador | Nome do Contador |
 | --- | --- |
+| Disco lógico | Espaço livre em disco lógico |
 | PhysicalDisk (por disco) | Média Comprimento de fila de leitura do disco |
 | PhysicalDisk (por disco) | Média Comprimento de fila de escrita de disco |
 | PhysicalDisk (por disco) | Média Disco seg/leitura |
@@ -49,6 +50,9 @@ Para as máquinas no seu cluster, considere os seguintes contadores de desempenh
 | Processo (por serviço) | Bytes virtuais |
 | Processo (por serviço) | Conjunto de trabalho |
 | Processo (por serviço) | Conjunto de trabalho - privado |
+| Interface(all-instances) de rede | Bytes recd |
+| Interface(all-instances) de rede | Bytes enviados |
+| Interface(all-instances) de rede | Total de bytes |
 | Interface(all-instances) de rede | Comprimento da fila de saída |
 | Interface(all-instances) de rede | Pacotes de saída rejeitados |
 | Interface(all-instances) de rede | Pacotes receberam rejeitados |
@@ -65,6 +69,8 @@ Recolha os contadores a seguir se estiver a implementar serviços .NET ao seu cl
 | Memória de .NET CLR (por serviço) | # Total committed Bytes |
 | Memória de .NET CLR (por serviço) | # Total reservado Bytes |
 | Memória de .NET CLR (por serviço) | # Bytes in all Heaps |
+| Memória de .NET CLR (por serviço) | Tamanho de Heap de objeto grande |
+| Memória de .NET CLR (por serviço) | # Identificadores de GC |
 | Memória de .NET CLR (por serviço) | # Gen 0 Collections |
 | Memória de .NET CLR (por serviço) | # Gen 1 Collections |
 | Memória de .NET CLR (por serviço) | # Gen 2 coleções |
@@ -76,7 +82,7 @@ Service Fabric gera uma quantidade substancial de contadores de desempenho perso
 
 Nas aplicações que está a implementar o cluster, se estiver a utilizar o Reliable Actors, adicione countes partir `Service Fabric Actor` e `Service Fabric Actor Method` categorias (consulte [diagnóstico do serviço Fabric Reliable Actors](service-fabric-reliable-actors-diagnostics.md)).
 
-Utilizar o Reliable Services, da mesma forma, temos `Service Fabric Service` e `Service Fabric Service Method` categorias de contadores que deve recolher os contadores de. 
+Utilizar o Reliable Services ou de comunicação remota do serviço, da mesma forma, temos `Service Fabric Service` e `Service Fabric Service Method` contador categorias que deve recolher contadores de, veja [com a comunicação remota do serviço de monitorização](service-fabric-reliable-serviceremoting-diagnostics.md) e [fiável contadores de desempenho de serviços](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 
 Se utilizar a Reliable Collections, recomendamos que adicione o `Avg. Transaction ms/Commit` partir o `Service Fabric Transactional Replicator` para recolher a latência média de consolidação por métrica de transação.
 

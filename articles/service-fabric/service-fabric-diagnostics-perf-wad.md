@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/26/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: bc86ef5a32e08bc00b5a2fa53dccb8d6313f167b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 0675e06564fcacf5f7d14ef6986762f36df18b1b
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230990"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290327"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitorização de desempenho com a extensão de diagnóstico do Windows Azure
 
@@ -106,6 +106,89 @@ Eis um exemplo de uma configuração com o contador para o *Total de tempo do pr
 
  A taxa de exemplo para o contador pode ser modificada de acordo com suas necessidades. O formato para o mesmo é `PT<time><unit>`, por isso, se pretender que o contador recolhido por cada segundo, em seguida, deve definir o `"sampleRate": "PT15S"`.
 
+ Também pode utilizar variáveis no seu modelo ARM para recolher uma matriz de contadores de desempenho, que pode ser útil quando recolher os contadores de desempenho por processo. No exemplo abaixo, estamos a recolher o tempo de processador e tempo de coletor de lixo por processo e, em seguida, 2 contadores de desempenho em nós próprios através de todas as variáveis. 
+
+ ```json
+"variables": {
+  "copy": [
+      {
+        "name": "processorTimeCounters",
+        "count": "[length(parameters('monitoredProcesses'))]",
+        "input": {
+          "counterSpecifier": "\\Process([parameters('monitoredProcesses')[copyIndex('processorTimeCounters')]])\\% Processor Time",
+          "sampleRate": "PT1M",
+          "unit": "Percent",
+          "sinks": "applicationInsights",
+          "annotation": [
+            {
+              "displayName": "[concat(parameters('monitoredProcesses')[copyIndex('processorTimeCounters')],' Processor Time')]",
+              "locale": "en-us"
+            }
+          ]
+        }
+      },
+      {
+        "name": "gcTimeCounters",
+        "count": "[length(parameters('monitoredProcesses'))]",
+        "input": {
+          "counterSpecifier": "\\.NET CLR Memory([parameters('monitoredProcesses')[copyIndex('gcTimeCounters')]])\\% Time in GC",
+          "sampleRate": "PT1M",
+          "unit": "Percent",
+          "sinks": "applicationInsights",
+          "annotation": [
+            {
+              "displayName": "[concat(parameters('monitoredProcesses')[copyIndex('gcTimeCounters')],' Time in GC')]",
+              "locale": "en-us"
+            }
+          ]
+        }
+      }
+    ],
+    "machineCounters": [
+      {
+        "counterSpecifier": "\\Memory\\Available Bytes",
+        "sampleRate": "PT1M",
+        "unit": "KB",
+        "sinks": "applicationInsights",
+        "annotation": [
+          {
+            "displayName": "Memory Available Kb",
+            "locale": "en-us"
+          }
+        ]
+      },
+      {
+        "counterSpecifier": "\\Memory\\% Committed Bytes In Use",
+        "sampleRate": "PT15S",
+        "unit": "percent",
+        "annotation": [
+          {
+            "displayName": "Memory usage",
+            "locale": "en-us"
+          }
+        ]
+      }
+    ]
+  }
+....
+"WadCfg": {
+    "DiagnosticMonitorConfiguration": {
+      "overallQuotaInMB": "50000",
+      "Metrics": {
+        "metricAggregation": [
+          {
+            "scheduledTransferPeriod": "PT1M"
+          }
+        ],
+        "resourceId": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', variables('vmNodeTypeApp2Name'))]"
+      },
+      "PerformanceCounters": {
+        "scheduledTransferPeriod": "PT1M",
+        "PerformanceCounterConfiguration": "[concat(variables ('processorTimeCounters'), variables('gcTimeCounters'),  variables('machineCounters'))]"
+      },
+....
+```
+
  >[!NOTE]
  >Embora pode usar `*` para especificar grupos de contadores de desempenho que estão com o nome da mesma forma, envio de quaisquer contadores por meio de um coletor (para o Application Insights) requer que elas são declaradas individualmente. 
 
@@ -115,8 +198,9 @@ Eis um exemplo de uma configuração com o contador para o *Total de tempo do pr
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Após a conclusão da atualização distribuindo (demora entre 15 a 45 minutos), WAD deve ser a recolher os contadores de desempenho e enviá-los para a tabela com o nome WADPerformanceCountersTable na conta de armazenamento associados com o seu cluster. Consulte os contadores de desempenho no Application Insights ao [adicionando o Sink de ia para o modelo do Resource Manager](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
+5. Após a conclusão da atualização a implementar (demora entre 15 a 45 minutos consoante seja a primeira implementação e o tamanho do seu grupo de recursos), WAD deve ser recolher os contadores de desempenho e enviá-los para a tabela com o nome WADPerformanceCountersTable na conta de armazenamento associada com o seu cluster. Consulte os contadores de desempenho no Application Insights ao [adicionando o Sink de ia para o modelo do Resource Manager](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Recolha mais contadores de desempenho para o seu cluster. Ver [métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md) para obter uma lista dos contadores que deve recolher.
 * [Monitorização de utilização e diagnóstico com modelos de VM do Windows e do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) ainda mais fazer modificações nas suas `WadCfg`, incluindo a configuração de contas de armazenamento adicional para enviar dados de diagnóstico para.
+* Visite o [WadCfg builder](http://azure.github.io/azure-diagnostics-tools/config-builder/) para criar um modelo a partir do zero e certificar-se de que a sintaxe está correta.

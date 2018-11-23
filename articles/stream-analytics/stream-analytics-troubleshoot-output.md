@@ -7,13 +7,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 4209ce8d15bf53381825e8bb3e47f0a16366a436
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 11/21/2018
+ms.openlocfilehash: 5124e06296962f1b673c77bfe318ff48d7fb11aa
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346988"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291328"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Resolver problemas relacionados com o Azure Stream Analytics saídas
 
@@ -29,7 +29,7 @@ Esta página descreve problemas comuns com as ligações de saída e como soluci
       - Se a tarefa está a utilizar um Hub de eventos, verifique se o corpo da mensagem está *nulo*.
       
     - Se os erros de conversão de dados > 0 e aumentarem, poderá acontecer o seguinte:
-      - A tarefa poderá não conseguir anular a serialização de eventos.
+      - O evento de saída não obedece ao esquema do coletor de destino. 
       - O esquema de eventos pode não corresponder ao esquema definido ou esperado dos eventos na consulta.
       - Os tipos de dados de alguns dos campos de eventos podem não corresponder às expetativas.
       

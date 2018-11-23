@@ -2,19 +2,18 @@
 title: Compreender as saídas do Azure Stream Analytics
 description: Este artigo descreve as opções de saída de dados disponíveis no Azure Stream Analytics, incluindo o Power BI para os resultados da análise.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/22/2018
-ms.openlocfilehash: 2ef599fe704b184e82de2d704753e3fb4a274a2a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/21/2018
+ms.openlocfilehash: 1502277276489d1977540018f2a22681ad48d8a7
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257804"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291475"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Pode fazer com os dados de saída, ainda mais análises de negócio e o armazenamento de dados dos seus dados. 
@@ -70,8 +69,8 @@ Para renovar a autorização, **parar** seu trabalho > vá para a saída do Data
 | Alias de saída |Um nome amigável utilizado nas consultas para direcionar o resultado da consulta para esta base de dados. |
 | Base de Dados | O nome da base de dados em que estão a enviar a saída. |
 | Nome do servidor | O nome do servidor de base de dados SQL. |
-| Nome de utilizador | O nome de utilizador, que tem acesso de gravação no banco de dados. |
-| Palavra-passe | A palavra-passe para ligar à base de dados |
+| Nome de utilizador | O nome de utilizador, que tem acesso de gravação no banco de dados. Stream Analytics só suporta a autenticação do SQL. |
+| Palavra-passe | A palavra-passe para ligar à base de dados. |
 | Tabela | O nome da tabela em que o resultado é escrito. O nome da tabela diferencia maiúsculas de minúsculas e o esquema desta tabela deve corresponder exatamente ao número de campos e seus tipos gerados pelo seu resultado da tarefa. |
 
 > [!NOTE]

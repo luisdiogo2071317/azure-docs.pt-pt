@@ -3,7 +3,7 @@ title: Monitorização de nível de plataforma de recursos de infraestrutura do 
 description: Saiba mais sobre os eventos de nível de plataforma e registos utilizados para monitorizar e diagnosticar os clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,30 +12,29 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
-ms.author: dekapur
-ms.openlocfilehash: 96bbb221f5fa133ee88a09d489627e3d2f9b0713
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 11/21/2018
+ms.author: srrengar
+ms.openlocfilehash: 58bad793ba44ae91d75324257f55648cf3207cd0
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409191"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291458"
 ---
-# <a name="monitoring-the-cluster-and-platform"></a>Monitorizar o cluster e a plataforma
+# <a name="monitoring-the-cluster"></a>Monitorizar o cluster
 
-É importante monitorizar ao nível da plataforma para determinar se é ou não o hardware e o cluster se comportam conforme o esperado. Embora o Service Fabric pode manter as aplicações em execução durante uma falha de hardware, mas ainda precisar de diagnosticar se um erro está ocorrendo num aplicativo ou na infraestrutura subjacente. Também deve monitorar os clusters para melhor planear a capacidade, ajudando a decisões sobre a adição ou remoção de hardware.
+É importante monitorizar no nível do cluster para determinar se é ou não o hardware e o cluster se comportam conforme o esperado. Embora o Service Fabric pode manter as aplicações em execução durante uma falha de hardware, mas ainda precisar de diagnosticar se um erro está ocorrendo num aplicativo ou na infraestrutura subjacente. Também deve monitorar os clusters para melhor planear a capacidade, ajudando a decisões sobre a adição ou remoção de hardware.
 
-Service Fabric expõe vários eventos de plataforma estruturados, como "[eventos do Service Fabric](service-fabric-diagnostics-events.md)," por meio do EventStore e vários canais out-of-the-box de registo. 
+Service Fabric expõe vários eventos de plataforma estruturados, como [eventos do Service Fabric](service-fabric-diagnostics-events.md), por meio do EventStore e vários log canais-de-pronta. 
 
-O EventStore dá-lhe acesso a eventos do seu cluster numa base por entidade (incluindo o cluster, nós, aplicativos, serviços, partições, réplicas e contentores de entidades) e expõe-los por meio de REST APIs e a biblioteca de cliente do Service Fabric. Utilize o EventStore para monitorizar os seus clusters de programador/teste e para obter uma compreensão de ponto no tempo do Estado de seus clusters de produção. Saiba mais sobre isso em [descrição geral do EventStore](service-fabric-diagnostics-eventstore.md).
+No Windows, eventos do Service Fabric estão disponíveis a partir de um fornecedor ETW único com um conjunto de relevantes `logLevelKeywordFilters` usado para selecionar entre canais operacional e de mensagens & de dados - esta é a maneira na qual vamos separar saídos eventos do Service Fabric a filtrar no conforme necessário.
 
-O Service Fabric também fornece que o registo seguinte canais de-de-pronta para configurar um pipeline para monitorizar os seus clusters de produção:
-
-* [**Operacional**](service-fabric-diagnostics-event-generation-operational.md)  
-Operações de alto nível executadas pelo Service Fabric e o cluster, incluindo eventos para um nó em breve, uma nova aplicação que está sendo implantado ou reverter uma atualização, etc.
+* **Operacional** alto nível operações executadas pelo Service Fabric e o cluster, incluindo eventos para um nó em breve, uma nova aplicação que está sendo implantado ou reverter uma atualização, etc. Ver a lista completa de eventos [aqui](service-fabric-diagnostics-event-generation-operational.md).  
 
 * **Operacional - detalhado**  
 Os relatórios de estado de funcionamento e decisões de balanceamento de carga.
+
+O canal de operação pode ser acessado por meio de diversas formas, incluindo registos de eventos do ETW/Windows, o [EventStore](service-fabric-diagnostics-eventstore.md) (disponível no Windows em versões 6.2 e posterior para clusters do Windows). O EventStore dá-lhe acesso a eventos do seu cluster numa base por entidade (incluindo o cluster, nós, aplicativos, serviços, partições, réplicas e contentores de entidades) e expõe-los por meio de REST APIs e a biblioteca de cliente do Service Fabric. Utilize o EventStore para monitorizar os seus clusters de programador/teste e para obter uma compreensão de ponto no tempo do Estado de seus clusters de produção.
 
 * **& Mensagens de dados**  
 Críticos registos e eventos gerados no (atualmente apenas o ReverseProxy) de mensagens e o caminho de dados (modelos de serviços fiáveis).
@@ -56,7 +55,7 @@ Registos de sistema gerados pelo Service Fabric apenas para ser utilizado por n�
 
 Estes canais vários cobrem a maior parte o registo de nível de plataforma que é recomendado. Para melhorar o registo de nível de plataforma, considerar o investimento na melhor compreender o modelo de estado de funcionamento e adicionar relatórios de estado de funcionamento personalizados e adicionar personalizado **contadores de desempenho** para criar uma compreensão em tempo real do impacto da sua os serviços e aplicações no cluster.
 
-Para aproveitar estes registos, é altamente recomendável que durante a criação do cluster, "diagnóstico" está ativado. Ao ativar diagnósticos, quando o cluster é implementado, Windows Azure Diagnostics é capaz de reconhecer operacional, do Reliable Services e do canais de Reliable actors e armazenar os dados como explicado mais no [agregar eventos com o Azure Diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md).
+Para aproveitar estes registos, é altamente recomendado deixar "Diagnóstico" ativado durante a criação do cluster no Portal do Azure. Ao ativar diagnósticos, quando o cluster é implementado, Windows Azure Diagnostics é capaz de reconhecer operacional, do Reliable Services e do canais de Reliable actors e armazenar os dados como explicado mais no [agregar eventos com o Azure Diagnóstico](service-fabric-diagnostics-event-aggregation-wad.md).
 
 ## <a name="azure-service-fabric-health-and-load-reporting"></a>Estado de funcionamento de recursos de infraestrutura do serviço do Azure e relatórios de carga
 
@@ -67,7 +66,7 @@ Service Fabric tem seu próprio modelo de estado de funcionamento, o que é desc
 - [Adicionar relatórios de estado de funcionamento personalizados do Service Fabric](service-fabric-report-health.md)
 - [Ver relatórios de estado de funcionamento do Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
-Monitorização de estado de funcionamento é essencial para vários aspetos de um serviço. Monitorização de estado de funcionamento é especialmente importante quando o Service Fabric efetua uma atualização da aplicação com nome. Depois de cada domínio de atualização do serviço é atualizado e está disponível para os seus clientes, o domínio de atualização tem de passar verificações de estado de funcionamento antes da implantação passe para o domínio de atualização seguinte. Se não pode ser obtido o estado de bom estado de funcionamento, a implementação é revertida, para que a aplicação está num estado conhecido e boa. Embora alguns clientes poderão ser afetados antes dos serviços são revertidos, a maioria dos clientes não ocorrerá um problema. Além disso, uma resolução ocorre relativamente rapidamente e sem ter de aguardar por ação a partir de um operador humano. As verificações de estado de funcionamento mais que estão incorporadas no seu código, o mais resiliente do que seu serviço é para problemas de implantação.
+Monitorização de estado de funcionamento é essencial para vários aspectos de operar um serviço, especialmente durante uma atualização da aplicação. Após cada domínio de atualização do serviço de atualização, o domínio de atualização tem de passar verificações de estado de funcionamento antes da implantação passe para o domínio de atualização seguinte. Se não pode ser obtido o estado de funcionamento OK, a implementação é revertida, para que o aplicativo permanece num estado conhecido de OK. Embora alguns clientes poderão ser afetados antes dos serviços são revertidos, a maioria dos clientes não ocorrerá um problema. Além disso, uma resolução ocorre relativamente rapidamente sem ter de esperar por ação a partir de um operador humano. As verificações de estado de funcionamento mais que estão incorporadas no seu código, o mais resiliente do que seu serviço é para problemas de implantação.
 
 Outro aspecto do Estado de funcionamento do serviço está a comunicar as métricas do serviço. As métricas são importantes nos recursos de infraestrutura do serviço porque eles são usados para equilibrar a utilização de recursos. Métricas também podem ser um indicador de estado de funcionamento do sistema. Por exemplo, poderá ter uma aplicação que tenha vários serviços, e cada instância reporta um pedidos por segundo (RPS) métrica. Se um serviço estiver a utilizar mais recursos do que outro serviço, o Service Fabric move instâncias do serviço em todo o cluster, para tentar manter a utilização de recursos do mesmo. Para obter uma explicação mais detalhada de como funciona a utilização de recursos, consulte [gerenciar o consumo de recursos e carregar no Service Fabric com a métrica](service-fabric-cluster-resource-manager-metrics.md).
 
@@ -76,7 +75,7 @@ Métricas também podem ajudar a dar-lhe informações sobre o desempenho do seu
 > [!TIP]
 > Não utilize demasiados métricas ponderadas. Pode ser difícil de entender por que instâncias de serviço estão sendo movidas para o balanceamento. Algumas métricas podem percorrem um longo caminho!
 
-Todas as informações que podem indicar o estado de funcionamento e o desempenho da sua aplicação são um candidato para relatórios de métricas e estado de funcionamento. Um contador de desempenho da CPU pode informar a como o seu nó está utilizado, mas ele não diz a se um determinado serviço está em bom estado, uma vez que vários serviços podem estar em execução num único nó. No entanto, as métricas, como RPS, itens processados, e latência de pedidos de todos os pode indicar o estado de funcionamento de um serviço específico.
+Todas as informações que podem indicar o estado de funcionamento e o desempenho da sua aplicação são um candidato para relatórios de métricas e estado de funcionamento. **Um contador de desempenho da CPU pode informar a como o seu nó está utilizado, mas ele não diz a se um determinado serviço está em bom estado, uma vez que vários serviços podem estar em execução num único nó.** No entanto, as métricas, como RPS, itens processados, e latência de pedidos de todos os pode indicar o estado de funcionamento de um serviço específico.
 
 ## <a name="service-fabric-support-logs"></a>Registos de suporte do Service Fabric
 
@@ -91,11 +90,13 @@ Para obter uma lista dos contadores de desempenho a recolher quando utilizar o S
 Eis duas formas comuns em que pode configurar a recolha de dados de desempenho para o seu cluster:
 
 * **Utilização de um agente**  
-Essa é a maneira preferencial de recolha de desempenho a partir de uma máquina, uma vez que os agentes têm, normalmente, uma lista de métricas de desempenho possíveis que podem ser coletadas e é um processo relativamente fácil para escolher as métricas que pretende recolher ou alterar. Leia sobre [como configurar o agente do Log Analytics para o Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) e [como configurar o agente Log Analytics](../log-analytics/log-analytics-windows-agent.md) artigos para saber mais sobre o agente do Log Analytics, o que é um desse agente de monitorização que é é possível recolher dados de desempenho para VMs do cluster e contentores implementados.
+Essa é a maneira preferencial de recolha de desempenho a partir de uma máquina, uma vez que os agentes têm, normalmente, uma lista de métricas de desempenho possíveis que podem ser coletadas e é um processo relativamente fácil para escolher as métricas que pretende recolher ou alterar. A leitura sobre o Azure Monitor oferecem Log Analytics no Service Fabric [integração do Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) e [como configurar o agente Log Analytics](../log-analytics/log-analytics-windows-agent.md) para saber mais sobre o agente do Log Analytics, o que é uma esse agente de monitorização que pode recolher dados de desempenho para VMs do cluster e contentores de implementado.
 
-* **Konfiguruje se diagnostika gravar contadores de desempenho numa tabela**  
-Para os clusters no Azure, isso significa que a alteração da configuração de diagnósticos do Azure para recolher os contadores de desempenho adequado das VMs no seu cluster e ativá-la recolher estatísticas de docker se for implementar quaisquer contentores. Leia sobre como configurar [contadores de desempenho na WAD](service-fabric-diagnostics-event-aggregation-wad.md) no Service Fabric para configurar a recolha do contador de desempenho.
+* **Contadores de desempenho para o armazenamento de tabelas do Azure**  
+Também pode enviar métricas de desempenho para o mesmo armazenamento de tabela como os eventos. Isto requer a alteração da configuração de diagnósticos do Azure para recolher os contadores de desempenho adequado das VMs no seu cluster e ativá-la recolher estatísticas de docker se for implementar quaisquer contentores. Leia sobre como configurar [contadores de desempenho na WAD](service-fabric-diagnostics-event-aggregation-wad.md) no Service Fabric para configurar a recolha do contador de desempenho.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Os registos e eventos tem de ser agregados antes de pode ser enviados para qualquer plataforma de análise. Leia sobre [o EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e [WAD](service-fabric-diagnostics-event-aggregation-wad.md) para melhor compreender algumas das opções de recomendada.
+* Leia sobre o Service Fabric [integração do Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) para recolher diagnósticos de cluster e criar consultas personalizadas e alertas
+* Saiba mais sobre o Service Fabric na experiência de diagnóstico incorporada, o [EventStore](service-fabric-diagnostics-eventstore.md)
+* Percorrer algumas [cenários comuns de diagnóstico](service-fabric-diagnostics-common-scenarios.md) no Service Fabric

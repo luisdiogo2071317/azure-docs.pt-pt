@@ -3,7 +3,7 @@ title: Nível de aplicativo de recursos de infraestrutura do serviço do Azure m
 description: Saiba mais sobre os registos de aplicações e os eventos de nível de serviço e utilizados para monitorizar e diagnosticar os clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,22 +12,26 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/20/2018
-ms.author: dekapur
-ms.openlocfilehash: 532ad8dfeff9a14d3d1533669149e1e374ed4460
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.date: 11/21/2018
+ms.author: srrengar
+ms.openlocfilehash: e26dbc037c206635cfb92ea49f28d0f891e53ef8
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283238"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291271"
 ---
-# <a name="application-and-service-level-logging"></a>Aplicação e o registo de nível de serviço
+# <a name="application-logging"></a>Registo de aplicação
 
-Instrumentar o código é a base para a maioria dos outros aspectos de monitorizar os seus serviços. A instrumentação é a única maneira que pode saber que algo está errado e para diagnosticar o que precisa ser corrigido. Embora seja tecnicamente possível conectar um depurador a um serviço de produção, não é uma prática comum. Então, ter detalhadas dados de instrumentação é importante.
+Instrumentar o seu código é não apenas uma forma de obter informações sobre os seus utilizadores, mas também a única maneira que pode saber se algo está errado em seu aplicativo e para diagnosticar o que precisa ser corrigido. Embora seja tecnicamente possível conectar um depurador a um serviço de produção, não é uma prática comum. Então, ter detalhadas dados de instrumentação é importante.
 
-Alguns produtos automaticamente instrumentem o seu código. Embora essas soluções podem funcionar bem, a instrumentação manual é quase sempre necessária. No final, tem de ter informações suficientes para forensicamente depurar o aplicativo. Este documento descreve abordagens diferentes para instrumentar o seu código e quando escolher uma abordagem em vez de outro.
+Alguns produtos automaticamente instrumentem o seu código. Embora essas soluções podem funcionar bem, instrumentação manual quase sempre é necessário para ser específicas para sua lógica de negócio. No final, tem de ter informações suficientes para forensicamente depurar o aplicativo. Aplicações do Service Fabric podem ser equipadas com qualquer arquitetura de registo. Este documento descreve algumas abordagens diferentes para instrumentar o seu código e quando escolher uma abordagem em vez de outro. 
 
 Para obter exemplos sobre como utilizar estas sugestões, consulte [adicionar registos à sua aplicação do Service Fabric](service-fabric-how-to-diagnostics-log.md).
+
+## <a name="application-insights-sdk"></a>SDK do Application Insights
+
+O Application Insights tem uma integração avançada com o Service Fabric prontos a utilizar. Os utilizadores podem adicionar os pacotes de nuget do Service Fabric de IA e receber dados e logs criados e recolhidos podem ser visualizados no portal do Azure. Além disso, os utilizadores são encorajados a adicionar a sua própria telemetria para diagnosticar e depurar seus aplicativos e a controlar que serviços e partes de seu aplicativo são utilizados mais. O [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) classe no SDK fornece várias formas de controlar a telemetria em seus aplicativos. Veja um exemplo de como instrumentar e adicionar o application insights ao seu aplicativo no nosso tutorial para [monitorizar e diagnosticar uma aplicação .NET](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="eventsource"></a>EventSource
 
@@ -37,11 +41,6 @@ Quando cria uma solução de Service Fabric a partir de um modelo no Visual Stud
 
 É importante planejar cuidadosamente a forma como irá instrumentar o seu código. O plano certo instrumentação pode ajudar a evitar desestabilizar potencialmente a sua base de código e, em seguida, a necessidade de reinstrument o código. Para reduzir o risco, pode escolher uma biblioteca de instrumentação, como [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), que faz parte do Microsoft ASP.NET Core. ASP.NET Core tem um [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) interface que pode utilizar com o fornecedor da sua preferência, enquanto minimiza o efeito no código existente. Pode usar o código no ASP.NET Core em Windows e Linux e no .NET Framework completo, então, seu código de instrumentação é padronizado.
 
-## <a name="application-insights-sdk"></a>SDK do Application Insights
-
-O Application Insights tem uma integração avançada com o Service Fabric prontos a utilizar. Os utilizadores podem adicionar os pacotes de nuget do Service Fabric de IA e receber dados e logs criados e recolhidos podem ser visualizados no portal do Azure. Além disso, os utilizadores são encorajados a adicionar a sua própria telemetria para diagnosticar e depurar seus aplicativos e a controlar que serviços e partes de seu aplicativo são utilizados mais. O [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) classe no SDK fornece várias formas de controlar a telemetria em seus aplicativos. Veja um exemplo de como instrumentar e adicionar o application insights ao seu aplicativo no nosso tutorial para [monitorizar e diagnosticar uma aplicação .NET](service-fabric-tutorial-monitoring-aspnet.md)
-
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de escolher o fornecedor de registo para instrumentar seus aplicativos e serviços, os registos e eventos será necessário agregar antes que eles podem ser enviados para qualquer plataforma de análise. Leia sobre [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md), [o EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md), e [WAD](service-fabric-diagnostics-event-aggregation-wad.md) para melhor compreender algumas das opções de recomendada.
+Depois de escolher o fornecedor de registo para instrumentar seus aplicativos e serviços, os registos e eventos será necessário agregar antes que eles podem ser enviados para qualquer plataforma de análise. Leia sobre [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) e [o EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) para melhor compreender alguns do Azure Monitor opções recomendadas.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: juliako
-ms.openlocfilehash: e9b66721135456320134f41c614b194d1e22b10f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 758a3b30717e3bf516c1bceb5c255c397a6072cc
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381109"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291406"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Comparar configurações predefinidas de v3 de serviços de multimédia do Azure e o Video Indexer 
 
@@ -30,8 +30,8 @@ Atualmente, existe uma sobreposição entre recursos oferecidos pelos [APIs de v
 
 |Funcionalidade|APIs de indexador de vídeos |Analisador de vídeo e áudio Analyzer predefinições<br/>nas APIs de v3 de serviços de multimédia|
 |---|---|---|
-|Informações de suporte de dados|[Avançada](../../cognitive-services/video-indexer/video-indexer-output-json-v2.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json) |[Noções Básicas](../latest/intelligence-concept.md)|
-|Experiências|Ver a lista completa das funcionalidades suportadas: <br/> [Descrição geral](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)|Devolve apenas informações de vídeo|
+|Informações de suporte de dados|[Avançada](video-indexer-output-json-v2.md) |[Noções Básicas](../latest/intelligence-concept.md)|
+|Experiências|Ver a lista completa das funcionalidades suportadas: <br/> [Descrição geral](video-indexer-overview.md)|Devolve apenas informações de vídeo|
 |Faturação|[Preços dos serviços de multimédia](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Preços dos serviços de multimédia](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
 |Conformidade|TBD|Serviços de multimédia estão em conformidade com várias certificações. Confira [Offerings.pdf de conformidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) e procure "Serviços de multimédia" ver se ele está em conformidade com um certificado de interesse.|
 |Avaliação gratuita|EUA Leste|Não disponível|
@@ -39,6 +39,6 @@ Atualmente, existe uma sobreposição entre recursos oferecidos pelos [APIs de v
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Descrição geral do Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)
+[Descrição geral do Video Indexer](video-indexer-overview.md)
 
-[Descrição geral do serviços de multimédia v3](../../media-services/latest/media-services-overview.md)
+[Descrição geral do serviços de multimédia v3](../latest/media-services-overview.md)

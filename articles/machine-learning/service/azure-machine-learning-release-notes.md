@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 52c8eed7f8b5a65ef13215e677d52f44cb95fd64
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285004"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291345"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -25,9 +25,11 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 ### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Azure Machine Learning SDK for Python v0.1.80
 
 + **Alterações recentes** 
-  * *azureml.Train.widget* espaço de nomes foi movido para *azureml.train*.
-  * *azureml.core.compute.AmlCompute* pretere *azureml.core.compute.BatchAICompute*. A segunda classe será removida em versões subsequentes.
+  * *azureml.Train.widgets* espaço de nomes foi movido para *azureml.widgets*.
+  * *azureml.core.compute.AmlCompute* pretere as seguintes classes - *azureml.core.compute.BatchAICompute* e *azureml.core.compute.DSVMCompute*. A segunda classe será removida em versões subsequentes. A classe AmlCompute tem uma definição mais fácil agora, simplesmente precisa de um vm_size e o max_nodes e irá dimensionar automaticamente o cluster de 0 para o max_nodes quando é submetida uma tarefa. Nossa [exemplo blocos de notas] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) foram atualizados com essas informações e deverá dar-lhe exemplos sobre como usá-lo. Esperamos que, como essa simplificação e muitos dos recursos mais interessantes para entrar numa versão posterior!
+
 ### <a name="azure-machine-learning-data-prep-sdk-v051"></a>SDK v0.5.1 de preparação de dados do Azure Machine Learning 
+
 Saiba mais sobre o SDK de preparação de dados, lendo [referenciar docs](https://aka.ms/data-prep-sdk).
 + **Novos recursos**
    * Criar uma nova CLI de DataPrep para executar pacotes DataPrep e visualizar o perfil de dados para um conjunto de dados ou o fluxo de dados

@@ -12,22 +12,24 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/04/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: aedbc5925a6e101299170843abef79ef6125eafe
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f9c7a70eae4c49173b3e11b7fbfa901f7e5b89d6
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230425"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291050"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análise de eventos e visualização com o Application Insights
 
-Microsoft Azure Application Insights é uma plataforma extensível para monitorização de aplicações e de diagnóstico. Ele inclui uma análise poderosas e consulta de ferramenta e dashboards personalizáveis, visualizações e ainda mais opções, incluindo alertas automáticos. É a plataforma recomendada para a monitorização e diagnóstico para aplicações do Service Fabric e serviços. Este artigo ajuda a resolver as seguintes perguntas comuns
+Parte do Azure Monitor, Application Insights é uma plataforma extensível para monitorização de aplicações e de diagnóstico. Ele inclui uma análise poderosas e consulta de ferramenta e dashboards personalizáveis, visualizações e ainda mais opções, incluindo alertas automáticos. Integração do Application Insights com o Service Fabric inclui ferramentas experiências para o portal do Azure e do Visual Studio, bem como métricas específicas do Service Fabric, para proporcionar uma experiência de registo de out-of-the-box abrangente. Embora muitos registos são automaticamente criados e recolhidos por si com o Application Insights, recomendamos que adicionar mais registo personalizado para as aplicações para criar uma experiência mais rica de diagnóstico.
 
-* Como posso saber o que está acontecendo dentro de minha telemetria de aplicações e serviços e coleta
-* Como posso resolver problemas de meu aplicativo, especialmente os serviços comunicam entre si
-* Como posso obter métricas sobre o meus serviços desempenho, por exemplo, o tempo de carregamento de página, pedidos de http
+Este artigo ajuda a resolver as seguintes perguntas comuns:
+
+* Como posso saber o que está acontecendo dentro de minha telemetria de aplicações e serviços e coleta?
+* Como posso resolver problemas de meu aplicativo, especialmente os serviços comunicam entre si?
+* Como posso obter métricas sobre o meus serviços desempenho, por exemplo, o tempo de carregamento de página, pedidos de HTTP?
 
 O objetivo deste artigo é mostrar como obter informações e resolver problemas de dentro do Application Insights. Se gostaria de saber como definir e configurar o Application Insights com o Service Fabric, veja esta [tutorial](service-fabric-tutorial-monitoring-aspnet.md).
 
