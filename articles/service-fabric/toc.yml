@@ -285,22 +285,23 @@ items:
     items:
     - name: Descrição geral da monitorização
       href: service-fabric-diagnostics-overview.md
+    - name: Monitorização da aplicação
+      href: service-fabric-diagnostics-event-generation-app.md
     - name: Monitorização de cluster
-      href: service-fabric-diagnostics-event-generation-infra.md
       items:
+      - name: Descrição geral da monitorização de cluster
+        href: service-fabric-diagnostics-event-generation-infra.md
       - name: Eventos do Service Fabric
         href: service-fabric-diagnostics-events.md
       - name: Descrição geral do EventStore
         href: service-fabric-diagnostics-eventstore.md
       - name: Eventos do Reliable Services
         href: service-fabric-reliable-services-diagnostics.md
-      - name: Eventos de Reliable Actors
-        href: service-fabric-reliable-actors-diagnostics.md
       - name: Serviço de Monitorização Remota
         href: service-fabric-reliable-serviceremoting-diagnostics.md
-    - name: Registo de aplicação
-      href: service-fabric-diagnostics-event-generation-app.md
-    - name: Métricas de desempenho
+      - name: Eventos de Reliable Actors
+        href: service-fabric-reliable-actors-diagnostics.md
+    - name: Monitorização das infraestruturas
       href: service-fabric-diagnostics-event-generation-perf.md
     - name: Descrição geral do modelo de estado de funcionamento
       href: service-fabric-health-introduction.md
@@ -642,33 +643,35 @@ items:
       href: service-fabric-connect-to-secure-cluster.md
   - name: Monitorizar e diagnosticar
     items:
+    - name: Diagnosticar cenários comuns
+      href: service-fabric-diagnostics-common-scenarios.md
     - name: Monitorizar aplicações
       items:
-      - name: Analisar com o Application Insights
-        href: service-fabric-diagnostics-event-analysis-appinsights.md
       - name: Adicionar registos à sua aplicação
         href: service-fabric-how-to-diagnostics-log.md
-      - name: Agregar eventos com o EventFlow
+      - name: Analisar com o Application Insights
+        href: service-fabric-diagnostics-event-analysis-appinsights.md
+      - name: Agregar registos com o EventFlow
         href: service-fabric-diagnostics-event-aggregation-eventflow.md
       - name: Contentores de monitor
         href: service-fabric-diagnostics-oms-containers.md
     - name: Monitorizar clusters
       items:
+      - name: Configurar o Log Analytics para recolher eventos de cluster
+        href: service-fabric-diagnostics-oms-setup.md
+      - name: Monitorize o seu cluster com o Log Analytics
+        href: service-fabric-diagnostics-event-analysis-oms.md
       - name: Consultar APIs de EventStore
         href: service-fabric-diagnostics-eventstore-query.md
-      - name: Diagnóstico do Azure para Windows
+      - name: Personalizar o agente WAD
         href: service-fabric-diagnostics-event-aggregation-wad.md
-      - name: Diagnóstico do Azure para Linux
+      - name: Personalizar o agente LAD
         href: service-fabric-diagnostics-event-aggregation-lad.md
-      - name: Configurar Log Analytics
-        href: service-fabric-diagnostics-oms-setup.md
-      - name: Monitorizar com o Log Analytics
-        href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Monitorizar a infraestrutura
       items:
-      - name: Monitorização de desempenho com o Agente do Log Analytics
+      - name: Recolha os contadores de desempenho com o Agente do Log Analytics
         href: service-fabric-diagnostics-oms-agent.md
-      - name: Monitorização de desempenho com WAD
+      - name: Recolher os contadores de desempenho com o WAD
         href: service-fabric-diagnostics-perf-wad.md
     - name: Monitorizar o estado de funcionamento
       items:
@@ -682,8 +685,6 @@ items:
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Resolver problemas do seu cluster local
       href: service-fabric-troubleshoot-local-cluster-setup.md
-    - name: Diagnosticar cenários comuns
-      href: service-fabric-diagnostics-common-scenarios.md
   - name: Melhores práticas
     items:
     - name: Lista de verificação da preparação de produção
@@ -781,9 +782,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 98ca5a1cbf5298931c14d6c696119d0c98893072
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 320399b277b7b6aa05b128994f68058455353e7b
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853647"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291509"
