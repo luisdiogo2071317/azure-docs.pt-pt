@@ -88,7 +88,7 @@ EN-IE | Inglês (Irlanda) |Masculino | "Microsoft Server voz texto para voz de v
 EN-IN | English (India) | Feminino | "Microsoft Server voz texto para voz de voz (en-IN, Heera, Apollo)"
 | | |Feminino | "Microsoft Server voz texto para voz de voz (en-IN, PriyaRUS)"
 | | |Masculino | "Microsoft Server voz texto para voz de voz (en-IN, Ravi, Apollo)"
-pt-PT | English (US) |Feminino | "Microsoft Server voz texto para voz de voz (en-US, ZiraRUS)"
+en-US | English (US) |Feminino | "Microsoft Server voz texto para voz de voz (en-US, ZiraRUS)"
 | | |Feminino | "Microsoft Server voz texto para voz de voz (en-US, JessaRUS)"
 | | |Masculino | "Microsoft Server voz texto para voz de voz (en-US, BenjaminRUS)"
 | | |Feminino | "Microsoft Server voz texto para voz de voz (en-US, Jessa24kRUS)"
