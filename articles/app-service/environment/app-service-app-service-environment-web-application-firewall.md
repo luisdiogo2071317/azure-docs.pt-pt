@@ -17,7 +17,7 @@ ms.author: naziml
 ms.custom: mvc
 ms.openlocfilehash: e1c327051982ce36e94cd1fe0f824db5ec424da1
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51226996"

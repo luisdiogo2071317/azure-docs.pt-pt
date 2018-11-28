@@ -12,7 +12,7 @@ ms.date: 01/02/2018
 ms.author: sngun
 ms.openlocfilehash: c6c63b7b66114a8c35986b443bda78442b8edd7a
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51237745"

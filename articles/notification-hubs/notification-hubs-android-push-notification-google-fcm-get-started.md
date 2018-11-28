@@ -18,7 +18,7 @@ ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: 0ec429407324210fca824ebd0734ddb39bce56ac
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51256566"

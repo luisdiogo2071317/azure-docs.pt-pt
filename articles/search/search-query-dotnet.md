@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/19/2017
 ms.openlocfilehash: 5b7f454fed6206ac57799d6f1e86152cd52dc9e9
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51254422"

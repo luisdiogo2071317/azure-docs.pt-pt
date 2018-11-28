@@ -16,7 +16,7 @@ ms.date: 08/30/2018
 ms.author: spelluru
 ms.openlocfilehash: 33dda074bd1aeb6b6187ca01347f31219ac86e91
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51250208"

@@ -16,7 +16,7 @@ ms.date: 09/21/2018
 ms.author: rkarlin
 ms.openlocfilehash: 0376f09d4d7d6c952cbef40751a2729045f68061
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51255844"

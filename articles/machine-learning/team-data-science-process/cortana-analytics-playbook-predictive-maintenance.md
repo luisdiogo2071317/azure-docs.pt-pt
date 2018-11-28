@@ -16,7 +16,7 @@ ms.date: 05/11/2018
 ms.author: fboylu
 ms.openlocfilehash: 611896dc9428092a76a891168b48f6962d760e60
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51254575"

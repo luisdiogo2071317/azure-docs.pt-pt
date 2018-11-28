@@ -14,7 +14,7 @@ ms.author: glenga
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 4fc1c0b87aa5312be0ccac50681e952dc7f1c4ed
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51251734"

@@ -18,7 +18,7 @@ ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: 7d622b834cef31552cac60b359cdd8404592eda9
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51255562"
