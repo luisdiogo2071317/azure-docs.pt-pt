@@ -11,12 +11,12 @@ ms.service: automation
 ms.component: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ad9fc7deb73cdcbcf83cc10b9b28f7d7e4ac7661
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: fa483ea766d1c93256054a5360470edcbef94250
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283796"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635123"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Descobrir que software está instalado nos seus computadores do Azure e não Azure
 
@@ -70,7 +70,7 @@ Selecione **+ Adicionar VM do Azure**, esta ação abre a página **Máquinas vi
 
 ## <a name="onboard-a-non-azure-machine"></a>Carregar uma máquina não Azure
 
-Para adicionar máquinas não Azure, instale o agente para [Windows](../log-analytics/log-analytics-agent-windows.md) ou [Linux](automation-linux-hrw-install.md), consoante o sistema operativo. Assim que o agente estiver instalado, navegue até à sua Conta de Automatização e aceda ao **Inventário** em **GESTÃO DE CONFIGURAÇÃO**. Ao clicar em **Gerir Máquinas**, verá uma lista das máquinas que relatam à sua área de trabalho do Log Analytics que não têm a solução ativada. Selecione a opção adequada para o seu ambiente.
+Para adicionar máquinas não Azure, instale o agente para [Windows](../azure-monitor/platform/agent-windows.md) ou [Linux](automation-linux-hrw-install.md), consoante o sistema operativo. Assim que o agente estiver instalado, navegue até à sua Conta de Automatização e aceda ao **Inventário** em **GESTÃO DE CONFIGURAÇÃO**. Ao clicar em **Gerir Máquinas**, verá uma lista das máquinas que relatam à sua área de trabalho do Log Analytics que não têm a solução ativada. Selecione a opção adequada para o seu ambiente.
 
 * **Ativar em todas as máquinas disponíveis** - esta opção ativa a solução em todas as máquinas que relatam à sua área de trabalho do Log Analytics neste momento.
 * **Ativar em todos os computadores disponíveis e futuros** - esta opção ativa a solução em todas as máquinas que relatam à sua área de trabalho do Log Analytics e, subsequentemente, em todas as máquinas futuras adicionadas à área de trabalho.

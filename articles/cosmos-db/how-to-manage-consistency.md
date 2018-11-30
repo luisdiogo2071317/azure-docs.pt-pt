@@ -7,20 +7,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 68c8c3767ff3a3d2873c1ff50928ab8d2cada4b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 9d8c1296fc811d97dc9e7e66ad9bd9fdc79d66f9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263756"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634341"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerir níveis de consistência no Azure Cosmos DB
 
-Este artigo explica as diferentes formas de definir a consistência predefinida, substituir essa consistência no cliente, gerir manualmente tokens de sessões e compreender a métrica de Estagnação Limitada Probabilisticamente (PBS).
+Este artigo explica como gerir níveis de consistência no Azure Cosmos DB. Saiba como configurar o nível de consistência predefinido, substituir a consistência predefinida, manualmente Gerir tokens de sessões e compreender a métrica de Roleta estagnação limitada (PBS).
 
 ## <a name="configure-the-default-consistency-level"></a>Configurar o nível de consistência predefinido
 
-O nível de consistência predefinido é o nível que os clientes de consistência irão utilizar por predefinição. Pode ser substituído pelos clientes.
+O nível de consistência predefinido é o nível de consistência que os clientes utilizam por predefinição. Os clientes podem substituí-la.
 
 ### <a name="cli"></a>CLI
 
@@ -34,7 +34,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-O exemplo a seguir cria uma nova conta do Cosmos DB com vários mestres ativado nas regiões E.U.A. leste e E.U.A. oeste, definir a política de consistência predefinida como sessão.
+Este exemplo cria uma nova conta do Azure Cosmos DB com vários mestres ativado nas regiões E.U.A. leste e E.U.A. oeste. A política de consistência predefinida está definida como a sessão.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -60,13 +60,13 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a name="portal"></a>Portal
 
-Para ver ou modificar o nível predefinido de consistência, inicie sessão no portal do Azure. Encontre a sua Conta do Cosmos DB e abra o painel **Consistência predefinida**. A partir daí, escolha o nível de consistência que gostaria de ter predefinido e, em seguida, clique em Guardar.
+Para ver ou modificar o nível predefinido de consistência, inicie sessão no portal do Azure. Localize a conta do Azure Cosmos DB e abra o **consistência predefinida** painel. Selecione o nível de consistência que pretende como a nova predefinição e, em seguida, selecione **guardar**.
 
-![Imagem do menu de consistência no portal do Azure](./media/how-to-manage-consistency/consistency-settings.png)
+![Menu de consistência no portal do Azure](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## <a name="override-the-default-consistency-level"></a>Substituir o nível de consistência predefinido
 
-Os clientes podem substituir o nível de consistência predefinido que está definido pelo serviço. Isto pode ser feito para o cliente todo ou por pedido.
+Os clientes podem substituir o nível de consistência predefinido que é definido pelo serviço. Esta opção pode ser definida para o cliente completo ou por pedido.
 
 ### <a id="override-default-consistency-dotnet"></a>SDK do .NET
 
@@ -131,7 +131,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## <a name="utilize-session-tokens"></a>Utilizar tokens de sessões
 
-Se quiser gerir manualmente os tokens de sessão, pode obtê-los das respostas e configurá-los por pedido. Se não tiver uma necessidade de gerir manualmente os tokens de sessão, não precisa de utilizar os exemplos a seguir. O SDK irá controlar automaticamente os tokens de sessão e utilizar o token de sessão mais recente, se não definir o token de sessão por conta própria.
+Gerir os tokens de sessão manualmente, obter a sessão do token da resposta e defini-los por pedido. Se não precisar de gerir manualmente os tokens de sessão, não precisa de utilizar estes exemplos. O SDK controla de tokens de sessão automaticamente. Se não definir o token de sessão manualmente, por predefinição, o SDK utiliza o token de sessão mais recente.
 
 ### <a id="utilize-session-tokens-dotnet"></a>SDK do .NET
 
@@ -208,15 +208,15 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorizar a métrica de Estagnação Limitada Probabilisticamente (PBS)
 
-Para ver a métrica de PBS, aceda à sua Conta do Cosmos DB no portal do Azure e, em seguida, abra o painel **Métricas**. A partir daí, clique no separador **Consistência** e observe o gráfico com o nome "**Probabilidade de leituras fortemente consistentes com base na carga de trabalho (veja PBS)**".
+Para ver a métrica de PBS, aceda à sua conta do Azure Cosmos DB no portal do Azure. Abra o **métricas** painel e selecione o **consistência** separador. Observe o gráfico com o nome **probabilidade de leituras fortemente consistentes com base na carga de trabalho (Consulte PBS)**.
 
-![Imagem do gráfico PBS no portal do Azure](./media/how-to-manage-consistency/pbs-metric.png)
+![Gráfico de PBS no portal do Azure](./media/how-to-manage-consistency/pbs-metric.png)
 
-Utilize o menu de métricas do Cosmos DB para ver esta métrica. Ele não irá aparecer na experiência de métricas de monitorização do Azure.
+Utilize o menu de métricas do Azure Cosmos DB para ver esta métrica. Não aparecerá na experiência de métricas de monitorização do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Pode saber mais sobre a gestão de conflitos de dados ou mover para o próximo conceito-chave no Cosmos DB com os documentos seguintes:
+Saiba mais sobre como gerir os conflitos de dados ou avançar para o próximo conceito-chave no Azure Cosmos DB. Consulte os seguintes artigos:
 
-* [Como gerir conflitos entre regiões](how-to-manage-conflicts.md)
+* [Gerir conflitos entre regiões](how-to-manage-conflicts.md)
 * [Criação de partições e distribuição de dados](partition-data.md)

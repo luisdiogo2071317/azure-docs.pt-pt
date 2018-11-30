@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/28/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 229c0a6afee893a4a8eb5cd62a1d25266ee8fc3e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 68d5742f5da542d5146997390e470180cf8c5776
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977187"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620698"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Itens do Azure Marketplace disponíveis para o Azure Stack
 
@@ -53,7 +53,6 @@ Microsoft Azure Stack suporta as seguintes máquinas virtuais do Azure Marketpla
 |  | Nome do item | Descrição | Publicador |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | Soluções de nível empresarial simples de implementar, econômica, voltada para o aplicativo, e centrada no utilizador. Estas imagens são atualizadas regularmente com os patches mais recentes. **Informações importantes: imagens transferidas antes de 18 de Janeiro de 2018 tem de ser eliminada e substituída com as versões mais recentes.** | Microsoft |
-| ![Serviços de Ambiente de Trabalho Remoto](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [Implementação dos serviços de ambiente de trabalho remoto (RDS)](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | Crie uma implementação básica de serviços de ambiente de trabalho remoto (RDS). **Baixe a imagem mais recente do Windows Server 2016 Datacenter.** | Microsoft |
 | ![Versão de avaliação do SharePoint Server 2013](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Versão de avaliação do SharePoint Server 2013](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 Trial na edição de Comunidade do Windows Server 2012 Datacenter e o Visual Studio 2017. | Microsoft |
 | ![Versão de avaliação do SharePoint Server 2016](media/azure-stack-marketplace-azure-items/sharepoint.png) | [Versão de avaliação do SharePoint Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | SharePoint Server 2016 a avaliação do Microsoft Windows Server 2016 Datacenter. | Microsoft |
 | ![O SQL Server 2014 SP2 no Windows Server 2012 R2](media/azure-stack-marketplace-azure-items/sql.png) | [O SQL Server 2014 SP2 no Windows Server 2012 R2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2) | SQL Server 2014 Service Pack 2. **Transferência necessária:** extensão do IaaS do SQL. | Microsoft |
