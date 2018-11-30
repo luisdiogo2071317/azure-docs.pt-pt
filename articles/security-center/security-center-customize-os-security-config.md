@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 925f45f8d251882cfc8acf4b04902cea45451dd4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007268"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334198"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar as configurações de segurança de SO no Centro de segurança do Azure (pré-visualização)
 
@@ -32,7 +32,7 @@ Centro de segurança do Azure monitoriza as configurações de segurança atrav�
 Ao personalizar as regras, as organizações podem controlar quais opções de configuração são mais adequadas para o seu ambiente. Pode definir uma política personalizada de avaliação e, em seguida, aplicá-la em todos os computadores aplicáveis na subscrição.
 
 > [!NOTE]
-> - Atualmente, a personalização da configuração de segurança do sistema operacional está disponível para Windows Server 2008, 2008 R2, 2012 e 2012 R2 de versões apenas nos sistemas operativos.
+> - Atualmente, a personalização da configuração de segurança do sistema operacional está disponível para Windows Server 2008, 2008 R2, 2012, 2012 R2 e 2016 de versões apenas nos sistemas operativos.
 > - A configuração é aplicada a todas as VMs e computadores que estejam ligados a todas as áreas de trabalho sob a subscrição selecionada.
 > - Personalização de configuração de segurança do SO está disponível apenas no escalão standard do Centro de segurança.
 >
@@ -60,7 +60,7 @@ Para personalizar a configuração de segurança do sistema operacional padrão 
 3.  Na linha da subscrição que pretende personalizar, clique em **editar as definições de**.
 
 4. Selecione **editar configurações de segurança**.  
-    
+
     ![A janela de "Editar configurações de segurança"](media/security-center-customize-os-security-config/blade.png)
 
 5. Siga os passos para transferir, editar e carregar o arquivo modificado.

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238867"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427068"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guia técnico para o modelo de solução do Cortana Intelligence para previsão de energia de demanda
 ## <a name="overview"></a>**Descrição geral**
@@ -159,14 +159,14 @@ Assim que o gerador de dados é iniciado, o pipeline começa a obter alimentado 
 Esta secção descreve como configurar o dashboard do Power BI para visualizar os seus dados em tempo real do n (caminho instantâneo) do Azure stream analytics, bem como prever resultados a partir do Azure machine learning (caminho típico).
 
 ### <a name="setup-hot-path-dashboard"></a>Dashboard de caminho instantâneo da configuração
-Os seguintes passos guiá-lo como visualizar a saída de dados em tempo real das tarefas do Stream Analytics que foram gerados no momento da implantação da solução. R [Power BI online](http://www.powerbi.com/) conta é necessária para executar os seguintes passos. Se não tiver uma conta, pode [criá-lo](https://powerbi.microsoft.com/pricing).
+Os seguintes passos guiá-lo como visualizar a saída de dados em tempo real das tarefas do Stream Analytics que foram gerados no momento da implantação da solução. R [Power BI online](https://www.powerbi.com/) conta é necessária para executar os seguintes passos. Se não tiver uma conta, pode [criá-lo](https://powerbi.microsoft.com/pricing).
 
 1. Adicione a saída do Power BI do Azure Stream Analytics (ASA).
 
    * Tem de seguir as instruções em [do Azure Stream Analytics e o Power BI: um dashboard de análise em tempo real para visibilidade em tempo real de dados de transmissão em fluxo](stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar a saída da tarefa do Azure Stream Analytics como o dashboard do Power BI .
    * Localize a tarefa do stream analytics no seu [portal do Azure](https://portal.azure.com). O nome da tarefa deve ser: YourSolutionName + "streamingjob" + número aleatório + "asapbi" (ou seja, demostreamingjob123456asapbi).
    * Adicione uma saída do Power BI para a tarefa ASA. Definir o **Alias de saída** como **'PBIoutput'**. Definir sua **nome do conjunto de dados** e **nomes de tabelas** como **'EnergyStreamData'**. Depois de adicionar a saída, clique em **"Start"** na parte inferior da página para iniciar a tarefa de Stream Analytics. Obterá uma mensagem de confirmação (por exemplo, "Iniciar tarefa de stream analytics myteststreamingjob12345asablob foi concluída com êxito").
-2. Inicie sessão no [online do Power BI](http://www.powerbi.com)
+2. Inicie sessão no [online do Power BI](https://www.powerbi.com)
 
    * No painel esquerdo, secção de conjuntos de dados na minha área de trabalho deve ser capaz de ver um novo conjunto de dados que mostra no painel esquerdo do Power BI. Esses são os dados de transmissão em fluxo que enviou a partir do Azure Stream Analytics no passo anterior.
    * Certifique-se de que o ***visualizações*** painel é aberto e é apresentado no lado direito da tela.
@@ -207,7 +207,7 @@ No pipeline de dados do caminho típico, o objetivo essencial é obter a previs�
    * No pop de fora da janela, substitua **"Server"** e **"Database"** com seus próprios nomes de servidor e base de dados e, em seguida, clique **"OK"**. Nome do servidor, certifique-se de que especifique a porta 1433 (**YourSolutionName.database.windows.net, 1433**). Ignore as mensagens de aviso que aparecem no ecrã.
    * No pop seguinte fora da janela, verá duas opções no painel da esquerda (**Windows** e **base de dados**). Clique em **"Database"**, preencha suas **"Nomedeutilizador"** e **"Password"** (este é o nome de utilizador e palavra-passe que introduziu quando implementou a solução e criou um Azure pela primeira vez Base de dados SQL). Na ***selecione o nível para aplicar estas definições para***, marque a opção de nível de base de dados. Em seguida, clique em **"Ligar"**.
    * Assim que estiver orientada para a página anterior, feche a janela. Um pops de mensagem de saída - clique em **aplicar**. Por último, clique a **guardar** botão para guardar as alterações. O ficheiro do Power BI agora estabeleceu ligação ao servidor. Se as visualizações estiverem vazias, certifique-se de que desmarcar as seleções nas visualizações para visualizar todos os dados ao clicar no ícone de borracha no canto superior direito de legendas. Utilize o botão de atualização para refletir novos dados nas visualizações. Inicialmente, apenas verá os dados de seed nas suas visualizações conforme a fábrica de dados é agendada para atualização em três horas. Depois de 3 horas, verá novas predições refletidas nas suas visualizações, quando atualizar os dados.
-3. (Opcional) Publique o dashboard do caminho típico para [Power BI online](http://www.powerbi.com/). Tenha em atenção que este passo necessita de uma conta Power BI (ou conta do Office 365).
+3. (Opcional) Publique o dashboard do caminho típico para [Power BI online](https://www.powerbi.com/). Tenha em atenção que este passo necessita de uma conta Power BI (ou conta do Office 365).
 
    * Clique em **"Publicar"** e alguns segundos mais tarde é apresentada uma janela exibindo "Publicação para o Power BI sucesso!". com uma marca de verificação verde. Clique na ligação seguinte "Demoprediction.pbix aberto no Power BI". Para obter instruções detalhadas, consulte [publicar a partir do Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Para criar um novo dashboard: clique no **+** inscrever-se junto a **Dashboards** secção no painel da esquerda. Introduza o nome "Demonstração de previsão de procura" para este dashboard novo.

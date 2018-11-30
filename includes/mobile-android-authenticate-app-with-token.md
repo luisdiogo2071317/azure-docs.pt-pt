@@ -1,12 +1,24 @@
-
-O exemplo anterior mostrou uma norma início de sessão, que exige que o cliente contactar o fornecedor de identidade e o serviço do Azure de back-end, sempre que a aplicação for iniciada. Este método é ineficaz e podem ter problemas relacionados com a utilização se muitos clientes tentam iniciar a sua aplicação em simultâneo. É uma melhor abordagem para colocar em cache o token de autorização devolvido pelo serviço do Azure e tente utilizar este primeiro antes de utilizar um fornecedor com base no início de sessão.
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+ms.openlocfilehash: deb94cab97bd9a402676cdc5c0239da8d07ed8b2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440363"
+---
+O exemplo anterior mostrava um padrão de início de sessão, que exige que o cliente contactar o fornecedor de identidade e o serviço do Azure de back-end, sempre que a aplicação for iniciada. Este método é ineficaz e pode ter problemas relacionados com a utilização se muitos clientes tentarem iniciar a sua aplicação em simultâneo. Uma abordagem melhor é armazenar em cache o token de autorização retornado pelo serviço do Azure, e tente utilizar nesta primeira antes de utilizar um fornecedor com base no início de sessão.
 
 > [!NOTE]
-> Pode colocar em cache o token emitido pelo serviço do Azure, independentemente se estiver a utilizar autenticação de cliente geridos ou geridos pelo serviço de back-end. Este tutorial utiliza a autenticação de serviço gerido.
+> Pode colocar em cache o token emitido pelo serviço do Azure, independentemente de se está a utilizar a autenticação gerida pelo cliente ou pelo serviço de back-end. Este tutorial utiliza a autenticação gerida pelo serviço.
 >
 >
 
-1. Abra o ficheiro ToDoActivity.java e adicione as seguintes declarações de importação:
+1. Abra o ficheiro Todoactivity e adicione as seguintes declarações de importação:
 
     ```java
     import android.content.Context;
@@ -14,7 +26,7 @@ O exemplo anterior mostrou uma norma início de sessão, que exige que o cliente
     import android.content.SharedPreferences.Editor;
     ```
 
-2. Adicione as seguintes para o `ToDoActivity` classe.
+2. Adicionar os seguintes membros para o `ToDoActivity` classe.
 
     ```java
     public static final String SHAREDPREFFILE = "temp";
@@ -22,7 +34,7 @@ O exemplo anterior mostrou uma norma início de sessão, que exige que o cliente
     public static final String TOKENPREF = "tkn";
     ```
 
-3. No ficheiro ToDoActivity.java, adicione a seguinte definição para o `cacheUserToken` método.
+3. No ficheiro Todoactivity, adicione a seguinte definição para o `cacheUserToken` método.
 
     ```java
     private void cacheUserToken(MobileServiceUser user)
@@ -35,14 +47,14 @@ O exemplo anterior mostrou uma norma início de sessão, que exige que o cliente
     }
     ```
 
-    Este método armazena o ID de utilizador e o token num ficheiro preferência que está marcado como privado. Isto deve proteger o acesso à cache para que as outras aplicações no dispositivo não tem acesso para o token. A preferência é uma para a aplicação. No entanto, se alguém obtiver o acesso ao dispositivo, é possível que estes podem ter acesso à cache de token através de outros meios.
+    Este método armazena o ID de utilizador e o token num arquivo de preferência marcado como privado. Isso deve proteger o acesso à cache para que outras aplicações no dispositivo não tem acesso ao token. A preferência é restrita para a aplicação. No entanto, se alguém obtiver acesso ao dispositivo, é possível que eles obter acesso para a cache de tokens por outros meios.
 
    > [!NOTE]
-   > Pode proteger ainda mais o token com a encriptação, se o token acesso aos seus dados é considerado altamente confidencial e alguém obter acesso ao dispositivo. Uma solução completamente segura está fora do âmbito deste tutorial, no entanto e depende dos requisitos de segurança.
+   > Pode proteger ainda mais o token com a encriptação, se o token acesso aos seus dados é considerada como altamente confidencial e alguém pode ganhar acesso ao dispositivo. Uma solução completamente segura está além do escopo deste tutorial, no entanto e depende dos requisitos de segurança.
    >
    >
 
-4. No ficheiro ToDoActivity.java, adicione a seguinte definição para o `loadUserTokenCache` método.
+4. No ficheiro Todoactivity, adicione a seguinte definição para o `loadUserTokenCache` método.
 
     ```java
     private boolean loadUserTokenCache(MobileServiceClient client)
@@ -63,7 +75,7 @@ O exemplo anterior mostrou uma norma início de sessão, que exige que o cliente
     }
     ```
 
-5. No *ToDoActivity.java* de ficheiros, substitua o `authenticate` e `onActivityResult` métodos com os seguintes, que utiliza uma cache de token. Altere o fornecedor de início de sessão se pretender utilizar uma conta diferente da Google.
+5. Na *Todoactivity* do ficheiro, substitua a `authenticate` e `onActivityResult` métodos com os seguintes, que utiliza uma cache de tokens. Altere o fornecedor de início de sessão se pretender utilizar uma conta diferente da Google.
 
     ```java
     private void authenticate() {
@@ -102,4 +114,4 @@ O exemplo anterior mostrou uma norma início de sessão, que exige que o cliente
     }
     ```
 
-6. Crie a autenticação de aplicação e teste utilizando uma conta válida. Execute, pelo menos, duas vezes. Durante a primeira execução, deverá receber um pedido para iniciar sessão e criar a cache de token. Depois disso, cada execução tenta carregar a cache de token de autenticação. Não deve ser necessário iniciar sessão.
+6. Crie a autenticação de aplicação e de teste usando uma conta válida. Execute-a, pelo menos, duas vezes. Durante a primeira execução, deve receber um pedido para iniciar sessão e criar a cache de token. Depois disso, cada execução tenta carregar o cache de token para autenticação. Não deve ser pedido para iniciar sessão.

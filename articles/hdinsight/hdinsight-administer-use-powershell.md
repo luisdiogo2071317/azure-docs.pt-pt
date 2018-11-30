@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/6/2018
 ms.author: tylerfox
-ms.openlocfilehash: 4bf46501a75b9dd5be7ae1b446a0db90c20be559
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 936e53ca328b0f54bfd75e7b3d4f6747b0037669
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235263"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495159"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gerir clusters do Apache Hadoop no HDInsight com o Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-O Azure PowerShell pode ser utilizado para controlar e automatizar a implementação e gestão das cargas de trabalho no Azure. Neste artigo, irá aprender a gerir clusters do Apache Hadoop no HDInsight do Azure com o Azure PowerShell. Para obter a lista dos cmdlets do PowerShell do HDInsight, consulte [referência de cmdlets do HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
+O Azure PowerShell pode ser utilizado para controlar e automatizar a implementação e gestão das cargas de trabalho no Azure. Neste artigo, irá aprender a gerir [Apache Hadoop](https://hadoop.apache.org/) clusters no Azure HDInsight com o Azure PowerShell. Para obter a lista dos cmdlets do PowerShell do HDInsight, consulte [referência de cmdlets do HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Pré-requisitos**
 
@@ -80,12 +80,12 @@ O funcionalidade de dimensionamento do cluster permite-lhe alterar o número de 
 
 O impacto de alterar o número de nós de dados para cada tipo de cluster suportada pelo HDInsight:
 
-* Hadoop
+* Apache Hadoop
 
     Pode facilmente aumentar o número de nós de trabalho num cluster do Hadoop que está a ser executado sem afetar todas as tarefas em execução ou pendentes. Também podem ser submetidas a novas tarefas enquanto a operação estiver em curso. Falhas numa operação de dimensionamento são processadas corretamente para que o cluster está sempre deixado no estado funcional.
 
     Quando um cluster do Hadoop é reduzido, reduzindo o número de nós de dados, alguns dos serviços do cluster são reiniciados. A reiniciar serviços faz com que tudo em execução e tarefas pendentes a falhar após a conclusão da operação de dimensionamento. Pode, no entanto, volte a submeter as tarefas depois de concluída a operação.
-* HBase
+* Apache HBase
 
     Pode facilmente adicionar ou remover nós ao cluster do HBase durante a execução. Servidores regionais são balanceadas automaticamente dentro de alguns minutos a concluir a operação de dimensionamento. No entanto, pode equilibrar também manualmente os servidores regionais iniciando sessão ao nó principal do cluster e, em seguida, execute os seguintes comandos a partir de uma janela de linha de comandos:
 
@@ -95,7 +95,7 @@ O impacto de alterar o número de nós de dados para cada tipo de cluster suport
     >balancer
     ```
 
-* Storm
+* Apache Storm
 
     Pode facilmente adicionar ou remover nós de dados ao seu cluster do Storm, enquanto estiver em execução. Mas, após a conclusão bem-sucedida da operação de dimensionamento, terá de reequilibrar a topologia.
 
@@ -207,25 +207,25 @@ $resourceGroupName = $cluster.ResourceGroup
 
 
 ## <a name="submit-jobs"></a>Submeter tarefas
-**Submeter tarefas de MapReduce**
+**Submeter tarefas do Apache Hadoop MapReduce**
 
-Ver [executar os exemplos de MapReduce incluídos no HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Ver [executar os exemplos do Apache Hadoop MapReduce incluídos no HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Para submeter tarefas do Hive**
+**Para submeter tarefas do Apache Hive**
 
-Ver [executar consultas do Hive com o PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
+Ver [executar Apache consultas do Hive com o PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 
-**Para submeter tarefas do Pig**
+**Para submeter tarefas do Apache Pig**
 
-Ver [tarefas de executar o Pig com o PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
+Ver [tarefas de executar o Apache Pig com o PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
-**Submeter tarefas Sqoop**
+**Submeter tarefas do Apache Sqoop**
 
-Ver [utilizar o Sqoop com o HDInsight](hadoop/hdinsight-use-sqoop.md).
+Ver [utilizar o Apache Sqoop com o HDInsight](hadoop/hdinsight-use-sqoop.md).
 
-**Submeter tarefas de Oozie**
+**Submeter tarefas do Apache Oozie**
 
-Ver [Oozie de utilização com o Hadoop para definir e executar um fluxo de trabalho no HDInsight](hdinsight-use-oozie.md).
+Ver [utilização Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight](hdinsight-use-oozie.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados para o armazenamento de Blobs do Azure
 Consulte [Upload data to HDInsight (Carregar dados para o HDInsight)][hdinsight-upload-data].
@@ -236,7 +236,7 @@ Consulte [Upload data to HDInsight (Carregar dados para o HDInsight)][hdinsight-
 * [Administrar o HDInsight, através de uma interface de linha de comandos][hdinsight-admin-cli]
 * [Criar clusters do HDInsight][hdinsight-provision]
 * [Upload data to HDInsight (Carregar dados para o HDInsight)][hdinsight-upload-data]
-* [Submeter tarefas do Hadoop de forma programática][hdinsight-submit-jobs]
+* [Submeter tarefas do Apache Hadoop por meio de programação][hdinsight-submit-jobs]
 * [Get started with Azure HDInsight (Introdução ao Azure HDInsight)][hdinsight-get-started]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

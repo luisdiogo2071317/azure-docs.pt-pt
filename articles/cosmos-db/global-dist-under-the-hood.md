@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d104b5de22281817626f8de0f41029e76e06e3a2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5db43c6488a4592eb46d9a0fe9a044dde36fc494
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824817"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423352"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Distribuição do Cosmos DB de global do Azure - sob definições avançadas
 
@@ -72,7 +72,7 @@ Para as bases de dados Cosmos configurados com várias regiões de escrita, o si
 
 Se configurar a base de dados do Cosmos com uma única ou várias regiões de escrita, pode escolher entre cinco modelos de consistência bem definidos. Com o recentemente adicionado suporte para permitir várias regiões de escrita, seguem-se alguns dos aspectos notáveis dos níveis de consistência:  
 
-Como antes, a consistência de estagnação limitada garante que todas as leituras será dentro de prefixos k ou segundos da t da operação de escrita mais recente em qualquer uma das regiões. Além disso, leituras com consistência de estagnação limitada são garantidas monotónica e com garantias de prefixo consistente. O protocolo de entropia anti funciona de forma limitada de taxa e garante que os prefixos não acumular e backpressure nas gravações não tem de ser aplicada. Como antes, a sessão monotónica garante a consistência de leitura, escrita monotónica, leia suas próprias escritas, escrita-forma-leitura e de prefixo consistente garante em todo o mundo. Para as bases de dados configuradas com consistência forte, os comutadores de sistema para uma única região de escrita ao designar um líder de dentro de cada um dos conjuntos de partição. 
+Como antes, a consistência de estagnação limitada garante que todas as leituras será dentro de prefixos k ou segundos da t da operação de escrita mais recente em qualquer uma das regiões. Além disso, leituras com consistência de estagnação limitada são garantidas monotónica e com garantias de prefixo consistente. O protocolo de entropia anti funciona de forma limitada de taxa e garante que os prefixos não acumular e backpressure nas gravações não tem de ser aplicada. Como antes, a sessão monotónica garante a consistência de leitura, escrita monotónica, leia suas próprias escritas, escrita-forma-leitura e de prefixo consistente garante em todo o mundo. Para bases de dados configuradas com consistência forte, os benefícios do multi-dominando (escrita de baixa latência, disponibilidade de escrita elevada) não se aplica devido a replicação síncrona em várias regiões.
 
 A semântica dos modelos de cinco consistência no Cosmos DB é descrita [aqui](consistency-levels.md) e matematicamente mostrado, usando um alto nível TLA + especificações [aqui](https://github.com/Azure/azure-cosmos-tla).
 

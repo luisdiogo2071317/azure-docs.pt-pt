@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 333e73af3578cdc363e7ede08ca52207cfd0fdb0
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: a20dec67201cb7d8b7ccd3a7662438f2afabfe63
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248920"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446794"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces e acionadores de HTTP de funções do Azure
 
@@ -157,13 +157,13 @@ public static string Run(CustomObject req, ILogger log)
 }
 
 public class CustomObject {
-     public String name {get; set;}
+     public string name {get; set;}
 }
 ```
 
-### <a name="trigger---f-example"></a>Acionador - exemplo do F #
+### <a name="trigger---f-example"></a>Acionador - F# exemplo
 
-O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [função F #](functions-reference-fsharp.md) que utiliza o enlace. A função procura um `name` parâmetro na cadeia de consulta ou o corpo da solicitação HTTP.
+O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [ F# função](functions-reference-fsharp.md) que utiliza o enlace. A função procura um `name` parâmetro na cadeia de consulta ou o corpo da solicitação HTTP.
 
 Aqui está o *Function* ficheiro:
 
@@ -188,7 +188,7 @@ Aqui está o *Function* ficheiro:
 
 O [configuração](#trigger---configuration) seção explica essas propriedades.
 
-Eis o código F #:
+Aqui está o F# código:
 
 ```fsharp
 open System.Net
@@ -348,7 +348,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 ## <a name="trigger---usage"></a>Acionador - utilização
 
-Para funções c# e F #, pode declarar o tipo de Acionador de entrada de ser um `HttpRequestMessage` ou um tipo personalizado. Se escolher `HttpRequestMessage`, obtém acesso total para o objeto de solicitação. Para um tipo personalizado, o tempo de execução tenta analisar o corpo do pedido JSON para definir as propriedades do objeto.
+Para C# e F# as funções, é possível declarar o tipo de Acionador de entrada de ser um `HttpRequestMessage` ou um tipo personalizado. Se escolher `HttpRequestMessage`, obtém acesso total para o objeto de solicitação. Para um tipo personalizado, o tempo de execução tenta analisar o corpo do pedido JSON para definir as propriedades do objeto.
 
 Para funções de JavaScript, o runtime das funções fornece o corpo do pedido em vez do objeto de solicitação. Para obter mais informações, consulte a [exemplo de Acionador de JavaScript](#trigger---javascript-example).
 
@@ -434,6 +434,45 @@ Por predefinição, todas as rotas de função têm o prefixo *api*. Também pod
 }
 ```
 
+### <a name="working-with-client-identities"></a>Trabalhar com identidades de cliente
+
+Se estiver a utilizar a aplicação de funções [aplicação serviço de autenticação / autorização](../app-service/app-service-authentication-overview.md), pode ver informações sobre os clientes autenticados a partir do código. Essas informações estão disponíveis como [injetados pela plataforma de cabeçalhos de pedido](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+
+Também é possível ler essas informações de vinculação de dados. Esta funcionalidade só está disponível para o runtime 2.x de funções. Também está atualmente apenas disponível para linguagens .NET.
+
+No .NET languagues, esta informação está disponível como um [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). A ClaimsPrincipal está disponível como parte do contexto do pedido, conforme mostrado no exemplo a seguir:
+
+```csharp
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+
+public static IActionResult Run(HttpRequest req, ILogger log)
+{
+    ClaimsPrincipal identities = req.HttpContext.User;
+    // ...
+    return new OkResult();
+}
+```
+
+Em alternativa, o ClaimsPrincipal pode ser incluído como um parâmetro adicional na assinatura de função:
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
+{
+    // ...
+    return;
+}
+
+```
+
 ### <a name="authorization-keys"></a>Chaves de autorização
 
 As funções permite-lhe utilizar as chaves para que seja mais difícil acessar os pontos finais de função HTTP durante o desenvolvimento.  Um acionador HTTP padrão pode exigir que uma chave de API de estar presente no pedido. 
@@ -483,7 +522,7 @@ Pode permitir pedidos anónimos, que não necessitam de chaves. Também pode exi
 
 Para proteger completamente seus pontos de extremidade de função na produção, deve considerar a implementação de uma das seguintes opções de segurança ao nível da aplicação de função:
 
-* Ativar a autenticação do serviço de aplicação / autorização para a sua aplicação de função. A plataforma de serviço de aplicações permite utilizar o Azure Active Directory (AAD) e de vários fornecedores de identidade de terceiros para autenticar clientes. Pode utilizá-lo para implementar regras de autorização personalizada para as suas funções e pode trabalhar com informações de utilizador a partir do código de função. Para obter mais informações, consulte [autenticação e autorização no serviço de aplicações do Azure](../app-service/app-service-authentication-overview.md).
+* Ativar a autenticação do serviço de aplicação / autorização para a sua aplicação de função. A plataforma de serviço de aplicações permite utilizar o Azure Active Directory (AAD) e de vários fornecedores de identidade de terceiros para autenticar clientes. Pode utilizá-lo para implementar regras de autorização personalizada para as suas funções e pode trabalhar com informações de utilizador a partir do código de função. Para obter mais informações, consulte [autenticação e autorização no serviço de aplicações do Azure](../app-service/app-service-authentication-overview.md) e [trabalhar com identidades-cliente](#working-with-client-identities).
 
 * Utilize a gestão de API do Azure (APIM) para autenticar pedidos. APIM fornece uma variedade de opções de segurança de API para pedidos recebidos. Para obter mais informações, consulte [políticas de autenticação de gestão de API](../api-management/api-management-authentication-policies.md). Com APIM no local, pode configurar a aplicação de funções para aceitar pedidos apenas a partir do endereço IP da sua instância APIM. Para obter mais informações, consulte [restrições de endereço IP](ip-addresses.md#ip-address-restrictions).
 

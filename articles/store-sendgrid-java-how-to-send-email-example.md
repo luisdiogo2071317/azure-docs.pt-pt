@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: 400c8ac229e00e818e336f1c47b126d3e8a2d155
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253844"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421952"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Como enviar E-mails com o SendGrid de Java numa implementação do Azure
 O exemplo seguinte mostra como pode utilizar o SendGrid para enviar e-mails a partir de uma página da web alojadas no Azure. O aplicativo resultante pedirá ao utilizador para os valores de e-mail, conforme mostrado na captura de ecrã seguinte.
@@ -32,7 +32,7 @@ O e-mail resultante terá um aspeto semelhante à captura de ecrã seguinte.
 
 Precisará fazer o seguinte para utilizar o código neste tópico:
 
-1. Obter javax.mail JARs, por exemplo a partir de <http://www.oracle.com/technetwork/java/javamail/index.html>.
+1. Obter javax.mail JARs, por exemplo a partir de <https://www.oracle.com/technetwork/java/javamail/index.html>.
 2. Adicione o Intune ao seu caminho de compilação de Java.
 3. Se estiver a utilizar o Eclipse para criar esta aplicação de Java, pode incluir as bibliotecas do SendGrid no seu ficheiro de implementação de aplicação (WAR) usando o recurso de assemblagem de implantação do Eclipse. Se não estiver a utilizar o Eclipse para criar esta aplicação de Java, certifique-se de que as bibliotecas são incluídas na mesma função do Azure como a sua aplicação Java e adicionadas para o caminho da classe de seu aplicativo.
 
@@ -45,7 +45,7 @@ O código seguinte mostra como criar um formulário da web para obter dados de u
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -101,7 +101,7 @@ O código a seguir, que é chamado quando concluir o formulário no emailform.js
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" import="javax.activation.*, javax.mail.*, javax.mail.internet.*, java.util.Date, java.util.Properties" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a000c599ecf8287af57aec2f6e9d550bbe61f280
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8beb372c3fae567b23e51d2776dd9a79d837c657
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279886"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313848"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
@@ -86,7 +86,7 @@ Serviços de mensagens do Service Bus (filas e tópicos/subscrições) permitem 
 Para obter uma lista de possíveis exceções do Service Bus, consulte [descrição geral de exceções][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>O que é uma assinatura de acesso partilhado e que idiomas suportam gerar uma assinatura?
-Assinaturas de acesso partilhado são um mecanismo de autenticação com base no SHA-256 hashes seguros ou URIs. Para obter informações sobre como gerar seus próprios assinaturas no nó, PHP, Java e C\#, consulte a [assinaturas de acesso partilhado] [ Shared Access Signatures] artigo.
+Assinaturas de acesso partilhado são um mecanismo de autenticação com base nos hashes de seguros de SHA-256 ou URIs. Para obter informações sobre como gerar seus próprios assinaturas no node. js, PHP, Java e C\#, consulte a [assinaturas de acesso partilhado] [ Shared Access Signatures] artigo.
 
 ## <a name="subscription-and-namespace-management"></a>Gestão de subscrição e o espaço de nomes
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Como posso migrar um espaço de nomes para outra subscrição do Azure?

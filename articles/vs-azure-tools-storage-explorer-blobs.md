@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 8315647afec0166b41ce7a75f491077edd56db46
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036265"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422057"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerir recursos de armazenamento de Blobs do Azure com o Explorador de armazenamento
 ## <a name="overview"></a>Descrição geral
@@ -29,7 +29,7 @@ Pode utilizar o armazenamento de Blobs para expor publicamente os dados ao mundo
 ## <a name="prerequisites"></a>Pré-requisitos
 Para executar os passos descritos neste artigo, é necessário o seguinte:
 
-* [Transferir e instalar o Explorador de Armazenamento](http://www.storageexplorer.com)
+* [Transferir e instalar o Explorador de Armazenamento](https://www.storageexplorer.com)
 * [Ligar a um serviço ou a uma conta de armazenamento do Azure](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Criar um contentor de blobs
@@ -213,7 +213,7 @@ Os passos seguintes mostram como gerir os blobs (e pastas) dentro de um contento
      3. Selecione **Yes (Sim)**, na caixa de diálogo de confirmação.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Vejas os [mais recentes vídeos e notas de versão do Explorador de Armazenamento](http://www.storageexplorer.com).
+* Vejas os [mais recentes vídeos e notas de versão do Explorador de Armazenamento](https://www.storageexplorer.com).
 * Saiba como [utilizar blobs, tabelas, filas e ficheiros do Azure para criar aplicações](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 10a63768550182309f3193b39c2d00992398d190
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 3b3b15db171dc00519c532a229205df96ef29e31
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244564"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316893"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introdução à Máquina Virtual de Ciência de Dados do Azure para Linux e Windows
 
@@ -108,9 +108,9 @@ A Máquina Virtual de Ciência de Dados tem já instaladas e configuradas muitas
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](https://togaware.com/rattle/) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (apenas Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CatBoost](https://tech.yandex.com/catboost/) | N | Y (apenas Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/), [Deep Water](https://www.h2o.ai/deep-water/) | N | Y (apenas Ubuntu) |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [o Sparkling Water](https://www.h2o.ai/sparkling-water/) | N | Y (apenas Ubuntu) |
 | **Ferramentas de Aprendizagem Aprofundada** <br>Todas as ferramentas funcionarão num GPU ou CPU |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) (Windows 2016) | S | S |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | S (Windows 2016) | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Horovod](https://github.com/uber/horovod) | N | Y (Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | S (Windows 2016) | S|
@@ -138,5 +138,5 @@ A Máquina Virtual de Ciência de Dados tem já instaladas e configuradas muitas
 * Para obter mais informações sobre como criar e utilizar uma DSVM do Ubuntu, veja [Provision the Data Science Virtual Machine for Linux (Ubuntu)](dsvm-ubuntu-intro.md) (Aprovisionar a Máquina Virtual de Ciência de Dados do Linux [Ubuntu]). Para obter mais informações sobre como criar e utilizar uma DSVM do CentOS, veja [Provision a Linux CentOS Data Science Virtual Machine on Azure](linux-dsvm-intro.md) (Aprovisionar uma Máquina Virtual de Ciência de Dados de CentOS do Linux).
 * Para obter instruções que lhe mostram como fazer várias tarefas de ciência de dados comuns com a VM do Linux, tanto para CentOS, como para Ubuntu, veja [Data science on the Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md) (Ciência de dados na Máquina Virtual de Ciência de Dados do Linux).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Guia do programador em R para o Azure](../r-developers-guide.md)

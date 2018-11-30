@@ -1,18 +1,25 @@
 ---
-title: Resolver problemas relacionados com as ativações pós-falha para o Azure | Documentos da Microsoft
-description: Este artigo descreve como resolver problemas comuns durante a ativação pós-falha para o Azure com o Azure Site Recovery.
+title: Resolver problemas de ativação pós-falha para falhas do Azure | Documentos da Microsoft
+description: Este artigo descreve formas de resolver erros comuns na ativação pós-falha para o Azure
+services: site-recovery
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
+ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: 420d061b34734c7b5997f5cdd58fe7faaee9cb82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 11/27/2018
+ms.author: mayg
+ms.openlocfilehash: 1e7486dc646843c473cfb355445e194893934a1a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236761"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447151"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Resolver erros ao efetuar a ativação pós-falha de uma máquina virtual para o Azure
 
@@ -22,7 +29,7 @@ Poderá receber um dos seguintes erros durante o processo de ativação pós-fal
 
 Recuperação de sites não foi possível criar um com falha através de máquina virtual no Azure. Isso pode acontecer devido a uma das seguintes razões:
 
-* Não existe uma quota suficiente disponível para criar a máquina virtual: pode verificar a quota disponível ao aceder à subscrição -> utilização e quotas. Pode abrir um [novo pedido de suporte](https://aka.ms/getazuresupport) para aumentar a quota.
+* Não existe uma quota suficiente disponível para criar a máquina virtual: pode verificar a quota disponível ao aceder à subscrição -> utilização e quotas. Pode abrir um [novo pedido de suporte](http://aka.ms/getazuresupport) para aumentar a quota.
 
 * Está a tentar máquinas de virtuais de ativação pós-falha de famílias de tamanhos diferentes no mesmo conjunto de disponibilidade. Certifique-se de que escolha mesma família de tamanho para todas as máquinas virtuais no mesmo conjunto de disponibilidade. Alterar tamanho acedendo a definições de computação e rede da máquina virtual e, em seguida, repita a ativação pós-falha.
 
@@ -30,7 +37,7 @@ Recuperação de sites não foi possível criar um com falha através de máquin
 
 ## <a name="failover-failed-with-error-id-28092"></a>Falha na ativação pós-falha com o ID do erro 28092
 
-Recuperação de sites não foi possível criar uma interface de rede para a máquina virtual com ativação pós-falha. Certifique-se de que tem quota suficiente disponível para criar interfaces de rede na subscrição. Pode verificar a quota disponível ao aceder à subscrição -> utilização e quotas. Pode abrir um [novo pedido de suporte](https://aka.ms/getazuresupport) para aumentar a quota. Se tiver quota suficiente, em seguida, pode ser um intermitente emitir, repita a operação. Se o problema persistir, mesmo após as repetições, em seguida, deixe um comentário no final deste documento.  
+Recuperação de sites não foi possível criar uma interface de rede para a máquina virtual com ativação pós-falha. Certifique-se de que tem quota suficiente disponível para criar interfaces de rede na subscrição. Pode verificar a quota disponível ao aceder à subscrição -> utilização e quotas. Pode abrir um [novo pedido de suporte](http://aka.ms/getazuresupport) para aumentar a quota. Se tiver quota suficiente, em seguida, pode ser um intermitente emitir, repita a operação. Se o problema persistir, mesmo após as repetições, em seguida, deixe um comentário no final deste documento.  
 
 ## <a name="failover-failed-with-error-id-70038"></a>Falha na ativação pós-falha com o ID do erro 70038
 
@@ -38,7 +45,37 @@ Recuperação de sites não foi possível criar um com falha através de máquin
 
 * Um dos recursos, como uma rede virtual que é necessário para a máquina virtual a ser criada não existe. Criar a rede virtual, conforme indicado nas definições de computação e rede da máquina virtual ou modificar a definição a uma rede virtual que já existe e, em seguida, repita a ativação pós-falha.
 
-## <a name="unable-to-connectrdpssh---vm-connect-button-grayed-out"></a>Não é possível ligar/RDP/SSH - VM ligar botão a cinzento
+## <a name="failover-failed-with-error-id-170010"></a>Falha na ativação pós-falha com 170010 de ID de erro
+
+Recuperação de sites não foi possível criar um com falha através de máquina virtual no Azure. Pode ter ocorrido porque uma atividade interna de hidratação falhou para a máquina virtual no local.
+
+Para abrir qualquer máquina no Azure, o ambiente do Azure requer alguns dos controladores no arranque iniciar estado e serviços, como o DHCP esteja no estado de início automático. Portanto, atividade de hidratação, no momento da ativação pós-falha, converte o tipo de arranque de **drivers atapi, intelide, storflt, vmbus e storvsc** arranque inicial. Além disso, converte o tipo de arranque de alguns serviços, como o DHCP para inicialização automática. Esta atividade pode falhar devido a problemas específicos do ambiente. Para alterar manualmente o tipo de arranque de drivers, siga os passos abaixo:
+
+1. [Transferir](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) o script de não-hidratação e executá-la como se segue. Este script verifica se a VM requer hidratação.
+
+    `.\Script-no-hydration.ps1`
+
+    Ele fornece o seguinte resultado se hidratação é necessária:
+
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+
+        This system doesn't meet no-hydration requirement.
+
+    No caso da VM cumpre o requisito de não-hidratação, o script fornecerá o resultado de "este sistema cumpre o requisito de não-hidratação". Neste caso, todos os drivers e serviços estão no estado conforme exigido pelo Azure e hidratação na VM não é necessária.
+
+2. Execute o script de não-hidratação-conjunto da seguinte forma, se a VM não cumpre o requisito de não-hidratação.
+
+    `.\Script-no-hydration.ps1 -set`
+    
+    Isto irá converter o tipo de arranque de drivers e fornecerá o resultado, conforme mostrado abaixo:
+    
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
+
+        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+
+        This system is now no-hydration compatible. 
+
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>Não é possível ligar/RDP/SSH na máquina virtual devido a ativação pós-falha cinzento botão Conectar na máquina virtual
 
 Se o **Connect** botão na ativação pós-falha VM no Azure está a cinzento e não estiver ligado ao Azure através de uma Express Route ou VPN de Site a Site ligação, em seguida,
 

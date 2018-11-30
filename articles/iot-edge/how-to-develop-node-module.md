@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 92746b37d6c7577691b46bf34a00f607ad707ff9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 51c2154f4132340e00b8fddcfaeb6e999519c48f
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569044"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446709"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar módulos node. js para o Azure IoT Edge
 
@@ -65,7 +65,7 @@ Os seguintes passos mostram como criar um módulo do IoT Edge com base em node. 
 6. Forneça um nome para a sua solução. 
 7. Escolher **módulo de node. js** como o modelo para o primeiro módulo na solução.
 8. Forneça um nome para seu módulo. Escolha um nome que é exclusivo no seu registo de contentor. 
-9. Indique o repositório de imagens para o módulo. O nome de código de VS autopopulates o módulo, portanto, precisa apenas substituir **localhost:5000** pelas suas informações de registo. Se utilizar um registo do Docker local para fins de teste, é bem localhost. Se utilizar o Azure Container Registry, em seguida, utilize o servidor de início de sessão a partir das definições do seu registo. O servidor de início de sessão é semelhante  **\<nome do registo\>. azurecr.io**. Substitua apenas a parte localhost da cadeia de carateres, não elimine o nome do módulo.
+9. Indique o repositório de imagens para o módulo. O nome de código de VS autopopulates o módulo, portanto, precisa apenas substituir **localhost:5000** pelas suas informações de registo. Se utilizar um registo do Docker local para fins de teste, é bem localhost. Se utilizar o Azure Container Registry, em seguida, utilize o servidor de início de sessão a partir das definições do seu registo. O servidor de início de sessão é semelhante  **\<nome do registo\>. azurecr.io**. Substitua apenas a parte localhost da cadeia de carateres, não elimine o nome do módulo. A cadeia final se parece com \<nome do registo\>.azurecr.io/\<modulename\>.
 
    ![Fornecer repositório de imagens do Docker](./media/how-to-develop-node-module/repository.png)
 
@@ -80,6 +80,7 @@ Dentro da solução tem três itens:
    >Só é criado o ficheiro de ambiente se fornecer um repositório de imagens para o módulo. Se aceitou os padrões de localhost para testar e depurar localmente, não tem de declarar as variáveis de ambiente. 
 
 * R **deployment.template.json** seu novo módulo juntamente com um exemplo apresenta uma lista de ficheiros **tempSensor** módulo que simula dados que pode utilizar para fins de teste. Para obter mais informações sobre como o trabalho de manifestos de implantação, consulte [compreender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
+* R **deployment.debug.template.json** contentores a versão de depuração do seu módulo imagens com opções do contentor adequado de ficheiros.
 
 ## <a name="develop-your-module"></a>Desenvolver o seu módulo
 
@@ -92,6 +93,14 @@ Visual Studio Code tem suporte para node. js. Saiba mais sobre [como trabalhar c
 ## <a name="launch-and-debug-module-code-without-container"></a>Inicie e depurar o código de módulo sem contentor
 
 O módulo de node. js do IoT Edge depende do Azure IoT SDK de dispositivo node. js. No código do módulo padrão, inicializar uma **ModuleClient** com definições de ambiente e o nome de entrada, que significa que o módulo de node. js do IoT Edge requer as definições de ambiente iniciar e executar e, também terá de enviar ou encaminhar mensagens para os canais de entrada. O módulo de node. js predefinida contém apenas um canal de entrada e o nome é **input1**.
+
+### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>Simulador de IoT Edge do programa de configuração para a solução de IoT Edge
+
+No computador de desenvolvimento, pode iniciar o simulador do IoT Edge em vez de instalar o daemon de segurança de IoT Edge para executar a sua solução de IoT Edge. 
+
+1. No Explorador de dispositivos no lado esquerdo, faça duplo clique no seu ID de dispositivo do IoT Edge, selecione **configuração do IoT Edge simulador** para iniciar o simulador com a cadeia de ligação do dispositivo.
+
+2. Pode ver que o simulador do IoT Edge tem sido com êxito a configuração no terminal integrado.
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>Simulador de IoT Edge do programa de configuração para a aplicação de módulo único
 
@@ -152,12 +161,7 @@ No computador de desenvolvimento, pode iniciar o simulador do IoT Edge em vez de
 
 ### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Criar e executar o contentor para depuração e de depuração no modo de anexar
 
-1. No VS Code, navegue para o `deployment.template.json` ficheiro. Atualizar o seu URL de imagem do módulo adicionando **.debug** ao fim.
-
-2. Substitua o createOptions do módulo de node. js em **deployment.template.json** com abaixo conteúdo e guarde este ficheiro: 
-    ```json
-    "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
-    ```
+1. No VS Code, navegue para o `deployment.debug.template.json` ficheiro. No menu de contexto, clique em **solução de compilação e executar o IoT Edge no simulador**. Pode ver que registos de todos os contentores de módulo na janela da mesma. Também pode navegar para o Docker Explorer para ver o estado do contentor.
 
 3. Navegue para a vista de depuração do VS Code. Selecione o ficheiro de configuração de depuração para seu módulo. O nome de opção de depuração deve ser semelhante à **ModuleName depuração remota (node. js)** ou **ModuleName depuração remota (node. js num contentor do Windows)**, que depende de seu tipo de contentor no computador de desenvolvimento.
 

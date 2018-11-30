@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 5267ce5c50e8a57843f0bc54165289b38013ad91
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2baae0a1932bdcb7fa5e29ac06dd8ae7a7020a30
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986120"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421849"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurar uma rede virtual através de um ficheiro de configuração de rede (clássico)
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo de implementação do Resource Manager.
+> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo cobre a utilização do modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo de implementação do Resource Manager.
 
 Pode criar e configurar uma rede virtual (clássico) com um arquivo de configuração de rede usando a interface de linha de comandos (CLI) clássica do Azure ou o Azure PowerShell. Não é possível criar ou modificar uma rede virtual por meio do modelo de implementação Azure Resource Manager através de um ficheiro de configuração de rede. Não é possível utilizar o portal do Azure para criar ou modificar uma rede virtual (clássico) com um ficheiro de configuração de rede, no entanto, pode utilizar o portal do Azure para criar uma rede virtual (clássico), sem utilizar um ficheiro de configuração de rede.
 
@@ -134,7 +134,7 @@ Pode utilizar o PowerShell ou a CLI clássica para importar um ficheiro de confi
 
 ### <a name="azure-classic-cli"></a>CLI clássica do Azure
 
-1. [Instalar a CLI do Azure clássica](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Conclua os passos restantes na linha de comandos da CLI clássica.
+1. [Instalar a CLI do Azure clássica](/cli/azure/install-classic-cli). Conclua os passos restantes na linha de comandos da CLI clássica.
 2. Inicie sessão no Azure ao introduzir o `azure login` comando.
 3. Certifique-se de que está no modo asm introduzindo o `azure config mode asm` comando.
 4. Altere o diretório e o nome de ficheiro no comando seguinte, se necessário, em seguida, execute o comando para importar o ficheiro de configuração de rede:

@@ -1,6 +1,6 @@
 ---
-title: 'Resolução de problemas: Criar e ligar a uma área de trabalho do Machine Learning | Documentos da Microsoft'
-description: Soluções para problemas comuns de criar e ligar a uma área de trabalho do Azure Machine Learning
+title: 'Resolução de problemas: Criar, ligar a uma área de trabalho do Machine Learning Studio - Azure | Documentos da Microsoft'
+description: Este guia fornece soluções para alguns encontrados com freqüência desafios quando estiver a configurar áreas de trabalho do Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: f86018c78de842717bf387c007fdd4c7cd048ef1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5e52abeeef7d40ac5594f4edfa2b80ef553081e4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265207"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312073"
 ---
-# <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Guia de resolução de problemas: criar e ligar a uma área de trabalho do Machine Learning
-Este guia fornece soluções para alguns encontrados com freqüência desafios quando estiver a configurar áreas de trabalho do Azure Machine Learning.
+# <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-studio-workspace"></a>Guia de resolução de problemas: criar e ligar a uma área de trabalho do Machine Learning Studio
+Este guia fornece soluções para alguns encontrados com freqüência desafios quando estiver a configurar áreas de trabalho do Azure Machine Learning Studio.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

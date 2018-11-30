@@ -4,17 +4,17 @@ description: Este artigo explica os passos para ativar o módulo do Resource Gra
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 001805aaf87ed6c3481a8ad8378cdc22ef74d274
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: 6bd7ceaeaf0b064ebbd8f069a4741489349bb980
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646393"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427510"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Executar a primeira consulta do Resource Graph com o Azure PowerShell
 
@@ -37,9 +37,6 @@ O módulo do Azure Resource Graph necessita do seguinte software:
   - Para o PowerShell Core, utilize a versão **Az** do módulo Azure PowerShell.
 
   - Para o Windows PowerShell, utilize a versão **AzureRm** do módulo Azure PowerShell.
-
-  > [!NOTE]
-  > Atualmente, não se recomenda instalar o módulo no Cloud Shell.
 
 - PowerShellGet 2.0.1 ou superior. Se não estiver ainda instalado ou atualizado, siga [estas instruções](/powershell/gallery/installing-psget).
 
@@ -137,7 +134,7 @@ Remove-Module -Name 'AzureRm.ResourceGraph'
 > [!NOTE]
 > Este comando não elimina o ficheiro do módulo que transferiu anteriormente. Apenas o remove da sessão do PowerShell.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Obter mais informações sobre a [linguagem de consulta](./concepts/query-language.md)
 - Aprender a [explorar recursos](./concepts/explore-resources.md)

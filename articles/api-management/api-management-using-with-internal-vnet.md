@@ -14,26 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 6b6fd7395f7aff303f4950fb07bd0472cf7057a2
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: acaf73c2d981761b0bc57cfccbbf6c6a48e5e0c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145745"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446520"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço de gestão de API do Azure com uma rede virtual interna
 Com as redes virtuais do Azure, gestão de API do Azure pode gerir APIs não está acessíveis na internet. Um número de tecnologias VPN está disponível para fazer a conexão. Gestão de API pode ser implementada em dois modos principais dentro de uma rede virtual:
 * Externo
 * Interno
 
-
 Quando implementar a gestão de API no modo de rede virtual interna, só estão visíveis numa rede virtual que controla o acesso a todos os pontos finais de serviço (gateway, o portal do programador, o portal do Azure, gestão direta e Git). Nenhum dos pontos de extremidade de serviço estão registados no servidor DNS público.
 
 Utilizar a gestão de API no modo interno, é possível obter os seguintes cenários:
+
 * Tornar APIs alojadas no seu datacenter privada acessível de forma segura por terceiros fora dele com o site a site ou ligações de VPN do Azure ExpressRoute.
 * Ative cenários de nuvem híbrida, expondo as suas APIs com base na cloud e APIs no local através de um gateway comum.
 * Gerir as suas APIs alojados em várias localizações geográficas utilizando um ponto de final de gateway único. 
 
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +52,7 @@ O serviço de gestão de API numa rede virtual interna é hospedado por trás de
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Ativar uma ligação de rede virtual com o portal do Azure
 
 1. Navegue para a sua instância de gestão de API do Azure no [portal do Azure](https://portal.azure.com/).
-2. Selecione **rede Virtual**.
+2. Selecione **Rede virtual**.
 3. Configure a instância de gestão de API para ser implantado dentro da rede virtual.
 
     ![Menu para configurar uma API Management do Azure numa rede virtual interna][api-management-using-internal-vnet-menu]

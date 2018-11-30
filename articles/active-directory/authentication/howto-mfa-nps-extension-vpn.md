@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f08bf6a65a93c31d76c5b336cc6ef433153d71c4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297576"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423122"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar a sua infraestrutura VPN com o MFA do Azure ao utilizar a extensão de servidor de políticas de rede para o Azure
 
@@ -438,7 +438,7 @@ Um evento relacionado a partir do registo de multi-factor Authentication é most
 
 Para fazer a resolução de problemas avançada, consulte os ficheiros de registo do formato do NPS da base de dados onde o serviço NPS está instalado. Os ficheiros de registo são criados no _%SystemRoot%\System32\Logs_ pasta como arquivos de texto delimitado por vírgulas. Para obter uma descrição dos ficheiros de registo, consulte [interpretar NPS base de dados do formato de ficheiros de registo](https://technet.microsoft.com/library/cc771748.aspx). 
 
-As entradas nestes ficheiros de registo são difíceis de interpretar, a menos que exporte-os para uma folha de cálculo ou uma base de dados. Pode encontrar muitos autenticação serviço Internet (IAS) de análise online de ferramentas para ajudá-lo a interpretar os ficheiros de registo. A saída de um desses que pode ser baixado [aplicativos shareware](http://www.deepsoftware.com/iasviewer) é mostrado aqui: 
+As entradas nestes ficheiros de registo são difíceis de interpretar, a menos que exporte-os para uma folha de cálculo ou uma base de dados. Pode encontrar muitos autenticação serviço Internet (IAS) de análise online de ferramentas para ajudá-lo a interpretar os ficheiros de registo. A saída de um desses que pode ser baixado [aplicativos shareware](https://www.deepsoftware.com/iasviewer) é mostrado aqui: 
 
 ![Aplicação de shareware](./media/howto-mfa-nps-extension-vpn/image49.png)
 

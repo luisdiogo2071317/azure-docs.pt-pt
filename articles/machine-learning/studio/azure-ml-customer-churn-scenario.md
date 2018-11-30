@@ -1,6 +1,6 @@
 ---
-title: Analisar o abandono de clientes com o Machine Learning | Documentos da Microsoft
-description: Estudo de caso de desenvolvimento de um modelo integrado para analisar e classificação de abandono de clientes
+title: Analisar o abandono de clientes com o Azure Machine Learning Studio | Documentos da Microsoft
+description: Estudo de caso de desenvolvimento de um modelo integrado para analisar e classificação de abandono de clientes com o Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 7c55e35370e2aed67045333eaee7a42c3c69d318
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261178"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314989"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Analisar o abandono de clientes com o Azure Machine Learning
+# <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analisar o abandono de clientes com o Azure Machine Learning Studio
 ## <a name="overview"></a>Descrição geral
 Este artigo apresenta uma implementação de referência de um projeto de análise de alterações a dados de cliente que baseia-se com o Azure Machine Learning. Neste artigo, discutimos a modelos genéricos associados para holística resolver o problema de abandono de clientes industriais. Podemos também medir a precisão de modelos que são criadas com Machine Learning e avaliar as direções para o desenvolvimento ainda mais.  
 

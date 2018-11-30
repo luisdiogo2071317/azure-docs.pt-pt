@@ -1,5 +1,5 @@
 ---
-title: Reenviar um serviço da web do Azure Machine Learning novo com o PowerShell | Documentos da Microsoft
+title: Voltar a preparar um novo serviço de web do Machine Learning Studio com o PowerShell – Azure | Documentos da Microsoft
 description: Saiba como voltar a preparar um modelo e atualize o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning, utilizando os cmdlets do PowerShell de gestão do Machine Learning programaticamente.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 77ae0c9f8af82e238b58945d1427afd6a01173e3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 59d12ae91f8c75ab0fdd2058057cc8de158897e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263040"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314189"
 ---
-# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Reenviar um serviço da web baseados no Resource Manager novas com os cmdlets do PowerShell de gestão do Machine Learning
+# <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-studio-management-powershell-cmdlets"></a>Voltar a preparar um novo serviço web baseado no Resource Manager com os cmdlets do PowerShell de gestão do Machine Learning Studio
 Quando voltar a preparar um novo serviço web, atualizar a definição de serviço web preditivo para referenciar o novo modelo treinado.
 
 ## <a name="prerequisites"></a>Pré-requisitos

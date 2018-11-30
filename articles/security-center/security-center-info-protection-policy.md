@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: ac4aa3c8aafae24736cc7b48a9ca4e8ba9fd0742
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e3dfbc4fc4d7ed40ebac7de6fe78398b13eafd58
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125192"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316553"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizar a política de proteção de informações de SQL no Centro de segurança do Azure (pré-visualização)
  
@@ -38,7 +38,7 @@ O mecanismo de classificação baseia-se em duas construções primárias que co
  
 Proteção de informações é fornecido com um conjunto interno de etiquetas e tipos de informações, que são utilizados por predefinição. Para personalizá-los, pode personalizar a política de proteção de informações no Centro de segurança do Azure.
  
-## <a name="customize-the-information-protection-policy"></a>Personalizar a política de proteção de informações
+## <a name="customize-the-information-protection-policy"></a>Personalizar a política de proteção predefinida
 Para personalizar a política de proteção de informações para o seu inquilino do Azure, tem de ter [privilégios administrativos no grupo de gestão de raiz do inquilino](security-center-management-groups.md). 
  
 1. No menu principal do Centro de segurança, selecione **política de segurança**.
@@ -54,7 +54,7 @@ Para personalizar a política de proteção de informações para o seu inquilin
 2. Na **etiqueta de sensibilidade configurar** ecrã, pode criar ou alterar o nome de etiqueta e a descrição. Também pode definir se a etiqueta está desativada ou Active Directory, Ativando a **ativado** mudar ou desativar. Por fim, pode adicionar ou remover tipos de informações associados com a etiqueta. Todos os dados detetados que corresponda ao que tipo de informações incluirá automaticamente a etiqueta de sensibilidade associado nas recomendações de classificação.
 3. Clique em **OK**.
  
-   ![Configurar a etiqueta de confidencialidade](./media/security-center-info-protection-policy/config-sensitivity-label.png)
+   ![Configurar etiqueta de confidencialidade](./media/security-center-info-protection-policy/config-sensitivity-label.png)
  
 4. As etiquetas são listadas por ordem de ascendente sensibilidade. Para alterar a classificação entre as etiquetas, arraste as etiquetas para reordenar na tabela ou utilize o **mover para cima** e **mover para baixo** botões para alterar a ordem. 
  
@@ -86,7 +86,7 @@ Neste artigo, aprendeu sobre como definir uma política de proteção de informa
 Para obter mais informações sobre políticas de segurança e a segurança de dados no Centro de segurança do Azure, consulte os artigos seguintes:
  
 - [Descrição geral das políticas de segurança](security-center-policies-overview.md): obter uma descrição geral das políticas de segurança no Centro de segurança
-- [Definir políticas de segurança no Centro de segurança do Azure](security-center-policies.md): Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos
+- [Definir políticas de segurança no Centro de segurança do Azure](security-center-azure-policy.md): Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos
 - [Segurança de dados do Centro de segurança do Azure](security-center-data-security.md): Saiba como o Centro de segurança gere e protege os dados
 
 

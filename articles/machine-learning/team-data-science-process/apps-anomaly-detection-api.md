@@ -2,25 +2,21 @@
 title: Do Azure Machine Learning API de deteção de anomalias | Documentos da Microsoft
 description: API de deteção de anomalias é um exemplo criado com o Microsoft Azure Machine Learning que Deteta anomalias nos dados de séries de tempo com valores numéricos que são espaçados uniformemente no tempo.
 services: machine-learning
-documentationcenter: ''
-author: alokkirpal
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 06/05/2017
-ms.author: alok
-ms.openlocfilehash: 0b99aeb2ffdb78e472cdc0e11d0efaf91feb3e4a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.author: tdsp
+ms.custom: (previous author=alokkirpal, ms.author=alok)
+ms.openlocfilehash: 485cf6af9f019bc43ee862627db8549240690247
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394498"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443938"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Do Machine Learning API de deteção de anomalias
 ## <a name="overview"></a>Descrição geral

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e437e7b7d5298af325ae2a5e2ba689b417bad022
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002925"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426796"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de pesquisa no Azure Data Factory
 
@@ -297,6 +297,15 @@ Esta instância de base de dados do Azure SQL contém os dados para ser copiado 
     }
 ]
 ```
+
+## <a name="limitations-and-workarounds"></a>Limitações e soluções alternativas
+
+Aqui estão algumas limitações da atividade de pesquisa e soluções alternativas sugeridas.
+
+| Limitação | Solução |
+|---|---|
+| A atividade de pesquisa possui um máximo de 5000 linhas e um tamanho máximo de 2 MB. | Crie um pipeline de dois níveis em que o pipeline externo itera através de um pipeline interno, que obtém dados que não excedam o máximo de linhas ou o tamanho. |
+| | |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte outras atividades de fluxo de controle suportadas pelo Data Factory: 

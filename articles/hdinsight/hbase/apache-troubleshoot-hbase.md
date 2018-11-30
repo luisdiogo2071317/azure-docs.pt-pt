@@ -8,14 +8,14 @@ ms.author: nitinver
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 7/7/2017
-ms.openlocfilehash: e25a2dcaf9b7c820f5d7e0312fb2cb55fc558882
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 771f01f18c5cb54a0458d624a65ec1a69345cadd
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593904"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317233"
 ---
-# <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Resolver problemas relacionados com o HBase com o Azure HDInsight
+# <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Resolver problemas relacionados com o Apache HBase com o Azure HDInsight
 
 Saiba mais sobre os principais problemas e resolução ao trabalhar com payloads de Apache HBase no Apache Ambari.
 
@@ -30,7 +30,7 @@ Buracos podem ser tão causado pelas regiões offline, a corrigir as atribuiçõ
 Para que as regiões não atribuídas voltem a um estado normal, conclua os seguintes passos:
 
 1. Inicie sessão para o cluster do HBase do HDInsight com SSH.
-2. Para ligar com o shell do ZooKeeper, execute o `hbase zkcli` comando.
+2. Para ligar com o shell do Apache ZooKeeper, execute o `hbase zkcli` comando.
 3. Executar o `rmr /hbase/regions-in-transition` comando ou o `rmr /hbase-unsecure/regions-in-transition` comando.
 4. Para sair dos `hbase zkcli` shell, utilize o `exit` comando.
 5. Abra a interface do Usuário do Apache Ambari e, em seguida, reinicie o serviço principal do HBase Active Directory.
@@ -46,7 +46,7 @@ Uma causa potencial para problemas de tempo limite quando utiliza o `hbck` coman
 ### <a name="resolution-steps"></a>Passos de resolução
 
 1. Inicie sessão para o cluster do HBase do HDInsight com SSH.
-2. Para ligar com o shell do ZooKeeper, execute o `hbase zkcli` comando.
+2. Para ligar com o shell do Apache ZooKeeper, execute o `hbase zkcli` comando.
 3. Executar o `rmr /hbase/regions-in-transition` ou o `rmr /hbase-unsecure/regions-in-transition` comando.
 4. Para sair da `hbase zkcli` shell, utilize o `exit` comando.
 5. Na IU do Ambari, reinicie o serviço de principal do HBase Active Directory.
@@ -56,7 +56,7 @@ Uma causa potencial para problemas de tempo limite quando utiliza o `hbck` coman
 
 ### <a name="issue"></a>Problema
 
-O local Hadoop Distributed File System (HDFS) fica preso em modo de segurança no cluster do HDInsight.
+O local Apache Hadoop Distributed File System (HDFS) fica preso em modo de segurança no cluster do HDInsight.
 
 ### <a name="detailed-description"></a>Descrição detalhada
 
@@ -211,7 +211,7 @@ O cluster do HDInsight tem sido colocada em escala para um muito alguns nós. O 
 
 ### <a name="resolution-steps"></a>Passos de resolução
 
-Para ligar com a Phoenix, tem de fornecer o endereço IP de um nó ativo do ZooKeeper. Certifique-se de que o serviço do ZooKeeper para o qual sqlline.py está a tentar ligar está em execução.
+Para ligar ao Apache Phoenix, tem de fornecer o endereço IP de um nó ativo do Apache ZooKeeper. Certifique-se de que o serviço do ZooKeeper para o qual sqlline.py está a tentar ligar está em execução.
 1. Inicie sessão para o cluster do HDInsight com SSH.
 2. Introduza o seguinte comando:
                 
@@ -247,7 +247,7 @@ Para ligar com a Phoenix, tem de fornecer o endereço IP de um nó ativo do ZooK
    ```apache
            ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
    ```
-6. Na IU do Ambari, conclua os seguintes passos para reiniciar o serviço de HMaster em todos os nós do ZooKeeper:
+6. Na IU do Ambari do Apache, conclua os seguintes passos para reiniciar o serviço de HMaster em todos os nós do ZooKeeper:
 
     1. Na **resumo** secção do HBase, aceda à **HBase** > **principal do HBase ativo**. 
     2. Na **componentes** secção, reinicie o serviço principal do HBase.
@@ -331,7 +331,7 @@ Este é um problema conhecido com o serviço de HMaster. Tarefas de arranque ger
   
 ### <a name="resolution-steps"></a>Passos de resolução
 
-1. Na IU do Ambari, aceda a **HBase** > **configurações**. No ficheiro de hbase-site personalizado, adicione a seguinte definição: 
+1. Na IU do Apache Ambari, aceda a **HBase** > **configurações**. No ficheiro de hbase-site personalizado, adicione a seguinte definição: 
 
    ```apache
    Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -344,9 +344,9 @@ Este é um problema conhecido com o serviço de HMaster. Tarefas de arranque ger
 
 ### <a name="issue"></a>Problema
 
-Uma falha de reinício num servidor de região pode ser impedida ao seguir as melhores práticas. Recomendamos que coloque em pausa a atividade de carga de trabalho pesadas quando estiver a planear reiniciar os servidores de região do HBase. Se um aplicativo continuar a ligar-se com os servidores de região quando shutdown está em curso, a operação de reinício do servidor de região será mais lenta por vários minutos. Além disso, é uma boa idéia primeiro esvaziar todas as tabelas. Para obter uma referência sobre como esvaziar tabelas, veja [HBase do HDInsight: como a melhorar o tempo de reinício de cluster do HBase ao liberá-lo tabelas](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Uma falha de reinício num servidor de região pode ser impedida ao seguir as melhores práticas. Recomendamos que coloque em pausa a atividade de carga de trabalho pesadas quando estiver a planear reiniciar os servidores de região do HBase. Se um aplicativo continuar a ligar-se com os servidores de região quando shutdown está em curso, a operação de reinício do servidor de região será mais lenta por vários minutos. Além disso, é uma boa idéia primeiro esvaziar todas as tabelas. Para obter uma referência sobre como esvaziar tabelas, veja [HBase do HDInsight: como melhorar o tempo de reinício de cluster do Apache HBase, liberá-lo tabelas](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
-Se iniciar a operação de reinício em servidores de região HBase da IU do Ambari, verá imediatamente que os servidores de região foi desativado, mas eles não reiniciem agora mesmo. 
+Se iniciar a operação de reinício em servidores de região HBase da IU do Apache Ambari, verá imediatamente que os servidores de região foi desativado, mas eles não reiniciem agora mesmo. 
 
 Eis o que está acontecendo nos bastidores: 
 

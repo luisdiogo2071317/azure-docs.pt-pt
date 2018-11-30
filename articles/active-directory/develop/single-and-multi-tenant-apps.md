@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: 8986f18b9f1f2953ad0612679d31996628870cb1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a965cd70e3eba04f278cf432196b9386b537462d
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988228"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424345"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Inquilinos no Azure Active Directory
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) organiza os objetos, como utilizadores e aplic
 
 ## <a name="who-can-sign-in-to-your-app"></a>Quem pode iniciar sessão sua aplicação?
 
-Quando se trata de desenvolvimento de aplicativos, os desenvolvedores podem optar por configurar a sua aplicação para ser inquilino único ou vários inquilinos durante o registo de aplicação no [portal do Azure](http://portal.azure.com).
+Quando se trata de desenvolvimento de aplicativos, os desenvolvedores podem optar por configurar a sua aplicação para ser inquilino único ou vários inquilinos durante o registo de aplicação no [portal do Azure](https://portal.azure.com).
 * Aplicações de inquilino único só estão disponíveis no inquilino que foram registados no, também conhecido como seu principal de inquilino.
 * Aplicações de multi-inquilinos estão disponíveis para os utilizadores no seu inquilino principal e de outros inquilinos.
 
@@ -37,7 +37,7 @@ No portal do Azure, pode configurar a sua aplicação para ser o inquilino únic
 
 | Audiência | Único/várias-tenant | Quem pode iniciar sessão | 
 |----------|--------| ---------|
-| Contas apenas neste diretório | Inquilino único | Todas as contas de convidado no seu diretório de utilizador e podem utilizar a sua aplicação ou API.<br>*Utilize esta opção se o seu público-alvo é interno para a sua organização.* |
+| Contas apenas neste diretório | Inquilino único | Todas as contas de convidados e utilizadores no seu diretório podem utilizar a sua aplicação ou a API.<br>*Utilize esta opção se o seu público-alvo é interno para a sua organização.* |
 | Contas de qualquer diretório do Azure AD | Multi-inquilino | Todos os utilizadores e convidados com uma conta escolar ou profissional da Microsoft podem utilizar a sua aplicação ou API. Isto inclui a instituições de ensino e empresas que utilizam o Office 365.<br>*Utilize esta opção se o seu público-alvo é empresas ou clientes de instituições de ensino.* |
 | Contas em qualquer diretório do Azure AD e as contas Microsoft pessoais (por exemplo, o Skype, Xbox, Outlook.com) | Multi-inquilino | Todos os utilizadores com um trabalho ou escola ou conta Microsoft pessoal podem utilizar a sua aplicação ou API. Ele inclui a instituições de ensino e as empresas que utilizam o Office 365, bem como contas pessoais que são utilizadas para iniciar sessão em serviços como a Xbox e o Skype.<br>*Utilize esta opção para o conjunto mais ampla de contas Microsoft de destino.* | 
 

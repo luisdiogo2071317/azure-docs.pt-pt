@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 7de9d1674860a6369c1dc09462a06def672fbdf2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0d78ae294cea383fbe59a1f7968d8bf18b1942d1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420528"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422961"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Utilizar o portal do Azure para restaurar máquinas virtuais
 Proteger os seus dados através de instantâneos dos seus dados em intervalos definidos. Estes instantâneos são conhecidos como pontos de recuperação e estão armazenados nos cofres dos serviços de recuperação. Se for necessário reparar ou recriar uma máquina virtual (VM), pode restaurar a VM a partir de qualquer um dos pontos de recuperação guardado. Quando restaurar um ponto de recuperação, pode:
@@ -151,7 +151,7 @@ Sobre o **configuração de restauro** painel, selecione **OK** para finalizar a
 Na **restaurar lugar** está a ser feito por meio da guia **substituir existente**.
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>Substituir discos existentes de um ponto de restauro
-**Substituir a existente** ajuda a opção para substituir discos existentes na VM atual com o ponto de restauro selecionado. Pode efetuar esta operação apenas se a VM atual existe. Se tiver sido eliminado devido a qualquer motivos, não é possível efetuar esta operação; em alternativa, recomendamos que faça **criar novo** operações de restauro de VM ou discos para continuar. Durante a substituição existente de operações de disco (s), como uma medida de precaução, podemos criar cópias de segurança os dados antes de iniciar a substituição de discos operações. Se o ponto de restauro tem discos que mais/menos do que a VM atual, em seguida, o número de discos no ponto de restauro apenas se refletirá na VM. **Substituir a existente** opção não é atualmente suportada para discos não geridos e VMs encriptadas. Ele também não é suportado para [generalizada VMs](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) e para as VMs criadas com [imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
+**Substituir a existente** ajuda a opção para substituir discos existentes na VM atual com o ponto de restauro selecionado. Pode efetuar esta operação apenas se a VM atual existe. Se tiver sido eliminado devido a qualquer motivos, não é possível efetuar esta operação; em alternativa, recomendamos que faça **criar novo** operações de restauro de VM ou discos para continuar. Durante esta operação, como uma medida de precaução, podemos criar cópias de segurança os dados antes de iniciar a substituição de discos operações. Esta ação cria um instantâneo e também um ponto de recuperação no cofre com o período de retenção conforme agendado na política de cópia de segurança configurada. Se o ponto de restauro tem discos que mais/menos do que a VM atual, em seguida, o número de discos no ponto de restauro apenas se refletirá na VM. **Substituir a existente** opção não é atualmente suportada para discos não geridos e VMs encriptadas. Ele também não é suportado para [generalizada VMs](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) e para as VMs criadas com [imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
 
  Sobre o **restaurar configuração** painel, a única entrada que tem de ser selecionada é **localização de transição**.
 

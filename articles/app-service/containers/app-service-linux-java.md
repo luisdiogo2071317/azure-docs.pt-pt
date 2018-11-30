@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: a6752f9127a176eef9fd03e7ffddfa7450772def
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037692"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497334"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia de programação Java para o serviço de aplicações no Linux
 
@@ -28,6 +28,10 @@ Este guia fornece os conceitos chave e instruções para programadores de Java n
 ## <a name="logging-and-debugging-apps"></a>Registo e depuração de aplicativos
 
 Relatórios de desempenho, visualizações de tráfego e exames abrangentes de estado de funcionamento estão disponíveis para a aplicação de eeach através do portal do Azure. Consulte a [descrição geral de diagnóstico do serviço de aplicações do Azure](/azure/app-service/app-service-diagnostics) para obter mais informações sobre como aceder e utilizar estas ferramentas de diagnóstico.
+
+## <a name="application-performance-monitoring"></a>Monitorização de desempenho de aplicações
+
+Ver [ferramentas com aplicações Java no serviço de aplicações do Azure no Linux de monitorização do desempenho de aplicações](how-to-java-apm-monitoring.md) para instruções sobre como proceder configurar o New Relic e AppDynamics com aplicações Java em execução no serviço de aplicações no Linux.
 
 ### <a name="ssh-console-access"></a>Acesso à consola SSH 
 
@@ -124,7 +128,7 @@ Em alternativa, pode configurar a definição de aplicação com o plug-in do Ma
 </appSettings> 
 ```
 
-## <a name="secure-application"></a>Proteger aplicação
+## <a name="secure-applications"></a>Aplicações seguras
 
 Aplicações de Java em execução no serviço de aplicações para Linux tem o mesmo conjunto de [melhores práticas de segurança](/azure/security/security-paas-applications-using-app-services) como outras aplicações. 
 
@@ -168,7 +172,7 @@ Para origens de dados de nível de aplicativo:
 
 1. Adicionar uma `context.xml` ficheiro se não existe para a aplicação web e adicioná-lo a `META-INF` diretório do ficheiro WAR quando o projeto é criado.
 
-2. Nesse arquivo, adicione um `Context` entrada de caminho para ligar à origem de dados para um endereço JNDI. o
+2. Nesse arquivo, adicione um `Context` entrada de caminho para ligar à origem de dados para um endereço JNDI.
 
     ```xml
     <Context>
@@ -192,7 +196,7 @@ Para origens de dados de nível de aplicativo:
 
 Para recursos partilhados de ao nível do servidor:
 
-1. Copie o conteúdo do `/usr/local/tomcat/conf` em `/home/tomcat` no seu Linux do serviço de aplicações de instância através de SSH se ainda não tiver uma configuração de existir.
+1. Copie o conteúdo do `/usr/local/tomcat/conf` em `/home/tomcat/conf` no seu Linux do serviço de aplicações de instância através de SSH se ainda não tiver uma configuração de existir.
 
 2. Adicionar o contexto de sua `server.xml`
 
@@ -231,7 +235,7 @@ Para recursos partilhados de ao nível do servidor:
 
     3. Ligue à porta de túnel local com o cliente SFTP e carregar os ficheiros para o `/home/tomcat/lib` pasta.
 
-5. Reinicie a aplicação do Linux do serviço de aplicações. Tomcat redefinirá `CATALINA_HOME` para `/home/tomcat` e usar as classes e a configuração atualizada.
+5. Reinicie a aplicação do Linux do serviço de aplicações. Tomcat redefinirá `CATALINA_HOME` para `/home/tomcat/conf` e usar as classes e a configuração atualizada.
 
 ## <a name="docker-containers"></a>Contentores do Docker
 

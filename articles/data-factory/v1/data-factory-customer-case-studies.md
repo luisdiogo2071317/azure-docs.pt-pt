@@ -1,6 +1,6 @@
 ---
-title: O Azure Data Factory - casos práticos de clientes | Microsoft Docs
-description: Saiba mais sobre como alguns dos nossos clientes utiliza o Azure Data Factory.
+title: O Azure Data Factory - casos práticos de clientes | Documentos da Microsoft
+description: Saiba mais sobre como alguns dos nossos clientes tem estado a utilizar do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -14,36 +14,36 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d8264f896b7c6cac8fc46616ab3ee579c5acb8b7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d291d7ecd5ee9b8bf5645296ef345ac436f1d047
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621654"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495910"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>O Azure Data Factory - casos práticos de clientes
-Data Factory é um serviço de gestão baseado na nuvem informações que automatiza o movimento e a transformação de dados. Os clientes em indústrias muitos utilizar fábrica de dados e outros serviços do Azure para criar os seus pipelines de análise e resolver problemas das suas empresas.  Saiba diretamente a partir dos nossos clientes como e por que motivo está a utilizar o Data Factory.
+Data Factory é um serviço de gestão de informações com base na cloud que automatiza o movimento e transformação de dados. Os clientes vários setores utilizar o Data Factory e outros serviços do Azure para criar seus pipelines de análise e resolver problemas das suas empresas.  Saiba diretamente a partir de nossos clientes como e por que está a utilizar o Data Factory.
 
 ## <a name="milliman"></a>Milliman
-[Principal Actuarial firm transforma da indústria insurance](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
+[Empresa de Actuarial principal transforma o setor de seguros](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
 
-## <a name="rockwell-automation"></a>Automatização Rockwell
-[Industriais automatização Firm Cuts os custos até 90 por cento com soluções de macrodados](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
+## <a name="rockwell-automation"></a>Rockwell Automation
+[Custos de reduz de empresa de automatização industrial até 90 por cento com soluções de macrodados](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
 
 ## <a name="ziosk"></a>Ziosk
-[Que jogo que pretende aceder com esse burger? Já pode saber Ziosk.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
+[O jogo quer chegar com essa burger? Ziosk já deve saber.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
 
 ## <a name="alaska-airlines"></a>Alaska Airlines
-[Companhia aérea utiliza Tablets, serviços de Cloud para oferecer mais interagir entretenimento em trânsito](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
+[Companhia aérea utiliza Tablets, serviços Cloud para oferecer mais envolvente entretenimento em trânsito](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
 
-## <a name="tacoma-public-schools"></a>Tacoma público escolas
-[Prever estudante dropout riscos, aumentar as taxas de graduation análise de nuvem](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
+## <a name="tacoma-public-schools"></a>Instituições de ensino do Tacoma público
+[Prever estudante dropout riscos, aumentar as taxas de graduação com a análise da cloud](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
 
-## <a name="real-madrid-fc"></a>FC real Madrid
-[Real Madrid coloca o stadium próximo para milhões de 450 ventoinhas à volta de todo o mundo, com o Microsoft Cloud](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
+## <a name="real-madrid-fc"></a>O real Madrid FC
+[Real Madrid reúne o estádio a 450 milhões de fãs em todo o mundo, com a Microsoft Cloud](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
 
 ## <a name="pier-1-imports"></a>Pier 1 Imports
-[Encontrar uma ligação melhor com os clientes através da nuvem Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
+[Encontrar uma ligação melhor com os clientes por meio da nuvem do Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
 ## <a name="microsoft-studio"></a>Microsoft Studio
-[Entrega epic Xbox experiências analisando centenas de billions de jogos eventos por dia](https://customers.microsoft.com/en-us/story/xboxunlimited)
+[Experiências de épicas da Xbox ao analisar centenas de milhares de milhões de eventos de jogos todos os dias](https://customers.microsoft.com/en-us/story/xboxunlimited)

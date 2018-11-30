@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6448e592db8024d911831b0b3634dabb4ed3b101
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 31e7307e427b175eb7424ecaee380bd90ce8150e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063120"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443411"
 ---
 # <a name="suspended-domains"></a>Domínios suspensos
 Quando o Azure Active Directory Domain Services (Azure AD DS) não consegue atender a um domínio gerido por um longo período de tempo, coloca o domínio gerido num estado suspenso. Este artigo explica por que os domínios geridos são suspensas e para saber como corrigir um domínio suspenso.
@@ -43,7 +43,7 @@ Pertença a um domínio gerido, que está configurado corretamente e operacionai
 
 
 ### <a name="needs-attention-state"></a>"Needs Attention" Estado
-Um domínio gerido está na **requer atenção** se um ou mais problemas exigem que um administrador que a ação de estado. A página de estado de funcionamento do seu domínio gerido apresenta uma lista de um ou mais alertas neste estado. 
+Um domínio gerido está na **requer atenção** se um ou mais problemas exigem que um administrador que a ação de estado. A página de estado de funcionamento do seu domínio gerido apresenta uma lista de um ou mais alertas neste estado.
 
 Por exemplo, se tiver configurado um NSG restritivo da rede virtual, Microsoft poderá não conseguir atualizar e monitorizar o seu domínio gerido. Esta configuração inválida aciona um alerta que coloca o seu domínio gerido para o estado de "Requer atenção".
 

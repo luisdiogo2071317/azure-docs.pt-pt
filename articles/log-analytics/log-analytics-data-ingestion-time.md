@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f7b0f7c1cd08168db3f0f0ffd6cf6c4fa2c604e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955262"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334555"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tempo de ingestão de dados no Log Analytics
 O Azure Log Analytics é um serviço de dados de grande escala no Azure Monitor, que serve a milhares de envio de cada mês de terabytes de dados a um ritmo cada vez maior de clientes. Muitas vezes, há perguntas sobre o tempo que demora para os dados fiquem disponíveis no Log Analytics depois de serem recolhido. Este artigo explica os diferentes fatores que afetam esta latência.
@@ -40,7 +40,7 @@ Obter detalhes sobre a latência de diferente introduzida neste processo estão 
 Soluções de gestão e agentes use estratégias diferentes para recolher dados de uma máquina virtual, que pode afetar a latência. Seguem-se alguns exemplos específicos:
 
 - Eventos do Windows, eventos do syslog e métricas de desempenho são recolhidas imediatamente. Contadores de desempenho do Linux são consultados a intervalos de 30 segundos.
-- Registos do IIS e dos registos personalizados são recolhidos quando seus timestamp é alterado. Para os registos de IIS, isso depende de [agenda de rollover configurada no IIS](log-analytics-data-sources-iis-logs.md). 
+- Registos do IIS e dos registos personalizados são recolhidos quando seus timestamp é alterado. Para os registos de IIS, isso depende de [agenda de rollover configurada no IIS](../azure-monitor/platform/data-sources-iis-logs.md). 
 - Solução de replicação de diretório Active Directory realiza sua avaliação a cada cinco dias, enquanto a solução de avaliação do Active Directory realiza uma avaliação semanal da infra-estrutura do Active Directory. O agente irá recolher estes registos, apenas quando a avaliação estiver concluída.
 
 ### <a name="agent-upload-frequency"></a>Frequência de carregamento do agente
@@ -61,7 +61,7 @@ Consulte a documentação para cada solução determinar a frequência de recolh
 Depois de registros de log são ingeridos no pipeline do Log Analytics, foram escritas para armazenamento temporário para garantir o isolamento de inquilino e certifique-se de que os dados não são perdidos. Este processo adiciona normalmente 5 a 15 segundos. Algumas soluções de gestão implementam algoritmos mais pesados agregar dados e derivam informações como dados de transmissão em fluxo no. Por exemplo, a monitorização de desempenho de rede agrega os dados recebidos em intervalos de 3 minutos, com eficiência, adicionando latência de 3 minutos. Outro processo que adiciona latência é o processo que lida com registos personalizados. Em alguns casos, esse processo pode adicionar alguns minutos de latência para registos que são recolhidos a partir de arquivos pelo agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Novos tipos de dados personalizados de aprovisionamento
-Quando é criado um novo tipo de dados personalizados a partir um [log personalizado](../log-analytics/log-analytics-data-sources-custom-logs.md) ou o [API de Recoletor de dados](../log-analytics/log-analytics-data-collector-api.md), o sistema cria um contentor de armazenamento dedicado. Esta é uma sobrecarga de uso individual que ocorre somente no primeiro aspeto deste tipo de dados.
+Quando é criado um novo tipo de dados personalizados a partir um [log personalizado](../log-analytics/../azure-monitor/platform/data-sources-custom-logs.md) ou o [API de Recoletor de dados](../log-analytics/log-analytics-data-collector-api.md), o sistema cria um contentor de armazenamento dedicado. Esta é uma sobrecarga de uso individual que ocorre somente no primeiro aspeto deste tipo de dados.
 
 ### <a name="surge-protection"></a>Proteção de surto
 A prioridade do Log Analytics é garantir que não existem dados de cliente são perdidos, para que o sistema tenha proteção incorporada para surtos de dados. Isto inclui buffers para garantir que até mesmo sob carga grande, o sistema irá manter a funcionar. Sob uma carga normal, esses controles adicionar menos de um minuto, mas em condições extremas e pode adicionar a um tempo significativo, garantindo dados de falhas é seguros.

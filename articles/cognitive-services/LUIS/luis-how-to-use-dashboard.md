@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 6a4e8dbee34402f57d3e697e93d10573aaf10998
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0daf25b3c7edc69ada57fb3ce2b8dbb7e50e5aed
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212818"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335015"
 ---
 # <a name="application-dashboard"></a>Dashboard de aplicações
 O dashboard de aplicações permite-lhe monitorizar a sua aplicação única rapidamente. O **Dashboard** apresenta quando abre uma aplicação ao clicar no nome de aplicação no **as minhas aplicações** página em seguida, selecione **Dashboard** do painel superior. 
@@ -26,15 +26,7 @@ O dashboard de aplicações permite-lhe monitorizar a sua aplicação única rap
 > * Chave de ponto final de LUIS de utilização para todos os pedidos de ponto de extremidade incluindo LUIS [API](https://aka.ms/luis-endpoint-apis) e bot
 > * Utilizar a chave de ponto de extremidade diferente para cada aplicação LUIS. Não utilize uma chave de ponto final único para todas as aplicações. Chave do ponto final é controlado ao nível da chave, não ao nível da aplicação.  
 
-O **Dashboard** página proporciona-lhe uma descrição geral da aplicação LUIS, incluindo o modelo atual Estado, bem como [endpoint](luis-glossary.md#endpoint) utilização ao longo do tempo. <!--The following image shows the **Dashboard** page.-->
-
-<!-- TBD: Get a working screen shot
-![The Dashboard](./media/luis-how-to-use-dashboard/dashboard.png)
--->
-
-<!-- TBD: IS THIS STILL TRUE?
-At the top of the **Dashboard** page, a contextual notification bar constantly displays notifications to update you on the required or recommended actions appropriate for the current state of your app. It also provides useful tips and alerts as needed. A detailed description of the data reported on the **Dashboard** page follows.
--->
+O **Dashboard** página proporciona-lhe uma descrição geral da aplicação LUIS, incluindo o modelo atual Estado, bem como [endpoint](luis-glossary.md#endpoint) utilização ao longo do tempo. 
   
 ## <a name="app-status"></a>Estado da aplicação
 O dashboard apresenta o treinamento do aplicativo e da publicação Estado, incluindo a data e hora quando a aplicação foi última treinados e publicado.  
@@ -49,7 +41,6 @@ O dashboard apresenta o número total de objetivos, entidades e expressões com 
 ## <a name="endpoint-hits"></a>Acertos de ponto final
 O dashboard apresenta as visitas de ponto de extremidade total que a aplicação do LUIS recebe e permite que exiba atinge dentro de um período que especifica. O número total de acertos apresentada é a soma de acertos de ponto de extremidade que utilize um [chave de ponto final](./luis-concept-keys.md#endpoint-key) e o ponto final atinge que utilizam um [chave de criação de conteúdos](./luis-concept-keys.md#authoring-key).
 
-<!-- TBD: this image is old but I don't have a new one based on usage -->
 ![Acertos de ponto final](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
 
 > [!NOTE] 

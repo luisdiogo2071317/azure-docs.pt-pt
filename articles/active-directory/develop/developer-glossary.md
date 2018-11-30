@@ -17,12 +17,12 @@ ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: dc3bbab2242321ae736f3f2cefb1eed5e96e834e
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 7ce11b3e54a8770a2b3d53e335afc57f52d3d14e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288735"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425314"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossário de programador do Azure Active Directory
 
@@ -173,7 +173,7 @@ Como [funções](#roles), âmbitos de fornecem uma forma de um [servidor recurso
 
 ## <a name="security-token"></a>token de segurança
 
-Um documento assinado que contêm afirmações, por exemplo, um OAuth2 token ou uma asserção de SAML 2.0. Para um OAuth2 [concessão de autorização](#authorization-grant), uma [token de acesso](#access-token) (OAuth2) e um [Token de ID](http://openid.net/specs/openid-connect-core-1_0.html#IDToken) são tipos de tokens de segurança, que são implementados como um [JSON Web Token (JWT)][JWT].
+Um documento assinado que contêm afirmações, por exemplo, um OAuth2 token ou uma asserção de SAML 2.0. Para um OAuth2 [concessão de autorização](#authorization-grant), uma [token de acesso](#access-token) (OAuth2) e um [Token de ID](https://openid.net/specs/openid-connect-core-1_0.html#IDToken) são tipos de tokens de segurança, que são implementados como um [JSON Web Token (JWT)][JWT].
 
 ## <a name="service-principal-object"></a>objeto do principal de serviço
 
@@ -251,6 +251,6 @@ Utilize a seguinte secção de comentários para fornecer comentários e ajudar 
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
-[OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
-[OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
-[OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
+[OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html
+[OpenIDConnect-AuthZ-Endpoint]: https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
+[OpenIDConnect-ID-Token]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken

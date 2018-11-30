@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ccc5aa116d2f01b601e6b6b9aad456110b764856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 90c636d57189518cb95291510f3e83ef8e7a8a75
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985731"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422036"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Noções básicas sobre o fluxo de concessão implícita OAuth2 no Azure Active Directory (AD)
 
@@ -34,7 +34,7 @@ A concessão implícita OAuth2 é famosa por ser a concessão com a mais longa l
 
 O súbita [concessão do código de autorização de OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.1) é a concessão de autorização que utiliza dois pontos de extremidade separados. Ponto final de autorização é utilizado para a fase de interação do utilizador, o que resulta num código de autorização. Ponto final do token, em seguida, é utilizado pelo cliente para trocar o código de um token de acesso e, muitas vezes, um token de atualização também. Aplicativos Web são necessários para apresentar suas credenciais de aplicativo para o ponto final do token, para que o servidor de autorização pode autenticar o cliente.
 
-O [concessão implícita OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) é uma variante de outras concessões de autorização. Ele permite que um cliente obter um token de acesso (e id_token, ao usar [OpenId Connect](http://openid.net/specs/openid-connect-core-1_0.html)) diretamente a partir do ponto de final de autorização, sem entrar em contato com o ponto final do token nem autenticar o cliente. Essa variante foi projetado para o JavaScript com base em aplicações em execução num navegador da Web: na especificação do OAuth2 original, os tokens são retornados num fragmento do URI. Que disponibiliza os bits de token para o código JavaScript no cliente, mas garante, não incluídos no redireciona para o servidor. Obter tokens vracející via redirecionamentos do navegador diretamente a partir do ponto final de autorização. Ele também tem a vantagem de eliminação de quaisquer requisitos para cruzada chamadas de origem, que são necessárias se a aplicação do JavaScript é necessário para contactar o ponto final do token.
+O [concessão implícita OAuth2](https://tools.ietf.org/html/rfc6749#section-1.3.2) é uma variante de outras concessões de autorização. Ele permite que um cliente obter um token de acesso (e id_token, ao usar [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) diretamente a partir do ponto de final de autorização, sem entrar em contato com o ponto final do token nem autenticar o cliente. Essa variante foi projetado para o JavaScript com base em aplicações em execução num navegador da Web: na especificação do OAuth2 original, os tokens são retornados num fragmento do URI. Que disponibiliza os bits de token para o código JavaScript no cliente, mas garante, não incluídos no redireciona para o servidor. Obter tokens vracející via redirecionamentos do navegador diretamente a partir do ponto final de autorização. Ele também tem a vantagem de eliminação de quaisquer requisitos para cruzada chamadas de origem, que são necessárias se a aplicação do JavaScript é necessário para contactar o ponto final do token.
 
 Uma característica importante do que a concessão implícita OAuth2 é o fato de que tais fluem de tokens de atualização nunca retorno para o cliente. A secção seguinte mostra como isso não é necessário e seria, na verdade, um problema de segurança.
 

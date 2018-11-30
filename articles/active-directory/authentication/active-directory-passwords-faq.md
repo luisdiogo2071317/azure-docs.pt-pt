@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 50edabb395380c8b0185736205834dd65e47317f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160747"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425272"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas mais frequentes de gestão de palavras-passe
 
@@ -35,7 +35,7 @@ Nestas perguntas frequentes é dividida nas secções seguintes:
 
 * **P: os meus utilizadores registar os seus próprios dados de reposição de palavra-passe?**
 
-  > **R:** Sim. Desde que a reposição de palavra-passe está ativada e eles são licenciados, os usuários podem ir para o portal de registo de reposição de palavra-passe (https://aka.ms/ssprsetup) para registar as informações de autenticação. Os utilizadores também podem registar através do painel de acesso (http://myapps.microsoft.com). Para se registar através do painel de acesso, que precisam para selecionar a sua imagem do perfil, selecione **perfil**e, em seguida, selecione a **registar na reposição de palavra-passe** opção.
+  > **R:** Sim. Desde que a reposição de palavra-passe está ativada e eles são licenciados, os usuários podem ir para o portal de registo de reposição de palavra-passe (https://aka.ms/ssprsetup) para registar as informações de autenticação. Os utilizadores também podem registar através do painel de acesso (https://myapps.microsoft.com). Para se registar através do painel de acesso, que precisam para selecionar a sua imagem do perfil, selecione **perfil**e, em seguida, selecione a **registar na reposição de palavra-passe** opção.
   >
   >
 * **P: Se ativar a palavra-passe reposta para um grupo e, em seguida, optar por ativá-la para todos os utilizadores são meus utilizadores necessário registrar novamente?**
@@ -170,7 +170,7 @@ Nestas perguntas frequentes é dividida nas secções seguintes:
   >
 * **P: configurei meu política para exigir que os utilizadores a utilizar perguntas de segurança para reposição, mas os administradores do Azure parecem ser configuradas de forma diferente.**
 
-  > **R:** este é o comportamento esperado. A Microsoft impõe uma política de reposição de palavra-passe de porta de dois predefinidas fortes para qualquer função de administrador do Azure. Isto impede que os administradores utilizar perguntas de segurança. Pode encontrar mais informações sobre esta política no [políticas de palavra-passe e restrições no Azure Active Directory](concept-sspr-policy.md) artigo.
+  > **R:** este é o comportamento esperado. A Microsoft impõe uma política de reposição de palavra-passe predefinida forte de duas portas para qualquer função de administrador do Azure. Isto impede que os administradores utilizar perguntas de segurança. Pode encontrar mais informações sobre esta política no [políticas de palavra-passe e restrições no Azure Active Directory](concept-sspr-policy.md) artigo.
   >
   >
 * **P: se um utilizador registou mais do que o número máximo de perguntas necessárias para a reposição, como são as perguntas de segurança selecionadas durante a reposição?**

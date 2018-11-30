@@ -1,6 +1,6 @@
 ---
-title: Imagens de início rápido da API de pesquisa | Microsoft Docs
-description: Mostra como começar a utilizar a API de pesquisa do Bing imagens.
+title: Início rápido da API de pesquisa de imagens | Documentos da Microsoft
+description: Mostra como começar a utilizar a API de pesquisa de imagens do Bing.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -10,18 +10,18 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 9e211cf5acd17ab80948d0b7161bdd2a9220c4a6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5742efb2dca02565735cf308d9ede9316ce6d12e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351620"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314869"
 ---
-# <a name="your-first-images-search-query"></a>As imagens primeira consulta de pesquisa
+# <a name="your-first-images-search-query"></a>Consulta de pesquisa de suas imagens primeiro
 
-Antes de poder tornar a sua primeira chamada, terá de obter uma chave de subscrição de serviços de cognitivos de pesquisa do Bing. Para obter uma chave, consulte [tente serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+Antes de poder fazer a primeira chamada, precisa de obter uma chave de subscrição dos Serviços Cognitivos de Pesquisa do Bing. Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-Para obter os resultados da pesquisa de imagem, teria de enviar um pedido GET para o seguinte ponto final:  
+Para obter os resultados da pesquisa de imagem, seria enviar um pedido GET para o seguinte ponto de extremidade:  
   
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search
@@ -29,24 +29,24 @@ https://api.cognitive.microsoft.com/bing/v7.0/images/search
   
 O pedido tem de utilizar o protocolo HTTPS.
 
-Recomendamos que todos os pedidos provenientes de um servidor. Distribuir a chave como parte de uma aplicação de cliente fornece mais oportunidade uma terceiros maliciosa para aceder ao mesmo. Além disso, efetuar chamadas a partir de um servidor fornece um único ponto de atualização para versões futuras da API.
+Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente fornece mais oportunidades para terceiros mal-intencionados acederem à mesma. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras versões da API.
 
-O pedido tem de especificar o [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) parâmetro de consulta, que contém o termo de pesquisa do utilizador. Embora seja opcional, pedido deve também especificar o [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#mkt) parâmetro de consulta, que identifica o mercado onde pretende que os resultados de. Para obter uma lista opcional de parâmetros de consulta como `freshness` e `size`, consulte [parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta tem de ser codificado de URL.  
+O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query), que contém o termo de pesquisa do utilizador. Embora seja opcional, o pedido também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista de parâmetros de consulta opcionais, como `freshness` e `size`, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.  
   
-O pedido tem de especificar o [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#subscriptionkey) cabeçalho. Embora seja opcional, são encorajados a também especificar os cabeçalhos seguintes:  
+O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#subscriptionkey). Embora seja opcional, recomenda-se que especifique também os seguintes cabeçalhos:  
   
--   [Agente de utilizador](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#useragent)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#clientid)  
--   [X-pesquisa-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#clientip)  
--   [Localização de pesquisa X](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#location)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#location)  
 
-Os cabeçalhos IP e a localização do cliente são importantes para devolver o conteúdo com suporte para localização.  
+Os cabeçalhos de IP e localização do cliente são importantes para devolver o conteúdo com reconhecimento de local.  
 
-Para obter uma lista de todos os cabeçalhos de pedido e resposta, consulte [cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers).
+Para obter uma lista de todos os cabeçalhos de pedido e resposta, veja [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#headers).
 
 ## <a name="the-request"></a>O pedido
 
-O seguinte mostra um pedido de pesquisa que inclui todos os parâmetros de consulta sugerida e nos cabeçalhos. Se for é o primeiro tempo de chamar qualquer uma das APIs do Bing, não incluem o cabeçalho de ID de cliente. Inclua apenas o ID de cliente se anteriormente tiver chamar uma API do Bing e Bing devolveu um ID de cliente para o utilizador e a combinação de dispositivo. 
+A seguir, é-lhe mostrado um pedido de pesquisa que inclui todos os parâmetros de consulta e cabeçalhos sugeridos. Se for é a primeira vez ao chamar qualquer uma das APIs do Bing, não inclua o cabeçalho de ID de cliente. Inclua apenas o ID de cliente se tiver chamado anteriormente uma API do Bing e o Bing tiver devolvido um ID de cliente para o utilizador e a combinação de dispositivo. 
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  
@@ -57,7 +57,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-O seguinte mostra a resposta ao pedido de anterior.
+O código a seguir mostra a resposta ao pedido anterior.
 
 ```json
 {
@@ -132,10 +132,10 @@ O seguinte mostra a resposta ao pedido de anterior.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Experimente a API. Aceda a [consola de teste de API de pesquisa de imagem](https://dev.cognitive.microsoft.com/docs/services/8336afba49a84475ba401758c0dbf749/operations/571fab09dbe2d933e891028f). 
+Experimente a API. Aceda a [consola de teste de API de pesquisa de imagens](https://dev.cognitive.microsoft.com/docs/services/8336afba49a84475ba401758c0dbf749/operations/571fab09dbe2d933e891028f). 
 
-Para obter detalhes sobre a consumir os objetos de resposta, consulte [pesquisar Web](./search-the-web.md).
+Para obter detalhes sobre os objetos de resposta, veja [Pesquisa na Web](./search-the-web.md).
 
-Para obter mais informações sobre como obter informações sobre uma imagem, tais como páginas web que incluem a imagem ou pessoas que foram reconhecidas na imagem, consulte [imagem Insights](./image-insights.md).  
+Para obter detalhes sobre como obter informações sobre uma imagem, como páginas da web que incluem a imagem ou as pessoas que foram reconhecidas na imagem, veja [informações de imagem](./image-insights.md).  
   
-Para obter detalhes sobre as imagens que são tendências em de redes sociais, consulte [tendências imagens](./trending-images.md).  
+Para obter mais informações sobre imagens que são mais populares nas redes sociais, consulte [tendências imagens](./trending-images.md).  

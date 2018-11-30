@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: e729d163428723d099157ad62d1c89a7ed917900
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 1653cfe0f75914fa321771a70284602cab75330d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711434"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444873"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre com o serviço backup e restaurar na gestão de API do Azure
 
@@ -32,8 +32,8 @@ Este guia mostra como autenticar os pedidos do Azure Resource Manager. Ela tamb�
 > O processo para criar cópias de segurança e restaurar uma instância de serviço de gestão de API para recuperação após desastre também pode ser utilizado para replicar as instâncias do serviço de gestão de API para cenários como a transição.
 >
 > Cada cópia de segurança expira após 30 dias. Se tentar restaurar uma cópia de segurança após a expiração do período de expiração de 30 dias, o restauro falhará com uma `Cannot restore: backup expired` mensagem.
->
->
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="authenticating-azure-resource-manager-requests"></a>Pedidos de autenticação do Azure Resource Manager
 

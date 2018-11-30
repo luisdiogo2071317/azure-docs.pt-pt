@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 6eb06a2a4e83c9c293474f1692c2d33d4d0dfb36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3e9c46e1315257d619f1624c06441adc08daddb2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995742"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427020"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android
 
@@ -42,9 +42,9 @@ Este início rápido contém um exemplo de código que demonstra como uma aplica
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução, faça o seguinte:
 > 1. Aceda ao [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) para registar uma aplicação.
-> 1. Na caixa **Application Name** (Nome da Aplicação), introduza um nome para a sua aplicação.
-> 1. Certifique-se de que a caixa de verificação **Guided Setup** (Configuração Assistida) está desmarcada e, em seguida, selecione **Create** (Criar).
-> 1. Selecione **Adicionar Plataforma**, selecione **Aplicação nativa** e, em seguida, selecione **Guardar**.
+> 1. Na caixa **Nome da Aplicação**, introduza um nome para a sua aplicação.
+> 1. Certifique-se de que a caixa de verificação **Configuração Assistida** está desmarcada e, em seguida, selecione **Criar**.
+> 1. Selecione **Adicionar Plataforma**, selecione **Aplicação Nativa** e, em seguida, selecione **Guardar**.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Passo 1: Configurar a aplicação
@@ -123,7 +123,7 @@ Leia as secções seguintes para obter mais informações sobre este início rá
 
 ### <a name="msal"></a>MSAL
 
-A MSAL ([com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)) é a biblioteca utilizada para iniciar sessão dos utilizadores e solicitar tokens utilizados para aceder a uma API protegida pelo Microsoft Azure Active Directory (Azure AD). Pode utilizar o Gradle para instalá-la, adicionando o seguinte em **Gradle Scripts** > **build.gradle (Module: app)** em **Dependencies**:
+A MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) é a biblioteca utilizada para iniciar sessão dos utilizadores e solicitar tokens utilizados para aceder a uma API protegida pelo Microsoft Azure Active Directory (Azure AD). Pode utilizar o Gradle para instalá-la, adicionando o seguinte em **Gradle Scripts** > **build.gradle (Module: app)** em **Dependencies**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -132,13 +132,13 @@ implementation 'com.microsoft.identity.client:msal:0.1.+'
 
 ### <a name="msal-initialization"></a>Inicialização da MSAL
 
-Pode adicionar a referência para MSAL, adicionando o seguinte código:
+Pode adicionar a referência para MSAL, adicionando o código seguinte:
 
 ```java
 import com.microsoft.identity.client.*;
 ```
 
-Em seguida, inicialize a MSAL com o seguinte código:
+Em seguida, inicialize a MSAL com o código seguinte:
 
 ```java
 sampleApp = new PublicClientApplication(
@@ -159,9 +159,9 @@ A MSAL tem dois métodos utilizados para adquirir tokens: `acquireToken` e `acqu
 Algumas situações exigem forçar os utilizadores a interagir com o ponto final v2.0 do Azure AD, o que resulta numa alternância de contexto para o browser de sistema para validar as credenciais dos utilizadores ou para darem consentimento. Alguns exemplos incluem:
 
 * A primeira vez que os utilizadores iniciam sessão na aplicação
-* Quando os utilizadores podem precisar de reintroduzir as respetivas credenciais porque a palavra-passe expirou
-* Quando a aplicação está a solicitar acesso a um recurso para o qual o utilizador tem de dar consentimento
-* Quando é necessária autenticação de dois fatores
+* Quando os utilizadores possam ter de reintroduzir as respetivas credenciais por a palavra-passe ter expirado
+* Quando a aplicação está a pedir acesso a um recurso para o qual o utilizador tem de dar consentimento
+* Quando é precisa a autenticação de dois fatores
 
 ```java
 sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
@@ -185,7 +185,7 @@ sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
 > | `SCOPES` | Contém os âmbitos que estão a ser solicitados (ou seja, `{ "user.read" }` para o Microsoft Graph ou `{ "<Application ID URL>/scope" }` para as APIs Web personalizadas (ou seja, `api://<Application ID>/access_as_user`) |
 > | `getAuthInteractiveCallback` | Chamada de retorno executada quando o controlo é devolvido à aplicação após a autenticação |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 ### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Conheça os passos para criar a aplicação utilizada neste início rápido
 

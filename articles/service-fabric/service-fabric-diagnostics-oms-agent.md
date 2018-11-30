@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: e440cca59bde1c845bc99ef137c18242e888ee06
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: da7ae9c77d7bb94f1d06cf5fdb48149775c93201
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230102"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333808"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Monitorização de desempenho com o Log Analytics
 
@@ -98,6 +98,6 @@ Agora que adicionou o agente do Log Analytics, head a ativação pós-falha para
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Recolher relevante [contadores de desempenho](service-fabric-diagnostics-event-generation-perf.md). Para configurar o agente do Log Analytics para recolher contadores de desempenho específicos, reveja [configurar origens de dados](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
+* Recolher relevante [contadores de desempenho](service-fabric-diagnostics-event-generation-perf.md). Para configurar o agente do Log Analytics para recolher contadores de desempenho específicos, reveja [configurar origens de dados](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
 * Configurar o Log Analytics para configurar [alertas automáticos](../log-analytics/log-analytics-alerts.md) para ajudar a detetar e diagnóstico
 * Como alternativa pode recolher contadores de desempenho por meio de [extensão de diagnóstico do Azure e enviá-los para o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)

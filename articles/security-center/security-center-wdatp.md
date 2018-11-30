@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: e7bb7f0c4cb63390b91012e071589611991a2866
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068337"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316995"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>O Windows Defender proteção avançada contra ameaças no Centro de segurança do Azure
 
@@ -87,7 +87,7 @@ Se tiver um proxy ou firewall que está a bloquear tráfego anônimo, tal como u
 
 Para gerar um alerta de teste do Windows Defender ATP benigno:
 
-1. Utilize o ambiente de trabalho remoto para aceder a uma VM do Windows Server 2012 R2 ou uma VM do Windows Server 2016.  Abra uma janela de linha de comandos.
+1. Utilize o ambiente de trabalho remoto para aceder a uma VM do Windows Server 2012 R2 ou uma VM do Windows Server 2016.  Abra uma janela de Linha de Comandos.
 
 2. Na linha de comandos, copie e execute o seguinte comando. A janela da linha de comando será fechado automaticamente.
 
@@ -99,12 +99,12 @@ Para gerar um alerta de teste do Windows Defender ATP benigno:
 
 3. Se o comando for bem-sucedida, verá um novo alerta no dashboard do Centro de segurança do Azure e no portal do Windows Defender ATP. Este alerta pode demorar alguns minutos a aparecer.
 
-4. Para rever o alerta no Centro de segurança, aceda a **alertas de segurança** >  **suspeita linha de comandos do Powershell**.
+4. Para rever o alerta no Centro de segurança, aceda a **alertas de segurança** >  **suspeita linha de comandos do Powershell**.
 
 5. Na janela de investigação, selecione a ligação para aceder ao portal do Windows Defender ATP.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Definir políticas de segurança no Centro de segurança do Azure](security-center-policies.md): Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
+- [Definir políticas de segurança no Centro de segurança do Azure](security-center-azure-policy.md): Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
 - [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md): Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
 - [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md): saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.

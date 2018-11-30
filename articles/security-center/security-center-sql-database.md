@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: d8be831469659993da4f9f392e23b9408eb283e3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 2b16bc98c456c9c85d8e49e01171086933533707
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302225"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312634"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Serviço de centro de segurança do Azure e base de dados do Azure SQL
 O [Centro de Segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/) ajuda-o a evitar, detetar e responder a ameaças. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.
@@ -60,7 +60,7 @@ Pode definir uma política para mostrar recomendações para auditoria de SQL e 
 Para definir uma política de segurança, selecione o **política** mosaico no painel do Centro de segurança. Sobre o **política de segurança** painel, selecione a subscrição na qual pretende ativar a política de segurança. Selecione **política de prevenção** e ative **no** as recomendações de segurança que pretende utilizar nesta subscrição.
 ![Política de segurança][3]
 
-Para obter mais informações, consulte [definir políticas de segurança](security-center-policies.md).
+Para obter mais informações, consulte [definir políticas de segurança](security-center-azure-policy.md).
 
 ## <a name="manage-security-recommendation"></a>Gerir recomendação de segurança
 O Centro de Segurança analisa periodicamente o estado de segurança dos seus recursos do Azure. Quando o Centro de Segurança identifica potenciais vulnerabilidades de segurança, cria recomendações. As recomendações orientam-no no processo de configuração de controlos necessários.
@@ -85,7 +85,7 @@ Siga os passos em [deteção de ameaças da base de dados SQL no portal do Azure
 Para saber mais sobre as recomendações, veja [recomendações de segurança](security-center-recommendations.md).
 
 ## <a name="monitor-security-health"></a>Monitorizar o estado de funcionamento da segurança
-Depois de ativar [políticas de segurança](security-center-policies.md) para os recursos de uma subscrição, o Centro de Segurança irá analisar a segurança dos seus recursos para identificar potenciais vulnerabilidades.  Pode ver o estado de segurança dos seus recursos no **estado de funcionamento de segurança de recursos** mosaico. Quando clica em **dados** no **estado de funcionamento de segurança de recursos** mosaico, o **recursos de dados** painel abre-se com recomendações de SQL para problemas como auditorias e transparentes de dados encriptação não ativada. Também tem recomendações para o estado de funcionamento geral da base de dados.
+Depois de ativar [políticas de segurança](security-center-azure-policy.md) para os recursos de uma subscrição, o Centro de Segurança irá analisar a segurança dos seus recursos para identificar potenciais vulnerabilidades.  Pode ver o estado de segurança dos seus recursos no **estado de funcionamento de segurança de recursos** mosaico. Quando clica em **dados** no **estado de funcionamento de segurança de recursos** mosaico, o **recursos de dados** painel abre-se com recomendações de SQL para problemas como auditorias e transparentes de dados encriptação não ativada. Também tem recomendações para o estado de funcionamento geral da base de dados.
 ![Estado de funcionamento de segurança de recursos][6]
 
 Para obter mais informações, consulte [monitorização de estado de funcionamento de segurança](security-center-monitoring.md).

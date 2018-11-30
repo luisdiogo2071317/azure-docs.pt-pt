@@ -5,15 +5,15 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 11/26/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 25bec4bdbae5b206d23fa300f139f55f86b8167e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3a1cc0a28ef5a4861d86373ce39258936639baab
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434386"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333357"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga-se os servidores no local para os ficheiros do Azure, ativar a sincronização de múltiplos site e recursos de camada de cloud. Como tal, um servidor no local tem de estar ligado à internet. Administrador de TI tem de decidir o melhor caminho para o servidor chegar a serviços cloud do Azure.
@@ -46,7 +46,7 @@ O Azure File Sync irá funcionar através de meios que disponíveis que permitem
 ## <a name="proxy"></a>Proxy
 O Azure File Sync suporta as definições de proxy de aplicações específicas e todo o computador.
 
-**Definições de proxy de aplicações específicas** permitem a configuração de um proxy especificamente para o tráfego do Azure File Sync. Definições de proxy de aplicações específicas são suportados na versão do agente 3.0.12.0 ou posterior e podem ser configuradas durante a instalação do agente ou utilizando o cmdlet do PowerShell Set-StorageSyncProxyConfiguration.
+**Definições de proxy de aplicações específicas** permitem a configuração de um proxy especificamente para o tráfego do Azure File Sync. Definições de proxy de aplicações específicas são suportados na versão do agente 4.0.1.0 ou posterior e podem ser configuradas durante a instalação do agente ou utilizando o cmdlet do PowerShell Set-StorageSyncProxyConfiguration.
 
 Comandos do PowerShell para configurar definições de proxy de aplicações específicas:
 ```PowerShell

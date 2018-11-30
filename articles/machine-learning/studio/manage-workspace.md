@@ -1,5 +1,5 @@
 ---
-title: Gerir uma área de trabalho do Machine Learning | Documentos da Microsoft
+title: Gerir uma área de trabalho do Machine Learning - Azure Machine Learning Studio | Documentos da Microsoft
 description: Gerir o acesso a áreas de trabalho do Azure Machine Learning e implementar e gerir os serviços da web de API de ML
 services: machine-learning
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 80a9c92c80d82555c5bf8f75a615095647eb1dc9
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c470d10b933b31d4cfe151fb541c2182562a2805
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264952"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314109"
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Gerir uma área de trabalho do Azure Machine Learning
 

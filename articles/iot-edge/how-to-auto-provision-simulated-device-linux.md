@@ -8,18 +8,18 @@ ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 703dedc69e491377ce0890610a2882ab95ae6e5a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 61da3b8e139cf5091aec4c1ab835c23fe319ea46
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565076"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446257"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Criar e aprovisionar um dispositivo de limite com um TPM virtual numa máquina virtual Linux
 
-Dispositivos do IoT Edge do Azure podem ser aprovisionado automaticamente com o [serviço aprovisionamento de dispositivos](../iot-dps/index.yml) tal como os dispositivos que não são habilitados no edge. Se não estiver familiarizado com o processo de aprovisionamento automático, reveja os [conceitos de aprovisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar. 
+Dispositivos do IoT Edge do Azure podem ser autoprovisioned utilizando o [serviço aprovisionamento de dispositivos](../iot-dps/index.yml) tal como os dispositivos que não são habilitados no edge. Se não estiver familiarizado com o processo de autoprovisioning, reveja os [autoprovisioning conceitos](../iot-dps/concepts-auto-provisioning.md) antes de continuar. 
 
-Este artigo mostra-lhe como testar aprovisionamento automático num dispositivo Edge simulado com os seguintes passos: 
+Este artigo mostra-lhe como testar autoprovisioning num dispositivo Edge simulado com os seguintes passos: 
 
 * Crie uma máquina virtual (VM) do Linux no Hyper-V com um simulado Trusted Platform Module (TPM) para a segurança de hardware.
 * Crie uma instância do IoT Hub dispositivo aprovisionamento DPS (serviço).
@@ -35,7 +35,7 @@ Os passos neste artigo destinam-se para fins de teste.
 
 ## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>Criar uma máquina virtual Linux com um TPM virtual
 
-Nesta secção, vai criar uma nova máquina virtual do Linux no Hyper-V com um TPM simulado, para que pode usá-lo para testar como o aprovisionamento automático funciona com o IoT Edge. 
+Nesta secção, vai criar uma nova máquina virtual do Linux no Hyper-V com um TPM simulado, para que pode usá-lo para testar como autoprovisioning funciona com o IoT Edge. 
 
 ### <a name="create-a-virtual-switch"></a>Criar um comutador virtual
 
@@ -65,7 +65,7 @@ Se vir um erro ao criar o novo comutador virtual, certifique-se de que não exis
    2. **Configurar redes**: defina o valor de **ligação** ao comutador virtual que criou na secção anterior. 
    3. **Opções de instalação**: selecione **instalar um sistema operativo a partir de um ficheiro de imagem inicializável** e procure o ficheiro de imagem de disco que guardou localmente.
 
-Pode demorar minutos uma vista para criar a nova VM. 
+Pode demorar alguns minutos para criar a nova VM. 
 
 ### <a name="enable-virtual-tpm"></a>Ativar o virtual TPM
 
@@ -105,7 +105,7 @@ Depois de ter a execução do serviço aprovisionamento de dispositivos, copie o
 
 Obter as informações de aprovisionamento da sua máquina virtual e usá-lo para criar uma inscrição individual no serviço aprovisionamento de dispositivos. 
 
-Quando criar uma inscrição em pontos de distribuição, terá a oportunidade para declarar uma **inicial estado do dispositivo duplo**. No dispositivo duplo pode definir etiquetas para agrupar dispositivos com qualquer métrica que terá na sua solução, como o tipo de dispositivo, localização, ambiente ou região. Essas marcas são usadas para criar [implementações automáticas](how-to-deploy-monitor.md). 
+Quando criar uma inscrição em pontos de distribuição, terá a oportunidade para declarar uma **inicial estado do dispositivo duplo**. No dispositivo duplo, pode definir etiquetas para agrupar dispositivos com qualquer métrica que terá na sua solução, como o tipo de dispositivo, localização, ambiente ou região. Essas marcas são usadas para criar [implementações automáticas](how-to-deploy-monitor.md). 
 
 
 1. Na [portal do Azure](https://portal.azure.com)e navegue até à sua instância do serviço de aprovisionamento de dispositivo IoT Hub. 
@@ -136,7 +136,7 @@ Saber o DPS **âmbito do ID** e o dispositivo **ID de registo** antes de iniciar
 
 Para o runtime do IoT Edge aprovisionar automaticamente o seu dispositivo, ele tem acesso para o TPM. 
 
-Utilize os seguintes passos para conceder acesso TPM. Em alternativa, pode realizar a mesma coisa ao substituir as definições de systemd para que o *iotedge* serviço pode ser executado como raiz. 
+Pode conceder acesso TPM para o runtime do IoT Edge ao substituir as definições de systemd para que o *iotedge* serviço tem privilégios de raiz. Se não quiser elevar os privilégios de serviço, também pode utilizar os seguintes passos para fornecer manualmente o acesso TPM. 
 
 1. Localizar o caminho de ficheiro para o módulo de hardware TPM no seu dispositivo e guarde-o como uma variável local. 
 
@@ -180,8 +180,10 @@ Utilize os seguintes passos para conceder acesso TPM. Em alternativa, pode reali
    Saída bem-sucedido é semelhante ao seguinte:
 
    ```output
-   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
+
+   Se não vir a que foram aplicadas as permissões corretas, tente reiniciar o computador para atualizar o udev. 
 
 8. Abra o runtime do IoT Edge substitui ficheiros. 
 
@@ -224,7 +226,7 @@ Certifique-se de que o runtime do IoT Edge está em execução.
    sudo systemctl status iotedge
    ```
 
-Se vir erros de aprovisionamento, pode ser que as alterações de configuração ainda não foram aplicadas ainda. Tente reiniciar o ganho de daemon de IoT Edge. 
+Se vir erros de aprovisionamento, pode ser que as alterações de configuração ainda não foram aplicadas ainda. Tente reiniciar o daemon de IoT Edge novamente. 
 
    ```bash
    sudo systemctl daemon-reload
@@ -234,7 +236,7 @@ Em alternativa, tente reiniciar a máquina virtual para ver se as alterações e
 
 ## <a name="verify-successful-installation"></a>Certifique-se a instalação com êxito
 
-Se o tempo de execução foi iniciado com êxito, pode entrar no seu IoT Hub e ver que o seu novo dispositivo foi aprovisionado automaticamente e está pronto para executar os módulos do IoT Edge. 
+Se o tempo de execução foi iniciado com êxito, pode entrar no seu IoT Hub e ver que o seu dispositivo novo foi automaticamente aprovisionado. O dispositivo está agora pronto para executar os módulos do IoT Edge. 
 
 Verificar o estado de que o Daemon do IoT Edge.
 
@@ -257,4 +259,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-O processo de inscrição do serviço aprovisionamento de dispositivos permite-lhe definir o ID de dispositivo e etiquetas do dispositivo duplo ao mesmo tempo, como aprovisionar o novo dispositivo. Pode utilizar esses valores para dispositivos individuais ou grupos de dispositivos com a gestão de dispositivos automático de destino. Saiba como [implementar e monitorizar módulos em dimensionar no portal do Azure do IoT Edge](how-to-deploy-monitor.md) ou [com a CLI do Azure](how-to-deploy-monitor-cli.md)
+O processo de inscrição do serviço aprovisionamento de dispositivos permite-lhe definir o ID de dispositivo e etiquetas do dispositivo duplo ao mesmo tempo, como aprovisionar o novo dispositivo. Pode utilizar esses valores para dispositivos individuais ou grupos de dispositivos com a gestão de dispositivos automático de destino. Saiba como [implementar e monitorizar módulos em dimensionar no portal do Azure do IoT Edge](how-to-deploy-monitor.md) ou [com a CLI do Azure](how-to-deploy-monitor-cli.md).

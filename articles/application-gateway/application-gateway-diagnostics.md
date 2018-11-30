@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 3163d4d61dba958cdf71dd0470b943bba69b0191
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2f3c2ba6849540f90117ef127e25030ff56b569
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237202"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427170"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento do back-end, registos de diagnóstico e métricas para o Gateway de aplicação
 
@@ -95,7 +95,7 @@ O fragmento seguinte mostra um exemplo da resposta:
 
 ## <a name="diagnostic-logging"></a>Registos de diagnóstico
 
-Pode utilizar diferentes tipos de registos no Azure para gerir e resolver problemas de gateways de aplicação. Pode aceder a alguns destes registos através do portal. Todos os registos podem ser extraídos de armazenamento de Blobs do Azure e visualizados em diferentes ferramentas, como [do Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel e o Power BI. Pode saber mais sobre os diferentes tipos de registos da lista seguinte:
+Pode utilizar diferentes tipos de registos no Azure para gerir e resolver problemas de gateways de aplicação. Pode aceder a alguns destes registos através do portal. Todos os registos podem ser extraídos de armazenamento de Blobs do Azure e visualizados em diferentes ferramentas, como [do Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel e o Power BI. Pode saber mais sobre os diferentes tipos de registos da lista seguinte:
 
 * **Registo de atividades**: pode utilizar [registos de atividades do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecida como registos operacionais e registos de auditoria) para ver todas as operações que são submetidas para a sua subscrição do Azure e o respetivo estado. As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
 * **Registo de acesso**: pode utilizar este registo para ver os padrões de acesso de Gateway de aplicação e analisar informações importantes, incluindo IP, URL solicitada, latência de resposta, código de retorno e bytes do chamador de entrada e saída. Um registo de acesso é recolhido de 300 segundos. Este registo contém um registo por instância de Gateway de aplicação. A instância de Gateway de aplicação pode ser identificada pela propriedade instanceId.
@@ -303,7 +303,7 @@ Pode ver e analisar os dados de registo de atividades através de um dos seguint
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Ver e analisar o acesso, desempenho e registos de firewall
 
-Azure [do Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) pode recolher os ficheiros de registo de eventos e contadores de sua conta de armazenamento de Blobs. Inclui visualizações e capacidades de pesquisa poderosas para analisar os seus registos.
+Azure [do Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) pode recolher os ficheiros de registo de eventos e contadores de sua conta de armazenamento de Blobs. Inclui visualizações e capacidades de pesquisa poderosas para analisar os seus registos.
 
 Também pode ligar à sua conta de armazenamento e obter as entradas de registo JSON para os registos de acesso e desempenho. Depois de transferir os ficheiros JSON, pode convertê-los em CSV e visualizá-los no Excel, Power BI ou qualquer outra ferramenta de visualização de dados.
 
@@ -379,7 +379,7 @@ Para compreender melhor os webhooks e como pode usá-los com alertas, visite [co
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Visualizar o contador e registos de eventos utilizando [do Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
+* Visualizar o contador e registos de eventos utilizando [do Log Analytics](../azure-monitor/insights/azure-networking-analytics.md).
 * [Visualizar o registo de atividades do Azure com o Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) postagem de blog.
 * [Ver e analisar registos de atividades do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) postagem de blog.
 

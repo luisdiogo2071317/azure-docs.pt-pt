@@ -9,17 +9,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tyfox
-ms.openlocfilehash: d5d4c951bb104159730814f9b1b5820cb17f9f1a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4de4674d8a4c2b573df12648739971e460531636
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234787"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495091"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Gerir clusters do Apache Hadoop no HDInsight com a CLI clássica do Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Saiba como utilizar o [CLI clássica do Azure](../cli-install-nodejs.md) para gerir clusters do Apache Hadoop no HDInsight do Azure. A CLI clássica é implementada no node. js. Pode ser utilizado em qualquer plataforma que suporte Node.js, incluindo Windows, Mac e Linux.
+Saiba como utilizar o [CLI clássica do Azure](../cli-install-nodejs.md) para gerir [Apache Hadoop](https://hadoop.apache.org/) clusters no Azure HDInsight. A CLI clássica é implementada no node. js. Pode ser utilizado em qualquer plataforma que suporte Node.js, incluindo Windows, Mac e Linux.
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
@@ -74,7 +74,7 @@ azure group delete <Resource Group Name>
 ```
 
 ## <a name="scale-clusters"></a>Dimensionar clusters
-Para alterar o tamanho de cluster do Hadoop:
+Para alterar o tamanho de cluster do Apache Hadoop:
 
 ```cli
 azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>

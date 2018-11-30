@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1f49930449c5ca342159f2a4eca3d7167dfed925
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 765a3a985a2198951ed17292dc376b25adfccc03
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244649"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314813"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Ativar a encriptação de dados transparente no Centro de segurança do Azure
 Centro de segurança do Azure recomendará que ativar a encriptação de dados transparente (TDE) no bases de dados SQL se TDE não estiver já ativada. TDE protege os dados e ajuda-o a cumprir os requisitos de conformidade ao encriptar a sua base de dados, cópias de segurança associadas e ficheiros de registo de transação em repouso, sem a necessidade de fazer alterações à sua aplicação. Para saber mais, veja [encriptação de dados transparente com a base de dados do Azure SQL](https://msdn.microsoft.com/library/dn948096).
@@ -51,7 +51,7 @@ Este artigo mostrou como implementar a recomendação do Centro de segurança "A
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-policies.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
 * [Monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.

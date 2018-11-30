@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 49516523abdd927c3ae60235fcd74473689c6856
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 65649c3fdc11d74b5888b26b81ae85e10f2788bd
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48019812"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426881"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia do administrador do Atlassian Jira e confluência para o Azure Active Directory
 
@@ -67,9 +67,23 @@ Antes de instalar o plug-in, tenha em atenção as seguintes informações:
 
 O plug-in-suporta as seguintes versões do Jira e confluência:
 
-* Jira Core e de Software: 6.0 para 7.8
-* Central de serviços de Jira: 3.0 para 3.2
+* Jira Core e de Software: 6.0 para 7.12
+* Central de serviços de Jira: 3.0.0 para 3.5.0
+* JIRA também suporta 5.2. Para obter mais detalhes, clique em [Microsoft Azure Active Directory início de sessão único para JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluência: 5.0 para 5.10
+* Confluência: 6.0.1
+* Confluência: 6.1.1
+* Confluência: 6.2.1
+* Confluência: 6.3.4
+* Confluência: 6.4.0
+* Confluência: 6.5.0
+* Confluência: 6.6.2
+* Confluência: 6.7.0
+* Confluência: 6.8.1
+* Confluência: 6.9.0
+* Confluência: 6.10.0
+* Confluência: 6.11.0
+* Confluência: 6.12.0
 
 ## <a name="installation"></a>Instalação
 
@@ -79,7 +93,7 @@ Para instalar o plug-in, siga estes passos:
 
 2. Aceda à consola de administração do Jira/confluência e selecione **suplementos**.
 
-3. Do Atlassian Marketplace, procure **Plug-in do Microsoft SAML SSO**.
+3. Do Microsoft Download Center, transfira o [Microsoft SAML SSO Plug-in para Jira](https://www.microsoft.com/download/details.aspx?id=56506)/ [Microsoft SAML SSO Plug-in para confluência](https://www.microsoft.com/download/details.aspx?id=56503).
 
    A versão adequada do plug-in é apresentado nos resultados da pesquisa.
 
@@ -171,9 +185,23 @@ Não. O plug-in suporta apenas no local as versões do Jira e confluência.
 
 O plug-in oferece suporte a essas versões:
 
-* Jira Core e de Software: 6.0 para 7.8
-* Central de serviços de Jira: 3.0 para 3.2
+* Jira Core e de Software: 6.0 para 7.12
+* Central de serviços de Jira: 3.0.0 para 3.5.0
+* JIRA também suporta 5.2. Para obter mais detalhes, clique em [Microsoft Azure Active Directory início de sessão único para JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluência: 5.0 para 5.10
+* Confluência: 6.0.1
+* Confluência: 6.1.1
+* Confluência: 6.2.1
+* Confluência: 6.3.4
+* Confluência: 6.4.0
+* Confluência: 6.5.0
+* Confluência: 6.6.2
+* Confluência: 6.7.0
+* Confluência: 6.8.1
+* Confluência: 6.9.0
+* Confluência: 6.10.0
+* Confluência: 6.11.0
+* Confluência: 6.12.0
 
 ### <a name="is-the-plug-in-free-or-paid"></a>É o plug-in gratuito ou pago?
 

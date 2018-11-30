@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
-ms.openlocfilehash: 8908a6ceb87e2c0e4c7222e8a8e72fa7ebfa7f82
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309268"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421288"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>Como enviar E-mails com o SendGrid do node. js
 
@@ -131,7 +131,7 @@ sendgrid.send({
 ```
 
 > [!NOTE]
-> Ao utilizar o **arquivos** propriedade, o ficheiro tem de ser acessível através de [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). Se o ficheiro que pretende anexar estiver alojado no armazenamento do Azure, como um contentor de BLOBs, primeiro tem de copiar o ficheiro para o armazenamento local ou a uma unidade do Azure antes que ela pode ser enviada como um anexo a utilizar o **ficheiros** propriedade.
+> Ao utilizar o **arquivos** propriedade, o ficheiro tem de ser acessível através de [fs.readFile](https://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile). Se o ficheiro que pretende anexar estiver alojado no armazenamento do Azure, como um contentor de BLOBs, primeiro tem de copiar o ficheiro para o armazenamento local ou a uma unidade do Azure antes que ela pode ser enviada como um anexo a utilizar o **ficheiros** propriedade.
 > 
 > 
 

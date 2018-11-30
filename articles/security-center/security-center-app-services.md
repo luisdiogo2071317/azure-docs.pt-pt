@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 11/14/2018
 ms.author: rkarlin
-ms.openlocfilehash: 062d3ce75372cd09e617fb984208542a31cb8e4a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f46837751901015fd80d3ecc7a620878cadb3f12
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019250"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317879"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Proteger o serviço de aplicações com o Centro de segurança do Azure
 Este artigo ajuda-o a utilizar o Centro de segurança do Azure para monitorizar e proteger as suas aplicações em execução com base no serviço de aplicações.
 
 Serviço de aplicações permite-lhe criar e alojar aplicações web na linguagem de programação da sua preferência sem ter de gerir infraestrutura. Serviço de aplicações oferece dimensionamento automático e elevada disponibilidade, suporta Windows e Linux, os e implementações automáticas a partir do GitHub, Visual Studio Team Services ou qualquer repositório de Git. 
 
-Vulnerabilidades em aplicativos web com freqüência são exploradas pelos atacantes, porque eles têm uma interface comum e dinâmica para quase todas as organizações na Internet. Pedidos de aplicações em execução com base no serviço de aplicações vai através de vários gateways implementados nos datacenters do Azure em todo o mundo, responsável pelo encaminhamento de cada pedido para seu aplicativo correspondente. 
+Vulnerabilidades em aplicativos web com freqüência são exploradas pelos atacantes, porque eles têm uma interface comum e dinâmica para quase todas as organizações na Internet. Pedidos de aplicações em execução com base no serviço de aplicações vai através de vários gateways implementadas nos centros de dados do Azure em todo o mundo, responsável pelo encaminhamento de cada pedido para seu aplicativo correspondente. 
 
 Centro de segurança do Azure pode executar avaliações e as recomendações nas suas aplicações em execução no serviço de aplicações em áreas de segurança na sua VM ou instâncias a pedido. Ao tirar partido da visibilidade que o Azure tem como fornecedor de cloud, o Centro de segurança analisa os registos de internos do serviço de aplicações para monitorizar ataques de aplicação web comuns, que, muitas vezes, ser executados em vários destinos.
 
@@ -63,7 +63,7 @@ Para desativar a monitorização e recomendações para o serviço de aplicaçõ
 ## <a name="see-also"></a>Consulte também
 Neste artigo, aprendeu a utilizar as capacidades de monitorização no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-policies.md): saiba como configurar definições de segurança no Centro de Segurança do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md): saiba como configurar definições de segurança no Centro de Segurança do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md): saiba como gerir e responder a alertas de segurança.
 * [Monitorizar soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md): encontre as perguntas mais frequentes acerca de como utilizar o serviço.

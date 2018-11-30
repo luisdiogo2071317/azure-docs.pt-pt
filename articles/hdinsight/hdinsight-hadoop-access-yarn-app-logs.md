@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 81a156f3c3d211caffbc33a1f0b45a6c6cd56cb4
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 62499c35fd71d83f80a60e0511e6a27ce0109275
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975147"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495870"
 ---
-# <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Registos de aplicações do Apache YARN de acesso no HDInsight baseado em Windows
-Este documento explica como acessar os registos para aplicativos de Apache YARN que tem concluído a num cluster de Hadoop baseado em Windows no Azure HDInsight
+# <a name="access-apache-hadoop-yarn-application-logs-on-windows-based-hdinsight"></a>Registos de aplicações do Apache Hadoop YARN de acesso no HDInsight baseado em Windows
+Este documento explica como acessar os registos para [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) aplicativos que tem concluído no Apache Hadoop baseado em Windows cluster no Azure HDInsight
 
 > [!IMPORTANT]
-> As informações neste documento aplicam-se apenas a clusters do HDInsight baseado em Windows. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows). Para obter informações sobre como acessar o YARN registos em clusters do HDInsight baseado em Linux, consulte [registos de aplicações de acesso Apache YARN no Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> As informações neste documento aplicam-se apenas a clusters do HDInsight baseado em Windows. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows). Para obter informações sobre como acessar o YARN registos em clusters do HDInsight baseado em Linux, consulte [registos de aplicações de acesso Apache Hadoop YARN no Linux com base em Apache Hadoop no HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 
 ### <a name="prerequisites"></a>Pré-requisitos
-* Um cluster do HDInsight baseado em Windows.  Ver [Hadoop baseado em Windows criar clusters no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* Um cluster do HDInsight baseado em Windows.  Ver [Apache Hadoop baseado em Windows criar clusters no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>Servidor de linha cronológica do YARN
-O <a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">servidor de linha cronológica do YARN</a> fornece informações genéricas sobre aplicações concluídas, bem como framework informações específicas da aplicação através de duas interfaces diferentes. Especificamente:
+O <a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">servidor de linha cronológica do Apache Hadoop YARN</a> fornece informações genéricas sobre aplicações concluídas, bem como framework informações específicas da aplicação através de duas interfaces diferentes. Especificamente:
 
 * Armazenamento e obtenção de informações de aplicação genérica em clusters de HDInsight foi ativado com a versão 3.1.1.374 ou superior.
 * O componente de informações de aplicações com arquiteturas específicas do servidor de linha cronológica não está atualmente disponível em clusters do HDInsight.
@@ -53,7 +53,7 @@ YARN suporta vários modelos de programação ao desassociar a gestão de recurs
 * Um contentor fornece o contexto para uma unidade básica de trabalho. 
 * Trabalho que é feito no contexto de um contentor é executado no nó de trabalho única que o contentor foi atribuído a. 
 
-Para obter mais informações, consulte [conceitos de YARN][YARN-concepts].
+Para obter mais informações, consulte [Apache Hadoop YARN conceitos][YARN-concepts].
 
 Registos de aplicações (e os registos de contentor associado) são essenciais na depuração de aplicativos problemáticos do Hadoop. O YARN fornece uma estrutura legal para recolher, Agregar e armazenar os registos de aplicações com o [Log agregação] [ log-aggregation] funcionalidade. A funcionalidade de agregação de Log torna os registos da aplicação ao aceder ao mais determinístico, como ele agrega registos em todos os contentores num nó de trabalho e armazena-as como um agregado ficheiro de registo por nó de trabalho no sistema de ficheiros predefinido após a conclusão de uma aplicação. Seu aplicativo pode usar centenas ou milhares de contentores, mas os registos para todos os contentores executados num nó de trabalho único são agregados para um único arquivo, resultando num arquivo por nó de trabalho utilizado pela sua aplicação. Agregação de registo está ativada por predefinição em clusters do HDInsight (versão 3.0 e superior), e os registos agregados podem ser encontrados no contentor predefinido do cluster na seguinte localização:
 

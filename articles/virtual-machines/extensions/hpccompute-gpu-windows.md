@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: 85ac478bf753d5bb0aed96eca538e48525354eff
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823797"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495968"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de controladores de NVIDIA GPU para Windows
 
@@ -84,7 +84,7 @@ Todas as definições são opcionais. O comportamento padrão é instalar o cont
 
 | Nome | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
-| driverVersion | NV: Versão do controlador de GRADE<br> NC/ND: Versão do controlador CUDA | mais recente | GRID: "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | cadeia |
+| driverVersion | NV: Versão do controlador de GRADE<br> NC/ND: Versão do controlador CUDA | mais recente | GRID: "411.81", "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | cadeia |
 | installGridND | Instale o controlador de GRADE na série ND VMs | false | VERDADEIRO, FALSO | boolean |
 
 ## <a name="deployment"></a>Implementação

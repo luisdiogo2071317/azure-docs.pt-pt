@@ -17,18 +17,18 @@ ms.date: 11/13/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3ecf837af735b97e269eb3fdc01d2e56ec40fb6e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: be10af7096a11fb27971af9dc28036df4a4b0968
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624510"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423563"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>O Azure Active Directory v 2.0 e o fluxo de credenciais de cliente OAuth 2.0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Pode utilizar o [concessão de credenciais de cliente OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4) especificado no RFC 6749, por vezes denominado *polvo de dois OAuth*, para aceder a recursos hospedados na web utilizando a identidade de um aplicativo. Este tipo de concessão normalmente é utilizado para interações de servidor para servidor que devem ser executado em segundo plano, sem interação imediata com um utilizador. Esses tipos de aplicativos, muitas vezes, são denominados *daemons* ou *contas de serviço*.
+Pode utilizar o [concessão de credenciais de cliente OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.4) especificado no RFC 6749, por vezes denominado *polvo de dois OAuth*, para aceder a recursos hospedados na web utilizando a identidade de um aplicativo. Este tipo de concessão normalmente é utilizado para interações de servidor para servidor que devem ser executado em segundo plano, sem interação imediata com um utilizador. Esses tipos de aplicativos, muitas vezes, são denominados *daemons* ou *contas de serviço*.
 
 As credenciais de cliente OAuth 2.0 concedem o fluxo permite-que um serviço da web (cliente confidencial) para utilizar as suas próprias credenciais, em vez de representar um utilizador, para autenticação ao chamar outro serviço web. Neste cenário, o cliente é normalmente um serviço web de camada intermediária, um serviço de daemon ou o web site. Para um nível mais elevado de garantia, Azure Active Directory (Azure AD) também permite que o serviço de chamada utilizar um certificado (em vez de um segredo partilhado) como uma credencial.
 

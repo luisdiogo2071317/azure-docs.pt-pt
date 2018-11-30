@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/22/2018
 ms.author: jeedes
-ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 608269a05ae1ed699954cd301aa03056e089fa8a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010733"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426106"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory com o JIRA SAML SSO pela Microsoft
 
@@ -154,11 +154,26 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal do A
 
     ![Configurar o início de sessão único](./media/jiramicrosoft-tutorial/addon12.png)
 
-9. Assim que o plug-in estiver instalado, ele aparece na **utilizador instalado** secção de suplementos do **suplemento gerir** secção. Clique em **configurar** para configurar o plug-in de novo.
+9. Para executar o proxy inverso do JIRA cenário de Balanceador de carga ou de cenário, execute os seguintes passos:
+
+    > [!NOTE]
+    > Deve ser configurar o servidor pela primeira vez com a seguir as instruções e instale o plug-in.
+
+    a. Adicionar abaixo do atributo na **conector** porta no **ficheiro** ficheiro da aplicação de servidor do JIRA.
+
+    `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
+
+    ![Configurar o início de sessão único](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+
+    b. Alteração **URL de Base** na **definições do sistema** , de acordo com o Balanceador de carga do proxy.
+
+    ![Configurar o início de sessão único](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+
+10. Assim que o plug-in estiver instalado, ele aparece na **utilizador instalado** secção de suplementos do **suplemento gerir** secção. Clique em **configurar** para configurar o plug-in de novo.
 
     ![Configurar o início de sessão único](./media/jiramicrosoft-tutorial/addon13.png)
 
-10. Execute os seguintes passos na página de configuração:
+11. Execute os seguintes passos na página de configuração:
 
     ![Configurar o início de sessão único](./media/jiramicrosoft-tutorial/addon52.png)
 

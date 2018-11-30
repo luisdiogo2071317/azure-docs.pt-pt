@@ -1,5 +1,5 @@
 ---
-title: Diagrama de descrição geral das funcionalidades do Machine Learning Studio | Microsoft Docs
+title: Diagrama de descrição geral das capacidades de Machine Learning Studio - Azure | Documentos da Microsoft
 description: Um diagrama imprimível das funcionalidades do Azure Machine Learning Studio demonstra como utilizar o Studio para desenvolver uma análise preditiva experimentá-lo e operacionalizá-lo na nuvem do Azure.
 keywords: machine learning studio,diagrama de descrição geral,transferir
 services: machine-learning
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: 283a37cd708dfd41a7840cef2f4236fd887130bf
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d972cc9f162e16d5b688919dcdb5b7b06ad90736
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262640"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312468"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Diagrama de descrição geral das funcionalidades do Machine Learning Studio
 O diagrama da **Descrição geral das funcionalidades do Microsoft Azure Machine Learning Studio** dá-lhe uma descrição geral de alto nível sobre como pode utilizar o Machine Learning Studio para desenvolver um modelo de análise preditiva e operacionalizá-lo na nuvem do Azure.

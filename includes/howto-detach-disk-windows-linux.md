@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: cynthn
+ms.openlocfilehash: 343ffb8daf19711d6c2a61b819ece92448146446
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331350"
+---
 Quando já não precisar de um disco de dados que esteja ligado a uma máquina virtual, pode desligá-lo facilmente. Desligar um disco remove o disco da máquina virtual, mas não elimina o disco da conta de armazenamento do Azure.
 
 Se pretender voltar a utilizar os dados existentes no disco, pode voltar a ligá-lo à mesma máquina virtual ou a outra.  
@@ -9,7 +22,7 @@ Se pretender voltar a utilizar os dados existentes no disco, pode voltar a ligá
 ## <a name="find-the-disk"></a>Localizar o disco
 Se não souber o nome do disco ou pretender verificar o mesmo antes de desligá-lo, siga estes passos.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Clique em **Máquinas Virtuais** e selecione a máquina virtual apropriada.
 

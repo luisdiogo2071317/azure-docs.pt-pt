@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: bcdc665c59a900d4c57d03140654fffec26af0eb
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7f653eca0c768cc35df039cbd51153484710d80a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706760"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422258"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar baseado em SAML início de sessão único para aplicações no Azure Active Directory
 
@@ -75,7 +75,7 @@ Para resolver o erro sem instalar MyApps Secure extensão de início de sessão:
     - Uma declaração de identificar a causa de raiz do problema.
 2.  Volte para o Azure AD e encontrar os **testar início de sessão único** painel.
 3.  Na caixa de texto acima **obtenha documentação de orientação de resolução**, cole a mensagem de erro.
-3.  Clique em **obtenha documentação de orientação de resolução** para apresentar os passos para resolver o problema. As diretrizes poderão necessitar de informações do pedido SAML ou resposta SAML. Se não estiver a utilizar o início de sessão extensão My Apps seguro em, poderá ter uma ferramenta como [Fiddler](http://www.telerik.com/fiddler) para recuperar o pedido SAML e a resposta.
+3.  Clique em **obtenha documentação de orientação de resolução** para apresentar os passos para resolver o problema. As diretrizes poderão necessitar de informações do pedido SAML ou resposta SAML. Se não estiver a utilizar o início de sessão extensão My Apps seguro em, poderá ter uma ferramenta como [Fiddler](https://www.telerik.com/fiddler) para recuperar o pedido SAML e a resposta.
 4.  Verifique se que o destino no pedido de SAML corresponde ao SAML único início de sessão no URL do serviço obtido a partir do Azure Active Directory
 5.  Certifique-se de que o emissor no pedido de SAML é o mesmo identificador que configurou para a aplicação no Azure Active Directory. Azure AD utiliza o emissor para localizar uma aplicação no seu diretório.
 6.  Certifique-se de que AssertionConsumerServiceURL é onde a aplicação espera receber o token SAML do Azure Active Directory. Pode configurar este valor no Azure Active Directory, mas não é obrigatório se faz parte do pedido de SAML.
@@ -90,7 +90,7 @@ Para resolver o erro:
 1. Se a aplicação na galeria do Azure AD, certifique-se de que seguiu todos os passos para integrar a aplicação com o Azure AD. Para obter as instruções de integração para a sua aplicação, consulte a [lista de tutoriais de integração de aplicações de SaaS](../saas-apps/tutorial-list.md).
 2. Recuperar a resposta SAML.
     - Se a extensão My segura de aplicações início de sessão estiver instalada, do **testar início de sessão único** painel, clique em **transferir a resposta SAML**.
-    - Se a extensão não estiver instalada, utilize uma ferramenta como [Fiddler](http://www.telerik.com/fiddler) para recuperar a resposta SAML. 
+    - Se a extensão não estiver instalada, utilize uma ferramenta como [Fiddler](https://www.telerik.com/fiddler) para recuperar a resposta SAML. 
 3. Observe que esses elementos no token SAML resposta:
     - Identificador exclusivo do utilizador do valor de NameID e de formato
     - Afirmações emitidas no token

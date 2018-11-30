@@ -1,5 +1,5 @@
 ---
-title: Os seus dados estão prontos para a ciência de dados? Avaliação de dados - Azure Machine Learning | Documentos da Microsoft
+title: Os seus dados estão prontos para a ciência de dados? Avaliação de dados - Azure Machine Learning Studio | Documentos da Microsoft
 description: Critérios de quatro que seus dados têm de cumprir para estar pronto para ciência de dados. Este vídeo tem exemplos concretos para ajudar na avaliação de dados básicos.
 keywords: dados relevantes, avaliar dados, preparar dados, os critérios de dados, dados prontos
 services: machine-learning
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: d762b0b82364293bb8a946dec575ac099dcd9172
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5e7949edb13bfec72fa7d80d86d2e77214ceaa37
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263255"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316213"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Os seus dados estão prontos para a ciência de dados?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Ciência de dados para a série de iniciantes

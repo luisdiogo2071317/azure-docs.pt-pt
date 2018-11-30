@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27bfd3176ecad847f9bba2a62abd66b55484443b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056037"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443020"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Como implementar uma instância de serviço de gestão de API do Azure em várias regiões do Azure
 
@@ -26,11 +26,10 @@ Gestão de API do Azure suporta implementação em várias regiões, que permite
 
 Um novo serviço de gestão de API do Azure contém apenas um inicialmente [unidade] [ unit] numa única região do Azure, a região primária. Regiões adicionais podem ser facilmente adicionados através do portal do Azure. É implementado um servidor de gateway de gestão de API para cada região e chamada de tráfego será encaminhado para o gateway mais próximo. Se uma região ficar offline, o tráfego é automaticamente redirecionado para o gateway mais próximo seguinte.
 
-> [!IMPORTANT]
-> Implementação em várias regiões só está disponível na **[Premium] [ Premium]** escalão.
-
 > [!NOTE]
 > Gestão de API do Azure replica apenas o componente de gateway de API em várias regiões. O componente de gestão de serviço está alojado apenas na região primária. Em caso de indisponibilidade na região primária, aplicar alterações de configuração a uma instância de serviço de gestão de API do Azure não é possível – incluindo as definições ou atualizações de políticas.
+
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"> </a>Implementar uma instância de serviço de gestão de API para uma nova região
 

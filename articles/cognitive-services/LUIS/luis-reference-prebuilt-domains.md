@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040045"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335628"
 ---
 # <a name="prebuilt-domain-reference"></a>Referência de domínio pré-concebida
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.
@@ -27,27 +27,27 @@ LUIS oferece 20 domínios pré-concebidos.
 
 | Domínio pré-criado | Descrição | Idiomas Suportados |
 | ---------------- |-----------------------|:------:|
-| Calendário | O domínio de calendário fornece intenções e entidades para adicionar, eliminar, ou editar um compromisso, a verificar a disponibilidade de participantes e encontrar informações sobre um evento de calendário.| pt-PT<br/> zh-CN |
-| Câmara | O domínio de câmera fornece intenções e entidades para tirar fotografias, vídeos de gravação e vídeo de difusão para uma aplicação.| pt-PT |
-| Comunicação | Envio de mensagens e efetuar chamadas telefónicas.| pt-PT <br/> zh-CN |
-| entretenimento  | Processamento de consultas relacionadas com de músicas, filmes e TV.| pt-PT |
-| Eventos | Reserva de bilhetes para concertos, festivals, jogos de desportos e comédia mostra.| pt-PT |
-| Adequação | Processamento de pedidos relacionados com atividades de adequação de controlo.| pt-PT |
-| Jogos | Processamento de pedidos relacionados com a parte de jogo num jogo multijogador.| pt-PT |
-| HomeAutomation | Controlar dispositivos domésticos inteligentes, como luzes e aplicações.| pt-PT<br/> zh-CN |
-| MovieTickets | Reserva de pedidos de filmes numa linha de cinema.| pt-PT |
-| Música | Reprodução de música num player de música.| pt-PT<br/> zh-CN |
-| Nota | O domínio de nota fornece intenções e entidades relacionadas com a criação, edição e encontrar notas.| pt-PT<br/> zh-CN |
-| OnDevice | O domínio de OnDevice fornece intenções e entidades relacionadas para controlar o dispositivo.| pt-PT<br/> zh-CN |
-| Locais  | Processamento de consultas relacionadas com de locais como as empresas, instituições, restaurantes, espaços públicos e endereços.| pt-PT<br/> zh-CN |
-| Lembrete | Processamento de pedidos relacionados com a criação, edição e encontrar lembretes.| pt-PT<br/> zh-CN |
-| RestaurantReservation | Processamento de pedidos para gerir as reservas do restaurante.| pt-PT<br/> zh-CN |
-| Táxis | Processamento de reservas para um táxi.| pt-PT<br/> zh-CN |
-| Traduzir | A tradução de texto para um idioma de destino.| pt-PT<br/> zh-CN |
-| PROGRAMAS DE TV | Controlar TVs.| pt-PT |
-| Serviços Públicos  | Pedidos de processamento que são comuns em muitos domínios, como "ajuda", "Repetir", "começar novamente".| pt-PT |
-| Meteorologia | Obter relatórios meteorológicos e previsões.| pt-PT<br/> zh-CN |
-| Web | Navegar para um Web site.| pt-PT<br/> zh-CN |
+| Calendário | O domínio de calendário fornece intenções e entidades para adicionar, eliminar, ou editar um compromisso, a verificar a disponibilidade de participantes e encontrar informações sobre um evento de calendário.| en-US<br/> zh-CN |
+| Câmara | O domínio de câmera fornece intenções e entidades para tirar fotografias, vídeos de gravação e vídeo de difusão para uma aplicação.| en-US |
+| Comunicação | Envio de mensagens e efetuar chamadas telefónicas.| en-US <br/> zh-CN |
+| entretenimento  | Processamento de consultas relacionadas com de músicas, filmes e TV.| en-US |
+| Eventos | Reserva de bilhetes para concertos, festivals, jogos de desportos e comédia mostra.| en-US |
+| Adequação | Processamento de pedidos relacionados com atividades de adequação de controlo.| en-US |
+| Jogos | Processamento de pedidos relacionados com a parte de jogo num jogo multijogador.| en-US |
+| HomeAutomation | Controlar dispositivos domésticos inteligentes, como luzes e aplicações.| en-US<br/> zh-CN |
+| MovieTickets | Reserva de pedidos de filmes numa linha de cinema.| en-US |
+| Música | Reprodução de música num player de música.| en-US<br/> zh-CN |
+| Nota | O domínio de nota fornece intenções e entidades relacionadas com a criação, edição e encontrar notas.| en-US<br/> zh-CN |
+| OnDevice | O domínio de OnDevice fornece intenções e entidades relacionadas para controlar o dispositivo.| en-US<br/> zh-CN |
+| Locais  | Processamento de consultas relacionadas com de locais como as empresas, instituições, restaurantes, espaços públicos e endereços.| en-US<br/> zh-CN |
+| Lembrete | Processamento de pedidos relacionados com a criação, edição e encontrar lembretes.| en-US<br/> zh-CN |
+| RestaurantReservation | Processamento de pedidos para gerir as reservas do restaurante.| en-US<br/> zh-CN |
+| Táxis | Processamento de reservas para um táxi.| en-US<br/> zh-CN |
+| Traduzir | A tradução de texto para um idioma de destino.| en-US<br/> zh-CN |
+| PROGRAMAS DE TV | Controlar TVs.| en-US |
+| Serviços Públicos  | Pedidos de processamento que são comuns em muitos domínios, como "ajuda", "Repetir", "começar novamente".| en-US |
+| Meteorologia | Obter relatórios meteorológicos e previsões.| en-US<br/> zh-CN |
+| Web | Navegar para um Web site.| en-US<br/> zh-CN |
 
 Para obter mais detalhes sobre cada domínio, consulte as secções que se seguem.
 
@@ -68,7 +68,7 @@ O domínio de calendário fornece intenções e entidades relacionadas às entra
 | Nome da entidade | Descrição | Exemplos |
 | ---------------- |-----------------------|----|
 | Localização | Localização do item de calendário, a reunião ou compromisso. Os endereços, cidades e regiões são bons exemplos de localizações.| 209 Nashville Gym <br/><br/>897 casa de pancake<br/><br/>Garage|
-| Assunto | O título de uma reunião ou compromisso.| Compromisso no dentista <br/><br/>Almoço com Leonor<br/><br/>Compromissos de médico|
+| Requerente | O título de uma reunião ou compromisso.| Compromisso no dentista <br/><br/>Almoço com Leonor<br/><br/>Compromissos de médico|
 
 ## <a name="camera"></a>Câmara 
 O domínio de câmera fornece intenções e entidades relacionadas ao uso de uma câmera. Dos objetivos abrangem capturando uma foto, selfie, captura de ecrã ou um vídeo e transmissão de vídeo a uma aplicação.
@@ -107,7 +107,7 @@ O domínio de comunicação fornece intenções e entidades relacionadas ao e-ma
 | FindContact| Localize informações de contacto por nome.|Localizar o número de Carol<br/>Mostre-me o número de Carol<br/>|
 | FindSpeedDial| Determinar o número de speedial que um número de telefone está definido para e vice-versa.|O que é o meu número de acesso telefónico 5?<br/>É necessário aumentar o conjunto de velocidade?<br/>O que é o número de marcação para 941-5555-333?|
 | GetForwardingsStatus| Obter o estado atual de encaminhamento de chamada.|Meu encaminhamento de chamada é ativado?<br/>Diga-me se o meu estado de chamada está ativada ou desativada<br/>|
-| GoBack| Volte ao passo anterior.|Voltar ao twitter<br/>Volte uma etapa<br/>Voltar atrás|
+| GoBack| Volte ao passo anterior.|Voltar ao twitter<br/>Volte uma etapa<br/>Retroceder|
 | Ignorar| Ignore uma chamada de entrada.|Não responder<br/>Ignorar chamada|
 | IgnoreWithMessage| Ignorar uma chamada de entrada e responder com texto em vez disso.|Não responder a essa chamada, mas em vez disso, a enviar uma mensagem.<br/>Ignorar e enviar uma mensagem de texto novamente.|
 | PressKey| Pressione um botão ou um número no teclado.|Estrela de marcação.<br/>Prima 1 2 3.|
@@ -588,7 +588,7 @@ Repeat last question please
 | Cancelar | Cancele uma ação.|Cancelar a mensagem<br/>Não quero enviar o e-mail já|
 | Confirmar | Certifique-se uma ação.|Sim AH confirmo<br/>Bom, que eu estou confirmar<br/>OK. eu estou confirmar|
 | FinishTask | Conclua uma tarefa iniciado do utilizador.|Terminei<br/>Terminei<br/>Isso é feito|
-| GoBack | Volte uma etapa ou regressar ao passo anterior.|Voltar ao Twitter<br/>Volte uma etapa<br/>Voltar atrás|
+| GoBack | Volte uma etapa ou regressar ao passo anterior.|Voltar ao Twitter<br/>Volte uma etapa<br/>Retroceder|
 | Ajuda | Pedido para obter ajuda.|Ajude<br/>abrir a ajuda<br/>ajuda|
 | Repetir | Repetir uma ação.|Repita a última pergunta.<br/>Repita os últimos música|
 | ShowNext | Mostra o item seguinte de uma série. |Mostrar a próxima Sílaba<br/>Vá para a página seguinte|

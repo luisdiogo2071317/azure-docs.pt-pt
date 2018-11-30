@@ -1,5 +1,5 @@
 ---
-title: Experimentações de Galeria de IA do Azure | Documentos da Microsoft
+title: Experiências de Galeria de IA do Azure - Azure Machine Learning Studio | Documentos da Microsoft
 description: Detetar e partilhar as experimentações na Galeria de IA do Azure.
 services: machine-learning
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 43e5cc14ac98b85dd50391380033834cf642b1a9
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 66b5e30a26c57676bdd65b4861d34ca90c0c25af
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264476"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317471"
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Descubra as experimentações na Galeria de IA do Azure
 
-[Galeria de IA do Azure](http://gallery.cortanaintelligence.com) tem uma grande variedade de [experimentações](https://gallery.cortanaintelligence.com/experiments) que tenha sido desenvolvido em [Azure Machine Learning Studio](https://studio.azureml.net). Intervalo de experimentações de experimentações de prova de conceito rápidos que demonstram uma máquina específica de aprendizagem técnica, para as soluções inteiramente desenvolvidas para problemas do complexos de machine learning.
+[Galeria de IA do Azure](http://gallery.cortanaintelligence.com) tem diversas [experimentações](https://gallery.cortanaintelligence.com/experiments) que tenha sido desenvolvido em [Azure Machine Learning Studio](https://studio.azureml.net). Intervalo de experimentações de experimentações de prova de conceito rápidos que demonstram uma máquina específica de aprendizagem técnica, para as soluções inteiramente desenvolvidas para problemas do complexos de machine learning.
 
 > [!NOTE]
 > Uma ***experimentar*** é uma tela no Machine Learning Studio, que pode utilizar para construir um modelo de Análise Preditiva. Criar o modelo ao ligar os dados com vários módulos analíticos. Pode experimentar idéias diferentes, realizar execuções de versão de avaliação e, eventualmente, implementar o seu modelo como um serviço web no Azure. Para obter um exemplo de como criar uma experiência básica, consulte [tutorial do Machine learning: crie a sua primeira experiência no Azure Machine Learning Studio](create-experiment.md). Para obter instruções mais abrangente de como criar uma solução de Análise Preditiva, veja [instruções: desenvolver uma solução de Análise Preditiva para a avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md).

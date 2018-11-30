@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 8e77a33667bd6794f667348958e0edb9c6a8fb0d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 41edbc621baede92c548f43ad2730b73f59756c0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094982"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496109"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando utilizar um fornecedor de autenticação do multi-factor do Azure
 
@@ -26,13 +26,11 @@ Um fornecedor do multi-factor Auth do Azure é utilizado para tirar partido das 
 Se tiver licenças que abrangem todos os utilizadores na sua organização, em seguida, não terá um fornecedor do multi-factor Auth do Azure. Crie um fornecedor de autenticação do multi-factor do Azure apenas se também tem de fornecer a verificação de dois passos para alguns usuários que não têm licenças.
 
 > [!NOTE]
-> Em vigor a partir de 1 de Setembro de 2018 novos auth fornecedores já não podem ser criados. Fornecedores de autenticação existentes podem continuar a ser utilizado e atualizados. Multi-factor authentication irá continuar a ser uma funcionalidade disponível em licenças do Azure AD Premium.
+> Em vigor a partir de 1 de Setembro de 2018 novos auth fornecedores já não podem ser criados. Fornecedores de autenticação existentes podem continuar a ser utilizado e atualizados. Multi-factor authentication irá continuar a estar disponível como uma funcionalidade no licenças do Azure AD Premium.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Avisos relacionados com o SDK de MFA do Azure
 
-Para transferir o SDK, é preciso um fornecedor do Multi-Factor Auth do Azure. Tenha em atenção que o SDK foi preterido e já não é suportado para os novos clientes e só irá continuar a funcionar até 14 de Novembro de 2018. Após esse tempo, as chamadas para o SDK irão falhar.
-
-Para transferir o SDK, crie um fornecedor do multi-factor Auth do Azure, mesmo que tenha o MFA do Azure, AAD Premium ou outras licenças agrupadas. Se criar um fornecedor do Multi-Factor Auth do Azure para esta finalidade e já tiver licenças, verifique se cria o Fornecedor com o modelo **Por Utilizador Ativado**. Em seguida, associe o fornecedor para o diretório que contém o MFA do Azure, Azure AD Premium ou outras licenças agrupadas. Esta configuração garante que só lhe será cobrado qualquer valor se tiver mais utilizadores exclusivos a efetuarem a verificação em dois passos do que o número de licenças.
+Tenha em atenção que o SDK foi preterido e só irá continuar a funcionar até 14 de Novembro de 2018. Após esse tempo, as chamadas para o SDK irão falhar.
 
 ## <a name="what-is-an-mfa-provider"></a>O que é um Fornecedor de MFA?
 

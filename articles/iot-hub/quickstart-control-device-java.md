@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 172c3011221e04bfdb4a4f3ae1515fe0eb10065b
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 454c3961cb31e147f647095c0a3a71a6c65630f1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515255"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422123"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Guia de Início Rápido: controlar um dispositivo ligado a um hub IoT (Java)
 
@@ -69,9 +69,9 @@ Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de u
 
 1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e para criar a identidade do dispositivo. 
 
-   **YourIoTHubName** : substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
+   **YourIoTHubName**: substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
 
-   **MyJavaDevice**: este é o nome designado para o dispositivo registado. Utilize MyJavaDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
+   **MyJavaDevice**: este valor é o nome fornecido para o dispositivo registado. Utilize MyJavaDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -81,11 +81,11 @@ Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de u
 
 2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
 
-   **YourIoTHubName**: substitua o marcador de posição abaixo pelo nome que escolher para o seu hub IoT.
+   **YourIoTHubName**: substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
-      -hub-name YourIoTHubName \
+      --hub-name YourIoTHubName \
       --device-id MyJavaDevice \
       --output table
     ```
@@ -100,7 +100,7 @@ Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de u
 
 Também precisa de uma _cadeia de ligação do serviço_ para permitir que a aplicação back-end se ligue ao seu hub IoT de modo a obter as mensagens. O seguinte comando obtém a cadeia de ligação do serviço do seu hub IoT:
    
-**YourIoTHubName** : substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
+**YourIoTHubName**: substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIoTHubName --output table

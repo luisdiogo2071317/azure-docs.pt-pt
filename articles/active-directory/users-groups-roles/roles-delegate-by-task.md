@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: b4704e9f078b248ef1835babb3b63c378b011c4e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516308"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445026"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Funções de administrador pela tarefa de identidade no Azure Active Directory
 
@@ -107,7 +107,7 @@ Leia toda a configuração | Leitores de diretórios | Função de utilizador pa
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Criar instância do Azure AD Domain Services | Administrador Global | 
-Tarefas de serviços de domínio de executar todas as do Azure AD | Grupo de administradores de controlador de domínio do AD do Azure ([consulte a documentação](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Executar todas as tarefas do Azure AD Domain Services | Grupo de administradores de controlador de domínio do AD do Azure ([consulte a documentação](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Leia toda a configuração | Leitor de subscrição do Azure que contém o serviço AD DS | 
 
 ## <a name="devices"></a>Dispositivos
@@ -147,7 +147,7 @@ Atribuir licenças | Administrador de conta de utilizador |
 Criar grupo | Administrador de conta de utilizador | 
 Criar, atualizar ou eliminar a revisão de acesso de um grupo ou de uma aplicação | Administrador de conta de utilizador | 
 Gerir a expiração de grupo | Administrador de conta de utilizador | 
-Gerir definições do grupo | Administrador de conta de utilizador | 
+Gerir definições do grupo | Administrador Global | 
 Leia toda a configuração (exceto associação oculta) | Leitores de diretórios | Função de utilizador padrão ([consulte a documentação](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 Associação de leitura, ocultada | Membro do grupo | O proprietário do grupo, o administrador de palavras-passe, administrador do Exchange, administrador do SharePoint, o administrador de Equipes, administrador de conta de utilizador
 Leia a associação de grupos com associação oculta a | Administrador de Suporte Técnico | Administrador de conta de utilizador, administrador de Equipes
@@ -226,7 +226,7 @@ Ler estado do servidor | Administrador Global |
 Tarefa | Função com privilégios mínimos | Funções adicionais
 ---- | --------------------- | ----------------
 Gerir fornecedores de identidade | Administrador Global | 
-Gerir as definições | Administrador Global | 
+Gerir definições | Administrador Global | 
 Gerir termos de utilização | Administrador Global | 
 Leia toda a configuração | Administrador Global | 
 

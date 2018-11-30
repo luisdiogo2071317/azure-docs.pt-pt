@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: b94c797bc2351706badb98075514e5324d90a249
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 078c4253f990e3ad2759afb9f5b55832c78d9e73
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277334"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334096"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Criar e gerir a base de dados para pontos finais de serviço de MariaDB VNet e regras de VNet com o portal do Azure
 
@@ -54,9 +54,5 @@ Pontos finais de serviços de rede (VNet) virtual e regras de estendem o espaço
    ![Pontos finais de serviço de VNet ativados e a regra de VNet criada](./media/howto-manage-vnet-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [configurar o SSL na base de dados do Azure para MySQL](howto-configure-ssl.md)
-
-<!--
-- Similarly, you can script to [Enable VNet service endpoints and create a VNET rule for Azure Database for MySQL using Azure CLI](howto-manage-vnet-using-cli.md).
-- For help in connecting to an Azure Database for MySQL server, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md)
--->
+- Saiba mais sobre [configuração do SSL na base de dados do Azure para MariaDB](howto-configure-ssl.md)
+- Da mesma forma, pode criar scripts para [VNet ativar pontos finais de serviço e criar uma regra VNET para a base de dados do Azure para MariaDB com a CLI do Azure](howto-manage-vnet-cli.md).

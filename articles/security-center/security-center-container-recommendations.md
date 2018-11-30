@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: d1a89e5732145ca6d03f266741239c7469dfff16
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1bb28f3ae972e4227265231080b8f37abaf8e130
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131239"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317550"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Compreender as recomendações do Centro de segurança do Azure container
 
@@ -29,7 +29,7 @@ Utilize as tabelas abaixo como referência para ajudar a compreender os contento
 
 | Recomendação | Descrição | Remediação |
 | --- | --- | --- |
-|Remediar vulnerabilidades em configurações de segurança do contentor |Remediar vulnerabilidades em configurações de segurança do contentor com base nas melhores práticas de configuração.| Remediar vulnerabilidades nas configurações de segurança do contentor:<br>1. Reveja a lista de regras com falhas.<br>2. Corrigi cada regra de acordo com as instruções especificadas.|
+|Remediar vulnerabilidades nas configurações de segurança do contentor |Remediar vulnerabilidades em configurações de segurança do contentor com base nas melhores práticas de configuração.| Remediar vulnerabilidades nas configurações de segurança do contentor:<br>1. Reveja a lista de regras com falhas.<br>2. Corrigi cada regra de acordo com as instruções especificadas.|
 
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -42,7 +42,7 @@ Para saber mais sobre as recomendações que se aplicam a outros tipos de recurs
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Proteger as máquinas e aplicações no Centro de segurança do Azure](security-center-virtual-machine-protection.md)
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-policies.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
 

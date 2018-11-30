@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d40b82b5beac2da78038e303cb50402d6fa0be7a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b8d8223647d42213eff53c2ff8310bed0cfe6cdb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566029"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446743"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar os módulos de C para o Azure IoT Edge
 
@@ -59,7 +59,7 @@ Siga estes passos para criar um módulo do IoT Edge com base no SDK de C do IoT 
 
 7. Introduza um nome para seu módulo. Escolha um nome que é exclusivo no seu registo de contentor. 
 
-8. Forneça o nome do repositório de imagens do módulo. Código de VS autopopulates o módulo nome com **localhost:5000**. Substitua-o com as suas próprias informações de registo. Se usar um registo do Docker local para fins de teste, em seguida, **localhost** tudo bem. Se utilizar o Azure Container Registry, em seguida, utilize o servidor de início de sessão a partir das definições do seu registo. O servidor de início de sessão é semelhante  **\<nome do registo\>. azurecr.io**. Substitua apenas a parte localhost da cadeia de carateres, não elimine o nome do módulo. 
+8. Forneça o nome do repositório de imagens do módulo. Código de VS autopopulates o módulo nome com **localhost:5000**. Substitua-o com as suas próprias informações de registo. Se usar um registo do Docker local para fins de teste, em seguida, **localhost** tudo bem. Se utilizar o Azure Container Registry, em seguida, utilize o servidor de início de sessão a partir das definições do seu registo. O servidor de início de sessão é semelhante  **\<nome do registo\>. azurecr.io**. Substitua apenas a parte localhost da cadeia de carateres, não elimine o nome do módulo. A cadeia final se parece com \<nome do registo\>.azurecr.io/\<modulename\>.
 
    ![Fornecer repositório de imagens do Docker](./media/how-to-develop-c-module/repository.png)
 
@@ -87,20 +87,11 @@ Quando estiver pronto para personalizar o modelo de C com o seu próprio código
 
 Em cada pasta de módulo, há vários arquivos de Docker para tipos de contentor diferente. Utilizar qualquer um destes ficheiros que terminam com a extensão **.debug** para criar o seu módulo para fins de teste. Atualmente, os módulos de C suportam a depuração apenas em contentores do Linux amd64.
 
-1. No VS Code, navegue para o `deployment.template.json` ficheiro. Atualizar o seu URL de imagem do módulo adicionando **.debug** ao fim.
-
-    ![Adicionar *** .debug para o seu nome de imagem](./media/how-to-develop-c-module/image-debug.png)
-
-2. Substitua o createOptions do módulo de C na **deployment.template.json** com abaixo conteúdo e guarde este ficheiro: 
-    
-    ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
-    ```
-
+1. No VS Code, navegue para o `deployment.debug.template.json` ficheiro. Este ficheiro contém a versão de depuração do seu módulo opções de criação de imagens com adequado. 
 2. Na paleta de comandos VS Code, introduza e execute o comando **do Azure IoT Edge: solução de compilação e de Push IoT Edge**.
-3. Selecione o `deployment.template.json` ficheiro para a sua solução da paleta de comandos. 
+3. Selecione o `deployment.debug.template.json` ficheiro para a sua solução da paleta de comandos. 
 4. No Azure IoT Hub Device Explorer, clique com botão direito um ID de dispositivo do IoT Edge. Em seguida, selecione **criar a implementação de único dispositivo**. 
-5. Abra a solução **config** pasta. Em seguida, selecione o `deployment.json` ficheiro. Escolher **selecionar o manifesto de implantação do Edge**. 
+5. Abra a solução **config** pasta. Em seguida, selecione o `deployment.debug.amd64.json` ficheiro. Escolher **selecionar o manifesto de implantação do Edge**. 
 
 Verá a implementação foi criada com êxito com um ID de implementação num terminal integrado do VS Code.
 

@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b7b8ccf7e84239db4eef0914346c453a2f205f91
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: c4a18fa022304e7ccfb4503cf2e02650555d6d7b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237898"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425127"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicações de web do Azure Active Directory utilizando o fluxo de concessão de código do OAuth 2.0
 
@@ -60,7 +60,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_type |obrigatório |Tem de incluir `code` para o fluxo de código de autorização. |
 | redirect_uri |Recomendado |O redirect_uri da sua aplicação, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos redirect_uris registado no portal, exceto pelo fato tem de ser codificados de url. Para aplicações de dispositivos móveis e nativas, deve usar o valor predefinido de `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |opcional |Especifica o método que deve ser utilizado para enviar a cópia de token resultante à sua aplicação. Pode ser `query`, `fragment`, ou `form_post`. `query` Fornece o código como um parâmetro de cadeia de caracteres de consulta no seu URI de redirecionamento. Se estiver solicitando um token de ID com o fluxo implícito, é possível utilizar `query` conforme especificado no [especificação de OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se estiver solicitando apenas do código, pode usar `query`, `fragment`, ou `form_post`. `form_post` executa uma POSTAGEM que contém o código para o seu URI de redirecionamento. A predefinição é `query` para um fluxo de código.  |
-| state |Recomendado |Um valor incluído no pedido que também é devolvido na resposta de token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](http://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
+| state |Recomendado |Um valor incluído no pedido que também é devolvido na resposta de token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
 | Recurso | Recomendado |O URI de ID de aplicação da API (recurso protegido) da web de destino. Para encontrar o URI de ID de aplicação, no Portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, abra a aplicação **definições** página, em seguida, clique em  **Propriedades**. Também pode ser um recurso externo, como `https://graph.microsoft.com`. Isto é necessário em um dos autorização ou pedidos de token. Para garantir autenticação menos prompts colocá-lo no pedido de autorização para se certificar de consentimento é recebido do usuário. |
 | scope | **ignorado** | Para aplicações do Azure AD v1, âmbitos devem ser configurados estaticamente no Portal do Azure em aplicativos **configurações**, **permissões obrigatórias**. |
 | linha de comandos |opcional |Indica o tipo de interação do usuário que é necessário.<p> Valores válidos são: <p> *início de sessão*: deve ser pedido ao utilizador para autenticar. <p> *select_account*: é pedido ao utilizador para selecionar uma conta, interromper o início de sessão único no. O utilizador pode selecionar uma conta de início de sessão iniciada existente, introduza as credenciais para uma conta de memorizados ou optar por utilizar uma conta diferente completamente. <p> *consentir*: consentimento do utilizador foram concedido, mas tem de ser atualizado. Deve ser pedido ao utilizador para dar consentimento. <p> *admin_consent*: um administrador deve ser-lhe pedido para consentir em nome de todos os utilizadores na sua organização |
@@ -102,7 +102,7 @@ error=access_denied
 
 | Parâmetro | Descrição |
 | --- | --- |
-| erro |Um valor de código de erro definido na seção 5.2 do [Framework de autorização do OAuth 2.0](http://tools.ietf.org/html/rfc6749). A tabela seguinte descreve os códigos de erro que retorna do Azure AD. |
+| erro |Um valor de código de erro definido na seção 5.2 do [Framework de autorização do OAuth 2.0](https://tools.ietf.org/html/rfc6749). A tabela seguinte descreve os códigos de erro que retorna do Azure AD. |
 | error_description |Uma descrição mais detalhada do erro. Esta mensagem não se destina a ser amigável de utilizador final. |
 | state |O valor de estado é um valor de não reutilizado gerado aleatoriamente que seja enviado no pedido e devolvido na resposta para impedir ataques do solicitação intersite forjada (CSRF). |
 
@@ -175,7 +175,7 @@ Uma resposta com êxito poderia ter esta aparência:
 | Parâmetro | Descrição |
 | --- | --- |
 | access_token |O pedido [token de acesso](access-tokens.md) como um assinado JSON Web Token (JWT). A aplicação pode utilizar este token para autenticar para o recurso protegido, como uma API web. |
-| token_type |Indica o valor de tipo de token. O único tipo que o Azure AD suporta é portador. Para obter mais informações sobre os tokens de portador, consulte [Framework de autorização de OAuth2.0: utilização de Token de portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
+| token_type |Indica o valor de tipo de token. O único tipo que o Azure AD suporta é portador. Para obter mais informações sobre os tokens de portador, consulte [Framework de autorização de OAuth2.0: utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |O tempo que o token de acesso é válido (em segundos). |
 | expires_on |O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Este valor é utilizado para determinar o tempo de vida de tokens em cache. |
 | Recurso |O URI de ID de aplicação da web API (recurso protegido). |
@@ -235,7 +235,7 @@ A tabela seguinte lista os códigos de estado HTTP que retorna o ponto final de 
 | temporarily_unavailable |O servidor está temporariamente demasiado ocupado para processar o pedido. |Repita o pedido. A aplicação cliente pode explicar ao usuário que a sua resposta está atrasada devido a uma condição temporária. |
 
 ## <a name="use-the-access-token-to-access-the-resource"></a>Utilizar o token de acesso para aceder ao recurso
-Agora que tive adquirido com sucesso um `access_token`, pode utilizar o token em pedidos para as APIs da Web, incluindo-o no `Authorization` cabeçalho. O [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) especificação explica como utilizar os tokens de portador nos pedidos HTTP para aceder a recursos protegidos.
+Agora que tive adquirido com sucesso um `access_token`, pode utilizar o token em pedidos para as APIs da Web, incluindo-o no `Authorization` cabeçalho. O [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt) especificação explica como utilizar os tokens de portador nos pedidos HTTP para aceder a recursos protegidos.
 
 ### <a name="sample-request"></a>Pedido de exemplo
 ```
@@ -258,7 +258,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | Parâmetro | Descrição |
 | --- | --- |
 | authorization_uri |O URI (ponto de extremidade físico) do servidor de autorização. Este valor também é utilizado como uma chave de pesquisa para obter mais informações sobre o servidor de um ponto de final de deteção. <p><p> O cliente deve validar que o servidor de autorização é confiável. Quando o recurso está protegido pelo Azure AD, é suficiente para verificar que o URL começa com https://login.microsoftonline.com ou outro nome de anfitrião que suporte do Azure AD. Um recurso específico de inquilino deve sempre retornar um URI de autorização de inquilino específico. |
-| erro |Um valor de código de erro definido na seção 5.2 do [Framework de autorização do OAuth 2.0](http://tools.ietf.org/html/rfc6749). |
+| erro |Um valor de código de erro definido na seção 5.2 do [Framework de autorização do OAuth 2.0](https://tools.ietf.org/html/rfc6749). |
 | error_description |Uma descrição mais detalhada do erro. Esta mensagem não se destina a ser amigável de utilizador final. |
 | resource_id |Devolve o identificador exclusivo do recurso. A aplicação cliente pode utilizar este identificador como o valor do `resource` parâmetro quando ele solicita um token para o recurso. <p><p> É importante para a aplicação de cliente verificar este valor, caso contrário, um serviço mal-intencionado poderá induza uma **elevação de privilégios** ataque <p><p> A estratégia recomendada para impedir a um ataque é verificar se o `resource_id` corresponde à base de URL da API web que está sendo acessado. Por exemplo, se https://service.contoso.com/data está sendo acessado, o `resource_id` pode ser htttps://service.contoso.com/. A aplicação cliente tem rejeitar um `resource_id` que não começa com o URL de base, exceto se houver uma forma alternativa fiável para verificar o id. |
 

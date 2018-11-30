@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 42220a94eb0d0259b8b410e7343ffbfe09e8bfa5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e853ea6d05585fa764ad6e019a3a4390ed840263
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007863"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313451"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões no Centro de segurança do Azure
 
@@ -59,7 +59,7 @@ A tabela seguinte mostra as funções e permitido ações no Centro de seguranç
 ## <a name="next-steps"></a>Passos Seguintes
 Este artigo explicou como o Centro de segurança utiliza o RBAC para atribuir permissões a utilizadores e identificou as ações permitidas para cada função. Agora que está familiarizado com as atribuições de função necessárias para monitorizar o estado de segurança da sua subscrição, editar as políticas de segurança e aplicar recomendações, saiba como:
 
-- [Definir políticas de segurança no Centro de segurança](security-center-policies.md)
+- [Definir políticas de segurança no Centro de segurança](security-center-azure-policy.md)
 - [Gerir recomendações de segurança no Centro de segurança](security-center-recommendations.md)
 - [Monitorizar o estado de funcionamento de segurança dos seus recursos do Azure](security-center-monitoring.md)
 - [Gerir e responder a alertas de segurança no Centro de Segurança](security-center-managing-and-responding-alerts.md)

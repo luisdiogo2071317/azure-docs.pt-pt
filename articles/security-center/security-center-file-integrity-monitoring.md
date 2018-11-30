@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0376f09d4d7d6c952cbef40751a2729045f68061
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9cfb098fd8e6cb777b6cd968f92b20baabfab705
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255844"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313996"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização no Centro de segurança do Azure da integridade de ficheiros
 Saiba como configurar o monitoramento de integridade de ficheiros (FIM) no Centro de segurança do Azure com estas instruções.
@@ -205,7 +205,7 @@ Pode desativar o FIM. FIM utiliza a solução de controlo de alterações do Azu
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a utilizar o monitoramento de integridade de ficheiros (FIM) no Centro de segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança](security-center-policies.md) – Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
+* [Definir políticas de segurança](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
 * [Gerir recomendações de segurança](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
 * [Monitorização de estado de funcionamento de segurança](security-center-monitoring.md)– Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Gerir e responder a alertas de segurança](security-center-managing-and-responding-alerts.md)– Saiba como gerir e responder a alertas de segurança.

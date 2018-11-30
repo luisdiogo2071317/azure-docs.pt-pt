@@ -17,12 +17,12 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: edb8ae501548775932a259621c19acece474018d
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 1d52e3b8871a5af219d1c9eafd559f06bb19f560
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581738"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424888"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de início de sessão único
 
@@ -99,7 +99,7 @@ Se for fornecido, não incluem o `ProxyCount` atributo, `IDPListOption` ou `Requ
 ### <a name="signature"></a>Assinatura
 Não inclua uma `Signature` elemento no `AuthnRequest` elementos, como o Azure AD suporta assinados pedidos de autenticação.
 
-### <a name="subject"></a>Assunto
+### <a name="subject"></a>Requerente
 O Azure AD ignora a `Subject` elemento de `AuthnRequest` elementos.
 
 ## <a name="response"></a>Resposta
@@ -108,7 +108,7 @@ Quando um pedido início de sessão for concluída com êxito, o Azure AD posta 
 ```
 <samlp:Response ID="_a4958bfd-e107-4e67-b06d-0d85ade2e76a" Version="2.0" IssueInstant="2013-03-18T07:38:15.144Z" Destination="https://contoso.com/identity/inboundsso.aspx" InResponseTo="id758d0ef385634593a77bdf7e632984b6" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
   <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
-  <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
     ...
   </ds:Signature>
   <samlp:Status>
@@ -116,7 +116,7 @@ Quando um pedido início de sessão for concluída com êxito, o Azure AD posta 
   </samlp:Status>
   <Assertion ID="_bf9c623d-cc20-407a-9a59-c2d0aee84d12" IssueInstant="2013-03-18T07:38:15.144Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
     <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
-    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
       ...
     </ds:Signature>
     <Subject>
@@ -205,12 +205,12 @@ O Azure AD assina a asserção em resposta a um início de sessão-com êxito. O
 Para gerar esta assinatura digital, o Azure AD utiliza a chave de assinatura no `IDPSSODescriptor` elemento do seu documento de metadados.
 
 ```
-<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
       digital_signature_here
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Assunto
+#### <a name="subject"></a>Requerente
 
 Esta ação Especifica o principal que é o assunto das instruções na asserção. Contém um `NameID` elemento, que representa o usuário autenticado. O `NameID` valor é um identificador de destino que é direcionado apenas para o fornecedor de serviço que é o público-alvo para o token. Ele é persistente - ele pode ser revogado, mas nunca é reatribuído. Também são opaca, pois ele não expõe nada sobre o utilizador e não pode ser utilizado como um identificador para consultas de atributo.
 

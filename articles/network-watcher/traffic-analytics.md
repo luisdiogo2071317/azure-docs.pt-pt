@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457413"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443037"
 ---
 # <a name="traffic-analytics"></a>Análise de tráfego
 
@@ -53,9 +53,39 @@ Análise de tráfego examina os registos de fluxo NSG não processados e captura
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-Pode utilizar a análise de tráfego para NSGs em qualquer uma das seguintes regiões: e.u.a. centro-oeste, E.U.A. leste, E.U.A. Leste 2, e.u.a. Centro-Norte, Centro-Sul, E.U.A. Central, E.U.A. oeste, E.U.A. oeste 2, Canadá Central, Europa Ocidental, Europa do Norte, oeste do Reino Unido, sul do Reino Unido, leste do Japão, Índia Central , Leste da Austrália, Sudeste da Austrália e Sudeste asiático. 
+Pode utilizar a análise de tráfego para NSGs em qualquer uma das seguintes regiões suportadas:
 
-A área de trabalho do log analytics tem de existir a e.u.a. centro-oeste, E.U.A. leste, Europa Ocidental, Reino Unido Sul, Canadá Central, leste do Japão, Sudeste da Austrália Central da Índia ou a região do Sudeste asiático.
+* Canadá Central
+* EUA Centro-Oeste
+* EUA Leste
+* EUA Leste 2
+* EUA Centro-Norte
+* EUA Centro-Sul
+* EUA Central
+* EUA Oeste
+* EUA Oeste 2
+* Europa Ocidental
+* Europa do Norte
+* Sul do Brasil
+* Reino Unido Oeste
+* Reino Unido Sul
+* Leste da Austrália
+* Sudeste da Austrália
+* Sudeste Asiático
+* Índia Central
+* Sul da Índia
+* Leste do Japão 
+
+A área de trabalho do Log Analytics têm de existir nas seguintes regiões:
+* Canadá Central
+* EUA Centro-Oeste
+* EUA Leste
+* Europa Ocidental
+* Reino Unido Sul
+* Sudeste da Austrália
+* Sudeste Asiático
+* Índia Central
+* Leste do Japão
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

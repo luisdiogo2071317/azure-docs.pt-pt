@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d7359c4c151d93dcd40bd475e865c76399ff5355
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 6303fe4313f68d4f38151ce9ba85eae2d6de96ca
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711785"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427000"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recolher registos de serviço do Azure e as métricas de utilização do Log Analytics
 
@@ -34,7 +34,7 @@ Existem quatro formas diferentes de recolha de registos e métricas para os serv
 
 | Serviço                 | Tipo de Recurso                           | Registos        | Métricas     | Solução |
 | --- | --- | --- | --- | --- |
-| Gateways de aplicação    | Microsoft.Network/applicationGateways   | Diagnóstico | Diagnóstico | [Análise do Gateway de aplicação do Azure](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
+| Gateways de aplicação    | Microsoft.Network/applicationGateways   | Diagnóstico | Diagnóstico | [Análise do Gateway de aplicação do Azure](../azure-monitor/insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | O Application insights    |                                         | Conector   | Conector   | [Conector do Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (pré-visualização) |
 | Contas de Automatização     | Microsoft.Automation/AutomationAccounts | Diagnóstico |             | [Mais informações](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Contas de Batch          | Microsoft.Batch/batchAccounts           | Diagnóstico | Diagnóstico | |
@@ -44,10 +44,10 @@ Existem quatro formas diferentes de recolha de registos e métricas para os serv
 | Arquivo do Data Lake         | Microsoft.DataLakeStore/accounts        | Diagnóstico |             | |
 | Espaço de nomes do hub de eventos     | Microsoft.EventHub/namespaces           | Diagnóstico | Diagnóstico | |
 | Hubs IoT                | Microsoft.Devices/IotHubs               |             | Diagnóstico | |
-| Cofre de Chaves               | Microsoft.KeyVault/vaults               | Diagnóstico |             | [Análise do Cofre de chaves](log-analytics-azure-key-vault.md) |
+| Cofre de Chaves               | Microsoft.KeyVault/vaults               | Diagnóstico |             | [Análise do Cofre de chaves](../azure-monitor/insights/azure-key-vault.md) |
 | Balanceador de Carga          | Microsoft.Network/loadBalancers         | Diagnóstico |             |  |
 | Aplicações Lógicas              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnóstico | Diagnóstico | |
-| Grupos de Segurança de Rede | Microsoft.Network/networksecuritygroups | Diagnóstico |             | [Análise do grupo de segurança de rede do Azure](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
+| Grupos de Segurança de Rede | Microsoft.Network/networksecuritygroups | Diagnóstico |             | [Análise do grupo de segurança de rede do Azure](../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Cofres de recuperação         | Microsoft.RecoveryServices/vaults       |             |             | [Análise (pré-visualização) de serviços de recuperação do Azure](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Procurar serviços         | Microsoft.Search/searchServices         | Diagnóstico | Diagnóstico | |
 | Espaço de nomes do Service Bus   | Microsoft.ServiceBus/namespaces         | Diagnóstico | Diagnóstico | [Análise do Service Bus (pré-visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|

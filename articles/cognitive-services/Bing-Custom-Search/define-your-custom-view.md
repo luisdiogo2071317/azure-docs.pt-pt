@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: ab1b8b011a6523fe3760c233c83d59fd9768ad0c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d45d917d733727eca3286bb6335ce77591f39685
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163305"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427289"
 ---
 # <a name="configure-your-custom-search-experience"></a>Configurar a sua experiência de pesquisa personalizada
 
@@ -160,7 +160,7 @@ Siga estas etapas para usar o Bing para adicionar setores à sua instância de p
 5.  Clique em **Add site** junto ao resultado que pretende incluir.
 6.  Clique no botão **OK**.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="view-statistics"></a>Ver estatísticas
 

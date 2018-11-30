@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: cd022677da59588eca910a508b2596aa513eff4b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c0e502c1627ebe9d63ca43cb46b982bb0639f3d7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302814"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444736"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de programador na gestão de API do Azure com o OAuth 2.0
 
@@ -30,6 +30,8 @@ Este guia mostra como configurar a sua instância do serviço de gestão de API 
 
 > [!NOTE]
 > Para obter mais informações sobre como configurar o OAuth 2.0 com o Azure Active Directory, consulte a [WebApp-Graph-DotNet] [ WebApp-GraphAPI-DotNet] exemplo.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>Configurar um servidor de autorização de OAuth 2.0 na gestão de API
 

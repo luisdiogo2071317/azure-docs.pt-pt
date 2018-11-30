@@ -1,6 +1,6 @@
 ---
-title: Ver e gerir tarefas de matriz Virtual StorSimple | Microsoft Docs
-description: Descreve a página de tarefas de serviço do Gestor de dispositivos do StorSimple e como utilizá-la para controlar as tarefas de recentes e atuais para a matriz de Virtual StorSimple.
+title: Ver e gerir tarefas de matriz Virtual StorSimple | Documentos da Microsoft
+description: Descreve a página de tarefas do serviço StorSimple Device Manager e como usá-lo para controlar tarefas recentes e atuais para a matriz Virtual StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
-ms.openlocfilehash: 3fd1c262a8ce94d8e98f2b066a8028d974b15b1d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23927720"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333569"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Utilizar o serviço do Gestor de dispositivos do StorSimple para ver tarefas para a matriz de Virtual StorSimple
+# <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Utilizar o serviço StorSimple Device Manager para ver tarefas do StorSimple Virtual Array
 ## <a name="overview"></a>Descrição geral
-O **tarefas** painel fornece um portal central único para ver e gerir tarefas iniciadas no matrizes virtuais que estão ligadas ao seu serviço do Gestor de dispositivos do StorSimple. Pode ver as tarefas em execução, concluídas e falhadas para vários dispositivos virtuais. Os resultados são apresentados em formato tabular.
+O **tarefas** painel fornece um único portal central para ver e gerir tarefas que são iniciadas em matrizes virtuais que estão ligadas ao seu serviço StorSimple Device Manager. Pode ver as tarefas em execução, concluídas e falhadas para vários dispositivos virtuais. Os resultados são apresentados num formato tabular.
 
 ![Painel de tarefas](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
 
-Pode encontrar rapidamente as tarefas que estão interessadas nas filtrando campos, tais como:
+Pode encontrar rapidamente as tarefas que estão interessadas em ao filtrar em campos, tais como:
 
 * **Intervalo de tempo** – tarefas podem ser filtradas com base no intervalo de data e hora.
-* **Dispositivos** – tarefas são iniciadas num dispositivo específico ligado ao seu serviço. As tarefas, em seguida, são apresentadas com base nos seguintes atributos:
+* **Dispositivos** – tarefas são iniciadas num dispositivo específico, ligado ao seu serviço. As tarefas, em seguida, são apresentadas com base nos seguintes atributos:
   
-  * **Nome** – o nome da tarefa pode ser **todos os**, **cópia de segurança**, **Clone**, **falhar**, **transferir atualizações**, ou **instalar atualizações**.
-  * **Estado** – tarefas podem ser **todos os**, **em curso**, **com êxito**, ou **falha**, ou **cancelado**.
+  * **Nome** – o nome da tarefa pode ser **todos os**, **cópia de segurança**, **Clone**, **efetuar a ativação pós-falha**, **detransferênciadeatualizações**, ou **instalar atualizações**.
+  * **Estado** – tarefas podem ser **todos os**, **em curso**, **Succeeded**, ou **falha**, ou **cancelado**.
   * **Entidade** – as tarefas podem ser associadas um volume, partilha ou dispositivo.
   * **Dispositivo** – o nome do dispositivo no qual a tarefa foi iniciada.
-  * **Iniciar** – a hora quando a tarefa foi iniciada.
-  * **Duração** – a duração para no qual a tarefa foi executada.
-* **Estado** – pode procurar todos os, tarefas em execução, concluídas ou falhadas.
-* **Tipo de tarefa** – o tipo de tarefa pode ser all, cópia de segurança, restauro, o ativação pós-falha, transferir as atualizações ou instalar atualizações.
+  * **Trabalhar com o** – o tempo quando a tarefa foi iniciada.
+  * **Duração** – a duração em que a tarefa foi executada.
+* **Estado** – pode pesquisar por todos os, tarefas em execução, concluídas ou falhadas.
+* **Tipo de tarefa** – o tipo de tarefa pode ser all, cópia de segurança, restauro, o failover, transferir as atualizações ou instalar atualizações.
 
 A lista de tarefas é atualizada a cada 30 segundos.
 
 ## <a name="view-job-details"></a>Ver detalhes da tarefa
-Execute os seguintes passos para visualizar os detalhes de qualquer tarefa.
+Execute os seguintes passos para ver os detalhes de qualquer tarefa.
 
 #### <a name="to-view-job-details"></a>Para ver os detalhes da tarefa
-1. No **tarefas** painel, apresenta as tarefas estão interessadas ao executar uma consulta com filtros adequados. Pode procurar tarefas em execução ou foi concluídas.
-2. Selecione uma tarefa da tabela lista de tarefas.
+1. Sobre o **tarefas** painel, exibir as tarefas estão interessadas em ao executar uma consulta com filtros adequados. Pode procurar por tarefas em execução ou concluídas.
+2. Selecione uma tarefa na lista tabular de tarefas.
    
     ![Painel de tarefas](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
 3. Na parte inferior da página, clique em **detalhes**.
-4. No **detalhes** caixa de diálogo, pode ver o estado, os detalhes e as estatísticas de tempo. A ilustração seguinte mostra um exemplo do **detalhes da tarefa de cópia de segurança** caixa de diálogo.
+4. Na **detalhes** caixa de diálogo, pode ver o estado, detalhes e as estatísticas de tempo. A ilustração seguinte mostra um exemplo do **detalhes da tarefa de cópia de segurança** caixa de diálogo.
    
     ![Detalhes da tarefa](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)
 
 #### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Falhas de tarefas quando a máquina virtual está em pausa no hipervisor
-Quando uma tarefa está em curso na sua matriz de Virtual StorSimple e o dispositivo (máquina virtual aprovisionada no hipervisor) está em pausa para maior do que 15 minutos, a tarefa falha. Isto devido ao seu tempo de matriz Virtual StorSimple se encontra sincronizado com a hora do Microsoft Azure. 
+Quando uma tarefa está em curso na sua matriz Virtual StorSimple e o dispositivo (máquina virtual aprovisionada no hipervisor) está em pausa para mais de 15 minutos, a tarefa falha. Isso é devido a seu tempo de matriz Virtual StorSimple que está a ser sincronizado com a hora do Microsoft Azure. 
 
-Verá o seguinte erro: "o tempo de dispositivo está dessincronizado com a hora do Microsoft Azure por mais de 15 minutos. Certifique-se de que o hipervisor e o dispositivo horas estão sincronizadas com um NTP servier. Certifique-se de que existem não existem problemas de conectividade. Para resolver problemas de conectividade, executar testes de diagnóstico da web local da IU do seu dispositivo virtual."
+Verá o seguinte erro: "Hora do seu dispositivo não está sincronizada com a hora do Microsoft Azure por mais de 15 minutos. Certifique-se de que o hipervisor e o dispositivo vezes são sincronizadas com um servidor NTP. Certifique-se de que não existem não existem problemas de conectividade. Para resolver problemas de conectividade, execute testes de diagnóstico da web local da interface do Usuário do seu dispositivo virtual."
 
-Estas falhas aplicam-se às tarefas de cópia de segurança, restauro, atualização e ativação pós-falha. Se a máquina virtual é aprovisionada no Hyper-V, a máquina, eventualmente, sincroniza-se tempo com o hipervisor. Quando isto acontecer, pode reiniciar a tarefa.
+Estas falhas se aplicam a tarefas de cópia de segurança, restauro, atualização e ativação pós-falha. Se a sua máquina virtual é aprovisionada no Hyper-V, a máquina sincroniza eventualmente tempo com seu hipervisor. Depois que isso acontece, pode reiniciar o seu trabalho.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Saiba como utilizar a IU da web local para administrar a matriz de Virtual StorSimple](storsimple-ova-web-ui-admin.md).
+[Saiba como utilizar a IU da web local para administrar a sua matriz Virtual StorSimple](storsimple-ova-web-ui-admin.md).
 

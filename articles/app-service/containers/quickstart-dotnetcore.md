@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 1345d4c4d349ed2fa5bb95ee35299c77fb391359
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
-ms.translationtype: HT
+ms.openlocfilehash: 5aff783735d38a2707f42efe8a1632bd5aaafc4b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42884990"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316774"
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Criar uma aplicação Web .NET Core no Serviço de Aplicações no Linux
 
@@ -41,7 +41,7 @@ Pode seguir os passos deste artigo num computador Mac, Windows ou Linux.
 
 Para concluir este guia de início rápido:
 
-* <a href="https://git-scm.com/" target="_blank">Instale o Git</a>
+* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
 * <a href="https://www.microsoft.com/net/core/" target="_blank">Instale o .NET Core</a>
 
 ## <a name="create-the-app-locally"></a>Criou a aplicação localmente
@@ -66,7 +66,6 @@ Execute a aplicação localmente, para ver que aspeto deveria ter quando a imple
 Restaure os pacotes NuGet e execute a aplicação.
 
 ```bash
-dotnet restore
 dotnet run
 ```
 
@@ -76,7 +75,7 @@ Pode ver a mensagem **Hello World** da aplicação de exemplo apresentada na pá
 
 ![Testar com o browser](media/quickstart-dotnetcore/dotnet-browse-local.png)
 
-Na janela do terminal, prima **Ctrl+C** para sair do servidor Web. Inicialize um repositório de Git para o projeto .NET Core.
+Na janela do terminal, prima **Ctrl+C** para desligar o servidor Web. Inicialize um repositório de Git para o projeto .NET Core.
 
 ```bash
 git init
@@ -186,7 +185,7 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web da Base de Dados SQL e .NET Core no Serviço de Aplicações do Azure no Linux](tutorial-dotnetcore-sqldb-app.md)

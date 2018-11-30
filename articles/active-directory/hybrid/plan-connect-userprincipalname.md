@@ -1,5 +1,5 @@
 ---
-title: População do AD UserPrincipalName do Azure
+title: População UserPrincipalName do Azure AD
 description: O documento seguinte descreve como o atributo UserPrincipalName é preenchido.
 author: billmath
 ms.component: hybrid
@@ -9,14 +9,14 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 35f1ed2fbeeea7ff3beffeae91f775c829deedec
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637719"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426813"
 ---
-# <a name="azure-ad-userprincipalname-population"></a>População do AD UserPrincipalName do Azure
+# <a name="azure-ad-userprincipalname-population"></a>População UserPrincipalName do Azure AD
 
 Este artigo descreve como o atributo UserPrincipalName é preenchido no Azure Active Directory (Azure AD).
 O valor do atributo UserPrincipalName é o nome de utilizador do Azure AD para as contas de utilizador.
@@ -26,7 +26,7 @@ A seguinte terminologia é usada neste artigo:
 
 |Termo|Descrição|
 |-----|-----|
-|Domínio inicial|O domínio predefinido (onmicrosoft.com) no inquilino do Azure AD. Por exemplo, contoso.onmicrosoft.com.|
+|Domínio Inicial|O domínio predefinido (onmicrosoft.com) no inquilino do Azure AD. Por exemplo, contoso.onmicrosoft.com.|
 |Microsoft Online encaminhamento endereço de E-Mail (MOERA)|O Azure AD calcula MOERA do atributo MailNickName do Azure AD e o domínio inicial do Azure AD como &lt;MailNickName&gt;&#64;&lt;domínio inicial&gt;.|
 |Atributo de mailNickName no local|Um atributo no Active Directory, o valor que representa o alias de um utilizador numa organização do Exchange.|
 |Atributo de correio no local|Um atributo no Active Directory, o valor que representa o endereço de e-mail de um utilizador|
@@ -34,7 +34,7 @@ A seguinte terminologia é usada neste artigo:
 |ID de início de sessão alternativo|Um atributo no local que não seja o UserPrincipalName, por exemplo, o atributo de correio, utilizado para início de sessão.|
 
 ## <a name="what-is-userprincipalname"></a>O que é o UserPrincipalName?
-UserPrincipalName é um atributo que é um nome de início de sessão de estilo da Internet para um utilizador com base no padrão de Internet [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
+UserPrincipalName é um atributo que é um nome de início de sessão de estilo da Internet para um utilizador com base no padrão de Internet [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). 
 
 ### <a name="upn-format"></a>Formato UPN
 Um UPN é constituído por um prefixo UPN (nome de conta de utilizador) e um sufixo UPN (um nome de domínio DNS). O prefixo está associado com o sufixo usando o "\@" símbolo. Por exemplo, "alguém\@example.com". Um UPN tem de ser exclusivo entre todos os objetos de principal de segurança dentro de uma floresta do diretório. 

@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: c364f9d06d29a601dfb9598bb568e7a6218d0a6f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8c3e3fa6dee41725c95be6f820440f6be50c53e6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013807"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496494"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conhecidos para o cluster do Apache Spark no HDInsight
 
 Este documento mantém um registo de todos os problemas conhecidos na pré-visualização pública do HDInsight Spark.  
 
-## <a name="livy-leaks-interactive-session"></a>Sessão interativa de vazamentos de Livy
-Quando Livy é reiniciado (do Ambari ou devido a reinício da máquina virtual de nó principal 0) com uma sessão interativa ainda existem, uma sessão de trabalho interativo é perdida. Como resultado, novas tarefas podem estar bloqueadas no Estado aceites.
+## <a name="apache-livy-leaks-interactive-session"></a>Apache Livy vazamentos de sessão interativa
+Quando [Apache Livy](https://livy.incubator.apache.org/) reinicia (partir [Apache Ambari](https://ambari.apache.org/) ou devido a reinício da máquina virtual de nó principal 0) com uma sessão interativa ainda existem, uma sessão de trabalho interativo é perdida. Como resultado, novas tarefas podem estar bloqueadas no Estado aceites.
 
 **Atenuação:**
 
@@ -33,7 +33,7 @@ Utilize o procedimento seguinte para contornar o problema:
    
         yarn application –list
    
-    Os nomes de tarefa padrão será Livy se as tarefas foram iniciadas com uma sessão interativa do Livy com nenhuma explícitas nomes especificados. Para a sessão do Livy iniciada pelo bloco de notas do Jupyter, o nome da tarefa começa com remotesparkmagics_ *. 
+    Os nomes de tarefa padrão será Livy se as tarefas foram iniciadas com uma sessão interativa do Livy com nenhuma explícitas nomes especificados. Para a sessão do Livy iniciada por [bloco de notas do Jupyter](https://jupyter.org/), o nome da tarefa começa com remotesparkmagics_ *. 
 3. Execute o seguinte comando para eliminar essas tarefas. 
    
         yarn application –kill <Application ID>
@@ -112,20 +112,20 @@ Quando o cluster do Spark tem recursos insuficientes, os Spark e PySpark kernels
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](apache-spark-use-bi-tools.md)
-* [Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
-* [Análise de registos de sites com o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
+* [Análise de registos de Web site com o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações
 * [Criar uma aplicação autónoma com o Scala](apache-spark-create-standalone-application.md)
-* [Executar tarefas remotamente num cluster do Spark com o Livy](apache-spark-livy-rest-interface.md)
+* [Executar tarefas remotamente num cluster do Apache Spark com o Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 * [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicações do Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utilizar blocos de notas do Zeppelin com um cluster do Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o bloco de notas do Jupyter no cluster do Spark para o HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Utilizar o plug-in ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicações do Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Utilizar blocos de notas do Zeppelin do Apache com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels disponíveis para o bloco de notas do Jupyter no cluster do Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 

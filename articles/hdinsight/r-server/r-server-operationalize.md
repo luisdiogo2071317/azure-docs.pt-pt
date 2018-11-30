@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 3f93f96c6c9fc551b8b66167eab58861b0ac0b52
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005959"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496911"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster de serviços de ML no Azure HDInsight
 
@@ -79,9 +79,9 @@ Depois de ter usado o cluster de serviços de ML no HDInsight para concluir a su
 
     d. Entre as opções de menu apresentadas, introduza **i** para regressar ao menu principal e, em seguida, introduza **8** para sair do utilitário de administração.
 
-### <a name="long-delays-when-consuming-web-service-on-spark"></a>Grandes atrasos ao consumir o serviço web no Spark
+### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Grandes atrasos ao consumir o serviço web no Apache Spark
 
-Se ocorrerem atrasos longos quando tentar consumir um serviço Web criado com funções mrsdeploy num contexto de computação Spark, poderá ter de adicionar algumas pastas em falta. A aplicação Spark pertence a um utilizador chamado "*rserve2*" sempre que é invocado a partir de um serviço Web utilizando funções mrsdeploy. Para contornar este problema:
+Se ocorrerem atrasos longos quando tentar consumir um serviço web criado com o contexto de cálculo de funções mrsdeploy do Apache Spark, poderá ter de adicionar algumas pastas em falta. A aplicação Spark pertence a um utilizador chamado "*rserve2*" sempre que é invocado a partir de um serviço Web utilizando funções mrsdeploy. Para contornar este problema:
 
     # Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -139,7 +139,7 @@ Para dimensionar os nós de computação, primeiro desativar os nós de trabalho
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>Passo 1: Desativar os nós de trabalho
 
-Cluster de serviços de ML não é gerido no YARN. Se os nós de trabalho não estiverem desativados, o YARN Resource Manager não funciona conforme esperado, porque não tem conhecimento dos recursos de, que está a ser tomados pelo servidor. Para evitar esta situação, recomendamos a desativação dos nós de trabalho antes de aumentar horizontalmente os nós de computação.
+Cluster de serviços de ML não é gerido através de [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Se os nós de trabalho não estiverem desativados, o YARN Resource Manager não funciona conforme esperado, porque não tem conhecimento dos recursos de, que está a ser tomados pelo servidor. Para evitar esta situação, recomendamos a desativação dos nós de trabalho antes de aumentar horizontalmente os nós de computação.
 
 Siga estes passos para desativar nós de trabalho:
 

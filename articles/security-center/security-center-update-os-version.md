@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1898926e0488722d18a105697bead18e29e6a35d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9cd89d861a758d51788dc4180af10882f0144977
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254898"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317369"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Atualizar a versão de SO no Centro de segurança do Azure
 Para máquinas virtuais (VMs) nos serviços cloud, o Centro de segurança do Azure irá recomendar que o sistema operativo (SO) ser atualizada se existir uma versão mais recente disponível.  Funções web e de trabalho em execução na produção são monitorizadas ranhuras de serviços de cloud única.
@@ -43,7 +43,7 @@ Este artigo mostrou como implementar a recomendação do Centro de segurança "V
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-policies.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
 * [Monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.

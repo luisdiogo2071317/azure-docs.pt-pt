@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 16291e4f4915dd6328a2015407fa06dc8f62fba1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 10ff2118ade13980250608bf4bc238e8ff2f9c64
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011889"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312991"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -250,7 +250,7 @@ As políticas de segurança ativadas no monitorização e recomendações de seg
 ### <a name="who-can-modify-a-security-policy"></a>Quem pode modificar uma política de segurança?
 Para modificar uma política de segurança, tem de ser um administrador de segurança ou um proprietário ou contribuinte dessa subscrição.
 
-Para saber como configurar uma política de segurança, veja [definir políticas de segurança no Centro de segurança do Azure](security-center-policies.md).
+Para saber como configurar uma política de segurança, veja [definir políticas de segurança no Centro de segurança do Azure](security-center-azure-policy.md).
 
 ### <a name="what-is-a-security-recommendation"></a>O que é uma recomendação de segurança?
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando são identificadas potenciais vulnerabilidades de segurança, recomendações são criadas. As recomendações orientam-no durante o processo de configuração o controle necessário. Os exemplos são:

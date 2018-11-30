@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: e1d4f9f5c91900216398dd651d238fc3fa305234
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1c25db0a217d6aff984029a28932242b06096735
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823933"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423238"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico do Azure Cosmos DB
 
@@ -29,7 +29,7 @@ A imagem seguinte mostra os diferentes tipos de registos do Azure que estão dis
 
 ![Diferentes tipos de registos do Azure](./media/logging/azurelogging.png)
 
-Na imagem, o **recursos de computação** representam os recursos do Azure para o qual pode acessar o SO convidado do Microsoft. Por exemplo, conjuntos, Azure Container Service, de dimensionamento de máquinas virtuais do Azure, máquina virtual e assim por diante, são recursos de computação considerados. Recursos de geram registos de atividades, registos de diagnóstico e registos de aplicações de computação. Para obter mais informações, consulte a [origens de dados no Azure de monitorização](../azure-monitor/platform/data-sources.md#) artigo.
+Na imagem, o **recursos de computação** representam os recursos do Azure para o qual pode acessar o SO convidado do Microsoft. Por exemplo, conjuntos, Azure Container Service, de dimensionamento de máquinas virtuais do Azure, máquina virtual e assim por diante, são recursos de computação considerados. Recursos de geram registos de atividades, registos de diagnóstico e registos de aplicações de computação. Para obter mais informações, consulte a [origens de dados no Azure de monitorização](../azure-monitor/platform/data-sources.md) artigo.
 
 O **recursos de computação não** são recursos em que não é possível acessar o sistema operacional subjacente e trabalhar diretamente com o recurso. Por exemplo, grupos de segurança de rede, aplicações lógicas e assim por diante. O Azure Cosmos DB é um recurso de não-compute. Pode ver registos de recursos de computação-não no registo de atividades ou ative a opção de registos de diagnóstico no portal. Para obter mais informações, consulte a [origens de dados no Azure Monitor](../azure-monitor/platform/data-sources.md) artigo.
 

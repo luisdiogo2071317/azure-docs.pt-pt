@@ -8,14 +8,14 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: ba6d79661a2c07ba3eef1f16a117992a858830b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 3ae41ff4cf501a58668d25b16027029f6bae4749
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605934"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317500"
 ---
-# <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com a monitorização remota
+# <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com a Monitorização Remota
 
 O Azure Time Series Insights é um serviço totalmente gerido de análise, armazenamento e visualização para a gestão de dados de séries temporais à escala de IoT na cloud. Pode utilizar o Time Series Insights para armazenar e gerir dados de séries temporais, explorar e visualizar eventos em simultâneo, realizar análises de causa raiz e comparar vários sites e recursos.
 
@@ -292,6 +292,6 @@ Configurar o ambiente de `standard` implementação para os microsserviços atua
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre como explorar os seus dados e diagnosticar um alerta no Explorador do Time Series Insights, consulte o nosso tutorial sobre [realizando uma raiz analisar a causa](/tutorials).
+* Para saber mais sobre como explorar os seus dados e diagnosticar um alerta no Explorador do Time Series Insights, consulte o nosso tutorial sobre [realizando uma raiz analisar a causa](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
 * Para saber como a exploração e consultar dados no Explorador do Time Series Insights, consulte a documentação sobre o [Explorador do Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).

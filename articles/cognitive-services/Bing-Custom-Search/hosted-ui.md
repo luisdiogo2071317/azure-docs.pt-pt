@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: 566990ea7c6ac8498b47528c906710ed4c9078e4
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: c71597cf540cca67b9558ce28d20ce1d21ae0243
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163032"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424991"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a sua experiência de interface do Usuário alojada
 
@@ -105,7 +105,7 @@ Para configurar uma interface de Usuário para a sua aplicação web alojada, si
 > [!NOTE]
 > Como efetuar alterações à configuração de interface do Usuário hospedada personalizada, o painel à direita fornece uma referência visual para que as alterações feitas. Os resultados da pesquisa exibidos não são os resultados reais da sua instância.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="consume-custom-ui"></a>Consumir a interface do Usuário personalizada
 

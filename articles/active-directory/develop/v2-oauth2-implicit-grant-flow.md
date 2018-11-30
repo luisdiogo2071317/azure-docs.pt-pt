@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d063c5e5a5b81f16d8921864ab2e2a0c3504e334
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 878c2596a1d884e26a4b4a4ed4764cfd9ce6b39b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289024"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424105"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocolos - SPAs com o fluxo implícito
 
@@ -34,7 +34,7 @@ Com o ponto final v2.0, pode iniciar a sessão de utilizadores nas suas aplicaç
 * Muitos servidores de autorização e fornecedores de identidade não suportam solicitações CORS.
 * Redireciona o navegador de página inteira na direção oposta a aplicação que se tornar particularmente invasiva para a experiência do usuário.
 
-Para estas aplicações (AngularJS, ember, react. js, etc.), o Azure Active Directory (Azure AD) suporta o fluxo de concessão implícita OAuth 2.0. O fluxo implícito está descrito com o [especificação do OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.2). O principal benefício é que ela permite que a aplicação obter os tokens do Azure AD sem executar um servidor de back-end exchange de credencial. Isso permite que a aplicação iniciar a sessão do utilizador, manter a sessão e obtenha tokens para outras APIs web tudo dentro do cliente código JavaScript. Existem algumas considerações de segurança importante levar em conta ao utilizar o fluxo implícito especificamente cerca [cliente](http://tools.ietf.org/html/rfc6749#section-10.3) e [representação de utilizadores](http://tools.ietf.org/html/rfc6749#section-10.3).
+Para estas aplicações (AngularJS, ember, react. js, etc.), o Azure Active Directory (Azure AD) suporta o fluxo de concessão implícita OAuth 2.0. O fluxo implícito está descrito com o [especificação do OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.2). O principal benefício é que ela permite que a aplicação obter os tokens do Azure AD sem executar um servidor de back-end exchange de credencial. Isso permite que a aplicação iniciar a sessão do utilizador, manter a sessão e obtenha tokens para outras APIs web tudo dentro do cliente código JavaScript. Existem algumas considerações de segurança importante levar em conta ao utilizar o fluxo implícito especificamente cerca [cliente](https://tools.ietf.org/html/rfc6749#section-10.3) e [representação de utilizadores](https://tools.ietf.org/html/rfc6749#section-10.3).
 
 Se pretender utilizar o fluxo implícito e o Azure AD para adicionar autenticação à sua aplicação do JavaScript, é recomendado que utilize a biblioteca de JavaScript de código-fonte aberto [msal](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
 
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `redirect_uri` | Recomendado |O redirect_uri da sua aplicação, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos redirect_uris registado no portal, exceto pelo fato tem de ser codificados de url. |
 | `scope` | obrigatório |Uma lista de âmbitos separadas por espaços. Para o OpenID Connect, tem de incluir o âmbito `openid`, que traduz-se a permissão "Iniciar sessão" no consentimento da interface do Usuário. Opcionalmente, também poderá incluir a `email` ou `profile` [âmbitos](v2-permissions-and-consent.md) para terem acesso aos dados de utilizador adicionais. Também pode incluir outros âmbitos neste pedido para pedir consentimento a vários recursos. |
 | `response_mode` | opcional |Especifica o método que deve ser utilizado para enviar a cópia de token resultante à sua aplicação. Assume a predefinição de consulta para um token de acesso, mas o fragmento, se o pedido inclui um id_token. |
-| `state` | Recomendado |Um valor incluído no pedido que também vai ser devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que desejar. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](http://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
+| `state` | Recomendado |Um valor incluído no pedido que também vai ser devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que desejar. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
 | `nonce` | obrigatório |Um valor incluído na solicitação, gerada pela aplicação, que incluirá o id_token resultante como uma afirmação. A aplicação pode, em seguida, verifique se este valor para mitigar ataques de repetição de token. O valor normalmente é uma cadeia aleatória, exclusiva que pode ser utilizada para identificar a origem do pedido. Apenas é necessário quando um id_token é solicitada. |
 | `prompt` | opcional |Indica o tipo de interação do utilizador que é necessário. Os valores só é válidos neste momento são 'login', 'none', "select_account" e "consentimento". `prompt=login` irá forçar o utilizador para introduzir as respetivas credenciais na solicitação, eliminando-início de sessão único. `prompt=none` é o oposto – ele garantirá que não é apresentada ao utilizador com qualquer linha de comandos interativa tipo. Se o pedido não pode ser concluído silenciosamente por meio de início de sessão único, o ponto final v2.0 irá devolver um erro. `prompt=select_account` envia o utilizador para um Seletor de conta em que todas as contas memorizadas na sessão aparecerá. `prompt=consent` irá acionar a caixa de diálogo de consentimento do OAuth depois do utilizador inicia sessão, solicitando que o usuário para conceder permissões à aplicação. |
 | `login_hint`  |opcional |Pode ser utilizado para preencher previamente o campo de endereço de e-mail/nome de utilizador de início de sessão na página do utilizador, se souber que o respetivo nome de utilizador antes do tempo. Aplicações, muitas vezes, irão utilizar este parâmetro durante a reautenticação, já após extrair o nome de utilizador de um anterior início de sessão com o `preferred_username` de afirmação.|
@@ -131,7 +131,7 @@ error=access_denied
 
 ## <a name="validate-the-idtoken"></a>Validar o id_token
 
-Não é suficiente para autenticar o usuário; apenas receber uma id_token Também tem de validar a assinatura o id_token e verifique se as afirmações no token com base nos requisitos da sua aplicação. Utiliza o ponto final v2.0 [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar os tokens e certifique-se de que são válidas.
+Não é suficiente para autenticar o usuário; apenas receber uma id_token Também tem de validar a assinatura o id_token e verifique se as afirmações no token com base nos requisitos da sua aplicação. Utiliza o ponto final v2.0 [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar os tokens e certifique-se de que são válidas.
 
 Pode optar por validar a `id_token` num cliente de código, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação lá. Assim que validar a assinatura do id_token, existem algumas declarações, que será necessário para verificar. Consulte a [ `id_token` referência](id-tokens.md) para obter mais informações, incluindo [tokens de validação](id-tokens.md#validating-an-idtoken) e [informações importantes sobre o rollover da chave de assinatura](active-directory-signing-key-rollover.md). Recomendamos que fazendo uso de uma biblioteca para análise e a validar tokens – há, pelo menos, um disponível para a maioria das linguagens e plataformas.
 

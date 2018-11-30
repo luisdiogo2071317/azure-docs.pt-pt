@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: e6025ba2645c284cca87483b48b2d79a9558d574
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012535"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496873"
 ---
 # <a name="scp-programming-guide"></a>Guia de programação do SCP
 SCP é uma plataforma para criar em tempo real, fiável e consistente e o aplicativo de processamento de dados de elevado desempenho. Ele é criado por cima de [Apache Storm](http://storm.incubator.apache.org/) – um sistema criado por Comunidades de sistemas operacionais de processamento em fluxo. Storm destina-se por Nathan Marz e foi aberto é obtido ao Twitter. Ela aproveita [Apache ZooKeeper](http://zookeeper.apache.org/), outro projeto do Apache para ativar altamente fiável distribuído de gerenciamento de estado e de coordenação. 
@@ -207,7 +207,7 @@ Para o bolt não transacional ack de suporte, ele deve explicitamente `Ack()` ou
 ### <a name="statestore"></a>Statestore de SMS
 `StateStore` Fornece serviços de metadados, geração de sequência monotónica e coordenação livre de espera. Abstrações de simultaneidade distribuída de nível superior podem ser criadas no `StateStore`, incluindo bloqueios distribuídos, filas distribuídas, as barreiras e serviços de transação.
 
-SCP os aplicativos podem utilizar o `State` objeto para manter algumas informações no ZooKeeper, especialmente para topologia transacional. Assim, se spout transacional falhar e reiniciar, pode obter as informações necessárias do ZooKeeper e reinicie o pipeline.
+SCP os aplicativos podem utilizar o `State` objeto para manter algumas informações no [Apache ZooKeeper](https://zookeeper.apache.org/), especialmente para topologia transacional. Assim, se spout transacional falhar e reiniciar, pode obter as informações necessárias do ZooKeeper e reinicie o pipeline.
 
 O `StateStore` objeto tem principalmente estes métodos:
 
@@ -642,9 +642,9 @@ Esta topologia contém um Spout de Java e um C\# Bolt. Ele usa a implementação
 Neste exemplo é o mesmo que HelloWorld essencialmente. A única diferença é que o código do usuário é compilado como DLL e a topologia é submetida ao utilizar SCPHost.exe. Consulte a seção "Modo de anfitrião do SCP" para explicação mais detalhada.
 
 ## <a name="next-steps"></a>Próximos Passos
-Para obter exemplos de topologias do Storm criados usando o SCP, consulte os seguintes documentos:
+Para obter exemplos de topologias do Apache Storm criados usando o SCP, consulte os seguintes documentos:
 
 * [Desenvolver topologias c# para Apache Storm no HDInsight com o Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
-* [Processar eventos dos Hubs de eventos do Azure com o Storm no HDInsight](apache-storm-develop-csharp-event-hub-topology.md)
-* [Processar dados de sensores de veículos dos Hubs de eventos através do Storm no HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
-* [Extrair, transformar e carregar (ETL) dos Hubs de eventos do Azure para o HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
+* [Processar eventos dos Hubs de eventos do Azure com o Apache Storm no HDInsight](apache-storm-develop-csharp-event-hub-topology.md)
+* [Processar dados de sensores de veículos de Hubs de eventos com o Apache Storm no HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
+* [Extrair, transformar e carregar (ETL) dos Hubs de eventos do Azure para o Apache HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)

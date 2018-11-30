@@ -1,6 +1,6 @@
 ---
-title: Emitir modelos na API Management do Azure | Microsoft Docs
-description: Saiba como personalizar o conteúdo das páginas problema no portal do programador na API Management do Azure.
+title: Emitir modelos na gestão de API do Azure | Documentos da Microsoft
+description: Saiba como personalizar o conteúdo das páginas de problema no portal do programador na gestão de API do Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,27 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d13a146e94328b8ac57dc1036676328a4bea9d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f099c27c55b817d6d9217a614ee66bf1d414a4dd
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23835133"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446381"
 ---
-# <a name="issue-templates-in-azure-api-management"></a>Emitir modelos na API Management do Azure
-Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de páginas de portal de programador utilizando um conjunto de modelos que configurar o respetivo conteúdo. Utilizando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e o editor à sua escolha, tal como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto de fornecido localizado [recursos de cadeia](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), tem uma enorme flexibilidade para configurar o conteúdo das páginas como julgar utilizando estes modelos.  
+# <a name="issue-templates-in-azure-api-management"></a>Emitir modelos na gestão de API do Azure
+Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de páginas de portal de programador usando um conjunto de modelos que configurar o seu conteúdo. Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e o editor à sua escolha, tal como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de localizadas [recursos de cadeias de caracteres](api-management-template-resources.md#strings), [glifo recursos](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), tem uma grande flexibilidade para configurar o conteúdo das páginas, conforme ache usá-los.  
   
- Os modelos nesta secção permitem-lhe personalizar os conteúdos das páginas problema no portal do programador.  
+ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas de problema no portal do programador.  
   
--   [Lista de problema](#IssueList)  
+-   [Lista de problemas](#IssueList)  
   
 > [!NOTE]
->  Modelos predefinidos de exemplo estão incluídos na documentação do seguinte, mas estão sujeitos a alterações devido a melhoramentos contínuos. Pode ver os modelos predefinidos em direto no portal do programador, navegando para os modelos de individuais pretendidos. Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de API Management utilizando modelos](api-management-developer-portal-templates.md).  
+>  Modelos predefinidos de exemplo estão incluídos na documentação do seguinte, mas estão sujeitas a alterações devido a melhorias contínuas. Pode ver os modelos predefinidos em direto no portal do programador ao navegar para os modelos individuais pretendidos. Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de gestão de API através de modelos](api-management-developer-portal-templates.md).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="IssueList"></a>Lista de problema  
- O **lista problema** modelo permite-lhe personalizar o corpo da página lista problema no portal do programador.  
+##  <a name="IssueList"></a> Lista de problemas  
+ O **lista de problemas** modelo permite-lhe personalizar o corpo da página de lista de problema no portal do programador.  
   
- ![Portal de programador da lista de emitir](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM Portal do Programador de lista de problema")  
+ ![Portal do Programador de lista de emitir](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Portal do Programador de lista de problema APIM")  
   
 ### <a name="default-template"></a>Modelo predefinido  
   
@@ -89,9 +91,9 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
 ```  
   
 ### <a name="controls"></a>Controlos  
- O `Issue list` modelo pode utilizar o seguinte [página controlos](api-management-page-controls.md).  
+ O `Issue list` modelo pode usar o seguinte procedimento [controlos de página](api-management-page-controls.md).  
   
--   [controlo de paginação](api-management-page-controls.md#paging-control)  
+-   [controle de paginação](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
@@ -99,11 +101,11 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
 |--------------|----------|-----------------|  
 |Problemas|Coleção de [problema](api-management-template-data-model-reference.md#Issue) entidades.|Os problemas visíveis ao utilizador atual.|  
 |Paginação|[Paginação](api-management-template-data-model-reference.md#Paging) entidade.|As informações de paginação para a coleção de aplicações.|  
-|IsAuthenticated|Valor booleano|Se o utilizador atual está assinado no portal do programador.|  
-|CanReportIssues|Valor booleano|Indica se o utilizador atual tem permissões para um problema de ficheiros.|  
-|Pesquisa|Cadeia|Esta propriedade foi preterida e não deve ser utilizada.|  
+|IsAuthenticated|boolean|Se o utilizador atual é com sessão iniciada para o portal do programador.|  
+|CanReportIssues|boolean|Se o utilizador atual tem permissões para enviar um problema.|  
+|Pesquisa|cadeia|Esta propriedade foi preterida e não deve ser utilizada.|  
   
-### <a name="sample-template-data"></a>Dados de exemplo do modelo  
+### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
 ```json  
 {  
@@ -134,5 +136,5 @@ Gestão de API do Azure fornece a capacidade para personalizar os conteúdos de 
 }  
 ```
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de API Management utilizando modelos](api-management-developer-portal-templates.md).
+## <a name="next-steps"></a>Passos Seguintes
+Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de gestão de API através de modelos](api-management-developer-portal-templates.md).

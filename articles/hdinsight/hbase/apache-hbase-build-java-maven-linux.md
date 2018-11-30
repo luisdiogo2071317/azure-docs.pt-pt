@@ -3,24 +3,24 @@ title: Cliente de Java HBase - Azure HDInsight
 description: Saiba como utilizar o Apache Maven para criar uma aplicação baseada em Java Apache HBase, em seguida, implementá-la no HBase no HDInsight do Azure.
 services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/30/2018
-ms.author: hrasheed
-ms.openlocfilehash: 677714487aac6e25a0505cce978792c76bb1cee4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/27/2018
+ms.openlocfilehash: 721e37349b406705a2cdfb52c64b5796cb590d78
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016085"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445656"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Criar aplicações de Java para o Apache HBase
 
 Saiba como criar uma [Apache HBase](http://hbase.apache.org/) aplicação em Java. Em seguida, utilize a aplicação com o HBase no HDInsight do Azure.
 
-Os passos neste documentam uso [Maven](http://maven.apache.org/) para criar e compilar o projeto. Maven é uma ferramenta de compreensão que permite a criação de software, documentação e relatórios para projetos de Java e o gerenciamento de projetos de software.
+Os passos neste documentam uso [Apache Maven](https://maven.apache.org/) para criar e compilar o projeto. Maven é uma ferramenta de compreensão que permite a criação de software, documentação e relatórios para projetos de Java e o gerenciamento de projetos de software.
 
 > [!NOTE]
 > Os passos neste documento foram testados mais recentemente com o HDInsight 3.6.
@@ -35,9 +35,9 @@ Os passos neste documentam uso [Maven](http://maven.apache.org/) para criar e co
     > [!NOTE]
     > HDInsight 3.5 e superior requer Java 8. Versões anteriores do HDInsight requerem Java 7.
 
-* [Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
-* [Um cluster de HDInsight do Azure baseado em Linux com o HBase](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
+* [Um cluster de HDInsight do Azure baseado em Linux com o Apache HBase](apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
 
 ## <a name="create-the-project"></a>Criar o projeto
 
@@ -81,9 +81,9 @@ Os passos neste documentam uso [Maven](http://maven.apache.org/) para criar e co
     Esta secção indica que o projeto precisa **hbase-cliente** e **núcleos phoenix** componentes. No momento da compilação, estas dependências são transferidas do repositório Maven padrão. Pode utilizar o [pesquisa de repositório Central Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para saber mais sobre esta dependência.
 
    > [!IMPORTANT]
-   > O número de versão do cliente do hbase tem de corresponder à versão do HBase que é fornecido com o seu cluster do HDInsight. Utilize a seguinte tabela para encontrar o número de versão correta.
+   > O número de versão do cliente do hbase tem de corresponder à versão do Apache HBase, que é fornecido com o seu cluster do HDInsight. Utilize a seguinte tabela para encontrar o número de versão correta.
 
-   | Versão de cluster do HDInsight | Versão do HBase para utilizar |
+   | Versão de cluster do HDInsight | Versão do Apache HBase para utilizar |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
    | 3.3, 3.4, 3.5 e 3.6 |1.1.2 |
@@ -363,7 +363,7 @@ Os passos neste documentam uso [Maven](http://maven.apache.org/) para criar e co
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>Carregar o JAR e executar tarefas (SSH)
 
-Os passos seguintes utilizam `scp` para copiar o JAR para o nó principal primário do seu HBase num cluster do HDInsight. O `ssh` comando, em seguida, é utilizado para ligar ao cluster e execute o exemplo diretamente no nó principal.
+Os passos seguintes utilizam `scp` para copiar o JAR para o nó principal primário da sua Apache HBase num cluster do HDInsight. O `ssh` comando, em seguida, é utilizado para ligar ao cluster e execute o exemplo diretamente no nó principal.
 
 1. Para carregar o jar para o cluster, utilize o seguinte comando:
 
@@ -412,7 +412,7 @@ Os passos seguintes utilizam `scp` para copiar o JAR para o nó principal primá
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>Carregar o JAR e executar tarefas (PowerShell)
 
-Os passos seguintes utilizam o Azure PowerShell para carregar o JAR para o armazenamento predefinido para o seu cluster do HBase. Cmdlets do HDInsight, em seguida, são utilizados para executar os exemplos remotamente.
+Os passos seguintes utilizam o Azure PowerShell para carregar o JAR para o armazenamento predefinido para o seu cluster do Apache HBase. Cmdlets do HDInsight, em seguida, são utilizados para executar os exemplos remotamente.
 
 1. Depois de instalar e configurar o Azure PowerShell, crie um ficheiro denominado `hbase-runner.psm1`. Utilize o seguinte texto como o conteúdo desse ficheiro:
 
@@ -683,4 +683,4 @@ __Do PowerShell do Azure__:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Saiba como utilizar o SQuirreL SQL com o HBase](apache-hbase-phoenix-squirrel-linux.md)
+[Saiba como utilizar o SQuirreL SQL com o Apache HBase](apache-hbase-phoenix-squirrel-linux.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f83dd64c7f6773ddb8956e6ebbc37b8c55aacec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e072a27087f90bddd3f7c416904758e40c2f6b9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423876"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425195"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutorial: Integração do Azure Active Directory com a área de trabalho pelo Facebook
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com à área de trabalho pelo Facebook, precisa do seguinte:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Uma área de trabalho pelo Facebook logon único habilitado subscrição
 
 > [!NOTE]
@@ -62,7 +62,7 @@ Para configurar a integração de área de trabalho pelo Facebook com o Azure AD
 
 **Para adicionar à área de trabalho pelo Facebook a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -140,7 +140,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
    > [!NOTE] 
    > Como parte do processo de autenticação SAML, à área de trabalho pode utilizar cadeias de caracteres de consulta de até 2,5 quilobytes de tamanho para passar parâmetros para o Azure AD.
 
-1. Na **Dashboard da empresa**, aceda ao **autenticação** separador.
+1. Na **painel de administração**, aceda ao **Security** separador, em seguida, **autenticação**.
 
 1. Sob **autenticação SAML**, selecione **SSO apenas** na lista pendente.
 

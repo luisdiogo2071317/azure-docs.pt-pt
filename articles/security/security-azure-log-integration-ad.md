@@ -1,6 +1,6 @@
 ---
-title: Integração de registo do Azure com os registos de auditoria do Azure Active Directory | Microsoft Docs
-description: Saiba como instalar o serviço de integração de registo do Azure e integrar os registos de registos de auditoria do Azure
+title: Integração de registos do Azure com registos de auditoria do Azure Active Directory | Documentos da Microsoft
+description: Saiba como instalar o serviço de integração de registos do Azure e integrar registos do registos de auditoria do Azure
 services: security
 documentationcenter: na
 author: Barclayn
@@ -15,25 +15,25 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 07299b960747528dde8dcefc70055442c2150486
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0b27cd314dd03375b2d2e6ba537cda74e2ec4310
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235996"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313246"
 ---
-# <a name="integrate-azure-active-directory-audit-logs"></a>Integrar os registos de auditoria do Azure Active Directory
+# <a name="integrate-azure-active-directory-audit-logs"></a>Integrar registos de auditoria do Azure Active Directory
 
-Eventos de auditoria do Azure Active Directory (Azure AD) ajudam a identificar ações privilegiadas ocorridas no Azure Active Directory. Pode ver os tipos de eventos que pode controlar revendo [eventos de relatório de auditoria do Azure Active Directory](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
+Eventos de auditoria do Azure Active Directory (Azure AD) a identificar ações privilegiadas que ocorreram no Azure Active Directory. Pode ver os tipos de eventos que pode controlar ao rever [eventos de relatório de auditoria do Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md).
 
 
 >[!IMPORTANT]
-> 01/06/2019 será preterida a funcionalidade de integração de registo do Azure. Transferências de AzLog serão desativadas pelo 27 de Jun de 2018. Para obter orientações sobre o que fazer mover revisão reencaminhar a mensagem [monitor de utilização Azure integrar ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> A funcionalidade de integração de registo do Azure vai ser preterida até 06/01/2019. Downloads de AzLog serão desativados por 27 de Junho de 2018. Para obter orientações sobre o que fazer a postagem de revisão de encaminhamento de movimentação [monitor do Azure de utilização para integração com ferramentas SIEM](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
-## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Passos para integrar o Azure Active Directory de registos de auditoria
+## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Registos de auditoria de passos para integrar o Azure Active Directory
 
 > [!NOTE]
-> Antes de tentar os passos neste artigo, tem de consultar o [começar](security-azure-log-integration-get-started.md) artigo e conclua os passos relevantes não existe.
+> Antes de tentar os passos neste artigo, tem de rever o [começar](security-azure-log-integration-get-started.md) artigo e conclua os passos relevantes lá.
 
 1. Abra a linha de comandos e execute este comando:
 
@@ -43,9 +43,9 @@ Eventos de auditoria do Azure Active Directory (Azure AD) ajudam a identificar a
  
    ``azlog createazureid``
 
-   Este comando pede-lhe o início de sessão do Azure. O comando, em seguida, cria um Azure Active Directory principal de serviço em inquilinos do Azure AD que alojam as subscrições do Azure na qual o utilizador com sessão iniciada é um administrador, coadministrador ou um proprietário. O comando irá falhar se o utilizador com sessão iniciada é apenas um utilizador convidado no inquilino do Azure AD. Autenticação do Azure é feita através do Azure AD. Criar um principal de serviço para a integração de registo do Azure cria a identidade do Azure AD, que é dado acesso ao ler a partir de subscrições do Azure.
+   Este comando pede-lhe o início de sessão do Azure. O comando, em seguida, cria um Azure Active Directory principal de serviço em inquilinos do Azure AD que alojam as subscrições do Azure em que o utilizador com sessão iniciada é um administrador, coadministrador ou um proprietário. O comando irá falhar se o utilizador com sessão iniciada é apenas um utilizador convidado no inquilino do Azure AD. Autenticação para o Azure é feita através do Azure AD. Criar um principal de serviço para o Azure Log Integration cria a identidade do Azure AD que é dado acesso ao ler a partir de subscrições do Azure.
 
-3. Execute o seguinte comando para fornecer o ID do inquilino. Tem de ser membro da função de administrador inquilino para executar o comando.
+3. Execute o seguinte comando para fornecer sua ID do inquilino. Tem de ser membro da função de administrador do inquilino para executar o comando.
 
    ``Azlog.exe authorizedirectoryreader tenantId``
 
@@ -53,27 +53,27 @@ Eventos de auditoria do Azure Active Directory (Azure AD) ajudam a identificar a
 
    ``AZLOG.exe authorizedirectoryreader ba2c0000-d24b-4f4e-92b1-48c4469999``
 
-4. Verifique as seguintes pastas para confirmar que os ficheiros de JSON do registo de auditoria do Azure Active Directory são criados nos mesmos:
+4. Verifique as seguintes pastas para confirmar que os ficheiros JSON de registo de auditoria do Azure Active Directory são criados nos mesmos:
 
    * **C:\Users\azlog\AzureActiveDirectoryJson**
    * **C:\Users\azlog\AzureActiveDirectoryJsonLD**
 
-O vídeo seguinte demonstra os passos abordados neste artigo:
+O vídeo seguinte demonstra as etapas abordadas neste artigo:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Azure-AD-Integration/player]
 
 
 > [!NOTE]
-> Para obter instruções específicas sobre colocar as informações dos ficheiros JSON em sistemas security information and system management (SIEM) de eventos, contacte o fabricante do SIEM.
+> Para obter instruções específicas sobre trazer as informações dos ficheiros JSON para suas informações de segurança e o sistema de gestão (SIEM) de eventos, contacte o fornecedor SIEM.
 
-A assistência de Comunidade está disponível através de [fórum MSDN do Azure registo integração](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Neste fórum permite que as pessoas da Comunidade a integração de registo do Azure para suportar entre si com perguntas, respostas, sugestões e truques. Além disso, a equipa de integração de registo do Azure monitoriza neste fórum e ajuda a sempre que possível.
+Assistência de Comunidade está disponível através da [fórum MSDN do Azure Log Integration](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Este fórum permite que as pessoas na Comunidade do Azure Log Integration para suportar entre si com perguntas, respostas, dicas e truques. Além disso, a equipa de integração de registos do Azure monitoriza este Fórum e ajuda a sempre que possível.
 
-Também pode abrir um [pedido de suporte](../azure-supportability/how-to-create-azure-support-request.md). Selecione **integração de registo** como o serviço para o qual está a pedir suporte.
+Também pode abrir um [pedido de suporte](../azure-supportability/how-to-create-azure-support-request.md). Selecione **integração de registos** como o serviço para o qual está a solicitar suporte.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre a integração de registo do Azure, consulte:
+Para saber mais sobre a integração de registo do Azure, veja:
 
-* [Integração de registo do Microsoft Azure para os registos do Azure](https://www.microsoft.com/download/details.aspx?id=53324): página do Centro de transferências este fornece detalhes, requisitos de sistema e as instruções de instalação para a integração de registo do Azure.
-* [Introdução ao Azure registo integração](security-azure-log-integration-overview.md): Este artigo apresenta-lhe a integração de registo do Azure, as suas capacidades principais e como funciona.
-* [FAQ sobre integração do registo do Azure](security-azure-log-integration-faq.md): Este artigo responde a questões sobre a integração de registo do Azure.
-* [Registos de auditoria de novas funcionalidades de diagnóstico do Azure e Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): esta mensagem de blogue apresenta-lhe os registos de auditoria do Azure e outras funcionalidades que o ajudam a obterem informações sobre as operações dos seus recursos Azure.
+* [Para os registos do Azure do Microsoft Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324): página do Centro de transferências este fornece detalhes e instruções de instalação para o Azure Log Integration requisitos do sistema.
+* [Introdução ao Azure Log Integration](security-azure-log-integration-overview.md): Este artigo apresenta a integração de registos do Azure, suas principais capacidades e como ele funciona.
+* [FAQ de integração de registo do Azure](security-azure-log-integration-faq.md): Este artigo responde a perguntas sobre a integração de registos do Azure.
+* [Registos de auditoria de novas funcionalidades para o diagnóstico do Azure e Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): esta mensagem de blogue apresenta os registos de auditoria do Azure e outros recursos que o ajudam a obter informações sobre as operações de recursos do Azure.

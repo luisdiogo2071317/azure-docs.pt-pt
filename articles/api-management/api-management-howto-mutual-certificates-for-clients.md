@@ -1,6 +1,6 @@
 ---
-title: Protegem as APIs utilizando o cliente de autenticação de certificado na API Management - API Management do Azure | Microsoft Docs
-description: Saiba como proteger o acesso a APIs da utilização de certificados de cliente
+title: Proteger APIs com o cliente autenticação de certificado na gestão de API - API Management do Azure | Documentos da Microsoft
+description: Saiba como proteger o acesso a APIs utilizando certificados de cliente
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,22 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: apimpm
-ms.openlocfilehash: 841825923819bdb257e5b5983071d999cca805e9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3307ea391734828cb83c927e8df8aca79685279a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26406748"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441541"
 ---
-# <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Como protegem as APIs utilizando o cliente de autenticação de certificado na API Management
+# <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Como proteger APIs com o cliente de autenticação de certificado na gestão de API
 
-API Management fornece a capacidade de proteger o acesso a APIs (ou seja, o cliente para gestão de API) utilizando certificados de cliente. Atualmente, pode verificar o thumbprint de um certificado de cliente em relação a um valor pretendido. Também pode verificar o thumbprint de certificados existentes carregado para a API Management.  
+Gestão de API fornece a capacidade de proteger o acesso às APIs (ou seja, o cliente para gestão de API) usando certificados de cliente. Atualmente, pode verificar o thumbprint de um certificado de cliente em relação a um valor pretendido. Também pode verificar o thumbprint contra certificados existentes carregado para a gestão de API.  
 
-Para obter informações sobre como proteger o acesso ao serviço de back-end de uma API utilizando certificados de cliente (ou seja, gestão de API para o back-end), consulte [como proteger serviços de back-end utilizando o cliente de autenticação de certificados](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+Para obter informações sobre como proteger o acesso ao serviço de back-end de uma API de utilização de certificados de cliente (ou seja, gestão de API para back-end), consulte [como proteger os serviços de back-end com o cliente de autenticação de certificados](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="checking-the-expiration-date"></a>A verificar a data de expiração
 
-Abaixo políticas podem ser configuradas para verificar se o certificado expirou:
+Abaixo as políticas podem ser configuradas para verificar se o certificado está expirado:
 
 ```
 <choose>
@@ -42,7 +44,7 @@ Abaixo políticas podem ser configuradas para verificar se o certificado expirou
 
 ## <a name="checking-the-issuer-and-subject"></a>A verificar o emissor e o assunto
 
-Abaixo políticas podem ser configuradas para verificar o emissor e o requerente do certificado de cliente:
+Abaixo as políticas podem ser configuradas para verificar o emissor e o assunto de um certificado de cliente:
 
 ```
 <choose>
@@ -54,9 +56,9 @@ Abaixo políticas podem ser configuradas para verificar o emissor e o requerente
 </choose>
 ```
 
-## <a name="checking-the-thumbprint"></a>A verificar a impressão digital
+## <a name="checking-the-thumbprint"></a>A verificar o thumbprint
 
-Abaixo políticas podem ser configuradas para verificar o thumbprint de um certificado de cliente:
+Abaixo as políticas podem ser configuradas para verificar o thumbprint de um certificado de cliente:
 
 ```
 <choose>
@@ -68,7 +70,7 @@ Abaixo políticas podem ser configuradas para verificar o thumbprint de um certi
 </choose>
 ```
 
-## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>A verificar um thumbprint contra certificados carregados para a API Management
+## <a name="checking-a-thumbprint-against-certificates-uploaded-to-api-management"></a>A verificação de um thumbprint contra certificados carregados para a gestão de API
 
 O exemplo seguinte mostra como verificar o thumbprint de um certificado de cliente em relação a certificados carregados para a gestão de API: 
 
@@ -85,6 +87,6 @@ O exemplo seguinte mostra como verificar o thumbprint de um certificado de clien
 
 ## <a name="next-step"></a>Passo seguinte
 
-*  [Como proteger serviços de back-end utilizando o cliente de autenticação de certificados](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+*  [Como proteger os serviços de back-end com o cliente de autenticação de certificados](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 *  [Como carregar certificados](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
 

@@ -1,5 +1,5 @@
 ---
-title: Ver e eliminar os dados da Galeria de IA do Azure | Documentos da Microsoft
+title: Ver e eliminar os dados da Galeria de IA do Azure - Azure Machine Learning Studio | Documentos da Microsoft
 description: Pode exportar e eliminar os dados dos utilizadores no produto da Galeria de IA do Azure utilizando a interface ou a API do catálogo de Galeria de IA. Este artigo mostra-lhe como.
 services: machine-learning
 author: ericlicoding
@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 472a27fb129f8ed9d4745610bde17fb2b69326c3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 6603428599a84a265566fb98da0b151ab4962f81
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264833"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314461"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Ver e eliminar dados de utilizador no produto da Galeria de IA do Azure
 

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 20bd2fe8877c635b0f55bb4f904658a595658518
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: adaeb3087fca57a4a868f4525d588e014ff36fcf
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828458"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335832"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Compreender os resultados de verificação de agente do Linux no gerenciamento de atualizações
 
-Podem existir muitos motivos pelos quais sua máquina não está a aparecer **pronto** na gestão de atualizações. Gerenciamento de atualizações, pode verificar o estado de funcionamento de um agente de função de trabalho híbrida para determinar o problema subjacente. Este artigo discute como executar a resolução de problemas do portal do Azure e em cenários offline.
+Podem existir muitos motivos pelos quais sua máquina do Azure não está a aparecer **pronto** na gestão de atualizações. Gerenciamento de atualizações, pode verificar o estado de funcionamento de um agente de função de trabalho híbrida para determinar o problema subjacente. Este artigo discute como executar a resolução de problemas do portal do Azure e em cenários offline.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar a resolução de problemas
 
@@ -54,7 +54,8 @@ A verificação do sistema operacional, verifica se a função de trabalho de Ru
 
 ### <a name="oms-agent"></a>Agente do OMS
 
-Este verificações garante que o agente do OMS para Linux está instalado. Para obter instruções sobre como instalá-lo, consulte [instalar o agente para Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux).
+Este verificações garante que o agente do OMS para Linux está instalado. Para obter instruções sobre como instalá-lo, consulte [instalar o agente para Linux](../../log-analytics//log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux
+).
 
 ### <a name="oms-agent-status"></a>Estado do agente do OMS
 

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f9788c82e74b47d4550640a1069f6d97487eecc6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 79ee129390c6b364ec65e8ae1e893e98f358751e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035310"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497103"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Adicionar bibliotecas de Apache Hive personalizadas, quando criar o cluster do HDInsight
 
-Aprenda a pré-carregar bibliotecas Apache Hive no HDInsight. Este documento contém informações sobre como utilizar uma ação de Script para pré-carregar bibliotecas durante a criação do cluster. Bibliotecas foi adicionadas com os passos neste documento são globalmente disponíveis no Hive - não é necessário usar [adicionar JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para carregá-las.
+Aprenda a carregar previamente [Apache Hive](https://hive.apache.org/) bibliotecas no HDInsight. Este documento contém informações sobre como utilizar uma ação de Script para pré-carregar bibliotecas durante a criação do cluster. Bibliotecas foi adicionadas com os passos neste documento são globalmente disponíveis no Hive - não é necessário usar [adicionar JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) para carregá-las.
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -93,4 +93,4 @@ Quando concluir a criação do cluster, é possível utilizar o Intune adicionad
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre como trabalhar com o Hive, consulte [utilizar o Hive com HDInsight](hadoop/hdinsight-use-hive.md)
+Para obter mais informações sobre como trabalhar com o Hive, consulte [utilizar o Apache Hive com HDInsight](hadoop/hdinsight-use-hive.md)

@@ -17,16 +17,16 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a830527f65cdbd485ef57ea43e4564363f3ca98b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3b60a659700b1e464f4d8f70516a2ceaa0f08b6b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967766"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423750"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso a aplicações web com OpenID Connect e Azure Active Directory
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) é uma camada de identidade simples criada com base no protocolo de OAuth 2.0. OAuth 2.0 define os mecanismos de obter e utilizar [ **tokens de acesso** ](access-tokens.md) para aceder a recursos protegidos, mas eles não defina métodos padrão para fornecer informações de identidade. OpenID Connect implementa a autenticação como uma extensão para o processo de autorização de OAuth 2.0. Fornece informações sobre o utilizador final na forma de um [ `id_token` ](id-tokens.md) que verifica a identidade do utilizador e fornece informações de perfil básicas sobre o utilizador.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) é uma camada de identidade simples criada com base no protocolo de OAuth 2.0. OAuth 2.0 define os mecanismos de obter e utilizar [ **tokens de acesso** ](access-tokens.md) para aceder a recursos protegidos, mas eles não defina métodos padrão para fornecer informações de identidade. OpenID Connect implementa a autenticação como uma extensão para o processo de autorização de OAuth 2.0. Fornece informações sobre o utilizador final na forma de um [ `id_token` ](id-tokens.md) que verifica a identidade do utilizador e fornece informações de perfil básicas sobre o utilizador.
 
 OpenID Connect é a nossa recomendação se estiver a criar uma aplicação web que é alojada num servidor e acessada através de um browser.
 
@@ -39,7 +39,7 @@ O fluxo de início de sessão mais básico contém os seguintes passos, cada um 
 
 ![Fluxo de autenticação de ligação do OpenId](./media/v1-protocols-openid-connect-code/active-directory-oauth-code-flow-web-app.png)
 
-## <a name="openid-connect-metadata-document"></a>Documento de metadados de OpenID Connect
+## <a name="openid-connect-metadata-document"></a>Documento de metadados do OpenID Connect
 
 OpenID Connect descreve um documento de metadados que contém a maior parte das informações necessárias para uma aplicação efetuar o início de sessão. Isto inclui informações como os URLs para utilizar e a localização das chaves de assinatura pública do serviço. O documento de metadados OpenID Connect pode ser encontrado em:
 
@@ -96,7 +96,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Valor de uso único |obrigatório |Um valor incluído na solicitação, gerada pela aplicação, que está incluída no resultante `id_token` como uma afirmação. A aplicação pode, em seguida, verifique se este valor para mitigar ataques de repetição de token. O valor é, normalmente, uma cadeia de caracteres aleatória, exclusiva ou o GUID que pode ser utilizado para identificar a origem do pedido. |
 | redirect_uri |Recomendado |O redirect_uri da sua aplicação, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos redirect_uris registado no portal, exceto pelo fato tem de ser codificados de url. |
 | response_mode |opcional |Especifica o método que deve ser utilizado para enviar o authorization_code resultante para a sua aplicação. Valores suportados são `form_post` para *postagem de formulário do HTTP* e `fragment` para *fragmento da URL*. Para aplicativos web, recomendamos que utilize `response_mode=form_post` para garantir que a transferência mais segura de tokens para seu aplicativo. O padrão para qualquer fluxo, incluindo um id_token é `fragment`.|
-| state |Recomendado |Um valor incluído no pedido que é devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que desejar. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](http://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
+| state |Recomendado |Um valor incluído no pedido que é devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que desejar. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
 | linha de comandos |opcional |Indica o tipo de interação do utilizador que é necessário. Atualmente, os únicos valores válidos são 'login', 'none' e "consentimento". `prompt=login` força o utilizador introduza as credenciais desse pedido, eliminando-início de sessão único. `prompt=none` é o oposto - assegura que o utilizador não é apresentado qualquer linha de comandos interativa tipo. Se o pedido não pode ser concluído silenciosamente por meio de início de sessão único, o ponto final devolve um erro. `prompt=consent` acionadores o OAuth consentimento a caixa de diálogo depois do utilizador inicia sessão, solicitando que o usuário para conceder permissões à aplicação. |
 | login_hint |opcional |Pode ser usada para preencher previamente o campo de endereço de e-mail/nome de utilizador da página início de sessão do utilizador, se souber que o respetivo nome de utilizador antes do tempo. Aplicações, muitas vezes, utilizam este parâmetro durante a reautenticação, já após extrair o nome de utilizador de um anterior início de sessão com o `preferred_username` de afirmação. |
 
@@ -117,7 +117,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | Parâmetro | Descrição |
 | --- | --- |
 | id_token |O `id_token` que solicitou a aplicação. Pode utilizar o `id_token` para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. |
-| state |Um valor incluído no pedido que também é devolvido na resposta de token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](http://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
+| state |Um valor incluído no pedido que também é devolvido na resposta de token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
 
 ### <a name="error-response"></a>Resposta de erro
 

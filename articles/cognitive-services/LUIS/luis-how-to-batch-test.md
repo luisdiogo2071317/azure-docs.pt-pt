@@ -10,17 +10,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: b4c58a13c8b66add8ebd7e535ecac9d7b0f1075b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1560b8e574b0932e258353648c73f030ef19d314
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032126"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333501"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Lote de teste com um conjunto de expressões de exemplo
+
  Teste de batch é um teste abrangente em seu modelo treinado atual para medir o desempenho no LUIS. 
 
 <a name="batch-testing"></a>
+
 ## <a name="import-a-dataset-file-for-batch-testing"></a>Importar um ficheiro de conjunto de dados para fins de teste do batch
 
 1. Selecione **teste** na parte superior da barra e, em seguida, selecione **painel de teste do Batch**.
@@ -36,6 +38,7 @@ ms.locfileid: "47032126"
 4. Selecione **Done** (Concluído). O ficheiro de conjunto de dados é adicionado.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Executar, mudar o nome, exportar ou eliminar o conjunto de dados
+
 Para executar, mudar o nome, exportar ou eliminar o conjunto de dados, utilize o botão de reticências (***...*** ) botão no final da linha de conjunto de dados.
 
 ![Ações de conjunto de dados](./media/luis-how-to-batch-test/batch-testing-options.png)
@@ -55,7 +58,9 @@ O conjunto de dados que pode ser baixado é o mesmo ficheiro que foi carregado p
 |![Pronto para testar o ícone](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Teste está pronto para ser executado.|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
+
 ## <a name="view-batch-test-results"></a>Ver resultados do teste de batch 
+
 Para rever os resultados de teste do batch, selecione **ver resultados**.
 
 ![Resultados do teste de batch](./media/luis-how-to-batch-test/run-test-results.png)
@@ -64,6 +69,7 @@ Para rever os resultados de teste do batch, selecione **ver resultados**.
 
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
+
 ## <a name="filter-chart-results"></a>Filtrar os resultados de gráfico
 
 Para filtrar o gráfico por um objetivo específico ou uma entidade, selecione a intenção ou a entidade no painel de filtragem do lado direito. Os pontos de dados e a respetiva distribuição atualizar no gráfico, de acordo com sua seleção. 
@@ -71,6 +77,7 @@ Para filtrar o gráfico por um objetivo específico ou uma entidade, selecione a
 ![Resultado do teste de Batch visualizados](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
 ## <a name="view-single-point-utterance-data"></a>Dados de expressão de ponto único de exibição
+
 No gráfico, Paire o rato sobre um ponto de dados para ver a classificação de certeza da sua predição. Selecione um ponto de dados para recuperar a sua expressão correspondente na lista de expressões com na parte inferior da página. 
 
 ![Expressão selecionada](./media/luis-how-to-batch-test/selected-utterance.png)
@@ -78,7 +85,9 @@ No gráfico, Paire o rato sobre um ponto de dados para ver a classificação de 
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="view-section-data"></a>Ver dados de secção
+
 No gráfico de seção de quatro, selecione o nome da seção, como **falsos positivos** na parte superior direita do gráfico. Abaixo do gráfico, todas as expressões com nesta secção apresentam abaixo do gráfico numa lista. 
 
 ![Expressões com selecionado pela secção](./media/luis-how-to-batch-test/selected-utterances-by-section.png)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d4523a9e2d5a5466c1617930d14a8a2d25a0e16f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238782"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317505"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Remediar configurações de segurança no Centro de segurança do Azure
 Centro de segurança do Azure diariamente analisa o sistema operativo (SO) das suas máquinas virtuais (VMs) e a computadores para uma configuração que poderia fazer com que as VMs e computadores mais vulneráveis a ataques. Centro de segurança recomenda que resolver vulnerabilidades quando a configuração do SO não coincide com as regras de configuração de segurança recomendadas e recomenda alterações de configuração para resolver estas vulnerabilidades.
@@ -101,7 +101,7 @@ Para rever as configurações específicas que estão a ser monitorizadas, veja 
 Para saber mais sobre o Centro de segurança, consulte os seguintes recursos:
 
 * Para obter uma lista de VMs do Linux e Windows suportados, consulte [plataformas suportadas no Centro de segurança do Azure](security-center-os-coverage.md).
-* Para saber como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos, veja [definir políticas de segurança no Centro de segurança do Azure](security-center-policies.md).
+* Para saber como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos, veja [definir políticas de segurança no Centro de segurança do Azure](security-center-azure-policy.md).
 * Para saber como recomendações ajudá-lo a proteger os seus recursos do Azure, veja [recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md).
 * Para saber como monitorizar o estado de funcionamento dos seus recursos do Azure, veja [monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md).
 * Para saber como gerir e responder a alertas de segurança, veja [gerir e responder a alertas de segurança no Centro de segurança do Azure](security-center-managing-and-responding-alerts.md).

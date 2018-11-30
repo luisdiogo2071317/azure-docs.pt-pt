@@ -1,6 +1,6 @@
 ---
-title: 'NET # Neural guia de linguagem de especificação – de redes do Azure Machine Learning | Documentos da Microsoft'
-description: 'Sintaxe para o Net # neural redes de linguagem de especificação, juntamente com os exemplos de como criar um modelo de rede neural personalizada usando o Net #'
+title: 'NET # redes Neurais - do Azure Machine Learning Studio | Documentos da Microsoft'
+description: 'Sintaxe para o Net # neural redes linguagem de especificação, juntamente com os exemplos de como criar um modelo de rede neural personalizada usando Net # com o Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 8adb3c78f97311085aec3a5c86a062ec14f53e61
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263677"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315312"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guia para a linguagem de especificação Net # rede neural para o Azure Machine Learning
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guia para a linguagem de especificação Net # rede neural para o Azure Machine Learning Studio
 
 NET # é uma linguagem desenvolvida pela Microsoft, que é utilizada para definir arquiteturas de rede neural. Usando o Net # para definir a estrutura de uma rede neural torna possível definir estruturas complexas, como redes neurais profundas ou convolutions de dimensões arbitrárias, o que são conhecidas para melhorar o aprendizado nos dados, como imagens, áudio ou vídeo.
 

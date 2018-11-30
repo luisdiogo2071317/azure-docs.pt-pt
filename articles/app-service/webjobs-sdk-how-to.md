@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577016"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335219"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como utilizar o SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano
 
@@ -462,7 +462,7 @@ Recomendamos que a arquitetura de registo que foi desenvolvida para o ASP.NET, e
 
 ### <a name="log-filtering"></a>Filtragem de log
 
-Cada log criado por um `ILogger` instância se associado ao `Category` e `Level`. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) é uma enumeração, e o código de número inteiro indica a importância relativa:
+Cada log criado por um `ILogger` instância se associado ao `Category` e `Level`. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) é uma enumeração, e o código de número inteiro indica a importância relativa:
 
 |LogLevel    |Código|
 |------------|---|
@@ -474,7 +474,7 @@ Cada log criado por um `ILogger` instância se associado ao `Category` e `Level`
 |Crítica    | 5 |
 |Nenhuma        | 6 |
 
-Cada categoria pode ser filtrada forma independente para uma determinada [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel). Por exemplo, pode querer ver todos os registos para o blob acionador processamento, mas apenas `Error` e superior para todo o resto.
+Cada categoria pode ser filtrada forma independente para uma determinada [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel). Por exemplo, pode querer ver todos os registos para o blob acionador processamento, mas apenas `Error` e superior para todo o resto.
 
 Para tornar mais fácil especificar regras de filtragem, o SDK de WebJobs fornece o `LogCategoryFilter` que podem ser transmitidos em muitos dos provedores de registro existente, incluindo o Application Insights e o Console.
 

@@ -6,18 +6,18 @@ author: bryanla
 manager: mbaldwin
 services: key-vault
 ms.author: bryanla
-ms.date: 09/05/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: d9fc845316d6e785d8215ac738b893ebc080d911
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1eadea53dda60ef5ac8bbbc3d9e9cfe4b5b373dc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300975"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423597"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço para o Azure Key Vault com o .NET
 
@@ -183,18 +183,16 @@ Para utilizar um certificado para iniciar sessão no Azure AD:
 
 1. Criar uma [certificado de serviço principal](/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
 
-2. Implementar o certificado ou o _LocalMachine_ ou _CurrentUser_ armazenar. 
+2. Implementar o certificado ou o *LocalMachine* ou *CurrentUser* armazenar. 
 
 3. Definir uma variável de ambiente com o nome **AzureServicesAuthConnectionString** para:
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
-          CertificateStoreLocation={LocalMachine or CurrentUser}
+          CertificateStoreLocation={CertificateStore}
     ```
  
-    Substitua _{AppId}_, _{TenantId}_, e _{Thumbprint}_ com valores geradas no passo 1.
-
-    **CertificateStoreLocation** tem de ser _CurrentUser_ ou _LocalMachine_, com base no seu plano de implementação.
+    Substitua *{AppId}*, *{TenantId}*, e *{Thumbprint}* com valores geradas no passo 1. Substitua *{CertificateStore}* com ambos `LocalMachine` ou `CurrentUser`, com base no seu plano de implementação.
 
 4. Execute a aplicação. 
 

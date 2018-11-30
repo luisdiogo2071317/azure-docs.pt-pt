@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 85fea195b05bea8a1db70f8b5b81cabdfe7c6c72
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041514"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314376"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Traga a sua própria chave para o Apache Kafka no HDInsight do Azure (pré-visualização)
 
@@ -83,7 +83,7 @@ Pode utilizar o portal do Azure ou a CLI do Azure para girar em segurança as ch
 
    Durante a criação do cluster, fornecer toda a URL, incluindo a versão da chave da chave. Por exemplo, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Também terá de atribuir a identidade gerida para o cluster e forneça o URI da chave.
 
-## <a name="faq-for-byok-to-kafka"></a>FAQ do BYOK para o Kafka
+## <a name="faq-for-byok-to-apache-kafka"></a>FAQ do BYOK ao Apache Kafka
 
 **Como é que o cluster de Kafka acessar meu Cofre de chaves?**
 

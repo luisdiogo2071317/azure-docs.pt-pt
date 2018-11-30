@@ -12,19 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/25/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 6060f294820281df3124fb2fc702ece59a006af1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e0eaf88117aa3c67f7ffecad2e3811a22449a5f8
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282412"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312974"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e dos manifestos dinâmicos
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versão 2](media-services-dynamic-manifest-overview.md)
+> * [Versão 3](../latest/filters-dynamic-manifest-overview.md)
+
 A partir da versão 2.17, serviços de multimédia permite-lhe definir os filtros para os seus ativos. Estes filtros são regras de lado do servidor que irão permitir que os clientes podem optar por fazer coisas como: reproduzir apenas uma secção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeos que o dispositivo do seu cliente pode manipular ( em vez de todas as representações que estão associados com o elemento). Esta filtragem de seus ativos é assegurado através da **dinâmica manifestar**s que são criados mediante solicitação do seu cliente para transmitir um vídeo com base nos filtros especificados.
 
-Este tópico aborda cenários comuns nos quais a utilização de filtros seria muito vantajoso para seus clientes e ligações para tópicos que demonstram como criar filtros por meio de programação.
+Este tópico aborda cenários comuns nos quais usando filtros de representaria uma vantagem para os seus clientes e ligações para tópicos que demonstram como criar filtros por meio de programação.
 
 ## <a name="overview"></a>Descrição geral
 Quando a entrega de conteúdo aos clientes (transmissão em fluxo eventos em direto ou de vídeo a pedido) o seu objetivo é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para alcançar este proceda de objetivo do seguinte:
@@ -102,7 +107,7 @@ Existem dois tipos de filtros ativos:
 Tipos de filtro globais e locais têm exatamente as mesmas propriedades. A principal diferença entre os dois é para os cenários que tipo de um filtro é mais adequado. Filtros globais são geralmente adequados para perfis de dispositivo (filtragem de representação) onde os filtros de locais poderiam ser usados para cortar um recurso específico.
 
 ## <a id="scenarios"></a>Cenários comuns
-Como foi mencionado antes, quando a entrega de conteúdo aos clientes (transmissão em fluxo eventos em direto ou de vídeo a pedido) o seu objetivo é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Além disso, seu pode ter outros requisitos que envolvem a filtragem de seus ativos e através de **dinâmica manifestar**s. As secções seguintes fornecem uma breve visão geral dos diferentes cenários de filtragem.
+Como foi mencionado antes, quando a entrega de conteúdo aos clientes (transmissão em fluxo eventos em direto ou de vídeo a pedido) o seu objetivo é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Além disso, poderá ter outros requisitos que envolvem a filtragem de seus ativos e através de **dinâmica manifestar**s. As secções seguintes fornecem uma breve visão geral dos diferentes cenários de filtragem.
 
 * Especifique apenas um subconjunto de representações de áudio e vídeos que certos dispositivos podem processar (em vez de todas as representações que estão associadas a com elemento). 
 * Reprodução de apenas uma secção de um vídeo (em vez de reproduzir o vídeo todo).

@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2a399899c93addf966d3f2ec0e36d4b1c76b686f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 1b4ca22faf8ef01cab4b2e7231fea8ed49f0fcb3
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038312"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494597"
 ---
 # <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-apache-hadoop-services"></a>Área dinâmica para dados recolher informações do Estado no armazenamento de BLOBs para depurar e analisar os serviços do Apache Hadoop
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Capturas de área dinâmica para dados contém um instantâneo de memória do aplicativo, incluindo os valores das variáveis no momento que a captura foi criada. Portanto, eles são úteis para diagnosticar problemas que ocorrem no tempo de execução. Registos da área dinâmica podem ser automaticamente recolhidos para serviços do Apache Hadoop e colocados dentro da conta de armazenamento de Blobs do Azure de um utilizador em HDInsightHeapDumps /.
+Capturas de área dinâmica para dados contém um instantâneo de memória do aplicativo, incluindo os valores das variáveis no momento que a captura foi criada. Portanto, eles são úteis para diagnosticar problemas que ocorrem no tempo de execução. Capturas de área dinâmica para dados que podem ser recolhidas automaticamente para [Apache Hadoop](https://hadoop.apache.org/) com os serviços e colocada dentro da conta de armazenamento de Blobs do Azure de um utilizador em HDInsightHeapDumps /.
 
 A coleção de registos da área dinâmica para vários serviços tem de estar ativada para os serviços em clusters individuais. A predefinição para esta funcionalidade é ter um para um cluster. Estes registos da área dinâmica podem ser grandes, portanto, é aconselhável para monitorizar a conta de armazenamento de BLOBs onde eles são guardados depois da coleção foi ativada.
 
 > [!IMPORTANT]
-> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows). As informações neste artigo aplica-se apenas ao HDInsight baseado em Windows. Para obter informações sobre o HDInsight baseado em Linux, consulte [registos da área dinâmica de ativar para serviços do Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows). As informações neste artigo aplica-se apenas ao HDInsight baseado em Windows. Para obter informações sobre o HDInsight baseado em Linux, consulte [registos da área dinâmica de ativação para os serviços do Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 
 
 ## <a name="eligible-services-for-heap-dumps"></a>Serviços elegíveis para capturas de área dinâmica para dados

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296401"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426209"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: repor a palavra-passe self-service do Azure AD
 
@@ -189,7 +189,7 @@ Alteração e reposição de palavra-passe são totalmente suportadas em todas a
    * **Os utilizadores que se inscrevam através de** inscrição Self-Service: se a organização nossa parceria com a utilizado o [inscrição Self-Service](../users-groups-roles/directory-self-service-signup.md) de recursos para obter um inquilino, nós deixamos que eles repor a palavra-passe com a mensagem de e-mail que registado.
    * **Utilizadores B2B**: quaisquer novos utilizadores B2B criados com a nova [capacidades do Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md) também poderão repor as palavras-passe com a mensagem de e-mail que registado durante o processo de convite.
 
-Para testar este cenário, aceda a http://passwordreset.microsoftonline.com com um destes utilizadores de parceiro. Se tiverem um correio eletrónico alternativo ou e-mail de autenticação definidos, a palavra-passe reposição funciona conforme esperado.
+Para testar este cenário, aceda a https://passwordreset.microsoftonline.com com um destes utilizadores de parceiro. Se tiverem um correio eletrónico alternativo ou e-mail de autenticação definidos, a palavra-passe reposição funciona conforme esperado.
 
 > [!NOTE]
 > Contas da Microsoft que tem sido concedidas acesso de convidado com o seu inquilino do Azure AD, como as do Hotmail.com, Outlook.com ou outros endereços de e-mail pessoal, não são possível utilizar o Azure AD SSPR. Tem de repor a palavra-passe, utilizando as informações encontradas na [quando não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artigo.

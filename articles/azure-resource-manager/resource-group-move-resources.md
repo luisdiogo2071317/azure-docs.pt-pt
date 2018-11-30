@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 11/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: c65f5364ccd4943d1d3e703ed27099408d3a2a27
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 15ec028046b7c2b21f1892c460d53c73499680fe
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346597"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312543"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -186,7 +186,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * CDN
 * Serviços cloud - veja [limitações da implementação clássica](#classic-deployment-limitations)
 * Serviços Cognitivos
-* Registo de Contentor
+* Registo de contentor - não é possível mover um registo de contentor quando a georreplicação está ativada.
 * Content Moderator
 * Gestão de Custos
 * Informações do Cliente

@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 86a047fe291c7872fe275ba7246b9f3e59044723
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6a0a2dec6beeecca3779f4b047d3b5fe6295a1e6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236828"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495304"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Utilize a API de REST do Apache Spark para submeter as tarefas remotas para um cluster do Spark do HDInsight
 
-Saiba como utilizar o Livy, a API de REST do Apache Spark, que é utilizado para submeter tarefas remotas para um cluster do HDInsight Spark do Azure. Para obter documentação detalhada, consulte [ http://livy.incubator.apache.org/ ](http://livy.incubator.apache.org/).
+Aprenda a usar [Apache Livy](https://livy.incubator.apache.org/), o [Apache Spark](https://spark.apache.org/) API REST, que é utilizado para submeter tarefas remotas para um cluster do Azure HDInsight Spark. Para obter documentação detalhada, consulte [ http://livy.incubator.apache.org/ ](http://livy.incubator.apache.org/).
 
 Pode usar o Livy para executar o Spark interativa shells ou submeter as tarefas de lote para ser executado no Spark. Este artigo fala sobre a utilização do Livy para submeter trabalhos de lote. Os trechos de código neste artigo utilizam o cURL para fazer chamadas de REST API para o ponto de extremidade do Livy Spark.
 
@@ -28,8 +28,8 @@ Pode usar o Livy para executar o Spark interativa shells ou submeter as tarefas 
 
 * [cURL](http://curl.haxx.se/). Este artigo utiliza o cURL para demonstrar como fazer chamadas de REST API em relação a um cluster do Spark do HDInsight.
 
-## <a name="submit-a-livy-spark-batch-job"></a>Submeter uma tarefa de lote de Spark do Livy
-Antes de submeter uma tarefa do batch, tem de carregar o aplicativo jar no armazenamento de cluster associado ao cluster. Para o fazer, pode utilizar [**AzCopy**](../../storage/common/storage-use-azcopy.md), um utilitário de linha de comandos. Existem vários outros clientes, que pode utilizar para carregar dados. Pode saber mais sobre esses clientes em [Upload data for Hadoop jobs in HDInsight](../hdinsight-upload-data.md) (Carregar dados para trabalhos do Hadoop no HDInsight).
+## <a name="submit-an-apache-livy-spark-batch-job"></a>Submeter uma tarefa de lote do Apache Spark do Livy
+Antes de submeter uma tarefa do batch, tem de carregar o aplicativo jar no armazenamento de cluster associado ao cluster. Para o fazer, pode utilizar [**AzCopy**](../../storage/common/storage-use-azcopy.md), um utilitário de linha de comandos. Existem vários outros clientes, que pode utilizar para carregar dados. Pode saber mais sobre elas, em [carregar dados para as tarefas do Apache Hadoop no HDInsight](../hdinsight-upload-data.md).
 
     curl -k --user "<hdinsight user>:<user password>" -v -H <content-type> -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
 
@@ -164,7 +164,7 @@ HDInsight 3.5 clusters e acima, por predefinição, desativar a utilização de 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Submeter tarefas do Livy para um cluster dentro de uma rede virtual do Azure
 
-Se ligar a um cluster do Spark do HDInsight a partir de uma rede Virtual do Azure, pode ligar diretamente ao Livy no cluster. Nesse caso, é o URL para o ponto final do Livy `http://<IP address of the headnode>:8998/batches`. Aqui, **8998** é a porta em que o Livy é executado no nó principal do cluster. Para obter mais informações sobre como acessar serviços em portas não públicas, consulte [portas utilizadas pelo serviços do Hadoop no HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
+Se ligar a um cluster do Spark do HDInsight a partir de uma rede Virtual do Azure, pode ligar diretamente ao Livy no cluster. Nesse caso, é o URL para o ponto final do Livy `http://<IP address of the headnode>:8998/batches`. Aqui, **8998** é a porta em que o Livy é executado no nó principal do cluster. Para obter mais informações sobre como acessar serviços em portas não públicas, consulte [portas utilizadas pelos serviços do Apache Hadoop no HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -182,7 +182,7 @@ Seguem-se alguns problemas que podem ocorrer durante o uso do Livy para submiss�
 
 ## <a name="next-step"></a>Passo seguinte
 
-* [Documentação da API de REST do Livy](http://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Documentação da API de REST do Apache Livy](http://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Gerir recursos para o cluster do Apache Spark no Azure HDInsight](apache-spark-resource-manager.md)
 * [Controlar e depurar tarefas em execução num cluster do Apache Spark do HDInsight](apache-spark-job-debugging.md)
 

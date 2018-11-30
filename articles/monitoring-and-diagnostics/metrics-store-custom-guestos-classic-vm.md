@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: 9569a9da81848c279db6d6d45b7621f84060387b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0b1209c1d8d92b08d15cfbfd6e323b7bd748e2f5
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958632"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316927"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Enviar métricas de SO convidado para o arquivo de dados do Azure Monitor para uma máquina virtual de Windows (clássico)
 
@@ -27,7 +27,7 @@ O processo que é descrito neste artigo só funciona em máquinas virtuais clás
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ser um [administrador de serviços ou coadministrador](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) na sua subscrição do Azure. 
+- Tem de ser um [administrador de serviços ou coadministrador](../billing/billing-add-change-azure-subscription-administrator.md) na sua subscrição do Azure. 
 
 - A sua subscrição tem de estar registrada com [Microsoft. insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 

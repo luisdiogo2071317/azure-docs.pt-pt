@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fdac7d1fd7fbcea28d6ce8e614e4968f168566ba
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3e1acb714cfc1c059f8d02240c2a6d49be9f4971
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010592"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335287"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campos personalizados no Log Analytics
 O **campos personalizados** recurso do Log Analytics permite-lhe expandir registos existentes no Log Analytics ao adicionar seus próprios campos pesquisáveis.  Campos personalizados são preenchidos automaticamente a partir dos dados extraídos de outras propriedades no mesmo registo.
@@ -81,7 +81,7 @@ Pode ver uma lista de todos os campos personalizados no seu grupo de gestão a p
 Existem duas formas de remover um campo personalizado.  A primeira é o **remover** opção para cada campo ao visualizar a lista completa, conforme descrito acima.  O outro método é obter um registo e clique no botão à esquerda do campo.  O menu terá uma opção para remover o campo personalizado.
 
 ## <a name="sample-walkthrough"></a>Instruções de exemplo
-A secção seguinte descreve um exemplo completo de criação de um campo personalizado.  Neste exemplo extrai o nome do serviço nos eventos do Windows que indicam um serviço de alterar o estado.  Baseia-se nos eventos criados pelo Gestor de controlo de serviços no registo do sistema em computadores Windows.  Se quiser siga este exemplo, tem de ser [recolha de eventos de informações para o registo do sistema](log-analytics-data-sources-windows-events.md).
+A secção seguinte descreve um exemplo completo de criação de um campo personalizado.  Neste exemplo extrai o nome do serviço nos eventos do Windows que indicam um serviço de alterar o estado.  Baseia-se nos eventos criados pelo Gestor de controlo de serviços no registo do sistema em computadores Windows.  Se quiser siga este exemplo, tem de ser [recolha de eventos de informações para o registo do sistema](../azure-monitor/platform/data-sources-windows-events.md).
 
 Introduza a seguinte consulta para devolver todos os eventos do Gestor de controlo de serviço que tenha um ID de evento de 7036 que é o evento que indica um serviço de início ou paragem.
 
@@ -141,5 +141,5 @@ Agora podemos usar o campo personalizado, como qualquer outra propriedade de reg
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [pesquisas de registos](log-analytics-queries.md) para criar consultas com campos personalizados para critérios.
-* Monitor [ficheiros de registo personalizado](log-analytics-data-sources-custom-logs.md) que analisar com campos personalizados.
+* Monitor [ficheiros de registo personalizado](../azure-monitor/platform/data-sources-custom-logs.md) que analisar com campos personalizados.
 

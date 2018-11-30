@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 9d3399ba6ee724d91117486744ad1431f53edbce
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b05713fd8acb49b25dba04781c1049c9f05115fb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053448"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444699"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Como adicionar um certificado de AC personalizado na gestão de API do Azure
 
 Gestão de API do Azure permite a instalação de certificados de AC no computador dentro de raiz fidedigna e arquivos de certificados intermédios. Esta funcionalidade deve ser utilizada se os seus serviços necessitam de um certificado de AC personalizado.
 
 O artigo mostra como gerir certificados de AC de uma instância de serviço de gestão de API do Azure no portal do Azure.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>Carregar um certificado de AC
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 086399f669b704a0ae2c9f719906e7efa672b5b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262514"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422801"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparar a cópia de segurança de VMs do Azure
 
@@ -49,13 +49,14 @@ Antes de preparar o seu ambiente, certifique-se de que compreender estas limita�
 * Não é suportada para o backup das VMs de Linux encriptado através da encriptação de Linux Unified chave configuração (LUKS).
 * Não recomendamos que o backup das VMs que contêm a configuração de Volumes de partilhado de Cluster (CSV) ou o servidor de ficheiros de escalamento horizontal. Se feito, espera-se a falha de escritores CSV. Eles exigem envolvendo todas as VMs incluídas na configuração do cluster durante uma tarefa de instantâneo. O Azure Backup não suporta a consistência de várias VMS.
 * Dados de cópia de segurança não incluem unidades de rede montado anexadas a uma VM.
-* A substituição de uma máquina virtual existente durante o restauro não é suportada. Se tentar restaurar a VM quando a VM existe, a operação de restauro falhará.
+* **Substituir a existente** opção a **configuração de restauro** ajuda a substituir discos existentes na VM atual com o ponto de restauro selecionado. Pode efetuar esta operação apenas se a VM atual existe. 
 * Entre regiões criar cópias de segurança e restauro não são suportadas.
 * Ao configurar o back cópia de segurança, certifique-se de que o **Firewalls e redes virtuais** as definições de conta de armazenamento permitirem o acesso de todas as redes.
 * Para redes selecionadas, depois de configurar a firewall e as definições de rede virtual para a sua conta de armazenamento, selecione **permitir confiável a serviços da Microsoft para aceder a esta conta de armazenamento** como uma exceção para ativar o serviço de cópia de segurança do Azure Aceda à conta de armazenamento de restrição de rede. Recuperação ao nível do item não é suportada para contas de armazenamento de restrição de rede.
 * Pode fazer uma cópia de segurança de máquinas virtuais em todas as regiões públicas do Azure. (Consulte a [lista de verificação](https://azure.microsoft.com/regions/#services) de regiões suportadas.) Se a região na qual está procurando não é suportada atualmente, não será apresentada na lista pendente durante a criação do cofre.
 * Restaurar um controlador de domínio (DC) VM que faça parte de uma configuração de multi-DC é suportada apenas através do PowerShell. Para obter mais informações, consulte [restaurar um controlador de domínio do controlador de domínio com várias](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * O instantâneo do disco de acelerador de escrita ativados não é suportado. Esta restrição bloqueia a capacidade do serviço de cópia de segurança do Azure para efetuar um instantâneo consistente da aplicação de todos os discos da máquina virtual.
+* O Azure Backup não suporta o ajuste automático do relógio para alterações de economia de hora de Verão para criar cópias de segurança de VM do Azure. Se for necessário, modifique a política para efetuar a alteração do horário de Verão economias em conta.
 * Restaurar máquinas virtuais que têm as seguintes configurações de rede especiais é suportada apenas através do PowerShell. As VMs criadas no fluxo de trabalho de restauro na interface do Usuário não terão estas configurações de rede depois de concluída a operação de restauro. Para obter mais informações, consulte [restaurar VMs com configurações de rede especiais](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Máquinas virtuais em configuração de Balanceador de carga (interna e externa)
   * Máquinas virtuais com vários endereços IP reservados

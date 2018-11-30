@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 69c77896f894201d1419aaef33470a02ac45ff91
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986293"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317352"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Início rápido: Iniciar sessão dos utilizadores e adquirir um token de acesso a partir de uma aplicação do JavaScript
 
@@ -36,12 +36,12 @@ Neste início rápido, irá aprender como usar um código de exemplo que demonst
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 >
 > 1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) registar uma aplicação.
-> 1. Se a sua conta dá-lhe acesso a mais do que um inquilino, selecione a sua conta no canto superior direito canto e definir a sua sessão do portal para o Azure AD pretendido de inquilino.
-> 1. No painel de navegação do lado esquerdo, selecione o **do Azure Active Directory** serviço e, em seguida, selecione **registos das aplicações (pré-visualização) > novo registo**.
+> 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
+> 1. No painel de navegação do lado esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **Registos de aplicações (Pré-visualização) > Novo registo**.
 > 1. Quando o **registar uma aplicação** é apresentada a página, introduza um nome para a sua aplicação.
 > 1. Sob **tipos de conta suportados**, selecione **contas em qualquer diretório organizacional e contas Microsoft pessoais**.
 > 1. Selecione o **Web** plataforma sob a **URI de redirecionamento** secção e defina o valor como `http://localhost:30662/`.
-> 1. Quando terminar, selecione **registar**.  Na aplicação **descrição geral** página, tome nota da **ID de aplicação (cliente)** valor.
+> 1. Quando terminar, selecione **Registar**.  Na aplicação **descrição geral** página, tome nota da **ID de aplicação (cliente)** valor.
 > 1. Este início rápido requer a [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja ativado. No painel de navegação do lado esquerdo do aplicativo registrado, selecione **autenticação**.
 > 1. Na **definições avançadas**, em **concessão implícita**, permita as duas opções **tokens de ID** e **tokens de acesso** caixas de verificação. Tokens de ID e tokens de acesso são necessários, uma vez que esta aplicação tem de iniciar sessão dos utilizadores e chamar uma API.
 > 1. Selecione **Guardar**.
@@ -53,7 +53,7 @@ Neste início rápido, irá aprender como usar um código de exemplo que demonst
 > > [Efetuar estas alterações para mim]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Já configurado](media/quickstart-v2-javascript/green-check.png) seu aplicativo está configurado com esses atributos.
+> > ![Já configurada](media/quickstart-v2-javascript/green-check.png) A sua aplicação está configurada com estes atributos.
 
 #### <a name="step-2-download-the-project"></a>Passo 2: Transferir o projeto
 
@@ -66,7 +66,7 @@ Extrair o ficheiro zip para uma pasta local, por exemplo, **C:\Azure-Samples**.
 #### <a name="step-3-configure-your-javascript-app"></a>Passo 3: Configurar a sua aplicação do JavaScript
 
 > [!div renderon="docs"]
-> Editar `index.html` e substitua `Enter_the_Application_Id_here` sob `applicationConfig` com o ID da aplicação que acabou de registar.
+> Editar `index.html` e defina a `clientID` e `authority` valores sob `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Editar `index.html` e substitua `applicationConfig` com:
@@ -74,13 +74,25 @@ Extrair o ficheiro zip para uma pasta local, por exemplo, **C:\Azure-Samples**.
 ```javascript
 var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
     graphScopes: ["user.read"],
     graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
+> [!div renderon="docs"]
+>
+> Em que:
+> - `Enter_the_Application_Id_here` - é o **ID da Aplicação (cliente)** que registou.
+> - `Enter_the_Tenant_Info_Here` - está definido para uma das seguintes opções:
+>   - Se a sua aplicação suportar **Contas neste diretório organizacional**, substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
+>   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
+>   - Se a sua aplicação suportar **Contas em quaisquer contas da Microsoft de diretório organizacional e pessoais**, substitua este valor por `common`
+>
+> > [!TIP]
+> > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
+
 > [!NOTE]
->Se usar [node. js](https://nodejs.org/en/download/), o *Server. js* ficheiro está configurado para o servidor começar a escutar na porta 30662.
-> Se usar [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), o exemplo de código *. csproj* ficheiro está configurado para o servidor começar a escutar na porta 30662.
+> O servidor está configurado para escutar na porta 30662 no *Server. js* de ficheiros [node. js](https://nodejs.org/en/download/) projeto e o *. csproj* do ficheiro no [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)projeto.
 >
 
 #### <a name="step-4-run-the-project"></a>Passo 4: Executar o projeto
@@ -121,7 +133,7 @@ npm install msal
 O código de início rápido mostra também como inicializar a biblioteca:
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 ```
 
 > |Onde  |  |

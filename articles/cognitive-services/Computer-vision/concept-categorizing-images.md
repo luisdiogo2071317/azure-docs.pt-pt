@@ -10,28 +10,28 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 602ea8028cf89b23df692d5c2fb9b781f64bcad4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7062d98d40c15f4e9e873038fc12fc1b104c996d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341689"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333484"
 ---
 # <a name="categorizing-images"></a>Categorizar imagens
 
-Para além das etiquetas e descrições, imagem digitalizada devolve as categorias com base em taxonomia definidas nas versões anteriores. Estas categorias são organizadas como uma taxonomia com hierarquias principal/subordinado de hereditary. Todas as categorias estão em inglês. Eles podem ser usados isoladamente ou com a nossa nova marcação de modelos.
+Para além das etiquetas e descrições, imagem digitalizada devolve as categorias com base em taxonomia definidas nas versões anteriores. Estas categorias são organizadas como uma taxonomia com hierarquias hereditárias principais/subordinadas. Todas as categorias estão em inglês. Eles podem ser usados isoladamente ou com a nossa nova marcação de modelos.
 
-## <a name="the-86-category-concept"></a>O conceito de categoria 86
+## <a name="the-86-category-concept"></a>O conceito de 86 categorias
 
-Com base numa lista de 86 conceitos ilustrado no diagrama seguinte, uma imagem pode ser categorizada desde o amplo até específico. Para a taxonomia no formato de texto completa, consulte [taxonomia da categoria](category-taxonomy.md).
+Com base numa lista de 86 conceitos ilustrado no diagrama seguinte, uma imagem pode ser categorizada desde o amplo até específico. Para obter a taxonomia completa no formato de texto, veja [Taxonomia de 86 Categorias](category-taxonomy.md).
 
-![Analisar as categorias](./Images/analyze_categories.png)
+![listas agrupadas de todas as categorias a taxonomia da categoria](./Images/analyze_categories-v2.png)
 
 ## <a name="image-categorization-examples"></a>Exemplos de categorização de imagem
 
 A resposta JSON seguinte ilustra o que o de imagem digitalizada devolve quando categorizar a imagem de exemplo com base nos seus recursos do visual.
 
-![Teto de mulher](./Images/woman_roof.png)
+![Mulher num Terraço](./Images/woman_roof.png)
 
 ```json
 {
@@ -54,10 +54,10 @@ A tabela a seguir ilustra um conjunto típico de imagem e a categoria devolvido 
 
 | Imagem | Categoria |
 |-------|----------|
-| ![Fotos de família](./Images/family_photo.png) | people_group |
-| ![Dog fofinhos](./Images/cute_dog.png) | animal_dog |
-| ![Hora das regiões equipamentos esportivos](./Images/mountain_vista.png) | outdoor_mountain |
-| ![Visão analisar pão de comida](./Images/bread.png) | food_bread |
+| ![Fotografia de Família](./Images/family_photo.png) | people_group |
+| ![Cão fofinho](./Images/cute_dog.png) | animal_dog |
+| ![Exterior/Montanha](./Images/mountain_vista.png) | outdoor_mountain |
+| ![Análise de imagem de pão](./Images/bread.png) | food_bread |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

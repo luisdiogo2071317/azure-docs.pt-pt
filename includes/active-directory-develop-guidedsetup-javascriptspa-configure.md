@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: b3d46e10facdef26b36c910a5c23b40a415a2894
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2e65c5f0d6c2d493abcd61bea4077cbdd8ff95fa
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988429"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331353"
 ---
 ## <a name="register-your-application"></a>Registar a sua aplicação
 
@@ -32,18 +32,18 @@ Existem várias formas de registar uma aplicação. Selecione a opção que melh
 1. Inicie sessão para o [registo de aplicação do portal do Azure (pré-visualização)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) registar uma aplicação.
 1. Sobre o **registar uma aplicação** página, introduza um nome para a sua aplicação.
 1. Sob **tipos de conta suportados**, selecione **contas em qualquer diretório organizacional e contas Microsoft pessoais**.
-1. Quando terminar, selecione **registar**.
+1. Quando terminar, selecione **Registar**.
 1. Siga as instruções de início rápido para transferir e configurar automaticamente o seu novo aplicativo para num só clique.
 
 ### <a name="option-2-register-your-application-advanced-mode"></a>Opção 2: Registar a sua aplicação (modo avançado)
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) registar uma aplicação.
-1. Se a sua conta dá-lhe acesso a mais do que um inquilino, selecione a sua conta no canto superior direito canto e definir a sua sessão do portal para o Azure AD pretendido de inquilino.
-1. No painel de navegação do lado esquerdo, selecione o **do Azure Active Directory** serviço e, em seguida, selecione **registos das aplicações (pré-visualização) > novo registo**.
+1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
+1. No painel de navegação do lado esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **Registos de aplicações (Pré-visualização) > Novo registo**.
 1. Quando o **registar uma aplicação** é apresentada a página, introduza um nome para a sua aplicação.
 1. Sob **tipos de conta suportados**, selecione **contas em qualquer diretório organizacional e contas Microsoft pessoais**.
 1. Sob o **URI de redirecionamento** secção, selecione a **Web** plataforma e defina o valor para o URL da aplicação com base no seu servidor web. Consulte as secções abaixo para obter instruções sobre como definir e obter o URL de redirecionamento no nó e o Visual Studio.
-1. Quando terminar, selecione **registar**.
+1. Quando terminar, selecione **Registar**.
 1. Na aplicação **descrição geral** página, tome nota da **ID de aplicação (cliente)** valor.
 1. Este início rápido requer a [fluxo de concessão implícita](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) seja ativado. No painel de navegação do lado esquerdo do aplicativo registrado, selecione **autenticação**.
 1. Na **definições avançadas**, em **concessão implícita**, permita as duas opções **tokens de ID** e **tokens de acesso** caixas de verificação. Tokens de ID e tokens de acesso são necessários, uma vez que esta aplicação tem de iniciar sessão dos utilizadores e chamar uma API.
@@ -67,7 +67,8 @@ Existem várias formas de registar uma aplicação. Selecione a opção que melh
 
     ```javascript
     var applicationConfig = {
-        clientID: "[Enter the application Id here]",
+        clientID: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/common",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };

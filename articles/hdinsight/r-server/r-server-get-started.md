@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 0811f0e115545a37b6c570c436900a8548adae61
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3a65b66619351462fcd9c77c3fb9b935cf99ebcc
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006367"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496462"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introdução aos Serviços ML no Azure HDInsight
 
-O Azure HDInsight permite-lhe criar um cluster dos Serviços ML. Esta opção permite que os scripts R utilizem o Spark e o MapReduce para executar cálculos distribuídos. Neste artigo, vai aprender a criar um cluster do Serviço ML no HDInsight e como executar um script R que demonstre a utilização do Spark para cálculos de R distribuídos.
+O Azure HDInsight permite-lhe criar um cluster dos Serviços ML. Esta opção permite que scripts R utilizem [Apache Spark](https://spark.apache.org/) e [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) para executar cálculos distribuídos. Neste artigo, vai aprender a criar um cluster do Serviço ML no HDInsight e como executar um script R que demonstre a utilização do Spark para cálculos de R distribuídos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +37,7 @@ O Azure HDInsight permite-lhe criar um cluster dos Serviços ML. Esta opção pe
 
     * **Nome do Cluster**: o nome do cluster HDInsight.
     * **Subscrição**: selecione a subscrição que pretende utilizar.
-    * **Nome de utilizador de início de sessão do cluster** e **Palavra-passe de início de sessão do cluster**: o início de sessão ao aceder ao cluster através de HTTPS. Utilize estas credenciais para aceder aos serviços, como a IU Web do Ambari ou a API REST.
+    * **Nome de utilizador de início de sessão do cluster** e **Palavra-passe de início de sessão do cluster**: o início de sessão ao aceder ao cluster através de HTTPS. Utilize estas credenciais para aceder aos serviços como o Apache Ambari Web UI ou a REST API.
     * **Nome de utilizador do Secure Shell (SSH)**: o início de sessão utilizado ao aceder ao cluster através de SSH. Por predefinição, a palavra-passe é igual à palavra-passe de início de sessão do cluster.
     * **Grupo de Recursos**: o grupo de recursos em que o cluster é criado.
     * **Localização**: a região do Azure em que o cluster é criado.

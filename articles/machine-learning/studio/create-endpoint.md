@@ -1,5 +1,5 @@
 ---
-title: Criação de pontos finais de serviço da Web no Machine Learning | Documentos da Microsoft
+title: Criação de pontos finais de serviço da Web no Machine Learning - Azure Machine Learning Studio | Documentos da Microsoft
 description: Criação de pontos finais de serviço da Web no Azure Machine Learning
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: f046db11bf3c04c9ea15e759b4e0080cab4f71d5
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265071"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314018"
 ---
-# <a name="creating-endpoints"></a>Criação de pontos finais
+# <a name="creating-endpoints"></a>Criação de pontos finais 
 > [!NOTE]
 >  Este tópico descreve técnicas aplicáveis a uma **clássico** serviço Web do Machine Learning.
 > 
@@ -31,7 +31,7 @@ ms.locfileid: "52265071"
 
 Ao criar serviços Web que venda para a frente aos seus clientes, terá de fornecer modelos qualificados a cada cliente que ainda estejam ligadas à experimentação partir do qual o serviço Web foi criado. Além disso, todas as atualizações para a experimentação devem ser aplicadas seletivamente a um ponto final sem substituir as personalizações.
 
-Para tal, o Azure Machine Learning permite-lhe criar vários pontos de extremidade para um serviço Web implementado. Cada ponto de extremidade no serviço Web independente é resolvido, limitado e gerido. Cada ponto de extremidade é um URL exclusivo e uma chave de autorização que pode distribuir aos seus clientes.
+Para tal, o Azure Machine Learning Studio permite-lhe criar vários pontos de extremidade para um serviço Web implementado. Cada ponto de extremidade no serviço Web independente é resolvido, limitado e gerido. Cada ponto de extremidade é um URL exclusivo e uma chave de autorização que pode distribuir aos seus clientes.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

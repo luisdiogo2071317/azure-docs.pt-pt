@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 36099a49cc9e6c810727606bb73d2669f1e0df79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985697"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422515"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre cópias de segurança automáticas da base de dados SQL
 
@@ -42,7 +42,7 @@ Pode utilizar estas cópias de segurança para:
 
 ## <a name="how-long-are-backups-kept"></a>Quanto tempo as cópias de segurança permanecem
 
-Cada cópia de segurança da base de dados SQL tem um período de retenção predefinido que baseia-se no escalão de serviço da base de dados e é diferente entre o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Pode atualizar o período de retenção de cópia de segurança para uma base de dados. Ver [período de retenção de cópia de segurança de alteração](#how-to-change-backup-retention-period) para obter mais detalhes.
+Cada base de dados do SQL tem um período de retenção de cópia de segurança padrão entre 7 e 35 dias que depende o [modelo de compra e a camada de serviços](#pitr-retention-period). Pode atualizar o período de retenção de cópia de segurança para uma base de dados num servidor lógico do Azure (esta funcionalidade será ativada brevemente na instância gerida). Ver [período de retenção de cópia de segurança de alteração](#how-to-change-backup-retention-period) para obter mais detalhes.
 
 Se eliminar uma base de dados, base de dados SQL manterá as cópias de segurança da mesma forma que faria para uma base de dados online. Por exemplo, se eliminar uma base de dados básico que tem um período de retenção de sete dias, é guardada uma cópia de segurança que é de quatro dias de antiguidade por três dias mais.
 

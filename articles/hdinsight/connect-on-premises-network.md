@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d8ab61d99b617f21557b6f1ef476418e25bcee55
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1d5a6dc6db3eaa46f6f2bd9944af7aefe759fbc7
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016935"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496122"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ligar o HDInsight à sua rede no local
 
@@ -321,12 +321,12 @@ Para ligar diretamente ao HDInsight através da rede virtual, utilize os seguint
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. Para determinar a porta que um serviço está disponível em, veja a [portas utilizadas pelo serviços do Hadoop no HDInsight](./hdinsight-hadoop-port-settings-for-services.md) documento.
+2. Para determinar a porta que um serviço está disponível em, veja a [portas utilizadas pelos serviços do Apache Hadoop no HDInsight](./hdinsight-hadoop-port-settings-for-services.md) documento.
 
     > [!IMPORTANT]
     > Alguns serviços alojados nos nós principais são apenas o Active Directory num nó de cada vez. Se tentar acessar um serviço num nó principal e este falhar, mude para o outro nó principal.
     >
-    > Por exemplo, Ambari só está ativo no nó principal um cada vez. Se tentar acessar Ambari num nó principal e retorna um erro 404, em seguida, ele é executado no nó principal.
+    > Por exemplo, Apache Ambari só está ativo no nó principal um cada vez. Se tentar acessar Ambari num nó principal e retorna um erro 404, em seguida, ele é executado no nó principal.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

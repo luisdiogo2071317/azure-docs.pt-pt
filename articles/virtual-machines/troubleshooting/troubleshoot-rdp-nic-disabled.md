@@ -1,5 +1,5 @@
 ---
-title: Não é o ambiente de trabalho remoto para máquinas de virtuais do Azure, uma vez que a NIC está desabilitada | Documentos da Microsoft
+title: Não é possível ligar remotamente às máquinas de virtuais do Azure porque a NIC está desabilitada | Documentos da Microsoft
 description: Saiba como resolver um problema em que o RDP falha porque a NIC está desabilitada na VM do Azure | Documentos da Microsoft
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 6b14530bd6b4c1b6617cb1d5c88d710a32e5372c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f9e4731146409f51d16a8c92c01d07a8ff11a7ea
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634710"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314529"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Não é possível do ambiente de trabalho remoto a uma VM porque a interface de rede está desativada
 
-Este artigo mostra como resolver um problema em que não é possível o ambiente de trabalho remoto para máquinas de virtuais de Windows do Azure (VMs) porque a interface de rede está desabilitada.
+Este artigo explica como resolver um problema em que não pode fazer uma ligação de ambiente de trabalho remoto para máquinas de virtuais de Windows do Azure (VMs) se a interface de rede está desativada.
 
 > [!NOTE] 
 > O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica. 
@@ -51,7 +51,7 @@ Para ativar a interface para a VM, utilize o controlo Serial ou [interface de re
 
         netsh interface set interface name="interface Name" admin=enabled
 
-    Por exemplo, se a interface interwork nomes "Ethernet 2", execute o seguinte comando:
+    Por exemplo, se a interface interwork é o nome "Ethernet 2", execute o seguinte comando:
 
         netsh interface set interface name=""Ethernet 2" admin=enabled
     
@@ -66,4 +66,4 @@ Para ativar a interface para a VM, utilize o controlo Serial ou [interface de re
 
 ## <a name="reset-network-interface"></a>Repor a interface de rede
 
-Para repor a interface de rede, altere o endereço IP para outro endereço IP que está disponível na sub-rede com o portal do Azure ou do Azure PowerShell. Para obter mais informações, consulte [interface de rede de reposição](reset-network-interface.md). 
+Para repor a interface de rede, altere o endereço IP para outro endereço IP que está disponível na sub-rede. Para tal, utilize o portal do Azure ou do Azure PowerShell. Para obter mais informações, consulte [interface de rede de reposição](reset-network-interface.md). 

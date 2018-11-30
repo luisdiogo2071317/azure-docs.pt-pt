@@ -1,6 +1,6 @@
 ---
-title: Importar dados para Machine Learning Studio provenientes de origens de dados online | Documentos da Microsoft
-description: Como importar os dados de formação do Azure Machine Learning Studio a partir de várias origens online.
+title: Importar dados para Machine Learning Studio provenientes de origens de dados online - Azure | Documentos da Microsoft
+description: Este artigo descreve o suporte para importação de dados online de várias origens e as informações necessárias para mover de experimentações de dados a partir destas origens no Azure Machine Learning Studio.
 keywords: Importar dados, formato de dados, os tipos de dados, origens de dados, dados de treinamento
 services: machine-learning
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 6412d431b0258d681d8d9bd8cb3a88798a0d81cd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 89e2414b32dfb3cc6773d09dcdc3e711e56492ef
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262904"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315035"
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importar dados para o Azure Machine Learning Studio provenientes de várias origens de dados online com o módulo Importar Dados
-Este artigo descreve o suporte para importação de dados online de várias origens e as informações necessárias para mover dados a partir destas origens para uma experimentação do Azure Machine Learning.
+Este artigo descreve o suporte para importação de dados online de várias origens e as informações necessárias para mover de experimentações de dados a partir destas origens no Azure Machine Learning Studio.
 
 > [!NOTE]
 > Este artigo fornece informações gerais sobre o [importar dados] [ import-data] módulo. Para obter mais informações sobre os tipos de dados pode aceder, formatos, parâmetros e respostas a perguntas comuns, consulte o tópico de referência de módulo para o [importar dados] [ import-data] módulo.

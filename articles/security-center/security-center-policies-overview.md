@@ -1,6 +1,6 @@
 ---
-title: Definições de política de segurança do Centro de segurança do Azure | Documentos da Microsoft
-description: Configure definições de política de segurança do Centro de segurança do Azure.
+title: Definições do Centro de segurança do Azure | Documentos da Microsoft
+description: Configure as definições do Centro de segurança do Azure.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,23 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3d2687f56b69174fde783060d994e3c01763ec94
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2aa4545aa79260bea792392e1bebf4166253fc87
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256634"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315720"
 ---
-# <a name="security-policy-settings"></a>Definições da política de segurança
-Este artigo fornece uma descrição geral da segurança, definições de política no Centro de segurança.
+# <a name="security-center-settings"></a>Definições do Centro de segurança
+Este artigo fornece uma descrição geral das definições no Centro de segurança.
 
-## <a name="what-are-security-policies"></a>O que são políticas de segurança?
-As políticas de segurança definem a configuração pretendida para as suas cargas de trabalho e ajudam a garantir a conformidade com os requisitos da empresa ou regulamentares. No Centro de segurança do Azure, pode definir políticas para as suas subscrições do Azure e adaptá-los para o tipo de carga de trabalho ou à sensibilidade dos seus dados. Por exemplo, as aplicações que utilizam dados regulados como, por exemplo, informações de identificação pessoal, podem exigir um nível mais elevado de segurança que outras cargas de trabalho.
-
-Pode definir o seguinte em política de segurança:
+As seguintes definições podem ser contatadas em política de segurança:
 
 - **Recolha de dados**: determina o aprovisionamento do agente e [recolha de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) definições.
-- **Política de segurança**: determina que controla o Centro de segurança monitoriza e recomenda. Pode editar a [política de segurança](security-center-policies.md) no Centro de segurança. Também pode utilizar [do Azure Policy](security-center-azure-policy.md) para criar definições novas, definir políticas adicionais e atribuir políticas a vários grupos de gestão. 
+- **Política de segurança**: determina que controla o Centro de segurança monitoriza e recomenda. Pode editar a [política de segurança](security-center-azure-policy.md) no Centro de segurança. Também pode utilizar [do Azure Policy](security-center-azure-policy.md) para criar definições novas, definir políticas adicionais e atribuir políticas a vários grupos de gestão. 
 - **Notificações por e-mail**: determina os contactos de segurança, e [notificação por e-mail](security-center-provide-security-contact-details.md) definições.
 - **Escalão de preço**: define gratuito ou standard [seleção de preço](security-center-pricing.md). O escalão que escolhe determina as funcionalidades do Centro de Segurança que estão disponíveis para recursos no âmbito. Pode especificar um escalão para subscrições, grupos de recursos e áreas de trabalho.
 
@@ -49,7 +46,7 @@ Centro de segurança utiliza baseada em funções controlo de acesso (RBAC), que
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu sobre as políticas de segurança no Centro de segurança do Azure. Para saber mais sobre o Centro de segurança do Azure, veja os artigos seguintes:
 
-* [Definir políticas de segurança no Centro de segurança do Azure](security-center-policies.md): Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
+* [Definir políticas de segurança no Centro de segurança do Azure](security-center-azure-policy.md): Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
 * [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md): Saiba como as recomendações do Centro de segurança ajudam a proteger os seus recursos do Azure.
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md): saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md): saiba como gerir e responder a alertas de segurança.

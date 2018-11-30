@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2302061d5a3eaf9ef51543b1304104e2dbe54bd9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312908"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425698"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Sincronização do Azure AD Connect: referência das funções
 No Azure AD Connect, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -600,7 +600,7 @@ A função FormatDateTime é utilizada para formatar um DateTime para uma cadeia
 * formato: uma cadeia de caracteres que representa o formato para converter.
 
 **Observações:**  
-Os valores possíveis para o formato podem ser encontrados aqui: [definidas pelo utilizador formatos de data/hora (formato de função)](http://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+Os valores possíveis para o formato podem ser encontrados aqui: [definidas pelo utilizador formatos de data/hora (formato de função)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
 
 **Exemplo:**  
 
@@ -1013,7 +1013,7 @@ Os PadRight função direito-pads uma cadeia de caracteres para um comprimento e
 **Observações:**
 
 * Se o comprimento da cadeia de caracteres for menor que o comprimento, em seguida, padCharacter é repetidamente acrescentado ao fim (direito) de cadeia de caracteres até que tem um comprimento igual ao comprimento.
-* padCharacter pode ser um caractere de espaço, mas não pode ser um valor nulo.
+* PadCharacter pode ser um caractere de espaço, mas não pode ser um valor nulo.
 * Se o comprimento da cadeia de caracteres é igual ou superior ao comprimento, a cadeia de caracteres é retornada sem alterações.
 * Se a cadeia tem um comprimento maior que ou igual ao comprimento, é devolvida uma cadeia de caracteres idêntica à cadeia de caracteres.
 * Se o comprimento da cadeia de caracteres for menor que o comprimento, é devolvida uma nova cadeia de caracteres do comprimento desejado cadeia de caracteres que contêm preenchida com um padCharacter.

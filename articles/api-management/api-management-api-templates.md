@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 74f7956a0b705748228216b3f1aa52607ff55614
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 700fc4b6211155c44d87e5982480551f9fa25ba7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983500"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443479"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API na gestão de API do Azure
+
 Gestão de API do Azure fornece-lhe a capacidade de personalizar o conteúdo de páginas de portal de programador usando um conjunto de modelos que configurar o seu conteúdo. Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e o editor à sua escolha, tal como [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de localizadas [recursos de cadeias de caracteres](api-management-template-resources.md#strings), [glifo recursos](api-management-template-resources.md#glyphs), e [controlos de página](api-management-page-controls.md), tem uma grande flexibilidade para configurar o conteúdo das páginas, conforme ache usá-los.  
   
 Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da API no portal do programador.  
@@ -35,11 +36,13 @@ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da 
     -   [JavaScript](#JavaScript)  
     -   [Objetivo C](#ObjectiveC)  
     -   [PHP](#PHP)  
-    -   [Python](#Python)  
+    -   [python](#Python)  
     -   [Ruby](#Ruby)  
 
 > [!NOTE]
 >  Modelos predefinidos de exemplo estão incluídos na documentação do seguinte, mas estão sujeitas a alterações devido a melhorias contínuas. Pode ver os modelos predefinidos em direto no portal do programador ao navegar para os modelos individuais pretendidos. Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de gestão de API através de modelos](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="APIList"></a> Lista de API  
  O **lista de API** modelo permite-lhe personalizar o corpo da página de lista de API no portal do programador.  
@@ -656,7 +659,7 @@ Os modelos nesta secção permitem-lhe personalizar o conteúdo das páginas da 
   
 -   [PHP](#PHP)  
   
--   [Python](#Python)  
+-   [python](#Python)  
   
 -   [Ruby](#Ruby)  
   

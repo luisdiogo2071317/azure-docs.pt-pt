@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 58992c80344902674b2b21a71b07925c752911a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eb0fa1edaadddfe055f3fc53a6d232e5a1293490
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230953"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424940"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas mais frequentes sobre o Azure multi-factor Authentication
 
@@ -212,7 +212,7 @@ Peça-lhes para seguir este procedimento para remover a conta a partir da aplica
 
 O erro 0x800434D4L ocorre quando tenta iniciar sessão para um aplicativo fora do browser, instalado num computador local, que não funciona com contas que necessitam de verificação de dois passos.
 
-Uma solução alternativa para este erro é fazer com que o utilizador em separado totaliza relacionados com a administração e operações de não-administrador. Mais tarde, pode ligar as caixas de correio entre a sua conta de administrador e a conta não administrativa, de modo a que pode iniciar sessão Outlook ao utilizar a sua conta não administrativa. Para obter mais detalhes sobre esta solução, saiba como [dar um administrador a possibilidade de abrir e ver o conteúdo da caixa de correio de um utilizador](http://help.outlook.com/141/gg709759.aspx?sl=1).
+Uma solução alternativa para este erro é fazer com que o utilizador em separado totaliza relacionados com a administração e operações de não-administrador. Mais tarde, pode ligar as caixas de correio entre a sua conta de administrador e a conta não administrativa, de modo a que pode iniciar sessão Outlook ao utilizar a sua conta não administrativa. Para obter mais detalhes sobre esta solução, saiba como [dar um administrador a possibilidade de abrir e ver o conteúdo da caixa de correio de um utilizador](https://help.outlook.com/141/gg709759.aspx?sl=1).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

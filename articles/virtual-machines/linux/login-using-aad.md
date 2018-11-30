@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 8bf87f9d1d1ab6da4b034890f1fbe058199eca41
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007148"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334640"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
@@ -39,7 +39,7 @@ Há muitos benefícios de usar a autenticação do Azure AD para iniciar sessão
 
 - **Colaboração direta:** controlo de acesso With Role-Based (RBAC), pode especificar quem pode iniciar sessão para uma determinada VM como um usuário normal ou com privilégios de administrador. Quando os utilizadores aderir ou sair de sua equipe, é possível atualizar a política RBAC para a VM conceder acesso conforme apropriado. Esta experiência é muito simples do que que limpar as VMs para remover as de chaves públicas SSH desnecessárias. Quando os funcionários deixam a sua organização e a respetiva conta de utilizador é desabilitada ou removida do Azure AD, deixam de ter acesso aos seus recursos.
 
-### <a name="supported-azure-regions-and-linux-distributions"></a>Regiões do Azure suportadas e distribuições do Linux
+## <a name="supported-azure-regions-and-linux-distributions"></a>Regiões do Azure suportadas e distribuições do Linux
 
 As seguintes distribuições de Linux são atualmente suportadas durante a pré-visualização desta funcionalidade:
 

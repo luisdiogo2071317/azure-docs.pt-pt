@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f8f7d43d4b42f5236c6c8d25c88314043053b0cc
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515731"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445720"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guia de Início Rápido: Explorar e analisar os custos com a Análise de custos
 
@@ -84,17 +84,17 @@ Também tem a vista **diária**, que mostra os custos de cada dia. A vista diár
 
 ![Vista diária](./media/quick-acm-cost-analysis/daily-view.png)
 
-Pode **Agrupar por** para selecionar uma categoria de grupo para alterar os dados apresentados na área Total do gráfico principal. Agrupar permite-lhe ver rapidamente as suas despesas categorizadas por tipo de recurso. Eis uma vista dos custos de serviço do Azure numa vista do último mês.
+Pode **Agrupar por** para selecionar uma categoria de grupo para alterar os dados apresentados na área Total do gráfico principal. Agrupamento permite-lhe ver rapidamente como seus gastos foi categorizado pelo propriedades comuns de utilização e de recursos, como o grupo de recursos ou as etiquetas de recursos. Para agrupar por etiquetas, selecione a chave de etiqueta que pretende agrupar por e verá os custos divididos por cada valor de marca, com um segmento extra para os recursos que não têm essa etiqueta aplicada. Tenha em atenção o que Cost Management suporta apenas os sinalizadores de recurso a contar da data, que as etiquetas são aplicadas diretamente para o recurso. Os sinalizadores de grupo de recursos não são atualmente suportados. Eis uma vista dos custos de serviço do Azure numa vista do último mês.
 
 ![Vista dos custos acumulados agrupados por dia](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Os gráficos dinâmicos na vista Total principal mostram vistas de diferentes categorias de agrupamento e filtragem. Quando seleciona uma categoria de grupo, o conjunto completo de dados da vista total encontra-se na parte inferior da vista. Eis um exemplo de grupos de recursos.
+Gráficos dinâmicos em agrupamentos de diferentes da Mostrar gráfico principal para lhe dar uma visão mais abrangente dos seus custos globais para o período de tempo selecionado e filtros. Selecione uma propriedade ou etiquetas para ver os custos agregados por qualquer dimensão. O conjunto completo de dados para exibição totais é, na parte inferior do ecrã, ao expandir a **dados** gaveta ou ao selecionar **Exportar > Transferir CSV** na parte superior do ecrã. Eis um exemplo de gaveta de dados para grupos de recursos.
 
 ![Dados completos da vista atual](./media/quick-acm-cost-analysis/full-data-set.png)
 
-A imagem anterior mostra os nomes dos grupos de recursos. As etiquetas de visualização de recursos não estão disponíveis em nenhum dos grupos, filtros ou vistas de análise de custos.
+A imagem anterior mostra os nomes dos grupos de recursos. Enquanto pode agrupar por etiqueta para ver os custos totais por marca, exibir todas as etiquetas por recurso ou grupo de recursos não está disponível em qualquer um dos modos de exibição de análise de custo.
 
-Ao agrupar os custos por um atributo específico, os dez contribuidores principais são mostrados, do mais elevado para o menor. Se existirem mais de dez grupos, os nove contribuidores principais são mostrados, bem como um grupo **Outros**, que abrange todos os restantes grupos em conjunto.
+Ao agrupar os custos por um atributo específico, os dez contribuidores principais são mostrados, do mais elevado para o menor. Se existirem mais de dez grupos, os nove contribuidores principais são mostrados, bem como um grupo **Outros**, que abrange todos os restantes grupos em conjunto. Ao agrupar por etiquetas, também poderá ver uma **Untagged** grupo para os custos que não têm a chave de etiqueta aplicada. **Não marcada** é sempre pela última vez, mesmo se existirem mais custos não marcados que custos marcados. Se existirem 10 ou mais valores de etiqueta, custos não marcados vão fazer parte da **outros**.
 
 As máquinas virtuais, as redes e os recursos de armazenamento (Gestão do Serviço do Azure ou ASM) *Clássicos* não partilham dados detalhados de faturas. São unidos como **serviços Clássicos** ao agrupar os custos.
 

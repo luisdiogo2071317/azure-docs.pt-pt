@@ -1,5 +1,5 @@
 ---
-title: Copiar dos outros dados ciência exemplos – Azure Machine Learning | Documentos da Microsoft
+title: Copiar dos outros dados ciência exemplos – Azure Machine Learning Studio | Documentos da Microsoft
 description: 'Segredos comerciais da ciência de dados: obter outros o possam fazer seu trabalho por. Obtenha exemplos do machine learning a partir da Galeria de IA do Azure.'
 keywords: Exemplos de ciência de dados, exemplo de aprendizado de máquina, algoritmo de clustering de exemplo do algoritmo de clustering
 services: machine-learning
@@ -17,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: 3b856b749edef38672fa584db2884121c4b6be22
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e573a0394fa47cd6325fe582366242644232cf3d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262727"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313780"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiar o trabalho de outras pessoas para fazer ciência de dados
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Ciência de dados para a série de iniciantes

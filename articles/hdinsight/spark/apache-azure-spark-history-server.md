@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042368"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497278"
 ---
-# <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Utilizar o servidor de histórico expandido do Spark para depurar e diagnosticar aplicações do Spark
+# <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utilizar servidor expandida de histórico do Apache Spark para depurar e diagnosticar aplicações Apache Spark
 
-Este artigo fornece orientações sobre como utilizar estendido de servidor de histórico do Spark para depurar e diagnosticar aplicações do Spark em execução e concluídas. A extensão inclui o separador de dados e o separador de gráfico e o separador de diagnóstico. Sobre o **dados** guia, os usuários possam marcar os dados de entrada e saídos da tarefa do Spark. Sobre o **Graph** guia, os usuários possam marcar os dados de fluxo e reproduzir gráfico da tarefa. Na **diagnóstico** separador, o utilizador pode consultar a **dados inclinar**, **desfasamento de tempo** e **análise da utilização de Executor**.
+Este artigo fornece orientações sobre como utilizar expandida de servidor de histórico do Apache Spark para depurar e diagnosticar aplicações do Spark em execução e concluídas. A extensão inclui o separador de dados e o separador de gráfico e o separador de diagnóstico. Sobre o **dados** guia, os usuários possam marcar os dados de entrada e saídos da tarefa do Spark. Sobre o **Graph** guia, os usuários possam marcar os dados de fluxo e reproduzir gráfico da tarefa. Na **diagnóstico** separador, o utilizador pode consultar a **dados inclinar**, **desfasamento de tempo** e **análise da utilização de Executor**.
 
-## <a name="get-access-to-spark-history-server"></a>Obtenha acesso ao servidor de histórico do Spark
+## <a name="get-access-to-apache-spark-history-server"></a>Obtenha acesso ao servidor de histórico do Apache Spark
 
-Servidor de histórico do Spark é a IU da web para aplicações do Spark em execução e concluídas. 
+Servidor de histórico do Apache Spark é a IU da web para aplicações do Spark em execução e concluídas. 
 
-### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>Abra a interface do Usuário do Spark histórico de servidor Web a partir do portal do Azure
+### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Abra a interface do Usuário do Apache Spark histórico de servidor Web a partir do portal do Azure
 
 1. Partir do [portal do Azure](https://portal.azure.com/), abra o cluster do Spark. Para obter mais informações, consulte [listar e Mostrar clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. Partir **ligações rápidas**, clique em **Dashboard do Cluster**e, em seguida, clique em **servidor de histórico do Spark**. Quando lhe for pedido, introduza as credenciais de administrador para o cluster do Spark. 
@@ -87,7 +87,7 @@ Selecione o ID da tarefa, em seguida, clique em **dados** no menu da ferramenta 
     ![comentários de gráfico](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="graph-tab-in-spark-history-server"></a>Guia de gráfico no servidor de histórico do Spark
+## <a name="graph-tab-in-apache-spark-history-server"></a>Guia de gráfico no servidor de histórico do Apache Spark
 Selecione o ID da tarefa, em seguida, clique em **Graph** no menu da ferramenta para obter a vista de gráfico da tarefa.
 
 + Verificar a descrição geral do seu trabalho gráfico da tarefa gerado. 
@@ -158,7 +158,7 @@ Selecione o ID da tarefa, em seguida, clique em **Graph** no menu da ferramenta 
     ![comentários de gráfico](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="diagnosis-tab-in-spark-history-server"></a>Separador diagnóstico no servidor de histórico do Spark
+## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Separador diagnóstico no servidor de histórico do Apache Spark
 Selecione o ID da tarefa, em seguida, clique em **diagnóstico** no menu da ferramenta para obter a vista de diagnóstico de tarefa. A guia de diagnóstico inclui **dados inclinar**, **desfasamento de tempo**, e **análise da utilização de Executor**.
     
 + Verifique os **dados inclinar**, **desfasamento de tempo**, e **análise da utilização de Executor** ao selecionar os separadores, respetivamente.
@@ -326,8 +326,8 @@ Se quiser atualizar com correções, utilize o script abaixo que irá atualizar 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Gerir os recursos de um cluster do Spark no HDInsight](apache-spark-resource-manager.md)
-* [Configurar as definições do Spark](apache-spark-settings.md)
+* [Gerir os recursos de um cluster do Apache Spark no HDInsight](apache-spark-resource-manager.md)
+* [Configurar as definições do Apache Spark](apache-spark-settings.md)
 
 
 ## <a name="contact-us"></a>Contacte-nos

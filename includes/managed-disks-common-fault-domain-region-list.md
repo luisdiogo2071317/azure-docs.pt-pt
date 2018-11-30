@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: cynthn
+ms.openlocfilehash: 0ee40c3ad692deccbc185fa7f8e51dd25eeaf95d
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440365"
+---
 ### <a name="number-of-fault-domains-per-region"></a>Número de domínios de falha por região
 
 | Região              | N.º máx. de domínios de falha  |
@@ -24,8 +37,8 @@
 | Oeste do Japão          | 2                       |
 | Sul da Índia         | 2                       |
 | Índia Central       | 2                       |
-| Índia Ocidental          | 2                       |
-| Coreia Central       | 2                       |
+| Oeste da Índia          | 2                       |
+| Coreia do Sul Central       | 2                       |
 | Coreia do Sul         | 2                       |
 |                     |                         |
 | Leste da Austrália      | 2                       |

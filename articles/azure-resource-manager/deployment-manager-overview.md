@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: a5a2300bd0b768b4a29b01e75f9558c4923ac11c
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: eea981800147f24025e01826f7550a95041c107f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395133"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427306"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Ativar a práticas de implantação segura com o Azure Deployment Manager (pré-visualização privada)
 
@@ -24,7 +24,7 @@ Para implementar o seu serviço entre várias regiões e certificar-se de que es
 
 Gestor de implementação é uma funcionalidade do Gestor de recursos. Se expandir as capacidades de durante a implementação. Utilize o Gestor de implementação quando tiver um serviço complexo que precisa para ser implementado em várias regiões. Ao fasear a implementação do serviço, poderá deparar-se com problemas potenciais antes de este ter sido implementado em todas as regiões. Se não precisar das precauções adicionais de uma implementação faseada, utilize a norma [opções de implementação](resource-group-template-deploy-portal.md) para o Resource Manager. Gestor de implementação integram-se perfeitamente com todas as ferramentas de terceiros existentes que oferecem suporte a implementações do Resource Manager, como a integração contínua e ofertas de entrega contínua (CI/CD). 
 
-O Gestor de implementação do Azure está em pré-visualização privada. Para utilizar o Gestor de implementação do Azure, execute o [formulário de inscrição](https://aka.ms/admsignup). Ajuda a melhorar a funcionalidade fornecendo [comentários](https://aka.ms/admfeedback).
+O Gestor de Implementação do Azure está em pré-visualização privada. Para utilizar o Gestor de implementação do Azure, execute o [formulário de inscrição](https://aka.ms/admsignup). Ajuda a melhorar a funcionalidade fornecendo [comentários](https://aka.ms/admfeedback).
 
 Para utilizar o Gestor de implementação, terá de criar quatro arquivos:
 
@@ -34,6 +34,8 @@ Para utilizar o Gestor de implementação, terá de criar quatro arquivos:
 * Ficheiro de parâmetros para a implementação
 
 Implementar o modelo de topologia antes de implementar o modelo de implementação.
+
+A referência de API de REST do Gestor de implementação do Azure pode ser encontrada [aqui](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
 ## <a name="supported-locations"></a>Localizações suportadas
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 23369ac9f6cef74bac045017e8f956470e9a1159
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2827461ee78be8d8976ec23e59d489213eb94e31
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248865"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316026"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Reforce a sua postura de segurança no Centro de segurança do Azure
 Este artigo ajuda-o a fortalecer a sua postura de segurança. Utilize as capacidades de monitorização no Centro de segurança do Azure para se certificar de que a segurança do recurso é tão forte como possível e monitorizar a conformidade com as políticas.
@@ -27,7 +27,7 @@ Este artigo ajuda-o a fortalecer a sua postura de segurança. Utilize as capacid
 ## <a name="how-do-you-strengthen-your-security-posture"></a>Como reforce a sua postura de segurança?
 Pensamos frequentemente que monitorizar é observar e esperar que um evento ocorra, para que possamos reagir à situação. Fortalecendo a sua postura de segurança refere-se para ter uma estratégia proativa que Audita os seus recursos para identificar sistemas que não cumprem padrões organizacionais ou melhores práticas.
 
-Depois de ativar [políticas de segurança](security-center-policies.md) para os recursos de uma subscrição, o Centro de Segurança irá analisar a segurança dos seus recursos para identificar potenciais vulnerabilidades. As informações sobre a configuração da rede estão disponíveis de forma instantânea. Consoante o número de VMs e de computadores em que tenha o agente instalado, a recolha das informações sobre a configuração das VMs e dos computadores, como, por exemplo, o estado de atualizações de segurança e a configuração do sistema operativo, pode demorar uma hora ou mais a ser disponibilizada. Pode ver uma lista completa de problemas e formas de proteger sua rede e remediar o risco dos **recomendações** mosaico.
+Depois de ativar [políticas de segurança](security-center-azure-policy.md) para os recursos de uma subscrição, o Centro de Segurança irá analisar a segurança dos seus recursos para identificar potenciais vulnerabilidades. As informações sobre a configuração da rede estão disponíveis de forma instantânea. Consoante o número de VMs e de computadores em que tenha o agente instalado, a recolha das informações sobre a configuração das VMs e dos computadores, como, por exemplo, o estado de atualizações de segurança e a configuração do sistema operativo, pode demorar uma hora ou mais a ser disponibilizada. Pode ver uma lista completa de problemas e formas de proteger sua rede e remediar o risco dos **recomendações** mosaico.
 
 Pode ver o estado de segurança dos seus recursos e todos os problemas por tipo de recurso:
 
@@ -49,7 +49,7 @@ Para obter mais informações sobre como aplicar recomendações, leia [Implemen
 ## <a name="see-also"></a>Consulte também
 Neste artigo, aprendeu a utilizar as capacidades de monitorização no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-policies.md): saiba como configurar definições de segurança no Centro de Segurança do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md): saiba como configurar definições de segurança no Centro de Segurança do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md): saiba como gerir e responder a alertas de segurança.
 * [Monitorizar soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md): encontre as perguntas mais frequentes acerca de como utilizar o serviço.

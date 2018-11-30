@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fa1fa65315f38d0ce2900b738b70ca3718b0c00e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: a664ec3643100f4bf477fbc58070ae966088d3af
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285106"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426055"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -32,7 +32,7 @@ Seguem-se limitações para a solução atual:
 - Esta solução está disponível no Azure e AzureGov para qualquer região que suporte uma área de trabalho do Log Analytics, uma conta de automatização do Azure e alertas. Regiões de AzureGov atualmente não suportam a funcionalidade de correio eletrónico.
 
 > [!NOTE]
-> Se estiver a utilizar a solução para as VMs clássicas, em seguida, todas as suas VMs serão processadas sequencialmente por serviço cloud. Processamento de trabalho de paralelo é continuará a ser suportado em serviços cloud diferentes.
+> Se estiver a utilizar a solução para as VMs clássicas, em seguida, todas as suas VMs serão processadas sequencialmente por serviço cloud. Máquinas virtuais ainda são processadas em paralelo em serviços cloud diferentes.
 >
 > Subscrições do fornecedor de soluções Cloud (Azure CSP) do Azure suportam apenas o modelo Azure Resource Manager, serviços de não - Azure Resource Manager não estão disponíveis no programa. Quando executa a solução iniciar/parar poderá receber erros porque esta tem cmdlets para gerir recursos clássicos. Para saber mais sobre o CSP, veja [serviços disponíveis em subscrições de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 

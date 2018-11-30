@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 7726a28e0254f4316759c3d8c74f57db6a9e399e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242199"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442986"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configurar a sincronização de âmbito do Azure AD para o seu domínio gerido
 Este artigo mostra-lhe como configurar contas de usuários específicos a serem sincronizados do diretório do Azure AD ao seu domínio gerido do Azure AD Domain Services.
@@ -47,7 +47,12 @@ A tabela seguinte ajuda-o a determinar como utilizar o âmbito de sincronizaçã
 >
 
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization"></a>Criar um novo domínio gerido e ativar a sincronização de âmbito com base em grupo
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Criar um novo domínio gerido e ativar a sincronização âmbito com base em grupo através do portal do Azure
+
+1. Siga os [guia de introdução](active-directory-ds-getting-started.md) para criar um domínio gerido.
+2. Escolher **âmbito** durante a seleção de estilo de sincronização no Assistente de criação de serviços de domínio do Azure AD.
+
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>Criar um novo domínio gerido e ativar a sincronização âmbito com base em grupo com o PowerShell
 Utilize o PowerShell para concluir este conjunto de passos. Consulte as instruções para [ativar o Azure Active Directory Domain Services com o PowerShell](active-directory-ds-enable-using-powershell.md). Alguns passos neste artigo são um pouco modificado para configurar a sincronização de âmbito.
 
 Conclua os seguintes passos para configurar a sincronização de âmbito com base em grupo ao seu domínio gerido:

@@ -1,25 +1,21 @@
 ---
 title: Plataformas e ferramentas para ciência de dados da equipe de projetos - Azure | Documentos da Microsoft
 description: Detalha e aborda os recursos de dados e análise disponíveis para as empresas a padronizar o processo de ciência de dados de equipa.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 5cfe86414473f352673f39850a34f8ef265c91f5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258906"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446454"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
@@ -152,4 +148,4 @@ Se estiver a utilizar máquinas do Linux (CentOS) para executar os comandos do g
 
 Completa de instruções passo a passo de ponto-a-ponto, que demonstram todas as etapas do processo para **cenários específicos** também são fornecidas. Se estão listadas e estão associados ao descrições em miniatura da [instruções passo a passo do exemplo](walkthroughs.md) tópico. Eles ilustram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
 
-Para obter exemplos executar os passos no processo de ciência de dados de equipa que utilizam o Azure Machine Learning Studio, consulte a [com o Azure ML](https://aka.ms/datascienceprocess) percurso de aprendizagem.
+Para obter exemplos executar os passos no processo de ciência de dados de equipa que utilizam o Azure Machine Learning Studio, consulte a [com o Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) percurso de aprendizagem.

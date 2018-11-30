@@ -16,18 +16,18 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: eaaeaf1b37c0d732d8d0009ad5a66f2118674b66
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: e00591338fd09cbba6d97e6affebc9dce2399f7c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240466"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423767"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Iniciar o rollover da chave no Azure Active Directory
 Este artigo aborda o que precisa saber sobre as chaves públicas que são utilizadas no Azure Active Directory (Azure AD) para assinar os tokens de segurança. É importante observar que esses rollover de chaves periodicamente e, em caso de emergências, foi implementado imediatamente. Todas as aplicações que utilizam o Azure AD devem ser capazes de manipular o processo de rollover de chave ou estabeleça um processo periódico rollover manual de por meio de programação. Continue a ler para compreender como funcionam as chaves, como avaliar o impacto de rollover para seu aplicativo e como atualizar a sua aplicação ou estabelecer um processo de rollover manual periódica para lidar com o rollover da chave, se necessário.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Descrição geral das chaves de autenticação no Azure AD
-Azure AD utiliza a criptografia de chave pública criada com os padrões do setor para estabelecer confiança entre ele e os aplicativos que a utilizam. Em termos práticos, isso funciona da seguinte forma: Azure AD utiliza uma chave de assinatura que consiste num par de chaves público e privado. Quando um utilizador inicia sessão a uma aplicação que utiliza o Azure AD para autenticação, o AD do Azure cria um token de segurança que contém informações sobre o utilizador. Este token está assinado pelo Azure AD utilizando a respetiva chave privada, antes de ser enviada para a aplicação. Para verificar que o token é válido e originados do Azure AD, a aplicação tem de validar a assinatura do token com a chave pública exposta pelo Azure AD que está contido do inquilino [documento de deteção de ligação OpenID](http://openid.net/specs/openid-connect-discovery-1_0.html) ou SAML / WS-Fed [documento de metadados de Federação](azure-ad-federation-metadata.md).
+Azure AD utiliza a criptografia de chave pública criada com os padrões do setor para estabelecer confiança entre ele e os aplicativos que a utilizam. Em termos práticos, isso funciona da seguinte forma: Azure AD utiliza uma chave de assinatura que consiste num par de chaves público e privado. Quando um utilizador inicia sessão a uma aplicação que utiliza o Azure AD para autenticação, o AD do Azure cria um token de segurança que contém informações sobre o utilizador. Este token está assinado pelo Azure AD utilizando a respetiva chave privada, antes de ser enviada para a aplicação. Para verificar que o token é válido e originados do Azure AD, a aplicação tem de validar a assinatura do token com a chave pública exposta pelo Azure AD que está contido do inquilino [documento de deteção de ligação OpenID](https://openid.net/specs/openid-connect-discovery-1_0.html) ou SAML / WS-Fed [documento de metadados de Federação](azure-ad-federation-metadata.md).
 
 Por motivos de segurança, rolls chave periodicamente e, em caso de emergência, de assinatura do Azure AD foi implementado imediatamente. Qualquer aplicativo que se integra com o Azure AD deve estar preparado para processar um evento de rollover de chave, não importa a frequência com que possam ocorrer. Se isso não acontecer e a aplicação tenta utilizar uma chave expirada para verificar a assinatura num token, o pedido de início de sessão falhará.
 

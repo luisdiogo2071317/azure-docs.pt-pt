@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/18/2018
+ms.date: 11/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 81fd5ea082fe05c9908b2eb0689aba9a4fe4e789
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0324a6f71a0a30fc9f3005a041b4c5413e6af8da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307137"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317307"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Melhores práticas do Azure SQL Data Warehouse
 Este artigo é uma coleção de melhores práticas para ajudá-lo a alcançar um desempenho ideal do Azure SQL Data Warehouse.  Alguns dos conceitos neste artigo são básicos e fáceis de explicar, outros conceitos são mais avançados e apenas falamos por alto neste artigo.  O objetivo deste artigo é proporcionar alguma orientação básica e consciencialização de áreas de foco importantes ao criar o seu armazém de dados.  Cada secção apresenta um conceito e, em seguida, encaminha-o para artigos mais detalhados que abordam o conceito de forma mais aprofundada.
@@ -39,7 +39,7 @@ Um carregamento único para uma pequena tabela com uma instrução INSERT ou mes
 Veja também [INSERT][INSERT]
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>Utilize o PolyBase para carregar e exportar dados rapidamente
-O SQL Data Warehouse suporta o carregamento e a exportação de dados através de várias ferramentas, incluindo o Azure Data Factory, o PolyBase e o BCP.  Para pequenas quantidades de dados em que o desempenho não é essencial, qualquer ferramenta pode ser suficiente para as suas necessidades.  No entanto, quando estiver a carregar ou a exportar grandes volumes de dados ou se for preciso um desempenho rápido, o PolyBase é a melhor escolha.  O PolyBase foi concebido para tirar partido da arquitetura MPP (Processamento Paralelo Massivo) do SQL Data Warehouse e, por conseguinte, irá carregar e exportar magnitudes de dados mais rapidamente do que qualquer outra ferramenta.  Os carregamentos do PolyBase podem ser executados com CTAS ou INSERT INTO.  **Utilizar CTAS irá minimizar o registo de transações e será a forma mais rápida de carregar os dados.**  O Azure Data Factory também suporta carregamentos do PolyBase.  O PolyBase suporta uma variedade de formatos de ficheiro, incluindo ficheiros Gzip.  **Para maximizar o débito ao utilizar ficheiros de texto gzip, divida os ficheiros em 60 ficheiros ou mais de modo a maximizar o paralelismo do seu carregamento.**  Para um débito total mais rápido, considere carregar dados em simultâneo.
+O SQL Data Warehouse suporta o carregamento e a exportação de dados através de várias ferramentas, incluindo o Azure Data Factory, o PolyBase e o BCP.  Para pequenas quantidades de dados em que o desempenho não é essencial, qualquer ferramenta pode ser suficiente para as suas necessidades.  No entanto, quando estiver a carregar ou a exportar grandes volumes de dados ou se for preciso um desempenho rápido, o PolyBase é a melhor escolha.  O PolyBase foi concebido para tirar partido da arquitetura MPP (Processamento Paralelo Massivo) do SQL Data Warehouse e, por conseguinte, irá carregar e exportar magnitudes de dados mais rapidamente do que qualquer outra ferramenta.  Os carregamentos do PolyBase podem ser executados com CTAS ou INSERT INTO.  **Utilizar CTAS irá minimizar o registo de transações e será a forma mais rápida de carregar os dados.**  O Azure Data Factory também suporta carregamentos do PolyBase e pode alcançar um desempenho semelhante como CTAS.  O PolyBase suporta uma variedade de formatos de ficheiro, incluindo ficheiros Gzip.  **Para maximizar o débito ao utilizar ficheiros de texto gzip, divida os ficheiros em 60 ficheiros ou mais de modo a maximizar o paralelismo do seu carregamento.**  Para um débito total mais rápido, considere carregar dados em simultâneo.
 
 Veja também [Load data][Load data] (Carregar dados), [Guide for using PolyBase][Guide for using PolyBase] (Manual para utilizar o PolyBase), [Azure SQL Data Warehouse loading patterns and strategies][Azure SQL Data Warehouse loading patterns and strategies] (Estratégias e padrões de carregamento do Azure SQL Data Warehouse), [Load Data with Azure Data Factory][Load Data with Azure Data Factory] (Carregar Dados com o Azure Data Factory, [Move data with Azure Data Factory][Move data with Azure Data Factory] (Mover dados com o Azure Data Factory), [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] e [Create table as select (CTAS)][Create table as select (CTAS)]
 

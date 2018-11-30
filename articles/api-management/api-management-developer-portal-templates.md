@@ -1,5 +1,5 @@
 ---
-title: Personalizar o portal do Programador de API Management utilizando modelos-Azure | Microsoft Docs
+title: Personalizar o portal de programador da gestão de API através de modelos-Azure | Documentos da Microsoft
 description: Saiba como personalizar o portal do Programador de API Management do Azure através de modelos.
 services: api-management
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 90084f6c4fb270c34165bf12763109d9be2398aa
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29118229"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446964"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Como personalizar o portal do Programador de API Management do Azure através de modelos
 
@@ -29,38 +29,41 @@ Existem três formas fundamentais de personalizar o portal do programador na Ges
 * [Atualizar os estilos utilizados para elementos de página em todo o portal do programador][customize-styles]
 * [Modificar os modelos utilizados para páginas geradas pelo portal] [ portal-templates] (explicado neste guia)
 
-Os modelos são utilizados para personalizar os conteúdos de páginas de portal de programador gerado pelo sistema (por exemplo, documentos de API, produtos, a autenticação de utilizador, etc.). Utilizar [DotLiquid](http://dotliquidmarkup.org/) sintaxe e um conjunto de recursos de cadeia localizada, ícones e controlos de página, fornecido tem uma enorme flexibilidade para configurar o conteúdo das páginas como julgar.
+Os modelos são utilizados para personalizar o conteúdo das páginas de portal de programador gerados pelo sistema (por exemplo, documentos de API, produtos, autenticação de utilizador, etc.). Usando [DotLiquid](http://dotliquidmarkup.org/) sintaxe e um conjunto fornecido de recursos de seqüência localizada de caracteres, ícones e controles da página, tem uma grande flexibilidade para configurar o conteúdo das páginas como quiser.
 
-## <a name="developer-portal-templates-overview"></a>Descrição geral de modelos de portal de programador
-Editar modelos é feita do **portal do programador** durante a sessão iniciada como administrador. Para aceder à mesma primeiro abrir o Portal do Azure e clique em **portal do programador** da barra de ferramentas de serviço da sua instância da API Management.
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-Para aceder os modelos de portal de programador, clique no ícone de personalizar à esquerda para apresentar o menu de personalização e clique em **modelos**.
+## <a name="developer-portal-templates-overview"></a>Descrição geral de modelos de portais de programador
+
+Editando modelos é feita a partir da **portal do programador** ao que está a ser iniciado a sessão como administrador. Para aceder a abrir o Portal do Azure e clique em **portal do programador** da barra de ferramentas de serviço da sua instância de gestão de API.
+
+Para acessar os modelos de portal do programador, clique no ícone de personalizar à esquerda para exibir o menu de personalização e clique em **modelos**.
 
 ![Modelos de portais de programador][api-management-customize-menu]
 
-A lista de modelos apresenta várias categorias de modelos que abrangem as páginas diferentes no portal do programador. Cada modelo é diferente, mas os passos para editá-los e publicar as alterações são os mesmos. Para editar um modelo, clique no nome do modelo.
+A lista de modelos apresenta várias categorias de modelos que abordam as páginas diferentes no portal do programador. Cada modelo é diferente, mas os passos para editá-los e publicar as alterações são os mesmos. Para editar um modelo, clique no nome do modelo.
 
 ![Modelos de portais de programador][api-management-templates-menu]
 
-Ao clicar num modelo leva-o para a página de portal de programador é personalizável, pelo que o modelo. Neste exemplo, o **lista produto** modelo é apresentado. O **lista produto** modelo controla a área do ecrã indicado pelo retângulo vermelho. 
+Clicar num modelo, leva-o para a página de portal de programador é personalizável por esse modelo. Neste exemplo, o **lista de produtos** modelo é exibido. O **lista de produtos** modelo controla a área do ecrã indicado pelo retângulo vermelho. 
 
-![Modelo da lista de produtos][api-management-developer-portal-templates-overview]
+![Modelo de lista de produtos][api-management-developer-portal-templates-overview]
 
-Alguns modelos, como o **perfil de utilizador** modelos, personalizar as diferentes partes da mesma página. 
+Alguns modelos, como o **perfil de utilizador** modelos, personalizar a partes diferentes da mesma página. 
 
 ![Modelos de perfil de utilizador][api-management-user-profile-templates]
 
-O editor para cada modelo de portal de programador tem duas secções apresentadas na parte inferior da página. O lado esquerdo mostra o painel de edição para o modelo e o lado direito apresenta o modelo de dados para o modelo. 
+O editor para cada modelo do portal de programador tem duas secções apresentadas na parte inferior da página. Lado esquerdo exibe o painel de edição para o modelo e, no lado direito apresenta o modelo de dados para o modelo. 
 
-O modelo de edição painel contém a marcação que controla o aspecto e o comportamento da página correspondente no portal do programador. A marcação no modelo utiliza a [DotLiquid](http://dotliquidmarkup.org/) sintaxe. É um editor popular para DotLiquid [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Todas as alterações efetuadas ao modelo durante a edição são apresentadas em tempo real no browser, mas não estão visíveis para os seus clientes até que tenha [guardar](#to-save-a-template) e [publicar](#to-publish-a-template) o modelo.
+O modelo de painel de edição contém a marcação que controla o aspeto e comportamento da página correspondente no portal do programador. A marcação no modelo utiliza a [DotLiquid](http://dotliquidmarkup.org/) sintaxe. É um editor popular para DotLiquid [DotLiquid para Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Todas as alterações feitas ao modelo durante a edição são apresentadas em tempo real no navegador, mas não estão visíveis para os seus clientes até [salvar](#to-save-a-template) e [publicar](#to-publish-a-template) o modelo.
 
 ![Marcação de modelo][api-management-template]
 
-O **dados modelo** painel fornece um guia para o modelo de dados para as entidades que estão disponíveis para utilização num modelo específico. Este guia fornece ao apresentar os dados em direto que estão atualmente apresentados no portal do programador. Pode expandir os painéis de modelo, clicando no retângulo no canto superior direito do **dados modelo** painel.
+O **dados de modelo** painel fornece um guia para o modelo de dados para as entidades que estão disponíveis para uso num modelo específico. Este guia fornece ao apresentar os dados em direto que atualmente estão a ser apresentados no portal do programador. Pode expandir os painéis de modelo ao clicar o retângulo no canto superior direito do **dados de modelo** painel.
 
 ![Modelo de dados do modelo][api-management-template-data]
 
-No exemplo anterior, existem dois produtos apresentados no portal do programador que foram obtidos os dados apresentados no **dados modelo** painel, conforme mostrado no exemplo seguinte:
+No exemplo anterior, existem dois produtos apresentados no portal do programador que foram obtidos a partir dos dados apresentados no **dados de modelo** painel, conforme mostrado no exemplo a seguir:
 
 ```json
 {
@@ -98,7 +101,7 @@ No exemplo anterior, existem dois produtos apresentados no portal do programador
 }
 ```
 
-A marcação no **lista produto** modelo processa os dados para fornecer o resultado pretendido, repetir a coleção de produtos para apresentar informações e uma hiperligação para cada produto individuais. Tenha em atenção o `<search-control>` e `<page-control>` elementos na marcação de. Estes controlam a apresentação da pesquisa e controlos na página de paginação. `ProductsStrings|PageTitleProducts`é uma referência de cadeia localizada que contém o `h2` texto do cabeçalho da página. Para obter uma lista de recursos de cadeias, controlos de página e ícones disponíveis para utilização em modelos de portal de programador, consulte [referência de modelos de portal para programadores de API Management](api-management-developer-portal-templates-reference.md).
+A marcação na **lista de produtos** modelo processa os dados para fornecer a saída desejada com a iteração por meio da coleção de produtos para apresentar informações e uma ligação para cada produto individual. Tenha em atenção a `<search-control>` e `<page-control>` elementos na marcação. Estes controlam a apresentação da pesquisa e controles da página de paginação. `ProductsStrings|PageTitleProducts` é uma referência de seqüência localizada de caracteres que contém o `h2` texto do cabeçalho da página. Para obter uma lista de recursos de cadeia de caracteres, controles de página e ícones disponíveis para utilização em modelos de portais de programador, consulte [referência de modelos de portais de Programador de gestão de API](api-management-developer-portal-templates-reference.md).
 
 ```html
 <search-control></search-control>
@@ -127,33 +130,33 @@ A marcação no **lista produto** modelo processa os dados para fornecer o resul
 ```
 
 ## <a name="to-save-a-template"></a>Para guardar um modelo
-Para guardar um modelo, clique em Guardar no editor do modelo.
+Para guardar um modelo, clique em salvar no editor de modelo.
 
 ![Guardar o modelo][api-management-save-template]
 
-As alterações foram guardadas não estão em direto no portal do programador, até serem publicados.
+Alterações guardadas não estão em direto no portal do programador, até serem publicados.
 
 ## <a name="to-publish-a-template"></a>Para publicar um modelo
-É possível publicar modelos guardados, individualmente ou em todos os conjunto. Para publicar um modelo individuais, clique em publicar no editor do modelo.
+Modelos guardados podem ser publicados, tanto individualmente todos os elementos. Para publicar um modelo individual, clique em publicar no editor de modelo.
 
-![Publicar o modelo][api-management-publish-template]
+![Publicar modelo][api-management-publish-template]
 
-Clique em **Sim** para confirmar e tornar o modelo em direto no portal de programador.
+Clique em **Sim** para confirmar e fazer com que o modelo em direto no portal do programador.
 
-![Confirmar publicar][api-management-publish-template-confirm]
+![Confirmar a publicar][api-management-publish-template-confirm]
 
-Para publicar todas as versões de modelo atualmente publicado, clique em **publicar** na lista de modelos. Anular a publicação de modelos são designados por um asterisco seguir o nome do modelo. Neste exemplo, o **lista produto** e **produto** modelos que estão a ser publicados.
+Para publicar todas as versões de modelo atualmente não publicado, clique em **publicar** na lista de modelos. Os modelos não publicados são designados por um asterisco após o nome de modelo. Neste exemplo, o **lista de produtos** e **produto** modelos estão a ser publicados.
 
 ![Publicar modelos][api-management-publish-templates]
 
 Clique em **publicar personalizações** para confirmar.
 
-![Confirmar publicar][api-management-publish-customizations]
+![Confirmar a publicar][api-management-publish-customizations]
 
-Modelos publicados recentemente são eficazes imediatamente no portal do programador.
+Modelos publicados recentemente entram em vigor imediatamente no portal do programador.
 
 ## <a name="to-revert-a-template-to-the-previous-version"></a>Para reverter um modelo para a versão anterior
-Para reverter um modelo para a versão publicada anterior, clique em reverter no editor do modelo.
+Para reverter um modelo para a versão publicada anterior, clique em reverter no editor de modelo.
 
 ![Reverter o modelo][api-management-revert-template]
 
@@ -161,12 +164,12 @@ Clique em **Sim** para confirmar.
 
 ![Confirmar][api-management-revert-template-confirm]
 
-A versão publicada anteriormente de um modelo é em direto no portal do programador depois de concluída a operação de reversão.
+A versão publicada anteriormente de um modelo é em direto no portal do programador, depois de concluída a operação de reversão.
 
 ## <a name="to-restore-a-template-to-the-default-version"></a>Para restaurar um modelo para a versão predefinida
-Restaurar modelos para a respetiva versão predefinida é um processo de dois passos. Primeiro tem de ser restaurados os modelos e, em seguida, as versões restauradas tem de ser publicadas.
+Restaurar modelos para a sua versão predefinida é um processo de dois passos. Primeiro tem de ser restaurados os modelos e, em seguida, as versões restauradas tem de ser publicadas.
 
-Para restaurar um único modelo para a versão predefinida, clique em restaurar no editor do modelo.
+Para restaurar um único modelo para a versão predefinida, clique em restaurar no editor de modelo.
 
 ![Reverter o modelo][api-management-reset-template]
 
@@ -174,14 +177,14 @@ Clique em **Sim** para confirmar.
 
 ![Confirmar][api-management-reset-template-confirm]
 
-Para restaurar todos os modelos para as respetivas versões de predefinido, clique em **restaurar modelos predefinidos** da lista de modelo.
+Para restaurar todos os modelos para suas versões de predefinido, clique em **restaurar modelos predefinidos** na lista de modelos.
 
-![Restaurar os modelos][api-management-restore-templates]
+![Restaurar modelos][api-management-restore-templates]
 
-Os modelos restaurados, em seguida, devem ser publicados individualmente ou ao mesmo tempo seguindo os passos no [para publicar um modelo](#to-publish-a-template).
+Os modelos restaurados, em seguida, devem ser publicados individualmente ou em simultâneo ao seguir os passos em [para publicar um modelo](#to-publish-a-template).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para informações de referência para modelos de portal de programador, recursos de cadeias, ícones e controlos de página, consulte [referência de modelos de portal para programadores de API Management](api-management-developer-portal-templates-reference.md).
+Para informações de referência para os modelos de portais de programador, recursos de cadeia de caracteres, ícones e controlos de página, consulte [referência de modelos de portais de Programador de gestão de API](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md
 [customize-styles]: api-management-customize-styles.md

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a2864ca743adf4ced1418630940146fed21b7fd5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 89ab5ecb4e1a6a39e785a51c61e1344631b1f394
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625305"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335185"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -109,10 +109,11 @@ Para exibir os resultados no CSV:
 ```
 
 ### <a name="system-requirements"></a>Requisitos de Sistema
-- Um servidor com o Windows Server 2012 R2 ou Windows Server 2016:
+- Um servidor com o Windows Server 2012 R2, Windows Server 2016 ou Windows Server 2019:
 
     | Versão | SKUs suportados | Opções de implementação suportadas |
     |---------|----------------|------------------------------|
+    | Windows Server de 2019 | Datacenter e Standard | Completo (servidor com uma interface do Usuário) |
     | Windows Server 2016 | Datacenter e Standard | Completo (servidor com uma interface do Usuário) |
     | Windows Server 2012 R2 | Datacenter e Standard | Completo (servidor com uma interface do Usuário) |
 
@@ -198,10 +199,10 @@ Soluções da Microsoft internas antivírus, o Windows Defender e System Center 
 ### <a name="backup-solutions"></a>Soluções de cópia de segurança
 Como as soluções antivírus, soluções de cópia de segurança podem fazer com que a remoção de ficheiros em camadas. Recomendamos que utilize uma solução de cópia de segurança na cloud para criar cópias de segurança da partilha de ficheiros do Azure em vez de um produto de cópia de segurança no local.
 
-Se estiver a utilizar uma solução de cópia de segurança no local, as cópias de segurança devem ser efetuadas num servidor no grupo de sincronização que tem na cloud em camadas desativado. Ao restaurar os ficheiros numa localização de ponto final do servidor, utilize a opção de restauro ao nível do ficheiro. Ficheiros restaurados serão sincronizados para todos os pontos finais no grupo de sincronização e os arquivos existentes serão substituídos com a versão restaurada a partir de cópia de segurança.
+Se estiver a utilizar uma solução de cópia de segurança no local, as cópias de segurança devem ser efetuadas num servidor no grupo de sincronização que tem na cloud em camadas desativado. Ao executar um restauro, utilize as opções de restauro de nível de volume ou ao nível do ficheiro. Ficheiros restaurados com a opção de restauro ao nível do ficheiro serão sincronizados para todos os pontos finais no grupo de sincronização e os arquivos existentes serão substituídos com a versão restaurada a partir de cópia de segurança.  Restauros ao nível do volume não irão substituir as versões mais recentes do ficheiro na partilha de ficheiros do Azure ou outros pontos de extremidade do servidor.
 
 > [!Note]  
-> Com suporte a aplicativos, ao nível do volume e bare-metal opções de restauro (BMR) podem causar resultados inesperados e não são atualmente suportadas. Estas opções serão suportadas numa futura versão de restauro.
+> Restauração bare-metal (BMR) pode causar resultados inesperados e não é atualmente suportada.
 
 ### <a name="encryption-solutions"></a>Soluções de encriptação
 Suporte para soluções de encriptação depende de como eles são implementados. O Azure File Sync é conhecido por trabalhar com:

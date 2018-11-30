@@ -1,7 +1,19 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+ms.openlocfilehash: eded2d6a9f2c270a2b3ccca296277b0a016733fd
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440382"
+---
 1. Abra o projeto no Android Studio.
 
-2. No **Explorador de projeto** no Android Studio, abra o `ToDoActivity.java` de ficheiros e adicione as seguintes declarações de importação:
+2. Na **Explorador de projeto** no Android Studio, abra o `ToDoActivity.java` de ficheiros e adicione as seguintes declarações de importação:
 
     ```java
     import java.util.concurrent.ExecutionException;
@@ -47,12 +59,12 @@
     }
     ```
 
-    Este código cria um método para lidar com o processo de autenticação da Google. Uma caixa de diálogo apresenta o ID do utilizador autenticado. Só pode prosseguir numa autenticação com êxito.
+    Este código cria um método para manipular o processo de autenticação do Google. Uma caixa de diálogo apresenta o ID do usuário autenticado. Só pode continuar numa autenticação com êxito.
 
     > [!NOTE]
-    > Se estiver a utilizar um fornecedor de identidade que não seja o Google, altere o valor transmitido para o **início de sessão** método com um dos seguintes valores: _MicrosoftAccount_, _Facebook_, _Twitter_, ou _windowsazureactivedirectory_.
+    > Se estiver a utilizar um fornecedor de identidade que não seja o Google, altere o valor transmitido para o **início de sessão** método para um dos seguintes valores: _MicrosoftAccount_, _Facebook_, _Twitter_, ou _windowsazureactivedirectory_.
 
-4. No **onCreate** método, adicione a seguinte linha de código depois do código que cria uma instância de `MobileServiceClient` objeto.
+4. Na **onCreate** método, adicione a seguinte linha de código após o código que instancia o `MobileServiceClient` objeto.
 
     ```java
     authenticate();
@@ -60,7 +72,7 @@
 
     Esta chamada inicia o processo de autenticação.
 
-5. Mover o código restantes após `authenticate();` no **onCreate** método para um novo **createTable** método:
+5. Mover o código restante após `authenticate();` no **onCreate** método para um novo **createTable** método:
 
     ```java
     private void createTable() {
@@ -80,7 +92,7 @@
     }
     ```
 
-6. Para garantir o redirecionamento funciona conforme esperado, adicione o seguinte fragmento de `RedirectUrlActivity` para `AndroidManifest.xml`:
+6. Para garantir que o redirecionamento funciona conforme esperado, adicione o seguinte fragmento de `RedirectUrlActivity` para `AndroidManifest.xml`:
 
     ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
@@ -94,7 +106,7 @@
     </activity>
     ```
 
-7. Adicionar `redirectUriScheme` para `build.gradle` da sua aplicação Android.
+7. Adicione `redirectUriScheme` para `build.gradle` da sua aplicação Android.
 
     ```gradle
     android {
@@ -111,7 +123,7 @@
     }
     ```
 
-8. Adicionar `com.android.support:customtabs:23.0.1` para as dependências no seu `build.gradle`:
+8. Adicione `com.android.support:customtabs:23.0.1` às dependências em seu `build.gradle`:
 
     ```gradle
     dependencies {
@@ -120,9 +132,9 @@
     }
     ```
 
-9. Do **executar** menu, clique em **executar a aplicação** para iniciar a aplicação e inicie sessão com o fornecedor de identidade que escolheu.
+9. Do **execute** menu, clique em **executar aplicação** para iniciar a aplicação e inicie sessão com o fornecedor de identidade escolhido.
 
 > [!WARNING]
-> O esquema de URL mencionado diferencia maiúsculas de minúsculas. Certifique-se de que todas as ocorrências de `{url_scheme_of_you_app}` utilizar as mesmas maiúsculas e minúsculas.
+> O esquema de URL mencionado diferencia maiúsculas de minúsculas. Certifique-se de que todas as ocorrências de `{url_scheme_of_you_app}` utilizar as maiúsculas.
 
-Quando com êxito tem sessão iniciada, a aplicação deverão ser executadas sem erros, e deve ser capaz de consultar o serviço de back-end e disponibilizar atualizações aos dados.
+Quando tiver entrado com êxito, a aplicação deve ser executado sem erros e deve ser capaz de consultar o serviço de back-end e fazer atualizações aos dados.

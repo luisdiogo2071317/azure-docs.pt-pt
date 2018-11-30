@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ae6964b36f837931f2278ceef0b330f9badb1d71
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: fabefcffdd7ee9a23d8989f897f30cbf027f42af
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282718"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426422"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory autenticação pass-through: Limitações atuais
 
 >[!IMPORTANT]
->Autenticação de pass-through do Azure Active Directory (Azure AD) é uma funcionalidade gratuita e não é necessário qualquer nas edições pagas do Azure AD para utilizá-lo. Autenticação pass-through só está disponível na instância a nível mundial do Azure AD e não no [cloud do Microsoft Azure Alemanha](http://www.microsoft.de/cloud-deutschland) ou o [cloud do Microsoft Azure Government](https://azure.microsoft.com/features/gov/).
+>Autenticação de pass-through do Azure Active Directory (Azure AD) é uma funcionalidade gratuita e não é necessário qualquer nas edições pagas do Azure AD para utilizá-lo. Autenticação pass-through só está disponível na instância a nível mundial do Azure AD e não no [cloud do Microsoft Azure Alemanha](https://www.microsoft.de/cloud-deutschland) ou o [cloud do Microsoft Azure Government](https://azure.microsoft.com/features/gov/).
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
