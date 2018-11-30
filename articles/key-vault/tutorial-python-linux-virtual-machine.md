@@ -1,5 +1,5 @@
 ---
-title: Tutorial - como utilizar o Azure Key Vault com o Windows Máquina Virtual do Azure em Python | Documentos da Microsoft
+title: Tutorial - como utilizar o Azure Key Vault com o Azure Máquina Virtual do Linux em Python | Documentos da Microsoft
 description: Tutorial para configurar uma aplicação ASP.NET Core para ler um segredo do Key Vault
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 26b5b16e3eb016edbe53c3526e51c3aa44f307b5
+ms.openlocfilehash: 5f56022be7968d3be65fd06fef791d859acf14c0
 ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583589"
+ms.locfileid: "52585355"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-python"></a>Tutorial: Como utilizar o Azure Key Vault com o Windows Máquina Virtual do Azure em Python
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>Tutorial: Como utilizar o Azure Key Vault com o Azure Máquina Virtual do Linux em Python
 
 O Azure Key Vault ajuda-o a proteger segredos, como chaves de APIs, cadeias de ligação de bases de dados necessárias para aceder às suas aplicações, serviços e recursos de TI.
 
@@ -100,13 +100,36 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 ```
 
 ## <a name="create-a-virtual-machine"></a>Criar uma Máquina Virtual
-Siga as ligações para criar uma Máquina Virtual do Windows abaixo
 
-[CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli) 
+Crie uma VM com o comando [az vm create](/cli/azure/vm#az_vm_create).
 
-[PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
+O seguinte exemplo cria uma VM com o nome *myVM* e adiciona uma conta de utilizador com o nome *azureuser*. O parâmetro `--generate-ssh-keys` é utilizado para gerar uma chave SSH automaticamente e colocá-la na localização predefinida da chave (*~/.ssh*). Para utilizar um conjunto específico de chaves em vez disso, utilize a opção `--ssh-key-value`.
 
-[Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+São necessários alguns minutos para criar a VM e os recursos de suporte. O seguinte resultado de exemplo mostra que a operação de criação da VM foi concluída com êxito.
+
+```
+{
+  "fqdns": "",
+  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "westus",
+  "macAddress": "00-00-00-00-00-00",
+  "powerState": "VM running",
+  "privateIpAddress": "XX.XX.XX.XX",
+  "publicIpAddress": "XX.XX.XXX.XXX",
+  "resourceGroup": "myResourceGroup"
+}
+```
+
+Tenha em atenção o seu próprio `publicIpAddress` na saída da VM. Este endereço é utilizado para aceder à VM nos próximos passos.
 
 ## <a name="assign-identity-to-virtual-machine"></a>Atribuir identidade a Máquina Virtual
 Neste passo que estamos criando um sistema de identidade atribuído à máquina virtual ao executar o seguinte comando na CLI do Azure
@@ -142,10 +165,10 @@ A seguir é apenas um ficheiro de exemplo com o nome "Sample.py". Ele usa [pedid
 ## <a name="edit-samplepy"></a>Editar Sample.py
 Depois de criar Sample.py, abra o ficheiro e copie o abaixo código
 
-```
-The below is a 2 step process. 
-1. Fetch a token from the local MSI endpoint on the VM which in turn fetches a token from Azure Active Directory
-2. Pass the token to Key Vault and fetch your secret 
+O segue-se um processo 2 passo. 
+1. Obter um token a partir do ponto de final MSI local na VM da qual por sua vez, obtém um token do Azure Active Directory
+2. Transmitir o token para o Key Vault e obter o seu segredo 
+
 ```
     # importing the requests library 
     import requests 
@@ -166,14 +189,15 @@ The below is a 2 step process.
     print(kvSecret.json()["value"])
 ```
 
-By running you should see the secret value 
+Ao executar deverá ver o valor secreto 
+
 ```
-Python Sample.py
+python Sample.py
 ```
 
-The above code shows you how to do operations with Azure Key Vault in an Azure Windows Virtual Machine. 
+O código acima mostra-lhe como fazer operações com o Azure Key Vault numa máquina de Virtual do Windows do Azure. 
 
-## Next steps
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)
+> [API de REST do Cofre de chaves do Azure](https://docs.microsoft.com/rest/api/keyvault/)

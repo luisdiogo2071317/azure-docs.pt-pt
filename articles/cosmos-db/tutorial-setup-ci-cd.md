@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 782975cfa548d214515761e45b8f79a2219831e2
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: f08af7e75c75f9e9c89968b403a1eb7dd93bf521
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036976"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620290"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline CI/CD com a tarefa de compilação do emulador do Azure Cosmos DB no DevOps do Azure
 
@@ -83,6 +83,8 @@ Abaixo encontra-se o exemplo de um ficheiro **.runsettings** que define parâmet
 </RunSettings>
 ```
 
+Se estiver a configurar um pipeline de CI/CD para uma aplicação que utiliza a API de MongoDB do Azure Cosmos DB, a cadeia de ligação do MongoDB por padrão inclui o número de porta 10255. No entanto, esta porta não é atualmente aberta, como alternativa, deve utilizar a porta 10250 para estabelecer a ligação. A cadeia de ligação de API do MongoDB permanece a mesma, exceto o número de porta suportadas é 10250 em vez de 10255.
+
 Estes parâmetros `TestRunParameters` são mencionados através de uma propriedade `TestContext` no projeto de teste da aplicação. Eis um exemplo de um teste que é executado no Cosmos DB.
 
 ```csharp
@@ -149,7 +151,7 @@ Após a conclusão da compilação, poderá observar os seus testes a passarem, 
 
 ![Guardar e executar a compilação](./media/tutorial-setup-ci-cd/buildComplete_1.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre a utilização do emulador para desenvolvimento e testes locais, veja [Utilizar o Emulador do Azure Cosmos DB para desenvolvimento e teste locais](https://docs.microsoft.com/azure/cosmos-db/local-emulator).
 

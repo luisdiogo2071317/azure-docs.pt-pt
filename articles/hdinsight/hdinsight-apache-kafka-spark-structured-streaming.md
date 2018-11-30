@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 83e277eceea2df746de6f6e9a33130989e2d874d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 5f59f14f93b5bfc79c07b096a07ac109be0bedb6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278366"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499100"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar a Transmissão em Fluxo Estruturada do Apache Spark com o Apache Kafka no HDInsight
 
-Este tutorial demonstra como utilizar a Transmissão em Fluxo Estruturada do Apache Spark para ler e escrever dados com o Apache Kafka no Azure HDInsight.
+Este tutorial demonstra como usar [transmissão estruturada do Apache Spark](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) ler e escrever dados com [Apache Kafka](https://kafka.apache.org/) no Azure HDInsight.
 
 A transmissão em fluxo estruturada do Spark é um motor de processamento de fluxos incorporado no SQL do Spark. Permite-lhe expressar computações de transmissão em fluxo, tal como a computação em lotes o faz em dados estáticos. 
 
@@ -35,11 +35,11 @@ Quando tiver concluído os passos neste documento, elimine os clusters para evit
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Familiaridade com a utilização de Jupyter Notebooks com o Spark no HDInsight. Para obter mais informações, veja o documento [Carregar dados e executar consultas com o Spark no HDInsight](spark/apache-spark-load-data-run-query.md).
+* Familiaridade com o uso [blocos de notas do Jupyter](https://jupyter.org/) com o Spark no HDInsight. Para obter mais informações, consulte a [carregar dados e executar consultas com o Apache Spark no HDInsight](spark/apache-spark-load-data-run-query.md) documento.
 
 * Familiaridade com a linguagem de programação [Scala](https://www.scala-lang.org/). O código utilizado neste tutorial está escrito em Scala.
 
-* Familiaridade com a criação de tópicos do Kafka. Para obter mais informações, veja o documento [Início rápido do Kafka no HDInsight](kafka/apache-kafka-get-started.md).
+* Familiaridade com a criação de tópicos do Kafka. Para obter mais informações, consulte a [Apache Kafka no HDInsight guia de introdução](kafka/apache-kafka-get-started.md) documento.
 
 > [!IMPORTANT]
 > Os passos neste documento requerem um grupo de recursos do Azure que contém um cluster do Spark no HDInsight e um cluster do Kafka no HDInsight. Estes dois clusters estão localizados numa Rede Virtual do Azure, o que permite que o cluster do Spark comunique diretamente com o cluster do Kafka.
@@ -48,7 +48,7 @@ Quando tiver concluído os passos neste documento, elimine os clusters para evit
 >
 > Para obter mais informações sobre como utilizar o HDInsight numa rede virtual, veja o documento [Utilizar uma rede virtual para expandir o HDInsight](hdinsight-extend-hadoop-virtual-network.md).
 
-## <a name="structured-streaming-with-kafka"></a>Transmissão em Fluxo Estruturada com o Kafka
+## <a name="structured-streaming-with-apache-kafka"></a>Transmissão em fluxo com o Apache Kafka estruturada
 
 A transmissão em Fluxo Estruturada do Spark é um motor de processamento de fluxos incorporado no motor SQL do Spark. Quando utilizar a Transmissão em Fluxo Estruturada, pode escrever consultas de transmissão em fluxo da mesma forma que escreve consultas em lote.
 
@@ -203,9 +203,9 @@ Para remover o grupo de recursos através do Portal do Azure:
 > 
 > Eliminar um cluster do Kafka no HDInsight elimina quaisquer dados armazenados no Kafka.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu a utilizar a Transmissão em Fluxo Estruturada do Spark para escrever e ler dados a partir do Kafka no HDInsight. Utilize a seguinte ligação para aprender a utilizar o Storm com o Kafka.
+Neste tutorial, aprendeu a usar [transmissão estruturada do Apache Spark](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) de escrever e ler dados a partir de [Apache Kafka](https://kafka.apache.org/) no HDInsight. Utilize a seguinte ligação para saber como usar [Apache Storm](https://storm.apache.org/) com o Kafka.
 
 > [!div class="nextstepaction"]
-> [Utilizar o Apache Storm com o Kafka](hdinsight-apache-storm-with-kafka.md)
+> [Utilizar o Apache Storm com o Apache Kafka](hdinsight-apache-storm-with-kafka.md)

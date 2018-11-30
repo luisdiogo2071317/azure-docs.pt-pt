@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 51f3bcee3a2e5bab8f3592d97f0caa91e8002dd4
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: b7c44184d0a0d8d5a8f1fbd80b053230f2c1ae84
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615985"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582025"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualize e analise eventos a partir de seus espaços duplos Digital do Azure com o Time Series Insights
 
@@ -160,6 +160,10 @@ Pode utilizar o [os Hubs de eventos](../event-hubs/event-hubs-about.md) serviço
 Se pretender parar a explorar duplos Digital do Azure para além deste ponto, fique à vontade eliminar recursos criados neste tutorial:
 
 1. No menu do lado esquerdo da [portal do Azure](http://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos de duplos Digital e, em seguida, selecione **eliminar**.
+
+    > [!TIP]
+    > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.
+
 2. Se necessário, elimine os aplicativos de exemplo no seu computador de trabalho. 
 
 

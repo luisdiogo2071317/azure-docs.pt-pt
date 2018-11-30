@@ -9,22 +9,22 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eac44d3b8daae27afec8aa24f4767bdb5dbf991a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239564"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580575"
 ---
-# <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>Tutorial: Criar uma aplicação de machine learning do Spark no HDInsight 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Tutorial: Criar uma Apache Spark aplicação de machine learning no HDInsight 
 
-Neste tutorial, vai aprender a utilizar o bloco de notas Jupyter para criar uma aplicação de machine learning do Apache Spark para o Azure HDInsight. 
+Neste tutorial, irá aprender a utilizar o [bloco de notas do Jupyter](https://jupyter.org/) para criar um [Apache Spark](https://spark.apache.org/) do machine learning a aplicação para o Azure HDInsight. 
 
 [MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) é a biblioteca de machine learning dimensionável do Spark, constituída por utilitários e algoritmos de aprendizagem comuns, incluindo classificação, regressão, clustering, filtragem em colaboração, redução de dimensionalidade, bem como primitivos de otimização subjacentes.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> * Desenvolver uma aplicação de machine learning do Spark
+> * Desenvolver uma aplicação de aprendizagem automática de Apache Spark
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -186,11 +186,11 @@ Nesta aplicação, vai utilizar um [pipeline de ML](https://spark.apache.org/doc
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Utilizar a biblioteca scikit-learn de Anaconda para machine learning do Spark
 Os clusters do Apache Spark no HDInsight incluem bibliotecas de Anaconda. Também inclui a biblioteca **scikit-learn** para machine learning. Esta biblioteca inclui igualmente vários conjuntos de dados que pode utilizar para criar aplicações de exemplo diretamente a partir de blocos de notas do Jupyter. Para obter exemplos de como utilizar a biblioteca scikit-learn, veja [ http://scikit-learn.org/stable/auto_examples/index.html ](http://scikit-learn.org/stable/auto_examples/index.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 
-* Desenvolver uma aplicação de machine learning do Spark
+* Desenvolver uma aplicação de aprendizagem automática de Apache Spark
 
 Avance para o próximo tutorial para saber como utilizar o IntelliJ IDEA para trabalhos do Spark. 
 

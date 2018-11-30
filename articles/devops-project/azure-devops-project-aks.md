@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementar a aplicação ASP.NET Core para o Azure Kubernetes Service (AKS) usando os projetos de DevOps do Azure'
+title: 'Tutorial: Implementar aplicações ASP.NET Core no serviço Kubernetes do Azure com projetos de Azure DevOps'
 description: Projetos de DevOps do Azure torna mais fácil começar a utilizar no Azure. Com os projetos de DevOps, pode implementar a aplicação ASP.NET Core com o Azure Kubernetes Service (AKS) em alguns passos rápidos.
 ms.author: mlearned
 ms.manager: douge
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6e2b53e51d7da117a7f690cb676d0ec096bcb1cd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7980ea439cfd3eaefcaa308795836a909f980043
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165559"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620647"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-kubernetes-service-aks-by-using-azure-devops-projects"></a>Tutorial: Implementar a aplicação ASP.NET Core para o Azure Kubernetes Service (AKS) usando os projetos de DevOps do Azure
+# <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Tutorial: Implementar aplicações ASP.NET Core no serviço Kubernetes do Azure com projetos de Azure DevOps
 
 Projetos de DevOps do Azure apresenta uma experiência simplificada de onde pode colocar o seu código existente e o repositório de Git ou escolha um aplicativo de exemplo para criar um pipeline de entrega contínua (CD) para o Azure e a integração contínua (CI). 
 
@@ -24,6 +24,7 @@ Projetos de DevOps também:
 * Cria automaticamente os recursos do Azure, tais como o Azure Kubernetes Service (AKS).
 * Cria e configura um pipeline de lançamento em DevOps do Azure, que define um pipeline de compilação e versão para CI/CD.
 * Cria um recurso do Application Insights do Azure para monitorização.
+* Permite [Monitor do Azure para contentores](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview) para monitorizar o desempenho para as cargas de trabalho de contentores no cluster do AKS
 
 Neste tutorial, irá:
 

@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 529dc37187f6709ecfa93bf3a6d71f053ba49103
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: d83c04946b67dd25bae306c2fa41a0864287bfc8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008968"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499314"
 ---
-# <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>Tutorial: Criar uma aplicação Scala Maven para Spark no HDInsight com IntelliJ
+# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Criar uma aplicação Scala Maven para Apache Spark no HDInsight com o IntelliJ
 
-Neste tutorial, vai aprender a criar uma aplicação do Spark escrita em Scala com o Maven e IntelliJ IDEA. O artigo utiliza o Apache Maven como o sistema de compilação e começa com um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA.  Criar uma aplicação Scala no IntelliJ IDEA envolve os seguintes passos:
+Neste tutorial, irá aprender a criar uma [Apache Spark](https://spark.apache.org/) aplicação escrita [Scala](https://www.scala-lang.org/) usando [Apache Maven](https://maven.apache.org/) com o IntelliJ IDEA. O artigo utiliza o Apache Maven como o sistema de compilação e começa com um arquétipo Maven existente para Scala fornecido pelo IntelliJ IDEA.  Criar uma aplicação Scala no IntelliJ IDEA envolve os seguintes passos:
 
 * Utilizar o Maven como o sistema de compilação.
 * Atualizar o ficheiro Project Object Model (POM) (POM) para resolver dependências do módulo do Spark.
@@ -27,7 +27,7 @@ Neste tutorial, vai aprender a criar uma aplicação do Spark escrita em Scala c
 * Utilizar o Livy para executar a aplicação no cluster do Spark.
 
 > [!NOTE]
-> O HDInsight também disponibiliza uma ferramenta de plug-in para o IntelliJ IDEA para facilitar o processo de criação e submissão de aplicações para um cluster do Spark no HDInsight no Linux. Para obter mais informações, veja [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark applications](apache-spark-intellij-tool-plugin.md) (Utilizar o Plug-in HDInsight Tools para o IntelliJ IDEA para criar e submeter aplicações do Spark).
+> O HDInsight também disponibiliza uma ferramenta de plug-in para o IntelliJ IDEA para facilitar o processo de criação e submissão de aplicações para um cluster do Spark no HDInsight no Linux. Para obter mais informações, consulte [Plug-in ferramentas de HDInsight de utilização para o IntelliJ IDEA criar e submeter aplicações do Apache Spark](apache-spark-intellij-tool-plugin.md).
 > 
 
 Neste tutorial, ficará a saber como:
@@ -183,16 +183,16 @@ Para instalar o plug-in do Scala, utilize os seguintes passos:
        
         ![Criar o JAR](./media/apache-spark-create-standalone-application/output.png)
 
-## <a name="run-the-application-on-the-spark-cluster"></a>Executar a aplicação no cluster do Spark
+## <a name="run-the-application-on-the-apache-spark-cluster"></a>Executar a aplicação no cluster do Apache Spark
 Para executar a aplicação no cluster, pode utilizar as seguintes abordagens:
 
-* **Copiar o jar da aplicação para o blob de armazenamento do Azure** associado ao cluster. Para o fazer, pode utilizar [**AzCopy**](../../storage/common/storage-use-azcopy.md), um utilitário de linha de comandos. Tem à sua disposição muitos outros clientes para carregar dados. Pode saber mais sobre esses clientes em [Upload data for Hadoop jobs in HDInsight](../hdinsight-upload-data.md) (Carregar dados para trabalhos do Hadoop no HDInsight).
-* **Utilizar o Livy para submeter um trabalho de aplicação remotamente** para o cluster do Spark. Os clusters do Spark no HDInsight incluem o Livy que expõe os pontos finais de REST para submeter remotamente trabalhos do Spark. Para obter mais informações, veja [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight](apache-spark-livy-rest-interface.md) (Utilizar o Livy para submeter trabalhos do Spark remotamente com clusters do Spark no HDInsight).
+* **Copiar o jar da aplicação para o blob de armazenamento do Azure** associado ao cluster. Para o fazer, pode utilizar [**AzCopy**](../../storage/common/storage-use-azcopy.md), um utilitário de linha de comandos. Tem à sua disposição muitos outros clientes para carregar dados. Pode saber mais sobre elas, em [carregar dados para as tarefas do Apache Hadoop no HDInsight](../hdinsight-upload-data.md).
+* **Utilizar Apache Livy para submeter um trabalho de aplicação remotamente** para o cluster do Spark. Os clusters do Spark no HDInsight incluem o Livy que expõe os pontos finais de REST para submeter remotamente trabalhos do Spark. Para obter mais informações, consulte [tarefas de submeter o Apache Spark remotamente com o Livy de Apache spark clusters no HDInsight](apache-spark-livy-rest-interface.md).
 
 ## <a name="next-step"></a>Passo seguinte
 
-Neste artigo, aprendeu a criar uma aplicação Scala do Spark. Avance para o próximo artigo para saber como executar esta aplicação num cluster do HDInsight Spark com Livy.
+Neste artigo, aprendeu a criar uma aplicação scala do Apache Spark. Avance para o próximo artigo para saber como executar esta aplicação num cluster do HDInsight Spark com Livy.
 
 > [!div class="nextstepaction"]
->[Executar tarefas remotamente num cluster do Spark com o Livy](./apache-spark-livy-rest-interface.md)
+>[Executar tarefas remotamente num cluster do Apache Spark com o Apache Livy](./apache-spark-livy-rest-interface.md)
 
