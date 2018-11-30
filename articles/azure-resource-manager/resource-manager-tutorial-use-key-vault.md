@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3ca6422bf5335604e561b71db6c75a889a74586
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615760"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334215"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager
 
@@ -93,7 +93,7 @@ Para criar um Cofre de Chaves:
     * **Nome do Cofre de Chaves**: atribua um nome exclusivo. 
     * **ID do inquilino**: a função de modelo obtém automaticamente o ID do inquilino.  Não altere o valor predefinido
     * **ID de utilizador do AD**: introduza o ID de objeto de utilizador do Azure AD obtido no último procedimento.
-    * **Nome do Segredo**: o nome predefinido é **mAdminPassword**. Se alterar o nome do segredo aqui, tem de atualizá-lo quando implementar a máquina virtual.
+    * **Nome do segredo**: O nome predefinido é **vmAdminPassword**. Se alterar o nome do segredo aqui, tem de atualizá-lo quando implementar a máquina virtual.
     * **Valor do Segredo**: introduza o segredo.  O segredo é a palavra-passe utilizada para iniciar sessão na máquina virtual. É recomendado utilizar a palavra-passe gerada que criou no último procedimento.
     * **Aceito os termos e condições acima apresentados**: selecione.
 3. Selecione **Editar parâmetros** na parte superior para ver o modelo.

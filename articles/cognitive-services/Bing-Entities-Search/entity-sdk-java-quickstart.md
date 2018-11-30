@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/19/2018
 ms.author: v-gedod
-ms.openlocfilehash: eeb8e6e0ac132ef2d927aa2de03817389230191e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: 291a307d4fd7c0fa723b8b17c13b3ef13cdeb8de
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814496"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316825"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-java"></a>Início Rápido: SDK de Pesquisa de Entidades do Bing com Java
 
@@ -24,7 +24,9 @@ O SDK de Pesquisa de Entidades do Bing disponibiliza a funcionalidade de API RES
 O [código fonte para os exemplos de SDK em Java da Pesquisa de Entidades do Bing](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) está disponível no Git Hub. 
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
-Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**. Instale as dependências do SDK de Pesquisa de Entidades do Bing com o Maven, Gradle ou outro sistema de gestão de dependências. O ficheiro POM do Maven requer a declaração:
+Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
+Instale as dependências do SDK de Pesquisa de Entidades do Bing com o Maven, Gradle ou outro sistema de gestão de dependências. O ficheiro POM do Maven requer a declaração:
 ```
   <dependencies>
     <dependency>
@@ -294,7 +296,7 @@ public class EntitySearchSDK {
     // Include the methods described in this article.
 }
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Exemplos de SDK Java nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 

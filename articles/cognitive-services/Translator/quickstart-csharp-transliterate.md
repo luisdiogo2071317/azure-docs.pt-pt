@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: fcf913762eb883d299c93e4579c9c81b03739ddb
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 4987a50f7a689b74062154b8427fd7bec8e2e8a6
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290880"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334315"
 ---
 # <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-c"></a>Início Rápido: transliterar texto com a API REST de Texto do Microsoft Translator (C#)
 
@@ -41,6 +41,12 @@ cd transliterate-sample
 
 O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET e cria um diretório chamado `transliterate-sample`. O segundo comando altera-se para o diretório para o seu projeto.
 
+Em seguida, terá de instalar o Json.Net. A partir do diretório do seu projeto, execute:
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
+
 ## <a name="add-required-namespaces-to-your-project"></a>Adicionar espaços de nomes necessários ao seu projeto
 
 O `dotnet new console` comando que executou anteriormente criado um projeto, incluindo `Program.cs`. Este ficheiro é onde vai pôr o código da aplicação. Abra `Program.cs`e substitua as instruções de utilização existentes. Essas instruções Certifique-se de que tem acesso a todos os tipos necessários para criar e executar a aplicação de exemplo.
@@ -52,9 +58,9 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
-## <a name="create-a-function-to-translate-text"></a>Criar uma função para traduzir texto
+## <a name="create-a-function-to-transliterate-text"></a>Criar uma função a transcrição de texto
 
-Dentro de `Program` classe, crie uma função chamada `TransliterateText`. Essa classe encapsula o código usado para chamar o recurso de Translate e imprima o resultado à consola.
+Dentro de `Program` classe, crie uma função chamada `TransliterateText`. Essa classe encapsula o código usado para chamar o recurso de Transliterate e imprima o resultado à consola.
 
 ```csharp
 static void TransliterateText()
@@ -68,7 +74,7 @@ static void TransliterateText()
 
 ## <a name="set-the-subscription-key-host-name-and-path"></a>Definir a chave de subscrição, nome de anfitrião e caminho
 
-Adicionar estas linhas para o `TransliterateText` função. Perceberá que, juntamente com o `api-version`, foi anexou dois parâmetros adicionais para o `route`. Esses parâmetros são usados para definir as saídas de tradução. Neste exemplo, ele é definido como alemão (`de`) e italiano (`it`). Certifique-se de que atualizar o valor da chave de subscrição.
+Adicionar estas linhas para o `TransliterateText` função. Perceberá que, juntamente com o `api-version`, foi anexou dois parâmetros adicionais para o `route`. Esses parâmetros são usados para definir o idioma de entrada e os scripts de Transliteração. Neste exemplo, é definida como japonês (`jpan`) e latinos (`latn`). Certifique-se de que atualizar o valor da chave de subscrição.
 
 ```csharp
 string host = "https://api.cognitive.microsofttranslator.com";
@@ -76,7 +82,7 @@ string route = "/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScr
 string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 ```
 
-Em seguida, temos de criar e serializar o objeto JSON que inclua o texto que pretende converter. Tenha em mente, pode passar mais do que um objeto no `body` matriz.
+Em seguida, temos de criar e serializar o objeto JSON que inclua o texto que pretende a transcrição. Tenha em mente, pode passar mais do que um objeto no `body` matriz.
 
 ```csharp
 System.Object[] body = new System.Object[] { new { Text = @"こんにちは" } };
@@ -121,7 +127,7 @@ request.Content = new StringContent(requestBody, Encoding.UTF8, "application/jso
 // Add the authorization header
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-// Send request to Azure service, get response
+// Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
@@ -141,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
-É isso, está pronto para executar a aplicação de exemplo de texto para voz. A partir da linha de comandos (ou sessão de terminal), navegue para o diretório de projeto e execute:
+É isso, está pronto para executar a aplicação de exemplo. A partir da linha de comandos (ou sessão de terminal), navegue para o diretório de projeto e execute:
 
 ```console
 dotnet run
@@ -164,7 +170,7 @@ Não se esqueça de remover quaisquer informações confidenciais do código-fon
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Explore o código de exemplo neste início rápido e outros, incluindo a transliteração e a identificação do idioma, assim como outros projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo para este guia de início rápido e outros, incluindo a tradução e a identificação do idioma, assim como outros projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos do C# no GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)

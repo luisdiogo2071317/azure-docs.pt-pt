@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 18141e0f58a0b5227c3f5f5c36210017da101780
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6e8f7f18196eb23900c815048e12d57a238d08f7
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625339"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423061"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windows para aceder à Graph API do Azure AD
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 Este tutorial mostra como utilizar uma identidade gerida atribuída pelo sistema numa máquina virtual (VM) do Windows para aceder à Microsoft Graph API, de modo a obter as associações a grupos. As identidades geridas dos recursos do Azure são geridas automaticamente pelo Azure e permitem que se autentique perante serviços que suportem Autenticação do Azure AD sem que seja necessário inserir as credenciais no seu código.  Neste tutorial, irá consultar a associação da identidade da sua VM em grupos do Azure AD. As informações de grupo são frequentemente utilizadas em decisões de autorização, por exemplo. Nos bastidores, a identidade gerida da sua VM é representada por um **Principal de Serviço** no Azure AD. Antes de realizar a consulta de grupo, adicione o principal de serviço que representa a identidade da VM a um grupo no Azure AD. Para fazê-lo, pode utilizar o Azure PowerShell, o Azure AD PowerShell ou a CLI do Azure.
 

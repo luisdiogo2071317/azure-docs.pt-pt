@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: John.Haskin
-ms.openlocfilehash: 8fd551156d424adbe4d6ce7eb38a6a6a00aa8f83
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fc2659fb9bbe043a61f1ad49bb4290b7ccf834f8
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651506"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422019"
 ---
 # <a name="create-an-oem-package"></a>Criar um pacote do OEM
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 O pacote de extensão do Azure Stack OEM é o mecanismo pelo qual OEM conteúdo específico é adicionado à infraestrutura do Azure Stack, para utilização na implementação, bem como processos operacionais, como atualização, expansão e substituição de campo.
 

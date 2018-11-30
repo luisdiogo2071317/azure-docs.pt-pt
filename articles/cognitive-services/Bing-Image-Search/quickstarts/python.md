@@ -9,12 +9,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 44cc556e68234fb9957c01fa9f04861293e96e6a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: a51935300238235338ec30ec7061101745b0e0e5
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298171"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314393"
 ---
 # <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>Guia de Início Rápido: Enviar consultas de pesquisa com a API REST e o Python
 
@@ -32,6 +32,8 @@ Além disso, o código fonte deste exemplo está disponível [no GitHub](https:/
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="running-the-quickstart"></a>Executar o início rápido
 
@@ -144,7 +146,7 @@ As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Es
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)

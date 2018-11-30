@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 84ced8a529c2e717dc3e5888466d9a2e1e7e928a
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
-ms.translationtype: HT
+ms.openlocfilehash: 044cc30a418f3c54053a6f4878f97f5c9ea9f9e2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180948"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335117"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Tutorial: simular uma falha ao aceder ao armazenamento redundante com acesso de leitura
 
@@ -145,7 +145,7 @@ Para adicionar uma rota estática para um anfitrião de destino, escreva o segui
  
 Substitua `<destination_ip>` pelo seu endereço IP da conta de armazenamento, e `<gateway_ip>` pelo seu endereço IP do anfitrião local. Para retomar a aplicação, prima **qualquer tecla**.
 
-Assim que a aplicação começar a ser novamente executada, os pedidos para o ponto final primário começam a falhar. A aplicação tenta restabelecer a ligação ao ponto final primário 5 vezes. Após o limiar de cinco tentativas falhadas, solicita a imagem do ponto final secundário só de leitura. Depois de a aplicação obter a imagem 20 vezes com êxito do ponto final secundário, a aplicação tenta ligar ao ponto final primário. Se o ponto final primário continuar inacessível, a aplicação retoma a leitura a partir do ponto final secundário. Este padrão é o padrão de [Disjuntor Automático](/azure/architecture/patterns/circuit-breaker.md) descrito no tutorial anterior.
+Assim que a aplicação começar a ser novamente executada, os pedidos para o ponto final primário começam a falhar. A aplicação tenta restabelecer a ligação ao ponto final primário 5 vezes. Após o limiar de cinco tentativas falhadas, solicita a imagem do ponto final secundário só de leitura. Depois de a aplicação obter a imagem 20 vezes com êxito do ponto final secundário, a aplicação tenta ligar ao ponto final primário. Se o ponto final primário continuar inacessível, a aplicação retoma a leitura a partir do ponto final secundário. Este padrão é o padrão de [Disjuntor Automático](/azure/architecture/patterns/circuit-breaker) descrito no tutorial anterior.
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simular o restauro do ponto final primário
 
@@ -168,7 +168,7 @@ Prima **qualquer tecla** para retomar a aplicação. A aplicação continua a le
 ![Retomar aplicação](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Na segunda parte da série, aprendeu a simular uma falha para testar o armazenamento georredundante com acesso de leitura, como:
 

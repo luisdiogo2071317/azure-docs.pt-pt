@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 416557b11ebef953411fb6fabcddb72d08dcb5af
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 447c59d45e3b1614ce8dbddc56f9dba0dd156e90
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802989"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317063"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-c"></a>Início Rápido: SDK de Pesquisa de Notícias do Bing com C#
 
@@ -24,6 +24,7 @@ O SDK de Pesquisa de Notícias do Bing contém a funcionalidade da API REST para
 O [código fonte para os exemplos de SDK em C# da Pesquisa de Notícias do Bing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) está disponível no Git Hub.
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
+Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).  
 
 Para configurar a aplicação de consola através do SDK de Pesquisa de Notícias do Bing, aceda à opção `Manage NuGet Packages` a partir do Explorador de Soluções no Visual Studio.  Adicione o pacote `Microsoft.Azure.CognitiveServices.Search.NewsSearch`.
 
@@ -32,7 +33,7 @@ A instalação do [pacote do SDK de Pesquisa de Notícias do NuGet](https://www.
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="news-search-client"></a>Cliente de Pesquisa de Notícias
+## <a name="news-search-client"></a>Cliente da Pesquisa de Notícias
 Para criar uma instância do cliente `NewsSearchAPI`, adicione a seguinte diretiva:
 ```
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
@@ -263,6 +264,6 @@ O código seguinte procura tópicos de notícias populares no Bing. Verifica o n
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Exemplos de SDK .NET nos serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

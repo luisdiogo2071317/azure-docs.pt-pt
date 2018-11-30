@@ -11,19 +11,19 @@ ms.devlang: java
 ms.topic: sample
 ms.date: 02/08/2018
 ms.author: sngun
-ms.openlocfilehash: ec13a594750132bc016d1383eb4b0a08fdf6114e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
-ms.translationtype: HT
+ms.openlocfilehash: 00098b02e5f007cfad1076eb3759c424dd9a5d3e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831834"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333875"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: Exemplos Java para a API SQL
 
 > [!div class="op_single_selector"]
 > * [Exemplos .NET](sql-api-dotnet-samples.md)
 > * [Exemplos de Java](sql-api-java-samples.md)
-> * [Exemplos de Java assíncronos](sql-api-async-java-samples.md)
+> * [Exemplos de Async Java](sql-api-async-java-samples.md)
 > * [Exemplos de Node.js](sql-api-nodejs-samples.md)
 > * [Exemplos de Python](sql-api-python-samples.md)
 > * [Galeria de Exemplo de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -33,7 +33,7 @@ ms.locfileid: "34831834"
 Estão incluídas as mais recentes aplicações de exemplo que executam operações CRUD e outras operações comuns em recursos do Azure Cosmos DB no repositório do GitHub [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java). Este artigo fornece:
 
 * Ligações para as tarefas em cada um dos ficheiros do projeto de Java de exemplo. 
-* Ligações para o conteúdo de referência da API relacionada.
+* Ligações para o conteúdo relacionado de referência da API.
 
 **Pré-requisitos**
 
@@ -79,7 +79,7 @@ Para executar a partir do Eclipse:
 * Já pode executar os exemplos como testes do JUnit no Eclipse.
 
 Para executar a partir da linha de comandos:
-* A outra forma de executar exemplos é utilizar o maven:
+* A outra forma de executar exemplos é ao utilizar o maven:
 * Execute o Maven e transmita as suas credenciais do Ponto Final do Azure Cosmos DB:
     ```bash
     mvn test -DACCOUNT_HOST="https://REPLACE_THIS_WITH_YOURS.documents.azure.com:443/" -DACCOUNT_KEY="REPLACE_THIS_WITH_YOURS"
@@ -123,7 +123,7 @@ O ficheiro [CollectionCrudSamples](https://github.com/Azure/azure-documentdb-jav
 | --- | --- |
 | [Criar um índice e definir política de indexação](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L125-L141) | [Índice](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._index)<br>[IndexingPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._indexing_policy) |
 
-Para obter mais informações sobre a indexação, veja [Políticas de indexação do Azure Cosmos DB](indexing-policies.md).
+Para obter mais informações sobre a indexação, veja [Políticas de indexação do Azure Cosmos DB](index-policy.md).
 
 ## <a name="query-examples"></a>Exemplos de consultas
 O ficheiro [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java) mostra como realizar as seguintes tarefas:
@@ -133,7 +133,7 @@ O ficheiro [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java
 | [Executar uma consulta de documento simples entre partições](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L108-L129) | [DocumentClient.queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydocuments)<br>[FeedOptions.setEnableCrossPartitionQuery](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setenablecrosspartitionquery) |
 | [Ordenar por consulta](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L132-L154) | [FeedResponse<T>.getQueryIterator](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response.getqueryiterator) |
 
-Para obter mais informações sobre como escrever consultas, veja [Consulta SQL no Azure Cosmos DB](sql-api-sql-query.md).
+Para obter mais informações sobre como escrever consultas, veja [Consulta SQL no Azure Cosmos DB](how-to-sql-query.md).
 
 ## <a name="offer-examples"></a>Exemplos de oferta
 O ficheiro [OfferCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) mostra como realizar as seguintes tarefas:

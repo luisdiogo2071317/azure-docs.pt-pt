@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: da91a7f84aa2860ef495af1cec412e34213d7e41
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 06e294187247636c552dfd4a7d02167eb55be19a
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291237"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334708"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-c"></a>Início Rápido: traduzir texto com a API REST de Texto do Microsoft Translator (C#)
 
@@ -40,6 +40,12 @@ cd translate-sample
 ```
 
 O primeiro comando faz duas coisas. Cria uma nova aplicação de consola .NET e cria um diretório chamado `translate-sample`. O segundo comando altera-se para o diretório para o seu projeto.
+
+Em seguida, terá de instalar o Json.Net. A partir do diretório do seu projeto, execute:
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
 
 ## <a name="add-required-namespaces-to-your-project"></a>Adicionar espaços de nomes necessários ao seu projeto
 
@@ -121,7 +127,7 @@ request.Content = new StringContent(requestBody, Encoding.UTF8, "application/jso
 // Add the authorization header
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-// Send request to Azure service, get response
+// Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
@@ -141,7 +147,7 @@ Console.ReadLine();
 
 ## <a name="run-the-sample-app"></a>Execute a aplicação de exemplo
 
-É isso, está pronto para executar a aplicação de exemplo de texto para voz. A partir da linha de comandos (ou sessão de terminal), navegue para o diretório de projeto e execute:
+É isso, está pronto para executar a aplicação de exemplo. A partir da linha de comandos (ou sessão de terminal), navegue para o diretório de projeto e execute:
 
 ```console
 dotnet run

@@ -2,14 +2,14 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: d23ba90f7cc0c5a03db2ef3eed4a662abe7ff27e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: be9b3b3a9cbb39386d13f76c595ce5e34688adac
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650558"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52336076"
 ---
 Em fluxos de trabalho de validação, **agendamento** um teste utiliza os parâmetros comuns de nível de fluxo de trabalho que especificou durante a criação de fluxo de trabalho (consulte [parâmetros comuns do fluxo de trabalho para a validação de pilha do Azure como um serviço](../azure-stack-vaas-parameters.md)). Se qualquer um dos valores de parâmetro de teste se torne inválido, deve resupply-los com as instruções na [modifique os parâmetros de fluxo de trabalho](../azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 

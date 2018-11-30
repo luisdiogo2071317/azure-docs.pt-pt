@@ -3,19 +3,19 @@ title: 'Início Rápido: chamar o ponto final com C# - Pesquisa Personalizada do
 titlesuffix: Azure Cognitive Services
 description: Este início rápido mostra como pedir os resultados de pesquisa da sua instância de pesquisa personalizada com C# para chamar o ponto final de Pesquisa Personalizada do Bing.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: maheshb
-ms.openlocfilehash: c0e315f9b96133d68bf1f9c02da1436b877baf40
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 3a7ba0f464dc82751df5daabd4226fc521fe6916
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468420"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316196"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-c"></a>Início Rápido: ponto final de Pesquisa Personalizada do Bing (C#)
 
@@ -27,7 +27,7 @@ Para concluir este guia de início rápido, necessita de:
 
 - Uma instância de pesquisa personalizada e pronta a utilizar. Veja [Criar a sua primeira instância de Pesquisa Personalizada do Bing](quick-start.md).
 - [.Net Core](https://www.microsoft.com/net/download/core) instalado.
-- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga no dashboard do Azure (veja [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga no dashboard do Azure (veja [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).   Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 
 ## <a name="run-the-code"></a>Executar o código
@@ -132,7 +132,7 @@ Para executar este exemplo, siga estes passos:
     dotnet **PATH TO OUTPUT**
     </pre>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Configurar a sua experiência de IU alojada](./hosted-ui.md)
 - [Utilizar marcadores decorativos para realçar o texto](./hit-highlighting.md)
 - [Paginação de páginas Web](./page-webpages.md)

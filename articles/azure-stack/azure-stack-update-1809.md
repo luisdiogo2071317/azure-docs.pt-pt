@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 11/23/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567915"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314682"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização de 1809 de pilha do Azure
 
@@ -84,7 +84,11 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 
 ### <a name="changes"></a>Alterações
 
-Nenhum.
+<!-- 2635202 - IS, ASDK -->
+- Serviço de cópia de segurança de infra-estrutura move-se do [rede de infraestrutura públicas](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) para o [rede VIP pública](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network). Os clientes terão garantir que o serviço tem acesso a localização de armazenamento de cópia de segurança da rede VIP pública.  
+
+> [!IMPORTANT]  
+> Se tiver uma firewall que não permite ligações a partir da rede VIP pública para o servidor de ficheiros, esta alteração fará com que as cópias de segurança de infra-estrutura efetuar a ativação com "Erro 53 o caminho de rede não foi encontrado". Esta é uma alteração de última hora que tenha não existe solução razoável. Com base nos comentários dos clientes, Microsoft irá reverter esta alteração numa correção. Consulte a [publicar a secção de passos de atualização](#post-update-steps) para obter mais informações sobre correções disponíveis para 1809. Assim que a correção está disponível, certifique-se para aplicá-la depois de atualizar para 1809 apenas se as políticas de rede não permitirem a rede VIP pública aceder a recursos de infraestrutura. no 1811, esta alteração será aplicada a todos os sistemas. Se aplicar a correção no 1809, não é necessária nenhuma ação adicional.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Vulnerabilidades e exposições comuns
 
@@ -169,7 +173,7 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links ant
 > Prepare-se a implementação do Azure Stack para o anfitrião de extensão que está ativada pelo pacote de atualização seguinte. Preparar o seu sistema usando as seguintes orientações [preparar para o anfitrião de extensão para o Azure Stack](azure-stack-extension-host-prepare.md).
 
 Após a instalação desta atualização, instale as correções aplicáveis. Para obter mais informações, consulte os seguintes artigos da base de dados de conhecimento, bem como nossos [política de manutenção](azure-stack-servicing-policy.md).  
-- [KB 4471993 – o Azure Stack correção Azure Stack correção 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
+- [KB 4477849 – o Azure Stack correção Azure Stack correção 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
 
 ## <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
 
@@ -222,7 +226,7 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
    
   Executar o [AzureStack teste](azure-stack-diagnostic-test.md) cmdlet para verificar o estado de funcionamento das instâncias de função de infraestrutura e dimensionar nós de unidade. Se não existem problemas são detetados pelo [AzureStack teste](azure-stack-diagnostic-test.md), pode ignorar estes alertas. Se for detetado um problema, pode tentar iniciar a instância de função de infraestrutura ou o nó com o portal de administração ou PowerShell.
 
-  Este problema é resolvido da versão mais recente [versão de correção de 1809](https://support.microsoft.com/help/4471993/), por isso, certifique-se de que instale esta correção, se estiver a ter o problema. 
+  Este problema é resolvido da versão mais recente [versão de correção de 1809](https://support.microsoft.com/help/4477849/), por isso, certifique-se de que instale esta correção, se estiver a ter o problema. 
 
 <!-- 1264761 - IS ASDK -->  
 - Poderá ver alertas para o **controlador de estado de funcionamento** componente que tem os seguintes detalhes:  

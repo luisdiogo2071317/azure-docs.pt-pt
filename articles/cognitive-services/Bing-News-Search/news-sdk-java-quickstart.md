@@ -10,16 +10,16 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 7919f13e8c5aaa592a416190d3cd11edbf31af2c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: f01f31c5cfc30ac31ea41db2a8504454e1f05799
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802482"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316876"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-java"></a>Início Rápido: SDK de Pesquisa de Notícias do Bing com Java
 
-O SDK de Pesquisa de Notícias do Bing disponibiliza a funcionalidade de API REST para consultas de notícias e análise de resultados. 
+O SDK de Pesquisa de Notícias do Bing disponibiliza a funcionalidade de API REST para consultas de notícias e análise de resultados.  Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
 
 O [código fonte para os exemplos de SDK Java da Pesquisa de Notícias do Bing](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) está disponível no Git Hub.
 
@@ -34,7 +34,7 @@ Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.c
     </dependency>
   </dependencies>
 ```
-## <a name="news-search-client"></a>Cliente de Pesquisa de Notícias
+## <a name="news-search-client"></a>Cliente da Pesquisa de Notícias
 Adicione as importações à implementação da classe.
 ```
 import com.microsoft.azure.cognitiveservices.newssearch.*;
@@ -284,7 +284,7 @@ public class NewsSearchSDK {
     // Include the methods described in this article.
 }
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Exemplos de SDK Java nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
