@@ -10,16 +10,16 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: abeeec95755a566216ac65b2edf5c831a8ab93b6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 5b1ac98ee9ad5625d8db9790a3be10d42236874b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225519"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307462"
 ---
 # <a name="quickstart-your-first-video-search-query"></a>Início Rápido: a sua primeira consulta de pesquisa de vídeos
 
-Antes de poder fazer a primeira chamada, precisa de obter uma chave de subscrição dos Serviços Cognitivos de Pesquisa do Bing. Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api).
+Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Para obter os resultados da pesquisa de vídeo, enviaria um pedido GET ao seguinte ponto final:  
   
@@ -132,7 +132,7 @@ BingAPIs-Market: en-US
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente a API. Aceda a [Consola de Testes da API da Pesquisa de Vídeos](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8). 
 

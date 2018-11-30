@@ -10,20 +10,21 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: abf7e4344bea88fd86b86135ffab30672d77922e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: 7cbb97fbf237e14d6822edfa174ca469f8988e2d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814110"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307363"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-c"></a>Início Rápido: SDK de Pesquisa de Entidades do Bing com C#
 
 A API de Pesquisa de Entidades do Bing contém a funcionalidade da API REST para pesquisa de entidades e análise dos resultados.
 
-O [código fonte para os exemplos de SDK em C# da Pesquisa de Entidades do Bing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch) está disponível no Git Hub.
+O [código fonte dos exemplos de SDK de Pesquisa de Entidades do Bing em C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch) está disponível no GitHub.
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
+Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Para configurar a aplicação de consola através do SDK de Pesquisa de Entidades do Bing, aceda à opção `Manage NuGet Packages` a partir do Explorador de Soluções no Visual Studio.  Adicione o pacote `Microsoft.Azure.CognitiveServices.Search.EntitySearch`.
 
@@ -32,7 +33,7 @@ Instalar o [pacote de Pesquisa de Entidades do NuGet](https://www.nuget.org/pack
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="entity-search-client"></a>Cliente de Pesquisa de Entidades
+## <a name="entity-search-client"></a>Cliente da Pesquisa de Entidades
 Para criar uma instância do cliente `EntitySearchAPI`, adicione através das diretivas:
 ```
 using Microsoft.Azure.CognitiveServices.Search.EntitySearch;
@@ -314,6 +315,6 @@ O código seguinte aciona um pedido incorreto e mostra como ler a resposta de er
         }
 
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Exemplos de SDK .NET nos serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
