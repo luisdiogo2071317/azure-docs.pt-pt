@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 942151c0ce2a3a79dbdce9b90adea721456f920f
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 2f9cefa31b007cae715ff2ea98bccb3112babbef
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288480"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619797"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Framework de consentimento do Azure Active Directory
 
@@ -39,23 +39,29 @@ Os passos seguintes mostram como o consentimento refletir funciona para o desenv
 
 1. Suponha que tem uma aplicação de cliente web que precisa para solicitar permissões específicas para aceder a uma recurso/API. Ficará a saber como fazer esta configuração na secção seguinte, mas, essencialmente, o portal do Azure é utilizado para declarar as solicitações de permissão no momento da configuração. Como outras definições de configuração, que se tornem parte do registo da aplicação do Azure AD:
 
-  ![Permissões para outras aplicações](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
+    ![Permissões para outras aplicações](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
 
 1. Considere que foram atualizadas as permissões de seu aplicativo, a execução do aplicativo e um utilizador estiver prestes a utilizá-lo pela primeira vez. Em primeiro lugar, a aplicação tem de obter um código de autorização do Azure AD `/authorize` ponto final. O código de autorização, em seguida, pode ser usado para adquirir um novo acesso e atualizar o token.
 
 1. Se o utilizador já não for autenticado, o Azure do AD `/authorize` endpoint pede ao utilizador para iniciar sessão.
 
-  ![Utilizador ou administrador de início de sessão para o Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
+    [Utilizador ou administrador de início de sessão para o Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
 
 1. Depois do utilizador tem sessão iniciada, do Azure AD irá determinar se o utilizador tem de ser apresentada uma página de consentimento. Essa determinação baseia-se o utilizador (ou o administrador da sua organização) já concedeu o consentimento da aplicação. Se já não tiver sido concedido consentimento, o Azure AD solicita o consentimento do usuário e exibe as permissões necessárias para funcionar. O conjunto de permissões que são apresentadas na caixa de diálogo de consentimento corresponder aos perfis selecionados na **permissões delegadas** no portal do Azure.
 
-  ![Experiência de consentimento do utilizador](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Experiência de consentimento do utilizador](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. Depois do utilizador concede consentimento, é devolvido um código de autorização para seu aplicativo, que é resgatado para adquirir um token de acesso e atualizar o token. Para obter mais informações sobre este fluxo, consulte [tipo de aplicação de Web API](web-api.md).
 
-1. Como administrador, pode também autorizar permissões delegadas de uma aplicação em nome de todos os utilizadores no seu inquilino. Consentimento administrativo impede que a caixa de diálogo de consentimento que aparece para cada utilizador no inquilino e pode ser feito no [portal do Azure](https://portal.azure.com) por usuários com a função de administrador. Do **definições** página para a sua aplicação, selecione **permissões obrigatórias** e clique nas **conceder permissões** botão.
+1. Como administrador, pode também autorizar permissões delegadas de uma aplicação em nome de todos os utilizadores no seu inquilino. Consentimento administrativo impede que a caixa de diálogo de consentimento que aparece para cada utilizador no inquilino e pode ser feito no [portal do Azure](https://portal.azure.com) por usuários com a função de administrador. Para saber que funções podem dar consentimento a permissões delegadas de administrador, veja [permissões da função de administrador no Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-  ![Concessão de permissões de consentimento de administrador explícita](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+    **Para dar consentimento a uma aplicação do permissões delegadas**
+
+    1. Vá para o **definições** página para a sua aplicação
+    1. Selecione **permissões obrigatórias**.
+    1. Clique nas **conceder permissões** botão.
+
+    ![Concessão de permissões de consentimento de administrador explícita](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
   > [!IMPORTANT]
   > Conceder explícita consentir utilizar o **conceder permissões** botão é atualmente necessário para aplicações de página única (SPA) que utilizam ADAL.js. Caso contrário, o aplicativo falhar quando o token de acesso é solicitado.

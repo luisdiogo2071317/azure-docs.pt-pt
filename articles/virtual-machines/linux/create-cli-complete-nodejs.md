@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 560d1c55b159ed817c0b080171862c28ebe73f3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d0a38defe41ea7c4e0da32cb73cf2bd73fd80950
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952805"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498213"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Criar um ambiente completo do Linux com a CLI clássica do Azure
 Neste artigo, vamos criar uma rede simples com um balanceador de carga e um par de VMs que são úteis para desenvolvimento e a computação simples. Vamos percorrer o processo de comando ao comando, até ter duas VMs do Linux seguro e de trabalho para o qual pode ligar a partir em qualquer lugar na Internet. Em seguida, pode passar às redes mais complexas e de ambientes.
@@ -54,7 +54,7 @@ azure config mode arm
 
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluem `myResourceGroup`, `mystorageaccount`, e `myVM`.
 
-Crie o grupo de recursos. O exemplo seguinte cria um grupo de recursos chamado `myResourceGroup` no `westeurope` localização:
+Crie o grupo de recursos. O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `westeurope`:
 
 ```azurecli
 azure group create -n myResourceGroup -l westeurope
@@ -279,7 +279,7 @@ azure config mode arm
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluem `myResourceGroup`, `mystorageaccount`, e `myVM`.
 
 ## <a name="create-resource-groups-and-choose-deployment-locations"></a>Criar grupos de recursos e selecione as localizações de implementação
-Os grupos de recursos do Azure são entidades de lógica de implementação que contêm informações de configuração e metadados para ativar a lógica de gestão de implementações de recurso. O exemplo seguinte cria um grupo de recursos chamado `myResourceGroup` no `westeurope` localização:
+Os grupos de recursos do Azure são entidades de lógica de implementação que contêm informações de configuração e metadados para ativar a lógica de gestão de implementações de recurso. O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização `westeurope`:
 
 ```azurecli
 azure group create --name myResourceGroup --location westeurope

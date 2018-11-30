@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a5deccbe87bc8de6f6438259c2a43cc4618c24ab
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a4c429b1c54c6bf71175abbc763a178792281a0f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016714"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633151"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Ligar o Configuration Manager ao Log Analytics
 Pode ligar o seu ambiente do System Center Configuration Manager para o Azure Log Analytics para sincronizar dados de coleção de dispositivo e fazem referência a essas coleções no Log Analytics e a automatização do Azure.  
@@ -57,7 +57,7 @@ No procedimento seguinte, pode conceder a *contribuinte* função na sua área d
 6. Sob o **atribuir acesso aos** na lista pendente, selecione a aplicação do Configuration Manager que criou anteriormente no AD e, em seguida, clique em **OK**.  
 
 ## <a name="download-and-install-the-agent"></a>Transfira e instale o agente
-Consulte o artigo [computadores Windows ligar ao serviço Log Analytics no Azure](log-analytics-agent-windows.md) para compreender os métodos disponíveis para instalar o Microsoft Monitoring Agent no computador que aloja o serviço do Configuration Manager função de sistema de sites de ponto de ligação.  
+Consulte o artigo [computadores Windows ligar ao serviço Log Analytics no Azure](../azure-monitor/platform/agent-windows.md) para compreender os métodos disponíveis para instalar o Microsoft Monitoring Agent no computador que aloja o serviço do Configuration Manager função de sistema de sites de ponto de ligação.  
 
 ## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>Adicionar uma ligação do Log Analytics para o Configuration Manager
 Para adicionar a ligação do Log Analytics, o ambiente do Configuration Manager tem de ter uma [ponto de ligação de serviço](https://technet.microsoft.com/library/mt627781.aspx) configurados para o modo online.

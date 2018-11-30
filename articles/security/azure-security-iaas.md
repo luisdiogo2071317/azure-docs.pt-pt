@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 057c98d4bac87b4e43e5beb8268d3d3bdbe3ec85
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 6033a61351423e65490edfe0b0607f2395c80f86
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364266"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498352"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho de IaaS no Azure
 
@@ -41,7 +41,7 @@ O primeiro passo para proteger as suas VMs é garantir que os utilizadores autor
 **Melhor prática**: o acesso à VM de controlo.   
 **Detalhe**: Utilize [políticas do Azure](../azure-policy/azure-policy-introduction.md) para estabelecer as convenções para recursos na sua organização e criar políticas personalizadas. Aplicar estas políticas para recursos, como [grupos de recursos](../azure-resource-manager/resource-group-overview.md). As VMs que pertencem a um grupo de recursos herdam suas diretivas.
 
-Se sua organização tiver várias subscrições, poderá ter uma forma de gerenciar com eficiência o acesso, políticas e conformidade para nessas subscrições. [Grupos de gestão do Azure](../azure-resource-manager/management-groups-overview.md) fornecer um nível de âmbito acima subscrições. Organizar subscrições para grupos de gestão (contentores) e aplicar suas condições de governação a esses grupos. Todas as subscrições dentro de um grupo de gestão herdam automaticamente as condições aplicadas ao grupo. Grupos de gestão dão-lhe a gestão de nível empresarial em grande escala, não importa que tipo de assinaturas pode ter.
+Se sua organização tiver várias subscrições, poderá ter uma forma de gerenciar com eficiência o acesso, políticas e conformidade para nessas subscrições. [Grupos de gestão do Azure](../azure-resource-manager/management-groups-overview.md) fornecer um nível de âmbito acima subscrições. Organizar subscrições para grupos de gestão (contentores) e aplicar suas condições de governação a esses grupos. Todas as subscrições dentro de um grupo de gestão herdam automaticamente as condições aplicadas ao grupo. Os grupos de gestão dão-lhe capacidades de gestão de nível empresarial em grande escala, independentemente do seu tipo de subscrição.
 
 **Melhor prática**: reduzir variabilidade na sua configuração e implementação de VMs.   
 **Detalhe**: Utilize [do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) modelos para reforçar suas opções de implantação e torná-lo mais fácil de compreender e as VMs no seu ambiente de inventário.
@@ -51,7 +51,7 @@ Se sua organização tiver várias subscrições, poderá ter uma forma de geren
 
 - [Contribuinte de máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): pode gerir VMs, mas não a rede ou armazenamento conta virtual ao qual estão ligados.
 - [Contribuinte de Máquina Virtual clássica](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): pode gerir as VMs criadas com o modelo de implementação clássica, mas não a rede ou armazenamento conta virtual ao qual as VMs estão ligadas.
-- [Gestor de segurança](../role-based-access-control/built-in-roles.md#security-manager): pode gerir os componentes de segurança, as políticas de segurança e VMs.
+- [Administrador de segurança](../role-based-access-control/built-in-roles.md#security-admin): no Centro de segurança apenas: pode ver as políticas de segurança, visualizar os Estados de segurança, editar as políticas de segurança, ver alertas e recomendações, dispensar alertas e recomendações.
 - [Utilizador de DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user): podem ver tudo e ligar, iniciar, reiniciar e encerrar VMs.
 
 Os administradores de subscrição e co-administradores, podem alterar esta definição, tornando-os administradores de todas as VMs numa subscrição. Certifique-se de que confia todos os seus administradores da subscrição e co-administradores para iniciar sessão qualquer uma das suas máquinas.

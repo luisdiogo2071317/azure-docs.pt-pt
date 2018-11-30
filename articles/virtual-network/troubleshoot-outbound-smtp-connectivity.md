@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 1bcdac43eea41a044e920c14310a9f3cd4df793b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 34d42f9987303c1381584ae4b2991a8f30a67ed5
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285444"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618964"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Resolver problemas de conectividade de SMTP saídos no Azure
 
@@ -44,7 +44,7 @@ Quando uma subscrição pay as you go ou Microsoft Partner Network for isenta, V
 > A Microsoft se reserva o direito de revogar este isenção se for determinado que ocorreu uma violação dos termos de serviço.
 
 ## <a name="msdn-azure-pass-azure-in-open-education-bizspark-and-free-trial"></a>MSDN, do Azure Pass, Azure no Open, Education, BizSpark e avaliação gratuita
-Se criou um MSDN, Azure Pass, Azure no Open, Education, BizSpark ou avaliação gratuita de subscrição após 15 de Novembro de 2017, terá restrições técnicas esse e-mail de bloco que é enviada a partir de VMs nestas subscrições diretamente para fornecedores de e-mail. As restrições são efetuadas para evitar abusos. Não existem pedidos para remover esta restrição vão ser concedidos.
+Se criou um MSDN, Azure Pass, Azure no Open, Education, BizSpark, Azure Sponsorship, estudante do Azure, versão de avaliação gratuita ou qualquer subscrição do Visual Studio após 15 de Novembro de 2017, terá restrições técnicas esse e-mail de bloco que é enviada a partir de VMs nestes assinaturas diretamente para fornecedores de e-mail. As restrições são efetuadas para evitar abusos. Não existem pedidos para remover esta restrição vão ser concedidos.
 
 Se estiver a utilizar estes tipos de subscrição, é recomendado que utilize serviços de reencaminhamento de SMTP, conforme descrito anteriormente no artigo.
 

@@ -1,6 +1,6 @@
 ---
 ms.assetid: ''
-title: Chaves de conta de armazenamento do Azure Key Vault
+title: O Azure Key Vault geridos a conta de armazenamento - CLI
 description: Chaves de conta de armazenamento fornecem uma integração de seemless entre o Azure Key Vault e chave de acesso baseado em à conta de armazenamento do Azure.
 ms.topic: conceptual
 services: key-vault
@@ -9,14 +9,14 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: e62c599d82f488bf1fc30ce503c271084c5ae59d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e110a24af6a0d49ea949db6bc30ab344c81d0f48
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300228"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619287"
 ---
-# <a name="azure-key-vault-storage-account-keys"></a>Chaves de conta de armazenamento do Azure Key Vault
+# <a name="azure-key-vault-managed-storage-account---cli"></a>O Azure Key Vault geridos a conta de armazenamento - CLI
 
 > [!NOTE]
 > [O armazenamento do Azure suporta agora a autorização do AAD](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Recomendamos que utilize o Azure Active Directory para autenticação e autorização para o armazenamento de que os utilizadores não tenham de se preocupar sobre rotação das suas chaves de conta de armazenamento.

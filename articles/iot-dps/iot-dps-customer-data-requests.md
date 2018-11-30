@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d6355926c8fac62b01c36d28265842b1233ce213
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5dd027c886e8102e77ddefe93817daee0e1ec29b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666948"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584156"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados do cliente
 
@@ -39,9 +39,9 @@ Para obter mais informações, consulte [como gerir inscrições de dispositivos
 
 Também é possível realizar operações de exclusão para inscrições e registos de registo utilizando REST APIs:
 
-* Para eliminar informações de inscrição de um dispositivo individual, pode utilizar [inscrição de dispositivos – eliminar](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/delete).
-* Para eliminar informações de inscrição para um grupo de dispositivos, pode utilizar [grupo de inscrição de dispositivos - Delete](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/delete).
-* Para eliminar informações sobre os dispositivos que foram aprovisionados, pode usar [estado do registo - estado de registo de eliminação](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/deleteregistrationstate).
+* Para eliminar informações de inscrição de um dispositivo individual, pode utilizar [inscrição de dispositivos – eliminar](/rest/api/iot-dps/deleteindividualenrollment/deleteindividualenrollment).
+* Para eliminar informações de inscrição para um grupo de dispositivos, pode utilizar [grupo de inscrição de dispositivos - Delete](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup).
+* Para eliminar informações sobre os dispositivos que foram aprovisionados, pode usar [estado do registo - estado de registo de eliminação](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate).
 
 ## <a name="exporting-customer-data"></a>Exportar dados do cliente
 
@@ -53,9 +53,9 @@ Para obter mais informações sobre como gerir inscrições, consulte [como geri
 
 Também é possível realizar operações de exportação para inscrições e registos de registo utilizando REST APIs:
 
-* Para exportar as informações de inscrição de um dispositivo individual, pode utilizar [inscrição de dispositivos – Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/get).
-* Para exportar as informações de inscrição para um grupo de dispositivos, pode utilizar [grupo de inscrição de dispositivos - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/get).
-* Para exportar as informações sobre os dispositivos que já tiverem sido aprovisionadas, pode usar [estado do registo - estado de registo de Get](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/getregistrationstate).
+* Para exportar as informações de inscrição de um dispositivo individual, pode utilizar [inscrição de dispositivos – Get](/rest/api/iot-dps/getindividualenrollment/getindividualenrollment).
+* Para exportar as informações de inscrição para um grupo de dispositivos, pode utilizar [grupo de inscrição de dispositivos - Get](/rest/api/iot-dps/getenrollmentgroup/getenrollmentgroup).
+* Para exportar as informações sobre os dispositivos que já tiverem sido aprovisionadas, pode usar [estado do registo - estado de registo de Get](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate).
 
 > [!NOTE]
 > Quando utiliza os serviços empresariais da Microsoft, a Microsoft gera algumas informações, conhecidas como registos gerados pelo sistema. Alguns registos gerados pelo sistema do serviço aprovisionamento de dispositivos não são acessíveis ou exportável pelos administradores do inquilino. Estes registos constituem ações factuais realizadas dentro do serviço e os dados de diagnóstico relacionadas com dispositivos individuais.

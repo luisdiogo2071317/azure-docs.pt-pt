@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6f4f2f6a7999b2d26e198a11bb7cee27991a775b
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 81728e7963767cd90bf2486a35fbce55043a76f7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711961"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633474"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização de contentores no Log Analytics
 
@@ -126,7 +126,7 @@ Depois de instalar o Docker, utilize as seguintes definições para o anfitrião
 
 **Para todos os anfitriões de contentor de Linux exceto CoreOS:**
 
-- Para obter mais informações e passos sobre como instalar o agente do Log Analytics para Linux, consulte [descrição geral do agente do Log Analytics](log-analytics-agent-overview.md).
+- Para obter mais informações e passos sobre como instalar o agente do Log Analytics para Linux, consulte [descrição geral do agente do Log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
 **Para anfitriões de contentor do todos os Linux incluindo o CoreOS:**
 
@@ -524,9 +524,9 @@ Para obter mais informações sobre a configuração do daemon Docker utilizada 
 
 #### <a name="install-windows-agents"></a>Instale os agentes do Windows
 
-Para ativar a monitorização de contentores do Windows e o Hyper-V, instale o Microsoft Monitoring Agent (MMA) em computadores Windows que são anfitriões de contentor. Para computadores com Windows no seu ambiente no local, consulte [computadores Windows ligar ao Log Analytics](log-analytics-agent-windows.md). Para máquinas virtuais em execução no Azure, ligá-los ao Log Analytics com o [extensão da máquina virtual](log-analytics-quick-collect-azurevm.md).
+Para ativar a monitorização de contentores do Windows e o Hyper-V, instale o Microsoft Monitoring Agent (MMA) em computadores Windows que são anfitriões de contentor. Para computadores com Windows no seu ambiente no local, consulte [computadores Windows ligar ao Log Analytics](../azure-monitor/platform/agent-windows.md). Para máquinas virtuais em execução no Azure, ligá-los ao Log Analytics com o [extensão da máquina virtual](log-analytics-quick-collect-azurevm.md).
 
-Pode monitorizar contentores do Windows em execução no Service Fabric. No entanto, apenas [máquinas virtuais em execução no Azure](log-analytics-quick-collect-azurevm.md) e [computadores que executam o Windows no seu ambiente no local](log-analytics-agent-windows.md) são atualmente suportadas para o Service Fabric.
+Pode monitorizar contentores do Windows em execução no Service Fabric. No entanto, apenas [máquinas virtuais em execução no Azure](log-analytics-quick-collect-azurevm.md) e [computadores que executam o Windows no seu ambiente no local](../azure-monitor/platform/agent-windows.md) são atualmente suportadas para o Service Fabric.
 
 Pode verificar que a solução de monitorização de contentores está corretamente definida para Windows. Para verificar se o pacote de gestão foi download corretamente, procure *ContainerManagement.xxx*. Os ficheiros devem ser na pasta C:\Program Files\Microsoft Monitoring Agent\Agent\Health serviço State\Management Packs.
 
@@ -543,7 +543,7 @@ A solução de monitorização de contentores recolhe diversos dados de registo 
 Dados são recolhidos a cada três minutos pelos seguintes tipos de agente.
 
 - [Agente do log Analytics para Linux](log-analytics-quick-collect-linux-computer.md)
-- [Agente do Windows](log-analytics-agent-windows.md)
+- [Agente do Windows](../azure-monitor/platform/agent-windows.md)
 - [Extensão de VM de análise de registo](log-analytics-quick-collect-azurevm.md)
 
 

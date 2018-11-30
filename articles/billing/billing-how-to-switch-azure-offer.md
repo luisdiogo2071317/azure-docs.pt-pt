@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 96aabd9ace1ad9a0fb5aae7848b02284dcd7b7e1
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: c8332ab9bbe22dab71d0b75446b478c424df66fb
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273573"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582145"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Alterar a sua subscrição pay as you go do Azure para outra oferta
 
@@ -114,6 +114,6 @@ No dia que mudar, uma nota fiscal é gerada para todas as cobranças por liquida
 * Pode migrar os recursos diretamente para a nova subscrição, veja [mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/resource-group-move-resources.md).
 * Para transferir a propriedade de uma subscrição do Azure e tudo no mesmo para outra pessoa, consulte o artigo [transferir a propriedade de uma subscrição do Azure](billing-subscription-transfer.md)
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se ainda tiver mais perguntas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

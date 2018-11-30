@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 35d1fa5f8963d007b1d8b59ccf0f1dec7abafa09
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 146ea6431516f7b78d23cd4b36aff43110639e83
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402239"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633100"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com o Service Fabric
 
@@ -142,6 +142,6 @@ Verifique estas ligações para obter a lista completa dos contadores de desempe
 * [Configure alertas em IA](../application-insights/app-insights-alerts.md) para ser notificado sobre as alterações no desempenho ou na utilização
 * [Deteção no Application Insights inteligente](../application-insights/app-insights-proactive-diagnostics.md) realiza uma análise proativa de telemetria a ser enviada para IA para o avisar de potenciais problemas de desempenho
 * Saiba mais sobre o Log Analytics [alertas](../log-analytics/log-analytics-alerts.md) para ajudar no diagnóstico e de deteção.
-* Para os clusters no local, o Log Analytics oferece um gateway (reencaminhar Proxy HTTP) que pode ser utilizado para enviar dados para o Log Analytics. Leia mais sobre isso em [ligar os computadores sem acesso à Internet ao Log Analytics com o gateway do Log Analytics](../log-analytics/log-analytics-oms-gateway.md)
+* Para os clusters no local, o Log Analytics oferece um gateway (reencaminhar Proxy HTTP) que pode ser utilizado para enviar dados para o Log Analytics. Leia mais sobre isso em [ligar os computadores sem acesso à Internet ao Log Analytics com o gateway do Log Analytics](../azure-monitor/platform/gateway.md)
 * Familiarizar-se com o [pesquisas e consultas de registo](../log-analytics/log-analytics-log-searches.md) funcionalidades oferecidos como parte do Log Analytics
 * Obtenha uma visão geral mais detalhada do Log Analytics e o que ele oferece, leia [o que é o Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)

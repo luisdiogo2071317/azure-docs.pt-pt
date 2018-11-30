@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4e7cc47bddf3663cbc1c8bb5c4470020a84073e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441656"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582892"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>O Azure Active Directory B2C: Configurar a interface do Usuário com conteúdo dinâmico ao utilizar políticas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Ao utilizar o Azure Active Directory B2C (Azure AD B2C) as políticas personalizadas, pode enviar um parâmetro de uma cadeia de consulta. Ao passar o parâmetro para o ponto final HTML, pode alterar dinamicamente o conteúdo da página. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou início de sessão do Azure AD B2C, com base num parâmetro que passar de seu aplicativo web ou móvel. 
+Ao utilizar o Azure Active Directory B2C (Azure AD B2C) as políticas personalizadas, pode enviar um parâmetro de uma cadeia de consulta. Ao transmitir o parâmetro para o ponto final HTML, pode alterar dinamicamente o conteúdo da página. Por exemplo, pode alterar a imagem de fundo na página de inscrição ou de início de sessão do Azure AD B2C, com base num parâmetro que transmite a partir da sua aplicação Web ou móvel. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo se concentra em como personalizar a interface de utilizador do Azure AD B2C com *conteúdo dinâmico* ao utilizar políticas personalizadas. Para começar a utilizar, veja [personalização da interface do Usuário numa política personalizada](active-directory-b2c-ui-customization-custom.md). 
@@ -178,7 +178,7 @@ Localize a `<img>` elemento que contém o `ID` valor *background_background_imag
 
 3. Na **CORS** janela, na **origens permitidas** caixa, faça o seguinte:
 
-    * Introduza o URL ou URLs que pretende receber chamadas JavaScript são provenientes.
+    * Introduza o URL ou URLs que pretende receber chamadas JavaScript são provenientes. Tem de utilizar todas as letras minúsculas nos URLs que introduzir.
     * Introduza um asterisco (*) para especificar que todos os domínios de origem são aceites.
 
 4. Selecione **Guardar**.

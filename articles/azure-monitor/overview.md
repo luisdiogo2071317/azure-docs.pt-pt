@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 6a3e33fe74199f0b9c02c6924d5e5e41b37f385c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: d1b7b5baeba88ec0209abff60e9327031afa8b66
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820975"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633780"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -47,7 +47,7 @@ A linguagem de consulta do Log Analytics é adequada para consultas de registo s
 ![Registos](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Os dados que recolher o Azure Monitor?
-O Azure Monitor pode recolher dados de várias origens. Pode considerar os dados para as suas aplicações em camadas que vão desde a sua aplicação, quaisquer campos operacional e depende, para baixo para a própria plataforma de serviços de monitorização. Monitor do Azure recolhe dados de cada um dos seguintes escalões:
+O Azure Monitor pode recolher dados de várias origens. Pode considerar os dados para as suas aplicações em camadas que vão desde a sua aplicação, qualquer sistema operacional e depende, para baixo para a própria plataforma de serviços de monitorização. Monitor do Azure recolhe dados de cada um dos seguintes escalões:
 
 - **Dados de monitorização de aplicações**: dados sobre o desempenho e a funcionalidade do código escreveu, independentemente de sua plataforma.
 - **Dados de monitorização de SO de convidado**: dados sobre o sistema operativo no qual a sua aplicação está em execução. Isso poderia estar em execução no Azure, noutra cloud ou no local. 
@@ -57,7 +57,7 @@ O Azure Monitor pode recolher dados de várias origens. Pode considerar os dados
 
 Assim que criar uma subscrição do Azure e comece a adicionar recursos, tais como máquinas virtuais e aplicações web, o Azure Monitor inicia a recolha de dados.  [Registos de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) gravar quando os recursos são criados ou modificados. [Métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) informá-lo como o recurso está sendo executada e os recursos que ele está a consumir. 
 
-Expandir os dados que está a recolher sobre o funcionamento real dos recursos por [ativar os diagnósticos](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) e [adicionando um agente](../log-analytics/log-analytics-agent-windows.md) para recursos de computação. Esta ação irá recolher telemetria para o funcionamento interno de recurso e permitem-lhe configurar diferente [origens de dados](../log-analytics/log-analytics-data-sources.md) para recolher registos e métricas de sistema de operativo de convidado do Windows e Linux. 
+Expandir os dados que está a recolher sobre o funcionamento real dos recursos por [ativar os diagnósticos](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) e [adicionando um agente](../azure-monitor/platform/agent-windows.md) para recursos de computação. Esta ação irá recolher telemetria para o funcionamento interno de recurso e permitem-lhe configurar diferente [origens de dados](../azure-monitor/platform/agent-data-sources.md) para recolher registos e métricas de sistema de operativo de convidado do Windows e Linux. 
 
 [Adicionar um pacote de instrumentação à sua aplicação](../application-insights/app-insights-azure-web-apps.md), para ativar o Application Insights para recolher as informações detalhadas sobre a sua aplicação, incluindo exceções, pedidos de aplicações e vistas de página. Verificar a disponibilidade da sua aplicação ao configurar uma [teste de disponibilidade](../application-insights/app-insights-monitor-web-app-availability.md) para simular o tráfego de utilizador.
 
@@ -86,7 +86,7 @@ Informações de VM de Monitor do Azure monitoriza máquinas de virtuais do Azur
 ![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Soluções de monitorização
-[Soluções de monitorização](../azure-monitor/insights/solutions.md) no Azure Monitor são empacotados conjuntos de lógica que fornecem informações para uma determinada aplicação ou serviço. Recolher dados no Log Analytics, juntamente com outros dados de monitorização, usando [consultas](../log-analytics/log-analytics-queries.md) para análise e [vistas](../log-analytics/log-analytics-view-designer.md) para visualização. Soluções de monitorização são [disponibilizados pela Microsoft](../azure-monitor/insights/solutions-inventory.md) e parceiros para fornecer monitorização para vários serviços do Azure e outras aplicações.
+[Soluções de monitorização](../azure-monitor/insights/solutions.md) no Azure Monitor são empacotados conjuntos de lógica que fornecem informações para uma determinada aplicação ou serviço. Recolher dados no Log Analytics, juntamente com outros dados de monitorização, usando [consultas](../log-analytics/log-analytics-queries.md) para análise e [vistas](../azure-monitor/platform/view-designer.md) para visualização. Soluções de monitorização são [disponibilizados pela Microsoft](../azure-monitor/insights/solutions-inventory.md) e parceiros para fornecer monitorização para vários serviços do Azure e outras aplicações.
 
 ![Soluções de monitorização](media/overview/solutions-overview.png)
 
@@ -115,7 +115,7 @@ Dimensionamento automático permite que tenha a quantidade certa de recursos em 
 ![Dashboard](media/overview/dashboard.png)
 
 ### <a name="views"></a>Vistas
-[Modos de exibição no Azure Monitor](../log-analytics/log-analytics-view-designer.md) apresentam visualmente os dados de registo no Log Analytics.  Cada vista inclui um único mosaico Desagrega até uma combinação de visualizações, como barras e linhas de gráficos, além de listas que resumem os dados críticos.  Soluções de monitorização incluem vistas que resumem os dados para uma aplicação específica e pode criar suas próprias vistas para apresentar dados de uma pesquisa de registos do Log Analytics. Como outros elementos no Azure Monitor, os modos de exibição podem ser adicionados para dashboards do Azure.
+[Modos de exibição no Azure Monitor](../azure-monitor/platform/view-designer.md) apresentam visualmente os dados de registo no Log Analytics.  Cada vista inclui um único mosaico Desagrega até uma combinação de visualizações, como barras e linhas de gráficos, além de listas que resumem os dados críticos.  Soluções de monitorização incluem vistas que resumem os dados para uma aplicação específica e pode criar suas próprias vistas para apresentar dados de uma pesquisa de registos do Log Analytics. Como outros elementos no Azure Monitor, os modos de exibição podem ser adicionados para dashboards do Azure.
 
 ![Vista do Log Analytics](media/overview/view.png)
 

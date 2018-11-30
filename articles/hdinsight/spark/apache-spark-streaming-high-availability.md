@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 8f680b60a8f457e1a8619ac044798ff02df15694
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013654"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581906"
 ---
-# <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Criar tarefas de transmissão em fluxo do Spark de elevada disponibilidade com o YARN
+# <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Criar tarefas de Apache Spark Streaming de elevada disponibilidade com o YARN
 
-Transmissão em fluxo do Spark permite-lhe implementar aplicações dimensionáveis e de alto débito, tolerante a falhas para processamento de fluxos de dados. Pode ligar aplicações de transmissão em fluxo do Spark num cluster do Spark do HDInsight para uma variedade de origens de dados, como os Hubs de eventos do Azure, IoT Hub do Azure, Kafka, Flume, Twitter, ZeroMQ, sockets TCP bruto, ou ao monitorizar o sistema de ficheiros HDFS para que as alterações. Transmissão em fluxo do Spark oferece suporte à tolerância a falhas com a garantia de que a qualquer evento específico é processado exatamente uma vez, mesmo com uma falha de nó.
+[Apache Spark](https://spark.apache.org/) a transmissão em fluxo permite-lhe implementar aplicações dimensionáveis e de alto débito, tolerante a falhas para processamento de fluxos de dados. Pode ligar aplicações de transmissão em fluxo do Spark num cluster do Spark do HDInsight para uma variedade de origens de dados, como Hubs de eventos do Azure, IoT Hub do Azure, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ ZeroMQ](http://zeromq.org/), Soquetes TCP bruto, ou através da monitorização do [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) sistema de ficheiros para que as alterações. Transmissão em fluxo do Spark oferece suporte à tolerância a falhas com a garantia de que a qualquer evento específico é processado exatamente uma vez, mesmo com uma falha de nó.
 
 Transmissão em fluxo do Spark cria tarefas de longa execução durante o qual é possível aplicar transformações aos dados e, em seguida, emitir os resultados para sistemas de ficheiros, bases de dados, dashboards e a consola. Transmissão em fluxo do Spark processa micro-lotes de dados, através da primeira recolha um lote de eventos ao longo de um intervalo de tempo definido. Em seguida, esse lote é enviada para processamento e de saída. Intervalos de tempo de lote, normalmente, são definidos em frações de segundo.
 
@@ -54,7 +54,7 @@ RDDs tem várias propriedades que ajudam a elevada disponibilidade e tolerante a
 
 Para criar uma aplicação que processa cada evento, uma vez (e apenas uma vez), considere como a todos os pontos de falha de sistema reiniciar depois de ter um problema e como pode evitar a perda de dados. Exatamente-assim que a semântica de exige que não se perdem a qualquer momento e esse processamento de mensagens é reinicializável, independentemente de onde a falha ocorre. Ver [criar Spark Streaming tarefas com exatamente-uma vez o evento de processamento](apache-spark-streaming-exactly-once.md).
 
-## <a name="spark-streaming-and-yarn"></a>Transmissão em fluxo do spark e do YARN
+## <a name="spark-streaming-and-apache-hadoop-yarn"></a>Transmissão em fluxo do Spark e o Apache Hadoop YARN
 
 No HDInsight, o trabalho de cluster é coordenado pelo *ainda outro recurso Negociador* (YARN). Projetar elevada disponibilidade para transmissão em fluxo do Spark inclui técnicas para transmissão em fluxo do Spark bem como para componentes do YARN.  Um exemplo de configuração com o YARN é mostrado abaixo. 
 
@@ -120,8 +120,8 @@ Para resumir, através do ponto de verificação + WAL + confiáveis recetores, 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Descrição geral da transmissão em fluxo do spark](apache-spark-streaming-overview.md)
-* [Criar tarefas de transmissão em fluxo do Spark com exatamente-uma vez o evento de processamento](apache-spark-streaming-exactly-once.md)
-* [Transmissão em fluxo de tarefas no YARN do Spark de longa duração](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Descrição geral da transmissão em fluxo do Apache Spark](apache-spark-streaming-overview.md)
+* [Criar tarefas do Apache Spark Streaming com exatamente-uma vez o evento de processamento](apache-spark-streaming-exactly-once.md)
+* [Tarefas de transmissão em fluxo do Spark Apache de execução longa no YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
 * [Transmissão em fluxo estruturada: Semântica de tolerância a falhas de falhas](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [Fluxos discretizados: Um modelo tolerante a falhas para processamento de Stream dimensionável](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

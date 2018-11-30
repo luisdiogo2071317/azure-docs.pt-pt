@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 0ee34d99c78eb090514385de16cd77d04ddca4e4
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 32e95c9098999305d4c48d5c43fae5ef6d3ac36e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267703"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619780"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Introdução às consultas no Log Analytics
 
@@ -138,7 +138,7 @@ SecurityEvent
 ## <a name="specify-a-time-range"></a>Especifique um intervalo de tempo
 
 ### <a name="time-picker"></a>Selecionador de hora
-O selecionador de hora está no canto superior esquerdo, que indica que estiver a consultar apenas os registos das últimas 24 horas. Este é o intervalo de tempo predefinido aplicado a todas as consultas. Para obter apenas os registos de última hora, selecione _última hora_ e execute a consulta novamente.
+O selecionador de hora é junto ao botão de execução e indica que estiver a consultar apenas os registos das últimas 24 horas. Este é o intervalo de tempo predefinido aplicado a todas as consultas. Para obter apenas os registos de última hora, selecione _última hora_ e execute a consulta novamente.
 
 ![Selecionador de hora](media/get-started-queries/timepicker.png)
 
@@ -226,14 +226,14 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Resumir por uma coluna de tempo
 Agrupar os resultados também pode ser baseado numa coluna de tempo ou outro valor contínuo. Simplesmente resumir `by TimeGenerated` porém seria criar grupos para cada milissegundo único ao longo do intervalo de tempo, uma vez que estes são valores exclusivos. 
 
-Para criar grupos com base nos valores contínuas, é melhor dividir o intervalo em unidades geríveis usando **bin**. A seguinte consulta analisa *Perf* registos que medem a memória livre (*MBytes disponíveis*) num computador específico. Ele calcula o valor médio para cada período se 1 hora, nos últimos 2 dias:
+Para criar grupos com base nos valores contínuas, é melhor dividir o intervalo em unidades geríveis usando **bin**. A seguinte consulta analisa *Perf* registos que medem a memória livre (*MBytes disponíveis*) num computador específico. Ele calcula o valor médio para cada período se 1 hora, nos últimos 7 dias:
 
 ```Kusto
 Perf 
-| where TimeGenerated > ago(2d)
+| where TimeGenerated > ago(7d)
 | where Computer == "ContosoAzADDS2" 
 | where CounterName == "Available MBytes" 
-| summarize count() by bin(TimeGenerated, 1h)
+| summarize avg(CounterValue) by bin(TimeGenerated, 1h)
 ```
 
 Para fazer com que a saída mais clara, selecione para exibi-lo como um gráfico de tempo, que mostra a memória disponível ao longo do tempo:

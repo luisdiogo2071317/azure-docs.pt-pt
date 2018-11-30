@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: e9edbc2a3bbc878f7a3cf99a3ca6efb4e69797ad
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 05c237eb071b48f2373ecfd78eeab6f7bceb8c5c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394720"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584167"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados
 
@@ -64,9 +64,9 @@ Por exemplo, vamos supor que está a executar uma finalidade geral, Gen5 – 16 
 
 ## <a name="cancellations-and-exchanges"></a>Cancelamentos e trocas
 
-Se precisar de cancelar a sua base de dados de SQL reservadas de reserva de capacidade, pode haver uma taxa de rescisão antecipada de 12%. Reembolsos baseiam-se sobre o preço mais baixo do seu preço de compra ou o preço atual da reserva. Reembolsos estão limitados a 50 000 por ano. O reembolso que receber é o restante saldo pro-rata subtraindo a taxa de rescisão antecipada de 12%. Para pedir um cancelamento, vá para a reserva no portal do Azure e selecione **reembolsar** para criar um pedido de suporte.
+Se precisar de cancelar a sua base de dados de SQL reservadas de reserva de capacidade, pode haver uma taxa de rescisão antecipada de 12%. Os reembolsos baseiam-se no preço mais baixo do preço de compra ou do preço atual da reserva. Os reembolsos estão limitados a 50 000 $ por ano. O reembolso que receber corresponde ao saldo rateado restante menos a taxa de cessação antecipada de 12%. Para pedir um cancelamento, vá para a reserva no portal do Azure e selecione **reembolsar** para criar um pedido de suporte.
 
-Se precisar de alterar a sua reserva de capacidade de base de dados de SQL reservadas para outra região, tipo de implementação, o escalão de desempenho ou termo, podem trocá-lo para outro reserva do valor igual ou superior. A data de início do prazo para a nova reserva não passa da reserva trocada. Começa a partir ao criar a nova reserva de 1 ou o termo de 3 anos. Para pedir uma troca, vá para a reserva no portal do Azure e selecione **Exchange** para criar um pedido de suporte.
+Se precisar de alterar a sua reserva de capacidade de base de dados de SQL reservadas para outra região, tipo de implementação, o escalão de desempenho ou termo, podem trocá-lo para outro reserva do valor igual ou superior. A data de início do período da nova reserva não transita da reserva trocada. O período de 1 ou 3 anos começa a partir do momento em que cria a nova reserva. Para pedir uma troca, vá para a reserva no portal do Azure e selecione **Exchange** para criar um pedido de suporte.
 
 ## <a name="vcore-size-flexibility"></a>flexibilidade de tamanho de vCore
 
@@ -87,7 +87,7 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 - [Compreender a utilização de reserva para inscrição da sua empresa](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [Reservas do Azure no programa de fornecedor de soluções (CSP) do parceiro Center na nuvem](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se ainda tiver mais perguntas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

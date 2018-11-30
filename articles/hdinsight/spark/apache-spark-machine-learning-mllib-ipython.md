@@ -10,19 +10,19 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e553833f8b9a5daab5c454cea628acdda0320e76
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f9ee5946d9748388cc1f606d89d4edeacb0b9c02
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257644"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498097"
 ---
-# <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utilizar o Spark MLlib para criar uma aplicação de machine learning e analisar um conjunto de dados
+# <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utilizar o Apache Spark MLlib para criar uma aplicação de machine learning e analisar um conjunto de dados
 
-Saiba como utilizar o Spark [MLlib](https://spark.apache.org/mllib/) para criar uma aplicação de machine learning para fazer uma análise preditiva simple num conjunto de dados aberta. Da máquina incorporada do Spark bibliotecas de aprendizagem, este exemplo utiliza *classificação* por meio de regressão logística. 
+Saiba como utilizar o Apache Spark [MLlib](https://spark.apache.org/mllib/) para criar uma aplicação de machine learning para fazer uma análise preditiva simple num conjunto de dados aberta. Da máquina incorporada do Spark bibliotecas de aprendizagem, este exemplo utiliza *classificação* por meio de regressão logística. 
 
 > [!TIP]
-> Este exemplo também está disponível como um bloco de notas do Jupyter num cluster do Spark (Linux) que criar no HDInsight. A experiência de bloco de notas permite-lhe executar os fragmentos de Python do bloco de notas. Para seguir o tutorial a partir de um bloco de notas, crie um cluster do Spark e iniciar um bloco de notas do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Em seguida, execute o bloco de notas **Spark do Machine Learning - Análise Preditiva em dados de inspeção de comida usando MLlib.ipynb** sob a **Python** pasta.
+> Este exemplo também está disponível como um [bloco de notas do Jupyter](https://jupyter.org/) num cluster do Spark (Linux) que criar no HDInsight. A experiência de bloco de notas permite-lhe executar os fragmentos de Python do bloco de notas. Para seguir o tutorial a partir de um bloco de notas, crie um cluster do Spark e iniciar um bloco de notas do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Em seguida, execute o bloco de notas **Spark do Machine Learning - Análise Preditiva em dados de inspeção de comida usando MLlib.ipynb** sob a **Python** pasta.
 >
 >
 
@@ -47,7 +47,7 @@ Neste exemplo, utiliza o Spark para executar alguma Análise Preditiva em dados 
 
 Os passos abaixo, vai desenvolver um modelo para ver o que é necessário para aprovação ou reprovação uma inspeção de alimento.
 
-## <a name="create-a-spark-mllib-machine-learning-app"></a>Criar uma aplicação do Spark MLlib machine learning
+## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Criar uma aplicação do Apache Spark MLlib machine learning
 
 1. Crie um bloco de notas do Jupyter com o kernel de PySpark. Para obter as instruções, veja [Criar um bloco de notas do Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
@@ -178,7 +178,7 @@ Vamos começar a perceber o que contém o conjunto de dados.
     SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
     ```
 
-    O `%%sql` seguido de mágica `-o countResultsdf` garante que o resultado da consulta persistem localmente no servidor do Jupyter (normalmente, o nó principal do cluster). A saída é persistente como uma [Pandas](http://pandas.pydata.org/) dataframe com o nome especificado **countResultsdf**. Para obter mais informações sobre a magia `%%sql`, bem como sobre outras magias disponíveis com o kernel do PySpark, veja [Kernels disponíveis nos blocos de notas do Jupyter com clusters do Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    O `%%sql` seguido de mágica `-o countResultsdf` garante que o resultado da consulta persistem localmente no servidor do Jupyter (normalmente, o nó principal do cluster). A saída é persistente como uma [Pandas](http://pandas.pydata.org/) dataframe com o nome especificado **countResultsdf**. Para obter mais informações sobre o `%%sql` mágica e sobre outras magias disponíveis com o kernel do PySpark, consulte [Kernels disponíveis nos blocos de notas do Jupyter com clusters do Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     O resultado é:
 
@@ -385,19 +385,19 @@ Depois de terminar de executar a aplicação, deve encerrar o bloco de notas par
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](apache-spark-use-bi-tools.md)
-* [Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Análise de registos de sites com o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Análise de registos de Web site com o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações
 * [Criar uma aplicação autónoma com o Scala](apache-spark-create-standalone-application.md)
-* [Executar tarefas remotamente num cluster do Spark com o Livy](apache-spark-livy-rest-interface.md)
+* [Executar tarefas remotamente num cluster do Apache Spark com o Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 * [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicações do Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utilizar blocos de notas do Zeppelin com um cluster do Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o bloco de notas do Jupyter no cluster do Spark para o HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Utilizar o plug-in ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicações do Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Utilizar blocos de notas do Zeppelin do Apache com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels disponíveis para o bloco de notas do Jupyter no cluster do Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402765"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582501"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas mais frequentes sobre a análise de tráfego
 
@@ -30,7 +30,7 @@ Análise de tráfego requer os seguintes pré-requisitos:
 
 - Uma subscrição do observador de rede ativado.
 - Registos de fluxo do grupo de segurança de rede (NSG) ativados para os NSGs que pretende monitorizar.
-- Uma conta de armazenamento do Azure, para armazenar brutos flog registos.
+- Uma conta de armazenamento do Azure, para armazenar os registos de fluxo não processados.
 - Um trabalho de Log Analytics do Azure, com acesso de escrita e leitura.
 
 Sua conta tem de cumprir um dos seguintes procedimentos para ativar a análise de tráfego:
@@ -63,7 +63,38 @@ Se não está a ver quaisquer dados, contacte o administrador de subscrição re
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Na qual regiões estão a análise de tráfego disponíveis?
 
-Pode utilizar a análise de tráfego para NSGs em qualquer uma das seguintes regiões suportadas: e.u.a. centro-oeste, E.U.A. leste, E.U.A. Leste 2, e.u.a. Centro-Norte, Centro-Sul, E.U.A. Central, E.U.A. oeste, E.U.A. oeste 2, Europa Ocidental, Europa do Norte, oeste do Reino Unido, sul do Reino Unido, leste da Austrália, Sudeste da Austrália e Sudeste asiático. A área de trabalho do Log Analytics tem de existir a e.u.a. centro-oeste, E.U.A. leste, Europa Ocidental, sul do Reino Unido, Sudeste da Austrália ou a região do Sudeste asiático.
+Pode utilizar a análise de tráfego para NSGs em qualquer uma das seguintes regiões suportadas:
+- Canadá Central
+- EUA Centro-Oeste
+- EUA Leste
+- EUA Leste 2
+- EUA Centro-Norte
+- EUA Centro-Sul
+- EUA Central
+- EUA Oeste
+- EUA Oeste 2
+- Europa Ocidental
+- Europa do Norte
+- Sul do Brasil
+- Reino Unido Oeste
+- Reino Unido Sul
+- Leste da Austrália
+- Sudeste da Austrália 
+- Sudeste Asiático
+- Índia Central
+- Sul da Índia
+- Leste do Japão
+
+A área de trabalho do Log Analytics têm de existir nas seguintes regiões:
+- Canadá Central
+- EUA Centro-Oeste
+- EUA Leste
+- Europa Ocidental
+- Reino Unido Sul
+- Sudeste da Austrália
+- Sudeste Asiático 
+- Índia Central
+- Leste do Japão
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Pode os NSGs habilitar o fluxo de registos para estar em regiões diferentes do que a minha área de trabalho?
 
@@ -94,8 +125,8 @@ Selecione uma região suportada. Se selecionar uma região sem suporte, receber�
 O fornecedor de Microsoft. insights tem de estar registado para o flow logging funcione corretamente. Se não tiver a certeza se o fornecedor de Microsoft. insights está registado para a sua subscrição, substitua *xxxxx-xxxxx-xxxxxx-xxxx* no comando seguinte e execute os seguintes comandos do PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Configurei a solução. Por que não estou a ver nada no dashboard?

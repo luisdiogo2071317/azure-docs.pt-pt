@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 58f4827910d863aef14171574d40e4b3acfc04d9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037719"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498688"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Ativar capturas de área dinâmica para dados dos serviços de Apache Hadoop no HDInsight baseado em Linux
 
@@ -39,7 +39,7 @@ Também pode ativar os registos da área dinâmica para o mapa e reduzir process
 
 ## <a name="configuration"></a>Configuração de despejo de área dinâmica para dados de compreensão
 
-Registos da área dinâmica estão ativados por passar as opções (por vezes conhecida como opta ativamente por participar, ou parâmetros) para o JVM quando um serviço é iniciado. Para a maioria dos serviços do Hadoop, pode modificar o script de shell utilizado para iniciar o serviço para transmitir essas opções.
+Registos da área dinâmica estão ativados por passar as opções (por vezes conhecida como opta ativamente por participar, ou parâmetros) para o JVM quando um serviço é iniciado. Para a maioria [Apache Hadoop](https://hadoop.apache.org/) serviços, pode modificar o script de shell utilizado para iniciar o serviço para transmitir essas opções.
 
 Cada script, existe uma exportação para  **\* \_OPTS**, que contém as opções passadas para o JVM. Por exemplo, no **hadoop env.sh** script, a linha que começa com `export HADOOP_NAMENODE_OPTS=` contém as opções para o serviço de NameNode.
 
@@ -49,7 +49,7 @@ Mapa e redução processos são ligeiramente diferentes, como essas operações 
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> Recomendamos que utilize Apache Ambari para modificar os scripts e de definições de site mapred, como identificador de Ambari, a replicação de alterações em todos os nós do cluster. Consulte a [Ambari usando](#using-ambari) secção para obter passos específicos.
+> Recomendamos que utilize [Apache Ambari](https://ambari.apache.org/) para modificar os scripts e de definições de site mapred, como Ambari lidar com a replicação de alterações em todos os nós do cluster. Consulte a [utilizando o Apache Ambari](#using-apache-ambari) secção para obter passos específicos.
 
 ### <a name="enable-heap-dumps"></a>Ativar capturas de área dinâmica para dados
 
@@ -77,11 +77,11 @@ Também pode acionar um script quando uma **OutOfMemoryError** ocorre. Por exemp
     -XX:OnOutOfMemoryError=/path/to/script
 
 > [!NOTE]
-> Como o Hadoop é um sistema distribuído, qualquer script usado deve ser colocado em todos os nós do cluster que o serviço é executado no.
+> Como o Apache Hadoop é um sistema distribuído, qualquer script usado deve ser colocado em todos os nós do cluster que o serviço é executado no.
 > 
 > O script deve também estar numa localização acessível pela conta de serviço é executado como e tem de fornecer permissões de execução. Por exemplo, pode desejar armazenar scripts no `/usr/local/bin` e utilize `chmod go+rx /usr/local/bin/filename.sh` para conceder a leitura e permissões de execução.
 
-## <a name="using-ambari"></a>Com o Ambari
+## <a name="using-apache-ambari"></a>Com o Apache Ambari
 
 Para modificar a configuração para um serviço, utilize os seguintes passos:
 

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 44a2cb196e1a89b0abe229f478c0b76b146aa268
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567150"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620630"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
 
@@ -70,8 +70,6 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ```
 
 ### <a name="exporting-an-async-function"></a>Exportar uma função de async
-Ao usar o JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaração ou caso contrário, retornando um JavaScript [promessa](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (não disponível com as funções v1.x), não é explicitamente necessário chamar o [ `context.done` ](#contextdone-method) retorno de chamada para sinalizar que a função foi concluída. Sua função é concluída quando a função/promessa exportado assíncrona for concluída.
-
 Ao utilizar o [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaração ou JavaScript simples [promessas](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) versão 2.x do runtime das funções, não é necessário chamar explicitamente o [ `context.done` ](#contextdone-method) retorno de chamada para sinalizar que a função foi concluída. Sua função é concluída quando a função/promessa exportado assíncrona for concluída. Para as funções de direcionamento o tempo de execução do versão 1.x, deve chamar ainda [ `context.done` ](#contextdone-method) quando é feito o seu código em execução.
 
 O exemplo seguinte é uma função simples que regista o que ele foi acionado e imediatamente conclui a execução.

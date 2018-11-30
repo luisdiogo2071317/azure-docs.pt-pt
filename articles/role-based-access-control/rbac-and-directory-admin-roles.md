@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 5e32968ae83ef826fbc8e81f1b04eca687642343
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: 9fce35f811a4d2440ba73e4f305ede6891928069
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637673"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633287"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD
 
@@ -77,13 +77,13 @@ As restantes funções incorporadas permitem a gestão de recursos específicos 
 
 Apenas o portal do Azure e as APIs do Azure Resource Manager suportam o RBAC. Os utilizadores, grupos e aplicações com funções RBAC atribuídas não podem utilizar as [APIs do modelo de implementação clássica do Azure](../azure-resource-manager/resource-manager-deployment-model.md).
 
-No portal do Azure, as atribuições de funções através do RBAC aparecem no painel **Controlo de acesso (IAM)**. Este painel pode ser encontrado no portal, tais como subscrições, grupos de recursos e vários recursos.
+No portal do Azure, as atribuições de funções através do RBAC aparecem no painel **Controlo de acesso (IAM)**. Neste painel pode encontradas em todo o portal, como grupos de gestão, subscrições, grupos de recursos e vários recursos.
 
-![Painel de controlo de acesso (IAM) no portal do Azure](./media/rbac-and-directory-admin-roles/access-control.png)
+![Painel de controlo de acesso (IAM) no portal do Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
 Quando clicar na opção **Funções**, verá a lista de funções incorporadas e personalizadas.
 
-![Funções incorporadas no portal do Azure](./media/rbac-and-directory-admin-roles/built-in-roles.png)
+![Funções incorporadas no portal do Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
 
 ## <a name="azure-ad-administrator-roles"></a>Funções de administrador do Azure AD
 
@@ -120,7 +120,7 @@ Várias funções de administrador do Azure AD expandem-se ao Azure AD e ao Micr
 
 ![RBAC do Azure em comparação com as funções de administrador do Azure AD](./media/rbac-and-directory-admin-roles/azure-office-roles.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [O que é o controlo de acesso baseado em funções (RBAC)?](overview.md)
 - [Atribuir funções de administrador no Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)

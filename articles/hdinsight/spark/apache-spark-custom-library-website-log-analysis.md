@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 9aca0e7e6f8d8a0d93ee8a0074c288452061e0a6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 26ee51da0065b15191c6a02bcd10597c1190dd0a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008849"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497286"
 ---
-# <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Analisar registos de sites com uma biblioteca de Python personalizada com o cluster do Spark no HDInsight
+# <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analisar registos de sites com uma biblioteca de Python personalizada com o cluster do Apache Spark no HDInsight
 
-Este bloco de notas demonstra como analisar dados de registo utilizando uma biblioteca personalizada com o Spark no HDInsight. A biblioteca personalizada, podemos usar é uma biblioteca de Python chamada **iislogparser.py**.
+Este bloco de notas demonstra como analisar dados de registo utilizando uma biblioteca personalizada com Apache Spark no HDInsight. A biblioteca personalizada, podemos usar é uma biblioteca de Python chamada **iislogparser.py**.
 
 > [!TIP]
 > Este tutorial também está disponível como um bloco de notas do Jupyter num cluster do Spark (Linux) que criar no HDInsight. A experiência de bloco de notas permite-lhe executar os fragmentos de Python do bloco de notas. Para executar o tutorial a partir de um bloco de notas, crie um cluster do Spark, iniciar um bloco de notas do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), e, em seguida, execute o bloco de notas **analisar registos com o Spark com um library.ipynb personalizado** sob o **PySpark**  pasta.
@@ -36,7 +36,7 @@ Tem de ter o seguinte:
 ## <a name="save-raw-data-as-an-rdd"></a>Guardar os dados não processados como uma RDD
 Nesta secção, vamos utilizar o [Jupyter](https://jupyter.org) associado a um cluster do Apache Spark no HDInsight para executar tarefas que processam os dados de exemplo em bruto e salvá-la como uma tabela do Hive do bloco de notas. Os dados de exemplo são um ficheiro. csv (Hvac) disponível em todos os clusters por predefinição.
 
-Assim que os seus dados são guardados como uma tabela do Hive, na secção seguinte, irá ligar à tabela do Hive através de ferramentas de BI como o Power BI e o Tableau.
+Assim que os seus dados são guardados como uma tabela do Apache Hive, na secção seguinte, irá ligar à tabela do Hive através de ferramentas de BI como o Power BI e o Tableau.
 
 1. No [portal do Azure](https://portal.azure.com/), no startboard, clique no mosaico relativo ao cluster do Spark (se o tiver afixado ao startboard). Também pode navegar até ao cluster em **Procurar Tudo** > **Clusters do HDInsight**.   
 2. No painel do cluster do Spark, clique em **Dashboard de Clusters** e, em seguida, clique em **Bloco de Notas do Jupyter**. Se lhe for solicitado, introduza as credenciais de administrador do cluster.
@@ -202,19 +202,19 @@ Assim que os seus dados são guardados como uma tabela do Hive, na secção segu
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](apache-spark-use-bi-tools.md)
-* [Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações
 * [Criar uma aplicação autónoma com o Scala](apache-spark-create-standalone-application.md)
-* [Executar tarefas remotamente num cluster do Spark com o Livy](apache-spark-livy-rest-interface.md)
+* [Executar tarefas remotamente num cluster do Apache Spark com o Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
-* [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicações do Spark remotamente](../hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utilizar blocos de notas do Zeppelin com um cluster do Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o bloco de notas do Jupyter no cluster do Spark para o HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Utilizar o plug-in ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Apache Spark Scala](apache-spark-intellij-tool-plugin.md)
+* [Utilizar o plug-in ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicações do Apache Spark remotamente](../hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Utilizar blocos de notas do Zeppelin do Apache com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels disponíveis para o bloco de notas do Jupyter no cluster do Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 

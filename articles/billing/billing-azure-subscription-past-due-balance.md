@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 3dd624d7de4c30bfd84421d691695b723bd12d1d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 19fd83f19a8eb8c24beeade650544fbe03ca5b6a
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274608"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580956"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Resolver em atraso saldo para a sua subscrição do Azure após obter uma mensagem de e-mail do Azure
 
@@ -48,6 +48,6 @@ Se for o administrador de conta [que endereço de e-mail é utilizado para notif
 
 O serviço é cancelado e seus recursos já não estão disponíveis. Seus dados do Azure são eliminados 90 dias após o serviço é encerrado. Para obter mais informações, consulte [Microsoft Trust Center - como podemos gerir os seus dados](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

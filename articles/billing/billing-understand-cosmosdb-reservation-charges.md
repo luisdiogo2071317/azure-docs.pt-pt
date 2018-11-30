@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: cwatson
 ms.reviewer: sngun
-ms.openlocfilehash: 5b15b5f8188f2077b3e9cb17ab3794e881a4deb3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: de7b0a2746c79242cb6538595ca3205455a2cc5c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353443"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582754"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Compreender como o desconto de reserva é aplicado ao Azure Cosmos DB
 
@@ -62,9 +62,9 @@ O desconto de reserva é aplicado aos custos de débito do Azure Cosmos DB com b
 |Azure Cosmos DB - 100 RU/s/hora - Canadá Central|  Canadá Central       |   1.2       |
 |Azure Cosmos DB - 100 RU/s/hora - França Central|   FR Central      |    1,25      |
 |Sul do Brasil do Azure Cosmos DB - 100 RU/s/hora-|  Sul BR       |   1.5      |
-|Azure Cosmos DB - 100 RU/s/hora - Austrália Central|   Austrália Central      |   1.5      |
-|Azure Cosmos DB - 100 RU/s/hora - Austrália Central 2| Austrália Central 2        |    1.5     |
-|Sul de França - 100 RU/s/hora - Azure Cosmos DB|    Sul da França     |    1.625     |
+|Azure Cosmos DB - 100 RU/s/hora - Austrália Central|   AU Central      |   1.5      |
+|Azure Cosmos DB - 100 RU/s/hora - Austrália Central 2| AU Central 2        |    1.5     |
+|Sul de França - 100 RU/s/hora - Azure Cosmos DB|    FR Sul     |    1.625     |
 
 ## <a name="scenarios-that-show-how-the-reservation-discount-is-applied"></a>Cenários que demonstram como o desconto de reserva é aplicado
 
@@ -92,8 +92,8 @@ Por exemplo, suponha que precisa de implementações do Azure Cosmos DB nas regi
 
 |Descrição de medidor | Região |Consumo de débito (RU/s) |Desconto de reserva aplicado para RU/s |
 |---------|---------|---------|---------|
-|Azure Cosmos DB - 100 RU/s/hora - Austrália Central 2  |  Austrália Central 2   |  50,000  |  50,000   |
-|Sul de França - 100 RU/s/hora - Azure Cosmos DB  |  Sul da França   |  50,000 |  15,384  |
+|Azure Cosmos DB - 100 RU/s/hora - Austrália Central 2  |  AU Central 2   |  50,000  |  50,000   |
+|Sul de França - 100 RU/s/hora - Azure Cosmos DB  |  FR Sul   |  50,000 |  15,384  |
 
 Uma utilização de 50 000 unidades na região Central 2 de AU corresponde a 75.000 RU/s de utilização faturável (ou utilização normalizada). Este valor é computado como: o consumo de débito * reservation_discount_ratio_for_that_region. A computação é igual a 75.000 RU/s de utilização cobrar ou normalizada. Este valor é computado como: 50 000 * 1.5 = 75,000 RU/s.
 
@@ -115,7 +115,7 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 * [Compreender a utilização de reserva para inscrição da sua empresa](../billing/billing-understand-reserved-instance-usage-ea.md)  
 * [Compreender a utilização de reserva para subscrições de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se ainda tiver mais perguntas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: ee73cb3164ce59136dd268853b8caa967a6f42e9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 176e282a53c19e303fd06629a0045a79fd200dea
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393389"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580376"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Compreender a forma como um desconto de reserva do Azure é aplicado às bases de dados SQL
 
@@ -28,7 +28,7 @@ Para as instâncias de Máquina Virtual reservadas, consulte [compreender Azure 
 
 ## <a name="reservation-discount-applied-to-sql-databases"></a>Desconto de reserva aplicado a bases de dados SQL
 
- O desconto de capacidade de reserva de base de dados SQL é aplicado à execução de bases de dados SQL numa base horária. A reserva que adquirir é correspondida à utilização de computação emitida por bancos de dados SQL em execução. Para bases de dados SQL que não são executados a hora completa, a reserva é automaticamente aplicada às outras bases de dados do SQL que correspondem os atributos de reserva. O desconto pode aplicar a bases de dados do SQL que estão em execução em simultâneo. Se não tiver bases de dados SQL que são executadas durante a hora completa que correspondem os atributos de reserva, não obtém todos os benefícios do desconto de reserva para essa hora.
+ O desconto de capacidade de reserva de base de dados SQL é aplicado à execução de bases de dados SQL numa base horária. A reserva que adquirir é correspondida à utilização de computação emitida por bancos de dados SQL em execução. No caso das Bases de Dados SQL que não são executadas durante horas completas, a reserva é automaticamente aplicada a outras Bases de Dados SQL que correspondam aos atributos da reserva. O desconto pode aplicar a bases de dados do SQL que estão em execução em simultâneo. Se não tiver bases de dados SQL que são executadas durante a hora completa que correspondem os atributos de reserva, não obtém todos os benefícios do desconto de reserva para essa hora.
 
 Os exemplos seguintes mostram como o desconto de capacidade de reserva de base de dados SQL aplica-se consoante o número de núcleos comprou e, quando estiver em execução.
 
@@ -47,14 +47,13 @@ Para compreender e ver a aplicação das reservas de Azure no relatórios de uti
 Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
 - [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
-- [Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados](../sql-database/sql-database-reserved-capacity.md)
+- [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)
 - [Compreender a utilização de reserva para subscrições de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
-
-Se ainda tiver mais perguntas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

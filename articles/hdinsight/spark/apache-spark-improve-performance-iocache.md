@@ -7,16 +7,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 3616183b5ea34b8a14712d2c449de87950443111
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954510"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581940"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Melhorar o desempenho de cargas de trabalho do Apache Spark com o Azure HDInsight e/s de Cache (pré-visualização)
 
-Cache de e/s é um serviço de colocação em cache de dados para o Azure HDInsight, que melhora o desempenho das tarefas do Apache Spark. Cache de e/s também funciona com e ao Hive no Tez cargas de trabalho, que podem ser executadas em clusters do Spark. E/s de Cache utiliza um componente de colocação em cache de código-fonte aberto chamado RubiX. RubiX é uma cache de disco local para utilização com motores de análise de macrodados que aceder a dados de sistemas de armazenamento na cloud. RubiX é exclusivo entre sistemas, a colocação em cache, porque utiliza Solid-State unidades (SSDs) em vez de reserva de memória operacionais para fins de colocação em cache. O serviço de Cache de e/s inicia e gere RubiX metadados servidores em cada nó de trabalho do cluster. Ele também configura todos os serviços do cluster para utilização transparente de RubiX cache.
+Cache de e/s é um serviço de colocação em cache de dados para o Azure HDInsight, que melhora o desempenho das tarefas do Apache Spark. Cache de e/s também funciona com [Apache TEZ](https://tez.apache.org/) e [Apache Hive](https://hive.apache.org/) cargas de trabalho, que podem ser executadas no [Apache Spark](https://spark.apache.org/) clusters. E/s de Cache utiliza um componente de colocação em cache de código-fonte aberto chamado RubiX. RubiX é uma cache de disco local para utilização com motores de análise de macrodados que aceder a dados de sistemas de armazenamento na cloud. RubiX é exclusivo entre sistemas, a colocação em cache, porque utiliza Solid-State unidades (SSDs) em vez de reserva de memória operacionais para fins de colocação em cache. O serviço de Cache de e/s inicia e gere RubiX metadados servidores em cada nó de trabalho do cluster. Ele também configura todos os serviços do cluster para utilização transparente de RubiX cache.
 
 A maioria dos SSDs fornecem mais do que 1 GByte por segundo de largura de banda. Essa largura de banda, complementada pela cache de ficheiros de dentro da memória do sistema operativo, fornece a largura de banda suficiente para carregar os motores de processamento de computação de grandes volumes de dados, como o Apache Spark. A memória operacional fica disponível para o Apache Spark processar tarefas de bastante dependente de memória, como shuffles. Ter uso exclusivo de operar memória permite o Apache Spark alcançar a utilização de recursos ideal.  
 
@@ -52,7 +52,7 @@ A Cache de e/s do Azure HDInsight é desativada por predefinição em pré-visua
   
 Poderá receber erros de espaço em disco com o Spark tarefas depois de ativar a Cache de e/s. Estes erros ocorrerem porque o Spark também utiliza o armazenamento de disco local para armazenar dados durante operações de descarte. Spark poderá ficar sem espaço de SSD, depois de e/s de Cache está ativada e o espaço de armazenamento do Spark é reduzido o limite de tempo. A quantidade de espaço utilizado por padrões de e/s de Cache para metade do total de espaço SSD. A utilização de espaço em disco para a Cache de e/s pode ser configurada no Ambari. Se obtiver erros no espaço em disco, reduzir a quantidade de espaço SSD, utilizado para a Cache de e/s e reinicie o serviço. Para alterar o espaço em Cache de e/s, siga os passos abaixo:
 
-1. No Ambari, selecione o **HDFS** serviço à esquerda.
+1. No Apache Ambari, selecione o **HDFS** serviço à esquerda.
 
 1. Selecione o **configurações** e **avançadas** separadores.
 

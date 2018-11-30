@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4fba078487f99347804362a888bcc2c33dde1ef
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4fd36d58574b60e3e6351cba03c68b9217bc703d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715814"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632471"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Conceber e criar uma solução de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -42,16 +42,16 @@ O padrão mais comuns para uma solução de gestão é mostrado no diagrama segu
 
 
 ### <a name="data-sources"></a>Origens de dados
-A primeira etapa na criação de uma solução é determinar os dados que necessita a partir do repositório do Log Analytics.  Estes dados podem ser recolhidos por um [origem de dados](../../log-analytics/log-analytics-data-sources.md) ou [outra solução]( solutions.md), ou a sua solução talvez seja necessário fornecer o processo de recolha-lo.
+A primeira etapa na criação de uma solução é determinar os dados que necessita a partir do repositório do Log Analytics.  Estes dados podem ser recolhidos por um [origem de dados](../../azure-monitor/platform/agent-data-sources.md) ou [outra solução]( solutions.md), ou a sua solução talvez seja necessário fornecer o processo de recolha-lo.
 
-Existem várias maneiras de origens de dados que podem ser recolhidas no repositório do Log Analytics, conforme descrito em [origens de dados no Log Analytics](../../log-analytics/log-analytics-data-sources.md).  Isto inclui eventos no registo de eventos do Windows ou gerado pelo Syslog, além de contadores de desempenho, para clientes Windows e Linux.  Também pode recolher dados dos recursos do Azure recolhidos pelo Monitor do Azure.  
+Existem várias maneiras de origens de dados que podem ser recolhidas no repositório do Log Analytics, conforme descrito em [origens de dados no Log Analytics](../../azure-monitor/platform/agent-data-sources.md).  Isto inclui eventos no registo de eventos do Windows ou gerado pelo Syslog, além de contadores de desempenho, para clientes Windows e Linux.  Também pode recolher dados dos recursos do Azure recolhidos pelo Monitor do Azure.  
 
 Se necessitar de dados que não são acessíveis através de qualquer uma das origens de dados disponíveis, em seguida, pode utilizar o [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) que permite-lhe escrever dados para o repositório do Log Analytics a partir de qualquer cliente que pode chamar uma API REST.  Os meios mais comuns de recolha de dados personalizados numa solução de gestão de consiste em criar uma [runbook na automatização do Azure](../../automation/automation-runbook-types.md) que recolhe os dados necessários a partir dos recursos do Azure ou externos e utiliza a API de Recoletor de dados para escrever o repositório.  
 
 ### <a name="log-searches"></a>Pesquisas de registos
 [Pesquisas de registos](../../log-analytics/log-analytics-queries.md) são usados para extrair e analisar dados no repositório do Log Analytics.  São utilizados pelas vistas e alertas, além de permitir que o usuário execute análise ad hoc de dados no repositório.  
 
-Deve definir todas as consultas que acredita que serão úteis para os utilizadores, mesmo que eles não são utilizados por quaisquer vistas ou alertas.  Estes vão estar disponíveis a eles como pesquisas guardadas no portal e também pode incluir os mesmos num [parte de visualização de lista de consultas](../../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) na vista personalizada.
+Deve definir todas as consultas que acredita que serão úteis para os utilizadores, mesmo que eles não são utilizados por quaisquer vistas ou alertas.  Estes vão estar disponíveis a eles como pesquisas guardadas no portal e também pode incluir os mesmos num [parte de visualização de lista de consultas](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) na vista personalizada.
 
 ### <a name="alerts"></a>Alertas
 [Alertas do Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) identificar problemas através de [pesquisas de registos](#log-searches) relativamente aos dados no repositório.  Eles ou notificar o utilizador ou executam automaticamente uma ação em resposta. Deve identificar diferentes condições de alerta para a sua aplicação e incluir regras de alerta correspondentes no seu ficheiro de solução.
@@ -61,9 +61,9 @@ Se o problema potencialmente pode ser corrigido com um processo automatizado, no
 Se sua solução requer funcionalidade externa em resposta a um alerta, em seguida, pode utilizar um [resposta do webhook](../../monitoring-and-diagnostics/alert-metric.md).  Isto permite-lhe chamar um serviço web externo enviar informações a partir do alerta.
 
 ### <a name="views"></a>Vistas
-Vistas no Log Analytics são utilizadas para visualizar dados do repositório do Log Analytics.  Cada solução normalmente irá conter uma única vista com um [mosaico](../../log-analytics/log-analytics-view-designer-tiles.md) que é apresentado no dashboard principal do usuário.  A vista pode conter qualquer número de [partes de visualização](../../log-analytics/log-analytics-view-designer-parts.md) para fornecer visualizações diferentes dos dados recolhidos para o usuário.
+Vistas no Log Analytics são utilizadas para visualizar dados do repositório do Log Analytics.  Cada solução normalmente irá conter uma única vista com um [mosaico](../../azure-monitor/platform/view-designer-tiles.md) que é apresentado no dashboard principal do usuário.  A vista pode conter qualquer número de [partes de visualização](../../azure-monitor/platform/view-designer-parts.md) para fornecer visualizações diferentes dos dados recolhidos para o usuário.
 
-[Criar vistas personalizadas com o estruturador de vista](../../log-analytics/log-analytics-view-designer.md) que mais tarde, pode exportar para inclusão no seu ficheiro de solução.  
+[Criar vistas personalizadas com o estruturador de vista](../../azure-monitor/platform/view-designer.md) que mais tarde, pode exportar para inclusão no seu ficheiro de solução.  
 
 
 ## <a name="create-solution-file"></a>Criar ficheiro de solução

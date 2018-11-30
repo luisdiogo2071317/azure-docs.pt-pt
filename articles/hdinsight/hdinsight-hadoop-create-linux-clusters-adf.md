@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 76651874951255d9b01efdc6e91892f6852d948d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 1e55da981daf29aca491c480d58f399bc681fd27
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036381"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499553"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters do Apache Hadoop a pedido no HDInsight com o Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Neste artigo, saiba como criar um cluster do Apache Hadoop, a pedido, no HDInsight do Azure com o Azure Data Factory. Utilize, em seguida, pipelines de dados no Azure Data Factory para executar tarefas do Hive e eliminar o cluster. No final deste tutorial, irá aprender a operacionalizar um trabalho de grandes volumes de dados, executar em que a criação do cluster, a execução de tarefa e a exclusão de cluster são executadas com base numa agenda.
+Neste artigo, irá aprender a criar uma [Apache Hadoop](https://hadoop.apache.org/) cluster, a pedido, no HDInsight do Azure com o Azure Data Factory. Utilize, em seguida, pipelines de dados no Azure Data Factory para executar tarefas do Hive e eliminar o cluster. No final deste tutorial, irá aprender a operacionalizar um trabalho de grandes volumes de dados, executar em que a criação do cluster, a execução de tarefa e a exclusão de cluster são executadas com base numa agenda.
 
 Este tutorial abrange as seguintes tarefas: 
 
@@ -43,7 +43,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
 
-Nesta secção, vai criar uma conta de armazenamento que será utilizada como armazenamento predefinido para o cluster do HDInsight que cria a pedido. Esta conta de armazenamento também contém o exemplo de script de HiveQL (**hivescript. hql**) que usar para simular uma tarefa do Hive de exemplo que é executada no cluster.
+Nesta secção, vai criar uma conta de armazenamento que será utilizada como armazenamento predefinido para o cluster do HDInsight que cria a pedido. Esta conta de armazenamento também contém o exemplo [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script (**hivescript. hql**) que usar para simular uma amostra [Apache Hive](https://hive.apache.org/) tarefa que é executada no cluster.
 
 Esta secção utiliza um script do Azure PowerShell para criar a conta de armazenamento e copie os ficheiros necessários na conta de armazenamento. O script de exemplo do Azure PowerShell nesta secção, executa as seguintes tarefas:
 
@@ -338,7 +338,7 @@ Em alternativa, pode eliminar o grupo de recursos inteiro que criou para este tu
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu a utilizar o Azure Data Factory para criar o cluster de HDInsight a pedido e executar tarefas do Hive. Avance para o artciel seguinte para saber como criar clusters do HDInsight com configuração personalizada.
+Neste artigo, aprendeu a utilizar o Azure Data Factory para criar o cluster do HDInsight e executar a pedido [Apache Hive](https://hive.apache.org/) tarefas. Avance para o artciel seguinte para saber como criar clusters do HDInsight com configuração personalizada.
 
 > [!div class="nextstepaction"]
 >[Criar clusters do HDInsight do Azure com configuração personalizada](hdinsight-hadoop-provision-linux-clusters.md)

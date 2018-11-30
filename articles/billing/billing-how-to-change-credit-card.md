@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 0db76d7133e28a0826d9ff07cefe02134cd95a47
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 69c24e08ce2434c39b8bb67cb53173f9ceaee51b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274485"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581447"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito ou débito para o Azure
 
@@ -102,6 +102,6 @@ Infelizmente, o Azure atualmente não suporta pagamentos de uso individual para 
 
 Para adicionar ou atualizar o ID de imposto, visite [ **perfil** no Centro de contas do Azure](https://account.azure.com/Profile), em seguida, selecione **imposto sobre vendas registo**. O NIF é utilizado para cálculos de isenção fiscal e é apresentado na sua fatura.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

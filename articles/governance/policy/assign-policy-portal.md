@@ -1,5 +1,5 @@
 ---
-title: Criar uma atribuição de política para identificar recursos incompatíveis no seu ambiente do Azure
+title: Criar uma atribuição de política para identificar recursos incompatíveis no Azure
 description: Este artigo explica os passos para criar uma definição de política para identificar recursos incompatíveis.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 60b8663c5b465fecd3275def7d1e85f4511a23e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: ee22208f9f55840b80392ef2b0a9fce0da4c4db7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954267"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584694"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Criar uma atribuição de política para identificar recursos incompatíveis no seu ambiente do Azure
 
@@ -41,11 +41,11 @@ Neste guia de introdução, vai criar uma atribuição de política e atribuir a
 
    ![Atribuir uma definição de política](./media/assign-policy-portal/select-assign-policy.png)
 
-1. Na página **Atribuir Política**, selecione o **Âmbito** com um clique nas reticências e selecionando um grupo de recursos ou uma subscrição. Opcionalmente, selecione um grupo de recursos. Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta.  Em seguida, clique em **Selecionar** na parte inferior da página **Âmbito**.
+1. Na página **Atribuir Política**, selecione **Âmbito** ao clicar no botão de reticências e ao selecionar um grupo de gestão ou uma subscrição. Opcionalmente, selecione um grupo de recursos. Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta.  Em seguida, clique em **Selecionar** na parte inferior da página **Âmbito**.
 
-   Este exemplo utiliza a subscrição **Contoso**. A sua subscrição vai ser diferente.
+   Este exemplo utiliza a subscrição da **Contoso**. A sua subscrição vai ser diferente.
 
-1. É possível excluir recursos com base no **Âmbito**.  As **Exclusões** começam num nível abaixo do nível do **Âmbito**. As **Exclusões** são opcionais, por isso deixe este campo em branco, por enquanto.
+1. Os recursos podem ser excluídos com base no **Âmbito**.  As **Exclusões** começam num nível inferior ao nível do **Âmbito**. As **Exclusões** são opcionais. Por isso, deixe-as em branco por enquanto.
 
 1. Selecione as reticências de **Definição de política** para abrir a lista de definições disponíveis. O Azure Policy já inclui as definições de política incorporadas que pode utilizar. Existem muitas disponíveis, como:
 
@@ -61,7 +61,7 @@ Neste guia de introdução, vai criar uma atribuição de política e atribuir a
 
 1. O **Nome da atribuição** é automaticamente preenchido com o nome da política que selecionou, mas pode alterá-lo. Neste exemplo, vamos deixar *Auditar VMs que não utilizam discos geridos*. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre esta atribuição de política. **Atribuído por** será preenchido automaticamente com base em quem tem sessão iniciada. Este campo é opcional,por isso pode introduzir valores personalizados.
 
-1. Deixe o campo **Criar uma Identidade Gerida** desmarcado. Este campo _tem_ de estar selecionado quando a política ou iniciativa que está a ser atribuída inclui uma política com o efeito [deployIfNotExists](./concepts/effects.md#deployifnotexists). Uma vez que a política utilizada neste início rápido não inclui, deixe o campo em branco. Para obter mais informações, consulte [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de remediação](./how-to/remediate-resources.md#how-remediation-security-works).
+1. Não marque o campo **Criar uma Identidade Gerida**. Este campo _tem_ de estar selecionado quando a política ou iniciativa que está a ser atribuída inclui uma política com o efeito [deployIfNotExists](./concepts/effects.md#deployifnotexists). Uma vez que a política utilizada neste início rápido não inclui, deixe o campo em branco. Para obter mais informações, veja [identidades geridas](../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de remediação](./how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Clique em **Atribuir**.
 
@@ -96,7 +96,7 @@ Outros guias desta coleção têm por base este guia de introdução. Se quiser 
 
    ![Eliminar uma atribuição](./media/assign-policy-portal/delete-assignment.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, atribuiu uma definição de política a um âmbito e avaliou o respetivo relatório de conformidade. A definição de política garante que todos os recursos no âmbito estão em conformidade e identifica quais não estão.
 

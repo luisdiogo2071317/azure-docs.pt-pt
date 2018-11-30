@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956627"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584626"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerir scripts do anteriores e post (pré-visualização)
 
@@ -220,8 +220,6 @@ if ($summary.Type -eq "Error")
 ## <a name="known-issues"></a>Problemas conhecidos
 
 * Não é possível passar objetos ou matrizes para parâmetros ao utilizar scripts de pré e post. O runbook irá falhar.
-* Runbooks publicados não são apresentados como selecionável ao escolher um script de pré ou post. Apenas os runbooks publicados deve ser selecionados como runbooks não publicada não é possível invocar e irá falhar.
-* Adicionado a uma implementação através de computadores [grupos dinâmicos (pré-visualização)](automation-update-management.md#using-dynamic-groups) não fazem atualmente parte dos **SoftwareUpdateConfigurationRunContext** parâmetro que é passado para scripts de pré e post.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

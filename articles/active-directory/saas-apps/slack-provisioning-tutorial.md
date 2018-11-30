@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 83155e448f350618446fb22bf52e831b1cc8d499
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 74bfd49fd69353e95a275f31fa0bba9e9b558227
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636548"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632930"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar o Slack para aprovisionamento automático de utilizadores
 
@@ -113,6 +113,14 @@ Este resultado em qualquer objeto de grupo atribuído a Slack no **utilizadores 
 
 Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
 
+## <a name="connector-limitations"></a>Limitações de conector
+
+  * Durante a configuração do Slack **displayName** atributo, lembre-se dos seguintes comportamentos: 
+  * Os valores não são totalmente exclusivos (por exemplo, os 2 utilizadores podem ter o mesmo nome a apresentar)
+  * Suporta carateres não ingleses, espaços, uso. 
+  * Punctuations permitidos são pontos finais, carateres de sublinhado, hífenes, apóstrofos, parênteses Retos (por exemplo, **([{}])**) e os separadores (por exemplo, **, /;**).
+  * Apenas atualiza se estas duas definições estão configuradas na área de trabalho/organização do Slack - **perfil a sincronização está ativada** e **os utilizadores não é possível alterar o nome a apresentar**.
+  * Do Slack **nome de utilizador** atributo tem de ser em 21 carateres e ter um valor exclusivo. 
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

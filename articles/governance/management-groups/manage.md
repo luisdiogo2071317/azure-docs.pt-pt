@@ -5,17 +5,17 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 627ef0123f05e768dd8a83c197b25da7f161a37c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.topic: conceptual
+ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853001"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582422"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os recursos com grupos de gestão
 
@@ -272,12 +272,26 @@ Utilize o comando de atualização para mover um grupo de gestão com a CLI do A
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
+## <a name="audit-management-groups-using-activity-logs"></a>Grupos de gestão de auditoria com os registos de atividade
+
+Para controlar os grupos de gestão através desta API, utilize o [API do Log de atividade de inquilino](/rest/api/monitor/tenantactivitylogs). Atualmente não é possível utilizar o PowerShell, CLI ou o portal do Azure para monitorizar a atividade de grupos de gestão.
+
+1. Como administrador de inquilinos do inquilino do Azure AD, [elevar o acesso](../../role-based-access-control/elevate-access-global-admin.md) , em seguida, atribuir uma função de leitor ao utilizador auditoria sobre o âmbito `/providers/microsoft.insights/eventtypes/management`.
+1. Como o utilizador de auditoria, chamar o [API do Log de atividade de inquilino](/rest/api/monitor/tenantactivitylogs) para ver as atividades de grupo de gestão. Vai querer filtrar pelo fornecedor de recursos **Microsoft.Management** para todas as atividades de grupo de gestão.  Exemplo:
+
+```xml
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> Convenientemente chamar esta API a partir da linha de comandos, experimente [ARMClient](https://github.com/projectkudu/ARMClient).
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre os grupos de gestão, veja:
 
-- [Organizar os recursos com grupos de gestão do Azure](overview.md)
 - [Criar grupos de gestão para organizar recursos do Azure](create.md)
-- [Instalar o módulo Azure Powershell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Rever as Especificações da API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Instalar a extensão CLI do Azure](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Como alterar, eliminar ou gerir os seus grupos de gestão](manage.md)
+- [Reveja os grupos de gestão no módulo de recursos do Azure PowerShell](https://aka.ms/mgPSdocs)
+- [Reveja os grupos de gestão na REST API](https://aka.ms/mgAPIdocs)
+- [Reveja os grupos de gestão na CLI do Azure](https://aka.ms/mgclidoc)

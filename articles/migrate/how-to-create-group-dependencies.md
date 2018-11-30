@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 352ff105f5cd443fba74e05ebce22c14f08e63a0
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: d79513569b53d2b8958f44fbfac3839c91caaff8
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823678"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634307"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo com o mapeamento de grupo de dependência
 
@@ -39,7 +39,7 @@ Para aproveitar a visualização de dependências, precisa associar área de tra
 > Não é possível alterar a área de trabalho associada a um projeto de migração.
 
 ### <a name="download-and-install-the-vm-agents"></a>Transferir e instalar os agentes da VM
-Para ver as dependências de um grupo, terá de transferir e instalar agentes em cada máquina no local que faz parte do grupo. Além disso, se tiver máquinas sem conectividade internet, terá de transferir e instalar [gateway do Log Analytics](../log-analytics/log-analytics-oms-gateway.md) nos mesmos.
+Para ver as dependências de um grupo, terá de transferir e instalar agentes em cada máquina no local que faz parte do grupo. Além disso, se tiver máquinas sem conectividade internet, terá de transferir e instalar [gateway do Log Analytics](../azure-monitor/platform/gateway.md) nos mesmos.
 
 1. Na **descrição geral**, clique em **gerir** > **grupos**, vá para o grupo de necessário.
 2. Na lista de máquinas, no **agente de dependência** coluna, clique em **requer instalação** para ver instruções sobre como transferir e instalar os agentes.

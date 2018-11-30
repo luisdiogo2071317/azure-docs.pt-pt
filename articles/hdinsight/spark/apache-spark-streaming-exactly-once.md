@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241324"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581005"
 ---
-# <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Criar tarefas de transmissão em fluxo do Spark com exatamente-uma vez o evento de processamento
+# <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Criar tarefas do Apache Spark Streaming com exatamente-uma vez o evento de processamento
 
 Aplicações de processamento de Stream tomar diferentes abordagens para como eles lidam com mensagens de processamento novamente após alguns falha no sistema:
 
@@ -25,7 +25,7 @@ Aplicações de processamento de Stream tomar diferentes abordagens para como el
 
 Este artigo mostra-lhe como configurar a transmissão em fluxo do Spark para obter exatamente-processamento uma vez.
 
-## <a name="exactly-once-semantics-with-spark-streaming"></a>Exatamente-uma vez semântica com transmissão em fluxo do Spark
+## <a name="exactly-once-semantics-with-apache-spark-streaming"></a>Exatamente-uma vez semântica com o Apache Spark Streaming
 
 Em primeiro lugar, considere como a todos os pontos de falha de sistema reiniciar depois de ter um problema e como pode evitar a perda de dados. Uma aplicação de transmissão em fluxo do Spark tem:
 
@@ -41,11 +41,11 @@ Exatamente-assim que a semântica de exige que não se perdem a qualquer momento
 
 A aplicação de transmissão em fluxo do Spark está a ler os eventos de origem tem de ser *replayable*. Isso significa que em casos em que a mensagem foi obtida, em seguida, o sistema falha antes da mensagem pode ser persistente ou processada, mas, a origem tem de fornecer a mesma mensagem novamente.
 
-No Azure, os Hubs de eventos do Azure e o Kafka no HDInsight fornecem replayable origens. Outro exemplo de uma origem replayable é um sistema de ficheiros tolerante a falhas, como o HDFS, blobs de armazenamento do Azure, ou do Azure Data Lake Store, onde todos os dados são mantidos para sempre e em qualquer momento pode ser lidos novamente os dados em sua totalidade.
+No Azure, ambos os Hubs de eventos e [Apache Kafka](https://kafka.apache.org/) no HDInsight fornecem replayable origens. Outro exemplo de uma origem replayable é um sistema de ficheiros tolerante a falhas, como [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), blobs de armazenamento do Azure ou do Azure Data Lake Store, onde todos os dados são mantidos para sempre e em qualquer ponto novamente pode ler os dados em sua totalidade.
 
 ### <a name="reliable-receivers"></a>Recetores fiáveis
 
-No Spark Streaming, origens, como os Hubs de eventos e Kafka têm *recetores fiáveis*, onde cada destinatário mantém o controle do seu progresso a origem de leitura. Um recetor fiável persiste o estado para o armazenamento tolerante a falhas, dentro do ZooKeeper ou em pontos de verificação Spark Streaming escritos no HDFS. Se um destinatário tal falhar e posterior reiniciado, pode escolher onde parou.
+No Spark Streaming, origens, como os Hubs de eventos e Kafka têm *recetores fiáveis*, onde cada destinatário mantém o controle do seu progresso a origem de leitura. Um recetor fiável persistir o estado para o armazenamento tolerante a falhas, se dentro [Apache ZooKeeper](https://zookeeper.apache.org/) ou em pontos de verificação Spark Streaming escritos no HDFS. Se um destinatário tal falhar e posterior reiniciado, pode escolher onde parou.
 
 ### <a name="use-the-write-ahead-log"></a>Utilizar o registo de escrita-Ahead
 
@@ -89,5 +89,5 @@ Outro exemplo é usar um sistema de arquivos particionada, como blobs de armazen
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Descrição geral da transmissão em fluxo do spark](apache-spark-streaming-overview.md)
-* [Criar tarefas de transmissão em fluxo do Spark altamente disponíveis no YARN](apache-spark-streaming-high-availability.md)
+* [Descrição geral da transmissão em fluxo do Apache Spark](apache-spark-streaming-overview.md)
+* [Criar tarefas do Apache Spark Streaming elevada disponibilidade no Apache Hadoop YARN](apache-spark-streaming-high-availability.md)

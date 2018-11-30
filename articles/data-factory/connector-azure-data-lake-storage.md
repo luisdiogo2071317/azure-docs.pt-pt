@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 2fad3ad8bc6e1c0ca87038af6c461d863065fc95
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: ca2591f34a0aba598c12815de684ec6bb8fca929
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345968"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620358"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Copiar dados de ou para o Azure Data Lake Storage Gen2 pré-visualização com o Azure Data Factory (pré-visualização)
 
@@ -29,7 +29,7 @@ Pode copiar dados de qualquer arquivo de dados de origem suportada para a geraç
 
 Especificamente, este conector suporta:
 
-- Copiar dados utilizando a chave da conta.
+- Copiar dados utilizando a chave da conta, principal de serviço ou identidades geridas para autenticações de recursos do Azure.
 - Copiar ficheiros como-está ou análise ou ficheiros com a gerar [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
@@ -49,7 +49,15 @@ As secções seguintes fornecem detalhes sobre as propriedades que são utilizad
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço do Data Lake Storage Gen2 ligado:
+Conector de geração 2 de armazenamento do Azure Data Lake suporta os seguintes tipos de autenticação, consulte a seção correspondente em detalhes:
+
+- [Autenticação de chave de conta](#account-key-authentication)
+- [Autenticação do principal de serviço](#service-principal-authentication)
+- [Identidades geridas para a autenticação de recursos do Azure](#managed-identity)
+
+### <a name="account-key-authentication"></a>Autenticação de chave de conta
+
+Para utilizar a autenticação de chave de conta de armazenamento, são suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -62,7 +70,7 @@ As seguintes propriedades são suportadas para o serviço do Data Lake Storage G
 
 ```json
 {
-    "name": "AzureDataLakeStorageLinkedService",
+    "name": "AzureDataLakeStorageGen2LinkedService",
     "properties": {
         "type": "AzureBlobFS",
         "typeProperties": {
@@ -71,6 +79,95 @@ As seguintes propriedades são suportadas para o serviço do Data Lake Storage G
                 "type": "SecureString", 
                 "value": "<accountkey>" 
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="service-principal-authentication"></a>Autenticação do principal de serviço
+
+Para utilizar autenticação do principal de serviço, siga estes passos:
+
+1. Registe-se uma entidade de aplicação no Azure Active Directory (Azure AD) ao seguir [registar a aplicação com um inquilino do Azure AD](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Tome nota dos seguintes valores, o que utilizar para definir o serviço ligado:
+
+    - ID da aplicação
+    - Chave da aplicação
+    - ID do inquilino
+
+2. Conceda a service principal permissão adequada no armazenamento do Azure.
+
+    - **Como origem**, acesso para controlar (IAM), pelo menos a conceder **leitor de dados de Blob de armazenamento** função.
+    - **Como sink**, acesso para controlar (IAM), pelo menos a conceder **contribuinte de dados de Blob de armazenamento** função.
+
+Estas propriedades são suportadas no serviço ligado:
+
+| Propriedade | Descrição | Necessário |
+|:--- |:--- |:--- |
+| tipo | A propriedade de tipo deve ser definida como **AzureBlobFS**. |Sim |
+| url | Ponto final para a Gen2 de armazenamento do Data Lake com o padrão de `https://<accountname>.dfs.core.windows.net`. | Sim | 
+| servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim |
+| servicePrincipalKey | Especifique a chave da aplicação. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| inquilino | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se seu arquivo de dados estiver numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+
+**Exemplo:**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="managed-identity"></a> Identidades geridas para a autenticação de recursos do Azure
+
+Uma fábrica de dados pode ser associada com um [identidade de recursos do Azure gerida](data-factory-service-identity.md), que representa esta fábrica de dados específicos. Pode utilizar diretamente esta identidade de serviço para a autenticação de armazenamento de BLOBs semelhante à utilização da sua própria principal de serviço. Ele permite que esta fábrica designada para aceder e copiar dados de/para o seu armazenamento de Blobs.
+
+Para utilizar identidades geridas para a autenticação de recursos do Azure, siga estes passos:
+
+1. [Obter a identidade de serviço do data factory](data-factory-service-identity.md#retrieve-service-identity) ao copiar o valor de "Serviço de ID da IDENTITY APPLICATION" gerada juntamente com sua fábrica.
+
+2. Conceda a permissão adequada de identidade gerida no armazenamento do Azure. 
+
+    - **Como origem**, acesso para controlar (IAM), pelo menos a conceder **leitor de dados de Blob de armazenamento** função.
+    - **Como sink**, acesso para controlar (IAM), pelo menos a conceder **contribuinte de dados de Blob de armazenamento** função.
+
+Estas propriedades são suportadas no serviço ligado:
+
+| Propriedade | Descrição | Necessário |
+|:--- |:--- |:--- |
+| tipo | A propriedade de tipo deve ser definida como **AzureBlobFS**. |Sim |
+| url | Ponto final para a Gen2 de armazenamento do Data Lake com o padrão de `https://<accountname>.dfs.core.windows.net`. | Sim | 
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se seu arquivo de dados estiver numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
+
+**Exemplo:**
+
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230432"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499128"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento da capacidade para clusters do HDInsight
 
@@ -61,7 +61,7 @@ Para um cluster de nó de 48 recomendamos as contas de armazenamento de 4 a 8. E
 
 ## <a name="choose-a-cluster-type"></a>Escolha um tipo de cluster
 
-O tipo de cluster determina a carga de trabalho que do cluster do HDInsight está configurado para executar, como Hadoop, Storm, Kafka ou Spark. Para obter uma descrição detalhada dos tipos de cluster disponíveis, consulte [introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Cada tipo de cluster tem uma topologia de implementação específica que inclui os requisitos para o tamanho e número de nós.
+O tipo de cluster determina a carga de trabalho do cluster do HDInsight está configurado para executar, como [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/), ou [ O Apache Spark](https://spark.apache.org/). Para obter uma descrição detalhada dos tipos de cluster disponíveis, consulte [introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Cada tipo de cluster tem uma topologia de implementação específica que inclui os requisitos para o tamanho e número de nós.
 
 ## <a name="choose-the-vm-size-and-type"></a>Escolha o tipo e tamanho VM
 
@@ -79,7 +79,7 @@ O tamanho da VM e o tipo é determinado por CPU processamento, o tamanho de RAM 
 
 ## <a name="choose-the-cluster-scale"></a>Selecionar o dimensionamento do cluster
 
-Dimensionamento de um cluster é determinado pela quantidade de seus nós VM. Para todos os tipos de cluster, existem tipos de nós que tenham um dimensionamento específico e tipos de nó que suportam o Escalamento horizontal. Por exemplo, um cluster pode exigir exatamente três nós ZooKeeper ou dois nós principais. Nós de trabalho que efetuar o processamento de dados de uma maneira distribuída podem beneficiar de aumentar horizontalmente, ao adicionar nós de trabalho adicionais.
+Dimensionamento de um cluster é determinado pela quantidade de seus nós VM. Para todos os tipos de cluster, existem tipos de nós que tenham um dimensionamento específico e tipos de nó que suportam o Escalamento horizontal. Por exemplo, um cluster pode exigir a exatamente três [Apache ZooKeeper](https://zookeeper.apache.org/) nós ou dois nós principais. Nós de trabalho que efetuar o processamento de dados de uma maneira distribuída podem beneficiar de aumentar horizontalmente, ao adicionar nós de trabalho adicionais.
 
 Consoante o tipo de cluster, o aumento do número de nós de trabalho adiciona capacidades de computacionais adicionais (por exemplo, mais núcleos), mas também pode adicionar a quantidade total de memória necessária para todo o cluster oferecer suporte a dentro da memória armazenamento de dados a ser processados. Tal como acontece com a escolha do tipo e tamanho VM, selecionar a escala de adequado do cluster é normalmente contactado empiricamente, através de cargas de trabalho simuladas ou consultas canary.
 
@@ -90,7 +90,7 @@ Pode aumentar horizontalmente o seu cluster para os picos de procura de carga, e
 É-lhe cobrada a duração de um cluster. Se houver apenas horas específicas que terá do cluster de cópia de segurança e em execução, pode [criar clusters a pedido com o Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). Pode também criar scripts do PowerShell que aprovisionam e elimina o cluster e, em seguida, agendar esses scripts usando [automatização do Azure](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
-> Quando um cluster é eliminado, o metastore de Hive padrão também é eliminado. Para manter o metastore para a próximo recriação de cluster, utilize um arquivo externo de metadados, tais como a base de dados do Azure ou o Oozie.
+> Quando um cluster é eliminado, o metastore de Hive padrão também é eliminado. Para manter o metastore para a próximo recriação de cluster, utilize um arquivo externo de metadados, tais como a base de dados do Azure ou [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>Isolar os erros de tarefas de cluster
@@ -109,5 +109,5 @@ No entanto, existem alguns limites de quota fixo, por exemplo uma única subscri
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md): Saiba como definir e configurar clusters no HDInsight com o Hadoop, Spark, Kafka, Interactive Hive, HBase, serviços de ML ou Storm.
+* [Configurar clusters no HDInsight com o Apache Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md): Saiba como definir e configurar clusters no HDInsight com o Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, serviços de ML ou Storm.
 * [Monitorizar o desempenho do cluster](hdinsight-key-scenarios-to-monitor.md): Saiba mais sobre os principais cenários para monitorar para o seu cluster do HDInsight que pode afetar a capacidade do seu cluster.

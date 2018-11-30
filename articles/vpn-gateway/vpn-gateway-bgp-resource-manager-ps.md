@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 4eb62786522dd1ad7cbf1d5668a4c4493028733c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684346"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632590"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Como configurar o BGP em Gateways de VPN do Azure com o PowerShell
 Este artigo orienta-o pelos passos para ativar o BGP numa conexão de VPN Site a Site (S2S) em vários locais e uma ligação de VNet a VNet com o modelo de implementação do Resource Manager e o PowerShell.
@@ -167,7 +167,7 @@ $BGPPeerIP5 = "10.52.255.254"
 Algumas observações a serem feitas sobre os parâmetros de gateway de rede local:
 
 * O gateway de rede local pode ser na mesma ou em diferente de localização e grupo de recursos, como o gateway de VPN. Este exemplo mostra-los em grupos de recursos diferentes em diferentes localizações.
-* O prefixo mínimo que tem de declarar para o gateway de rede local é o endereço do anfitrião do seu endereço de IP do elemento BGP no seu dispositivo VPN. Neste caso, é um /32 prefixo de "10.52.255.254/32".
+* O prefixo que tem de declarar para o gateway de rede local é o endereço do anfitrião do seu endereço de IP do elemento BGP no seu dispositivo VPN. Neste caso, é um /32 prefixo de "10.52.255.254/32".
 * Como lembrete, tem de utilizar ASNs diferentes de BGP entre as suas redes no local e a VNet do Azure. Se eles forem iguais, terá de alterar o ASN de VNet, se o dispositivo VPN no local que já utiliza o ASN para se ligar à outros vizinhos BGP.
 
 Antes de continuar, verifique se ainda está ligado à Subscrição 1.

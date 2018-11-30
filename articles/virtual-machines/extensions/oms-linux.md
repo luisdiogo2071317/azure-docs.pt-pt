@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: dc0d7857dbbbdc862878201ba9d47632d2b5affd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4c35820daa9cc25f40dfa0034d9ce632ece235a7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404856"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633410"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de análise de registo para Linux
 
@@ -219,7 +219,7 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 | 51 | Esta extensão não é suportada no sistema de operação da VM | |
 | 55 | Não é possível ligar ao serviço Log Analytics ou pacotes necessários em falta ou dpkg Gerenciador de pacotes está bloqueado| Verifique se o sistema tem acesso à Internet ou que foi fornecido um proxy HTTP válido. Além disso, verifique a correção do ID da área de trabalho de e verificar curl e tar utilitários estão instalados. |
 
-Informações adicionais de resolução de problemas podem ser encontradas no [guia de resolução de problemas do Log Analytics-agente para Linux](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
+Informações adicionais de resolução de problemas podem ser encontradas no [guia de resolução de problemas do Log Analytics-agente para Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
 
 ### <a name="support"></a>Suporte
 

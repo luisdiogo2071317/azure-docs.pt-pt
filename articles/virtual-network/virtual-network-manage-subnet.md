@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 04c7b521ad13db9f5ec9573fd1ab966ad1282e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 442aa7034c3fec57b3b9394e6b0f46d4dec47849
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954318"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633117"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
@@ -69,7 +69,7 @@ A conta iniciar sessão no, ou ligar ao Azure, tem de ser atribuída para o [con
 4. Na lista de sub-redes, selecione a sub-rede que pretende alterar as definições. Pode alterar as seguintes definições:
 
     - **Intervalo de endereços:** se não existem recursos forem implementados na sub-rede, pode alterar o intervalo de endereços. Se existirem quaisquer recursos na sub-rede, deve mover os recursos para outra sub-rede ou eliminá-los primeiro a sub-rede. Os passos que efetuar para mover ou eliminar um recurso variam dependendo do recurso. Para saber como mover ou eliminar recursos que estão em sub-redes, leia a documentação para cada tipo de recurso que pretende mover ou eliminar. Consulte as restrições de **intervalo de endereços** no passo 5 da [adicionar uma sub-rede](#add-a-subnet).
-    - **Os utilizadores**: pode controlar o acesso para a sub-rede com funções incorporadas ou suas próprias funções personalizadas. Para saber mais sobre a atribuição de funções e os utilizadores acedam a sub-rede, veja [utilizar a atribuição de função para gerir o acesso aos recursos do Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access).
+    - **Os utilizadores**: pode controlar o acesso para a sub-rede com funções incorporadas ou suas próprias funções personalizadas. Para saber mais sobre a atribuição de funções e os utilizadores acedam a sub-rede, veja [utilizar a atribuição de função para gerir o acesso aos recursos do Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment).
     - **Grupo de segurança de rede** e **tabela de rotas**: consulte passo 5 da [adicionar uma sub-rede](#add-a-subnet).
     - **Pontos finais de serviço**: consulte pontos finais de serviço no passo 5 [adicionar uma sub-rede](#add-a-subnet). Quando ativar um ponto final de serviço para uma sub-rede existente, certifique-se de que não existem tarefas críticas estão em execução em nenhum outro recurso na sub-rede. Pontos finais de serviço mudar as rotas em cada interface de rede na sub-rede do usando a rota padrão com o *0.0.0.0/0* abordar o prefixo e o tipo de próximo salto *Internet*, à utilização uma nova rota com o prefixos do serviço e um tipo de próximo salto de endereço *VirtualNetworkServiceEndpoint*. Durante a mudança, todas as ligações TCP abertas serão encerradas. O ponto final de serviço não está ativado até que os fluxos de tráfego para o serviço para todas as interfaces de rede são atualizados com a nova rota. Para saber mais sobre o encaminhamento, consulte [descrição geral do encaminhamento](virtual-networks-udr-overview.md).
     - **Delegação de sub-rede:** ver pontos finais de serviço no passo 5 [adicionar uma sub-rede](#add-a-subnet). Delegação de sub-rede pode ser modificada para zero ou vários delegações ativadas para o mesmo. Se um recurso para um serviço já está implementado na sub-rede, não é possível remover a delegação de sub-rede até que todos os recursos para o serviço são removidos. Para delegar para um serviço diferente, selecione o serviço que pretende delegar a partir da **serviços** lista. 

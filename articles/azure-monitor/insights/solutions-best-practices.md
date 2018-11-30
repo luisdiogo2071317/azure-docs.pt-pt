@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: 03a9aced256b72789ad6d3e01515348fb1ffe129
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e5011dbaad5e5935f3aa792bd3a3ed2b271f23bc
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715991"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632438"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Melhores práticas para criar soluções de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -31,7 +31,7 @@ Este artigo fornece as práticas recomendadas para [criando um arquivo de soluç
 - Origens de dados podem ser [configurado com um modelo do Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md), mas não devem ser incluídos num arquivo de solução.  O motivo é que configurar origens de dados não é atualmente idempotentes, que significa que a sua solução poderia substituir a configuração existente na área de trabalho do utilizador.<br><br>Por exemplo, a sua solução pode exigir eventos de aviso e erro do registo de eventos do aplicativo.  Se especificar isso como uma origem de dados na sua solução, corre o risco de remover os eventos de informação se o usuário tivesse esta configuração em sua área de trabalho.  Se tiver incluído todos os eventos, pode ser a recolher eventos excessivos de informações na área de trabalho do utilizador.
 
 - Se sua solução necessitar de dados a partir de uma das origens de dados padrão, deve definir isso como um pré-requisito.  Estado na documentação de que o cliente tem de configurar a origem de dados por conta própria.  
-- Adicionar uma [verificação de fluxo de dados](../../log-analytics/log-analytics-view-designer-tiles.md) mensagem para todas as vistas na sua solução para instruir o utilizador em origens de dados que devem ser configurados para os dados necessários a serem recolhidos.  Esta mensagem é apresentada no mosaico da exibição quando os dados necessários não foi encontrados.
+- Adicionar uma [verificação de fluxo de dados](../../azure-monitor/platform/view-designer-tiles.md) mensagem para todas as vistas na sua solução para instruir o utilizador em origens de dados que devem ser configurados para os dados necessários a serem recolhidos.  Esta mensagem é apresentada no mosaico da exibição quando os dados necessários não foi encontrados.
 
 
 ## <a name="runbooks"></a>Runbooks
@@ -40,8 +40,8 @@ Este artigo fornece as práticas recomendadas para [criando um arquivo de soluç
 - Uso [variáveis de automatização](../../automation/automation-schedules.md) para fornecer valores para a solução que os usuários podem querer alterar mais tarde.  Mesmo que a solução estiver configurada para conter a variável, seu valor ainda pode ser alterado.
 
 ## <a name="views"></a>Vistas
-- Todas as soluções devem incluir uma única exibição, que é apresentada no portal do utilizador.  A vista pode conter vários [partes de visualização](../../log-analytics/log-analytics-view-designer-parts.md) para ilustrar a diferentes conjuntos de dados.
-- Adicionar uma [verificação de fluxo de dados](../../log-analytics/log-analytics-view-designer-tiles.md) mensagem para todas as vistas na sua solução para instruir o utilizador em origens de dados que devem ser configurados para os dados necessários a serem recolhidos.
+- Todas as soluções devem incluir uma única exibição, que é apresentada no portal do utilizador.  A vista pode conter vários [partes de visualização](../../azure-monitor/platform/view-designer-parts.md) para ilustrar a diferentes conjuntos de dados.
+- Adicionar uma [verificação de fluxo de dados](../../azure-monitor/platform/view-designer-tiles.md) mensagem para todas as vistas na sua solução para instruir o utilizador em origens de dados que devem ser configurados para os dados necessários a serem recolhidos.
 - Configurar a solução para [contêm](solutions-solution-file.md#solution-resource) o modo de exibição, de modo que a TI da removidos se a solução é removida.
 
 ## <a name="alerts"></a>Alertas

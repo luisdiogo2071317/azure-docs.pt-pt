@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 27a4bccfbac73c7c8c902a59fdd4cafe0c420c31
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635009"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634545"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contentores
 
@@ -58,9 +58,6 @@ Execute os seguintes passos para criar e recuperar informações de um recurso d
 
 1. Crie um recurso de Face no portal do Azure.  
    Se quiser usar o contêiner de rostos, primeiro tem de criar um recurso de Face correspondente no portal do Azure. Para obter mais informações, consulte [início rápido: criar uma conta dos serviços cognitivos no portal do Azure](../cognitive-services-apis-create-account.md).
-
-   > [!IMPORTANT]
-   > O recurso de rosto tem de utilizar o escalão de preço F0.
 
 1. Obtenha a chave de subscrição e o URL de ponto final para o recurso do Azure.  
    Depois de criar o recurso do Azure, tem de utilizar a chave de subscrição e o URL de ponto final desse recurso para instanciar o contentor de rostos correspondente. Pode copiar a chave de subscrição e o URL de ponto final da, respectivamente, os início rápido e as chaves de páginas do recurso de Face no portal do Azure.

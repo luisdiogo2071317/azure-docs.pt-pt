@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 1472e6cf05485b942c93f632c147fcb0b0311c61
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 87ceb682f35626c5bf468afd83a2f4a35901ef2b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828499"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632352"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recolher dados no Log Analytics com um runbook da automatização do Azure
-Pode recolher uma quantidade significativa de dados no Log Analytics a partir de várias origens, incluindo [origens de dados](../../log-analytics/log-analytics-data-sources.md) nos agentes e também [dados recolhidos a partir do Azure](../../log-analytics/log-analytics-azure-storage.md).  Há um cenários, embora em que precisa recolher dados que não acessível através destas origens padrão.  Nestes casos, pode utilizar o [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) para escrever dados para o Log Analytics a partir de qualquer cliente de REST API.  Um método comum para efetuar a recolha de dados está a utilizar um runbook na automatização do Azure.   
+Pode recolher uma quantidade significativa de dados no Log Analytics a partir de várias origens, incluindo [origens de dados](../../azure-monitor/platform/agent-data-sources.md) nos agentes e também [dados recolhidos a partir do Azure](../../log-analytics/log-analytics-azure-storage.md).  Há um cenários, embora em que precisa recolher dados que não acessível através destas origens padrão.  Nestes casos, pode utilizar o [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) para escrever dados para o Log Analytics a partir de qualquer cliente de REST API.  Um método comum para efetuar a recolha de dados está a utilizar um runbook na automatização do Azure.   
 
 Este tutorial explica o processo para criar e agendar um runbook na automatização do Azure para escrever dados para o Log Analytics.
 
@@ -212,7 +212,7 @@ Sempre que um runbook é iniciado, [é criada uma tarefa](../../automation/autom
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Uso [estruturador de vistas](../../log-analytics/log-analytics-view-designer.md) para criar uma vista de exibir os dados já recolhidos para o repositório do Log Analytics.
+- Uso [estruturador de vistas](../../azure-monitor/platform/view-designer.md) para criar uma vista de exibir os dados já recolhidos para o repositório do Log Analytics.
 - Empacotar o runbook numa [solução de gestão](../../azure-monitor/insights/solutions-creating.md) para distribuição a clientes.
 - Saiba mais sobre [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Saiba mais sobre [automatização do Azure](https://docs.microsoft.com/azure/automation/).

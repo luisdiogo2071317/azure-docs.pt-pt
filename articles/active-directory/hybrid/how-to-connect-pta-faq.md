@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 220fc7b2b0ce3a4c5fd943c35952a345379a1b91
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284221"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619827"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>O Azure Active Directory autenticação pass-through: Perguntas mais frequentes
 
@@ -34,7 +34,7 @@ Revisão [este guia](https://docs.microsoft.com/azure/security/azure-ad-choose-a
 
 Autenticação pass-through é um recurso gratuito. Não é necessário qualquer nas edições pagas do Azure AD para utilizá-lo.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Está disponível na autenticação pass-through a [cloud do Microsoft Azure Alemanha](http://www.microsoft.de/cloud-deutschland) e o [cloud do Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Está disponível na autenticação pass-through a [cloud do Microsoft Azure Alemanha](https://www.microsoft.de/cloud-deutschland) e o [cloud do Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?
 
 Não. Autenticação pass-through só está disponível na instância do Azure AD em todo o mundo.
 
@@ -44,7 +44,7 @@ Sim. Todas as capacidades de acesso condicional, incluindo multi-factor Authenti
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Autenticação pass-through suporta "ID alternativo" como o nome de utilizador, em vez de "userPrincipalName"?
 
-Sim. Suporta a autenticação pass-through `Alternate ID` como o nome de utilizador quando configurado no Azure AD Connect. Para obter mais informações, consulte [instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md). Nem todas as aplicações do Office 365 suportam `Alternate ID`. Consulte a declaração de suporte de documentação do aplicativo específico.
+Sim, suporta a autenticação pass-through `Alternate ID` como o nome de utilizador quando configurado no Azure AD Connect. Como um pré-requisito, tem de sincronizar o Active Directory no local do Azure AD Connect `UserPrincipalName` de atributo para o Azure AD. Para obter mais informações, consulte [instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md). Nem todas as aplicações do Office 365 suportam `Alternate ID`. Consulte a declaração de suporte de documentação do aplicativo específico.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Sincronização de hash de palavra-passe atuar como contingência para autenticação pass-through?
 
@@ -119,6 +119,10 @@ Se estiver a migrar do AD FS (ou outras tecnologias de Federação) para autenti
 
 Sim. Ambientes de várias florestas são suportadas se existem relações de confiança de floresta entre florestas do Active Directory e se o encaminhamento de sufixo de nome está configurado corretamente.
 
+## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>Autenticação pass-through fornece balanceamento de carga entre vários agentes de autenticação?
+
+Não, instalar vários agentes de autenticação pass-through garante que apenas [elevada disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Ele não fornece determinística balanceamento de carga entre os agentes de autenticação. Qualquer agente de autenticação (aleatoriamente) pode processar um pedido de início de início de sessão do utilizador em particular.
+
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Quantos agentes de autenticação pass-through é necessário instalar?
 
 Instalar agentes de autenticação pass-through vários garante [elevada disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). No entanto, ele não fornece determinística balanceamento de carga entre os agentes de autenticação.
@@ -149,6 +153,22 @@ Executar novamente o Assistente do Azure AD Connect e altere o método de iníci
 ## <a name="what-happens-when-i-uninstall-a-pass-through-authentication-agent"></a>O que acontece quando posso desinstalar um agente de autenticação pass-through?
 
 Se desinstalar um agente de autenticação pass-through a partir de um servidor, ele faz com que o servidor não aceitar pedidos de início de sessão. Para evitar interromper a capacidade de início de sessão utilizador no seu inquilino, certifique-se de que tenha outro agente de autenticação em execução antes de desinstalar um agente de autenticação pass-through.
+
+## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Tenho um inquilino mais antigo que foi originalmente configurado com o AD FS.  Podemos migrou recentemente para o PTA, mas agora não está a ver as nossas alterações UPN sincronizar com o Azure AD.  Por que razão as nossas UPN muda não sincronizados?
+
+R: nas seguintes circunstâncias as alterações UPN no local podem não efetua a sincronização:
+
+- Inquilino do Azure AD tiver sido criado antes de 15 de Junho de 2015
+- Inicialmente foram federadas com o inquilino do Azure AD através do AD FS para autenticação
+- Mudado para ter gerenciados usando o PTA como autenticação de utilizadores
+
+Isto acontece porque o comportamento padrão de inquilinos criados antes de 15 de Junho de 2015, foi bloquear alterações UPN.  Se precisar de alterações UPN de anular a bloco que tem de executar o PowerShell cmdlt seguinte:  
+
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+
+Os inquilinos criados após 15 de Junho de 2015 tem o comportamento padrão de sincronização de alterações UPN.   
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais cenários são suportados e quais não são.

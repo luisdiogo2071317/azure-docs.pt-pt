@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 207cc6f114153bebea82bbd996b02f92782b248b
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: bea7f0e88a371474db907dd74f08bd74c0e7c9e1
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275105"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584371"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Submeter um pedido para pagar a subscrição do Azure por fatura
 
@@ -50,6 +50,6 @@ Pode alterar o método de pagamento para a sua subscrição do Azure criar uma f
 
 Se necessário, execute uma verificação de crédito devido à quantidade de crédito que precisa, enviamos que um crédito verificar aplicação. Depois de submeter a aplicação, a aplicação de crédito pode demorar dias de 5 a 7 para processar.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

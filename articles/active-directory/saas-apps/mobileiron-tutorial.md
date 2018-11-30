@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 53cec59841fbda49e4e410f069882ea76996f9fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428296"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Tutorial: Integração do Azure Active Directory com MobileIron
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com MobileIron, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um MobileIron logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do MobileIron com o Azure AD, terá de adicionar 
 
 **Para adicionar MobileIron a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -106,22 +106,21 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
  
     ![Caixa de diálogo de início de sessão único](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
-1. Sobre o **MobileIron domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+1. Sobre o **MobileIron domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
     ![MobileIron domínio e URLs únicas início de sessão em informações](./media/mobileiron-tutorial/tutorial_mobileiron_url.png)
 
-    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://www.mobileiron.com/<key>`
+    1. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://www.mobileiron.com/<key>`
 
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    1. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
-1. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+1. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação no **SP** iniciada pelo modo:
 
     ![URLs de domínio MobileIron e início de sessão único](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<host>.mobileiron.com/user/login.html`
+    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<host>.mobileiron.com/user/login.html`
     
-    > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Irá obter os valores de chave e o anfitrião do portal administrativo de MobileIron que é explicado mais tarde no tutorial.
+    > [!NOTE]  Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Irá obter os valores de chave e o anfitrião do portal administrativo de MobileIron que é explicado mais tarde no tutorial.
 
 1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -174,13 +173,13 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![A caixa de diálogo de utilizador](./media/mobileiron-tutorial/create_aaduser_04.png)
 
-    a. Na **Name** , escreva **BrittaSimon**.
+    1. Na **Name** , escreva **BrittaSimon**.
 
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
+    1. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
 
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+    1. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
-    d. Clique em **Criar**.
+    1. Clique em **Criar**.
   
 ### <a name="create-a-mobileiron-test-user"></a>Criar um utilizador de teste MobileIron
 
@@ -199,13 +198,13 @@ No caso de MobileIron, o aprovisionamento é uma tarefa manual.
 
     ![Configurar o início de sessão único botão de adição do utilizador](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
-    a. Na **endereço de email** texto, introduza o e-mail do utilizador, como brittasimon@contoso.com.
+    1. Na **endereço de email** texto, introduza o e-mail do utilizador, como brittasimon@contoso.com.
 
-    b. Na **nome próprio** texto, introduza o nome de utilizador, como a Eduarda.
+    1. Na **nome próprio** texto, introduza o nome de utilizador, como a Eduarda.
 
-    c. Na **Apelido** texto, digite o apelido do utilizador, como Simon.
+    1. Na **Apelido** texto, digite o apelido do utilizador, como Simon.
     
-    d. Clique em **Concluído**.  
+    1. Clique em **Concluído**.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -237,7 +236,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

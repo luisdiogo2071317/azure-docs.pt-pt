@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 45d296b8867884a4c40dc10adc1f9aa83d7f9eab
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 14e89d5eab058b9fa42c20811df9c5ac0ceca44a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715826"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633202"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -477,7 +477,7 @@ Pode remover a solução de gestão do Office 365 usando o processo em [remover 
 
 ## <a name="data-collection"></a>Recolha de dados
 ### <a name="supported-agents"></a>Agentes suportados
-A solução do Office 365 não obter dados a partir de qualquer um da [agentes do Log Analytics](../../log-analytics/log-analytics-data-sources.md).  Obtém dados diretamente a partir do Office 365.
+A solução do Office 365 não obter dados a partir de qualquer um da [agentes do Log Analytics](../../azure-monitor/platform/agent-data-sources.md).  Obtém dados diretamente a partir do Office 365.
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 Poderá demorar algumas horas para dados que inicialmente serão coletados. Assim que for iniciada a recolher, do Office 365, envia uma [webhook notificação](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) com dados detalhados para o Log Analytics sempre que é criado um registo. Este registo está disponível no Log Analytics dentro de alguns minutos após a ser recebidos.
@@ -710,5 +710,5 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Utilizar as Pesquisas de Registos no [Log Analytics](../../log-analytics/log-analytics-queries.md) para ver dados de atualizações detalhados.
-* [Criar seus próprios dashboards](../../log-analytics/log-analytics-dashboards.md) para exibir suas consultas de pesquisa favoritas do Office 365.
+* [Criar seus próprios dashboards](../../azure-monitor/platform/dashboards.md) para exibir suas consultas de pesquisa favoritas do Office 365.
 * [Criar alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para ser notificado proativamente das atividades do Office 365 importantes.  

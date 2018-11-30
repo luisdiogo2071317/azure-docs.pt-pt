@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e648d6d3bd8d8ac14fb3f9723f4667c1cc33ac6
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228900"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620188"
 ---
 <a name="saas-application-technical-publishing-guide"></a>Técnico de aplicação SaaS guia de publicação
 ===========================================
@@ -32,7 +32,7 @@ Para uma descrição geral de todas as outras ofertas do Marketplace, consulte a
 <a name="what-are-pre-requisites-for-publishing-a-saas-app"></a>Quais são os pré-requisitos para a publicação de uma aplicação SaaS?
 -------------------------------------------------
 
-Portal de publicação fornece acesso baseado em funções no portal, permitindo que várias pessoas colaborar em direção à publicação de uma oferta. Para obter mais informações, consulte [gerir utilizadores](./cloud-partner-portal-manage-users.md). 
+O [Cloud Partner Portal](https://cloudpartner.azure.com) fornece acesso baseado em funções no portal, permitindo que várias pessoas colaborar em direção à publicação de uma oferta. Para obter mais informações, consulte [gerir utilizadores](./cloud-partner-portal-manage-users.md). 
 
 Antes de uma oferta pode ser publicada em nome de um fabricante de contas, uma das pessoas com *proprietário* função precisam concorda em estar em conformidade com o [termos de utilização](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft PrivacyStatement](https://www.microsoft.com/privacystatement/default.aspx), e [ProgramAgreement do Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
@@ -58,7 +58,7 @@ A oferta da aplicação SaaS consiste em cinco seções, descritas na tabela a s
 
 ### <a name="creating-a-new-offer"></a>Criar uma nova oferta
 
-Depois de iniciar sessão Portal de parceiros de nuvem, selecione o **nova oferta** item na barra de menu à esquerda, que apresenta um menu de ofertas disponíveis. A imagem seguinte mostra um exemplo dessas ofertas:
+Depois de iniciar sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com), selecione a **nova oferta** item na barra de menu à esquerda, que apresenta um menu de ofertas disponíveis. A imagem seguinte mostra um exemplo dessas ofertas:
 
 ![Nova oferta de SaaS](media/cpp-creating-saas-offers/saas-new-offer.png)
 
@@ -154,7 +154,7 @@ A tabela seguinte descreve os campos de Marketing:
 
 | **Campos de oferta** | **Descrição**                                                                                                          |
 |------------------| ------------------------------------------------------------------------------------------------------------------------ |
-| Logótipos            | Se for um **venda através do Azure** aplicação SaaS, deve fornecer todas as imagens de logótipo. Se estiver apenas uma listagem, logótipos apenas 2 são necessários. Todos os logótipos carregados no Portal de parceiros de nuvem devem utilizar as seguintes diretrizes:     <br/> -Mantenha o número de principal e secundário cores seu logótipo baixa. O design do Azure tem uma paleta de cores simples.     <br/> -Evite o uso de preto e branco como a cor de fundo do seu logótipo. As cores de tema do Portal do Azure são preto e branco. Em alternativa, utilize uma cor que faria o logótipo proeminente no Portal do Azure. Recomendamos cores primárias simples. Se estiver a utilizar um plano de fundo transparente, em seguida, certifique-se de que o logótipo e o texto não são azul, preto ou branco.     <br/> -Não utilize um plano de fundo de gradação o logótipo.     <br/> -Evite colocar o texto, até mesmo sua empresa ou o nome da marca, o logótipo. O aspeto e funcionalidade do seu logótipo deve ser "simples" e deve evitar gradientes.    <br/> -Não deve ser esticada a imagem do logótipo.                   |
+| Logótipos            | Se for um **venda através do Azure** aplicação SaaS, deve fornecer todas as imagens de logótipo. Se estiver apenas uma listagem, logótipos apenas 2 são necessários. Todos os logótipos carregados os [Cloud Partner Portal](https://cloudpartner.azure.com) deve utilizar as seguintes diretrizes:     <br/> -Mantenha o número de principal e secundário cores seu logótipo baixa. O design do Azure tem uma paleta de cores simples.     <br/> -Evite o uso de preto e branco como a cor de fundo do seu logótipo. As cores de tema do Portal do Azure são preto e branco. Em alternativa, utilize uma cor que faria o logótipo proeminente no Portal do Azure. Recomendamos cores primárias simples. Se estiver a utilizar um plano de fundo transparente, em seguida, certifique-se de que o logótipo e o texto não são azul, preto ou branco.     <br/> -Não utilize um plano de fundo de gradação o logótipo.     <br/> -Evite colocar o texto, até mesmo sua empresa ou o nome da marca, o logótipo. O aspeto e funcionalidade do seu logótipo deve ser "simples" e deve evitar gradientes.    <br/> -Não deve ser esticada a imagem do logótipo.                   |
 | Vídeos           | Permite-lhe adicionar hiperligações de vídeos da sua oferta. Pode usar links para vídeos do YouTube e/ou Vimeo, que são apresentados, juntamente com a sua oferta aos clientes. Também terá de introduzir uma imagem em miniatura do vídeo, com uma imagem png de 1280 x 720 pixels. Pode ter um máximo de quatro vídeos por oferta. |
 | Documentos        | Permite-lhe adicionar documentos de marketing para sua oferta. Todos os documentos tem de estar no formato PDF e pode ter um máximo de três documentos por oferta.                                                                                                                                                      |
 | Capturas de ecrã      | Pode adicionar capturas de ecrã da sua oferta. Há um máximo de cinco capturas de ecrã que podem ser adicionados por oferta. O tamanho da imagem máximo é de pixels de 1280 x 720.                                                                                                                                             |

@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 11/14/2018
+ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 9d26c1d923294a149a57ef28ca03e77dfc2e1c87
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d626fd9b083b9ca2c55c286a1dd806620a639434
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711910"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498021"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Use planos de manutenção para gerir atualizações de serviço e manutenção
 
-Agendamento da manutenção de armazém de dados SQL do Azure está agora em pré-visualização. Esta funcionalidade integra-se as notificações de manutenção planeada do serviço de estado de funcionamento do Monitor de verificação de estado de funcionamento de recursos e o serviço de agendamento de manutenção do Azure SQL Data Warehouse.
+Agendamentos de manutenção está agora disponível em todas as regiões do Azure SQL Data Warehouse. Esta funcionalidade integra-se as notificações de manutenção planeada do serviço de estado de funcionamento do Monitor de verificação de estado de funcionamento de recursos e o serviço de agendamento de manutenção do Azure SQL Data Warehouse.
 
 Utilize para escolher uma janela de tempo quando é conveniente receber as novas funcionalidades, atualizações e patches de agendamento de manutenção. Escolha um servidor principal e uma janela de manutenção secundário dentro de um período de sete dias. Um exemplo é uma janela principal do Sábado 22:00 para Domingo 01:00 e uma janela secundária de quarta-feira 19: a 22 00:00. Se o SQL Data Warehouse não é possível efetuar a manutenção durante a janela de manutenção primário, tentará a manutenção novamente durante a janela de manutenção secundário.
 
@@ -51,6 +51,7 @@ Mesmo que o agendamento de manutenção não está disponível na sua região se
 - [Saiba mais](changing-maintenance-schedule.md) sobre como alterar uma agenda de manutenção.
 - [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) sobre como criar, visualizar e gerir alertas com o Azure Monitor.
 - [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) sobre as ações de webhook para regras de alerta de registo.
+- [Saiba mais](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) criando e gerenciando grupos de ação.
 - [Saiba mais](https://docs.microsoft.com/azure/service-health/service-health-overview) sobre o Azure Service Health.
 
 

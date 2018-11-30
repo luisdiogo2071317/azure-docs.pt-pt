@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262204"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584779"
 ---
 # <a name="azure-database-security-overview"></a>Descrição geral da segurança da base de dados do Azure
 
@@ -199,7 +199,7 @@ Da proteção contra ameaças avançadas SQL (ATP) fornece um conjunto de funç�
 - Acesso a partir de uma aplicação potencialmente prejudicial 
 - Base de dados do Azure para PostgreSQL credenciais de força bruta 
 
-[Base de dados do Azure para MySQL Advanced Threat Protection](/mysql/concepts-data-access-and-security-threat-protection.md) fornece proteção semelhante à proteção avançada de PostgreSQL.  
+[Base de dados do Azure para MySQL Advanced Threat Protection](../mysql/concepts-data-access-and-security-threat-protection.md) fornece proteção semelhante à proteção avançada de PostgreSQL.  
 
 ## <a name="centralized-security-management"></a>Gestão de segurança centralizada
 
@@ -220,7 +220,7 @@ Centro de segurança suporta o acesso baseado em funções.
 
 Além disso, ele calcula o resultado definido sensibilidade das consultas SQL, para que as consultas que extraem dados confidenciais podem ser auditadas explicitamente, e os dados podem ser protegidos. Para obter mais detalhes sobre a proteção de informações do SQL, consulte a deteção de dados do Azure SQL da base de dados e classificação.
 
-Pode configurar [políticas de proteção de informações de SQL](/security-center/security-center-info-protection-policy.md) no Centro de segurança do Azure.
+Pode configurar [políticas de proteção de informações de SQL](../security-center/security-center-info-protection-policy.md) no Centro de segurança do Azure.
 
 ## <a name="azure-marketplace"></a>Azure Marketplace
 

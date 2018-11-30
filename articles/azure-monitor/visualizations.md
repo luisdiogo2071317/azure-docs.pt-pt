@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 2fff332665652516e4ac25c4eb1a4612c15e2412
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 4200accee94840a8a4455308f24a857fd5d7034a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824681"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632981"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualização de dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados armazenados no Azure Monitor. Isto inclui [métricas no arquivo de métricas do Azure](../azure-monitor/platform/data-collection.md#metrics) e [registos de dados no Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
@@ -50,7 +50,7 @@ Visualizações, como tabelas e gráficos podem ajudar a analisar os dados de mo
 - Desagregação contextual limitada.
 
 ## <a name="azure-monitor-views"></a>Modos de exibição de Monitor do Azure
-[Modos de exibição no Azure Monitor](../log-analytics/log-analytics-view-designer.md) permitem-lhe criar visualizações personalizadas com dados de registo armazenados no Log Analytics. Elas são usadas pelo [soluções de monitorização](../azure-monitor/insights/solutions.md) para apresentar os dados que recolher.
+[Modos de exibição no Azure Monitor](../azure-monitor/platform/view-designer.md) permitem-lhe criar visualizações personalizadas com dados de registo armazenados no Log Analytics. Elas são usadas pelo [soluções de monitorização](../azure-monitor/insights/solutions.md) para apresentar os dados que recolher.
 
 ![Vista](media/visualizations/view.png)
 
@@ -58,7 +58,7 @@ Visualizações, como tabelas e gráficos podem ajudar a analisar os dados de mo
 - Visualizações otimizadas para dados do Log Analytics.
 - Exportar e importar vistas para transferi-las para outros grupos de recursos e subscrições.
 - Se integra ao modelo de análise de registo de gestão com áreas de trabalho e soluções de monitorização.
-- [Filtros](../log-analytics/log-analytics-view-designer-filters.md) para parâmetros personalizados.
+- [Filtros](../azure-monitor/platform/view-designer-filters.md) para parâmetros personalizados.
 - Interativo, oferece suporte a vários níveis de exploração-em (vista que detalha outra vista)
 
 ### <a name="limitations"></a>Limitações
@@ -140,7 +140,7 @@ Pode acessar dados em métricas do Azure e o Log Analytics através da API atrav
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre o [dados recolhidos pelo Azure Monitor](../azure-monitor/platform/data-collection.md).
 - Saiba mais sobre [dashboards do Azure](../azure-portal/azure-portal-dashboards.md).
-- Saiba mais sobre [modos de exibição no Azure Monitor](../log-analytics/log-analytics-view-designer.md).
+- Saiba mais sobre [modos de exibição no Azure Monitor](../azure-monitor/platform/view-designer.md).
 - Saiba mais sobre [pastas de trabalho no Application Insights](../application-insights/app-insights-usage-workbooks.md).
 - Saiba mais sobre [importar dados de registo no Power BI](../log-analytics/log-analytics-powerbi.md).
 - Saiba mais sobre o [Plug-in de origem de dados do Azure Monitor da Grafana](../monitoring-and-diagnostics/monitor-send-to-grafana.md).

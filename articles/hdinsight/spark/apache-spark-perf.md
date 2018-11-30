@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 4a7777be01cc15ed5cc4c9c091230afe1ddfa897
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047447"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499152"
 ---
-# <a name="optimize-spark-jobs"></a>Otimizar tarefas do Spark
+# <a name="optimize-apache-spark-jobs"></a>Otimizar tarefas do Apache Spark
 
-Saiba como otimizar a configuração de cluster do Spark para sua carga de trabalho específica.  O desafio mais comuns é a pressão de memória, devido a configurações impróprias (particularmente mal em tamanho normal executores), longa operações e tarefas que resultam em operações Cartesianos. É possível agilizar tarefas com a colocação em cache apropriado e, permitindo [distorção de dados](#optimize-joins-and-shuffles). Para obter o melhor desempenho, monitorize e veja as execuções de tarefas de Spark de longa execução e o consumo de recursos.
+Saiba como otimizar [Apache Spark](https://spark.apache.org/) configuração de cluster para a sua carga de trabalho específica.  O desafio mais comuns é a pressão de memória, devido a configurações impróprias (particularmente mal em tamanho normal executores), longa operações e tarefas que resultam em operações Cartesianos. É possível agilizar tarefas com a colocação em cache apropriado e, permitindo [distorção de dados](#optimize-joins-and-shuffles). Para obter o melhor desempenho, monitorize e veja as execuções de tarefas de Spark de longa execução e o consumo de recursos.
 
 As secções seguintes descrevem as recomendações e otimizações de tarefa do Spark comuns.
 
@@ -58,7 +58,7 @@ O melhor formato para o desempenho é parquet com *compressão snappy*, que é o
 
 Quando cria um novo cluster do Spark, terá a opção de selecionar o armazenamento de Blobs do Azure ou do Azure Data Lake Store como armazenamento predefinido do seu cluster. Ambas as opções dão-lhe o benefício de armazenamento de longa duração para clusters transitórios, pelo que os seus dados não são automaticamente eliminados quando elimina o cluster. Pode recriar um cluster transitório e continuar a aceder aos seus dados.
 
-| Tipo de Store | Sistema de Ficheiros | Velocidade | Transitório | Casos de utilização |
+| Tipo de Store | Sistema de Ficheiros | Velocidade | Transitório | Casos de Utilização |
 | --- | --- | --- | --- | --- |
 | Armazenamento de Blobs do Azure | **wasb:**//url/ | **Standard** | Sim | Cluster transitório |
 | Azure Data Lake Store | **adl:**//url/ | **Mais rapidamente** | Sim | Cluster transitório |
@@ -94,7 +94,7 @@ Para referência, a estrutura de memória do Spark e alguns parâmetros de memó
 
 ### <a name="spark-memory-considerations"></a>Considerações de memória do Spark
 
-Se estiver a utilizar o YARN, em seguida, o YARN controla a soma de máxima de memória utilizada por todos os contentores em cada nó do Spark.  O diagrama seguinte mostra os objetos principais e suas relações.
+Se estiver a utilizar [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), em seguida, o YARN controla a soma de máxima de memória utilizada por todos os contentores em cada nó do Spark.  O diagrama seguinte mostra os objetos principais e suas relações.
 
 ![Gerenciamento de memória do Spark YARN](./media/apache-spark-perf/yarn-spark-memory.png)
 
@@ -212,9 +212,9 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Depurar tarefas do Spark em execução no Azure HDInsight](apache-spark-job-debugging.md)
-* [Gerir os recursos de um cluster do Spark no HDInsight](apache-spark-resource-manager.md)
-* [Utilizar a API de REST do Spark para submeter as tarefas remotas para um cluster do Spark](apache-spark-livy-rest-interface.md)
-* [Ajuste o Spark](https://spark.apache.org/docs/latest/tuning.html)
-* [Como a otimização, na verdade, o Spark tarefas isso funcionam](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [Depurar tarefas do Apache Spark em execução no Azure HDInsight](apache-spark-job-debugging.md)
+* [Gerir os recursos de um cluster do Apache Spark no HDInsight](apache-spark-resource-manager.md)
+* [Utilize a API de REST do Apache Spark para submeter tarefas remotas para um cluster do Apache Spark](apache-spark-livy-rest-interface.md)
+* [Otimização do Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+* [Como a otimização, na verdade, do Apache Spark tarefas por isso, eles funcionam](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Serialização de Kryo](https://github.com/EsotericSoftware/kryo)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262340"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584881"
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -253,7 +253,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 -   **Âmbitos de política:** todos os âmbitos
 
 ##  <a name="LimitConcurrency"></a> Limite de simultaneidade
- O `limit-concurrency` política impede que as políticas de circunscritas em mais do que o número especificado de pedidos em execução num determinado momento. Após a exceder esse número, novos pedidos falhará imediatamente com o código de estado do 429 demasiados pedidos.
+ O `limit-concurrency` política impede que as políticas de circunscritas em mais do que o número especificado de pedidos em execução em qualquer altura. Após a exceder esse número, novos pedidos falhará imediatamente com o código de estado do 429 demasiados pedidos.
 
 ###  <a name="LimitConcurrencyStatement"></a> Declaração de política
 
@@ -649,7 +649,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Atributo|Descrição|Necessário|Predefinição|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|Determina se se trata de um novo pedido ou uma cópia da solicitação atual. No modo de saída, modo = cópia não inicializar o corpo do pedido.|Não|Novo|
-|response-variable-name="string"|O nome da variável de contexto que irá receber um objeto de resposta. Se a variável não existir, será criado durante a execução com êxito da política e irá tornar-se acessível via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) coleção.|Sim|N/A|
+|response-variable-name="string"|O nome da variável de contexto que irá receber um objeto de resposta. Se a variável não existir, será criada após a execução bem-sucedida da política e irá tornar-se acessível via [ `context.Variable` ](api-management-policy-expressions.md#ContextVariables) coleção.|Sim|N/A|
 |tempo limite = "integer"|O intervalo de tempo limite em segundos antes da chamada para o URL de falha.|Não|60|
 |ignore-error|Se true e os resultados de pedido num erro:<br /><br /> – Se o nome da variável de resposta foi especificado esta irá conter um valor nulo.<br />– Se não foi especificado o nome da variável de resposta, contexto. Não será possível atualizar o pedido.|Não|false|
 |nome|Especifica o nome do cabeçalho de ser definido.|Sim|N/A|
@@ -876,7 +876,7 @@ Observe o uso de [propriedades](api-management-howto-properties.md) como valores
 
 ```xml
 
-<trace source="arbitrary string literal"/>
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->
 </trace>
 

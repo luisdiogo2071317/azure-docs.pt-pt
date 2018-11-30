@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 9885783428b51a71fee8733a9d054e82eca0f2f9
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: cead67bf18dcd0ea7b5c1479588083884dab475f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828462"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632964"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode usá-lo para ver os servidores, como considerá-los – sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -133,8 +133,8 @@ Mapa de serviço obtém seus dados do agente do Microsoft Dependency. O agente d
 
 | Origem ligada | Suportadas | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | Sim | Mapa de serviço analisa e recolhe dados a partir de computadores Windows. <br><br>Para além da [agente do Log Analytics para Windows](../../log-analytics/log-analytics-agent-overview.md), agentes do Windows exigem o agente do Microsoft Dependency. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
-| Agentes do Linux | Sim | Mapa de serviço analisa e recolhe dados de computadores Linux. <br><br>Para além da [agente do Log Analytics para Linux](../../log-analytics/log-analytics-agent-overview.md), o agente do Microsoft Dependency necessitam de agentes do Linux. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Agentes do Windows | Sim | Mapa de serviço analisa e recolhe dados a partir de computadores Windows. <br><br>Para além da [agente do Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), agentes do Windows exigem o agente do Microsoft Dependency. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Agentes do Linux | Sim | Mapa de serviço analisa e recolhe dados de computadores Linux. <br><br>Para além da [agente do Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), o agente do Microsoft Dependency necessitam de agentes do Linux. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
 | Grupo de gestão do System Center Operations Manager | Sim | Mapa de serviço analisa e recolhe dados de agentes do Windows e Linux no conectado [grupo de gestão do System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md). <br><br>É preciso uma ligação direta do computador do agente do System Center Operations Manager ao Log Analytics. |
 | Conta de armazenamento do Azure | Não | Mapa de serviço recolhe dados a partir de computadores de agente, portanto, não há nenhum dado com ele para coletar do armazenamento do Azure. |
 
@@ -153,7 +153,7 @@ Se for um cliente do System Center Operations Manager com um grupo de gestão li
 - Se os agentes do System Center Operations Manager podem aceder à Internet para ligar ao Log Analytics, é necessária nenhuma configuração adicional.  
 - Se os agentes do System Center Operations Manager não é possível aceder ao Log Analytics através da Internet, terá de configurar o gateway do Log Analytics para trabalhar com o System Center Operations Manager.
   
-Se seus computadores Windows ou Linux não podem ligar-se diretamente ao serviço, tem de configurar o agente do Log Analytics para se ligar à área de trabalho do Log Analytics a utilizar o gateway. Para obter mais informações sobre como implementar e configurar o gateway do Log Analytics, consulte [ligar computadores sem acesso à Internet através do gateway do Log Analytics](../../log-analytics/log-analytics-oms-gateway.md).  
+Se seus computadores Windows ou Linux não podem ligar-se diretamente ao serviço, tem de configurar o agente do Log Analytics para se ligar à área de trabalho do Log Analytics a utilizar o gateway. Para obter mais informações sobre como implementar e configurar o gateway do Log Analytics, consulte [ligar computadores sem acesso à Internet através do gateway do Log Analytics](../../azure-monitor/platform/gateway.md).  
 
 ### <a name="management-packs"></a>Pacotes de gestão
 Quando o mapa de serviço é ativado numa área de trabalho do Log Analytics, um pacote de gestão de 300 KB é encaminhado para todos os servidores do Windows na área de trabalho. Se estiver a utilizar agentes do System Center Operations Manager num [grupo de gestão ligado](../../log-analytics/log-analytics-om-agents.md), o pacote de gestão do mapa de serviço é implementado a partir do System Center Operations Manager. 
@@ -230,7 +230,7 @@ O agente de dependência pode ser instalado manualmente em computadores Windows 
 
 Utilize os seguintes passos para instalar o agente de dependência em cada computador do Windows:
 
-1.  Instalar o agente do Log Analytics para Windows, siga um dos métodos descritos [descrição geral do agente do Log Analytics](../../log-analytics/log-analytics-agent-overview.md).
+1.  Instalar o agente do Log Analytics para Windows, siga um dos métodos descritos [descrição geral do agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md).
 2.  Transferir o agente do Windows e executá-lo utilizando o seguinte comando: 
     
     `InstallDependencyAgent-Windows.exe`
@@ -258,7 +258,7 @@ O agente de dependência é instalado em computadores com Linux do `InstallDepen
 
 Utilize os seguintes passos para instalar o agente de dependência em cada computador Linux:
 
-1.  Instalar o agente de Log Analytics, um dos métodos descritos a seguir [descrição geral do agente do Log Analytics](../../log-analytics/log-analytics-agent-overview.md).
+1.  Instalar o agente de Log Analytics, um dos métodos descritos a seguir [descrição geral do agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md).
 2.  Instale o agente de dependência de Linux como raiz, executando o seguinte comando:
     
     `sh InstallDependencyAgent-Linux64.bin`
@@ -390,7 +390,7 @@ Se a instalação do agente de dependência foi concluída com êxito, mas não 
 
         Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
-Obteve uma variedade de eventos nos resultados? Os dados são recentes? Se assim for, o agente do Log Analytics está operando corretamente e ao comunicar com o Log Analytics. Caso contrário, verifique o agente no seu servidor: [agente do Log Analytics para resolução de problemas do Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) ou [agente do Log Analytics para resolução de problemas do Linux](../../log-analytics/log-analytics-agent-linux-support.md).
+Obteve uma variedade de eventos nos resultados? Os dados são recentes? Se assim for, o agente do Log Analytics está operando corretamente e ao comunicar com o Log Analytics. Caso contrário, verifique o agente no seu servidor: [agente do Log Analytics para resolução de problemas do Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) ou [agente do Log Analytics para resolução de problemas do Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servidor é apresentado no mapa de serviço, mas não tem nenhum processo
 Se vir o seu servidor no mapa de serviço, mas ele não tem processo ou ligação de dados, que indica que o agente de dependência é instalado e em execução, mas não carregou o driver do kernel. 

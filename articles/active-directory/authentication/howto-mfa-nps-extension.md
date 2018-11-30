@@ -10,27 +10,27 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 9873347683fdfabd93083b44d034a8d9d5bcaeef
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f0b13480c06e154b85300f4a8a2f8a84db04c31b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297542"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582382"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Azure multi-factor Authentication
 
-A extensão de servidor de políticas de rede (NPS) para o MFA do Azure adiciona capacidades MFA com base na cloud à sua infraestrutura de autenticação através de seus servidores existentes. Com a extensão NPS, pode adicionar chamada telefónica, mensagem de texto ou verificação de aplicação do telefone para o fluxo de autenticação existentes sem ter de instalar, configurar e manter novos servidores. 
+A extensão de servidor de políticas de rede (NPS) para o MFA do Azure adiciona capacidades MFA com base na cloud à sua infraestrutura de autenticação através de seus servidores existentes. Com a extensão NPS, pode adicionar chamada telefónica, mensagem de texto ou verificação de aplicação do telefone para o fluxo de autenticação existentes sem ter de instalar, configurar e manter novos servidores. 
 
 Esta extensão foi criada para organizações que pretendem proteger ligações VPN sem ter de implementar o servidor MFA do Azure. A extensão NPS age como um adaptador entre RADIUS e baseado na nuvem do MFA do Azure para fornecer um segundo fator de autenticação para federada ou utilizadores sincronizados.
 
-Ao utilizar a extensão NPS da MFA do Azure, o fluxo de autenticação inclui os seguintes componentes: 
+Ao utilizar a extensão NPS da MFA do Azure, o fluxo de autenticação inclui os seguintes componentes: 
 
-1. **Servidor NAS/VPN** recebe pedidos de clientes VPN e converte-os em pedidos RADIUS para servidores NPS. 
-2. **Servidor NPS** conectado ao Active Directory para efetuar a autenticação primária para as solicitações RADIUS e, após a conclusão bem-sucedida, transmite o pedido para quaisquer extensões instaladas.  
-3. **Extensão de NPS** aciona uma solicitação para o MFA do Azure para a autenticação secundária. Depois da extensão recebe a resposta e, se a submissão da MFA for bem-sucedida, concluir o pedido de autenticação ao fornecer o servidor NPS com tokens de segurança que incluem uma afirmação de MFA, emitidos pelo STS do Azure.  
+1. **Servidor NAS/VPN** recebe pedidos de clientes VPN e converte-os em pedidos RADIUS para servidores NPS. 
+2. **Servidor NPS** conectado ao Active Directory para efetuar a autenticação primária para as solicitações RADIUS e, após a conclusão bem-sucedida, transmite o pedido para quaisquer extensões instaladas.  
+3. **Extensão de NPS** aciona uma solicitação para o MFA do Azure para a autenticação secundária. Depois da extensão recebe a resposta e, se a submissão da MFA for bem-sucedida, concluir o pedido de autenticação ao fornecer o servidor NPS com tokens de segurança que incluem uma afirmação de MFA, emitidos pelo STS do Azure.  
 4. **MFA do Azure** comunica com o Azure Active Directory para obter os detalhes do utilizador e efetua a autenticação secundária através de um método de verificação configurado para o utilizador.
 
-O diagrama seguinte ilustra esse fluxo de pedido de autenticação de alto nível: 
+O diagrama seguinte ilustra esse fluxo de pedido de autenticação de alto nível: 
 
 ![Diagrama de fluxo de autenticação](./media/howto-mfa-nps-extension/auth-flow.png)
 
@@ -118,7 +118,7 @@ Existem dois fatores que afetam os métodos de autenticação estão disponívei
 
 Ao implementar a extensão NPS, utilize estes fatores para avaliar a quais métodos estão disponíveis para os seus utilizadores. Se o cliente RADIUS suporta PAP, mas o experiência do Usuário do cliente não tem campos de entrada para um código de verificação, em seguida, chamadas telefónicas e de notificação de aplicação móvel são as duas opções suportadas.
 
-Pode [desativar métodos de autenticação não suportado](howto-mfa-mfasettings.md#selectable-verification-methods) no Azure.
+Pode [desativar métodos de autenticação não suportado](howto-mfa-mfasettings.md#verification-methods) no Azure.
 
 ### <a name="register-users-for-mfa"></a>Registar os utilizadores na MFA
 
@@ -212,15 +212,31 @@ Procure o certificado autoassinado criado pelo instalador no arquivo de certific
 
 Abra a linha de comandos do PowerShell e execute os seguintes comandos:
 
-```
+``` PowerShell
 import-module MSOnline
 Connect-MsolService
-Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
 ```
 
 Estes comandos imprimir todos os certificados de associar o seu inquilino com a instância da extensão NPS na sessão do PowerShell. Procure o certificado ao exportar o certificado de cliente como um ficheiro de "x.509 com codificação Base 64" sem a chave privada e compará-lo com a lista a partir do PowerShell.
 
+O comando seguinte criará um arquivo chamado "npscertificate" na sua unidade de "C:" no. cer de formato.
+
+``` PowerShell
+import-module MSOnline
+Connect-MsolService
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
+```
+
+Depois de executar este comando, vá para a unidade C, localize o ficheiro e faça duplo clique no mesmo. Ir para os detalhes e desloque-se para baixo até "thumbprint", comparar a thumbprint do certificado instalado no servidor a este. Os thumbprints de certificado devem corresponder.
+
 Válido-do e válido-até que os carimbos de data /, que são em formato legível por humanos, pode ser utilizado para filtrar os misfits óbvios, se o comando devolve mais de um certificado.
+
+-------------------------------------------------------------
+
+### <a name="why-cant-i-sign-in"></a>Por que não pode entrar nos?
+
+Verifique se a palavra-passe ainda não tiver expirado. A extensão NPS não suporta a alteração de palavras-passe como parte do fluxo de trabalho início de sessão. Entre em contato com a equipe de TI da sua organização para obter mais assistência.
 
 -------------------------------------------------------------
 

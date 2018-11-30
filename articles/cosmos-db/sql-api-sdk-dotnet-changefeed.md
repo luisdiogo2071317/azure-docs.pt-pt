@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 611f7ccf9ef701bf589a8f9450f8f02695357224
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291186"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632488"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alterações de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ ms.locfileid: "52291186"
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="v2-builds"></a>compilações de v2
+
+### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
+* Feed adicionada nova propriedade ChangeFeedProcessorOptions.StartContinuation para suportar a alteração de partida do token de continuação do pedido. Esta opção só é utilizada quando a coleção de concessão está vazia ou uma concessão não tem ContinuationToken definido. Para concessões na coleção de concessão com ContinuationToken definido, é utilizado o ContinuationToken e ChangeFeedProcessorOptions.StartContinuation é ignorada.
 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 * Foi adicionado suporte para utilizar o arquivo personalizado para manter os tokens de continuação por partição.

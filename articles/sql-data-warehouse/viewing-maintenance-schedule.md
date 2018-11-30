@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/06/2018
+ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: db5502b796fc345b2e2bf083f864d80bd59e7293
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3c683d5819ded4eb3d286969b8c3fc3f0bd42865
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427132"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497520"
 ---
 # <a name="view-a-maintenance-schedule"></a>Ver um agendamento de manutenção 
 
@@ -34,6 +34,7 @@ Para ver a agenda de manutenção que foi aplicada ao seu armazém de dados, con
 ## <a name="next-steps"></a>Passos Seguintes
 - [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) sobre como criar, visualizar e gerir alertas com o Azure Monitor.
 - [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) sobre as ações de webhook para regras de alerta de registo.
+- [Saiba mais](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) criando e gerenciando grupos de ação.
 - [Saiba mais](https://docs.microsoft.com/azure/service-health/service-health-overview) sobre o Azure Service Health.
 
 

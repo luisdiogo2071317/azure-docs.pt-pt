@@ -14,19 +14,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 8/8/2018
+ms.date: 11/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: fe84dfcef2a5dad1c170592f933638b984e16a05
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: 439a3338d5b2104d20e8de99a83fe19c6935a5ac
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717034"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499490"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
-A Rede Virtual do Azure permite a muitos tipos de recursos do Azure, como as Máquinas Virtuais (VMs) do Azure, comunicarem entre si, a Internet e redes no local de forma segura. A Rede Virtual do Azure fornece as principais capacidades seguintes:
+A Rede Virtual do Azure permite a muitos tipos de recursos do Azure, como as Máquinas Virtuais (VMs) do Azure, comunicarem entre si, a Internet e redes no local de forma segura. Uma rede virtual tem um âmbito de uma única região; No entanto, várias redes virtuais a partir de regiões diferentes podem ser ligadas em conjunto com o Peering de rede Virtual.
+
+A Rede Virtual do Azure fornece as principais capacidades seguintes:
 
 ## <a name="isolation-and-segmentation"></a>Isolamento e segmentação
 
@@ -72,6 +74,6 @@ O Azure encaminha tráfego entre sub-redes, redes virtuais ligadas, redes no loc
 
 Pode ligar redes virtuais entre si, ativando recursos em qualquer rede virtual para comunicarem entre si, com o peering de rede virtual. As redes virtuais a que liga podem estar nas mesmas regiões ou em regiões diferentes do Azure. Para obter mais informações, veja [Peering de rede virtual](virtual-network-peering-overview.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Tem agora uma descrição geral da Rede Virtual do Azure. Para começar a utilizar uma rede virtual, crie uma, implemente algumas VMs na mesma e comunique entre as VMs. Para saber como, veja o início rápido [Criar uma rede virtual](quick-create-portal.md).

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ee6d7735a2983f642eff82a7dabe036af100e60e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 588ce454248f0577a52515a4327d1e43013d34a5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622674"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581804"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Personalizar a interface do usuário das suas aplicações no Azure Active Directory B2C
 
@@ -64,7 +64,7 @@ Embora armazene seus arquivos de várias maneiras, para este tutorial, armazene-
  Do Azure AD B2C código num navegador usa uma abordagem moderna e padrão para carregar conteúdo personalizado a partir de uma URL que especificar numa política. Recursos de várias origens (CORS) de compartilhamento permite recursos restritos numa página da web para ser pedidos a partir de outros domínios.
 
 1. No menu, selecione **CORS**.
-2. Para **permitido origens**, introduza `your-tenant-name.b2clogin.com`. Substitua `your-tenant-name` com o nome do seu inquilino do Azure AD B2C. Por exemplo, `fabrikam.b2clogin.com`.
+2. Para **permitido origens**, introduza `https://your-tenant-name.b2clogin.com`. Substitua `your-tenant-name` com o nome do seu inquilino do Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com`. Tem de utilizar todas as letras minúsculas, ao introduzir o nome do seu inquilino.
 3. Para **métodos permitidos**, selecione ambos `GET` e `OPTIONS`.
 4. Para **cabeçalhos permitidos**, introduza um asterisco (*).
 5. Para **cabeçalhos expostos**, introduza um asterisco (*).

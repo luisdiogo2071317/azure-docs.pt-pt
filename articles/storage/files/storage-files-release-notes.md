@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 85746bb964b401a33355dda57546e0809de30f59
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 45f77c3065feeb011a10bc345c22082b6a89529c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624177"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582824"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -57,6 +57,7 @@ Para obter mais informações sobre como instalar e configurar o agente de sincr
 - O agente só é suportado no Windows Server 2016 e no Windows Server 2012 R2.
 - O agente requer, pelo menos, 2 GiB de memória. Se o servidor estiver em execução numa máquina virtual com memória dinâmica ativada, a VM deve ser configurada com um MiB 2048 mínima de memória.
 - O serviço de agente de sincronização de armazenamento (FileSyncSvc) não suporta pontos finais do servidor localizados num volume que tenha o diretório de informações (SVI) do volume de sistema comprimido. Esta configuração irá levar a resultados inesperados.
+- Um erro de paragem 0x3B ou um erro de paragem 0x1E pode ocorrer quando é criado um instantâneo VSS.
 
 ### <a name="interoperability"></a>Interoperabilidade
 - O antivírus, a cópia de segurança e outras aplicações que acedam a ficheiros em camadas podem causar uma revogação indesejável, a menos que respeitem o atributo offline e ignorem a leitura do conteúdo desses ficheiros. Para obter mais informações, consulte [resolver problemas relacionados com o Azure File Sync](storage-sync-files-troubleshoot.md).

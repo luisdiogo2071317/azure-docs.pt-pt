@@ -10,16 +10,21 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 2040c80687b8961c2db6b1b954a317807ebbbb13
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 10ebb5f549aba42c4de74cec2c16ed63f90532a1
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946033"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633746"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notas de versão do SDK de dispositivos de voz dos serviços cognitivos
 
 As seguintes alterações de lista secções nas versões mais recentes.
+
+## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>SDK dos serviços cognitivos voz dispositivos 1.1.0: versão de Novembro de 2018 
+
+* Atualizar o [SDK de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) componente para a versão 1.1.0. Para obter mais informações, consulte seus [notas de versão](https://aka.ms/csspeech/whatsnew). 
+* Sem dúvida precisão de reconhecimento de voz de campo foi aprimorada com o nosso algoritmo de processamento de áudio aprimorada  
 
 ## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>SDK dos serviços cognitivos voz dispositivos 1.0.1: versão de Outubro de 2018 
 

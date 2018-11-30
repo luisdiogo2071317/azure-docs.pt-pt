@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 49a2c03664ba39a624871b24c0b86a968a67eddb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a0fcb95ed34ed3d98c6b25b475c0866135897f3
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521528"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584677"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Ver o estado das tarefas de importação/exportação do Azure
 
@@ -23,7 +23,6 @@ Este artigo fornece informações sobre como visualizar o estado de unidade e de
 Pode controlar o estado da importação ou exportar tarefas a partir do portal do Azure. Clique nas **importação/exportação** separador. É apresentada uma lista das suas tarefas na página.
 
 ![Vista de estado da tarefa](./media/storage-import-export-service/jobstate.png)
-
 
 ## <a name="view-job-status"></a>Ver o estado de tarefa
 
@@ -74,7 +73,7 @@ A quantidade de tempo que demora a processar uma tarefa de importação/exporta�
 -  Tipo de tarefa e o tamanho dos dados a ser copiados
 -  Número de discos numa tarefa. 
 
-O serviço importar/exportar não tem um SLA, mas o serviço se esforça para concluir a cópia dentro de 7 a 10 dias após os discos são recebidos. Para além do estado publicado no Portal do Azure, as REST APIs pode ser utilizadas para controlar o progresso da tarefa. A percentagem de conclusão parâmetro na [lista de tarefas]() chamada de operação de API fornece o progresso de cópia de percentagem.
+O serviço importar/exportar não tem um SLA, mas o serviço se esforça para concluir a cópia dentro de 7 a 10 dias após os discos são recebidos. Para além do estado publicado no Portal do Azure, as REST APIs pode ser utilizadas para controlar o progresso da tarefa. A percentagem de conclusão parâmetro na [lista de tarefas](/previous-versions/azure/dn529083(v=azure.100)) chamada de operação de API fornece o progresso de cópia de percentagem.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -82,4 +81,3 @@ O serviço importar/exportar não tem um SLA, mas o serviço se esforça para co
 * [Configurar a ferramenta de WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário da linha de comandos AzCopy](storage-use-azcopy.md)
 * [Exemplo de importar exportar a API de REST do Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: d6cbd2992968a57cfba99117e9f1fc1ab9b5b5b3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 2ece10c43f25ac637a29324f46a88e50d9655431
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711842"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620443"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ligar a IoT DevKit AZ3166 ao Hub IoT do Azure
 
@@ -119,12 +119,12 @@ Prima o botão B para testar os sensores. Continue o pressionamento e a liberaç
 
 Recomendamos [Bancada de trabalho do Azure IoT](https://aka.ms/iot-workbench) extensão para o Visual Studio Code para desenvolver no DevKit.
 
-A Bancada de trabalho de IoT do Azure fornece uma experiência integrada para desenvolver soluções de IoT. Ele ajuda a ambos no desenvolvimento de dispositivo e na cloud com o Azure IoT e outros serviços. Pode ver este vídeo do Channel 9 para ter uma visão geral do que ele faz.
+A Bancada de trabalho de IoT do Azure fornece uma experiência integrada para desenvolver soluções de IoT. Ele ajuda a ambos no desenvolvimento de dispositivo e na cloud com o Azure IoT e outros serviços. Pode ver isso [vídeo do Channel 9](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code) ter uma visão geral do que ele faz.
 
 Siga estes passos para preparar o ambiente de desenvolvimento para DevKit:
 
 1. Transfira e instale [Arduino IDE](https://www.arduino.cc/en/Main/Software). Ele fornece a coleção de ferramentas necessária para compilar e carregar o código de Arduino.
-    * **Windows**: versão de utilizar o instalador do Windows.
+    * **Windows**: versão de utilizar o instalador do Windows. Não instale a partir da loja de aplicações.
     * **macOS**: Arraste e largue o extraídos **Arduino.app** em `/Applications` pasta.
     * **Ubuntu**: Descompacte-o como em pasta `$HOME/Downloads/arduino-1.8.5`
 
@@ -133,15 +133,15 @@ Siga estes passos para preparar o ambiente de desenvolvimento para DevKit:
 3. Procure **Bancada de trabalho do Azure IoT** no mercado de extensão e instalá-lo.
     ![Instalar o Azure IoT Workbench](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png) juntamente com a Bancada de trabalho de IoT, outras extensões dependentes serão instalados.
 
-4. Open **ficheiro > Preferências > definições** e adicionar o seguinte linhas para configurar Arduino.
-    * **Windows**:
-
+4. Configurar Arduino
+    * **Windows**: na **Windows** aberto **ficheiro > preferência > definições** clique o **...**  e abrir Settings, em seguida, adicionar o seguinte linhas para configurar Arduino. 
+      
     ```json
     "arduino.path": "C:\\Program Files (x86)\\Arduino",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
 
-    * **macOS**:
+    * **macOS**: na **macOS** aberto **código > Preferências > definições** clique o **...**  e abrir Settings, em seguida, adicione as seguintes linhas para configurar Arduino
 
     ```json
     "arduino.path": "/Applications",

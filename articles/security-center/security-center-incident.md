@@ -3,7 +3,7 @@ title: Gerir alertas de segurança no Centro de Segurança do Azure | Microsoft 
 description: Este documento ajuda-o a utilizar as capacidades do Centro de Segurança do Azure para lidar com incidentes de segurança.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
-ms.author: yurid
-ms.openlocfilehash: f1cda4eb48235f9b72697eee77aac6a4e576aaf2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 40e46ed99684877e829068c209ab318913b79e2a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258499"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633933"
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>Lidar com Incidentes de Segurança no Centro de Segurança do Azure
 A triagem e a investigação dos alertas de segurança pode ser algo moroso, mesmo para analistas de segurança mais qualificados, e, para muitos, é até difícil saber por onde começar. Através da utilização de [análises](security-center-detection-capabilities.md) para ligar as informações entre [alertas de segurança](security-center-managing-and-responding-alerts.md) distintos, o Centro de Segurança pode fornecer-lhe uma vista única de uma campanha de ataque e todos os alertas relacionados. Deste modo, pode perceber rapidamente quais as ações realizadas pelo atacante e que recursos foram afetados.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dadff0dc501c20ef525fdfb7578cb391f29b3302
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264082"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52585805"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes acerca dos discos de VM de IaaS do Azure e discos geridos e não geridos premium
 
@@ -136,6 +136,10 @@ Não, quando é criado o novo disco é uma cópia autônoma completa desse blob 
 **Posso renomear um disco gerido ou depois de este ter sido criado?**
 
 Para discos geridos não é possível mudar o nome-los. No entanto, pode mudar o nome de um disco não gerido, desde que não está atualmente ligado a um VHD ou VM.
+
+**Posso utilizar GBT criação de partições num disco do Azure?**
+
+A criação de partições de GBT pode ser usada apenas em discos de dados, não os discos de SO. Discos de SO tem de utilizar o estilo de partição MBR.
 
 ## <a name="standard-ssd-disks"></a>Discos SSD Standard
 
@@ -300,7 +304,7 @@ O tipo de partição que o Azure suporta para o disco de sistema operativo é o 
 
 **O que é o maior tamanho de blob de página que é suportado?**
 
-O maior tamanho de blob de página suportados pelo Azure é 8 TiB (8,191 GiB). O tamanho do blog de páginas máxima quando anexado a uma VM, como dados ou discos do sistema operativo é 4 TiB (4095 GiB).
+O maior tamanho de blob de página suportados pelo Azure é 8 TiB (8,191 GiB). O tamanho do blob de páginas máxima quando anexado a uma VM, como dados ou discos do sistema operativo é 4 TiB (4095 GiB).
 
 **É necessário utilizar uma nova versão das ferramentas do Azure para criar, anexar, redimensionar e carregar discos maiores do que 1 TiB?**
 

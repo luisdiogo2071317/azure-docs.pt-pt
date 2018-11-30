@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 49341b320df98bb08ee4f5c4ee061a51bec29ff2
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb8eb4eae192cf0dd3a3555a3b1209705dd83aaf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686165"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583696"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Criar e gerir orçamentos do Azure
 
@@ -33,13 +33,15 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Orçamentos estão disponíveis para todos os clientes do EA do Azure. Tem de ter acesso de leitura de uma subscrição do EA do Azure para criar e gerir orçamentos. Pode criar orçamentos individuais para as subscrições do EA e grupos de recursos. No entanto, não é possível criar orçamentos para contas de faturação de EA.
+Orçamentos estão disponíveis para todos os clientes do EA do Azure. Tem de ter acesso de leitura para um orçamentos de vista de subscrição do Azure EA. Para criar e gerir orçamentos, tem de ter permissão de contribuinte. Pode criar orçamentos individuais para as subscrições do EA e grupos de recursos. No entanto, não é possível criar orçamentos para contas de faturação de EA.
 
 As seguintes permissões do Azure são suportadas por subscrição para os orçamentos de por utilizador e grupo:
 
 - Proprietário: pode criar, modificar ou eliminar orçamentos de uma subscrição.
-- Contribuinte: pode criar, modificar ou eliminar os respetivos orçamentos. Pode modificar a quantidade de orçamento para orçamentos criados por outros utilizadores.
-- Leitor: pode ver orçamentos para os quais tem permissões.
+- Colaborador e contribuinte de gestão de custos – pode criar, modificar ou eliminar os seus próprios orçamentos. Pode modificar a quantidade de orçamento para orçamentos criados por outros utilizadores.
+- Leitor de gestão de custos – e de um leitor pode ver os orçamentos de que eles têm permissão para.
+
+Para obter mais informações sobre a atribuição de permissão para dados de gestão de custos, veja [atribuir acesso a dados de gestão de custos](assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

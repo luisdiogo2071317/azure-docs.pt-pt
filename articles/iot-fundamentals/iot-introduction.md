@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2f690e6c930a1a119c9b7bf4b83ec04a564e47c9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288752"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582433"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>O que é o Azure Internet das coisas (IoT)?
 
@@ -113,7 +113,7 @@ Existem vários serviços relacionados com a IoT no Azure e pode ser confuso des
 
 5. [**IoT Edge**](/azure/iot-edge/): este serviço baseia-se sobre o IoT Hub. Ele pode ser usado para analisar os dados nos dispositivos IoT, em vez de na cloud. Ao mover as partes da sua carga de trabalho no Edge, mensagens menos precisam de ser enviados para a cloud. 
 
-6. [**Os gémeos Digital do Azure**](/azure/azure-digital-twins/): este serviço permite-lhe criar modelos abrangentes do ambiente físico. Pode modelar as relações e interações entre pessoas, espaços e dispositivos. Por exemplo, pode prever uma manutenção precisa de uma fábrica, analisar os requisitos de energia em tempo real para uma rede elétrica ou otimizar a utilização de espaço disponível para um office.
+6. [**Os gémeos Digital do Azure**](../digital-twins/index.yml): este serviço permite-lhe criar modelos abrangentes do ambiente físico. Pode modelar as relações e interações entre pessoas, espaços e dispositivos. Por exemplo, pode prever uma manutenção precisa de uma fábrica, analisar os requisitos de energia em tempo real para uma rede elétrica ou otimizar a utilização de espaço disponível para um office.
 
 7. [**Time Series Insights**](/azure/time-series-insights): este serviço permite-lhe armazenar, visualizar e consultar grandes quantidades de dados de séries de tempo geradas pelos dispositivos de IoT. Pode utilizar este serviço com o IoT Hub. 
 

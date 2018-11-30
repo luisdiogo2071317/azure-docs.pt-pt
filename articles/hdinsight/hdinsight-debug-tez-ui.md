@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecb613dd2f624b9e0910a0ddcdf931f4b266aa96
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: c96e195d425cff640a4961e34305c1af447f6f28
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036588"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499432"
 ---
 # <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Utilize a interface do Usuário do Apache Tez para depurar tarefas do Tez no HDInsight baseado em Windows
-Pode ser utilizado a IU do Tez para depurar tarefas do Hive que utilizam o Tez como motor de execução. A IU do Tez visualiza a tarefa, como um gráfico de itens ligados, pode explorar cada item e obter estatísticas e informações de registo.
+O [Apache TEZ](https://tez.apache.org/) interface do Usuário pode ser utilizado para depurar [Apache Hive](https://hive.apache.org/) tarefas que utilizam o Tez como motor de execução. A IU do Tez visualiza a tarefa, como um gráfico de itens ligados, pode explorar cada item e obter estatísticas e informações de registo.
 
 > [!IMPORTANT]
 > Os passos neste documento exigem um cluster do HDInsight que utiliza o Windows. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
@@ -32,7 +32,7 @@ Pode ser utilizado a IU do Tez para depurar tarefas do Hive que utilizam o Tez c
 * Um cliente de ambiente de trabalho remota baseado em Windows.
 
 ## <a name="understanding-apache-tez"></a>Noções básicas sobre o Apache Tez
-Tez é uma estrutura extensível para processamento de dados no Apache Hadoop e fornece maior 1000x maiores do que o processamento de MapReduce tradicional. Pode ativar o Tez, incluindo o seguinte texto como parte de uma consulta do Hive:
+Tez é uma estrutura extensível para processamento de dados no Apache Hadoop e fornece maior velocidade tradicional [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) de processamento. Pode ativar o Tez, incluindo o seguinte texto como parte de uma consulta do Hive:
 
     set hive.execution.engine=tez;
 
@@ -134,6 +134,6 @@ Utilize os seguintes passos para executar uma consulta do Hive que utiliza Tez.
     ![Detalhes da tarefa](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## <a name="next-steps"></a>Próximos Passos
-Agora que aprendeu como utilizar o modo de exibição do Tez, saiba mais sobre [utilizar o Hive no HDInsight](hadoop/hdinsight-use-hive.md).
+Agora que aprendeu como utilizar o [Apache TEZ](https://tez.apache.org/) ver, saiba mais sobre [utilizando o Apache Hive no HDInsight](hadoop/hdinsight-use-hive.md).
 
-Para obter mais informações técnicas sobre o Tez, consulte a [página, Tez em Hortonworks](http://hortonworks.com/hadoop/tez/).
+Para obter mais informações técnicas sobre o Tez, consulte a [página, Apache Tez em Hortonworks](http://hortonworks.com/hadoop/tez/).

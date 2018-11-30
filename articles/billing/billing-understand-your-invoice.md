@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: de5cb85e751ad1d0c25ea31b185a3266eb9de05d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 50909a51786bf6118c4fb867f2482c93bf59c28e
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275406"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581564"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreender os termos na sua fatura do Microsoft Azure
 
@@ -114,5 +114,6 @@ A tabela seguinte descreve os cabeçalhos de coluna utilização de custos na su
 ## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>Como posso Certifique-se de que os encargos na minha fatura estão corretos?
 Se existe uma cobrança na sua fatura que deseja obter mais detalhes, consulte o artigo [compreender a sua fatura do Microsoft Azure.](billing-understand-your-bill.md)
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
-Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

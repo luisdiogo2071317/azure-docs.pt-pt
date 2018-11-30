@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: a57aae3b5f854871c94d5a4d62b41ad6a1bafcfd
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 58bec272733d0ad83665f4e06f37ae528eb2f8b9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824936"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499646"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
 [Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de funções são a forma de controlar o acesso aos recursos no Azure. Se as [funções incorporadas](custom-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
@@ -39,7 +39,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [AcrImageSigner](#acrimagesigner) | signatário de imagem acr |
 | [AcrQuarantineReader](#acrquarantinereader) | leitor de dados de quarentena do acr |
 | [AcrQuarantineWriter](#acrquarantinewriter) | escritor de dados de quarentena do acr |
-| [Contribuinte de serviços de gestão de API](#api-management-service-contributor) | Permite-lhe gerir serviços de gestão de API, mas não aceder-lhes. |
+| [Contribuinte de serviços de gestão de API](#api-management-service-contributor) | Pode gerir o serviço e as APIs |
 | [Função de operador de serviço de gestão de API](#api-management-service-operator-role) | Pode gerir o serviço, mas não as APIs |
 | [Função de leitor de serviço de gestão de API](#api-management-service-reader-role) | Acesso só de leitura para o serviço e APIs |
 | [Contribuinte de componente do Application Insights](#application-insights-component-contributor) | Permite gerir componentes do Application Insights |
@@ -53,7 +53,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuidor de cópia de segurança](#backup-contributor) | Permite-lhe gerir o serviço de cópia de segurança mas não pode criar cofres e conceder o acesso a outros |
 | [Operador de cópia de segurança](#backup-operator) | Permite-lhe gerir serviços de cópia de segurança, exceto de remoção de cópia de segurança, criação de cofre e concessão de acesso a outros |
 | [Leitor de cópia de segurança](#backup-reader) | Pode ver os serviços de cópia de segurança mas não pode efetuar alterações |
-| [Leitor de faturação](#billing-reader) | Permite que leia dados de faturação |
+| [Leitor de faturação](#billing-reader) | Permite o acesso de leitura para dados de faturação |
 | [Contribuinte do BizTalk](#biztalk-contributor) | Permite-lhe gerir serviços do BizTalk, mas não aceder-lhes. |
 | [Contribuidor de ponto final CDN](#cdn-endpoint-contributor) | Pode gerir pontos finais de CDN, as não pode conceder o acesso a outros utilizadores. |
 | [Leitor do ponto final CDN](#cdn-endpoint-reader) | Pode visualizar os pontos finais de CDN, mas não pode efetuar alterações. |
@@ -70,12 +70,14 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Leitor de gestão de custos](#cost-management-reader) | Pode ver os dados de custos e a configuração (por exemplo, orçamentos, exportações) |
 | [Contribuinte de caixa de dados](#data-box-contributor) | Permite-lhe gerir tudo no Serviço Data Box, exceto dar acesso a outros utilizadores. |
 | [Leitor de dados de caixa](#data-box-reader) | Permite-lhe gerir o Serviço Data Box, exceto criar uma ordem ou editar os detalhes de uma ordem e dar acesso a outros utilizadores. |
-| [Contribuinte do Data Factory](#data-factory-contributor) | Permite-lhe gerir fábricas de dados, mas não aceder-lhes. |
+| [Contribuinte do Data Factory](#data-factory-contributor) | Criar e gerir fábricas de dados, assim como os recursos subordinados dentro dos mesmos. |
 | [Programador do Data Lake Analytics](#data-lake-analytics-developer) | Permite-lhe submeter, monitorizar e gerir as suas tarefas, mas não criar ou eliminar as contas do Data Lake Analytics. |
 | [Purger de dados](#data-purger) | Pode remover dados de análise |
-| [Utilizador de DevTest Labs](#devtest-labs-user) | Permite-lhe ligar, iniciar, reiniciar e encerrar máquinas virtuais no Azure DevTest Labs. |
+| [Utilizador de DevTest Labs](#devtest-labs-user) | Permite-lhe ligar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure DevTest Labs. |
 | [Contribuidor da zona DNS](#dns-zone-contributor) | Permite-lhe gerir zonas DNS e conjuntos de registos no DNS do Azure, mas não lhe permite controlar quem tem acesso aos mesmos. |
 | [Contribuinte de conta do DocumentDB](#documentdb-account-contributor) | Pode gerir contas do Azure Cosmos DB. O Azure Cosmos DB anteriormente é conhecido como o DocumentDB. |
+| [Contribuinte de EventSubscription EventGrid (pré-visualização)](#eventgrid-eventsubscription-contributor-preview) | Permite-lhe gerir operações de subscrição de evento EventGrid. |
+| [Leitor de EventSubscription EventGrid (pré-visualização)](#eventgrid-eventsubscription-reader-preview) | Permite que leia EventGrid subscrições de eventos. |
 | [Contribuinte de serviços de domínio do HDInsight](#hdinsight-domain-services-contributor) | Pode Ler, Criar, Modificar e Eliminar operações relacionadas com os Serviços de Domínio necessárias para o Pacote de Segurança HDInsight Enterprise |
 | [Contribuinte de conta de sistemas inteligentes](#intelligent-systems-account-contributor) | Permite-lhe gerir contas de Sistemas Inteligentes, mas não aceder-lhes. |
 | [Contribuinte do Cofre de chaves](#key-vault-contributor) | Permite-lhe gerir cofres de chaves, mas não o acesso aos mesmos. |
@@ -101,7 +103,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuinte de coleções de tarefa do Scheduler](#scheduler-job-collections-contributor) | Permite-lhe gerir coleções de tarefas do Scheduler, mas não aceder-lhes. |
 | [Contribuinte de serviços de pesquisa](#search-service-contributor) | Permite-lhe gerir serviços de Pesquisa, mas não aceder-lhes. |
 | [Administrador de segurança](#security-admin) | No Centro de segurança apenas: pode ver as políticas de segurança, visualizar os Estados de segurança, editar as políticas de segurança, ver alertas e recomendações, dispensar alertas e recomendações |
-| [Gestor de segurança](#security-manager) | Permite-lhe gerir os componentes de segurança, as políticas de segurança e máquinas virtuais |
+| [Gestor de segurança (Legado)](#security-manager-legacy) | Esta é uma função legada. Utilize em vez disso, o administrador de segurança |
 | [Leitor de segurança](#security-reader) | No Centro de segurança apenas: pode ver recomendações e alertas, políticas de segurança, visualizar os Estados de segurança, mas não pode fazer alterações de vista |
 | [Contribuinte do site Recovery](#site-recovery-contributor) | Permite-lhe gerir o serviço do Site Recovery exceto a criação do cofre e atribuição de funções |
 | [Operador de recuperação de site](#site-recovery-operator) | Permite-lhe efetuar a ativação pós-falha mas não efetuar outras operações de gestão do Site Recovery |
@@ -119,7 +121,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuidor do Gestor de tráfego](#traffic-manager-contributor) | Permite-lhe gerir perfis do Gestor de Tráfego, mas não lhe permite controlar quem tem acesso aos mesmos. |
 | [Administrador de Acesso de Utilizador](#user-access-administrator) | Permite-lhe gerir o acesso de utilizador aos recursos do Azure. |
 | [Início de sessão de administrador de máquinas virtuais](#virtual-machine-administrator-login) | Veja Máquinas Virtuais no portal e inicie a sessão como administrador |
-| [Contribuidor de Máquina Virtual](#virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais, mas não aceder-lhes e não a rede virtual ou conta de armazenamento, que eles estão conectados. |
+| [Contribuidor de Máquina Virtual](#virtual-machine-contributor) | Permite-lhe gerir máquinas virtuais, mas não aceder-lhes, além de que não pode gerir a rede virtual ou conta de armazenamento às quais estão ligadas. |
 | [Início de sessão de utilizador de máquina virtual](#virtual-machine-user-login) | Veja Máquinas virtuais no portal e inicie a sessão como um utilizador normal. |
 | [Contribuinte de plano Web](#web-plan-contributor) | Permite-lhe gerir planos Web para sites, mas não aceder-lhes. |
 | [Contribuinte de Web site](#website-contributor) | Permite-lhe gerir sites (não planos Web), mas não aceder-lhes. |
@@ -165,8 +167,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Descrição** | signatário de imagem acr |
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Ações** |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
-> | Microsoft.ContainerRegistry/registries/*/write |  |
+> | Microsoft.ContainerRegistry/registries/sign/write | Push/Pull metadados de confiança de conteúdo para um registo de contentor. |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -175,7 +176,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Descrição** | leitor de dados de quarentena do acr |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Ações** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Solicitar ou obter imagens em quarentena do container registry |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -184,14 +185,14 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Descrição** | escritor de dados de quarentena do acr |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Ações** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineWrite/write |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Solicitar ou obter imagens em quarentena do container registry |
+> | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Escrita/modificar o estado de quarentena de imagens em quarentena |
 
 ## <a name="api-management-service-contributor"></a>Contribuinte de Serviços de Gestão de API
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite-lhe gerir serviços de gestão de API, mas não aceder-lhes. |
+> | **Descrição** | Pode gerir o serviço e as APIs |
 > | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Ações** |  |
 > | Microsoft.ApiManagement/service/* | Criar e gerir o serviço de gestão de API |
@@ -536,7 +537,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite que leia dados de faturação |
+> | **Descrição** | Permite o acesso de leitura para dados de faturação |
 > | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
@@ -813,7 +814,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite-lhe gerir fábricas de dados, mas não aceder-lhes. |
+> | **Descrição** | Criar e gerir fábricas de dados, assim como os recursos subordinados dentro dos mesmos. |
 > | **Id** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de função |
@@ -872,7 +873,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite-lhe ligar, iniciar, reiniciar e encerrar máquinas virtuais no Azure DevTest Labs. |
+> | **Descrição** | Permite-lhe ligar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure DevTest Labs. |
 > | **Id** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de função |
@@ -883,13 +884,14 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Compute/virtualMachines/restart/action | Reinicia a máquina virtual |
 > | Microsoft.Compute/virtualMachines/start/action | Inicia a máquina virtual |
 > | Microsoft.DevTestLab/*/read | Ler as propriedades de um laboratório |
-> | Microsoft.DevTestLab/labs/createEnvironment/action | Crie máquinas virtuais num laboratório. |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | Declarar uma máquina de virtual reclamáveis aleatória no laboratório. |
+> | Microsoft.DevTestLab/labs/createEnvironment/action | Crie máquinas virtuais num laboratório. |
 > | Microsoft.DevTestLab/labs/formulas/delete | Elimine as fórmulas. |
 > | Microsoft.DevTestLab/labs/formulas/read | Leia fórmulas. |
 > | Microsoft.DevTestLab/labs/formulas/write | Adiciona ou modifica as fórmulas. |
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Avalia a política de laboratório. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Obter a propriedade de uma máquina virtual existente |
+> | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Lista as agendas de iniciar/parar aplicável, se aplicável. |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | É associado um conjunto de endereços de back-end de Balanceador de carga |
 > | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Associa uma regra de nat de entrada do Balanceador de carga |
 > | Microsoft.Network/networkInterfaces/*/read | Ler as propriedades de uma interface de rede (por exemplo, todos os balanceadores de carga que a interface de rede é uma parte do) |
@@ -936,6 +938,37 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>Contribuinte de EventSubscription EventGrid (pré-visualização)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite-lhe gerir operações de subscrição de evento EventGrid. |
+> | **Id** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
+> | **Ações** |  |
+> | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
+> | Microsoft.EventGrid/eventSubscriptions/* |  |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Lista de subscrições de eventos global por tipo de tópico |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | Subscrições de eventos regionais de lista |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Subscrições de eventos regionais de lista por topictype |
+> | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta de Insights |
+> | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+
+## <a name="eventgrid-eventsubscription-reader-preview"></a>Leitor de EventSubscription EventGrid (pré-visualização)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite que leia EventGrid subscrições de eventos. |
+> | **Id** | 2414bbcf-6497-4FAF-8c65-045460748405 |
+> | **Ações** |  |
+> | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
+> | Microsoft.EventGrid/eventSubscriptions/read | Ler um eventSubscription |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | Lista de subscrições de eventos global por tipo de tópico |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | Subscrições de eventos regionais de lista |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | Subscrições de eventos regionais de lista por topictype |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 
 ## <a name="hdinsight-domain-services-contributor"></a>Contribuidor de Serviços de Domínio HDInsight
 > [!div class="mx-tableFixed"]
@@ -1089,6 +1122,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | **Descrição** | Permite-lhe ler e executar ações relacionadas com os recursos da Aplicação Gerida |
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Ações** |  |
+> | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.Solutions/applications/read | Obtém uma lista de aplicações. |
 
 ## <a name="managed-applications-reader"></a>Leitor de Aplicações Geridas
@@ -1185,7 +1219,6 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
-> | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>Publicador de Métricas de Monitorização
 > [!div class="mx-tableFixed"]
@@ -1332,15 +1365,17 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Security/locations/tasks/activate/action | Ativar uma recomendação de segurança |
 > | Microsoft.Security/locations/tasks/dismiss/action | Dispensar uma recomendação de segurança |
 > | Microsoft.Security/policies/write | Atualiza a política de segurança |
-> | Microsoft.Security/securityContacts/write | Atualiza o contacto de segurança |
+> | Microsoft.Security/pricings/write | Atualiza as definições de preços para o âmbito |
+> | Microsoft.Security/pricings/delete | Elimina as definições de preços para o âmbito |
 > | Microsoft.Security/securityContacts/delete | Elimina o contacto de segurança |
+> | Microsoft.Security/securityContacts/write | Atualiza o contacto de segurança |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
-## <a name="security-manager"></a>Gestor de Segurança
+## <a name="security-manager-legacy"></a>Gestor de Segurança (Legado)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite-lhe gerir os componentes de segurança, as políticas de segurança e máquinas virtuais |
+> | **Descrição** | Esta é uma função legada. Utilize em vez disso, o administrador de segurança |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
@@ -1559,11 +1594,13 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Criar e gerir políticas de auditorias do SQL server |
 > | Microsoft.Sql/servers/auditingSettings/* | Criar e gerir a definição de auditoria do SQL server |
+> | Microsoft.Sql/servers/extendedAuditingSettings/read | Obter os detalhes do blob de servidor expandida configurada num determinado servidor de política de auditoria |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Criar e gerir políticas de auditoria de base de dados do SQL server |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Criar e gerir definições de auditorias de base de dados do SQL server |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Registos de auditoria de leitura |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | Criar e gerir políticas de ligação de base de dados do SQL server |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Criar e gerir políticas de máscara de dados do SQL server da base de dados |
+> | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | Obter os detalhes da política de auditoria de blob expandido configurados numa determinada base de dados |
 > | Microsoft.Sql/servers/databases/read | Devolve a lista de bases de dados ou obtém as propriedades da base de dados especificado. |
 > | Microsoft.Sql/servers/databases/schemas/read | Obter a lista de esquemas das bases de dados |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Obter a lista de colunas de uma tabela |
@@ -1753,7 +1790,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite-lhe gerir máquinas virtuais, mas não aceder-lhes e não a rede virtual ou conta de armazenamento, que eles estão conectados. |
+> | **Descrição** | Permite-lhe gerir máquinas virtuais, mas não aceder-lhes, além de que não pode gerir a rede virtual ou conta de armazenamento às quais estão ligadas. |
 > | **Id** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Autorização de leitura |

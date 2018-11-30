@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: 0c34b44bb0dc5458bab842e62a88403db08dc07a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275423"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582603"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados de gestão de custos
 
@@ -42,7 +42,7 @@ Para ver dados de custo, um utilizador tem de ter, pelo menos, acesso de leitura
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Ativar o acesso aos custos no portal de EA
 
-Âmbito da conta de faturação requer o **cobranças de vista DA** opção **ativado** no portal do EA. Todos os outros âmbitos de exigem a **cobranças de exibição de pedidos** opção **ativado** no portal do EA.
+O âmbito de departamento requer o **cobranças de vista DA** opção **ativado** no portal do EA. Todos os outros âmbitos de exigem a **cobranças de exibição de pedidos** opção **ativado** no portal do EA.
 
 Para ativar uma opção:
 
@@ -51,7 +51,7 @@ Para ativar uma opção:
 3. Para a gestão de custos âmbitos que deseja fornecer acesso, ative a opção de custos para **cobranças de vista DA** e/ou **cobranças de exibição AO**.  
     ![Guia de inscrição que mostra a vista DA e AO cobra opções](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-Depois de opções de custo de visualização estiverem ativadas, a maioria dos âmbitos também necessitam de configuração de permissão do controlo (RBAC) de acesso baseado em funções no portal do Azure.
+Depois das opções de custo de vista estiverem ativadas, a maioria dos âmbitos também exigem configuração de permissão do controlo (RBAC) de acesso baseado em funções no portal do Azure.
 
 ## <a name="enterprise-administrator-role"></a>Função de administrador de empresa
 
@@ -75,7 +75,7 @@ Pode demorar até 30 minutos para que o novo utilizador possa aceder a dados no 
 
 ### <a name="assign-department-scope-access"></a>Atribuir acesso de âmbito do departamento
 
-Acesso ao âmbito departamento requer o acesso de (custos de vista DA) do departamento administrador no portal do EA. O administrador do departamento tem acesso para ver os custos e os dados de utilização associado a um departamento ou para vários departamentos.  Os dados para o departamento de incluem todas as subscrições pertencentes a uma conta de inscrição que estejam ligadas ao departamento. É necessária nenhuma ação no portal do Azure.
+Acesso ao âmbito departamento requer o acesso de (custos de vista DA) do departamento administrador no portal do EA. O administrador do departamento tem acesso para ver os custos e os dados de utilização associado a um departamento ou para vários departamentos. Os dados para o departamento de incluem todas as subscrições pertencentes a uma conta de inscrição que estejam ligadas ao departamento. É necessária nenhuma ação no portal do Azure.
 
 1. Inicie sessão no portal do EA em [ https://ea.azure.com ](https://ea.azure.com) com uma conta de administrador de empresa.
 2. Selecione **gerir** no painel esquerdo.
@@ -89,7 +89,7 @@ Acesso ao âmbito departamento requer o acesso de (custos de vista DA) do depart
 
 ## <a name="assign-enrollment-account-scope-access"></a>Atribuir acesso de âmbito de conta de inscrição
 
-Acesso ao âmbito da conta de inscrição requer acesso de (custos de exibição de pedidos) de proprietário de conta no portal de EA. O proprietário da conta pode ver os custos e os dados de utilização associados com uma conta de inscrição. Dados da conta de inscrição incluem todas as subscrições Azure associadas a inscrição. É necessária nenhuma ação no portal do Azure.
+Acesso ao âmbito da conta de inscrição requer acesso de (custos de exibição de pedidos) de proprietário de conta no portal de EA. O proprietário da conta pode ver os custos e os dados de utilização associados às subscrições criadas a partir dessa conta de inscrição. É necessária nenhuma ação no portal do Azure.
 
 1. Inicie sessão no portal do EA em [ https://ea.azure.com ](https://ea.azure.com) com uma conta de administrador de empresa.
 2. Selecione **gerir** no painel esquerdo.
@@ -101,9 +101,11 @@ Acesso ao âmbito da conta de inscrição requer acesso de (custos de exibição
 8. Clique em **adicionar** para criar a conta.  
     ![Adicionar caixa da conta](./media/assign-access-acm-data/add-account.png)
 
+Depois de concluir os passos acima, a conta de utilizador torna-se uma conta de inscrição no portal da empresa e pode criar subscrições. O utilizador pode aceder a dados de utilização e de custo para as subscrições que criaram.
+
 ## <a name="assign-management-group-scope-access"></a>Atribuir acesso de âmbito do grupo de gestão
 
-O acesso a um âmbito de grupo de gestão requer, pelo menos, permissão de leitor de gestão de custos (ou leitor). Configurar as permissões de ao grupo de gestão no portal do Azure. Tem de ter, pelo menos, permissão de contribuinte para o grupo de gestão para ativar o acesso para outras pessoas. E, também deve ter ativado a **cobranças de exibição AO** definição no portal do EA.
+Acesso a um âmbito de grupo de gestão requer, pelo menos, a permissão do leitor de gestão de custos (ou leitor). Pode configurar permissões para um grupo de gestão no portal do Azure. Tem de ter, pelo menos, a permissão de administrador de acesso de utilizador (ou proprietário) para o grupo de gestão ativar o acesso para outras pessoas. E, também deve ter ativado a **cobranças de exibição AO** definição no portal do EA.
 
 1. Inicie sessão no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
 2. Selecione **todos os serviços** na barra lateral, procure _grupos de gestão_, em seguida, selecione **grupos de gestão**.
@@ -119,7 +121,7 @@ O acesso a um âmbito de grupo de gestão requer, pelo menos, permissão de leit
 
 ## <a name="assign-subscription-scope-access"></a>Atribuir acesso de âmbito da subscrição
 
-Acesso a uma subscrição requer, pelo menos, permissão de leitor de gestão de custos (ou leitor). Configurar as permissões de para uma subscrição no portal do Azure. Tem de ter, pelo menos, permissão de contribuinte à subscrição para ativar o acesso para outras pessoas. E, também deve ter ativado a **cobranças de exibição AO** definição no portal do EA.
+Acesso a uma subscrição, pelo menos, requer a permissão do leitor de gestão de custos (ou leitor). Pode configurar as permissões para uma subscrição no portal do Azure. Tem de ter, pelo menos, a permissão de administrador de acesso de utilizador (ou proprietário) para a subscrição ativar o acesso para outras pessoas. E, também deve ter ativado a **cobranças de exibição AO** definição no portal do EA.
 
 1. Inicie sessão no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
 2. Selecione **todos os serviços** na barra lateral, procure _subscrições_, em seguida, selecione **subscrições**.
@@ -133,7 +135,7 @@ Acesso a uma subscrição requer, pelo menos, permissão de leitor de gestão de
 
 ## <a name="assign-resource-group-scope-access"></a>Atribuir acesso de âmbito do grupo de recursos
 
-O acesso a um grupo de recursos requer, pelo menos, permissão de leitor de gestão de custos (ou leitor). Configurar a permissão para um grupo de recursos no portal do Azure. Tem de ter, pelo menos, permissão de contribuinte para o grupo de recursos para ativar o acesso para outras pessoas. E, também deve ter ativado a **cobranças de exibição AO** definição no portal do EA.
+Acesso a um grupo de recursos requer, pelo menos, a permissão do leitor de gestão de custos (ou leitor). Pode configurar permissões para um grupo de recursos no portal do Azure. Tem de ter, pelo menos, a permissão de administrador de acesso de utilizador (ou proprietário) para o grupo de recursos ativar o acesso para outras pessoas. E, também deve ter ativado a **cobranças de exibição AO** definição no portal do EA.
 
 1. Inicie sessão no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
 2. Selecione **todos os serviços** na barra lateral, procure _grupos de recursos_, em seguida, selecione **grupos de recursos**.

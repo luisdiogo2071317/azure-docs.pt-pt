@@ -8,18 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830995"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580966"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Apresenta uma lista de frase de utilização para o sinal de aumento de lista de palavras
 
 Pode adicionar funcionalidades à sua aplicação LUIS para melhorar a precisão. Recursos ajudam o LUIS, fornecendo as sugestões que determinadas palavras e frases fazem parte de um vocabulário de domínio de aplicação. 
+
+R [lista de frase](luis-concept-feature.md) inclui um grupo de valores (palavras ou frases) que pertencem à mesma classe e deve ser tratado de maneira semelhante (por exemplo, nomes de cidades ou produtos). O que LUIS aprende sobre uma delas é aplicada automaticamente para os outros também. Esta lista não é uma entidade de lista fechado (corresponde a texto exato) de palavras correspondentes.
+
+Uma lista de frase adiciona ao vocabulário do domínio de aplicativo como um sinal de segundo para LUIS sobre essas palavras.
 
 ## <a name="add-phrase-list"></a>Adicionar a lista de frase
 
@@ -47,9 +51,6 @@ Pode adicionar funcionalidades à sua aplicação LUIS para melhorar a precisão
 
 > [!Note]
 > Pode eliminar ou desativar uma lista de frase da barra de ferramentas contextual sobre o **frase listas** página.
-
-## <a name="pattern-regular-expression-feature"></a>Funcionalidade do padrão (expressão regular) 
-**Esta funcionalidade foi preterida**. Não não possível adicionar novos recursos de padrão LUIS. Todos os recursos padrão existentes são suportados até Maio de 2018. Contribuir para a expressão regular padrão do LUIS, correspondência com um pedido Pull para o [repositório do Github de texto reconhecedores](https://github.com/Microsoft/Recognizers-Text). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

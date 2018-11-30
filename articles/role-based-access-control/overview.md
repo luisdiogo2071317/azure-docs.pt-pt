@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d264160fb3f1c14db3379a314e60efdadb6905b5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: d9a28ea43e732c53afb75e96f20cb13b9bbb27a6
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210419"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632621"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>O que é o controlo de acesso baseado em funções (RBAC)?
 
@@ -50,13 +50,14 @@ A forma de controlar o acesso a recursos com o RBAC é criar atribuições de fu
 
 ### <a name="security-principal"></a>Principal de segurança
 
-Um *principal de segurança* é um objeto que representa um utilizador, grupo ou principal de serviço que está a solicitar acesso aos recursos do Azure.
+R *entidade de segurança* é um objeto que representa um utilizador, o grupo, o principal de serviço ou a identidade gerida que está a pedir acesso aos recursos do Azure.
 
 ![Principal de segurança para uma atribuição de função](./media/overview/rbac-security-principal.png)
 
 - Utilizador – Um indivíduo que tem um perfil no Azure Active Directory. Também pode atribuir funções a utilizadores noutros inquilinos. Para obter informações sobre utilizadores noutras organizações, veja [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Grupo – Um conjunto de utilizadores criado no Azure Active Directory. Quando atribui uma função a um grupo, todos os utilizadores nesse grupo têm essa função. 
 - Principal de serviço – Uma identidade de segurança utilizada por aplicações ou serviços para aceder a recursos específicos do Azure. Pode considerá-lo como uma *identidade de utilizador* (nome de utilizador e palavra-passe ou certificado) para uma aplicação.
+- Identidade gerida - uma identidade no Azure Active Directory que é automaticamente geridos pelo Azure. Geralmente usa [geridos identidades](../active-directory/managed-identities-azure-resources/overview.md) durante o desenvolvimento de aplicações na cloud para gerir as credenciais para autenticar-se aos serviços do Azure.
 
 ### <a name="role-definition"></a>Definição de função
 
@@ -91,7 +92,7 @@ Quando concede acesso a um âmbito principal, os âmbitos secundários herdam es
 
 ### <a name="role-assignments"></a>Atribuições de funções
 
-Uma *atribuição de função* é o processo de associar uma definição de função a um utilizador, grupo ou principal de serviço num determinado âmbito para efeitos de concessão de acesso. O acesso é concedido ao criar uma atribuição de função e o acesso é revogado ao remover uma atribuição de função.
+R *atribuição de função* é o processo de anexar uma definição de função para um utilizador, grupo, principal de serviço ou uma identidade gerida num determinado âmbito para efeitos de conceder acesso. O acesso é concedido ao criar uma atribuição de função e o acesso é revogado ao remover uma atribuição de função.
 
 O diagrama seguinte mostra um exemplo de uma atribuição de função. Neste exemplo, foi atribuída a função [Contribuidor](built-in-roles.md#contributor) ao grupo Marketing para o grupo de recursos de vendas farmacêuticas. Isto significa que os utilizadores no grupo Marketing podem criar ou gerir qualquer recurso do Azure no grupo de recursos de vendas farmacêuticas. Os utilizadores do grupo Marketing não têm acesso aos recursos fora o grupo de recursos de vendas farmacêuticas, a menos que façam parte de outra atribuição de função.
 
@@ -101,9 +102,7 @@ Pode criar atribuições de funções no portal do Azure, CLI do Azure, Azure Po
 
 ## <a name="deny-assignments"></a>Atribuições de negação
 
-Anteriormente, o RBAC era um modelo apenas de permissão sem negação, mas agora suporta atribuições de negação de forma limitada. Semelhante a uma atribuição de função, uma *atribuição de negação* vincula um conjunto de ações de negação a um utilizador, a um grupo ou a um serviço principal num determinado âmbito para efeitos de negação de acesso. Uma atribuição de função define um conjunto de ações que são *permitidas*, enquanto uma atribuição de negação define um conjunto de ações que *não são permitidas*. Por outras palavras, as atribuições de negação impedem os utilizadores de executarem ações especificadas, mesmo que uma atribuição de função lhes conceda acesso. As atribuições de negação têm precedência sobre as atribuições de funções.
-
-Atualmente, as atribuições de negação são **só de leitura** e só podem ser definidas pelo Azure. Apesar de não ser possível criar as suas próprias atribuições de negação, pode listar atribuições de negação, porque elas poderiam afetar as suas permissões em vigor. Para obter informações sobre uma atribuição de negação, tem de ter a permissão `Microsoft.Authorization/denyAssignments/read`, que está incluída na maioria das [funções incorporadas](built-in-roles.md#owner). Para obter mais informações, consulte [Compreender as atribuições de negação](deny-assignments.md).
+Anteriormente, o RBAC era um modelo apenas de permissão sem negação, mas agora suporta atribuições de negação de forma limitada. Semelhante a uma atribuição de função, um *negar atribuição* anexa um conjunto de ações de negação para um utilizador, grupo, principal de serviço ou uma identidade gerida num determinado âmbito para efeitos de negar o acesso. Uma atribuição de função define um conjunto de ações que são *permitido*, enquanto uma atribuição de negar define um conjunto de ações que são *não permitida*. Por outras palavras, as atribuições de negação impedem os utilizadores de executarem ações especificadas, mesmo que uma atribuição de função lhes conceda acesso. As atribuições de negação têm precedência sobre as atribuições de funções. Atualmente, as atribuições de negação são **só de leitura** e só podem ser definidas pelo Azure. Para obter mais informações, consulte [compreender negar atribuições](deny-assignments.md) e [vista negar atribuições com o portal do Azure](deny-assignments-portal.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>De que forma o RBAC determina se um utilizador tem acesso a um recurso
 
@@ -125,7 +124,7 @@ Seguem-se as etapas de alto nível que o RBAC utiliza para determinar se tem ace
 
 1. Se uma atribuição de negação se aplicar, o acesso é bloqueado. Caso contrário, o acesso é concedido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Início Rápido: Conceder acesso a um utilizador com o RBAC e o Portal do Azure](quickstart-assign-role-user-portal.md)
 - [Gerir o acesso através do RBAC e do portal do Azure](role-assignments-portal.md)

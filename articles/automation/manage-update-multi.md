@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a803353b5dacaa56c181cdad0955191d547eb3c4
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8e1c58f2d60ee95189fb583e032d8748fedb88d4
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092258"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620222"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -165,7 +165,7 @@ Na **nova implementação de atualização** painel, especifique as seguintes in
 Quando tiver terminado de configurar a agenda, selecione o **criar** botão para regressar ao dashboard de estado. O **agendada** tabela mostra o agendamento da implementação que criou.
 
 > [!NOTE]
-> Gestão de atualizações suporta a implementação de atualizações de terceiros primeiro e previamente baixar patches. Isso requer alterações nos sistemas que está a ser corrigidos, consulte [primeira parte e pré transferir suporte](automation-update-management.md#firstparty-predownload) para aprender a configurar estas definições em seus sistemas.
+> A Gestão de Atualizações suporta a implementação de atualizações da primeira parte e a transferência prévia de patches. Isso requer alterações nos sistemas que está a ser corrigidos, consulte [primeira parte e pré transferir suporte](automation-update-management.md#firstparty-predownload) para aprender a configurar estas definições em seus sistemas.
 
 ## <a name="view-results-of-an-update-deployment"></a>Ver resultados de uma implementação de atualização
 

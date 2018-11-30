@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 229c3eff0db4f3689f4e2e3fd457410ecccb8ba7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041527"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583218"
 ---
-# <a name="overview-of-spark-streaming"></a>Descrição geral da transmissão em fluxo do Spark
+# <a name="overview-of-apache-spark-streaming"></a>Descrição geral do Apache Spark de transmissão em fluxo
 
-Transmissão em fluxo do Spark que fornece processamento de fluxo de dados no Spark do HDInsight clusters, com uma garantia de que qualquer evento de entrada é processado exatamente uma vez, mesmo se ocorrer uma falha de nó. Um Stream Spark é um trabalho de longa execução que recebe dados de entrada de uma grande variedade de origens, incluindo os Hubs de eventos do Azure, um IoT Hub do Azure, Kafka, Flume, Twitter, ZeroMQ, Soquetes TCP bruto, ou de monitorização de sistemas de ficheiros HDFS. Ao contrário de um processo unicamente condicionada por eventos, um Stream Spark dados de entrada dos lotes em intervalos de tempo, por exemplo, um setor de 2 segundos e, em seguida, transforma cada lote de dados através do mapa, reduzir, Junte-se e extrair as operações. O Spark Stream, em seguida, escreve os dados transformados para sistemas de ficheiros, bases de dados, dashboards e a consola.
+[Apache Spark](https://spark.apache.org/) a transmissão em fluxo fornece processamento nos clusters do HDInsight Spark, com uma garantia de que qualquer evento de entrada de fluxo de dados é processado exatamente uma vez, mesmo se ocorrer uma falha de nó. Um Stream Spark é um trabalho de longa execução que recebe dados de entrada de uma grande variedade de origens, incluindo os Hubs de eventos do Azure, um IoT Hub do Azure, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ ](http://zeromq.org/), Soquetes TCP bruto, ou a partir de monitorização [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) sistemas de ficheiros. Ao contrário de um processo unicamente condicionada por eventos, um Stream Spark dados de entrada dos lotes em intervalos de tempo, por exemplo, um setor de 2 segundos e, em seguida, transforma cada lote de dados através do mapa, reduzir, Junte-se e extrair as operações. O Spark Stream, em seguida, escreve os dados transformados para sistemas de ficheiros, bases de dados, dashboards e a consola.
 
 ![Processar com o HDInsight e o Spark Streaming do Stream](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
@@ -86,7 +86,7 @@ Inicie a aplicação de transmissão em fluxo e execute até que é recebido um 
     ssc.start()            
     ssc.awaitTermination()
 
-Para obter detalhes sobre a API do Stream Spark, juntamente com as origens de eventos, transformações e as operações de saída suporta, consulte [guia de programação de transmissão em fluxo de Spark](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
+Para obter detalhes sobre a API do Stream Spark, juntamente com as origens de eventos, transformações e as operações de saída suporta, consulte [Apache Spark Streaming guia de programação](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
 
 O aplicativo de exemplo seguinte é autónomo, para que pode executá-lo dentro de um [bloco de notas do Jupyter](apache-spark-jupyter-notebook-kernels.md). Este exemplo cria uma origem de dados fictícios na classe DummySource que produz o valor de um contador e a hora atual em milissegundos a cada cinco segundos. Um novo objeto de StreamingContext tem um intervalo de lotes de 30 segundos. Sempre que é criado um lote, o aplicativo de transmissão em fluxo examina o RDD produzido, converte o RDD para um DataFrame do Spark e cria uma tabela temporária sobre o pacote de dados.
 
@@ -211,10 +211,10 @@ Normalmente, criar uma aplicação de transmissão em fluxo do Spark de mensagen
 
 ![Implantando um aplicativo de transmissão em fluxo do Spark](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-Também pode ser verificado o estado de todos os aplicativos com um pedido GET relativamente um ponto de extremidade do LIVY. Por fim, pode terminar um aplicativo em execução ao emitir um pedido de eliminação relativamente ao ponto de final do LIVY. Para obter detalhes sobre a API do LIVY, consulte [tarefas remotas com LIVY](apache-spark-livy-rest-interface.md)
+Também pode ser verificado o estado de todos os aplicativos com um pedido GET relativamente um ponto de extremidade do LIVY. Por fim, pode terminar um aplicativo em execução ao emitir um pedido de eliminação relativamente ao ponto de final do LIVY. Para obter detalhes sobre a API do LIVY, consulte [tarefas remotas com Apache LIVY](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar um cluster do Apache Spark no HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Guia de programação de transmissão em fluxo do spark](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
-* [Iniciar tarefas do Spark remotamente com o LIVY](apache-spark-livy-rest-interface.md)
+* [Guia de programação de transmissão em fluxo do Apache Spark](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
+* [Iniciar tarefas do Apache Spark remotamente com o Apache LIVY](apache-spark-livy-rest-interface.md)

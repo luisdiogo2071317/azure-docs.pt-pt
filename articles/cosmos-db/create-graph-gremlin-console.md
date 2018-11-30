@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e73b0e88a98c1b06216378078626b4338c598816
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
-ms.translationtype: HT
+ms.openlocfilehash: 8e98c778c89a74b6c3c1cfa7dc7feb311c62b076
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422971"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499512"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: criar, consultar e percorrer gráficos na consola Gremlin
 
@@ -38,11 +38,11 @@ A consola Gremlin é baseada em Groovy/Java e é executada em Linux, Mac e Windo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma subscrição do Azure para criar uma conta do Azure Cosmos DB neste início rápido.
+Precisa de uma subscrição do Azure para criar uma conta do Azure Cosmos DB neste guia de introdução.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Também tem de instalar a [consola Gremlin](http://tinkerpop.apache.org/). Utilize a versão 3.2.5 ou superior.
+Também tem de instalar a [consola Gremlin](http://tinkerpop.apache.org/). Utilize a versão 3.2.5 ou superior. (Para utilizar a consola Gremlin no Windows, tem de instalar [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html).)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
@@ -313,9 +313,9 @@ Parabéns! Concluiu este tutorial do Azure Cosmos DB: Gremlin API!
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-No início rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar um gráfico com o Data Explorer, a criar vértices e margens e a percorrer o gráfico com a consola Gremlin. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
+No guia de introdução, aprendeu a criar uma conta do Azure Cosmos DB, a criar um gráfico com o Data Explorer, a criar vértices e margens e a percorrer o gráfico com a consola Gremlin. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md) (Utilizar Gremlin para consultar)

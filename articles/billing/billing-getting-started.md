@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 29fc264a04111fbbe69c90ebd7250e25022c1217
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: c19769dda281f4346c23b823ea00eac83790b618
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274626"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582535"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitar custos inesperados com a faturação do Azure e a gestão de custos
 
@@ -167,7 +167,8 @@ Para ver se é o administrador de conta, vá para o [painel de subscrições no 
 
 Se não for o administrador de conta, alguém provavelmente lhe forneceu acesso parcial através de [controlo de acesso baseado em função de diretório do Azure Active Directory](../role-based-access-control/role-assignments-portal.md) (RBAC). Para gerir subscrições e faturação informações, de alterações [encontrar o administrador de conta](billing-subscription-transfer.md#whoisaa) e peça-lhe para executar as tarefas ou [transferir a subscrição para si](billing-subscription-transfer.md).
 
-Se o seu administrador de conta não se encontra com a sua organização e tem de gerir a faturação, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+Se o seu administrador de conta não se encontra com a sua organização e tem de gerir a faturação, [contacte-nos](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

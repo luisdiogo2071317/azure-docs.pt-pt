@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: d48b55af705eddb42853fb236e5eb6a214d1a0ff
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 682ffb5659cd776117fd3eec8fdb0fa5e0427ab8
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394057"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582311"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Inscreva-se para uma subscrição do Office 365 com sua conta do Azure
 Se for assinante do Azure, pode utilizar a sua conta do Azure para se inscrever numa subscrição do Office 365. Se for parte de uma organização que tenha uma subscrição do Azure, pode criar subscrições do Office 365 para os utilizadores no existente do Azure Active Directory (Azure AD). Inscreva-se ao Office 365 através de uma conta que tenha permissões de Administrador Global ou administrador de faturação no seu inquilino do Azure Active Directory. Para obter mais informações, consulte [verificar as minhas permissões de conta no Azure AD](#RoleInAzureAD) e [atribuir funções de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -69,5 +69,6 @@ Depois de se inscrever, a subscrição do Office 365 é adicionada para a mesma 
 
     ![Captura de ecrã que mostra a função de diretório de portal do Azure administrador de faturação](./media/billing-use-existing-azure-account-office-365-subscription/billing-directoryrole-limited.png)
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
-Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente. 
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 

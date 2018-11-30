@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/22/2018
+ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: a7c11e4bd3ac30c930ec717426c43d4361e32088
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 2baadd0bcb5aba401e2dd6cec9a82ca401b3c9bd
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088871"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620494"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar uma fábrica de dados do Azure com o modelo do Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -133,9 +133,8 @@ Crie um ficheiro JSON com o nome **ADFTutorialARM.json** na pasta **C:\ADFTutori
         "apiVersion": "2017-09-01-preview",
         "type": "Microsoft.DataFactory/factories",
         "location": "[parameters('dataFactoryLocation')]",
-        "properties": {
-            "loggingStorageAccountName": "[parameters('storageAccountName')]",
-            "loggingStorageAccountKey": "[parameters('storageAccountKey')]"
+        "identity": {
+            "type": "SystemAssigned"
         },
         "resources": [{
                 "type": "linkedservices",
@@ -646,5 +645,5 @@ Tenha em atenção que o primeiro comando utiliza o ficheiro de parâmetro para 
 Também pode reutilizar o modelo para efetuar tarefas repetidas. Por exemplo, crie muitas fábricas de dados com um ou mais pipelines que implementem a mesma lógica, mas em que cada uma destas utiliza diferentes contas de armazenamento do Azure. Neste cenário, utilize o mesmo modelo no mesmo ambiente (programação, teste ou produção) com os diferentes ficheiros de parâmetro para criar fábricas de dados. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 O pipeline neste exemplo copia dados de uma localização para outra localização num armazenamento de blobs do Azure. Leia os [tutoriais](tutorial-copy-data-dot-net.md) para saber como utilizar o Data Factory em mais cenários. 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 9aa90c5a99da70aa0803aad4894e928a422b8fcf
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 5f5143800c423bdbaac9994b55e500723018dce4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712250"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634358"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns para a transição do portal do OMS para o portal do Azure para utilizadores do Log Analytics
 O log Analytics utilizado inicialmente o seu próprio portal chamado no portal do OMS para gerir a sua configuração e analisar os dados recolhidos.  Toda a funcionalidade deste portal foi movida para o portal do Azure onde irá continuar a ser desenvolvidas.
@@ -84,7 +84,7 @@ Gerir a maioria das definições de origem ligado na **definições avançadas**
 | System Center     | **Definições avançadas** menu para a área de trabalho. |
 | Office 365        | Consulte a [documentação para solução de gestão do Office 365](../azure-monitor/insights/solution-office-365.md) para obter detalhes de configuração. |
 | Telemetria Windows | Menu de definições para a solução. Ver [Windows Analytics no portal do Azure](/windows/deployment/update/windows-analytics-azure-portal) para obter detalhes de configuração. |
-| Conector ITSM    | Ver [produtos/serviços de estabelecer ligação ITSM com o conector de gestão do serviço de TI](../log-analytics/log-analytics-itsmc-connections.md) para obter instruções sobre como ligar o seu serviço ITSM com o Log Analytics. |
+| Conector ITSM    | Ver [produtos/serviços de estabelecer ligação ITSM com o conector de gestão do serviço de TI](../log-analytics/../azure-monitor/platform/itsmc-connections.md) para obter instruções sobre como ligar o seu serviço ITSM com o Log Analytics. |
 
 ### <a name="data"></a>Dados
 Gerir a maioria das definições de dados na **definições avançadas** menu para a área de trabalho. A tabela seguinte fornece detalhes para cada seção desse menu.
@@ -113,7 +113,7 @@ No portal do OMS, instalar soluções de gestão a partir da Galeria de soluçõ
 Regras de alerta com base em consultas do Log Analytics são agora geridas na [unified a experiência de alertas](../monitoring-and-diagnostics/alert-metric.md). Ver [como expandir alertas do Log Analytics para alertas do Azure](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) para obter detalhes sobre como configurar e utilizar alertas no portal do Azure.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Como posso acessar meus dashboards?
-O [meu painel](../log-analytics/log-analytics-dashboards.md) funcionalidade no Log Analytics foi preterida. Esta funcionalidade permitia que tem uma coleção privada das partes do estruturador de vistas e é substituída pela funcionalidade interna do Dashboard do Azure. Pode continuar a visualizar dados no Log Analytics utilizando [estruturador de vistas](../log-analytics/log-analytics-view-designer.md) para vistas partilhadas. Também pode afixar visualizações desses modos de exibição ou para [consultas individuais](../log-analytics/log-analytics-tutorial-dashboards.md) para Dashboards do Azure.
+O [meu painel](../log-analytics/../azure-monitor/platform/dashboards.md) funcionalidade no Log Analytics foi preterida. Esta funcionalidade permitia que tem uma coleção privada das partes do estruturador de vistas e é substituída pela funcionalidade interna do Dashboard do Azure. Pode continuar a visualizar dados no Log Analytics utilizando [estruturador de vistas](../log-analytics/../azure-monitor/platform/view-designer.md) para vistas partilhadas. Também pode afixar visualizações desses modos de exibição ou para [consultas individuais](../log-analytics/log-analytics-tutorial-dashboards.md) para Dashboards do Azure.
 
 ## <a name="how-do-i-check-my-usage"></a>Como posso ver meu uso?
 Agora pode facilmente ver e gerir a sua utilização e o custo do Log Analytics, selecionando **utilização e custos estimados** na sua área de trabalho.

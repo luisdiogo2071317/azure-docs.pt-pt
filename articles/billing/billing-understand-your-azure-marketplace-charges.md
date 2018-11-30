@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36db8274c42477631a480d4721a4331202db6c09
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 0e90c043976fc1798f675f8bf480b02e0ed93536
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276548"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581923"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Compreender a faturação do Azure para encargos de serviços externos
 Serviços externos são publicados por fornecedores de software de terceiros no Azure marketplace. Por exemplo, o SendGrid é um serviços externos, que pode comprar no Azure, mas não está publicado pela Microsoft.
@@ -86,6 +86,7 @@ Se quiser cancelar o seu pedido de serviço externo, eliminar o recurso a [porta
 
 ![Eliminar recurso](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
-Se ainda tiver dúvidas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

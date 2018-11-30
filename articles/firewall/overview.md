@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 9/26/2018
+ms.date: 11/28/2018
 ms.author: victorh
-ms.openlocfilehash: 868c20e6f0244794299678214902adf3e6e95f14
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: b90496b0ccc6c8243c2d1b3ead1e7c4faa4801ec
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241417"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582056"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -67,12 +67,11 @@ O Azure Firewall tem os seguintes problemas conhecidos:
 |Conflito com a funcionalidade Just-in-Time (JIT) do Centro de Segurança do Azure (ASC)|Se uma máquina virtual for acedida por JIT e estiver numa sub-rede com uma rota definida pelo utilizador que aponta para o Azure Firewall como um gateway predefinido, o JIT do ASC não funciona. Isto resulta do encaminhamento assimétrico: um pacote entra através do IP público da máquina virtual (o JIT abriu o acesso), mas o caminho de retorno é através da firewall, o que remove o pacote por não existir nenhuma sessão estabelecida na firewall.|Para contornar este problema, coloque as máquinas virtuais JIT numa sub-rede separada que não tenha uma rota definida pelo utilizador para a firewall.|
 |O hub-and-spoke com peering global não é suportado|Com o modelo de hub-and-spoke, em que o hub e a firewall estão implementados numa região do Azure, com os spokes noutra região do Azure. As ligações para o hub através de Global VNet Peering não são suportadas.|Esta ação é propositada. Para obter mais informações, veja [Subscrição do Azure e limites, quotas e restrições do serviço](../azure-subscription-service-limits.md#azure-firewall-limits)|
 As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) não funcionam para o tráfego vinculado à Internet|As regras de filtragem de rede para protocolos não TCP/UDP não funcionam com SNAT para o seu endereço IP público. Os protocolos não TCP/UDP são suportados entre VNets e sub-redes spoke.|O Azure Firewall utiliza o Balanceador de Carga Standard [que não suporta atualmente SNAT para protocolos IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Estamos a explorar opções para suportar este cenário numa versão futura.|
-|O NAT de Destino (DNAT) não funciona para a porta 80 e 22.|O campo da Porta de Destino na coleção de regras NAT não pode incluir a porta 80 ou a porta 22.|Estamos a trabalhar para corrigir este problema no futuro próximo. Enquanto isso, utilize qualquer outra porta como a porta de destino nas regras NAT. A porta 80 ou 22 ainda pode ser utilizada como a porta traduzida (por exemplo, pode mapear ip:81 público para ip:80 privado).|
 |Suporte do PowerShell e CLI em falta para ICMP|O Azure PowerShell e a CLI não suportam o ICMP como um protocolo válido nas regras de rede.|É possível utilizar o ICMP como um protocolo através do portal e da API REST. Estamos a trabalhar para adicionar o ICMP ao PowerShell e à CLI em breve.|
 |As etiquetas FQDN requerem um protocolo: porta a definir|As regras de aplicação com etiquetas FQDN requerem a porta:definição de protocolo.|Pode utilizar **https** como a porta: valor de protocolo. Estamos a trabalhar para tornar este campo opcional quando são utilizadas etiquetas FQDN.|
-|Não é suportada a mudança de uma firewall para um grupo de recursos ou uma subscrição diferente.|Não é suportada a mudança de uma firewall para um grupo de recursos ou uma subscrição diferente.|O suporte desta funcionalidade faz parte dos nossos planos. Para mover uma firewall para um grupo de recursos ou uma subscrição diferente, tem de eliminar a instância atual e recriá-la no novo grupo de recursos ou subscrição.|
+|Não é suportada a mudança de uma firewall para um grupo de recursos ou uma subscrição diferente.|Não é suportada a mudança de uma firewall para um grupo de recursos ou uma subscrição diferente.|Suporte a essa funcionalidade é no nosso mapa da estrada. Para mover uma firewall para um grupo de recursos ou uma subscrição diferente, tem de eliminar a instância atual e recriá-la no novo grupo de recursos ou subscrição.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Tutorial: Implementar e configurar o Azure Firewall com o portal do Azure](tutorial-firewall-deploy-portal.md)
 - [Implementar o Azure Firewall através de um modelo](deploy-template.md)

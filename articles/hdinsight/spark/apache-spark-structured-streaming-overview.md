@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 7470783ba3ebac652c83c397ba2bbe683023c657
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 23702c12f5ec538da4b980ed42fe2282dea69409
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041590"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582229"
 ---
-# <a name="overview-of-spark-structured-streaming"></a>Descrição geral do Spark Structured Streaming
+# <a name="overview-of-apache-spark-structured-streaming"></a>Descrição geral do Apache Spark transmissão em fluxo estruturada
 
-Spark Structured Streaming permite-lhe implementar aplicações dimensionáveis e de alto débito, tolerante a falhas para o processamento de fluxos de dados. A transmissão em fluxo estruturada foi criada sobre o mecanismo de Spark SQL e aprimora as construções de quadros de dados do Spark SQL e conjuntos de dados para que pode escrever a transmissão em fluxo consulta da mesma forma que deve escrever consultas em lote.  
+[Apache Spark](https://spark.apache.org/) transmissão em fluxo estruturada permite-lhe implementar aplicações dimensionáveis e de alto débito, tolerante a falhas para o processamento de fluxos de dados. A transmissão em fluxo estruturada foi criada sobre o mecanismo de Spark SQL e aprimora as construções de quadros de dados do Spark SQL e conjuntos de dados para que pode escrever a transmissão em fluxo consulta da mesma forma que deve escrever consultas em lote.  
 
-Aplicações de transmissão em fluxo estruturadas serem executadas em clusters do HDInsight Spark e ligar a transmissão em fluxo de dados do Kafka, um soquete (para fins de depuração) TCP, armazenamento do Azure ou do Azure Data Lake Store. As duas últimas opções, que dependem de serviços de armazenamento externo, permitem-lhe ver para novos ficheiros adicionados para o armazenamento e processar seu conteúdo como se eles foram transmitidos em fluxo. 
+Aplicações de transmissão em fluxo estruturadas serem executadas em clusters do HDInsight Spark e ligar a dados a partir de transmissão em fluxo [Apache Kafka](https://kafka.apache.org/), um soquete (para fins de depuração) TCP, o armazenamento do Azure ou o Azure Data Lake Store. As duas últimas opções, que dependem de serviços de armazenamento externo, permitem-lhe ver para novos ficheiros adicionados para o armazenamento e processar seu conteúdo como se eles foram transmitidos em fluxo. 
 
 A transmissão em fluxo estruturada cria uma consulta de execução longa durante o qual aplicar operações para os dados de entrada, como seleção, projeção, agregação, janelas e associar o pacote de dados de transmissão em fluxo com referência DataFrames. Em seguida, enviar os resultados para armazenamento de ficheiros (Blobs de armazenamento do Azure ou Data Lake Store) ou para qualquer arquivo de dados com o código personalizado (por exemplo, a base de dados SQL ou o Power BI). A transmissão em fluxo estruturada também fornece a saída para a consola de depuração localmente e para uma tabela em memória para que possa ver os dados gerados para depuração no HDInsight. 
 
@@ -124,7 +124,7 @@ Essa consulta produz resultados semelhantes ao seguinte:
 |{u'start': ' 2016 do u-07-26T07:00:00.000Z', u'end "...  |95 |   96.980971 | 99 |
 |{u'start': ' 2016 do u-07-26T08:00:00.000Z', u'end "...  |95 |   96.965997 | 99 |  
 
-Para obter detalhes sobre a API de Stream estruturada do Spark, juntamente com os dados de entrada origens, as operações e saída Coletores de ele suporta, consulte [Spark Structured Streaming guia de programação](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
+Para obter detalhes sobre a API de Stream estruturada do Spark, juntamente com os dados de entrada origens, as operações e saída Coletores de ele suporta, consulte [Apache Spark Structured Streaming guia de programação](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>Pontos de verificação e registos de escrita-ahead
 
@@ -132,14 +132,14 @@ Para fornecer resiliência e tolerância a falhas, transmissão em fluxo estrutu
 
 ## <a name="deploying-spark-streaming-applications"></a>Implementação de aplicações de transmissão em fluxo do Spark
 
-Normalmente, criar uma aplicação de transmissão em fluxo do Spark de mensagens em fila localmente num ficheiro JAR e, em seguida, implementá-la ao Spark no HDInsight ao copiar o ficheiro JAR para o armazenamento de predefinido ligado ao seu cluster do HDInsight. Pode começar a sua aplicação com as APIs de REST do LIVY disponíveis do seu cluster através de uma operação POST. O corpo da POSTAGEM inclui um documento JSON que fornece o caminho para o JAR, o nome da classe cujo principal método define e executa a aplicação de transmissão em fluxo e, opcionalmente, os requisitos de recursos da tarefa (por exemplo, o número de executor, memória e núcleos) , e as definições de configuração requer que o código da aplicação.
+Normalmente, criar uma aplicação de transmissão em fluxo do Spark de mensagens em fila localmente num ficheiro JAR e, em seguida, implementá-la ao Spark no HDInsight ao copiar o ficheiro JAR para o armazenamento de predefinido ligado ao seu cluster do HDInsight. Pode começar a sua aplicação com o [Apache Livy](https://livy.incubator.apache.org/) disponível a partir do seu cluster através de uma operação de publicação de APIs REST. O corpo da POSTAGEM inclui um documento JSON que fornece o caminho para o JAR, o nome da classe cujo principal método define e executa a aplicação de transmissão em fluxo e, opcionalmente, os requisitos de recursos da tarefa (por exemplo, o número de executor, memória e núcleos) , e as definições de configuração requer que o código da aplicação.
 
 ![Implantando um aplicativo de transmissão em fluxo do Spark](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-Também pode ser verificado o estado de todos os aplicativos com um pedido GET relativamente um ponto de extremidade do LIVY. Por fim, pode terminar um aplicativo em execução ao emitir um pedido de eliminação relativamente ao ponto de final do LIVY. Para obter detalhes sobre a API do LIVY, consulte [tarefas remotas com LIVY](apache-spark-livy-rest-interface.md)
+Também pode ser verificado o estado de todos os aplicativos com um pedido GET relativamente um ponto de extremidade do LIVY. Por fim, pode terminar um aplicativo em execução ao emitir um pedido de eliminação relativamente ao ponto de final do LIVY. Para obter detalhes sobre a API do LIVY, consulte [tarefas remotas com Apache LIVY](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar um cluster do Apache Spark no HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Guia de programação de transmissão em fluxo estruturada de Spark](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
-* [Iniciar tarefas do Spark remotamente com o LIVY](apache-spark-livy-rest-interface.md)
+* [Guia de programação de transmissão em fluxo estruturada do Apache Spark](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Iniciar tarefas do Apache Spark remotamente com o Apache LIVY](apache-spark-livy-rest-interface.md)

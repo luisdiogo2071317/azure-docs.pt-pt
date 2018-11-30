@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: da8eebb2fc6b87b8916e944495679b45aa34dbf2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5283782188eaebe3997b6de31b087da74cf10486
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960333"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620137"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Permissões e consentimento no ponto de final de v2.0 do Azure Active Directory
 
@@ -64,13 +64,13 @@ Uma aplicação mais frequentemente pedidos de ponto final de autorizar estas pe
 
 Plataforma de identidade da Microsoft suporta dois tipos de permissões: **permissões delegadas** e **permissões de aplicação**.
 
-- **Permissões delegadas** são utilizados por aplicações que têm um utilizador com sessão iniciada presente. Para estas aplicações o utilizador ou administrador autorizar as permissões que os pedidos de aplicação e a aplicação é uma permissão delegada para atuar como o utilizador com sessão iniciada ao efetuar chamadas para o recurso de destino. Algumas permissões delegadas podem ser permitidas por utilizadores não administrativos, mas exigem algumas permissões com mais privilégios [consentimento de administrador](v2-permissions-and-consent.md#admin-restricted-scopes).  
+* **Permissões delegadas** são utilizados por aplicações que têm um utilizador com sessão iniciada presente. Para estas aplicações, o utilizador ou administrador autorizar as permissões que os pedidos de aplicação e a aplicação é uma permissão delegada para atuar como o utilizador com sessão iniciada ao efetuar chamadas para o recurso de destino. Algumas permissões delegadas podem ser permitidas por utilizadores não administrativos, mas exigem algumas permissões com mais privilégios [consentimento de administrador](v2-permissions-and-consent.md#admin-restricted-scopes). Para saber que funções podem dar consentimento a permissões delegadas de administrador, veja [permissões da função de administrador no Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-- **Permissões de aplicação** são utilizados por aplicações que executam o sem um utilizador com sessão iniciada presente; por exemplo, aplicativos que são executados como serviços em segundo plano ou daemons.  Permissões de aplicação só é possível [deu consentimento por um administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). 
+* **Permissões de aplicação** são utilizados por aplicações que executam o sem um utilizador com sessão iniciada presente; por exemplo, aplicativos que são executados como serviços em segundo plano ou daemons.  Permissões de aplicação só é possível [deu consentimento por um administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 _Permissões efetivas_ são as permissões que a aplicação terá quando são efetuados pedidos para o recurso de destino. É importante compreender a diferença entre o delegado e as permissões de aplicação que é concedida a sua aplicação e as respetivas permissões em vigor quando fazer chamadas para o recurso de destino.
 
-- Para obter permissões delegadas, o _permissões efetivas_ da sua aplicação será a interseção com menos privilégios das permissões delegadas a aplicação recebeu (através de consentimento) e os privilégios do utilizador atualmente com sessão iniciada. A aplicação nunca pode ter mais privilégios do que o utilizador com sessão iniciada. Nas organizações, os privilégios do utilizador com sessão iniciada podem ser determinados por uma política ou por associação a uma ou mais funções de administrador. Para obter mais informações sobre as funções de administrador, consulte [atribuir funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+- Para obter permissões delegadas, o _permissões efetivas_ da sua aplicação será a interseção com menos privilégios das permissões delegadas a aplicação recebeu (através de consentimento) e os privilégios do utilizador atualmente com sessão iniciada. A aplicação nunca pode ter mais privilégios do que o utilizador com sessão iniciada. Nas organizações, os privilégios do utilizador com sessão iniciada podem ser determinados por uma política ou por associação a uma ou mais funções de administrador. Para saber que funções podem dar consentimento a permissões delegadas de administrador, veja [permissões da função de administrador no Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
   Por exemplo, suponha a sua aplicação tenha sido concedida a _User.ReadWrite.All_ delegado permissão. Esta permissão concede nominalmente permissão à aplicação para ler e atualizar o perfil de todos os utilizadores de uma organização. Se o utilizador com sessão iniciada for administrador global, a aplicação poderá atualizar o perfil de todos os utilizadores da organização. No entanto, se o utilizador com sessão iniciada não tiver uma função de administrador, a aplicação só poderá atualizar o perfil desse utilizador. Não poderá atualizar os perfis dos outros utilizadores da organização porque o utilizador em cujo nome tem permissão para agir não tem esses privilégios.
   
 - Para obter permissões de aplicação, o _permissões efetivas_ da sua aplicação será o nível completo de privilégios implícitas pela permissão. Por exemplo, uma aplicação com o _User.ReadWrite.All_ permissão da aplicação pode atualizar o perfil de cada utilizador na organização. 
@@ -93,7 +93,7 @@ O `profile` âmbito pode ser utilizado com o `openid` escopo e dos outros. Possi
 
 ### <a name="offlineaccess"></a>offline_access
 
-O [ `offline_access` âmbito](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) oferece o acesso a aplicações para recursos em nome do utilizador para um período de tempo alargado. Na página de consentimento de conta de trabalho, este âmbito é apresentado como a permissão "Aceder aos seus dados em qualquer altura". A página consentimento de conta da Microsoft pessoa, ele aparece como a permissão "Aceder às suas informações em qualquer altura". Quando um utilizador aprova o `offline_access` âmbito, a aplicação pode receber tokens de atualização do ponto final do token da versão 2.0. Tokens de atualização são vida longa. A aplicação pode obter novos tokens de acesso, como o antigo expirar.
+O [ `offline_access` âmbito](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) oferece o acesso a aplicações para recursos em nome do utilizador para um período de tempo alargado. Na página de consentimento de conta de trabalho, este âmbito é apresentado como a permissão "Aceder aos seus dados em qualquer altura". A página consentimento de conta da Microsoft pessoa, ele aparece como a permissão "Aceder às suas informações em qualquer altura". Quando um utilizador aprova o `offline_access` âmbito, a aplicação pode receber tokens de atualização do ponto final do token da versão 2.0. Tokens de atualização são vida longa. A aplicação pode obter novos tokens de acesso, como o antigo expirar.
 
 Se a sua aplicação não solicita a `offline_access` escopo, ele não irão receber tokens de atualização. Isso significa que, quando resgatar um código de autorização no [fluxo de código de autorização de OAuth 2.0](active-directory-v2-protocols.md), irá receber um token de acesso do `/token` ponto final. O token de acesso é válido para um curto período de tempo. O token de acesso, normalmente, expira dentro de uma hora. AT que ponto, o aplicativo precisa redirecionar o usuário de volta para o `/authorize` ponto final para obter um novo código de autorização. Durante este redirecionamento, dependendo do tipo de aplicação, o utilizador poderá ter de introduzir as respetivas credenciais novamente ou novamente o consentimento a permissões.
 

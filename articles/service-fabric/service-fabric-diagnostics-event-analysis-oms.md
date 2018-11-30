@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: ed6a709418871ededc8ddfe06b0eb1ab3e4546e1
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 332939710517e99aaa77642dc5e67256b476bd66
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291084"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634580"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Análise de eventos e visualização com o Log Analytics
  Log Analytics recolhe e analisa a telemetria a partir de aplicações e serviços alojados na cloud e fornece ferramentas de análise para ajudar a maximizar a disponibilidade e desempenho. Este artigo descreve como executar consultas do Log Analytics para obter informações e resolver problemas relacionados com o que acontece no seu cluster. As seguintes perguntas comuns são abordadas:
@@ -108,7 +108,7 @@ A linguagem de consulta de Kusto é poderosa. Outra consulta valiosa, que pode e
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para ativar a monitorização, ou seja, contadores de desempenho da infraestrutura, aceda à [adicionando o agente Log Analytics](service-fabric-diagnostics-oms-agent.md). O agente recolhe os contadores de desempenho e os adiciona à sua área de trabalho existente.
-* Para os clusters no local, o Log Analytics oferece um Gateway (reencaminhar Proxy HTTP) que pode ser utilizado para enviar dados para o Log Analytics. Leia mais sobre isso em [ligar os computadores sem acesso à Internet ao Log Analytics com o gateway do Log Analytics](../log-analytics/log-analytics-oms-gateway.md).
+* Para os clusters no local, o Log Analytics oferece um Gateway (reencaminhar Proxy HTTP) que pode ser utilizado para enviar dados para o Log Analytics. Leia mais sobre isso em [ligar os computadores sem acesso à Internet ao Log Analytics com o gateway do Log Analytics](../azure-monitor/platform/gateway.md).
 * Configurar [alertas automáticos](../log-analytics/log-analytics-alerts.md) para ajudar no diagnóstico e de deteção.
 * Familiarizar-se com as funcionalidades de [registos de pesquisas e consultas](../log-analytics/log-analytics-log-searches.md) que são oferecidas como parte do Log Analytics.
 * Obtenha uma visão geral mais detalhada do Log Analytics e o que ele oferece, leia [o que é o Log Analytics?](../operations-management-suite/operations-management-suite-overview.md).

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 6cb3102206174422a3d8b4a0fb18f989d875e093
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61f5f0d0b9e88174f82e960eb5d92db99d0cae71
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259059"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582855"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implementar e gerir topologias do Apache Storm no HDInsight do Azure 
 
-Neste documento, aprenda as noções básicas de gerenciamento e monitoramento de topologias Storm em execução no Storm no HDInsight clusters.
+Neste documento, aprender as noções básicas de gerenciamento e monitoramento [Apache Storm](http://storm.apache.org/) topologias em execução no Storm no HDInsight clusters.
 
 > [!IMPORTANT]
 > Os passos neste artigo requerem um Storm baseado em Linux num cluster do HDInsight. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows). 
@@ -186,7 +186,7 @@ Selecionar uma ligação a partir da **resumo da topologia** secção apresenta 
   * **Desativar**: coloca em pausa uma topologia em execução.
   * **Reequilibrar**: ajusta o paralelismo da topologia. Deve rebalancear as topologias em execução depois de ter alterado o número de nós no cluster. Esta operação permite que a topologia ajuste o paralelismo para compensar o número de maior ou menor de nós do cluster.
 
-    Para obter mais informações, consulte <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Compreender o paralelismo de uma topologia do Storm</a>.
+    Para obter mais informações, consulte <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">compreender o paralelismo de uma topologia do Apache Storm</a>.
   * **Eliminar**: termina uma topologia do Storm após o tempo limite especificado.
 * **Estatísticas de topologia**: estatísticas sobre a topologia. Para definir o período de tempo para as entradas restantes na página, utilize as ligações na **janela** coluna.
 * **Spouts**: spouts utilizados pela topologia. Use os links nesta secção para ver mais informações sobre spouts específicos.
@@ -208,10 +208,10 @@ Selecionar um spout do **Spouts** ou **Bolts** secções apresenta as seguintes 
 
 A IU do Storm baseia-se com base na API do REST, para que possa executar semelhantes de gestão e monitorização funcionalidade com a API de REST. Pode utilizar a API REST para criar ferramentas personalizadas para gerir e monitorizar topologias do Storm.
 
-Para obter mais informações, consulte [API de REST de IU do Storm](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). As seguintes informações são específicas para utilizar a API de REST com o Apache Storm no HDInsight.
+Para obter mais informações, consulte [API de REST de interface do Usuário do Apache Storm](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). As seguintes informações são específicas para utilizar a API de REST com o Apache Storm no HDInsight.
 
 > [!IMPORTANT]
-> A API de REST do Storm não está disponível publicamente na Internet e tem de ser acessada através de um túnel SSH ao nó principal do cluster do HDInsight. Para obter informações sobre como criar e utilizar um túnel SSH, veja [utilizar túnel SSH para aceder à IU web do Ambari, ResourceManager, JobHistory, NameNode, Oozie e outras interfaces do usuário de web](../hdinsight-linux-ambari-ssh-tunnel.md).
+> A API de REST do Storm não está disponível publicamente na Internet e tem de ser acessada através de um túnel SSH ao nó principal do cluster do HDInsight. Para obter informações sobre como criar e utilizar um túnel SSH, veja [utilizar túnel SSH para aceder à IU web do Apache Ambari, ResourceManager, JobHistory, NameNode, Apache Oozie e outras interfaces do usuário de web](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### <a name="base-uri"></a>URI de base
 
@@ -232,10 +232,10 @@ Tem de utilizar pedidos para a API REST **autenticação básica**, por isso, ut
 
 ### <a name="return-values"></a>Valores de retorno
 
-Informações que são devolvidas a partir da API de REST podem apenas ser utilizáveis no dentro do cluster. Por exemplo, o nome de domínio completamente qualificado (FQDN) devolvido para servidores do Zookeeper não é acessível a partir da Internet.
+Informações que são devolvidas a partir da API de REST podem apenas ser utilizáveis no dentro do cluster. Por exemplo, o nome domínio completamente qualificado (FQDN) para devolvidos [Apache ZooKeeper](https://zookeeper.apache.org/) servidores não está acessível a partir da Internet.
 
 ## <a name="next-steps"></a>Próximos Passos
 
-Saiba como [topologias baseadas em Java desenvolver com o Maven](apache-storm-develop-java-topology.md).
+Saiba como [topologias baseadas em Java desenvolver com o Apache Maven](apache-storm-develop-java-topology.md).
 
-Para obter uma lista das topologias de exemplo mais, consulte [topologias de exemplo para Storm no HDInsight](apache-storm-example-topology.md).
+Para obter uma lista das topologias de exemplo mais, consulte [topologias de exemplo para Apache Storm no HDInsight](apache-storm-example-topology.md).

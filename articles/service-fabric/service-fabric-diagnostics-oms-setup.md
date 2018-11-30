@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 88b956fbe283dd39dfc51d6127b32b6f031e8b85
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2cdc9f780e0d9ddb6e688e53208e5597b000aa56
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291135"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632777"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurar o Log Analytics para um cluster
 
@@ -128,4 +128,4 @@ Também pode adicionar outras soluções ou fazer outras modificações a sua á
 ## <a name="next-steps"></a>Passos Seguintes
 * [Implementar o agente do Log Analytics](service-fabric-diagnostics-oms-agent.md) para os nós para recolher contadores de desempenho e recolher estatísticas de docker e registos para os seus contentores
 * Familiarizar-se com o [pesquisas e consultas de registo](../log-analytics/log-analytics-log-searches.md) funcionalidades oferecidos como parte do Log Analytics
-* [Utilizar o estruturador de vistas para criar vistas personalizadas no Log Analytics](../log-analytics/log-analytics-view-designer.md)
+* [Utilizar o estruturador de vistas para criar vistas personalizadas no Log Analytics](../azure-monitor/platform/view-designer.md)

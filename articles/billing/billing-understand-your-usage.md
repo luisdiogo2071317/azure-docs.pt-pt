@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: 9b30e5a47b49b707c9efc53add9af44502201641
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: c5b41d86133bbcafcc61423b4d60e59846edc2f2
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273681"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580920"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Compreender os termos na sua cobranças de utilização detalhados do Azure da Microsoft 
 
@@ -88,5 +88,6 @@ Se existe uma cobrança no seu ficheiro de utilização detalhada que deseja obt
 ## <a name="external"></a>E encargos de serviços externos?
 Serviços externos (também conhecido como pedidos de Marketplace) são fornecidos pelos fornecedores de serviço independentes e são faturados separadamente. Os encargos não aparecem da nota fiscal do Azure. Para obter mais informações, consulte [compreender os encargos de serviços externos do Azure](billing-understand-your-azure-marketplace-charges.md).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
-Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?) para a sua questão resolvidos rapidamente.
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

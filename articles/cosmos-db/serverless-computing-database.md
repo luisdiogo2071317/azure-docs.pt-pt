@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623162"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582790"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de base de dados sem servidor com o Azure Cosmos DB e as funções do Azure
 
@@ -124,7 +124,7 @@ As funções do Azure fornece a capacidade de criar unidades escalonáveis de tr
 
 O Azure Cosmos DB é a base de dados recomendada para a sua arquitetura de computação sem servidor pelos seguintes motivos:
 
-* **Acesso imediato a todos os seus dados**: tem acesso granular a cada valor armazenado porque do Azure Cosmos DB [indexa automaticamente](indexing-policies.md) todos os dados por predefinição e disponibiliza imediatamente desses índices. Isso significa que pode constantemente a consultar, atualizar e a adicionar novos itens à sua base de dados e ter acesso instantâneo através das funções do Azure.
+* **Acesso imediato a todos os seus dados**: tem acesso granular a cada valor armazenado porque do Azure Cosmos DB [indexa automaticamente](index-policy.md) todos os dados por predefinição e disponibiliza imediatamente desses índices. Isso significa que pode constantemente a consultar, atualizar e a adicionar novos itens à sua base de dados e ter acesso instantâneo através das funções do Azure.
 
 * **Sem esquemas**. O Azure Cosmos DB é sem esquemas - é exclusivamente capaz de lidar com qualquer saída de dados de uma função do Azure. Essa abordagem de "lidar com qualquer coisa" torna simples para criar uma variedade de funções que toda a saída para o Azure Cosmos DB.
 

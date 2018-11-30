@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 5522b076fdf3d4e339f5e170679f389259ff1359
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713134"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584864"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST do serviço de voz
 
@@ -286,7 +286,7 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para pedidos de voz e
 | OGG | OPUS | 16-bit | 16 kHz, mono |
 
 >[!NOTE]
->Os formatos acima são suportados através da REST API e WebSocket no serviço de voz. O [SDK de voz](/index.yml) atualmente apenas suporta o WAV formatar com o codec PCM.
+>Os formatos acima são suportados através da REST API e WebSocket no serviço de voz. O [SDK de voz](speech-sdk.md) atualmente apenas suporta o WAV formatar com o codec PCM.
 
 ### <a name="sample-request"></a>Pedido de exemplo
 
@@ -433,8 +433,8 @@ O serviço de voz oferece suporte a saída de áudio de 24 KHz, juntamente com a
 
 | Região | Idioma   | Género | Mapear |
 |--------|------------|--------|---------|
-| pt-PT  | Inglês dos Estados Unidos | Feminino | "Microsoft Server voz texto para voz de voz (en-US, Jessa24kRUS)" |
-| pt-PT  | Inglês dos Estados Unidos | Masculino   | "Microsoft Server voz texto para voz de voz (en-US, Guy24kRUS)" |
+| en-US  | Inglês dos Estados Unidos | Feminino | "Microsoft Server voz texto para voz de voz (en-US, Jessa24kRUS)" |
+| en-US  | Inglês dos Estados Unidos | Masculino   | "Microsoft Server voz texto para voz de voz (en-US, Guy24kRUS)" |
 
 Uma lista completa de vozes disponíveis, consulte [idiomas suportados](language-support.md#text-to-speech).
 

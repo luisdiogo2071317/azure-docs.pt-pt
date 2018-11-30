@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: d3694d49256b9844f6e3a76ce83f53be4b42ca48
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ea54419f230a7988a42fd4b85be0d212ee3d14d4
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006095"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582586"
 ---
-# <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels para o bloco de notas do Jupyter nos clusters do Spark no Azure HDInsight 
+# <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels para o bloco de notas do Jupyter nos clusters do Apache Spark no Azure HDInsight 
 
-Os clusters do HDInsight Spark fornecem kernels que pode utilizar com o bloco de notas do Jupyter no Spark para testar as suas aplicações. Um kernel é um programa que é executado e interpreta seu código. Os três kernels são:
+Os clusters do HDInsight Spark fornecem kernels que pode utilizar com o bloco de notas do Jupyter no [Apache Spark](https://spark.apache.org/) para testar as suas aplicações. Um kernel é um programa que é executado e interpreta seu código. Os três kernels são:
 
 - **PySpark** – para aplicações escritas em Python2
 - **PySpark3** – para aplicações escritas em Python3
@@ -79,7 +79,7 @@ Aqui estão alguns benefícios de usar os kernels novo com o bloco de notas do J
    | ajuda |`%%help` |Gera uma tabela de todos os a magia disponíveis com o exemplo e uma descrição |
    | informações |`%%info` |Informações de sessão de saídas para o ponto de final atual do Livy |
    | configurar |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura os parâmetros para a criação de uma sessão. O sinalizador force (-f) é obrigatório se a sessão já foi criada, que garante que a sessão é removida e recriada. Examinar [/sessions POST de Livy corpo do pedido](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Parâmetros devem ser passados como uma cadeia de caracteres do JSON e tem de ser na próxima linha posterior a mágica, conforme mostrado na coluna de exemplo. |
-   | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta do Hive contra o kontext sqlContext. Se o `-o` parâmetro é transmitido, o resultado da consulta é mantido no % % contexto Python local como uma [Pandas](http://pandas.pydata.org/) dataframe. |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta do Hive contra o kontext sqlContext. Se o `-o` parâmetro é transmitido, o resultado da consulta é mantido no % % contexto Python local como uma [Pandas](http://pandas.pydata.org/) dataframe. |
    | local |`%%local`<br>`a=1` |Todo o código nas linhas subsequentes é executado localmente. Código tem de ser código Python2 válido até mesmo, independentemente do kernel que estiver a utilizar. Assim, mesmo se tiver selecionado **PySpark3** ou **Spark** kernels ao criar o bloco de notas, se usar o `%%local` mágica numa célula, essa célula tem apenas de ter código de Python2 válido.... |
    | registos |`%%logs` |Devolve os registos para a sessão atual do Livy. |
    | delete |`%%delete -f -s <session number>` |Elimina uma sessão específica do ponto de extremidade Livy atual. Não é possível eliminar a sessão iniciada para o kernel propriamente dito. |
@@ -135,7 +135,7 @@ Se o cluster utiliza armazenamento do Azure como a conta de armazenamento predef
 > Clusters do HDInsight com o Azure Data Lake Store como armazenamento predefinido não armazenar blocos de notas no armazenamento associado.
 >
 
-A forma como os blocos de notas são guardados para a conta de armazenamento é compatível com HDFS. Deste modo, se SSH para o cluster que pode utilizar comandos de gestão de ficheiros conforme mostrado no seguinte fragmento:
+A forma como os blocos de notas são guardados para a conta de armazenamento é compatível com [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html). Deste modo, se SSH para o cluster que pode utilizar comandos de gestão de ficheiros conforme mostrado no seguinte fragmento:
 
     hdfs dfs -ls /HdiNotebooks                               # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
@@ -154,19 +154,19 @@ Os kernels novos são na fase de evolução e serão amadurecer ao longo do temp
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](apache-spark-use-bi-tools.md)
-* [Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
-* [Análise de registos de sites com o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
+* [Análise de registos de Web site com o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações
 * [Criar uma aplicação autónoma com o Scala](apache-spark-create-standalone-application.md)
-* [Executar tarefas remotamente num cluster do Spark com o Livy](apache-spark-livy-rest-interface.md)
+* [Executar tarefas remotamente num cluster do Apache Spark com o Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 * [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicações do Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utilizar blocos de notas do Zeppelin com um cluster do Spark no HDInsight](apache-spark-zeppelin-notebook.md)
+* [Utilizar o plug-in ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicações do Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Utilizar blocos de notas do Zeppelin do Apache com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
 * [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](apache-spark-jupyter-notebook-install-locally.md)
 

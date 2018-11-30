@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 9bab98d8009704d570dc4b03a97b9cbc5d085b4c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3cd6ef1716d455c5ac755122b8696dbc43fdf459
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007557"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581872"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalar o bloco de notas do Jupyter no seu computador e ligar ao Apache Spark no HDInsight
 
-Neste artigo, saiba como instalar o bloco de notas do Jupyter com o PySpark personalizada (para Python) e os kernels do Spark (para Scala) com a mágica do Spark e ligar o bloco de notas a um cluster do HDInsight. Pode haver vários motivos para instalar o Jupyter no computador local e pode haver alguns desafios também. Para saber mais sobre isso, consulte a secção [por que motivo deve posso instalar o Jupyter no meu computador](#why-should-i-install-jupyter-on-my-computer) no final deste artigo.
+Neste artigo, saiba como instalar o bloco de notas do Jupyter com o PySpark personalizada (para Python) e os kernels do Apache Spark (para Scala) com a mágica do Spark e ligar o bloco de notas a um cluster do HDInsight. Pode haver vários motivos para instalar o Jupyter no computador local e pode haver alguns desafios também. Para saber mais sobre isso, consulte a secção [por que motivo deve posso instalar o Jupyter no meu computador](#why-should-i-install-jupyter-on-my-computer) no final deste artigo.
 
 Existem três principais etapas envolvidas na instalação do Jupyter e a mágica do Spark no seu computador.
 
@@ -124,7 +124,7 @@ Esta secção irá configurar a mágica do Spark que instalou anteriormente para
     >Se quiser atualizar a configuração do bloco de notas para ligar a um cluster diferente, atualize o JSON com o novo conjunto de valores, conforme mostrado no passo 3 acima.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Por que motivo posso instalar o Jupyter no meu computador?
-Pode haver vários motivos por que razão poderá querer instalar o Jupyter no seu computador e, em seguida, ligá-la para um cluster do Spark no HDInsight.
+Pode haver vários motivos por que razão poderá querer instalar o Jupyter no seu computador e, em seguida, ligá-la para um cluster do Apache Spark no HDInsight.
 
 * Apesar dos blocos de notas do Jupyter já estão disponíveis no cluster do Spark no HDInsight do Azure, instalar o Jupyter no seu computador fornece-lhe a opção para criar localmente seus blocos de notas, testar a aplicação relativamente um cluster em execução e, em seguida, carregue o blocos de notas para o cluster. Para carregar os blocos de notas para o cluster, pode carregá-los usando o bloco de notas do Jupyter que está em execução ou o cluster, ou salvá-los para a pasta de /HdiNotebooks na conta de armazenamento associada ao cluster. Para obter mais informações sobre como os blocos de anotações são armazenados no cluster, consulte [onde são blocos de notas do Jupyter armazenados](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
 * Com blocos de notas disponíveis localmente, pode ligar a clusters do Spark diferentes com base nas necessidades da sua aplicação.
@@ -141,20 +141,20 @@ Pode haver vários motivos por que razão poderá querer instalar o Jupyter no s
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Spark com BI: Efetuar uma análise de dados interativa com o Spark no HDInsight com ferramentas do BI](apache-spark-use-bi-tools.md)
-* [Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura do edifício com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
-* [Análise de registos de sites com o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
+* [Análise de registos de Web site com o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações
 * [Criar uma aplicação autónoma com o Scala](apache-spark-create-standalone-application.md)
-* [Executar tarefas remotamente num cluster do Spark com o Livy](apache-spark-livy-rest-interface.md)
+* [Executar tarefas remotamente num cluster do Apache Spark com o Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
 * [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para criar e submeter aplicações do Spark Scala](apache-spark-intellij-tool-plugin.md)
-* [Utilizar o Plug-in das Ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicações do Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Utilizar blocos de notas do Zeppelin com um cluster do Spark no HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels disponíveis para o bloco de notas do Jupyter no cluster do Spark para o HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Utilizar o plug-in ferramentas do HDInsight para o IntelliJ IDEA para depurar aplicações do Apache Spark remotamente](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Utilizar blocos de notas do Zeppelin do Apache com um cluster do Apache Spark no HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels disponíveis para o bloco de notas do Jupyter no cluster do Apache Spark para HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Utilizar pacotes externos com blocos de notas do Jupyter](apache-spark-jupyter-notebook-use-external-packages.md)
 
 ### <a name="manage-resources"></a>Gerir recursos

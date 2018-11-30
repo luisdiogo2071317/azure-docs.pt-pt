@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: f46d975c33d10688b04fca40b55c249b913fe5a1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f34bed915350b43f7964b4341d1375fb67a6f134
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394680"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584440"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Inscreva-se uma subscrição do Azure com a sua conta do Office 365
 Se tiver uma subscrição do Office 365, pode utilizar a sua conta do Office 365 para criar uma subscrição do Azure. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com o seu nome de utilizador do Office 365 e a palavra-passe. Se pretender configurar máquinas virtuais ou utilizar outros serviços do Azure, deve inscrever-se para uma subscrição do Azure. Pode partilhar a sua subscrição do Azure com outras pessoas e [utilizar o controlo de acesso baseado em funções para gerir o acesso à sua subscrição do Azure e recursos](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
@@ -55,5 +55,6 @@ Office 365 e o Azure, utilize o serviço do Azure AD para gerir utilizadores e s
 
 Para obter mais informações, consulte [subscrições do Azure como estão associadas com o Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
-Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente. 
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

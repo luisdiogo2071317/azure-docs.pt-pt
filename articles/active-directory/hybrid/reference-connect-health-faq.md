@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 264e7f3d885535304470c833e228660ba51fefc6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 83ff526eb0bd0c51822fc52c90b958d50022a834
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312306"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497741"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas mais frequentes do Azure AD Connect Health
 Este artigo contém respostas para perguntas mais frequentes (FAQ) sobre o Azure Active Directory (Azure AD) Connect Health. Estas FAQ sobre perguntas sobre como utilizar o serviço, que inclui a faturação modelo, capacidades, limitações e suporte.
@@ -62,7 +62,7 @@ Exemplo:
 
 **P: O suporte do Azure AD Connect Health do Azure Germany Cloud?**
 
-O Azure AD Connect Health não é suportado na Cloud da Alemanha, exceto para o [funcionalidade de relatório de erros de sincronização](how-to-connect-health-sync.md#object-level-synchronization-error-report-preview). 
+O Azure AD Connect Health não é suportado na Cloud da Alemanha, exceto para o [funcionalidade de relatório de erros de sincronização](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
 
 | Funções | Funcionalidades | Suportado na Cloud da Alemanha |
 | ------ | --------------- | --- |

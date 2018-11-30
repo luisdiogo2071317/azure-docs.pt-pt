@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b91c3dec1dda401fbacab39325b2c8980ec7254f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6ee89f3d57ded382b4d4519e4054448c144b10c5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625069"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632697"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário
 
@@ -81,7 +81,7 @@ Clique em **+ adicionar VMs do Azure**, selecione uma ou mais VMs a partir da li
 
 As máquinas não no Azure tem de ser adicionados manualmente. Da sua automação de conta Selecione **inventário** ou **controlo de alterações** sob **o GERENCIAMENTO de configuração**, ou **gestão de atualizações** sob **gestão de ATUALIZAÇÕES**.
 
-Clique em **máquina não pertencente ao Azure de adicionar**. Esta ação abre uma nova janela do browser com o [obter instruções sobre como instalar e configurar o Microsoft Monitoring Agent no computador](../log-analytics/log-analytics-agent-overview.md) para que a máquina pode começar a geração de relatórios para a solução. Se estiver a inclusão de uma máquina que atualmente geridos pelo System Center Operations Manager, um novo agente não é necessário, as informações da área de trabalho são inseridas no agente existente.
+Clique em **máquina não pertencente ao Azure de adicionar**. Esta ação abre uma nova janela do browser com o [obter instruções sobre como instalar e configurar o Microsoft Monitoring Agent no computador](../azure-monitor/platform/log-analytics-agent.md) para que a máquina pode começar a geração de relatórios para a solução. Se estiver a inclusão de uma máquina que atualmente geridos pelo System Center Operations Manager, um novo agente não é necessário, as informações da área de trabalho são inseridas no agente existente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Carregar máquinas na área de trabalho
 

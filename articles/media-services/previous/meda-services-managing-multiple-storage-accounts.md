@@ -1,6 +1,6 @@
 ---
-title: Gestão de suporte de dados dos serviços de recursos em várias contas do Storage | Microsoft Docs
-description: Este artigo dão-lhe orientações sobre como gerir recursos de serviços de suporte de dados em várias contas de armazenamento.
+title: Gestão de suporte de dados dos serviços de ativos em várias contas de armazenamento | Documentos da Microsoft
+description: Este artigo dão-lhe orientações sobre como gerir recursos de serviços de suporte de dados entre várias contas de armazenamento.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: 89d1838eb9fed1751581b026d82b06bc20de4ecc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aa9386182f521119012ea59fe6b64fb31099169e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788558"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620273"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gestão de suporte de dados dos serviços de recursos em várias contas de armazenamento
-A partir dos serviços de suporte de dados do Microsoft Azure 2.2, poderá anexar várias contas de armazenamento para uma única conta de Media Services. Capacidade para anexar várias contas de armazenamento para uma conta de Media Services fornece as seguintes vantagens:
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gestão de suporte de dados dos serviços de ativos em várias contas de armazenamento
+A partir do Microsoft Azure Media Services 2.2, pode anexar várias contas de armazenamento a uma única conta de Media Services. Capacidade de anexar várias contas de armazenamento para uma conta de Media Services fornece as seguintes vantagens:
 
 * Balanceamento de carga seus ativos entre várias contas de armazenamento.
-* Serviços de multimédia de dimensionamento para grandes quantidades de processamento de conteúdo (como uma única conta de armazenamento tem atualmente um limite máximo de 500 TB). 
+* Dimensionamento dos serviços de multimédia para grandes quantidades de processamento de conteúdo (como uma única conta de armazenamento tem atualmente um limite máximo de 500 TB). 
 
-Este artigo mostra como ligar várias contas de armazenamento para uma conta de Media Services utilizando [APIs do Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](/powershell/module/azurerm.media). Também mostra como especificar contas de armazenamento diferente ao criar recursos utilizando o SDK de Media Services. 
+Este artigo demonstra como anexar várias contas de armazenamento a uma conta de Media Services utilizando [APIs do Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](/powershell/module/azurerm.media). Ela também mostra como especificar contas de armazenamento diferentes durante a criação de recursos com o SDK de serviços de multimédia. 
 
 ## <a name="considerations"></a>Considerações
-Ao anexar várias contas de armazenamento à sua conta de Media Services, aplicam as seguintes considerações:
+Ao anexar várias contas de armazenamento à sua conta de Media Services, aplicam-se as seguintes considerações:
 
-* Todas as contas de armazenamento ligadas a uma conta de Media Services tem de estar no mesmo centro de dados como a conta de Media Services.
-* Atualmente, depois de uma conta de armazenamento está ligada à conta de Media Services especificada, não pode ser desligada.
-* Conta de armazenamento primário é indicado durante a hora de criação de conta de Media Services. Atualmente, não é possível alterar a conta do storage predefinida. 
-* Atualmente, se pretender adicionar uma conta de armazenamento esporádico para a conta de AMS, a conta de armazenamento tem de ser um tipo de Blob e definido para não principal.
+* Todas as contas de armazenamento anexadas a uma conta de Media Services tem de estar no mesmo centro de dados como conta de Media Services.
+* Atualmente, uma vez que uma conta de armazenamento está ligada à conta de Media Services especificada, não é possível desligar.
+* Conta de armazenamento primário é aquela indicada durante a hora de criação de conta de Media Services. Atualmente, não é possível alterar a conta de armazenamento predefinida. 
+* Atualmente, se pretender adicionar uma conta de armazenamento de acesso esporádico para a conta de AMS, a conta de armazenamento tem de ser um tipo de Blob e definido como não principal.
 
 Outras considerações:
 
-Os Media Services utiliza o valor da **IAssetFile.Name** propriedade ao criar os URLs para os conteúdos de transmissão em fluxo (por exemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por este motivo, por cento de codificação não é permitida. O valor da propriedade de nome não pode ter qualquer um dos seguintes [por cento codificação-reservados carateres](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Além disso, só pode existir um '.' para a extensão de nome de ficheiro.
+Serviços de multimédia utiliza o valor do **IAssetFile.Name** propriedade ao criar os URLs para o conteúdo de transmissão em fluxo (por exemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/ streamingParameters.) Por esse motivo, por cento de codificação não é permitida. O valor da propriedade do nome não pode ter qualquer um dos seguintes [por cento de codificação-reservados carateres](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # ". Além disso, só pode existir um '.' para a extensão de nome de ficheiro.
 
 ## <a name="to-attach-storage-accounts"></a>Para anexar a contas de armazenamento  
 
-Para ligar as contas de armazenamento à sua conta de AMS, utilize [APIs do Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) e [Powershell](/powershell/module/azurerm.media), conforme mostrado no exemplo seguinte:
+Para anexar a contas de armazenamento à sua conta do AMS, utilize [APIs do Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](/powershell/module/azurerm.media), conforme mostrado no exemplo a seguir:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -58,16 +58,16 @@ Para ligar as contas de armazenamento à sua conta de AMS, utilize [APIs do Azur
     
     Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
 
-### <a name="support-for-cool-storage"></a>Suporte para armazenamento esporádico
+### <a name="support-for-cool-storage"></a>Suporte para armazenamento de acesso esporádico
 
-Atualmente, se pretender adicionar uma conta de armazenamento esporádico para a conta de AMS, a conta de armazenamento tem de ser um tipo de Blob e definido para não principal.
+Atualmente, se pretender adicionar uma conta de armazenamento de acesso esporádico para a conta de AMS, a conta de armazenamento tem de ser um tipo de Blob e definido como não principal.
 
-## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Para gerir recursos de serviços de suporte de dados através de várias contas de armazenamento
-O código seguinte utiliza o SDK mais recente dos Media Services para realizar as seguintes tarefas:
+## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Para gerir recursos de serviços de multimédia entre várias contas de armazenamento
+O código a seguir utiliza o SDK de serviços de multimédia mais recente para realizar as seguintes tarefas:
 
-1. Apresente todas as contas de armazenamento associadas à conta de Media Services especificada.
-2. Obter o nome da conta do storage predefinida.
-3. Crie um novo elemento na conta do storage predefinida.
+1. Exiba todas as contas de armazenamento associadas à conta dos serviços de multimédia especificada.
+2. Recuperar o nome da conta de armazenamento predefinida.
+3. Crie um novo elemento na conta de armazenamento predefinida.
 4. Crie um elemento de saída da tarefa de codificação na conta de armazenamento especificada.
    
 ```

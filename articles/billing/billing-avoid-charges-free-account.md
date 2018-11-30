@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 37e43e4bb8b2aea21e0fa396dd197ca41793469d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e20faa36f14e681b6eb81203024e79a649f47c95
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394170"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582558"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Evitar ser cobrado na sua conta gratuita do Azure
 
@@ -62,6 +62,6 @@ Os serviços gratuitos e as quantidades expirarem no final dos 12 meses. Pode en
 
 Assim que os serviços gratuitos e as quantidades são expiradas, o Azure cobra tarifas pay as you go para quaisquer serviços que está a utilizar. Pode utilizar o portal do Azure para eliminar os recursos para os serviços que não utiliza. Se não pretender utilizar qualquer serviço do Azure, pode [cancelar a sua subscrição](billing-how-to-cancel-azure-subscription.md).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

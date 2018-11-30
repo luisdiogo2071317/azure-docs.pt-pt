@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913993"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632794"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ e problemas conhecidos com identidades geridas para recursos do Azure
 
@@ -43,18 +43,33 @@ Não, geridos identidades para recursos do Azure ainda não está integrado com 
 
 O limite de segurança da identidade é o recurso ao qual está ligado a. Por exemplo, o limite de segurança para uma Máquina Virtual com identidades geridas para recursos do Azure ativado, é a Máquina Virtual. Qualquer código em execução nessa VM, é capaz de chamar as identidades geridas para recursos do Azure, tokens de ponto final e a pedido. É a experiência de semelhante com outros recursos que oferecem suporte a identidades geridas para recursos do Azure.
 
+### <a name="what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request"></a>Identidade que será IMDS assumem como padrão se não especificar a identidade no pedido?
+
+- Se o sistema atribuído a identidade gerida está ativado e nenhuma identidade é especificada no pedido, IMDS será predefinido para o sistema de identidade gerida atribuído.
+- Se o sistema atribuído a identidade gerida não está ativado e existe apenas um utilizador atribuído a identidade gerida, IMDS será predefinido para esse utilizador único atribuído a identidade gerida. 
+- Se o sistema atribuído a identidade gerida não está ativado e o utilizador várias identidades geridas de atribuído existe, em seguida, especificar uma identidade gerida no pedido é necessário.
+
 ### <a name="should-i-use-the-managed-identities-for-azure-resources-vm-imds-endpoint-or-the-vm-extension-endpoint"></a>Deve utilizar as identidades geridas para o ponto final VM IMDS de recursos do Azure ou o ponto de final de extensão VM?
 
 Quando utiliza identidades geridas para recursos do Azure com VMs, recomendamos a utilização de identidades geridas para o ponto final IMDS de recursos do Azure. O serviço de metadados de instância do Azure é um ponto final REST acessíveis a todas as VMs de IaaS criadas através do Azure Resource Manager. Algumas das vantagens da utilização de identidades geridas para recursos do Azure através de IMDS são:
-
-1. Todos os sistemas de operativos de IaaS do Azure suportada pode utilizar identidades geridas para recursos do Azure através de IMDS. 
-2. Já não é necessário instalar uma extensão na sua VM para ativar identidades geridas para recursos do Azure. 
-3. Os certificados utilizados por identidades geridas para recursos do Azure já não estão presentes na VM. 
-4. O ponto de extremidade IMDS é um endereço IP bem conhecido não encaminháveis internos, apenas disponível a partir da VM. 
+    - Todos os sistemas de operativos de IaaS do Azure suportada pode utilizar identidades geridas para recursos do Azure através de IMDS.
+    - Já não é necessário instalar uma extensão na sua VM para ativar identidades geridas para recursos do Azure. 
+    - Os certificados utilizados por identidades geridas para recursos do Azure já não estão presentes na VM.
+    - O ponto de extremidade IMDS é um endereço IP bem conhecido não encaminháveis internos, apenas disponível a partir da VM.
 
 As identidades geridas para a extensão VM de recursos do Azure ainda está disponível para ser utilizada hoje. No entanto, mais adiante, será predefinida para utilizar o ponto de extremidade IMDS. As identidades geridas para a extensão VM de recursos do Azure vão ser preteridas em Janeiro de 2019. 
 
 Para obter mais informações sobre o serviço de metadados de instância do Azure, consulte [documentação IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+
+### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Serão identidades geridas recriadas automaticamente se mover uma subscrição para outro diretório?
+
+Não. Se mover uma subscrição para outro diretório, terá de recriar manualmente-los e conceder novamente o atribuições de funções do RBAC do Azure.
+    - Para sistema atribuídos identidades geridas: desative e volte a ativar.
+    - Para o utilizador atribuído identidades geridas: eliminar, voltar a criar e anexe-os novamente para os recursos necessários (por exemplo, as máquinas virtuais)
+
+### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Pode utilizar uma identidade gerida para aceder a um recurso num diretório diferente/inquilino?
+
+Não. Identidades geridas não suportam atualmente directory em vários cenários. 
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quais são as distribuições suportadas de Linux?
 

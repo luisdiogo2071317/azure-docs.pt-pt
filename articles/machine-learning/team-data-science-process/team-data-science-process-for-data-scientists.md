@@ -2,25 +2,21 @@
 title: O processo de ciência de dados de equipa para cientistas de dados | Documentos da Microsoft
 description: Fornece orientações para compreender uma carga de trabalho de análise com o processo de ciência de dados de equipa e o Azure Machine Learning.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 80f006c4e8f051c3f744168be114f1c9fb3b1a0f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ddf73f15dc7c269ba3bf9a2912c3713fd4e847f2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092496"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497575"
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Processo de ciência de dados de equipa para cientistas de dados
 
@@ -65,7 +61,7 @@ Pode utilizar os itens na tabela a seguir para orientar o seu próprio estudo in
 | Utilizar o Power BI para visualizar os resultados                                                         | [Power BI](https://powerbi.microsoft.com/guided-learning/)                                                                                     | O Power BI é uma ferramenta de visualização de dados da Microsoft. Está disponível em várias plataformas da Web para dispositivos móveis e computadores desktop. Este artigo irá aprender a trabalhar com a saída da solução que criou ao acessar os resultados do armazenamento do Azure e criar visualizações através do Power BI.                                                                                                                                                                                                                                                                                                                             | [Conclua este tutorial no Power BI.](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) Em seguida, ligar o Power BI para o CSV de Blob criado numa experimentação executar.                                                                                                                                                                                                                                                                       |
 | Monitorizar a sua solução                                                                     | [Application Insights](../../application-insights/app-insights-overview.md)                                            | Existem várias ferramentas que pode utilizar para monitorizar a sua solução de fim. O Azure Application Insights torna mais fácil de integrar a monitorização incorporada em sua solução.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [Configurar o Application Insights para monitorizar uma aplicação](https://cmatskas.com/visual-studio-code-integration-with-azure-application-insights/).                                                                                                                                                                                                                                                                                                                  |
 |                                                                                           | [Log Analytics do Azure](../../log-analytics/log-analytics-overview.md)                                                   | Outro método para monitorizar a sua aplicação é para integrá-la em seu processo de DevOps. O sistema de Log Analytics do Azure fornece um conjunto avançado de funcionalidades para o ajudar a ver as suas soluções de análise depois de implementá-las.                                                                                                                                                                                                                                                                                                                                                                                                                       | [Concluir este tutorial](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) sobre a utilização do Log Analytics do Azure.                                                                                                                                                                                                                                                                                                       |
-| Conclua este percurso de aprendizagem                                                               | Projetos adicionais para tentar                                                                                                                           | Parabéns! Concluiu este percurso de aprendizagem. Há muito mais para saber mais. Um exemplo mais avançado está criando um cliente modelo de alterações a dados no serviço Azure Machine Learning. [Faça um teste aqui](../desktop-workbench/scenario-churn-prediction.md).                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+| Conclua este percurso de aprendizagem                                                               |                                                                                                                           | Parabéns! Concluiu este percurso de aprendizagem. Há muito mais para saber mais.                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
 ## <a name="next-steps"></a>Passos Seguintes
 [O processo de ciência de dados de equipa para operações de desenvolvedor](team-data-science-process-for-devops.md) este artigo explora as funções de operações de desenvolvedor (DevOps) que são específicas para uma implementação de solução de análise avançada e os serviços cognitivos. 
