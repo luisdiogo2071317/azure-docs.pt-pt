@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 01603655be9b6051be9b894da4e55338ff4df810
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e702e1f5eb1816b007317765e4c9a9f88bb99bfd
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262130"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635429"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar a utilização de dados do Log Analytics
 
@@ -42,7 +42,12 @@ Para explorar os seus dados em mais detalhes, clique no ícone na parte superior
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Resolver o motivo pelo qual a utilização é superior ao esperado
 A utilização superior deve-se a um ou a ambos os motivos abaixo:
 - Estão a ser enviados para o Log Analytics mais dados do que o esperado
-- Estão a ser enviados dados para o Log Analytics por mais nós do que o esperado
+- Alguns nós ou mais nós que o envio de dados esperado para o Log Analytics estão a enviar mais dados que o normal
+
+Vamos dar uma olhada em como podemos pode saber mais sobre ambos estes causas. 
+
+> [!NOTE]
+> Alguns dos campos do tipo de dados de utilização, enquanto ainda está no esquema, foram preteridos e já não são preenchidos a seus valores. Estes são **computador** , bem como campos relacionados com a ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** e **AverageProcessingTimeMs**.
 
 ### <a name="data-volume"></a>Volume de dados 
 Sobre o **utilização e custos estimados** página, o *ingestão de dados por solução* gráfico mostra o volume total de dados enviados e a quantidade está a ser enviado por cada solução. Isto permite-lhe determinar as tendências, como se a utilização de dados global (ou a utilização por uma solução específica) está a crescer, permanece estável ou diminui. É a consulta usada para gerar este
@@ -60,7 +65,7 @@ Pode explorar mais a ver as tendências de dados para tipos de dados específico
 
 ### <a name="nodes-sending-data"></a>Nós a enviar dados
 
-Para undersand o número de nós de dados de relatórios no mês passado, utilize
+Para compreender o número de nós de dados de relatórios no mês passado, utilize
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
@@ -69,16 +74,20 @@ Para undersand o número de nós de dados de relatórios no mês passado, utiliz
 Para ver a contagem de eventos ingeridos por computador, utilize
 
 `union withsource = tt *
-| summarize count() by Computer |sort by count_ nulls last`
+| summarize count() by Computer | sort by count_ nulls last`
 
-Utilize esta consulta moderadamente, uma vez que é dispendiosa. Se quiser ver os tipos de dados são sendng dados a um computador específico, utilize:
+Utilize esta consulta moderadamente, uma vez que é dispendiosa. Para ver a contagem de eventos a cobrar ingeridos por computador, utilize 
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last`
+
+Se quiser ver os tipos de dados cobrar estão a enviar dados para um computador específico, utilize:
 
 `union withsource = tt *
 | where Computer == "*computer name*"
-| summarize count() by tt |sort by count_ nulls last `
-
-> [!NOTE]
-> Alguns dos campos do tipo de dados de utilização, enquanto ainda está no esquema, foram preteridos e serão que seus valores já não são preenchidos. Estes são **computador** , bem como campos relacionados com a ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** e **AverageProcessingTimeMs**.
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last `
 
 Para saber mais sobre a origem de dados para um tipo de dados específico, aqui estão algumas consultas de exemplo úteis:
 

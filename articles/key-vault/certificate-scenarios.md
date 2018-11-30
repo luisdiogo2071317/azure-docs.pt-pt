@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: 4b7192b0c406d2c5df42e3bb3e604f26c56c7bd4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d4d2ce4dcda9ea72d4a33ee363efd3519c2118aa
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235195"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635837"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Comece com certificados do Key Vault
 Os cenários seguintes realçam vários das utilizações de principal de serviço de gestão de certificados do Key Vault incluindo os passos adicionais necessários para criar seu primeiro certificado no seu Cofre de chaves.
@@ -51,14 +51,14 @@ Certificados são compostas por três recursos inter-relacionados ligados em con
 
 **Passo 3** -administrador A Contoso, juntamente com um funcionário da Contoso (utilizador do Key Vault) que é proprietário de certificados, dependendo da AC, pode obter um certificado do administrador ou diretamente da conta com a AC.  
 
--   Iniciar uma operação de credenciais do add para um cofre de chaves por [definir um emissor de certificado](/rest/api/keyvault/setcertificateissuer) recursos. Um emissor do certificado é uma entidade representada no Cofre de chave de Azure (KV) como um recurso de CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado de KV; nome do emissor, fornecedor, credenciais e outros detalhes administrativos.
+-   Iniciar uma operação de credenciais do add para um cofre de chaves por [definir um emissor de certificado](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) recursos. Um emissor do certificado é uma entidade representada no Cofre de chave de Azure (KV) como um recurso de CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado de KV; nome do emissor, fornecedor, credenciais e outros detalhes administrativos.
     -   Ex. MyDigiCertIssuer  
         -   Fornecedor  
         -   Credenciais – as credenciais da conta de AC. Cada AC tem seus próprios dados específicos.  
 
      Para obter mais informações sobre como criar contas com fornecedores de AC, consulte a postagem relacionada sobre o [blogue do Key Vault](https://aka.ms/kvcertsblog).  
 
-**Passo 3.1** – configurar [contactos do certificado](/rest/api/keyvault/setcertificatecontacts) para notificações. Este é o contacto para o utilizador do Key Vault. Cofre de chaves não impõe a este passo.  
+**Passo 3.1** – configurar [contactos do certificado](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para notificações. Este é o contacto para o utilizador do Key Vault. Cofre de chaves não impõe a este passo.  
 
 Tenha em atenção - este processo, através do passo 3.1, é uma operação única.  
 
@@ -83,7 +83,7 @@ Tenha em atenção - este processo, através do passo 3.1, é uma operação ún
       -   Informação de renovação - > ex. 90 dias antes da expiração  
 
   - Um processo de criação do certificado é, normalmente, um processo assíncrono e envolve o seu Cofre de chaves para o estado da operação de certificado a criação de consulta.  
-[Operação de obtenção de certificado](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
+[Operação de obtenção de certificado](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   Estado: concluída, com informações de erro ou falhadas, foi cancelada  
       -   Devido a atraso para criar, pode ser iniciada uma operação de cancelamento. O cancelamento pode ou não estar em vigor.  
 

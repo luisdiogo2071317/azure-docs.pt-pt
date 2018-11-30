@@ -10,125 +10,157 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2018
+ms.date: 11/28/2018
 ms.author: kumud
-ms.openlocfilehash: bf9e296d7edf5ea8f668299830c64aaf3c5f74e9
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 5520b78ce3899c39167663ac426fa6702369c944
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140490"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634783"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Início Rápido: Criar um perfil do Gestor de Tráfego para uma aplicação Web de elevada disponibilidade
 
-Este início rápido descreve como criar um perfil do Gestor de Tráfego que proporciona elevada disponibilidade às suas aplicações Web. 
+Este início rápido descreve como criar um perfil do Gestor de tráfego que fornece elevada disponibilidade para a sua aplicação web.
 
-O cenário descrito no início rápido inclui duas instâncias de uma aplicação Web em execução em regiões do Azure diferentes. É criado um perfil do Gestor de Tráfego com base na [prioridade do ponto final](traffic-manager-routing-methods.md#priority), o qual ajuda a direcionar o tráfego do utilizador para o site principal que está a executar a aplicação. O Gestor de Tráfego monitoriza continuamente a aplicação Web e proporciona ativação pós-falha automática ao site alternativo quando o principal não está disponível.
+Neste início rápido, irá ler cerca de duas instâncias de um aplicativo web. Cada uma delas está em execução numa região diferente do Azure. Irá criar um perfil do Gestor de tráfego com base na [prioridade de ponto final](traffic-manager-routing-methods.md#priority). O perfil direciona o tráfego de utilizador para o site primário que executa a aplicação web. O Gestor de tráfego monitoriza continuamente a aplicação web. Se o site primário não estiver disponível, ele fornece ativação pós-falha automática para o site de cópia de segurança.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
-Inicie sessão no portal do Azure em https://portal.azure.com.
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este início rápido requer que tenha implementado duas instâncias de uma aplicação Web em execução em regiões do Azure diferentes (*E.U.A. Leste* e *Europa Ocidental*). As duas instâncias da aplicação Web funcionam como os pontos finais principal e alternativo para o Gestor de Tráfego.
 
-1. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Web** > **Aplicação Web** > **Criar**.
-2. Em **Aplicação Web**, introduza ou selecione as informações seguintes e introduza predefinições nas definições que estão vazias:
+Neste início rápido, terá duas instâncias de uma aplicação web implementada em duas regiões do Azure diferentes (*E.U.A. Leste* e *Europa Ocidental*). Cada um irá servir como pontos finais de principal e de ativação pós-falha para o Gestor de tráfego.
 
-     | Definição         | Valor     |
-     | ---              | ---  |
-     | Nome           | Introduza um nome exclusivo para a aplicação Web  |
-     | Grupo de recursos          | Selecione **Novo** e introduza *myResourceGroupTM1* |
-     | Plano do Serviço de Aplicações/Localização         | Selecione **Novo**.  No plano do Serviço de Aplicações, introduza *myAppServicePlanEastUS* e selecione **OK**. 
-     |      Localização  |   EUA Leste        |
-    |||
+1. No lado do canto superior esquerdo do ecrã, selecione **criar um recurso** > **Web** > **aplicação Web**.
+2. Na **aplicação Web**, introduza ou selecione estas definições:
 
-3. Selecione **Criar**.
-4. É criado um Website predefinido quando a aplicação Web for implementada com êxito.
-5. Repita os passos 1 a 3 para criar um segundo Website noutra região do Azure com as seguintes definições:
+    | Definição | Valor |
+    | ------- | ----- |
+    | Nome da aplicação | Introduza um nome exclusivo para a sua aplicação web.  |
+    | Subscrição | Selecione a subscrição que pretende que a aplicação web aplicada a. |
+    | Grupo de Recursos | Selecione **criar novo**e introduza *myResourceGroupTM1*. |
+    | SO | Selecione **Windows** como seu sistema operativo. |
+    | Publicar | Selecione **código** como o formato de que pretende publicar. |
 
-     | Definição         | Valor     |
-     | ---              | ---  |
-     | Nome           | Introduza um nome exclusivo para a aplicação Web  |
-     | Grupo de recursos          | Selecione **Novo** e introduza *myResourceGroupTM2* |
-     | Plano do Serviço de Aplicações/Localização         | Selecione **Novo**.  No plano do Serviço de Aplicações, introduza *myAppServicePlanWestEurope* e selecione **OK**. 
-     |      Localização  |   Europa Ocidental      |
-    |||
+3. Selecione **plano do serviço de aplicações/localização**.
+4. Na **plano do App Service**, selecione **criar nova**.
+5. Na **plano do serviço de aplicações novo**, introduza ou selecione estas definições:
 
+    | Definição | Valor |
+    | ------- | ----- |
+    | Plano do App Service | Introduza *myAppServicePlanEastUS*. |
+    | Localização | EUA Leste |
+    | Escalão de preço | S1 Standard |
+
+6. Selecione **OK**.
+
+7. Na **aplicação Web**, selecione **criar**. Quando a aplicação Web implementa com êxito, ele cria um web site predefinido.
+
+8. Para criar um segundo Web site numa região do Azure diferente, repita os passos 1 a 7 com estas definições:
+
+    | Definição | Valor |
+    | --------| ----- |
+    | Nome | Introduza um nome exclusivo para a sua aplicação web. |
+    | Subscrição | Selecione a subscrição que pretende que a aplicação web aplicada a. |
+    | Grupo de recursos | Selecione **criar novo**e, em seguida, introduza *myResourceGroupTM2*. |
+    | SO | Selecione **Windows** como seu sistema operativo. |
+    | Publicar | Selecione **código** como o formato de que pretende publicar. |
+    | Plano do Serviço de Aplicações/Localização | Introduza *myAppServicePlanWestEurope*. |
+    | Localização | Europa Ocidental |
+    | Escalão de preço | S1 Standard |
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gestor de Tráfego
-Crie um perfil do Gestor de Tráfego que direcione o tráfego do utilizador com base na prioridade do ponto final.
 
-1. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Rede** > **Perfil do Gestor de Tráfego** > **Criar**.
-2. Em **Criar perfil do Gestor de Tráfego**, introduza ou selecione as informações seguintes, aceite as predefinições das definições restantes e selecione **Criar**:
-    
-    | Definição                 | Valor                                              |
-    | ---                     | ---                                                |
-    | Nome                   | Este nome tem de ser exclusivo na zona trafficmanager.net e resultar no nome DNS, **trafficmanager.net**, que é utilizado para aceder ao seu perfil do Gestor de Tráfego.|
-    | Método de encaminhamento          | Selecione o método de encaminhamento **Prioridade**.|
-    | Subscrição            | Selecione a sua subscrição.|
-    | Grupo de recursos          | Selecione **Existente** e selecione *myResourceGroupTM1*.|
-    |Localização |Esta definição refere-se à localização do grupo de recursos e não tem qualquer impacto no perfil do Gestor de Tráfego que vai ser implementado globalmente.|
-    |||
-    
-    
-   ![Criar um perfil do Gestor de Tráfego](./media/quickstart-create-traffic-manager-profile/traffic-manager-profile.png)
+Crie um perfil do Gestor de tráfego que direciona o tráfego de utilizador com base na prioridade de ponto final.
 
+1. No lado do canto superior esquerdo do ecrã, selecione **criar um recurso** > **rede** > **perfil do Traffic Manager**.
+2. Na **perfil do Gestor de tráfego criar**, introduza ou selecione estas definições:
+
+    | Definição | Valor |
+    | --------| ----- |
+    | Nome | Introduza um nome exclusivo para o seu perfil do Gestor de tráfego.|
+    | Método de encaminhamento | Selecione **prioridade**.|
+    | Subscrição | Selecione a subscrição que pretende que o perfil do Gestor de tráfego aplicado a. |
+    | Grupo de recursos | Selecione *myResourceGroupTM1*.|
+    | Localização |Esta definição refere-se para a localização do grupo de recursos. Não tem efeito sobre o perfil do Gestor de tráfego que vai ser implementado globalmente.|
+
+3. Selecione **Criar**.
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos finais do Gestor de Tráfego
 
-Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminhar todo o tráfego do utilizador. Adicione o Website na *Europa Ocidental* como o ponto final alternativo. Quando o ponto final principal não estiver disponível, o tráfego é encaminhado automaticamente para o secundário.
+Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminhar todo o tráfego do utilizador. Adicionar o Web site na *Europa Ocidental* como um ponto de final de ativação pós-falha. Quando o ponto final primário não estiver disponível, o tráfego encaminha automaticamente para o ponto final de ativação pós-falha.
 
-1. Na barra de pesquisa do portal, procure o nome do perfil do Gestor de Tráfego que criou na secção anterior e selecione-o nos resultados apresentados.
-2. Em **Perfil do Gestor de Tráfego** , na secção **Definições**, clique em **Pontos Finais** e em **Adicionar**.
-3. Introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **OK**:
+1. Na barra de pesquisa do portal, introduza o nome de perfil do Gestor de tráfego que criou na secção anterior.
+2. Selecione o perfil de resultados da pesquisa.
+3. Na **perfil do Gestor de tráfego**, na **definições** secção, selecione **pontos finais**e, em seguida, selecione **adicionar**.
+4. Introduza ou selecione, estas definições:
 
-    | Definição                 | Valor                                              |
-    | ---                     | ---                                                |
-    | Tipo                    | Ponto final do Azure                                   |
-    | Nome           | myPrimaryEndpoint                                        |
-    | Tipo de recurso de destino           | Serviço de Aplicações                          |
-    | Recurso de destino          | **Escolha um Serviço de Aplicações** para mostrar a lista de aplicações Web na mesma subscrição. Em **Recurso**, escolha o Serviço de Aplicações que pretende adicionar como o primeiro ponto final. |
-    | Prioridade               | Selecione **1**. Se estiver em bom estado de funcionamento, todo o tráfego vai para este ponto final.    |
-    
-4. Repita os passos 2 e 3 para o próximo ponto final das Aplicações Web. Adicione-o com o valor de **Prioridade** definido em **2**.
-5.  Quando a adição de ambos os pontos finais estiver concluída, estes são apresentados em **Perfil do Gestor de Tráfego**, juntamente com o respetivo estado de monitorização como **Online**.
+    | Definição | Valor |
+    | ------- | ------|
+    | Tipo | Selecione **ponto final do Azure**. |
+    | Nome | Introduza *myPrimaryEndpoint*. |
+    | Tipo de recurso de destino | Selecione **serviço de aplicações**. |
+    | Recurso de destino | Selecione **escolher um serviço de aplicações** > **E.U.A. Leste**. |
+    | Prioridade | Selecione **1**. Quando ele está íntegro, todo o tráfego vai para este ponto final. |
 
-    ![Adicionar um ponto final do Gestor de Tráfego](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint2.png)
+    ![Captura de ecrã de onde adiciona um ponto final para o seu perfil do Gestor de tráfego.](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png)
+
+5. Selecione **OK**.
+6. Para criar um ponto de extremidade de ativação pós-falha para a sua segunda região do Azure, repita os passos 3 e 4 com estas definições:
+
+    | Definição | Valor |
+    | ------- | ------|
+    | Tipo | Selecione **ponto final do Azure**. |
+    | Nome | Introduza *myFailoverEndpoint*. |
+    | Tipo de recurso de destino | Selecione **serviço de aplicações**. |
+    | Recurso de destino | Selecione **escolher um serviço de aplicações** > **Europa Ocidental**. |
+    | Prioridade | Selecione **2**. Todo o tráfego vai para este ponto final de ativação pós-falha se o ponto final primário está danificado. |
+
+7. Selecione **OK**.
+
+Quando terminar a adicionar os dois pontos de extremidade, estes são apresentados na **perfil do Traffic Manager**. Tenha em atenção que é o respetivo estado de monitorização **Online** agora.
 
 ## <a name="test-traffic-manager-profile"></a>Testar o perfil do Gestor de Tráfego
-Nesta secção, vai determinar primeiro o nome de domínio do perfil do Gestor de Tráfego e, depois, vai ver como é feita a ativação pós-falha do Gestor de Tráfego para o ponto final secundário quando o primeiro está indisponível.
-### <a name="determine-the-dns-name"></a>Determinar o nome DNS
-1.  Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que criou na secção anterior. Nos resultados que são apresentados, clique no perfil do Gestor de Tráfego.
-2. Clique em **Descrição geral**.
+
+Nesta secção, irá verificar o nome de domínio do perfil do Traffic Manager. Também irá configurar o ponto final principal fique indisponível. Por fim, obtém a que a aplicação web está ainda disponível. É porque o Gestor de tráfego envia o tráfego para o ponto final de ativação pós-falha.
+
+### <a name="check-the-dns-name"></a>Verifique o nome DNS
+
+1. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que criou na secção anterior.
+2. Selecione o perfil do Gestor de tráfego. O **descrição geral** aparece.
 3. O **Perfil do Gestor de Tráfego** mostra o nome DNS do perfil que acabou de criar.
   
-   ![Nome DNS do Gestor de Tráfego](./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png)
+   ![Captura de ecrã da localização do seu nome de DNS do Gestor de tráfego](./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png)
 
 ### <a name="view-traffic-manager-in-action"></a>Ver o Gestor de Tráfego em ação
 
-1. Num browser, escreva o nome DNS do perfil do Gestor de Tráfego para ver o Website predefinido da sua Aplicação Web. No cenário deste início rápido, todos os pedidos são encaminhados para o ponto final principal, que está definido como **Prioridade 1**.
+1. Num browser, introduza o nome DNS do seu perfil do Gestor de tráfego para ver o Web site predefinido da sua aplicação Web.
 
-![Testar o perfil do Gestor de Tráfego](./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png)
+    > [!NOTE]
+    > Neste cenário de início rápido, todos os pedidos de rota para o ponto final primário. Ele é definido como **prioridade 1**.
 
-2. Para ver a ativação pós-falha do Gestor de Tráfego em ação, desative o site principal da seguinte forma:
-    1. Na página Perfil do Gestor de Tráfego, selecione **Definições**>**Pontos Finais**>*MyPrimaryEndpoint*.
-    2. Em *MyPrimaryEndpoint*, selecione **Desativado**. 
-    3. O estado do ponto final principal, *MyPrimaryEndpoint*, aparece agora como **Desativado**.
-3. Copie o nome DNS do Perfil do Gestor de Tráfego do passo anterior para conseguir ver o Website num browser. Quando o ponto final principal for desativado, o tráfego do utilizador é encaminhado para o ponto final secundário.
+    ![Captura de ecrã da página Web para confirmar a disponibilidade de perfil do Gestor de tráfego](./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png)
+
+2. Para ver a ativação pós-falha do Gestor de tráfego em ação, desative o site primário:
+    1. Na página de perfil do Gestor de tráfego, do **descrição geral** secção, selecione **myPrimaryEndpoint**.
+    2. Na *myPrimaryEndpoint*, selecione **desativada** > **guardar**.
+    3. Fechar **myPrimaryEndpoint**. Tenha em atenção que o estado é **desativado** agora.
+3. Copie o nome DNS do seu perfil do Gestor de tráfego do passo anterior para ver o site numa nova sessão de browser web.
+4. Certifique-se de que a aplicação web está ainda disponível.
+
+O ponto final primário não estiver disponível, pelo que foram encaminhado para o ponto final de ativação pós-falha.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando já não for necessário, elimine os grupos de recursos, as aplicações Web e todos os recursos relacionados. Para tal, selecione os grupos de recursos (*myResourceGroupTM1* e *myResourceGroupTM2*) e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
-Neste início rápido, criou um perfil do Gestor de Tráfego que lhe permite direcionar o tráfego do utilizador para uma aplicação Web de elevada disponibilidade. Para saber mais sobre o encaminhamento, avance para os tutoriais do Gestor de Tráfego.
+Quando tiver terminado, elimine os grupos de recursos, aplicativos web e todos os recursos relacionados. Para tal, selecione cada item individual no seu dashboard e selecione **eliminar** na parte superior de cada página.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Neste início rápido, criou um perfil do Gestor de tráfego. Permite-lhe direcionar o tráfego de utilizador para aplicações web de elevada disponibilidade. Para saber mais sobre o encaminhamento de tráfego, avance para os tutoriais do Gestor de tráfego.
 
 > [!div class="nextstepaction"]
 > [Traffic Manager tutorials](tutorial-traffic-manager-improve-website-response.md) (Tutoriais do Gestor de Tráfego)
-
-
-
-
-
-

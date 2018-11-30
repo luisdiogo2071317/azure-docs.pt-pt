@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 84c54ece905d0a3d68779e498a5bb66f555c08d5
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 6e711b99fa197a2092a673c87124e49fcf3c293e
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712879"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635531"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recolher e analisar registos de atividades do Azure no Log Analytics
 
@@ -54,7 +54,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 
 | Origem Ligada | Suportadas | Descrição |
 | --- | --- | --- |
-| [Agentes do Windows](log-analytics-agent-windows.md) | Não | A solução não recolhe informações de agentes do Windows. |
+| [Agentes do Windows](../azure-monitor/platform/agent-windows.md) | Não | A solução não recolhe informações de agentes do Windows. |
 | [Agentes do Linux](log-analytics-quick-collect-linux-computer.md) | Não | A solução não recolhe informações de agentes do Linux. |
 | [Grupo de gestão do SCOM](log-analytics-om-agents.md) | Não | A solução não recolhe informações de agentes num grupo de gestão ligado do SCOM. |
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | A solução não recolhe informações do armazenamento do Azure. |

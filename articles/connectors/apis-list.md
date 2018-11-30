@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 3230692208d27ebac073e257266c885b5e03095c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b320696a56855baaa4af10177d25dfe9973ee73a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233638"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635446"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para o Azure Logic Apps
 
@@ -74,7 +74,7 @@ Seguem-se as ações incorporadas para trabalhar com dados saídas e seus format
 
 |   |   | 
 |---|---| 
-| ![Ícone interno][data-operations-icon]<br/>**Operações de dados** | Execute operações com dados: <p>- **Compor**: criar uma única saída a partir de várias entradas com vários tipos. <br>- **Criar tabela CSV**: criar uma tabela separada por vírgulas (CSV) a partir de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: criar uma tabela HTML a partir de uma matriz com objetos JSON. <br>- **Matriz de filtro**: criar uma matriz de itens na outra matriz que satisfazem os critérios. <br>- **Junte-se a**: criar uma cadeia de caracteres a partir de todos os itens numa matriz e separar esses itens com o delimitador especificado. <br>- **Analisar JSON**: criar fácil de utilizar tokens de propriedades e seus valores em JSON conteúdo para que possa utilizar essas propriedades no fluxo de trabalho. <br>- **Selecione**: criar uma matriz com objetos JSON ao transformar itens ou valores na outra matriz e mapear esses itens para propriedades especificadas. | 
+| [![Ícone interno][data-operations-icon]<br/>**operações de dados**][data-operations-doc] | Execute operações com dados: <p>- **Compor**: criar uma única saída a partir de várias entradas com vários tipos. <br>- **Criar tabela CSV**: criar uma tabela separada por vírgulas (CSV) a partir de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: criar uma tabela HTML a partir de uma matriz com objetos JSON. <br>- **Matriz de filtro**: criar uma matriz de itens na outra matriz que satisfazem os critérios. <br>- **Junte-se a**: criar uma cadeia de caracteres a partir de todos os itens numa matriz e separar esses itens com o delimitador especificado. <br>- **Analisar JSON**: criar fácil de utilizar tokens de propriedades e seus valores em JSON conteúdo para que possa utilizar essas propriedades no fluxo de trabalho. <br>- **Selecione**: criar uma matriz com objetos JSON ao transformar itens ou valores na outra matriz e mapear esses itens para propriedades especificadas. | 
 | ![Ícone interno][date-time-icon]<br/>**Data hora** | Realizar operações de carimbos de data: <p>- **Adicionar ao tempo**: adicionar o número de unidades especificado a um carimbo. <br>- **Converter fuso horário**: converter um carimbo de fuso horário de origem para o fuso horário de destino. <br>- **Hora atual**: retornar timestamp atual como uma cadeia de caracteres. <br>- **Obter tempo futuro**: devolver o timestamp atual, bem como as unidades de tempo especificado. <br>- **Obter tempo passado**: retornar timestamp atual menos as unidades de tempo especificado. <br>- **Subtrair a partir da hora**: subtrair um número de unidades de tempo de um carimbo. |
 | [![Ícone interno][variables-icon]<br/>**variáveis**][variables-doc] | Execute operações com variáveis: <p>- **Acrescentar à variável de matriz**: Inserir um valor como o último item numa matriz armazenado por uma variável. <br>- **Acrescentar à variável da cadeia de caracteres**: Inserir um valor como o último caráter numa cadeia armazenado por uma variável. <br>- **Variável de diminuição**: diminuir a uma variável um valor constante. <br>- **Variável de incremento**: aumentar uma variável, um valor constante. <br>- **Inicializar variável**: criar uma variável e declarar o tipo de dados e o valor inicial. <br>- **Definir variável**: atribuir um valor diferente para uma variável existente. |
 |  |  | 
@@ -193,6 +193,7 @@ Para tornar as aplicações API personalizadas ou de conectores pública para qu
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize as ações em casos, o que são atribuídos valores exclusivos. Execute apenas o caso cujo valor faz corresponder o resultado de uma expressão, o objeto ou o token. Não se existir nenhuma correspondência, execute o caso de predefinição"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Parar ou cancelar um fluxo de trabalho ativamente em execução para a aplicação lógica"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Repetir ações até que a condição especificada for verdadeira ou algum Estado foi alterado"
+[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Realizar operações de dados, como a filtragem de matrizes ou criar tabelas CSV e HTML"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Executar operações com variáveis, como initialize, conjunto, incremento, diminuição e acrescentar à variável da cadeia de caracteres ou matriz"
 
 <!--Managed API doc links-->

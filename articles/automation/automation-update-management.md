@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a2678db223fc26a377de8daa79b85a9b8cda7a02
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: caa1b6f31325cd67aad106f7829bd32a5e7aeb53
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284953"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635820"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -69,7 +69,7 @@ A tabela seguinte mostra uma lista dos sistemas operativos suportados:
 |Sistema operativo  |Notas  |
 |---------|---------|
 |Versão do Windows Server 2008, Windows Server 2008 R2 RTM    | Suporta apenas avaliações de atualização.         |
-|Windows Server 2008 R2 SP1 e posterior     |.NET framework 4.5.1 ou posterior é necessária. ([Baixe o .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> É necessário o Windows PowerShell 4.0 ou posterior. ([Transferir WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 é recomendada para maior confiabilidade.  ([Transferir WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 e posterior (incluindo o Windows Server 2012 e 2016)    |.NET framework 4.5.1 ou posterior é necessária. ([Baixe o .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> É necessário o Windows PowerShell 4.0 ou posterior. ([Transferir WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 é recomendada para maior confiabilidade.  ([Transferir WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização. Com base na classificação de aplicação de patches requer "yum" para devolver dados de segurança que não têm a CentOS prontos a utilizar.         |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
@@ -88,7 +88,7 @@ A tabela seguinte lista os sistemas operativos que não são suportados:
 
 #### <a name="windows"></a>Windows
 
-Agentes do Windows tem de ser configurados para comunicar com um servidor WSUS ou têm de ter acesso ao Microsoft Update. Pode utilizar a gestão de atualizações com o System Center Configuration Manager. Para saber mais sobre cenários de integração, consulte [integrar o System Center Configuration Manager com a gestão de atualizações](oms-solution-updatemgmt-sccmintegration.md#configuration). O [agente do Windows](../log-analytics/log-analytics-agent-windows.md) é necessária. O agente é instalado automaticamente se estiver a inclusão de uma máquina virtual do Azure.
+Agentes do Windows tem de ser configurados para comunicar com um servidor WSUS ou têm de ter acesso ao Microsoft Update. Pode utilizar a gestão de atualizações com o System Center Configuration Manager. Para saber mais sobre cenários de integração, consulte [integrar o System Center Configuration Manager com a gestão de atualizações](oms-solution-updatemgmt-sccmintegration.md#configuration). O [agente do Windows](../azure-monitor/platform/agent-windows.md) é necessária. O agente é instalado automaticamente se estiver a inclusão de uma máquina virtual do Azure.
 
 #### <a name="linux"></a>Linux
 
@@ -148,7 +148,7 @@ Num computador Windows, pode rever as seguintes informações para verificar a c
 1. No painel de controlo, abra **Microsoft Monitoring Agent**. Sobre o **do Azure Log Analytics** separador, o agente apresenta a seguinte mensagem: **o Microsoft Monitoring Agent foi ligado com êxito para o Log Analytics**.
 2. Abra o registo de eventos do Windows. Aceda a **aplicativo e o Gestor de registos de serviços** e procure o evento ID 3000 e 5002 de ID de evento da origem **conector do serviço**. Estes eventos indicam que o computador tiver registrado com a área de trabalho do Log Analytics e está a receber a configuração.
 
-Se o agente não consegue comunicar com o Log Analytics e o agente estiver configurado para comunicar com a internet através de um servidor de firewall ou proxy, confirme se o servidor de firewall ou proxy está configurado corretamente. Para saber como verificar se o servidor de firewall ou proxy está configurado corretamente, veja [configuração de rede para o agente do Windows](../log-analytics/log-analytics-agent-windows.md) ou [configuração de rede para o agente Linux](../log-analytics/log-analytics-agent-linux.md).
+Se o agente não consegue comunicar com o Log Analytics e o agente estiver configurado para comunicar com a internet através de um servidor de firewall ou proxy, confirme se o servidor de firewall ou proxy está configurado corretamente. Para saber como verificar se o servidor de firewall ou proxy está configurado corretamente, veja [configuração de rede para o agente do Windows](../azure-monitor/platform/agent-windows.md) ou [configuração de rede para o agente Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Se os sistemas Linux estiverem configurados para comunicar com um proxy ou Gateway do Log Analytics e está integração essa solução, a atualização a *proxy. Conf* permissões para conceder ao grupo omiuser permissão de leitura no ficheiro ao utilizar o comandos seguintes:
@@ -583,6 +583,6 @@ Avance para o tutorial para saber como gerir atualizações para as suas máquin
 > [Gerir atualizações e correções para as VMs do Windows Azure](automation-tutorial-update-management.md)
 
 * Utilizar as pesquisas de registos no [do Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver os dados de atualizações detalhados.
-* [Criar alertas](../log-analytics/log-analytics-alerts.md) quando são detetadas atualizações críticas em falta nos computadores ou se um computador tiver as atualizações automáticas desativadas.
+* [Criar alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) quando são detetadas atualizações críticas em falta nos computadores ou se um computador tiver as atualizações automáticas desativadas.
 
 * Para saber como interagir com a gestão de atualizações por meio da API REST, veja [as configurações de atualização de Software](/rest/api/automation/softwareupdateconfigurations)

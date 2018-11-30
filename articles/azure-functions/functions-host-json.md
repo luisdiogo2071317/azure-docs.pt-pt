@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 8d5403ab91323cea44e31c4ef99c33b387229ef0
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b429f9dab0411dba599fd696dff3d424916007e0
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820431"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635174"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>referência de Host. JSON para as funções do Azure 2.x  
 
@@ -104,7 +104,7 @@ Definição de configuração pode ser encontrada na [Cosmos DB acionadores e en
 
 ## <a name="durabletask"></a>durableTask
 
-Definição de configuração pode ser encontrada na [enlaces para as funções duráveis](durable-functions-bindings.md#host-json).
+Definição de configuração pode ser encontrada na [enlaces para as funções duráveis](durable/durable-functions-bindings.md#host-json).
 
 ## <a name="eventhub"></a>eventHub
 

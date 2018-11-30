@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 74b9673d7ef9dedbcc34682d4707103e696bece3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 6e6db7ef2f2de075aea41a29e69b2c674efafa17
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711706"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635361"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo com o Azure Monitor  
 
@@ -223,7 +223,7 @@ Por conseguinte, a secção abaixo fornecem detalhes sobre como utilizar a API a
 ### <a name="powershell-cli-or-api-for-log-analytics"></a>PowerShell, CLI ou de API para o Log Analytics
 A API de REST alerta do Log Analytics é RESTful e podem ser acessada através da API de REST do Azure Resource Manager. A API, portanto, pode ser acessada a partir de uma linha de comando do PowerShell e irá enviar os resultados da pesquisa para si no formato JSON, permitindo que use os resultados de várias formas diferentes através de programação.
 
-Saiba mais sobre [criar e gerir regras de alerta no Log Analytics com a REST API](../log-analytics/log-analytics-api-alerts.md), incluindo exemplos de aceder à API a partir do Powershell.
+Saiba mais sobre [criar e gerir regras de alerta no Log Analytics com a REST API](../azure-monitor/platform/api-alerts.md), incluindo exemplos de aceder à API a partir do Powershell.
 
 ### <a name="powershell-cli-or-api-for-application-insights"></a>PowerShell, CLI ou de API do Application Insights
 [O Azure Monitor - regras de consulta agendada API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) é uma REST API e totalmente compatível com a API de REST do Azure Resource Manager. Por conseguinte, pode ser utilizada através do Powershell com o cmdlet do Gestor de recursos, bem como a CLI do Azure.

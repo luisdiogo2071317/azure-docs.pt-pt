@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: ebbedb38256c997f39e30e27aa29139dc2496fd1
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7f0334bdd1922c6ec410ca912ccfbf639e5c770f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819258"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634443"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalhes de recolha de dados para soluções de gestão no Azure
 Este artigo inclui uma lista dos [soluções de gestão](solutions.md) disponíveis da Microsoft com links para sua documentação detalhada.  Também fornece informações no seu método e a frequência de recolha de dados para o Log Analytics.  Pode utilizar as informações neste artigo, para identificar as diferentes soluções disponíveis e para compreender os requisitos de fluxo e a ligação de dados para soluções de gestão diferentes. 
@@ -34,7 +34,7 @@ Explicações das colunas são os seguintes:
 - **Do Operations Manager** -agente idêntica, como o Microsoft monitoring agent. Nesta configuração, tem [ligado a um grupo de gestão do Operations Manager](../../log-analytics/log-analytics-om-agents.md) que esteja ligada ao Log Analytics. 
 -  **O armazenamento do Azure** -solução recolhe dados de uma conta de armazenamento do Azure. 
 - **Gestor de operações necessárias?** -Um grupo de gestão do Operations Manager ligado é obrigatório para a recolha de dados da solução de gestão. 
-- **Dados de agente do Operations Manager enviados por grupo de gestão** – se o agente está [ligadas a um grupo de gestão do SCOM](../../log-analytics/log-analytics-om-agents.md), em seguida, os dados são enviados para o Log Analytics do servidor de gestão. Neste caso, o agente não precisa se conectar diretamente ao Log Analytics. Se esta caixa não está selecionada, em seguida, dados são enviados do agente diretamente ao Log Analytics, mesmo que o agente está ligado a um grupo de gestão do SCOM. Terá de conseguir comunicar com o Log Analytics através do [gateway do Log Analytics](../../log-analytics/log-analytics-oms-gateway.md).
+- **Dados de agente do Operations Manager enviados por grupo de gestão** – se o agente está [ligadas a um grupo de gestão do SCOM](../../log-analytics/log-analytics-om-agents.md), em seguida, os dados são enviados para o Log Analytics do servidor de gestão. Neste caso, o agente não precisa se conectar diretamente ao Log Analytics. Se esta caixa não está selecionada, em seguida, dados são enviados do agente diretamente ao Log Analytics, mesmo que o agente está ligado a um grupo de gestão do SCOM. Terá de conseguir comunicar com o Log Analytics através do [gateway do Log Analytics](../../azure-monitor/platform/gateway.md).
 - **Frequência de recolha** -Especifica a frequência que os dados são recolhidos pela solução de gestão. 
 
 
@@ -42,38 +42,38 @@ Explicações das colunas são os seguintes:
 | **Solução de gestão** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Operations Manager** | **Armazenamento do Azure** | **Gestor de operações necessárias?** | **Dados de agente do Operations Manager enviados por grupo de gestão** | **Frequência de recolha** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Log Analytics da Atividade](../../log-analytics/log-analytics-activity.md) | Azure | | | | | | na notificação |
-| [Avaliação do AD](../../log-analytics/log-analytics-ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dias |
-| [Estado de Replicação do AD](../../log-analytics/log-analytics-ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 dias |
+| [Avaliação do AD](../../azure-monitor/insights/ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dias |
+| [Estado de Replicação do AD](../../azure-monitor/insights/ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 dias |
 | [Agente de Funcionamento de Agente](solution-agenthealth.md) | Windows e Linux | &#8226; | &#8226; | | | &#8226; | 1 minuto |
-| [Gestão de alertas](../../log-analytics/log-analytics-solution-alert-management.md) (Nagios) |Linux |&#8226; | | | | |na chegada |
-| [Gestão de alertas](../../log-analytics/log-analytics-solution-alert-management.md) (Zabbix) |Linux |&#8226; | | | | |1 minuto |
-| [Gestão de alertas](../../log-analytics/log-analytics-solution-alert-management.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minutos |
+| [Gestão de alertas](../../azure-monitor/platform/alert-management-solution.md) (Nagios) |Linux |&#8226; | | | | |na chegada |
+| [Gestão de alertas](../../azure-monitor/platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 minuto |
+| [Gestão de alertas](../../azure-monitor/platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minutos |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/d |
 | [Conector do Application Insights (pré-visualização)](../../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | na notificação |
 | [Função de trabalho de híbrida de automatização](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/d |
-| [Análise do Gateway de aplicação do Azure](../../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | na notificação |
+| [Análise do Gateway de aplicação do Azure](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | na notificação |
 | **Solução de gestão** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Operations Manager** | **Armazenamento do Azure** | **Gestor de operações necessárias?** | **Dados de agente do Operations Manager enviados por grupo de gestão** | **Frequência de recolha** |
-| [Análise de grupo de segurança de rede do Azure (preterido)](../../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | na notificação |
+| [Análise de grupo de segurança de rede do Azure (preterido)](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | na notificação |
 | [Análise SQL do Azure (pré-visualização)](../../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 minuto |
 | [Cópia de segurança](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | na notificação |
-| [Capacidade e desempenho (pré-visualização)](../../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |na chegada |
+| [Capacidade e desempenho (pré-visualização)](../../azure-monitor/insights/capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |na chegada |
 | [Monitorização de Alterações](../../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |hora a hora |
 | [Monitorização de Alterações](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |hora a hora |
 | [Contentores](../../log-analytics/log-analytics-containers.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 3 minutos |
-| [Análise do Cofre de Chaves](../../log-analytics/log-analytics-azure-key-vault.md) |Windows | | | | | |na notificação |
+| [Análise do Cofre de Chaves](../../azure-monitor/insights/azure-key-vault.md) |Windows | | | | | |na notificação |
 | [Avaliação de Software Maligno](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |hora a hora |
-| [Monitor de Desempenho da Rede](../../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | Os handshakes TCP em 5 segundos, dados enviados a cada 3 minutos |
+| [Monitor de Desempenho da Rede](../../azure-monitor/insights/network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | Os handshakes TCP em 5 segundos, dados enviados a cada 3 minutos |
 | [Análise do Office 365 (pré-visualização)](solution-office-365.md) |Windows | | | | | |na notificação |
 | **Solução de gestão** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Operations Manager** | **Armazenamento do Azure** | **Gestor de operações necessárias?** | **Dados de agente do Operations Manager enviados por grupo de gestão** | **Frequência de recolha** |
 | [Análise do Service Fabric](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minutos |
 | [Mapa do Serviço](../../azure-monitor/insights/service-map.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 15 segundos |
-| [Avaliação do SQL](../../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dias |
-| [SurfaceHub](../../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |na chegada |
-| [Avaliação do System Center Operations Manager (pré-visualização)](../../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | sete dias |
+| [Avaliação do SQL](../../azure-monitor/insights/sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dias |
+| [SurfaceHub](../../azure-monitor/insights/surface-hubs.md) |Windows |&#8226; | | | | |na chegada |
+| [Avaliação do System Center Operations Manager (pré-visualização)](../../azure-monitor/insights/scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | sete dias |
 | [Gestão de Atualizações](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |pelo menos 2 vezes por dia e 15 minutos depois de instalar uma atualização |
 | [Atualizar Preparação](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2 dias |
-| [Monitorização de VMware (preterido)](../../log-analytics/log-analytics-vmware.md) | Linux | &#8226; |  |  |  |  | 3 minutos |
-| [Ligar dados 2.0 (pré-visualização)](../../log-analytics/log-analytics-wire-data.md) |Windows (2012 R2 / 8.1 ou posterior) |&#8226; |&#8226; | | | | 1 minuto |
+| [Monitorização de VMware (preterido)](../../azure-monitor/insights/vmware.md) | Linux | &#8226; |  |  |  |  | 3 minutos |
+| [Ligar dados 2.0 (pré-visualização)](../../azure-monitor/insights/wire-data.md) |Windows (2012 R2 / 8.1 ou posterior) |&#8226; |&#8226; | | | | 1 minuto |
 
 
 

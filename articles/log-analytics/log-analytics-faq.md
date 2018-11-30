@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 88df62b6e8c4eb519c51d82763634cf7d6d14418
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 4c31831aedefabc285c92861e9010b242cacf0d7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262657"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635786"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Log Analytics no Microsoft Azure. Se tiver perguntas adicionais sobre o Log Analytics, avance para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
@@ -160,7 +160,7 @@ R. Não, não é atualmente possível ler a partir de tabelas arbitrárias ou de
 
 R. O serviço Log Analytics se baseia no Azure. Endereços de IP de análise de registo estão no [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Como as implementações de serviço são feitas, alterar os endereços IP reais do serviço do Log Analytics. Os nomes DNS para permitir através da firewall estão documentados em [requisitos de rede](log-analytics-agent-overview.md#network-firewall-requirements).
+Como as implementações de serviço são feitas, alterar os endereços IP reais do serviço do Log Analytics. Os nomes DNS para permitir através da firewall estão documentados em [requisitos de rede](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>P. Utilizar o ExpressRoute para ligar ao Azure. O tráfego de meu Log Analytics usa a minha ligação do ExpressRoute?
 
@@ -198,9 +198,22 @@ Sob **do Azure Log Analytics (OMS)**, remover todas as áreas de trabalho listad
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>P: por que eu ganho um erro ao tentar mover a minha área de trabalho de uma subscrição do Azure para outra?
 
-R: Se estiver a utilizar o portal do Azure, certifique-se que apenas a área de trabalho está selecionada para a mudança. Não selecione as soluções--será automaticamente movido depois da área de trabalho ser movida. 
+R: para mover uma área de trabalho para uma subscrição diferente ou um grupo de recursos, tem primeiro de desassociar a conta de automatização na área de trabalho. A desassociar uma conta de automatização requer a remoção destas soluções se estiverem instalados na área de trabalho: gestão de atualizações, controlo de alterações ou iniciar/parar VMs fora do horário comercial são removidas. Depois destas soluções são removidas, desassociar a conta de automatização, selecionando **ligado áreas de trabalho** no painel da esquerda a automação de conta de recurso e clique em **desassociar área de trabalho** da faixa de opções.
+ > Removido de soluções precisam de ser reinstalados na área de trabalho e a ligação de automatização à área de trabalho tem de ser expressas novamente após a mudança.
 
 Certifique-se de que tem permissão em ambas as subscrições do Azure.
+
+### <a name="q-why-am-i-getting-an-error-when-i-try-to-update-a-savedsearch"></a>P: por que eu ganho um erro ao tentar atualizar um SavedSearch?
+
+R: precisa adicionar "etag" no corpo da API ou de propriedades do modelo do Azure Resource Manager:
+```
+"properties": {
+   "etag": "*",
+   "query": "SecurityEvent | where TimeGenerated > ago(1h) | where EventID == 4625 | count",
+   "displayName": "An account failed to log on",
+   "category": "Security"
+}
+```
 
 ## <a name="agent-data"></a>Dados do agente
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>P. A quantidade de dados posso enviar através do agente para o Log Analytics? Existe uma quantidade máxima de dados por cliente?

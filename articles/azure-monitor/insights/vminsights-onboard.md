@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 7b6752196d3512ab3ede4f5e339d681948e732e8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 93cbb9a891f83eed623f095f208319c9071e287e
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853766"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635548"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Como carregar para o Azure Monitor para VMs (pré-visualização)
 Este artigo descreve como configurar o Azure Monitor para as VMs monitorizar o estado de funcionamento do sistema operativo de suas máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais no seu ambiente, incluindo a deteção e o mapeamento de dependências de aplicações que pode estar alojado nos mesmos.  
@@ -151,8 +151,8 @@ A tabela seguinte descreve as origens ligadas que a funcionalidade de mapa supor
 
 | Origem ligada | Suportadas | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | Sim | Para além da [agente do Log Analytics para Windows](../../log-analytics/log-analytics-agent-overview.md), agentes do Windows exigem o agente do Microsoft Dependency. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
-| Agentes do Linux | Sim | Para além da [agente do Log Analytics para Linux](../../log-analytics/log-analytics-agent-overview.md), o agente do Microsoft Dependency necessitam de agentes do Linux. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Agentes do Windows | Sim | Para além da [agente do Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), agentes do Windows exigem o agente do Microsoft Dependency. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Agentes do Linux | Sim | Para além da [agente do Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), o agente do Microsoft Dependency necessitam de agentes do Linux. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
 | Grupo de gestão do System Center Operations Manager | Não | |  
 
 O agente de dependência pode ser transferido a partir da seguinte localização.
@@ -205,7 +205,7 @@ Resumidos são os passos que necessários para efetuar para configurar previamen
 Se não tiver uma área de trabalho do Log Analytics, reveja os métodos disponíveis sugeridos sob o [pré-requisitos](#log-analytics) secção para criar um.  
 
 #### <a name="enable-performance-counters"></a>Ativar os contadores de desempenho
-Se a área de trabalho do Log Analytics referenciada pela solução não está configurada para recolher já os contadores de desempenho necessários para a solução, terão de ser ativada. Pode fazê-lo manualmente, conforme descrito [aqui](../../log-analytics/log-analytics-data-sources-performance-counters.md), ou por baixar e executar um script do PowerShell disponível a partir do [galeria do Powershell do Azure](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+Se a área de trabalho do Log Analytics referenciada pela solução não está configurada para recolher já os contadores de desempenho necessários para a solução, terão de ser ativada. Pode fazê-lo manualmente, conforme descrito [aqui](../../azure-monitor/platform/data-sources-performance-counters.md), ou por baixar e executar um script do PowerShell disponível a partir do [galeria do Powershell do Azure](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
  
 #### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>Instalar as soluções ServiceMap e InfrastructureInsights
 Esse método inclui um modelo JSON que especifica a configuração para permitir que os componentes da solução para a área de trabalho do Log Analytics.  
@@ -531,9 +531,9 @@ Failed: (0)
 ## <a name="enable-for-hybrid-environment"></a>Ativar para o ambiente híbrido
 Esta secção explica como a adicionar máquinas virtuais ou físicas computadores hospedados no seu datacenter ou outro ambiente de cloud para monitorização ao Azure Monitor para as VMs.  
 
-O Azure Monitor para agente de dependência de mapa de VMs não transmitir todos os dados em si, e não requer alterações às firewalls ou portas. Os dados de mapa sempre são transmitidos pelo agente do Log Analytics para o serviço Azure Monitor, diretamente ou através da [Gateway de OMS](../../log-analytics/log-analytics-oms-gateway.md) se as políticas de segurança de TI não permitir que os computadores na rede para ligar à Internet.
+O Azure Monitor para agente de dependência de mapa de VMs não transmitir todos os dados em si, e não requer alterações às firewalls ou portas. Os dados de mapa sempre são transmitidos pelo agente do Log Analytics para o serviço Azure Monitor, diretamente ou através da [Gateway de OMS](../../azure-monitor/platform/gateway.md) se as políticas de segurança de TI não permitir que os computadores na rede para ligar à Internet.
 
-Reveja os requisitos e métodos de implementação para o [agente Linux do Log Analytics e o Windows](../../log-analytics/log-analytics-agent-overview.md).  
+Reveja os requisitos e métodos de implementação para o [agente Linux do Log Analytics e o Windows](../../azure-monitor/platform/log-analytics-agent.md).  
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -591,7 +591,7 @@ Ficheiros para o agente de dependência são colocados nos seguintes diretórios
 | Ficheiros de armazenamento binários | /var/opt/microsoft/dependency-agent/storage |
 
 ### <a name="enable-performance-counters"></a>Ativar os contadores de desempenho
-Se a área de trabalho do Log Analytics referenciada pela solução não está configurada para recolher já os contadores de desempenho necessários para a solução, terão de ser ativada. Pode fazê-lo manualmente, conforme descrito [aqui](../../log-analytics/log-analytics-data-sources-performance-counters.md), ou por baixar e executar um script do PowerShell disponível a partir do [galeria do Powershell do Azure](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
+Se a área de trabalho do Log Analytics referenciada pela solução não está configurada para recolher já os contadores de desempenho necessários para a solução, terão de ser ativada. Pode fazê-lo manualmente, conforme descrito [aqui](../../azure-monitor/platform/data-sources-performance-counters.md), ou por baixar e executar um script do PowerShell disponível a partir do [galeria do Powershell do Azure](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1).
  
 ### <a name="onboard-azure-monitor-for-vms"></a>Carregar Monitor do Azure para VMs
 Esse método inclui um modelo JSON que especifica a configuração para permitir que os componentes da solução para a área de trabalho do Log Analytics.  

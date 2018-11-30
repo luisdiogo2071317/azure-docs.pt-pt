@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 2ba7039fe42e3b5638b99161e12e9888bc852f87
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 67dbf3bdf6631785fc876283847e36349e857a77
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635014"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634647"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contentores
 
@@ -60,9 +60,6 @@ Execute os seguintes passos para criar e recuperar informações a partir de um 
 
 1. Crie um recurso do Azure no portal do Azure.  
    Se quiser usar o contêiner de reconhecer texto, primeiro tem de criar um recurso de imagem digitalizada correspondente no portal do Azure. Para obter mais informações, consulte [início rápido: criar uma conta dos serviços cognitivos no portal do Azure](../cognitive-services-apis-create-account.md).
-
-   > [!IMPORTANT]
-   > O recurso de imagem digitalizada tem de utilizar o escalão de preço F0.
 
 1. Obtenha a chave de subscrição e o URL de ponto final para o recurso do Azure.  
    Depois de criar o recurso do Azure, tem de utilizar a chave de subscrição e o URL de ponto final desse recurso para instanciar o contentor de reconhecer texto correspondente. Pode copiar a chave de subscrição e o URL do ponto final da, respectivamente, os início rápido e as chaves de páginas do recurso de imagem digitalizada no portal do Azure.

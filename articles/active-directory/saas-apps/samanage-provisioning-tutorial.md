@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: e5a69fa2ee9a8c4baaeb6586627c7a9a3c9ba4a8
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347958"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634511"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Tutorial: Configurar Samanage para aprovisionamento automático de utilizadores
 
@@ -141,7 +141,7 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
     ![Aprovisionamento Samanage](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-15. Definir a utilizadores e/ou grupos que deseja fazer o aprovisionamento Samanage escolhendo os valores pretendidos na **âmbito** no **definições** secção.
+15. Definir a utilizadores e/ou grupos que deseja fazer o aprovisionamento Samanage escolhendo os valores pretendidos na **âmbito** no **definições** secção. Ao escolher o **sincronizar todos os utilizadores e grupos** opção, considere as limitações, conforme descrito no **limitações de conector** secção abaixo.
 
     ![Aprovisionamento Samanage](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
@@ -153,6 +153,10 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **âmbito** no **definições** secção. A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do AD do Azure está em execução. Pode utilizar o **detalhes de sincronização** secção para monitorizar o progresso e siga as ligações para o relatório de atividade, que descreve todas as ações executadas pelo Azure AD no Samanage do serviço de aprovisionamento de aprovisionamento.
 
 Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+
+## <a name="connector-limitations"></a>Limitações de conector
+
+* Se o **sincronizar todos os utilizadores e grupos** opção está selecionada e um valor predefinido é configurado para o Samanage **funções** atributo, certifique-se de que o valor desejado sob o **valor predefinido se for nulo (é opcional)** campo é expresso no formato **{"displayName": "função"}** onde a função é o valor predefinido pretendido.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

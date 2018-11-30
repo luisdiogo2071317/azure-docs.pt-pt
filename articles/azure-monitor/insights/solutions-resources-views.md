@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: f00c11881da7624809b1253361c17285666d9ba3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 97e499612082d0d58cd75bb9f8854b8c4e0f669e
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715765"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635769"
 ---
 # <a name="views-in-management-solutions-preview"></a>Modos de exibição em soluções de gestão (pré-visualização)
 > [!NOTE]
 > Esta é a documentação preliminar para a criação de soluções de gestão que estão atualmente em pré-visualização. Qualquer esquema descrita abaixo está sujeitas a alterações.    
 
 
-[Soluções de gestão](solutions.md) geralmente inclui uma ou mais exibições para visualizar os dados.  Este artigo descreve como exportar um modo de exibição criado pela [estruturador de vistas](../../log-analytics/log-analytics-view-designer.md) e incluí-lo numa solução de gestão.  
+[Soluções de gestão](solutions.md) geralmente inclui uma ou mais exibições para visualizar os dados.  Este artigo descreve como exportar um modo de exibição criado pela [estruturador de vistas](../../azure-monitor/platform/view-designer.md) e incluí-lo numa solução de gestão.  
 
 > [!NOTE]
 > Os exemplos neste artigo utilizam parâmetros e variáveis que são necessárias ou comuns para soluções de gestão e descrito em [estrutura e compilação de uma solução de gestão no Azure](solutions-creating.md)
@@ -37,7 +37,7 @@ ms.locfileid: "51715765"
 Este artigo pressupõe que já está familiarizado com a [criar uma solução de gestão](solutions-creating.md) e a estrutura de um arquivo de solução.
 
 ## <a name="overview"></a>Descrição geral
-Para incluir uma vista numa solução de gestão, crie uma **resource** para o mesmo no [arquivo da solução](solutions-creating.md).  O JSON que descreve a configuração detalhada da exibição é complexo, normalmente, porém e não algo que um autor de solução típica seria capaz de criar manualmente.  O método mais comum é criar a vista utilizando a [estruturador de vistas](../../log-analytics/log-analytics-view-designer.md), exportá-lo e, em seguida, adicione a respetiva configuração detalhada para a solução.
+Para incluir uma vista numa solução de gestão, crie uma **resource** para o mesmo no [arquivo da solução](solutions-creating.md).  O JSON que descreve a configuração detalhada da exibição é complexo, normalmente, porém e não algo que um autor de solução típica seria capaz de criar manualmente.  O método mais comum é criar a vista utilizando a [estruturador de vistas](../../azure-monitor/platform/view-designer.md), exportá-lo e, em seguida, adicione a respetiva configuração detalhada para a solução.
 
 Seguem-se os passos básicos para adicionar uma exibição para uma solução.  Cada passo é descrito mais detalhadamente nas secções abaixo.
 
@@ -46,7 +46,7 @@ Seguem-se os passos básicos para adicionar uma exibição para uma solução.  
 3. Adicione os detalhes da vista.
 
 ## <a name="export-the-view-to-a-file"></a>Exportar o modo de exibição para um ficheiro
-Siga as instruções em [estruturador de vista do Log Analytics](../../log-analytics/log-analytics-view-designer.md) para exportar uma exibição para um ficheiro.  O ficheiro exportado será no formato JSON com o mesmo [elementos como o arquivo da solução](solutions-solution-file.md).  
+Siga as instruções em [estruturador de vista do Log Analytics](../../azure-monitor/platform/view-designer.md) para exportar uma exibição para um ficheiro.  O ficheiro exportado será no formato JSON com o mesmo [elementos como o arquivo da solução](solutions-solution-file.md).  
 
 O **recursos** elemento do ficheiro de vista terá um recurso com um tipo de **Microsoft.OperationalInsights/workspaces** que representa a área de trabalho do Log Analytics.  Este elemento terá um subelemento com um tipo de **vistas** que representam a visão e contém a respetiva configuração detalhada.  Irá copiar os detalhes deste elemento e, em seguida, copie-as para a sua solução.
 
