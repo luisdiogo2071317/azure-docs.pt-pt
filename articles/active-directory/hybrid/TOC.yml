@@ -173,6 +173,8 @@ items:
       href: how-to-connect-pta-quick-start.md
     - name: Como funciona a autenticação pass-through
       href: how-to-connect-pta-how-it-works.md
+    - name: Limitações atuais da autenticação pass-through
+      href: how-to-connect-pta-current-limitations.md
     - name: Informações detalhadas sobre a segurança na autenticação pass-through
       href: how-to-connect-pta-security-deep-dive.md
     - name: Privacidade de utilizador e autenticação pass-through
@@ -301,9 +303,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: Referência de ADConnectivityTools
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: 92df4e533ce0dd39c8792be5130019a16f7e5b99
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 07a3bfd816cd57ecbe77bf7e7435be99a0321fd2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976065"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335458"

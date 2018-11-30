@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115527"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443513"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicações Web no Serviço de Aplicações do Azure
 
@@ -78,6 +78,8 @@ Esta secção contém pares nome/valor que a aplicação web será carregado em 
 
 Definições da aplicação são sempre encriptadas quando armazenada (encriptados em repouso).
 
+Definições da aplicação podem ser resolvidas da utilização do Key Vault [referencia o Key Vault](app-service-key-vault-references.md).
+
 ### <a name="connection-strings"></a>Cadeias de ligação
 Cadeias de ligação para recursos ligados. 
 
@@ -93,6 +95,8 @@ Para aplicações PHP, Python, Java e Node, essas configurações estarão dispo
 Por exemplo, se uma cadeia de ligação do MySql eram nomeada `connectionstring1`, ele poderia ser acedido através da variável de ambiente `MYSQLCONNSTR_connectionString1`.
 
 Cadeias de ligação são sempre encriptadas quando armazenada (encriptados em repouso).
+
+Cadeias de ligação podem ser resolvidas da utilização do Key Vault [referencia o Key Vault](app-service-key-vault-references.md).
 
 ### <a name="default-documents"></a>Documentos predefinidos
 O documento predefinido é a página da web que é apresentado no URL raiz para um Web site.  É utilizado o primeiro arquivo correspondente na lista. 

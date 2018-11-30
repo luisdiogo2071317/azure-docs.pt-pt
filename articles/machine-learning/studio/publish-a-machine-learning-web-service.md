@@ -1,6 +1,6 @@
 ---
-title: Implementar um serviço web do Machine Learning | Documentos da Microsoft
-description: Como converter uma experimentação de preparação para uma experimentação preditiva, prepará-lo para a implementação, em seguida, implementá-lo como um serviço web Azure Machine Learning.
+title: Implementar um serviço web do Machine Learning Studio - Azure | Documentos da Microsoft
+description: Como converter uma experimentação de preparação para uma experimentação preditiva, prepará-lo para a implementação, em seguida, implementá-lo como um serviço web do Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: a5730b6b1d1b8d74b773ae21d4347a85bf370de7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d96755f00aa5023d57c9c4c2b2457902c337e29d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262589"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314273"
 ---
-# <a name="deploy-an-azure-machine-learning-web-service"></a>Implementar um serviço Web do Azure Machine Learning
+# <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Implementar um serviço web do Azure Machine Learning Studio
 O Azure Machine Learning permite-lhe criar, testar e implementar soluções de Análise Preditiva.
 
 A partir de uma ponto de-de-visão de alto nível, isso é feito em três passos:

@@ -3,7 +3,7 @@ title: Alertas de segurança por tipo no Centro de Segurança do Azure | Microso
 description: Este artigo explica os vários tipos de alertas de segurança disponíveis no Centro de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2018
-ms.author: yurid
-ms.openlocfilehash: 0573442568115fc872cc4cf4cf8c369cd635028e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 24c6487ee7ec7d8398f933e29ca51cc9e390f47f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262119"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633270"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Compreender os alertas de segurança no Centro de Segurança do Azure
 Este artigo ajuda-o a compreender os vários tipos de alertas de segurança e informações relacionadas que estão disponíveis no Centro de Segurança do Azure. Para obter mais informações sobre como gerir alertas e incidentes, veja [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md).
 
-Para configurar as deteções avançadas, atualize para o Centro de Segurança do Azure Standard. Está disponível uma avaliação gratuita de 60 dias. Para atualizar, selecione **Escalão de Preço** na [política de segurança](security-center-policies.md). Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+Para configurar as deteções avançadas, atualize para o Centro de Segurança do Azure Standard. Está disponível uma avaliação gratuita de 60 dias. Para atualizar, selecione **Escalão de Preço** na [política de segurança](security-center-azure-policy.md). Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > O Centro de Segurança lançou uma pré-visualização limitada de um novo conjunto de deteções que tiram partido dos registos de auditoria, um framework de auditoria comum, para detetar comportamentos maliciosos em computadores Linux. Envie um e-mail para a [Microsoft](mailto:ASC_linuxdetections@microsoft.com) com os seus IDs de subscrição para aderir à pré-visualização.
@@ -48,7 +48,7 @@ O Centro de Segurança do Azure pode utilizar a análise comportamental para ide
 O Centro de Segurança utiliza análises avançadas para identificar recursos comprometidos com base na análise de registos de eventos de máquinas virtuais. Por exemplo, Eventos de Criação de Processos e Eventos de Início de Sessão. Além disso, existe uma correlação com outros sinais para procurar provas de uma campanha ampla.
 
 * **Execução de processo suspeito detetada**: os atacantes tentam frequentemente executar código malicioso sem deteção por mascarando-o como processos benignos. Estes alertas indicam que uma execução de processo correspondeu a um dos padrões seguintes:
-    * Um processo conhecido a ser utilizado para fins maliciosos foi executado. Enquanto os comandos individuais podem parecer benignos o alerta é classificado com base numa agregação destes comandos.
+    * Um processo conhecido a ser utilizado para fins maliciosos foi executado. Enquanto os comandos individuais podem parecer benignos, o alerta é classificado com base numa agregação destes comandos.
     * Um processo foi executado a partir de uma localização invulgar.
     * Um processo foi executado a partir de uma localização em comum com ficheiros suspeitos conhecidos.
     * Um processo foi executado a partir de um caminho suspeito.
@@ -57,7 +57,7 @@ O Centro de Segurança utiliza análises avançadas para identificar recursos co
     * Um processo com uma extensão suspeita foi executado.
     * Um processo com uma extensão suspeita dupla foi executado.
     * Um processo com um caráter (RLO) da direita para a esquerda suspeito no respetivo nome de ficheiro foi executado.
-    * Um processo cujo nome é muito semelhante, mas diferente a partir de um processo de execução muito comum foi executado
+    * Um processo cujo nome é semelhante, mas diferente de uma execução normalmente processo foi executado
     * Um processo cujo nome corresponde a uma ferramenta de atacante conhecida foi executado.
     * Um processo com um nome aleatório foi executado.
     * Um processo com uma extensão suspeita foi executado.
@@ -82,7 +82,7 @@ O Centro de Segurança utiliza análises avançadas para identificar recursos co
 * **Atividade de recursos RDP suspeita**: frequentemente, os atacantes têm como alvo portas de gestão aberta como RDP com ataques de força bruta. Estes alertas indicam atividade de início de sessão de Ambiente de Trabalho Remoto suspeita:
     * foram tentados inícios de sessão de Ambiente de Trabalho Remoto.
     * foram tentados inícios de sessão de Ambiente de Trabalho Remoto utilizando contas inválidas.
-    * foram tentados inícios de sessão de Ambiente de Trabalho Remoto, alguns dos quais conseguiram iniciar sessão com êxito na máquina.
+    * Foram tentados inícios de sessão de ambiente de trabalho remotos, alguns dos quais conseguiram iniciar sessão com êxito máquina.
 * **Atividade de recursos SSH suspeita**: frequentemente, os atacantes têm como alvo portas de gestão aberta como SSH com ataques de força bruta. Estes alertas indicam atividade de início de sessão SSH suspeita:
     * foram tentados inícios de sessão SSH falhados.
     * foram tentados inícios de sessão SSH, alguns dos quais foram efetuados com êxito.
@@ -96,15 +96,15 @@ O Centro de Segurança utiliza análises avançadas para identificar recursos co
 * **Todas as cópias sombra do ficheiro foram eliminadas**: este alerta indica que as cópias sombra foram eliminadas.
 * **Comandos de limpeza do ficheiro suspeito**: este alerta indica uma combinação de comandos systeminfo utilizada para executar a atividade de limpeza automática de pós-compromisso.  Enquanto o *systeminfo.exe* é uma ferramenta Windows legítima, executá-la duas vezes sucessivamente, seguida de um comando de eliminação da forma que ocorreu aqui é incomum.
 * **Criação de conta suspeita**: este alerta indica que foi criada uma conta com um semelhança elevada de uma conta com privilégios administrativos existente. Esta técnica pode ser utilizada por atacantes para criar uma conta de adesão sem ser detetado.
-* **Atividade de cópia sombra de volume suspeita**: este alerta indica a atividade de eliminação de cópia sombra de volumes no recurso. A Cópia Sombra de Volume (VSC) é um artefacto importante que armazena os instantâneos de dados. Esta atividade é normalmente associada a Ransowmare, mas também poderia ser legítima.
+* **Atividade de cópia sombra de volume suspeita**: este alerta indica a atividade de eliminação de cópia sombra de volumes no recurso. A Cópia Sombra de Volume (VSC) é um artefacto importante que armazena os instantâneos de dados. Esta atividade é associada a Ransowmare, mas também poderia ser legítima.
 * **Método de persistência de registo do Windows**: este alerta indica uma tentativa de manter um executável no registo do Windows. O software maligno, muitas vezes, utiliza esta técnica para continuam a vigorar após um arranque.
 * **Nova regra de firewall suspeita**: este alerta indica que foi adicionada uma nova regra de Firewall através de *netsh.exe* para permitir tráfego de um executável numa localização suspeita.
 * **Execuções de XCOPY suspeitas**: este alerta indica uma série de execuções de XCOPY que podem assinalar que uma das suas máquinas foi comprometida e foi utilizada para propagar software maligno.
-* **Supressão de avisos legais apresentado aos utilizadores no início de sessão**: este alerta indica uma alteração à chave de registo que controla se é apresentado um aviso legal aos utilizadores quando iniciam sessão. Esta é uma atividade comum realizada pelos atacantes após terem comprometido um anfitrião.
+* **Supressão de avisos legais apresentado aos utilizadores no início de sessão**: este alerta indica uma alteração para a chave de registo que controla se um aviso legal é apresentada aos utilizadores quando iniciam sessão. Esta é uma atividade comum realizada pelos atacantes após terem comprometido um anfitrião.
 * **Combinação anómala de carateres maiúsculos e minúsculos detetados na linha de comandos**: este alerta indica que a utilização de uma combinação de carateres maiúsculos e minúsculos na linha de comandos, que é uma técnica utilizada pelos atacantes para ocultar maiúsculas e minúsculas ou regras de máquina com base em resumos de mensagens.
 * **Linha de comandos oculta**: este alerta indica que foram detetados indicadores suspeitos de encobrimento na linha de comandos.
 * **Várias contas de domínio a ser consultadas**: os atacantes consultam frequentemente as contas de domínio do AD ao executar o reconhecimento nos utilizadores, as contas de administrador de domínio, os controladores de domínio e as relações entre domínios de confiança. Este alerta indica que um número de contas de domínio distintos invulgar foi consultado durante um período de tempo curto.
-* **Atividade de reconhecimento local possível**: este alerta indica que uma combinação de comandos systeminfo associados à atividade de reconhecimento foram executados.  Enquanto o *systeminfo.exe* é uma ferramenta Windows legítima, executá-la duas vezes sucessivamente é raro.
+* **Atividade de reconhecimento local possível**: este alerta indica que uma combinação de comandos systeminfo associados à atividade de reconhecimento foi executada.  Enquanto o *systeminfo.exe* é uma ferramenta Windows legítima, executá-la duas vezes sucessivamente é raro.
 * **Execução possível de keygen executáveis**: este alerta indica que um processo cujo nome é indicativo da ferramenta de keygen foi executado. Essas ferramentas são normalmente utilizadas para erradicar mecanismos de licenciamento de software, mas as transferências, muitas vezes, são agrupada com outro software malicioso.
 * **Execução suspeita através do rundll32.exe**: este alerta indica que o rundll32.exe foi utilizado para executar um processo com um nome invulgar, consistente com o esquema de nomenclatura de processo utilizado pelos atacantes para instalar um implante de primeira fase num anfitrião comprometido.
 * **Combinação suspeita de HTA e PowerShell**: este alerta indica que o Anfitrião da Aplicação de HTML (HTA) da Microsoft está a iniciar comandos do PowerShell. Esta é uma técnica utilizada pelos atacantes para iniciar scripts maliciosos do PowerShell.
@@ -113,7 +113,7 @@ O Centro de Segurança utiliza análises avançadas para identificar recursos co
 * **Foi criada uma conta em vários anfitriões num período de tempo de 24 horas**: este alerta indica que foi efetuada uma tentativa de criar a mesma conta de utilizador em vários anfitriões, o que podem ser prova de um atacante a mover-se lateralmente em toda a rede depois de uma ou mais entidades de rede terem sido comprometidas.
 * **Utilização suspeita de CACLS para reduzir o estado de segurança do sistema**: este alerta indica que a lista de controlo de acesso de alterações (CACLS) foi alterada. Esta técnica, muitas vezes, é utilizada pelos atacantes para dar acesso total aos binários de sistema como ftp.exe, net.exe, wscript.exe etc.
 * **Parâmetros de ataque de Kerberos Golden Ticket suspeitos**: este alerta indica que os parâmetros da linha de comandos consistentes com um ataque de Kerberos Golden Ticket foram executados. Uma chave krbtgt comprometida pode ser utilizada por um atacante para represente qualquer utilizador que desejar.
-* **Ativação da chave de registo WDigest UseLogonCredential**: este alerta indica que a chave de registo foi alterada para permitir que as credenciais de início de sessão fossem armazenada num texto não encriptado na memória do LSA, que, em seguida, podem ser recolhidas da memória.
+* **Ativação da chave de registo WDigest UseLogonCredential**: este alerta indica que a chave de registo foi alterada para permitir o início de sessão nas credenciais sejam armazenados em texto não encriptado na memória do LSA, que, em seguida, pode ser recolhida da memória.
 * **Potencial utilização suspeita da ferramenta Telegram**: este alerta indica que a instalação do Telegram, uma serviço de mensagens instantâneas gratuito baseado na nuvem utilizado pelos atacantes para transferir os binários maliciosos para outro computador, telemóvel ou tablet.
 * **Criação do novo ASEP**: este alerta indica a criação de um novo ASEP (Ponto de Extensibilidade de Início Automático), que faz com que o nome do processo identificado na linha de comandos seja iniciado automaticamente e que possa ser utilizado por um atacante para alcançar a persistência.
 * **Alterações Set-ExecutionPolicy e WinRM suspeitas**: este alerta indica as alterações de configuração, que estão associadas à utilização de webshell de ChinaChopper maliciosa.
@@ -134,7 +134,7 @@ O Centro de Segurança utiliza análises avançadas para identificar recursos co
 * **Argumentos da linha de comandos suspeita**: este alerta indica argumentos de linha de comandos suspeitos que foram utilizados em conjunto com uma shell inversa utilizada pelo grupo de atividade HYDROGEN.
 * **Credenciais do documento suspeitas**: este alerta indica um palavra-passe hash calculada suspeita comum utilizada por software maligno que está a ser utilizada para executar um ficheiro.
 * **Construção de script PS dinâmico**: este alerta indica um script do PowerShell que está a ser construído dinamicamente. Os atacantes utilizam esta técnica para construir progressivamente um script para evadir os sistemas de IDS.
-* **Indicadores Metaploit**: este alerta indica atividade associada com o framework de Metasploit, que fornece uma variedade de ferramentas e capacidades de atacante.
+* **Indicadores de Metasploit**: este alerta indica atividade associada com o framework de Metasploit, que fornece uma variedade de ferramentas e capacidades de atacante.
 * **Atividade suspeita na conta**: este alerta indica uma tentativa de ligar a uma máquina através de uma conta que ficou comprometida recentemente.
 * **Criação de contas**: este alerta indica uma criação de uma nova conta na máquina.
 
@@ -146,7 +146,7 @@ A análise de memória de informação de falha de memória é um método utiliz
 
 Quando o software falha, uma informação de falha de sistema captura uma parte da memória no momento da falha. A falha pode ser provocada por software maligno, aplicações gerais ou problemas de sistema. Ao analisar a memória na informação de falha de sistema, o Centro de Segurança pode detetar técnicas utilizadas para explorar vulnerabilidades no software, aceder a dados confidenciais e persistir, de maneira sub-reptícia, numa máquina afetada. Isto é conseguido com um impacto mínimo no desempenho nos anfitriões, porque a análise é realizada pelo back-end do Centro de Segurança.
 
-* **Injeção de código detetada**: a injeção de código é a inserção de módulos executáveis em processos ou threads em execução. Esta técnica é utilizada por software maligno para aceder a dados, ocultar ou impedir a sua remoção (por exemplo, persistência). Este alerta indica que está presente nas informações de falha de sistema um módulo injetado. Os programadores de software legítimo efetuam ocasionalmente a injeção de código por motivos não maliciosos, por exemplo, para modificar ou expandir uma aplicação ou componente do sistema operativo existente. Para ajudar a diferenciar entre módulos maliciosos e não maliciosos injetados, o Centro de Segurança verifica se o módulo inserido está ou não em conformidade com um perfil de comportamento suspeito. O resultado desta verificação é indicado pelo campo "SIGNATURE" do alerta e é refletido na gravidade do alerta, na descrição do alerta e nos passos de remediação do alerta.
+* **Injeção de código detetada**: a injeção de código é a inserção de módulos executáveis em processos ou threads em execução. Essa técnica é usada por software maligno para aceder a dados, ocultar ou impedir a sua remoção (por exemplo, persistência). Este alerta indica que está presente nas informações de falha de sistema um módulo injetado. Os programadores de software legítimo efetuam ocasionalmente a injeção de código por motivos não maliciosos, por exemplo, para modificar ou expandir uma aplicação ou componente do sistema operativo existente. Para ajudar a diferenciar entre módulos maliciosos e não maliciosos injetados, o Centro de Segurança verifica se o módulo inserido está ou não em conformidade com um perfil de comportamento suspeito. O resultado desta verificação é indicado pelo campo "SIGNATURE" do alerta e é refletido na gravidade do alerta, na descrição do alerta e nos passos de remediação do alerta.
 * **Segmento de código suspeito**: o alerta do segmento de código suspeito indica que foi alocado um segmento de código através de métodos não padrão, como injeção reflexiva e “hollowing” de processos. Além disso, as características adicionais do segmento de código são processadas para dar contexto relativamente às capacidades e comportamentos do segmento reportado.
 * **Shellcode detetado**: o Shellcode é o payload executado depois de o software maligno explorar uma vulnerabilidade de software. Este alerta indica que a análise da informação de falha de sistema detetou código executável que apresenta um comportamento que é normalmente tido por payloads maliciosos. Apesar de o software não malicioso poder ter este comportamento, não é característico das práticas normais de desenvolvimento de software.
 * **Módulo hijacking detetado**: o Windows utiliza DLLs (dynamic-link libraries) para permitir que o software utilize a funcionalidade do sistema Windows comum. O Hijacking de DLL ocorre quando software maligno altera a ordem de carregamento da DLL para carregar vários payloads maliciosos na memória, podendo ser executado código arbitrário. Este alerta indica que a análise de informação de falha de sistema detetou um módulo com o mesmo nome carregado a partir de dois caminhos diferentes. Um dos caminhos carregados é proveniente de uma localização binária comum do sistema do Windows. Por vezes, os programadores de software legítimo alteram a ordem de carregamento do DLL por motivos não maliciosos, por exemplo, para instrumentação, para expansão do SO Windows ou para expansão de uma aplicação do Windows. Para ajudar a fazer a distinção entre alterações maliciosas e potencialmente benignas na ordem de carregamento do DLL, o Centro de Segurança verifica se um módulo carregado está em conformidade com um perfil suspeito.
@@ -184,15 +184,15 @@ A análise de recursos do Centro de Segurança concentra-se em serviços de PaaS
 * **Credenciais SQL de força bruta**: este alerta é acionado quando existe um número anormalmente elevado de inícios de sessão falhados com diferentes credenciais. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque de força bruta.
 
 ## <a name="contextual-information"></a>Informações contextuais
-Durante uma investigação, os analistas precisam de contexto extra para chegar a um veredito sobre a natureza da ameaça e como resolvê-la.  Por exemplo, foi detetada uma anomalia na rede, mas sem compreender o que está a acontecer na rede ou ao recurso afetado, é muito difícil entender as ações que devem ser tomadas. Para ajudar nisso, um Incidente de Segurança pode incluir artefactos, eventos relacionados e informações que podem ajudar o investigador. A disponibilidade de informações adicionais varia com base no tipo de ameaça detetada e a configuração do seu ambiente, e não está disponível para todos os Incidentes de Segurança.
+Durante uma investigação, os analistas precisam de contexto extra para chegar a um veredito sobre a natureza da ameaça e como resolvê-la.  Por exemplo, foi detetada uma anomalia na rede, mas sem compreender o que está a acontecer na rede ou ao recurso afetado, é muito difícil entender as ações que devem ser tomadas. Para ajudar nisso, um incidente de segurança pode incluir artefactos, eventos relacionados e informações que podem ajudar o investigador. A disponibilidade de informações adicionais varia com base no tipo de ameaça detetada e a configuração do seu ambiente, e não está disponível para todos os Incidentes de Segurança.
 
 Se estiverem disponíveis informações adicionais, estas serão mostradas no Incidente de Segurança abaixo da lista de alertas. Podem estar contidas informações como:
 
 - Eventos de limpeza de registos
 - Dispositivo PNP ligado a partir de um dispositivo desconhecido
-- Alertas não acionáveis
+- Alertas que não sejam passíveis de ação
 - Criação de nova conta
-- Ficheiro descodificado com a ferramenta certutil 
+- Ficheiro descodificado com a ferramenta certutil
 
 ![Alerta de acesso invulgar](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

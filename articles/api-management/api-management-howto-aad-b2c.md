@@ -13,22 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: fbba1d9b4bdf1536ed596e9a78e53116fe824027
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 1e2d809ed476b1789736f0d61dfea528b090da50
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232924"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447134"
 ---
 > [!WARNING]
 > Integração do Active Directory B2C do Azure está disponível na [programador, Standard e Premium](https://azure.microsoft.com/pricing/details/api-management/) camadas apenas.
 
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Como autorizar contas de programador com o Azure Active Directory B2C na gestão de API do Azure
+
 ## <a name="overview"></a>Descrição geral
 O Azure Active Directory B2C é uma solução de gestão de identidades de cloud para aplicações móveis e web voltadas para consumidores. Pode usá-lo para gerir o acesso ao seu portal do programador. Este guia mostra-lhe a configuração necessária no seu serviço de gestão de API para integrar com o Azure Active Directory B2C. Para obter informações sobre como ativar o acesso ao portal do programador com clássico do Azure Active Directory, consulte [como autorizar contas de programador através do Azure Active Directory].
 
 > [!NOTE]
 > Para concluir os passos neste guia, primeiro tem de ter um inquilino do Azure Active Directory B2C para criar uma aplicação no. Além disso, tem de ter políticas de inscrição e início de sessão prontas. Para obter mais informações, consulte [descrição geral do Azure Active Directory B2C].
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Autorizar contas de programador com o Azure Active Directory B2C
 

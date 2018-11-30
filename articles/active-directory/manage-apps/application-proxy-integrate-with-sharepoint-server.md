@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 89852e90daa548dc82455cb6317d367b7423ba65
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456903"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425213"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Ativar o acesso remoto ao SharePoint com o Proxy de aplicações do Azure AD
 
@@ -119,7 +119,7 @@ A maneira mais fácil para definir o SPN é seguir os formatos SPN que podem já
 1. Navegue para o site com o SPN a partir de outra máquina.
  Quando o fizer, o conjunto relevante de tíquetes Kerberos é colocado em cache na máquina. Destas permissões de contenham o SPN da qual navegou para site de destino.
 
-2. Pode extrair o SPN para esse site utilizando uma ferramenta chamada [Klist](http://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html). Na janela de comando que está em execução no mesmo contexto como o utilizador que acessavam o site no navegador, execute o seguinte comando:
+2. Pode extrair o SPN para esse site utilizando uma ferramenta chamada [Klist](https://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html). Na janela de comando que está em execução no mesmo contexto como o utilizador que acessavam o site no navegador, execute o seguinte comando:
 ```
 Klist
 ```
