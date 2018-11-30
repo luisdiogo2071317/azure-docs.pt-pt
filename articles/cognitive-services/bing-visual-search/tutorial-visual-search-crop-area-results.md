@@ -9,12 +9,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 66e17c00da898e575bb858dbe16a35d1c44a2780
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 27141c014c9ccdf9d62c9bde5c96bd31abfc025e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226915"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447100"
 ---
 # <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>Tutorial: área e resultados do recorte de imagem do SDK de Pesquisa Visual do Bing
 O SDK de Pesquisa Visual inclui uma opção para selecionar uma área de uma imagem e localizar imagens online que são semelhantes à área de recorte da imagem maior.  Este exemplo especifica uma área de recorte que mostra uma pessoa de uma imagem com várias pessoas.  O código envia a área de recorte e o URL da imagem maior e devolve resultados que incluem os URLs de Pesquisa do Bing e os URLs de imagens semelhantes encontradas online.
@@ -23,7 +23,15 @@ O SDK de Pesquisa Visual inclui uma opção para selecionar uma área de uma ima
 
 Precisa do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
 
-Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa do Bing. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+Para este tutorial, terá de iniciar uma subscrição no escalão de preço S9, conforme mostrado na [Cognitive Services preços - API de pesquisa Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar uma subscrição no Portal do Azure:
+1. Introduza "BingSearchV7" na caixa de texto na parte superior do Portal do Azure que diz `Search resources, services, and docs`.  
+2. Em Marketplace na lista pendente, selecione `Bing Search v7`.
+3. Introduza `Name` do novo recurso.
+4. Selecione `Pay-As-You-Go` subscrição.
+5. Selecione `S9` escalão de preço.
+6. Clique em `Enable` para iniciar a subscrição.
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
 Para configurar a aplicação de consola através do SDK de Pesquisa na Web do Bing, aceda à opção Gerir Pacotes NuGet a partir do Explorador de Soluções no Visual Studio. Adicione o pacote Microsoft.Azure.CognitiveServices.Search.VisualSearch.
@@ -181,5 +189,5 @@ namespace VisualSearchFeatures
 }
 
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Resposta da Pesquisa Visual](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

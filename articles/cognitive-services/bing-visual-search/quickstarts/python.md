@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 16d3d0ddf77e37e32cc50961a3870b820ac2748e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: 3a0d92e42eed097e244118a60ec0a4223c9cedf5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884246"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52440946"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Guia de Início Rápido: a sua primeira consulta de Pesquisa Visual do Bing em Python
 
@@ -27,7 +27,7 @@ Se carregar uma imagem local, o seguinte mostra os dados de formato que tem de i
 --boundary_1234-abcd
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -38,7 +38,15 @@ Este artigo inclui uma aplicação de consola simples que envia um pedido da API
 
 Irá precisar do [Python 3](https://www.python.org/) para executar este código.
 
-Neste guia de início rápido, pode utilizar uma chave de subscrição de uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de subscrição paga.
+Neste início rápido, terá de iniciar uma subscrição no escalão de preço S9, conforme mostrado na [Cognitive Services preços - API de pesquisa Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar uma subscrição no portal do Azure:
+1. Introduza "BingSearchV7" na caixa de texto na parte superior do portal do Azure, que diz `Search resources, services, and docs`.  
+2. Em Marketplace na lista pendente, selecione `Bing Search v7`.
+3. Introduza `Name` do novo recurso.
+4. Selecione `Pay-As-You-Go` subscrição.
+5. Selecione `S9` escalão de preço.
+6. Clique em `Enable` para iniciar a subscrição.
 
 ## <a name="running-the-walkthrough"></a>Executar as instruções
 
@@ -97,7 +105,7 @@ if __name__ == '__main__':
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Get insights about an image using an insights token](../use-insights-token.md) (Utilizar um token de informações para obter informações de uma imagem)  
 [Tutorial de carregamento de imagens da Pesquisa Visual do Bing](../tutorial-visual-search-image-upload.md)

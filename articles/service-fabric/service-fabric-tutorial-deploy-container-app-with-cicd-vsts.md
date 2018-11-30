@@ -1,6 +1,6 @@
 ---
 title: Implementar uma aplicação de contentor com CI/CD num cluster do Azure Service Fabric
-description: Neste tutorial, irá aprender a configurar a integração contínua e a implementação para uma aplicação de contentor do Azure Service Fabric com o Visual Studio Team Services (VSTS).
+description: Neste tutorial, saiba como configurar a integração contínua e implementação para uma aplicação de contentor do Azure Service Fabric com o Visual Studio do Azure DevOps.
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
@@ -15,23 +15,23 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: a7cb139da2cdbfb187a62eeadc707f7206de8a34
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 06bc4be6ee485e61523d210b692c3fe2567cc62c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300203"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443496"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementar uma aplicação de contentor com CI/CD num cluster do Service Fabric
 
-Este tutorial é a segunda parte de uma série e descreve como configurar a integração contínua e implementação para uma aplicação de contentor do Azure Service Fabric com o Visual Studio Team Services.  É necessária uma aplicação do Service Fabric existente. A aplicação criada em [Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric](service-fabric-host-app-in-a-container.md) é utilizada como exemplo.
+Este tutorial é a segunda parte de uma série e descreve como configurar a integração contínua e implementação para uma aplicação de contentor do Azure Service Fabric com o Visual Studio e do Azure DevOps.  É necessária uma aplicação do Service Fabric existente. A aplicação criada em [Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric](service-fabric-host-app-in-a-container.md) é utilizada como exemplo.
 
 Na segunda parte da série, saiba como:
 
 > [!div class="checklist"]
 > * Adicionar controlo de origem ao seu projeto
-> * Criar uma definição de compilação no Team Services
-> * Criar uma definição de versão no Team Services
+> * Criar uma definição de compilação no Visual Studio Team Explorer
+> * Criar uma definição de versão no Visual Studio Team Explorer
 > * Implementar e atualizar uma aplicação automaticamente
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -43,23 +43,23 @@ Antes de começar este tutorial:
 
 ## <a name="prepare-a-publish-profile"></a>Preparar um perfil de publicação
 
-Agora que já [implementou uma aplicação de contentor](service-fabric-host-app-in-a-container.md), está pronto para configurar a integração contínua.  Em primeiro lugar, prepare um perfil de publicação na sua aplicação para ser utilizado pelo processo de implementação que é executado no Team Services.  O perfil de publicação deve ser configurado para visar o cluster que criou anteriormente.  Inicie o Visual Studio e abra um projeto de aplicação do Service Fabric existente.  No **Explorador de Soluções**, clique com o botão direito do rato na aplicação e selecione **Publicar...**.
+Agora que já [implementou uma aplicação de contentor](service-fabric-host-app-in-a-container.md), está pronto para configurar a integração contínua.  Primeiro, prepare um perfil de publicação na sua aplicação para ser utilizado pelo processo de implementação que é executado no Azure DevOps.  O perfil de publicação deve ser configurado para visar o cluster que criou anteriormente.  Inicie o Visual Studio e abra um projeto de aplicação do Service Fabric existente.  No **Explorador de Soluções**, clique com o botão direito do rato na aplicação e selecione **Publicar...**.
 
-Escolha um perfil de destino no seu projeto de aplicação para utilizar para o fluxo de trabalho de integração contínua, por exemplo, a Cloud.  Especifique o ponto final de ligação do cluster.  Marque a caixa de verificação **Atualizar a Aplicação** para que a aplicação seja atualizada para cada implementação no Team Services.  Clique na hiperligação **Guardar** para guardar as definições do perfil de publicação e, em seguida, clique em **Cancelar** para fechar a caixa de diálogo.
+Escolha um perfil de destino no seu projeto de aplicação para utilizar para o fluxo de trabalho de integração contínua, por exemplo, a Cloud.  Especifique o ponto final de ligação do cluster.  Marque a caixa de verificação **Atualizar a Aplicação** para que a aplicação seja atualizada para cada implementação no Azure DevOps.  Clique na hiperligação **Guardar** para guardar as definições do perfil de publicação e, em seguida, clique em **Cancelar** para fechar a caixa de diálogo.
 
 ![Perfil push][publish-app-profile]
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>Partilhar a sua solução Visual Studio num novo repositório Git do Team Services
+## <a name="share-your-visual-studio-solution-to-a-new-azure-devops-git-repo"></a>Partilhar a sua solução Visual Studio num novo repositório Git do Azure DevOps
 
-Partilhe os ficheiros de origem da aplicação para um projeto de equipa no Team Services, para que possa gerar compilações.
+Partilhe os seus arquivos de origem para um projeto de equipe em DevOps do Azure para que possa gerar compilações.
 
 Crie um novo repositório Git local para o seu projeto, selecionando **Adicionar ao Controlo de Origem** -> **Git** na barra de estado no canto inferior direito do Visual Studio.
 
-Na vista **Push** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Push para o Visual Studio Team Services**.
+Na vista **Push** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Push para o Azure DevOps**.
 
 ![Repositório Git de push][push-git-repo]
 
-Verifique o seu e-mail e selecione a sua conta na lista pendente **Domínio do Team Services**. Introduza o nome do seu repositório e selecione **Publicar repositório**.
+Verifique o seu e-mail e selecione a sua organização no **conta** pendente. Poderá ter de configurar uma organização, se ainda não tiver uma. Introduza o nome do seu repositório e selecione **Publicar repositório**.
 
 ![Repositório Git de push][publish-code]
 
@@ -67,22 +67,22 @@ A publicação do repositório cria um novo projeto de equipa na sua conta com o
 
 ## <a name="configure-continuous-delivery-with-vsts"></a>Configurar a Entrega Contínua com o VSTS
 
-Uma definição de compilação do Team Services descreve um fluxo de trabalho composto por um conjunto de passos de compilação que são executados sequencialmente. Crie uma definição de compilação que produz um pacote de aplicação do Service Fabric, e outros artefactos, para implementar num cluster do Service Fabric. Saiba mais sobre [Definições de compilação do Team Services](https://www.visualstudio.com/docs/build/define/create). 
+Uma definição de compilação do Azure DevOps descreve um fluxo de trabalho é composto por um conjunto de passos de compilação que são executados sequencialmente. Crie uma definição de compilação que produz um pacote de aplicação do Service Fabric, e outros artefactos, para implementar num cluster do Service Fabric. Saiba mais sobre o Azure DevOps [definições de compilação](https://www.visualstudio.com/docs/build/define/create). 
 
-Uma definição de versão do Team Services descreve um fluxo de trabalho que implementa um pacote de aplicação num cluster. Quando utilizadas em conjunto, a definição de compilação e a definição de versão executam o fluxo de trabalho completo, começando com os ficheiros de origem e terminando com uma aplicação em execução no cluster. Saiba mais sobre as [definições de versão](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) do Team Services.
+Uma definição de versão do Azure DevOps descreve um fluxo de trabalho que implementa um pacote de aplicação num cluster. Quando utilizadas em conjunto, a definição de compilação e a definição de versão executam o fluxo de trabalho completo, começando com os ficheiros de origem e terminando com uma aplicação em execução no cluster. Saiba mais sobre o Azure DevOps [definições de versão](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### <a name="create-a-build-definition"></a>Criar uma definição de compilação
 
-Abra um browser e navegue até ao novo projeto de equipa em: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
+Abra o seu novo projeto de equipe, navegando até https://dev.azure.com num web browser e ao selecionar a sua organização, seguido do novo projeto. 
 
-Selecione o separador **Compilar e Versão**, em seguida, **Compilações** e, em seguida, clique em **Novo Pipeline**.
+Selecione o **Pipelines** opção no painel esquerdo, em seguida, clique em **novo Pipeline**.
 
 >[!NOTE]
 >Se não vir o modelo de definição de compilação, certifique-se de que a funcionalidade **Nova experiência de criação do pipeline YAML** está desativada. Esta funcionalidade está configurada na secção **Funcionalidades de Pré-visualização** da sua conta de DevOps.
 
 ![Novo Pipeline][new-pipeline]
 
-Selecione **Git do VSTS** como origem, projeto da Equipa de **Voto**, Repositório de **Voto** e ramo Predefinido **mestre** ou manual e compilações programadas.  Em seguida, clique em **Continuar**.
+Selecione **Azure repositórios Git** como origem, a sua equipa de projeto nome, seu projeto de repositório, e **mestre** predefinido ramo ou manual e programada baseia-se.  Em seguida, clique em **Continuar**.
 
 Em **Selecionar um modelo**, selecione o modelo **Aplicação do Azure Service Fabric com suporte do Docker** e clique em **Aplicar**.
 
@@ -104,7 +104,7 @@ Em **Tipo de Registo de Contentor**, selecione **Azure Container Registry**. Sel
 
 ![Selecionar Enviar imagens do Docker][select-push-images]
 
-Em **Acionadores**, ative a integração contínua ao selecionar **Ativar a integração contínua**. Nos **Filtros de ramos**, clique em **+ Adicionar** e a **Especificação do ramo** será predefinida para **mestre**.
+Sob o **Acionadores** separador, ative a integração contínua, verificando **ativar a integração contínua**. Nos **Filtros de ramos**, clique em **+ Adicionar** e a **Especificação do ramo** será predefinida para **mestre**.
 
 Na caixa de diálogo **Guardar pipeline de compilação e fila**, clique em **Guardar e colocar em fila** para iniciar manualmente uma compilação.
 
@@ -114,7 +114,7 @@ As compilações também são acionadas após push ou dar entrada. Para verifica
 
 ### <a name="create-a-release-definition"></a>Criar uma definição de versão
 
-Selecione o separador **Compilação e Versão**, **Versões** e, em seguida, **+ Novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
+Selecione o **Pipelines** opção no painel esquerdo, em seguida, **versões**, em seguida, **+ novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
 
 ![Escolher o modelo de versão][select-release-template]
 
@@ -151,7 +151,7 @@ Verifique se a implementação foi concluída com êxito e se a aplicação est�
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Consolidar e emitir alterações, acionar uma versão
 
-Para verificar se o pipeline de integração contínua está a funcionar, dê entrada de algumas alterações de código no Team Services.
+Para verificar se o pipeline de integração contínua está a funcionar, dê entrada de algumas alterações de código no Azure DevOps.
 
 À medida que escreve o código, as alterações são automaticamente controladas pelo Visual Studio. Para consolidar as alterações ao repositório Git local, selecione o ícone de alterações pendentes (![Pendente][pending]) na barra de estado na parte inferior direita.
 
@@ -159,11 +159,11 @@ Na vista **Alterações**, no Team Explorer, adicione uma mensagem que descreva 
 
 ![Consolidar tudo][changes]
 
-Selecione o ícone da barra de estado de alterações não publicadas (![Alterações não publicadas][unpublished-changes]) ou a vista de Sincronização no Team Explorer. Selecione **Push** para atualizar o código no Team Services/TFS.
+Selecione o ícone da barra de estado de alterações não publicadas (![Alterações não publicadas][unpublished-changes]) ou a vista de Sincronização no Team Explorer. Selecione **Push** para atualizar o código no Azure DevOps.
 
 ![Emitir alterações][push]
 
-A emissão das alterações ao Team Services aciona automaticamente uma compilação.  Quando a definição de compilação for concluída com êxito, uma versão é criada automaticamente e começa a atualizar a aplicação no cluster.
+A emissão das alterações ao Azure DevOps aciona automaticamente uma compilação.  Quando a definição de compilação for concluída com êxito, uma versão é criada automaticamente e começa a atualizar a aplicação no cluster.
 
 Para verificar o progresso da compilação, mude para o separador **Compilações** no **Team Explorer** no Visual Studio.  Depois de verificar se a compilação é executada com êxito, defina uma definição de versão que implementa a aplicação num cluster.
 

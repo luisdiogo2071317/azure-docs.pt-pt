@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: 935241d5574a59edfa256b74db3a0aeab2f7bf91
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
-ms.translationtype: HT
+ms.openlocfilehash: 9f2a6d9b75ccf704862d169b96ea1a1f2edb9815
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458110"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445691"
 ---
 # <a name="quickstart-bing-visual-search-sdk-python"></a>Início Rápido: Python com SDK de Pesquisa Visual do Bing
 
@@ -30,7 +30,16 @@ Os cenários de código estão documentados nos cabeçalhos seguintes:
 * [Etiquetas, ações e actionType](#tags-actions)
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
-* É necessária uma chave de API dos Serviços Cognitivos para autenticar as chamadas SDK. Inscreva-se numa [chave de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). A chave de avaliação é válida durante sete dias, com 1 chamada por segundo. Para um cenário de produção, [compre a chave de acesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Veja também as [informações sobre preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Neste início rápido, terá de iniciar uma subscrição no escalão de preço S9, conforme mostrado na [Cognitive Services preços - API de pesquisa Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar uma subscrição no portal do Azure:
+1. Introduza "BingSearchV7" na caixa de texto na parte superior do portal do Azure, que diz `Search resources, services, and docs`.  
+2. Em Marketplace na lista pendente, selecione `Bing Search v7`.
+3. Introduza `Name` do novo recurso.
+4. Selecione `Pay-As-You-Go` subscrição.
+5. Selecione `S9` escalão de preço.
+6. Clique em `Enable` para iniciar a subscrição.
+ 
 * Se ainda não o tiver, instale o Python. O SDK é compatível com o Python 2.7, 3.3, 3.4, 3.5 e 3.6.
 * A recomendação geral para o desenvolvimento de Python é utilizar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv). Instale o virtualenv para Python 2.7.
 ```
@@ -323,6 +332,6 @@ O código seguinte envia um token de informações de imagem no parâmetro knowl
         print("Couldn't find image tags!")
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Exemplos de SDK .NET dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

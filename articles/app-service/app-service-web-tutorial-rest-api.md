@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b468240d1a9aaf0511358433a8beee7e6442e145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 4d8a95ee4afc844868cfda78087773a6a37c07c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445026"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445435"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Alojar uma API RESTful com CORS no Serviço de Aplicações do Azure
 
@@ -176,6 +176,9 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 Pode definir mais de um URL do cliente em `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). Também pode ativar todos os URLs do cliente com `"['*']"`.
 
+> [!NOTE]
+> Se a sua aplicação necessita de credenciais, como cookies ou tokens de autenticação a ser enviados, o navegador pode exigir a `ACCESS-CONTROL-ALLOW-CREDENTIALS` cabeçalho na resposta. Para ativar esta opção no serviço de aplicações, defina `properties.cors.supportCredentials` para `true` na sua configuração CORS. Não pode ser ativada quando `allowedOrigins` inclui `'*'`.
+
 ### <a name="test-cors-again"></a>Testar o CORS novamente
 
 Ative a aplicação de browser em `http://localhost:5000`. A mensagem de erro na janela **Consola** deixa de estar visível e pode ver os dados da API implementada e interagir com os mesmos. A API remota suporta agora CORS na sua aplicação de browser em execução no local. 
@@ -196,7 +199,7 @@ Pode utilizar os seus próprios utilitários CORS em vez do CORS do Serviço de 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 O que aprendeu:
 

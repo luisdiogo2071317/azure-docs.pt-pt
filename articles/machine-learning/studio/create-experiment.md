@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 8f4740a559e73620500c4ab04ea6e9e25405b8a3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263575"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425715"
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial de Machine Learning: crie a sua primeira experimentação de ciência de dados no Azure Machine Learning Studio
 
@@ -43,9 +43,7 @@ Neste tutorial, vamos aprender a utilizar o Studio pela primeira vez para criar 
 - [Machine learning algorithm cheat sheet (Referência rápida aos algoritmos de machine learning)](algorithm-cheat-sheet.md) e [How to choose algorithms for Microsoft Azure Machine Learning (Como escolher os algoritmos para o Microsoft Azure Machine Learning)](algorithm-choice.md) - esta imagem e o artigo associado abordam os algoritmos do Studio em maior detalhe.
 - [Machine Learning Studio: Algorithm and Module Help (Machine Learning Studio: Ajuda para Algoritmos e Módulos)](https://msdn.microsoft.com/library/azure/dn905974.aspx) - esta é a referência completa para todos os módulos do Studio, incluindo algoritmos de machine learning.
 
-<!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="how-does-machine-learning-studio-help"></a>Como é que o Machine Learning Studio ajuda?
 

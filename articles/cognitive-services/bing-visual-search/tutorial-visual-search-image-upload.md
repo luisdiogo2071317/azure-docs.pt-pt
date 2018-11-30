@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2e65313207e2bb29ae269425012cc6c340261ba4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888344"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443462"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Tutorial: Discriminar o carregamento na Pesquisa Visual do Bing
 
@@ -23,6 +23,15 @@ Este tutorial discrimina o processo de carregamento de uma imagem para o Bing e 
 
 Este tutorial é disponibilizado aos programadores que querem explorar os conteúdo das respostas da Pesquisa Visual do Bing. Não aplica todos os requisitos de utilização e apresentação (por exemplo, não disponibiliza uma ligação para a política de privacidade da Microsoft). Para ver todos os requisitos de utilização, veja [Bing Use and Display Requirements](./use-and-display-requirements.md) (Requisitos de Utilização e Apresentação do Bing).
 
+Para este tutorial, terá de iniciar uma subscrição no escalão de preço S9, conforme mostrado na [Cognitive Services preços - API de pesquisa Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar uma subscrição no Portal do Azure:
+1. Introduza "BingSearchV7" na caixa de texto na parte superior do Portal do Azure que diz `Search resources, services, and docs`.  
+2. Em Marketplace na lista pendente, selecione `Bing Search v7`.
+3. Introduza `Name` do novo recurso.
+4. Selecione `Pay-As-You-Go` subscrição.
+5. Selecione `S9` escalão de preço.
+6. Clique em `Enable` para iniciar a subscrição.
 
 ## <a name="where-to-start"></a>Por onde começar?
 
@@ -1329,6 +1338,6 @@ Segue-se o exemplo completo do HTML e do JavaScript.
 </html>      
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber como utilizar um token de informações para as obter veja [Bing Visual Search SDK ImageInsightsToken tutorial](.\tutorial-visual-search-insights-token.md) (Tutorial de ImageInsightsToken do SDK da Pesquisa Visual do Bing).

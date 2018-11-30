@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 2ce6e7c796faf0c7377a33dabe1e8c05e81fde2f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280716"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425076"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Tutorial 4: extrair correspondências de texto exatas
 Neste tutorial, vai aprender a obter dados que correspondam a uma lista de itens predefinida. Cada item na lista pode incluir uma lista de sinónimos. Para a aplicação de recursos humanos, um colaborador pode ser identificado através de várias informações cruciais, como o nome, e-mail, número de telefone e número de contribuinte. 
@@ -41,7 +41,7 @@ Uma entidade de lista é uma boa opção para este tipo de dados quando:
 > * Publicar
 > * Obter as intenções e as entidades do ponto final
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Utilizar a aplicação existente
 Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
@@ -57,7 +57,7 @@ Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seg
 
 ## <a name="moveemployee-intent"></a>Intenção MoveEmployee
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Create new intent** (Criar nova intenção). 
 
@@ -84,7 +84,7 @@ Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seg
 
     Lembre-se de que o número e datetimeV2 foram adicionados num tutorial anterior e serão etiquetados automaticamente quando forem encontrados nas expressões de exemplo.
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="employee-list-entity"></a>Entidade de lista de colaboradores
 Agora que a intenção **MoveEmployee** tem expressões de exemplo, o LUIS tem de compreender o que é um colaborador. 
@@ -266,7 +266,7 @@ O nome _canónico_ principal para cada item é o número de colaborador. Para es
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, criou uma nova intenção, adicionou expressões de exemplo e criou uma entidade de lista para extrair correspondências de texto exatas a partir de expressões. Depois de preparar e publicar a aplicação, uma consulta ao ponto final identifica a intenção e devolve os dados extraídos.
 
 > [!div class="nextstepaction"]

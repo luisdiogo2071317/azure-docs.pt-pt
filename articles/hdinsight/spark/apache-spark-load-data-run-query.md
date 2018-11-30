@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: 85afc16fe6bcae4e0a7218fa9f66bab3e947ec6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: f279d7ca40eac1764ec5549aecec36b0f62034e8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244082"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495786"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas num cluster do Apache Spark no Azure HDInsight
 
-Neste tutorial, irá aprender a criar um pacote de dados a partir de um ficheiro CSV e a executar consultas SQL interativas de Spark num cluster do Apache Spark no Azure HDInsight. No Spark, um pacote de dados é uma coleção distribuída de dados organizados em colunas com nomes. Do ponto de vista conceptual, o pacote de dados equivale a uma tabela numa base de dados relacional ou a um pacote de dados em R/Python.
+Neste tutorial, saiba como criar um pacote de dados de um ficheiro csv e como executar consultas interativas do Spark SQL em relação a uma [Apache Spark](https://spark.apache.org/) cluster no Azure HDInsight. No Spark, um pacote de dados é uma coleção distribuída de dados organizados em colunas com nomes. Do ponto de vista conceptual, o pacote de dados equivale a uma tabela numa base de dados relacional ou a um pacote de dados em R/Python.
  
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -95,14 +95,14 @@ Abra o cluster no portal do Azure e, em seguida, selecione **Eliminar**.
 
 Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos**. Ao eliminar o grupo de recursos, está a eliminar o cluster do Spark no HDInsight e a conta de armazenamento predefinida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 
-* Crie um pacote de dados do Spark.
+* Crie um dataframe do Apache Spark.
 * Execute a consulta SQL de Spark no pacote de dados.
 
-Avance para o próximo artigo para ver como os dados que registou no Spark podem ser extraídos para uma ferramenta de análise de BI como o Power BI. 
+Avance para o artigo seguinte para ver como os dados que registou no Apache Spark podem ser extraídos para uma ferramenta de análise de BI como o Power BI. 
 > [!div class="nextstepaction"]
 > [Analisar dados com ferramentas do BI](apache-spark-use-bi-tools.md)
 

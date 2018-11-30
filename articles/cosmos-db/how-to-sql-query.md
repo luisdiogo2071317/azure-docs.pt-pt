@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f9ec8ff1fbd5f6341d2d949d15d963f8abe15200
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9496f88a24c92387418d5d9ae23bb7f2eaff2088
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166915"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444450"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Consultar dados do Azure Cosmos DB com consultas SQL
 
@@ -400,9 +400,18 @@ Os operadores unários +,-, ~ e não são também suportadas e pode ser utilizad
 Além de operadores binários e de unário, também são permitidas referências de propriedade. Por exemplo, `SELECT * FROM Families f WHERE f.isRegistered` devolve o item JSON que contém a propriedade `isRegistered` em que o valor da propriedade é igual para o JSON `true` valor. Quaisquer outros valores (false, nulo, indefinido, o `<number>`, `<string>`, `<object>`, `<array>`, etc.) leva para o item de origem que está a ser excluído do resultado. 
 
 ### <a name="equality-and-comparison-operators"></a>Operadores de igualdade e de comparação
+
 A tabela seguinte mostra o resultado de comparações de igualdade na API do SQL entre quaisquer dois tipos JSON.
 
-| **Op** | **indefinido** | **nulo** | **booleano** | **número**  |  **Cadeia** | **objeto** | **matriz** | | **Indefinido** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | | **Nulo** | Indefinido | **Ok** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | | **Booleano** | Indefinido | Indefinido | **Ok** | Indefinido | Indefinido | Indefinido | Indefinido | | **Número** | Indefinido | Indefinido | Indefinido | **Ok** | Indefinido | Indefinido | Indefinido | | **Cadeia de caracteres** | Indefinido | Indefinido | Indefinido | Indefinido | **Ok** | Indefinido | Indefinido | | **Objeto** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | **Ok** | Indefinido | | **Matriz** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | **Ok** |
+| **OP** | **Não definido** | **Nulo** | **valor booleano** | **Número** | **Cadeia de caracteres** | **Objeto** | **Matriz** |
+|---|---|---|---|---|---|---|---|
+| **Não definido** | Não definido | Não definido | Não definido | Não definido | Não definido | Não definido | Não definido |
+| **Nulo** | Não definido | **OK** | Não definido | Não definido | Não definido | Não definido | Não definido |
+| **valor booleano** | Não definido | Não definido | **OK** | Não definido | Não definido | Não definido | Não definido |
+| **Número** | Não definido | Não definido | Não definido | **OK** | Não definido | Não definido | Não definido |
+| **Cadeia de caracteres** | Não definido | Não definido | Não definido | Não definido | **OK** | Não definido | Não definido |
+| **Objeto** | Não definido | Não definido | Não definido | Não definido | Não definido | **OK** | Não definido |
+| **Matriz** | Não definido | Não definido | Não definido | Não definido | Não definido | Não definido | **OK** |
 
 Para outros operadores de comparação, tais como >, > =,! =, <, e < =, as seguintes regras aplicam-se:
 
@@ -813,11 +822,11 @@ A tabela seguinte mostra a lista de funções de agregação suportadas na API d
 
 | Utilização | Descrição |
 |-------|-------------|
-| CONTAGEM | Devolve o número de itens na expressão. |
-| SOMA   | Devolve a soma de todos os valores na expressão. |
-| MÍN.   | Devolve o valor mínimo na expressão. |
-| MÁX.   | Devolve o valor máximo na expressão. |
-| MÉDIA   | Devolve a média dos valores existentes na expressão. |
+| COUNT | Devolve o número de itens na expressão. |
+| SUM   | Devolve a soma de todos os valores na expressão. |
+| MIN   | Devolve o valor mínimo na expressão. |
+| MAX   | Devolve o valor máximo na expressão. |
+| AVG   | Devolve a média dos valores existentes na expressão. |
 
 Também podem ser efetuadas agregações nos resultados de uma iteração de matriz. Para obter mais informações, consulte [iteração de matriz em consultas](#Iteration).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300154"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496204"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Sobre o gateway VPN para o Azure Stack
 
@@ -117,6 +117,10 @@ A tabela seguinte mostra os tipos de gateways e o débito agregado estimado pelo
 *Tenha em atenção (1)* -débito de VPN não é um débito garantido para ligações entre locais através da Internet. É a medida de débito mais alta possível.  
 *Tenha em atenção (2)* -máximo de túneis é o total por implementação do Azure Stack para todas as subscrições.  
 *Tenha em atenção (3)* -encaminhamento de BGP não é suportado para o SKU básico.
+
+>[!NOTE]
+>Apenas uma ligação de VPN de Site a Site pode ser criada entre duas implementações do Azure Stack.  Isso é devido a uma limitação na plataforma que permite apenas uma única ligação de VPN para o mesmo endereço IP.  Uma vez que o Azure Stack aproveita o gateway de multi-inquilino que utiliza um IP público único para todos os Gateways de VPN no sistema do Azure Stack, pode haver apenas uma ligação VPN entre dois sistemas do Azure Stack.  Esta limitação aplica-se também à ligação de mais do que um ligações VPN de Site a Site a qualquer Gateway de VPN que utiliza um único endereço IP.  O Azure Stack não permitirá mais do que um recurso de Gateway de rede Local ser criado usando o mesmo endereço IP.
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

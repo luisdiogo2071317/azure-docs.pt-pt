@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: 4a372b54ace87816b9e7cccbd38466331b5ebfc7
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.openlocfilehash: 91463520547ca534048bba77d3b979b462ded6b5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437601"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442357"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificar o conteúdo e o esquema das páginas no portal do programador na Gestão de API do Azure
 Existem três formas fundamentais de personalizar o portal do programador na Gestão de API do Azure:
@@ -27,6 +27,8 @@ Existem três formas fundamentais de personalizar o portal do programador na Ges
 * [Editar o conteúdo de páginas estáticas e elementos de esquema da página][modify-content-layout] (explicado neste guia)
 * [Atualizar os estilos utilizados para elementos de página em todo o portal do programador][customize-styles]
 * [Modificar os modelos utilizados para páginas geradas pelo portal][portal-templates] (por exemplo, documentos de API, produtos, autenticação de utilizador, etc.)
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="page-structure"> </a>Estrutura das páginas do portal do programador
 

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a874e37246a143a1ca9fa0ca64218df9aa5c9062
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: c3c79e7bd68e7c96b57ea66951c080b7d952ee8c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420511"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441762"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizar o estilo das páginas de portal do Programador
 
@@ -42,6 +42,8 @@ Neste tutorial, ficará a saber como:
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
 + Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
 + Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="customize-the-developer-portal"></a>Personalizar o Portal do programador
 
@@ -75,7 +77,7 @@ Neste tutorial, ficará a saber como:
 1. Navegue para o portal do Programador.
 2. Pode ver a alteração que efetuou.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

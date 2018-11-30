@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 77b8f956ca2a6985121cb5dbfebc2755fa73a35c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: cca39fb16c47eb13887f6198833dafc64974d301
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685978"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444465"
 ---
 # <a name="quickstart-bing-visual-search-sdk-node"></a>Início Rápido: Node de SDK de Pesquisa Visual do Bing 
 
@@ -28,7 +28,15 @@ Os cenários de código estão documentados nos cabeçalhos seguintes:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* É necessária uma chave de API dos Serviços Cognitivos para autenticar as chamadas SDK. Inscreva-se numa [chave de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). A chave de avaliação é válida durante sete dias, com uma chamada por segundo. Para cenários de produção, [compre uma chave de acesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Veja também as [informações sobre preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Neste início rápido, terá de iniciar uma subscrição no escalão de preço S9, conforme mostrado na [Cognitive Services preços - API de pesquisa Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar uma subscrição no portal do Azure:
+1. Introduza "BingSearchV7" na caixa de texto na parte superior do portal do Azure, que diz `Search resources, services, and docs`.  
+2. Em Marketplace na lista pendente, selecione `Bing Search v7`.
+3. Introduza `Name` do novo recurso.
+4. Selecione `Pay-As-You-Go` subscrição.
+5. Selecione `S9` escalão de preço.
+6. Clique em `Enable` para iniciar a subscrição.
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
 

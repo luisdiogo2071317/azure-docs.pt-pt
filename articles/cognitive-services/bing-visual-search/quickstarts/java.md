@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: f54914b846c6a001a9fb10d938a038e390abf6bf
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: c1b63b12a48f5ccfb1a396ffa9282249b03893fe
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416448"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445179"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-java"></a>Início Rápido: a sua primeira consulta de Pesquisa Visual do Bing em Java
 
@@ -36,10 +36,17 @@ Este artigo inclui uma aplicação de consola simples que envia um pedido da API
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+Neste início rápido, terá de iniciar uma subscrição no escalão de preço S9, conforme mostrado na [Cognitive Services preços - API de pesquisa Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar uma subscrição no portal do Azure:
+1. Introduza "BingSearchV7" na caixa de texto na parte superior do portal do Azure, que diz `Search resources, services, and docs`.  
+2. Em Marketplace na lista pendente, selecione `Bing Search v7`.
+3. Introduza `Name` do novo recurso.
+4. Selecione `Pay-As-You-Go` subscrição.
+5. Selecione `S9` escalão de preço.
+6. Clique em `Enable` para iniciar a subscrição.
 
 Irá precisar do [JDK 7 ou 8](https://aka.ms/azure-jdks) para compilar e executar este código. Pode utilizar um IDE Java se tiver um favorito, mas um editor de texto será suficiente.
-
-Neste guia de início rápido, pode utilizar uma chave de subscrição de uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de subscrição paga.
 
 ## <a name="running-the-application"></a>Executar a aplicação
 
@@ -144,7 +151,7 @@ public class UploadImage2 {
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Get insights about an image using an insights token](../use-insights-token.md) (Utilizar um token de informações para obter informações de uma imagem)  
 [Tutorial de carregamento de imagens da Pesquisa Visual do Bing](../tutorial-visual-search-image-upload.md)

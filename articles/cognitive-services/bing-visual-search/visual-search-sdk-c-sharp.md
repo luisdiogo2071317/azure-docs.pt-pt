@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4cb6e79b563ac0172f93b3a721b79c230a96a1d5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
-ms.translationtype: HT
+ms.openlocfilehash: 25b01de47767e335d614aa0a8cf32c344c7305d8
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457991"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442851"
 ---
 # <a name="quickstart-bing-visual-search-sdk-c"></a>Início Rápido: C# no SDK de Pesquisa Visual do Bing
 
@@ -33,7 +33,16 @@ Os cenários de código estão documentados nos cabeçalhos seguintes:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * O Visual Studio 2017. Se necessário, pode transferir a versão gratuita da comunidade aqui: https://www.visualstudio.com/vs/community/.
-* É necessária uma chave de API dos Serviços Cognitivos para autenticar as chamadas SDK. Inscreva-se numa [chave de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). A chave de avaliação é válida durante sete dias, com uma chamada por segundo. Para um cenário de produção, [compre a chave de acesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Veja também as [informações sobre preços](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Neste início rápido, terá de iniciar uma subscrição no escalão de preço S9, conforme mostrado na [Cognitive Services preços - API de pesquisa Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar uma subscrição no portal do Azure:
+1. Introduza "BingSearchV7" na caixa de texto na parte superior do portal do Azure, que diz `Search resources, services, and docs`.  
+2. Em Marketplace na lista pendente, selecione `Bing Search v7`.
+3. Introduza `Name` do novo recurso.
+4. Selecione `Pay-As-You-Go` subscrição.
+5. Selecione `S9` escalão de preço.
+6. Clique em `Enable` para iniciar a subscrição.
+
 * A capacidade de executar o SDK do .NET, aplicações do .net core 1.1. Pode obter o CORE, o Framework e o Runtime aqui: https://www.microsoft.com/net/download/.
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
@@ -512,6 +521,6 @@ public static void VisualSearchUrlWithJson(string subscriptionKey)
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Exemplos de SDK .NET dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

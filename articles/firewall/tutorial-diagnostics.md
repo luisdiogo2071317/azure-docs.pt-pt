@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987437"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426172"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Tutorial: monitorizar registos e métricas do Azure Firewall
 
 Pode monitorizar os registos do Azure Firewall com registos de firewall. Também pode utilizar os registos de atividades para auditar operações nos recursos do Azure Firewall. Com as métricas, pode ver os contadores de desempenho no portal. 
 
-Pode aceder a alguns destes registos através do portal. Os registos podem ser enviados para o [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), o Armazenamento e os Hubs de Eventos, e analisados no Log Analytics ou através de ferramentas diferentes, como o Excel e o Power BI.
+Pode aceder a alguns destes registos através do portal. Os registos podem ser enviados para o [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), o Armazenamento e os Hubs de Eventos, e analisados no Log Analytics ou através de ferramentas diferentes, como o Excel e o Power BI.
 
 Neste tutorial, ficará a saber como:
 
@@ -94,7 +94,7 @@ Pode ver e analisar os dados de registo de atividades através de um dos seguint
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Ver e analisar os registos de regras de rede e de aplicação
 
-O Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) recolhe os ficheiros de registo de contadores e de eventos. Inclui visualizações e capacidades de pesquisa poderosas para analisar os seus registos.
+O Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) recolhe os ficheiros de registo de contadores e de eventos. Inclui visualizações e capacidades de pesquisa poderosas para analisar os seus registos.
 
 Para consultas de exemplo do Log Analytics do Azure Firewall, veja [Exemplos do Azure Firewall do Log Analytics](log-analytics-samples.md).
 
@@ -106,12 +106,12 @@ Também pode ligar à sua conta de armazenamento e obter as entradas de registo 
 ## <a name="view-metrics"></a>Ver métricas
 Navegue até ao Azure Firewall, em **Monitorização**, clique em **Métricas**. Para ver os valores disponíveis, selecione a lista pendente **MÉTRICA**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que configurou a firewall para recolher registos, pode explorar o Log Analytics para ver os seus dados.
 
 > [!div class="nextstepaction"]
-> [Soluções de monitorização de rede no Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
+> [Soluções de monitorização de rede no Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

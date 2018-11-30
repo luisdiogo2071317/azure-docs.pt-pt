@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 27dbd4215deef6574622ffcd2c62a64503459258
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f853bb32f7c452f1b09ca337db2a866bd0890b82
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515765"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427255"
 ---
 # <a name="asdk-release-notes"></a>Notas de versão ASDK  
 Este artigo fornece informações sobre melhorias, correções e problemas conhecidos no Azure Stack Development Kit (ASDK). Se não tiver a certeza qual é a versão que está a executar, pode [utilizar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -233,7 +233,7 @@ Esta compilação inclui as seguintes melhorias e correções para o Azure Stack
 
 - <!-- ASDK --> **Itens de galeria para conjuntos de dimensionamento de máquinas virtuais estão agora incorporados**.  O conjunto de dimensionamento de máquinas virtuais itens da Galeria são agora disponibilizados nos portais de utilizador e administrador sem ter de transferi-los. 
 
-- <!-- IS, ASDK --> **O conjunto de dimensionamento de máquinas virtuais dimensionamento**.  Pode utilizar o portal para [dimensionar um conjunto de dimensionamento de Máquina Virtual](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
+- <!-- IS, ASDK --> **O conjunto de dimensionamento de máquinas virtuais dimensionamento**.  Pode utilizar o portal para [dimensionar um conjunto de dimensionamento de Máquina Virtual](../azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
 
 - <!-- 2489570 | IS ASDK--> **Suporte para configurações de política de IPSec/IKE personalizadas** para [gateways de VPN no Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 

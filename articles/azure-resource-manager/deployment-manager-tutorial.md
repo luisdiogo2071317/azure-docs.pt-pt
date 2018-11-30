@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/21/2018
+ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: af586656889919ed9b3407f2c41253dfadddc742
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291254"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425008"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Utilizar o Gestor de Implementação do Azure com modelos do Resource Manager (Pré-visualização privada)
 
-Saiba como utilizar o [Gestor de Implementações do Azure](./deployment-manager-overview.md) para implementar as suas aplicações em várias regiões. Para utilizar o Gestor de Implementações, tem de criar dois modelos:
+Saiba como utilizar o [Gestor de Implementações do Azure](./deployment-manager-overview.md) para implementar as suas aplicações em várias regiões. Para utilizar o Gestor de implementação, terá de criar dois modelos:
 
 * **Um modelo de topologia**: descreve os recursos do Azure que compõem as suas aplicações e onde os implementar.
 * **Um modelo de lançamento**: descreve os passos a seguir durante a implementação das aplicações.
@@ -40,6 +40,8 @@ Este tutorial abrange as seguintes tarefas:
 > * Verificar a implementação
 > * Implementar a versão mais recente
 > * Limpar recursos
+
+A referência de API de REST do Gestor de implementação do Azure pode ser encontrada [aqui](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -199,6 +201,9 @@ A captura de ecrã seguinte só mostra algumas partes dos serviços de topologia
 - **artifactSourceId** é utilizado para associar o recurso da origem do artefacto ao recurso da topologia de serviço.
 - **dependsOn**: todos os recursos da topologia de serviço dependem do recurso de origem do artefacto.
 - **artifacts** aponta para os artefactos do modelo.  Utilizam-se caminhos relativos aqui. O caminho completo é construído mediante a concatenação de artifactSourceSASLocation (definido na origem do artefacto), artifactRoot (definido na origem do artefacto) e templateArtifactSourceRelativePath (ou parametersArtifactSourceRelativePath).
+
+> [!NOTE]
+> Os nomes de unidade de serviço tem de conter a 31 carateres ou menos. 
 
 ### <a name="topology-parameters-file"></a>Ficheiro de parâmetros da topologia
 

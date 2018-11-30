@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: ad6b296543cffedb215c87b1fc893a22b29a3052
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 841448f477accb8a73d543447cd317bb9b427408
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427353"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497603"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Tutorial n.º2:  Implementar um modelo de classificação de imagens no Azure Container Instance (ACI)
 
@@ -35,7 +35,7 @@ O ACI não é ideal para implementações de produção, mas é muito bom para t
 
 ## <a name="get-the-notebook"></a>Obter o bloco de notas
 
-Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/02.deploy-models.ipynb). Execute o bloco de notas `02.deploy-models.ipynb` no Azure Notebooks ou no seu próprio servidor Jupyter Notebook.
+Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://aka.ms/aml-notebook-tut-02). Execute o bloco de notas `02.deploy-models.ipynb` no Azure Notebooks ou no seu próprio servidor Jupyter Notebook.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -372,7 +372,7 @@ service.delete()
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial do serviço do Azure Machine Learning, utilizou o Python para:
 

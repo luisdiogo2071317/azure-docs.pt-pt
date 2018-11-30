@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: cc631f139e7f11d82f2caac83770754060353d07
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 30c9f572d77caacbeecf5f15d74fd8517e9fa883
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277720"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426864"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Tutorial 1: Criar uma aplicação personalizada para determinar as intenções do utilizador
 
@@ -71,7 +71,7 @@ Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não forn
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Captura de ecrã da introdução de novas expressões para a intenção MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
 ## <a name="none-intent"></a>Intenção None (Nenhuma) 
@@ -156,11 +156,11 @@ Regresse ao site do LUIS e crie uma intenção para determinar se a expressão d
 
 ## <a name="train-again"></a>Preparar novamente
 
-[!INCLUDE[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-again"></a>Publicar novamente
 
-[!INCLUDE[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="get-intent-again"></a>Obter a intenção novamente
 
@@ -199,7 +199,7 @@ Regresse ao site do LUIS e crie uma intenção para determinar se a expressão d
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este tutorial criou a aplicação Recursos Humanos (RH), criou duas intenções, adicionou expressões de exemplo a cada intenção, adicionou expressões de exemplo à intenção None, preparou, publicou e testou no ponto final. Estes são os passos básicos de criação de um modelo do LUIS. 
 

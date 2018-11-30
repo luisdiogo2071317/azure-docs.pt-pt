@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 536092c1ee50045e6df4e2933c7d6eb0ee7a8b42
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: d039654fc1d652a3997515a12caa48acaac124fe
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429792"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425297"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Utilizar o Explorador de Armazenamento com o Armazenamento de Ficheiros do Azure
 
@@ -29,7 +29,7 @@ O Armazenamento de ficheiros do Azure é um serviço que oferece partilhas de fi
 
 Para executar os passos descritos neste artigo, é necessário o seguinte:
 
-- [Transferir e instalar o Explorador de Armazenamento](http://www.storageexplorer.com/)
+- [Transferir e instalar o Explorador de Armazenamento](https://www.storageexplorer.com/)
 
 - [Ligar a um serviço ou a uma conta de armazenamento do Azure](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -257,8 +257,8 @@ Os passos seguintes mostram como gerir ficheiros (e pastas) numa partilha de fic
 
         c. Selecione **Yes (Sim)**, na caixa de diálogo de confirmação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Vejas os [mais recentes vídeos e notas de versão do Explorador de Armazenamento](http://www.storageexplorer.com/).
+- Vejas os [mais recentes vídeos e notas de versão do Explorador de Armazenamento](https://www.storageexplorer.com/).
 
 - Saiba como [utilizar blobs, tabelas, filas e ficheiros do Azure para criar aplicações](https://azure.microsoft.com/documentation/services/storage/).

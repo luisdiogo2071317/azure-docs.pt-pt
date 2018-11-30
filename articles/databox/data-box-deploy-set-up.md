@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/17/2018
+ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393835"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427527"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Instalar os cabos e ligar ao Azure Data Box
 
@@ -30,7 +30,9 @@ Neste tutorial, ficará a saber como:
 Antes de começar, certifique-se de que:
 
 1. Concluiu o [Tutorial: Encomendar o Azure Data Box](data-box-deploy-ordered.md).
-2. Recebeu o seu Data Box e o estado da encomenda no portal é **Entregue**. Existe uma etiqueta de envio na bolsa transparente afixada ao dispositivo sob a etiqueta atual. Mantenha esta etiqueta segura, uma vez que a vai utilizar para o envio de devolução.
+2. Recebeu o seu Data Box e o estado da encomenda no portal é **Entregue**. 
+    - Existe uma etiqueta de envio na bolsa transparente afixada ao dispositivo sob a etiqueta atual. Mantenha esta etiqueta segura, uma vez que a vai utilizar para o envio de devolução.
+    - Algumas regiões na Europa, poderão receber o dispositivo empacotado numa caixa. Certifique-se de que descompactar o dispositivo e guardar a caixa para devolução.
 3. Reviu as [diretrizes de segurança do Data Box](data-box-safety.md).
 4. Recebeu um cabo de alimentação ligado à terra para utilizar com o seu dispositivo de armazenamento de 100 TB.
 5. Tem um computador anfitrião com os dados que pretende copiar para o Data Box. O computador anfitrião tem de
@@ -90,7 +92,7 @@ Assim que as interfaces de rede de dados estiverem configuradas, também pode ut
 
 Quando a configuração do dispositivo estiver concluída, pode ligar às partilhas do dispositivo e copiar os dados do seu computador para o dispositivo. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 

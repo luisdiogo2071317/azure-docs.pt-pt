@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 95d1c4ffe76cf4c652f347014a838f1250c0ca15
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 60c4b280033e110f6b8b2a3ce720934e118c8479
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277482"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424855"
 ---
 # <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Tutorial 9: extrair o sentimento da expressão geral
 Neste tutorial, vai criar uma aplicação que demonstra como extrair sentimentos positivos, negativos e neutros de expressões. O sentimento é determinado a partir da expressão inteira.
@@ -60,7 +60,7 @@ Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seg
 ## <a name="employeefeedback-intent"></a>Intenção EmployeeFeedback 
 Adicione uma nova intenção para capturar os comentários dos colaboradores membros da empresa. 
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Create new intent** (Criar nova intenção).
 
@@ -203,7 +203,7 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, adicione a análise de sentimentos como uma definição de publicação para extrair valores de sentimentos da expressão como um todo.
 
 > [!div class="nextstepaction"] 

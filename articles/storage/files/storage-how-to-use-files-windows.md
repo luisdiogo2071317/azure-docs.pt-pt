@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: f1dd07756ca484171a3d662df35493efbe5a5ee7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: ee6b93c26918b4f70eb23e7055db813f35d3787d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415624"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445740"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -24,9 +24,9 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 
 | Versão do Windows        | Versão do SMB | Montável em VM do Azure | Montável no Local |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019 (pré-visualização)<sup>1</sup> | SMB 3.0 | Sim | Sim |
-| Windows 10<sup>2</sup> | SMB 3.0 | Sim | Sim |
-| Canal semianual do Windows Server<sup>3</sup> | SMB 3.0 | Sim | Sim |
+| Windows Server de 2019    | SMB 3.0 | Sim | Sim |
+| Windows 10<sup>1</sup> | SMB 3.0 | Sim | Sim |
+| Canal semianual do Windows Server<sup>2</sup> | SMB 3.0 | Sim | Sim |
 | Windows Server 2016    | SMB 3.0     | Sim                   | Sim                  |
 | Windows 8.1            | SMB 3.0     | Sim                   | Sim                  |
 | Windows Server 2012 R2 | SMB 3.0     | Sim                   | Sim                  |
@@ -34,9 +34,8 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 | Windows 7              | SMB 2.1     | Sim                   | Não                   |
 | Windows Server 2008 R2 | SMB 2.1     | Sim                   | Não                   |
 
-<sup>1</sup>O Windows Server 2019 está disponível em pré-visualização através do [programa Windows Server Insiders](https://insider.windows.com/for-business-getting-started-server/). Embora o Windows Server 2019 ainda não seja suportado para produção, informe-nos se se deparar com problemas a ligar-se a partilhas de ficheiros do Azure para além do que é descrito no [guia de resolução de problemas do Windows](storage-troubleshoot-windows-file-connection-problems.md).  
-<sup>2</sup>Windows 10 versões 1507, 1607, 1703, 1709 e 1803.  
-<sup>3</sup>Windows Server, versão 1709 e 1803.
+<sup>1</sup>Windows 10, versões 1507, 1607, 1703, 1709, versão 1803 e 1809.  
+<sup>2</sup>Windows Server, versão 1709 e versão 1803.
 
 > [!Note]  
 > Recomendamos obter sempre o KB mais recente para a sua versão do Windows.
@@ -290,7 +289,7 @@ Depois de criar a chave de registo, tem de reiniciar o servidor para desativar o
 - [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/) (Descobrir o SMB 1 no seu ambiente com DSCEA)
 - [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/) (Desativar o SMB 1 através da Política de Grupo)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Veja estas ligações para obter mais informações sobre os Ficheiros do Azure:
 - [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
 * [FAQ](../storage-files-faq.md)

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d6feb24b1e59aee70204d8438f1a4c51f71d1835
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281817"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424817"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutorial 8: extrair expressões-chave da expressão
 Neste tutorial, vai utilizar a entidade keyPhrase pré-concebida para extrair o assunto-chave das expressões. Não é necessário etiquetar expressões com entidades pré-concebidas. A entidade é detetada automaticamente.
@@ -56,7 +56,7 @@ Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seg
 ## <a name="add-keyphrase-entity"></a>Adicionar a entidade KeyPhrase 
 Adicione a entidade pré-concebida keyPhrase para extrair o assunto das expressões.
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Entidades** no menu esquerdo.
 
@@ -177,7 +177,7 @@ Adicione a entidade pré-concebida keyPhrase para extrair o assunto das express�
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, adicionou a entidade keyPhrase pré-concebida, fornecendo rapidamente expressões-chave em expressões sem ter de etiquetar as expressões. 
 

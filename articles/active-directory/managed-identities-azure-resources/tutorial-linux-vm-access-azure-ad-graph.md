@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 57e719c6ef75b08d8c188d2d2d344867bbf590b1
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b58bfc5345e06f82b2550ea2a1a53443946f2096
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623106"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427460"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Graph API do Azure AD
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 Este tutorial mostra-lhe como utilizar uma identidade gerida atribuída pelo sistema para uma máquina virtual (VM) do Linux para aceder à Graph API do Microsoft Azure AD, de modo a obter as associações a grupos. As identidades geridas dos recursos do Azure são geridas automaticamente pelo Azure e permitem que se autentique perante serviços que suportem Autenticação do Azure AD sem que seja necessário inserir as credenciais no seu código.  
 
@@ -135,7 +135,7 @@ Para concluir estes passos, precisará de um cliente SSH. Se estiver a utilizar 
 
 1. No portal, navegue para a VM do Linux e, em **Descrição Geral**, clique em **Ligar**.  
 2. **Ligue** à VM com o cliente SSH que escolher. 
-3. Na janela do terminal, através do CURL, envie um pedido às identidades geridas no local para que o ponto final dos recursos do Azure obtenha um token de acesso ao Azure AD Graph.  
+3. Na janela de terminal, com o CURL, fazer um pedido para as locais identidades geridas para o ponto final de recursos do Azure obter um acesso de token para o Azure AD Graph.  
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://graph.windows.net' -H Metadata:true
@@ -155,7 +155,7 @@ Para concluir estes passos, precisará de um cliente SSH. Se estiver a utilizar 
    }
    ```
 
-4. Com o ID de objeto do principal de serviço da VM (o valor que obteve nos passos anteriores), pode consultar o Graph API do Azure AD para obter as respetivas associações a grupos. Substitua `<OBJECT-ID>` pelo ID de objeto do principal de serviço da VM e `<ACCESS-TOKEN>` pelo token de acesso obtido anteriormente:
+4. Com o ID de objeto do principal de serviço da VM (o valor que obteve nos passos anteriores), pode consultar o Graph API do Azure AD para obter as respetivas associações a grupos. Substitua `<OBJECT-ID>` com o ID de objeto do principal de serviço da sua VM e `<ACCESS-TOKEN>` com o token de acesso obtido anteriormente:
 
    ```bash
    curl 'https://graph.windows.net/myorganization/servicePrincipals/<OBJECT-ID>/getMemberGroups?api-version=1.6' -X POST -d "{\"securityEnabledOnly\": false}" -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS-TOKEN>"

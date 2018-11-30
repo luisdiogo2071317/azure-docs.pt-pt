@@ -10,16 +10,26 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 26fb74dc122682e915c0f9a517bdee58d6c974db
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 4e08044fbfa36663da2da9ed18adf3249cb59930
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291203"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444147"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>Tutorial: aplicação Web de página única de Pesquisa Visual
 
 Este é o código-fonte completo discutido no tutorial [Aplicação Web de página única de Pesquisa Visual](tutorial-bing-visual-search-single-page-app.md) para a Pesquisa Visual do Bing. Para executar a aplicação, copie o código-fonte para o bloco de notas ou outro editor de texto e guarde-o como `bing-visual-search.html`. Em seguida, abra o ficheiro guardado no Microsoft Edge ou outro browser popular.
+## <a name="prerequisites"></a>Pré-requisitos
+Neste início rápido, terá de iniciar uma subscrição no escalão de preço S9, conforme mostrado na [Cognitive Services preços - API de pesquisa Bing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/). 
+
+Para iniciar uma subscrição no portal do Azure:
+1. Introduza "BingSearchV7" na caixa de texto na parte superior do portal do Azure, que diz `Search resources, services, and docs`.  
+2. Em Marketplace na lista pendente, selecione `Bing Search v7`.
+3. Introduza `Name` do novo recurso.
+4. Selecione `Pay-As-You-Go` subscrição.
+5. Selecione `S9` escalão de preço.
+6. Clique em `Enable` para iniciar a subscrição.
 
 ```html
 <!DOCTYPE html>
