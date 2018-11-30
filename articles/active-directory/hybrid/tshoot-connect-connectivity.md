@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7f34b0015a4a6d7b8c2c23f539cf21232adaec58
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5d5eee525c6f071840d186cb6bd54faf9bf2787b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311102"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310672"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Resolver problemas de conectividade com o Azure AD Connect
 Este artigo explica como funciona a conectividade entre o Azure AD Connect e o Azure AD e como resolver problemas de conectividade. Estes problemas são mais probabilidades de ser vistos num ambiente com um servidor proxy.
@@ -46,7 +46,7 @@ URLs, a tabela seguinte é o mínimo absoluto, para conseguir ligar ao Azure AD 
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Utilizado para transferir as listas CRL. |
 | \*.verisign.com |HTTP/80 |Utilizado para transferir as listas CRL. |
-| \*.entrust.com |HTTP/80 |Utilizado para transferir as listas CRL para a MFA. |
+| \*. entrust.net |HTTP/80 |Utilizado para transferir as listas CRL para a MFA. |
 | \*.windows.net |HTTPS/443 |Utilizado para iniciar sessão Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Utilizado para a MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Utilizado para configurar o diretório do Azure AD e importar/exportar dados. |
@@ -150,7 +150,7 @@ Aqui está um despejo de um registo de proxy real e a página do Assistente de i
 Esta secção abrange os erros que podem ser devolvidos da ADAL (a biblioteca de autenticação utilizada pelo Azure AD Connect) e o PowerShell. O erro explicado deve ajudá-lo a em compreender os passos seguintes.
 
 ### <a name="invalid-grant"></a>Concessão inválido
-Nome de utilizador ou palavra-passe inválidos. Para obter mais informações, consulte [não é possível verificar a palavra-passe](#the-password-cannot-be-verified).
+Nome de utilizador ou palavra-passe inválido. Para obter mais informações, consulte [não é possível verificar a palavra-passe](#the-password-cannot-be-verified).
 
 ### <a name="unknown-user-type"></a>Tipo de utilizador desconhecido
 Diretório do Azure AD não pode ser encontrado ou resolvido. Talvez tentar iniciar sessão com um nome de utilizador num domínio não verificado?

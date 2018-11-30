@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: b6f6653381b5fcf80b9647c64334dfed1a2230bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c6d5954ed3547666236130753dfd53d10475df43
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230857"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308993"
 ---
 # <a name="view-service-fabric-health-reports"></a>Ver relatórios de estado de funcionamento do Service Fabric
 O Azure Service Fabric introduz um [modelo de estado de funcionamento](service-fabric-health-introduction.md) com entidades de estado de funcionamento nas quais componentes de sistema e watchdogs pode relatório local condições que está a monitorizar. O [arquivo de estado de funcionamento](service-fabric-health-introduction.md#health-store) agrega todos os dados de estado de funcionamento para determinar se as entidades estão em bom estadas.
@@ -613,7 +613,7 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Pode obter o estado de funcionamento de partição com um [solicitação GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) ou uma [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
+Pode obter o estado de funcionamento de partição com um [solicitação GET](/rest/api/servicefabric/sfclient-api-getpartitionhealth) ou uma [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
 
 ## <a name="get-replica-health"></a>Obter o estado de funcionamento de réplica
 Devolve o estado de funcionamento de uma réplica de serviço com estado ou uma instância de serviço sem estado. Entrada:

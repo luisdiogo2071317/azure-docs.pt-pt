@@ -9,12 +9,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: da92f59c4e25ec012cd9ad389c9afac410ba28e1
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 9af7e57db0e465f59f43c93d0b5f6ec220836ff7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219312"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308193"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Controle experimentações e métricas de formação no Azure Machine Learning
 
@@ -255,7 +255,7 @@ Existem várias formas de utilizar as APIs para tipos diferentes de registo de m
 |Valor com sessão iniciada|Código de exemplo| Ver no portal|
 |----|----|----|
 |Registo de uma matriz de valores numéricos| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|gráfico de linhas de variável de único|
-|Um único valor numérico de registo com o mesmo nome de métrica repetidamente utilizado (semelhantes a partir de um for loop)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Gráfico de linhas de variável de único|
+|Um único valor numérico de registo com o mesmo nome de métrica repetidamente utilizado (semelhantes a partir de um for loop)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| gráfico de linhas de variável de único|
 |Inicie uma linha com 2 colunas numéricas repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de linhas de duas variáveis|
 |Tabela de logs de 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linhas de duas variáveis|
 
@@ -265,7 +265,9 @@ Os seguintes blocos de notas demonstram os conceitos deste artigo:
 * [01.Getting-Started/02.Train-on-local/02.Train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
 * [01.Getting-Started/06.Logging-API/06.Logging-API.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/06.logging-api/06.logging-api.ipynb)
 
-Obtenha estes blocos de notas: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+Obtenha estes blocos de notas:
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

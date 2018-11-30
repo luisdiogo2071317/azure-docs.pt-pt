@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 7f553300ce87ad24042e4d75b2e6e3742125783b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 34b2658ef4b25b3d545932ceffd2f3cf8969034e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284630"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309367"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: planear a implementação de associação do Azure AD
 
@@ -62,7 +62,7 @@ Para planear a implementação do Azure AD híbrido, deve familiarizar-se com:
 Embora híbrida associação do Azure AD pode ser preferencial para determinados cenários, o associação do Azure AD permite-lhe efetuar a transição para um modelo de cloud-first com Windows. Se estiver a planear modernizar a gestão de dispositivos e reduzir os custos de TI relacionados com o dispositivo, a associação do Azure AD fornece um ótimo alicerce para alcançar esses objetivos.  
 
  
-Deve considerar a associação do Azure AD Se os seus objetivos se alinham com os seguintes critérios:
+Deve considerar a associação do Azure AD Se os objetivos de alinham com os seguintes critérios:
 
 - Estão adotando o Microsoft 365 como o conjunto de produtividade para os seus utilizadores.
 
@@ -95,12 +95,14 @@ Ambiente federado, deve ter um fornecedor de identidade que oferece suporte a pr
 
 - **WS-Trust:** este protocolo é necessário para iniciar sessão num dispositivo associado ao Azure AD. 
 
-Se o fornecedor de identidade não suportar estes protocolos, associação do Azure AD não funciona de forma nativa. A partir do Windows 10 1809, os utilizadores podem iniciar sessão num dispositivo associado ao Azure AD com um fornecedor de identidade baseado em SAML por meio de um [web início de sessão no Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). 
+Se o fornecedor de identidade não suportar estes protocolos, associação do Azure AD não funciona de forma nativa. A partir do Windows 10 1809, os utilizadores podem iniciar sessão num dispositivo associado ao Azure AD com um fornecedor de identidade baseado em SAML através de [web início de sessão no Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Atualmente, web início de sessão é uma funcionalidade como só de pré-visualização.
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Autenticação baseada em certificados e smart cards
 
 Não é possível utilizar smart cards ou a autenticação baseada em certificado para associar dispositivos ao Azure AD. No entanto, os cartões inteligentes podem ser utilizado para iniciar sessão em dispositivos associados ao Azure AD, se tiver o AD FS configurado.
+
+**Recomendação:** implementar Windows Hello para empresas para a autenticação forte, sem palavra-passe em dispositivos Windows 10.
 
 
 ### <a name="user-configuration"></a>Configuração do utilizador
@@ -209,7 +211,9 @@ Dispositivos do Azure AD associado não suportam aplicações no local, contando
 
 **Recomendação:** considere extinguir esses aplicativos e mover a respetivas alternativas modernas.
 
+### <a name="remote-desktop-services"></a>Serviços de Ambiente de Trabalho Remoto
 
+Ligação de ambiente de trabalho remoto para um dispositivos associados ao Azure AD requer a máquina de host para ser de qualquer associados ao Azure AD ou Azure AD híbrido. Ambiente de trabalho remoto de um dispositivo retirado ou não Windows não é suportada. Para obter mais informações, consulte [pc associado a ligar ao remoto do Azure AD](https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc)
 
 
 ## <a name="understand-your-provisioning-options"></a>Compreender as opções de aprovisionamento

@@ -1,5 +1,5 @@
 ---
-title: Implementar uma área de trabalho do Machine Learning com o Azure Resource Manager | Documentos da Microsoft
+title: Implementar uma área de trabalho do Machine Learning com o Azure Resource Manager - Azure Machine Learning Studio | Documentos da Microsoft
 description: Como implementar uma área de trabalho para o Azure Machine Learning utilizando o modelo Azure Resource Manager
 services: machine-learning
 documentationcenter: ''
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/05/2018
-ms.openlocfilehash: e02dac0543fc7c59ae7b7d29bab1dfedb8bf737f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 82a9cfec0efe60e3a0cdf16efa373e68efebee59
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263184"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307985"
 ---
 # <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Implementar uma Área de Trabalho do Machine Learning com o Azure Resource Manager
-## <a name="introduction"></a>Introdução
+
 Utilizar um modelo de implementação poupa tempo ao fornecer-lhe uma forma dimensionável para o Azure Resource Manager implantar componentes interconectados com uma validação e mecanismo de repetição. Para configurar espaços de trabalho do Azure Machine Learning, por exemplo, terá primeiro de configurar uma conta de armazenamento do Azure e, em seguida, implementar a sua área de trabalho. Imagine a fazê-lo manualmente para centenas de áreas de trabalho. Uma alternativa mais fácil é usar um modelo Azure Resource Manager para implementar uma área de trabalho do Azure Machine Learning e todas as respetivas dependências. Este artigo leva-o ao longo deste processo passo a passo. Para uma excelente descrição geral do Azure Resource Manager, consulte [descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>Passo a passo: criar uma área de trabalho do Machine Learning

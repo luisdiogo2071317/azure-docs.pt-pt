@@ -1,5 +1,5 @@
 ---
-title: Utilizar os dados de importação/exportação no serviços web Azure Machine Learning | Documentos da Microsoft
+title: Importar/exportar dados a utilizar nos serviços de web do Azure Machine Learning Studio | Documentos da Microsoft
 description: Saiba como utilizar os módulos importar dados e exportar dados para enviar e receber dados de um serviço web.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 3fa33572e60a43c66eca404e426232f9864a294e
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ee7d0fb4792983099dc6192de8f85338daee357f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264646"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306952"
 ---
-# <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços Web do Azure ML que utilizam módulos Importar Dados e Exportar Dados
+# <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços web Azure Machine Learning Studio que utilizam módulos importar dados e exportação de dados
 
 Quando cria uma experimentação preditiva, normalmente, adicione uma entrada do serviço web e a saída. Quando implementa a experimentação, os consumidores podem enviar e receber dados do serviço web através de entradas e saídas. Para algumas aplicações, dados de um consumidor poderão estar disponível a partir de um feed de dados ou já estejam na origem de dados externa, como o armazenamento de Blobs do Azure. Nestes casos, eles não precisam de leitura e escrita de dados com o web service entradas e saídas. Podem, em vez disso, utilize o serviço de execução de lote (BES) para ler dados de origem de dados com um módulo de importar dados e escrever os resultados de classificação para uma localização de dados diferentes usando um módulo de exportar dados.
 

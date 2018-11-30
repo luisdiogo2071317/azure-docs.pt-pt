@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/3/2018
+ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: f865a0a609422ae4938a9cccf15d9cd176a9400a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 779efdd509460ac8175b3922097d701edf8b9b68
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227795"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311233"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gerir e responder a alertas de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a utilizar o Centro de Segurança do Azure para gerir e responder a alertas de segurança.
 
 > [!NOTE]
-> Para ativar as deteções avançadas, atualize para o Centro de Segurança do Azure Standard. Está disponível uma avaliação gratuita de 60 dias. Para atualizar, selecione Escalão de Preço na [Política de Segurança](security-center-policies.md). Veja [Preços do Centro de Segurança do Azure](security-center-pricing.md) para saber mais.
+> Para ativar as deteções avançadas, atualize para o Centro de Segurança do Azure Standard. Está disponível uma avaliação gratuita de 60 dias. Para atualizar, selecione Escalão de Preço na [Política de Segurança](security-center-azure-policy.md). Veja [Preços do Centro de Segurança do Azure](security-center-pricing.md) para saber mais.
 >
 >
 
@@ -63,6 +63,20 @@ Na parte inferior desta página encontram-se os detalhes de cada alerta. Para or
 > [!NOTE]
 > Os alertas de segurança gerados pelo Centro de Segurança também serão apresentado no Registo de Atividades do Azure. Para obter mais informações sobre como aceder ao Registo de Atividades do Azure, leia [Ver registos de atividades para auditar as ações em recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 >
+
+
+### <a name="alert-severity"></a>Gravidade do alerta
+
+> [!NOTE]
+> Gravidade do alerta é apresentada de forma diferente no portal e a API REST, as diferenças são assinaladas na lista abaixo.
+
+-   **Alta**: há uma grande probabilidade de que o recurso é comprometido. Deve analisar o problema imediatamente. Centro de segurança tem alta confiança as más intenções e as descobertas utilizadas para emitir o alerta. Por exemplo, um alerta que Deteta a execução de uma ferramenta maliciosa conhecida, como o Mimikatz, uma ferramenta de comum usada para roubo de credenciais. 
+-   **Médio (baixa na REST API)**: provavelmente se trata de uma atividade suspeita que possam indicar que um recurso é comprometido.
+Confiança do Centro de segurança na análise ou finding é médio e a confiança de más intenções é médio a alto. Normalmente, seriam o machine learning ou deteções de anomalias com base. Por exemplo, um tentativa de uma localização anómala de início de sessão.
+-   **Baixa (informações na REST API)**: pode ser um positivo benigno ou um ataque de bloqueado. 
+    - Centro de segurança não é suficientemente seguro que a intenção é maliciosa e a atividade pode ser inofensiva. Por exemplo, o log claro é uma ação que pode ocorrer quando um atacante tenta ocultar os ataques, mas em muitos casos é uma operação de rotina realizada por administradores.
+    - Centro de segurança não normalmente indicam quando foram bloqueados ataques, a menos que seja um caso interessante que sugerimos que examinar. 
+-   **Informativo (silencioso na REST API)**: só conseguirá ver alertas informativos ao desagregar para um incidente de segurança ou, se usar a API de REST com um específico alertá-ID. Um incidente é geralmente constituído por um número de alertas, alguns dos quais podem aparecer na sua própria conta para ser apenas informativa, mas no contexto dos outros alertas podem ser digna de uma análise detalhada. 
 
 ### <a name="filtering-alerts"></a>Filtragem de alertas
 Pode filtrar os alertas com base na data, no estado e na gravidade. A filtragem de alertas pode ser útil para cenários onde necessita de limitar o âmbito dos alertas de segurança mostrados. Por exemplo, pode pretender resolver alertas de segurança que ocorreram nas últimas 24 horas, porque está a investigar uma potencial violação no sistema.

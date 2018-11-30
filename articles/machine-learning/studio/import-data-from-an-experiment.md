@@ -1,5 +1,5 @@
 ---
-title: Importar dados para Machine Learning Studio a partir de outra experimentação | Documentos da Microsoft
+title: Importar dados para Machine Learning Studio a partir de outra experimentação - Azure | Documentos da Microsoft
 description: Como guardar dados de formação no Azure Machine Learning Studio e utilizá-lo em outra experimentação.
 keywords: Importar dados, dados, origens de dados, dados de treinamento
 services: machine-learning
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: cb024f757772ec22adcf4513c422d41628ab7360
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 098459c3c2c8402a4dbcefd88fd79d0883611053
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265156"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308042"
 ---
 # <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>Importar os seus dados para o Azure Machine Learning Studio a partir de outra experimentação
 

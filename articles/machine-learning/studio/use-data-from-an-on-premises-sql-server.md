@@ -1,6 +1,6 @@
 ---
-title: Utilizar um SQL Server no local no Azure Machine Learning | Documentos da Microsoft
-description: Utilize dados a partir de uma base de dados do SQL Server no local para realizar análises avançadas com o Azure Machine Learning.
+title: No local do SQL Server com o Azure Machine Learning Studio | Documentos da Microsoft
+description: Utilize dados a partir de uma base de dados do SQL Server no local para realizar análises avançadas com o Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: 83ec812f18e7e47f30db79a6d665d60fae9e0e5d
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263218"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310961"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Fazer análises avançadas com o Azure Machine Learning ao utilizar dados de uma base de dados do SQL Server no local
 
 Muitas vezes, as empresas que funcionam com dados no local pretende tirar partido do dimensionamento e agilidade da cloud para as suas cargas de trabalho de aprendizagem. Mas não quer interromper os processos empresariais atuais e fluxos de trabalho ao mover seus dados no local para a cloud. O Azure Machine Learning suporta agora ler seus dados a partir de uma base de dados do SQL Server no local e, em seguida, treinamento e um modelo com esses dados de classificação. Já não terá de copiar e sincronizar os dados entre a cloud e o servidor no local manualmente. Em vez disso, o **importar dados** módulo no Azure Machine Learning Studio agora pode ler diretamente a partir do seu banco de dados do SQL Server no local para a preparação e classificação de tarefas.
 
-Este artigo fornece uma descrição geral de como entrada no local dados do SQL server no Azure Machine Learning. Parte do princípio de que esteja familiarizado com conceitos do Azure Machine Learning como áreas de trabalho, módulos, conjuntos de dados, experiências, *etc.*.
+Este artigo fornece uma descrição geral de como entrada no local dados do SQL server no Azure Machine Learning Studio. Parte do princípio de que esteja familiarizado com conceitos do Azure Machine Learning como áreas de trabalho, módulos, conjuntos de dados, experiências, *etc.*.
 
 > [!NOTE]
 > Esta funcionalidade não está disponível para áreas de trabalho gratuitas. Para obter mais informações sobre preços de Machine Learning e camadas, consulte [preços do Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).

@@ -1,6 +1,6 @@
 ---
-title: Criar experimentações de exemplo de machine learning - Azure | Microsoft Docs
-description: Saiba como utilizar experimentações de exemplo de machine learning para criar novas experimentações com a Galeria de IA do Azure e com o Azure Machine Learning.
+title: Criar experimentações de Machine Learning Studio a partir dos exemplos - Azure | Documentos da Microsoft
+description: Saiba como utilizar o exemplo experimentações de machine learning para criar novas experimentações com a Galeria de IA do Azure e Azure Machine Learning Studio.
 keywords: exemplos machine learning, experimentação de exemplo, machine learning exemplo, exemplos IA
 services: machine-learning
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: 7bb6f054b81b21783cecb15c3b5caa9bcf6f77cd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264295"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306685"
 ---
 # <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Criar experimentações do machine learning a partir de exemplos de trabalho na Galeria de AI do Azure
 

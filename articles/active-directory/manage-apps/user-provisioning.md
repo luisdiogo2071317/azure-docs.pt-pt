@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387282"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311458"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
 
@@ -255,7 +255,7 @@ No entanto, para os utilizadores B2B poderá iniciar sessão aplicação SaaS co
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>O aprovisionamento automático de utilizadores com o trabalho de aplicações SaaS com grupos dinâmicos no Azure AD?
 
-Sim. Quando configurado para "utilizadores da sincronização só atribuído e grupos", o serviço de aprovisionamento de utilizador do Azure AD pode aprovisionar ou desaprovisionar os utilizadores numa aplicação SaaS com base na ou não são membros de um [dynamic grupo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Grupos dinâmicos também funcionam com a opção "Sincronizar todos os utilizadores e grupos".
+Sim. Quando configurado para "utilizadores da sincronização só atribuído e grupos", o serviço de aprovisionamento de utilizador do Azure AD pode aprovisionar ou desaprovisionar os utilizadores numa aplicação SaaS com base na ou não são membros de um [dynamic grupo](../users-groups-roles/groups-create-rule.md). Grupos dinâmicos também funcionam com a opção "Sincronizar todos os utilizadores e grupos".
 
 No entanto, a utilização de grupos dinâmicos pode afetar o desempenho geral do aprovisionamento do Azure AD para aplicações SaaS de utilizadores de ponto-a-ponto. Quando utilizar grupos dinâmicos, mantenha estas limitações e recomendações em mente:
 

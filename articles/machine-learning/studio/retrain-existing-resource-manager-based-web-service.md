@@ -1,6 +1,6 @@
 ---
-title: Reenviar um serviço web preditivo existente | Documentos da Microsoft
-description: Saiba como voltar a preparar um modelo e atualizar o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning.
+title: Reenviar um serviço web preditivo existente - Azure Machine Learning Studio | Documentos da Microsoft
+description: Saiba como voltar a preparar um modelo e atualizar o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 9fb3ccee9a50fa7758547fffe2573104679aef7e
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 8da3c5d5c79ce52f1f5176a8b3317ce2a0e0bc5f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263456"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311301"
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Reenviar um serviço web preditivo existente
 Este documento descreve o processo de reparametrização para o seguinte cenário:

@@ -1,5 +1,5 @@
 ---
-title: Saiba como gerir os serviços de web do AzureML com a gestão de API | Documentos da Microsoft
+title: Gerir os serviços da web de Machine Learning Studio com a gestão de API - Azure | Documentos da Microsoft
 description: Um guia que mostram como gerir os serviços de web do AzureML com a gestão de API.
 keywords: aprendizagem automática, gestão de api
 services: machine-learning
@@ -17,16 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: bc0c8f40c8e2fb75e95e1745b53332aa8e4588ca
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265224"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308244"
 ---
-# <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Saiba como gerir os serviços Web do Azure ML com a Gestão de API
+# <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gerir os serviços de web do Azure Machine Learning Studio com a gestão de API
 ## <a name="overview"></a>Descrição geral
-Este guia mostra-lhe como começar a utilizar rapidamente a utilizar a gestão de API para gerir os seus serviços web do AzureML.
+Este guia mostra-lhe como começar a utilizar rapidamente a utilizar a gestão de API para gerir os seus serviços web do Azure Machine Learning Studio.
 
 ## <a name="what-is-azure-api-management"></a>O que é a API Management do Azure?
 Gestão de API do Azure é um serviço do Azure que lhe permite gerir os pontos finais de REST API com a definição de acesso de utilizador, a otimização do uso e a monitorização do dashboard. Clique em [aqui](https://azure.microsoft.com/services/api-management/) para obter detalhes sobre a gestão de API do Azure. Clique em [aqui](../../api-management/api-management-get-started.md) para um guia sobre como começar com a API Management do Azure. Esse outro guia, que baseia-se neste guia, abrange mais tópicos, incluindo configurações de notificação, escalão de preço, manipulação de resposta, autenticação de utilizador, a criação de produtos, as assinaturas de desenvolvedor e vistas de utilização.

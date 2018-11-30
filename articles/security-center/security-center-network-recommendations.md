@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a7f21d0ebebbe2c811470de384cc5ee9a34ab060
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 449fdbceeb0b64d58c589fe5dbde61302ee27afb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006163"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309213"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteger os seus recursos de rede no Centro de segurança do Azure
 Centro de segurança do Azure analisa continuamente o estado de segurança dos seus recursos do Azure para práticas recomendadas de segurança de rede. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que o guiar ao longo do processo de configuração de controlos necessários para proteger e proteger os seus recursos.
@@ -149,6 +149,6 @@ Para saber mais sobre as recomendações que se aplicam a outros tipos de recurs
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-policies.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.

@@ -14,12 +14,12 @@ ms.component: compliance
 ms.date: 11/15/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: c1ae6e8c67ab42207aea73932bb2e887db727f16
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5a68657a0aaedb389ccaaacebb890583ab6292ee
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263389"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307853"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Criar uma revisão de acesso de membros do grupo ou o acesso de aplicação com o Azure AD
 
@@ -77,7 +77,7 @@ Este artigo descreve como criar uma nova revisão de acesso para membros do grup
 1. Utilize o **deve o revisor não responder** lista para especificar o que acontece para os utilizadores que não são revistos pelo revisor dentro do período de revisão. Esta definição não afeta os utilizadores que foram revistos, os revisores manualmente. Se a decisão do revisor final é negar, em seguida, o acesso do utilizador será removido.
 
     - **Nenhuma alteração** -deixe sem alterações de acesso de utilizador
-    - **Remover a iniciativas** -remover o acesso do utilizador
+    - **Remover o acesso** -remover o acesso do utilizador
     - **Aprovar o acesso** -aprovar o acesso do utilizador
     - **Efetuar recomendações** - tirar a recomendação do sistema ao negar ou aprovar o utilizador do acesso contínuo
 

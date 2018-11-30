@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 69fbbe13c2c6c8a2bb193054a9b8e613832005e2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7bd6b6fa82d2c7c8129f7e88df6803b697bfc6d6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257321"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307426"
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Ativar a encriptação para a conta de armazenamento do Azure no Centro de segurança do Azure
 Centro de segurança do Azure poderá recomendar que ativar a encriptação de serviço de armazenamento do Azure para dados inativos.
@@ -58,7 +58,7 @@ Este documento de mostrar como implementar a recomendação do Centro de seguran
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de segurança do Azure](security-center-policies.md) -Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
+* [Definir políticas de segurança no Centro de segurança do Azure](security-center-azure-policy.md) -Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
 * [Monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md) -Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de segurança do Azure](security-center-managing-and-responding-alerts.md) -Saiba como gerir e responder a alertas de segurança.
 * [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md) -Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.

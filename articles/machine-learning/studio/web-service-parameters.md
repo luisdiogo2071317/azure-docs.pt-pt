@@ -1,5 +1,5 @@
 ---
-title: Utilizar o Azure Machine Learning parâmetros do serviço Web | Documentos da Microsoft
+title: Utilizar parâmetros do serviço web Azure Machine Learning Studio | Documentos da Microsoft
 description: Como utilizar parâmetros do serviço Web Azure Machine Learning para modificar o comportamento do seu modelo quando o serviço web é acessado.
 services: machine-learning
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 34ae252ff2c37a6e4e9f90155c4fda79b81e29a2
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0e8a1a4bb90f935bf3890bd803b9375d10261aa7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264340"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312015"
 ---
-# <a name="use-azure-machine-learning-web-service-parameters"></a>Utilizar Parâmetros do Serviço Web do Azure Machine Learning
+# <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Utilizar parâmetros do serviço web Azure Machine Learning Studio
 Um serviço web Azure Machine Learning é criado ao publicar uma experimentação que contém módulos com parâmetros configuráveis. Em alguns casos, talvez queira alterar o comportamento de módulo, enquanto o serviço web está em execução. *Parâmetros de serviço da Web* permitem-lhe executar esta tarefa. 
 
 Um exemplo comum é a configuração do [importar dados] [ reader] módulo para que o utilizador do serviço web publicado pode especificar uma origem de dados diferente quando o serviço web é acessado. Ou configurar o [exportar dados] [ writer] módulo, de modo a que pode ser especificado um destino diferente. Alguns exemplos incluem a alterar o número de bits para o [Hashing de funcionalidade] [ feature-hashing] módulo ou o número de pretendido funcionalidades para o [seleção de funcionalidades com base no filtro] [ filter-based-feature-selection] módulo. 

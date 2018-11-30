@@ -1,6 +1,6 @@
 ---
-title: Como consumir um serviço Web do Azure Machine Learning | Documentos da Microsoft
-description: Assim que um serviço de aprendizagem automática é implementado, o serviço RESTFul Web disponibilizado pode ser consumido, como o serviço de solicitação-resposta em tempo real, ou como um serviço de execução do batch.
+title: Como consumir um serviço web do Azure Machine Learning Studio | Documentos da Microsoft
+description: Depois de um serviço de aprendizagem automática é implementado a partir do Azure Machine Learning Studio, o serviço RESTFul Web pode ser utilizado como o serviço de solicitação-resposta em tempo real ou como um serviço de execução do batch.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: 0f95ea1de572beb02cd1680864d3fee781e9abc1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: df837c64cf0e40f3bfc1c596b2950a9d23c74a90
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262827"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309111"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Como consumir um serviço Web do Azure Machine Learning
+# <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Como consumir um serviço web do Azure Machine Learning Studio
 
 Depois de implementar um modelo preditivo de Machine Learning do Azure como um serviço Web, pode utilizar uma API REST para enviar os dados e obter previsões de indisponibilidade. Pode enviar os dados em tempo real ou no modo de lote.
 

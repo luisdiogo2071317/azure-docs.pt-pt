@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 8f552967dcf7e5c5d41d468914a2c829cad3dc96
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 8ac288a3b62b305ca45ba8ef2dcc6cdaf6aaf6bd
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010301"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309646"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Kafka num cluster do HDInsight
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Apache Kafka num cluster do HDInsight
 
-O Kafka é uma plataforma open source de transmissão em fluxo distribuída. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
+[Apache Kafka](https://kafka.apache.org/) é uma plataforma de transmissão em fluxo distribuída e de código-fonte aberto. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição. 
 
 Neste guia de início rápido, irá aprender a criar um cluster do [Apache Kafka](https://kafka.apache.org) com o Azure PowerShell. Também irá saber como utilizar utilitários incluídos para enviar e receber mensagens com o Kafka.
 
@@ -27,7 +27,7 @@ Neste guia de início rápido, irá aprender a criar um cluster do [Apache Kafka
 > [!IMPORTANT]
 > Só os recursos dentro da mesma rede virtual podem aceder à API Kafka. Neste guia de início rápido, irá aceder ao cluster diretamente através de SSH. Para ligar outros serviços, redes ou máquinas virtuais ao Kafka, tem primeiro de criar uma rede virtual e, em seguida, criar os recursos dentro da rede.
 >
-> Para obter mais informações, veja o documento [Ligar ao Kafka com uma rede virtual](apache-kafka-connect-vpn-gateway.md).
+> Para obter mais informações, veja o documento [Ligar ao Apache Kafka com uma rede virtual](apache-kafka-connect-vpn-gateway.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -95,9 +95,9 @@ $storageContext = New-AzureStorageContext `
 New-AzureStorageContainer -Name $containerName -Context $storageContext 
 ```
 
-## <a name="create-a-kafka-cluster"></a>Criar um cluster Kafka
+## <a name="create-an-apache-kafka-cluster"></a>Criar um cluster do Apache Kafka
 
-Crie um cluster do Kafka no HDInsight com [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
+Criar um Apache Kafka no cluster do HDInsight com [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
 
 ```powershell
 # Create a Kafka 1.0 cluster
@@ -182,11 +182,11 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Obter as informações dos anfitriões Zookeeper e Mediador
+## <a id="getkafkainfo"></a>Obter as informações do anfitrião Apache Zookeeper e Mediador
 
-Ao trabalhar com o Kafka, tem de conhecer os anfitriões *Zookeeper* e *Mediador*. Estes anfitriões são utilizados com a API Kafka e com muitos dos utilitários que são enviados com o Kafka.
+Ao trabalhar com o Kafka, tem de saber o *Apache Zookeeper* e *Broker* anfitriões. Estes anfitriões são utilizados com a API Kafka e com muitos dos utilitários que são enviados com o Kafka.
 
-Nesta secção, irá obter as informações do anfitrião da API REST do Ambari no cluster.
+Nesta secção, recebe as informações do anfitrião da API REST do Apache Ambari no cluster.
 
 1. A partir da ligação SSH ao cluster, utilize o comando seguinte para instalar o utilitário `jq`. Este utilitário é utilizado para analisar documentos JSON e é útil para obter as informações do anfitrião:
    
@@ -241,7 +241,7 @@ Nesta secção, irá obter as informações do anfitrião da API REST do Ambari 
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
-## <a name="manage-kafka-topics"></a>Gerir tópicos do Kafka
+## <a name="manage-apache-kafka-topics"></a>Gerir tópicos do Apache Kafka
 
 O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kafka-topics.sh` para gerir os tópicos.
 
@@ -267,7 +267,7 @@ O Kafka armazena fluxos de dados em *tópicos*. Pode utilizar o utilitário `kaf
         > [!IMPORTANT] 
         > O Kafka não está ciente dos domínios de falha do Azure. Durante a criação de réplicas de partição para tópicos, poderá não distribuir as réplicas corretamente para fins de elevada disponibilidade.
 
-        Para garantir a elevada disponibilidade, utilize a [ferramenta de rebalanceamento de partições de Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta ferramenta deve ser executada a partir de uma ligação SSH para o nó principal do cluster do Kafka.
+        Para garantir a elevada disponibilidade, utilize o [ferramenta de reequilíbrio de partições do Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta ferramenta deve ser executada a partir de uma ligação SSH para o nó principal do cluster do Kafka.
 
         Para garantir a maior disponibilidade dos seus dados do Kafka, deve reequilibrar as réplicas de partições do tópico ao:
 
@@ -329,7 +329,7 @@ Utilize os seguintes passos para armazenar os registos no tópico de teste criad
 
 4. Utilize __Ctrl + C__ para parar o consumidor.
 
-Também podem criar programaticamente produtores e consumidores. Para obter um exemplo de utilização desta API, veja o documento [Produtor Kafka e a API de Consumidor com o HDInsight](apache-kafka-producer-consumer-api.md).
+Também podem criar programaticamente produtores e consumidores. Para obter um exemplo de utilização desta API, consulte a [produtor do Apache Kafka e API de consumidor com o HDInsight](apache-kafka-producer-consumer-api.md) documento.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -344,7 +344,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 > 
 > Eliminar um cluster do Kafka no HDInsight elimina quaisquer dados armazenados no Kafka.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Utilizar o Apache Spark com o Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Utilizar o Apache Spark com o Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

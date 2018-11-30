@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 3fd0dfb327e925ecb28a7ca12e03b79c873118dc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515646"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309349"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ
 
@@ -93,6 +93,7 @@ Para versões de SO do Windows de nível inferior que estão no local AD associa
 
 >[!Note] 
 >Para dispositivos inscritos, é recomendável limpar o dispositivo para garantir que os utilizadores não podem aceder os recursos. Para obter mais informações, consulte [inscrever dispositivos para gestão no Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
+
 ---
 
 # <a name="azure-ad-join-faq"></a>FAQ de associação do Azure AD
@@ -103,6 +104,20 @@ Para versões de SO do Windows de nível inferior que estão no local AD associa
 - Para dispositivos do Azure AD associado híbrida, certifique-se desativar o registro automático para que a tarefa agendada não volte a registar o dispositivo. Em seguida, abra a linha de comandos como administrador e tipo `dsregcmd.exe /debug /leave`. Em alternativa, este comando pode ser executado como um script em vários dispositivos de anulação da associação em massa.
 
 - Para puro associado do AD Azure dispositivos, certifique-se de que tem um administrador local offline de conta ou criar uma, como não será possível iniciar sessão com qualquer credenciais de utilizador do Azure AD. Em seguida, aceda a **configurações** > **contas** > **acesso profissional ou escolar**. Selecione a sua conta e clique em **desligar**. Siga as instruções e forneça as credenciais de administrador local quando lhe for pedido. Reinicie o dispositivo para concluir o processo de unjoin.
+
+---
+
+**P: os meus utilizadores iniciar sessão em dispositivos associados ao Azure AD que foi eliminados ou desativados no Azure AD? ** 
+ **R:** Sim. Windows tem em cache capacidade de início de sessão para permitir que anteriormente registadas em que os utilizadores acedam a área de trabalho rapidamente, mesmo sem conectividade de rede. Quando um dispositivo é eliminado ou desativado no Azure AD, não é conhecido no dispositivo do Windows. Então, anteriormente registado nos utilizadores podem continuar a aceder a área de trabalho com o início de sessão em cache. No entanto, à medida que o dispositivo é eliminado ou desativado, os utilizadores não podem aceder a quaisquer recursos protegidos pelo acesso condicional com base no dispositivo. 
+
+Os utilizadores que ainda não tiver sessão iniciada não é possível aceder ao dispositivo, porque não existe nenhum início de sessão em cache ativado para os mesmos. 
+
+---
+
+**P: os utilizadores desativados ou eliminados iniciar sessão em dispositivos associados ao Azure AD? ** 
+ **R:** Sim, mas apenas por um período limitado. Quando um utilizador é eliminado ou desativado no Azure AD, ele não é imediatamente conhecido para o dispositivo do Windows. Então, anteriormente registado nos usuários podem acessar a área de trabalho com o início de sessão em cache. Depois do dispositivo estiver ciente de que o estado do utilizador (normalmente em menos de 4 horas), o Windows bloqueia os utilizadores acedam ao ambiente de trabalho. À medida que o utilizador é eliminado ou desativado no Azure AD, todos os seus tokens vão ser revogados, pelo que não é possível aceder a quaisquer recursos. 
+
+Os utilizadores de desativada ou eliminados que ainda não iniciou sessão anteriormente não é possível aceder um dispositivo porque não existe nenhum início de sessão em cache ativado para os mesmos. 
 
 ---
 

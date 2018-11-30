@@ -1,6 +1,6 @@
 ---
-title: Resolver problemas de reparametrização um serviço web clássico do Azure Machine Learning | Documentos da Microsoft
-description: Identificar e corrigir encontrou de problemas comuns quando são reparametrização do modelo para um serviço Web do Azure Machine Learning.
+title: Resolver problemas de reparametrização um serviço web clássico de Machine Learning Studio - Azure | Documentos da Microsoft
+description: Identificar e corrigir encontrou de problemas comuns quando são reparametrização do modelo para um web service do Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 49a76729d38662667328632c83e98a1211438a98
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261706"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307207"
 ---
-# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Resolução de problemas relativos a novas preparações de um serviço web clássico do Azure Machine Learning
+# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Resolução de problemas relativos a novas preparações de um serviço web clássico do Azure Machine Learning Studio
 ## <a name="retraining-overview"></a>Descrição geral de reparametrização
 Ao implementar uma experimentação preditiva como um serviço web de pontuação é um modelo estático. À medida que novos dados torna-se disponível, ou quando o consumidor da API tem seus próprios dados, tem de reestruturar o modelo. 
 

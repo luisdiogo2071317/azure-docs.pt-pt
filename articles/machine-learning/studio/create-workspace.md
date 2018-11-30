@@ -1,6 +1,6 @@
 ---
-title: Criar um Machine Learning Studio área de trabalho | Documentos da Microsoft
-description: Como criar uma área de trabalho para o Azure Machine Learning Studio
+title: Criar uma área de trabalho do Studio de aprendizagem do Azure | Documentos da Microsoft
+description: Para utilizar o Azure Machine Learning Studio, tem de ter uma área de trabalho do Machine Learning Studio. Esta área de trabalho contém as ferramentas de que precisa para criar, gerir e publicar experimentações.
 services: machine-learning
 author: ericlicoding
 ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
@@ -13,12 +13,12 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: c05a7720cf3ac039fc2503221a602e0281738a2c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 8362468d329f12ad8ebf25c8d205ec7d35ac6c28
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264204"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307224"
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Criar e partilhar uma área de trabalho do Azure Machine Learning
 

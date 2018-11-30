@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 678a31b8c07b21e4bb2c43b8e8bc286d66ee4bab
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2a5717f95e5e40fe04f4fa22eaedf168539e20f3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233750"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309234"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilizar o PowerShell para definir alertas no Application Insights
 Pode automatizar a configuração do [alertas](app-insights-alerts.md) na [Application Insights](app-insights-overview.md).
@@ -43,15 +43,15 @@ Inicie o Azure PowerShell e [ligar à sua subscrição](/powershell/azure/overvi
 
 ```PowerShell
 
-    Add-AzureAccount
+    Add-AzureRmAccount
 ```
 
 
 ## <a name="get-alerts"></a>Obter alertas
-    Get-AzureAlertRmRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+    Get-AzureRmAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
 ## <a name="add-alert"></a>Adicionar alerta
-    Add-AlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
+    Add-AzureRmMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
      -MetricName "{METRIC NAME}" `
@@ -70,7 +70,7 @@ Enviar-me e-mail se a resposta do servidor para pedidos HTTP, apresentou uma mé
 
 O GUID é o ID de subscrição (não a chave de instrumentação do aplicativo).
 
-    Add-AlertRule -Name "slow responses" `
+    Add-AzureRmMetricAlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
@@ -84,7 +84,7 @@ O GUID é o ID de subscrição (não a chave de instrumentação do aplicativo).
 ## <a name="example-2"></a>Exemplo 2
 Tenho um aplicativo em que uso [trackmetric ()](app-insights-api-custom-events-metrics.md#trackmetric) para reportar uma métrica com o nome "salesPerHour." Envie que um e-mail para meus colegas se "salesPerHour" cai abaixo de 100, uma média de mais de 24 horas.
 
-    Add-AlertRule -Name "poor sales" `
+    Add-AzureRmMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `

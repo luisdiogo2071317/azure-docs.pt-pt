@@ -1,6 +1,6 @@
 ---
-title: Utilizar o portal de serviços da Web do Azure Machine Learning | Documentos da Microsoft
-description: Gerir o acesso a áreas de trabalho do Azure Machine Learning e implementar e gerir os serviços da web de API de ML
+title: Utilizar o portal de serviços Web Machine Learning - Azure Machine Learning Studio | Documentos da Microsoft
+description: Pode gerenciar seu novo do Machine Learning e serviços Web clássicos com o portal do Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web clássicos e serviços Web novos baseiam-se nos diferentes tecnologias subjacentes, tem funcionalidades de gestão ligeiramente diferente para cada uma delas.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.openlocfilehash: e21d6e05e3d43bbdcc498c9c4b294269cc3069cd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 78e776da17e8e068ff45e426795fa5d86a92cc79
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261348"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308669"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Gerir um serviço Web através do portal do Azure Machine Learning Web Services
+# <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Gerir um serviço web através do portal do Azure Machine Learning Web Services
 Pode gerenciar seu novo do Machine Learning e serviços Web clássicos com o portal do Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web clássicos e serviços Web novos baseiam-se nos diferentes tecnologias subjacentes, tem funcionalidades de gestão ligeiramente diferente para cada uma delas.
 
 No portal do Machine Learning Web Services, pode:

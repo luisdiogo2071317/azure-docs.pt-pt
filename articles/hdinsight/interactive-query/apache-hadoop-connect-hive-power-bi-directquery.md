@@ -9,25 +9,25 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 46b5b3436a33c3f83d85cfb02028759d53d214af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 68f2314b995eb0f2f67307b44cbfd177f5c5a796
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245278"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309275"
 ---
-# <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualizar dados de consulta interativa do Hive com o Microsoft Power BI através da consulta direta no Azure HDInsight
+# <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualizar dados de Interactive Query Apache Hive com o Microsoft Power BI através da consulta direta no Azure HDInsight
 
 Este artigo descreve como ligar o Microsoft Power BI para clusters do Azure HDInsight Interactive Query e visualize os dados do Apache Hive através da consulta direta. O exemplo fornecido carrega os dados de uma tabela de Hive hivesampletable para o Power BI. A tabela de Hive hivesampletable contém alguns dados de utilização do telefone celular. Em seguida, representar os dados de utilização num mapa-mundo:
 
 ![HDInsight Power BI, o relatório de mapa](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
-Pode aproveitar o [controlador ODBC do Hive](../hadoop/apache-hadoop-connect-hive-power-bi.md) para importar através do conector ODBC genérico no Power BI Desktop. No entanto não é recomendado para cargas de trabalho de BI dadas a natureza não interativa do motor de consulta do Hive. [Conector do Interactive Query do HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) e [conector do Spark do HDInsight](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) são opções melhor para seu desempenho.
+Pode aproveitar o [controlador ODBC do Hive do Apache](../hadoop/apache-hadoop-connect-hive-power-bi.md) para importar através do conector ODBC genérico no Power BI Desktop. No entanto não é recomendado para cargas de trabalho de BI dadas a natureza não interativa do motor de consulta do Hive. [Conector do Interactive Query do HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) e [conector do Spark do HDInsight Apache](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) são opções melhor para seu desempenho.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de passar por este artigo, tem de ter os seguintes itens:
 
-* **Cluster de HDInsight**. O cluster pode ser um cluster do HDInsight com o Hive ou um cluster do Interactive Query recém-lançada. Para criar clusters, veja [criar um cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+* **Cluster de HDInsight**. O cluster pode ser um cluster do HDInsight com o Apache Hive ou um cluster do Interactive Query recém-lançada. Para criar clusters, veja [criar um cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 * **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**. Pode baixar uma cópia a partir da [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## <a name="load-data-from-hdinsight"></a>Carregar dados do HDInsight
@@ -79,10 +79,10 @@ Continue a partir do último procedimento.
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a visualizar dados do HDInsight com o Power BI.  Para obter mais informações sobre a visualização de dados, consulte os artigos seguintes:
 
-* [Visualizar dados do Hive com o Microsoft Power BI com ODBC no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
-* [Utilizar o Zeppelin para executar consultas do Hive no Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Visualize os dados do Apache Hive com o Microsoft Power BI com ODBC no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
+* [Utilizar Apache Zeppelin para executar consultas do Apache Hive no Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Ligar o Excel ao HDInsight com o controlador Microsoft Hive ODBC](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Ligar o Excel ao Hadoop com o Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
-* [Ligar ao Azure HDInsight e executar consultas do Hive com o Data Lake Tools para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* [Ligar o Excel para Apache Hadoop com o Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
+* [Ligar ao Azure HDInsight e executar consultas do Apache Hive com o Data Lake Tools para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 * [Utilize a ferramenta do Azure HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
 * [Carregar dados para o HDInsight](./../hdinsight-upload-data.md).

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: ff194ef7f5ae609eba5334eb5c66db02d660ab08
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8a67327497c96cba570d2ddb8c525bf5a60be790
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049636"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308227"
 ---
-# <a name="phoenix-performance-best-practices"></a>Melhores práticas de desempenho do Phoenix
+# <a name="apache-phoenix-performance-best-practices"></a>Práticas recomendadas de Apache Phoenix
 
-O aspecto mais importante do desempenho do Phoenix é otimizar o HBase subjacente. Phoenix cria um modelo de dados relacionais sobre o HBase que converte consultas SQL em operações de HBase, como análises. O design de seu esquema de tabela, a seleção e ordenação dos campos na sua chave primária e a sua utilização de índices, todos os afetar o desempenho do Phoenix.
+O aspecto mais importante da [Apache Phoenix](https://phoenix.apache.org/) desempenho é otimizar subjacentes [Apache HBase](http://hbase.apache.org/). Phoenix cria um modelo de dados relacionais sobre o HBase que converte consultas SQL em operações de HBase, como análises. O design de seu esquema de tabela, a seleção e ordenação dos campos na sua chave primária e a sua utilização de índices, todos os afetar o desempenho do Phoenix.
 
 ## <a name="table-schema-design"></a>Design do esquema de tabela
 
@@ -229,5 +229,5 @@ Para obter detalhes sobre esta e outras opções, consulte [Phoenix gramática](
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Guia de ajuste de Phoenix](https://phoenix.apache.org/tuning_guide.html)
+* [Guia de ajuste do Apache Phoenix](https://phoenix.apache.org/tuning_guide.html)
 * [Índices secundários](http://phoenix.apache.org/secondary_indexing.html)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a0f472d32e878412532927327a36fe674d4cf6bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 7daefc1de06ac704f0449d065ed748bbe0f1ac61
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261677"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307660"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Adicionar uma Firewall da próxima geração no Centro de segurança do Azure
 Centro de segurança do Azure poderá recomendar que adicionar uma firewall da próxima geração (NGFW) de um parceiro da Microsoft para aumentar sua proteções de segurança. Este documento explica como um exemplo de como fazer isso.
@@ -62,7 +62,7 @@ Este documento de mostrar como implementar a recomendação do Centro de seguran
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de segurança do Azure](security-center-policies.md) – Saiba como configurar as políticas de segurança.
+* [Definir políticas de segurança no Centro de segurança do Azure](security-center-azure-policy.md) – Saiba como configurar as políticas de segurança.
 * [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
 * [Monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.

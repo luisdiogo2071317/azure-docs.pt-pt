@@ -1,6 +1,6 @@
 ---
 title: Como utilizar o AMQP 1.0 com a API de barramento de serviço de Java | Documentos da Microsoft
-description: Como utilizar o Java Message Service (JMS) com o Azure Service Bus e o Advanced Message Queuing Protodol (AMQP) 1.0.
+description: Como utilizar o Java Message Service (JMS) com o Azure Service Bus e o Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
 author: spelluru
@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 9a223c67e0c1f2e71d2953be63924a114e7420af
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: fbd74b227afd2191616100d74c7864eacf015add
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018235"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308075"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como utilizar o Java Message Service (JMS) API com do Service Bus e AMQP 1.0
 O Advanced Message colocação Protocol (AMQP) 1.0 é um protocolo de mensagens eficiente, fiável e ao nível da transmissão que pode utilizar para criar aplicativos de mensagens robustos e para várias plataformas.
@@ -66,7 +66,7 @@ queue.QUEUE = queue1
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>Definir o contexto JNDI e configurar o ConnectionFactory
 
 O **ConnectionString** referenciado no disponível na "partilhados políticas de acesso" na [Portal do Azure](https://portal.azure.com) sob **cadeia de ligação primária**
-```
+```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
 // connection string. 
@@ -89,7 +89,7 @@ Destination queue = (Destination) context.lookup("QUEUE");
 A entrada usada para definir um destino no fornecedor JNDI do arquivo de propriedades de Qpid é no seguinte formato:
 
 Para criar a fila de destino para o produtor- 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -103,7 +103,7 @@ MessageProducer producer = session.createProducer(queue);
 ```
 
 Para criar uma fila de destino para o consumidor- 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -297,7 +297,7 @@ public class JmsQueueQuickstart {
 ```
 
 ### <a name="run-the-application"></a>Executar a aplicação
-Passar o **cadeia de ligação** das políticas a iniciativas partilhados para executar a aplicação.
+Passar o **cadeia de ligação** das políticas de acesso partilhado para executar a aplicação.
 Segue-se a saída do formulário ao executar o aplicativo:
 
 ```
@@ -351,7 +351,7 @@ As seguintes restrições existem ao utilizar JMS através do AMQP 1.0 com o Ser
 
 Além disso, o Azure Service Bus divide o plano de controlo do plano de dados e, portanto, não suporta várias funções de topologia dinâmico do JMS:
 
-| Método não suportado          | Substituir por                                                                             |
+| Método não suportado          | Substituir                                                                             |
 |-----------------------------|------------------------------------------------------------------------------------------|
 | createDurableSubscriber     | criar uma subscrição de tópico portar o Seletor de mensagem                                 |
 | createDurableConsumer       | criar uma subscrição de tópico portar o Seletor de mensagem                                 |

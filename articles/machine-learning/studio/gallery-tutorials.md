@@ -1,5 +1,5 @@
 ---
-title: Tutoriais de Galeria de IA do Azure | Documentos da Microsoft
+title: Tutoriais de Galeria de IA do Azure - Azure Machine Learning Studio | Documentos da Microsoft
 description: Detetar e partilhar tutoriais na Galeria de IA do Azure.
 services: machine-learning
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 289590ddda878a9a14a72d4366f92a6444699a64
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ea0b6e3a4275c2d09c76bd57ec4e838413638d6e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265054"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311828"
 ---
 # <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Detetar e partilhar os tutoriais na Galeria de IA do Azure
 

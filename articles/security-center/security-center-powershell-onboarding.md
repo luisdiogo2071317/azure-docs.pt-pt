@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 756aadfb015ada8ea642e9e4893664eed3f6c9b2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 650c767d6f8ef495bb19886980b6d45bfe53b32a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042557"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311182"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar a inclusão do Centro de segurança do Azure com o PowerShell
 
@@ -111,6 +111,6 @@ Para saber mais sobre como pode utilizar o PowerShell para automatizar a adesão
 
 Para saber mais sobre o Centro de segurança, consulte o artigo seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-policies.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.

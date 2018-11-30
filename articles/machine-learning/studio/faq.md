@@ -1,6 +1,6 @@
 ---
-title: Perguntas mais frequentes do Azure Machine Learning (FAQ) | Microsoft Docs
-description: 'Introdução do Azure Machine Learning: Perguntas mais frequentes que abrangem a faturação, capacidades e limitações de um serviço em nuvem para a modelação preditiva simplificada.'
+title: Machine Learning Studio perguntas mais frequentes (FAQs perguntas) - Azure | Documentos da Microsoft
+description: 'O Azure Machine Learning Studio: Perguntas frequentes sobre que abrangem a faturação, capacidades e limitações de um serviço cloud de modelação preditiva simplificada.'
 keywords: introdução ao machine learning, modelação preditiva, o que é o machine learning
 services: machine-learning
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 9545c9a0cf77274b4ea68dea7a6640453a849093
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263439"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309145"
 ---
-# <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Perguntas mais frequentes do Azure Machine Learning: faturação, capacidades, limitações e suporte
+# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>O Azure Machine Learning Studio perguntas mais frequentes: faturação, capacidades, limitações e suporte
 Seguem-se algumas perguntas mais frequentes (FAQ) e as respostas correspondentes sobre o Azure Machine Learning, um serviço cloud para desenvolver modelos preditivos e operacionalizar soluções através de serviços Web. Estas FAQ respondem a perguntas sobre como utilizar o serviço, o que inclui o modelo de faturação, as capacidades, as limitações e o suporte.
 
 **Tem alguma pergunta que não encontre aqui?**
@@ -30,12 +30,6 @@ Seguem-se algumas perguntas mais frequentes (FAQ) e as respostas correspondentes
 O Azure Machine Learning tem um fórum no MSDN, onde os membros da comunidade de ciência de dados podem fazer perguntas sobre o Azure Machine Learning. O fórum é monitorizado pela equipa do Azure Machine Learning. Aceda ao [Fórum do Azure Machine Learning](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para procurar as respostas ou para publicar uma nova pergunta.
 
 ## <a name="general-questions"></a>Perguntas gerais
-**O que é o Azure Machine Learning?**
-
-Azure Machine Learning é um serviço completamente gerido que pode utilizar para criar, testar, operar e gerir soluções de análise preditiva na nuvem. Com apenas um browser, pode iniciar sessão, carregar dados e iniciar imediatamente experiências de machine learning. A modelação preditiva de arrastar e largar, uma grande palete de módulos e uma biblioteca de modelos iniciais simplificam e aceleram o ritmo das tarefas comuns de machine learning. Para obter mais informações, consulte a [Descrição geral do serviço Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/). Para obter uma introdução ao machine learning que explica conceitos e terminologia-chave, veja [Introdução ao Azure Machine Learning](what-is-machine-learning.md).
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 **O que é o Machine Learning Studio?**
 
 O Machine Learning Studio é um ambiente de workbench a que pode aceder através de um browser. O Machine Learning Studio aloja uma palete de módulos numa interface de composição visual que o ajuda criar um fluxo de trabalho de ciência de dados completo sob a forma de uma experimentação.

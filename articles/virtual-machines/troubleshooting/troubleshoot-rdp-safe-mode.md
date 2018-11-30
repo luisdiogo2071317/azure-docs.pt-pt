@@ -13,23 +13,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 8dfe61430423298eea81510d3e92d49066217a05
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 3ff1db9ee7dc34ce529702d61b3ac5970bb5d9df
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708805"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309878"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Não é possível RDP para uma VM porque a VM arranca no modo de segurança
 
-Este artigo mostra como resolver um problema em que não é possível o ambiente de trabalho remoto para máquinas de virtuais de Windows do Azure (VMs) porque a VM está configurada para efetuar o arranque no modo seguro.
+Este artigo mostra como resolver um problema em que não é possível ligar às máquinas de virtuais de Windows do Azure (VMs), porque a VM está configurada para efetuar o arranque no modo seguro.
 
 > [!NOTE] 
 > O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica. 
 
 ## <a name="symptoms"></a>Sintomas 
 
-Não é possível efetuar uma ligação RDP e outras ligações (por exemplo, HTTP) para uma VM no Azure porque a VM está configurada para efetuar o arranque no modo seguro. Quando dá entrada a captura de ecrã do [diagnósticos de arranque](../troubleshooting/boot-diagnostics.md) no portal do Azure, poderá ver a VM arranca normalmente, mas a interface de rede não está disponível:
+Não é possível efetuar uma ligação RDP ou de outras ligações (por exemplo, HTTP) para uma VM no Azure porque a VM está configurada para efetuar o arranque no modo seguro. Quando dá entrada a captura de ecrã do [diagnósticos de arranque](../troubleshooting/boot-diagnostics.md) no portal do Azure, poderá ver que a VM arranca normalmente, mas a interface de rede não está disponível:
 
 ![Imagem sobre inferce de rede em modo de segurança](./media/troubleshoot-rdp-safe-mode/network-safe-mode.png)
 
@@ -54,11 +54,11 @@ Para resolver este problema, utilize o controle Serial para configurar a VM para
 
     Se a VM está configurada para inicializar em modo de segurança, verá um sinalizador extra sob os **carregador de inicialização do Windows** secção denominada **inicialização segura**. Se não vir a **inicialização segura** sinalizador, a VM não está no modo de segurança. Este artigo não é aplicável ao seu cenário.
 
-    O sinalizador de inicialização segura pode aparecer com os seguintes valores:
+    O **inicialização segura** sinalizador foi apresentada com os seguintes valores:
     - Mínimo
     - Rede
 
-    Em qualquer um desses dois modos, RDP será não iniciado. Portanto, a correção permanece igual.
+    Em qualquer um desses dois modos, RDP não será iniciado. Por conseguinte, a correção permanece igual.
 
     ![Imagem sobre o sinalizador do modo de segurança](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
@@ -66,7 +66,7 @@ Para resolver este problema, utilize o controle Serial para configurar a VM para
 
         bcdedit /deletevalue {current} safeboot
         
-4. Verifique os dados de configuração de arranque para se certificar de que o sinalizador de inicialização segura é removido:
+4. Verifique os dados de configuração de arranque para se certificar de que o **inicialização segura** sinalizador é removido:
 
         bcdedit /enum
 
@@ -120,14 +120,14 @@ Para ativar o registo de despejo e consola de série, execute o seguinte script.
         bcdedit /store F:\boot\bcd /enum
     Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".  
 
-    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the “safeboot” flag, this article does not apply to your scenario.
+    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, this article does not apply to your scenario.
 
     ![The image about boot Identifier](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
 3. Remove the **safeboot** flag, so the VM will boot into normal mode:
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
-4. Check the boot configuration data to make sure that the safeboot flag is removed:
+4. Check the boot configuration data to make sure that the **safeboot** flag is removed:
 
         bcdedit /store F:\boot\bcd /enum
 5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the issue is resolved.

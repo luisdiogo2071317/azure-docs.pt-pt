@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 630c8e5f48ba475755c3c9ffe632fcba086437e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1fc1d3b4418b178921dc32ee834342b75fa31f20
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983124"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311080"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -45,7 +45,7 @@ Aqui estão algumas das coisas que pode fazer com os registos de diagnóstico:
 Pode utilizar uma conta de armazenamento ou o espaço de nomes de Hubs de eventos que não esteja na mesma subscrição que emite os registos. O utilizador que configura a definição tem de ter o acesso RBAC adequado para ambas as subscrições.
 
 > [!NOTE]
->  Atualmente não pode arquivar registos de fluxo de rede a um armazenamento de conta que, por trás de uma rede virtual protegida.
+>  Atualmente não é possível arquivar os registos de fluxo de rede para uma conta de armazenamento que está atrás de uma rede virtual protegida.
 
 > [!WARNING]
 > O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./monitor-diagnostic-logs-append-blobs.md) 

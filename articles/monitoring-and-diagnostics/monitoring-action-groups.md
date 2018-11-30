@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/26/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1b66f40594d0dd578e2e5680fb0d5bb0f82f1241
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016051"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311811"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
@@ -76,6 +76,8 @@ Pode ter até 1000 ações de e-mail num grupo de ação. Consulte a [informaç�
 **ITSM** -pode ter até 10 ações do ITSM numa ação de ITSM do grupo de ação requer uma ligação de ITSM. Saiba como criar uma [ligação de ITSM](../log-analytics/log-analytics-itsmc-overview.md).
 
 **Aplicação lógica** -pode ter até 10 ações de aplicação lógica num grupo de ação
+
+**Aplicação de função** -as teclas de função para aplicações de função configuradas como ações são lidas por meio da API de funções, o que necessita atualmente de aplicações de funções de v2 para configurar a definição "AzureWebJobsSecretStorageType" para "ficheiros" de aplicação, consulte [ Mudar para a gestão de chaves no V2 funções]( https://aka.ms/funcsecrets) para obter mais informações.
 
 **Runbook** -pode ter até 10 ações do Runbook numa veja de grupo de ação para o [limites do serviço de subscrição do Azure](../azure-subscription-service-limits.md) para limites em cargas de Runbook
 

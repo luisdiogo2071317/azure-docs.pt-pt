@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: bdcc0510503e48caf70f4f0d91d7602d767ca9ab
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e060075fbcf6a5083e51b753e119cb5471129a79
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092483"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308483"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
 Saiba como funciona a cópia de segurança e restauro no Azure SQL Data Warehouse. Utilizar dados do armazém de instantâneos para recuperação ou copie o seu armazém de dados para um ponto de restauro anterior na região primária. As cópias de segurança georredundante para restaurar para uma região geográfica diferente do armazém de dados de utilização. 
@@ -68,7 +68,7 @@ O SQL Data Warehouse efetua uma cópia de segurança geo uma vez por dia para um
 Cópias de segurança geo são ativados por padrão. Se o seu armazém de dados é a geração 1, pode [para anular](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) se desejar. Não pode desativar cópias de segurança geo para a geração 2, como proteção de dados é uma incorporada garantida.
 
 > [!NOTE]
-> Se necessitar de um RPO mais curto para cópias de segurança geo, votar para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse). Também pode criar um ponto de restauro definidas pelo utilizador e restaurar a partir do ponto de restauro recentemente criado para um novo armazém de dados numa região diferente. Depois de ter restaurado, ter o armazém de dados online e pode colocar em pausa indefinidamente para reduzir os custos de computação. A base de dados em pausa leva a custos de armazenamento à tarifa de armazenamento Premium do Azure. e, em seguida, colocar em pausa. Se necessitar de uma cópia ativa do armazém de dados, é possível retomar o que deve demorar apenas alguns minutos.
+> Se necessitar de um RPO mais curto para cópias de segurança geo, votar para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse). Também pode criar um ponto de restauro definidas pelo utilizador e restaurar a partir do ponto de restauro recentemente criado para um novo armazém de dados numa região diferente. Depois de ter restaurado, ter o armazém de dados online e pode colocar em pausa indefinidamente para reduzir os custos de computação. A base de dados em pausa leva a custos de armazenamento à tarifa de armazenamento Premium do Azure. e, em seguida, colocar em pausa.<!-- should this be removed or is something missing? --> Se necessitar de uma cópia ativa do armazém de dados, é possível retomar o que deve demorar apenas alguns minutos.
 >
 
 

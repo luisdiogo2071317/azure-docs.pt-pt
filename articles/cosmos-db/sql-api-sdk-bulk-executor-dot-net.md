@@ -1,22 +1,19 @@
 ---
 title: 'Azure Cosmos DB: API de .NET de Executor em massa, SDK e recursos | Documentos da Microsoft'
 description: Saiba tudo sobre a API de .NET de Executor em massa e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK de .NET de Executor de em massa Azure Cosmos DB.
-services: cosmos-db
 author: tknandu
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 09/14/2018
+ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: ffd8f438429cd8769ac0dbff7f489327166e0000
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ae9560296e37ff5492c07e69e6ba0eb5539915c8
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294463"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308500"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca de .NET em massa Executor: transferir informações 
 
@@ -36,7 +33,7 @@ ms.locfileid: "46294463"
 
 <table>
 
-<tr><td>**Descrição**</td><td>A biblioteca de Executor em massa permite que os aplicativos de cliente realizar operações em massa em contas do Azure Cosmos DB. Biblioteca de Executor em massa fornece BulkImport, BulkUpdate e BulkDelete espaços de nomes. O módulo pode em massa de BulkImport ingerir documentos de forma otimizada, de modo a que o débito aprovisionado para uma coleção é consumido para o respetivo limite máximo permitido. BulkUpdate módulo pode em massa atualizar os dados existentes nos contentores do Azure Cosmos DB como patches. O módulo de BulkDelete pode em massa documentos de eliminação de forma otimizada, de modo a que o débito aprovisionado para uma coleção é consumido para o respetivo limite máximo permitido.</td></tr>
+<tr><td>**Descrição**</td><td>A biblioteca de Executor em massa permite que os aplicativos de cliente realizar operações em massa em contas do Azure Cosmos DB. Biblioteca de Executor em massa fornece BulkImport BulkUpdate e BulkDelete espaços de nomes. O módulo pode em massa de BulkImport ingerir documentos de forma otimizada, de modo a que o débito aprovisionado para uma coleção é consumido para o respetivo limite máximo permitido. BulkUpdate módulo pode em massa atualizar os dados existentes nos contentores do Azure Cosmos DB como patches. O módulo de BulkDelete pode em massa documentos de eliminação de forma otimizada, de modo a que o débito aprovisionado para uma coleção é consumido para o respetivo limite máximo permitido.</td></tr>
 
 <tr><td>**Transferência de SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/)</td></tr>
 
@@ -46,12 +43,36 @@ ms.locfileid: "46294463"
 
 <tr><td>**Introdução**</td><td>[Introdução ao .NET SDK da biblioteca do Executor em massa](bulk-executor-dot-net.md)</td></tr>
 
-<tr><td>**Estrutura de suporte atual**</td><td><ul><li>[Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)(versão > = 2.0.0)</li><li>
-[Newtonsoft](https://www.nuget.org/packages/Newtonsoft.Json/)(versão > = 9.0.1)
-</li></ul></td></tr>
+<tr><td>**Estrutura de suporte atual**</td><td>Microsoft .NET Framework 4.5.2, 4.6.1 e .NET Standard 2.0 </td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
+
+* Incluindo MongoBulkExecutor ao suporte .NET Standard 2.0. Esta funcionalidade faz com que seja funcionalmente equivalente ao 1.3.0 de versão, com a adição do suporte .NET Standard 2.0 como a estrutura de destino.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
+
+* Foi adicionado .NET Standard 2.0 como uma das arquiteturas de destino suportadas para tornar a biblioteca do BulkExecutor trabalhar com aplicações de .NET Core.
+
+### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+
+* Adicionar uma sobrecarga para a operação de BulkDelete de contas da API de SQL aceitar a chave de partição, as tuplas de id do documento a eliminar.
+* Adicionar uma sobrecarga para a operação de BulkDelete de contas da API de SQL aceitar RequestOptions que contém a chave de partição especificando o valor da chave de partição, além de usá-lo como um filtro na consulta de entrada, especificando os documentos para eliminar.
+* Foi corrigido um problema, o que causou um problema de formatação no agente de utilizador utilizado pelo BulkExecutor.
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+
+* Feitas melhoria BulkExecutor importação e atualização APIs de forma transparente se adaptar a dimensionamento elástico de contentor do Cosmos DB quando armazenamento excede a capacidade atual sem gerar exceções.
+
+### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
+
+* Diminuí a cópia de segurança a dependência de SDK .NET do DocumentDB para a versão 2.1.3.
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+
+* Foi corrigido um problema, o que causou BulkExecutor lançar o erro JSRT enquanto a importar para corrigir a coleções.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
@@ -70,3 +91,9 @@ ms.locfileid: "46294463"
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
 * Foi adicionado suporte BulkImport BulkUpdate para operações de e para contas de API de SQL do Azure Cosmos DB.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Para saber mais sobre a biblioteca Java de Executor em massa, consulte o artigo seguinte:
+
+[Biblioteca de Executor de em massa do Java SDK e a versão de informações](sql-api-sdk-bulk-executor-java.md)

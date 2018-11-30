@@ -4,17 +4,16 @@ description: Este artigo descreve como utilizar o Azure Stream Analytics para gu
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 8dc85c55dd67d8acd394d7922e947c91234ef23b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 11/21/2017
+ms.openlocfilehash: 9bdb012db2e7502d765fd342a636591bbbcb2c6c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957153"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311743"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída do Azure Stream Analytics ao Azure Cosmos DB  
 Stream Analytics pode visar [do Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para saída JSON, permitindo que consultas de arquivamento e baixa latência de dados em dados não estruturados de JSON. Este documento abrange algumas das melhores práticas para implementar esta configuração.
@@ -26,7 +25,10 @@ Para aqueles que não estão familiarizados com o Cosmos DB, dê uma olhada [per
 > Outras APIs do Azure Cosmos DB ainda não são suportados. Se ponto Azure Stream Analytics para as contas do Azure Cosmos DB criado com as outras APIs, os dados poderão não ser corretamente armazenados. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Noções básicas do Cosmos DB como um destino de saída
-A saída do Azure Cosmos DB no Stream Analytics permite escrever a sua transmissão em fluxo processando os resultados como saída JSON em suas coleções de Cosmos DB. Stream Analytics não criar coleções na base de dados, em vez disso, que seja necessário criá-los de antemão. Isto é, para que os custos de faturas de coleções do Cosmos DB são controlados por si e para que pode ajustar o desempenho, a consistência e a capacidade de seus conjuntos de diretamente com o [Cosmos DB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx). 
+A saída do Azure Cosmos DB no Stream Analytics permite escrever a sua transmissão em fluxo processando os resultados como saída JSON em suas coleções de Cosmos DB. Stream Analytics não criar coleções na base de dados, em vez disso, que seja necessário criá-los de antemão. Isto é, para que os custos de faturas de coleções do Cosmos DB são controlados por si e para que pode ajustar o desempenho, a consistência e a capacidade de seus conjuntos de diretamente com o [Cosmos DB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+
+> [!Note]
+> Tem de adicionar 0.0.0.0 à lista de IPs permitidos da sua firewall do Azure Cosmos DB.
 
 Algumas das opções de coleção do Cosmos DB são detalhadas abaixo.
 

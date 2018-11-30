@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: 107597356c4a2782ab5989053e8c687d3fda0115
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f5e059c4ce375edb50321afb772cce400cb19b92
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975929"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309434"
 ---
 # <a name="azure-resource-health-overview"></a>Descrição geral do Estado de funcionamento de recursos do Azure
  

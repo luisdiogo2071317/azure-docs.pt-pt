@@ -1,5 +1,5 @@
 ---
-title: Galeria de IA do Azure | Documentos da Microsoft
+title: Galeria de IA do Azure - do Azure Machine Learning Studio | Documentos da Microsoft
 description: Partilhar e descobrir os recursos de análises e muito mais na Galeria de IA do Azure. Aprenda com outros utilizadores e realizar suas próprias contribuições para a Comunidade.
 services: machine-learning
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 91d83c0551571c376fd7ef7dd4d174147e4ff4fe
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 99742e8b25a406dcc08371812b943c0d01dde113
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260584"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310621"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partilhar e detetar recursos na Galeria de IA do Azure
 

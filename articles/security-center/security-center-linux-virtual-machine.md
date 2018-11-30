@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: yurid
-ms.openlocfilehash: 480bed08e15c41ee2a233b0d4ddf7d6f28fd3c5c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 060d10133ec4b8488410140faf32053acb59cf0d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259618"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307032"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines-with-linux"></a>Centro de Segurança do Azure e Máquinas Virtuais do Azure com Linux
 O [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/) ajuda-o a evitar, detetar e responder a ameaças. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.
@@ -57,7 +57,7 @@ Uma política de segurança define o conjunto de controlos que são recomendados
 ![Política de segurança](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig1.png)
 
 > [!NOTE]
-> Para saber mais sobre cada **Política de prevenção** disponível, consulte o artigo [Set security policies (Definir políticas de segurança)](security-center-policies.md).
+> Para saber mais sobre cada **Política de prevenção** disponível, consulte o artigo [Set security policies (Definir políticas de segurança)](security-center-azure-policy.md).
 > 
 
 ## <a name="manage-security-recommendations"></a>Gerir recomendações de segurança
@@ -80,7 +80,7 @@ Após definir uma política de segurança, o Centro de Segurança analisa o esta
 > 
 
 ## <a name="monitor-security-health"></a>Monitorizar o estado de funcionamento da segurança
-Depois de ativar [políticas de segurança](security-center-policies.md) para os recursos de uma subscrição, o Centro de Segurança irá analisar a segurança dos seus recursos para identificar potenciais vulnerabilidades.  Pode ver o estado de segurança dos seus recursos, juntamente com quaisquer problemas no painel **Estado de funcionamento de segurança de recursos**. Quando clica em **Máquinas virtuais** no mosaico de estado de funcionamento **Segurança de recursos**, o painel **Máquinas virtuais** será aberto com recomendações para as VMs. 
+Depois de ativar [políticas de segurança](security-center-azure-policy.md) para os recursos de uma subscrição, o Centro de Segurança irá analisar a segurança dos seus recursos para identificar potenciais vulnerabilidades.  Pode ver o estado de segurança dos seus recursos, juntamente com quaisquer problemas no painel **Estado de funcionamento de segurança de recursos**. Quando clica em **Máquinas virtuais** no mosaico de estado de funcionamento **Segurança de recursos**, o painel **Máquinas virtuais** será aberto com recomendações para as VMs. 
 
 ![Estado de funcionamento da segurança](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
@@ -92,7 +92,7 @@ O Centro de Segurança recolhe, analisa e integra automaticamente dados de regis
 Selecione um alerta de segurança para obter mais informações sobre o(s) evento(s) que acionaram o alerta e quais os passos (se existirem) necessários para remediar um ataque. Os alertas de segurança estão agrupados por [tipo](security-center-alerts-type.md) e data.
 
 ## <a name="monitor-security-health"></a>Monitorizar o estado de funcionamento da segurança
-Depois de ativar [políticas de segurança](security-center-policies.md) para os recursos de uma subscrição, o Centro de Segurança irá analisar a segurança dos seus recursos para identificar potenciais vulnerabilidades.  Pode ver o estado de segurança dos seus recursos, juntamente com quaisquer problemas no painel **Estado de funcionamento de segurança de recursos**. Quando clica em **Máquinas virtuais** no mosaico de estado de funcionamento **Segurança de recursos**, o painel **Máquinas virtuais** será aberto com recomendações para as VMs. 
+Depois de ativar [políticas de segurança](security-center-azure-policy.md) para os recursos de uma subscrição, o Centro de Segurança irá analisar a segurança dos seus recursos para identificar potenciais vulnerabilidades.  Pode ver o estado de segurança dos seus recursos, juntamente com quaisquer problemas no painel **Estado de funcionamento de segurança de recursos**. Quando clica em **Máquinas virtuais** no mosaico de estado de funcionamento **Segurança de recursos**, o painel **Máquinas virtuais** será aberto com recomendações para as VMs. 
 
 ![Estado de funcionamento da segurança](./media/security-center-linux-virtual-machine/security-center-linux-virtual-machine-fig4.png)
 
@@ -104,7 +104,7 @@ Se clicar nesta recomendação, irá ver mais detalhes sobre as ações específ
 ## <a name="see-also"></a>Consulte também
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-policies.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
 
