@@ -3,19 +3,19 @@ title: 'Início Rápido: Chamar o ponto final com o Node.js – Pesquisa Persona
 titlesuffix: Azure Cognitive Services
 description: Este início rápido mostra como pedir os resultados de pesquisa da sua instância de pesquisa personalizada ao utilizar o Node.js para chamar o ponto final da Pesquisa Personalizada do Bing.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
-ms.openlocfilehash: af77b4c06b61cda4fd18d19ac3578129004c4914
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: c0c97dd52f8fc3ff590c86f32f794beeb00f4b05
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167210"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310257"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-nodejs"></a>Início Rápido: Chamar o ponto final da Pesquisa Personalizada do Bing (Node.js)
 
@@ -27,7 +27,7 @@ Para concluir este guia de início rápido, necessita de:
 
 - Uma instância de pesquisa personalizada e pronta a utilizar. Veja [Criar a primeira instância de Pesquisa Personalizada do Bing](quick-start.md).
 - Ter o [Node.js](https://www.nodejs.org/) instalado.
-- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga no dashboard do Azure (veja [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga no dashboard do Azure (veja [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).   Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="run-the-code"></a>Executar o código
 
@@ -80,7 +80,7 @@ Para executar este exemplo, siga estes passos:
     node BingCustomSearch.js
     ``` 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Configurar a sua experiência de IU alojada](./hosted-ui.md)
 - [Utilizar marcadores decorativos para realçar o texto](./hit-highlighting.md)
 - [Paginação de páginas Web](./page-webpages.md)

@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: aahi
-ms.openlocfilehash: 71628862c7949df303f10181737a140a7f1e9ac4
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8883a312bf6da4167936e844e75047ae40cac9f3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165310"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309315"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Início Rápido: Utilizar o SDK de Pesquisa na Web do Bing para Java
 
@@ -25,8 +25,9 @@ Quer ver o código imediatamente? Os [exemplos de SDK de Pesquisa na Web do Bing
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
+## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
 * [JDK 7 ou 8](https://aka.ms/azure-jdks)

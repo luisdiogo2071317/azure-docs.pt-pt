@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: aahi
-ms.openlocfilehash: 0735f8d7a7953e05415f468253d17a8d10ca1b9f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7c303516c9b455ce3477c348c59cbc88693e2297
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161356"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313865"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-c"></a>Início Rápido da API de Pesquisa de Entidades do Bing com C# 
 
@@ -23,9 +23,9 @@ Este artigo mostra-lhe como utilizar o [pesquisa de entidades do Bing](https://d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Vai precisar do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
+Vai precisar do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A edição de Comunidade gratuito irá funcionar).
 
-Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Pesquisa de Entidades do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) é suficiente para este guia de início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Pesquisa de Entidades do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) é suficiente para este guia de início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="search-entities"></a>Pesquisar entidades
 

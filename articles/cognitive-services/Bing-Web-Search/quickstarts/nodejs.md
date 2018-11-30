@@ -3,28 +3,29 @@ title: 'Guia de Início Rápido: Efetuar uma pesquisa com Node.js – API de Pes
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender a fazer a primeira chamada à API de Pesquisa na Web do Bing através do Node.js e receber uma resposta JSON.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 9/26/2018
-ms.author: erhopf
-ms.openlocfilehash: debaa63adeb97063d0ea42e1da36352dc2c9c4e7
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 4c6e74d4ce9e3c1f9d81e640f7fa8071f73ec776
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405861"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309310"
 ---
-# <a name="quickstart-use-nodejs-to-call-the-bing-web-search-api"></a>Início Rápido: Utilizar o Node.js para chamar a API de Pesquisa na Web do Bing  
+# <a name="quickstart-use-nodejs-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o Node.js para chamar a API de Pesquisa na Web do Bing  
 
 Utilize este início rápido para fazer a primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON em menos de 10 minutos.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
+## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
 * [Node.js 6](https://nodejs.org/en/download/) ou posterior
@@ -265,7 +266,7 @@ As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta r
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial de aplicação de página única de pesquisa Web do Bing](../tutorial-bing-web-search-single-page-app.md)

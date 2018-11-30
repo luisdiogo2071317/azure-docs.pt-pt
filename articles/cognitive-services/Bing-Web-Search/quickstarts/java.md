@@ -3,19 +3,19 @@ title: 'Guia de Início Rápido: Executar uma pesquisa com o Java – API de Pes
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender a fazer a primeira chamada à API de Pesquisa na Web do Bing através do Java e receber uma resposta JSON.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: erhopf
-ms.openlocfilehash: 9fc9d35db50305b632f5d9c8bdfa13d28ab97980
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: bd6630f67e151dd2ee1e60654352f3070466899b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412980"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312668"
 ---
 # <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o Java para chamar a API de Pesquisa na Web do Bing  
 
@@ -23,8 +23,9 @@ Utilize este início rápido para fazer a primeira chamada à API de Pesquisa na
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
+## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
 * [JDK 7 ou 8](https://aka.ms/azure-jdks)
@@ -316,7 +317,7 @@ As respostas da API de Pesquisa na Web do Bing são devolvidas como JSON. Esta r
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial de aplicação de página única de pesquisa Web do Bing](../tutorial-bing-web-search-single-page-app.md)

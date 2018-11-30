@@ -3,19 +3,19 @@ title: 'Início Rápido: Pesquisa de Vídeos do Bing, Python'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar a utilizar rapidamente a API da Pesquisa de Vídeos do Bing.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 797eb476aa3386949b08efb957edf48a97e40d6b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: e902ae940364810e634434fb1f08408fadea9c8a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220020"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310553"
 ---
 # <a name="quickstart-bing-video-search-api-with-python"></a>Início Rápido: API da Pesquisa de Vídeos do Bing com o Python
 
@@ -27,7 +27,7 @@ Pode executar este exemplo como um bloco de notas do Jupyter no [MyBinder](https
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure. Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="running-the-walkthrough"></a>Executar as instruções
 
@@ -39,7 +39,7 @@ subscription_key = None
 assert subscription_key
 ```
 
-Em seguida, verifique se que o ponto final `search_url` está correto. Até ao momento, apenas um ponto final é utilizado para as APIs de Pesquisa do Bing. Caso se depare com erros de autorização, verifique novamente este valor relativamente ao ponto final da pesquisa do Bing no dashboard do Azure.
+Em seguida, verifique se que o ponto final `search_url` está correto. Até ao momento, só é utilizado um ponto final para as APIs de Pesquisa do Bing. Caso se depare com erros de autorização, verifique novamente este valor relativamente ao ponto final da pesquisa do Bing no dashboard do Azure.
 
 
 ```python
@@ -53,7 +53,7 @@ Definir `search_term` para procurar vídeos de gatinhos
 search_term = "kittens"
 ```
 
-O bloco seguinte utiliza a biblioteca `requests` em Python para chamar as APIs de Pesquisa do Bing e devolver os resultados como um objeto JSON. Note que passamos a chave de API através do dicionário `headers` e o termo de pesquisa através do dicionário `params`. Para ver a lista completa de opções que podem ser utilizadas para filtrar os resultados da pesquisa, veja a documentação da [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference).
+O bloco seguinte utiliza a biblioteca `requests` em Python para chamar as APIs de Pesquisa do Bing e devolver os resultados como um objeto JSON. Tenha em atenção que passamos a chave de API através do dicionário `headers` e o termo de pesquisa através do dicionário `params`. Para ver a lista completa de opções que podem ser utilizadas para filtrar os resultados da pesquisa, veja a documentação da [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference).
 
 
 ```python
@@ -74,10 +74,10 @@ from IPython.display import HTML
 HTML(search_results["value"][0]["embedHtml"].replace("autoplay=1","autoplay=0"))
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Paginar vídeos](paging-videos.md)
+> [Vídeos da página](paging-videos.md)
 > [Redimensionar e recortar imagens em miniatura](resize-and-crop-thumbnails.md)
 
 ## <a name="see-also"></a>Consulte também 

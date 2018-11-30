@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 09/21/2018
+ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 40fa0357245ad77fbdb08c5dbb4839d69322954f
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 12ba0ba4addd882d82007df34b79d5f13f6b1ec6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566797"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309577"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implementar um módulo do IoT Edge do Node.js no seu dispositivo simulado
 
@@ -49,16 +49,31 @@ Recursos de desenvolvimento:
 * [Node.js e npm](https://nodejs.org). O pacote npm é distribuído com o Node.js, o que significa que quando transfere o Node.js, obtém automaticamente o npm instalado no seu computador.
 
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
-Neste tutorial, vai utilizar a extensão Azure IoT Edge para VS Code para criar um módulo e criar uma **imagem de contentor** a partir dos ficheiros. Em seguida, vai enviar essa imagem para um **registo** que armazena e gere as suas imagens. Por fim, vai implementar a imagem a partir do registo para ser executada no seu dispositivo IoT Edge.  
 
-Pode utilizar qualquer registo compatível com o Docker neste tutorial. O [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) e o [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) são dois populares serviços de registo do Docker que estão disponíveis na cloud. Este tutorial utiliza o Azure Container Registry. 
+Neste tutorial, vai utilizar a extensão Azure IoT Edge para Visual Studio Code para criar um módulo e criar um **imagem de contentor** dos arquivos. Em seguida, vai enviar essa imagem para um **registo** que armazena e gere as suas imagens. Por fim, vai implementar a imagem a partir do registo para ser executada no seu dispositivo IoT Edge.  
 
-1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Contentores** > **Azure Container Registry**.
-2. Dê um nome ao registo, escolha uma subscrição, escolha um grupo de recursos e defina o SKU como **Básico**. 
-3. Selecione **Criar**.
-4. Assim que o registo de contentores for criado, navegue para o mesmo e selecione **Chaves de acesso**. 
-5. Mude **Utilizador administrador** para **Ativar**.
-6. Copie os valores de **Servidor de início de sessão**, **Nome de utilizador** e **Palavra-passe**. Vai utilizá-los mais à frente no tutorial. 
+Pode utilizar qualquer registo compatível com o Docker para armazenar as imagens de contentor. São dois populares serviços de registo de Docker [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) e [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Este tutorial utiliza o Azure Container Registry. 
+
+Se ainda não tiver um registo de contentor, siga estes passos para criar uma nova no Azure:
+
+1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Contentores** > **Registo de Contentor**.
+
+2. Indique os valores seguintes para criar o seu registo de contentor:
+
+   | Campo | Valor | 
+   | ----- | ----- |
+   | Nome de registo | Indique um nome exclusivo. |
+   | Subscrição | Selecione uma subscrição na lista pendente. |
+   | Grupo de recursos | Recomendamos que utilize o mesmo grupo de recursos para todos os recursos de teste que criou durante os inícios rápidos e tutoriais do IoT Edge. Por exemplo, **IoTEdgeResources**. |
+   | Localização | Escolha uma localização perto de si. |
+   | Utilizador admin | Defina para **Ativar**. |
+   | SKU | Selecione **Básico**. | **Terminal**
+
+5. Selecione **Criar**.
+
+6. Depois de o registo de contentores ser criado, navegue para o mesmo e selecione **Chaves de acesso**. 
+
+7. Copie os valores de **Servidor de início de sessão**, **Nome de utilizador** e **Palavra-passe**. Utilize estes valores mais tarde no tutorial para fornecer acesso ao registo de contentor. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Criar um projeto do módulo do IoT Edge
 Os passos seguintes mostram-lhe como criar um módulo Node.js do IoT Edge com o Visual Studio Code e a extensão Azure IoT Edge.
@@ -79,21 +94,25 @@ Utilize o **npm** para criar um modelo de solução de Node.js que possa servir 
 
 3. Na paleta de comandos, escreva e execute o comando **Azure: Sign in** e siga as instruções para iniciar sessão na sua conta do Azure. Se já iniciou sessão, pode ignorar este passo.
 
-4. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
+4. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Siga as instruções na paleta de comandos para criar a sua solução.
 
-   1. Selecione a pasta onde quer criar a solução. 
-   2. Indique um nome para a sua solução ou aceite a predefinição **EdgeSolution**.
-   3. Selecione **Módulo Node.js** como modelo de módulo. 
-   4. Atribua o nome **NodeModule** ao módulo. 
-   5. Especifique o Azure Container Registry que criou na secção anterior como repositório de imagens para o primeiro módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão que copiou. A cadeia final é semelhante a **\<nome do registo\>.azurecr.io/nodemodule**.
-
+   | Campo | Valor |
+   | ----- | ----- |
+   | Selecionar pasta | Escolha a localização no computador de desenvolvimento na qual o VS Code vai criar os ficheiros da solução. |
+   | Indicar um nome para a solução | Introduza um nome descritivo para a sua solução ou aceite a predefinição **EdgeSolution**. |
+   | Selecionar modelo de módulo | Escolher **módulo de node. js**. |
+   | Indicar um nome para o módulo | Atribua o nome **NodeModule** ao módulo. |
+   | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A imagem de contentor é pré-preenchida no passo anterior. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. A cadeia final se parece com \<nome do registo\>.azurecr.io/nodemodule. |
+ 
    ![Fornecer repositório de imagens do Docker](./media/tutorial-node-module/repository.png)
 
-A janela do VS Code carrega a área de trabalho da solução do IoT Edge. A área de trabalho da solução contém cinco componentes de nível superior. Não irá editar a pasta **\.vscode** ou o ficheiro **\.gitignore** neste tutorial. A pasta **módulos** contém o código Node.js para o seu módulo, bem como Dockerfiles para criar o seu módulo como uma imagem de contentor. O ficheiro **\.env** armazena as credenciais do registo de contentor. O ficheiro **deployment.template.json** contém as informações que o runtime do IoT Edge utiliza para implementar módulos num dispositivo. 
+A janela do VS Code carrega a área de trabalho da solução do IoT Edge. A área de trabalho da solução contém cinco componentes de nível superior. A pasta **módulos** contém o código Node.js para o seu módulo, bem como Dockerfiles para criar o seu módulo como uma imagem de contentor. O ficheiro **\.env** armazena as credenciais do registo de contentor. O ficheiro **deployment.template.json** contém as informações que o runtime do IoT Edge utiliza para implementar módulos num dispositivo. E **deployment.debug.template.json** contentores de ficheiros a versão de depuração de módulos. Não irá editar a pasta **\.vscode** ou o ficheiro **\.gitignore** neste tutorial. 
 
 Se não tiver especificado um registo de contentor ao criar a sua solução, mas aceitou o valor do localhost:5000 predefinido, não terá um ficheiro \.env. 
 
-   ![Área de trabalho da solução do Node.js](./media/tutorial-node-module/workspace.png)
+<!--
+   ![Node.js solution workspace](./media/tutorial-node-module/workspace.png)
+-->
 
 ### <a name="add-your-registry-credentials"></a>Adicionar as credenciais do registo
 
@@ -162,6 +181,27 @@ Cada modelo inclui o código de exemplo, que captura os dados simulados do senso
 
 9. Guarde este ficheiro.
 
+10. No explorador do VS Code, abra o ficheiro **deployment.template.json** na área de trabalho da solução do IoT Edge. 
+
+   Este ficheiro informa o `$edgeAgent` para implementar dois módulos: **tempSensor**, que simula dados de dispositivo, e **NodeModule**. A plataforma padrão do seu IoT Edge está definida como **amd64** no seu estado do VS Code barra, que significa que seu **NodeModule** está definido como Linux amd64 versão da imagem. Alterar a plataforma de predefinição na barra de status da **amd64** ao **arm32v7** ou **windows-amd64** se de que é arquitetura de seu dispositivo IoT Edge. Para saber mais sobre os manifestos de implementação, veja [Compreender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md). 
+
+   Este ficheiro também contém as credenciais do registo. No ficheiro de modelo, o seu nome de utilizador e palavra-passe estão preenchidos com marcadores de posição. Ao gerar o manifesto de implementação, os campos são atualizados com os valores que adicionou a **.env**. 
+
+12. Adicione o módulo duplo NodeModule ao manifesto de implementação. Insira o seguinte conteúdo JSON na parte inferior da secção `moduleContent`, após o módulo duplo `$edgeHub`: 
+
+   ```json
+       "NodeModule": {
+           "properties.desired":{
+               "TemperatureThreshold":25
+           }
+       }
+   ```
+
+   ![Adicionar módulo duplo ao modelo de implementação](./media/tutorial-node-module/module-twin.png)
+
+13. Guarde este ficheiro.
+
+
 ## <a name="build-your-iot-edge-solution"></a>Criar a sua solução do IoT Edge
 
 Na secção anterior, criou uma solução do IoT Edge e adicionou código ao NodeModule que filtrará mensagens onde a temperatura comunicada da máquina é inferior ao limiar aceitável. Agora, tem de criar a solução como uma imagem de contentor e enviá-la para o registo de contentor. 
@@ -173,22 +213,7 @@ Na secção anterior, criou uma solução do IoT Edge e adicionou código ao Nod
    ```
    Utilize o nome do utilizador, palavra-passe e servidor de início de sessão que copiou do Azure Container Registry na primeira secção. Também pode obtê-los novamente a partir da secção **Chaves de acesso** do registo no portal do Azure.
 
-2. No explorador do VS Code, abra o ficheiro **deployment.template.json** na área de trabalho da solução do IoT Edge. 
-
-   Este ficheiro informa o `$edgeAgent` para implementar dois módulos: **tempSensor**, que simula dados de dispositivo, e **NodeModule**. O valor `NodeModule.image` está definido para uma versão Linux amd64 da imagem. Para saber mais sobre os manifestos de implementação, veja [Compreender como os módulos do IoT Edge podem ser utilizados, configurados e reutilizados](module-composition.md).
-
-   Este ficheiro também contém as credenciais do registo. No ficheiro de modelo, o seu nome de utilizador e palavra-passe estão preenchidos com marcadores de posição. Ao gerar o manifesto de implementação, os campos são atualizados com os valores que adicionou a **.env**. 
-
-4. Adicione o módulo duplo NodeModule ao manifesto de implementação. Insira o seguinte conteúdo JSON na parte inferior da secção `moduleContent`, após o módulo duplo `$edgeHub`: 
-    ```json
-        "NodeModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
-5. Guarde este ficheiro.
-6. No explorador do VS Code, clique com o botão direito do rato no ficheiro **deployment.template.json** e selecione **Criar e Emitir solução do IoT Edge**. 
+2. No explorador do VS Code, clique com o botão direito do rato no ficheiro **deployment.template.json** e selecione **Criar e Emitir solução do IoT Edge**. 
 
 Quando indicar ao Visual Studio Code para criar a solução, este utiliza primeiro as informações no modelo de implementação e gera um ficheiro `deployment.json` numa nova pasta **config**. Em seguida, executa dois comandos no terminal integrado: `docker build` e `docker push`. Estes dois comandos criam o código, colocam o código do Node.js em contentores e enviam-no para o registo de contentor que especificou quando inicializou a solução. 
 

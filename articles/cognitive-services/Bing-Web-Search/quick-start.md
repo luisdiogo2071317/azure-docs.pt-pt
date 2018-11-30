@@ -11,16 +11,16 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: af32abe1c61c44b14d0f70033aee54aa7eba7c8b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: 6e4c5a47ea19a4308865de78f3a4c059a9f8ac79
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126246"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312406"
 ---
 # <a name="your-first-bing-search-query"></a>A sua primeira consulta de pesquisa do Bing
 
-Antes de poder fazer a primeira chamada, precisa de obter uma chave de subscrição dos Serviços Cognitivos. Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+Antes de poder fazer a primeira chamada, precisa de obter uma chave de subscrição dos Serviços Cognitivos. Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Para obter os resultados da pesquisa na Web, enviaria um pedido GET ao seguinte ponto final:  
 
@@ -264,7 +264,7 @@ BingAPIs-Market: en-US
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente a API. Aceda a [Consola de Testes da API de Pesquisa na Web](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d).
 

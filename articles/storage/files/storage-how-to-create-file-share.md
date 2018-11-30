@@ -8,30 +8,30 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: ec952aa26d7bc6b185b425700080a4f474564b76
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 83829264f16fb295a1f5fa4f2efc74d8b35ec6eb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955814"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309196"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Criar uma partilha de ficheiros nos Ficheiros do Azure
-Pode criar partilhas de Ficheiros do Azure com o [portal do Azure](https://portal.azure.com/), os cmdlets do PowerShell do Armazenamento do Azure, as bibliotecas de cliente do Armazenamento do Azure ou a API REST do Armazenamento do Azure. Neste tutorial, irá aprender:
+Pode criar partilhas de ficheiros do Azure com o [portal do Azure](https://portal.azure.com/), os cmdlets do PowerShell do armazenamento do Azure, as bibliotecas de cliente de armazenamento do Azure ou a API de REST de armazenamento do Azure. Neste tutorial, irá aprender:
 * [Como criar uma partilha de ficheiros do Azure com o portal do Azure](#create-file-share-through-the-azure-portal)
 * [Como criar uma partilha de ficheiros do Azure com o PowerShell](#create-file-share-through-powershell)
 * [Como criar uma partilha de ficheiros do Azure com a CLI](#create-file-share-through-command-line-interface-cli)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para criar uma partilha de ficheiros do Azure, pode utilizar uma Conta de Armazenamento já existente ou [criar uma Conta de Armazenamento do Azure nova](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Para criar uma partilha de ficheiros do Azure com o PowerShell, precisa da chave da conta e do nome da conta de armazenamento. Se quiser utilizar o PowerShell ou a CLI, precisa da chave da conta de Armazenamento.
+Para criar uma partilha de ficheiros do Azure, pode utilizar uma Conta de Armazenamento já existente ou [criar uma Conta de Armazenamento do Azure nova](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Para criar uma partilha de ficheiros do Azure com o PowerShell, precisa da chave da conta e do nome da conta de armazenamento. Terá de uma chave de conta de armazenamento se planeia utilizar o Powershell ou a CLI.
 
-## <a name="create-file-share-through-the-azure-portal"></a>Criar a partilha de ficheiros através do portal do Azure
-1. **Aceda ao painel da Conta de Armazenamento no portal do Azure**:    
+## <a name="create-a-file-share-through-the-azure-portal"></a>Criar uma partilha de ficheiros através do portal do Azure
+1. **Aceda ao painel de conta de armazenamento no portal do Azure**:    
     ![Painel da Conta de Armazenamento](./media/storage-how-to-create-file-share/create-file-share-portal1.png)
 
 2. **Clique no botão Adicionar Partilha de Ficheiros**:    
     ![Clique no botão adicionar partilha de ficheiros](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **Indique o Nome e a Quota. Atualmente, a quota pode ter um máximo de 5 TiB**:    
+3. **Indique o Nome e a Quota. O valor máximo atual a Quota é de 5 TiB**:    
     ![Indique um nome e uma quota pretendida para a partilha de ficheiros nova](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
 4. **Veja a partilha de ficheiros nova**: ![Veja a partilha de ficheiros nova](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
@@ -42,12 +42,12 @@ Para criar uma partilha de ficheiros do Azure, pode utilizar uma Conta de Armaze
 
 
 ## <a name="create-file-share-through-powershell"></a>Criar a partilha de Ficheiros através do PowerShell
-Para preparar para utilizar o PowerShell, transfira e instale os cmdlets do Azure PowerShell. Veja [Como instalar e configurar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) para obter as instruções de instalação e do ponto de instalação.
+Para preparar para utilizar o PowerShell, transfira e instale os cmdlets do Azure PowerShell. Ver [como instalar e configurar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) para as instruções de instalação e do ponto de instalação.
 
 > [!Note]  
 > É recomendado que transfira e instale ou atualize para o módulo do Azure PowerShell mais recente.
 
-1. **Crie um contexto para a conta de armazenamento e a chave** O contexto contém o nome da conta de armazenamento e a chave da conta. Para obter instruções sobre como copiar a chave da conta a partir do [portal do Azure](https://portal.azure.com/), veja [Storage account access keys](../common/storage-account-manage.md#access-keys) (Chaves de acesso das contas de armazenamento).
+1. **Crie um contexto para a conta de armazenamento e a chave** O contexto contém o nome da conta de armazenamento e a chave da conta. Para obter instruções sobre a cópia da chave de conta a partir da [portal do Azure](https://portal.azure.com/), consulte [chaves de acesso da conta de armazenamento](../common/storage-account-manage.md#access-keys).
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
@@ -60,14 +60,14 @@ Para preparar para utilizar o PowerShell, transfira e instale os cmdlets do Azur
     ```
 
 > [!Note]  
-> O nome da partilha de ficheiros tem de ser todo em minúsculas. Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and Referencing Shares, Directories, Files, and Metadata (Nomenclatura e Referência de Partilhas, Diretórios, Ficheiros e Metadados)](https://msdn.microsoft.com/library/azure/dn167011.aspx).
+> O nome da partilha de ficheiros tem de ser todo em minúsculas. Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, consulte [nomenclatura e referência de partilhas, diretórios, ficheiros e metadados](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ## <a name="create-file-share-through-command-line-interface-cli"></a>Criar a partilha de Ficheiros através da Interface de Linha de Comandos (CLI)
-1. **Para se preparar para utilizar uma Interface de Linha de Comandos (CLI), transfira e instale a CLI do Azure.**  
-    Veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [Introdução à CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+1. **Para se preparar para utilizar a Interface de linha de comandos (CLI), transfira e instale a CLI do Azure.**  
+    Ver [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [introdução à CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 2. **Crie uma cadeia de ligação para a conta de armazenamento na qual quer criar a partilha.**  
-    Substitua ```<storage-account>``` e ```<resource_group>``` pelo nome da conta de armazenamento e pelo grupo de recursos do exemplo seguinte:
+    Substitua ```<storage-account>``` e ```<resource_group>``` com o seu grupo de recursos e o nome da conta de armazenamento no exemplo a seguir:
 
    ```azurecli
     current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
@@ -77,12 +77,12 @@ Para preparar para utilizar o PowerShell, transfira e instale os cmdlets do Azur
     fi
     ```
 
-3. **Criar partilha de ficheiros**
+3. **Criar a partilha de ficheiros**
     ```azurecli
     az storage share create --name files --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Connect and Mount File Share - Windows](storage-how-to-use-files-windows.md) (Ligar e Montar Partilha de Ficheiros - Windows)
 * [Connect and Mount File Share - Linux](../storage-how-to-use-files-linux.md) (Ligar e Montar Partilha de Ficheiros - Linux)
 * [Connect and Mount File Share - macOS](storage-how-to-use-files-mac.md) (Ligar e Montar Partilha de Ficheiros - macOS)

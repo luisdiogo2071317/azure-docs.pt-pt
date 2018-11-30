@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: rosh
-ms.openlocfilehash: 9784894ea9a9deb350171e0d19042eb65644093b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 2c099f3520b697e8ec2f7ef39c4525298182a697
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225655"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307921"
 ---
 # <a name="quickstart-bing-video-search-sdk-with-python"></a>Início Rápido: SDK de Pesquisa de Vídeos do Bing com Python
 
@@ -25,6 +25,8 @@ O [código-fonte para exemplos de SDK Python da Pesquisa de Vídeos do Bing](htt
 
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
+Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+
 Se ainda não o tiver, instale o Python. O SDK é compatível com o Python 2.7, 3.3, 3.4, 3.5 e 3.6.
 
 A recomendação geral para o desenvolvimento de Python é utilizar um [ambiente virtual](https://docs.python.org/3/tutorial/venv.html). Instale e inicialize o ambiente virtual com o [módulo venv](https://pypi.python.org/pypi/virtualenv). Instale o virtualenv para Python 2.7.
@@ -179,7 +181,7 @@ def video_detail(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Exemplos de SDK do Python nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 

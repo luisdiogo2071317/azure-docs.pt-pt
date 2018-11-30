@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2aca42c23cc213d5d7e451105052d5d5d697b77d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: c8ab6b6e6bab7451de7d975dde644386fd4cb84e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979476"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311539"
 ---
 # <a name="hybrid-identity-and-microsoft-identity-solutions"></a>Soluções de identidade híbrida e de identidade da Microsoft
 As soluções de identidade híbrida do [Microsoft Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) permitem-lhe sincronizar objetos de diretórios no local com o Azure AD e continuar a gerir os seus utilizadores no local. A primeira decisão a tomar no planeamento da sincronização do Active Directory do Windows Server no local com o Azure AD é determinar se vai utilizar as identidades geridas ou a identidade federada. 
 
-- **Identidades geridas** - Contas de utilizador e grupos que são sincronizados a partir de um Active Directory no local e a autenticação de utilizador é gerida pelo Azure.   
+- **Gerido identidades** - grupos e contas de utilizador são sincronizadas a partir de um diretório de Active Directory no local e a autenticação de utilizador é gerida pelo Azure.   
 - As **identidades federadas** proporcionam mais controlo sobre os utilizadores ao separar a autenticação do utilizador do Azure e ao delegar a autenticação a um fornecedor de identidades no local e fidedigno. 
 
 Há várias opções disponíveis para configurar a identidade híbrida. Enquanto analisa o modelo de identidade que melhor se adequa às necessidades da sua organização, também tem de pensar no tempo, na infraestrutura existente, na complexidade e nos custos. Estes fatores são diferentes para cada organização e podem sofrer mudanças ao longo do tempo. Contudo, caso os seus requisitos se venham mesmo a alterar, também tem a flexibilidade para mudar para outro modelo de identidade.
@@ -42,7 +42,7 @@ Embora a identidade gerida seja o método mais fácil e rápido, os utilizadores
 À maioria das organizações que só precisam que os utilizadores iniciem sessão no Office 365, em aplicações SaaS e noutros recursos baseados no Azure AD, recomenda-se a opção de sincronização de hash de palavras-passe predefinida. Se essa opção não funcionar para si, terá de decidir entre a autenticação pass-through e o AD FS.
 
 > [!TIP]
-> As palavras-passe dos utilizadores são armazenadas no Active Directory do Windows Server no local na forma de valores de hash que representam as palavras-passe reais deles. Os valores de hash são o resultado de uma função matemática unidirecional (o algoritmo hash). Não existe nenhum método para reverter o resultado de uma função unidirecional para a versão de texto simples de uma palavra-passe. Não pode utilizar um hash de palavra-passe para iniciar sessão na sua rede no local. Se optar por sincronizar as palavras-passe, o Azure AD Connect extrai os hashes das palavras-passe do Active Directory no local e aplica um processamento de segurança extra aos hashes antes de serem sincronizados com o Azure AD. Também pode utilizar a sincronização de hash de palavras-passe juntamente com a repetição de escrita de palavras-passe para ativar a reposição personalizada de palavras-passe no Azure AD. Além disso, pode ativar o início de sessão único (SSO) para os utilizadores em computadores associados a um domínio que estejam ligados à rede empresarial. Com o início de sessão único, os utilizadores ativados só precisam de introduzir um nome de utilizador para acederem aos recursos na cloud em segurança. 
+> As palavras-passe dos utilizadores são armazenadas no Active Directory do Windows Server no local na forma de valores de hash que representam as palavras-passe reais deles. Os valores de hash são o resultado de uma função matemática unidirecional (o algoritmo hash). Não existe nenhum método para reverter o resultado de uma função unidirecional para a versão de texto simples de uma palavra-passe. Não pode utilizar um hash de palavra-passe para iniciar sessão na sua rede no local. Quando optar por sincronizar os hashes de palavra-passe, o Azure AD Connect extrai os hashes de palavra-passe do Active Directory no local e aplica segurança extra de processamento para o hash de palavra-passe antes dos dados foram sincronizados com o Azure AD. Também pode utilizar a sincronização de hash de palavras-passe juntamente com a repetição de escrita de palavras-passe para ativar a reposição personalizada de palavras-passe no Azure AD. Além disso, pode ativar o início de sessão único (SSO) para os utilizadores em computadores associados a um domínio que estejam ligados à rede empresarial. Com o início de sessão único, os utilizadores ativados só precisam de introduzir um nome de utilizador para acederem aos recursos na cloud em segurança. 
 >
 
 ## <a name="pass-through-authentication"></a>Autenticação pass-through
@@ -190,7 +190,7 @@ O Azure AD Connect Health para Active Directory Domain Services (AD DS) fornece 
 
 Saiba mais aqui sobre [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 
 - [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) 

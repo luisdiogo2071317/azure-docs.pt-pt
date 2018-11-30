@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 1584b3e0a1e1c560d42b5f8320d0e15ad6242918
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: 189533e496e90dc072f33c9560275323ba5e62c4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294599"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312083"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-nodejs"></a>Guia de Início Rápido: Enviar consultas de pesquisa com a API REST de Pesquisa de Imagens do Bing e o Node.js
 
@@ -32,6 +32,8 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
 
 * A [Biblioteca de Pedidos JavaScript](https://github.com/request/request)
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
@@ -148,7 +150,7 @@ As respostas da API de Pesquisa de Imagens do Bing são devolvidas como JSON. Es
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)

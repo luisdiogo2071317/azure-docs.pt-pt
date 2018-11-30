@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 69bcca7871d9bf4bebf64c0c0ae1b54cd8408927
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: f94e3b5a6070da5ef9510216abd3f52a958030c5
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684125"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311386"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-node"></a>Início Rápido: SDK de Pesquisa de Entidades do Bing com Node
 
@@ -23,6 +23,7 @@ O SDK de Pesquisa de Entidades do Bing contém a funcionalidade da API REST para
 
 O [código fonte dos exemplos de SDK de Pesquisa de Entidades do Bing em C#](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) está disponível no GitHub.
 ## <a name="application-dependencies"></a>Dependências da aplicação
+Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Para configurar uma aplicação de consola com o SDK de pesquisa de entidades do Bing:
 * Executar `npm install ms-rest-azure` no seu ambiente de desenvolvimento.

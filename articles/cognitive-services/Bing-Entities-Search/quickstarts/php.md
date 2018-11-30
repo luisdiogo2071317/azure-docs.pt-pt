@@ -3,29 +3,29 @@ title: 'Início Rápido: API de Pesquisa de Entidades do Bing, PHP'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Pesquisa de Entidades do Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 30cfa98fc38f92d834e908b6d77306bed1d2b5cb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 36f2ee71714e8f1d156d1092bd099a2748573617
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815533"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311692"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-php"></a>Início Rápido da API de Pesquisa de Entidades do Bing com PHP
 
-Este artigo mostra-lhe como utilizar a API de [Pesquisa de Entidades do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) com PHP.
+Este artigo mostra-lhe como utilizar o [pesquisa de entidades do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API com PHP.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Vai precisar do [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
 
-Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Pesquisa de Entidades do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) é suficiente para este guia de início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Pesquisa de Entidades do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) é suficiente para este guia de início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.   Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="search-entities"></a>Pesquisar entidades
 
@@ -147,7 +147,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 [Voltar ao início](#HOLTop)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial da Pesquisa de Entidades do Bing](../tutorial-bing-entities-search-single-page-app.md)

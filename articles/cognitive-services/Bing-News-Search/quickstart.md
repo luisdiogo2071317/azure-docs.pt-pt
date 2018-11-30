@@ -10,16 +10,16 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: bc3d2e43983791cf8f666660675a7dd537f04d77
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 36c287f64ddc15eb3cb0179ed2465e1279177595
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802530"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309060"
 ---
 # <a name="quickstart-your-first-news-search-query"></a>Início Rápido: a sua primeira consulta de pesquisa de notícias
 
-Antes de poder fazer a primeira chamada, precisa de obter uma chave de subscrição dos Serviços Cognitivos. Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).
+Antes de poder fazer a primeira chamada, precisa de obter uma chave de subscrição dos Serviços Cognitivos. Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Para obter os resultados da pesquisa de notícias, enviaria um pedido GET ao seguinte ponto final:
 
@@ -31,7 +31,7 @@ O pedido tem de utilizar o protocolo HTTPS.
 
 Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente abre mais oportunidades de acesso à mesma a terceiros mal-intencionados. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras versões da API.
 
-O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query), que contém o termo de pesquisa do utilizador. Embora seja opcional, o pedido deve também especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista de parâmetros de consulta opcionais, como `freshness` e `textDecorations`, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.
+O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query), que contém o termo de pesquisa do utilizador. Embora seja opcional, o pedido também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista de parâmetros de consulta opcionais, como `freshness` e `textDecorations`, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.
 
 O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#subscriptionkey). Embora seja opcional, recomenda-se que especifique também os seguintes cabeçalhos:
 
@@ -280,7 +280,7 @@ X-MSEdge-Ref: Ref A: 994974CC8D994C95A5C31387296A510A Ref B: BY3EDGE0207 Ref C: 
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente a API. Aceda a [Consola de Testes da API de Pesquisa de Notícias](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553).
 

@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6dc10bc2dedfe99573b5ad646461e66827c6df9e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 7ac298ad5c5b93b5dce0ce2dd59ffe541888db88
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320174"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307768"
 ---
 # <a name="quickstart-using-the-bing-custom-search-sdk-with-c"></a>Início Rápido: Utilizar o SDK de Pesquisa Personalizada do Bing com C#
 
@@ -27,7 +27,7 @@ Para concluir este guia de início rápido, necessita de:
 
 - Uma instância de pesquisa personalizada e pronta a utilizar. Consulte [Criar a sua primeira instância de Pesquisa Personalizada do Bing](quick-start.md).  
   
-- Uma chave de subscrição. Pode obter uma chave de subscrição quando ativa a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga do dashboard do Azure (consulte [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  
+- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga no dashboard do Azure (veja [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
   
 - Visual Studio 2017 instalado. Se ainda não a tem, pode descarregar a versão **gratuita** [do Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).  
   
@@ -168,7 +168,7 @@ else
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Veja exemplos do SDK. Cada exemplo inclui um arquivo Leia-me com detalhes sobre os pré-requisitos e instalação/execução dos exemplos.
 

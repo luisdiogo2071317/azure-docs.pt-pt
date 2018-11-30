@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/08/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 75ab381d481e51483db5661fe2f6d473f21670fc
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a806c83f585ff276d9cbfe7cca63ab15011949bb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514796"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311403"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Instalar aplicações em conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Num tutorial anterior, aprendeu a criar e utilizar uma imagem de VM personalizada para implementar as suas instâncias de VM. Esta imagem personalizada inclui configurações e instalações de aplicações manuais. Pode também automatizar a instalação de aplicações num conjunto de dimensionamento após cada instância de VM ser implementada ou atualizar uma aplicação que já é executada num conjunto de dimensionamento. Neste tutorial, ficará a saber como:
@@ -103,7 +103,7 @@ Cada instância de VM no conjunto de dimensionamento transfere e executa o scrip
 
 ## <a name="allow-traffic-to-application"></a>Permitir o tráfego para a aplicação
 
-Para permitir o acesso à aplicação web básica, crie um grupo de segurança de rede com [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.compute/new-azurermnetworksecurityruleconfig) e [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.compute/new-azurermnetworksecuritygroup). Para obter mais informações, consulte [redes para conjuntos de dimensionamento de máquina virtual do Azure](virtual-machine-scale-sets-networking.md).
+Para permitir o acesso à aplicação web básica, crie um grupo de segurança de rede com [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) e [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup). Para obter mais informações, consulte [redes para conjuntos de dimensionamento de máquina virtual do Azure](virtual-machine-scale-sets-networking.md).
 
 ```azurepowershell-interactive
 # Get information about the scale set

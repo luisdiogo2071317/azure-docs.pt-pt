@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: aahi
-ms.openlocfilehash: e58bd5540c4bb479992155e97653744c003fb33d
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: e98d487723201836a7f1ab1590db1e9d7777d5a7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164987"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310778"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-nodejs"></a>Início Rápido da API de Verificação de Ortografia do Bing com Node.js 
 
@@ -25,7 +25,7 @@ Este artigo mostra-lhe como utilizar o [a API de verificação ortográfica do B
 
 Vai necessitar do [Node.js 6](https://nodejs.org/en/download/) para executar este código.
 
-Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **a API de Verificação de Ortografia do Bing v7**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/#lang) é suficiente para este guia de início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **a API de Verificação de Ortografia do Bing v7**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/#lang) é suficiente para este guia de início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="get-spell-check-results"></a>Obter resultados da Verificação de Ortografia
 

@@ -3,19 +3,19 @@ title: 'Início Rápido: Chamar o ponto final com Python – Pesquisa Personaliz
 titlesuffix: Azure Cognitive Services
 description: Este início rápido mostra como pedir os resultados de pesquisa da sua instância de pesquisa personalizada ao utilizar o Python para chamar o ponto final da Pesquisa Personalizada do Bing.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
-ms.openlocfilehash: d16b7354b0ef727ba3c670b97105e1bd6f99034e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: d7977f49a484665f133a119f491bd8986c0b6fc4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815465"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310724"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-python"></a>Início Rápido: Chamar o ponto final da Pesquisa Personalizada do Bing (Python)
 
@@ -27,7 +27,7 @@ Para concluir este guia de início rápido, necessita de:
 
 - Uma instância de pesquisa personalizada e pronta a utilizar. Veja [Criar a primeira instância de Pesquisa Personalizada do Bing](quick-start.md).
 - O [Python](https://www.python.org/) instalado.
-- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga no dashboard do Azure (veja [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga no dashboard do Azure (veja [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).   Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 
 ## <a name="run-the-code"></a>Executar o código
@@ -66,7 +66,7 @@ Para executar este exemplo, siga estes passos:
     python BingCustomSearch.py
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Configurar a sua experiência de IU alojada](./hosted-ui.md)
 - [Utilizar marcadores decorativos para realçar o texto](./hit-highlighting.md)
 - [Paginação de páginas Web](./page-webpages.md)

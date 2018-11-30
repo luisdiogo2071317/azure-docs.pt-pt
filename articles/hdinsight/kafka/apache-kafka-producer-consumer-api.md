@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 2a441e3cd90eba8fc2b1201671047cfcd9d277a6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277737"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313836"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Utilizar as APIs de Produtor e de Consumidor de Apache Kafka
 
-Saiba como utilizar as APIs de Produtor e de Consumidor de Kafka com o Kafka no HDInsight.
+Saiba como utilizar as APIs de Produtor e de Consumidor de Apache Kafka com o Kafka no HDInsight.
 
 A API de Produtor de Kafka permite que as aplicações enviem fluxos de dados para o cluster de Kafka. A API de Consumidor de Kafka permite que as aplicações leiam fluxos de dados a partir do cluster.
 
@@ -56,7 +56,7 @@ As variáveis de ambiente que se seguem podem ser definidas quando instala o Jav
 
 ## <a name="set-up-your-deployment-environment"></a>Configurar o ambiente de implementação
 
-Este tutorial exige o Apache Kafka no HDInsight 3.6. Para saber como criar um Kafka num cluster do HDInsight, consulte o documento [Começar a utilizar o Kafka no HDInsight](apache-kafka-get-started.md).
+Este tutorial exige o Apache Kafka no HDInsight 3.6. Para saber como criar um Kafka num cluster do HDInsight, veja a [introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md) documento.
 
 ## <a name="understand-the-code"></a>Compreender o código
 
@@ -171,7 +171,7 @@ O ficheiro [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-
         read -p 'Enter your Kafka cluster name:' CLUSTERNAME
         ```
     
-    2. Para obter os anfitriões de mediador de Kafka e os anfitriões de Zookeeper, utilize os seguintes comandos. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
+    2. Para obter o mediador Kafka anfitriões e os anfitriões de Apache Zookeeper, utilize os seguintes comandos. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
     
         ```bash
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
@@ -225,10 +225,10 @@ O consumo pelos clientes dentro do mesmo grupo é processado pelas partições d
 
 Os registos armazenados no Kafka são armazenados pela ordem em que são recebidos dentro de uma partição. Para obter uma entrega por ordem dos registos *dentro de uma partição*, crie um grupo de consumidores em que o número de instâncias de consumidor corresponde ao número de partições. Para obter uma entrega por ordem dos registos *dentro do tópico*, crie um grupo de consumidores com apenas uma instância de consumidor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste documento, aprendeu a utilizar as APIs de Produtor e de Consumidor de Kafka com o Kafka no HDInsight. Utilize o seguinte para obter mais informações sobre como trabalhar com o Kafka:
+Neste documento, aprendeu a utilizar o Apache Kafka produtor e a API de consumidor com o Kafka no HDInsight. Utilize o seguinte para obter mais informações sobre como trabalhar com o Kafka:
 
-* [Analisar os registos do Kafka](apache-kafka-log-analytics-operations-management.md)
-* [Replicar dados entre clusters do Kafka](apache-kafka-mirroring.md)
-* [API de Fluxos Kafka com o HDInsight](apache-kafka-streams-api.md)
+* [Analisar registos do Apache Kafka](apache-kafka-log-analytics-operations-management.md)
+* [Replicar dados entre clusters do Apache Kafka](apache-kafka-mirroring.md)
+* [API com o HDInsight de fluxos do Apache Kafka](apache-kafka-streams-api.md)
