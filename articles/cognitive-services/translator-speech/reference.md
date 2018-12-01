@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: c7e14e2c2d6d38055304610c805a6bede10a6828
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340448"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679295"
 ---
 # <a name="translator-speech-api"></a>API de Voz do Microsoft Translator
 
@@ -89,6 +89,9 @@ Tenha em atenção que o tamanho total do ficheiro (bytes 4-7) e o tamanho de "d
 
 Depois de enviar o cabeçalho de WAV (RIFF), o cliente envia partes de dados de áudio. O cliente normalmente irão transmitir os segmentos de tamanho fixo que representa um período de tempo fixo (por exemplo, sequência de 100 MS de áudio cada vez).
 
+### <a name="signal-the-end-of-the-utterance"></a>Sinal final a expressão
+A API de voz do Translator devolve a transcrição e a tradução do fluxo de áudio, à medida que está enviando o áudio. A transcrição final, a tradução final e o áudio traduzido serão retornados para apenas após o fim da expressão. Em alguns casos poderá querer forçar o final da expressão. Envie segundos 2,5 de silêncio, para forçar o final da expressão. 
+
 ### <a name="final-result"></a>Resultado final
 Um resultado de reconhecimento de voz final é gerado no final de uma expressão. Um resultado é transmitido a partir do serviço para o cliente usando uma mensagem do WebSocket do tipo texto. O conteúdo da mensagem é a serialização do JSON de um objeto com as seguintes propriedades:
 
@@ -149,7 +152,7 @@ Um resultado final de exemplo é o seguinte:
 }
 ```
 
-### <a name="text-to-speech"></a>Voz
+### <a name="text-to-speech"></a>Conversão de texto em voz
 Quando a funcionalidade de texto para voz está ativada (consulte `features` parâmetro abaixo), um resultado final é seguido de áudio do texto traduzido falado. Dados de áudio são segmentados e enviados do serviço ao cliente como uma seqüência de mensagens Websocket do tipo binário. Um cliente pode detectar o fim do fluxo ao verificar o bit FIN de cada mensagem. A última mensagem binária terá o seu conjunto FIN de bits para um para indicar o final da transmissão em fluxo. O formato da transmissão em fluxo depende do valor da `format` parâmetro.
 
 ### <a name="closing-the-connection"></a>Fechar a ligação

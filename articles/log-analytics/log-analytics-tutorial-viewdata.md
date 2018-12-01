@@ -9,18 +9,17 @@ editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 46bc932011a3699dbaced8316bc0e1b514c9a385
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.openlocfilehash: 5537bfbc9f380517b36508792a21b985aea4656b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043061"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723334"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Ver ou analisar dados recolhidos com a pesquisa de registos do Log Analytics
 
@@ -151,7 +150,7 @@ Perf
 
 ![Gráfico de linhas](media/log-analytics-tutorial-viewdata/log-analytics-portal-linechart-01.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu a criar pesquisas de registos básicas para analisar dados de eventos e desempenho.  Avance para o próximo tutorial para saber como visualizar os dados através da criação de um dashboard.
 
 > [!div class="nextstepaction"]

@@ -1,95 +1,94 @@
 ---
-title: Utilizar o PHP para consultar a Base de Dados SQL do Azure | Microsoft Docs
-description: Este tópico mostra-lhe como utilizar o PHP para criar um programa que se liga a uma base de dados SQL do Azure e a consulta com instruções Transact-SQL.
+title: Utilizar o PHP para consultar base de dados SQL do Azure | Documentos da Microsoft
+description: Como utilizar o PHP para criar um programa que se liga a uma base de dados SQL do Azure e a consulta com instruções T-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
 ms.devlang: php
 ms.topic: quickstart
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: ''
+ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 08bbe22cf0435f667e1fd065e9f747c2c9a92c94
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.date: 11/28/2018
+ms.openlocfilehash: be3ac9fab6c89c65ad9673811e108cefe2c80d00
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914180"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724252"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o PHP para consultar uma base de dados SQL do Azure
 
-Este início rápido demonstra como utilizar o [PHP](http://php.net/manual/en/intro-whatis.php) para criar um programa para ligar a uma base de dados SQL do Azure e como utilizar instruções Transact-SQL para consultar dados.
+Este artigo demonstra como usar [PHP](http://php.net/manual/en/intro-whatis.php) para ligar a uma base de dados SQL do Azure. Pode, em seguida, utilizar instruções T-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, certifique-se de que tem o seguinte:
+Para concluir este exemplo, certifique-se de que tem os seguintes pré-requisitos:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Uma [regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md) para o endereço IP público do computador que utilizar para este início rápido.
+- R [regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md) para o endereço IP público do computador que está a utilizar
 
-- Ter instalado o PHP e software relacionado para o seu sistema operativo:
+- Software relacionado com o PHP instalado para o seu sistema operativo:
 
-    - **MacOS**: instale o Homebrew e o PHP, instale o controlador ODBC e o SQLCMD e, em seguida, instale o Controlador PHP para SQL Server. Veja os [Passos 1.2, 1.3 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
-    - **Ubuntu**: instale o PHP e outros pacotes necessários e, em seguida, instale o Controlador do PHP para SQL Server. Veja os [Passos 1.2 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
-    - **Windows**: instale a mais recente versão do PHP para IIS Express, a versão mais recente do Microsoft Drivers for SQL Server no IIS Express, o Chocolatey, o controlador ODBC e o SQLCMD. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).    
+    - **MacOS**, instale o Homebrew e o PHP, o controlador ODBC e o SQLCMD, em seguida, instale o controlador PHP para SQL Server. Veja os [Passos 1.2, 1.3 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
 
-## <a name="sql-server-connection-information"></a>Informações de ligação do servidor SQL
+    - **Ubuntu**, instale o PHP e outros pacotes necessários, em seguida, instale o controlador PHP para SQL Server. Veja os [Passos 1.2 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+
+    - **Windows**, instalar o PHP para IIS Express e o Chocolatey, em seguida, instale o controlador ODBC e o SQLCMD. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
+
+## <a name="get-database-connection"></a>Obter ligação de base de dados
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
-    
-## <a name="insert-code-to-query-sql-database"></a>Inserir código para consultar a base de dados do SQL
 
-1. No seu editor de texto favorito, crie um novo ficheiro, **sqltest.php**.  
+## <a name="add-code-to-query-database"></a>Adicione o código para consultar base de dados
 
-2. Substitua os conteúdos pelo código seguinte e adicione os valores corretos para o seu servidor, a sua base de dados, o seu utilizador e a sua palavra-passe.
+1. No seu editor de texto favorito, crie um novo ficheiro, *sqltest.php*.  
+
+1. Substitua o respetivo conteúdo pelo seguinte código. Em seguida, adicione os valores adequados para o seu servidor, base de dados, utilizador e palavra-passe.
 
    ```PHP
    <?php
-   $serverName = "your_server.database.windows.net";
-   $connectionOptions = array(
-       "Database" => "your_database",
-       "Uid" => "your_username",
-       "PWD" => "your_password"
-   );
-   //Establishes the connection
-   $conn = sqlsrv_connect($serverName, $connectionOptions);
-   $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-           FROM [SalesLT].[ProductCategory] pc
-           JOIN [SalesLT].[Product] p
-        ON pc.productcategoryid = p.productcategoryid";
-   $getResults= sqlsrv_query($conn, $tsql);
-   echo ("Reading data from table" . PHP_EOL);
-   if ($getResults == FALSE)
-       echo (sqlsrv_errors());
-   while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-    echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
-   }
-   sqlsrv_free_stmt($getResults);
+       $serverName = "your_server.database.windows.net"; // update me
+       $connectionOptions = array(
+           "Database" => "your_database", // update me
+           "Uid" => "your_username", // update me
+           "PWD" => "your_password" // update me
+       );
+       //Establishes the connection
+       $conn = sqlsrv_connect($serverName, $connectionOptions);
+       $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+            FROM [SalesLT].[ProductCategory] pc
+            JOIN [SalesLT].[Product] p
+            ON pc.productcategoryid = p.productcategoryid";
+       $getResults= sqlsrv_query($conn, $tsql);
+       echo ("Reading data from table" . PHP_EOL);
+       if ($getResults == FALSE)
+           echo (sqlsrv_errors());
+       while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+        echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
+       }
+       sqlsrv_free_stmt($getResults);
    ?>
    ```
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. Na linha de comandos, execute os comandos seguintes:
+1. No prompt de comando, execute a aplicação.
 
-   ```php
+   ```bash
    php sqltest.php
    ```
 
-2. Confirme que as 20 linhas superiores são devolvidas e, em seguida, feche a janela da aplicação.
+1. Certifique-se de que as primeiras 20 linhas são devolvidas e feche a janela de aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
+
 - [Criar a sua primeira base de dados SQL do Azure](sql-database-design-first-database.md)
+
 - [Controlador Microsoft PHP para SQL Server](https://github.com/Microsoft/msphpsql/)
+
 - [Report issues or ask questions](https://github.com/Microsoft/msphpsql/issues) (Comunicar problemas ou fazer perguntas)
-- [Exemplo de lógica de repetição: ligar de forma resiliente ao SQL com o PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
-
-<!-- Link references. -->
-
-[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
-
+- [Exemplo de lógica de repetição: ligar de forma resiliente ao SQL Server com PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)

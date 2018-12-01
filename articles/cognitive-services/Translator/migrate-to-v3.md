@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 2f0b2984bf2390a9af0b824495b84c71d04aeac2
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ce6446caf74e16f69369d5ee8ee7b6342870e826
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852848"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682602"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Microsoft Translator V2 de API de texto para a migração V3
 
@@ -105,11 +105,33 @@ Global
 
 [Dicionário/exemplo](reference/v3-0-dictionary-examples.md)
 
-## <a name="customization"></a>Personalização
+## <a name="compatibility-and-customization"></a>Compatibilidade e personalização
 
-Microsoft Translator V3 usa a tradução automática neural por predefinição. Como tal, não pode ser utilizado com o Microsoft Translator Hub. O Hub de Microsoft Translator suporta apenas herdados estatísticos de tradução automática. Personalização de tradução neural já está disponível com o Translator personalizado. [Saiba mais sobre a personalização de tradução automática neural](customization.md)
+Microsoft Translator V3 usa a tradução automática neural por predefinição. Como tal, não pode ser utilizado com o Microsoft Translator Hub. O Hub de Microsoft Translator suporta apenas herdados estatísticos de tradução automática. Personalização de tradução neural já está disponível com o Translator personalizado. [Saiba mais sobre a personalização de tradução automática neural](custom-translator/overview.md)
 
 Tradução neural com a API de texto da V3 não suporta a utilização das categorias padrão (SMT, voz, texto, generalnn).
+
+| |Ponto Final|    Compatibilidade do processador GDPR|  Utilize o Hub de Microsoft Translator| Utilize o Translator personalizado (pré-visualização)|
+|:-----|:-----|:-----|:-----|:-----|
+|Versão de API de texto do Translator 2| API.microsofttranslator.com|    Não  |Sim    |Não|
+|Versão de API de texto do Translator 3| API.cognitive.microsofttranslator.com|  Sim|    Não| Sim|
+
+**Versão de API de texto do Translator 3**
+* Está disponível em geral e é totalmente suportado.
+* É com o GDPR em conformidade, como um processador e satisfaça todos os requisitos de ISO 20001 e 20018 assim como SOC 3 certificação. 
+* Permite-lhe invocar os sistemas de tradução de rede neural que tiver personalizado o tradutor de personalizado (pré-visualização), o novo recurso de personalização do Microsoft Translator NMT. 
+* Isso não concede acesso a sistemas de tradução personalizadas criadas com o Microsoft Translator Hub.
+
+Versão 3 do texto do Translator API está a utilizar se estiver a utilizar o ponto de extremidade api.cognitive.microsofttranslator.com.
+
+**Versão de API de texto do Translator 2**
+* Foi preterido. Ele será descontinuado a 30 de Abril de 2019. 
+* Não satisfaz todos os requisitos de certificação de 3 de SOC e ISO 20001,20018. 
+* Não permite invocar os sistemas de tradução de rede neural que tiver personalizado com a funcionalidade de personalização do Microsoft Translator.
+* Fornece acesso aos sistemas de tradução personalizadas criadas com o Microsoft Translator Hub.
+* Versão 2 do texto do Translator API está a utilizar se estiver a utilizar o ponto de extremidade api.microsofttranslator.com.
+
+Nenhuma versão de API do Translator cria um registo das suas traduções. Suas traduções nunca são partilhadas com qualquer pessoa. Obter mais informações sobre o [Translator não-rastreio](http://www.aka.ms/NoTrace) página Web.
 
 
 ## <a name="links"></a>Ligações

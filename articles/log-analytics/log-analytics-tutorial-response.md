@@ -10,17 +10,16 @@ ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 2fbf3c902416935f0b1fff0bc423a2535f3ba077
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 90faa1d3a24a77743beb5109373b1b6ba0bb4156
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013001"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722110"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Responder a eventos com Alertas do Azure Monitor
 Os alertas no Azure Monitor podem identificar informações importantes no repositório do Log Analytics. Estes são criados pelas regras de alerta que executam automaticamente pesquisas de registos em intervalos regulares, e se os resultados da pesquisa de registos corresponderem a critérios de específicos, então será criado um registo de alerta que poderá ser configurado para efetuar uma resposta automática.  Este tutorial é uma continuação do tutorial [Criar e partilhar dashboards de dados do Log Analytics](log-analytics-tutorial-dashboards.md).   
@@ -71,7 +70,7 @@ Agora que criou um alerta, pode ver os alertas do Azure num painel único e geri
 
 Quando o alerta é acionado, a tabela reflete a condição e quantas vezes ocorreu no intervalo de tempo selecionado (a predefinição é as últimas seis horas).  Deve haver um e-mail correspondente na sua caixa de correio semelhante ao seguinte exemplo mostrando a máquina virtual inválida e os principais resultados que correspondem à consulta de pesquisa neste caso.<br><br> ![Exemplo de ação de e-mail de alerta](./media/log-analytics-tutorial-response/azure-alert-email-notification-01.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu como as regras de alertas podem identificar e responder proativamente a um problema quando executam pesquisas de registo em intervalos agendados e corresponder a critérios específicos.
 
 Siga esta ligação para ver os exemplos de scripts do Log Analytics pré-criados.  

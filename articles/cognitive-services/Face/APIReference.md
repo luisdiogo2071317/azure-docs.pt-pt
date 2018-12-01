@@ -10,25 +10,23 @@ ms.component: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 283a042bb8ea32f8f6db9bebb211bc2762a3a4c1
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: be3e408b3f5f6393786a35108202d51ae871ea3b
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578081"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679737"
 ---
 # <a name="api-reference"></a>Referência da API
 
-A API de Face da Microsoft é uma API com base na cloud que fornece os mais avançados algoritmos de deteção de rostos e reconhecimento.
+A API Face do Azure é uma API com base na cloud que fornece os algoritmos de deteção de rostos e reconhecimento. As APIs de rostos compõem as seguintes categorias:
 
-APIs de rostos abrangem as seguintes categorias:
-
-- [Algoritmo de APIs de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236): aborda como o funções principais [deteção](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [encontrar semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [verificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), [identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), e [grupo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
-- [APIs de gestão de FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b): utilizado para gerir um FaceList para [encontrar semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
-- [APIs de gestão de pessoa LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40): utilizado para gerir LargePersonGroup rostos de pessoas para [identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [APIs de gestão de LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d): utilizado para gerir um conjunto de dados de LargePersonGroup para [identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [APIs de gestão de LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc): utilizado para gerir um LargeFaceList para [encontrar semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
-- [APIs de gestão de pessoa PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): utilizado para gerir PersonGroup rostos de pessoas para [identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [APIs de gestão de PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): utilizado para gerir um conjunto de dados de PersonGroup para [identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+- [Algoritmo de APIs de rostos](https://docs.microsoft.com/rest/api/cognitiveservices/face/face): aborda como o funções principais [deteção](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/detectwithstream), [encontrar semelhante](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar), [verificação](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/verifyfacetoface), [identificação](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify), e [grupo](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/group).
+- [APIs de gestão de FaceList](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist): utilizado para gerir um FaceList para [encontrar semelhante](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
+- [APIs de gestão de pessoa LargePersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/largepersongroupperson): utilizado para gerir LargePersonGroup rostos de pessoas para [identificação](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [APIs de gestão de LargePersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/largepersongroup): utilizado para gerir um conjunto de dados de LargePersonGroup para [identificação](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [APIs de gestão de LargeFaceList](https://docs.microsoft.com/rest/api/cognitiveservices/face/largefacelist): utilizado para gerir um LargeFaceList para [encontrar semelhante](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
+- [APIs de gestão de pessoa PersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroupperson): utilizado para gerir PersonGroup rostos de pessoas para [identificação](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [APIs de gestão de PersonGroup](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup): utilizado para gerir um conjunto de dados de PersonGroup para [identificação](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
 
 <!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

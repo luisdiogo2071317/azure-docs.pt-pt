@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfaee72be883ee8902fe4550890d757f114ff932
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: e526c5f2f446a1ae8134a3e2ca72fcc42024d904
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426112"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724099"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
 
@@ -91,11 +91,11 @@ Quando criar a sua primeira conta do Batch no modo de subscrição de utilizador
 
     ![Registar fornecedor do Microsoft.Batch][register_provider]
 
-1. Na página **Subscrição**, selecione **Controlo de acesso (IAM)** > **Adicionar**.
+1. Na **subscrição** página, selecione **controlo de acesso (IAM)** > **atribuições de funções** > **adicionar atribuição de função**.
 
     ![Controlo de acesso da subscrição][subscription_access]
 
-1. Na página **Adicionar permissões**, selecione a função **Contribuinte** e procure a API do Batch. Procure para cada uma destas cadeias até encontrar a API:
+1. Sobre o **adicionar atribuição de função** página, selecione a **contribuinte** função, procure a API do Batch. Procure para cada uma destas cadeias até encontrar a API:
     1. **MicrosoftAzureBatch**.
     1. **Batch do Microsoft Azure**. Os inquilinos mais recentes podem utilizar este nome.
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864** é o ID para a API do Batch. 
@@ -120,7 +120,7 @@ Além do portal do Azure, também pode criar e gerir contas do Batch com ferrame
 * [CLI do Azure](batch-cli-get-started.md)
 * [Gestão de Batch .NET](batch-management-dotnet.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Consulte a [Batch feature overview (Descrição geral da funcionalidade do Batch)](batch-api-basics.md) para saber mais sobre conceitos e funcionalidades de serviço do Batch. O artigo aborda os recursos do Batch principais como conjuntos, nós de computação e tarefas e fornece uma descrição geral das funcionalidades do serviço para cargas de trabalho de computação em grande escala.
 * Aprenda os conceitos básicos de programação de uma aplicação compatível com o Batch ao utilizar a [biblioteca de cliente .NET do Batch](quick-run-dotnet.md) ou [Python](quick-run-python.md). Estes inícios rápidos orientam-no numa aplicação de exemplo que utiliza o serviço do Batch para executar uma carga de trabalho em vário nós de computação e inclui a utilização do Armazenamento do Azure para o teste e obtenção do ficheiro de carga de trabalho.
 

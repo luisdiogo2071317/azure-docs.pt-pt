@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 19b4a1382b2a9b6034fd6ac9feed776dcca6a124
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 53f9850d794061f5aaebc556743291ae8f3305fb
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704363"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721294"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Utilizar uma identidade gerida atribuída pelo sistema de VM do Windows para aceder ao Resource Manager
 
@@ -41,7 +41,7 @@ Com as identidades geridas para recursos do Azure, o seu código pode obter toke
 1.  Navegue até ao separador para **Grupos de Recursos**. 
 2.  Selecione o **Grupo de Recursos** específico que criou para a sua **VM do Windows**. 
 3.  Aceda a **Controlo de acesso (IAM)** no painel esquerdo. 
-4.  Em seguida, clique em **Adicionar** para adicionar uma nova atribuição de função para a sua **VM do Windows**.  Selecione **Função** como **Leitor**. 
+4.  Em seguida, **adicionar atribuição de função** uma nova atribuição de função para sua **Windows VM**.  Selecione **Função** como **Leitor**. 
 5.  Na lista pendente seguinte, defina **Atribuir acesso a** para o recurso **Máquina Virtual**. 
 6.  Em seguida, certifique-se de que está listada a subscrição correta na lista pendente **Subscrição**. Para **Grupo de Recursos**, selecione **Todos os grupos de recursos**. 
 7.  Por fim, em **Selecionar**, selecione a sua VM do Windows na lista pendente e clique em **Guardar**.

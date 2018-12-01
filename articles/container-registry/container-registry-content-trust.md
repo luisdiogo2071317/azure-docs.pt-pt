@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: 1f1e7ce41c00078c0181fc5f32c43b7e5885eef8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857674"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727349"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confiança do conteúdo no Azure Container Registry
 
@@ -77,7 +77,7 @@ Pode ver abaixo os detalhes para conceder a função `AcrImageSigner` no portal 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Navegue para o registo no portal do Azure e selecione **Controlo de Acesso (IAM)** > **Adicionar**. Em **Adicionar permissões**, selecione `AcrImageSigner`, em **Função**, escolha **Selecionar** um ou mais utilizadores ou principais de serviço e selecione **Guardar**.
+Navegue para o seu registo no portal do Azure, em seguida, selecione **controlo de acesso (IAM)** > **adicionar atribuição de função**. Sob **adicionar atribuição de função**, selecione `AcrImageSigner` sob **função**, em seguida, **selecionar** um ou mais utilizadores ou principais de serviço, em seguida, **guardar**.
 
 Neste exemplo, foi atribuída a duas entidades a função `AcrImageSigner`: um principal de serviço denominado “service-principal” e um utilizador com o nome “Azure user”.
 
@@ -188,7 +188,7 @@ Para desativar a confiança do conteúdo no seu registo, navegue para o mesmo no
 
 ![Desativar a confiança do conteúdo num registo no portal do Azure][content-trust-03-portal]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Veja a documentação do Docker para obter mais informações sobre a confiança do conteúdo. Embora este artigo tenha abordado vários pontos importantes, a confiança do conteúdo é um tópico extenso e é descrito mais pormenorizadamente na documentação do Docker.
 

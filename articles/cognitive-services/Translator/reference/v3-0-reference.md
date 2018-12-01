@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8302a444f28e4fb330a1eedbac9a5da762979d6c
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853358"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681964"
 ---
 # <a name="translator-text-api-v30"></a>V3.0 de API de texto do tradutor
 
@@ -31,11 +31,22 @@ A versão 3 da API de texto do Translator fornece uma API da Web baseados em JSO
 
 ## <a name="base-urls"></a>Base URLs
 
-Texto API v3.0 está disponível na nuvem seguinte:
+Microsoft Translator é fornecida fora várias localizações de datacenter. Atualmente estão localizados em 6 [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions):
 
-| Descrição | Região | URL Base                                        |
-|-------------|--------|-------------------------------------------------|
-| Azure       | Global | API.cognitive.microsofttranslator.com           |
+* **Americas:** E.U.A. oeste 2 e EUA Centro-Oeste 
+* **Ásia-Pacífico:** Sudeste asiático e sul da Coreia
+* **Europa:** Europa do Norte e Europa Ocidental
+
+Pedidos para a API de texto do Microsoft Translator estiverem na maioria dos casos, processados pelo centro de dados que esteja mais próximo da origem da solicitação. Em caso de falha do datacenter, o pedido pode ser encaminhado fora da região.
+
+Para forçar o pedido deve ser processada por um Data Center específico, altere o ponto final Global no pedido de API para o ponto de final desejado regional:
+
+|Descrição|Região|URL Base|
+|:--|:--|:--|
+|Azure|Global|  API.cognitive.microsofttranslator.com|
+|Azure|América do Norte|   API nam.cognitive.microsofttranslator.com|
+|Azure|Europa|  API eur.cognitive.microsofttranslator.com|
+|Azure|Ásia-Pacífico|    API apc.cognitive.microsofttranslator.com|
 
 
 ## <a name="authentication"></a>Autenticação

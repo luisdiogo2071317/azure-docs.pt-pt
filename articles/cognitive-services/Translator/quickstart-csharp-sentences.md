@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: abdd87b9a86ed2482d5b53c10260fe28821b34ce
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9d8a820b9b4c0c11d6e73728f8e62cc47eb4ab34
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333311"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680060"
 ---
 # <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-c"></a>Início Rápido: obter os comprimentos de frases com a API de Texto do Microsoft Translator (C#)
 
@@ -28,7 +28,7 @@ Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https:
 * [SDK do .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Pacote de NuGet Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), ou no seu editor de texto favorito
-* Uma chave de subscrição do Azure para o serviço de voz
+* Uma chave de subscrição do Azure para Tradução de Texto
 
 ## <a name="create-a-net-core-project"></a>Criar um projeto .NET Core
 

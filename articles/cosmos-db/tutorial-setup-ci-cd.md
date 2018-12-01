@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: f08af7e75c75f9e9c89968b403a1eb7dd93bf521
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e0b1fe3b58d5781ce1e2d7a0701c58c31e6054a6
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620290"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678938"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline CI/CD com a tarefa de compilação do emulador do Azure Cosmos DB no DevOps do Azure
 
@@ -23,7 +23,7 @@ O emulador do Azure Cosmos DB fornece um ambiente local que emula o serviço do 
 
 A tarefa de compilação do emulador do Azure Cosmos DB para o DevOps do Azure permite-lhe fazer o mesmo num ambiente de CI. Com a tarefa de compilação, pode testar o emulador como parte dos seus fluxos de trabalho de compilação e versão. A tarefa acelera um contentor Docker com o emulador a ser executado e fornece um ponto final que pode ser utilizado pelo resto da definição da compilação. Pode criar e iniciar todas as instâncias do emulador que precisar, com cada uma a ser executada num contentor separado. 
 
-Este artigo demonstra como configurar um pipeline de CI no DevOps do Azure para uma aplicação ASP.NET que utiliza a tarefa de compilação do emulador do Azure Cosmos DB para executar testes. 
+Este artigo demonstra como configurar um pipeline de CI no DevOps do Azure para uma aplicação ASP.NET que utiliza a tarefa de compilação do emulador do Azure Cosmos DB para executar testes. Pode utilizar uma abordagem semelhante para definir um pipeline de CI para um node. js ou uma aplicação Python. 
 
 ## <a name="install-the-emulator-build-task"></a>Instalar a tarefa de compilação do emulador
 

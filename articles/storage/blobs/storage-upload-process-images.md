@@ -1,25 +1,25 @@
 ---
 title: Carregar dados de imagem na cloud com o Armazenamento do Azure | Microsoft Docs
-description: Utilizar o armazenamento de blobs do Azure com uma aplicação Web para armazenar dados da aplicação
+description: Utilize o armazenamento de Blobs do Azure com uma aplicação web para armazenar dados de aplicações
 services: storage
 documentationcenter: ''
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: c58bb19a18e6f0f78e07e403df5489f2f7342203
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 371a679978c501c71da6e8360d7541c31a6a720f
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853103"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682337"
 ---
-# <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Carregar dados de imagem na cloud com o Armazenamento do Azure
+# <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutorial: Carregar dados de imagem na cloud com o armazenamento do Azure
 
-Este tutorial é a primeira parte de uma série. Este tutorial mostra como implementar uma aplicação Web que utiliza a Biblioteca de Cliente de Armazenamento do Azure para carregar as imagens para uma conta de armazenamento. Quando tiver terminado, terá uma aplicação Web que armazena e apresenta as imagens a partir do armazenamento do Azure.
+Este tutorial é a primeira parte de uma série. Neste tutorial, irá aprender como implementar uma aplicação web que utiliza a biblioteca de cliente de armazenamento do Azure para carregar imagens para uma conta de armazenamento. Quando tiver terminado, terá uma aplicação web que armazena e apresenta imagens a partir do armazenamento do Azure.
 
 # <a name="nettabnet"></a>[\.NET](#tab/net)
 ![Vista do contentor de imagens](media/storage-upload-process-images/figure2.png)
@@ -35,22 +35,26 @@ Na primeira parte da série, saiba como:
 > * Criar uma conta de armazenamento
 > * Criar um contentor e definir permissões
 > * Obter uma chave de acesso
-> * Configurar definições da aplicação
-> * Implementar uma Aplicação Web no Azure
-> * Interagir com a aplicação Web
+> * Implementar uma aplicação web no Azure
+> * Configurar as definições da aplicação
+> * Interagir com a aplicação web
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para concluir este tutorial, precisa de uma subscrição do Azure. Criar uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Para instalar e utilizar a CLI localmente, este tutorial requer que execute a CLI do Azure versão 2.0.4 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos 
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.  
 
 O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup`.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westcentralus 
+az group create --name myResourceGroup --location southeastasia 
 ```
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
@@ -58,23 +62,23 @@ az group create --name myResourceGroup --location westcentralus
 O exemplo carrega imagens para um contentor de blobs numa conta de Armazenamento do Azure. Uma conta de armazenamento fornece um espaço de nomes exclusivo para armazenar e aceder aos objetos de dados de armazenamento do Azure. Utilize o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create) para criar uma conta de armazenamento no grupo de recursos que criou.
 
 > [!IMPORTANT]
-> Na segunda parte do tutorial, utiliza subscrições de Eventos para o armazenamento de blobs. As subscrições de eventos são atualmente suportadas apenas para contas de armazenamento de Blobs nas seguintes localizações: Sudeste Asiático, Leste da Ásia, Leste da Austrália, Sudeste da Austrália, E.U.A. Central, E.U.A Leste, Asia Southeast 2, Oeste da Europa, Norte da Europa, Leste do Japão, Oeste do Japão, E.U.A. Centro-Oeste, E.U.A. Oeste e E.U.A. Leste 2. Devido a esta restrição, tem de criar uma conta de armazenamento de Blobs que seja utilizada pela aplicação de exemplo para armazenar imagens e miniaturas.
+> Na parte 2 do tutorial, utilize o Azure Event Grid com o armazenamento de Blobs. Certifique-se criar a conta de armazenamento numa região do Azure que suporta o Event Grid. Para obter uma lista de regiões suportadas, consulte [produtos do Azure por região](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
-No comando seguinte, substitua o nome da conta de armazenamento de Blobs globalmente exclusivo onde vir o marcador de posição `<blob_storage_account>`.  
+No comando seguinte, substitua o nome globalmente exclusivo para a conta de armazenamento de BLOBs onde vir o `<blob_storage_account>` marcador de posição.  
 
 ```azurecli-interactive
 az storage account create --name <blob_storage_account> \
---location westcentralus --resource-group myResourceGroup \
+--location southeastasia --resource-group myResourceGroup \
 --sku Standard_LRS --kind blobstorage --access-tier hot 
 ```
 
-## <a name="create-blob-storage-containers"></a>Criar contentores de armazenamento de blobs
+## <a name="create-blob-storage-containers"></a>Criar contentores de armazenamento de BLOBs
 
-A aplicação utiliza dois contentores na conta de armazenamento de Blobs. Os contentores são semelhantes às pastas e são utilizados para armazenar blobs. O contentor de _imagens_ é para onde a aplicação carrega imagens com máxima resolução. Numa secção mais adiante da série, uma aplicação de função do Azure carrega as miniaturas de imagem dimensionadas para o contentor de _miniaturas_.
+A aplicação utiliza dois contentores na conta de armazenamento de Blobs. Os contentores são semelhantes às pastas e armazenam blobs. O contentor de *imagens* é para onde a aplicação carrega imagens com máxima resolução. Numa secção mais adiante da série, uma aplicação de função do Azure carrega as miniaturas de imagem dimensionadas para o contentor de *miniaturas*.
 
-Obtenha a chave da conta de armazenamento com o comando [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Em seguida, utilize esta chave para criar dois contentores com o comando [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
+Obtenha a chave da conta de armazenamento com o comando [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list). Em seguida, utilize esta chave para criar dois contentores com o [criar contentor de armazenamento az](/cli/azure/storage/container#az_storage_container_create) comando.  
 
-Neste caso, `<blob_storage_account>` é o nome da conta de armazenamento de Blobs que criou. O acesso público dos contentores de _imagens_ está definido como `off` e o acesso público dos contentores de _miniaturas_ está definido como `container`. A definição de acesso público de `container` permite às pessoas que acedem à página Web visualizar as miniaturas.
+Neste caso, `<blob_storage_account>` é o nome da conta de armazenamento de Blobs que criou. O *imagens* acesso de público do contentor está definido como `off`. O *miniaturas* acesso de público do contentor está definido como `container`. O `container` definição de acesso público permite aos utilizadores que visitam a página da web para ver as miniaturas.
 
 ```azurecli-interactive
 blobStorageAccount=<blob_storage_account>
@@ -88,11 +92,11 @@ az storage container create -n images --account-name $blobStorageAccount \
 az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
-echo "Make a note of your blob storage account key..."
+echo "Make a note of your Blob storage account key..."
 echo $blobStorageAccountKey
 ```
 
-Tome nota da chave e do nome da conta de armazenamento de blobs. A aplicação de exemplo utiliza estas definições para ligar à conta de armazenamento para carregar imagens. 
+Anote o nome de conta de armazenamento de BLOBs e a chave. A aplicação de exemplo utiliza estas definições para ligar à conta de armazenamento para carregar as imagens. 
 
 ## <a name="create-an-app-service-plan"></a>Crie um plano do Serviço de Aplicações
 
@@ -108,9 +112,9 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>Criar uma aplicação Web
 
-A aplicação Web fornece um espaço de alojamento para o código da aplicação de exemplo implementado a partir do repositório de exemplo do GitHub. Crie uma [aplicação Web](../../app-service/app-service-web-overview.md) no plano do `myAppServicePlan`Serviço de Aplicações com o comando[az webapp create](/cli/azure/webapp#az_webapp_create).  
+A aplicação web fornece um espaço de alojamento para o código de aplicação de exemplo que é implementado a partir do repositório de exemplo do GitHub. Crie uma [aplicação Web](../../app-service/app-service-web-overview.md) no plano do `myAppServicePlan`Serviço de Aplicações com o comando[az webapp create](/cli/azure/webapp#az_webapp_create).  
 
-No comando seguinte, substitua `<web_app>` por um nome exclusivo (os carateres válidos são `a-z`, `0-9` e `-`). Se `<web_app>` não for exclusivo, obtém a mensagem de erro _O Website com o nome `<web_app>` já existe._ O URL predefinido da aplicação Web é `https://<web_app>.azurewebsites.net`.  
+No comando seguinte, substitua `<web_app>` com um nome exclusivo. Os carateres válidos são `a-z`, `0-9` e `-`. Se `<web_app>` não for exclusivo, obtém a mensagem de erro _O Website com o nome `<web_app>` já existe._ O URL predefinido da aplicação Web é `https://<web_app>.azurewebsites.net`.  
 
 ```azurecli-interactive
 az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan
@@ -122,7 +126,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 O Serviço de Aplicações suporta várias formas de implementar conteúdo numa aplicação Web. Neste tutorial, vai implementar a aplicação Web a partir de um [repositório de exemplo do GitHub público](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configure a implementação do GitHub para a aplicação Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Substitua `<web_app>` pelo nome da aplicação Web que criou no passo anterior.
 
-O projeto de exemplo contém uma aplicação [ASP.NET MVC](https://www.asp.net/mvc) que aceita uma imagem, guarda-a numa conta de armazenamento e apresenta imagens a partir de um contentor de miniaturas. A aplicação Web utiliza os espaços de nomes [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet)e [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) a partir da Biblioteca de Cliente de armazenamento do Azure para interagir com o armazenamento do Azure.
+O projeto de exemplo contém um [ASP.NET MVC](https://www.asp.net/mvc) aplicação. A aplicação aceita uma imagem, guarda-a numa conta de armazenamento e apresenta imagens a partir de um contentor de miniaturas. A aplicação web utiliza a [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet)e o [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) espaços de nomes de o biblioteca de cliente para interagir com o armazenamento do Azure de armazenamento do Azure.
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 O Serviço de Aplicações suporta várias formas de implementar conteúdo numa aplicação Web. Neste tutorial, vai implementar a aplicação Web a partir de um [repositório de exemplo do GitHub público](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node). Configure a implementação do GitHub para a aplicação Web com o comando [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Substitua `<web_app>` pelo nome da aplicação Web que criou no passo anterior.
@@ -137,9 +141,9 @@ az webapp deployment source config --name <web_app> \
 
 ## <a name="configure-web-app-settings"></a>Configurar as definições da aplicação Web
 
-A aplicação Web de exemplo utiliza a [Biblioteca de Cliente de Armazenamento do Azure](/dotnet/api/overview/azure/storage?view=azure-dotnet) para pedir tokens de acesso, os quais são utilizados para carregar imagens. As credenciais da conta de armazenamento utilizadas pelo SDK de Armazenamento são estabelecidas nas definições da aplicação Web. Adicione as definições à aplicação implementada com o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set).
+A aplicação Web de exemplo utiliza a [Biblioteca de Cliente de Armazenamento do Azure](/dotnet/api/overview/azure/storage?view=azure-dotnet) para pedir tokens de acesso, os quais são utilizados para carregar imagens. As credenciais da conta de armazenamento utilizadas pelo SDK de armazenamento são definidas nas definições da aplicação para a aplicação web. Adicionar as definições da aplicação para a aplicação implementada com o [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) comando.
 
-No comando seguinte, `<blob_storage_account>` é o nome da conta de armazenamento de Blobs e `<blob_storage_key>` é a chave associada. Substitua `<web_app>` pelo nome da aplicação Web que criou no passo anterior.
+No comando seguinte, substitua `<blob_storage_account>` com o nome da conta de armazenamento de BLOBs e `<blob_storage_key>` com a chave associada. Substitua `<web_app>` pelo nome da aplicação Web que criou no passo anterior.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
@@ -149,18 +153,18 @@ AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ```
 
-Após a implementação e configuração da aplicação Web, pode testar a funcionalidade de carregamento de imagens na aplicação.
+Depois de implementar e configurar a aplicação web, pode testar a funcionalidade de carregamento de imagens na aplicação.
 
 ## <a name="upload-an-image"></a>Carregar uma imagem
 
 Para testar a aplicação Web, navegue para o URL da aplicação publicada. O URL predefinido da aplicação Web é `https://<web_app>.azurewebsites.net`.
-Selecione a região **Carregar fotografias** para selecionar e carregar um ficheiro ou arrastar e largar um ficheiro na região. A imagem desaparece se for carregada com êxito.
+Selecione o **carregar fotografias** região para selecionar e carregar um ficheiro ou arrastar um ficheiro para a região. A imagem desaparece se for carregada com êxito.
 
 # <a name="nettabnet"></a>[\.NET](#tab/net)
 
 ![Aplicação ImageResizer](media/storage-upload-process-images/figure1.png)
 
-No código de exemplo, a tarefa `UploadFiletoStorage` no ficheiro `Storagehelper.cs` é utilizada para carregar as imagens para o contentor `images` na conta de armazenamento através do método [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet). O exemplo de código seguinte contém a tarefa `UploadFiletoStorage`.
+No código de exemplo, o `UploadFiletoStorage` de tarefas no *Storagehelper.cs* arquivo é usado para carregar as imagens para o *imagens* contentor na conta de armazenamento através do [ UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) método. O exemplo de código seguinte contém a tarefa `UploadFiletoStorage`.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)
@@ -203,13 +207,13 @@ As classes e métodos seguintes são utilizados na tarefa anterior:
 
 No código de exemplo, a rota `post` é responsável por carregar a imagem para um contentor de blobs. A rota utiliza os módulos para ajudar a processar o carregamento:
 
-- [multer](https://github.com/expressjs/multer) implementa a estratégia de carregamento para o processador de rotas
-- [into-stream](https://github.com/sindresorhus/into-stream) converte a memória intermédia num fluxo, conforme exigido pelo [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html#createBlockBlobFromStream)
+- [multer](https://github.com/expressjs/multer) implementa a estratégia de carregamento para o manipulador de rotas.
+- [para o stream](https://github.com/sindresorhus/into-stream) converte o buffer num fluxo conforme exigido pelo [createBlockBlobFromStream]. (http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html#createBlockBlobFromStream)
 
-À medida que o ficheiro é enviado para a rota, os conteúdos do ficheiro permanecem na memória até que o ficheiro é carregado para o contentor de blobs.
+À medida que o ficheiro é enviado para a rota, o conteúdo do arquivo mantenha-se na memória até que o ficheiro é carregado para o contentor de Blobs.
 
 > [!IMPORTANT]
-> O carregamento de ficheiros muito grandes para a memória pode ter um efeito negativo no desempenho da sua aplicação Web. Se pretende que os utilizadores publiquem ficheiros grandes, convém considerar a preparação dos ficheiros no sistema de ficheiros do servidor Web e, em seguida, agendar carregamentos para o armazenamento de blobs. Assim que os ficheiros estiverem no armazenamento de blobs, pode removê-los do sistema de ficheiros do servidor.
+> A carregar ficheiros grandes na memória, pode ter um efeito negativo no desempenho da sua aplicação web. Se pretender que os utilizadores para publicar ficheiros grandes, convém considerar a ficheiros no sistema de arquivos de servidor web de teste e, em seguida, agendamento carregamentos para o armazenamento de Blobs. Assim que os ficheiros estiverem no armazenamento de BLOBs, pode removê-lo do sistema de arquivos de servidor.
 
 ```javascript
 const
@@ -262,7 +266,7 @@ router.post('/', uploadStrategy, (req, res) => {
 
 ## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Verifique se a imagem é apresentada na conta de armazenamento
 
-Inicie sessão no [portal do Azure](https://portal.azure.com). No menu à esquerda, selecione **Contas de armazenamento** e selecione o nome da conta de armazenamento. Em **Descrição geral**, selecione o contentor de **imagens**.
+Inicie sessão no [portal do Azure](https://portal.azure.com). No menu à esquerda, selecione **Contas de armazenamento** e selecione o nome da conta de armazenamento. Sob **serviço Blob**, selecione **Blobs**, em seguida, selecione o **imagens** contentor.
 
 Verifique se a imagem é apresentada no contentor.
 
@@ -270,11 +274,11 @@ Verifique se a imagem é apresentada no contentor.
 
 ## <a name="test-thumbnail-viewing"></a>Testar a visualização de miniaturas
 
-Para testar a visualização de miniaturas, carregue uma imagem para o contentor de miniaturas para garantir que a aplicação consegue ler o contentor de miniaturas.
+Para testar a visualização de miniaturas, carregue uma imagem para o **miniaturas** contentor para verificar se a aplicação pode ler a **miniaturas** contentor.
 
-Inicie sessão no [portal do Azure](https://portal.azure.com). No menu à esquerda, selecione **Contas de armazenamento** e selecione o nome da conta de armazenamento. Selecione **Contentores** em **Serviço Blob** e selecione o contentor de **miniaturas**. Selecione **Carregar** para abrir o painel **Carregar blob**.
+Inicie sessão no [portal do Azure](https://portal.azure.com). No menu à esquerda, selecione **Contas de armazenamento** e selecione o nome da conta de armazenamento. Sob **serviço Blob**, selecione **Blobs**, em seguida, selecione o **miniaturas** contentor. Selecione **Carregar** para abrir o painel **Carregar blob**.
 
-Escolha um ficheiro com o seletor de ficheiros e selecione **Carregar**.
+Escolha um ficheiro com o Seletor de ficheiros e selecione **carregar**.
 
 Navegue novamente para a aplicação para verificar se a imagem carregada no contentor de **miniaturas** está visível.
 
@@ -286,23 +290,15 @@ Navegue novamente para a aplicação para verificar se a imagem carregada no con
 
 ---
 
-No contentor de **miniaturas** no portal do Azure, selecione a imagem que carregou e selecione **Eliminar** para eliminar a imagem. Na segunda parte da série, vai automatizar a criação de imagens em miniatura, pelo que esta imagem de teste não é necessária.
+Na parte dois da série, automatizar a criação de imagem em miniatura para que precise esta imagem. No contentor de **miniaturas** no portal do Azure, selecione a imagem que carregou e selecione **Eliminar** para eliminar a imagem. 
 
-A CDN pode ser ativada para o conteúdo da cache a partir da conta de armazenamento do Azure. Embora não esteja descrito neste tutorial, para saber como ativar a CDN com a sua conta de armazenamento do Azure, pode visitar: [Integrar uma conta de armazenamento do Azure na CDN do Azure](../../cdn/cdn-create-a-storage-account-with-cdn.md).
+Pode ativar a CDN para conteúdo de cache da sua conta de armazenamento do Azure. Para obter mais informações sobre como ativar a CDN com a sua conta de armazenamento do Azure, consulte [integrar uma conta de armazenamento do Azure CDN do Azure](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Na primeira parte da série, aprendeu a configurar uma aplicação Web ao interagir com o armazenamento, como:
+Na primeira parte da série, aprendeu a configurar uma aplicação web para interagir com o armazenamento.
 
-> [!div class="checklist"]
-> * Criar uma conta de armazenamento
-> * Criar um contentor e definir permissões
-> * Obter uma chave de acesso
-> * Configurar definições da aplicação
-> * Implementar uma Aplicação Web no Azure
-> * Interagir com a aplicação Web
-
-Avance para a segunda parte da série para saber como utilizar o Event Grid para acionar uma função do Azure para redimensionar uma imagem.
+Vá para a parte dois da série para saber como utilizar o Event Grid para acionar uma função do Azure para redimensionar uma imagem.
 
 > [!div class="nextstepaction"]
 > [Utilizar o Event Grid para acionar uma Função do Azure para redimensionar uma imagem carregada](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

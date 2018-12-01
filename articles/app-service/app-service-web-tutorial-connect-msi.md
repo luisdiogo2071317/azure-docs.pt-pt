@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 42a25d6c13fe1052f4aa14696a66c9c7f1fb4d65
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8c31e410713e4ba8ce6443170ba5ad5c2e740419
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685689"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52677938"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
 
@@ -174,6 +174,10 @@ Se quiser ver a saída JSON completa de cada comando, remova os parâmetros `--q
 ### <a name="reconfigure-azure-ad-administrator"></a>Reconfigurar o administrador do Azure AD
 
 Anteriormente, atribuiu a identidade gerida como o administrador do Azure AD da sua Base de Dados SQL. Não pode utilizar esta identidade para início de sessão interativo (para adicionar utilizadores da base de dados), pelo que tem de utilizar o seu utilizador do Azure AD real. Para adicionar o utilizador do Azure AD, siga os passos em [Provision an Azure Active Directory administrator for your Azure SQL Database Server](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) (Aprovisionar um administrador do Azure Active Directory para o servidor da Base de Dados SQL do Azure). 
+
+> [!IMPORTANT]
+> Uma vez adicionado, não remova este administrador do Azure AD para a base de dados SQL, a menos que pretende desativar o acesso do Azure AD para a base de dados SQL totalmente (de todas as contas do Azure AD).
+> 
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>Conceder permissões ao grupo do Azure Active Directory
 
