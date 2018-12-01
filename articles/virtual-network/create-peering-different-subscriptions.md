@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: cb8644ea4d949e81e4fb68bf572956bfe3444c0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997901"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727482"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Criar um peering de rede virtual - Gestor de recursos, subscrições diferentes
 
@@ -58,7 +58,7 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
     - **Localização**: *E.U.A. leste*
 4. Na **recursos de pesquisa** caixa na parte superior do portal, tipo *myVnetA*. Selecione **myVnetA** quando for apresentada nos resultados da pesquisa. 
 5. Selecione **controlo de acesso (IAM)** na vertical lista de opções no lado esquerdo.
-6. Sob **myVnetA - controlo de acesso (IAM)**, selecione **+ adicionar**.
+6. Sob **myVnetA - controlo de acesso (IAM)**, selecione **+ adicionar atribuição de função**.
 7. Selecione **contribuinte de rede** no **função** caixa.
 8. Na **selecionar** caixa, selecione *UserB*, ou escreva o endereço de e-mail do User-b para pesquisá-la.
 9. Selecione **Guardar**.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 9da213525a5921295d6271adfd473b7a05a049a4
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14513e23aafd05796767e1ae08d4d4c14cecdfbc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497927"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728315"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric que pode personalizar. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personalizar as definições ao atualizar o *ClusterConfig.json* de atualização de ficheiro e efetuar uma configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -138,6 +138,13 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |IsEnabled|bool, a predefinição é falso|Estático|Ativa/desativa DnsService. DnsService está desativada por predefinição e esta configuração precisa ser definida para ativá-la. |
 |PartitionPrefix|cadeia de caracteres, a predefinição é ""|Estático|Controla o valor de cadeia de caracteres de prefixo de partição nas consultas DNS para serviços particionadas. O valor: <ul><li>Deve estar em conformidade com RFC como será a parte de uma consulta DNS.</li><li>Não deve conter um ponto ".", como o ponto interfere com o comportamento de sufixo DNS.</li><li>Não deve ter mais de 5 carateres.</li><li>Não pode ser uma cadeia vazia.</li><li>Se a definição de PartitionPrefix é substituída, então PartitionSuffix tem de ser substituído e vice-versa.</li></ul>Para obter mais informações, consulte [serviço de DNS do Service Fabric.](service-fabric-dnsservice.md).|
 |PartitionSuffix|cadeia de caracteres, a predefinição é ""|Estático|Controla o valor de cadeia de caracteres de sufixo de partição nas consultas DNS para serviços particionadas. O valor: <ul><li>Deve estar em conformidade com RFC como será a parte de uma consulta DNS.</li><li>Não deve conter um ponto ".", como o ponto interfere com o comportamento de sufixo DNS.</li><li>Não deve ter mais de 5 carateres.</li><li>Se a definição de PartitionPrefix é substituída, então PartitionSuffix tem de ser substituído e vice-versa.</li></ul>Para obter mais informações, consulte [serviço de DNS do Service Fabric.](service-fabric-dnsservice.md). |
+
+## <a name="eventstore"></a>EventStore
+| **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
+| --- | --- | --- | --- |
+|MinReplicaSetSize|int, a predefinição é 0|Estático|MinReplicaSetSize para o serviço de EventStore |
+|PlacementConstraints|cadeia de caracteres, a predefinição é ""|Estático|  PlacementConstraints para o serviço de EventStore |
+|TargetReplicaSetSize|int, a predefinição é 0|Estático| TargetReplicaSetSize para o serviço de EventStore |
 
 ## <a name="fabricclient"></a>FabricClient
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094222"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727907"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controlo de acesso baseado em funções na Automatização do Azure
 
@@ -39,7 +39,7 @@ Na Automatização do Azure, é concedido acesso ao atribuir a função RBAC ade
 | Leitor de Monitorização | A função de leitor de monitorização permite-lhe ler todos os dados de monitorização. |
 | Administrador de Acesso de Utilizador |A função de Administrador de Acesso de Utilizador permite-lhe gerir o acesso de utilizador para as contas de Automatização do Azure. |
 
-## <a name="role-permissions"></a>Permissões de função
+## <a name="role-permissions"></a>Permissões de funções
 
 As tabelas seguintes descrevem as permissões específicas para cada função. Isto pode incluir ações, que concede permissões, e NotActions, que restringi-los.
 
@@ -274,12 +274,13 @@ A seção a seguir mostra como configurar o RBAC na sua conta de automatização
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) e abra a sua conta de Automatização a partir da página Contas de Automatização.
 2. Clique nas **controlo de acesso (IAM)** controle no canto superior esquerdo. Esta ação abre o **controlo de acesso (IAM)** página onde pode adicionar novos utilizadores, grupos e aplicações para gerir a sua automação de conta e ver funções existentes que podem ser configuradas para a conta de automatização.
+3. Clique nas **atribuições de funções** separador.
 
    ![Botão de acesso](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Adicionar um novo utilizador e atribuir uma função
 
-1. Do **controlo de acesso (IAM)** página, clique em **+ adicionar** para abrir o **adicionar permissões** página onde pode adicionar um utilizador, grupo ou aplicação e atribuir-lhes uma função.
+1. Do **controlo de acesso (IAM)** página, clique em **+ adicionar atribuição de função** para abrir o **adicionar atribuição de função** página onde pode adicionar um utilizador, grupo ou aplicação e atribuir uma função a eles.
 
 2. Selecione uma função na lista de funções disponíveis. Pode escolher qualquer uma das funções incorporadas disponíveis que suporte a uma conta de automatização ou qualquer função personalizada que pode ter definido.
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 11/16/2018
 ms.author: shvija
-ms.openlocfilehash: 76102e1238346cbbb8f5159d2ffcd94c788c16d6
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 0733d26839cbb2dc40f4dd99b60d6a5628cc1f1a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056985"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727091"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Instruções de captura dos Hubs de eventos: Python
 
@@ -38,10 +38,9 @@ Este exemplo utiliza a [Azure Python SDK](https://azure.microsoft.com/develop/py
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Python 2.7.x
-- Uma subscrição do Azure
-- Um ativo [hub de eventos e de espaço de nomes de Hubs de eventos](event-hubs-create.md)
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
+- Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+- Um ativo [hub de eventos e de espaço de nomes de Hubs de eventos](event-hubs-create.md). 
+- Ativar **capturar** funcionalidade para o hub de eventos ao seguir as instruções de: [ativar os Hubs de captura de eventos com o portal do Azure](event-hubs-capture-enable-through-portal.md)
 
 ## <a name="create-an-azure-blob-storage-account"></a>Criar uma conta de armazenamento de Blobs do Azure
 1. Inicie sessão no [Portal do Azure][Azure portal].

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 34c11c911b6c2ffbc4d4800cd7203a8d430814fb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 666e4c434d05bb953950893f32c262183055becd
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311250"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728179"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um peering de rede virtual - diferentes modelos de implementação e as subscrições
 
@@ -56,8 +56,8 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
     - **Localização**: *E.U.A. leste*
 4. Na **recursos de pesquisa** caixa na parte superior do portal, tipo *myVnetA*. Clique em **myVnetA** quando for apresentada nos resultados da pesquisa. É apresentado um painel para o **myVnetA** rede virtual.
 5. Na **myVnetA** painel que aparece, clique em **controlo de acesso (IAM)** na vertical lista de opções no lado esquerdo do painel.
-6. Na **myVnetA - controlo de acesso (IAM)** painel que aparece, clique em **+ adicionar**.
-7. Na **adicionar permissões** painel que aparece, selecione **Contribuidor de rede** no **função** caixa.
+6. Na **myVnetA - controlo de acesso (IAM)** painel que aparece, clique em **+ adicionar atribuição de função**.
+7. Na **adicionar atribuição de função** painel que aparece, selecione **Contribuidor de rede** no **função** caixa.
 8. Na **selecione** caixa, selecione o utilizador b ou escreva o endereço de e-mail do User-b para pesquisá-la. A lista de utilizadores mostrado é a partir do mesmo inquilino do Azure Active Directory que a rede virtual que está a configurar o peering para. Clique em UserB quando aparece na lista.
 9. Clique em **Guardar**.
 10. Terminar sessão no portal como UserA, em seguida, inicie sessão como utilizador b.

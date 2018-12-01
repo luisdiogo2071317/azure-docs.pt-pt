@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/28/2018
+ms.date: 11/28/2018
 ms.author: dekapur
-ms.openlocfilehash: 80b331d32fe1e7bb4eb331bd981106968bc73bed
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e4540076b29cf3cd51f03239a1868e18a41781d9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163214"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726530"
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Criar clusters do Service Fabric no Windows Server ou Linux
 Um cluster do Service Fabric é um conjunto ligado à rede de máquinas virtuais ou físicas, no qual os microsserviços são implementados e geridos. Uma máquina ou VM que faça parte de um cluster é chamado de um nó de cluster. Clusters podem ser dimensionados para milhares de nós. Se adicionar novos nós ao cluster, o Service Fabric rebalances as réplicas de partição de serviço e as instâncias em aumento do número de nós. Em geral melhora o desempenho do aplicativo e reduz a contenção de acesso à memória. Se os nós do cluster não estão a ser utilizados com eficiência, pode diminuir o número de nós do cluster. Service Fabric rebalances novamente as instâncias e réplicas de partição entre o menor número de nós para garantir uma melhor utilização do hardware em cada nó.
@@ -35,7 +35,9 @@ A criação de um cluster no Azure é feita através de um modelo de modelo de r
 * Windows Server 2012 R2
 * Windows Server 2016 
 * 1709 do Windows Server
+* Windows Server versão 1803
 * Linux Ubuntu 16.04
+* Red Hat Enterprise Linux 7.4 (suporte de pré-visualização)
 
 > [!NOTE]
 > Se optar por implementar o Service Fabric no Windows Server 1709, tenha em atenção que (1) não é do long term servicing branch, pelo que poderá ter de mover as versões no futuro, e (2) se implementa contentores, contentores criados no Windows Server 2016 não funcionam no Windows Server  1709 e vice-versa (terá de recriá-los para implementá-las).

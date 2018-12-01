@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bccbf5462668913f6f3025e8d2274c115d49457f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010648"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727245"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>O Azure AD B2C: Perguntas mais frequentes (FAQ) 
 Esta página responde às perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para as atualizações.
@@ -34,7 +34,7 @@ No inquilino do Azure AD, os utilizadores que pertencem ao inquilino início de 
 
 Num inquilino do Azure AD B2C, a maioria das aplicações deseja que o usuário para iniciar sessão com qualquer endereço de e-mail arbitrário (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com, ou jim@live.com). Este tipo de conta é uma conta local.  Também suportamos nomes de usuário arbitrários como contas locais (por exemplo, o João, bob, sarah ou jim). Pode escolher um destes dois tipos de conta local ao configurar fornecedores de identidade para o Azure AD B2C no portal do Azure. No seu inquilino do Azure AD B2C, clique em **fornecedores de identidade** e, em seguida, selecione **Username** em contas locais. 
 
-Contas de utilizador para aplicações sempre tem de ser criadas através de uma política de inscrição, inscrição ou início de sessão-na política ou ao utilizar o Azure AD Graph API. Contas de utilizador criadas no portal do Azure só são utilizadas para administrar o inquilino.
+Sempre é necessário criar contas de utilizador para aplicações através de um fluxo de inscrição de utilizador, o fluxo de utilizador de inscrição ou início de sessão, ou ao utilizar o Azure AD Graph API. Contas de utilizador criadas no portal do Azure só são utilizadas para administrar o inquilino.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Os fornecedores de identidade social suporta agora? Quais planeia suportar no futuro?
 Suportamos, atualmente, o Facebook, Google +, LinkedIn, Amazon, Twitter (pré-visualização), WeChat (pré-visualização), Weibo (pré-visualização) e QQ (pré-visualização). Vamos adicionar suporte para outros fornecedores de identidade de redes sociais populares com base na procura dos clientes.
@@ -79,8 +79,8 @@ Atualmente não é possível alterar o "de:" campo no email.
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Como posso migrar meu os nomes de utilizador existente, as palavras-passe e perfis do banco de dados para o Azure AD B2C?
 Pode utilizar o Azure AD Graph API para escrever a sua ferramenta de migração. Consulte a [guia de migração de utilizador](active-directory-b2c-user-migration.md) para obter detalhes.
 
-### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Que política de palavra-passe é utilizada para contas locais no Azure AD B2C?
-A política de palavra-passe do Azure AD B2C para contas locais baseia-se na política para o Azure AD. O Azure AD B2C da inscrição, a inscrição ou início de sessão e palavra-passe utiliza políticas de reposição a força da palavra-passe "segura" e não expirarem as palavras-passe. Leitura a [política de palavra-passe do Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obter mais detalhes. Para obter informações sobre bloqueios de conta e palavras-passe, consulte [gere as ameaças aos recursos e dados no Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
+### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>O fluxo de utilizador de palavra-passe é utilizado para contas locais no Azure AD B2C?
+O fluxo de utilizador de palavra-passe do Azure AD B2C para contas locais é baseado na política para o Azure AD. O Azure AD B2C da inscrição, inscreva-se ou fluxos de utilizador de reposição de início de sessão e palavra-passe, utilizam a força da palavra-passe "segura" e não expirarem as palavras-passe. Leitura a [política de palavra-passe do Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obter mais detalhes. Para obter informações sobre bloqueios de conta e palavras-passe, consulte [gere as ameaças aos recursos e dados no Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Pode utilizar o Azure AD Connect para migrar as identidades de consumidor que estão armazenadas no meu diretório de Active Directory no local ao Azure AD B2C?
 Não, do Azure AD Connect não foi concebido para funcionar com o Azure AD B2C. Considere utilizar o [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) para a migração de utilizador.  Consulte a [guia de migração de utilizador](active-directory-b2c-user-migration.md) para obter detalhes.

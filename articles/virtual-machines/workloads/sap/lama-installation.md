@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 17/07/2018
 ms.author: sedusch
-ms.openlocfilehash: 2f3b8371357403071e70dd2e351cd75dbd34f746
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a0934fa3bb46eebba02029a8292b9bee6b12c62
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006640"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728230"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para o Azure
 
@@ -89,11 +89,11 @@ O Principal de serviço não tem permissões para aceder aos seus recursos do Az
 1. Ir para https://portal.azure.com
 1. Abra o painel de grupos de recursos
 1. Selecione o grupo de recursos que pretende utilizar
-1. Clique no controlo de acesso (IAM)
-1. Clique em Adicionar
+1. Clique em controle de acesso (IAM)
+1. Clique em Adicionar atribuição de função
 1. Selecione a função de contribuinte
 1. Introduza o nome da aplicação que criou acima
-1. Clique em OK
+1. Clicar em Guardar
 1. Repita o passo 3 para 8 para todos os grupos de recursos que pretende utilizar no SAP LaMa
 
 Abrir o site de SAP LaMa e navegue para a infraestrutura. Aceda ao separador gestores de nuvem e clique em Adicionar. Selecione a placa de Cloud do Microsoft Azure e clique em seguinte. Introduza as seguintes informações:

@@ -12,92 +12,97 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 10/23/2018
 ms.author: dekapur
-ms.openlocfilehash: 03dac03405588ba00a0f8ca5b127956c40853e36
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a568fc6316211755fabc15ab3cf0227e3a87cb01
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868518"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727363"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos do Service Fabric 
 
-Service Fabric expõe um conjunto principal de eventos de cluster para o informar do Estado do seu cluster como [eventos de Service Fabric](service-fabric-diagnostics-events.md). Estes são baseiam-se a ações executadas pelo Service Fabric no seu cluster e os nós ou decisões de gerenciamento feitas por um operador/proprietário de cluster. Esses eventos podem ser acedidos através da consulta a [EventStore](service-fabric-diagnostics-eventstore.md) no seu cluster, ou por meio do canal operacional. Nas máquinas do Windows, o canal operacional também conectado ao registo de eventos - para que possa ver eventos no Visualizador de eventos de Service Fabric. 
+Service Fabric expõe um conjunto principal de eventos de cluster para o informar do Estado do seu cluster como [eventos de Service Fabric](service-fabric-diagnostics-events.md). Estes são baseiam-se a ações executadas pelo Service Fabric no seu cluster e os nós ou decisões de gerenciamento feitas por um operador/proprietário de cluster. Esses eventos podem ser acedidos através da configuração de diversas formas, incluindo a configuração [Log Analytics com o seu cluster](service-fabric-diagnostics-oms-setup.md), ou consultando o [EventStore](service-fabric-diagnostics-eventstore.md). Nas máquinas do Windows, estes eventos são inseridos no registo de eventos - para que possa ver eventos no Visualizador de eventos de Service Fabric. 
 
->[!NOTE]
->Para obter uma lista de eventos do Service Fabric para clusters em versões < 6.2, consulte a secção seguinte. 
+Aqui estão algumas características destes eventos
+* Cada evento está associado a uma entidade específica no cluster por exemplo, aplicações, serviço, nó, réplica.
+* Cada evento contém um conjunto de campos comuns: EventInstanceId EventName e categoria.
+* Cada evento contém campos que vincular o evento de volta para a entidade que está associado. Por exemplo, o evento de ApplicationCreated teria campos que identificam o nome da aplicação criada.
+* Eventos são estruturados de tal forma que possam ser consumidas numa variedade de ferramentas para fazer ainda mais análises. Além disso, os detalhes relevantes para um evento são definidos como propriedades separadas em vez de uma cadeia longa. 
+* Eventos são escritos por diferentes subsistemas no Service Fabric são identificados pelo Source(Task) abaixo. Estão disponíveis nestes subsistemas em mais informações [arquitetura do Service Fabric](service-fabric-architecture.md) e [descrição geral técnica do Service Fabric](service-fabric-technical-overview.md).
 
-Aqui está disponível na plataforma, classificada pela entidade que podem ser mapeados para uma lista de todos os eventos.
+Aqui está uma lista desses eventos do Service Fabric organizados por entidade.
 
 ## <a name="cluster-events"></a>Eventos de cluster
 
 **Eventos de atualização de cluster**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
-| --- | --- | --- | --- | --- | --- |
-| 29627 | ClusterUpgradeStarted | Foi iniciada uma atualização de cluster | CM | Informativo | 1 |
-| 29628 | ClusterUpgradeCompleted | Uma atualização do cluster foi concluída| CM | Informativo | 1 |
-| 29629 | ClusterUpgradeRollbackStarted | Uma atualização do cluster foi iniciado para reversão | CM | Informativo | 1 |
-| 29630 | ClusterUpgradeRollbackCompleted | Uma atualização do cluster foi concluída de reversão | CM | Informativo | 1 |
-| 29631 | ClusterUpgradeDomainCompleted | Uma atualização de domínio foi concluída durante uma atualização do cluster | CM | Informativo | 1 |
+Obter mais detalhes sobre atualizações de cluster podem ser encontradas [aqui](service-fabric-cluster-upgrade-windows-server.md).
+
+| EventId | Nome | Categoria | Descrição |Origem (tarefa) | Nível | 
+| --- | --- | --- | --- | --- | --- | 
+| 29627 | ClusterUpgradeStarted | Atualizar | Foi iniciada uma atualização de cluster | CM | Informativo |
+| 29628 | ClusterUpgradeCompleted | Atualizar | Uma atualização do cluster foi concluída | CM | Informativo | 
+| 29629 | ClusterUpgradeRollbackStarted | Atualizar | Uma atualização do cluster foi iniciado para reversão  | CM | Aviso | 
+| 29630 | ClusterUpgradeRollbackCompleted | Atualizar | Uma atualização do cluster foi concluída de reversão | CM | Aviso | 
+| 29631 | ClusterUpgradeDomainCompleted | Atualizar | Um domínio de atualização concluiu a atualização durante uma atualização do cluster | CM | Informativo | 
 
 ## <a name="node-events"></a>Eventos de nó
 
 **Eventos de ciclo de vida de nó** 
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
-| --- | --- | ---| --- | --- | --- |
-| 18602 | NodeDeactivateCompleted | Desativação de um nó foi concluída | FM | Informativo | 1 |
-| 18603 | NodeUp | O cluster detetou que um nó de ter iniciado | FM | Informativo | 1 |
-| 18604 | NodeDown | O cluster detetou que um nó foi encerrado |  FM | Informativo | 1 |
-| 18605 | NodeAddedToCluster | Foi adicionado um novo nó ao cluster | FM | Informativo | 1 |
-| 18606 | NodeRemovedFromCluster | Foi removido um nó do cluster | FM | Informativo | 1 |
-| 18607 | NodeDeactivateStarted | Desativação de um nó foi iniciada | FM | Informativo | 1 |
-| 25620 | NodeOpening | Um nó está a iniciar. Primeira fase do ciclo de vida de nó | FabricNode | Informativo | 1 |
-| 25621 | NodeOpenSucceeded | Um nó iniciado com êxito | FabricNode | Informativo | 1 |
-| 25622 | NodeOpenFailed | Um nó falha ao iniciar | FabricNode | Informativo | 1 |
-| 25623 | NodeClosing | Um nó está a ser encerrado. Início da fase final do ciclo de vida de nó | FabricNode | Informativo | 1 |
-| 25624 | NodeClosed | Um nó desligado com êxito | FabricNode | Informativo | 1 |
-| 25625 | NodeAborting | Um nó está a começar a maneira brusca encerrar | FabricNode | Informativo | 1 |
-| 25626 | NodeAborted | Um nó de maneira brusca foi encerrado | FabricNode | Informativo | 1 |
+| EventId | Nome | Categoria | Descrição |Origem (tarefa) | Nível |
+| --- | --- | ---| --- | --- | --- | 
+| 18602 | NodeDeactivateCompleted | StateTransition | Desativação de um nó foi concluída | FM | Informativo | 
+| 18603 | NodeUp | StateTransition | O cluster detetou que um nó de ter iniciado | FM | Informativo | 
+| 18604 | NodeDown | StateTransition | O cluster detetou que um nó foi encerrado. Durante um reinício do nó, verá um evento de NodeDown seguido de um evento de NodeUp |  FM | Erro | 
+| 18605 | NodeAddedToCluster | StateTransition |  Foi adicionado um novo nó ao cluster e recursos de infraestrutura do serviço poderá implementar aplicações para este nó | FM | Informativo | 
+| 18606 | NodeRemovedFromCluster | StateTransition |  Foi removido um nó do cluster. Service Fabric já não irá implementar aplicações para este nó | FM | Informativo | 
+| 18607 | NodeDeactivateStarted | StateTransition |  Desativação de um nó foi iniciada | FM | Informativo | 
+| 25621 | NodeOpenSucceeded | StateTransition |  Um nó iniciado com êxito | FabricNode | Informativo | 
+| 25622 | NodeOpenFailed | StateTransition |  Um nó não foi possível iniciar e Junte-se a cadência de | FabricNode | Erro | 
+| 25624 | NodeClosed | StateTransition |  Um nó desligado com êxito | FabricNode | Informativo | 
+| 25626 | NodeAborted | StateTransition |  Um nó de maneira brusca foi encerrado | FabricNode | Erro | 
 
 ## <a name="application-events"></a>Eventos da aplicação
 
 **Eventos de ciclo de vida da aplicação**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
-| --- | --- | ---| --- | --- | --- |
-| 29620 | ApplicationCreated | Foi criada uma nova aplicação | CM | Informativo | 1 |
-| 29625 | ApplicationDeleted | Um aplicativo existente foi eliminado | CM | Informativo | 1 |
-| 23083 | ApplicationProcessExited | Um processo dentro de um aplicativo saiu | Hospedagem | Informativo | 1 |
+| EventId | Nome | Categoria | Descrição |Origem (tarefa) | Nível | 
+| --- | --- | --- | --- | --- | --- | 
+| 29620 | ApplicationCreated | Ciclo de vida | Foi criada uma nova aplicação | CM | Informativo | 
+| 29625 | ApplicationDeleted | Ciclo de vida | Um aplicativo existente foi eliminado | CM | Informativo | 
+| 23083 | ApplicationProcessExited | Ciclo de vida | Um processo dentro de um aplicativo saiu | Hospedagem | Informativo | 
 
 **Eventos de atualização de aplicação**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
-| --- | --- | ---| --- | --- | --- |
-| 29621 | ApplicationUpgradeStarted | Foi iniciada uma atualização da aplicação | CM | Informativo | 1 |
-| 29622 | ApplicationUpgradeCompleted | Uma atualização da aplicação foi concluída | CM | Informativo | 1 |
-| 29623 | ApplicationUpgradeRollbackStarted | Uma atualização da aplicação foi iniciada para reversão |CM | Informativo | 1 |
-| 29624 | ApplicationUpgradeRollbackCompleted | Uma atualização da aplicação foi concluída de reversão | CM | Informativo | 1 |
-| 29626 | ApplicationUpgradeDomainCompleted | Uma atualização de domínio foi concluída durante uma atualização da aplicação | CM | Informativo | 1 |
+Obter mais detalhes sobre as atualizações de aplicações podem ser encontradas [aqui](service-fabric-application-upgrade.md).
+
+| EventId | Nome | Categoria | Descrição |Origem (tarefa) | Nível | 
+| --- | --- | ---| --- | --- | --- | 
+| 29621 | ApplicationUpgradeStarted | Atualizar | Foi iniciada uma atualização da aplicação | CM | Informativo | 
+| 29622 | ApplicationUpgradeCompleted | Atualizar | Uma atualização da aplicação foi concluída | CM | Informativo | 
+| 29623 | ApplicationUpgradeRollbackStarted | Atualizar | Uma atualização da aplicação foi iniciada para reversão |CM | Aviso | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Atualizar | Uma atualização da aplicação foi concluída de reversão | CM | Aviso | 
+| 29626 | ApplicationUpgradeDomainCompleted | Atualizar | Um domínio de atualização concluiu a atualização durante uma atualização da aplicação | CM | Informativo | 
 
 ## <a name="service-events"></a>Eventos do serviço
 
 **Eventos de ciclo de vida do serviço**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Nome | Categoria | Descrição |Origem (tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- |
-| 18657 | ServiceCreated | Foi criado um novo serviço | FM | Informativo | 1 |
-| 18658 | ServiceDeleted | Um serviço existente foi eliminado | FM | Informativo | 1 |
+| 18657 | ServiceCreated | Ciclo de vida | Foi criado um novo serviço | FM | Informativo | 
+| 18658 | ServiceDeleted | Ciclo de vida | Um serviço existente foi eliminado | FM | Informativo | 
 
 ## <a name="partition-events"></a>Eventos de partição
 
 **Eventos de mudança de partição**
 
-| EventId | Nome | Descrição |Origem (tarefa) | Nível | Versão |
+| EventId | Nome | Categoria | Descrição |Origem (tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- |
-| 18940 | PartitionReconfigured | Foi concluída uma reconfiguração da partição | RA | Informativo | 1 |
+| 18940 | PartitionReconfigured | Ciclo de vida | Foi concluída uma reconfiguração da partição | RA | Informativo | 
 
 ## <a name="container-events"></a>Eventos de contentor
 
@@ -110,6 +115,12 @@ Aqui está disponível na plataforma, classificada pela entidade que podem ser m
 | 23082 | ContainerExited | Um contentor saiu - Verifique o sinalizador de UnexpectedTermination | Hospedagem | Informativo | 1 |
 
 ## <a name="health-reports"></a>Relatórios de estado de funcionamento
+
+O [modelo de serviço de estado de funcionamento de recursos de infraestrutura](service-fabric-health-introduction.md) fornece uma avaliação de integridade avançado, flexível e extensível e relatórios. Dados de estado de funcionamento a partir do Service Fabric versão 6.2, são escritos como eventos de plataforma para fornecer registos históricos de estado de funcionamento. Para manter o volume de eventos de estado de funcionamento baixa, podemos escrever apenas o seguinte como eventos do Service Fabric:
+
+* Todos os `Error` ou `Warning` relatórios de estado de funcionamento
+* `Ok` relatórios de estado de funcionamento durante as transições
+* Quando um `Error` ou `Warning` expira de eventos de estado de funcionamento. Isso pode ser usado para determinar o tempo que uma entidade do era mau estado de funcionamento
 
 **Eventos de relatório de estado de funcionamento do cluster**
 
@@ -238,6 +249,7 @@ Aqui está uma lista completa dos eventos fornecidos pelo Service Fabric anterio
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre geral [geração de eventos ao nível da plataforma](service-fabric-diagnostics-event-generation-infra.md) no Service Fabric
+* Obtenha uma visão geral de [diagnóstico no Service Fabric](service-fabric-diagnostics-overview.md)
+* Saiba mais sobre o EventStore no [descrição geral do Service Fabric Eventstore](service-fabric-diagnostics-eventstore.md)
 * Modificar seus [diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md) configuração para recolher registos mais
 * [Configurar o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) para ver seu operacional registos de canal

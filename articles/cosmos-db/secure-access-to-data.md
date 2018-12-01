@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: ed97a2c31897d1e5e61421ea489a35af377f4f37
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0d5243a1dd2a7c9244860da15d39f407b281e1e3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621450"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726802"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Protegendo o acesso a dados do Azure Cosmos DB
 Este artigo fornece uma descrição geral da proteção de acesso a dados armazenados no [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -180,8 +180,8 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 Para adicionar o acesso de leitor de conta do Azure Cosmos DB à sua conta de utilizador, ter um proprietário de subscrição, execute os seguintes passos no portal do Azure.
 
 1. Abra o portal do Azure e selecione a sua conta do Azure Cosmos DB.
-2. Clique nas **controlo de acesso (IAM)** separador e, em seguida, clique em **+ adicionar**.
-3. Na **adicionar permissões** painel, na **função** caixa, selecione **função de leitor de conta do Cosmos DB**.
+2. Clique nas **controlo de acesso (IAM)** separador e, em seguida, clique em **+ adicionar atribuição de função**.
+3. Na **adicionar atribuição de função** painel, na **função** caixa, selecione **função de leitor de conta do Cosmos DB**.
 4. Na **atribuir acesso a caixa**, selecione **utilizador do Azure AD, grupo ou aplicação**.
 5. Selecione o utilizador, grupo ou aplicação no seu diretório ao qual pretende conceder acesso.  Pode procurar o diretório por nome a apresentar, endereço de e-mail ou identificadores de objetos.
     O utilizador selecionado, grupo ou aplicação é apresentada na lista de membros selecionados.

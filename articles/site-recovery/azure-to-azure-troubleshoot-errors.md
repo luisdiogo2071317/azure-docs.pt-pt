@@ -5,16 +5,15 @@ services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 84875a47df1830a7f5aa439a17df233d8c93ba1c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308136"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728247"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VMS do Azure para o Azure
 
@@ -61,37 +60,37 @@ Como o SuSE Linux usa links simbólicos, para manter uma lista de certificados, 
 
       ``# cd /etc/ssl/certs``
 
-3. Verifique se o certificado de AC de raiz da Symantec está presente.
+1. Verifique se o certificado de AC de raiz da Symantec está presente.
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. Se não for encontrado o certificado de AC de raiz da Symantec, execute o seguinte comando para transferir o ficheiro. Verifique se existem quaisquer erros e siga a ação recomendada para falhas de rede.
+2. Se não for encontrado o certificado de AC de raiz da Symantec, execute o seguinte comando para transferir o ficheiro. Verifique se existem quaisquer erros e siga a ação recomendada para falhas de rede.
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. Verifique se o certificado de AC de raiz Baltimore está presente.
+3. Verifique se o certificado de AC de raiz Baltimore está presente.
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. Se não for encontrado o certificado de AC de raiz Baltimore, transfira o certificado.  
+4. Se não for encontrado o certificado de AC de raiz Baltimore, transfira o certificado.  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. Verifique se o certificado de DigiCert_Global_Root_CA está presente.
+5. Verifique se o certificado de DigiCert_Global_Root_CA está presente.
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. Se não for encontrado o DigiCert_Global_Root_CA, execute os seguintes comandos para transferir o certificado.
+6. Se não for encontrado o DigiCert_Global_Root_CA, execute os seguintes comandos para transferir o certificado.
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. Execute o script de rehash para atualizar o certificado de hashes de assunto para os certificados acabado de transferir.
+7. Execute o script de rehash para atualizar o certificado de hashes de assunto para os certificados acabado de transferir.
 
     ``# c_rehash``
 
-10. Verifique se o assunto codifica como links simbólicos são criados para os certificados.
+8.  Verifique se o assunto codifica como links simbólicos são criados para os certificados.
 
     - Comando
 
@@ -120,11 +119,11 @@ Como o SuSE Linux usa links simbólicos, para manter uma lista de certificados, 
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. Criar uma cópia do ficheiro VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem com b204d74a.0 de nome de ficheiro
+9.  Criar uma cópia do ficheiro VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem com b204d74a.0 de nome de ficheiro
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. Criar uma cópia do ficheiro Baltimore_CyberTrust_Root.pem com 653b494a.0 de nome de ficheiro
+10. Criar uma cópia do ficheiro Baltimore_CyberTrust_Root.pem com 653b494a.0 de nome de ficheiro
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 

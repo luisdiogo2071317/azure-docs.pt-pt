@@ -9,16 +9,15 @@ ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 92cbd3570d48bf12d603f68593465aafed62985c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: da6cc943c310b627626b3d2081ffa88ef3185013
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852321"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727839"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
 Windows fornece uma grande variedade de [contadores de desempenho](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) , como a ocupação da CPU, memória, disco e utilização de rede. Também pode definir seus próprios. [O Application Insights](app-insights-overview.md) pode mostrar esses contadores de desempenho se seu aplicativo seja executado sob o IIS num anfitrião no local ou máquina virtual para o qual tem acesso administrativo. Os gráficos de indicam os recursos disponíveis para a aplicação em direto e podem ajudar a identificar a carga desequilibrada entre instâncias de servidor.

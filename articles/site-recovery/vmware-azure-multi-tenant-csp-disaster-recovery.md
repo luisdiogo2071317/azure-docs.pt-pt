@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: c26421f848cf25e391589fa791f801e30fd14797
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d4eac6a2a0b4b9414fdf110c599ff557cabeede5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208906"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727108"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a recuperação de desastre do VMware num ambiente de vários inquilinos com o programa de fornecedor de soluções Cloud (CSP)
 
@@ -72,9 +72,13 @@ Agora pode executar e gerir todas as operações de recuperação de Site para o
 
       ![Página de subscrição do CSP do inquilino](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-      b) agora crie um novo utilizador ao introduzir os detalhes relevantes e selecionar permissões ou ao carregar a lista de utilizadores num arquivo CSV.
+    b) agora crie um novo utilizador ao introduzir os detalhes relevantes e selecionar permissões ou ao carregar a lista de utilizadores num arquivo CSV.
+    
     c) depois de criar um novo utilizador, volte ao portal do Azure. Na **subscrição** página, selecione a subscrição relevante.
-    d) selecione **controlo de acesso (IAM)** e, em seguida, clique em **Add**, para adicionar um utilizador com o nível de acesso relevantes. Os utilizadores que foram criados através do portal CSP são apresentados automaticamente na página que abre-se depois de clicar num nível de acesso.
+
+    d) selecione **controlo de acesso (IAM)** e, em seguida, clique em **atribuições de funções**.
+
+    e) clique **adicionar atribuição de função** para adicionar um utilizador com o nível de acesso relevantes. Os utilizadores que foram criados através do portal CSP são apresentados no separador de atribuições de função.
 
       ![Adicionar um utilizador](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 

@@ -7,14 +7,14 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/16/2018
 ms.author: shvija
-ms.openlocfilehash: 05feab0227633ab52f0865fa7c19a310b612eb1c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: adf223d1cd775aac2a73bade5d09eac503ac8249
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286899"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52741846"
 ---
 # <a name="send-events-to-event-hubs-using-python"></a>Enviar eventos para Hubs de eventos com Python
 
@@ -29,6 +29,7 @@ Este tutorial descreve como enviar eventos para um hub de eventos de um aplicati
 
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
+- Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - Python 3.4 ou posterior.
 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 5da34e8e79c0df88cfad0b398aa8e1c22f158489
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5f558ea851d63b08885293efcff3fef600f2cc17
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428883"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726394"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Gerir os direitos de acesso para BLOBs do Azure e dados de fila com o RBAC (pré-visualização)
 
@@ -61,15 +61,16 @@ As secções seguintes mostram como atribuir uma função no âmbito para a cont
 Para atribuir uma função incorporada conceder acesso a todos os contentores ou filas na conta de armazenamento no portal do Azure:
 
 1. Na [portal do Azure](https://portal.azure.com), navegue até à sua conta de armazenamento.
-2. Selecione a sua conta de armazenamento, em seguida, selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para a conta. Clique nas **adicionar** botão para adicionar uma nova função.
+1. Selecione a sua conta de armazenamento, em seguida, selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para a conta. Selecione o **atribuições de funções** separador para ver a lista de atribuições de funções.
 
     ![Captura de ecrã que mostra as definições de controlo de acesso de armazenamento](media/storage-auth-aad-rbac/portal-access-control.png)
 
-3. Na **adicionar permissões** janela, selecione a função para atribuir a uma identidade do Azure AD. Procure para localizar a identidade a quem pretende atribuir essa função. Por exemplo, a imagem seguinte mostra os **leitor de dados de Blob de armazenamento (pré-visualização)** função atribuída a um utilizador.
+1. Clique nas **adicionar atribuição de função** botão para adicionar uma nova função.
+1. Na **adicionar atribuição de função** janela, selecione a função para atribuir a uma identidade do Azure AD. Procure para localizar a identidade a quem pretende atribuir essa função. Por exemplo, a imagem seguinte mostra os **leitor de dados de Blob de armazenamento (pré-visualização)** função atribuída a um utilizador.
 
     ![Captura de ecrã que mostra como atribuir uma função RBAC](media/storage-auth-aad-rbac/add-rbac-role.png)
 
-4. Clique em **Guardar**. A identidade a quem é atribuída a função aparece listada sob essa função. Por exemplo, a imagem seguinte mostra que os utilizadores adicionados agora possuem permissões de leitura a todos os dados de BLOBs na conta de armazenamento.
+1. Clique em **Guardar**. A identidade a quem é atribuída a função aparece listada sob essa função. Por exemplo, a imagem seguinte mostra que o utilizador adicionado agora tem permissões de leitura a todos os dados de BLOBs na conta de armazenamento.
 
     ![Captura de ecrã a mostrar lista de utilizadores atribuídos a uma função](media/storage-auth-aad-rbac/account-scoped-role.png)
 
@@ -78,17 +79,20 @@ Para atribuir uma função incorporada conceder acesso a todos os contentores ou
 Os passos para atribuir uma função incorporada de âmbito para um contentor ou a uma fila são semelhantes. O procedimento apresentado aqui atribui uma função no âmbito de um contentor, mas pode seguir os mesmos passos para atribuir uma função no âmbito de uma fila: 
 
 1. Na [portal do Azure](https://portal.azure.com), navegue para a sua conta de armazenamento e exibir o **descrição geral** para a conta.
-2. Em serviço de BLOBs, selecione **procurar Blobs**. 
-3. Localizar o contentor para o qual pretende atribuir uma função e apresentar as definições do contentor. 
-4. Selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para o contentor.
-5. Na **adicionar permissões** janela, selecione a função que pretende atribuir a uma identidade do Azure AD. Procure para localizar a identidade para o qual pretende atribuir essa função.
-6. Clique em **Guardar**. A identidade a quem é atribuída a função aparece listada sob essa função. Por exemplo, a imagem seguinte mostra que o utilizador adicionado agora tem permissões de leitura aos dados no contentor com o nome *exemplo-container*.
+1. Em serviços, selecione **Blobs**. 
+1. Localizar o contentor para o qual pretende atribuir uma função e apresentar as definições do contentor. 
+1. Selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para o contentor. Selecione o **atribuições de funções** separador para ver a lista de atribuições de funções.
+
+    ![Captura de ecrã que mostra definições de controlo de acesso de contentor](media/storage-auth-aad-rbac/portal-access-control-container.png)
+1. Clique nas **adicionar atribuição de função** botão para adicionar uma nova função.
+1. Na **adicionar atribuição de função** janela, selecione a função que pretende atribuir a uma identidade do Azure AD. Procure para localizar a identidade para o qual pretende atribuir essa função.
+1. Clique em **Guardar**. A identidade a quem é atribuída a função aparece listada sob essa função. Por exemplo, a imagem seguinte mostra que o utilizador adicionado agora tem permissões de leitura aos dados no contentor com o nome *exemplo-container*.
 
     ![Captura de ecrã a mostrar lista de utilizadores atribuídos a uma função](media/storage-auth-aad-rbac/container-scoped-role.png)
 
 ## <a name="next-steps"></a>Próximos Passos
 
-- Para saber mais sobre o RBAC, veja [introdução ao controlo de acesso baseado em funções](../../role-based-access-control/overview.md).
+- Para saber mais sobre o RBAC, veja [o que é o controlo de acesso baseado em funções (RBAC)?](../../role-based-access-control/overview.md).
 - Para saber como atribuir e gerir atribuições de funções RBAC com o Azure PowerShell, CLI do Azure ou da API REST, veja estes artigos:
     - [Gerir o controlo de acesso baseado em funções (RBAC) com o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
     - [Gerir o controlo de acesso baseado em funções (RBAC) com a CLI do Azure](../../role-based-access-control/role-assignments-cli.md)

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b42dc0f86a70feb06b32a20c7cbdd513920f65d6
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 816992fa05613bc8904cfaf4b34345a02c9b3ba2
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263526"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728298"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>O Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -36,6 +36,17 @@ Passos para atualizar a partir do Azure AD Connect | Métodos diferentes para [a
 Permissões obrigatórias | Para as permissões necessárias para aplicar uma atualização, consulte [contas e permissões](reference-connect-accounts-permissions.md#upgrade).
 
 Transferir | [Transferir o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="12680"></a>1.2.68.0
+
+### <a name="release-status"></a>Estado da versão 
+
+11/30/2018: lançado para download
+
+### <a name="fixed-issues"></a>Problemas corrigidos
+
+Esta correção de compilação corrige um conflito de onde poderá ocorrer um erro de autenticação devido à presença independente do módulo MSOnline galeria do PowerShell no servidor de sincronização.
+
 
 
 ## <a name="12670"></a>1.2.67.0

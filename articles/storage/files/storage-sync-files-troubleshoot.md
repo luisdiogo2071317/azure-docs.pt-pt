@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0787d023676c707a987b4b69cb5601394db4bd3b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014283"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728383"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -96,8 +96,9 @@ As seguintes funções incorporadas têm as permissões necessárias do Authoriz
 Para determinar se a sua função de conta de utilizador tem as permissões necessárias:  
 1. No portal do Azure, selecione **grupos de recursos**.
 2. Selecione o grupo de recursos onde está localizada a conta de armazenamento e, em seguida, selecione **controlo de acesso (IAM)**.
-3. Selecione o **função** (por exemplo, proprietário ou Contribuidor) para a sua conta de utilizador.
-4. Na **fornecedor de recursos** lista, selecione **Microsoft Authorization**. 
+3. Selecione o **atribuições de funções** separador.
+4. Selecione o **função** (por exemplo, proprietário ou Contribuidor) para a sua conta de utilizador.
+5. Na **fornecedor de recursos** lista, selecione **Microsoft Authorization**. 
     * **Atribuição de função** deve ter **leitura** e **escrever** permissões.
     * **Definição de função** deve ter **leitura** e **escrever** permissões.
 
@@ -705,8 +706,9 @@ if ($fileShare -eq $null) {
 
 <a id="troubleshoot-rbac"></a>**Certifique-se de que o Azure File Sync tem acesso à conta de armazenamento.**  
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
-1. Clique em **controlo de acesso (IAM)** na tabela esquerda do conteúdo para navegar para a lista de utilizadores e aplicações (*principais de serviço*) que têm acesso à sua conta de armazenamento.
-2. Certifique-se **serviço de sincronização de ficheiros de híbrida** é apresentado na lista com o **leitor e acesso a dados** função. 
+1. Clique em **controlo de acesso (IAM)** na tabela esquerda do conteúdo.
+1. Clique nas **atribuições de funções** separador à lista os utilizadores e aplicações (*principais de serviço*) que têm acesso à sua conta de armazenamento.
+1. Certifique-se **serviço de sincronização de ficheiros de híbrida** é apresentado na lista com o **leitor e acesso a dados** função. 
 
     ![Uma captura de ecrã do principal de serviço do serviço de sincronização de ficheiros de híbrida no separador de controlo de acesso da conta de armazenamento](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 

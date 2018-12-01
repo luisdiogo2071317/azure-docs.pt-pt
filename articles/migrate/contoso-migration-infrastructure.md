@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 2210aaa5d4d0ba9d730e5aee97972565ea0c1090
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 32a489ee6266018ef1160a0870fe236cc6a72d36
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092984"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726989"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - implementar uma infraestrutura de migração
 
@@ -256,8 +256,8 @@ Azure [controlo de acesso baseado em funções (RBAC)](https://docs.microsoft.co
 
 Os administradores da Contoso agora atribui funções para os grupos do AD que eles sincronizados no local.
 
-1. Na **ControlCobRG** grupo de recursos, pode clicar em **controlo de acesso (IAM)** > **adicionar**.
-2. Na **adicionar permissões** > **função**, > **contribuinte**, eles selecionam o **ContosoCobRG** grupo do AD da lista. O grupo, em seguida, é apresentado na **membros selecionados** lista. 
+1. Na **ControlCobRG** grupo de recursos, pode clicar em **controlo de acesso (IAM)** > **adicionar atribuição de função**.
+2. Na **adicionar atribuição de função** > **função**, > **contribuinte**, eles selecionam o **ContosoCobRG** grupo do AD da lista. O grupo, em seguida, é apresentado na **membros selecionados** lista. 
 3. Eles repetir isso com as mesmas permissões para os outros grupos de recursos (exceto para **ContosoAzureAdmins**), ao adicionar as permissões de Contribuidor à conta do AD que corresponde ao grupo de recursos.
 4. Para o **ContosoAzureAdmins** grupo do AD, atribuir os **proprietário** função.
 
