@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958164"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726173"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir contas Run As de automatização
 
@@ -358,11 +358,11 @@ Para renovar o certificado, faça o seguinte:
 
 Para controlar o direcionamento de automatização relativamente aos recursos na automatização do Azure, a conta Run As, por padrão é concedida direitos de contribuinte na subscrição. Se precisar de restringir o que o principal de serviço RunAs pode fazer, pode remover a conta da função de contribuinte à subscrição e adicioná-lo como um contribuinte para os grupos de recursos que pretende especificar.
 
-No portal do Azure, selecione **subscrições** e escolha a subscrição da sua conta de automatização. Selecione **controlo de acesso (IAM)** e procure o principal de serviço para a sua conta de automatização (ele se parece com \<AutomationAccountName\>_unique identificador). Selecione a conta e clique em **remover** removê-lo a partir da subscrição.
+No portal do Azure, selecione **subscrições** e escolha a subscrição da sua conta de automatização. Selecione **controlo de acesso (IAM)** e, em seguida, selecione a **atribuições de funções** separador. Procure o principal de serviço para a sua conta de automatização (parece \<AutomationAccountName\>_unique identificador). Selecione a conta e clique em **remover** removê-lo a partir da subscrição.
 
 ![Contribuintes de subscrição](media/manage-runas-account/automation-account-remove-subscription.png)
 
-Para adicionar o principal de serviço para um grupo de recursos, selecione o grupo de recursos no portal do Azure e selecione **controlo de acesso (IAM)**. Selecione **Add**, esta ação abre o **adicionar permissões** página. Para **função**, selecione **contribuinte**. Na **selecione** escreva o nome do principal de serviço para a conta Run As de caixa de texto e, selecione-o na lista. Clique em **Guardar** para guardar as alterações. Conclua estes passos para os grupos de recursos que pretende dar a Run As de automatização principal de serviço acesso para.
+Para adicionar o principal de serviço para um grupo de recursos, selecione o grupo de recursos no portal do Azure e selecione **controlo de acesso (IAM)**. Selecione **adicionar atribuição de função**, esta ação abre o **adicionar atribuição de função** página. Para **função**, selecione **contribuinte**. Na **selecione** escreva o nome do principal de serviço para a conta Run As de caixa de texto e, selecione-o na lista. Clique em **Guardar** para guardar as alterações. Conclua estes passos para os grupos de recursos que pretende dar a Run As de automatização principal de serviço acesso para.
 
 ## <a name="misconfiguration"></a>Configuração incorreta
 

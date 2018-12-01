@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: e2326f56ad367f744bc7895bc8c4bfd6f32d0310
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0612a7798d3cc2e43efc296bd2b749735e74f765
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264884"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720852"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Resolução de problemas de alertas de registo no Azure Monitor  
 ## <a name="overview"></a>Descrição geral
 Este artigo mostra-lhe como resolver problemas comuns detetados quando a configuração de alertas de registo no Azure monitor. Ele também fornece soluções para perguntas freqüentes sobre a funcionalidade ou configuração de alertas de registo. 
 
-O termo **alertas de registo** para descrever os alertas que fire com base numa consulta personalizada na [do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Saiba mais sobre funcionalidades, terminologia e tipos no [alertas - descrição geral de registo](monitor-alerts-unified-log.md).
+O termo **alertas de registo** descreve os alertas que fire com base numa consulta personalizada na [do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Saiba mais sobre funcionalidades, terminologia e tipos no [alertas - descrição geral de registo](monitor-alerts-unified-log.md).
 
 > [!NOTE]
 > Este artigo não considere casos em que o portal do Azure mostra e alerta acionado de regra e uma notificação realizadas por um grupo de ação associada (s). Para tais casos, consulte detalhes no artigo sobre [grupos de ação](monitoring-action-groups.md).
@@ -35,8 +35,7 @@ Alerta de registo executado periodicamente sua consulta com base na [do Log Anal
 Para atenuar o atraso de ingestão de dados, o sistema deve aguardar e repete a consulta de alerta várias vezes se ele encontrar que os dados necessários não são ingeridos ainda. O sistema tem um tempo de espera aumentar exponencialmente definido. Os registo alerta apenas acionadores depois dos dados estão disponíveis para que eles atraso podem ser devido a ingestão de dados de registo lento. 
 
 ### <a name="incorrect-time-period-configured"></a>Período de hora incorreto configurado
-Conforme descrito no artigo [terminologia para alertas de registo](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), o tempo de configuração no declarado períoda Especifica o intervalo de tempo para a consulta. A consulta devolve apenas os registos que foram criados neste intervalo de tempo. Período de tempo restringe os dados obtidos para a consulta de registo evitar abusos e evita qualquer comando de tempo (como há) utilizado numa consulta de registo. 
-*Por exemplo, se o período de tempo é definido como 60 minutos, e a consulta é executada em 1 às 15:15, apenas os registos criados entre 12:15 e 1 às 15:15 são utilizados para a consulta de registo. Se a consulta de registo utiliza um comando de tempo como *há (1 dia)*, a consulta utiliza apenas dados entre 12:15 e 1 às 15:15 porque o período de tempo é definido como esse intervalo.*
+Conforme descrito no artigo [terminologia para alertas de registo](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), o tempo de configuração no declarado períoda Especifica o intervalo de tempo para a consulta. A consulta devolve apenas os registos que foram criados neste intervalo de tempo. Período de tempo restringe os dados obtidos para a consulta de registo evitar abusos e evita qualquer comando de tempo (como *há*) utilizado numa consulta de registo. Por exemplo, se o período de tempo é definido como 60 minutos, e a consulta é executada em 1 às 15:15, apenas os registos criados entre 12:15 e 1 às 15:15 são utilizados para a consulta de registo. Se a consulta de registo utiliza um comando de tempo como *há (1 dia)*, a consulta utiliza apenas dados entre 12:15 e 1 às 15:15 porque o período de tempo é definido como esse interval.*
 
 Por conseguinte, a verificação esse período de tempo na configuração corresponde à sua consulta. Por exemplo, mencionado anteriormente, se a consulta de registo utiliza *há (1 dia)* como é mostrado com marcador verde, em seguida, o período de tempo deve ser definido como 24 horas ou 1440 minutos (como indicado em vermelho), para garantir que a consulta for executada conforme pretendido.
 
@@ -77,12 +76,14 @@ Próxima detalhada são algumas razões comuns, por que um configurado [regra de
 ### <a name="alert-triggered-by-partial-data"></a>Alerta acionada por dados parciais
 Análise que alimenta o Log Analytics e Application Insights está sujeitos aos atrasos de ingestão e de processamento; devido a que, ao tempo quando é executada a consulta de alerta de registo fornecida - pode haver um caso de dados não está disponível ou apenas alguns dados estejam disponíveis. Para obter mais informações, consulte [tempo de ingestão de dados no Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
 
-Dependendo de como a regra de alerta é configurada, pode haver enganássemos firing caso haja nenhum ou apenas dados parciais nos registos no momento da execução de alerta. Nesses casos, recomenda-se que a configuração ou de consulta de alerta é alterada. *Por exemplo, se o registo de regra do alerta está configurada para acionar quando o número de resultados da consulta de análise é inferior a 5; (Digamos) em seguida, quando não existe (zero registo) de dados ou resultados parciais (um registo) obter acionada a regra de alerta. Onde-como após atraso de ingestão, quando mesma consulta é executada no Analytics a consulta com dados completos pode fornecer os resultados como 10 registos.*
+Dependendo de como a regra de alerta é configurada, pode haver enganássemos firing se não existir nenhuma ou apenas dados parciais nos registos no momento da execução de alerta. Nesses casos, Aconselhamo-lo para alterar a configuração ou de consulta de alerta. 
+
+Por exemplo, se a regra de alerta de registo está configurada para acionar quando o número de resultados de uma consulta do analytics é inferior a 5, em seguida, o alerta for acionado quando não existe (zero registo) de dados ou resultados parciais (um registo). No entanto, após o atraso de ingestão de dados, a mesma consulta com dados completa pode fornecer um resultado de 10 registos.
 
 ### <a name="alert-query-output-misunderstood"></a>Saída de consulta de alerta mal compreendida
-Para os alertas de registo a lógica para alertar é fornecida pelo usuário por meio de consulta do analytics. A consulta de análise fornecida pode ser empregadas várias funções matemáticas e grandes quantidades de dados para criar construções específicas. O serviço de alerta executará a consulta do cliente fornecido em intervalos especificados com os dados para o período de tempo especificado; alertas de serviço faz sutil é alterado para consulta fornecido – com base na escolhido o tipo de alerta e o mesmo pode ser testemunhado na secção "Consultar a ser executado" no ecrã de lógica de sinal de configurar, conforme ilustrado abaixo: ![consulta a ser executado](./media/monitor-alerts-unified/LogAlertPreview.png)
+Fornecer a lógica para alertas de registo numa consulta do analytics. A consulta do analytics pode utilizar várias grandes quantidades de dados e funções matemáticas.  O serviço de alerta executa a consulta em intervalos especificados com os dados para o período de tempo especificado. O serviço de alerta faz alterações sutis para consulta fornecida com base no tipo de alerta escolhido. Isso pode ser visto na seção "Consultar a ser executado" na *configurar lógica de sinal* ecrã, conforme mostrado abaixo: ![consulta a ser executado](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-O que é mostrado na **consulta a ser executado** secção destina-se o registo de alerta service será executado; o utilizador pode executar a consulta declarada como timespan através de [Analytics portal](../log-analytics/log-analytics-log-search-portals.md) ou [API de análise de](https://docs.microsoft.com/rest/api/loganalytics/) -Se quer saber antes da criação do alerta, que resultado de consulta de alerta pode ser.
+O que é mostrado na **consulta a ser executado** caixa está o que é executado o serviço de alerta de registo. Pode executar a consulta declarada como timespan através de [portal do Analytics](../log-analytics/log-analytics-log-search-portals.md) ou o [API de análise de](https://docs.microsoft.com/rest/api/loganalytics/) se quiser entender o que a consulta de alerta de saída pode ser antes de criar, na verdade, o alerta.
  
 ## <a name="next-steps"></a>Passos Seguintes
 

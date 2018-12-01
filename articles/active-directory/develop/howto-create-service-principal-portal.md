@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: b60be3db14a756407e62540bb89f3b0924597067
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 87e197821be7c7c72ca1704d6b0123d76d41b30f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960460"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721090"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: utilizar o portal para criar um Azure AD principal de aplicações e serviço que pode aceder a recursos
 
@@ -65,9 +65,9 @@ Pode definir o âmbito no nível da subscrição, no grupo de recursos ou ao rec
    Se não vir a subscrição que procura, selecione **filtro de subscrições global**. Certifique-se a subscrição que pretende está selecionado para o portal. 
 
 1. Selecione **controlo de acesso (IAM)**.
-1. Selecione **Adicionar**.
+1. Selecione **adicionar atribuição de função**.
 
-   ![Selecione adicionar](./media/howto-create-service-principal-portal/select-add.png)
+   ![Selecione adicionar atribuição de função](./media/howto-create-service-principal-portal/select-add.png)
 
 1. Selecione a função que pretende atribuir à aplicação. Para permitir que o aplicativo para executar ações como **reinicie**, **iniciar** e **parar** instâncias, selecionadas o **contribuinte** função. Por predefinição, as aplicações do Azure AD não são apresentadas nas opções disponíveis. Para localizar seu aplicativo, procure o nome e selecioná-lo.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: terrylan
-ms.openlocfilehash: caab7e3d15f6d82ee4daf6eb343601ff849bfde5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6175ca26412dccf7ff6dfbce02df738ea8b6eb1a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298783"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721549"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade ao nível do inquilino para o Centro de segurança do Azure
 Este artigo ajuda-o a começar a utilizar ao fazer várias ações que maximizar os benefícios de que Centro de segurança do Azure oferece. Realizar essas ações permite-lhe obter visibilidade em todas as subscrições do Azure que estejam ligadas ao seu inquilino do Azure Active Directory e eficaz de gerir a postura de segurança da sua organização em escala ao aplicar políticas de segurança em vários assinaturas de forma aggregative.
@@ -93,13 +93,16 @@ Ganhar visibilidade para todas as subscrições, os administradores de inquilino
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Atribua funções RBAC a utilizadores através do portal do Azure: 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
-2. Para ver os grupos de gestão, selecione **todos os serviços** no menu principal do Azure, em seguida, selecione **grupos de gestão**.
-3.  Selecione um grupo de gestão e clique em **detalhes**.
+1. Para ver os grupos de gestão, selecione **todos os serviços** no menu principal do Azure, em seguida, selecione **grupos de gestão**.
+1.  Selecione um grupo de gestão e clique em **detalhes**.
 
     ![Captura de ecrã de detalhes de grupos de gestão](./media/security-center-management-groups/management-group-details.PNG)
  
-4. Clique em **controlo de acesso (IAM)** , em seguida, **Add**.
-5. Selecione a função para atribuir e o utilizador, em seguida, clique em **guardar**.  
+1. Clique em **controlo de acesso (IAM)** , em seguida, **atribuições de funções**.
+
+1. Clique em **adicionar atribuição de função**.
+
+1. Selecione a função para atribuir e o utilizador, em seguida, clique em **guardar**.  
    
    ![Adicionar captura de ecrã de função de leitor de segurança](./media/security-center-management-groups/asc-security-reader.png)
 

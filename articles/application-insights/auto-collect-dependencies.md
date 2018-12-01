@@ -8,19 +8,18 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 08/13/2018
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: f20963f030c9040b696f7d6a33b25bcee2dc517f
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f38c4a03a0d9b67b6ec8b20e489a6e4926d511c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40130294"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720232"
 ---
-# <a name="dependency-auto-collection"></a>Coleção automática de dependência
+# <a name="dependency-auto-collection"></a>Coleção automática da dependência
 
 Segue-se a lista de chamadas de dependência que são detetados automaticamente como dependências sem a necessidade de quaisquer modificações adicionais para o código de seu aplicativo atualmente suportados. Isso consiste em chamadas de saída para as bibliotecas de comunicação, os clientes de armazenamento, registo e bibliotecas de métricas, bem como as chamadas de entrada em estruturas de aplicações e servidores. Estas dependências são visualizadas no Application Insights [mapa da aplicação](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) e [diagnósticos de transação](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) vistas. Se sua dependência não estiver na lista abaixo, pode ainda controlá-lo manualmente com um [controlar chamada de dependência](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b16ac10e10655bbc7e41d9336378228097ca19ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 88609f4daac176f082e7f4962d557267946ab98c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014725"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724439"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>O Azure AD B2C: Configurar os requisitos de complexidade de palavras-passe
 
@@ -26,22 +26,21 @@ O Azure Active Directory B2C (Azure AD B2C) oferece suporte a alterar os requisi
 
 ## <a name="when-password-rules-are-enforced"></a>Quando são impostas regras de palavra-passe
 
-Durante a inscrição ou de reposição de palavra-passe, um utilizador final tem de fornecer uma palavra-passe que cumpra as regras de complexidade.  Regras de complexidade de palavra-passe são impostas por política.  É possível ter uma política para exigir um pin de quatro dígitos durante a inscrição enquanto outra política requer uma cadeia de caracteres de oito durante a inscrição.  Por exemplo, pode utilizar uma política com a complexidade de palavra-passe diferente para os adultos que para crianças.
+Durante a inscrição ou de reposição de palavra-passe, um utilizador final tem de fornecer uma palavra-passe que cumpra as regras de complexidade.  Regras de complexidade de palavra-passe são impostas por fluxo de utilizador.  É possível ter um fluxo de utilizador exigir um pin de quatro dígitos durante a inscrição enquanto outro fluxo de utilizador necessita de uma cadeia de caracteres de oito durante a inscrição.  Por exemplo, pode usar um fluxo de utilizador com a complexidade de palavra-passe diferente para os adultos que para crianças.
 
 Complexidade de palavra-passe nunca é aplicada durante o início de sessão.  É pedido aos utilizadores nunca durante o início de sessão para alterar a palavra-passe, porque não cumpre o requisito de complexidade atual.
 
-Aqui estão os tipos de políticas em que a complexidade de palavra-passe pode ser configurada:
+Aqui estão os tipos de fluxos de utilizador em que a complexidade de palavra-passe pode ser configurada:
 
-* Política de inscrição ou início de sessão
-* Política de reposição de palavra-passe
+* Fluxo de utilizador de inscrição ou início de sessão
+* Fluxo de utilizador de reposição de palavra-passe
 * Política personalizada ([configurar a complexidade de palavra-passe numa política personalizada do](active-directory-b2c-reference-password-complexity-custom.md))
 
 ## <a name="how-to-configure-password-complexity"></a>Como configurar a complexidade de palavra-passe
 
-1. Open **políticas de inscrição ou início de sessão**.
-2. Selecione uma política e clique em **editar**.
-3. Open **complexidade de palavra-passe**.
-4. Alterar a complexidade de palavra-passe para esta política **simples**, **forte**, ou **Custom**.
+1. Open **fluxos de utilizador**.
+2. Selecione um fluxo de utilizador e clique em **propriedades**.
+3. Sob **complexidade de palavra-passe**, altere a complexidade de palavra-passe para que este fluxo de utilizador **simples**, **forte**, ou **personalizado**.
 
 ### <a name="comparison-chart"></a>Gráfico de comparação
 

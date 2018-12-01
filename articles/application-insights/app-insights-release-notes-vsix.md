@@ -9,17 +9,16 @@ ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
-ms.openlocfilehash: 016d13a08ea3fe591529ad6dd29b25534d9c603d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 358d17f29960983af1834e87f502331141fcff46
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303749"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726122"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Notas de Versão das Ferramentas de Análise de Programador
 
@@ -249,7 +248,7 @@ Adicionámos uma nova guia, com consultas do predefinidas para todos os dados re
 ### <a name="forward-and-back-history-in-search"></a>Histórico na pesquisa de retroceder e avançar
 Agora pode então voltar e avançar entre os resultados da pesquisa.
 
-![Voltar atrás](./media/app-insights-release-notes-vsix/GoBAck.png)
+![Retroceder](./media/app-insights-release-notes-vsix/GoBAck.png)
 
 ## <a name="version-41"></a>Versão 4.1
 Esta versão inclui uma série de novos recursos e atualizações. Tem de ter a atualização 1 instalado para instalar esta versão.

@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: f2627aab2598a706e717e8e1d18fd2f8c944835c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/29/2018
+ms.openlocfilehash: 56a121e8b8f7f929b16a0c3507d45402ff586b96
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161476"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682678"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Controlar e conceder acesso de base de dados para a base de dados SQL e SQL Data Warehouse
 
@@ -28,7 +28,7 @@ Após a configuração de regras de firewall, pode ligar ao Azure [base de dados
 >  Este tópico aplica-se ao servidor SQL do Azure e a base de dados SQL e SQL Data Warehouse bases de dados criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse. 
 
 > [!TIP]
-> Para obter um tutorial, veja [proteger a sua base de dados do SQL Azure](sql-database-security-tutorial.md).
+> Para obter um tutorial, veja [proteger a sua base de dados do SQL Azure](sql-database-security-tutorial.md). Este tutorial não se aplica aos **instância gerida da base de dados SQL do Azure**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Contas administrativas sem restrições
 Existem duas contas administrativas (**Administrador de servidor** e **Administrador do Active Directory**) que atuam como administradores. Para identificar estas contas de administrador para o seu servidor SQL, abra o portal do Azure e navegue para as propriedades do servidor SQL.
@@ -68,6 +68,10 @@ Para ver uma introdução à criação de um servidor, uma base de dados, regras
 
 
 ## <a name="additional-server-level-administrative-roles"></a>Funções administrativas adicionais ao nível do servidor
+
+>[!IMPORTANT]
+>Esta secção não se aplica aos **instância gerida da base de dados SQL do Azure** como essas funções são específicas de **base de dados do Azure SQL**.
+
 Para além das funções administrativas ao nível do servidor abordadas anteriormente, a Base de Dados SQL fornece duas funções administrativas restritas na base de dados mestra às quais podem ser adicionadas contas de utilizador que concedam permissões para criar bases de dados ou gerir inícios de sessão.
 
 ### <a name="database-creators"></a>Criadores de base de dados

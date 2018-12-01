@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: juliako
-ms.openlocfilehash: a74f2e53127b506f42ff49018c3df2985396646d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: b167d3424d520cf8be515eec9d495164dd9785ab
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619826"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682100"
 ---
 # <a name="liveevent-latency-in-media-services"></a>Latência de LiveEvent nos serviços de multimédia
 
@@ -43,7 +43,7 @@ LiveEvent liveEvent = new LiveEvent(
             streamOptions: new List<StreamOptionsFlag?>()
             {
                 // Set this to Default or Low Latency
-                // To use low latency optimally, you should tune your encoder settings down to 1 second GOP size instead of 2 seconds.
+                // To use low latency optimally, you should tune your encoder settings down to 1 second "Group Of Pictures" (GOP) length instead of 2 seconds.
                 StreamOptionsFlag.LowLatency
             }
         );
@@ -51,14 +51,23 @@ LiveEvent liveEvent = new LiveEvent(
 
 Veja o exemplo completo: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
-## <a name="pass-through-liveevents-latency"></a>Latência de LiveEvents pass-through
+## <a name="liveevents-latency"></a>Latência de LiveEvents
 
-A tabela seguinte mostra os resultados típicos para latência (quando o sinalizador de LowLatency está ativado) nos serviços de multimédia, medido a partir do momento no feed de contribuição atinge o serviço quando um jogador pode pedir a reprodução.
+As tabelas seguintes mostram os resultados típicos para latência (quando o sinalizador de LowLatency está ativado) nos serviços de multimédia, medido a partir do momento no feed de contribuição atinge o serviço para quando um visualizador vê a reprodução no leitor. Para utilizar a baixa latência ideal, deve ajustar as definições de codificador para baixo até 1 segundo comprimento de "Grupo de imagens" (GOP). Quando utiliza um comprimento de GOP superior, minimizar o consumo de largura de banda e reduzir a velocidade de transmissão na mesma taxa de quadros. É particularmente vantajoso em vídeos com menos movimento.
+
+### <a name="pass-through"></a>Pass-through 
 
 ||2s GOP baixa latência ativada|1s GOP baixa latência ativada|
 |---|---|---|
 |TRAVESSÃO no AMP|10s|8S|
 |HLS no player de iOS nativo|14s|10s|
+
+### <a name="live-encoding"></a>Live Encoding
+
+||2s GOP baixa latência ativada|1s GOP baixa latência ativada|
+|---|---|---|
+|TRAVESSÃO no AMP|14s|10s|
+|HLS no player de iOS nativo|18S|13s|
 
 > [!NOTE]
 > A latência de ponto a ponto pode variar dependendo das condições de rede local ou com a introdução de uma camada de colocação em cache da CDN. Deve testar suas configurações exatas.

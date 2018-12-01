@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: a564e72cc695830edfa5092eddc1f4f9b80ba519
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b4f38d80bfddc342d83a3552efe5d4a60cf6350f
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583539"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680128"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Compreender o limite e como removê-lo de gastos do Azure
 
@@ -29,7 +29,7 @@ Limite no Azure de gastos existe para evitar gastos ao longo do seu montante de 
 
 Quando os resultados de utilização em custos de esgotar os montantes mensais incluídos na sua subscrição, os serviços que implementou estão desativados para o resto nesse período de faturação. 
 
-Por exemplo, quando gastar todo o crédito incluído na sua subscrição, serviços Cloud que implementou são removidos de produção e máquinas virtuais do Azure são paradas e desalocar. Os dados nas suas contas de armazenamento e bases de dados estão disponíveis de modo só de leitura.
+Por exemplo, quando gastar todo o crédito incluído na sua subscrição, serviços Cloud que implementou são removidos de produção e máquinas virtuais do Azure são paradas e desalocar. Os dados nas suas contas de armazenamento estão disponíveis de modo só de leitura.
 
 No início do período de faturação seguinte, se a sua oferta de subscrição incluem créditos ao longo de vários meses, a sua subscrição deve ser novamente ativada automaticamente. Em seguida, pode voltar a implementar os serviços Cloud e ter acesso total às contas de armazenamento e bases de dados.
 

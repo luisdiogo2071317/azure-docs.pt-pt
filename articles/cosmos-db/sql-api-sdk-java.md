@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/21/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c58c1972fee782a93f9641d00376db916021f95
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4a1be3b948ca5571972179e08ba8b85657b0bb8d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634494"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725170"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -52,6 +52,23 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Foi adicionado para o modo direto de um suporte de escrita de várias regiões.
+* Foi adicionado suporte para lidar com IOExceptions lançada como ServiceUnavailable exceções, a partir de um proxy.
+* Foi corrigido um erro na política de repetição de deteção de ponto final.
+* Foi corrigido um erro para garantir que exceções não são geradas no BaseDatabaseAccountConfigurationProvider de ponteiro nulo.
+* Foi corrigido um erro para garantir que o iterador de consulta não devolver valores nulos.
+* Foi corrigido um erro para garantir que é permitido PartitionKey grandes
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Foi adicionado para o modo de gateway de um suporte de escrita de várias regiões.
+
+### <a name="a-name11641164"></a><a name="1.16.4"/>1.16.4
+* Foi corrigido um erro na chave de partição de leitura intervalos para uma consulta.
+
+### <a name="a-name11631163"></a><a name="1.16.3"/>1.16.3
+* Foi corrigido um erro na configuração de tamanho do cabeçalho de token de continuação no modo de DirectHttps.
 
 ### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
 * Falha de transmissão em fluxo foi adicionada ao longo de suporte.
@@ -205,6 +222,10 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.1.1](#2.1.1) |21 de Novembro de 2018 |--- |
+| [2.0.0](#2.0.0) |21 de Setembro de 2018 |--- |
+| [1.16.4](#1.16.4) |10 de Setembro de 2018 |--- |
+| [1.16.3](#1.16.3) |09 de Setembro de 2018 |--- |
 | [1.16.2](#1.16.2) |29 de Junho de 2018 |--- |
 | [1.16.1](#1.16.1) |16 de maio de 2018 |--- |
 | [1.16.0](#1.16.0) |15 de Março de 2018 |--- |

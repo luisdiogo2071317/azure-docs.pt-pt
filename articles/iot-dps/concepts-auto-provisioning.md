@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 025e447995d302c24ab2a7d1c8668857cb47ffdd
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 10648551728e4f3cb41b82433e4cd0d442f9daeb
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054775"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679261"
 ---
 # <a name="auto-provisioning-concepts"></a>Conceitos de aprovisionamento automático
 
@@ -64,6 +64,33 @@ O diagrama seguinte resume as funções e a seqüência de operações durante o
 > [!NOTE]
 > Opcionalmente, o fabricante também pode efetuar a operação "Inscrever a identidade de dispositivo", com APIs de serviço de aprovisionamento de dispositivos (em vez de através do operador). Para uma discussão detalhada sobre esse sequenciamento e muito mais, consulte a [registo de dispositivos Zero touch com vídeo do Azure IoT](https://youtu.be/cSbDRNg72cU?t=2460) (começando em 41:00 de marcador)
 
+## <a name="roles-and-azure-accounts"></a>Funções e contas do Azure
+
+Como cada função é mapeada para uma conta do Azure é dependente do cenário e existem alguns cenários que podem estar envolvidos. Os padrões comuns abaixo devem ajudar a fornecer uma compreensão geral sobre como as funções geralmente são mapeadas para uma conta do Azure.
+
+#### <a name="chip-manufacturer-provides-security-services"></a>Fabricante do chip fornece serviços de segurança
+
+Neste cenário, o fabricante gerencia a segurança para clientes de um nível. Este cenário poderá ser preferencial por estes clientes de um nível que não precisam de gerir a segurança detalhada. 
+
+O fabricante apresenta a segurança em módulos de segurança de Hardware (HSMs). Esta segurança pode incluir o fabricante de obtenção de chaves, certificados, etc. de potenciais clientes que já têm instâncias de pontos de distribuição e a configuração de grupos de inscrição. O fabricante também poderia gerar essas informações de segurança para seus clientes.
+
+Neste cenário, pode haver duas contas do Azure envolvidas:
+
+- **Conta #1**: provavelmente partilhado por todas as funções do operador e desenvolvedor até certo ponto. Essa parte pode adquirir os chips de HSM do fabricante. Estes chips estão apontava para instâncias de pontos de distribuição associadas com a conta de n. º 1. Com as inscrições de pontos de distribuição, essa parte pode alugar dispositivos para vários clientes de dois níveis ao reconfigurar as definições de inscrição de dispositivos no DPS. Essa parte confiável também pode ter os hubs IoT alocados para sistemas de back-end do utilizador final para fazer a interface com, para poder aceder a telemetria do dispositivo etc. Neste último caso, pode não ser necessária uma segunda conta.
+
+- **Conta #2**: os utilizadores finais, dois clientes podem ter seus próprios hubs IoT. A entidade associada a pontos de apenas 1 conta concedidos dispositivos no hub correto nesta conta. Esta configuração requer que estabelece ligação hubs IoT e de pontos de distribuição entre as contas do Azure, que podem ser feitas com modelos Azure Resource Manager.
+
+#### <a name="all-in-one-oem"></a>Tudo-em-um OEM
+
+O fabricante pode ser um OEM"tudo-em-um" onde seria necessário apenas uma conta de fabricante único. O fabricante lida com segurança e provisionamento de ponto a ponto.
+
+O fabricante poderá fornecer uma aplicação baseada na cloud para os clientes que compram dispositivos. Esta aplicação teria de interface com o IoT Hub atribuída pelo fabricante.
+
+Máquinas de venda automática ou máquinas de café automatizada representam exemplos para este cenário.
+
+
+
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Talvez seja útil marcar este artigo como um ponto de referência, à medida que trabalha seu caminho pela inícios rápidos correspondentes de aprovisionamento automático. 
@@ -71,7 +98,7 @@ Talvez seja útil marcar este artigo como um ponto de referência, à medida que
 Comece por concluir um início rápido "Configurar o aprovisionamento automático" mais adequado às suas preferências de ferramenta de gestão, que explica como a fase de "Configuração de serviço":
 
 - [Configurar o aprovisionamento automático com a CLI do Azure](quick-setup-auto-provision-cli.md)
-- [Configurar o aprovisionamento automático através do Portal do Azure](quick-setup-auto-provision.md)
+- [Configurar o aprovisionamento automático com o portal do Azure](quick-setup-auto-provision.md)
 - [Configurar o aprovisionamento automático através de um modelo do Resource Manager](quick-setup-auto-provision-rm.md)
 
 Em seguida, continue com um guia de introdução do "Aprovisionar automaticamente um dispositivo simulado" que lhe seja conveniente seu mecanismo de atestado de dispositivo e a preferência do SDK do serviço aprovisionamento de dispositivos/linguagem. Neste início rápido, que pode percorrer as fases de "Inscrição de dispositivos" e "registo de dispositivos e a configuração": 

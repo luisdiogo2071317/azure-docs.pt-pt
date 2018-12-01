@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e7fd5649f1cd08713b066a20887b36b9a3c38e7c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 510fe187661534c4c82ae7ec62904de51eb4b221
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633083"
+ms.locfileid: "52682741"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolher informações sobre a infraestrutura DNS com a solução de análise de DNS pré-visualização
 
@@ -47,7 +47,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Sim | A solução recolhe informações de DNS de agentes do Windows. |
 | [Agentes do Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Não | A solução não recolhe informações de DNS de agentes diretos do Linux. |
 | [Grupo de gestão do System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md) | Sim | A solução recolhe informações de DNS de agentes num grupo de gestão do Operations Manager ligado. Não é necessária uma ligação direta a partir do agente do Operations Manager ao Log Analytics. Os dados são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics. |
-| [Conta de armazenamento do Azure](../../log-analytics/log-analytics-azure-storage.md) | Não | O armazenamento do Azure não é utilizado pela solução. |
+| [Conta de armazenamento do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Não | O armazenamento do Azure não é utilizado pela solução. |
 
 ### <a name="data-collection-details"></a>Detalhes de recolha de dados
 

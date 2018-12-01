@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 819e6364aebab11097260c54575ab65914293ce7
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: f0f0b8e0cbb5fbab81a07a28a9d4a2c264be6545
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180534"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719866"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta do Twitter com o Azure Active Directory B2C
 
@@ -27,14 +27,14 @@ Para utilizar o Twitter como fornecedor de identidade no Azure AD B2C, terá de 
 2. Selecione **criar uma aplicação**.
 3. Introduza um **nome da aplicação** e uma **descrição da aplicação**.
 4. Na **URL do site**, introduza `https://your-tenant.b2clogin.com`. Substitua `your-tenant` com o nome do seu inquilino. Por exemplo, https://contosob2c.b2clogin.com.
-5. Para o **URL de chamada de retorno**, introduza `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`. Substitua `your-tenant` com o nome do nome do seu inquilino e `your-policy-Id` com o identificador da sua política. Por exemplo, `b2c_1A_signup_signin_twitter`. Tem de utilizar todas as letras minúsculas, ao introduzir o nome do seu inquilino, mesmo que o inquilino está definido com letras maiúsculas no Azure AD B2C.
+5. Para o **URL de chamada de retorno**, introduza `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`. Substitua `your-tenant` com o nome do nome do seu inquilino e `your-user-flow-Id` com o identificador do seu fluxo de utilizador. Por exemplo, `b2c_1A_signup_signin_twitter`. Tem de utilizar todas as letras minúsculas, ao introduzir o nome do seu inquilino, mesmo que o inquilino está definido com letras maiúsculas no Azure AD B2C.
 6. Na parte inferior da página, leia e aceite os termos e, em seguida, selecione **criar**.
 7. Na **detalhes da aplicação** página, selecione **Editar > Editar detalhes**, marque a caixa **ativar o início de sessão com o Twitter**e, em seguida, selecione **guardar**.
 8. Selecione **chaves e tokens** e registe o **chave de API de consumidor** e o **chave secreta da API de consumidor** valores a utilizar mais tarde.
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>Configurar o Twitter como fornecedor de identidade no seu inquilino
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 4. Selecione **fornecedores de identidade**e, em seguida, selecione **Add**.

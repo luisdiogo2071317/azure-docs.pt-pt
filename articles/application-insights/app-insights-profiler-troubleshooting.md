@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 7b7aad2cb8aa9b4faeada795f20c818995f62fb6
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978847"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720444"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Resolução de problemas de ativação ou ao visualizar o Application Insights Profiler
 
@@ -46,9 +45,6 @@ O criador de perfil escreve as mensagens de rastreio e eventos personalizados pa
 
 1. Se existirem pedidos durante o período de tempo executou o criador de perfil, certifique-se de pedidos são processados pela parte do aplicativo que tenha o criador de perfil ativado. Por vezes, aplicativos consistem em vários componentes, mas Profiler está ativada apenas para alguns, não todos, os componentes. A página de configurar o Application Insights Profiler irá mostrar os componentes que carregou rastreios.
 
-### <a name="net-core-21-bug"></a>Bug do .net core 2.1
-Há um bug no agente do criador de perfil que o impede de carregamento de rastreios obtidos a partir de aplicações em execução no ASP.NET Core 2.1. Estamos a trabalhar numa correção e irá deixá-lo pronto em breve. A correção para esse bug será implantada no final de Outubro.
-
 ### <a name="other-things-to-check"></a>Outros aspetos a verificar:
 * A aplicação está em execução no .NET Framework 4.6.
 * Se a sua aplicação web é uma aplicação ASP.NET Core, tem de executar, pelo menos, ASP.NET Core 2.0.
@@ -69,10 +65,11 @@ Submeta um pedido de suporte no portal. Certifique-se de que inclui o ID de corr
 ## <a name="troubleshooting-profiler-on-app-services"></a>Profiler de resolução de problemas nos serviços de aplicações
 ### <a name="for-the-profiler-to-work-properly"></a>Para o criador de perfil funcionar corretamente:
 * Seu plano de serviço de aplicações web tem de ser escalão básico ou superior.
-* A aplicação web tem de ter a extensão do Application Insights para serviços de aplicações (2.6.5) instalada.
+* A aplicação web tem de ter ativado do Application Insights.
 * A aplicação web tem de ter o **APPINSIGHTS_INSTRUMENTATIONKEY** definição de aplicação configurada com a mesma chave de instrumentação que é utilizada pelo SDK do Application Insights.
 * A aplicação web tem de ter o **APPINSIGHTS_PROFILERFEATURE_VERSION** definição de aplicação definida e configurada para 1.0.0.
-* O **ApplicationInsightsProfiler2** tem de executar a tarefa de web. Pode verificar a tarefa de web, acedendo a [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)e abrir o **Dashboard de WebJobs** no menu Ferramentas. Como pode ver nas capturas de ecrã abaixo, clicando no link de ApplicationInsightsProfiler2, pode ver detalhes do webjob, incluindo o registo.
+* A aplicação web tem de ter o **DiagnosticServices_EXTENSION_VERSION** definição de aplicação definida e defina o valor de ~ 3.
+* O **ApplicationInsightsProfiler3** tem de executar a tarefa de web. Pode verificar a tarefa de web, acedendo a [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)e abrir o **Dashboard de WebJobs** no menu Ferramentas. Como pode ver nas capturas de ecrã abaixo, clicando no link de ApplicationInsightsProfiler2, pode ver detalhes do webjob, incluindo o registo.
 
     Segue-se a ligação que tem de clicar para ver os detalhes do trabalho Web: 
 
@@ -91,11 +88,7 @@ Quando configura o Profiler, as atualizações são efetuadas às definições d
 1. Definir **Always On** ao **no**.
 1. Adicionar a **APPINSIGHTS_INSTRUMENTATIONKEY** aplicação definição e defina o valor para a mesma chave de instrumentação que é utilizada pelo SDK.
 1. Adicionar a **APPINSIGHTS_PROFILERFEATURE_VERSION** definição de aplicação e defina o valor como 1.0.0.
-1. Open **ferramentas avançadas**.
-1. Selecione **ir** para abrir o site Kudu.
-1. No site do Kudu, selecione **extensões de Site**.
-1. Instale **Application Insights** da Galeria de aplicações Web do Azure.
-1. Reinicie a aplicação web.
+1. Adicionar a **DiagnosticServices_EXTENSION_VERSION** definição de aplicação e defina o valor como ~ 3.
 
 ### <a name="too-many-active-profiling-sessions"></a>Demasiadas sessões ativas de criação de perfis
 

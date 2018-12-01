@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aa543ad119716b25b7f3ab00d49efb9fe6fb6c3f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88805f26869ad75830cef1aa074cd90cb947e76f
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244241"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681743"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Reencaminhar a configuração de estado de automatização do Azure a comunicar dados para o Log Analytics
 
@@ -197,4 +197,4 @@ O log Analytics fornece maior visibilidade operacional aos seus dados de configu
 - Para obter informações sobre preços, consulte [preços de configuração de estado de automatização do Azure](https://azure.microsoft.com/pricing/details/automation/)
 - Para ver um exemplo do uso de configuração de estado de automatização do Azure num pipeline de implementação contínua, consulte [contínua através do Azure Automation estado de configuração da implementação e Chocolatey](automation-dsc-cd-chocolatey.md)
 - Para saber mais sobre como construir consultas de pesquisa diferentes e rever os registos de configuração de estado de automatização com o Log Analytics, consulte [pesquisas de registos no Log Analytics](../log-analytics/log-analytics-log-searches.md)
-- Para saber mais sobre o Log Analytics e origens de recolha de dados, consulte [dados de armazenamento do Azure recolha na descrição geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+- Para saber mais sobre o Log Analytics e origens de recolha de dados, consulte [dados de armazenamento do Azure recolha na descrição geral do Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)

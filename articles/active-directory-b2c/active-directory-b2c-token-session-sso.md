@@ -7,34 +7,32 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 456e32e2f5194417f004f80feef1852dd3d0befd
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636905"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723283"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Token, sessão e configuração de início de sessão única no Azure Active Directory B2C
 
-Esta funcionalidade dá-lhe um controlo detalhado, por um [base por política](active-directory-b2c-reference-policies.md), de:
+Esta funcionalidade dá-lhe um controlo detalhado, por um [base de fluxo de por utilizador](active-directory-b2c-reference-policies.md), de:
 
 - Durações de tokens de segurança emitidos pelo Azure Active Directory (Azure AD) B2C.
 - Durações das sessões do aplicativo web geridos pelo Azure AD B2C.
 - Formatos de importantes declarações nos tokens de segurança emitidos pelo Azure AD B2C.
-- Início de sessão único (SSO) o comportamento em várias aplicações e políticas no seu inquilino do Azure AD B2C.
+- Single sign-on (SSO) do comportamento em várias aplicações e fluxos de utilizador no seu inquilino do Azure AD B2C.
 
-Pode utilizar esta funcionalidade em qualquer tipo de política, mas neste exemplo mostram como utilizar a funcionalidade com uma política de inscrição ou início de sessão. Para as políticas incorporadas, pode utilizar esta funcionalidade no seu diretório do Azure AD B2C da seguinte forma:
+Pode utilizar esta funcionalidade em qualquer tipo de política, mas neste exemplo mostram como utilizar a funcionalidade com um fluxo de utilizador de inscrição ou início de sessão. Para fluxos de utilizador, pode utilizar esta funcionalidade no seu diretório do Azure AD B2C da seguinte forma:
 
-1. Clique em **políticas de inscrição ou início de sessão**.
-2. Abra uma política ao clicar no mesmo. Por exemplo, clique em **B2C_1_SiUpIn**.
-3. Clique em **editar** na parte superior do menu.
-4. Clique em **Token, sessão e configuração de início de sessão única**.
-5. Faça as alterações necessárias. Saiba mais sobre as propriedades disponíveis nas secções subsequentes.
-6. Clique em **OK**.
-7. Clique em **guardar** na parte superior do menu.
+1. Clique em **fluxos de utilizador**.
+2. Abra um fluxo de utilizador ao clicar no mesmo. Por exemplo, clique em **B2C_1_SiUpIn**.
+3. Clique em **Propriedades**.
+4. Sob **definições de compatibilidade do Token**, faça as alterações pretendidas. Saiba mais sobre as propriedades disponíveis nas secções subsequentes.
+5. Clique em **guardar** na parte superior do menu.
 
 ## <a name="token-lifetimes-configuration"></a>Configuração de durações de token
 
@@ -57,10 +55,10 @@ As seguintes propriedades são utilizadas para gerir as durações de tokens de 
 
 Os seguintes casos de utilização estão ativados com estas propriedades:
 
-- Permitir que um utilizador manter sessão iniciada para um aplicativo móvel indefinidamente, desde que o utilizador está continuamente ativo no aplicativo. Pode definir **atualização token duração da janela deslizante (dias)** ao **Unbounded** na sua política de início de sessão.
+- Permitir que um utilizador manter sessão iniciada para um aplicativo móvel indefinidamente, desde que o utilizador está continuamente ativo no aplicativo. Pode definir **atualização token duração da janela deslizante (dias)** ao **Unbounded** no seu fluxo de início de sessão do utilizador.
 - Cumprir os requisitos de conformidade de segurança de seu setor e definindo as durações de token de acesso adequado.
 
-Estas definições não estão disponíveis para políticas de reposição de palavra-passe. 
+Estas definições não estão disponíveis para fluxos de utilizador de reposição de palavra-passe. 
 
 ## <a name="token-compatibility-settings"></a>Definições de tokens de compatibilidade
 
@@ -68,7 +66,7 @@ As seguintes propriedades permitem aos clientes escolher conforme necessário:
 
 - **Afirmação do emissor (iss)** -esta propriedade identifica o inquilino do Azure AD B2C que emitiu o token.
     - `https://<domain>/{B2C tenant GUID}/v2.0/` -Este é o valor predefinido.
-    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` -Este valor inclui o IDs de inquilino do B2C e a política utilizada no pedido de token. Se a sua aplicação ou a biblioteca precisa do Azure AD B2C para estar em conformidade com o [especificação do OpenID Connect 1.0 da deteção](http://openid.net/specs/openid-connect-discovery-1_0.html), utilize este valor.
+    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` -Este valor inclui o IDs de inquilino do B2C e o fluxo de utilizador utilizado no pedido de token. Se a sua aplicação ou a biblioteca precisa do Azure AD B2C para estar em conformidade com o [especificação do OpenID Connect 1.0 da deteção](http://openid.net/specs/openid-connect-discovery-1_0.html), utilize este valor.
 - **Afirmação do requerente** -esta propriedade identifica a entidade para o qual o token declara informações.
     - **ObjectID** -esta propriedade é o valor predefinido. Preenche o ID de objeto do utilizador no diretório para o `sub` de afirmações no token.
     - **Não suportado** - esta propriedade só é fornecida para compatibilidade com versões anteriores, e recomendamos que altere para **ObjectID** assim que possível.
@@ -91,16 +89,16 @@ Os seguintes casos de utilização estão ativados com estas propriedades:
 - Cumprir os requisitos de segurança e conformidade da sua indústria ao definir a sessão de aplicativo da web apropriados tempos de vida.
 - Forçar autenticação após um período de tempo durante a interação do usuário com uma parte de alta segurança da sua aplicação web. 
 
-Estas definições não estão disponíveis para políticas de reposição de palavra-passe.
+Estas definições não estão disponíveis para fluxos de utilizador de reposição de palavra-passe.
 
 ## <a name="single-sign-on-sso-configuration"></a>Configuração de início de sessão único (SSO)
 
-Se tiver várias aplicações e políticas no seu inquilino do B2C, pode gerir interações de utilizador por elas com o **configuração do início de sessão única** propriedade. Pode definir a propriedade a uma das seguintes definições:
+Se tiver várias aplicações e fluxos de utilizador no seu inquilino do B2C, pode gerir interações de utilizador por elas com o **configuração do início de sessão única** propriedade. Pode definir a propriedade a uma das seguintes definições:
 
-- **Inquilino** -esta é a predefinição. Utilizar esta definição permite que várias aplicações e políticas no seu inquilino de B2C para partilhar a mesma sessão do utilizador. Por exemplo, uma vez que um utilizador inicia sessão numa aplicação, o utilizador pode iniciar diretamente em outro farmácia Contoso um, após a aceder ao mesmo.
+- **Inquilino** -esta é a predefinição. Com esta definição permite que vários aplicativos e de utilizador fluxos no seu inquilino de B2C para partilhar a mesma sessão do utilizador. Por exemplo, uma vez que um utilizador inicia sessão numa aplicação, o utilizador pode iniciar diretamente em outro farmácia Contoso um, após a aceder ao mesmo.
 - **Aplicação** -esta definição permite-lhe manter uma sessão de utilizador exclusivamente para um aplicativo, independentemente de outras aplicações. Por exemplo, se pretender que o utilizador iniciar sessão na Contoso farmácia (com as mesmas credenciais), mesmo que o usuário já está conectado a compras de Contoso, outra aplicação no mesmo B2C inquilino. 
-- **Política** -esta definição permite-lhe manter uma sessão de utilizador exclusivamente para uma política, independente das aplicações que utilizam ele. Por exemplo, se o utilizador já iniciou sessão e concluir uma etapa de authentication (MFA) do fator de transmissões, o utilizador pode ser dado acesso a partes de uma maior segurança de vários aplicativos, desde que a sessão associada à política que não expire.
-- **Desativado** – esta definição orces ao utilizador para percorrer o percurso do utilizador completa em cada execução da política. Por exemplo, isso permite que vários utilizadores para se inscrever para a sua aplicação (num cenário de área de trabalho partilhado), permanece até mesmo enquanto um único utilizador com sessão iniciada durante o tempo todo.
+- **Política** -esta definição permite-lhe manter uma sessão de utilizador exclusivamente para um fluxo de utilizador, independente das aplicações que utilizam ele. Por exemplo, se o utilizador já iniciou sessão e concluir uma etapa de authentication (MFA) do fator de transmissões, o utilizador pode ser dado acesso a partes de uma maior segurança de vários aplicativos, desde que a sessão associada ao fluxo de utilizador não expire.
+- **Desativado** -esta definição força o usuário a executar o fluxo de utilizador completo em cada execução da política. Por exemplo, isso permite que vários utilizadores para se inscrever para a sua aplicação (num cenário de área de trabalho partilhado), permanece até mesmo enquanto um único utilizador com sessão iniciada durante o tempo todo.
 
-Estas definições não estão disponíveis para políticas de reposição de palavra-passe. 
+Estas definições não estão disponíveis para fluxos de utilizador de reposição de palavra-passe. 
 

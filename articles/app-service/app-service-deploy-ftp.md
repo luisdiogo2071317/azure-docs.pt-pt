@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/30/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 32dbef04febb1f3a0cdd8654fc5ec1c5c367439e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 1e3dbe04652be479a327ed9494299f89ef13492a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820006"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679397"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementar a aplicação no serviço de aplicações do Azure com FTP/S
 
@@ -31,7 +31,7 @@ O ponto de extremidade FTP/S para a sua aplicação já está ativo. Nenhuma con
 
 Na [portal do Azure](https://portal.azure.com), abra a sua aplicação [página de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-Para abrir o dashboard FTP, clique em **entrega contínua (pré-visualização)** > **FTP** > **Dashboard**.
+Para abrir o dashboard FTP, clique em **Deployment Center** > **FTP** > **Dashboard**.
 
 ![Abrir dashboard FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
@@ -107,6 +107,6 @@ Serviço de aplicações do Azure suporta a ligação por meio do modo ativo e p
 
 Para cenários de implementação mais avançados, tente [implementar no Azure com o Git](app-service-deploy-local-git.md). Implementação baseada no Git para o Azure permite o controle de versão, o restauro de pacote, MSBuild e muito mais.
 
-## <a name="more-resources"></a>Mais Recursos
+## <a name="more-resources"></a>Mais recursos
 
 * [Credenciais de implementação do serviço de aplicações do Azure](app-service-deployment-credentials.md)

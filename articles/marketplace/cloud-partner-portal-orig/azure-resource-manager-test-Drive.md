@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 90c434a37d3209e0c11a04425c337ec6930cfd00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 85e6dc8d72588ff64c0119a6c1944755ce5686f4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025264"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720937"
 ---
 <a name="azure-resource-manager-test-drive"></a>Versão de teste de Gestor de recursos do Azure
 =================================
@@ -382,15 +382,13 @@ Clique em Guardar. A última etapa é obter o ID da aplicação para esta aplica
 Tendo em conta que estiver a utilizar a aplicação para implementar para a subscrição, precisamos de adicionar a aplicação como um contribuinte da subscrição. As instruções para estas são como abaixo:
 
 1. Navegue para o painel de subscrições e selecione a subscrição adequada, que está a utilizar para a versão de teste apenas.
-2. Clique no controlo de acesso (IAM).
-3. Clique em + Adicionar no novo painel.
-4. Defina a função como contribuinte.
-5. Escreva o nome da aplicação do AAD e selecione a aplicação do AAD para atribuir a função.
-6. Clique em Guardar.
-
-![Adicionar um novo principal de controlo de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Adicione as permissões](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Clique em **controlo de acesso (IAM)**.
+1. Clique nas **atribuições de funções** separador.  ![Adicionar um novo principal de controlo de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Clique em **adicionar atribuição de função**.
+1. Definir a função como **contribuinte**.
+1. Escreva o nome de aplicação do Azure AD e selecione a aplicação para atribuir a função.
+    ![Adicione as permissões](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Clique em **Guardar**.
 
 **Chave da aplicação do Azure AD -** *necessário* o campo final é gerar uma chave de autenticação. Em chaves, adicione uma descrição de chave, defina a duração para nunca expirar, em seguida, selecione guardar. É **importante** para evitar que um expiradas chave, que irá interromper a sua versão de teste em produção. Copie este valor e cole-o no seu campo obrigatório da versão de teste.
 

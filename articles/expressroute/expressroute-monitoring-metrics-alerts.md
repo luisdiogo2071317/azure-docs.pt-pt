@@ -5,22 +5,26 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: fcdaf10ad30cee0e7b79304ff21d67560522875c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 90735ac04c95ee3d270853c18eddebd3f11dd8c1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377802"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725968"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
 
- Este artigo ajuda-o a compreender a monitorização de ExpressRoute, métricas e alertas. Monitor do Azure é um meio único para todas as métricas, alertas, os registos de diagnóstico em todas as do Azure.
+Este artigo ajuda-o a compreender a monitorização de ExpressRoute, métricas e alertas. Monitor do Azure é um meio único para todas as métricas, alertas, os registos de diagnóstico em todas as do Azure.
+ 
+>[!NOTE]
+>Usando **métricas clássico** não é recomendado. 
+>
 
 ## <a name="circuit-metrics"></a>Métricas de circuito
 
-Para navegar até **métricas**, clique na página de ExpressRoute para o circuito que pretende monitorizar. Sob **monitorização** pode ver a **métricas**. Selecione BitsInPerSecond ou BitsOutPerSecond e a agregação. Opcionalmente, pode aplicar a divisão que mostrará as métricas por tipo de peering.
+Para navegar até **métricas**, clique na página de ExpressRoute para o circuito que pretende monitorizar. Sob **monitorização**, pode ver a **métricas**. Selecione BitsInPerSecond ou BitsOutPerSecond e a agregação. Opcionalmente, pode aplicar a divisão, que mostrará as métricas por tipo de peering.
 
 ![Métricas de circuito](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
@@ -47,7 +51,6 @@ Pode ver as métricas para privado, público e peering em bits por segundo da Mi
 
   ![grupo de ação](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
-
 4. Definir e adicionar o grupo de ação.
 
   ![Adicionar grupo de ação](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
@@ -61,9 +64,10 @@ Pode ver as métricas para privado, público e peering em bits por segundo da Mi
 Na **critérios de alerta**, pode selecionar **registo de atividades** para o tipo de sinal e selecione o sinal.
 
   ![outro](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
-
+  
 ## <a name="next-steps"></a>Passos Seguintes
-* Configurar a ligação do ExpressRoute.
+
+Configurar a ligação do ExpressRoute.
   
   * [Criar e modificar um circuito](expressroute-howto-circuit-arm.md)
   * [Criar e modificar a configuração de peering](expressroute-howto-routing-arm.md)

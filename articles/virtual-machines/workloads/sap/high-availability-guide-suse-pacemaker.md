@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 9d3d1e5ba7ebc7e2afefb31df3be9f2a8f43e153
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 34a72bb38c87902648ad92261a70d6545f10d0fa
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685400"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723691"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Como configurar Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -527,10 +527,10 @@ Atribua a função personalizada "Linux cerca agente de função" que foi criado
 1. Abra o painel de todos os recursos
 1. Selecione a máquina virtual do primeiro nó de cluster
 1. Clique em controle de acesso (IAM)
-1. Clique em Adicionar
+1. Clique em Adicionar atribuição de função
 1. Selecione a função de "Função de agente de cerca de Linux"
 1. Introduza o nome da aplicação que criou acima
-1. Clique em OK
+1. Clicar em Guardar
 
 Repita os passos acima para o segundo nó de cluster.
 

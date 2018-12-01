@@ -7,14 +7,14 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: db177c3356d378317c41e0c91c10865db5e05992
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8009a2ef3f89a359bc645485dd75b80cc5d0b868
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286984"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722841"
 ---
 # <a name="receive-events-from-event-hubs-using-python"></a>Receber eventos dos Hubs de eventos com o Python
 
@@ -30,11 +30,9 @@ O código neste tutorial é obtido a partir [estes exemplos do GitHub](https://g
 
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
+- Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - Python 3.4 ou posterior.
 - Os Hubs de eventos espaço de nomes e o event hub existente. Pode criar estas entidades, seguindo as instruções em [este artigo](event-hubs-create.md). 
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
 
 ## <a name="install-python-package"></a>Instalar pacote do Python
 

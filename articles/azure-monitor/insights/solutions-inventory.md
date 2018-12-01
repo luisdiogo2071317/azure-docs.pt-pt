@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 7f0334bdd1922c6ec410ca912ccfbf639e5c770f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 6aa0ad6d13a7a75a0d9bfb520944c04cae11f1ab
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634443"
+ms.locfileid: "52682984"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalhes de recolha de dados para soluções de gestão no Azure
 Este artigo inclui uma lista dos [soluções de gestão](solutions.md) disponíveis da Microsoft com links para sua documentação detalhada.  Também fornece informações no seu método e a frequência de recolha de dados para o Log Analytics.  Pode utilizar as informações neste artigo, para identificar as diferentes soluções disponíveis e para compreender os requisitos de fluxo e a ligação de dados para soluções de gestão diferentes. 
@@ -41,7 +41,7 @@ Explicações das colunas são os seguintes:
 
 | **Solução de gestão** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Operations Manager** | **Armazenamento do Azure** | **Gestor de operações necessárias?** | **Dados de agente do Operations Manager enviados por grupo de gestão** | **Frequência de recolha** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Log Analytics da Atividade](../../log-analytics/log-analytics-activity.md) | Azure | | | | | | na notificação |
+| [Log Analytics da Atividade](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | na notificação |
 | [Avaliação do AD](../../azure-monitor/insights/ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dias |
 | [Estado de Replicação do AD](../../azure-monitor/insights/ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 dias |
 | [Agente de Funcionamento de Agente](solution-agenthealth.md) | Windows e Linux | &#8226; | &#8226; | | | &#8226; | 1 minuto |
@@ -49,7 +49,7 @@ Explicações das colunas são os seguintes:
 | [Gestão de alertas](../../azure-monitor/platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 minuto |
 | [Gestão de alertas](../../azure-monitor/platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minutos |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/d |
-| [Conector do Application Insights (pré-visualização)](../../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | na notificação |
+| [Conector do Application Insights (pré-visualização)](../../azure-monitor/platform/app-insights-connector.md) | Azure | | | |  |  | na notificação |
 | [Função de trabalho de híbrida de automatização](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/d |
 | [Análise do Gateway de aplicação do Azure](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | na notificação |
 | **Solução de gestão** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Operations Manager** | **Armazenamento do Azure** | **Gestor de operações necessárias?** | **Dados de agente do Operations Manager enviados por grupo de gestão** | **Frequência de recolha** |

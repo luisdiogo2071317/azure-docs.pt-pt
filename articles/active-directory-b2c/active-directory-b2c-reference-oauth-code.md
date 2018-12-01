@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d388242b4b0c882d60a83227a37af997b1ceb1f6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f39efcbc051bf57ab350357b020039eddd0f7c18
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282650"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720784"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Do Azure Active Directory B2C: Fluxo de código de autorização de OAuth 2.0
 Pode utilizar a concessão de código de autorização de OAuth 2.0 nas aplicações instaladas num dispositivo para obter acesso a recursos protegidos, como as APIs web. Ao utilizar o Azure Active Directory B2C (Azure AD B2C) a implementação do OAuth 2.0, pode adicionar inscrição, início de sessão, e as tarefas de outra gestão de identidades às suas aplicações móveis e de Desktops. Este artigo é independente de idioma. Neste artigo, descrevemos como enviar e receber mensagens HTTP sem utilizar quaisquer bibliotecas de código-fonte aberto.
@@ -27,15 +27,15 @@ Este artigo enfoca a **os clientes públicos** fluxo de código de autorização
 > [!NOTE]
 > Para adicionar gerenciamento de identidade para uma aplicação web com o Azure AD B2C, utilize [OpenID Connect](active-directory-b2c-reference-oidc.md) em vez de OAuth 2.0.
 
-O Azure AD B2C estende o padrão de que fluxos do OAuth 2.0 para fazer mais do que a autenticação e autorização simples. Ele introduz o [parâmetro de política](active-directory-b2c-reference-policies.md). Com as políticas incorporadas, pode utilizar o OAuth 2.0 para adicionar experiências de utilizador à sua aplicação, tais como inscrição, início de sessão e gestão de perfis. Neste artigo, vamos mostrar como utilizar o OAuth 2.0 e políticas para implementar cada um destas experiências nas suas aplicações nativas. Também lhe mostramos como obter os tokens de acesso para aceder a web APIs.
+O Azure AD B2C estende o padrão de que fluxos do OAuth 2.0 para fazer mais do que a autenticação e autorização simples. Ele introduz o [parâmetro de fluxo de utilizador](active-directory-b2c-reference-policies.md). Com fluxos de utilizador, pode utilizar o OAuth 2.0 para adicionar experiências de utilizador à sua aplicação, tais como inscrição, início de sessão e gestão de perfis. Neste artigo, vamos mostrar como utilizar fluxos de utilizador e de OAuth 2.0 para implementar cada um destas experiências nas suas aplicações nativas. Também lhe mostramos como obter os tokens de acesso para aceder a web APIs.
 
-Os pedidos HTTP de exemplo neste artigo, utilizamos o nosso diretório do Azure AD B2C de exemplo, **fabrikamb2c.onmicrosoft.com**. Também usamos nosso aplicativo de exemplo e as políticas. Pode experimentar os pedidos utilizando estes valores, ou pode substituí-los com seus próprios valores.
-Saiba como [obter o seu próprio diretório do Azure AD B2C, aplicações e políticas](#use-your-own-azure-ad-b2c-directory).
+Os pedidos HTTP de exemplo neste artigo, utilizamos o nosso diretório do Azure AD B2C de exemplo, **fabrikamb2c.onmicrosoft.com**. Também utilizamos nossos fluxos de utilizador e a aplicação de exemplo. Pode experimentar os pedidos utilizando estes valores, ou pode substituí-los com seus próprios valores.
+Saiba como [obter seus próprios fluxos de utilizador, aplicação e diretório do Azure AD B2C](#use-your-own-azure-ad-b2c-directory).
 
 ## <a name="1-get-an-authorization-code"></a>1. Obter um código de autorização
-O fluxo de código de autorização começa com o cliente que direciona o utilizador para o `/authorize` ponto final. Esta é a parte interativa do fluxo, em que o utilizador efetua uma ação. Este pedido, o cliente indica no `scope` parâmetro as permissões que ele necessita obter do usuário. Na `p` parâmetro, ele indica que a política para executar. Os três exemplos seguintes (com quebras de linha para facilitar a leitura) cada utilizam uma política diferente.
+O fluxo de código de autorização começa com o cliente que direciona o utilizador para o `/authorize` ponto final. Esta é a parte interativa do fluxo, em que o utilizador efetua uma ação. Este pedido, o cliente indica no `scope` parâmetro as permissões que ele necessita obter do usuário. Na `p` parâmetro, ele indica que o fluxo de utilizador para executar. Os três exemplos seguintes (com quebras de linha para facilitar a leitura) cada utilizam um fluxo de utilizador diferente.
 
-### <a name="use-a-sign-in-policy"></a>Utilizar uma política de início de sessão
+### <a name="use-a-sign-in-user-flow"></a>Utilizar um fluxo de início de sessão do utilizador
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -47,7 +47,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-### <a name="use-a-sign-up-policy"></a>Utilizar uma política de inscrição
+### <a name="use-a-sign-up-user-flow"></a>Utilizar um fluxo de inscrição de utilizador
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -59,7 +59,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_up
 ```
 
-### <a name="use-an-edit-profile-policy"></a>Utilizar uma política de edição de perfil
+### <a name="use-an-edit-profile-user-flow"></a>Utilizar um fluxo de utilizador de Editar perfil
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -78,13 +78,13 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |Necessário |O URI de redirecionamento de seu aplicativo, onde as respostas enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos URIs que registou no portal de redirecionamento, exceto pelo fato de que tem de ser codificados de URL. |
 | scope |Necessário |Uma lista de âmbitos separadas por espaços. Um valor de âmbito único indica ao Azure Active Directory (Azure AD) ambas as permissões que estão a ser solicitada. Com o ID de cliente como o âmbito indica que o aplicativo precisa de um token de acesso que pode ser utilizado em relação a seu próprio serviço ou a web API, representado pelo mesmo ID de cliente.  O `offline_access` âmbito indica que o aplicativo precisa de um token de atualização de longa duração acesso a recursos. Também pode utilizar o `openid` âmbito para pedir um token de ID do Azure AD B2C. |
 | response_mode |Recomendado |O método que utilizar para enviar o código de autorização resultante de volta à aplicação. Pode ser `query`, `form_post`, ou `fragment`. |
-| state |Recomendado |Um valor incluído no pedido que pode ser uma cadeia de caracteres de qualquer conteúdo que pretende utilizar. Normalmente, um valor exclusivo gerado aleatoriamente é usado, para impedir ataques de falsificação de solicitação entre sites. O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu. Por exemplo, a página que o usuário estava em ou a política que está a ser executado. |
-| p |Necessário |A política que é executada. É o nome de uma política que é criado no diretório do Azure AD B2C. O valor de nome de política deve começar com **b2c\_1\_**. Para saber mais sobre as políticas, veja [políticas incorporadas do Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| state |Recomendado |Um valor incluído no pedido que pode ser uma cadeia de caracteres de qualquer conteúdo que pretende utilizar. Normalmente, um valor exclusivo gerado aleatoriamente é usado, para impedir ataques de falsificação de solicitação entre sites. O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu. Por exemplo, a página que o usuário estava em ou o fluxo de utilizador que está a ser executado. |
+| p |Necessário |O fluxo de utilizador que é executado. É o nome de um fluxo de utilizador que é criado no diretório do Azure AD B2C. O valor de nome de fluxo de utilizador deve iniciar com **b2c\_1\_**. Para saber mais sobre fluxos de utilizador, veja [fluxos de utilizador do Azure AD B2C](active-directory-b2c-reference-policies.md). |
 | linha de comandos |Opcional |O tipo de interação do utilizador que é necessário. Atualmente, o único valor válido é `login`, que força o utilizador introduza as credenciais desse pedido. Início de sessão único não irão surtir efeito. |
 
-Neste momento, é pedido ao utilizador para concluir o fluxo de trabalho da política. Isto pode envolver o utilizador introduzir o nome de utilizador e palavra-passe, início de sessão com uma identidade de redes sociais, inscrever-se para o diretório ou qualquer outro número de passos. Ações do usuário dependem como a política está definida.
+Neste momento, é pedido ao utilizador para concluir o fluxo de trabalho do fluxo de utilizador. Isto pode envolver o utilizador introduzir o nome de utilizador e palavra-passe, início de sessão com uma identidade de redes sociais, inscrever-se para o diretório ou qualquer outro número de passos. Ações do usuário dependem de como o fluxo de utilizador está definido.
 
-Depois do utilizador conclui a política, o AD do Azure devolve uma resposta à sua aplicação com o valor que utilizou para `redirect_uri`. Ele usa o método especificado no `response_mode` parâmetro. A resposta é exatamente o mesmo para cada um dos cenários de ação do utilizador, independentemente da política que foi executada.
+Depois do utilizador concluir o fluxo de utilizador, o AD do Azure devolve uma resposta à sua aplicação com o valor que utilizou para `redirect_uri`. Ele usa o método especificado no `response_mode` parâmetro. A resposta é exatamente o mesmo para cada um dos cenários de ação do utilizador, independentemente do fluxo de utilizador que foi executado.
 
 Uma resposta com êxito, que utiliza `response_mode=query` semelhante ao seguinte:
 
@@ -128,7 +128,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
-| p |Necessário |A política que foi utilizada para adquirir o código de autorização. Não é possível utilizar uma política diferente neste pedido. Observe que adicionar este parâmetro para o *cadeia de consulta*, não no corpo da mensagem. |
+| p |Necessário |O fluxo de utilizador que foi utilizado para adquirir o código de autorização. Não é possível utilizar um fluxo de utilizador diferente neste pedido. Observe que adicionar este parâmetro para o *cadeia de consulta*, não no corpo da mensagem. |
 | client_id |Necessário |O ID da aplicação atribuído à sua aplicação no [portal do Azure](https://portal.azure.com). |
 | grant_type |Necessário |O tipo de concessão. Para o fluxo de código de autorização, o tipo de concessão deve ser `authorization_code`. |
 | scope |Recomendado |Uma lista de âmbitos separadas por espaços. Indica um valor de âmbito único para o Azure AD ambas as permissões que estão a ser solicitada. Com o ID de cliente como o âmbito indica que o aplicativo precisa de um token de acesso que pode ser utilizado em relação a seu próprio serviço ou a web API, representado pelo mesmo ID de cliente.  O `offline_access` âmbito indica que o aplicativo precisa de um token de atualização de longa duração acesso a recursos.  Também pode utilizar o `openid` âmbito para pedir um token de ID do Azure AD B2C. |
@@ -192,7 +192,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 
 | Parâmetro | Necessário? | Descrição |
 | --- | --- | --- |
-| p |Necessário |A política que foi utilizada para adquirir o token de atualização original. Não é possível utilizar uma política diferente neste pedido. Observe que adicionar este parâmetro para o *cadeia de consulta*, não no corpo da mensagem. |
+| p |Necessário |O fluxo de utilizador que foi utilizado para adquirir o token de atualização original. Não é possível utilizar um fluxo de utilizador diferente neste pedido. Observe que adicionar este parâmetro para o *cadeia de consulta*, não no corpo da mensagem. |
 | client_id |Necessário |O ID da aplicação atribuído à sua aplicação no [portal do Azure](https://portal.azure.com). |
 | client_secret |Necessário |O client_secret associado à sua client_id no [portal do Azure](https://portal.azure.com). |
 | grant_type |Necessário |O tipo de concessão. Para este vertente do fluxo de código de autorização, o tipo de concessão deve ser `refresh_token`. |
@@ -240,5 +240,5 @@ Para experimentar estes pedidos por conta própria, conclua os passos seguintes.
 
 1. [Criar um diretório do Azure AD B2C](active-directory-b2c-get-started.md). Utilize o nome do seu diretório nos pedidos.
 2. [Criar uma aplicação](active-directory-b2c-app-registration.md) para obter um ID de aplicação e um URI de redirecionamento. Incluem um cliente nativo na sua aplicação.
-3. [Criar as políticas](active-directory-b2c-reference-policies.md) para obter seus nomes de política.
+3. [Criar os seus fluxos de utilizador](active-directory-b2c-reference-policies.md) para obter nomes de fluxo de seu usuário.
 

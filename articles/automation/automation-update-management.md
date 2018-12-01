@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 11/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: caa1b6f31325cd67aad106f7829bd32a5e7aeb53
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c6202ff6f00412a779fb62b7a3bcc3f30ecbb25a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635820"
+ms.locfileid: "52682330"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -52,7 +52,7 @@ A solução de relatórios como atualizados, o computador baseia-se a origem com
 
 Pode criar uma implementação agendada para implementar e instalar atualizações de software em computadores que precisam das atualizações. As atualizações classificadas como *opcional* não estão incluídos no âmbito da implementação para computadores Windows. Apenas as atualizações necessárias estão incluídas no âmbito da implementação. 
 
-A implementação agendada define que computadores de destino recebem as atualizações aplicáveis, ao especificar explicitamente os computadores ou ao selecionar uma [grupo de computadores](../log-analytics/log-analytics-computer-groups.md) que se baseia em pesquisas de registos de um conjunto específico de computadores. Também especificar uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas.
+A implementação agendada define que computadores de destino recebem as atualizações aplicáveis, ao especificar explicitamente os computadores ou ao selecionar uma [grupo de computadores](../azure-monitor/platform/computer-groups.md) que se baseia em pesquisas de registos de um conjunto específico de computadores. Também especificar uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas.
 
 As atualizações são instaladas por runbooks na Automatização do Azure. Não é possível ver estes runbooks e os runbooks não requerem nenhuma configuração. Quando é criada uma implementação de atualização, a implementação da atualização cria uma agenda que inicia um runbook de atualização principal num momento especificado nos computadores incluídos. O runbook principal inicia um runbook subordinado em cada agente para instalar as atualizações necessárias.
 
@@ -192,7 +192,7 @@ Para executar uma pesquisa de registos que devolve informações sobre o computa
 
 ## <a name="install-updates"></a>Instalar atualizações
 
-Depois das atualizações são avaliadas para todos os computadores Linux e Windows na sua área de trabalho, pode instalar atualizações necessárias ao criar uma *implementação de atualização*. Uma implementação de atualização é uma instalação agendada de atualizações necessárias para um ou mais computadores. Especifique a data e hora para a implementação e um computador ou grupo de computadores a incluir no âmbito de uma implementação. Para saber mais sobre grupos de computadores, veja [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) (Grupos de computadores no Log Analytics).
+Depois das atualizações são avaliadas para todos os computadores Linux e Windows na sua área de trabalho, pode instalar atualizações necessárias ao criar uma *implementação de atualização*. Uma implementação de atualização é uma instalação agendada de atualizações necessárias para um ou mais computadores. Especifique a data e hora para a implementação e um computador ou grupo de computadores a incluir no âmbito de uma implementação. Para saber mais sobre grupos de computadores, veja [Computer groups in Log Analytics](../azure-monitor/platform/computer-groups.md) (Grupos de computadores no Log Analytics).
 
  Ao incluir grupos de computadores na sua implementação de atualização, a associação de grupo é avaliada apenas uma vez, no momento da criação da agenda. As alterações subsequentes a um grupo não são refletidas. Para contornar esse uso [grupos dinâmicos](#using-dynamic-groups), estes grupos são resolvidos no momento da implementação e são definidos por uma consulta.
 
@@ -210,7 +210,7 @@ Para criar uma nova implementação de atualização, selecione **agendar a impl
 | Nome |O nome exclusivo para identificar a implementação de atualizações. |
 |Sistema Operativo| Linux ou Windows|
 | Grupos de atualização (pré-visualização)|Defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para obter mais informações, consulte [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)|
-| Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+| Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md) |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
 |Incluir/excluir atualizações|Esta ação abre o **incluir/excluir** página. As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é processada, consulte [comportamento de inclusão](automation-update-management.md#inclusion-behavior) |
 |Definições da agenda|Selecione a hora para iniciar e selecionar qualquer uma vez ou periodicamente para a periodicidade|

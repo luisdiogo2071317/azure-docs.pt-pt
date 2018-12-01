@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: c3cf2b703760debb368e26d629ee73f56ce93d39
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3097e6fcfcd219f73927131106e1f35ff54210b0
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441264"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679431"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-python-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar os módulos de Python para o Azure IoT Edge
 
@@ -108,7 +108,7 @@ Em cada pasta de módulo, há vários arquivos de Docker para tipos de contentor
     ptvsd.break_into_debugger()
     ```
 
-   Por exemplo, se quiser depurar `receive_message_callback` método. Pode insect única linha de código, conforme mostrado abaixo.
+   Por exemplo, se quiser depurar `receive_message_callback` método. Pode inserir a única linha de código, como abaixo.
 
     ```python
     def receive_message_callback(message, hubManager):

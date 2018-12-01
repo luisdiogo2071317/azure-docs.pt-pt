@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: f8e16af629eaa18b49b054be9fc478d633263ddb
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: d023bf4428790667ef192a3ce981087694224f50
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637766"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724541"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Como configurar Pacemaker no Red Hat Enterprise Linux no Azure
 
@@ -224,10 +224,10 @@ Atribua a função personalizada "Linux cerca agente de função" que foi criado
 1. Abra o painel de todos os recursos
 1. Selecione a máquina virtual do primeiro nó de cluster
 1. Clique em controle de acesso (IAM)
-1. Clique em Adicionar
+1. Clique em Adicionar atribuição de função
 1. Selecione a função de "Função de agente de cerca de Linux"
 1. Introduza o nome da aplicação que criou acima
-1. Clique em OK
+1. Clicar em Guardar
 
 Repita os passos acima para o segundo nó de cluster.
 

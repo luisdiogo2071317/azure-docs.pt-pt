@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: f8bef8c6ab5c0639f9a99eb2c0443c33d7b6d84e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4ef1e302a305f683155139063891b838d8144008
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244067"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680468"
 ---
 # <a name="log-analytics-query-language"></a>Linguagem de consulta de análise de registo
 Do log Analytics fornece análise e recolha de registos para o Azure Monitor. Ele se baseia no Explorador de dados do Azure e utiliza uma versão da mesma linguagem de consulta. O [documentação de linguagem de consulta do Explorador de dados do Azure](/azure/kusto/query) tem todos os detalhes para o idioma e deve ser o principal recurso para escrever consultas do Log Analytics. Esta página fornece links para outros recursos para aprender a escrever consultas e nas diferenças com a implementação do Log Analytics da linguagem.

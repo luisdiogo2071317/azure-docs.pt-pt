@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/27/2017
+ms.date: 11/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: caa1b4b3bf1f9b8fb1a34bd58dde04f13fbc6c88
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 367ecd4534a2221e996e706f8b4426ea6f70f213
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614571"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680502"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Começar com as funções, permissões e segurança com o Azure Monitor
 Muitas equipes precisam estritamente regular o acesso aos dados e definições de monitorização. Por exemplo, se tiver os membros da Equipe que trabalham exclusivamente em monitorização (engenheiros de suporte, engenheiros de devops) ou se usar um provedor de serviço gerida, pode querer lhes conceder acesso a dados de monitorização apenas ao restringir a capacidade de criar, modificar, ou Elimine recursos. Este artigo mostra como aplicar uma função de monitorização incorporada RBAC a um utilizador no Azure ou criar sua própria função personalizada para um utilizador que tem permissões de monitorização limitadas rapidamente. Em seguida, ele aborda considerações de segurança dos seus recursos relacionados com o Azure Monitor e a forma como pode limitar o acesso aos dados que contêm.
@@ -86,7 +86,7 @@ Se as funções incorporadas acima não atenderem às necessidades exatas de sua
 | Microsoft.Insights/MetricDefinitions/Read |Ler definições de métrica (lista de tipos de métricas disponíveis para um recurso). |
 | Microsoft.Insights/Metrics/Read |Ler métricas para um recurso. |
 | Microsoft.Insights/Register/Action |Registe o fornecedor de recursos do Azure Monitor. |
-| Eliminar Microsoft.Insights/ScheduledQueryRules/[Read, escrita] |Alertas de registo de leitura/escrita/eliminar para o Application Insights. |
+| Eliminar Microsoft.Insights/ScheduledQueryRules/[Read, escrita] |Alertas de registo de leitura/escrita/eliminar no Azure Monitor. |
 
 
 
@@ -154,7 +154,7 @@ New-AzureRmRoleDefinition -Role $role
 > 
 
 ### <a name="limiting-access-to-monitoring-related-event-hubs"></a>Limitar o acesso aos hubs de eventos relacionados com a monitorização
-Pode ser seguido de um padrão semelhante com os hubs de eventos, mas primeiro tem de criar uma regra de autorização de escutar dedicada. Se quiser conceder acesso a uma aplicação que precisa apenas de ouvir os hubs de eventos relacionados com a monitorização, efetue o seguinte:
+Pode ser seguido de um padrão semelhante com os hubs de eventos, mas primeiro tem de criar uma regra de autorização de escutar dedicada. Se quiser conceder, acesso a um aplicativo que precisa apenas de ouvir os hubs de eventos relacionados com a monitorização, efetue o seguinte:
 
 1. Crie uma política de acesso partilhado no no hub de ou de event hubs que foram criadas para dados de monitorização com apenas afirmações de escuta de transmissão em fluxo. Isso pode ser feito no portal. Por exemplo, poderá chamar "monitoringReadOnly." Se possível, desejará dar essa chave diretamente para o consumidor e ignore o passo seguinte.
 2. Se o consumidor tem de ser capaz de obter o chave ad-hoc, conceda ao utilizador a ação de ListKeys para esse hub de eventos. Isso também é necessário para os utilizadores que têm de ser capaz de configurar uma definição de diagnóstico ou perfil de registo para o stream para os hubs de eventos. Por exemplo, pode criar uma regra RBAC:

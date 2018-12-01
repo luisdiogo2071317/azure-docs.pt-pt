@@ -9,18 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 558b426ea85decb0309390e36910eb18719e6e99
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 108ced5416eb7cd6826f4f96d4f62fd33e8f5653
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002532"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680859"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Carregar dados para a geração 2 de armazenamento do Azure Data Lake (pré-visualização) com o Azure Data Factory
 
-[Geração de armazenamento 2 do Azure Data Lake (pré-visualização)](../storage/data-lake-storage/introduction.md) adiciona um protocolo com recursos de segurança e de espaço de nomes do sistema de ficheiros hierárquico para armazenamento de Blobs do Azure torna fácil ligar as estruturas de análise para uma camada de armazenamento durável. Na geração 2 de armazenamento do Data Lake (pré-visualização), todas as qualidades de armazenamento de objetos permanecem ao adicionar as vantagens de uma interface de sistema de ficheiros.
+Pré-visualização da geração 2 do armazenamento do Azure Data Lake é um conjunto de recursos dedicado a análise de macrodados, incorporado ao [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md). Permite-lhe interagir com os dados através de ambos os paradigmas de armazenamento de sistema e o objeto de ficheiro.
 
 O Azure Data Factory é um serviço de integração de dados totalmente gerido com base na cloud. Pode utilizar o serviço para preencher o lake com dados a partir de um conjunto avançado de no local e os arquivos de dados com base na cloud e poupam tempo quando criar as suas soluções de análise. Para obter uma lista detalhada de conectores suportados, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -76,14 +76,14 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
     ![Página de s3 do arquivo de dados de origem](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
     
 4. Na **ligação de especificar o Amazon S3** página, efetue os seguintes passos:
-   1. Especifique a **ID de chave de acesso** valor.
-   2. Especifique a **chave de acesso secreta** valor.
-   3. Clique em **Testar ligação** para validar as definições, em seguida, selecione **concluir**.
+
+    1. Especifique a **ID de chave de acesso** valor.
+    2. Especifique a **chave de acesso secreta** valor.
+    3. Clique em **Testar ligação** para validar as definições, em seguida, selecione **concluir**.
+    4. Verá, que é criada uma nova ligação. Selecione **Seguinte**.
    
-   ![Especifique a conta do Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
-   
-   4. Verá, que é criada uma nova ligação. Selecione **Seguinte**.
-   
+    ![Especifique a conta do Amazon S3](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      
 5. Na **escolher o ficheiro de entrada ou a pasta** página, navegue para a pasta e ficheiro que pretende que devem transitar. Selecione o ficheiro/pasta, selecione **escolha**:
 
     ![Escolher ficheiro ou pasta de entrada](./media/load-azure-data-lake-storage-gen2/choose-input-folder.png)
@@ -99,7 +99,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 8. Na **ligação de especificar o Azure Data Lake armazenamento** página, efetue os seguintes passos:
 
    1. Selecione seu Gen2 de armazenamento do Data Lake conta com capacidade do "nome de conta de armazenamento" na lista pendente.
-   2. Selecione **Seguinte**.
+   2. Selecione **concluir** para criar a ligação. Em seguida, selecione **Seguinte**.
    
    ![Especifique a conta de geração 2 de armazenamento do Azure Data Lake](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 

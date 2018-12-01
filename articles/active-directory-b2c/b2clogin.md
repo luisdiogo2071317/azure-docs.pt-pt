@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7b460efbdc50c5b243c3ef78bad568b720e75e59
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: ffceb8fd6f1afcd054bfc4c4035fb2b8b93ed390
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635562"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720546"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Conjunto redirecionar URLs b2clogin.com para o Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Utilizar b2clogin.com dá-lhe benefícios adicionais, tais como:
 Considere estas definições que poderão ter de alterar quando utilizar b2clogin.com:
 
 - Definir o redirecionamento URLs em seus aplicativos de fornecedor de identidade para utilizar b2clogin.com. 
-- Defina a sua aplicação do Azure AD B2C para utilizar b2clogin.com para referências de política e pontos finais de token. 
+- Defina a sua aplicação do Azure AD B2C para utilizar b2clogin.com para referências de fluxo de utilizador e de pontos finais de token. 
 - Se estiver a utilizar a MSAL, terá de definir o **ValidateAuthority** propriedade `false`.
 - Certifique-se de que alterar quaisquer **origens permitidas** definidas nas definições de CORS para [personalização da interface do usuário](active-directory-b2c-ui-customization-custom-dynamic.md).  
 
@@ -56,7 +56,7 @@ Pode encontrar informações de configuração para fornecedores de identidade n
 
 ## <a name="update-your-application"></a>Atualizar a sua aplicação
 
-A aplicação do Azure AD B2C refere-se provavelmente a `login.microsoftonline.com` em vários locais, como suas referências de política e os pontos finais de token.  Certifique-se de que o ponto final de autorização, o ponto final do token e o emissor foram atualizados para utilizar `your-tenant-name.b2clogin.com`.  
+A aplicação do Azure AD B2C refere-se provavelmente a `login.microsoftonline.com` em vários locais, como suas referências de fluxo de utilizador e os pontos finais de token.  Certifique-se de que o ponto final de autorização, o ponto final do token e o emissor foram atualizados para utilizar `your-tenant-name.b2clogin.com`.  
 
 ## <a name="set-the-validateauthority-property"></a>Defina a propriedade ValidateAuthority
 

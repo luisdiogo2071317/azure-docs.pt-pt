@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 3af8aec6bb2fe08c4bd1ef65e4f272a6f85af50b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6d2e87c50eba293df7c5130ea6bf192ed7f83277
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427437"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679822"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisar ficheiros de áudio e vídeos
 
@@ -33,7 +33,8 @@ Serviços de multimédia suportam atualmente pré-visualizando o analisador inte
 
 |**Nome da configuração predefinida**|**Cenário**|**Detalhes**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Análise de áudio|A configuração predefinida de aplica-se um conjunto predefinido de operações de análise baseada em IA, incluindo a transcrição de voz. Atualmente, a configuração predefinida suporta o processamento de conteúdo com uma faixa de áudio único.<br/>Também pode especificar o idioma para o payload de áudio na entrada com o formato de BCP 47 de "etiqueta de idioma-região" (por exemplo, "en-US"). É a lista de idiomas suportados, "en-US", "en-GB", "es-ES", "es-MX", "fr-FR", it-IT, ja-JP, "pt-BR", "zh-CN". Se o idioma não for especificado ou definido como nulo, a deteção de idioma automática irá ser empregada. A funcionalidade de deteção de idioma automática suporta, atualmente, inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português.|
+|**AudioAnalyzerPreset**|Análise de áudio|A configuração predefinida de aplica-se um conjunto predefinido de operações de análise baseada em IA, incluindo a transcrição de voz. Atualmente, a configuração predefinida suporta o processamento de conteúdo com uma faixa de áudio único.<br/>Também pode especificar o idioma para o payload de áudio na entrada com o formato de BCP 47 de "etiqueta de idioma-região" (por exemplo, "en-US"). "en-US", "en-GB", "es-ES", "es-MX",
+"fr-FR", it-IT, ja-JP, "pt-BR", "zh-CN", "de-DE", "ar-por exemplo,", ru-RU, 'hi-IN'. Se o idioma não for especificado ou definido como nulo, a deteção de idioma automática irá ser empregada. A funcionalidade de deteção de idioma automática suporta, atualmente, inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. A funcionalidade de deteção de idioma automática funciona melhor com gravações de áudio com fala claramente discernable. Se a deteção de idioma automática não conseguir encontrar o idioma, a transcrição reverterão para inglês.|
 |**VideoAnalyzerPreset**|Análise de áudio e vídeo|Extrai informações (metadados avançados) de áudio e vídeo e produz um ficheiro de formato JSON. Pode especificar se pretende apenas extrair informações de áudio ao processar um ficheiro de vídeo. Para obter mais informações, consulte [analisar vídeo](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset

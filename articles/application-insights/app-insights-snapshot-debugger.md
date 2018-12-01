@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 9d0cb566ffb8fbec4b99b0f0eeca79b21d1b0dde
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 2c5e99c16ed6ae0df9af4783fb6431edcbb6f100
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335134"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725408"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Instantâneos de depuração com exceções em aplicações .NET
 
@@ -202,7 +201,7 @@ Proprietários de subscrições devem atribuir a `Application Insights Snapshot 
 
 1. Navegue para o recurso do Application Insights no portal do Azure.
 1. Clique em **controlo de acesso (IAM)**.
-1. Clique nas **+ adicionar** botão.
+1. Clique nas **+ adicionar atribuição de função** botão.
 1. Selecione **Snapshot Debugger do Application Insights** partir do **funções** na lista pendente.
 1. Procure e introduza um nome para o utilizador adicione.
 1. Clique nas **guardar** botão para adicionar o utilizador à função.

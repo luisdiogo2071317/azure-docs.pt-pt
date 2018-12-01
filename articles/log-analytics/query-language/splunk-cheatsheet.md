@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 5ea9790695b8afe7bd42b98b071869756b301350
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 61f0cff661c79f994a5b3c20646996f617a31b7e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42447488"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52683069"
 ---
 # <a name="splunk-to-log-analytics"></a>Splunk ao Log Analytics
 
@@ -61,7 +59,7 @@ A seguinte tabela especifica as funções no Log Analytics que são equivalentes
 | RegEx | coincide com regex | No Splunk, `regex` é um operador. No Log Analytics, é um operador relacional. |
 | searchmatch | == | No Splunk, `searchmatch` permite pesquisar na cadeia exata.
 | aleatório | rand()<br>rand(n) | Função do Splunk devolve um número de 0 até 2<sup>31</sup>-1. Do log Analytics devolve um número entre 0,0 e 1,0, ou se um parâmetro fornecido, entre 0 e n-1.
-| agora | Now | (1)
+| agora | now() | (1)
 | relative_time | ToTimeSpan() | (1)<br>No Log Analytics, o equivalente do Splunk relative_time (datetimeVal, offsetVal) é datetimeVal + totimespan(offsetVal).<br>Por exemplo, <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> torna-se <code>...  &#124; extend myTime = now() - totimespan("1d")</code>.
 
 (1) no Splunk, a função é invocada com o `eval` operador. No Log Analytics, é utilizado como parte da `extend` ou `project`.<br>(2) no Splunk, a função é invocada com o `eval` operador. No Log Analytics, pode ser utilizado com o `where` operador.
@@ -80,7 +78,7 @@ No Splunk, pode omitir o `search` palavra-chave e especifique uma cadeia de cara
 | |  | |
 |:---|:---|:---|
 | Splunk | **Pesquisa** | <code>search Session.Id="c8894ffd-e684-43c9-9125-42adc25cd3fc" earliest=-24h</code> |
-| Log Analytics | **Localizar** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
+| Log Analytics | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
 ### <a name="filter"></a>Filtro
@@ -126,7 +124,7 @@ Splunk também tem um `eval` função, que não deve ser comparável com o `eval
 | | |
 
 
-### <a name="rename"></a>Mudar o nome 
+### <a name="rename"></a>Mudar o Nome 
 O Azure Log Analytics utiliza o mesmo operador para mudar o nome e para criar um novo campo. Splunk tem dois operadores separados, `eval` e `rename`.
 
 | |  | |

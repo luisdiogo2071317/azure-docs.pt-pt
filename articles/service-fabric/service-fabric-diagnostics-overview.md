@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 82c02c0212fd79d8847d374022b6ac8f862f042a
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 8d6865349f103278131a02c2385557fb53ee24f5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291118"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720597"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorização e diagnóstico para o Azure Service Fabric
 
 Este artigo fornece uma descrição geral da monitorização e diagnóstico para o Azure Service Fabric. Monitorização e diagnóstico é fundamental para desenvolver, testar e implementar cargas de trabalho em qualquer ambiente de cloud. Por exemplo, pode controlar como os seus aplicativos são usados, as ações executadas pela plataforma do Service Fabric, a utilização de recursos com contadores de desempenho e o estado de funcionamento global do seu cluster. Pode usar essas informações para diagnosticar e corrigir problemas e impedir que ocorra no futuro. As próximas seções explicam resumidamente cada área de monitorização a considerar para cargas de trabalho de produção do Service Fabric. 
 
-## <a name="application-monitoring"></a>Monitorização de aplicações
+## <a name="application-monitoring"></a>Monitorização da aplicação
 Monitorização de aplicações controla como os recursos e componentes da sua aplicação estão sendo usados. Pretende monitorizar as aplicações para tornar-se de que problemas esse impacto que os utilizadores são detetados. É a responsabilidade de monitorização de aplicações em utilizadores desenvolvendo um aplicativo e seus serviços, uma vez que é exclusivo para a lógica de negócios da sua aplicação. Monitorização de seus aplicativos pode ser útil nos seguintes cenários:
 * Quanto tráfego é com meu aplicativo? -Precisa dimensionar os seus serviços para atender às demandas de utilizador ou endereço de um possível afunilamento em seu aplicativo?
 * São minhas chamadas de serviço para serviço com êxito e controlado?
@@ -40,9 +40,10 @@ Além disso, temos um tutorial sobre como [defina esta opção para aplicativos 
 ## <a name="platform-cluster-monitoring"></a>Monitorização de plataforma (Cluster)
 Um utilizador estiver no controle sobre quais telemetria provém de seu aplicativo, uma vez que um utilizador escreve o código em si, mas o que sobre os diagnósticos de plataforma do Service Fabric? Um dos objetivos do Service Fabric é manter as aplicações resilientes a falhas de hardware. Essa meta é alcançada através de capacidade dos serviços do sistema da plataforma para detetar problemas de infraestrutura e, rapidamente, com cargas de trabalho de ativação pós-falha para outros nós do cluster. Mas, nesse caso específico, e se os serviços do sistema se tem problemas? Ou, em caso de tentar implementar ou mover uma carga de trabalho, são violou regras para o posicionamento de serviços? O Service Fabric fornece diagnósticos para estes e muito mais para se certificar de que é informado sobre a atividade que ocorrem no seu cluster. Alguns cenários de exemplo para monitorização de clusters incluem:
 
-* É o Service Fabric se comportando como esperado, em termos de balanceamento de trabalho em todo o cluster e colocar seus aplicativos? 
-* Ações do usuário são executadas no seu cluster reconhecidas e executadas em conforme o esperado? Por exemplo, Dimensionamento, ativação pós-falha, as implementações
-* É o Service Fabric manter o controle de quais os nós fazem parte do cluster e informando-me quando existe um problema em um?
+O Service Fabric fornece um conjunto abrangente de eventos de imediato. Estes [eventos do Service Fabric](service-fabric-diagnostics-events.md) podem ser acedidos através do EventStore ou o canal operacional (canal de eventos exposto pela plataforma). 
+* EventStore - o EventStore é um recurso oferecido pela plataforma que fornece eventos de plataforma do Service Fabric disponíveis no Service Fabric Explorer e através da REST API. Pode ver uma vista de instantâneo do que está acontecendo no seu cluster para cada entidade por exemplo, nó, serviço, aplicação e a consulta com base na hora do evento. Pode também Saiba mais sobre o EventStore no [descrição geral do EventStore](service-fabric-diagnostics-eventstore.md).    
+
+* Eventos de recursos de infraestrutura do serviço do Service Fabric eventos canais - no Windows, estão disponíveis a partir de um fornecedor ETW único com um conjunto de relevantes `logLevelKeywordFilters` usado para selecionar entre canais operacional e de mensagens & de dados - esta é a maneira na qual vamos separar de saída Serviço de eventos de recursos de infraestrutura sejam filtrados no conforme necessário. No Linux, os eventos do Service Fabric passar pela LTTng e são colocados numa tabela de armazenamento, de onde eles podem ser filtrados conforme necessário. Estes canais contenham organizados, estruturados eventos que podem ser utilizados para compreender melhor o estado do cluster. Diagnósticos estão ativados por predefinição no momento da criação do cluster, que criar uma tabela de armazenamento do Azure onde os eventos desses canais são enviados para consultar no futuro. 
 
 O diagnóstico fornecido está na forma de um conjunto abrangente de eventos prontos a utilizar. Estes [eventos do Service Fabric](service-fabric-diagnostics-events.md) ilustrar ações feitas pela plataforma num diferentes entidades como nós, aplicações, serviços, partições etc. O último cenário acima, se um nó for desativado, a plataforma seria emitir um `NodeDown` eventos e pode ser notificado imediatamente por sua ferramenta de monitoramento de escolha. Outros exemplos comuns incluem `ApplicationUpgradeRollbackStarted` ou `PartitionReconfigured` durante uma ativação pós-falha. **Os mesmos eventos estão disponíveis nos clusters do Windows e Linux.**
 

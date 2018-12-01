@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 2f2f338f7c4ddb885bc909f49815783e616b94c8
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300460"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720139"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, listar, eliminar ou atribuir uma função para uma identidade gerida atribuído ao utilizador com o portal do Azure
 
@@ -69,18 +69,18 @@ Para eliminar uma identidade gerida atribuído ao utilizador, a conta tem do [Co
 
 ![Eliminar utilizador atribuído a identidade gerida](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Atribuir uma função para uma identidade gerida atribuído ao utilizador
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Atribuir uma função para uma identidade gerida atribuído ao utilizador 
 
 Para atribuir uma função a uma identidade gerida atribuído ao utilizador, a conta tem do [administrador de acesso de utilizador](/azure/role-based-access-control/built-in-roles#user-access-administrator) atribuição de função.
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure para listar as identidades geridas atribuído ao utilizador.
 2. Na caixa de pesquisa, escreva *identidades geridas por*e em serviços, clique em **identidades geridas por**.
 3. Devolve uma lista de identidades geridas atribuído ao utilizador para a sua subscrição.  Selecione a identidade de gerido atribuído ao utilizador que pretende atribuir uma função.
-4. Selecione **controlo de acesso (IAM)** e, em seguida, selecione **Add**.
+4. Selecione **controlo de acesso (IAM)** e, em seguida, selecione **adicionar atribuição de função**.
 
    ![Início de atribuído ao utilizador a identidade gerida](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 
-5. No painel adicionar permissões, configure os seguintes valores e, em seguida, clique em **guardar**:
+5. No painel Adicionar atribuição de função, configure os seguintes valores e, em seguida, clique em **guardar**:
    - **Função** -a função para atribuir
    - **Atribuir acesso a** -o recurso para atribuir o atribuído ao utilizador de identidade gerido
    - **Selecione** -o membro atribuir acesso

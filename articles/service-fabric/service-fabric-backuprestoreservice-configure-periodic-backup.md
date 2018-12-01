@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: eeaa0e9a940f16c2416418959c98cd17e4816afc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387638"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722382"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de cópia de segurança periódica no Azure Service Fabric
 
@@ -110,6 +110,7 @@ Uma política de cópia de segurança inclui as seguintes configurações:
             ```
 
         2. _Proteção partilha de ficheiros com o nome de utilizador e palavra-passe_, onde o acesso à partilha de ficheiros é fornecido a utilizadores específicos. Especificação de armazenamento de partilha de ficheiros também fornece a capacidade para especificar o nome de usuário secundário e a palavra-passe secundária para fornecer credenciais de retorno no caso de falha de autenticação com o nome de utilizador principal e a palavra-passe primária. Neste caso, defina seguintes campos para configurar _partilha de ficheiros_ com base em armazenamento de cópia de segurança.
+
             ```json
             {
                 "StorageKind": "FileShare",
@@ -125,6 +126,17 @@ Uma política de cópia de segurança inclui as seguintes configurações:
 > [!NOTE]
 > Certifique-se de que a fiabilidade de armazenamento cumpre ou excede os requisitos de confiabilidade de dados de cópia de segurança.
 >
+
+* **Política de retenção**: Especifica a política para reter cópias de segurança no armazenamento configurado. Política de retenção apenas básica é suportada.
+    1. **Política de retenção básica**: permite que esta política de retenção para garantir que a utilização de armazenamento ideal, removendo ficheiros de cópia de segurança que são não mais necessários. `RetentionDuration` pode ser especificado para definir o intervalo de tempo para o qual cópias de segurança têm de ser mantidos no armazenamento. `MinimumNumberOfBackups` é um parâmetro opcional que pode ser especificado para se certificar de que o número especificado de cópias de segurança é sempre retido irrespective do `RetentionDuration`. Exemplo abaixo ilustra a configuração para reter cópias de segurança para _10_ dias e não aceita o número de cópias de segurança para ir abaixo _20_.
+
+        ```json
+        {
+            "RetentionPolicyType": "Basic",
+            "RetentionDuration" : "P10D",
+            "MinimumNumberOfBackups": 20
+        }
+        ```
 
 ## <a name="enable-periodic-backup"></a>Ativar cópia de segurança periódica
 Depois de definir a política de cópia de segurança para atender a requisitos de cópia de segurança de dados, a política de cópia de segurança deve ser adequadamente associada a um _aplicativo_, ou _service_, ou um _partição_.
@@ -178,6 +190,13 @@ Políticas de cópia de segurança podem ser desativadas quando não é necessá
 * Desativar a política de cópia de segurança para um _serviço_ interrompe todos os backups de dados periódica a acontecer como resultado de propagação desta política de cópia de segurança para as partições da _serviço_.
 
 * Desativar a política de cópia de segurança para um _partição_ interrompe todas as cópias de segurança periódica de dados acontecendo devido à política de cópia de segurança na partição.
+
+* Ao desativar a cópia de segurança para um entity(application/service/partition) `CleanBackup` pode ser definido como _true_ para eliminar todas as cópias de segurança no armazenamento configurado.
+    ```json
+    {
+        "CleanBackup": true 
+    }
+    ```
 
 ## <a name="suspend--resume-backup"></a>Suspender e retomar a cópia de segurança
 Determinados situação pode exigir a suspensão temporária da cópia de segurança periódica de dados. Em tal situação, dependendo do requisito, suspender a cópia de segurança API pode ser utilizada numa _aplicativo_, _Service_, ou _partição_. Suspensão de cópia de segurança periódica é transitivo sobre a subárvore de hierarquia do aplicativo do ponto de que é aplicada. 

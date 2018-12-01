@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/05/2018
-ms.openlocfilehash: 84529e1097678ba7a039ffaeec57a9293c93dafd
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 19e6693de673eae6fe0b885580975c4cefc35d60
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229644"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725153"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticar e aceder a recursos com identidades geridas no Azure Logic Apps
 
@@ -128,13 +128,13 @@ Para dar acesso a outro recurso do Azure para a identidade gerida de atribuído 
 
 1. No portal do Azure, vá para o recurso do Azure onde pretende atribuir acesso para a sua identidade gerida. 
 
-1. No menu do recurso, selecione **controlo de acesso (IAM)** e escolha **Add**. 
+1. No menu do recurso, selecione **controlo de acesso (IAM)** e escolha **adicionar atribuição de função**. 
 
-   ![Adicionar permissões](./media/create-managed-service-identity/add-permissions-logic-app.png)
+   ![Adicionar atribuição de função](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
-1. Sob **adicionar permissões**, selecione a **função** pretende para a identidade. 
+1. Sob **adicionar atribuição de função**, selecione a **função** pretende para a identidade. 
 
-1. Na **atribuir acesso aos** propriedade, selecione **utilizador do Azure AD, grupo ou aplicação**, se ainda não estiver selecionado.
+1. Na **atribuir acesso aos** propriedade, selecione **utilizador, grupo ou principal de serviço do Azure AD**, se ainda não estiver selecionado.
 
 1. Na **selecione** caixa, começando com o primeiro caráter no nome da sua aplicação lógica, introduza o nome da sua aplicação lógica. Quando for apresentada a sua aplicação lógica, selecione a aplicação lógica.
 

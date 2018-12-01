@@ -10,17 +10,16 @@ ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a4c429b1c54c6bf71175abbc763a178792281a0f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4e20d787bef4da518765d1eeeb33237ddd612606
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633151"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721226"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Ligar o Configuration Manager ao Log Analytics
 Pode ligar o seu ambiente do System Center Configuration Manager para o Azure Log Analytics para sincronizar dados de coleção de dispositivo e fazem referência a essas coleções no Log Analytics e a automatização do Azure.  
@@ -38,7 +37,7 @@ Os passos seguintes resumem os passos para configurar a integração do Configur
 4. No Configuration Manager, [atualizar as propriedades de ligação](#update-oms-connection-properties) se a chave secreta do cliente ou a palavra-passe nunca expira ou é perdida.
 5. [Transfira e instale o Microsoft Monitoring Agent](#download-and-install-the-agent) no computador que executa a função de sistema de sites de ponto do Configuration Manager service ligação. O agente envia dados do Configuration Manager para a área de trabalho do Log Analytics.
 6. No Log Analytics, [importar coleções do Configuration Manager](#import-collections) como grupos de computadores.
-7. No Log Analytics, ver dados do Configuration Manager como [grupos de computadores](log-analytics-computer-groups.md).
+7. No Log Analytics, ver dados do Configuration Manager como [grupos de computadores](../azure-monitor/platform/computer-groups.md).
 
 Pode ler mais sobre como ligar o Configuration Manager ao Log Analytics na [sincronizar dados do Configuration Manager ao Log Analytics a Microsoft](https://technet.microsoft.com/library/mt757374.aspx).
 
@@ -52,8 +51,8 @@ No procedimento seguinte, pode conceder a *contribuinte* função na sua área d
 1. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-sccm/azure-portal-01.png)<br><br>  
 2. Na lista de áreas de trabalho do Log Analytics, selecione a área de trabalho para modificar.
 3. No painel esquerdo, selecione **controlo de acesso (IAM)**.
-4. Na página do controlo de acesso, clique em **Add** e o **adicionar permissões** é apresentado o painel.
-5. Na **adicionar permissões** painel, no **função** selecione na lista pendente o **contribuinte** função.  
+4. Na página de controle (IAM) de acesso, clique em **adicionar atribuição de função** e o **adicionar atribuição de função** é apresentado o painel.
+5. Na **adicionar atribuição de função** painel, no **função** selecione na lista pendente o **contribuinte** função.  
 6. Sob o **atribuir acesso aos** na lista pendente, selecione a aplicação do Configuration Manager que criou anteriormente no AD e, em seguida, clique em **OK**.  
 
 ## <a name="download-and-install-the-agent"></a>Transfira e instale o agente
@@ -107,7 +106,7 @@ Depois de concluir a configuração inicial para importar coleções de disposit
    ![Grupos de computadores - separador do SCCM](./media/log-analytics-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Vista de dados do Configuration Manager
-Depois de ter adicionado uma ligação do Log Analytics para o Configuration Manager e instalar o agente no computador que executa a função de sistema de sites de ponto do Configuration Manager service ligação, os dados do agente são enviados para o Log Analytics. No Log Analytics, as suas coleções do Configuration Manager aparecem como [grupos de computadores](log-analytics-computer-groups.md). Pode ver os grupos do **Configuration Manager** página sob **Settings\Computer grupos**.
+Depois de ter adicionado uma ligação do Log Analytics para o Configuration Manager e instalar o agente no computador que executa a função de sistema de sites de ponto do Configuration Manager service ligação, os dados do agente são enviados para o Log Analytics. No Log Analytics, as suas coleções do Configuration Manager aparecem como [grupos de computadores](../azure-monitor/platform/computer-groups.md). Pode ver os grupos do **Configuration Manager** página sob **Settings\Computer grupos**.
 
 Depois das coleções são importadas, pode ver quantos computadores com associações de coleção foram detetados. Também pode ver o número de coleções que foram importados.
 

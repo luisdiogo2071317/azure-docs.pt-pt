@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2354bf02b47c9fbc74dbc0dab07e30ca321279cf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f517754a8076fc18ed29f7db49f6ff9bfc6c7b3d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669946"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725765"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Descrição geral das contas de utilizador no Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Estão disponíveis os seguintes tipos de contas:
 
 - **Conta profissional** – uma conta profissional pode aceder a recursos num inquilino e, com um administrador de função, pode gerir os inquilinos.
 - **Conta de convidado** -uma conta de convidado só pode ser uma conta Microsoft ou de um utilizador do Azure Active Directory que pode ser utilizado para aceder a aplicações ou gerir os inquilinos. 
-- **Conta de consumidor** -uma conta de consumidor é criada através de uma política de inscrição num aplicativo do Azure AD B2C ou com o Azure AD Graph API e é utilizada por utilizadores das aplicações que estão registados com o Azure AD B2C. 
+- **Conta de consumidor** -uma conta de consumidor é criada através de um fluxo de inscrição de utilizador numa aplicação do Azure AD B2C ou com o Azure AD Graph API e é utilizada por utilizadores das aplicações que estão registados com o Azure AD B2C. 
 
 ## <a name="work-account"></a>Conta profissional
 
@@ -73,7 +73,7 @@ Também pode utilizar o [Microsoft Graph API](https://developer.microsoft.com/en
 
 ## <a name="consumer-user"></a>Utilizador de consumidor
 
-O utilizador de consumidor pode iniciar sessão nas aplicações protegidas pelo Azure AD B2C, mas não é possível aceder a recursos do Azure, como o portal do Azure.  O utilizador de consumidor pode utilizar uma conta local ou federadas contas, como o Facebook e Twitter. É criada uma conta de consumidor utilizando um [política de inscrição ou início de sessão](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+O utilizador de consumidor pode iniciar sessão nas aplicações protegidas pelo Azure AD B2C, mas não é possível aceder a recursos do Azure, como o portal do Azure.  O utilizador de consumidor pode utilizar uma conta local ou federadas contas, como o Facebook e Twitter. É criada uma conta de consumidor utilizando um [fluxo de utilizador de inscrição ou início de sessão](../active-directory-b2c/active-directory-b2c-reference-policies.md).
 
 Pode especificar os dados que são recolhidos quando é criada uma conta de utilizador de consumidor por meio de atributos de utilizador personalizada. Para obter mais informações, consulte [definir atributos personalizados no Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
 

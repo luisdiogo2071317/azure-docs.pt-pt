@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1afd98026a2aad552258b636ba078ca4f9bd2d58
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094600"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723147"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Junte-se a um runtime de integração Azure-SSIS a uma rede virtual
 Associe o runtime de integração (IR) Azure-SSIS a uma rede virtual do Azure nos seguintes cenários: 
@@ -198,19 +198,21 @@ Tem de configurar uma rede virtual antes de pode associar um IR Azure-SSIS à me
 
 1. Junte-se **MicrosoftAzureBatch** para o **contribuinte de Máquina Virtual clássica** função para a rede virtual. 
 
-    a. Selecione **controlo de acesso (IAM)** no menu à esquerda e selecione **Add** na barra de ferramentas. 
+    a. Selecione **controlo de acesso (IAM)** no menu à esquerda e selecione o **atribuições de funções** separador. 
 
     !["Controlo de acesso" e "Adicionar" botões](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-    b. Sobre o **adicionar permissões** página, selecione **contribuinte de Máquina Virtual clássica** para **função**. Colar **ddbf3205-c6bd-46ae-8127-60eb93363864** no **selecione** caixa e, em seguida, selecione **Microsoft Azure Batch** na lista de resultados da pesquisa. 
+    b. Selecione **adicionar atribuição de função**.
 
-    ![Resultados da pesquisa na página "Adicionar permissões"](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+    c. Sobre o **adicionar atribuição de função** página, selecione **contribuinte de Máquina Virtual clássica** para **função**. Colar **ddbf3205-c6bd-46ae-8127-60eb93363864** no **selecione** caixa e, em seguida, selecione **Microsoft Azure Batch** na lista de resultados da pesquisa. 
 
-    c. Selecione **guardar** para guardar as definições e fechar a página. 
+    ![Resultados da pesquisa na página "Adicionar atribuição de função"](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+
+    d. Selecione **guardar** para guardar as definições e fechar a página. 
 
     ![Guardar as definições de acesso](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 
-    d. Confirme que vê **Microsoft Azure Batch** na lista de colaboradores. 
+    e. Confirme que vê **Microsoft Azure Batch** na lista de colaboradores. 
 
     ![Confirmar o acesso do Azure Batch](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 

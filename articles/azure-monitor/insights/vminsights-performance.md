@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 2ece5700965018a8a9a98e16a1577309a909b7b7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: cfee8295fc344b1210010a463612fe7d10de280d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334998"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682916"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Como desempenho gráfico com o Azure Monitor para VMs (pré-visualização)
 Monitor do Azure para VMs inclui um conjunto de gráficos de desempenho que visam vários indicadores chave de desempenho (KPIs) para ajudar a determinar a forma como uma máquina virtual está a efetuar. Os gráficos mostram a utilização de recursos durante um período de tempo para que possa identificar estrangulamentos de anomalias, ou mudar para um ponto de vista listagem cada máquina para ver a utilização de recursos com base na métrica selecionada. Embora haja vários elementos a serem considerados ao lidar com desempenho, Monitor do Azure para VMs se concentra no sistema operativo, conforme apresentado através do processador, memória, placas de rede e discos. Complementa a funcionalidade de monitorização de estado de funcionamento de desempenho e ajuda a expor problemas que indiquem uma falha de componente do sistema possíveis, ajuste de suporte e a otimização para alcançar a eficiência ou suportar o planeamento de capacidade.  
@@ -33,7 +33,7 @@ Monitor do Azure, o recurso de desempenho fornece uma vista de máquina virtual 
 
 ![Vista de lista de N principais de desempenho de informações VM](./media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-No **Top N gráficos** separador, se tiver mais do que um Log Analytics área de trabalho, escolha a área de trabalho ativada com a solução a partir do **área de trabalho** Seletor na parte superior da página. O **grupo** Seletor irá devolver subscrições, grupos de recursos [grupos de computadores](../../log-analytics/log-analytics-computer-groups.md)e conjuntos de dimensionamento de máquinas virtuais de computadores relacionados com a área de trabalho selecionada que pode utilizar para filtrar ainda mais resultados apresentados nos gráficos nesta página e nas outras páginas. A seleção de apenas aplica-se para o recurso de desempenho e não vão ser transferidos para o estado de funcionamento ou de mapa.  
+No **Top N gráficos** separador, se tiver mais do que um Log Analytics área de trabalho, escolha a área de trabalho ativada com a solução a partir do **área de trabalho** Seletor na parte superior da página. O **grupo** Seletor irá devolver subscrições, grupos de recursos [grupos de computadores](../../azure-monitor/platform/computer-groups.md)e conjuntos de dimensionamento de máquinas virtuais de computadores relacionados com a área de trabalho selecionada que pode utilizar para filtrar ainda mais resultados apresentados nos gráficos nesta página e nas outras páginas. A seleção de apenas aplica-se para o recurso de desempenho e não vão ser transferidos para o estado de funcionamento ou de mapa.  
 
 Por predefinição, os gráficos mostram as últimas 24 horas. Utilizar o **TimeRange** Seletor, pode consultar para intervalos de tempo do histórico de até 30 dias para mostrar como o desempenho observado no passado.   
 

@@ -1,6 +1,6 @@
 ---
 title: Acesso a redes virtuais do Azure a partir do Azure Logic Apps com ambientes de serviço de integração (ISEs)
-description: Esta descrição geral descreve como ambientes de serviço de integração (ISEs) ajudam as aplicações lógicas, aceder a redes virtuais do Azure
+description: Esta descrição geral descreve como ambientes de serviço de integração (ISEs) ajudam as aplicações lógicas, redes virtuais do Azure (VNETs) de acesso
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,54 +8,52 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: c5fc071e61a3d5304821343b6dc992112f4bd6b1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 11/29/2018
+ms.openlocfilehash: eb296a436f6c09a4f592ba3a26ee1c3a0f8e18bb
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233145"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678837"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso a recursos de rede Virtual do Azure a partir do Azure Logic Apps, utilizando ambientes de serviço de integração (ISEs)
 
 > [!NOTE]
 > Esta capacidade está em *pré-visualização privada*. Para pedir acesso [criar o pedido de associação aqui](https://aka.ms/iseprivatepreview).
 
-Às vezes, o logic apps e as contas de integração precisam de acesso a recursos protegidos, como máquinas virtuais (VMs) e outros sistemas ou serviços no interior de uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Para configurar este acesso, pode [crie uma *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) que utilizar como a localização para o logic apps e as contas de integração. 
+Às vezes, o logic apps e as contas de integração precisam de acesso a recursos protegidos, como máquinas virtuais (VMs) e outros sistemas ou serviços, num [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Para configurar este acesso, pode [crie uma *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) para executar as suas aplicações lógicas e as contas de integração. 
 
 ![Selecione o ambiente de serviço de integração](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-Criar um ISE implementa uma instância de Logic Apps privada e isolada na rede virtual do Azure. A instância privada utiliza recursos dedicados, como o armazenamento e é executado separadamente do serviço de aplicações lógicas "global" público. Essa separação também ajuda a reduzir o impacto que outros inquilinos do Azure podem ter sobre o desempenho das suas aplicações, ou o [efeito de "vizinhos ruidosos"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). 
+Criar um ISE implementa uma instância de Logic Apps privada e isolada na rede virtual do Azure. Esta instância privada utiliza recursos dedicados, como o armazenamento e é executado separadamente do serviço de aplicações lógicas "global" público. Essa separação também ajuda a reduzir o impacto que outros inquilinos do Azure podem ter sobre o desempenho das suas aplicações, ou o [efeito de "vizinhos ruidosos"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). 
 
-Esta descrição geral descreve como criar um ISE ajuda logic apps e contas de integração aceder diretamente a recursos no interior da rede virtual do Azure e compara as diferenças entre uma ISE e o serviço de aplicações lógicas global.
+Esta descrição geral descreve como um ISE fornece as logic apps e contas de integração acesso direto à rede virtual do Azure e compara as diferenças entre uma ISE e o serviço de aplicações lógicas global.
 
 <a name="difference"></a>
 
 ## <a name="isolated-versus-global"></a>Versus global em ambiente isolado
 
-Quando cria um ambiente de serviço integrado (ISE) no Azure, pode selecionar uma rede virtual do Azure como um *ponto a ponto* para o seu ambiente. Azure implementa uma instância privada do serviço de aplicações lógicas em sua rede virtual, resultando num ambiente isolado, onde pode criar e executar as aplicações lógicas em recursos dedicados. Quando cria uma aplicação lógica, pode selecionar esse ambiente como localização da sua aplicação, que também oferece o acesso direto da aplicação de lógica aos recursos na sua rede virtual.  
+Quando cria um ambiente de serviço integrado (ISE) no Azure, selecione uma rede virtual do Azure onde seu *injetar* ambiente. Azure implementa uma instância privada do serviço de aplicações lógicas na sua rede virtual. Esta ação cria um ambiente isolado, onde pode criar e executar as aplicações lógicas em recursos dedicados. Quando criar uma aplicação lógica, selecione esse ambiente como a localização da sua aplicação, o que lhe dá o seu acesso direto da aplicação de lógica aos recursos na sua rede virtual. 
 
-Aplicações lógicas num ISE fornecem as mesmas experiências de usuário e recursos semelhantes que o serviço de aplicações lógicas global. Não só pode utilizar o mesmo built-ins e conectores fornecidas pelo serviço de aplicações lógicas global, mas pode escolher entre os conectores que oferecem versões ISE. Por exemplo, eis alguns conectores padrão que oferecem versões que são executados num ISE:
+Aplicações lógicas num ISE fornecem as mesmas experiências de usuário e recursos semelhantes que o serviço de aplicações lógicas global. Não só pode usar as mesmas ações incorporadas e conectores no serviço de aplicações lógicas global, mas também pode utilizar conectores específicos do ISE. Por exemplo, eis alguns conectores padrão que oferecem versões que são executados num ISE:
  
 * Armazenamento de Blobs do Azure, armazenamento de ficheiros e armazenamento de tabelas
-* Filas do Azure
-* Service Bus do Azure
-* FTP
-* SSH FTP (SFTP)
-* SQL Server
+* As filas do Azure, o Service bus do Azure, o Hubs de eventos do Azure e o IBM MQ
+* FTP e SFTP-SSH
+* SQL Server, o SQL Data Warehouse, Azure Cosmos DB
 * AS2, X12 e EDIFACT
 
 A diferença entre os conectores ISE e não ISE é nos locais onde executar os acionadores e ações:
 
-* Se usar incorporados acionadores e ações, como HTTP no seu ISE, estes acionadores e ações sempre executam no ISE do mesmo que a sua aplicação lógica. 
+* No seu ISE, incorporados acionadores e ações, como HTTP sempre executam no ISE do mesmo que a sua aplicação lógica. 
 
-* Para os conectores que oferecem duas versões: uma versão é executado num ISE, enquanto a outra versão é executada no serviço de aplicações lógicas global.  
+* Para os conectores que oferecem duas versões, executa uma versão no ISE do, enquanto a outra versão é executada no serviço de aplicações lógicas global.  
 
   Os conectores que tenham o **ISE** sempre rotular execução no ISE do mesmo que a sua aplicação lógica. Conectores sem o **ISE** etiqueta em execução no serviço de aplicações lógicas global. 
 
   ![Selecionar conectores do ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
-* Os conectores que configurar no seu ISE também estão disponíveis para utilização num serviço de aplicações lógicas global. 
+* Os conectores que são executados num ISE também estão disponíveis no serviço de aplicações lógicas global. 
 
 > [!IMPORTANT]
 > Logic apps, ações incorporadas e conectores que executar no seu ISE utilizam um plano de preços diferente, não o consumo baseado no plano de preços. Para obter mais informações, consulte [preços de aplicações lógicas](../logic-apps/logic-apps-pricing.md).
@@ -64,23 +62,24 @@ A diferença entre os conectores ISE e não ISE é nos locais onde executar os a
 
 ## <a name="permissions-for-virtual-network-access"></a>Permissões para acesso à rede virtual
 
-Quando cria um ambiente de serviço de integração (ISE), pode selecionar uma rede virtual do Azure como um *ponto a ponto* para o seu ambiente. No entanto, pode *apenas* criar esta relação, ou *peering*, quando cria seu ISE. Esta relação fornece o acesso ISE aos recursos na sua rede virtual, o que permite que aplicações lógicas em que o ISE ligar diretamente aos recursos na sua rede virtual. Para sistemas no local numa rede virtual que está ligada a um ISE, aplicações lógicas podem acessar diretamente desses sistemas, utilizando qualquer um destes itens: 
+Quando cria um ambiente de serviço de integração (ISE), selecione uma rede virtual do Azure para onde *injetar* seu ambiente. Injeção implementa uma instância privada do serviço de aplicações lógicas na sua rede virtual. Esta ação resulta num ambiente isolado, onde pode criar e executar as aplicações lógicas em recursos dedicados. Quando cria as aplicações lógicas selecionar seu ISE como localização das suas aplicações. Estas aplicações de lógica podem, em seguida, aceder à sua rede virtual diretamente e ligar a recursos na rede. 
+
+Para sistemas no local numa rede virtual que está ligada a um ISE, aplicações lógicas podem acessar diretamente desses sistemas, utilizando qualquer um destes itens: 
 
 * Conector do ISE para esse sistema, por exemplo, o SQL Server
-
 * Ação de HTTP 
-
 * Conector personalizado
 
-Para sistemas no local que não estão numa rede virtual ou não tem conectores ISE, pode ligar depois [configurar e utilizar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md).
+Para sistemas no local que não estão numa rede virtual ou não tem conectores ISE, pode ligar a esses sistemas após [configurar e utilizar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md).
 
-Pode selecionar uma rede virtual do Azure como um elemento de rede para o seu ambiente, tem de configurar permissões de controlo de acesso baseado em funções (RBAC) na sua rede virtual para o serviço do Azure Logic Apps. Esta tarefa requer que atribua os **contribuinte de rede** e **contribuinte clássico** funções para o serviço do Azure Logic Apps. Para obter mais informações sobre as permissões de função necessários para o peering, veja a [permissões secção criação, alteração, ou eliminar um peering de rede virtual](../virtual-network/virtual-network-manage-peering.md#permissions).
+Pode selecionar uma rede virtual do Azure para injetar seu ambiente, tem de configurar permissões de controlo de acesso baseado em funções (RBAC) na sua rede virtual para o serviço do Azure Logic Apps. Esta tarefa requer que atribua os **contribuinte de rede** e **contribuinte clássico** funções para o serviço do Azure Logic Apps.
+Para configurar estas permissões, consulte [ligar a redes virtuais do Azure a partir de aplicações lógicas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access)
 
 <a name="create-integration-account-environment"></a>
 
 ## <a name="integration-accounts-with-ise"></a>Contas de integração com o ISE
 
-Pode utilizar contas de integração com logic apps, que são executados num ambiente de serviço de integração (ISE), mas essas contas de integração também tem de utilizar o *ISE mesmo* como as aplicações de lógica ligada. Aplicações lógicas num ISE podem referenciar apenas as contas de integração que estão no ISE do mesmo. Quando cria uma conta de integração, pode selecionar o ISE como a localização para a sua conta de integração.
+Pode utilizar contas de integração com logic apps dentro de um ambiente de serviço de integração (ISE). No entanto, essas contas de integração tem de utilizar o *ISE mesmo* como as aplicações de lógica ligada. Aplicações lógicas num ISE podem referenciar apenas as contas de integração que estão no ISE do mesmo. Quando cria uma conta de integração, pode selecionar o ISE como a localização para a sua conta de integração.
 
 ## <a name="get-support"></a>Obter suporte
 

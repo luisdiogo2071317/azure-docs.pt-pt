@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e4e0ff288b9d5539a0110fb157e32b4f23d06bb6
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 53f28d29b9667bb885a5c3d0da8d926f756f3427
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715705"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682079"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Soluções de gestão de direcionamento no Azure (pré-visualização)
 Quando adiciona uma solução de gestão à sua subscrição, será automaticamente implantado por predefinição para todos os agentes Windows e Linux ligados à sua área de trabalho do Log Analytics.  Poderá querer gerir os custos e limitar a quantidade de dados recolhidos para uma solução ao limitá-la para um determinado conjunto de agentes.  Este artigo descreve como utilizar **filtragem da solução** que é uma funcionalidade que lhe permite aplicar um âmbito às suas soluções.
@@ -29,7 +29,7 @@ Existem três passos necessários para direcionar uma solução, conforme descri
 
 
 ### <a name="1-create-a-computer-group"></a>1. Criar um grupo de computadores
-Especificar os computadores que pretende incluir num âmbito através da criação de um [grupo de computadores](../../log-analytics/log-analytics-computer-groups.md) no Log Analytics.  O grupo de computadores pode ser com base numa pesquisa de registos ou importado a partir de outras origens, como grupos do Active Directory ou o WSUS. Como [descrito abaixo](#solutions-and-agents-that-cant-be-targeted), apenas os computadores que estão ligados diretamente ao Log Analytics serão incluídos no escopo.
+Especificar os computadores que pretende incluir num âmbito através da criação de um [grupo de computadores](../../azure-monitor/platform/computer-groups.md) no Log Analytics.  O grupo de computadores pode ser com base numa pesquisa de registos ou importado a partir de outras origens, como grupos do Active Directory ou o WSUS. Como [descrito abaixo](#solutions-and-agents-that-cant-be-targeted), apenas os computadores que estão ligados diretamente ao Log Analytics serão incluídos no escopo.
 
 Assim que tiver criado na sua área de trabalho, o grupo de computadores, em seguida, irá incluir numa configuração de âmbito que pode ser aplicada a uma ou mais soluções.
  
@@ -75,4 +75,4 @@ Não é possível utilizar a filtragem da solução com as seguintes soluções,
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre as soluções de gestão, incluindo as soluções que estão disponíveis para instalação no seu ambiente no [soluções de gestão de adicionar o Azure Log Analytics para a área de trabalho](solutions.md).
-- Saiba mais sobre a criação de grupos de computadores em [pesquisas de registos de grupos de computadores no Log Analytics](../../log-analytics/log-analytics-computer-groups.md).
+- Saiba mais sobre a criação de grupos de computadores em [pesquisas de registos de grupos de computadores no Log Analytics](../../azure-monitor/platform/computer-groups.md).

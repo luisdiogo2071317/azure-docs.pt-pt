@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 756e1426d417c47210e3b766d9d67ef1a70d2516
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 5f7c82143ab11787f5ce186623c1ed4903891c18
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334151"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680356"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>A monitorização dos dados recolhidos pelo Azure Monitor
 [O Azure Monitor](../../azure-monitor/overview.md) é um serviço que o ajuda a monitorizar as suas aplicações e os recursos que dependem. Central para esta função é um armazenamento de telemetria e outros dados de recursos monitorizados. Este artigo fornece uma descrição completa de como os dados são armazenados e usados pelo Azure Monitor.
@@ -137,13 +137,13 @@ Registos recolhidos pelo Monitor do Azure são armazenados no Log Analytics que 
 ### <a name="sources-of-log-data"></a>Origens de dados de registo
 Log Analytics pode recolher dados de várias origens, tanto no Azure e de recursos no local. Origens de dados escritos para o Log Analytics incluem o seguinte:
 
-- [Registos de atividades](../../log-analytics/log-analytics-activity.md) dos recursos do Azure que incluem informações sobre a respetiva configuração e o estado de funcionamento e [registos de diagnóstico](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) que fornecem informações sobre o funcionamento deles.
+- [Registos de atividades](../../azure-monitor/platform/collect-activity-logs.md) dos recursos do Azure que incluem informações sobre a respetiva configuração e o estado de funcionamento e [registos de diagnóstico](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) que fornecem informações sobre o funcionamento deles.
 - Agentes nas [Windows](../../log-analytics/log-analytics-windows-agent.md) e [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) máquinas virtuais que enviar telemetria a partir do sistema operativo convidado e aplicativos para o Log Analytics de acordo com [origens de dados](../../azure-monitor/platform/agent-data-sources.md) que configurar.
 - Aplicação dados recolhidos pelo [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Dados fornecem informações sobre uma determinada aplicação ou serviço a partir [soluções de monitorização](../insights/solutions.md) ou funcionalidades, como informações de contentor, informações de VM ou informações de grupo de recursos.
 - Dados de segurança recolhidos pelo [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/).
 - [Métricas](#metrics) dos recursos do Azure. Isto permite-lhe para armazenar métricas durante mais de 93 dias e analisá-lo com outros dados de registo.
-- Telemetria escrita [armazenamento do Azure](../../log-analytics/log-analytics-azure-storage-iis-table.md).
+- Telemetria escrita [armazenamento do Azure](../../azure-monitor/platform/azure-storage-iis-table.md).
 - Dados personalizados de qualquer cliente de REST API utilizando o [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) cliente ou a partir de um [aplicação lógica do Azure](https://docs.microsoft.com/azure/logic-apps/) fluxo de trabalho.
 
 ![Componentes do Log Analytics](media/data-collection/logs-overview.png)
@@ -170,7 +170,7 @@ Todos os dados do Log Analytics é recuperado usando um [consulta de registo](..
 ### <a name="metrics-to-logs"></a>Métricas para os registos
 Pode copiar as métricas ao Log Analytics para executar análises complexas com outros tipos de dados ao utilizar a sua linguagem de consulta avançada. Também pode manter os dados de registo por períodos mais longos do que de métricas, que lhe permitem realizar tendências ao longo do tempo. Quando as métricas ou outros dados de desempenho são armazenados no Log Analytics, que dados age como um registo. Utilize métricas para suportar perto de análise em tempo real e os alertas ao utilizar registos para fins de tendência e análise com outros dados.
 
-Pode obter orientações para recolher métricas de recursos do Azure ao [registos do serviço de recolha do Azure e as métricas de utilização do Log Analytics](../../log-analytics/log-analytics-azure-storage.md). Obtenha orientações para recolher métricas de recursos de recursos de PaaS do Azure no [configurar a recolha de métricas de recursos de PaaS do Azure com o Log Analytics](../../log-analytics/log-analytics-collect-azurepass-posh.md).
+Pode obter orientações para recolher métricas de recursos do Azure ao [registos do serviço de recolha do Azure e as métricas de utilização do Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md). Obtenha orientações para recolher métricas de recursos de recursos de PaaS do Azure no [configurar a recolha de métricas de recursos de PaaS do Azure com o Log Analytics](../../azure-monitor/platform/collect-azurepass-posh.md).
 
 ### <a name="logs-to-metrics"></a>Registos para métricas
 Conforme descrito acima, as métricas estão mais responsivas do que os registos, para que possa criar alertas com menor latência e a um custo menor. O log Analytics recolhe uma quantidade significativa de dados numéricos que seriam adequado para as métricas, mas não estão armazenados na base de dados de métricas do Azure.  Um exemplo comum é que os dados de desempenho coletados por agentes e soluções de gestão. Alguns destes valores podem ser copiados para a base de dados de métricas, onde eles estão disponíveis para alertas e análise com o Explorador de métricas.

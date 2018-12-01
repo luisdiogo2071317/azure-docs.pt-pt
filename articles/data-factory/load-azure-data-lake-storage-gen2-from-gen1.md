@@ -9,18 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 953585ffcc5a40d9ae48055f68a1c1fa84db25cc
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 40cf8dcf6729d577c4fff694b0380833fccb142d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249337"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679363"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Copiar dados de geração 1 de armazenamento do Azure Data Lake para Gen2 (pré-visualização) com o Azure Data Factory
 
-[Geração de armazenamento 2 do Azure Data Lake (pré-visualização)](../storage/data-lake-storage/introduction.md) adiciona um protocolo com recursos de segurança e de espaço de nomes do sistema de ficheiros hierárquico para armazenamento de Blobs do Azure torna fácil ligar as estruturas de análise para uma camada de armazenamento durável. Na geração 2 de armazenamento do Data Lake (pré-visualização), todas as qualidades de armazenamento de objetos permanecem ao adicionar as vantagens de uma interface de sistema de ficheiros.
+Pré-visualização da geração 2 do armazenamento do Azure Data Lake é um conjunto de recursos dedicado a análise de macrodados, incorporado ao [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md). Permite-lhe interagir com os dados através de ambos os paradigmas de armazenamento de sistema e o objeto de ficheiro.
 
 Se estiver a utilizar o Azure Data Lake Storage Gen1, pode avaliar a nova capacidade de geração 2 ao copiar dados de geração 1 de armazenamento do Data Lake para geração 2 com o Azure Data Factory.
 
@@ -75,17 +75,15 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
     ![Página de geração 1 de armazenamento do Azure Data Lake do arquivo de dados de origem](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
     
 4. Na **ligação de especificar o Azure Data Lake Storage Gen1** página, efetue os seguintes passos:
-   1. Selecione seu Gen1 de armazenamento do Data Lake para o nome da conta.
-   2. Especifique ou validar a **inquilino**e selecione Finish.
-   3. Selecione **Seguinte**.
+   1. Selecione seu Gen1 de armazenamento do Data Lake para o nome de conta e especificar ou validar a **inquilino**.
+   2. Clique em **Testar ligação** para validar as definições, em seguida, selecione **concluir**.
+   3. Verá, que é criada uma nova ligação. Selecione **Seguinte**.
    
    > [!IMPORTANT]
-   > Este passo a passo, vai utilizar uma identidade gerida para recursos do Azure para autenticar seu Gen1e de armazenamento do Data Lake. Certifique-se de que conceder o MSI as permissões adequadas na geração 1 de armazenamento do Azure Data Lake, seguindo [estas instruções](connector-azure-data-lake-store.md#managed-identity).
+   > Este passo a passo, vai utilizar uma identidade gerida para recursos do Azure para autenticar seu Gen1 de armazenamento do Data Lake. Certifique-se de que conceder o MSI as permissões adequadas na geração 1 de armazenamento do Azure Data Lake, seguindo [estas instruções](connector-azure-data-lake-store.md#managed-identity).
    
    ![Especifique a conta de geração 1 de armazenamento do Azure Data Lake](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
-   
-   4. Verá, que é criada uma nova ligação. Selecione **Seguinte**.
-   
+      
 5. Na **escolher o ficheiro de entrada ou a pasta** página, navegue para a pasta e ficheiro que pretende que devem transitar. Selecione o ficheiro/pasta, selecione **escolha**:
 
     ![Escolher ficheiro ou pasta de entrada](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
@@ -101,7 +99,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 8. Na **ligação de especificar o Azure Data Lake Storage Gen2** página, efetue os seguintes passos:
 
    1. Selecione seu Gen2 de armazenamento do Data Lake conta com capacidade do "nome de conta de armazenamento" na lista pendente.
-   2. Selecione **Seguinte**.
+   2. Selecione **concluir** para criar a ligação. Em seguida, selecione **Seguinte**.
    
    ![Especifique a conta de geração 2 de armazenamento do Azure Data Lake](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 

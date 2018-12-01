@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 0f69a7f5e7aef4da798ec7c9ce3b7af3a456c00e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 22c9aeaa9f02d91ea90083fae69f28fa5984c565
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613363"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680621"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -83,7 +83,7 @@ No portal do Azure, pode filtrar o registo de atividades por estes campos:
 
 Depois de definir um conjunto de filtros, pode afixar uma consulta ao dashboard do Azure para sempre manter um olho nos eventos específicos.
 
-Para ainda mais potência, pode clicar a **Logs** ícone, que exibe os dados de registo de atividades no [solução Log Analytics, atividade do Log Analytics](../log-analytics/log-analytics-activity.md). O painel de registo de atividades oferece uma experiência de pesquisa/filtro básico em registos, mas o Log Analytics permite-lhe dinamizar, consultar e visualize os seus dados de formas mais eficientes.
+Para ainda mais potência, pode clicar a **Logs** ícone, que exibe os dados de registo de atividades no [solução Log Analytics, atividade do Log Analytics](../azure-monitor/platform/collect-activity-logs.md). O painel de registo de atividades oferece uma experiência de pesquisa/filtro básico em registos, mas o Log Analytics permite-lhe dinamizar, consultar e visualize os seus dados de formas mais eficientes.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exportar o registo de atividades com um perfil de registo
 R **perfil de registo** controla a forma como o registo de atividades é exportado. Utilizar um perfil de registo, pode configurar:

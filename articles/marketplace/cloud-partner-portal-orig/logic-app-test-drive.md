@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f0fd4efe7fc6f8f217d889b5f87c133b5e250b54
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 938472edf0c82da6f3e1fdaf4e6b052ac178bd8a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810708"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722978"
 ---
 <a name="logic-app-test-drive"></a>Unidade de teste da aplicação lógica
 ====================
@@ -48,7 +48,7 @@ A secção seguinte para preencher é que oferecem os detalhes sobre a sua vers�
 
 ![Detalhes do controlador de teste](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Descrição -** *[necessário campo]* é onde escrever a descrição principal sobre o que há em sua versão de teste. O cliente virá aqui para ler quais cenários sua versão de teste irá abordar sobre seu produto. 
+**Descrição -** *[necessário campo]* é onde escrever a descrição principal sobre o que há em sua versão de teste. O cliente virá aqui para ler quais cenários sua versão de teste irá abordar sobre seu produto. 
 
 **Manual do usuário -** *[necessário campo]* este é o passo a passo detalhada de sua experiência de versão de teste. O cliente abrirá isso e pode percorrer exatamente o que deseja fazer em toda a unidade de teste. É importante que este conteúdo é fácil de compreender e siga! (Tem de ser um ficheiro. pdf)
 
@@ -126,15 +126,13 @@ Clique em Guardar. A última etapa é obter o ID da aplicação para esta aplica
 Tendo em conta que estiver a utilizar a aplicação para implementar para a subscrição, precisamos de adicionar a aplicação como um contribuinte da subscrição. As instruções para estas são como abaixo:
 
 1. Navegue para o painel de subscrições e selecione a subscrição adequada, que está a utilizar para a versão de teste apenas.
-2. Clique no controlo de acesso (IAM).
-3. Clique em + Adicionar no novo painel.
-4. Defina a função como contribuinte.
-5. Escreva o nome da aplicação do AAD e selecione a aplicação do AAD para atribuir a função.
-6. Clique em Guardar.
-
-![O Azure Active Directory, adicionar um novo principal de controlo de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Permissões do Azure Active Directory](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Clique em **controlo de acesso (IAM)**.
+1. Clique nas **atribuições de funções** separador.  ![O Azure Active Directory, adicionar um novo principal de controlo de acesso](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. Clique em **adicionar atribuição de função**.
+1. Definir a função como **contribuinte**.
+1. Escreva o nome de aplicação do Azure AD e selecione a aplicação para atribuir a função.
+    ![Permissões do Active Directory do Azure](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. Clique em **Guardar**.
 
 **Chave da aplicação do Azure AD -** *[necessário campo]* o campo final é gerar uma chave de autenticação. Em chaves, adicione uma descrição de chave, defina a duração para nunca expirar, em seguida, selecione guardar. É **importante** para evitar que um expiradas chave, que irá interromper a sua versão de teste em produção. Copie este valor e cole-o no seu campo obrigatório da versão de teste.
 

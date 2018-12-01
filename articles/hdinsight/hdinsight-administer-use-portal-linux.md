@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: hrasheed
-ms.openlocfilehash: 77f1d0f9d1f9ad07b977750e7701b660781d63e5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c615188e5f198cb8707b12643e0942e8d8821983
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499382"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725187"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir clusters do Apache Hadoop no HDInsight com o portal do Azure
 
@@ -64,7 +64,7 @@ Tem de especificar uma subscrição do Azure quando criar um cluster do HDInsigh
     1. Inicie sessão no [portal do Azure](https://portal.azure.com).
     2. Clique em **grupos de recursos** no menu à esquerda para listar os grupos de recursos.
     3. Clique no grupo de recursos que pretende utilizar para criar o cluster do HDInsight.
-    4. Clique em **controlo de acesso (IAM)** e certifique-se de que (ou um grupo que pertencem a) tem, pelo menos, o acesso de Contribuidor ao grupo de recursos.
+    4. Clique em **controlo de acesso (IAM)** e **atribuições de funções**e certifique-se de que (ou um grupo que pertencem a) tem, pelo menos, o acesso de Contribuidor ao grupo de recursos.
 
 Se receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionRegistration, consulte [resolver erros comuns de implementação do Azure com o Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
@@ -106,7 +106,7 @@ Se receber o erro NoRegisteredProviderFound ou o erro MissingSubscriptionRegistr
 * **Definições de diagnóstico**: as definições em onde pretende armazenar as métricas de diagnóstico **suporte + resolução de problemas**
     * **Estado de funcionamento do recurso**: veja [descrição geral do Estado de funcionamento de recursos do Azure](../service-health/resource-health-overview.md).
     * **Novo pedido de suporte**: permite-lhe criar um pedido de suporte com o suporte da Microsoft.
-
+    
 6. Clique em **propriedades**:
 
     As propriedades são:

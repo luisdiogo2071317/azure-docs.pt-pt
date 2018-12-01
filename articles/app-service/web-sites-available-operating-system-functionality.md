@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 7cf7078353de27c35a607fa8ef1921d6ed4b54b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ab54dcd94ebf0a1bad71613a8d749cef0de64f4
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247352"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678683"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operativo no App Service do Azure
 Este artigo descreve a funcionalidade de sistema operativo de linha de base comum, que está disponível para todas as aplicações do Windows em execução no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidade inclui o ficheiro, rede e acesso ao Registro e os registos de diagnóstico e eventos. 
@@ -60,7 +60,12 @@ Em seu núcleo, o serviço de aplicações é um serviço em execução sobre a 
 - Uma unidade de aplicação que contém ficheiros de cspkg de pacote do Azure utilizados exclusivamente por serviço de aplicações (e inacessível para os clientes)
 - Uma unidade de "user" (a unidade C:\), cujo tamanho varia consoante o tamanho da VM. 
 
-É importante monitorizar a sua utilização de disco à medida que aumenta a sua aplicação. Se for atingida a quota de disco, ele pode ter efeitos adversos à sua aplicação.
+É importante monitorizar a sua utilização de disco à medida que aumenta a sua aplicação. Se for atingida a quota de disco, ele pode ter efeitos adversos à sua aplicação. Por exemplo: 
+
+- A aplicação poderão emitir um erro que indica que não existe espaço suficiente no disco.
+- Poderá ver erros no disco ao navegar para a consola Kudu.
+- Implementação a partir do VSTS ou o Visual Studio pode falhar com `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- Seu aplicativo talvez sofram com um desempenho lento.
 
 <a id="NetworkDrives"></a>
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e18b670b94962c0e7aa469402228fd4ed95d846b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 9b9789979f6fa3beb606007ca252827c7a1599e0
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287256"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682287"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métrica clássicas com o Azure Monitor
 
@@ -126,36 +126,9 @@ Estas secções mostram como utilizar o PowerShell comandos criar, ver e gerir a
     Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Pode utilizar o `Add-AlertRule` cmdlet para criar, atualizar ou desativar uma regra de alerta. Pode criar propriedades de e-mail e webhook usando `New-AzureRmAlertRuleEmail` e `New-AzureRmAlertRuleWebhook`, respectivamente. O cmdlet de regra de alerta, atribuir essas propriedades como ações para o **ações** propriedade de regra de alerta. A tabela seguinte descreve os parâmetros e valores utilizados para criar um alerta através de uma métrica.
-
-    | parâmetro | valor |
-    | --- | --- |
-    | Nome |simpletestdiskwrite |
-    | Localização desta regra de alerta |EUA Leste |
-    | ResourceGroup |montest |
-    | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-    | MetricName do alerta que é criado |\Disk \PhysicalDisk ( total) / seg. Consulte o `Get-MetricDefinitions` cmdlet sobre como obter os nomes de métricos exatos |
-    | Operador |GreaterThan |
-    | Valor de limiar (contagem por segundo para esta métrica) |1 |
-    | WindowSize (formato hh: mm:) |00:05:00 |
-    | agregador (estatística da métrica, que usa a contagem média, neste caso) |Média |
-    | e-mails personalizados (matriz de cadeia de caracteres) |'foo@example.com','bar@example.com' |
-    | enviar um e-mail para proprietários, contribuidores e leitores |-SendToServiceOwners |
-
-9. Criar uma ação de E-Mail
-
-    ```PowerShell
-    $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
-    ```
-
-10. Criar uma ação de Webhook
-
-    ```PowerShell
-    $actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
-    ```
+8. Já não podem ser criadas regras de alerta clássicas através do PowerShell. Para criar uma regra de alerta tem de utilizar a nova ['Add-AzureRmMetricAlertRule'](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule?view=azurermps-6.13.0) comando.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar um alerta de métrica clássico com um modelo do Resource Manager](monitoring-enable-alerts-using-template.md).
 - [Ter um alerta de métrica clássico notificar um sistema não pertencente ao Azure através de um webhook](insights-webhooks-alerts.md).
-

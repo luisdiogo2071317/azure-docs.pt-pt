@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 7a4e19ae5bf770949623f4cee7fa0d3033ccfa29
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 00b29ddf29ae334154d41eedd0bf9e66556e09ad
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582620"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720124"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gerir o acesso a informações de faturação para o Azure
 
@@ -72,9 +72,10 @@ A funcionalidade de leitor de faturação está em pré-visualização e ainda n
 
 1. Selecione **controlo de acesso (IAM)**.
 1. Selecione **atribuições de funções** para ver todas as atribuições de função para esta subscrição.
-1. Selecione **Add** > **adicionar atribuição de função**.
+1. Selecione **adicionar atribuição de função**.
 1. Na **função** pendente lista, escolha **leitor de faturação**.
 1. Na **selecione** caixa de texto, escreva o nome ou e-mail para o utilizador que pretende adicionar.
+1. Selecione o utilizador.
 1. Selecione **Guardar**.
 1. Após alguns instantes, o utilizador tem atribuída a função de leitor de faturação no âmbito da subscrição.
 1. O leitor de faturação recebe um e-mail com uma ligação para iniciar sessão.

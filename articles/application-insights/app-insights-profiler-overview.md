@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: bba15ee901e7ccecc513f526339bde2fcc6277fa
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 7780c10233a0ce256ee6e9015f40ea789516c25b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142571"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726904"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Aplicações de produção do perfil no Azure com o Application Insights
 ## <a name="enable-profiler-for-your-application"></a>Ative Profiler para a sua aplicação
@@ -38,7 +37,7 @@ A executar o Profiler no local não é oficialmente suportada, mas temos alguns 
 
 ## <a name="view-profiler-data"></a>Ver dados do gerador de perfil
 
-Para o criador de perfil carregar os rastreios efetuada, seu aplicativo ativamente processar pedidos. Se estiver fazendo uma experimentação, pode gerar solicitações para a sua aplicação web com [testes de desempenho do Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se ativou Profiler recentemente, pode executar um teste de carga curto. Enquanto o teste de carga está em execução, prima a **perfil agora** botão no [ **página de definições do Profiler**](). Assim que o criador de perfil está em execução, ele será perfil aleatoriamente uma vez por hora e durante um período de dois minutos. Se a sua aplicação está a processar um fluxo constante de pedidos, o Profiler irá carregar rastreios a cada hora.
+Para o criador de perfil carregar os rastreios efetuada, seu aplicativo ativamente processar pedidos. Se estiver fazendo uma experimentação, pode gerar solicitações para a sua aplicação web com [testes de desempenho do Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Se ativou Profiler recentemente, pode executar um teste de carga curto. Enquanto o teste de carga está em execução, prima a **perfil agora** botão no [ **página de definições do Profiler**](app-insights-profiler-settings.md#profiler-settings-page). Assim que o criador de perfil está em execução, ele será perfil aleatoriamente uma vez por hora e durante um período de dois minutos. Se a sua aplicação está a processar um fluxo constante de pedidos, o Profiler irá carregar rastreios a cada hora.
 
 Depois da aplicação recebe algum tráfego e o criador de perfil tem tido tempo para carregar os trances, deve ter rastreios para ver. Este processo pode demorar 5 a 10 minutos. Para ver os rastreios, vá para o **desempenho** painel, selecione **tomar ações** para ver os rastreios do gerador de perfil e, em seguida, selecione o **rastreios do Profiler** botão.
 

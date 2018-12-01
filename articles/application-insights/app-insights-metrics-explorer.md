@@ -9,16 +9,15 @@ ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: cc9b3bd1d038bd8aa9c01e806e5448824011bc93
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8a8b1e29a6504c725e244efa1ae8c37a9a0d8420
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240754"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726275"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas no Application Insights
 Métricas no [Application Insights] [ start] são valores de medida e contagens de eventos que são enviadas em telemetria da sua aplicação. Ajudam a detetar problemas de desempenho e ver as tendências na forma como a aplicação está a ser utilizada. Há uma grande variedade de métricas padrão e também pode criar seus próprios eventos e métricas personalizadas.
@@ -164,7 +163,7 @@ Se editar um painel, mas, em seguida, gostaria de voltar para o original conjunt
 
 ![Nos botões na parte superior do Explorador de métricas](./media/app-insights-metrics-explorer/17-reset.png)
 
-## <a name="live-metrics-stream"></a>Live Metrics Stream
+## <a name="live-metrics-stream"></a>Fluxo de métricas em direto
 
 Para obter uma visão muito mais imediata da sua telemetria, abra [Live Stream](app-insights-live-stream.md). A maioria das métricas demorar alguns minutos a aparecer, devido ao processo de agregação. Por outro lado, as métricas ao vivo são otimizadas de baixa latência. 
 

@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 6bdb5f5fe174c58c39caac874f3df8c3a2ae22d7
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: f624e65508c33fa08bf1381b434847cedcf0df00
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095869"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721107"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métrica: modelo de dados do Application Insights
 

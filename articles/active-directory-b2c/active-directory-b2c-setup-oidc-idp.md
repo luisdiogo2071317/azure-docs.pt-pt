@@ -7,26 +7,26 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 30bc3e0f1a8230bdbcad653c8c2db7dc078629bb
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 49f3f80832597b231aec812a4c1613da9897f72a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180353"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722450"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com a ligação do OpenID com o Azure Active Directory B2C
 
 >[!NOTE]
 > Esta funcionalidade está em pré-visualização pública. Não utilize a funcionalidade em ambientes de produção.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) é um protocolo de autenticação, criado com base no OAuth 2.0, que pode ser utilizado para assinar com segurança os utilizadores. A maioria dos fornecedores de identidade que utilizam esse protocolo, como [do Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), são suportadas no Azure AD B2C. Este artigo explica como pode adicionar fornecedores de identidade OpenID Connect personalizados para as políticas incorporadas.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) é um protocolo de autenticação, criado com base no OAuth 2.0, que pode ser utilizado para assinar com segurança os utilizadores. A maioria dos fornecedores de identidade que utilizam esse protocolo, como [do Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), são suportadas no Azure AD B2C. Este artigo explica como pode adicionar fornecedores de identidade OpenID Connect personalizados em seus fluxos de utilizador.
 
 ## <a name="add-the-identity-provider"></a>Adicionar o fornecedor de identidade
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 4. Selecione **fornecedores de identidade**e, em seguida, clique em **Add**.

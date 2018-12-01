@@ -9,16 +9,15 @@ ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e19735f604fdcd6d6642814e776fd9987d11fde
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4a30e562b04a3414a1305604a521e0d659753142
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499493"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720410"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed do Power BI do Application Insights
 [Power BI](http://www.powerbi.com/) é um conjunto de ferramentas de negócio que o ajuda a analisar dados e partilhar informações. Dashboards avançados estão disponíveis em todos os dispositivos. Pode combinar dados de várias origens, incluindo consultas de análise de [do Azure Application Insights](app-insights-overview.md).
@@ -52,18 +51,18 @@ Instale [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
     ![Captura de ecrã do Power BI Desktop, com o Editor avançado realçado](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
 
-1. Para permitir que o Power BI para aceder ao Azure, poderá ter de fornecer credenciais. Uso **conta institucional** para iniciar sessão com a sua conta Microsoft.
+5. Para permitir que o Power BI para aceder ao Azure, poderá ter de fornecer credenciais. Uso **conta institucional** para iniciar sessão com a sua conta Microsoft.
    
     ![Caixa de diálogo de captura de ecrã do Power BI definições da consulta](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
     Se precisar de verificar as credenciais, utilize o **definições da origem de dados** comando de menu no editor de consultas. Certifique-se de que especifique as credenciais que utiliza para o Azure, que pode ser diferente das credenciais da sua para o Power BI.
-2. Escolha uma visualização para sua consulta e selecione os campos para o eixo x, y e segmentar dimensão.
+6. Escolha uma visualização para sua consulta e selecione os campos para o eixo x, y e segmentar dimensão.
    
     ![Opções de visualização de captura de ecrã do Power BI Desktop](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
-3. Publicar o relatório para a área de trabalho do Power BI na cloud. A partir daí, pode incorporar uma versão sincronizada nos outros páginas da web.
+7. Publicar o relatório para a área de trabalho do Power BI na cloud. A partir daí, pode incorporar uma versão sincronizada nos outros páginas da web.
    
     ![Captura de ecrã do Power BI Desktop, com o botão Publish realçado](./media/app-insights-export-power-bi/publish-power-bi.png)
-4. Atualizar o relatório manualmente em intervalos ou configurar uma atualização agendada na página de opções.
+8. Atualizar o relatório manualmente em intervalos ou configurar uma atualização agendada na página de opções.
 
 ### <a name="export-a-funnel"></a>Exportar um funil
 1. [Tornar seu funil](usage-funnels.md).

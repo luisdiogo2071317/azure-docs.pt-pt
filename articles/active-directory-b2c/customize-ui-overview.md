@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cec9e5bfea16e5ba11f8cd7324acf15188fb907a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b5d3703f052ef47bcbacf0be04072357ee5b9986
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634330"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722603"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Sobre a personalização da interface de utilizador no Azure Active Directory B2C
 
@@ -23,13 +23,13 @@ A capacidade de sua marca e personalizar a interface de utilizador (IU) do Azure
 
 Dependendo das suas necessidades quando se trata estas experiências, personalizar a interface do Usuário do seu aplicativo de maneiras diferentes. Por exemplo:
 
-- Se estiver a utilizar [políticas incorporadas](active-directory-b2c-reference-policies.md) para fornecer a palavra-passe de inscrição ou início de sessão, repor ou edição de perfil de experiências na sua aplicação, utilize o [portal do Azure para personalizar a interface do Usuário](tutorial-customize-ui.md).
+- Se estiver a utilizar [fluxos de utilizador](active-directory-b2c-reference-policies.md) para fornecer a palavra-passe de inscrição ou início de sessão, repor ou edição de perfil de experiências na sua aplicação, utilize o [portal do Azure para personalizar a interface do Usuário](tutorial-customize-ui.md).
 - Se está a dar início de sessão só, a página de reposição a respetiva palavra-passe que acompanha este artigo e a verificação envia um e-mail, utilizar os mesmos passos de personalização, que são utilizados para um [página de início de sessão no Azure AD](../active-directory/fundamentals/customize-branding.md).
 - Se os clientes tentarem editar o respetivo perfil antes de iniciar sessão, eles são redirecionados para uma página que personalizar com os mesmos passos que são utilizados para personalizar a página de início de sessão do Azure AD.
 - Se estiver a utilizar [políticas personalizadas](active-directory-b2c-overview-custom.md) fornecer a palavra-passe de inscrição ou início de sessão, reposição ou Editar perfil em seu aplicativo, usar [ficheiros de política para personalizar a interface do Usuário](active-directory-b2c-ui-customization-custom.md).
 - Se precisar de fornecer conteúdo dinâmico com base na decisão de um cliente, utilize [conteúdo de página de políticas personalizadas que podem ser alterados](active-directory-b2c-ui-customization-custom-dynamic.md) dependendo de um parâmetro que é enviado numa cadeia de consulta. Por exemplo, a imagem de fundo da página de inscrição ou início de sessão do Azure AD B2C altera, com base num parâmetro que passar de seu aplicativo web ou móvel.
 
-O Azure AD B2C executa o código no browser do seu cliente e utiliza uma abordagem moderna chamada [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). Em tempo de execução, o conteúdo é carregado a partir de uma URL que especificar numa política. Especificar URLs diferentes para diferentes páginas. Depois de conteúdo é carregado a partir do URL, é mesclado com um fragmento HTML inserido a partir do Azure AD B2C e, em seguida, é apresentada para o seu cliente.
+O Azure AD B2C executa o código no browser do seu cliente e utiliza uma abordagem moderna chamada [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). Em tempo de execução, o conteúdo é carregado a partir de uma URL que especificou num fluxo de utilizador ou a política. Especificar URLs diferentes para diferentes páginas. Depois de conteúdo é carregado a partir do URL, é mesclado com um fragmento HTML inserido a partir do Azure AD B2C e, em seguida, é apresentada para o seu cliente.
 
 Antes de começar, reveja as seguintes orientações:
 
@@ -118,6 +118,6 @@ Para obter exemplos de personalização, transfira e reveja estes [arquivos de m
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Se estiver a utilizar as políticas incorporadas, pode começar a personalizar a interface do Usuário com o tutorial: [personalizar a interface do usuário das suas aplicações no Azure Active Directory B2C](tutorial-customize-ui.md).
+- Se estiver a utilizar fluxos de utilizador, pode começar a personalizar a interface do Usuário com o tutorial: [personalizar a interface do usuário das suas aplicações no Azure Active Directory B2C](tutorial-customize-ui.md).
 - Se estiver a utilizar políticas personalizadas, pode começar a personalizar a interface do Usuário com o artigo: [personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
 

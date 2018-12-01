@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0b380aa6046daa235098516a8c93d3ba72533a6
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: d2e99abfbc89d96f1dc5ca3c59789e13dd157a10
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42054163"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678955"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrar as implementações de atualização do OMS para o Azure
 
@@ -43,7 +43,7 @@ No futuro pode ir diretamente para o portal do Azure, em **todos os serviços**,
 
 ## <a name="recreate-existing-deployments"></a>Recriar as implementações existentes
 
-Todas as implementações de atualização criadas no portal do OMS têm um [pesquisa guardada](../log-analytics/log-analytics-computer-groups.md) também conhecido como um grupo de computadores, com o mesmo nome que a implementação da atualização que existe. A pesquisa guardada contém a lista de máquinas que eram agendadas na implementação de atualização.
+Todas as implementações de atualização criadas no portal do OMS têm um [pesquisa guardada](../azure-monitor/platform/computer-groups.md) também conhecido como um grupo de computadores, com o mesmo nome que a implementação da atualização que existe. A pesquisa guardada contém a lista de máquinas que eram agendadas na implementação de atualização.
 
 ![Gestão de Atualizações](media/migrate-oms-update-deployments/oms-deployment.png)
 
@@ -61,12 +61,12 @@ Para as máquinas atualizar, selecione a pesquisa guardada utilizada pela implem
 | --- | --- |
 |Nome |O nome exclusivo para identificar a implementação de atualizações. |
 |Sistema Operativo| Selecione **Linux** ou **Windows**.|
-|Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **máquinas**, a preparação da máquina é mostrada na **preparação do agente de ATUALIZAÇÃO** coluna.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+|Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md) |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa. CentOS não suporta esta prontos a utilizar.|
 |Atualizações a excluir|Introduza as atualizações a excluir. Para Windows, introduza o artigo KB sem o **KB** prefixo. Para o Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
 |Definições da agenda|Selecione a hora de começar e, em seguida, selecione **uma vez** ou **periódico** da periodicidade.|| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou mais de seis horas. |
 | Janela de manutenção |Número de minutos definido para atualizações. O valor pode não ser inferior a 30 minutos e não mais de 6 horas |
-| Controlo de reinício| Detemines como devem ser tratadas reinicializações.</br>Opções disponíveis são:</br>Reiniciar, se necessário (predefinição)</br>Reiniciar sempre</br>Nunca reinício</br>Reinício apenas - não irá instalar as atualizações|
+| Controlo de reinício| Detemines como devem ser tratadas reinicializações.</br>As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
 
 Clique em **implementações de atualização agendada** para ver o estado da implementação da atualização recém-criado.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 3e8230ea7b2d6d0e44468bd90289ee82d5a82367
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0226e5dc03c3f10b951a4e4cc1d97a999c952f3b
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715717"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678887"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Utilizar o Azure Monitor para o mapa de VMs (pré-visualização) para compreender os componentes da aplicação
 Visualizar os componentes da aplicação detetada em máquinas de virtuais Windows e Linux em execução no seu ambiente pode ser observado de duas formas com o Azure Monitor para as VMs, de uma máquina virtual diretamente ou através de grupos de VMs do Azure Monitor do Azure. 
@@ -107,7 +107,7 @@ Azure monitor, a funcionalidade de mapa fornece uma vista global das suas máqui
 
 ![Monitor com várias VMS mapa descrição geral do Azure](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Partir do **área de trabalho** Seletor na parte superior da página, se tiver mais do que uma área de trabalho do Log Analytics, selecione a área de trabalho que está ativada com a solução e tem máquinas virtuais que reportam ao mesmo. O **grupo** Seletor irá devolver subscrições, grupos de recursos [grupos de computadores](../../log-analytics/log-analytics-computer-groups.md)e conjuntos de dimensionamento VM de computadores relacionados com a área de trabalho selecionada. A seleção de apenas aplica-se para a funcionalidade de mapa e não vão ser transferidos para o desempenho ou de mapa.
+Partir do **área de trabalho** Seletor na parte superior da página, se tiver mais do que uma área de trabalho do Log Analytics, selecione a área de trabalho que está ativada com a solução e tem máquinas virtuais que reportam ao mesmo. O **grupo** Seletor irá devolver subscrições, grupos de recursos [grupos de computadores](../../azure-monitor/platform/computer-groups.md)e conjuntos de dimensionamento VM de computadores relacionados com a área de trabalho selecionada. A seleção de apenas aplica-se para a funcionalidade de mapa e não vão ser transferidos para o desempenho ou de mapa.
 
 Por predefinição, o mapa mostra os últimos 30 minutos. Utilizar o **TimeRange** Seletor, pode consultar para intervalos de tempo do histórico de até uma hora para mostrar como dependências viu no passado (por exemplo, durante um incidente ou antes de ocorrer uma alteração).   
 

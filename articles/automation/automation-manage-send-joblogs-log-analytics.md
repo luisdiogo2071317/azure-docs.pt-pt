@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 13ba4d774cbc347830c32385ba4927a0df687159
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6170b69d213470b1f5b7e75c9b102e5e07c09209
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035475"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682899"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Reencaminhar o estado da tarefa e fluxos de trabalho de automatização para o Log Analytics
 
@@ -182,4 +182,4 @@ O log Analytics fornece maior visibilidade operacional para as tarefas de automa
 * Para saber mais sobre como construir consultas de pesquisa diferentes e rever os registos da tarefa de automatização com o Log Analytics, consulte [pesquisas de registos no Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * Para compreender como criar e recuperar mensagens de erro e de saída a partir de runbooks, veja [Runbook de saída e mensagens](automation-runbook-output-and-messages.md).
 * Para saber mais sobre a execução de runbooks, como monitorizar tarefas de runbooks e outros detalhes técnicos, veja [Acompanhar uma tarefa de runbook](automation-runbook-execution.md).
-* Para saber mais sobre o Log Analytics e origens de recolha de dados, veja [dados de armazenamento do Azure recolha na descrição geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md).
+* Para saber mais sobre o Log Analytics e origens de recolha de dados, veja [dados de armazenamento do Azure recolha na descrição geral do Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).

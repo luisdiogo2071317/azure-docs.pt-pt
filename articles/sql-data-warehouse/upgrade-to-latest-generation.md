@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/22/2018
+ms.date: 11/26/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fe1f2e026aaa4260d34b9b1cb96064053af1c3c7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1e2f1a3c46c9d343c305292a217fff5750f442fa
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568017"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682559"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho ao atualizar o SQL Data Warehouse
 Atualize o Azure SQL Data Warehouse para a última geração da arquitetura de hardware e o armazenamento do Azure.
@@ -35,11 +35,44 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 ## <a name="before-you-begin"></a>Antes de começar
 > [!NOTE]
 > Se o seu armazém de dados de escalão de computação otimizada geração 1 existente não está a ser uma região onde está disponível o escalão de computação otimizada geração 2, pode [georrestauro](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) através do PowerShell para uma região suportada.
-> 
 >
+> 
 
 1. Se o armazém de dados de escalão de computação otimizada geração 1 a ser atualizado está em pausa, [retomar o armazém de dados](pause-and-resume-compute-portal.md).
+
 2. Esteja preparado para alguns minutos de tempo de inatividade. 
+
+3. Identifique quaisquer referências de código para níveis de desempenho de computação otimizada geração 1 e modificá-los para seus equivalente nível de desempenho de computação otimizada geração 2. Seguem-se dois exemplos de onde deve atualizar as referências de código antes de atualizar:
+
+   Comando do PowerShell de geração 1 original:
+
+   ```powershell
+   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+   ```
+
+   Modificado para:
+
+   ```powershell
+   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
+   ```
+
+   > [!NOTE] 
+   > -RequestedServiceObjectiveName "DW300" é alterado para - RequestedServiceObjectiveName "DW300**c**"
+   >
+
+   Comando original de geração 1. o T-SQL:
+
+   ```SQL
+   ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300') ;
+   ```
+
+   Modificado para:
+
+   ```sql
+   ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ; 
+   ```
+    > [!NOTE] 
+    > SERVICE_OBJECTIVE = 'DW300' é alterado para SERVICE_OBJECTIVE = ' DW300**c**'
 
 
 
@@ -47,31 +80,37 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Vá para a computação otimizada geração 1 no portal do Azure do armazém de dados de escalão e clique nas **atualizar para ger2** cartão no separador tarefas: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
-> [!NOTE]
-> Se não vir a **atualizar para ger2** cartão no separador tarefas, o tipo de subscrição é limitado na região atual. [Submeter um pedido de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) para obter a sua subscrição na lista de permissões.
+    > [!NOTE]
+    > Se não vir a **atualizar para ger2** cartão no separador tarefas, o tipo de subscrição é limitado na região atual.
+    > [Submeter um pedido de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) para obter a sua subscrição na lista de permissões.
 
 2. Por predefinição, **selecione o nível de desempenho sugeridos** para o armazém de dados com base no seu nível de desempenho atual na camada de computação otimizada geração 1 com o mapeamento abaixo:
-    
-   | Computação otimizada geração 1 camada | Computação otimizada geração 2 escalão |
-   | :----------------------: | :-------------------: |
-   |      DW100 – DW600       |        DW500c         |
-   |          DW1000          |        DW1000c        |
-   |          DW1200          |        DW1500c        |
-   |          DW1500          |        DW1500c        |
-   |          DW2000          |        DW2000c        |
-   |          DW3000          |        DW3000c        |
-   |          DW6000          |        DW6000c        |
 
-3. Certifique-se de que sua carga de trabalho foi concluída em execução e terem silenciado as antes de atualizar. Terá um período de indisponibilidade durante alguns minutos antes do armazém de dados estiver novamente online como um armazém de dados de escalão de computação otimizada geração 2. **Clique em Atualizar**. O preço do escalão de desempenho do escalão de computação otimizada geração 2 está atualmente metade-desativada durante o período de pré-visualização:
-    
+   | Computação otimizada geração 1 camada | Computação otimizada geração 2 escalão |
+   | :-------------------------: | :-------------------------: |
+   |            DW100            |           DW100c            |
+   |            DW200            |           DW200c            |
+   |            DW300            |           DW300c            |
+   |            DW400            |           DW400c            |
+   |            DW500            |           DW500c            |
+   |            DW600            |           DW500c            |
+   |           DW1000            |           DW1000c           |
+   |           DW1200            |           DW1000c           |
+   |           DW1500            |           DW1500c           |
+   |           DW2000            |           DW2000c           |
+   |           DW3000            |           DW3000c           |
+   |           DW6000            |           DW6000c           |
+
+3. Certifique-se de que sua carga de trabalho foi concluída em execução e terem silenciado as antes de atualizar. Terá um período de indisponibilidade durante alguns minutos antes do armazém de dados estiver novamente online como um armazém de dados de escalão de computação otimizada geração 2. **Clique em Atualizar**:
+
    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
 4. **Monitorizar a sua atualização** ao verificar o estado no portal do Azure:
 
    ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
-   
+
    A primeira etapa do processo de atualização atravessa a operação de dimensionamento ("atualizando - Offline") em que serão eliminadas todas as sessões e ligações serão ignoradas. 
-   
+
    A segunda etapa do processo de atualização é a migração de dados ("atualizando - Online"). Migração de dados é um processo de plano de fundo online trickle, que se move lentamente para armazenamento de dados da arquitetura do armazenamento antigo para a nova arquitetura de armazenamento tirar partido de uma cache SSD local. Durante este período, o seu armazém de dados estarão online para consultar e carregar. Todos os seus dados vão estar disponíveis para consultar, independentemente de se ter sido migrada ou não. A migração de dados acontece a uma taxa variada, dependendo do tamanho dos dados, o nível de desempenho e o número de segmentos de columnstore. 
 
 5. **Recomendação opcional:** para agilizar o processo de segundo plano de migração de dados, pode forçar imediatamente movimento de dados através da execução [recompilação de índice Alter](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) em todas as tabelas de columnstore primário poderia consultar num SLO maior e a classe de recursos. Esta operação é **offline** em comparação com o processo em segundo plano trickle que pode demorar horas a concluir consoante o número e os tamanhos de suas tabelas; no entanto, migração de dados será muito mais rápido em que o que, em seguida, pode tirar total partido da nova arquitetura de armazenamento avançado depois de concluído com grupos de linhas de alta qualidade. 
@@ -125,4 +164,3 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## <a name="next-steps"></a>Passos Seguintes
 O armazém de dados atualizada está online. Para tirar partido da arquitetura avançada, consulte [classes de recursos para a gestão da carga de trabalho](resource-classes-for-workload-management.md).
- 

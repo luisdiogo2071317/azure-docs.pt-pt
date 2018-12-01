@@ -9,16 +9,15 @@ ms.assetid: 0b2deb30-6ea8-4bc4-8ed0-26765b85149f
 ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a031ede814a963f25f1a3a3fc9725d9e5670a8e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: f5179730223609def5ddb0e45317c2f986584139
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824647"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680485"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Monitorizar o desempenho das aplicações Web do Azure
 No [Portal do Azure](https://portal.azure.com), pode configurar a monitorização de desempenho de aplicações para as suas [aplicações Web do Azure](../app-service/app-service-web-overview.md). O [Azure Application Insights](app-insights-overview.md) instrui a sua aplicação a enviar telemetria sobre as atividades para o serviço Application Insights, onde são armazenadas e analisadas. Aí, podem ser utilizados gráficos de métricas e ferramentas de pesquisa para ajudar a diagnosticar problemas, melhorar o desempenho e avaliar a utilização.
@@ -43,9 +42,9 @@ Se já estiver a executar uma aplicação Web no Azure, já beneficia de alguma 
 
     ![Instrumente a sua aplicação Web](./media/app-insights-azure-web-apps/create-resource.png)
 
-2. Assim que o recurso for criado select **verificação e atualização de extensão do Application Insights para a aplicação web** para confirmar que a extensão está atualizada.
+2. Depois de especificar o recurso a utilizar, pode escolher como pretende que o application insights para recolher dados por plataforma para a sua aplicação.
 
-     ![Verificar e atualizar a extensão de site](./media/app-insights-azure-web-apps/check-and-update.png)
+    ![Escolher opções por plataforma](./media/app-insights-azure-web-apps/choose-options.png)
 
 3. **Instrumente a sua aplicação Web** depois de o Application Insights ser instalado.
 
@@ -64,7 +63,7 @@ Mais tarde, pode criar a aplicação com o Application Insights, se pretender.
 
 *Como posso remover o Application Insights ou mudar para enviar para outro recurso?*
 
-* No Azure, abra o painel de controlo da aplicação Web e, em Ferramentas de Programação, abra **Extensões**. Elimine a extensão do Application Insights. Depois, em monitorização, escolha Application Insights e crie ou selecione o recurso que pretende.
+* No Azure, abra o painel de controlo de aplicação web e, em definições, abra **Application Insights**. Pode desativar o Application Insights clicando **desativar** na parte superior, ou selecione um novo recurso no **alterar seu recurso** secção.
 
 ## <a name="build-the-app-with-application-insights"></a>Compilar a aplicação com o Application Insights
 O Application Insights pode proporcionar telemetria mais detalhada, mediante a instalação de um SDK na sua aplicação. Em particular, pode recolher registos de rastreio, [escrever telemetria personalizada](app-insights-api-custom-events-metrics.md)e obter relatórios de exceções mais detalhados.

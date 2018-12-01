@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 1fc1d3b4418b178921dc32ee834342b75fa31f20
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fe564e9809a3621ca04e4dad75488fb255f7dc0e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311080"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682950"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -40,7 +40,7 @@ Aqui estão algumas das coisas que pode fazer com os registos de diagnóstico:
 
 * Guarde-as para um [ **conta de armazenamento** ](monitoring-archive-diagnostic-logs.md) para inspeção de auditoria ou manual. Pode especificar o tempo (em dias) de retenção usando **definições de diagnóstico de recursos**.
 * [Stream-lhes **os Hubs de eventos** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, como o Power BI.
-* Analisá-los com [do Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* Analisá-los com [do Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)
 
 Pode utilizar uma conta de armazenamento ou o espaço de nomes de Hubs de eventos que não esteja na mesma subscrição que emite os registos. O utilizador que configura a definição tem de ter o acesso RBAC adequado para ambas as subscrições.
 
@@ -235,4 +235,4 @@ Adicionar uma definição de diagnóstico abre a vista de definições de diagn�
 
 * [Stream registos de diagnóstico de recursos ao **dos Hubs de eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Alterar definições de diagnóstico de recursos com a API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analisar registos do armazenamento do Azure com o Log Analytics](../log-analytics/log-analytics-azure-storage.md)
+* [Analisar registos do armazenamento do Azure com o Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)

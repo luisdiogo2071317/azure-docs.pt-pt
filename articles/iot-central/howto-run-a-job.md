@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 09/15/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 35db7bf87c7b72fc31d820c9058b1df8415bd553
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ac5accc72369d811c0d36c4ef64cd8d523a061f3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031310"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724507"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Criar e executar uma tarefa no seu aplicativo de Central de IoT do Azure
 
@@ -56,8 +56,13 @@ Esta secção mostra-lhe como criar e executar uma tarefa. Cada passo passa por 
 
 Se desejar parar uma tarefa que está atualmente em execução, clique no nome da tarefa em execução que pretende parar. Escolha o **parar** botão no painel. Verá que o estado da tarefa foi alterado para refletir que a tarefa foi parada.
 
-> [!NOTE]
-> Depois de uma tarefa foi parada. não é possível reiniciar. Tem de criar outra tarefa com o operations pretendidos e dispositivos.
+   ![Parar tarefa](./media/howto-run-a-job/stopjob.png)
+
+### <a name="run-a-stopped-job"></a>Executar uma tarefa parada
+
+Se gostaria de executar uma tarefa que está atualmente parada, clique no nome da tarefa parada que gostaria de executar. Escolha o **executar** botão no painel. Verá que o estado da tarefa foi alterado para refletir que a tarefa está agora em execução novamente.
+
+   ![Tarefa de retomada de forma](./media/howto-run-a-job/resumejob.png)
 
 ## <a name="view-the-job-status"></a>Ver o estado da tarefa
 

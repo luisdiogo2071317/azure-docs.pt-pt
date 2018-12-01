@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6cfa3e0cb23f13b50c0fb7cd4f07a8d53c0f3186
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: fa6ae230a209d804f244d8bc46a3c6ac1abf6071
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340771"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725578"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Do Azure AD B2C: Protocolos de autenticação
 O Azure Active Directory B2C (Azure AD B2C) fornece identidade como um serviço para as suas aplicações com suporte a dois protocolos de norma da indústria: OpenID Connect e OAuth 2.0. O serviço é compatível com os padrões, mas qualquer duas implementações desses protocolos podem ter ligeiras diferenças. 
@@ -50,12 +50,12 @@ Em quase todos os fluxos do OAuth e OpenID Connect, quatro partes estão envolvi
 
 * O **servidor do recurso** é onde residem o recurso ou dados. Ele confia o servidor de autorização de forma segura autenticar e autorizar o cliente de OAuth. Ele também usa os tokens de acesso de portador para se certificar de que pode ser concedido acesso a um recurso.
 
-## <a name="policies"></a>Políticas
+## <a name="policies-and-user-flows"></a>Fluxos de utilizador e de políticas
 Indiscutivelmente, políticas do Azure AD B2C são os recursos mais importantes do serviço. O Azure AD B2C expande os protocolos padrão de OAuth 2.0 e OpenID Connect, introduzindo as políticas. Eles permitem que o Azure AD B2C para realizar muito mais do que a autenticação e autorização simples. 
 
-As políticas totalmente descrevem as experiências de identidade do consumidor, incluindo a inscrição, início de sessão e edição de perfil. As políticas podem ser definidas numa interface do Usuário administrativo. Eles podem ser executados com um parâmetro de consulta especial nos pedidos de autenticação HTTP. 
+Para ajudá-lo a configurar as tarefas mais comuns de identidade, o portal do Azure AD B2C inclui políticas predefinidas e configuráveis chamadas **fluxos de utilizador**. Fluxos de utilizador totalmente descrevem as experiências de identidade do consumidor, incluindo a inscrição, início de sessão e edição de perfil. Fluxos de utilizador podem ser definidos numa interface do Usuário administrativo. Eles podem ser executados com um parâmetro de consulta especial nos pedidos de autenticação HTTP. 
 
-As políticas não são recursos padrão de OAuth 2.0 e OpenID Connect, para que deve separar um tempo para entendê-las. Para obter mais informações, consulte a [guia de referência de política do Azure AD B2C](active-directory-b2c-reference-policies.md).
+As políticas e fluxos de utilizador não são recursos padrão de OAuth 2.0 e OpenID Connect, para que deve separar um tempo para entendê-las. Para obter mais informações, consulte a [guia de referência de fluxo de utilizador do Azure AD B2C](active-directory-b2c-reference-policies.md).
 
 ## <a name="tokens"></a>Tokens
 A implementação do Azure AD B2C do OAuth 2.0 e OpenID Connect faz uso extensivo de tokens de portador, incluindo os tokens de portador são representados como tokens de web JSON (JWTs). Um token de portador é um token de segurança simples que concede o acesso de "bearer" a um recurso protegido.

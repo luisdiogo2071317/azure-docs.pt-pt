@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/07/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5f95b71497b59eafff09d4add2b4bb1c20656592
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 9f475c7bc373afd8a109873908bb583bc07708f1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339363"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722552"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>O Azure AD B2C: Início de sessão com uma aplicação iOS
 
@@ -38,16 +38,16 @@ Em seguida, precisa de criar uma aplicação no diretório do B2C. O registo de 
 * Copiar a **ID da Aplicação** atribuída à aplicação. Este GUID são necessários mais tarde.
 * Configurar uma **URI de redirecionamento** com um esquema personalizado (por exemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). São necessários mais tarde este URI.
 
-## <a name="create-your-policies"></a>Criar as políticas
-No Azure AD B2C, cada experiência de utilizador é definida por uma [política](active-directory-b2c-reference-policies.md). Esta aplicação contém uma experiência de identidade: um combinado início de sessão e inscrição. Criar esta política, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Quando cria a política, certifique-se de que:
+## <a name="create-your-user-flows"></a>Criar os seus fluxos de utilizador
+No Azure AD B2C, cada experiência de utilizador é definida por um [fluxo de utilizador](active-directory-b2c-reference-policies.md). Esta aplicação contém uma experiência de identidade: um combinado início de sessão e inscrição. Criar este fluxo de utilizador, conforme descrito no [artigo de referência do fluxo de utilizador](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Quando cria o fluxo de utilizador, certifique-se de que para:
 
 * Sob **atributos de inscrição**, selecione o atributo **nome a apresentar**.  Pode selecionar também outros atributos.
 * Sob **afirmações de aplicação**, selecione as declarações **nome a apresentar** e **ID de objeto do utilizador**. Pode selecionar outras afirmações.
-* Copiar o **Nome** de cada política depois de a criar. Nome da sua política tem o prefixo `b2c_1_` quando guardar a política.  É necessário o nome de política mais tarde.
+* Copiar o **nome** de cada fluxo de utilizador depois de o criar. O nome do fluxo de utilizador tem o prefixo `b2c_1_` quando guardar o fluxo de utilizador.  É necessário o nome de fluxo de utilizador mais tarde.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Depois de criar as políticas, está pronto para criar a aplicação.
+Depois de criar os fluxos de utilizador, está pronto para criar a sua aplicação.
 
 ## <a name="download-the-sample-code"></a>Baixe o código de exemplo
 Fornecemos um exemplo funcional que utiliza AppAuth com o Azure AD B2C [no GitHub](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Pode baixar o código e executá-lo. Para utilizar o seu inquilino do Azure AD B2C, siga as instruções no [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md).
@@ -64,7 +64,7 @@ Este exemplo foi criado ao seguir as instruções de Leia-me pela [no GitHub do 
 
 Pode configurar a comunicação com o Azure AD B2C, especificando o ponto final de autorização e o ponto final do token URIs.  Para gerar estes URIs, terá das seguintes informações:
 * ID do inquilino (por exemplo, contoso.onmicrosoft.com)
-* Nome da política (por exemplo, B2C\_1\_SignUpIn)
+* Nome do fluxo de utilizador (por exemplo, B2C\_1\_SignUpIn)
 
 O ponto final do token URI que pode ser gerado, substituindo o inquilino\_ID e a política de\_nome no URL seguinte:
 

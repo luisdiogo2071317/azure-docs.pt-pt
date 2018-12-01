@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 8343c27693538480757a879e477ec77fba08de3d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 350c009f77bc37ae2201b1d5c3b701e89301b7aa
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958343"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721702"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics
 
@@ -73,7 +72,7 @@ Revisão [utilização do Log Analytics e custos estimados](log-analytics-usage.
 ### <a name="manage-the-maximum-daily-data-volume"></a>Gerir o volume de dados máximo diário 
 Os passos seguintes descrevem como configurar um limite para gerir o volume de dados do Log Analytics será ingerir por dia.  
 
-1. Na área de trabalho, selecione **utilização e custos estimados** no painel à esquerda.
+1. Na área de trabalho, selecione **Utilização e custos estimados**, no painel do lado esquerdo.
 2. Sobre o **utilização e custos estimados** para a área de trabalho selecionada, clique em **gestão de volumes de dados** da parte superior da página. 
 5. Limite diário é **OFF** por predefinição – clique em **ON** para ativá-la e, em seguida, defina o limite de volume de dados em GB/dia.<br><br> ![Configurar o limite de dados do log Analytics](media/log-analytics-manage-cost-storage/set-daily-volume-cap-01.png)
 
@@ -99,8 +98,8 @@ Assim que o alerta é definido e o limite for atingido, um alerta é acionado e 
 ## <a name="change-the-data-retention-period"></a>Alterar o período de retenção de dados 
 Os passos seguintes descrevem como configurar o registo quanto dados são mantidos na sua área de trabalho.
  
-1. Na área de trabalho, selecione **utilização e custos estimados** no painel à esquerda.
-2. Sobre o **utilização e custos estimados** página, clique em **gestão de volumes de dados** da parte superior da página.
+1. Na área de trabalho, selecione **Utilização e custos estimados**, no painel do lado esquerdo.
+2. Na página **Utilização e custos estimados**, clique em **Gestão de volumes de dados**, na parte superior.
 5. No painel, mova o controlo de deslize para aumentar ou diminuir o número de dias e, em seguida, clique em **OK**.  Se estiver a utilizar o *gratuita* escalão, não será capaz de modificar o período de retenção de dados e terá de atualizar para o escalão pago para poder controlar esta definição.<br><br> ![Alteração da definição de retenção de dados de área de trabalho](media/log-analytics-manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="troubleshooting"></a>Resolução de problemas

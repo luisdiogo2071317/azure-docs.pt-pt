@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/29/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262623"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682661"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
@@ -214,18 +214,17 @@ Especifica a configuração predefinida a ser utilizado pelo codificador em dire
 
 Tenha em atenção que se precisar de configurações predefinidas personalizadas, deve contactar amslived@microsoft.com.
 
-**Default720p** irá codificar o vídeo para as camadas de 7 seguintes.
+**Default720p** irá codificar o vídeo para as camadas de 6 seguintes.
 
 #### <a name="output-video-stream"></a>Stream de vídeo de saída
 | BitRate | Largura | Altura | MaxFPS | Perfil | Nome do Stream de saída |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Elevado |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Principal |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Principal |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Principal |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Principal |Video_384x216_550kbps |
-| 350 |340 |192 |30 |Linha de base |Video_340x192_350kbps |
-| 200 |340 |192 |30 |Linha de base |Video_340x192_200kbps |
+| 2200 |960 |540 |30 |Elevado |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Elevado |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Elevado |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Elevado |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Elevado |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Stream de áudio de saída
 

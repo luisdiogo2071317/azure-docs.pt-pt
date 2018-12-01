@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2e93a8340699d1fcf68c53baa87990e799bc933d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3283e7b0e0b7e20d4b8522f08ab2460504fa355f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447593"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723436"
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: criar uma API Web do .NET
 
@@ -39,17 +39,17 @@ Em seguida, tem de criar uma aplicação API Web no seu diretório do B2C. Isto 
 * Introduza um identificador de aplicação em **URI de ID de Aplicação**. Copie o **URI de ID de Aplicação** completo. Precisará dela mais tarde.
 * Adicione permissões através do menu **Âmbitos publicados**.
 
-## <a name="create-your-policies"></a>Criar as políticas
+## <a name="create-your-user-flows"></a>Criar os seus fluxos de utilizador
 
-No Azure AD B2C, cada experiência de utilizador é definida por uma [política](active-directory-b2c-reference-policies.md). Terá de criar uma política para comunicar com o Azure AD B2C. Recomendamos utilizar a política de inscrição/início de sessão combinada, conforme descrito no [artigo de referência de políticas](active-directory-b2c-reference-policies.md). Quando criar a política, certifique-se de que:
+No Azure AD B2C, cada experiência de utilizador é definida por um [fluxo de utilizador](active-directory-b2c-reference-policies.md). Terá de criar um fluxo de utilizador para comunicar com o Azure AD B2C. Recomendamos que utilize o fluxo de utilizador de início de sessão-inscrição/início de sessão combinada, conforme descrito no [artigo de referência do fluxo de utilizador](active-directory-b2c-reference-policies.md). Quando cria o fluxo de utilizador, certifique-se de que para:
 
-* Escolhe o **Nome a apresentar** e outros atributos de inscrição na política.
-* Escolher as afirmações **Nome a apresentar** e **ID de objeto** como afirmações de aplicação em cada política. Também pode escolher outras afirmações.
-* Copiar o **Nome** de cada política depois de a criar. Precisará do nome da política mais tarde.
+* Escolher **nome a apresentar** e outros atributos de inscrição no seu fluxo de utilizador.
+* Escolher **nome a apresentar** e **ID de objeto** declarações como afirmações de aplicação para cada fluxo de utilizador. Também pode escolher outras afirmações.
+* Copiar o **nome** de cada fluxo de utilizador depois de o criar. Terá o nome do fluxo de utilizador mais tarde.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Depois de criar a política com êxito, está pronto para criar a sua aplicação.
+Depois do fluxo de utilizador foi criada com êxito, está pronto para criar a sua aplicação.
 
 ## <a name="download-the-code"></a>Transferir o código
 
@@ -63,20 +63,20 @@ Depois de transferir o código de exemplo, abra o ficheiro de .sln do Visual Stu
 
 ### <a name="update-the-azure-ad-b2c-configuration"></a>Atualizar a configuração do Azure AD B2C
 
-O nosso exemplo está configurado para utilizar as políticas e o ID de cliente do nosso inquilino de demonstração. Se quiser utilizar o seu próprio inquilino, terá de fazer o seguinte:
+O nosso exemplo está configurado para utilizar os fluxos de utilizador e o ID de cliente do nosso inquilino de demonstração. Se quiser utilizar o seu próprio inquilino, terá de fazer o seguinte:
 
 1. Abra `web.config` no projeto `TaskService` e substitua os valores de:
     * `ida:Tenant` pelo nome do seu inquilino
     * `ida:ClientId` pelo ID da sua aplicação da API Web
-    * `ida:SignUpSignInPolicyId` pelo nome da sua política de “Inscrição ou Início de Sessão”
+    * `ida:SignUpSignInPolicyId` com o seu nome de fluxo de utilizador de "Inscrição ou início de sessão"
 
 2. Abra `web.config` no projeto `TaskWebApp` e substitua os valores de:
     * `ida:Tenant` pelo nome do seu inquilino
     * `ida:ClientId` pelo ID da sua aplicação Web
     * `ida:ClientSecret` pela chave de segredo da sua aplicação Web
-    * `ida:SignUpSignInPolicyId` pelo nome da sua política de “Inscrição ou Início de Sessão”
-    * `ida:EditProfilePolicyId` pelo nome da sua política de “Editar Perfil”
-    * `ida:ResetPasswordPolicyId` pelo nome da sua política de “Repor Palavras-Passe”
+    * `ida:SignUpSignInPolicyId` com o seu nome de fluxo de utilizador de "Inscrição ou início de sessão"
+    * `ida:EditProfilePolicyId` com o seu nome de fluxo de utilizador de "Editar perfil"
+    * `ida:ResetPasswordPolicyId` com o seu nome de fluxo de utilizador de "Repor palavra-passe"
     * `api:ApiIdentifier` com o "URI de ID de Aplicação"
 
 
@@ -169,7 +169,7 @@ public class TasksController : ApiController
 
 ### <a name="get-user-information-from-the-token"></a>Obter informações de utilizador a partir do token
 
-O `TasksController` armazena as tarefas numa base de dados onde cada tarefa tem um utilizador associado que é o “proprietário” da tarefa. O proprietário é identificado pela **ID de objeto** do utilizador. (É por isso que é necessário adicionar a ID de objeto como uma afirmação de aplicação em todas as suas políticas.)
+O `TasksController` armazena as tarefas numa base de dados onde cada tarefa tem um utilizador associado que é o “proprietário” da tarefa. O proprietário é identificado pela **ID de objeto** do utilizador. (Isso é por isso que é necessário adicionar o ID de objeto como uma aplicação afirmação em todos os seus fluxos de utilizador.)
 
 ```CSharp
 // Controllers\TasksController.cs
@@ -204,6 +204,6 @@ public IEnumerable<Models.Task> Get()
 
 Por último, crie e execute `TaskWebApp` e `TaskService`. Crie algumas tarefas na lista de ações a fazer do utilizador e repare como persistem na API mesmo depois de parar e reiniciar o cliente.
 
-## <a name="edit-your-policies"></a>Editar as suas políticas
+## <a name="edit-your-user-flows"></a>Editar os seus fluxos de utilizador
 
-Depois de proteger uma API com o Azure AD B2C, pode experimentar com a sua política de Inscrição/Início de Sessão e ver os efeitos (ou falta deles) na API. Pode manipular afirmações de aplicação nas políticas e alterar as informações de utilizador que estão disponíveis na API Web. Qualquer afirmações que adicionar estarão disponíveis para a API Web de MVC do .NET no objeto `ClaimsPrincipal`, como descrito anteriormente neste artigo.
+Depois de proteger uma API utilizando o Azure AD B2C, pode experimentar o início de sessão-em/inscrever-se fluxo de utilizador e ver os efeitos (ou falta deles) na API. Pode manipular afirmações de aplicação em fluxos de utilizador e alterar as informações de utilizador que estão disponíveis na web API. Qualquer afirmações que adicionar estarão disponíveis para a API Web de MVC do .NET no objeto `ClaimsPrincipal`, como descrito anteriormente neste artigo.

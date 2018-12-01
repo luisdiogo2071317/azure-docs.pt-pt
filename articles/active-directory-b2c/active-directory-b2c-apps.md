@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006199"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721974"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser utilizados no Active Directory B2C
 
@@ -26,7 +26,7 @@ Cada aplicativo que utiliza o Azure AD B2C tem de estar registado no seu [inquil
 * Uma **ID da aplicação** que identifica exclusivamente a sua aplicação.
 * R **URL de resposta** que podem ser utilizadas para direcionar as respostas de volta à sua aplicação.
 
-Cada pedido enviado para o Azure AD B2C especifica uma **política**. Uma política controla o comportamento do Azure AD. Também pode utilizar estes pontos finais para criar um conjunto altamente personalizável de experiências de utilizador. Políticas comuns incluem inscrição, início de sessão e edição de perfil. Se não estiver familiarizado com as políticas, deverá ler sobre a [estrutura de política extensível](active-directory-b2c-reference-policies.md) do Azure AD B2C antes de continuar.
+Cada pedido enviado para o Azure AD B2C Especifica um **fluxo de utilizador**, que é uma política que controla o comportamento do Azure AD. Também pode utilizar estes pontos finais para criar um conjunto altamente personalizável de experiências de utilizador. Disponibilizamos um conjunto de fluxos de utilizador para o ajudar a definir políticas comuns, incluindo a inscrição, início de sessão e edição de perfil. Mas também pode criar suas próprias políticas personalizadas. Se não estiver familiarizado com as políticas, deverá ler sobre a [estrutura de política extensível](active-directory-b2c-reference-policies.md) do Azure AD B2C antes de continuar.
 
 A interação de cada aplicação segue um padrão de alto nível semelhante:
 

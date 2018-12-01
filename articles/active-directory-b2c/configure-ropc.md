@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2ea9356f1292669f115d2bb482419435320f644c
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978830"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726292"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurar o fluxo de credenciais de palavra-passe de proprietário do recurso no Azure AD B2C
 
@@ -35,14 +35,17 @@ Não são suportados os seguintes fluxos:
 - **Para-servidor**: O sistema de proteção de identidade tem um endereço IP fiável recolhido do chamador (o cliente nativo) como parte da interação. Numa chamada de API do lado do servidor, é utilizado apenas o endereço IP do servidor. Se um limiar dinâmico de autenticação falhadas é excedido, o sistema de proteção de identidade pode identificar um endereço IP repetido como um atacante.
 - **Fluxo de cliente confidencial**: O ID de cliente da aplicação é validado, mas o segredo de aplicação não é validado.
 
-##  <a name="create-a-resource-owner-policy"></a>Criar uma política de proprietário do recurso
+##  <a name="create-a-resource-owner-user-flow"></a>Criar um fluxo de utilizador de proprietário do recurso
 
-1. Inicie sessão no portal do Azure como administrador global do inquilino do Azure AD B2C.
-2. Para mudar para o inquilino do Azure AD B2C, selecione o diretório de B2C no canto superior direito do portal.
-3. Sob **políticas**, selecione **políticas de proprietário do recurso**.
-4. Forneça um nome para a política, como *ROPC_Auth*e, em seguida, selecione **afirmações de aplicação**.
-5. Selecione as afirmações de aplicação que necessita para a sua aplicação, tal como *nome a apresentar*, *endereço de E-Mail*, e *fornecedor de identidade*.
-6. Selecione **OK** e, em seguida, selecione **Criar**.
+1.  Inicie sessão no portal do Azure como administrador global do inquilino do Azure AD B2C.
+2.  Para mudar para o inquilino do Azure AD B2C, selecione o diretório de B2C no canto superior direito do portal.
+3.  Clique em **fluxos de utilizador**e selecione **novo fluxo de utilizador**.
+4.  Clique nas **todos os** separador e selecione **proprietário do recurso**.
+5.  Forneça um nome para o fluxo de utilizador, tal como *ROPC_Auth*.
+6.  Sob **afirmações de aplicação**, clique em **mostrar mais**.
+7.  Selecione as afirmações de aplicação que necessita para a sua aplicação, como o nome a apresentar, endereço de E-Mail e fornecedor de identidade.
+8.  Selecione **OK** e, em seguida, selecione **Criar**.
+9.  Clique em **executar o fluxo de utilizador**.
 
    Em seguida, verá um ponto de extremidade, como neste exemplo:
 
@@ -57,9 +60,9 @@ Não são suportados os seguintes fluxos:
 4. Deixe todos os outros valores que são e, em seguida, selecionam **criar**.
 5. Selecione a nova aplicação e tome nota do ID da aplicação para utilização posterior.
 
-## <a name="test-the-policy"></a>Testar a política
+## <a name="test-the-user-flow"></a>Testar o fluxo de utilizador
 
-Utilize a sua aplicação de desenvolvimento de API favorita para gerar uma chamada à API e rever a resposta para depurar a sua política. Construa uma chamada como esta com as informações na tabela seguinte como o corpo da solicitação POST:
+Utilize a sua aplicação de desenvolvimento de API favorita para gerar uma chamada à API e rever a resposta para depurar o fluxo de utilizador. Construa uma chamada como esta com as informações na tabela seguinte como o corpo da solicitação POST:
 - Substitua  *\<yourtenant.onmicrosoft.com >* com o nome do inquilino do B2C.
 - Substitua  *\<B2C_1A_ROPC_Auth >* com o nome completo da sua política de credenciais de palavra-passe de proprietário do recurso.
 - Substitua  *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* com o ID de aplicação do seu registo.

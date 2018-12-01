@@ -9,17 +9,16 @@ ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 9b39eef5accec4764f61ab31dd894d368242ee3d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1ecdbdfb657d0372fea87c4260226f9de8ded9ce
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094655"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682508"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa da aplicação: Fazer a triagem de aplicações distribuídas
 
@@ -33,7 +32,7 @@ Os componentes são partes implementáveis independentemente do aplicativo/micro
 * Componentes são executados em qualquer número de instâncias de função/servidor/contentor.
 * Componentes podem ser separadas chaves de instrumentação do Application Insights (mesmo que as subscrições são diferentes) ou de diferentes funções de relatório para uma única chave de instrumentação do Application Insights. A experiência de mapa de pré-visualização mostra os componentes independentemente da forma como eles são configurados.
 
-## <a name="composite-application-map"></a>Mapa da Aplicação Composto
+## <a name="composite-application-map"></a>Mapa de aplicativo composto
 
 Pode ver a topologia de completo da aplicação através de vários níveis dos componentes de aplicativos relacionados. Componentes podem ser diferentes recursos do Application Insights, ou funções diferentes num único recurso. O mapa da aplicação localiza os componentes seguintes chamadas de dependência HTTP feitas entre servidores com o Application Insights SDK instalado. 
 
