@@ -2,42 +2,46 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: bff2543ec48c66c10db697650def0077e3de28be
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 78abb190dccd27c5bf70dfe12f978e1118601815
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133858"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742527"
 ---
-Para ativar as palavras-passe detalhadas repor na sua aplicação, utilize um **reposição de palavra-passe** política. Tenha em atenção que a opção de reposição de palavras-passe no âmbito do inquilino está especificada [aqui](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Esta política descreve as experiências que os clientes terão durante a reposição de palavra-passe e os conteúdos de tokens que a aplicação receberá após a conclusão com êxito.
+Para ativar as palavras-passe detalhadas repor na sua aplicação, utilize um **reposição de palavra-passe** fluxo de utilizador. Tenha em atenção que a palavra-passe de ao nível do inquilino de reposição da opção é especificada [aqui](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Este fluxo de utilizador descreve as experiências que os clientes terão durante a reposição de palavra-passe e os conteúdos de tokens que a aplicação receberá após a conclusão com êxito.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Na secção de políticas de definições, selecione **Políticas de reposição de palavras-passe** e clique em **+ Adicionar**.
+Sob **Manage**, selecione **fluxos de utilizador** e clique em +**novo fluxo de utilizador**.
 
-![Selecione as políticas de inscrição ou início de sessão e clique no botão Adicionar](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-policy.png)
+![Selecione o novo fluxo de utilizador](media/active-directory-b2c-create-password-reset-policy/add-b2c-new-user-flow.png)
 
-Introduza um **Nome** de política para a aplicação como referência. Por exemplo, introduza `SSPR`.
+Sobre o **recomendado** separador, selecione **reposição de palavra-passe**.
 
-Selecione **Fornecedores de identidade** e **Repor a palavra-passe com o endereço de e-mail**. Clique em **OK**.
+Introduza um fluxo de utilizador **nome** para a aplicação como referência. Por exemplo, introduza `SSPR`.
 
-![Selecione Repor a palavra-passe com o endereço de e-mail como fornecedor de identidade e clique no botão OK](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
+Sob **fornecedores de identidade**, verifique **repor a palavra-passe com endereço de e-mail**.
 
-Selecione **Afirmações de aplicação**. Escolha as afirmações que quer que sejam devolvidas nos tokens de autorização enviados para a sua aplicação depois de uma experiência de edição de reposição de palavras-passe com êxito. Por exemplo, selecione **ID de Objeto do Utilizador**.
+![Introduza o nome e selecione repor a palavra-passe com o endereço de e-mail como fornecedor de identidade](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
+
+Sob **afirmações de aplicação**, clique em **mostrar mais** e escolha as afirmações que quer que sejam devolvidas nos tokens de autorização enviados para a sua aplicação depois de experiência de reposição de uma palavra-passe com êxito. Por exemplo, selecione **ID de Objeto do Utilizador**.
+
+Clique em **OK**.
 
 ![Selecione algumas afirmações de aplicação e clique no botão OK](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-application-claims.png)
 
-Clique em **Criar** para adicionar a política. A política está listada como **B2C_1_SSPR**. O prefixo **B2C_1_** é acrescentado ao nome.
+Clique em **criar** para adicionar o fluxo de utilizador. O fluxo de utilizador está listado como **B2C_1_SSPR**. O prefixo **B2C_1_** é acrescentado ao nome.
 
-Abra a política ao selecionar **B2C_1_SSPR**. Verifique as definições especificadas na tabela e clique em **Executar agora**.
+Clique em **executar o fluxo de utilizador**. Verifique as definições especificadas na tabela, em seguida, clique em **executar o fluxo de utilizador**.
 
-![Selecione a política e execute-a](media/active-directory-b2c-create-password-reset-policy/run-b2c-password-reset-policy.png)
+![Selecione o fluxo de utilizador e executá-lo](media/active-directory-b2c-create-password-reset-policy/add-b2c-sspr-run-user-flow.png)
 
 | Definição      | Valor  |
 | ------------ | ------ |
-| **Aplicações** | Aplicação Contoso B2C |
+| **Aplicação** | Aplicação Contoso B2C |
 | **Selecionar o URL de resposta** | `https://localhost:44316/` |
 
 É aberto um novo separador do browser e pode verificar a experiência de consumidor de reposição de palavras-passe na sua aplicação.

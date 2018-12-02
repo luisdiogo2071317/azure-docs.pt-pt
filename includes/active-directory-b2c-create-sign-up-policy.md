@@ -2,39 +2,45 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 511b05e6cae769a5b39ae81a3e67efd05d374511
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 17c0213d63879687e9c6d5f8dca06b9113c44af8
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133294"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742395"
 ---
-Se quiser permitir que apenas Inscreva-se na sua aplicação, utilize um **Inscreva-se** política. Esta política descreve as experiências que os clientes passam por durante a inscrição e os conteúdos de tokens que a aplicação recebe nas inscrições com êxito.
+Se quiser permitir que apenas Inscreva-se na sua aplicação, utilize um **Inscreva-se** fluxo de utilizador. Este fluxo de utilizador descreve as experiências que os clientes passam por durante a inscrição e os conteúdos de tokens que a aplicação recebe nas inscrições com êxito.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Clique em **Políticas de inscrição**.
+Sob **Manage**, selecione **fluxos de utilizador**.
 
-Clique em **+ Adicionar** na parte superior do painel.
+Clique em +**novo fluxo de utilizador** na parte superior do painel.
 
-O **Nome** determina o nome da política de inscrição utilizado pela sua aplicação. Por exemplo, introduza **SiUp**.
+Sob **selecionar um tipo de fluxo de utilizador**, selecione **todos os**e, em seguida, selecione a versão do **Inscreva-se** que pretende utilizar.
 
-Clique em **Fornecedores de identidade** e selecione **Inscrição de e-mail**. Opcionalmente, também pode selecionar fornecedores de identidade social, se já estiverem configurados. Clique em **OK**.
+O **nome** determina o nome do fluxo de utilizador de inscrição utilizado pela sua aplicação. Por exemplo, introduza **SiUp**.
 
-Clique em **Atributos de inscrição**. Aqui pode escolher os atributos que quer recolher do consumidor durante a inscrição. Por exemplo, selecione **País/Região**, **Nome a Apresentar**, e **Código Postal**. Clique em **OK**.
+Sob **fornecedores de identidade**, selecione **inscrição de E-Mail**. Opcionalmente, também pode selecionar fornecedores de identidade social, se já estiverem configurados.
 
-Clique em **Afirmações de aplicação**. Aqui, pode escolher as afirmações que quer que sejam devolvidas nos tokens enviados para a sua aplicação depois de uma experiência de inscrição com êxito. Por exemplo, selecione **Nome a Apresentar**, **Fornecedor de Identidade**, **Código Postal**, **O utilizador é novo** e **ID de Objeto do Utilizador**.
+Sob **atributos de utilizador e afirmações**, clique em **mostrar mais**.
 
-Clique em **Criar**. A política criada é apresentada como **B2C_1_SiUp** (o fragmento **B2C\_1\_**  é adicionado automaticamente) no painel **Políticas de inscrição**.
+Na **atributo recolher** coluna, escolha os atributos que quer recolher do consumidor durante a inscrição. Por exemplo, selecione **País/Região**, **Nome a Apresentar**, e **Código Postal**.
 
-Abra a política ao clicar em **B2C_1_SiUp**.
+Na **declaração de retorna** coluna, escolher as afirmações que quer que sejam devolvidas nos tokens enviados para a sua aplicação depois de uma experiência de inscrição com êxito. Por exemplo, selecione **Nome a Apresentar**, **Fornecedor de Identidade**, **Código Postal**, **O utilizador é novo** e **ID de Objeto do Utilizador**.
 
-Selecione **Aplicação Contoso B2C** no menu pendente **Aplicações** e `https://localhost:44321/` no menu pendente **URL de Resposta/URI de Redirecionamento**.
+Clique em **OK**.
 
-Clique em **Executar agora**. É aberto um novo separador do browser e pode percorrer a experiência de consumidor de inscrição na sua aplicação.
+Clique em **Criar**. O fluxo de utilizador criado aparece como **B2C_1_SiUp** (o **B2C\_1\_**  fragmento é adicionado automaticamente).
+
+Clique em **executar o fluxo de utilizador**.
+
+Selecione **aplicação Contoso B2C** no **aplicativo** menu pendente e `https://localhost:44321/` no **URL de resposta** pendente.
+
+Clique em **executar o fluxo de utilizador**. É aberto um novo separador do browser e pode percorrer a experiência de consumidor de inscrição na sua aplicação.
 
 > [!NOTE]
-> A criação da política e as atualizações demoram até um minuto a serem aplicadas.
+> Demoram até um minuto para criação de fluxos de utilizador e atualizações em vigor.
 >

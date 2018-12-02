@@ -1,15 +1,15 @@
 ---
 author: manish-shukla01
-ms.author: manshuk
+ms.author: cwatson
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 08-03-2018
-ms.openlocfilehash: 41216fe12e10f72f76043f1a8bc361b538259ac1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.date: 11-20-2018
+ms.openlocfilehash: 044f735560eb7d57a90a16c1e3ce1255a9fe0d54
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39720893"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742441"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilidade de tamanho de máquina virtual com as instâncias de VM reservadas
 
@@ -117,9 +117,16 @@ Para obter mais informações, consulte [tamanhos de máquinas virtuais de fins 
 | Tamanho | Proporção|
 |---|---|
 |Standard_DS11_v2|1|
+|Standard_DS11-1_v2|1|
 |Standard_DS12_v2|2|
+|Standard_DS12-1_v2|2|
+|Standard_DS12-2_v2|2|
 |Standard_DS13_v2|4|
+|Standard_DS13-2_v2|4|
+|Standard_DS13-4_v2|4|
 |Standard_DS14_v2|8|
+|Standard_DS14-4_v2|8|
+|Standard_DS14-8_v2|8|
 |Standard_DS15_v2|10|
 
 Para obter mais informações, consulte [tamanhos de máquinas virtuais com otimização de memória](../articles/virtual-machines/windows/sizes-memory.md#dsv2-series-11-15).
@@ -178,12 +185,21 @@ Para obter mais informações, consulte [tamanhos de máquinas virtuais de fins 
 
 | Tamanho | Proporção|
 |---|---|
-| Standard_E2s_v3|1|
+|Standard_E2s_v3|1|
 |Standard_E4s_v3|2|
+|Standard_E4 2s_v3|2|
 |Standard_E8s_v3|4|
+|Standard_E8-2s_v3|4|
+|Standard_E8 4s_v3|4|
 |Standard_E16s_v3|8|
+|Standard_E16 4s_v3|8|
+|Standard_E16 8s_v3|8|
 |Standard_E32s_v3|16|
+|Standard_E32-8s_v3|16|
+|Standard_E32 16s_v3|16|
 |Standard_E64s_v3|32|
+|Standard_E64 16s_v3|32|
+|Standard_E64 32s_v3|32|
 
 Para obter mais informações, consulte [tamanhos de máquinas virtuais com otimização de memória](../articles/virtual-machines/windows/sizes-memory.md#esv3-series).
 
@@ -289,9 +305,15 @@ Para obter mais informações, consulte [tamanhos de máquinas virtuais com otim
 
 | Tamanho | Proporção|
 |---|---|
-| Standard_M8ms|1|
+|Standard_M8ms|1|
+|Standard_M8 2ms|1|
+|Standard_M8 4ms|1|
 |Standard_M16ms|2|
+|Standard_M16 4ms|2|
+|Standard_M16 8ms|2|
 |Standard_M32ms|4|
+|Standard_M32 8ms|4|
+|Standard_M32-16 MS|4|
 
 Para obter mais informações, consulte [tamanhos de máquinas virtuais com otimização de memória](../articles/virtual-machines/windows/sizes-memory.md#m-series).
 
@@ -309,7 +331,11 @@ Para obter mais informações, consulte [tamanhos de máquinas virtuais com otim
 | Tamanho | Proporção|
 |---|---|
 | Standard_M64ms|1|
+|Standard_M64-16 MS|1|
+|Standard_M64 32ms|1|
 |Standard_M128ms|2|
+|Standard_M128 32ms|2|
+|Standard_M128 64ms|2|
 
 Para obter mais informações, consulte [tamanhos de máquinas virtuais com otimização de memória](../articles/virtual-machines/windows/sizes-memory.md#m-series).
 

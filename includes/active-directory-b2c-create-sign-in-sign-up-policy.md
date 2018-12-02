@@ -2,48 +2,56 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: 3485cc96ad1d9ab8f89facf33687a7ab2be43b1e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f23d2b02bc2a23c5333a48a50532c03f3aa6a031
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132898"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742417"
 ---
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-Na secção de políticas de definições, selecione **Políticas de inscrição ou início de sessão** e clique em **+ Adicionar**.
+Sob **Manage**, selecione **fluxos de utilizador** e clique em +**novo fluxo de utilizador**.
 
-![Selecione as políticas de inscrição ou início de sessão e clique no botão Adicionar](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-policy.png)
+![Selecione o novo fluxo de utilizador](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow.png)
 
-Introduza um **Nome** de política para a aplicação como referência. Por exemplo, introduza `SiUpIn`.
+Sobre o **recomendado** separador, selecione **inscrever-se e iniciar sessão**.
 
-Selecione **Fornecedores de identidade** e selecione **Inscrição de e-mail**. Opcionalmente, também pode selecionar fornecedores de identidade social, se já estiverem configurados. Clique em **OK**.
+![Selecione o sinal de cópia de segurança e inicie sessão no fluxo de utilizador](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-user-flow-type.png)
 
-![Selecione Inscrição de e-mail como fornecedor de identidade e clique no botão OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-identity-providers.png)
+Introduza um fluxo de utilizador **nome** para a aplicação como referência. Por exemplo, introduza `SiUpIn`.
 
-Selecione **Atributos de inscrição**. Escolha os atributos que quer recolher do consumidor durante a inscrição. Por exemplo, selecione **País/Região**, **Nome a Apresentar**, e **Código Postal**. Clique em **OK**.
+Sob **fornecedores de identidade** e verifique **inscrição de E-Mail**. Opcionalmente, também pode selecionar fornecedores de identidade social, se já estiverem configurados.
 
-![Selecione alguns atributos e clique no botão OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-attributes.png)
+Sob **a autenticação Multifator**, escolha o **ativado** ou **desativado**.
 
-Selecione **Afirmações de aplicação**. Escolha as afirmações que quer que sejam devolvidas nos tokens de autorização enviados para a sua aplicação depois de uma experiência de inscrição ou início de sessão com êxito. Por exemplo, selecione **Nome a Apresentar**, **Fornecedor de Identidade**, **Código Postal**, **O utilizador é novo** e **ID de Objeto do Utilizador**.
+![Introduza um nome e selecione inscrição de E-Mail como fornecedor de identidade](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-name-identity-providers.png)
 
-![Selecione algumas afirmações de aplicação e clique no botão OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-application-claims.png)
+Sob **atributos de utilizador e afirmações**, selecione **mostrar mais** para ver a lista completa de atributos e pode escolher a partir de afirmações.
 
-Clique em **Criar** para adicionar a política. A política está listada como **B2C_1_SiUpIn**. O prefixo **B2C_1_** é acrescentado ao nome.
+Na **atributo recolher** coluna, escolha os atributos que quer recolher do consumidor durante a inscrição. Por exemplo, selecione **País/Região**, **Nome a Apresentar**, e **Código Postal**.
 
-Abra a política ao selecionar **B2C_1_SiUpIn**. Verifique as definições especificadas na tabela e clique em **Executar agora**.
+Na **declaração de retorna** coluna, escolha as afirmações que quer que sejam devolvidas nos tokens de autorização enviados para a sua aplicação depois de uma experiência de inscrição ou início de sessão com êxito. Por exemplo, selecione **Nome a Apresentar**, **Fornecedor de Identidade**, **Código Postal**, **O utilizador é novo** e **ID de Objeto do Utilizador**.
 
-![Selecione a política e execute-a](media/active-directory-b2c-create-sign-in-sign-up-policy/run-b2c-signup-signin-policy.png)
+Clique em **OK**.
+
+![Selecione alguns atributos de utilizador e afirmações e clique no botão OK](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-all-attributes.png)
+
+Clique em **criar** para adicionar o fluxo de utilizador. O fluxo de utilizador está listado como **B2C_1_SiUpIn**. O prefixo **B2C_1_** é acrescentado ao nome.
+
+Selecione **executar o fluxo de utilizador**. Verifique as definições especificadas na tabela, em seguida, clique em **executar o fluxo de utilizador**.
+
+![Selecione o fluxo de utilizador de execução](media/active-directory-b2c-create-sign-in-sign-up-policy/run-user-flow-b2c-signup-signin.png)
 
 | Definição      | Valor  |
 | ------------ | ------ |
-| **Aplicações** | Aplicação Contoso B2C |
-| **Selecionar o URL de resposta** | `https://localhost:44316/` |
+| **Aplicação** | Aplicação Contoso B2C |
+| **URL de resposta** | `https://localhost:44316/` |
 
 É aberto um novo separador do browser e pode verificar a experiência de consumidor de inscrição ou início de sessão, conforme configurado.
 
 > [!NOTE]
-> A criação da política e as atualizações demoram até um minuto a serem aplicadas.
+> Demoram até um minuto para criação de fluxos de utilizador e atualizações em vigor.
 >

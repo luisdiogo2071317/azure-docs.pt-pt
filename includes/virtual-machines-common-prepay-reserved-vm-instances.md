@@ -1,15 +1,15 @@
 ---
 author: yashesvi
-ms.author: yashar
+ms.author: cwatson
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 09/05/2018
-ms.openlocfilehash: 40551fa60aa17e9a46d24ffdf17bb61a884a48f2
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 11/30/2018
+ms.openlocfilehash: a35c3a9a6d914cf7e6620819b24e34d954f55c2d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585803"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742240"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure
 
@@ -32,7 +32,6 @@ Instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos de 
 
 - O desconto de reserva não se aplica para as VMs seguintes:
   - As VMs clássicas e serviços em nuvem
-  - Tamanhos de vCPU restrita
   - Série VM: Série A, série Av2 ou série G
   - As VMs em pré-visualização: qualquer série de VM ou o tamanho que está em pré-visualização
 - Nuvens: Não reservas estão disponíveis para compra em regiões da Alemanha ou China.
