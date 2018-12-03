@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fdb856f92bf790df0065cfc74ce5896f1d10c47b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954111"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724031"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>O que é o Azure Active Directory B2C?
 
@@ -60,9 +60,9 @@ O Azure AD B2C interage com fornecedores de identidade, clientes, outros sistema
 
 O Azure AD B2C protege de ataques denial of service e de palavra-passe lançados contra as suas aplicações. O Azure AD B2C utiliza técnicas de deteção e mitigação, como cookies SYN e limites de velocidade e de ligação para proteger os recursos contra ataques denial of service. A mitigação também é incluída para ataques de força bruta de palavra-passe e ataques de palavra-passe de dicionário.
 
-#### <a name="built-in-policies"></a>Políticas incorporadas
+#### <a name="user-flows"></a>Fluxos do utilizador
 
-Cada pedido enviado para o Azure AD B2C especifica uma política. Uma política controla o comportamento de interação da sua aplicação com o Azure AD B2C. As políticas incorporadas estão predefinidas para as tarefas de identidade mais comuns, tais como inscrição, início de sessão e edição de perfil.  Por exemplo, uma política de inscrição permite-lhe controlar comportamentos através da configuração das seguintes definições:
+Cada pedido enviado para o Azure AD B2C Especifica um fluxo de utilizador, o que é uma política que controla o comportamento de como seu aplicativo interage com o Azure AD B2C. Predefinidos, tais como os fluxos de utilizador para tarefas mais comuns de identidade, inscrição, início de sessão e edição de perfis, estão disponíveis no portal do Azure AD B2C.  Por exemplo, um fluxo de inscrição de utilizador permite-lhe controlar comportamentos configurando as seguintes definições:
 
 - Contas de redes sociais que o cliente utiliza para se inscrever na aplicação
 - Dados recolhidos do cliente, como o nome próprio ou o código postal
