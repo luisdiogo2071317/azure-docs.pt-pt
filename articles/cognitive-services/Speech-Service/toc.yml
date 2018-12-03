@@ -5,12 +5,11 @@ items:
   items:
   - name: O que é o Serviço de Voz?
     href: overview.md
+  - name: Experimente o Serviço de Voz gratuitamente
+    href: get-started.md
   expanded: true
 - name: Inícios rápidos
   items:
-  - name: Experimente o serviço de Voz gratuitamente
-    displayName: get started, subscription key
-    href: get-started.md
   - name: Reconhecer voz
     items:
     - name: Utilizar C# (.NET no Windows)
@@ -40,6 +39,12 @@ items:
     - name: Utilizar Objective-C (iOS)
       displayName: recognize speech, speech recognition, speech to text, stt, xcode
       href: quickstart-objectivec-ios.md
+  - name: Conversão de texto em voz
+    items:
+    - name: Utilizar C#, REST
+      href: quickstart-dotnet-text-to-speech.md
+    - name: Utilizar Python, REST
+      href: quickstart-python-text-to-speech.md
   - name: Introdução ao SDK de Dispositivos de Voz
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk-qsg.md
@@ -198,9 +203,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacidade e cookies
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 80e3fa94f14541ef15f374c3eec510cbc3958bab
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d8bd694a976bb233ee25bca050505042759417ac
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986747"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635565"

@@ -1,11 +1,11 @@
 items:
 - name: Documentação do Azure HDInsight
   href: /azure/hdinsight
-- name: HBase no HDInsight
+- name: Apache HBase no HDInsight
   items:
   - name: Descrição geral
     href: apache-hbase-overview.md
-  - name: Componentes do Hadoop no HDInsight
+  - name: Componentes do Apache Hadoop no HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -13,7 +13,7 @@ items:
     maintainContext: true
 - name: Introdução
   items:
-  - name: Começar com o HBase e o NoSQL
+  - name: Começar com o Apache HBase e o NoSQL
     href: apache-hbase-tutorial-get-started-linux.md
   - name: Instalar aplicações do HDInsight
     href: ../hdinsight-apps-install-applications.md
@@ -33,7 +33,7 @@ items:
       maintainContext: true
   - name: Programar
     items:
-    - name: Utilizar o SDK .NET do HBase
+    - name: Utilizar o SDK .NET do Apache HBase
       href: apache-hbase-rest-sdk.md
     - name: Desenvolver aplicações Java
       href: apache-hbase-build-java-maven-linux.md
@@ -46,13 +46,13 @@ items:
     - name: Apache Phoenix no HDInsight
       href: ../hdinsight-phoenix-in-hdinsight.md
       maintainContext: true
-    - name: Utilizar Phoenix e SQLLine
+    - name: Utilizar o Apache Phoenix e o SQLLine
       href: apache-hbase-phoenix-squirrel-linux.md
-    - name: Utilizar o SDK REST do Phoenix Query Server
+    - name: Utilizar o SDK REST do Apache Phoenix Query Server
       href: apache-hbase-using-phoenix-query-server-rest-sdk.md
   - name: Analisar macrodados
     items:
-    - name: Utilizar o Spark para ler e escrever dados do HBase
+    - name: Utilizar o Apache Spark para ler e escrever dados do Apache HBase
       href: ../hdinsight-using-spark-query-hbase.md
       maintainContext: true
   - name: Expandir clusters
@@ -126,7 +126,7 @@ items:
     - name: Criar clusters a pedido
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
-    - name: Gerir clusters do Hadoop
+    - name: Gerir clusters do Apache Hadoop
       href: ../hdinsight-administer-use-portal-linux.md
       items:
       - name: Utilizar o .NET SDK
@@ -139,13 +139,13 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: Gerir clusters com a IU Web do Ambari
+    - name: Gerir clusters com a IU Web do Apache Ambari
       href: ../hdinsight-hadoop-manage-ambari.md
       items:
-      - name: Otimizar clusters com a IU Web do Ambari
+      - name: Otimizar clusters com a IU Web do Apache Ambari
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: Utilizar a API REST Ambari
+      - name: Utilizar a API REST do Apache Ambari
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
@@ -158,15 +158,15 @@ items:
     - name: Adicionar contas de armazenamento
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: Carregar dados de tarefas do Hadoop
+    - name: Carregar dados de tarefas do Apache Hadoop
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: Carregamento de dados em massa para o Phoenix com psql
+    - name: Carregamento de dados em massa para o Apache Phoenix com psql
       href: apache-hbase-phoenix-psql.md
     - name: Vários clusters do HDInsight com o Data Lake Store
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
-    - name: Importar e exportar dados com Sqoop
+    - name: Importar e exportar dados com o Apache Sqoop
       href: ../hdinsight-use-sqoop.md
       items:
       - name: Ligar com SSH
@@ -187,7 +187,7 @@ items:
     - name: Atualizar o cluster do HDInsight para a versão mais recente
       href: ../hdinsight-upgrade-cluster.md
       maintainContext: true
-    - name: Migrar cluster do HBase para a versão mais recente
+    - name: Migrar cluster do Apache HBase para a versão mais recente
       href: apache-hbase-migrate-new-version.md
     - name: Aplicação de patches de SO para o cluster do HDInsight
       href: ../hdinsight-os-patching.md
@@ -198,13 +198,13 @@ items:
     - name: Resolver problemas de um cluster do HDInsight lento ou a falhar
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: Resolução de problemas do HDFS
+    - name: Resolução de problemas do Apache Hadoop HDFS
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: Resolução de problemas do HBase
+    - name: Resolução de problemas do Apache HBase
       href: apache-troubleshoot-hbase.md
       maintainContext: true
-    - name: Resolução de problemas do YARN
+    - name: Resolução de problemas do Apache Hadoop YARN
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: Recursos
@@ -212,25 +212,25 @@ items:
       - name: Informações sobre como utilizar o HDInsight no Linux
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Memória e desempenho do Hadoop
+      - name: Memória e desempenho do Apache Hadoop
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: Aceder a registos de aplicações do Hadoop YARN no Linux
+      - name: Aceder a registos de aplicações do Apache Hadoop YARN no Linux
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: Ativar captura de área dinâmica para dados de serviços do Hadoop
+      - name: Ativar captura de área dinâmica para dados de serviços do Apache Hadoop
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
       - name: Compreender e resolver erros de WebHCat
         href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
         maintainContext: true
-      - name: As definições do Hive corrigem o erro Sem Memória
+      - name: As definições do Apache Hive corrigem o erro Sem Memória
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: Utiliza as vistas Ambari para depurar Tarefas do Tez
+      - name: Utilizar as vistas do Apache Ambari para depurar tarefas do Apache Tez
         href: ../hdinsight-debug-ambari-tez-view.md
         maintainContext: true
-      - name: Otimizar as consultas do Hive
+      - name: Otimizar as consultas do Apache Hive
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
     maintainContext: true
@@ -247,11 +247,11 @@ items:
     - name: Ligar o HDInsight com a sua rede local
       href: ../connect-on-premises-network.md
       maintainContext: true
-    - name: Criar cluster HBase em VNet do Azure
+    - name: Criar cluster do Apache HBase no Azure VNet
       href: apache-hbase-provision-vnet.md
-    - name: Replicação de cluster HBase em VNet do Azure
+    - name: Replicação do cluster do Apache HBase no Azure VNet
       href: apache-hbase-replication.md
-    - name: Configurar a cópia de segurança e de replicação HBase e Phoenix
+    - name: Configurar cópia de segurança e replicação do Apache HBase e do Apache Phoenix
       href: apache-hbase-backup-replication.md
   - name: Monitorizar com o Log Analytics
     items:
@@ -264,7 +264,7 @@ items:
     - name: Monitorizar o desempenho do cluster
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true
-    - name: Melhores práticas de desempenho do Phoenix
+    - name: Melhores práticas de desempenho do Apache Phoenix
       href: apache-hbase-phoenix-performance.md
 - name: Referência
   items:
@@ -280,13 +280,13 @@ items:
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: SDK Go
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: Relacionado
   items:
@@ -298,34 +298,34 @@ items:
     - name: Migrar soluções .NET para clusters do Linux
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: Executar exemplos de MapReduce do Hadoop
+    - name: Executar exemplos de MapReduce do Apache Hadoop
       href: ../hdinsight-run-samples.md
       maintainContext: true
-    - name: Utilizar Solr nos clusters
+    - name: Utilizar o Apache Solr nos clusters
       href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
-    - name: Utilizar Giraph para processar gráficos em grande escala
+    - name: Utilizar o Apache Giraph para processar gráficos em grande escala
       href: ../hdinsight-hadoop-giraph-install.md
       maintainContext: true
-    - name: Utilizar Oozie para fluxos de trabalho
+    - name: Utilizar o Apache Oozie para fluxos de trabalho
       href: ../hdinsight-use-oozie.md
       maintainContext: true
-    - name: Implementar e gerir topologias do Storm
+    - name: Implementar e gerir topologias do Apache Storm
       href: ../storm/apache-storm-deploy-monitor-topology.md
       maintainContext: true
-    - name: Utilizar Maven para criar aplicações Java
+    - name: Utilizar o Apache Maven para criar aplicações Java
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: Utilizar a IU do Tez para depurar Tarefas do Tez
+    - name: Utilizar a IU do Apache TEZ para depurar Tarefas do TEZ
       href: ../hdinsight-debug-tez-ui.md
       maintainContext: true
     - name: Personalizar com a Ação de Script
       href: ../hdinsight-hadoop-customize-cluster.md
       maintainContext: true
-    - name: Aceder a registos de aplicações YARN
+    - name: Aceder a registos de aplicações do Apache Hadoop YARN
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
-    - name: Gerar recomendações de filmes com o Mahout
+    - name: Gerar recomendações de filmes com o Apache Mahout
       href: ../hdinsight-mahout.md
       maintainContext: true
     - name: Analisar dados de atraso de voos
@@ -340,7 +340,7 @@ items:
     - name: Gerir clusters com o portal do Azure
       href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
-    - name: Monitorizar clusters com a API do Ambari
+    - name: Monitorizar clusters com a API do Apache Ambari
       href: ../hdinsight-monitor-use-ambari-api.md
       maintainContext: true
 - name: Recursos
@@ -365,9 +365,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: bd15bf79fa8782a2bbcb74e4636aa8cbc95ef28a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 9bf9d1f319d92712fe15ac510717b0c0eb1a53c6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362862"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317216"

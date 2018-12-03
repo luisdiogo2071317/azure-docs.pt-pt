@@ -6,17 +6,17 @@ manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/28/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: b5a99ff8cfc0a915b70c6d90b8aa04d020177d54
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.topic: overview
+ms.openlocfilehash: ea34296e170d18a1d5636c50e7cae316b1d97948
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748175"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584611"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar recursos com os grupos de gestão do Azure
 
@@ -28,12 +28,12 @@ Por exemplo, pode aplicar políticas a um grupo de gestão que limita as regiõe
 
 Pode criar uma estrutura flexível de grupos de gestão e de subscrições para organizar os seus recursos numa hierarquia para assegurar uma gestão unificada de acesso e política. O diagrama seguinte mostra um exemplo de criação de uma hierarquia de governação com grupos de gestão.
 
-![árvore](./media/MG_overview.png)
+![árvore](./media/tree.png)
 
-Ao criar uma hierarquia semelhante a este exemplo, pode aplicar uma política (por exemplo, localizações de VM limitadas à região E.U.A. Oeste) no grupo "Grupo de gestão da Equipa de Infraestrutura" para ativar as políticas internas de conformidade e segurança. Esta política será herdada por ambas as subscrições EA existentes nesse grupo de gestão e será aplicada a todas as VMs nessas subscrições. Como a política provém do grupo de gestão e é herdada pelas subscrições, esta política de segurança não pode ser alterada pelo proprietário do recurso ou da subscrição, o que permite uma melhor governação.
+Crie uma hierarquia para que possa aplicar uma política, por exemplo, limitar as localizações das VMs para a região E.U.A. Oeste no grupo "Grupo de gestão da Equipa de Infraestrutura". Esta política será herdada por ambas as subscrições EA existentes nesse grupo de gestão e será aplicada a todas as VMs nessas subscrições. Esta política de segurança não pode ser alterada pelo proprietário do recurso ou da subscrição, o que permite uma melhor governação.
 
 Outro cenário em que utilizaria os grupos de gestão seria para fornecer acesso de utilizador a várias subscrições. Ao mover várias subscrições para esse grupo de gestão, pode criar uma atribuição de [controlo de acesso baseado em funções](../../role-based-access-control/overview.md) (RBAC) no grupo de gestão, o que faz com que todas as subscrições herdem esse acesso.
-Sem a necessidade de criar scripts de atribuições RBAC para várias subscrições, uma única atribuição no grupo de gestão pode permitir que os utilizadores tenham acesso a tudo o que precisam.
+Uma única atribuição no grupo de gestão pode permitir que os utilizadores tenham acesso a tudo o que precisam, sem a necessidade de criar scripts de RBAC para diferentes subscrições.
 
 ### <a name="important-facts-about-management-groups"></a>Factos importantes sobre os grupos de gestão
 
@@ -42,7 +42,7 @@ Sem a necessidade de criar scripts de atribuições RBAC para várias subscriç�
   - Este limite não inclui o nível da Raiz ou o nível da subscrição.
 - Cada grupo de gestão e subscrição só podem suportar um elemento principal.
 - Cada grupo de gestão pode ter vários elementos subordinados.
-- Todas os grupos de gestão e subscrições estão contidos numa única hierarquia em cada diretório. Veja [Factos importantes sobre o grupo de gestão de Raiz](#important-facts-about-the-root-management-group) para saber quais as exceções durante a Pré-visualização.
+- Todos os grupos de gestão e subscrições estão contidos numa única hierarquia em cada diretório. Veja [Factos importantes sobre o grupo de gestão de Raiz](#important-facts-about-the-root-management-group) para saber quais as exceções durante a Pré-visualização.
 
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gestão de raiz para cada diretório
 
@@ -73,17 +73,17 @@ Quando um utilizador começa a utilizar grupos de gestão, ocorre um processo de
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Problemas ao ver todas as subscrições
 
-Alguns diretórios que começaram a utilizar os grupos de gestão numa fase inicial da pré-visualização (25 de junho de 2018) podem ter um problema em que todas as subscrições não foram impostas na hierarquia.  Este motivo ocorre porque os processos para imporem as subscrições na hierarquia foram implementados após uma atribuição de função ou política realizada no grupo de gestão de raiz no diretório.
+Alguns diretórios que começaram a utilizar os grupos de gestão numa fase inicial da pré-visualização (25 de junho de 2018) podem ter um problema em que todas as subscrições não foram impostas na hierarquia.  Os processos para impor as subscrições na hierarquia foram implementados após uma atribuição de função ou política realizada no grupo de gestão de raiz no diretório.
 
 ### <a name="how-to-resolve-the-issue"></a>Como resolver o problema
 
-Há duas opções personalizadas para resolver o problema.
+Existem duas opções para resolver este problema.
 
 1. Remover todas as atribuições de Função e de Política do grupo de gestão de raiz
-    1. Ao remover quaisquer atribuições de política e de função do grupo de gestão de raiz, o serviço preenche quaisquer subscrições na hierarquia para o ciclo do próximo dia.  O motivo para esta verificação consiste em garantir que não é concedido acesso de forma acidente ou uma atribuição de política a todas as subscrições de inquilinos.
+    1. Ao remover quaisquer atribuições de política e de função do grupo de gestão de raiz, o serviço preenche quaisquer subscrições na hierarquia para o ciclo do próximo dia.  Este processo consiste em garantir que não é concedido acesso de forma acidente ou uma atribuição de política a todas as subscrições de inquilinos.
     1. A melhora forma de realizar este processo sem afetar os seus serviços consiste em basicamente aplicar as atribuições de função ou de política um nível abaixo do Grupo de gestão de raiz. Então pode remover todas as atribuições do âmbito de raiz.
 1. Chame a API diretamente para iniciar o processo de preenchimento
-    1. Qualquer cliente autorizada no diretório pode chamar as APIs *TenantBackfillStatusRequest* ou *StartTenantBackfillRequest*. Quando a API StartTenantBackfillRequest é chamada, lança o processo inicial de configuração de mover todas as subscrições para a hierarquia. Este processo também inicia a imposição de todas as novas subscrições como sendo um filho do grupo de gestão de raiz. Este processo pode ser realizado sem alterar quaisquer atribuições ao nível raiz dado que está a confirmar que qualquer atribuição de política ou de acesso na raiz pode ser aplicada a todas as subscrições.
+    1. Qualquer cliente no diretório pode chamar as APIs *TenantBackfillStatusRequest* ou *StartTenantBackfillRequest*. Quando a API StartTenantBackfillRequest é chamada, lança o processo inicial de configuração de mover todas as subscrições para a hierarquia. Este processo também inicia a imposição de todas as novas subscrições como sendo um filho do grupo de gestão de raiz. Este processo pode ser feito sem alterar as atribuições no nível de raiz. Ao chamar a API, está a indicar que não há problema em que qualquer atribuição de política ou acesso na raiz seja aplicada a todas as subscrições.
 
 Se tiver dúvidas sobre este processo de preenchimento, contacte: managementgroups@microsoft.com  
   
@@ -111,12 +111,26 @@ A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos
 
 De momento, os grupos de gestão não suportam funções RBAC personalizadas. Veja o [fórum de comentários do grupo de gestão](https://aka.ms/mgfeedback) para ver o estado deste item.
 
+## <a name="audit-management-groups-using-activity-logs"></a>Auditar os grupos de gestão que utilizam registos de atividades
+
+Para monitorizar os grupos de gestão através desta API, utilize a [API do Registo de Atividades do Inquilino](/rest/api/monitor/tenantactivitylogs). Atualmente, não é possível utilizar o PowerShell, a CLI ou o portal do Azure para monitorizar a atividade dos grupos de gestão.
+
+1. Como administrador do inquilino do Azure AD, [eleve o acesso](../../role-based-access-control/elevate-access-global-admin.md) e, em seguida, atribua uma função de Leitor ao utilizador de auditoria no âmbito `/providers/microsoft.insights/eventtypes/management`.
+1. Como utilizador de auditoria, chame a [API do Registo de Atividades do Inquilino](/rest/api/monitor/tenantactivitylogs) para ver as atividades dos grupos de gestão. Vai querer filtrar pelo Fornecedor de Recursos **Microsoft.Management** para todas as atividades dos grupos de gestão.  Exemplo:
+
+```
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> Para chamar convenientemente esta API a partir da linha de comandos, experimente [ARMClient](https://github.com/projectkudu/ARMClient).
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os grupos de gestão, veja:
 
 - [Criar grupos de gestão para organizar recursos do Azure](create.md)
 - [Como alterar, eliminar ou gerir os seus grupos de gestão](manage.md)
-- [Instalar o módulo do Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Rever as Especificações da API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Instalar a extensão da CLI do Azure](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Rever os grupos de gestão no Módulo de Recursos do Azure PowerShell](https://aka.ms/mgPSdocs)
+- [Rever os grupos de gestão na API REST](https://aka.ms/mgAPIdocs)
+- [Rever os grupos de gestão na CLI do Azure](https://aka.ms/mgclidoc)
