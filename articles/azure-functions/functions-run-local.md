@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 6ba2fd85e23f3a0b634319f7399f97bec9ef3954
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 89236575a73325d650f1357ff03abb53bbc7b00c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346427"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848957"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -37,16 +37,6 @@ Salvo indicação em contrário, os exemplos neste artigo são para a versão 2.
 ## <a name="install-the-azure-functions-core-tools"></a>Instalar as Ferramentas de Núcleo de Funções do Azure
 
 [Ferramentas de núcleo das funções do Azure] inclui uma versão do runtime mesmo que alimenta o tempo de execução de funções do Azure que pode executar no seu computador de desenvolvimento local. Ele também fornece comandos para criar funções, ligar para o Azure e implementar projetos de função.
-
-### <a name="v1"></a>Versão 1.x
-
-A versão original das ferramentas utiliza o runtime 1.x de funções. Esta versão utiliza o .NET Framework (4.7) e só é suportada em computadores Windows. Antes de instalar as ferramentas do versão 1.x, deve [instalar o NodeJS](https://docs.npmjs.com/getting-started/installing-node), que inclui o npm.
-
-Utilize o seguinte comando para instalar as ferramentas de 1.x da versão:
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
 
 ### <a name="v2"></a>Versão 2.x
 
@@ -155,7 +145,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--force`** | Inicialize o projeto, mesmo quando existem ficheiros existentes no projeto. Esta definição substitui os ficheiros existentes com o mesmo nome. Não são afetados outros ficheiros na pasta de projeto. |
 | **`--no-source-control -n`** | Impede a criação de padrão de um repositório de Git na versão 1.x. Na versão 2.x, o repositório de git não é criado por predefinição. |
 | **`--source-control`** | Controla se um repositório de git é criado. Por predefinição, não é criado um repositório. Quando `true`, é criado um repositório. |
-| **`--worker-runtime`** | Define o tempo de execução de linguagem para o projeto. Valores suportados são `dotnet`, `node` (JavaScript), e `java`. Quando não definido, lhe for pedido para escolher o seu tempo de execução durante a inicialização. |
+| **`--worker-runtime`** | Define o tempo de execução de linguagem para o projeto. Valores suportados são `dotnet`, `node` (JavaScript), `java`, e `python`. Quando não definido, lhe for pedido para escolher o seu tempo de execução durante a inicialização. |
 
 > [!IMPORTANT]
 > Por predefinição, versão 2.x das ferramentas de núcleo cria função os projetos de aplicativos para o tempo de execução do .NET como [projetos de classe c#](functions-dotnet-class-library.md) (arquivo. csproj). Esses projetos do c#, que podem ser utilizados com o Visual Studio ou o Visual Studio Code, são compilados durante o teste e ao publicar no Azure. Se pretender em vez disso, criar e trabalhar com o mesmo script c# (. csx) ficheiros criados na versão 1.x e no portal, tem de incluir o `--csx` parâmetro ao criar e implementar as funções.
@@ -420,11 +410,11 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Ferramentas de núcleo suporta dois tipos de implantação, implantação de arquivos de projeto de função diretamente para a aplicação de funções e implementar um contentor do Linux personalizado, que é suportado apenas na versão 2.x. Tem de ter já [criou uma aplicação de funções na sua subscrição do Azure](functions-cli-samples.md#create).
 
-Na versão 2.x, tem de ter [registado suas extensões](#register-extensions) no seu projeto antes da publicação. Projetos que requerem a compilação devem ser criados para que os binários podem ser implementados.
+Na versão 2.x, tem de ter [registado suas extensões](#register-extensions) no seu projeto antes da publicação. Projetos que requerem a compilação devem ser criados para que os binários podem ser implementados. 
 
 ### <a name="project-file-deployment"></a>Implementação de ficheiros de projeto  
 
-O método de implementação mais comum envolve o uso de ferramentas de núcleo para empacotar seu projeto de aplicação de função e implantar o pacote para a sua aplicação de função. Pode opcionalmente [executar as suas funções diretamente a partir do pacote de implementação](run-functions-from-deployment-package.md).
+O método de implementação mais comum envolve o uso de ferramentas de núcleo para seu projeto de aplicação de função, binários e dependências de pacote e implantar o pacote para a sua aplicação de função. Pode opcionalmente [executar as suas funções diretamente a partir do pacote de implementação](run-functions-from-deployment-package.md).
 
 Para publicar um projeto de funções para uma aplicação de funções no Azure, utilize o `publish` comando:
 
@@ -440,14 +430,14 @@ O `publish` comando carrega o conteúdo do diretório do projeto de funções. S
 > Quando cria uma aplicação de funções no portal do Azure, utiliza a versão 2.x do runtime de função, por predefinição. Para tornar a função aplicação utilizar a versão 1.x do runtime, siga as instruções em [é executado na versão 1.x](functions-versions.md#creating-1x-apps).  
 > Não é possível alterar a versão de runtime para uma aplicação de função que tenha a funções existentes.
 
-Pode utilizar as seguintes opções de publicação, o que são aplicadas para as versões, 1.x e 2.x:
+Opções de publicar o projeto seguinte aplicam-se para as versões, 1.x e 2.x:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  Definições de publicação no Settings para o Azure, pedir para substituir se a definição já existe. Se estiver a utilizar o emulador de armazenamento, altere a definição de aplicação para um [ligação de armazenamento real](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suprimir a linha de comandos para substituir as definições da aplicação quando `--publish-local-settings -i` é utilizado.|
 
-As seguintes opções de publicação só são suportadas na versão 2.x:
+Opções de publicar o projeto seguinte só são suportadas na versão 2.x:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
@@ -455,6 +445,8 @@ As seguintes opções de publicação só são suportadas na versão 2.x:
 |**`--list-ignored-files`** | Apresenta uma lista de ficheiros que são ignorados durante a publicação, o que se baseia no arquivo .funcignore. |
 | **`--list-included-files`** | Apresenta uma lista de ficheiros que são publicados, que se baseia no arquivo .funcignore. |
 | **`--zip`** | Publicar no pacote de Run-From-Zip. Requer que a aplicação tenha a definição de AzureWebJobsStorage definida. |
+| **`--build-native-deps`** | Aplicações de funções de ignora a geração .wheels pasta durante a publicação de python. |
+| **`--additional-packages`** | Lista de pacotes a serem instalados durante a criação de dependências nativas. Por exemplo: `python3-dev libevent-dev`. |
 | **`--force`** | Ignore a verificação de pré-publicação em determinados cenários. |
 | **`--csx`** | Publica um projeto de script (. csx) do c#. |
 | **`--no-build`** | Ignorar a criação de funções do dotnet. |

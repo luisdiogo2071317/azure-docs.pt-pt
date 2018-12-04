@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4e20d787bef4da518765d1eeeb33237ddd612606
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8e30b1ba093e38f81c9a09a0b9107e5a3b2eb768
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721226"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847376"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Ligar o Configuration Manager ao Log Analytics
 Pode ligar o seu ambiente do System Center Configuration Manager para o Azure Log Analytics para sincronizar dados de coleção de dispositivo e fazem referência a essas coleções no Log Analytics e a automatização do Azure.  
@@ -112,7 +112,7 @@ Depois das coleções são importadas, pode ver quantos computadores com associa
 
 ![Grupos de computadores - separador do SCCM](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-Quando clicar em qualquer um, é aberta a pesquisa, exibindo a todos os grupos importados ou todos os computadores que pertencem a cada grupo. Usando [pesquisa de registos](log-analytics-queries.md), pode iniciar uma análise aprofundada de dados do Configuration Manager.
+Quando clicar em qualquer um, é aberta a pesquisa, exibindo a todos os grupos importados ou todos os computadores que pertencem a cada grupo. Usando [pesquisa de registos](../azure-monitor/log-query/log-query-overview.md), pode iniciar uma análise aprofundada de dados do Configuration Manager.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisa de registos](log-analytics-queries.md) para ver informações detalhadas sobre os seus dados do Configuration Manager.
+* Uso [pesquisa de registos](../azure-monitor/log-query/log-query-overview.md) para ver informações detalhadas sobre os seus dados do Configuration Manager.

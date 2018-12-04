@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: d818b4c045139eace88c3ef6b9675e5199c2ed4b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6a9bc347af471a2ab84cefc25bcd7f48f1d5908d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428250"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846050"
 ---
-# <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
+# <a name="service-connectivity-monitor"></a>Monitor de conectividade do serviço
 
 Pode utilizar a capacidade de Monitor de conectividade do serviço no [Monitor de desempenho de rede](network-performance-monitor.md) para monitorizar a conectividade de rede para qualquer ponto final que tem uma porta TCP aberta. Esses pontos de extremidade incluem Web sites, aplicações SaaS, PaaS aplicações e bases de dados SQL. 
 
@@ -35,7 +35,7 @@ Pode executar as seguintes funções com o Monitor de conectividade do serviço:
 - Identifica pontos de acesso na rede que podem estar provocando o desempenho da aplicação insatisfatório visualizando a latência contribuída cada salto num mapa de topologia.
 
 
-![Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
+![Monitor de conectividade do serviço](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuração 
@@ -131,4 +131,4 @@ Se observar um abnormality, siga estes passos:
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Pesquisar registos](../../log-analytics/log-analytics-queries.md) para ver os registos de dados de desempenho de rede detalhada.
+[Pesquisar registos](../../azure-monitor/log-query/log-query-overview.md) para ver os registos de dados de desempenho de rede detalhada.

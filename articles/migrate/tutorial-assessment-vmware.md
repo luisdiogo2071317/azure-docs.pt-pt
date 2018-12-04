@@ -4,15 +4,15 @@ description: Descreve como detetar e avaliar VMs VMware no local para migração
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 18e1ecd4896277f0dd0dfc2ceac2185cbdd09b93
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: dddfbab1d40c03659ba346c9f0e898cfefc8d55e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241111"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847988"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar VMs VMware no local para migração para o Azure
 
@@ -26,16 +26,13 @@ Neste tutorial, ficará a saber como:
 > * Configurar uma máquina virtual (VM) do recoletor no local para detetar VMs VMware no local para avaliação.
 > * Agrupar VMs e criar uma avaliação.
 
-
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - **VMware**: as VMs que planeia migrar têm de ser geridas pelo vCenter Server com a versão 5.5, 6.0 ou 6.5. Além disso, precisa de um anfitrião ESXi com a versão 5.0 ou superior para implementar a VM do recoletor.
 - **Conta do vCenter Server**: precisa de uma conta só de leitura para aceder ao vCenter Server. O Azure Migrate utiliza esta conta para detetar as VMs no local.
 - **Permissões**: no vCenter Server, precisa de permissões para criar uma VM ao importar um ficheiro no formato .OVA.
-- **Definições de estatísticas**: este pré-requisito só é aplicável ao modelo de deteção única. Para a deteção única funcionar, as definições de estatísticas do vCenter Server devem ser configuradas para o nível 3 antes de iniciar a implementação. Se estiverem num nível inferior a 3, a avaliação irá funcionar, mas não são recolhidos dados de desempenho para armazenamento e rede. As recomendações de tamanho neste caso serão efetuadas com base nos dados de desempenho para a CPU e a memória, e nos dados de configuração para o disco e os adaptadores de rede.
 
 ## <a name="create-an-account-for-vm-discovery"></a>Criar uma conta para deteção de VMs
 
@@ -67,20 +64,21 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 O Azure Migrate cria uma VM no local, conhecida como aplicação recoletora. Esta VM deteta as VMs VMware no local e envia os metadados sobre as mesmas para o serviço Azure Migrate. Para configurar a aplicação recoletora, transfira um ficheiro .OVA e importe-o para o vCenter Server no local para criar a VM.
 
 1. No projeto do Azure Migrate, clique em **Começar** > **Detetar e Avaliar** > **Detetar Máquinas**.
-2. Em **Detetar máquinas**, há duas opções disponíveis para a aplicação, clique em **Transferir** para transferir a aplicação adequada com base na sua preferência.
+2. Na **detetar máquinas**, clique em **transferir** para transferir a aplicação.
 
-    a. **Deteção única:** a aplicação para este modelo comunica com o vCenter Server para recolher os metadados acerca das VMs. Para a recolha de dados de desempenho das VMs, a aplicação utiliza os dados de desempenho do histórico armazenados no vCenter Server e recolhe o histórico de desempenho do último mês. Neste modelo, o Azure Migrate recolhe o contador da média (versus o contador de pico) para cada métrica, [saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Uma vez que é uma deteção única, as alterações no ambiente no local não são refletidas assim que a deteção esteja concluída. Se quiser que as alterações sejam refletidas, precisará fazer uma redeteção do mesmo ambiente para o mesmo projeto.
-
-    b. **Deteção contínua:** a aplicação para este modelo, analisa continuamente o ambiente no local para recolher dados de utilização em tempo real para cada VM. Neste modelo, os contadores de pico são recolhidos para cada métrica (utilização da CPU, utilização da memória, etc.). Este modelo não utiliza as definições de estatísticas do vCenter Server para a recolha de dados de desempenho. Pode parar a criação contínua de perfis em qualquer altura da aplicação.
-
-    Tenha em atenção que a aplicação recolhe apenas dados de desempenho continuamente, não deteta qualquer alteração de configuração no ambiente no local (ou seja, adição de VM, eliminação, adição de disco, etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
-
-    1. Adição de itens (VMs, discos, núcleos, etc.): para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, iniciá-la novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
-
-    2. Eliminação das VMs: devido à forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
+    A aplicação do Azure Migrate comunica com o vCenter Server e perfis continuamente o ambiente no local para recolher dados de utilização em tempo real para cada VM. Recolhe os contadores de pico para cada uma (utilização da CPU, utilização da memória etc.). Este modelo não utiliza as definições de estatísticas do vCenter Server para a recolha de dados de desempenho. Pode parar a criação contínua de perfis em qualquer altura da aplicação.
 
     > [!NOTE]
-    > A funcionalidade de deteção contínua está em pré-visualização. Recomendamos que utilize este método, porque este recolhe dados de desempenho granular e resulta num dimensionamento preciso.
+    > A aplicação de deteção de uso individual foi agora preterida como esse método baseou-se no vCenter definições de estatísticas do servidor para a disponibilidade de ponto de dados de desempenho e coletados contadores de desempenho médio que resultou em insuficientemente dimensionamento de VMs para a migração para o Azure.
+
+    **Resultados instantâneos:** com a aplicação da deteção contínua, assim que estiver a deteção concluir (demora duas horas, consoante o número de VMs), pode criar avaliações de imediato. Uma vez que a recolha de dados de desempenho é iniciado quando pode iniciar a deteção, se estiver à procura de instantâneos, selecione o critério de tamanho na avaliação como *como no local*. Para obter avaliações baseado no desempenho, é recomendado aguardar pelo menos um dia após iniciar deteção para obter recomendações de tamanho fiável.
+
+    A aplicação só recolhe dados de desempenho continuamente, ele não detecta qualquer alteração de configuração no ambiente no local (ou seja, a adição de VM, eliminação, a adição de disco etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
+
+    - Adição de itens (VMs, discos, núcleos, etc.): para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, iniciá-la novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
+
+    - Eliminação das VMs: devido à forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
+
 
 3. Em **Copiar as credenciais do projeto**, copie o ID e a chave do projeto. Precisará destes dados quando configurar o recoletor.
 
@@ -96,7 +94,20 @@ Verifique se o ficheiro .OVA é seguro, antes de implementá-lo.
     - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. O hash gerado deve corresponder a estas definições.
 
-#### <a name="one-time-discovery"></a>Deteção única
+#### <a name="continuous-discovery"></a>Deteção contínua
+
+  Para a versão OVA 1.0.10.4
+
+  **Algoritmo** | **Valor de hash**
+  --- | ---
+  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
+
+
+#### <a name="one-time-discovery-deprecated-now"></a>Deteção única (agora preterida)
+
+Esse modelo foi agora preterido, o suporte para aplicações existentes, serão disponibilizadas.
 
   Para a versão OVA 1.0.9.15
 
@@ -121,33 +132,6 @@ Verifique se o ficheiro .OVA é seguro, antes de implementá-lo.
   MD5 | d0363e5d1b377a8eb08843cf034ac28a
   SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
   SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
-
-  Para a versão OVA 1.0.9.8
-
-  **Algoritmo** | **Valor de hash**
-  --- | ---
-  MD5 | b5d9f0caf15ca357ac0563468c2e6251
-  SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
-  SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
-
-
-  Para a versão OVA 1.0.9.7
-
-  **Algoritmo** | **Valor de hash**
-  --- | ---
-  MD5 | d5b6a03701203ff556fa78694d6d7c35
-  SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-  SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-
-#### <a name="continuous-discovery"></a>Deteção contínua
-
-  Para a versão OVA 1.0.10.4
-
-  **Algoritmo** | **Valor de hash**
-  --- | ---
-  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
-  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
-  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
 ## <a name="create-the-collector-vm"></a>Criar a VM do recoletor
 
@@ -195,12 +179,9 @@ Importe o ficheiro transferido para o vCenter Server.
 > Se alterar as definições num computador que pretende avaliar, acione a deteção novamente antes de executar a avaliação. No recoletor, selecione a opção **Iniciar novamente a coleção** para fazê-lo. Depois de terminar a coleção, selecione a opção **Recalcular** para a avaliação no portal, para obter os resultados da avaliação atualizada.
 
 
-
 ### <a name="verify-vms-in-the-portal"></a>Verificar as VMs no portal
 
-Para a deteção única, o tempo de deteção depende do número de VMs que está a detetar. Normalmente, para 100 VMs, após o recoletor terminar a execução, demora cerca de uma hora para concluir a recolha dos dados de configuração e de desempenho. Pode criar avaliações (quer baseadas no desempenho quer no local) imediatamente após a deteção ser efetuada.
-
-Para a deteção contínua (em pré-visualização), o recoletor vai analisar continuamente o ambiente no local e enviar os dados de desempenho com intervalos de uma hora. Pode consultar as máquinas no portal uma hora após o início da deteção. É vivamente recomendado aguardar pelo menos um dia antes de criar qualquer avaliação das VMs baseada no desempenho.
+A aplicação recoletora vai de perfil continuamente o ambiente no local e irá enviar os dados de desempenho num intervalo de hora. Pode ver as máquinas no portal do fim de uma hora de iniciar a deteção.
 
 1. No projeto de migração, clique em **Gerir** > **Máquinas**.
 2. Verifique se as VMs que quer detetar aparecem no portal.
@@ -208,7 +189,7 @@ Para a deteção contínua (em pré-visualização), o recoletor vai analisar co
 
 ## <a name="create-and-view-an-assessment"></a>Criar e ver uma avaliação
 
-Após a deteção das VMs, agrupe-as e crie uma avaliação.
+Após a deteção das VMs no portal, agrupá-los e criar avaliações. Pode criar imediatamente como no local avaliações assim que as VMs são detetadas no portal. Recomenda-se de espera, pelo menos, um dia antes de criar qualquer avaliações baseado no desempenho para obter recomendações de tamanho fiável.
 
 1. Na página **Descrição geral** do projeto, clique em **+ Criar avaliação**.
 2. Clique em **Ver tudo** para rever as propriedades de avaliação.
@@ -219,7 +200,7 @@ Após a deteção das VMs, agrupe-as e crie uma avaliação.
 7. Clique em **Exportar avaliação**, para transferi-la como um ficheiro do Excel.
 
 > [!NOTE]
-> Para a deteção contínua, é vivamente recomendado aguardar pelo menos um dia, depois de iniciar a deteção, antes de criar uma avaliação. Se quiser atualizar uma avaliação existente com os dados de desempenho mais recentes, poderá utilizar o comando **Recalcular** na avaliação para a atualizar.
+> É vivamente recomendado aguardar pelo menos um dia, depois de iniciar a deteção, antes de criar uma avaliação. Se quiser atualizar uma avaliação existente com os dados de desempenho mais recentes, poderá utilizar o comando **Recalcular** na avaliação para a atualizar.
 
 ### <a name="assessment-details"></a>Detalhes da avaliação
 
@@ -272,24 +253,16 @@ Para o dimensionamento com base em desempenho, o Azure Migrate requer os dados d
 
 Uma avaliação pode não ter todos os pontos de dados disponíveis por um dos seguintes motivos:
 
-**Deteção única**
-
-- A definição das estatísticas no vCenter Server não está definida para o nível 3. Dado que o modelo de deteção única depende das definições de estatísticas do vCenter Server, se a definição de estatística no vCenter Server for inferior ao nível 3, os dados de desempenho do disco e da rede não serão recolhidos pelo vCenter Server. Neste caso, a recomendação dada pelo Azure Migrate para disco e rede não se baseia na utilização. Sem considerar o IOPS/débito do disco, o Azure Migrate não pode identificar se o disco precisará de um disco premium no Azure. Neste caso, o Azure Migrate recomenda discos Standard para todos os discos.
-- A definição de estatísticas no vCenter Server foi definida como nível 3 para uma duração mais curta, antes de iniciar a deteção. Por exemplo, consideremos o cenário em que muda o nível de definição de estatística para 3 hoje e inicia a deteção com a aplicação recoletora amanhã (após 24 horas). Se estiver a criar uma avaliação para um dia, terá todos os pontos de dados e a classificação de confiança da avaliação será de 5 estrelas. No entanto, se estiver a mudar a duração do desempenho nas propriedades de avaliação para um mês, a classificação de confiança irá descer, uma vez que os dados de desempenho de rede e disco do último mês não estarão disponíveis. Se pretender considerar os dados de desempenho do último mês, é recomendado que mantenha a definição de estatística do vCenter Server no nível 3 durante um mês antes de iniciar a deteção.
-
-**Deteção contínua**
-
 - Não analisou o ambiente durante o tempo para a qual está a criar a avaliação. Por exemplo, se estiver a criar a avaliação com duração de desempenho definida como um dia, terá de aguardar pelo menos um dia após iniciar a deteção para todos os pontos de dados serem recolhidos.
 
-**Motivos comuns**  
-
 - Poucas VMs foram encerradas durante o período para o qual a avaliação é calculada. Se tiver desligado alguma VM durante algum tempo, não poderemos recolher os dados de desempenho correspondentes a esse período.
+
 - Poucas VMs foram criadas no período para o qual a avaliação é calculada. Por exemplo, se estiver a criar uma avaliação para o histórico de desempenho do último mês, mas poucas VMs tiverem sido criadas no ambiente há apenas uma semana. Em casos como este, o histórico de desempenho das novas VMs não estará lá para o período completo.
 
 > [!NOTE]
-> Se a classificação de confiança de qualquer avaliação estiver abaixo de 4 Estrelas, para o modelo de deteção única, recomendamos que altere o nível das definições de estatística do vCenter Server para 3, aguarde o tempo que pretende considerar para avaliação (1 dia/1 semana/1 mês) e, em seguida, efetue a deteção e a avaliação. Para o modelo de deteção contínua, aguarde pelo menos um dia para a aplicação analisar o ambiente e, em seguida *Recalcular* a avaliação. Se não conseguir fazê-lo, o dimensionamento baseado em desempenho poderá não ser fiável e recomenda-se que mude para o *dimensionamento no local* ao alterar as propriedades de avaliação.
+> Se a classificação de confiança de qualquer avaliação for inferior a 5 estrelas, aguarde pelo menos um dia para a aplicação para o ambiente de perfil e, em seguida *recalcular* a avaliação. Se não conseguir fazê-lo, o dimensionamento baseado em desempenho poderá não ser fiável e recomenda-se que mude para o *dimensionamento no local* ao alterar as propriedades de avaliação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba](how-to-modify-assessment.md) como personalizar uma avaliação com base nos seus requisitos.
 - Saiba como criar grupos de avaliação de confiança elevada através do [mapeamento de dependência de máquinas](how-to-create-group-machine-dependencies.md)

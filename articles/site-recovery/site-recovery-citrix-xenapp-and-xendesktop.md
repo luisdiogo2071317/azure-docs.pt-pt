@@ -5,14 +5,14 @@ author: ponatara
 manager: abhemraj
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4df7975d4d52e00cce7b57c6f207eb6cb9ea3be3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210317"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847903"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>configurar a recuperação após desastre para uma implementação de várias camada Citrix XenApp e XenDesktop
 
@@ -48,7 +48,7 @@ Implementação de Citrix XenApp e XenDesktop com o servidor de DNS de AD, o SQL
 ![Padrão de implementação 1](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-deployment.png)
 
 
-## <a name="site-recovery-support"></a>Suporte de recuperação de site
+## <a name="site-recovery-support"></a>Suporte do Site Recovery
 
 Para efeitos deste artigo, implementações do Citrix em máquinas de virtuais de VMware geridos pelo vSphere 6.0 / System Center VMM 2012 R2 foram utilizados para configurar o DR.
 

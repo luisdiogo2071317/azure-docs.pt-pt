@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814646902a88c7170da66397709ff3a8c7b081fd
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 57fda5ea9fdafffd0267f749016ed97b8fc06e15
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715796"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847121"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>A adição de recursos de automatização do Azure para uma solução de gestão (pré-visualização)
 > [!NOTE]
@@ -317,8 +317,8 @@ O runbook deve depender do recurso de módulo para se certificar de que foi cria
 ### <a name="updating-modules"></a>Atualizar módulos
 Se atualizar uma solução de gestão que inclui um runbook que utilize uma agenda e a nova versão da sua solução tem um novo módulo utilizado por esse runbook, o runbook pode utilizar a versão antiga do módulo.  Deve incluir os seguintes runbooks na sua solução e criar uma tarefa para executá-los antes de todos os outros runbooks.  Isto irá garantir que quaisquer módulos são atualizados como necessário antes dos runbooks são carregados.
 
-* [Atualização-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/DisplayScript) irá garantir que todos os módulos utilizados pelo runbooks na sua solução são a versão mais recente.  
-* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/DisplayScript) irá voltar a registar todos os recursos de agendamento para garantir que os runbooks ligados aos mesmos com uma utilização os módulos mais recentes.
+* [Atualização-ModulesinAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/1.03/) irá garantir que todos os módulos utilizados pelo runbooks na sua solução são a versão mais recente.  
+* [ReRegisterAutomationSchedule-MS-Mgmt](https://www.powershellgallery.com/packages/ReRegisterAutomationSchedule-MS-Mgmt/1.0/) irá voltar a registar todos os recursos de agendamento para garantir que os runbooks ligados aos mesmos com uma utilização os módulos mais recentes.
 
 
 

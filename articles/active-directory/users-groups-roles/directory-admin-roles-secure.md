@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7f2b4d870fdcf250f62d41fa4f3ea5bf13d323c3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821094"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847070"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -247,7 +247,7 @@ Os atacantes podem tentar atingir contas privilegiadas para obter acesso a dados
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Rever as recomendações do Instituto nacional de normas e tecnologia para processamento de incidentes 
 
-O National Institute of Standards e a tecnologia (NIST) fornece diretrizes para tratamento de incidentes, particularmente para analisar dados relacionados com o incidente e determinar a resposta adequada para cada incidente. Para obter mais informações, consulte [(NIST) o computador incidente manipulação de guia de segurança (SP 800 61, revisão 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+O National Institute of Standards e a tecnologia (NIST) fornece diretrizes para tratamento de incidentes, particularmente para analisar dados relacionados com o incidente e determinar a resposta adequada para cada incidente. Para obter mais informações, consulte [(NIST) o computador incidente manipulação de guia de segurança (SP 800 61, revisão 2)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>Implementar o Privileged Identity Management (PIM) para o JIT para funções administrativas adicionais
 

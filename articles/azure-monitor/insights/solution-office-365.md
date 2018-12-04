@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 14e89d5eab058b9fa42c20811df9c5ac0ceca44a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 80a5b49d27ffc2b75cc9a1092a4d9f17e09bef24
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633202"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848872"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -30,7 +30,7 @@ A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do O
 - Monitorizar atividades de administrador para controlar as alterações de configuração ou operações de alto privilégio.
 - Detete e investigue o comportamento dos utilizadores indesejados, que pode ser personalizado para as suas necessidades organizacionais.
 - Demonstre a conformidade e auditoria. Por exemplo, pode monitorizar operações de acesso de arquivos em ficheiros confidenciais, o que podem ajudá-lo com o processo de auditoria e conformidade.
-- Resolver os problemas operacionais usando [pesquisas de registos](../../log-analytics/log-analytics-queries.md) sobre dados de atividade do Office 365 da sua organização.
+- Resolver os problemas operacionais usando [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) sobre dados de atividade do Office 365 da sua organização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 É necessário o seguinte antes desta solução a ser instalado e configurado.
@@ -709,6 +709,6 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Utilizar as Pesquisas de Registos no [Log Analytics](../../log-analytics/log-analytics-queries.md) para ver dados de atualizações detalhados.
+* Utilizar as Pesquisas de Registos no [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para ver dados de atualizações detalhados.
 * [Criar seus próprios dashboards](../../azure-monitor/platform/dashboards.md) para exibir suas consultas de pesquisa favoritas do Office 365.
 * [Criar alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para ser notificado proativamente das atividades do Office 365 importantes.  

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394838"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846475"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Se tornar um publicador de Marketplace da Cloud
 
@@ -78,7 +78,7 @@ Será solicitado para incluir as seguintes informações:
 A nossa equipa de integração do Marketplace irá validar os detalhes de registo de marketplace fornecidos no passo 3. Quando for aprovado, receberá um e-mail de boas-vindos com as credenciais da conta e documentação de orientação sobre o início de sessão-para o [Cloud Partner Portal](https://cloudpartner.azure.com).
 
 Irá utilizar o [Cloud Partner Portal](https://cloudpartner.azure.com) para criar, publicar e gerir as ofertas do marketplace. Depois de receber o e-mail de boas-vindas de aprovação, o qual imediatamente pode iniciar sessão a [Cloud Partner Portal](https://cloudpartner.azure.com) com a sua conta Microsoft para aceder a informações técnicas adicionais sobre a publicação no marketplace e criar a sua oferta. 
-*   Para obter mais informações sobre como utilizar o Portal do Cloud Partner [aceda ao artigo de introdução na seção aprender](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Tem de ter sessão iniciada para o Portal de parceiro de Cloud para aceder a estes detalhes.
+*   Para obter mais informações sobre como utilizar o Portal do Cloud Partner [aceda ao artigo de introdução na seção aprender](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). Tem de ter sessão iniciada para o Portal de parceiro de Cloud para aceder a estes detalhes.
 *   Se tiver dúvidas ou seria como para agendar uma chamada de descrição geral de integração, consulte outros artigos neste guia de publicador ou abra um pedido de suporte em tipo de problema > integração do Marketplace da Cloud Partner Portal.
 *   Se não tiver recebido o e-mail de boas-vindos, verifique a pasta de spam para um e-mail com o assunto da mensagem "Bem-vindo ao Microsoft Marketplace!." Se não houver nenhum e-mail na sua pasta de spam, [contacte o suporte da Microsoft](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Na página de suporte, selecione: tipo de problema > integração do Marketplace.  A nossa equipa de integração do publicador de Marketplace será todo o gosto em ajudá-lo em suas consultas. 
 

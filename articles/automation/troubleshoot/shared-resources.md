@@ -4,16 +4,16 @@ description: Aprenda a solucionar problemas com os recursos de automatização d
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 385d2969e65647ab0b5c5e21c07b127104587e7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ce78c86cdae9a06100fd17d00e0229805e42983b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263562"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848464"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Resolver problemas de erros com recursos partilhados
 
@@ -25,11 +25,11 @@ Este artigo aborda soluções para resolver problemas que pode encontrar ao util
 
 #### <a name="issue"></a>Problema
 
-Quando importa ou atualizar os módulos na automatização do Azure, encontrar um módulo que fica preso no **importando** estado.
+Um módulo fica preso no **importando** estado quando importa ou atualizar seus módulos na automatização do Azure.
 
-#### <a name="error"></a>Erro
+#### <a name="cause"></a>Causa
 
-Importar os módulos do PowerShell é um processo complexo de vários passo. Este processo introduz a possibilidade de um módulo não importar corretamente. Se isto ocorrer, o módulo que está a importar pode estar bloqueado num estado transitório. Para saber mais sobre este processo, veja [importar um módulo do PowerShell]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
+Importar os módulos do PowerShell é um processo complexo de vários passo. Este processo introduz a possibilidade de um módulo não importar corretamente. Se este problema ocorrer, o módulo que está a importar pode estar bloqueado num estado transitório. Para saber mais sobre este processo, veja [importar um módulo do PowerShell]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### <a name="resolution"></a>Resolução
 
@@ -38,6 +38,28 @@ Para resolver este problema, tem de remover o módulo que fica preso no **import
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+## <a name="run-as-accounts"></a>Contas Run as
+
+### <a name="unable-create-update"></a>Cenário: Não for possível criar ou atualizar uma conta Run As
+
+#### <a name="issue"></a>Problema
+
+Ao tentar criar ou atualizar uma conta Run As, receberá um erro semelhante a seguinte mensagem de erro:
+
+```error
+You do not have permissions to create…
+```
+
+#### <a name="cause"></a>Causa
+
+Não tem as permissões que necessita criar ou atualizar a conta Run As ou o recurso está bloqueado num nível de grupo de recursos.
+
+#### <a name="resolution"></a>Resolução
+
+Para criar ou atualizar uma conta Run As, tem de ter permissões adequadas para os vários recursos utilizados pela conta Run As. Para saber mais sobre as permissões necessárias para criar ou atualizar uma conta Run As, consulte [permissões de conta Run As](../manage-runas-account.md#permissions).
+
+Se o problema é devido a um bloqueio, certifique-se de que o bloqueio está ok para remover e navegue para o recurso que está bloqueado, o bloqueio com o botão direito e escolher **eliminar** ao remover o bloqueio.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

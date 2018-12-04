@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f57dd806e345cad80b8c60424e12211fc74814d6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c4b5a200780761decfdd98289f7e7332244e5645
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213224"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846437"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurar a recuperação após desastre de VMs de Hyper-V no local em clouds do VMM para o Azure
 
@@ -55,7 +55,7 @@ Antes de começar, é útil [rever a arquitetura](concepts-hyper-v-to-azure-arch
 Quando configurar o ambiente de origem, instale o fornecedor do Azure Site Recovery e o agente dos serviços de recuperação do Azure e registar os servidores no local no cofre. 
 
 1. Em **Preparar Infraestrutura**, clique em **Origem**.
-2. Em **Preparar a origem**, clique em **+ VMM** para adicionar um servidor VMM. Na **Adicionar servidor**, verifique se **servidor do System Center VMM** aparece no **tipo de servidor**.
+2. Em **Preparar a origem**, clique em **+ VMM** para adicionar um servidor VMM. Em **Adicionar Servidor**, verifique se **Servidor do System Center VMM** aparece em **Tipo de servidor**.
 3. Transferir o instalador para o Microsoft Azure Site Recovery Provider.
 4. Transfira a chave de registo do cofre. Precisará dela quando executar a configuração do Fornecedor. A chave é válida durante cinco dias depois de gerá-la.
 5. Transferir o agente dos serviços de recuperação.
@@ -125,7 +125,7 @@ A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e 
 4. Selecione o **contosovmsacct1910171607** conta de armazenamento e o **ContosoASRnet** rede do Azure.
 5. Em **Máquinas virtuais** > **Selecionar**, selecione a VM que pretende replicar. Em seguida, clique em **OK**.
 
- Pode controlar o progresso da ação **Ativar Proteção** em **Tarefas** > **Tarefas do Site Recovery**. Depois do **finalizar proteção** tarefa estiver concluída, a replicação inicial está concluída e a VM está preparada para ativação pós-falha.
+ Pode controlar o progresso da ação **Ativar Proteção** em **Tarefas** > **Tarefas do Site Recovery**. Após a conclusão do trabalho **Finalizar Proteção**, a replicação inicial estará concluída e a VM estará preparada para a ativação pós-falha.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -1,17 +1,17 @@
 ---
-title: Consultas SQL para o Azure Cosmos DB | Documentos da Microsoft
+title: Consultas SQL para o Azure Cosmos DB
 description: Saiba mais sobre a sintaxe SQL, conceitos de base de dados e consultas SQL para o Azure Cosmos DB. SQL pode utilizado como uma linguagem de consulta JSON no Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9496f88a24c92387418d5d9ae23bb7f2eaff2088
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: f7b3826e1e77933b49f0a742ebf8dfb994bf7ea9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444450"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848736"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Consultar dados do Azure Cosmos DB com consultas SQL
 

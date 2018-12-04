@@ -7,19 +7,19 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: eabae0f3575719c6cb93affefe0a393dd13d1439
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6c44bebad6b54ab673fcbf3b2ef5e5d34c8c6882
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014011"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847733"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Ativar a autenticação multifator no Azure Active Directory B2C
 
-O Azure Active Directory (Azure AD) B2C se integra diretamente ao [multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md) para que pode adicionar uma segunda camada de segurança para experiências de inscrição e início de sessão nas suas aplicações. Ativar a autenticação multifator sem ter de escrever uma única linha de código. Se já criou o início de sessão a cópia de segurança e políticas de início de sessão, pode ainda ativar a autenticação multifator.
+O Azure Active Directory (Azure AD) B2C se integra diretamente ao [multi-factor Authentication](../active-directory/authentication/multi-factor-authentication.md) para que pode adicionar uma segunda camada de segurança para experiências de inscrição e início de sessão nas suas aplicações. Ativar a autenticação multifator sem ter de escrever uma única linha de código. Se já criou o início de sessão cópia de segurança e fluxos de utilizador de início de sessão, ainda pode ativar a autenticação multifator.
 
 Esta funcionalidade ajuda a aplicativos manipular os cenários, como o seguinte:
 
@@ -28,25 +28,24 @@ Esta funcionalidade ajuda a aplicativos manipular os cenários, como o seguinte:
 
 ## <a name="set-multi-factor-authentication"></a>Conjunto de multi-factor authentication
 
-Quando cria uma política, tem a opção para ativar a autenticação multifator.
+Quando criar um fluxo de utilizador, terá a opção para ativar a autenticação multifator.
 
 ![Conjunto de multi-factor authentication](./media/active-directory-b2c-reference-mfa/add-policy.png)
 
-Definir **estado** ao **no**.
+Definir **a autenticação Multifator** ao **ativado**.
 
-Pode usar **executar agora** na política para verificar a experiência. Confirme o seguinte cenário:
+Pode usar **executar o fluxo de utilizador** para verificar a experiência. Confirme o seguinte cenário:
 
 É criada uma conta de cliente no seu inquilino antes de ocorre a etapa de autenticação multifator. Durante a etapa, o cliente é-lhe pedido para fornecer um número de telefone e verificá-lo. Se a verificação for bem sucedida, o número de telefone está ligado à conta para utilização posterior. Mesmo que o cliente cancela ou ignora, o cliente pode-lhe pedido para verificar um número de telefone novamente durante o próximo início de sessão com autenticação multifator ativada.
 
 ## <a name="add-multi-factor-authentication"></a>Adicionar o multi-factor authentication
 
-É possível ativar a autenticação multifator numa política que criou anteriormente. 
+É possível ativar a autenticação multifator num fluxo de utilizador que criou anteriormente. 
 
 Para ativar a autenticação multifator:
 
-1. Abra a política e, em seguida, selecione **editar**. 
-2. Selecione **multi-factor authentication**
-3. Definir **estado** ao **no**.
-4. Clique em **Guardar** no início da página.
+1. Abra o fluxo de utilizador e, em seguida, selecione **propriedades**. 
+2. Junto a **a autenticação Multifator**, selecione **ativado**.
+3. Clique em **Guardar** no início da página.
 
 

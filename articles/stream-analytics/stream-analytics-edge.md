@@ -1,20 +1,19 @@
 ---
 title: O Azure Stream Analytics do IoT Edge (pré-visualização)
-description: Criar tarefas do edge no Azure Stream Analytics e implementá-las em dispositivos a executar o Azure IoT Edge.
+description: Criar tarefas do edge no Azure Stream Analytics e implementá-las em dispositivos com o Azure IoT Edge.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/16/2017
-ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 11/30/2018
+ms.openlocfilehash: 6d3060545946f1f003058932f1ffc50c2a64586f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687440"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846237"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>O Azure Stream Analytics do IoT Edge (pré-visualização)
 
@@ -197,7 +196,7 @@ Para criar uma tarefa com dados de referência do Edge:
 
 3. Possui um arquivo de dados referência pronto a no dispositivo. Para um contentor do Windows, colocar o arquivo de dados de referência na unidade local e partilhar o disco local com o contentor do Docker. Para um contentor do Linux, criar um volume do Docker e preencha o ficheiro de dados no volume.
 
-4. Defina o caminho de ficheiro. Para um dispositivo windows, utilize o caminho absoluto. Para um dispositivo Linux, utilize o caminho do volume.
+4. Defina o caminho de ficheiro. Para o SO de Host do Windows e um contentor do Windows, utilize o caminho absoluto: `E:\<PathToFile>\v1.csv`. Para um contentor de SO de Host do Windows e Linux ou um SO Linux e contentores de Linux, utilize o caminho do volume: `<VolumeName>/file1.txt`.
 
 ![Nova entrada de dados de referência para a tarefa do Azure Stream Analytics do IoT Edge](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
@@ -206,7 +205,6 @@ Os dados de referência na atualização do IoT Edge são acionados por uma impl
 Existem duas maneiras de atualizar os dados de referência:
 * Caminho de dados de referência de atualização na sua tarefa ASA do portal do Azure.
 * Atualize a implementação de IoT Edge.
-
 
 ## <a name="license-and-third-party-notices"></a>Licença e avisos de terceiros
 * [O Azure Stream Analytics em licenças de pré-visualização do IoT Edge](https://go.microsoft.com/fwlink/?linkid=862827). 

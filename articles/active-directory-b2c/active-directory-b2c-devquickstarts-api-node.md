@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 93c3bd3f902f08c8f019744b3f30745c1fd9fa01
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15526cc829d556457a7069df613bb6a8d2a2b23b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442428"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847665"
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>B2C do Azure AD: Proteger uma API Web utilizando Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -47,7 +47,7 @@ Em seguida, precisa de criar uma aplicação no seu diretório do B2C que dá ao
 * Copiar a **ID da Aplicação** atribuída à aplicação. Estes dados são necessários mais tarde.
 
 ## <a name="create-your-policies"></a>Criar as políticas
-No Azure AD B2C, cada experiência de utilizador é definida por uma [política](active-directory-b2c-reference-policies.md). Esta aplicação contém duas experiências de identidade: registo e início de sessão. Tem de criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Quando criar as três políticas, não se esqueça de:
+No Azure AD B2C, cada experiência de utilizador é definida por uma [política](active-directory-b2c-reference-policies.md). Esta aplicação contém duas experiências de identidade: registo e início de sessão. Tem de criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow).  Quando criar as três políticas, não se esqueça de:
 
 * Escolher o **Nome a apresentar** e os atributos de inscrição na política de inscrição.
 * Escolher as afirmações de aplicação **Nome a apresentar** e **ID de objeto** em cada política.  Também pode escolher outras afirmações.
@@ -71,12 +71,12 @@ A aplicação concluída está também [disponível como um ficheiro .zip](https
 ## <a name="download-nodejs-for-your-platform"></a>Transferir Node.js para a plataforma
 Para utilizar este exemplo com êxito, tem de ter uma instalação do Node.js em execução.
 
-Instalar Node.js de [nodejs.org](http://nodejs.org).
+Instalar Node.js de [nodejs.org](https://nodejs.org).
 
 ## <a name="install-mongodb-for-your-platform"></a>Instalar MongoDB para a plataforma
 Para utilizar este exemplo com êxito, tem de ter uma instalação do MongoDB. Utilizamos o MongoDB para tornar a API REST persistente em várias instâncias de servidor.
 
-Instalar MongoDB de [mongodb.org](http://www.mongodb.org).
+Instalar MongoDB de [mongodb.org](https://www.mongodb.org).
 
 > [!NOTE]
 > Esta passagem parte do princípio de que irá utilizar os pontos finais do servidor e a instalação predefinida para o MongoDB, que de momento é `mongodb://localhost`.

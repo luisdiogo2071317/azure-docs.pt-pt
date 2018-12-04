@@ -5,19 +5,21 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 1b66f40594d0dd578e2e5680fb0d5bb0f82f1241
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 99444e6b7ab71a531a95245b8e5056127446dbeb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311811"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847767"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
-Um grupo de ação é uma coleção de preferências de notificações definido pelo utilizador. Alertas de monitorização e estado de funcionamento do serviço do Azure são configuradas para utilizar um grupo de ação específica, quando o alerta é acionado. Vários alertas podem utilizar o mesmo grupo de ação ou a grupos de ação diferentes consoante os requisitos do utilizador.
+Um grupo de ação é uma coleção de preferências de notificações definidos pelo proprietário de uma subscrição do Azure. Alertas de monitorização e estado de funcionamento do serviço do Azure utilizam grupos de ação para notificar os utilizadores que foi acionado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou a grupos de ação diferentes consoante os requisitos do utilizador.
+
+Quando uma ação está configurada para ser notificado de uma pessoa por e-mail ou SMS a pessoa irá receber uma mensagem de confirmação que indica que ele / ela foi adicionada ao grupo de ação.
 
 Este artigo mostra-lhe como criar e gerir grupos de ação no portal do Azure.
 

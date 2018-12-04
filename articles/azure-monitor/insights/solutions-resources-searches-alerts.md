@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c496bd6f7ccec4cc08ca5eead02cb06ff3efde09
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 74987d09a9b8979d3c3596c87764f8f3bd4b5795
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715795"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846684"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar o Log Analytics guardar pesquisas e alertas para solução de gestão (pré-visualização)
 
@@ -27,7 +27,7 @@ ms.locfileid: "51715795"
 > Esta é a documentação preliminar para a criação de soluções de gestão que estão atualmente em pré-visualização. Qualquer esquema descrita abaixo está sujeitas a alterações.   
 
 
-[Soluções de gestão](solutions.md) normalmente, irá incluir [pesquisas guardadas](../../log-analytics/log-analytics-queries.md) no Log Analytics para analisar dados recolhidos pela solução.  Podem também definir [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para notificar o utilizador ou efetuar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir o Log Analytics pesquisas guardadas e alertas numa [modelo de gestão de recursos](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) para que possam ser incluídos na [soluções de gestão](solutions-creating.md).
+[Soluções de gestão](solutions.md) normalmente, irá incluir [pesquisas guardadas](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para analisar dados recolhidos pela solução.  Podem também definir [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para notificar o utilizador ou efetuar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir o Log Analytics pesquisas guardadas e alertas numa [modelo de gestão de recursos](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) para que possam ser incluídos na [soluções de gestão](solutions-creating.md).
 
 > [!NOTE]
 > Os exemplos neste artigo utilizam parâmetros e variáveis que são necessárias ou comuns para soluções de gestão e descrito em [estrutura e compilação de uma solução de gestão no Azure](solutions-creating.md)  
@@ -54,9 +54,9 @@ A tabela seguinte lista a versão de API para o recurso utilizado neste exemplo.
 
 
 ## <a name="saved-searches"></a>Pesquisas Guardadas
-Incluem [pesquisas guardadas](../../log-analytics/log-analytics-queries.md) numa solução para permitir que os utilizadores para consultar os dados recolhidos pela sua solução.  Pesquisas de guardado, são apresentados em **pesquisas guardadas** no portal do Azure.  Uma pesquisa guardada também é necessária para cada alerta.   
+Incluem [pesquisas guardadas](../../azure-monitor/log-query/log-query-overview.md) numa solução para permitir que os utilizadores para consultar os dados recolhidos pela sua solução.  Pesquisas de guardado, são apresentados em **pesquisas guardadas** no portal do Azure.  Uma pesquisa guardada também é necessária para cada alerta.   
 
-[A pesquisa guardada do log Analytics](../../log-analytics/log-analytics-queries.md) recursos têm um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches` e ter a seguinte estrutura.  Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
+[A pesquisa guardada do log Analytics](../../azure-monitor/log-query/log-query-overview.md) recursos têm um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches` e ter a seguinte estrutura.  Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",

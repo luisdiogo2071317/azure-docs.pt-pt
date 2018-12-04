@@ -1,19 +1,19 @@
 ---
 title: Como gerir a sua conta do Azure Maps e as chaves | Documentos da Microsoft
 description: Pode utilizar o portal do Azure para gerir a sua conta do Azure Maps e gerir as chaves de acesso.
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 12/02/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 29fd63139d31d146cfc67153f35bd57650b08cfa
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 2678b9d9adeddd7599680b6fc3f6e54cecd61a26
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541624"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848107"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Como gerir a sua conta do Azure Maps e as chaves
 
@@ -53,5 +53,10 @@ Em seguida, verá uma página de confirmação. Pode confirmar a eliminação da
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba como utilizar o Azure Maps APIs em de pesquisa [pesquisar por um endereço](./how-to-search-for-address.md).
-* Saiba como utilizar o Azure maps [controlo de mapas de JavaScript](./how-to-use-map-control.md).
+Saiba como gerir o escalão de preço de conta do Azure Maps:
+> [!div class="nextstepaction"]
+> [Gerir o escalão de preço](./how-to-manage-pricing-tier.md)
+
+Saiba como ver as métricas de utilização da API para a sua conta do Azure Maps:
+> [!div class="nextstepaction"]
+> [Ver métricas de utilização](./how-to-view-api-usage.md)

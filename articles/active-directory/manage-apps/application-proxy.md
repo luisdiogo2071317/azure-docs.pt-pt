@@ -15,18 +15,18 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 428f094dae2b9a69b58912190d2959a7dfc467ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 212628c0ec97524e91ab8eaeb766c3e405023aaf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365267"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846169"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Como fornecer acesso remoto seguro a aplicações no local
 
-Os funcionários pretendem hoje mesmo para serem produtivos em qualquer lugar, em qualquer altura e a partir de qualquer dispositivo. Eles querem trabalhar em seus próprios dispositivos, quer sejam tablets, telefones ou computadores portáteis. E esperam ser capazes de aceder a todos os seus aplicativos, ambas as aplicações de SaaS na cloud e aplicações empresariais no local. Fornecer acesso a aplicações no local sempre envolveu redes privadas virtuais (VPNs) ou desmilitarizada zonas (DMZs). Não só são essas soluções complexas e difíceis de tornar segura, mas são dispendiosas configurar e gerir.
+Os colaboradores dos nossos dias querem ser produtivos em qualquer sítio, em qualquer altura e em qualquer dispositivo. Eles querem trabalhar em seus próprios dispositivos, quer sejam tablets, telefones ou computadores portáteis. E esperam ser capazes de aceder a todos os seus aplicativos, ambas as aplicações de SaaS na cloud e aplicações empresariais no local. A disponibilização de acesso a aplicações no local envolvia, tradicionalmente, redes privadas virtuais (VPNs) ou zonas desmilitarizadas (DMZs). Estas soluções não só são complexas e difíceis de proteger, como também são caras em termos de configuração e gestão.
 
-Há uma maneira melhor!
+Existe uma forma melhor!
 
 Uma força de trabalho moderna no mobile-first, mundo de cloud-first precisa de uma solução de acesso remoto Moderno. Proxy de aplicações do Azure AD é um recurso do Azure Active Directory oferece acesso remoto como um serviço. Isso significa que é fácil de implementar, utilizar e gerir.
 
@@ -100,5 +100,5 @@ Depois de publicar seu primeiro aplicativo, há muito mais que pode fazer com o 
 * [Trabalhar com os servidores de Proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md) 
 * [Definir uma página inicial personalizada](application-proxy-configure-custom-home-page.md)
 
-Para obter as notícias e atualizações mais recentes, consulte o [blogue do Proxy da Aplicação](http://blogs.technet.com/b/applicationproxyblog/)
+Para obter as notícias e atualizações mais recentes, consulte o [blogue do Proxy da Aplicação](https://blogs.technet.com/b/applicationproxyblog/)
 

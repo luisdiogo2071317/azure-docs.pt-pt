@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 5ef451da3eae696c3506f25ee9458b3ad3286b07
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a3e0125a66c4b8bbda6e0b7087fe5e0e387d43e4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721187"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847393"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -39,7 +39,7 @@ Para muitos recursos do Azure, verá os dados recolhidos pelo direito de Monitor
 
 ![Métricas](media/overview/metrics.png)
 
-Dados de registo recolhidos pelo Monitor do Azure são armazenados no Log Analytics, que inclui um [linguagem de consulta avançada](../log-analytics/log-analytics-queries.md) rapidamente obter, consolidar e analisar os dados recolhidos.  Pode criar e testar consultas através do [página do Log Analytics](../log-analytics/log-analytics-log-search-portals.md) no portal do Azure e, em seguida, em qualquer um, analisar diretamente os dados através destas ferramentas ou guardar consultas para utilização com [visualizações](visualizations.md) ou [ regras de alerta](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Dados de registo recolhidos pelo Monitor do Azure são armazenados no Log Analytics, que inclui um [linguagem de consulta avançada](../azure-monitor/log-query/log-query-overview.md) rapidamente obter, consolidar e analisar os dados recolhidos.  Pode criar e testar consultas através do [página do Log Analytics](../log-analytics/log-analytics-log-search-portals.md) no portal do Azure e, em seguida, em qualquer um, analisar diretamente os dados através destas ferramentas ou guardar consultas para utilização com [visualizações](visualizations.md) ou [ regras de alerta](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
 A linguagem de consulta do Log Analytics é adequada para consultas de registo simples, mas também inclui funcionalidades avançadas, como agregações, associações e análises inteligentes. Pode aprender rapidamente a linguagem de consulta através de [várias lições](../log-analytics/query-language/get-started-queries.md) que estão disponíveis.  É fornecida orientação específica para os utilizadores que já estejam familiarizados com [SQL](../log-analytics/query-language/sql-cheatsheet.md) e [Splunk](../log-analytics/query-language/splunk-cheatsheet.md).
 
@@ -85,7 +85,7 @@ Informações de VM de Monitor do Azure monitoriza máquinas de virtuais do Azur
 ![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Soluções de monitorização
-[Soluções de monitorização](../azure-monitor/insights/solutions.md) no Azure Monitor são empacotados conjuntos de lógica que fornecem informações para uma determinada aplicação ou serviço. Recolher dados no Log Analytics, juntamente com outros dados de monitorização, usando [consultas](../log-analytics/log-analytics-queries.md) para análise e [vistas](../azure-monitor/platform/view-designer.md) para visualização. Soluções de monitorização são [disponibilizados pela Microsoft](../azure-monitor/insights/solutions-inventory.md) e parceiros para fornecer monitorização para vários serviços do Azure e outras aplicações.
+[Soluções de monitorização](../azure-monitor/insights/solutions.md) no Azure Monitor são empacotados conjuntos de lógica que fornecem informações para uma determinada aplicação ou serviço. Recolher dados no Log Analytics, juntamente com outros dados de monitorização, usando [consultas](../azure-monitor/log-query/log-query-overview.md) para análise e [vistas](../azure-monitor/platform/view-designer.md) para visualização. Soluções de monitorização são [disponibilizados pela Microsoft](../azure-monitor/insights/solutions-inventory.md) e parceiros para fornecer monitorização para vários serviços do Azure e outras aplicações.
 
 ![Soluções de monitorização](media/overview/solutions-overview.png)
 
@@ -146,4 +146,4 @@ Saiba mais sobre:
 
 * [Métricas e registos](../azure-monitor/platform/data-collection.md) para os dados recolhidos pelo Monitor do Azure.
 * [Origens de dados](../azure-monitor/platform/data-sources.md) para como os diferentes componentes da sua aplicação enviam telemetria.
-* [Log Analytics](../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos.
+* [Log Analytics](../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos.

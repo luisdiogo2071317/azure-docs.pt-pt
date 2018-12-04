@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/22/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 46f5f73293875cd89036eb615e7bd81188bc4c67
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d4be7b9c7774163aed8c0efb3414dbd6a794cf7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210266"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847801"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação após desastre para SQL Server 
 
@@ -35,7 +35,7 @@ Muitas cargas de trabalho utilizam o SQL Server como uma base e pode ser integra
 * SQL grupos de Disponibilidade AlwaysOn, para fornecer para recuperação após desastre para SQL Server 2012 ou 2014 Enterprise Edition.
 * SQL espelhamento do banco de dados no modo de alta segurança, para o SQL Server Standard edition (qualquer versão) ou para o SQL Server 2008 R2.
 
-## <a name="site-recovery-support"></a>Suporte de recuperação de site
+## <a name="site-recovery-support"></a>Suporte do Site Recovery
 
 ### <a name="supported-scenarios"></a>Cenários suportados
 Recuperação de sites pode proteger o SQL Server conforme resumido na tabela.
