@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 9986e7984f24e065886f6d0a8b2d06968f778702
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 84ea1d999a26ce0ce1d548da92549c6a718d5978
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582722"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850368"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integração do Azure Active Directory com o Tableau Server
 
@@ -175,7 +175,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
    
     >[!NOTE] 
     >Cliente tem de carregar qualquer certificado na configuração da Tableau Server SAML SSO e irá obter ignorada no fluxo SSO.
-    >Se precisar de ajudar a configurar o SAML no servidor da Tableau, em seguida, leia este artigo [configurar SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+    >Se precisar de ajudar a configurar o SAML no servidor da Tableau, em seguida, leia este artigo [configurar SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 

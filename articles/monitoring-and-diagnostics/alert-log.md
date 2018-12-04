@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6e6db7ef2f2de075aea41a29e69b2c674efafa17
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: cca15447587fcec7253b449d93fc2f644fe6c249
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635361"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851048"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo com o Azure Monitor  
 
@@ -57,7 +57,7 @@ Próxima detalhada é um guia passo a passo para utilizar os alertas de registo 
 
    > [!NOTE]
 
-   > Alertas de listas, podem importar consulta do analytics como tipo de sinal - **Log (consulta guardada)**, como mostra acima ilustração. Para que os utilizadores possam aperfeiçoa sua consulta do Analytics e, em seguida, guarde-as para utilização futura nos alertas - mais detalhes sobre como utilizar a guardar consulta disponível em [utilizando a pesquisa de registos no log analytics](../log-analytics/log-analytics-queries.md) ou [consulta partilhada no application insights análise](../log-analytics/log-analytics-queries.md). 
+   > Alertas de listas, podem importar consulta do analytics como tipo de sinal - **Log (consulta guardada)**, como mostra acima ilustração. Para que os utilizadores possam aperfeiçoa sua consulta do Analytics e, em seguida, guarde-as para utilização futura nos alertas - mais detalhes sobre como utilizar a guardar consulta disponível em [utilizando a pesquisa de registos no log analytics](../azure-monitor/log-query/log-query-overview.md) ou [consulta partilhada no application insights análise](../azure-monitor/log-query/log-query-overview.md). 
 
 1.  *Alertas de registo*: depois de selecionada, a consulta para alertas pode ser indicada na **consulta de pesquisa** campo; se a sintaxe de consulta está incorreta o campo apresenta o erro em vermelho. Se a sintaxe de consulta está correta – para referência, histórico de dados da consulta declarado é mostrado como um gráfico com a opção para ajustar a janela de tempo da última seis horas da semana passada.
 
@@ -246,5 +246,5 @@ Numa operação concluída com êxito, será devolvido 201 à criação de regra
 * Saiba mais sobre [alertas de registo nos alertas do Azure](monitor-alerts-unified-log.md)
 * Compreender [ações de Webhook para alertas de registo](monitor-alerts-unified-log-webhook.md)
 * Saiba mais sobre [Application Insights](../application-insights/app-insights-analytics.md)
-* Saiba mais sobre [do Log Analytics](../log-analytics/log-analytics-queries.md). 
+* Saiba mais sobre [do Log Analytics](../azure-monitor/log-query/log-query-overview.md). 
 

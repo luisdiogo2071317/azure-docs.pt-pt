@@ -3,22 +3,21 @@ title: Recomendações de segurança do Assistente do Azure | Documentos da Micr
 description: Utilize o Assistente do Azure para ajudar a melhorar a segurança das suas implementações do Azure.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: f96a9f3ea069f38768284876e27affd57677de87
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.author: kasparks
+ms.openlocfilehash: d366ee02e3a5ef3c6f983c9cea23943343ab4a51
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42055356"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849790"
 ---
 # <a name="advisor-security-recommendations"></a>Recomendações de segurança do Advisor
 

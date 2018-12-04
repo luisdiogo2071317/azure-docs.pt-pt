@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fe6251f70ae62440bbbefc8c3aa5d92d934d8ba0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b24d32afed5acfd846f9a8e8316339665524ad2e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249358"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849773"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Quadro de segurança: Gestão de configuração | Atenuações 
 | Produtos/serviços | Artigo |
@@ -507,7 +507,7 @@ Para desativar o CORS para um controlador ou ação, utilize o atributo [Disable
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [Ativar o arranque seguro e pouco cacifo de encriptação de dispositivos no Windows 10 IoT Core](https://developer.microsoft.com/windows/iot/win10/sb_bl) |
+| **Referências**              | [Ativar o arranque seguro e pouco cacifo de encriptação de dispositivos no Windows 10 IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/securebootandbitlocker) |
 | **Passos** | O arranque seguro UEFI restringe o sistema para permitir apenas a execução dos binários assinado por uma autoridade especificada. Esta funcionalidade impede que desconhecido de código a ser executados na plataforma e potencialmente enfraquecer a postura de segurança do mesmo. Ativar o arranque seguro UEFI e restringir a lista de autoridades de certificação confiáveis para a assinatura de código. Inicie a sessão de todo o código que é implementado no dispositivo com uma das autoridades fidedignas. |
 
 ## <a id="partition-iot"></a>Encriptar o SO e partições adicionais do dispositivo de IoT com pouco cacifo

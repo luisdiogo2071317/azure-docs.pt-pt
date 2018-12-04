@@ -1,10 +1,7 @@
 ---
 title: 'Azure Cosmos DB: API de .NET de SQL, SDK e recursos | Documentos da Microsoft'
 description: Saiba tudo sobre a API .NET de SQL e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK de .NET do Azure Cosmos DB.
-services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -12,12 +9,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27b7b4efdb14872ee2d841e17d2e253b6c7c30c3
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0ec1f9cf7847e0eb3c48599a4d52412c1a37560d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389773"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851167"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK de .NET do Cosmos DB do Azure para a API de SQL: transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -50,6 +47,14 @@ ms.locfileid: "49389773"
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-Preview
+* Pré-visualização 1 de [versão 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) do SDK do .NET para pré-visualização pública.
+* Destino .NET Standard, que suporta 4.6.1+ do .NET framework e .NET Core 2.0 +
+* Novo modelo de objeto, com métodos e de nível superior CosmosClient dividir por classes CosmosDatabases, CosmosContainers e CosmosItems relevantes. 
+* Suporte para fluxos. 
+* Atualizado CosmosResponseMessage de servidor para devolver o código de estado e apenas lançar a exceção quando nenhuma resposta é devolvida. 
+
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
 * Atualizado System.Net.Security para 4.3.2.
@@ -182,7 +187,7 @@ ms.locfileid: "49389773"
 * Corrigi um problema na qual partição cruzada por ordem continuação de consulta não trabalhava na classificação no campo de cadeia de caracteres.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
-* Foi adicionado suporte para consultas de agregação (COUNT, MIN, MAX, soma e média). Ver [suporte de agregação](sql-api-sql-query.md#Aggregates).
+* Foi adicionado suporte para consultas de agregação (COUNT, MIN, MAX, soma e média). Ver [suporte de agregação](how-to-sql-query.md#Aggregates).
 * Reduzidas débito mínimo em coleções particionadas do 10,100 RU/s para 2500 RU/s.
 
 ### <a name="a-name11141114"></a><a name="1.11.4"/>1.11.4

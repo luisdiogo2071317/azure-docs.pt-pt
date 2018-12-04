@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: dc9884d72bc2e09c88bf1d5dc238ec5d1ff56430
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 84d1a08cd8ec4aafcc382ca74987bc5486f673d7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681284"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849762"
 ---
 # <a name="app-expression-in-log-analytics-query"></a>expressão de App() na consulta do Log Analytics
 
@@ -79,4 +79,4 @@ union
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Consulte a [expressão de área de trabalho](workspace-expression.md) para se referir à área de trabalho do Log Analytics.
-- Saiba mais sobre como [dados do Log Analytics](../../log-analytics/log-analytics-queries.md) são armazenados.
+- Saiba mais sobre como [dados do Log Analytics](../../azure-monitor/log-query/log-query-overview.md) são armazenados.

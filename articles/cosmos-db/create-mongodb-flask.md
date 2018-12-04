@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: Criar uma aplicação Web Flask com Python e a API MongoDB do Azure Cosmos DB | Microsoft Docs'
+title: 'Azure Cosmos DB: Criar uma aplicação web do Flask com Python e a API de MongoDB do Azure Cosmos DB'
 description: Apresenta um exemplo de código Python Flask que pode utilizar para ligar e consultar a API MongoDB do Azure Cosmos DB
 services: cosmos-db
 author: slyons
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
@@ -11,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/02/2017
 ms.author: sclyon
-ms.openlocfilehash: 4416af7c1afede89063c1d4289ad2603f7b2c5d0
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
-ms.translationtype: HT
+ms.openlocfilehash: 70a103aa7c03abeed98237a3b1dc3ec8b514810a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248528"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849062"
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: Criar uma aplicação Flask com a API MongoDB
 
@@ -164,7 +163,7 @@ Se não quiser criar um fork deste repositório, também pode clicar no botão I
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de introdução, aprendeu a criar uma conta do Azure Cosmos DB e a executar uma aplicação Flask com a API do MongoDB. Agora, pode importar dados adicionais para a sua conta do Cosmos DB.
 

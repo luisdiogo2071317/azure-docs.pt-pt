@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/2/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 69ac91c0d4231064c1be5a6c3748b0480255d16d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 57560a035f4d0468625e4c8f3ad6b7a7e516590f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635871"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850684"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Incluir computadores Windows no Centro de Segurança do Azure
 Depois de incluir as subscrições do Azure, pode ativar o Centro de Segurança para os recursos em execução fora do Azure, por exemplo, no local ou em outras clouds, ao aprovisionar o MMA.
@@ -30,7 +30,7 @@ Este início rápido mostra-lhe como instalar o MMA num computador Windows.
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Tem de estar no escalão de preço Standard do Centro de Segurança antes de começar este início rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Pode experimentar o escalão Standard do Centro de Segurança sem custos durante os primeiros 60 dias.
+Tem de estar no escalão de preço Standard do Centro de Segurança antes de começar este início rápido. Veja [Carregar uma subscrição do Azure para o Centro de Segurança Standard](security-center-get-started.md) para obter instruções sobre a atualização de versão. Pode experimentar o escalão Standard do Centro de segurança sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-windows-computer"></a>Adicionar novo computador Windows
 

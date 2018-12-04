@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 6a0463640f9a7194632a65cdb10653a520fcc0c9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a997de5530bf8ed475031147369b591b2d44d227
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435235"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850336"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skilljar"></a>Tutorial: Integração do Azure Active Directory com Skilljar
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Skilljar, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Skilljar logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do Skilljar com o Azure AD, terá de adicionar Sk
 
 **Para adicionar Skilljar a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname>.skilljar.com/`
 
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Skilljar](http://support.skilljar.com/hc/) obter esses valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Skilljar](https://support.skilljar.com/hc/) obter esses valores. 
  
 1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -127,7 +127,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/skilljar-tutorial/tutorial_general_400.png)
 
-1. Para configurar o início de sessão único num **Skilljar** lado, terá de enviar o transferido **XML de metadados**, e **valor de formato de identificador de nome - urn: oasis: nomes: tc: SAML:1.1:nameid-formato: endereço de correio eletrónico** para [equipa de suporte de Skilljar](http://support.skilljar.com/hc/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Para configurar o início de sessão único num **Skilljar** lado, terá de enviar o transferido **XML de metadados**, e **valor de formato de identificador de nome - urn: oasis: nomes: tc: SAML:1.1:nameid-formato: endereço de correio eletrónico** para [equipa de suporte de Skilljar](https://support.skilljar.com/hc/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -171,7 +171,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Skillj
 Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder Skilljar se não existir ainda. 
 
 >[!NOTE]
->Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de Skilljar](http://support.skilljar.com/hc/). 
+>Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de Skilljar](https://support.skilljar.com/hc/). 
 > 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD

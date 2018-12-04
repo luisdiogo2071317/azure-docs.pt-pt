@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3c06a0b0af306aaf46f4aa542e26c3fcf885e754
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: fc762a4cf500713a09ba325e8b4e41c4cc2b8f15
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49168277"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848948"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta do Amazon com as políticas personalizadas no Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como ativar o início de sessão para os utilizadores de 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Conclua os passos na [introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
-- Se ainda não tiver uma conta da Amazon, criar um de cada [ http://www.amazon.com/ ](https://www.amazon.com/).
+- Se ainda não tiver uma conta da Amazon, criar um de cada [ https://www.amazon.com/ ](https://www.amazon.com/).
 
 ## <a name="register-the-application"></a>Registar a aplicação
 

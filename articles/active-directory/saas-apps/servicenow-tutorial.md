@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: jeedes
-ms.openlocfilehash: 470805b2bb77e367887767b95e0f1e04d79c8f9d
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 5b7baffea8e718810a91ea9687a007d36c806aab
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830740"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850011"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Tutorial: Integração do Azure Active Directory com ServiceNow
 
@@ -41,7 +41,7 @@ Para configurar a integração do Azure AD com ServiceNow, terá dos seguintes i
 - Uma subscrição do Azure
 - Para o ServiceNow, uma instância ou um inquilino do ServiceNow, versão Calgary ou superior
 - Para o ServiceNow Express, uma instância do ServiceNow Express, versão Helsínquia ou superior
-- O inquilino do ServiceNow tem de ter o [vários fornecedor único início de sessão no plug-in](http://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) ativada. Isso pode ser feito [submeter um pedido de serviço](https://hi.service-now.com).
+- O inquilino do ServiceNow tem de ter o [vários fornecedor único início de sessão no plug-in](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) ativada. Isso pode ser feito [submeter um pedido de serviço](https://hi.service-now.com).
 - Para a configuração automática, ative o plug-in de multi fornecedor do ServiceNow.
 
 > [!NOTE]

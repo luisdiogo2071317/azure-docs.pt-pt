@@ -5,15 +5,15 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 09/05/2018
+ms.topic: conceptual
+ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: 18d705f68ff06621e30c051dac9fb9607fd043ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300941"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850963"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Gerar e exportar certificados para ligações ponto a Site com o PowerShell
 
@@ -27,7 +27,7 @@ Se não tiver acesso a um computador Windows 10 ou Windows Server 2016, pode uti
 
 Utilize o cmdlet New-SelfSignedCertificate para criar um certificado de raiz autoassinado. Para informações de parâmetro adicional, consulte [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. A partir de um computador com Windows 10 ou Windows Server 2016, abra a consola do Windows PowerShell com privilégios elevados.
+1. A partir de um computador com Windows 10 ou Windows Server 2016, abra a consola do Windows PowerShell com privilégios elevados. Estes exemplos não funcionam no Azure Cloud Shell "Experimente". Tem de executar estes exemplos localmente.
 2. Utilize o seguinte exemplo para criar o certificado de raiz autoassinado. O exemplo seguinte cria um certificado de raiz autoassinado "P2SRootCert", que é instalado automaticamente em 'Certificates-Current User\Personal\Certificates' com o nome. Pode ver o certificado, abrindo *certmgr. msc*, ou *gerir certificados de utilizador*.
 
   ```powershell
@@ -104,7 +104,7 @@ Se estiver a criar certificados de cliente adicionais ou não estiver a utilizar
 
 ### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exportar o certificado de raiz autoassinado e armazená-los (opcional) a chave privada
 
-Talvez queira exportar o certificado de raiz autoassinado e armazená-lo com segurança como cópia de segurança. Se precisa de ser, pode instalá-lo noutro computador e gerar mais certifiates de cliente mais tarde. Para exportar o certificado de raiz autoassinado como um ficheiro. pfx, selecione o certificado de raiz e utilizar os mesmos passos conforme descrito em [exportar um certificado de cliente](#clientexport).
+Talvez queira exportar o certificado de raiz autoassinado e armazená-lo com segurança como cópia de segurança. Se precisa de ser, pode instalá-lo noutro computador e gerar mais certificados de cliente mais tarde. Para exportar o certificado de raiz autoassinado como um ficheiro. pfx, selecione o certificado de raiz e utilizar os mesmos passos conforme descrito em [exportar um certificado de cliente](#clientexport).
 
 ## <a name="clientexport"></a>4. Exportar o certificado de cliente
 

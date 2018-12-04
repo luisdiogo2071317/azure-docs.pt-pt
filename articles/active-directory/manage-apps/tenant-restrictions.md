@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 4a5cb7d15627ac3e48b72567ec3740377b2a0264
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ca3396024fdab31217b00ef7cdd39e4e61504d27
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365675"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851099"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Restrições de inquilino de utilização para gerir o acesso ao SaaS na nuvem
 
 Organizações de grandes porte que enfatizam a segurança pretendem mover para serviços como o Office 365 cloud, mas precisa de saber que os utilizadores só podem aceder a aprovados recursos. Tradicionalmente, empresas restringem os nomes de domínio ou endereços IP, quando desejam gerir o acesso. Essa abordagem falha num mundo onde as aplicações SaaS estão alojadas numa cloud pública, em execução em nomes de domínio compartilhado como outlook.office.com e login.microsoftonline.com. Bloquear estes endereços seria manter os utilizadores acedam ao Outlook na web totalmente, em vez de simplesmente restringi-los a identidades aprovadas e recursos.
 
-Solução de Azure do Active Directory para esse desafio é um recurso chamado restrições de inquilino. Restrições de inquilino permite às organizações controlar o acesso a aplicações de cloud de SaaS, com base no inquilino do Azure AD, os aplicativos utilizam para início de sessão único. Por exemplo, pode querer permitir o acesso a aplicações do Office 365 da sua organização, impedindo o acesso a instâncias de outras organizações dessas mesmas aplicações.  
+Solução de Azure do Active Directory para esse desafio é um recurso chamado restrições de inquilino. Restrições de inquilino permite às organizações controlar o acesso a aplicações de cloud de SaaS, com base no inquilino do Azure AD, os aplicativos utilizam para início de sessão único. Por exemplo, pode querer permitir o acesso a aplicações do Office 365 da sua organização, impedindo o acesso a instâncias de outras organizações dessas mesmas aplicações.  
 
 Restrições de inquilino proporciona às organizações a capacidade de especificar a lista de inquilinos que seus usuários têm permissão de acesso. O Azure AD, em seguida, só concede acesso a estes permitido inquilinos.
 
@@ -34,13 +34,13 @@ Este artigo se concentra nas restrições de inquilino do Office 365, mas o recu
 
 ## <a name="how-it-works"></a>Como funciona
 
-A solução geral inclui os seguintes componentes: 
+A solução geral inclui os seguintes componentes: 
 
-1. **O Azure AD** – se o `Restrict-Access-To-Tenants: <permitted tenant list>` está presentes, o Azure AD apenas problemas tokens de segurança para os inquilinos permitidos. 
+1. **O Azure AD** – se o `Restrict-Access-To-Tenants: <permitted tenant list>` está presentes, o Azure AD apenas problemas tokens de segurança para os inquilinos permitidos. 
 
-2. **Infraestrutura de servidor de proxy no local** – um dispositivo de proxy capaz de inspeção de SSL, configurada para inserir o cabeçalho que contém a lista de permitidos inquilinos no tráfego destinado para o Azure AD. 
+2. **Infraestrutura de servidor de proxy no local** – um dispositivo de proxy capaz de inspeção de SSL, configurada para inserir o cabeçalho que contém a lista de permitidos inquilinos no tráfego destinado para o Azure AD. 
 
-3. **Software de cliente** – para suportar restrições de inquilino, software de cliente tem de pedir tokens diretamente a partir do Azure AD, para que o tráfego pode ser intercetado pela infraestrutura do proxy. Restrições de inquilino é atualmente suportada pelo baseada no browser e aplicativos do Office 365 e pelos clientes do Office quando é utilizada a autenticação moderna (como o OAuth 2.0). 
+3. **Software de cliente** – para suportar restrições de inquilino, software de cliente tem de pedir tokens diretamente a partir do Azure AD, para que o tráfego pode ser intercetado pela infraestrutura do proxy. Restrições de inquilino é atualmente suportada pelo baseada no browser e aplicativos do Office 365 e pelos clientes do Office quando é utilizada a autenticação moderna (como o OAuth 2.0). 
 
 4. **Autenticação moderna** – serviços em nuvem tem de utilizar autenticação moderna para utilizar as restrições de inquilino e bloquear o acesso a todos os inquilinos não permitido. Serviços do Office 365 cloud devem ser configurados para utilizar protocolos de autenticação moderna, por predefinição. Para obter as informações mais recentes sobre o suporte do Office 365 para autenticação moderna, leia [autenticação moderna do Office 365 atualizado](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
@@ -54,7 +54,7 @@ Existem dois passos para começar com restrições de inquilino. A primeira etap
 
 ### <a name="urls-and-ip-addresses"></a>URLs e endereços IP
 
-Para utilizar as restrições de inquilino, os clientes tem de ser possível estabelecer ligação com os seguintes URLs de AD do Azure para autenticar: login.microsoftonline.com login.microsoft.com e login.windows.net. Além disso, para aceder ao Office 365, os clientes também devem ser capazes de ligar para os FQDNs/URLs e endereços IP definidos na [intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
+Para utilizar as restrições de inquilino, os clientes tem de ser possível estabelecer ligação com os seguintes URLs de AD do Azure para autenticar: login.microsoftonline.com login.microsoft.com e login.windows.net. Além disso, para aceder ao Office 365, os clientes também devem ser capazes de ligar para os FQDNs/URLs e endereços IP definidos na [intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2). 
 
 ### <a name="proxy-configuration-and-requirements"></a>Configuração de proxy e de requisitos
 
@@ -62,7 +62,7 @@ A seguinte configuração é necessária para ativar restrições de inquilino a
 
 #### <a name="prerequisites"></a>Pré-requisitos
 
-- O proxy deve ser capaz de realizar a interceptação de SSL, inserção de cabeçalho HTTP e filtrar destinos utilizando FQDNs/URLs. 
+- O proxy deve ser capaz de realizar a interceptação de SSL, inserção de cabeçalho HTTP e filtrar destinos utilizando FQDNs/URLs. 
 
 - Os clientes têm de confiar a cadeia de certificados apresentada pelo proxy para comunicações SSL. Por exemplo, se forem utilizados certificados a partir de uma PKI interna, o interno emissora certificado certificado de autoridade tem de ser fidedigno.
 
@@ -72,14 +72,14 @@ A seguinte configuração é necessária para ativar restrições de inquilino a
 
 Para cada pedido recebido login.microsoftonline.com, login.microsoft.com e login.windows.net, inserir dois cabeçalhos HTTP: *restringir acesso para inquilinos* e *contexto de restringir acesso*.
 
-Os cabeçalhos devem incluir os seguintes elementos: 
-- Para *restringir acesso para inquilinos*, um valor de \<permitido a lista de inquilino\>, que é uma lista separada por vírgulas de inquilinos para permitir que os usuários acessem. Qualquer domínio que está registado com um inquilino pode ser utilizado para identificar o inquilino nesta lista. Por exemplo, para permitir o acesso aos inquilinos Contoso e Fabrikam, o par nome/valor é semelhante a:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
-- Para *restringir acesso-contextual*, um valor de um ID de diretório único, declarando a qual o inquilino é definir as restrições de inquilino. Por exemplo, para declarar Contoso como o inquilino que definir a política de restrições de inquilino, o par nome/valor é semelhante a: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+Os cabeçalhos devem incluir os seguintes elementos: 
+- Para *restringir acesso para inquilinos*, um valor de \<permitido a lista de inquilino\>, que é uma lista separada por vírgulas de inquilinos para permitir que os usuários acessem. Qualquer domínio que está registado com um inquilino pode ser utilizado para identificar o inquilino nesta lista. Por exemplo, para permitir o acesso aos inquilinos Contoso e Fabrikam, o par nome/valor é semelhante a:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
+- Para *restringir acesso-contextual*, um valor de um ID de diretório único, declarando a qual o inquilino é definir as restrições de inquilino. Por exemplo, para declarar Contoso como o inquilino que definir a política de restrições de inquilino, o par nome/valor é semelhante a: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
 > [!TIP]
 > Pode encontrar o seu ID de diretório no [portal do Azure](https://portal.azure.com). Inicie sessão como administrador, selecione **do Azure Active Directory**, em seguida, selecione **propriedades**.
 
-Para impedir que os usuários a inserir seu próprio cabeçalho HTTP com inquilinos não aprovado, o proxy tem de substituir o cabeçalho de restringir acesso para inquilinos se já estiver presente no pedido de entrada. 
+Para impedir que os usuários a inserir seu próprio cabeçalho HTTP com inquilinos não aprovado, o proxy tem de substituir o cabeçalho de restringir acesso para inquilinos se já estiver presente no pedido de entrada. 
 
 Os clientes devem ser forçados a utilizar o proxy para todos os pedidos para login.microsoftonline.com login.microsoft.com e login.windows.net. Por exemplo, se os ficheiros PAC são utilizados para direcionar clientes para utilizar o proxy, os utilizadores finais devem não ser capazes de editar ou desativar os ficheiros PAC.
 
@@ -116,7 +116,7 @@ Restrições de inquilino é, atualmente, suportado por aplicações baseadas no
 
 Outlook e o Skype para clientes de empresas que oferecem suporte a autenticação moderna podem ainda podem utilizar protocolos herdados em inquilinos em que a autenticação moderna não está ativada, ignorando efetivamente restrições de inquilino. Aplicativos que usam protocolos legados podem estar bloqueados por restrições de inquilino se eles contactar login.microsoftonline.com, login.microsoft.com ou login.windows.net durante a autenticação.
 
-Para o Outlook no Windows, os clientes podem optar por implementar restrições de impedir que os utilizadores finais adicionando contas de correio não aprovados a seus perfis. Por exemplo, consulte a [impedir a adição de contas do Exchange não predefinidas](http://gpsearch.azurewebsites.net/default.aspx?ref=1) definição de política de grupo.
+Para o Outlook no Windows, os clientes podem optar por implementar restrições de impedir que os utilizadores finais adicionando contas de correio não aprovados a seus perfis. Por exemplo, consulte a [impedir a adição de contas do Exchange não predefinidas](https://gpsearch.azurewebsites.net/default.aspx?ref=1) definição de política de grupo.
 
 ## <a name="testing"></a>Testes
 
@@ -126,8 +126,8 @@ Se quiser experimentar as restrições de inquilino antes de a implementar para 
 
 Fiddler é um proxy que pode ser usado para capturar e modificar o tráfego HTTP/HTTPS, incluindo a inserção de cabeçalhos HTTP de depuração de web gratuito. Para configurar o Fiddler para testar as restrições de inquilino, execute os seguintes passos:
 
-1.  [Transferir e instalar o Fiddler](http://www.telerik.com/fiddler).
-2.  Configurar o Fiddler para desencriptar o tráfego HTTPS, por [documentação de ajuda do Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+1.  [Transferir e instalar o Fiddler](https://www.telerik.com/fiddler).
+2.  Configurar o Fiddler para desencriptar o tráfego HTTPS, por [documentação de ajuda do Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 3.  Configurar o Fiddler para inserir o *restringir acesso para inquilinos* e *contexto de restringir acesso* cabeçalhos usando regras personalizadas:
   1. Na ferramenta de depurador da Web Fiddler, selecione o **regras** menu e selecione **personalizar regras...** Para abrir o ficheiro de CustomRules.
   2. Adicione as seguintes linhas no início da *OnBeforeRequest* função. Substitua \<domínio de inquilino\> com um domínio registar-se com o seu inquilino, por exemplo, contoso.onmicrosoft.com. Substitua \<ID de diretório\> com o identificador de GUID do Azure AD do seu inquilino.

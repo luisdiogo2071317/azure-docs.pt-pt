@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 77e370e80e423446d17a074b9458e7002f8627dd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ad2a9dba54df3ae7a3e2604437c8a65c88dcca94
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448351"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850895"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Tutorial: Integração do Azure Active Directory com Panorama9
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Panorama9, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Panorama9 logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do Panorama9 com o Azure AD, terá de adicionar P
 
 **Para adicionar Panorama9 a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -115,7 +115,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL como: `https://dashboard.panorama9.com/saml/access/3262`
 
-    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `http://www.panorama9.com/saml20/<tenant-name>`
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://www.panorama9.com/saml20/<tenant-name>`
 
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente Panorama9](https://support.panorama9.com) obter esses valores. 

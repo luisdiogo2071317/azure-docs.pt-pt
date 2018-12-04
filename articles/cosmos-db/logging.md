@@ -1,21 +1,19 @@
 ---
-title: Registo de diagnóstico do Azure Cosmos DB | Documentos da Microsoft
+title: Registo de diagnóstico do Azure Cosmos DB
 description: Utilize este tutorial para ajudá-lo com o Azure Cosmos DB registo.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 tags: azure-resource-manager
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 1c25db0a217d6aff984029a28932242b06096735
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e8548497666e7dc49a8ada6bdf686647e427d0d0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423238"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850470"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico do Azure Cosmos DB
 
@@ -46,7 +44,7 @@ O registo de atividades é diferente de registos de diagnóstico. O registo de a
 
 Registos de Atividades (operações do painel de controle) podem ser mais avançados por natureza e podem incluir o endereço de e-mail completo do chamador, endereço IP do chamador, nome do recurso, nome da operação, TenantId e muito mais. O registo de atividades contém vários [categorias](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de dados. Para todos os detalhes sobre esquemas uma destas categorias, consulte [esquema de eventos de registo de atividades do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). No entanto, os registos de diagnóstico pode ser restritivos por natureza, os dados pessoais é, muitas vezes, removidos destes registos. Poderá ter o endereço IP do chamador, mas o último octant é removido.
 
-### <a name="azure-metrics"></a>Métrica do Azure
+### <a name="azure-metrics"></a>Métricas do Azure
 
 [Métricas do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) tem o tipo mais importante de dados de telemetria do Azure (também denominado _contadores de desempenho_) que é emitida por recursos mais do Azure. Métricas permitem-lhe ver informações sobre o débito, armazenamento, consistência, disponibilidade e a latência dos seus recursos do Azure Cosmos DB. Para obter mais informações, consulte [monitorização e depuração com métricas na Azure Cosmos DB](use-metrics.md).
 

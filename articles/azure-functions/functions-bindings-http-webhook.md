@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a20dec67201cb7d8b7ccd3a7662438f2afabfe63
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 33f04f9deced7c4bc1c27cea5e8c431d4cd5512a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446794"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849331"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces e acionadores de HTTP de funções do Azure
 
@@ -42,7 +42,7 @@ Os enlaces de HTTP são fornecidos na [Microsoft.Azure.WebJobs.Extensions.Http](
 
 ## <a name="trigger"></a>Acionador
 
-O acionador HTTP permite-lhe invocar uma função com uma solicitação HTTP. Pode utilizar um acionador HTTP para criar APIs sem servidor e responder a webhooks. 
+O acionador HTTP permite-lhe invocar uma função com uma solicitação HTTP. Pode utilizar um acionador HTTP para criar APIs sem servidor e responder a webhooks.
 
 Por predefinição, um acionador HTTP devolve HTTP 200 OK com um corpo vazio nas funções 1.x ou HTTP 204 sem conteúdo com um corpo vazio nas funções 2.x. Para modificar a resposta, configure uma [enlace de saída HTTP](#output).
 
@@ -53,8 +53,9 @@ Veja o exemplo de idioma específico:
 * [C#](#trigger---c-example)
 * [Script do c# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Acionador - exemplo do c#
 
@@ -276,6 +277,61 @@ module.exports = function(context, req) {
 };
 ```
 
+### <a name="trigger---python-example"></a>Acionador - exemplo de Python
+
+O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [função Python](functions-reference-python.md) que utiliza o enlace. A função procura um `name` parâmetro na cadeia de consulta ou o corpo da solicitação HTTP.
+
+Aqui está o *Function* ficheiro:
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+O [configuração](#trigger---configuration) seção explica essas propriedades.
+
+Aqui está o código de Python:
+
+```python
+import logging
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
+
 ### <a name="trigger---java-example"></a>Acionador - exemplo de Java
 
 O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [função Java](functions-reference-java.md) que utiliza o enlace. A função devolve uma resposta de código de 200 de estado HTTP com um corpo de pedido que prefixos o corpo do pedido acionadora com um "Olá","greeting.
@@ -307,7 +363,7 @@ Eis o código Java:
 ```java
 @FunctionName("hello")
 public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
-                        final ExecutionContext context) 
+                        final ExecutionContext context)
     {
         // default HTTP 200 response code
         return String.format("Hello, %s!", request);
@@ -352,12 +408,11 @@ Para C# e F# as funções, é possível declarar o tipo de Acionador de entrada 
 
 Para funções de JavaScript, o runtime das funções fornece o corpo do pedido em vez do objeto de solicitação. Para obter mais informações, consulte a [exemplo de Acionador de JavaScript](#trigger---javascript-example).
 
-
 ### <a name="customize-the-http-endpoint"></a>Personalizar o ponto final HTTP
 
 Por predefinição quando cria uma função para um acionador HTTP, a função é endereçável com uma rota do formulário:
 
-    http://<yourapp>.azurewebsites.net/api/<funcname> 
+    http://<yourapp>.azurewebsites.net/api/<funcname>
 
 Pode personalizar esta rota com o opcional `route` propriedade ao acionador de HTTP do enlace de entrada. Por exemplo, o seguinte procedimento *Function* arquivo define um `route` propriedade para um acionador HTTP:
 
@@ -389,7 +444,7 @@ http://<yourapp>.azurewebsites.net/api/products/electronics/357
 Isso permite que o código de função oferecer suporte a dois parâmetros no endereço _categoria_ e _id_. Pode usar qualquer [restrição de rota da API Web](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) com os parâmetros. O seguinte código de função do c# faz uso de ambos os parâmetros.
 
 ```csharp
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id,
                                                 ILogger log)
 {
     if (id == null)
@@ -421,7 +476,7 @@ module.exports = function (context, req) {
     }
 
     context.done();
-} 
+}
 ```
 
 Por predefinição, todas as rotas de função têm o prefixo *api*. Também pode personalizar ou remover a prefixo com o `http.routePrefix` propriedade em seu [Host. JSON](functions-host-json.md) ficheiro. O exemplo seguinte remove o *api* prefixo de rota, utilizando uma cadeia vazia para o prefixo no *Host. JSON* ficheiro.
@@ -533,17 +588,15 @@ Quando utilizar um dos seguintes métodos de segurança ao nível da aplicação
 ### <a name="webhooks"></a>Webhooks
 
 > [!NOTE]
-> Modo de Webhook só está disponível para a versão 1.x do runtime das funções.
+> Modo de Webhook só está disponível para a versão 1.x do runtime das funções. Esta alteração foi feita para melhorar o desempenho de acionadores HTTP na versão 2.x.
 
-O modo de Webhook fornece validação adicional para cargas de webhook. Na versão 2.x, o acionador HTTP base ainda funciona e é a abordagem recomendada para webhooks.
+Na versão 1.x, modelos de webhook fornecerem validação adicional para cargas de webhook. Na versão 2.x, o acionador HTTP base ainda funciona e é a abordagem recomendada para webhooks. 
 
 #### <a name="github-webhooks"></a>GitHub webhooks
 
 Para responder a webhooks do GitHub, primeiro crie a sua função com um acionador HTTP e defina a **webHookType** propriedade `github`. Em seguida, copie a chave de API e o URL para o **adicionar webhook** página do seu repositório do GitHub. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-Por exemplo, veja [Create a function triggered by a GitHub webhook (Criar uma função acionada por um webhook do GitHub)](functions-create-github-webhook-triggered-function.md).
 
 #### <a name="slack-webhooks"></a>Slack webhooks
 
@@ -560,7 +613,7 @@ Autorização de Webhook é processada pelo componente de destinatário do webho
 
 O comprimento do pedido HTTP está limitado a 100 MB (104,857,600 bytes) e o comprimento de URL está limitado a 4 KB (4,096 bytes). Estes limites são especificados pela `httpRuntime` elemento do tempo de execução [arquivo Web. config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
-Se uma função que usa o acionador HTTP não concluída no prazo de cerca de 2,5 minutos, o tempo limite do gateway irá e devolver um erro de HTTP 502. A função vai continuar em execução, mas será possível devolver uma resposta HTTP. Para as funções de execução longa, recomendamos que siga os padrões do async e devolver uma localização onde pode efetuar o ping do Estado do pedido. Para obter informações sobre o tempo que pode executar uma função, veja [plano de consumo de dimensionamento e alojamento -](functions-scale.md#consumption-plan). 
+Se uma função que usa o acionador HTTP não concluída no prazo de cerca de 2,5 minutos, o tempo limite do gateway irá e devolver um erro de HTTP 502. A função vai continuar em execução, mas será possível devolver uma resposta HTTP. Para as funções de execução longa, recomendamos que siga os padrões do async e devolver uma localização onde pode efetuar o ping do Estado do pedido. Para obter informações sobre o tempo que pode executar uma função, veja [plano de consumo de dimensionamento e alojamento -](functions-scale.md#consumption-plan).
 
 ## <a name="trigger---hostjson-properties"></a>Acionador - propriedades de Host. JSON
 
@@ -574,7 +627,7 @@ Utilize a enlace de responder para o remetente de pedido HTTP de saída HTTP. Es
 
 ## <a name="output---configuration"></a>Saída - configuração
 
-A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro. Para c# bibliotecas de classe, não há atributo propriedades que correspondem para cada uma delas *Function* propriedades. 
+A tabela seguinte explica as propriedades de configuração de ligação definida no *Function* ficheiro. Para c# bibliotecas de classe, não há atributo propriedades que correspondem para cada uma delas *Function* propriedades.
 
 |Propriedade  |Descrição  |
 |---------|---------|

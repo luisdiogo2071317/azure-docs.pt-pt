@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334640"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850980"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
@@ -129,7 +129,7 @@ Em primeiro lugar, ver o endereço IP público da VM com [show de vm de az](/cli
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Inicie sessão na máquina virtual Linux do Azure com as suas credenciais do Azure AD. O `-l` parâmetro permite-lhe especificar o seu endereço de conta do Azure AD. Especifique o endereço IP público da sua VM como saída no comando anterior:
+Inicie sessão na máquina virtual Linux do Azure com as suas credenciais do Azure AD. O `-l` parâmetro permite-lhe especificar o seu endereço de conta do Azure AD. Endereços de conta devem ser inseridos em letras minúsculas. Utilize o endereço IP público da sua VM do comando anterior:
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com publicIps

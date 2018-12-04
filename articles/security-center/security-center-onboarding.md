@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/02/2018
+ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: d5a4cfa3a91b82aa0f5b1725f86c732fecf632d4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2ea94e79fdcc331554f42e2396d954af7cb979d8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405451"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850079"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Adesão ao Azure Security Center Standard para uma maior segurança
-Atualizar para o Centro de segurança Standard para tirar partido da gestão de segurança avançada e proteção contra ameaças para as cargas de trabalho de cloud híbrida.  Pode tentar Standard gratuitamente durante 60 dias. Consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
+Atualizar para o Centro de segurança Standard para tirar partido da gestão de segurança avançada e proteção contra ameaças para as cargas de trabalho de cloud híbrida.  Pode tentar Standard gratuita. Consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
 
 Centro de segurança Standard inclui:
 
@@ -83,7 +83,7 @@ Se tiver áreas de trabalho existentes, estão listados na **adicionar novos com
 
 2. Sob **segurança e auditoria**, selecione **área de trabalho OMS** para criar uma nova área de trabalho.
 > [!NOTE]
-> Áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
+> As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
 3. Sob **área de trabalho OMS**, insira as informações da sua área de trabalho.
 4. Sob **área de trabalho do OMS**, selecione **OK**.  Depois de selecionar ' OK ', irá obter uma ligação para transferir um agente do Windows ou Linux e as chaves para o seu ID de área de trabalho utilizar na configuração do agente.
 5. Sob **segurança e auditoria**, selecione **OK**.

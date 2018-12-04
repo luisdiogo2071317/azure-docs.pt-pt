@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 5ff03a4a2aab796084ce726114c2f4b556fd44b1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a75d3265e70efacc9e581abe32faacb6c5fb1b37
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497950"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850521"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos do Azure
 
@@ -45,7 +45,7 @@ Os seguintes serviços de suportam de autenticação do Azure AD e foram testado
 
 | Serviço | ID do Recurso | Estado | Date | Atribuir acesso |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | `https://management.azure.com/` | Disponível | Setembro de 2017 | [Portal do Azure](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[CLI do Azure](howto-assign-access-CLI.md) |
+| Azure Resource Manager | `https://management.azure.com/` | Disponível | Setembro de 2017 | [Portal do Azure](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[CLI do Azure](howto-assign-access-CLI.md) <br>[Modelo do Azure Resource Manager](../../role-based-access-control/role-assignments-template.md) |
 | Azure Key Vault | `https://vault.azure.net` | Disponível | Setembro de 2017 | |
 | Azure Data Lake | `https://datalake.azure.net/` | Disponível | Setembro de 2017 | |
 | SQL do Azure | `https://database.windows.net/` | Disponível | Outubro de 2017 | |

@@ -1,5 +1,5 @@
 ---
-title: SKUs de privada | Documentos da Microsoft
+title: SKUs de privada e planos | Documentos da Microsoft
 description: Como utilizar os SKUs privadas para gerir a disponibilidade da oferta.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230245"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849212"
 ---
-<a name="private-skus"></a>SKUs de privada
+<a name="private-skus-and-plans"></a>SKUs de privada e planos
 ============
 
 SKUs de privada permitem-lhe restringir a disponibilidade de SKUs para clientes específicos. Quando um SKU é marcada como particular, não está disponível em qualquer catálogo público, incluindo no [do Azure Marketplace](https://azuremarketplace.microsoft.com) e o [portal do Azure](http://portal.azure.com). No portal do Azure, apenas os clientes com acesso para o SKU podem vê-lo. Além disso, eles poderia também ser pedidos que têm acesso a ofertas privadas.
@@ -37,7 +37,7 @@ Pode utilizar os SKUs privados para lidar com os seguintes cenários:
 
 Se pretender apenas alterar o preço, é possível reutilizar os discos a partir de outro SKU na oferta do mesmo. Com SKUs privadas, não tem de submeter novamente discos entre SKUs.
 
-<a name="mark-a-sku-private"></a>Mark privada SKU
+<a name="mark-a-sku-private"></a>Marcar um SKU privada
 ---------------------
 
 Para marcar um SKU como particulares, alterne a opção de perguntar se o SKU é privado:
@@ -91,7 +91,12 @@ Conteúdo do ficheiro CSV de exemplo:
 
 Ao alternar da introdução manual para CSV carregar a vista ou de CSV para introdução manual, a lista antiga de Ids de subscrição com o acesso para o SKU não é mantida. É apresentado um aviso e a lista apenas será substituída ao guardar a oferta.
 
-<a name="previewing-private-offers"></a>Pré-visualização privada ofertas
+<a name="sync-private-subscriptions"></a>Subscrições de sincronização privada
+-------------------------
+
+Quando adiciona subscrições a uma oferta publicada com uma SKU privada ou um plano, não é necessário voltar a publicar a oferta para adicionar informações de público-alvo. Basta use um ID de subscrição do Azure (planos e SKUs) ou o ID de inquilino (apenas de planos) para adicionar o público-alvo.
+
+<a name="previewing-private-offers"></a>Pré-visualização privada oferece
 -------------------------
 
 Durante a pré-visualização/teste passo, apenas as subscrições de nível de pré-visualização de oferta poderão acessar o SKU. Esta é a fase de teste, nesse momento, pode validar que a oferta ficaria para seus clientes de destinados e é o padrão para todos os tipos de publicação.

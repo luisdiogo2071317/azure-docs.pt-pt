@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 510fe187661534c4c82ae7ec62904de51eb4b221
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 0ded8160478fba5f2b4d5d321685451701eb102a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682741"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849076"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolher informações sobre a infraestrutura DNS com a solução de análise de DNS pré-visualização
 
@@ -148,7 +148,7 @@ As informações de ajudam-o a identificar o:
 **Exemplo de consultas de análise DDI**. Contém uma lista das consultas de pesquisa mais comuns que obtêm dados de análise brutos diretamente.
 
 
-![Amostras de consultas](./media/dns-analytics/queries.png)
+![Consultas de exemplo](./media/dns-analytics/queries.png)
 
 Pode utilizar estas consultas como um ponto de partida para criar suas próprias consultas para relatórios personalizados. A ligação de consultas para a página de pesquisa de registos de análise de DNS em que os resultados são apresentados:
 
@@ -190,4 +190,4 @@ Existem duas formas, pode fornecer comentários:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Pesquisar registos](../../log-analytics/log-analytics-queries.md) para ver os registos DNS detalhados.
+[Pesquisar registos](../../azure-monitor/log-query/log-query-overview.md) para ver os registos DNS detalhados.

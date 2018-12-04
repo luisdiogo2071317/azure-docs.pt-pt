@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: fd35cb67d0555919a1340c428bac042b67239469
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d51ced3f264a486288c951def7c23a0d95609ac0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427344"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850690"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Tutorial: Integração do Azure Active Directory com Mobile Xpense
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Mobile Xpense, precisa do seguinte:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Mobile Xpense início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Mobile Xpense com o Azure AD, terá de adicion
 
 **Para adicionar Mobile Xpense a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -121,7 +121,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<sub-domain>.mobilexpense.com/<customername>`
      
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e o URL de início de sessão. Contacte [equipa de suporte do Mobile Xpense cliente](http://www.mobilexpense.net/contact) obter esses valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de resposta real e o URL de início de sessão. Contacte [equipa de suporte do Mobile Xpense cliente](https://www.mobilexpense.net/contact) obter esses valores. 
 
 1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -131,7 +131,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o botão único início de sessão em Guardar](./media/mobilexpense-tutorial/tutorial_general_400.png)
 
-1. Para configurar o início de sessão único num **Mobile Xpense** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte do Mobile Xpense](http://www.mobilexpense.net/contact). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Para configurar o início de sessão único num **Mobile Xpense** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte do Mobile Xpense](https://www.mobilexpense.net/contact). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -170,7 +170,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-mobile-xpense-test-user"></a>Criar um utilizador de teste Mobile Xpense
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no MobileXpense. trabalhar com [equipa de suporte de MobileXpense](http://www.mobilexpense.net/contact) para adicionar os utilizadores na plataforma MobileXpense. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no MobileXpense. trabalhar com [equipa de suporte de MobileXpense](https://www.mobilexpense.net/contact) para adicionar os utilizadores na plataforma MobileXpense. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -202,7 +202,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -8,17 +8,17 @@ services: mariadb
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/14/2018
-ms.openlocfilehash: ed4c05afdc5b061c7779a0b1ca34975f8b06ad7d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/03/2018
+ms.openlocfilehash: b1e458339c2befdb51439cd23ef5f22ba4379c78
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686029"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850266"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>O que é a Azure Database for MariaDB?
 
-O Azure Database for MariaDB é um serviço de base de dados relacional na cloud da Microsoft. Base de dados do Azure para MariaDB se baseia a [edição de Comunidade MariaDB](https://mariadb.org/download/) motor de base de dados, versão 10.2. Este serviço está em pré-visualização pública. 
+O Azure Database for MariaDB é um serviço de base de dados relacional na cloud da Microsoft. Base de dados do Azure para MariaDB se baseia a [edição de Comunidade MariaDB](https://mariadb.org/download/) motor de base de dados, versão 10.2.
 
 A Azure Database for MariaDB fornece:
 
@@ -43,7 +43,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajuste o desempenho e dimensione em segundos
 
-Em pré-visualização, o serviço da Azure Database for MariaDB oferece vários escalões de serviço: Básico, Fins Gerais e Memória Otimizada. Cada escalão oferece desempenho e capacidades diferentes para suportar desde cargas de trabalho de base de dados leves até pesadas. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica ajuda a base de dados a responder de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Ver [escalões de preço](concepts-pricing-tiers.md) para obter detalhes.
+A base de dados do Azure para MariaDB serviço oferece vários escalões de serviço: básico, fins gerais e com otimização de memória. Cada escalão oferece desempenho e capacidades diferentes para suportar desde cargas de trabalho de base de dados leves até pesadas. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica ajuda a base de dados a responder de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Ver [escalões de preço](concepts-pricing-tiers.md) para obter detalhes.
 
 ## <a name="monitoring-and-alerting"></a>Monitorização e alertas
 
@@ -51,7 +51,7 @@ Como decidir quando aumentar ou reduzir verticalmente? Pode utilizar a monitoriz
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenha a sua aplicação e o seu negócio operacionais
 
-O SLA do Azure líder do setor, que garante 99,99% de disponibilidade (não disponível durante a pré-visualização pública), com tecnologia de uma rede global de datacenters geridos pela Microsoft. A rede ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. Beneficia da segurança incorporada, tolerância a falhas e proteção de dados no Azure Database for MariaDB. Com Azure Database for MariaDB, pode utilizar o restauro para um ponto anterior no tempo para restaurar um estado anterior de um servidor, até 35 dias.
+SLA de 99,99% de disponibilidade líder do setor do Azure utiliza a tecnologia de uma rede global de datacenters geridos pela Microsoft. A rede ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. Beneficia da segurança incorporada, tolerância a falhas e proteção de dados no Azure Database for MariaDB. Com Azure Database for MariaDB, pode utilizar o restauro para um ponto anterior no tempo para restaurar um estado anterior de um servidor, até 35 dias.
 
 ## <a name="secure-your-data"></a>Proteger os dados
 

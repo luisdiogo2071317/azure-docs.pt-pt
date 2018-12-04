@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/2/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d88a59d3b9a39a42120b302fd8e7989c968db952
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 27d27f582c1306d8a8370567fd9c6858ad439ca8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624782"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851150"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
 Centro de segurança recolhe dados a partir das suas máquinas virtuais do Azure (VMs) e computadores não Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Exemplos destes dados são: operação sistema tipo e versão, (registos de eventos Windows), de registos de sistema operativo processos em execução, nome da máquina, endereços IP e com sessão iniciada no utilizador. O Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.
@@ -48,7 +48,7 @@ Quando o aprovisionamento automático está ativado, o Centro de segurança Apro
 
 Para ativar o aprovisionamento automático do Microsoft Monitoring Agent:
 1. No menu principal do Centro de segurança, selecione **política de segurança**.
-2. Selecione uma subscrição.
+2. Clique em **editar as definições de** na coluna Settings da subscrição pretendida na lista.
 
   ![Selecionar subscrição][7]
 
@@ -135,7 +135,7 @@ Para selecionar uma área de trabalho do Log Analytics existente:
 
     a.  No menu principal do Centro de segurança, selecione **política de segurança**.
      
-    b.  Selecione a área de trabalho pretendida na qual pretende ligar o agente.
+    b.  Selecione a área de trabalho pretendida na qual pretende ligar o agente ao clicar em **editar as definições de** na coluna Settings da subscrição pretendida na lista.
         ![Selecione a área de trabalho][8] c. Defina o escalão de preço.
         ![Selecione o escalão de preço][9] 
    

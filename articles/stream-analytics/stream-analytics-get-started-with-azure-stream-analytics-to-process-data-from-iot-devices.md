@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 8a4e5b180438203e345ef6c5323ab010f4757c0e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 56243be40a4d47f315ff6599ff2d50c83e44afbc
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978081"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849552"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introdução ao Azure Stream Analytics para o processamento de dados a partir de dispositivos da IoT
 Neste tutorial, vai aprender a criar uma lógica de processamento da transmissão para recolher dados em dispositivos IoT (Internet das Coisas). Vamos analisar um caso real de utilização da Internet das Coisas (IoT) para mostrar como deve construir a solução rapidamente e de forma económica.
@@ -110,5 +110,5 @@ Como podemos escrever uma consulta para encontrar uma falta de eventos de entrad
 Aqui, vamos utilizar uma associação **EXTERNA** para a mesma transmissão de dados (associação automática). Para uma associação **NTERNA**, só é apresentado um resultado quando é encontrada uma correspondência.  Numa associação **EXTERNA**, se um evento externo à associação não tiver qualquer correspondência, será apresentada a linha NULO para todas as colunas à direita. Esta técnica é muito útil para localizar a ausência de eventos. Para obter mais informações sobre [JOIN (ASSOCIAÇÃO)](https://msdn.microsoft.com/library/azure/dn835026.aspx), veja a nossa documentação MSDN.
 
 ## <a name="conclusion"></a>Conclusão
-O objetivo deste tutorial é demonstrar como escrever diferentes consultas de linguagem SAQL (Stream Analytics Query Language) e ver os resultados no browser. No entanto, isto é apenas o início. O Stream Analytics tem muitas outras funcionalidades. O Stream Analytics suporta uma variedade de entradas e saídas e pode mesmo tirar partido de funções no Azure Machine Learning para o transformar numa ferramenta robusta para analisar fluxos de dados. Pode começar a explorar mais sobre o Stream Analytics através do nosso [mapa de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). Para obter mais informações sobre como escrever consultas, leia o artigo sobre [padrões de consulta comuns](stream-analytics-stream-analytics-query-patterns.md).
+O objetivo deste tutorial é demonstrar como escrever diferentes consultas de linguagem SAQL (Stream Analytics Query Language) e ver os resultados no browser. No entanto, isto é apenas o início. O Stream Analytics tem muitas outras funcionalidades. O Stream Analytics suporta uma variedade de entradas e saídas e pode mesmo tirar partido de funções no Azure Machine Learning para o transformar numa ferramenta robusta para analisar fluxos de dados. Pode começar a explorar mais sobre o Stream Analytics através do nosso [mapa de aprendizagem](https://docs.microsoft.com/azure/stream-analytics/). Para obter mais informações sobre como escrever consultas, leia o artigo sobre [padrões de consulta comuns](stream-analytics-stream-analytics-query-patterns.md).
 

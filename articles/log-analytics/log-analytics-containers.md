@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 439ae934484649a5bddb821e6a4cf47f7e77a772
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6373c5c3b613bcc7e01a8c86ad5f9c1af7101f53
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722519"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849314"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização de contentores no Log Analytics
 
@@ -603,7 +603,7 @@ Pesquisa de registos é aberta, exibindo informações sobre o estado dos seus c
 
 ![Pesquisa de registos para contentores](./media/log-analytics-containers/containers-log-search.png)
 
-A partir daqui, pode editar a consulta de pesquisa de modificá-lo para encontrar as informações específicas que está interessado. Para obter mais informações sobre pesquisas de registos, consulte [pesquisas de registos no Log Analytics](log-analytics-queries.md).
+A partir daqui, pode editar a consulta de pesquisa de modificá-lo para encontrar as informações específicas que está interessado. Para obter mais informações sobre pesquisas de registos, consulte [pesquisas de registos no Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Resolver problemas ao detetar um contentor com falhas
 
@@ -671,4 +671,4 @@ A guardar consultas é uma funcionalidade padrão do Log Analytics. Salvando-los
 Depois de criar uma consulta que ser úteis, guarde-o clicando **Favoritos** na parte superior da página pesquisa de registos. Em seguida, pode aceder facilmente mais tarde a partir da **meu painel** página.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Pesquisar registos](log-analytics-queries.md) para ver os registos de dados de contentor detalhadas.
+* [Pesquisar registos](../azure-monitor/log-query/log-query-overview.md) para ver os registos de dados de contentor detalhadas.

@@ -1,21 +1,19 @@
 ---
-title: Suporte do Gremlin do Azure Cosmos DB | Microsoft Docs
+title: Suporte do Azure Cosmos DB Gremlin
 description: Saiba mais sobre a linguagem Gremlin no Apache TinkerPop. Saiba que funcionalidades e passos estão disponíveis no Azure Cosmos DB
 services: cosmos-db
 author: LuisBosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 593b7ac636b92db5c72cfad8f73fc2c418639358
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: 1c54eff207de61a02a1ef752da66bb3b4f6d1580
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700217"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850351"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte de gráficos do Gremlin do Azure Cosmos DB
 O Azure Cosmos DB suporta a linguagem transversal de gráficos do [Apache Tinkerpop](http://tinkerpop.apache.org), o [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma Gremlin API para criar entidades de gráficos e realizar operações de consulta de gráficos. Pode utilizar a linguagem Gremlin para criar entidades de gráfico (vértices e limites), modificar propriedades nessas entidades, efetuar consultas e transversais e eliminar entidades. 
@@ -194,6 +192,6 @@ Vamos observar os passos do Gremlin suportados pelo Azure Cosmos DB. Para obter 
 
 O motor otimizado para escrita fornecido pelo Azure Cosmos DB suporta a indexação automática de todas as propriedades nos vértices e limites por predefinição. Portanto, as consultas com filtros, as consultas de intervalo, a ordenação ou as agregações em qualquer propriedade são processadas no índice e fornecidas de forma eficiente. Para obter mais informações sobre como a indexação funciona no Azure Cosmos DB, veja a nossa documentação sobre [indexação sem esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Comece a criar uma aplicação de gráficos [com os nossos SDKs](create-graph-dotnet.md) 
 * Saiba mais sobre o [suporte de gráficos](graph-introduction.md) no Azure Cosmos DB

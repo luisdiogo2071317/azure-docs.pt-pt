@@ -1,21 +1,19 @@
 ---
-title: Introdução à API do Gremlin do Azure Cosmos DB | Microsoft Docs
+title: Introdução ao Azure Cosmos DB a API do Gremlin
 description: Saiba como pode utilizar o Azure Cosmos DB para armazenar, consultar e percorrer gráficos enormes com baixa latência através da linguagem de consulta de gráficos Gremlin do Apache TinkerPop.
 services: cosmos-db
 author: LuisBosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: overview
 ms.date: 09/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 809dead23a12f761d46c1be6a24951b8762dc1e1
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: f2ca118e137104c6dddd2945b7b88b2f535621eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092223"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849237"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introdução ao Azure Cosmos DB: API do Gremlin
 
@@ -140,7 +138,7 @@ Eis alguns cenários em que o suporte de gráficos do Azure Cosmos DB pode ser u
 
  Com a rede e ligações entre dispositivos da IoT modeladas como um gráfico, pode compreender melhor o estado dos seus dispositivos e recursos. Também pode saber como as alterações numa parte da rede podem potencialmente afetar outra parte.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre o suporte de gráficos no Azure Cosmos DB, veja:
 
 * Introdução ao [tutorial sobre gráficos do Azure Cosmos DB](create-graph-dotnet.md).

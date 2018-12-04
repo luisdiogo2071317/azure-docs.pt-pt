@@ -1,34 +1,33 @@
 ---
-title: Grupo de máquinas para avaliação com o Azure migrar | Microsoft Docs
-description: Descreve como agrupar máquinas antes de executar uma avaliação com o serviço Azure migrar.
+title: Agrupe máquinas para avaliação com o Azure Migrate | Documentos da Microsoft
+description: Descreve como agrupar máquinas antes de executar uma avaliação com o serviço Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: ccab88c0195a7ca459c8579b7870d121dfd0fe1d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3f90fbb4ae30f8cc7730385730c39321974a94c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231411"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850708"
 ---
-# <a name="group-machines-for-assessment"></a>Grupo de máquinas para avaliação
+# <a name="group-machines-for-assessment"></a>Agrupe máquinas para avaliação
 
-Este artigo descreve como criar um grupo de computadores para avaliação por [Azure migrar](migrate-overview.md). Migrar do Azure avalia máquinas do grupo para verificar se serem adequados para a migração para o Azure e fornece estimativas de dimensionamento e custos de execução da máquina no Azure.
-
+Este artigo descreve como criar um grupo de máquinas para avaliação por [do Azure Migrate](migrate-overview.md). O Azure Migrate avalia as máquinas do grupo para verificar se eles são adequados para migração para o Azure e oferece estimativas de dimensionamento e custos para executar a máquina no Azure. Se conhece as máquinas que tem de ser migradas em conjunto, pode criar manualmente o grupo no Azure Migrate usando o seguinte método. Se tiver não certeza muito sobre as máquinas que precisam ser agrupados em conjunto, pode utilizar a funcionalidade de visualização de dependência no Azure Migrate para criar grupos. [Saiba mais.](how-to-create-group-machine-dependencies.md)
 
 ## <a name="create-a-group"></a>Criar um grupo
 
-1. No **descrição geral** do projeto migrar do Azure, em gerir, clique em **grupos** > **+ grupo**e especifique um nome de grupo.
-2. Adicione uma ou mais máquinas para o grupo e clique em **criar**. 
-3. Opcionalmente, pode optar por executar uma nova avaliação para o grupo. 
+1. Na **descrição geral** do projeto do Azure Migrate, em gerir, clique em **grupos** > **+ grupo**e especifique um nome de grupo.
+2. Adicionar uma ou mais máquinas ao grupo e clique em **criar**.
+3. Opcionalmente, pode selecionar para executar uma avaliação nova para o grupo.
 
     ![Criar um grupo](./media/how-to-create-a-group/create-group.png)
 
-Depois do grupo for criado, pode modificá-la ao selecionar o grupo no **grupos** página e adição ou remoção de máquinas.
+Depois de criar o grupo, pode modificá-la ao selecionar o grupo no **grupos** página e, em seguida, adicionar ou remover computadores.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como utilizar [mapeamento de dependência de máquina](how-to-create-group-machine-dependencies.md) para criar grupos de confiança elevada.
+- Aprenda a usar [mapeamento de dependências de máquina](how-to-create-group-machine-dependencies.md) para criar grupos de confiança elevada.
 - [Saiba mais](concepts-assessment-calculation.md) sobre como são calculadas as avaliações.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4cce49509a452153815c845d9ab72a1b4a8a5b7f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13a628d37ef67d0a1dc3ad8231229493191c4e7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356929"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849569"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Erro na página de uma aplicação depois de iniciar sessão
 
@@ -30,7 +30,7 @@ Existem algumas razões possíveis, por que a aplicação não aceitar a respost
 
 -   Se o aplicativo é a galeria do Azure AD, certifique-se de que seguiu todos os passos no artigo [como depurar baseado em SAML início de sessão único para aplicações no Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Usar uma ferramenta como [Fiddler](http://www.telerik.com/fiddler) para capturar o pedido SAML, resposta SAML e SAML token.
+-   Usar uma ferramenta como [Fiddler](https://www.telerik.com/fiddler) para capturar o pedido SAML, resposta SAML e SAML token.
 
 -   Partilhe a resposta SAML com o fabricante da aplicação para saber o que está em falta.
 

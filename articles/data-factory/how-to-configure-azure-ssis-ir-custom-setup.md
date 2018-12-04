@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/3/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: df020fc3a4e2f57730dea7329b08e1e46660e610
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fab03f12f4099fe2df2525cb3a6fa093170d1c79
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037044"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850181"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar a configuração para o runtime de integração Azure-SSIS
 
@@ -131,7 +131,7 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
     c. Selecione o contentor de pré-visualização pública conectado e faça duplo clique o `CustomSetupScript` pasta. Nesta pasta são os seguintes itens:
 
-       1. A `Sample` pasta, que contém uma configuração personalizada para instalar uma tarefa básica em cada nó do seu ir Azure-SSIS. A tarefa não faz nada, mas o modo de suspensão por alguns segundos. A pasta também contém um `gacutil` pasta, que contém `gacutil.exe`. Além disso, `main.cmd` contém os seus comentários para manter as credenciais de acesso para partilhas de ficheiros.
+       1. A `Sample` pasta, que contém uma configuração personalizada para instalar uma tarefa básica em cada nó do seu ir Azure-SSIS. A tarefa não faz nada, mas o modo de suspensão por alguns segundos. A pasta também contém um `gacutil` pasta, todo o conteúdo das quais (`gacutil.exe`, `gacutil.exe.config`, e `1033\gacutlrc.dll`) podem ser copiados porque está no seu contentor. Além disso, `main.cmd` contém os seus comentários para manter as credenciais de acesso para partilhas de ficheiros.
 
        1. A `UserScenarios` pasta, que contém várias configurações personalizadas para cenários de utilizador real.
 
@@ -146,8 +146,6 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
        1. R `BCP` pasta, que contém uma configuração personalizada para instalar os utilitários da linha de comandos do SQL Server (`MsSqlCmdLnUtils.msi`), incluindo o programa de cópia em massa (`bcp`), em cada nó do seu ir Azure-SSIS.
 
        1. Uma `EXCEL` pasta, que contém uma configuração personalizada para instalar os assemblies de código-fonte aberto (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, e `ExcelDataReader.dll`) em cada nó do seu ir Azure-SSIS.
-
-       1. Um `MSDTC` pasta, que contém uma configuração personalizada para modificar as configurações de rede e segurança para o serviço de coordenador de transações distribuídas ' (MSDTC) da Microsoft em cada nó do seu ir Azure-SSIS. Para garantir que o MSDTC foi iniciado, adicione executar tarefa de processo no início do fluxo de controle em seus pacotes a executar o seguinte comando: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
        1. Uma `ORACLE ENTERPRISE` pasta, que contém um script de configuração personalizada (`main.cmd`) e o ficheiro de configuração de instalação silenciosa (`client.rsp`) para instalar os conectores de Oracle e o controlador OCI em cada nó do seu Azure-SSIS IR Enterprise Edition. Esta configuração permite-lhe utilizar o Gestor de ligações do Oracle, a origem e destino. Em primeiro lugar, Baixe o Microsoft Connectors v5.0 para Oracle (`AttunitySSISOraAdaptersSetup.msi` e `AttunitySSISOraAdaptersSetup64.msi`) da [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) e o cliente mais recente Oracle - por exemplo, `winx64_12102_client.zip` – na [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), em seguida, carregá-los tudo em conjunto com `main.cmd` e `client.rsp` ao contentor. Se usar TNS para ligar a Oracle, também tem de transferir `tnsnames.ora`, editá-lo e carregá-lo para o contentor, para que possam ser copiado para a pasta de instalação do Oracle durante a configuração.
 
