@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448823"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835391"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutorial: Integração do Azure Active Directory com o ScaleX Enterprise
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com o ScaleX Enterprise, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um empresa ScaleX início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do ScaleX Enterprise para o Azure AD, terá de ad
 
 **Para adicionar propriedades ScaleX empresarial a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -123,7 +123,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     Na **URL de início de sessão** caixa de texto, digite o valor usando o seguinte padrão: `https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
-    > Essas não são os valores reais. Atualize estes valores com o identificador real, o URL de resposta ou URL de início de sessão. Contacte [equipa de suporte de ScaleX Enterprise Client](http://info.rescale.com/contact_sales) obter esses valores. 
+    > Essas não são os valores reais. Atualize estes valores com o identificador real, o URL de resposta ou URL de início de sessão. Contacte [equipa de suporte de ScaleX Enterprise Client](https://info.rescale.com/contact_sales) obter esses valores. 
 
 1. A aplicação de ScaleX espera que as asserções SAML num formato específico, o que exige que modificar mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Clique em **ver e editar todos os outros atributos de utilizador** as definições de atributos de caixa de verificação para abrir o personalizado.
 

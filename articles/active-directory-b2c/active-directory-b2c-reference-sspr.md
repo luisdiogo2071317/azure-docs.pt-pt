@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7dd68f409ad4c8130ed841ddc7ef5910d3b1945c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c9d6a66a9d54c75fbb20775f0ae4de4d22a7d599
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719747"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840874"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configurar o self-service reposição palavra-passe para os seus clientes
 Com a funcionalidade de reposição de palavra-passe self-service, os clientes que se inscreveram para contas locais podem repor as palavras-passe por conta própria. Esta opção reduz significativamente a carga sobre a equipe de suporte, especialmente se o seu aplicativo tiver milhões de clientes usá-lo regularmente. Atualmente, a utilizar um endereço de correio eletrónico verificado é o método de recuperação suportados apenas.
 
 > [!NOTE]
-> Este artigo aplica-se a palavra-passe self-service reposição utilizada no contexto do V1 **iniciar sessão** fluxo de utilizador, que usa **início de sessão de conta Local** como o fornecedor de identidade. Se precisar de fluxos de utilizador de reposição de palavra-passe totalmente personalizável invocados a partir da sua aplicação, veja [este artigo](active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
+> Este artigo aplica-se a palavra-passe self-service reposição utilizada no contexto do V1 **iniciar sessão** fluxo de utilizador, que usa **início de sessão de conta Local** como o fornecedor de identidade. Se precisar de fluxos de utilizador de reposição de palavra-passe totalmente personalizável invocados a partir da sua aplicação, veja [este artigo](active-directory-b2c-reference-policies.md#create-a-password-reset-user-flow).
 > 
 > 
 

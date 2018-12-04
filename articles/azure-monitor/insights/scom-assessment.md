@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 1b6f157ce8a184885fcd1cd6bbde912516916db9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ddf749dd033771ae9bad09f4548c277c279c2bb5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428383"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839370"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução do System Center Operations Manager verificação de integridade (pré-visualização)
 
@@ -238,7 +238,7 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
     ```
 
     >[!NOTE]
-    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](../../log-analytics/log-analytics-queries.md), em seguida, a consulta acima serão alteradas para o seguinte.
+    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](../../azure-monitor/log-query/log-query-overview.md), em seguida, a consulta acima serão alteradas para o seguinte.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +263,7 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
     ```
 
     >[!NOTE]
-    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](../../log-analytics/log-analytics-queries.md), em seguida, a consulta acima serão alteradas para o seguinte.
+    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](../../azure-monitor/log-query/log-query-overview.md), em seguida, a consulta acima serão alteradas para o seguinte.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +304,4 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Pesquisar registos](../../log-analytics/log-analytics-queries.md) para saber como analisar dados detalhados de verificação do System Center Operations Manager estado de funcionamento e recomendações.
+- [Pesquisar registos](../../azure-monitor/log-query/log-query-overview.md) para saber como analisar dados detalhados de verificação do System Center Operations Manager estado de funcionamento e recomendações.
