@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 97e499612082d0d58cd75bb9f8854b8c4e0f669e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3807dcf9ea4625db72b0579e0609641e3aedb088
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635769"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845727"
 ---
 # <a name="views-in-management-solutions-preview"></a>Modos de exibição em soluções de gestão (pré-visualização)
 > [!NOTE]
@@ -90,7 +90,7 @@ Tenha em atenção que pode copiar o recurso de toda a vista do seu ficheiro de 
 * Variáveis devem ser definidas na solução e utilizadas nas propriedades adequadas.
 
 ### <a name="log-analytics-api-version"></a>Versão de API de análise do registo
-Todos os recursos do Log Analytics definidos num modelo do Resource Manager de ter uma propriedade **apiVersion** que define a versão da API deve usar o recurso.  Esta versão é diferente das vistas com consultas que usam o [legados e a linguagem de consulta atualizado](../../log-analytics/log-analytics-queries.md).  
+Todos os recursos do Log Analytics definidos num modelo do Resource Manager de ter uma propriedade **apiVersion** que define a versão da API deve usar o recurso.  Esta versão é diferente das vistas com consultas que usam o [legados e a linguagem de consulta atualizado](../../azure-monitor/log-query/log-query-overview.md).  
 
  A seguinte tabela especifica as versões de API do Log Analytics para exibições em áreas de trabalho de legado e atualizadas: 
 

@@ -5,15 +5,15 @@ services: container-instances
 author: seanmck
 ms.service: container-instances
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803516"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845812"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>O Azure Container Instances e orquestradores de contentor
 
@@ -40,9 +40,9 @@ Azure Container Instances permite uma abordagem em camadas de orquestração, fo
 
 Uma vez que a infraestrutura subjacente para as instâncias de contentor é gerida pelo Azure, uma plataforma do orchestrator não precisa de preocupar com a localização de uma máquina de anfitrião adequado para executar um único contentor. A elasticidade da cloud garante que uma está sempre disponível. Em vez disso, o orchestrator pode concentrar-se nas tarefas que simplificam o desenvolvimento de arquiteturas de vários contentores, incluindo o dimensionamento e atualizações coordenadas.
 
-## <a name="potential-scenarios"></a>Cenários potenciais
+## <a name="scenarios"></a>Cenários
 
-Embora seja ainda ser a integração do orchestrator com o Azure Container Instances, prevemos que alguns ambientes diferentes podem surgir:
+Embora seja ainda ser a integração do orchestrator com o Azure Container Instances, prevemos que surgirão alguns ambientes diferentes:
 
 ### <a name="orchestration-of-container-instances-exclusively"></a>Orquestração do contentor de instâncias exclusivamente
 
@@ -54,13 +54,15 @@ Para cargas de trabalho de longa execução, estáveis, orquestração de conten
 
 Em vez de aumentar horizontalmente o número de máquinas virtuais no seu cluster, em seguida, implementar contentores adicionais para essas máquinas, o orchestrator pode simplesmente agendar os contentores adicionais no Azure Container Instances e eliminá-los quando não estiverem mais necessário.
 
-## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>Implementação de exemplo: Virtual Kubelet para Kubernetes
+## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Implementação de exemplo: nós virtuais para o Azure Kubernetes Service (AKS)
 
-O [Virtual Kubelet] [ aci-connector-k8s] projeto demonstra como integrar as plataformas de orquestração de contentores com o Azure Container Instances.
+Rapidamente, dimensionar cargas de trabalho de aplicação num [do Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster (AKS), pode usar *nós virtuais* criado dinamicamente no Azure Container Instances. Atualmente em pré-visualização, nós virtuais de ativar a comunicação de rede entre os pods que são executados no ACI e o cluster do AKS. 
 
-Virtual Kubelet imita do Kubernetes [kubelet] [ kubelet-doc] registrando-se como um nó com capacidade ilimitada e expedir a criação de [pods] [ pod-doc] como grupos de contentores no Azure Container Instances.
+Nós virtuais suportam atualmente as instâncias de contentor do Linux. Comece connosco virtuais utilizando o [CLI do Azure](https://go.microsoft.com/fwlink/?linkid=2047538) ou [portal do Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Poderiam ser compilados conectores para outros orquestradores que da mesma forma se integram com primitivos de plataforma para combinar o poder do orquestrador API com a velocidade e a simplicidade da gestão de contentores no Azure Container Instances.
+Nós virtuais de utilizam o open source [Virtual Kubelet] [ aci-connector-k8s] imitar o Kubernetes [kubelet] [ kubelet-doc] ao se registrar como um nó com ilimitado capacidade. O Virtual Kubelet expede a criação de [pods] [ pod-doc] como grupos de contentores no Azure Container Instances.
+
+Consulte a [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) projeto para obter exemplos adicionais de expandir a API do Kubernetes para plataformas de contentores sem servidor.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

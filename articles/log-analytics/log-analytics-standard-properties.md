@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 64b4ab95d4972848c6c0cf7130ec97c2be41ead0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7fe018a1584561ae12742da6e75f7d265ae82656
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722922"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833555"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Propriedades padrão nos registos do Log Analytics
-Dados no [do Log Analytics](../log-analytics/log-analytics-queries.md) é armazenado como um conjunto de registos, cada um com um tipo de dados específico que tenha um conjunto exclusivo de propriedades. Vários tipos de dados terá propriedades padrão que são comuns em vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como pode usá-los em consultas.
+Dados no [do Log Analytics](../log-analytics/../azure-monitor/log-query/log-query-overview.md) é armazenado como um conjunto de registos, cada um com um tipo de dados específico que tenha um conjunto exclusivo de propriedades. Vários tipos de dados terá propriedades padrão que são comuns em vários tipos. Este artigo descreve essas propriedades e fornece exemplos de como pode usá-los em consultas.
 
 Algumas dessas propriedades são ainda estiver no processo que está a ser implementado, pelo que poderá ver em alguns tipos de dados, mas ainda não em outros.
 
@@ -88,6 +88,6 @@ AzureActivity
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre como [dados do Log Analytics são armazenados](../log-analytics/log-analytics-queries.md).
+- Saiba mais sobre como [dados do Log Analytics são armazenados](../log-analytics/../azure-monitor/log-query/log-query-overview.md).
 - Obtenha uma lição sobre [escrevem consultas no Log Analytics](../log-analytics/query-language/get-started-queries.md).
 - Obtenha uma lição sobre [associar tabelas em consultas do Log Analytics](../log-analytics/query-language/joins.md).

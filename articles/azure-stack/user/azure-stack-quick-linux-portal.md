@@ -7,16 +7,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.reviewer: ''
+ms.reviewer: kivenkat
 ms.custom: mvc
-ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0664316d73b1473ab52b08f8abead2ec33d121b6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025415"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836751"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Início rápido: criar uma máquina de virtual de servidor do Linux com o portal do Azure Stack
 
@@ -25,7 +25,7 @@ ms.locfileid: "44025415"
 Pode criar uma máquina virtual do Ubuntu Server 16.04 LTS com o portal do Azure Stack. Siga os passos neste artigo para criar e utilizar uma máquina virtual. Este artigo também dá-lhe os passos para:
 
 * Ligar à máquina virtual com um cliente remoto.
-* Instale um servidor de web NGINX.
+* Instale um servidor web NGINX.
 * Limpe seus recursos.
 
 > [!NOTE]  
@@ -36,7 +36,7 @@ Pode criar uma máquina virtual do Ubuntu Server 16.04 LTS com o portal do Azure
 
 * **Uma imagem do Linux no mercado do Azure Stack**
 
-   O mercado do Azure Stack não contém uma imagem do Linux por predefinição. Antes de poder criar uma máquina de virtual de servidor Linux, certifique-se de que o operador do Azure Stack fornece a **Ubuntu Server 16.04 LTS** imagem precisa. O operador pode utilizar os passos descritos na [transferir itens do marketplace do Azure para o Azure Stack](../azure-stack-download-azure-marketplace-item.md) artigo.
+   Por predefinição, o mercado do Azure Stack não tem uma imagem do Linux. Verifique se tem o Azure Stack operador fornece a **Ubuntu Server 16.04 LTS** imagem no seu mercado. O operador pode utilizar os passos descritos na [transferir itens do marketplace do Azure para o Azure Stack](../azure-stack-download-azure-marketplace-item.md) artigo.
 
 * **Acesso a um cliente SSH**
 
@@ -97,11 +97,11 @@ Inicie sessão no portal do Azure Stack. O endereço do portal do Azure Stack de
 
 ## <a name="connect-to-the-virtual-machine"></a>Ligar à máquina virtual
 
-1. Clique em **Connect** na página de máquina virtual. Esta ação apresenta uma cadeia de ligação de SSH tem de se ligar à máquina virtual. 
+1. Clique em **Connect** na página de máquina virtual. Pode encontrar a cadeia de ligação de SSH tem de se ligar à máquina virtual. 
 
 2. Abra o PuTTY.
 
-3. Sobre o **configuração do PuTTY** ecrã que irá utilizar o **categoria** janela de se deslocar para cima ou para baixo. Desloque para baixo até **SSH**, expanda **SSH**e, em seguida, clique em **Auth**. Clique em **procurar** e escolha o ficheiro de chave privada que guardou.
+3. No ecrã de configuração do PuTTY, irá utilizar o **categoria** janela de se deslocar para cima ou para baixo. Desloque para baixo até **SSH**, expanda **SSH**e, em seguida, clique em **Auth**. Clique em **procurar** e escolha o ficheiro de chave privada que guardou.
    ![Ligar a máquina virtual](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Deslocar para cima na **categoria** janela e clique em **sessão**.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 456e32e2f5194417f004f80feef1852dd3d0befd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c93bc018aea92a63adac4889d9496356543c1e52
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723283"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842735"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Token, sessão e configuração de início de sessão única no Azure Active Directory B2C
 
@@ -66,7 +66,7 @@ As seguintes propriedades permitem aos clientes escolher conforme necessário:
 
 - **Afirmação do emissor (iss)** -esta propriedade identifica o inquilino do Azure AD B2C que emitiu o token.
     - `https://<domain>/{B2C tenant GUID}/v2.0/` -Este é o valor predefinido.
-    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` -Este valor inclui o IDs de inquilino do B2C e o fluxo de utilizador utilizado no pedido de token. Se a sua aplicação ou a biblioteca precisa do Azure AD B2C para estar em conformidade com o [especificação do OpenID Connect 1.0 da deteção](http://openid.net/specs/openid-connect-discovery-1_0.html), utilize este valor.
+    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` -Este valor inclui o IDs de inquilino do B2C e o fluxo de utilizador utilizado no pedido de token. Se a sua aplicação ou a biblioteca precisa do Azure AD B2C para estar em conformidade com o [especificação do OpenID Connect 1.0 da deteção](https://openid.net/specs/openid-connect-discovery-1_0.html), utilize este valor.
 - **Afirmação do requerente** -esta propriedade identifica a entidade para o qual o token declara informações.
     - **ObjectID** -esta propriedade é o valor predefinido. Preenche o ID de objeto do utilizador no diretório para o `sub` de afirmações no token.
     - **Não suportado** - esta propriedade só é fornecida para compatibilidade com versões anteriores, e recomendamos que altere para **ObjectID** assim que possível.

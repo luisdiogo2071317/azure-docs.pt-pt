@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: e0fa3d481e18cdb15095968e791bd9eee630f8af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: fe7d3fb9a88b97eddf0708b7a5b2eefd09111542
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446335"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843432"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Exploração e modelação avançada de dados com o Spark
 
-Estas instruções utilizam o Spark do HDInsight para fazer a exploração de dados e preparar os modelos de regressão com a validação cruzada e de classificação binária e a otimização de hiper-parâmetros de uma amostra do NYC táxis viagem e se comportarão de conjunto de dados de 2013. Ele explica-lhe os passos para o [processo de ciência de dados](https://aka.ms/datascienceprocess)ponto-a- ponto, utilizar um cluster do HDInsight Spark para blobs de processamento e do Azure para armazenar os dados e os modelos. O processo explora e visualiza dados trazidos de um Blob de armazenamento do Azure e, em seguida, prepara os dados para criar modelos preditivos. Python tem sido utilizado para a solução de código e para mostrar os gráficos relevantes. Estes modelos são de compilação usando o Kit de ferramentas do Spark MLlib para efetuar tarefas de modelagem de classificação binária e regressão. 
+Estas instruções utilizam o Spark do HDInsight para fazer a exploração de dados e preparar os modelos de regressão com a validação cruzada e de classificação binária e a otimização de hiper-parâmetros de uma amostra do NYC táxis viagem e se comportarão de conjunto de dados de 2013. Ele explica-lhe os passos para o [processo de ciência de dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)ponto-a- ponto, utilizar um cluster do HDInsight Spark para blobs de processamento e do Azure para armazenar os dados e os modelos. O processo explora e visualiza dados trazidos de um Blob de armazenamento do Azure e, em seguida, prepara os dados para criar modelos preditivos. Python tem sido utilizado para a solução de código e para mostrar os gráficos relevantes. Estes modelos são de compilação usando o Kit de ferramentas do Spark MLlib para efetuar tarefas de modelagem de classificação binária e regressão. 
 
 * O **classificação binária** tarefa é prever se ou não uma dica é pago para a viagem. 
 * O **regressão** tarefa é prever a quantidade de sugestão com base em outros recursos de dica. 

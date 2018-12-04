@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 226f67b5618316811509c90c1b00e27026c11ea6
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 33b22dd3ba654c7fdbfe03ccd9c9c0433d202509
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679992"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841137"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solução Wire Data 2.0 (Pré-visualização) no Log Analytics
 
@@ -450,4 +450,4 @@ Os dados por fio recolhem metadados sobre o tráfego de rede com os agentes que 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Registos de pesquisa](../../log-analytics/log-analytics-queries.md) para ver registos detalhados da pesquisa dos dados por fio.
+- [Registos de pesquisa](../../azure-monitor/log-query/log-query-overview.md) para ver registos detalhados da pesquisa dos dados por fio.

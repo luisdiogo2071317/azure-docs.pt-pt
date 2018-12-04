@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 486e485a78f767c4d75461558d06068a2e1c4525
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d5cad3869e74f33a2d1a56352c658bb9c8f23db6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682814"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835799"
 ---
 # <a name="log-analytics-query-examples"></a>Exemplos de consulta de análise de registo
-Este artigo inclui vários exemplos de [consultas](../log-analytics-queries.md) utilizando o [linguagem de Kusto](https://docs.microsoft.com/azure/kusto/query/) para recuperar os diferentes tipos de dados do Log Analytics. Métodos diferentes são utilizados para consolidar e analisar os dados, pelo que pode utilizar estes exemplos para identificar estratégias diferentes que poderia usar em seus próprios requisitos.  
+Este artigo inclui vários exemplos de [consultas](../../azure-monitor/log-query/log-query-overview.md) utilizando o [linguagem de Kusto](https://docs.microsoft.com/azure/kusto/query/) para recuperar os diferentes tipos de dados do Log Analytics. Métodos diferentes são utilizados para consolidar e analisar os dados, pelo que pode utilizar estes exemplos para identificar estratégias diferentes que poderia usar em seus próprios requisitos.  
 
 Consulte a [referência de linguagem de Kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave usadas nesses exemplos. Aceda através de um [lição sobre a criação de consultas](get-started-queries.md) se estiver familiarizado com o Log Analytics.
 
@@ -205,7 +205,7 @@ Perf
 | render timechart
 ```
 
-## <a name="protection-status"></a>Estado da proteção
+## <a name="protection-status"></a>Estado de proteção
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>Computadores com a duração do Estado de proteção sem relatórios
 Este exemplo apresenta uma lista de computadores que tinha um Estado de proteção de _Reporting não_ e a duração fossem neste estado.

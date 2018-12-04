@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bccbf5462668913f6f3025e8d2274c115d49457f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6957a18440dfc225c63a1b1843e2b47af8b841bf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727245"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842956"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>O Azure AD B2C: Perguntas mais frequentes (FAQ) 
 Esta página responde às perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para as atualizações.
@@ -39,7 +39,7 @@ Sempre é necessário criar contas de utilizador para aplicações através de u
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Os fornecedores de identidade social suporta agora? Quais planeia suportar no futuro?
 Suportamos, atualmente, o Facebook, Google +, LinkedIn, Amazon, Twitter (pré-visualização), WeChat (pré-visualização), Weibo (pré-visualização) e QQ (pré-visualização). Vamos adicionar suporte para outros fornecedores de identidade de redes sociais populares com base na procura dos clientes.
 
-O Azure AD B2C também adicionou suporte para [políticas personalizadas](active-directory-b2c-overview-custom.md).  Estes [políticas personalizadas](active-directory-b2c-overview-custom.md) permitir que um desenvolvedor crie sua própria política de que com qualquer fornecedor de identidade que suporta [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) ou SAML. 
+O Azure AD B2C também adicionou suporte para [políticas personalizadas](active-directory-b2c-overview-custom.md).  Estes [políticas personalizadas](active-directory-b2c-overview-custom.md) permitir que um desenvolvedor crie sua própria política de que com qualquer fornecedor de identidade que suporta [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) ou SAML. 
 
 Comece com as políticas personalizadas ao dar uma olhada em nosso [pacote de iniciante da política personalizada](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 

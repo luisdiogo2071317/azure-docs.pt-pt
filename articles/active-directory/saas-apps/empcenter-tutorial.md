@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: e7e594619c3b7c1ebd34c802d53b3897046a9cd7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 722a5b90b9ca17197cb0a0d117e58a01108d0a9c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426841"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845047"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Tutorial: Integração do Azure Active Directory com EmpCenter
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com EmpCenter, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um EmpCenter logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do EmpCenter com o Azure AD, terá de adicionar E
 
 **Para adicionar EmpCenter a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -119,7 +119,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | `https://<subdomain>.workforcehosting.com/<instancename>` |
 
     > [!NOTE] 
-    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente EmpCenter](http://www.workforcesoftware.com/services/customer-support/) para obter o valor. 
+    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente EmpCenter](https://www.workforcesoftware.com/services/customer-support/) para obter o valor. 
  
 1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -129,7 +129,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/empcenter-tutorial/tutorial_general_400.png)
 
-1. Para configurar o início de sessão único num **EmpCenter** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de EmpCenter](http://www.workforcesoftware.com/services/customer-support/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Para configurar o início de sessão único num **EmpCenter** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de EmpCenter](https://www.workforcesoftware.com/services/customer-support/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -168,7 +168,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="creating-an-empcenter-test-user"></a>Criar um utilizador de teste EmpCenter
 
-Para habilitar os utilizadores do Azure AD iniciar sessão no EmpCenter, tem de ser aprovisionados em EmpCenter. No caso de EmpCenter, as contas de utilizador têm de ser criadas por sua [equipa de suporte de EmpCenter](http://www.workforcesoftware.com/services/customer-support/).
+Para habilitar os utilizadores do Azure AD iniciar sessão no EmpCenter, tem de ser aprovisionados em EmpCenter. No caso de EmpCenter, as contas de utilizador têm de ser criadas por sua [equipa de suporte de EmpCenter](https://www.workforcesoftware.com/services/customer-support/).
 
 > [!NOTE]
 > Pode utilizar quaisquer outras EmpCenter utilizador conta criação ferramentas ou APIs fornecidas pelo EmpCenter para aprovisionar o Azure Active Directory contas de utilizador.

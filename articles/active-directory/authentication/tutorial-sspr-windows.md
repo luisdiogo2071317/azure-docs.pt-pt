@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277771"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844843"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavra-passe do Azure AD no ecrã de início de sessão
 
@@ -101,23 +101,29 @@ Quando os utilizadores tentam iniciar sessão, veem agora a ligação Repor pala
 
 Os seus utilizadores podem obter orientações sobre como utilizar esta funcionalidade em [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in) (Repor a palavra-passe da conta escolar ou profissional)
 
-## <a name="common-issues"></a>Problemas comuns
+O registo de auditoria do Azure AD irá incluir informações sobre o endereço IP e ClientType onde ocorreu a reposição de palavra-passe.
+
+![Ecrã de exemplo de início de sessão com reposição de palavra-passe no registo de auditoria do Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+## <a name="limitations"></a>Limitações
 
 Ao testar esta funcionalidade com o Hyper-V, a ligação "Repor palavra-passe" não aparece.
 
 * Aceda à VM com a qual está a testar, clique em **Ver** e desmarque **Sessão avançada**.
 
-Quando testar esta funcionalidade com o Ambiente de Trabalho Remoto, a ligação "Repor palavra-passe" não aparece.
+Ao testar esta funcionalidade com o ambiente de trabalho remoto ou uma sessão de VM avançada, a ligação "Repor palavra-passe" não aparece.
 
 * A reposição de palavras-passe não é suportada em Ambientes de Trabalho Remotos atualmente.
 
-Se o ecrã de bloqueio do Windows for desativado com uma chave de registo ou uma política de grupo, **Repor palavra-passe** não estará disponível.
-
 Se Ctrl+Alt+Del for exigido pela política, ou as notificações do ecrã de Bloqueio estiverem desativadas, a opção **Repor a palavra-passe** não irá funcionar.
 
-O registo de auditoria do Azure AD irá incluir informações sobre o endereço IP e ClientType onde ocorreu a reposição de palavra-passe.
+As seguintes definições de política são conhecidas por interferir com a capacidade de repor as palavras-passe
 
-![Ecrã de exemplo de início de sessão com reposição de palavra-passe no registo de auditoria do Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+   * HideFastUserSwitching é definido como ativado ou 1
+   * DontDisplayLastUserName é definido como ativado ou 1
+   * NoLockScreen é definido como ativado ou 1
+   * EnableLostMode é definido no dispositivo
+   * Explorer.exe é substituído por um shell personalizado
 
 Se as máquinas do Windows 10 estiverem atrás de um servidor proxy ou firewall, o tráfego HTTPS (443) para passwordreset.microsoftonline.com e ajax.aspnetcdn.com deve ser permitido.
 
@@ -125,7 +131,7 @@ Se as máquinas do Windows 10 estiverem atrás de um servidor proxy ou firewall,
 
 Se decidir que já não quer utilizar a funcionalidade que configurou como parte deste tutorial, elimine o perfil de configuração de dispositivos do Intune que criou ou a chave de registo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, permitiu aos utilizadores repor as respetivas palavras-passe no ecrã de início de sessão do Windows 10. Avance para o próximo tutorial para ver como o Azure Identity Protection pode ser integrado na reposição personalizada de palavra-passe e nas experiências de Multi-Factor Authentication.
 

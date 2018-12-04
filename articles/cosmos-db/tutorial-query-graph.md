@@ -1,24 +1,20 @@
 ---
-title: Como consultar dados de gráfico no Azure Cosmos DB? | Microsoft Docs
+title: Como consultar dados de gráfico no Azure Cosmos DB?
 description: Saiba como consultar dados de gráfico no Azure Cosmos DB
 services: cosmos-db
 author: luisbosquez
-manager: kfile
-editor: ''
-tags: ''
+ms.author: lbosq
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2018
-ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: e3ed90d0b706e742588a5a0966d9ac3bda44ecbd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.date: 01/02/2018
+ms.openlocfilehash: 10ec4abc7f38106611a9510cc7bcc0b5ec18b7b0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697447"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833504"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Tutorial: Consultar a API do Gremlin do Azure Cosmos DB através do Gremlin
 
@@ -31,7 +27,7 @@ Este artigo abrange as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para estas consultas funcionarem, tem de ter uma conta do Azure Cosmos DB e dados de gráfico no contentor. Não tem qualquer um destes? Conclua o [guia de introdução de 5 minutos](create-graph-dotnet.md) ou o [tutorial do programador](tutorial-query-graph.md) para criar uma conta e povoar a base de dados. Pode executar as seguintes consultas com a [consola do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) ou o seu controlador Gremlin favorito.
+Para estas consultas funcionarem, tem de ter uma conta do Azure Cosmos DB e dados de gráfico no contentor. Não tem qualquer um destes? Conclua o [início rápido de 5 minutos](create-graph-dotnet.md) ou o [tutorial do programador](tutorial-query-graph.md) para criar uma conta e povoar a base de dados. Pode executar as seguintes consultas com a [consola do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) ou o seu controlador Gremlin favorito.
 
 ## <a name="count-vertices-in-the-graph"></a>Contar vértices no gráfico
 
@@ -73,7 +69,7 @@ g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabe
 
 Pode criar consultas mais complexas e implementar uma lógica de gráfico transversal poderosa com o Gremlin, incluindo misturar expressões de filtro, efetuar o ciclo com o passo `loop` e implementar a navegação condicional com o passo `choose`. Saiba mais sobre o que pode fazer com o [Suporte para Gremlin](gremlin-support.md)!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, fez o seguinte:
 

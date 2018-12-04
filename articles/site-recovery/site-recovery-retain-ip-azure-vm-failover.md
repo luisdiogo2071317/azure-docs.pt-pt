@@ -2,16 +2,16 @@
 title: Manter os endereços IP durante a ativação pós-falha da VM do Azure com o Azure Site Recovery | Documentos da Microsoft
 description: Descreve como manter os endereços IP quando efetuar a ativação pós-falha de VMs do Azure para recuperação após desastre para uma região secundária com o Azure Site Recovery
 ms.service: site-recovery
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 4e75ba210e12a39d2c4cfb9753bbc2da2893746b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567405"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842752"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Manter os endereços IP durante a ativação pós-falha
 

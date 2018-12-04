@@ -1,22 +1,20 @@
 ---
-title: Introdução à API para Cassandra do Azure Cosmos DB | Microsoft Docs
+title: Introdução à API para Cassandra do Azure Cosmos DB
 description: Saiba como pode utilizar o Azure Cosmos DB para fazer a migração lift-and-shift de aplicações existentes e criar outras novas com a API para Cassandra, mediante a utilização de controladores e de CQL do Cassandra com que já está familiarizado.
 services: cosmos-db
 author: kanshiG
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
-ms.devlang: na
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 1037f7921093d38d9020bafd9fd3597f27ca5011
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 79c131be14de05e84eb21d6d53eefd1aa224df16
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230255"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835025"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introdução à API para Cassandra do Azure Cosmos DB
 
@@ -40,7 +38,7 @@ A API para Cassandra permite-lhe interagir com os dados armazenados no Azure Cos
 
 **Nível empresarial**: o Azure Cosmos DB fornece [certificações de conformidade](https://www.microsoft.com/trustcenter) para garantir que os utilizadores podem utilizar a plataforma de forma segura. Também oferece encriptação inativa e em movimento, firewall de IPs e registos de auditorias para atividades do plano de controlo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Pode começar a criar rapidamente as seguintes aplicações específicas de linguagens para criar e gerir dados da API para Cassandra:
   - [Aplicação Node.js](create-cassandra-nodejs.md)

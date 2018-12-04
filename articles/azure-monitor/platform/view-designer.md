@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: bbf38d17f2f411fde240a67f6666953b275fb788
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: af2ecad79bef0889ca0d1e47171ebaf9777418ca
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642474"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833402"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Criar vistas personalizadas com o estruturador de vistas no Log Analytics
-Ao utilizar o estruturador de vistas no [do Azure Log Analytics](../../log-analytics/log-analytics-queries.md), pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo apresenta uma visão geral do estruturador de vistas e procedimentos para criação e edição de exibições personalizadas.
+Ao utilizar o estruturador de vistas no [do Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo apresenta uma visão geral do estruturador de vistas e procedimentos para criação e edição de exibições personalizadas.
 
 Para obter mais informações sobre o estruturador de vistas, consulte:
 
@@ -42,7 +42,7 @@ As vistas que criar com o estruturador de vistas contêm os elementos que são d
 |:--- |:--- |
 | Mosaicos | São apresentadas na sua área de trabalho do Log Analytics **descrição geral** página. Cada mosaico mostra um resumo visual do modo de exibição personalizado, que ele representa. Cada tipo de mosaico fornece uma visualização diferente de seus registros. Selecionar um mosaico para apresentar uma vista personalizada. |
 | Vista personalizada | Apresentado quando seleciona um mosaico. Cada vista contém um ou mais partes de visualização. |
-| Partes de visualização | Apresentar uma visualização de dados na área de trabalho do Log Analytics com base num ou vários [pesquisas de registos](../../log-analytics/log-analytics-queries.md). A maioria das partes incluem um cabeçalho, que fornece uma visualização de alto nível, e uma lista, que apresenta os principais resultados. Cada tipo de parte fornece uma visualização diferente dos registos na área de trabalho do Log Analytics. Selecionar elementos na parte para efetuar uma pesquisa de registos que fornece registos detalhados. |
+| Partes de visualização | Apresentar uma visualização de dados na área de trabalho do Log Analytics com base num ou vários [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md). A maioria das partes incluem um cabeçalho, que fornece uma visualização de alto nível, e uma lista, que apresenta os principais resultados. Cada tipo de parte fornece uma visualização diferente dos registos na área de trabalho do Log Analytics. Selecionar elementos na parte para efetuar uma pesquisa de registos que fornece registos detalhados. |
 
 
 ## <a name="work-with-an-existing-view"></a>Trabalhar com uma vista existente
@@ -102,7 +102,7 @@ As opções para trabalhar com modos de exibição no modo de edição são desc
 |:--|:--|
 | Guardar        | Guarda as alterações e fecha o modo de exibição. |
 | Cancelar      | Elimina as suas alterações e fecha o modo de exibição. |
-| Eliminar Vista | Elimina a vista. |
+| Eliminar vista | Elimina a vista. |
 | Exportar      | Exporta a exibição para um [modelo Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) que pode importar para outra área de trabalho. O nome do ficheiro é o nome da vista e tem um *omsview* extensão. |
 | Importar      | Importa os *omsview* ficheiro que exportou a partir da outra área de trabalho. Esta ação substitui a configuração da vista existente. |
 | Clone       | Cria uma nova vista e abre-a no estruturador de vistas. O nome do novo modo de exibição é o mesmo que o nome original, mas com *cópia* acrescentado. |

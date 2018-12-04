@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 4e89664bf980717dbfd7994d6469fc4a412307a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258549"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840168"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Numa gestão para o marketplace da cloud
 
@@ -39,15 +39,15 @@ Para iniciar a obtenção de oportunidades potenciais, o conector levar Manageme
 
 Seguem-se as instruções passo a passo sobre como ligar a cada um dos destinos líder de possíveis:
 
-**Dynamics CRM Online** - [clique aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) com as instruções sobre como configurar o Dynamics CRM Online para obter oportunidades potenciais.
+**Dynamics CRM Online** - [clique aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) com as instruções sobre como configurar o Dynamics CRM Online para obter oportunidades potenciais.
 
-**Marketo** - [clique aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-marketo) com as instruções para configurar a configuração de levar Marketo para obter oportunidades potenciais.
+**Marketo** - [clique aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) com as instruções para configurar a configuração de levar Marketo para obter oportunidades potenciais.
 
-**Salesforce** - [clique aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-salesforce) para obter instruções sobre como configurar a instância do Salesforce obter oportunidades potenciais.
+**Salesforce** - [clique aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) para obter instruções sobre como configurar a instância do Salesforce obter oportunidades potenciais.
 
-**Tabela do Azure** – [clique aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table) para obter instruções para configurar a sua conta de armazenamento do Azure para obter oportunidades potenciais numa tabela do Azure.
+**Tabela do Azure** – [clique aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) para obter instruções para configurar a sua conta de armazenamento do Azure para obter oportunidades potenciais numa tabela do Azure.
 
-**Ponto final de HTTPS** – [clique aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-https) com as instruções para configurar o ponto final de Https para obter oportunidades potenciais.
+**Ponto final de HTTPS** – [clique aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) com as instruções para configurar o ponto final de Https para obter oportunidades potenciais.
 
 Assim que tiver configurado o destino da oportunidade potencial corretamente e ter atingido a funcionalidade Publicar na sua oferta, iremos validar a ligação e enviar-lhe um líder de teste. Quando está a visualizar a oferta antes de ir ao vivo, também pode testar a ligação de oportunidades potenciais tentando adquirir a oferta por conta própria no ambiente de pré-visualização. É importante certificar-se de que o mantenha-se do líder de definições atualizadas para que não perca quaisquer oportunidades potenciais, por isso, certifique-se de que atualiza essas conexões sempre que algo foi alterado de sua parte.
 
@@ -62,32 +62,32 @@ Assim que o técnico configurar estiver em vigor, deve incorporar destas oportun
 
 **Não foi possível guardar a liderança ao Dynamics CRM. Verifique as definições de conta do Dynamics CRM. LastCRMError: Não é possível iniciar sessão no Dynamics CRM, LastCRMException:** 
 
-> Se tiver sido selecionada a autenticação do O365, verifique se a conta de utilizador e palavra-passe é válido. Se AAD tiver sido selecionado, verifique se o ID de inquilino, ID da aplicação e correspondências de chave secreta de aplicativo o que foi configurado no AAD. Siga as instruções [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics). Se o nome de utilizador/palavra-passe conta for válido, certifique-se de que tem acesso ao Dynamics 365 e tem uma licença atribuída (passos 11 a 15 se utilizar o Azure Active Directory ou as definições de segurança se utilizar um utilizador do Office). 
+> Se tiver sido selecionada a autenticação do O365, verifique se a conta de utilizador e palavra-passe é válido. Se AAD tiver sido selecionado, verifique se o ID de inquilino, ID da aplicação e correspondências de chave secreta de aplicativo o que foi configurado no AAD. Siga as instruções [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics). Se o nome de utilizador/palavra-passe conta for válido, certifique-se de que tem acesso ao Dynamics 365 e tem uma licença atribuída (passos 11 a 15 se utilizar o Azure Active Directory ou as definições de segurança se utilizar um utilizador do Office). 
 
  
 **Não foi possível guardar a liderança ao Dynamics CRM. Utilizador não tem permissões de criação para o atributo leadsourcecode na entidade oportunidade potencial** 
 
-> O aplicativo/usuário está em falta as funções de segurança para o escritor de oportunidades potenciais do Microsoft Marketplace. Siga os passos 11 a 15 se utilizar o Azure Active Directory ou as definições de segurança se utilizar um utilizador do Office [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics).
+> O aplicativo/usuário está em falta as funções de segurança para o escritor de oportunidades potenciais do Microsoft Marketplace. Siga os passos 11 a 15 se utilizar o Azure Active Directory ou as definições de segurança se utilizar um utilizador do Office [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics).
 
 **Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: Inquilino não foi encontrado. Esta instância pode acontecer se existirem não existem subscrições ativas para o inquilino.**  
 
-> O Id de diretório na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 2 (em Azure Active Directory, de [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) 
+> O Id de diretório na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 2 (em Azure Active Directory, de [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) 
 
 **Não foi possível guardar a liderança ao Dynamics CRM. LastCRMError: SecLib::RetrievePrivilegeForUser falha - não existem funções são atribuídas ao utilizador.**  
 
-> Resolução: Atribua a função de segurança para o escritor de oportunidades potenciais do Microsoft Marketplace. Siga as instruções [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics) em configurações de segurança 
+> Resolução: Atribua a função de segurança para o escritor de oportunidades potenciais do Microsoft Marketplace. Siga as instruções [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) em configurações de segurança 
 
 **Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: A aplicação com o identificador não foi encontrada no diretório** 
 
-> O Id da aplicação na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 8 (em Azure Active Directory, partir [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+> O Id da aplicação na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 8 (em Azure Active Directory, partir [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: O identificador do inquilino pedido não é o formato de domínio externo válido e não é válido** 
 
-> O Id de diretório na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 2 (em Azure Active Directory, partir [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+> O Id de diretório na seção de gestão de oportunidades potenciais não é um diretório válido. Obtenha o Id de diretório com base nas instruções no passo 2 (em Azure Active Directory, partir [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Não foi possível guardar a liderança ao Dynamics CRM com o AAD. Exceção:: Erro ao validar as credenciais.: segredo de cliente inválido fornecido.** 
 
-> Resolução: Inicie sessão no Portal do Azure, verifique se a chave da aplicação corresponde ao que está no Portal de parceiros de nuvem. Volte a gerar palavra-passe com base nas instruções no passo 10 (em Azure Active Directory), da [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)). 
+> Resolução: Inicie sessão no Portal do Azure, verifique se a chave da aplicação corresponde ao que está no Portal de parceiros de nuvem. Volte a gerar palavra-passe com base nas instruções no passo 10 (em Azure Active Directory), da [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Não foi possível guardar a liderança ao Dynamics CRM. LastCRMError: O canal de pedido excedido o tempo limite ao aguardar uma resposta após as 00:00 02:. Aumente o valor de tempo limite transmitido para a chamada a pedido ou aumente o valor de SendTimeout na associação. O tempo alocado para esta operação pode ter sido uma parte do limite de tempo mais longo.**  
 
@@ -102,7 +102,7 @@ Oportunidades potenciais são os clientes que estão a implementar seus produtos
 
 **Onde posso obter ajuda na configuração de meu destino líder?** 
 
-Pode encontrar a documentação aqui: https://cloudpartner.azure.com/#documentation/get-customer-leads ou submeter um pedido de suporte através do tipo de oferta selecione aka.ms/marketplacepublishersupport e levar a gestão. 
+Pode encontrar a documentação aqui: [obter oportunidades potenciais](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) ou submeter um pedido de suporte através do tipo de oferta selecione aka.ms/marketplacepublishersupport e levar a gestão. 
 
 
 
@@ -199,7 +199,7 @@ Cada oportunidade potencial terá dados passados em campos no destino da oportun
 
     } 
 
-Saiba mais em [levar informações](https://cloudpartner.azure.com/#documentation/get-customer-leads). 
+Saiba mais em [levar informações](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads). 
 
 
 **Configurei o BLOB do Azure como destino meu chefe, por que motivo não vejo o líder?** 
@@ -219,7 +219,7 @@ Pode aceder a BLOBs ou tabelas a partir do Portal do Azure, ou pode transferir e
 
 **Configurei tabelas do Azure como destino meu chefe, eu posso obter notificado sempre que uma nova oportunidade potencial é enviada pelo Marketplace?** 
 
-Sim, siga as instruções para definir tabelas do Azure + a função de segurança sobre a documentação [aqui](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table). 
+Sim, siga as instruções para definir tabelas do Azure + a função de segurança sobre a documentação [aqui](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table). 
 
 
 

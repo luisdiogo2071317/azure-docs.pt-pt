@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bd504beabbb126db2cd90ac010dbc2757e571185
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2e515ee61144dfe56d2b5a4fac97da81b0fa8c84
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441904"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834850"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>O Azure AD B2C: Criar uma aplicação de ambiente de trabalho do Windows
 Ao utilizar o Azure Active Directory (Azure AD) B2C, pode adicionar funcionalidades de gestão de identidade poderosas self-service para seu aplicativo de desktop em poucos passos. Este artigo irá mostrar como criar uma aplicação de "lista de tarefas" do .NET Windows Presentation Foundation (WPF) que inclui a inscrição e início de sessão do utilizador e gestão de perfis. A aplicação irá incluir suporte para inscrição e início de sessão utilizando um nome de utilizador ou e-mail. Ele também irão incluir o suporte para inscrição e início de sessão através da utilização de contas de redes sociais como o Facebook e Google.
@@ -31,7 +31,7 @@ Em seguida, precisa de criar uma aplicação no diretório do B2C. Isto proporci
 * Copiar a **ID da Aplicação** atribuída à aplicação. Precisará dele mais tarde.
 
 ## <a name="create-your-policies"></a>Criar as políticas
-No Azure AD B2C, cada experiência de utilizador é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade: inscrição, inicie sessão e Editar perfil. Precisa criar uma política para cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Quando cria as três políticas, certifique-se de que:
+No Azure AD B2C, cada experiência de utilizador é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade: inscrição, inicie sessão e Editar perfil. Precisa criar uma política para cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Quando cria as três políticas, certifique-se de que:
 
 * Escolher a **Inscrição de ID de utilizador** ou **Inscrição de email** no painel de fornecedores de identidade.
 * Escolher o **Nome a apresentar** e outros atributos de inscrição na sua política de inscrição.

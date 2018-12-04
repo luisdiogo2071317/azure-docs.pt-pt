@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: f242176ef77f2fd419f9e2e52354c73f74f74557
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5b673af317189da1876328c0cad0fa8f510aae4f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681556"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844061"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Origens de dados no Azure Monitor
 Este artigo descreve as origens de dados recolhidos pelo Azure Monitor para monitorizar o estado de funcionamento e desempenho dos seus recursos e as aplicações em execução nos mesmos. Esses recursos podem ser no Azure, no noutra cloud ou no local.  Ver [dados recolhidos pelo Azure Monitor](data-collection.md) para obter detalhes sobre como estes dados são armazenados e como pode vê-lo.
@@ -66,7 +66,7 @@ Embora o registo de atividades fornece informações sobre as operações execut
 Não pode ver os registos de diagnóstico diretamente no portal do Azure, mas pode [enviá-los para o armazenamento do Azure para arquivar](../../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) e exportá-las para [Hub de eventos](../../event-hubs/event-hubs-about.md) para o redirecionamento para outros serviços, ou [para registo Análise](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) para análise. Podem escrever alguns recursos diretamente ao Log Analytics, enquanto outras pessoas a escrever para uma conta de armazenamento antes de ser [importados para o Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### <a name="monitoring-solutions"></a>Soluções de monitorização
- [Soluções de monitorização](../../azure-monitor/insights/solutions.md) recolher dados para fornecer informações adicionais sobre o funcionamento de um determinado serviço ou aplicação. Eles recolhem dados no Log Analytics, onde pode ser analisado com o [linguagem de consulta](../../log-analytics/log-analytics-queries.md) ou [vistas](../../azure-monitor/platform/view-designer.md) que normalmente estão incluídas na solução.
+ [Soluções de monitorização](../../azure-monitor/insights/solutions.md) recolher dados para fornecer informações adicionais sobre o funcionamento de um determinado serviço ou aplicação. Eles recolhem dados no Log Analytics, onde pode ser analisado com o [linguagem de consulta](../../azure-monitor/log-query/log-query-overview.md) ou [vistas](../../azure-monitor/platform/view-designer.md) que normalmente estão incluídas na solução.
 
 ## <a name="guest-operating-system"></a>Sistema operativo convidado
 Recursos de computação no Azure, noutras clouds e no local têm um sistema de operativo convidado para monitorizar. Com a instalação de um ou mais agentes, pode recolher telemetria do convidado para as mesmas ferramentas de monitorização, como os serviços do Azure.

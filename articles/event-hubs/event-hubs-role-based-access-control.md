@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: shvija
-ms.openlocfilehash: ef74600fdf5051394f8b7bfbdd71e144b3f26d8a
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: fd2df221d36b4b09ea5901e42dd9cca8ff27f3f9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005743"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843772"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controlo de acesso do Active Directory Directory Role-Based (pré-visualização)
 
@@ -43,13 +43,9 @@ Se pretender continuar a criar uma conta específica para este cenário [siga es
 
 ### <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 
-Em seguida, [criar um espaço de nomes de Hubs de eventos](event-hubs-create.md) de uma das regiões do Azure com suporte de pré-visualização de Hubs de eventos para RBAC: **E.U. a leste**, **E.U. a leste 2**, ou **Europa Ocidental **. 
+Em seguida, [criar um espaço de nomes de Hubs de eventos](event-hubs-create.md) de uma das regiões do Azure com suporte de pré-visualização de Hubs de eventos para RBAC: **E.U. a leste**, **E.U. a leste 2**, ou **Europa Ocidental** . 
 
-Depois de criar o espaço de nomes, navegue até à respetiva **controlo de acesso (IAM)** página no portal e, em seguida, clique em **adicionar** para adicionar a conta de utilizador do Azure AD para a função de proprietário. Se usar sua própria conta de utilizador e criou o espaço de nomes, já está na função de proprietário. Para adicionar uma conta diferente para a função, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**.
- 
-![](./media/event-hubs-role-based-access-control/rbac1.PNG)
-
-A conta de utilizador tem agora acesso ao espaço de nomes dos Hubs de eventos e para o hub de eventos que criou anteriormente.
+Depois de criar o espaço de nomes, navegue até à respetiva **controlo de acesso (IAM)** página no portal e, em seguida, clique em **adicionar atribuição de função** para adicionar a conta de utilizador do Azure AD para a função de proprietário. Se usar sua própria conta de utilizador e criou o espaço de nomes, já está na função de proprietário. Para adicionar uma conta diferente para a função, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**. A conta de utilizador tem agora acesso ao espaço de nomes dos Hubs de eventos e para o hub de eventos que criou anteriormente.
  
 ### <a name="register-the-application"></a>Registar a aplicação
 

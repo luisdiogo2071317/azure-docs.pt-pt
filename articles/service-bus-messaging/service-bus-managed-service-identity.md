@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 5532c86271fa6a5f2b573e005993a68ac0a9e248
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 25d2db5dcf3979341fc104643f7178047c29483b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857079"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842837"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identidades geridas para recursos do Azure com o Service Bus 
 
@@ -53,10 +53,8 @@ Assim que tive ativado a funcionalidade, uma nova identidade de serviço é cria
 
 Em seguida, [criar um espaço de nomes de mensagens do Service Bus](service-bus-create-namespace-portal.md) de uma das regiões do Azure com suporte de pré-visualização para RBAC: **E.U. a leste**, **E.U. a leste 2**, ou **Europa Ocidental** . 
 
-Navegue para o espaço de nomes **controlo de acesso (IAM)** página no portal e, em seguida, clique em **Add** para adicionar a identidade gerida para o **proprietário** função. Para tal, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**.
+Navegue para o espaço de nomes **controlo de acesso (IAM)** página no portal e, em seguida, clique em **adicionar atribuição de função** para adicionar a identidade gerida para o **proprietário** função. Para tal, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**.
 
-![](./media/service-bus-managed-service-identity/msi2.png)
- 
 Identidade da aplicação web de gerida tem agora acesso ao espaço de nomes do Service Bus e para a fila que criou anteriormente. 
 
 ### <a name="run-the-app"></a>Executar a aplicação

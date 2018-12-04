@@ -1,22 +1,19 @@
 ---
-title: O Azure Cosmos DB como um arquivo de chave-valor – descrição geral de custos | Documentos da Microsoft
+title: O Azure Cosmos DB como um arquivo de chave-valor – descrição geral de custo
 description: Saiba mais sobre o baixo custo de utilização do Azure Cosmos DB como um arquivo de chave-valor.
 keywords: arquivo de chave-valor
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
-tags: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 09abc89c8e4cc8b0ee79200739722fc62d1ece4b
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7331db23757ab4eaae054c7fe640952fe22a7917
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163205"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840881"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>O Azure Cosmos DB como um arquivo de chave-valor – descrição geral de custo
 

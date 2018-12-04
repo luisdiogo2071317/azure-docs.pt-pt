@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 68d5742f5da542d5146997390e470180cf8c5776
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: adde29b0719f777bc6cf3ab86adbdeec4befddf0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620698"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842429"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Itens do Azure Marketplace disponíveis para o Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack.*
 
-## <a name="virtual-machine-extensions"></a>Extensões da Máquina Virtual
+## <a name="virtual-machine-extensions"></a>Extensões de máquina virtual
 
 Sempre que existirem atualizações para extensões de máquina virtual (VM) que utiliza, deve baixá-los. Extensões fornecidas no produto não atualizar no processo normal de patches e atualizações; então, procure atualizações com frequência. Outras extensões só estão disponíveis através da gestão do Marketplace.
 
@@ -236,7 +236,6 @@ Microsoft Azure Stack suporta as seguintes máquinas virtuais do Azure Marketpla
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Controlar, monitorizar e encriptar VMs com facilidade e confiança. **Baixe todos os itens da CloudLink SecureVM.** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM é uma plataforma de segurança abrangente que fornece ferramentas de segurança com recursos prontos para auditoria de conformidade avançadas. | EventTracker |
 | ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Advanced balanceamento de carga, GSLB, Firewall da rede, DNS, WAF e acesso da aplicação. | Redes F5 |
-| ![Firewall de próxima geração FortiGate](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [Firewall de próxima geração FortiGate](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | Tecnologia de firewall que fornece proteção completa de conteúdos e de rede com um conjunto abrangente de poderosas funcionalidades de segurança. Controlo de aplicações, antivírus, IPS, filtragem web e VPN, juntamente com funcionalidades avançadas, como a gestão de vulnerabilidade funcionam em conjunto para identificar e mitigar as mais recentes ameaças de segurança complexas. | Fortinet |
 | ![Área de segurança do Hortonworks Data Platform (HDP)](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Área de segurança do Hortonworks Data Platform (HDP)](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Com tecnologia HDP 2,5 plataforma 100% de código-fonte aberto para Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Segurança de Cloud híbrida Kaspersky](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | A segurança de Cloud híbrida Kaspersky permite que um ecossistema de cibersegurança de forma totalmente integrada organizada e adaptável. | Laboratório Kaspersky |
 | ![Comutador de conteúdo de ADC do Balanceador de carga do KEMP LoadMaster](media/azure-stack-marketplace-azure-items/kemp.png) | [Comutador de conteúdo de ADC do Balanceador de carga do KEMP LoadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Balanceador de carga de controlador (ADC) de entrega de aplicação de camada 4 a 7, o comutador de conteúdo e o Gestor de tráfego. | KEMP Technologies Inc. |

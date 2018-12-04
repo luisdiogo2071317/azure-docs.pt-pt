@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 924584a77d36ec41488d8c76d9631baf484ff494
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 48a835bf8c63ffa5512173b600fb85abd5c6cb45
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346394"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840355"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar o G Suite para aprovisionamento automático de utilizadores
 
@@ -67,7 +67,7 @@ Esta secção orienta-o ao longo do processo de ligar o Azure AD para a API do G
 > [!NOTE]
 > Outra opção viável para automatizar o aprovisionamento de utilizadores para o G Suite é usar [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en). GADS Aprovisiona as identidades do Active Directory no local para o G Suite. Por outro lado, a solução neste tutorial Aprovisiona os utilizadores do Active Directory do Azure (nuvem) e grupos com capacidade de correio eletrónico ao G Suite. 
 
-1. Inicie sessão para o [consola de administração de aplicações do Google](http://admin.google.com/) com a sua conta de administrador e, em seguida, selecione **segurança**. Se não vir a ligação, poderá estar oculta sob o **More Controls** menu na parte inferior do ecrã.
+1. Inicie sessão para o [consola de administração de aplicações do Google](https://admin.google.com/) com a sua conta de administrador e, em seguida, selecione **segurança**. Se não vir a ligação, poderá estar oculta sob o **More Controls** menu na parte inferior do ecrã.
    
     ![Selecione a segurança.][10]
 
@@ -110,7 +110,7 @@ Esta secção orienta-o ao longo do processo de ligar o Azure AD para a API do G
 
 1. Agora que tiver verificado todos os domínios com o Azure AD, tem de verificá-los novamente com o Google Apps. Para cada domínio que já não estiver registado com o Google, siga os passos seguintes:
    
-    a. Na [consola de administração de aplicações do Google](http://admin.google.com/), selecione **domínios**.
+    a. Na [consola de administração de aplicações do Google](https://admin.google.com/), selecione **domínios**.
      
      ![Selecionar domínios][20]
 
@@ -129,7 +129,7 @@ Esta secção orienta-o ao longo do processo de ligar o Azure AD para a API do G
      > [!WARNING]
      > Se alterar o domínio principal para o seu inquilino do G Suite, e se já tiver configurado o início de sessão único com o Azure AD, em seguida, tem de repetir o passo #3 sob [passo 2: Ativar o início de sessão único](#step-two-enable-single-sign-on).
        
-1. Na [consola de administração de aplicações do Google](http://admin.google.com/), selecione **funções de administrador**.
+1. Na [consola de administração de aplicações do Google](https://admin.google.com/), selecione **funções de administrador**.
    
      ![Selecione as aplicações do Google][26]
 
@@ -152,7 +152,7 @@ Esta secção orienta-o ao longo do processo de ligar o Azure AD para a API do G
 
 1. Sob o **credenciais de administrador** secção, selecione **autorizar**. Abre uma caixa de diálogo de autorização do Google numa nova janela do browser.
 
-1. Confirme que pretende conceder permissão ao Azure Active Directory para fazer alterações ao seu inquilino do G Suite. Selecione **aceitar**.
+1. Confirme que pretende conceder permissão ao Azure Active Directory para fazer alterações ao seu inquilino do G Suite. Selecione **Aceitar**.
     
      ![Certifique-se as permissões.][28]
 

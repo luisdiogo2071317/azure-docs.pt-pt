@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: cc4e128cab3cad235462e29e65fa58002a103bcd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 393426678d9331837bdc3b73c4e491dbe7eae6fa
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855906"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834830"
 ---
 # <a name="register-in-dev-center"></a>Registe-se no Dev Center  
 Para ajudar a verificar o que não esteja conectado numa conta pessoal do browser, abra um novo Internet Explorer InPrivate ou Incognito Chrome sessão de navegação.  
@@ -171,7 +171,7 @@ As informações do banco e o imposto são necessárias para todas as ofertas co
 > Aceda a "Seus programas" (https://developer.microsoft.com/dashboard/Account/Programs) e inicie sessão na conta do Dev Center. Se não vir o Azure como um programa registado, procure em "Programas recomendado para" e, em seguida, procure do Azure para selecionar "Iniciar."
 
 *   **Como vinculo minha conta do Dev Center para o meu perfil de publicador do Cloud Partner Portal?**
-> A etapa final antes da publicação é vincular sua conta do Dev Center para o seu Portal de parceiros da Cloud [perfil](https://cloudpartner.azure.com/#profile). Se a sua conta do Dev Center é diferente da sua conta em [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), adicione a sua conta do Dev Center como um novo [utilizador](https://cloudpartner.azure.com/#documentation/manage-users) no Portal de parceiros de nuvem. Início de sessão para o [Portal de parceiros da Cloud](https://cloudpartner.azure.com/#alloffers) com sua conta do Dev Center. Selecione o perfil do publicador no menu localizado no canto superior direito do seu navegador da web. Conta do Centro de desenvolvimento de ligação de SELECT.
+> A etapa final antes da publicação é vincular sua conta do Dev Center para o seu Portal de parceiros da Cloud [perfil](https://cloudpartner.azure.com/#profile). Se a sua conta do Dev Center é diferente da sua conta em [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), adicione a sua conta do Dev Center como um novo [utilizador](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) no Portal de parceiros de nuvem. Início de sessão para o [Portal de parceiros da Cloud](https://cloudpartner.azure.com/#alloffers) com sua conta do Dev Center. Selecione o perfil do publicador no menu localizado no canto superior direito do seu navegador da web. Conta do Centro de desenvolvimento de ligação de SELECT.
 
 *   **Por que motivo é que o meu aplicativo de centro de desenvolvimento é rejeitado?**
 > A empresa de aprovação de terceiros (Duns & Bradstreet) não foi possível entrar em contacto consigo através do número de telefone que forneceu. Contacte o suporte no momento [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) para voltar a iniciar o processo de aprovação

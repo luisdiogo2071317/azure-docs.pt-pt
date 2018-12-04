@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 96ef005f095e5ab774a88ec766080f647414a7ce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4621122d805f37be1578aa7b7c9ae059f3141c77
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155546"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840304"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implementar o Proxy de aplicações do Azure AD num domínio gerido do Azure AD Domain Services
 Proxy de aplicações do Azure Active Directory (AD) ajuda-o a oferecer suporte a funcionários remotos ao publicar aplicações no local para ser acedido através da internet. Com o Azure AD Domain Services, pode agora migração lift-and-shift aplicações legadas em execução no local para serviços de infraestrutura do Azure. Em seguida, pode publicar esses aplicativos usando o Proxy de aplicações do Azure AD, para fornecer acesso remoto seguro aos utilizadores na sua organização.
@@ -42,7 +42,7 @@ Para executar as tarefas apresentadas neste artigo, terá de:
 ## <a name="task-1---enable-azure-ad-application-proxy-for-your-azure-ad-directory"></a>Tarefa 1 - Proxy de aplicações de ativar o Azure AD para o diretório do Azure AD
 Execute os seguintes passos para ativar o Proxy de aplicação do Azure AD para o diretório do Azure AD.
 
-1. Inicie sessão como administrador no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão como administrador no [portal do Azure](https://portal.azure.com).
 
 2. Clique em **do Azure Active Directory** para exibir a descrição geral de diretório. Clique em **aplicações empresariais**.
 

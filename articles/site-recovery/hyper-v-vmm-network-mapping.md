@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: cecc1df23ebed88db315e7de14ea850ba5297697
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 576194f0b85e95f07ab0370c4be7029d3b8aecb9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212986"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833895"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparar o mapeamento de rede para a recuperação de desastres da VM de Hyper-V para o Azure
 
@@ -23,7 +23,7 @@ Este artigo ajuda-o a compreender e preparar o mapeamento da rede ao replicar VM
 
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Preparar o mapeamento de rede para replicação no Azure
 
-Quando estiver a replicar para o Azure, mapas de mapeamento de rede entre redes VM num servidor do VMM de origem e as redes virtuais do Azure de destino. Mapeamento faz o seguinte:
+Quando estiver a replicar para o Azure, mapas de mapeamento de rede entre redes VM num servidor do VMM de origem e as redes virtuais do Azure de destino. O mapeamento faz o seguinte:
     -  **Ligação de rede**— garante que as VMs replicadas do Azure estão ligadas à rede mapeada. Todas as máquinas que efetuar a ativação pós-falha na mesma rede podem ligar-se entre si, mesmo a ativação pós-falha nos planos de recuperação diferente.
     - **Gateway de rede**— se um gateway de rede está configurado na rede do Azure de destino, as VMs podem ligar a outras máquinas de virtuais no local.
 
@@ -37,7 +37,7 @@ Mapeamento da rede funciona da seguinte forma:
 
 ## <a name="prepare-network-mapping-for-replication-to-a-secondary-site"></a>Preparar o mapeamento de rede para a replicação para um site secundário
 
-Quando está a replicar para um site secundário, mapas de mapeamento de rede entre redes VM num servidor VMM de origem e as redes VM num servidor do VMM de destino. Mapeamento faz o seguinte:
+Quando está a replicar para um site secundário, mapas de mapeamento de rede entre redes VM num servidor VMM de origem e as redes VM num servidor do VMM de destino. O mapeamento faz o seguinte:
 
 - **Ligação de rede**— VMs liga-se às redes adequadas após a ativação pós-falha. A VM de réplica será ligada à rede de destino que está mapeada para a rede de origem.
 - **Posicionamento da VM ideal**— ideal coloca a VMs de réplica nos servidores de anfitrião do Hyper-V. VMs de réplica são colocadas em anfitriões que podem aceder a redes VM mapeadas.

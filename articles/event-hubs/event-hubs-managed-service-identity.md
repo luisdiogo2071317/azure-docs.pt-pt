@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: shvija
-ms.openlocfilehash: 815a6ff528e024ed1685b09b66f8fabce4d360c1
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 51b9aa33fd186a46d51f7e2fb64b42648b854cd3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784558"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833912"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identidades geridas para recursos do Azure com os Hubs de eventos
 
@@ -55,11 +55,7 @@ Assim que tive ativado a funcionalidade, uma nova identidade de serviço é cria
 
 Em seguida, [criar um espaço de nomes de Hubs de eventos](event-hubs-create.md) de uma das regiões do Azure que tem suporte de pré-visualização para identidades geridas para recursos do Azure: **E.U. a leste**, **E.U. a leste 2**, ou  **Europa Ocidental**. 
 
-Navegue para o espaço de nomes **controlo de acesso (IAM)** página no portal e, em seguida, clique em **Add** para adicionar a identidade gerida para o **proprietário** função. Para tal, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**.
-
-![](./media/event-hubs-managed-service-identity/msi2.png)
- 
-A identidade gerida para a aplicação web agora tem acesso ao espaço de nomes dos Hubs de eventos e para o hub de eventos que criou anteriormente. 
+Navegue para o espaço de nomes **controlo de acesso (IAM)** página no portal e, em seguida, clique em **adicionar atribuição de função** para adicionar a identidade gerida para o **proprietário** função. Para tal, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**. A identidade gerida para a aplicação web agora tem acesso ao espaço de nomes dos Hubs de eventos e para o hub de eventos que criou anteriormente. 
 
 ### <a name="run-the-app"></a>Executar a aplicação
 

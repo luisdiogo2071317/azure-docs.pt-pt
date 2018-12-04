@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 86e60f339af3d6d467b68d5d3b27d77a9861add1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/03/2018
+ms.openlocfilehash: ff9011dda4a94f323b430a3860eadc8d970a23f7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244085"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838621"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Utilizar autenticação do Active Directory do Azure para a autenticação com o SQL
 
-Autenticação do Azure Active Directory é um mecanismo de ligar ao Azure [base de dados SQL](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure Active Directory (Azure AD). 
+Autenticação do Azure Active Directory é um mecanismo de ligar ao Azure [base de dados SQL](sql-database-technical-overview.md), [instância gerida](sql-database-managed-instance.md), e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) ao utilizar as identidades no Azure Do Active Directory (Azure AD). 
 
 > [!NOTE]
 > Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
@@ -84,15 +84,7 @@ Os seguintes membros do Azure AD podem ser aprovisionados no servidor SQL do Azu
 - Importados os membros do outro Azure AD que sejam membros do domínio federado ou nativo.
 - Grupos do Active Directory criados como grupos de segurança.
 
-Limitações do AD Azure relacionadas com a instância gerida:
-
-- Só o administrador do Azure AD pode criar bases de dados, utilizadores do Azure AD estão confinados a uma DB única e não têm esta permissão
-- Propriedade de base de dados:
-  - Principal do Azure AD não é possível alterar a propriedade da base de dados (ALTER autorização no banco de dados) e não pode ser definido como proprietário.
-  - Para bases de dados criadas pelo administrador do Azure AD não está definida nenhuma propriedade (normalmente, owner_sid campo no sys.sysdatabases é 0x1).
-- Agente do SQL não podem ser gerido quando iniciou sessão com as entidades de segurança do Azure AD.
-- Administrador do Azure AD não pode ser representado com EXECUTE AS
-- Ligação DAC não é suportada com entidades do Azure AD.
+Os utilizadores e inícios de sessão do AD do Azure são suportados como uma funcionalidade de pré-visualização para [instâncias geridas](sql-database-managed-instance.md)
 
 Estas funções de sistema devolvem valores nulos quando executada em entidades de segurança do Azure AD:
 

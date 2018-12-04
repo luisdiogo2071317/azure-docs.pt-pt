@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: jeedes
-ms.openlocfilehash: c9ee0af3cbf2c1aa7b24d2f4cf5fba9d664bc087
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 5d61ac27eb5a6e4f546d8c6db66b84f2c204b507
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248045"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Tutorial: Integração do Azure Active Directory com Expensify
 
@@ -132,7 +132,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![image](./media/expensify-tutorial/certificatebase64.png)
 
-7. Para ativar o SSO no Expensify, primeiro tem de ativar **controlo de domínio** no aplicativo. Pode ativar o controlo de domínio do aplicativo os passos listados [aqui](http://help.expensify.com/domain-control). Para obter suporte adicional, trabalhar com [equipa de suporte de cliente Expensify](mailto:help@expensify.com). Assim que tiver o controlo de domínio, siga estes passos:
+7. Para ativar o SSO no Expensify, primeiro tem de ativar **controlo de domínio** no aplicativo. Pode ativar o controlo de domínio do aplicativo os passos listados [aqui](https://help.expensify.com/domain-control). Para obter suporte adicional, trabalhar com [equipa de suporte de cliente Expensify](mailto:help@expensify.com). Assim que tiver o controlo de domínio, siga estes passos:
    
     ![Configurar o início de sessão único](./media/expensify-tutorial/tutorial_expensify_51.png)
     

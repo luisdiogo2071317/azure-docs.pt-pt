@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 20d1e39a2f2cda66f3b490000f48dd6c5fb72915
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9e72eafc49167848996328774f7d18198667aa3d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727350"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845251"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>O Azure AD B2C: Página única aplicação início de sessão com o fluxo implícito de OAuth 2.0
 
@@ -25,7 +25,7 @@ Muitas aplicações modernas têm um aplicação de página única front-end que
 * Muitos servidores de autorização e fornecedores de identidade não suportam os recursos de várias origens (CORS) pedidos de partilha.
 * Os redirecionamentos de navegador de página inteira na direção oposta a aplicação podem ser significativamente invasivas para a experiência do usuário.
 
-Para suportar estas aplicações, o Azure Active Directory B2C (Azure AD B2C) usa o fluxo implícito de OAuth 2.0. O fluxo de concessão implícita de autorização de OAuth 2.0 é descrito na [secção 4.2 da especificação de OAuth 2.0](http://tools.ietf.org/html/rfc6749). No fluxo implícito, a aplicação recebe tokens diretamente a partir do Azure Active Directory (Azure AD) autorizar o ponto de extremidade, sem qualquer troca de servidor a servidor. Todos os lógica de autenticação e sessão de processamento necessário colocar inteiramente no cliente JavaScript, sem os redirecionamentos de página adicionais.
+Para suportar estas aplicações, o Azure Active Directory B2C (Azure AD B2C) usa o fluxo implícito de OAuth 2.0. O fluxo de concessão implícita de autorização de OAuth 2.0 é descrito na [secção 4.2 da especificação de OAuth 2.0](https://tools.ietf.org/html/rfc6749). No fluxo implícito, a aplicação recebe tokens diretamente a partir do Azure Active Directory (Azure AD) autorizar o ponto de extremidade, sem qualquer troca de servidor a servidor. Todos os lógica de autenticação e sessão de processamento necessário colocar inteiramente no cliente JavaScript, sem os redirecionamentos de página adicionais.
 
 O Azure AD B2C estende o fluxo implícito de OAuth 2.0 padrão a mais do que a autenticação e autorização simples. O Azure AD B2C apresenta os [parâmetro de política](active-directory-b2c-reference-policies.md). Com o parâmetro de política, pode utilizar o OAuth 2.0 para adicionar políticas para a sua aplicação, tais como inscrição, início de sessão e os fluxos de utilizador de gestão de perfil. Neste artigo, vamos mostrar como utilizar o fluxo implícito e o Azure AD para implementar cada um destas experiências nas suas aplicações de página única. Para ajudar a começar a trabalhar, dê uma olhada em nosso [node. js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) e [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) exemplos.
 
@@ -138,7 +138,7 @@ error=access_denied
 | state |Consulte a descrição completa na tabela anterior. Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar se o `state` valores no pedido e resposta são idênticos.|
 
 ## <a name="validate-the-id-token"></a>Validar o token de ID
-Receber um token de ID não é suficiente para autenticar o utilizador. Tem de validar a assinatura do token de ID e verifique se as afirmações no token de conformidade com os requisitos da sua aplicação. Azure AD B2C utiliza [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar os tokens e certifique-se de que são válidas.
+Receber um token de ID não é suficiente para autenticar o utilizador. Tem de validar a assinatura do token de ID e verifique se as afirmações no token de conformidade com os requisitos da sua aplicação. Azure AD B2C utiliza [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar os tokens e certifique-se de que são válidas.
 
 Muitas bibliotecas de código-fonte aberto estão disponíveis para validar JWTs, dependendo do idioma a que se preferir usar. Considere a explorar as bibliotecas de código aberto disponíveis, em vez de implementar sua própria lógica de validação. Pode utilizar as informações neste artigo para ajudar a aprender como usar adequadamente dessas bibliotecas.
 
@@ -161,7 +161,7 @@ Depois de validar a assinatura do token de ID, várias afirmações exigem verif
 * Validar o `aud` de afirmação para se certificar de que o token de ID foi emitido para a sua aplicação. O valor deve ser o ID da aplicação da sua aplicação.
 * Validar a `iat` e `exp` afirmações para se certificar de que o token de ID não expirou.
 
-Vários validações mais que deve executar são descritas detalhadamente na [especificação do OpenID Connect Core](http://openid.net/specs/openid-connect-core-1_0.html). Pode também querer validar afirmações adicionais, dependendo do seu cenário. Algumas validações comuns incluem:
+Vários validações mais que deve executar são descritas detalhadamente na [especificação do OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html). Pode também querer validar afirmações adicionais, dependendo do seu cenário. Algumas validações comuns incluem:
 
 * Garantir que o utilizador ou a organização tiver se inscrito para a aplicação.
 * Garantir que o utilizador tem autorização adequada e privilégios.

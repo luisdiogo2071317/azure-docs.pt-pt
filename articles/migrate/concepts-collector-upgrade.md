@@ -4,15 +4,15 @@ description: Fornece informações sobre as atualizações para a aplicação de
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/29/2018
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: cd48b824845a0195fc78814a88dd449507c99394
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 88077ac965b2abb69be145f29cbadca2ff1128d6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241468"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836649"
 ---
 # <a name="collector-update-release-history"></a>Histórico de lançamento de atualização do recoletor
 
@@ -20,12 +20,18 @@ Este artigo resume as informações de atualização para a aplicação de Recol
 
 Recoletor do Azure Migrate é uma aplicação simples que é utilizada para detetar um ambiente no local do vCenter, para fins de avaliação antes da migração para o Azure. [Saiba mais](concepts-collector.md).
 
+## <a name="continuous-discovery-upgrade-versions"></a>Deteção contínua: atualizar versões
 
-## <a name="one-time-discovery-upgrade-versions"></a>Deteção única: atualizar versões
+Nenhuma atualização para a aplicação de deteção contínua ainda está disponível.
+
+## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Deteção única (agora preterida): as versões de atualização anteriores
+
+> [!NOTE]
+> A aplicação de deteção de uso individual foi agora preterida como esse método baseou-se no vCenter definições de estatísticas do servidor para a disponibilidade de ponto de dados de desempenho e coletados contadores de desempenho médio que resultou em insuficientemente dimensionamento de VMs para a migração para o Azure.
 
 ### <a name="version-10916-released-on-10292018"></a>Versão 1.0.9.16 (lançado em 10/29/2018)
 
-Contém correções para problemas do PowerCLI enfrentados ao configurar a aplicação. 
+Contém correções para problemas do PowerCLI enfrentados ao configurar a aplicação.
 
 Valores para a atualização de hash [1.0.9.16 do pacote](https://aka.ms/migrate/col/upgrade_9_16)
 
@@ -55,29 +61,6 @@ MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
 SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
 SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
-### <a name="version-10911"></a>Versão 1.0.9.11
-
-Valores para a atualização de hash [1.0.9.11 do pacote](https://aka.ms/migrate/col/upgrade_9_11)
-
-**Algoritmo** | **Valor de hash**
---- | ---
-MD5 | 0e36129ac5383b204720df7a56b95a60
-SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
-SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
-
-### <a name="version-1097"></a>Versão 1.0.9.7
-
-Valores para a atualização de hash [1.0.9.7 do pacote](https://aka.ms/migrate/col/upgrade_9_7)
-
-**Algoritmo** | **Valor de hash**
---- | ---
-MD5 | 01ccd6bc0281f63f2a672952a2a25363
-SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
-SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
-
-## <a name="continuous-discovery-upgrade-versions"></a>Deteção contínua: atualizar versões
-
-Nenhuma atualização para a aplicação de deteção contínua ainda está disponível.
 
 ## <a name="run-an-upgrade"></a>Executar uma atualização
 

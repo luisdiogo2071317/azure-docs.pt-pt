@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/17/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1db805efe7eaec77fcafeb169b3d99098b57f582
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 88cc884489c29f964d68908dd394f23b5b21790f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978983"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839403"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Criar uma aplicação web ASP.NET com a edição de perfil de inscrição, início de sessão, do Azure Active Directory B2C e reposição de palavra-passe
 
@@ -51,27 +51,27 @@ Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, pr
 
 Quando tiver terminado, terá uma API e um aplicativo nativo nas definições da aplicação.
 
-## <a name="create-policies-on-your-b2c-tenant"></a>Criar políticas no seu inquilino do B2C
+## <a name="create-user-flows-on-your-b2c-tenant"></a>Criar fluxos de utilizador no seu inquilino do B2C
 
-No Azure AD B2C, cada experiência de utilizador é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade: **Inscreva-se e iniciar sessão**, **edição de perfil**, e **palavra-passe reposta**.  Tem de criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Para cada política, certifique-se de que para selecionar o atributo de nome de exibição ou afirmação e copie o nome da política para utilização posterior.
+No Azure AD B2C, cada experiência de utilizador é definida por um [fluxo de utilizador](active-directory-b2c-reference-policies.md). Fluxos de utilizador são políticas predefinidas que estão disponíveis no portal do Azure AD B2C para ajudar a configurar as experiências de identidade mais comuns. Este exemplo de código contém três experiências de identidade: **Inscreva-se e iniciar sessão**, **edição de perfil**, e **palavra-passe reposta**.  Tem de criar um fluxo de utilizador de cada tipo, conforme descrito no [artigo de referência do fluxo de utilizador](active-directory-b2c-reference-policies.md). Para cada fluxo de utilizador, certifique-se de que para selecionar o atributo de nome de exibição ou afirmação e copie o nome do seu fluxo de utilizador para uso posterior.
 
 ### <a name="add-your-identity-providers"></a>Adicionar os fornecedores de identidade
 
 A partir das definições, selecione **fornecedores de identidade** e escolha o nome de utilizador inscrição ou inscrição de E-Mail.
 
-### <a name="create-a-sign-up-and-sign-in-policy"></a>Criar uma política de inscrição e início de sessão
+### <a name="create-a-sign-up-and-sign-in-user-flow"></a>Criar um fluxo de utilizador de inscrição e início de sessão
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
-### <a name="create-a-profile-editing-policy"></a>Criar uma política de edição de perfil
+### <a name="create-a-profile-editing-user-flow"></a>Criar um fluxo de utilizador de edição de perfil
 
 [!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
 
-### <a name="create-a-password-reset-policy"></a>Criar uma política de reposição de palavra-passe
+### <a name="create-a-password-reset-user-flow"></a>Criar um fluxo de utilizador de reposição de palavra-passe
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
-Depois de criar as suas políticas, está pronto para criar a sua aplicação.
+Depois de criar os fluxos de utilizador, está pronto para criar a sua aplicação.
 
 ## <a name="download-the-sample-code"></a>Baixe o código de exemplo
 
@@ -83,16 +83,16 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 Depois de transferir o código de exemplo, abra o ficheiro de .sln do Visual Studio para começar a utilizar. O ficheiro de solução contém dois projetos: `TaskWebApp` e `TaskService`. `TaskWebApp` é o aplicativo da web MVC que o usuário interage com. O `TaskService` é uma API Web de back-end da aplicação que armazena a lista de tarefas de cada utilizador. Este artigo só cobre a aplicação `TaskWebApp`. Para saber como criar `TaskService` com o Azure AD B2C, consulte [nosso tutorial de api web .NET](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## <a name="update-code-to-use-your-tenant-and-policies"></a>Atualizar o código para utilizar as políticas e de inquilino
+## <a name="update-code-to-use-your-tenant-and-user-flows"></a>Atualizar o código para usar os fluxos de utilizador e de inquilino
 
-O nosso exemplo está configurado para utilizar as políticas e o ID de cliente do nosso inquilino de demonstração. Para ligá-lo para o seu inquilino, precisa abrir `web.config` no `TaskWebApp` do projeto e substitua os valores seguintes:
+O nosso exemplo está configurado para utilizar os fluxos de utilizador e o ID de cliente do nosso inquilino de demonstração. Para ligá-lo para o seu inquilino, precisa abrir `web.config` no `TaskWebApp` do projeto e substitua os valores seguintes:
 
 * `ida:Tenant` pelo nome do seu inquilino
 * `ida:ClientId` pelo ID da sua aplicação Web
 * `ida:ClientSecret` pela chave de segredo da sua aplicação Web
-* `ida:SignUpSignInPolicyId` pelo nome da sua política de “Inscrição ou Início de Sessão”
-* `ida:EditProfilePolicyId` pelo nome da sua política de “Editar Perfil”
-* `ida:ResetPasswordPolicyId` pelo nome da sua política de “Repor Palavras-Passe”
+* `ida:SignUpSignInPolicyId` com o seu nome de fluxo de utilizador de "Inscrição ou início de sessão"
+* `ida:EditProfilePolicyId` com o seu nome de fluxo de utilizador de "Editar perfil"
+* `ida:ResetPasswordPolicyId` com o seu nome de fluxo de utilizador de "Repor palavra-passe"
 
 ## <a name="launch-the-app"></a>Inicie a aplicação
 De dentro do Visual Studio, inicie a aplicação. Navegue até ao separador de lista de tarefas e anote o URl é: https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName* & client_id =*YourclientID*...
@@ -110,16 +110,16 @@ Para adicionar IDPs sociais para a sua aplicação, comece por seguir as instru�
 * [Configurar o Amazon como um IDP](active-directory-b2c-setup-amzn-app.md)
 * [Configurar o LinkedIn como um IDP](active-directory-b2c-setup-li-app.md)
 
-Depois de adicionar os fornecedores de identidade para o seu diretório do B2C, editar cada um dos seus três políticas para incluir os IDPs novo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Depois de guardar as suas políticas, execute novamente a aplicação.  Deverá ver os novo IDPs adicionados como o início de sessão e experiências de opções de inscrição em cada uma das sua identidade.
+Depois de adicionar os fornecedores de identidade para o seu diretório do B2C, editar cada um dos seus fluxos de três utilizador para incluir os IDPs novo, conforme descrito no [artigo de referência do fluxo de utilizador](active-directory-b2c-reference-policies.md). Depois de guardar os fluxos de utilizador, execute novamente a aplicação.  Deverá ver os novo IDPs adicionados como o início de sessão e experiências de opções de inscrição em cada uma das sua identidade.
 
-Pode experimentar com as suas políticas e observar o efeito na sua aplicação de exemplo. Adicionar ou remover IDPs, manipular afirmações de aplicação ou alterar os atributos de inscrição. Experimentação até que pode ver como as políticas, os pedidos de autenticação e OWIN ligarem.
+Pode experimentar os fluxos de utilizador e observar o efeito na sua aplicação de exemplo. Adicionar ou remover IDPs, manipular afirmações de aplicação ou alterar os atributos de inscrição. Experimentação até que pode ver como os fluxos de utilizador, os pedidos de autenticação e OWIN vincular em conjunto.
 
 ## <a name="sample-code-walkthrough"></a>Instruções de código de exemplo
 As secções seguintes mostram como o código de aplicativo de exemplo está configurado. Pode utilizá-la como um guia no seu desenvolvimento de aplicações futuros.
 
 ### <a name="add-authentication-support"></a>Adicionar suporte de autenticação
 
-Agora pode configurar a sua aplicação para utilizar o Azure AD B2C. Seu aplicativo se comunica com o Azure AD B2C através do envio de pedidos de autenticação OpenID Connect. Os pedidos determinam a experiência do usuário que seu aplicativo deseja executar, especificando a política. Pode utilizar a biblioteca do OWIN da Microsoft para enviar essas solicitações, políticas de executar, gerir sessões de utilizador e muito mais.
+Agora pode configurar a sua aplicação para utilizar o Azure AD B2C. Seu aplicativo se comunica com o Azure AD B2C através do envio de pedidos de autenticação OpenID Connect. Os pedidos determinam a experiência do usuário que seu aplicativo deseja executar, especificando o fluxo de utilizador. Pode utilizar a biblioteca do OWIN da Microsoft para enviar estes pedidos, executar fluxos de utilizador, gerir sessões de utilizador e muito mais.
 
 #### <a name="install-owin"></a>Instalar OWIN
 
@@ -207,11 +207,11 @@ public partial class Startup
 
 No `OpenIdConnectAuthenticationOptions` acima, vamos definir um conjunto de funções de retorno de chamada para notificações específicas que são recebidas pelo middleware OpenID Connect. Esses comportamentos são definidos usando um `OpenIdConnectAuthenticationNotifications` de objeto e armazenadas no `Notifications` variável. Em nosso exemplo, podemos definir três chamadas de retorno diferentes consoante o evento.
 
-### <a name="using-different-policies"></a>Através de políticas diferentes
+### <a name="using-different-user-flows"></a>Fluxos de utilizador diferente de utilizar
 
-O `RedirectToIdentityProvider` notificação é acionada sempre que é efetuado um pedido para o Azure AD B2C. A função de retorno de chamada `OnRedirectToIdentityProvider`, verificamos na chamada de saída para utilizar uma política diferente. Para fazer uma reposição de palavra-passe ou editar um perfil, terá de utilizar a política correspondente como política, em vez da política predefinida de "Inscrição ou início de sessão" de reposição de palavra-passe.
+O `RedirectToIdentityProvider` notificação é acionada sempre que é efetuado um pedido para o Azure AD B2C. A função de retorno de chamada `OnRedirectToIdentityProvider`, verificamos na chamada de saída para utilizar um fluxo de utilizador diferente. Para fazer uma reposição de palavra-passe ou editar um perfil, terá de utilizar o fluxo de utilizador correspondentes, como o fluxo de utilizador em vez do fluxo de utilizador de "Inscrição ou início de sessão" predefinido de repor a palavra-passe.
 
-Em nosso exemplo, quando um utilizador pretende repor a palavra-passe ou editar o perfil, podemos adicionar a política que preferimos usar para o contexto do OWIN. Isso pode ser feito, fazendo o seguinte:
+Em nosso exemplo, quando um utilizador pretende repor a palavra-passe ou editar o perfil, podemos adicionar o fluxo de utilizador que preferimos usar para o contexto do OWIN. Isso pode ser feito, fazendo o seguinte:
 
 ```CSharp
     // Let the middleware know you are trying to use the edit profile policy
@@ -246,7 +246,7 @@ O `AuthorizationCodeReceived` notificação é acionada quando é recebido um c�
 
 ### <a name="handling-errors"></a>Tratamento de erros
 
-O `AuthenticationFailed` notificação é acionada quando ocorre uma falha de autenticação. Em seu método de retorno de chamada, pode manipular os erros como desejar. No entanto, deve adicionar uma verificação para o código de erro `AADB2C90118`. Durante a execução da política de "Inscrição ou início de sessão", o utilizador tem a oportunidade de selecionar uma **Esqueceu-se a sua palavra-passe?** ligação. Neste evento, o Azure AD B2C envia seu aplicativo esse código de erro indicando que a aplicação deve fazer uma solicitação usando a política de reposição de palavra-passe em vez disso.
+O `AuthenticationFailed` notificação é acionada quando ocorre uma falha de autenticação. Em seu método de retorno de chamada, pode manipular os erros como desejar. No entanto, deve adicionar uma verificação para o código de erro `AADB2C90118`. Durante a execução do fluxo de utilizador de "Inscrição ou início de sessão", o utilizador tem a oportunidade de selecionar uma **Esqueceu-se a sua palavra-passe?** ligação. Neste evento, o Azure AD B2C envia seu aplicativo esse código de erro indicando que a aplicação deve fazer um pedido com o fluxo de utilizador de reposição de palavra-passe em vez disso.
 
 ```CSharp
 /*
@@ -357,7 +357,7 @@ public void SignOut()
 }
 ```
 
-Além de invocar explicitamente uma política, pode utilizar um `[Authorize]` marca em seus controladores de que executa uma política, se o utilizador não tem sessão iniciado. Open `Controllers\HomeController.cs` e adicione o `[Authorize]` etiqueta para o controlador de afirmações.  Seleciona OWIN a política de última configurada quando o `[Authorize]` etiqueta for atingida.
+Além de invocar explicitamente um fluxo de utilizador, pode utilizar um `[Authorize]` marca em seus controladores de que executa um fluxo de utilizador, se o utilizador não tem sessão iniciado. Open `Controllers\HomeController.cs` e adicione o `[Authorize]` etiqueta para o controlador de afirmações.  Seleciona OWIN a política de última configurada quando o `[Authorize]` etiqueta for atingida.
 
 ```CSharp
 // Controllers\HomeController.cs

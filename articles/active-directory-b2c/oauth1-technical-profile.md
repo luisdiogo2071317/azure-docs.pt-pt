@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 10c90b060c184bb911ac149640e8a9570b59e2fb
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 15c6730d752adf48cee2ff509220a033cac91ef2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381416"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842123"
 ---
 # <a name="define-a-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de OAuth1 em políticas personalizadas do Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Active Directory (Azure AD) B2C fornece suporte para o [protocolo OAuth 1.0](http://tools.ietf.org/html/rfc5849) fornecedor de identidade. Este artigo descreve as especificações de um perfil técnico da interagir com um fornecedor de afirmações que suporte esse protocolo padronizado. Com OAuth1 o perfil técnico, pode federar com um OAuth1 baseada fornecedor de identidade, como o Twitter, que lhe permite aos utilizadores iniciar sessão com existente social ou as identidades de empresa.
+O Azure Active Directory (Azure AD) B2C fornece suporte para o [protocolo OAuth 1.0](https://tools.ietf.org/html/rfc5849) fornecedor de identidade. Este artigo descreve as especificações de um perfil técnico da interagir com um fornecedor de afirmações que suporte esse protocolo padronizado. Com OAuth1 o perfil técnico, pode federar com um OAuth1 baseada fornecedor de identidade, como o Twitter, que lhe permite aos utilizadores iniciar sessão com existente social ou as identidades de empresa.
 
 ## <a name="protocol"></a>Protocolo
 

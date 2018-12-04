@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 857d58d31565e413a207162202f1a680d7da7c65
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250738"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837176"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
 Este artigo descreve duas formas de assumir um nome de domínio DNS num diretório não gerido no Azure Active Directory (Azure AD). Quando um utilizador autónomo se inscreve num serviço cloud que utiliza o Azure AD, é adicionado a um diretório do Azure AD não gerido, com base no domínio do respetivo e-mail Para mais informações sobre o Self-Service ou "viral" inscrever-se um serviço, consulte [o que é a inscrição self-service do Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
@@ -108,7 +108,11 @@ Para [RMS para indivíduos](/azure/information-protection/rms-for-individuals), 
 
 A chave e os modelos não são movidos através de quando o inquilino não gerido estiver numa região diferente. Por exemplo, o inquilino não gerido está na Europa e o inquilino que for o proprietário é na América do Norte. 
 
-Embora o RMS para indivíduos é projetado para oferecer suporte a autenticação do Azure AD para abrir conteúdo protegido, ele não impede que os utilizadores também proteger conteúdo. Se os utilizadores de proteger conteúdos com a subscrição do RMS para indivíduos e a chave e os modelos não foram movidos ao longo, esse conteúdo não estará acessível após a aquisição de domínio.    
+Embora o RMS para indivíduos é projetado para oferecer suporte a autenticação do Azure AD para abrir conteúdo protegido, ele não impede que os utilizadores também proteger conteúdo. Se os utilizadores de proteger conteúdos com a subscrição do RMS para indivíduos e a chave e os modelos não foram movidos ao longo, esse conteúdo não estará acessível após a aquisição de domínio.
+
+#### <a name="more-information-about-power-bi"></a>Obter mais informações sobre o Power BI
+
+Quando efetua um obtenção de controlo, conteúdo do Power BI externo que foi criado antes da obtenção de controlo é colocada numa [área de trabalho do Power BI arquivados](/power-bi/service-admin-power-bi-archived-workspace). Manualmente terá de migrar qualquer conteúdo que pretende utilizar no novo inquilino.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlets do Azure AD PowerShell para a opção ForceTakeover
 Pode ver estes cmdlets utilizados [exemplo de PowerShell](#powershell-example).

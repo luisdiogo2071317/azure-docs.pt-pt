@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 6aa0ad6d13a7a75a0d9bfb520944c04cae11f1ab
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 38ed7a7fff08003563147d6b8eb9bbc33fb32bc9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682984"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836156"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalhes de recolha de dados para soluções de gestão no Azure
 Este artigo inclui uma lista dos [soluções de gestão](solutions.md) disponíveis da Microsoft com links para sua documentação detalhada.  Também fornece informações no seu método e a frequência de recolha de dados para o Log Analytics.  Pode utilizar as informações neste artigo, para identificar as diferentes soluções disponíveis e para compreender os requisitos de fluxo e a ligação de dados para soluções de gestão diferentes. 
@@ -79,4 +79,4 @@ Explicações das colunas são os seguintes:
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba como [criar consultas](../../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos por soluções de gestão.
+* Saiba como [criar consultas](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos por soluções de gestão.

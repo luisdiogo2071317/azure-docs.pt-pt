@@ -7,19 +7,19 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: ac05a2dcee3adaa93d31e28e5597a788c0159ddd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 4fb774341b19034d3905341a99be2114a0d1e18b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955440"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835714"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações na base de dados do Azure para MariaDB
-A base de dados do Azure para MariaDB serviço está em pré-visualização pública. As secções seguintes descrevem a capacidade, suporte ao mecanismo de armazenamento, o suporte de privilégio, manipulação de dados de suporte de instrução e limites funcionais no serviço de base de dados.
+As secções seguintes descrevem a capacidade, suporte ao mecanismo de armazenamento, o suporte de privilégio, manipulação de dados de suporte de instrução e limites funcionais no serviço de base de dados.
 
 ## <a name="maximum-connections"></a>Número máximo de ligações
-O número máximo de ligações por vCores e escalão de preço durante a pré-visualização é os seguintes:
+Seguem-se o número máximo de ligações por vCores e escalão de preço:
 
 |**Escalão de Preço**|**vCore(s)**| **Máx. ligações**|
 |---|---|---|

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: dd018dca2de018733783605bfdb2802f91ebd76b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 112b41aa41706a807a82e708fe1fb4173fd084ca
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621178"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837533"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Elevada disponibilidade com o Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Como uma base de dados globalmente distribuída, o Cosmos DB oferece SLAs abrang
 
 |Tipo de operação  | Região única |Várias regiões (gravações de região única)|Várias regiões (gravações de várias regiões) |
 |---------|---------|---------|-------|
-|Escritas    | 99,99    |99,99   |99,999|
+|Escreve    | 99,99    |99,99   |99,999|
 |Leituras     | 99,99    |99,999  |99,999|
 
 > [!NOTE]

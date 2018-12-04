@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 46e05ef45cca5accd6af817a06b63861c41aa2b3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 28bdbcbbfa014495feb394bde78a197b274f07d9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160618"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844180"
 documentType: LandingData
 title: Instância Gerida da Base de Dados SQL do Azure
 metadata:
@@ -123,6 +123,7 @@ sections:
     - html: Certifique-se de que a sua base de dados pode ser migrado usando <a href="https://www.microsoft.com/download/details.aspx?id=53595">Asisstant de migração de dados</a> ou <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">Assistente de experimentação de base de dados</a>.
     - html: Dê aos seus bancos de dados utilizando a instância gerida <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">restauro nativo</a> ou <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
     - html: Mover seus pacotes do SSIS para o <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">do Azure Data Factory</a>, modelos de tabela do SSAS para <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, e relatórios do SSRS para <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.
+    - html: Otimizar o armazenamento de dados no <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/">escalão fins gerais</a>.
     - html: Encontre as melhores práticas e recomendações para <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">proteger a sua instância</a>.
     - html: Distribuir os seus dados através de <a href="/azure/sql-database/replication-with-sql-database-managed-instance">replicação transacional</a>.
 - title: Referência

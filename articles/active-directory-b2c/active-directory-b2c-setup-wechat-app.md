@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 45afd0d4c038123a1daf5f57de18e5f2799faa31
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 953868f90c4f761b1d02c314e0e1a4e04b8404d9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181265"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842616"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta de WeChat através do Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ ms.locfileid: "47181265"
 
 ## <a name="create-a-wechat-application"></a>Criar uma aplicação de WeChat
 
-Para utilizar uma conta de WeChat como fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação no seu inquilino que a representa. Se ainda não tiver uma conta de WeChat, pode obter informações em [ http://kf.qq.com/faq/161220Brem2Q161220uUjERB.html ](http://kf.qq.com/faq/161220Brem2Q161220uUjERB.html).
+Para utilizar uma conta de WeChat como fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação no seu inquilino que a representa. Se ainda não tiver uma conta de WeChat, pode obter informações em [ https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html ](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html).
 
 ### <a name="register-a-wechat-application"></a>Registar uma aplicação de WeChat
 
@@ -37,7 +37,7 @@ Para utilizar uma conta de WeChat como fornecedor de identidade no Azure Active 
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>Configurar WeChat como fornecedor de identidade no seu inquilino
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrador global do inquilino do Azure AD B2C.
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 4. Selecione **fornecedores de identidade**e, em seguida, selecione **Add**.

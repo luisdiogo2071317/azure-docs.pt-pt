@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: Criar uma aplicação de lista de tarefas com Xamarin | Microsoft Docs'
+title: 'Azure Cosmos DB: Criar uma aplicação de lista de tarefas com Xamarin'
 description: Apresenta um exemplo de código Xamarin que pode utilizar para ligar e consultar o Azure Cosmos DB
 services: cosmos-db
 author: codemillmatt
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
@@ -11,17 +10,18 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: c48c5f116ef9c5716533ca28ccfd58b613facd26
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 0099bacb98d921a852ece8787bcb7152c5eae3f2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993338"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838578"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: Criar uma aplicação de lista de tarefas com Xamarin
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
+> * [.NET (pré-visualização)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -245,7 +245,7 @@ Os seguintes passos demonstram como executar a aplicação com o depurador do Vi
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar uma coleção com o Data Explorer e criar e implementar uma aplicação Xamarin. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB.
 

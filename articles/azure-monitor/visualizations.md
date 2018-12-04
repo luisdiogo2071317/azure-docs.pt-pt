@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: b2011003306e72ac9fb243b640e388e6f3d5e7d3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e537795c9dec5f909810a37d4f13d5664bec05a2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722212"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839981"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualização de dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados armazenados no Azure Monitor. Isto inclui [métricas no arquivo de métricas do Azure](../azure-monitor/platform/data-collection.md#metrics) e [registos de dados no Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
@@ -32,7 +32,7 @@ Visualizações, como tabelas e gráficos podem ajudar a analisar os dados de mo
 ### <a name="advantages"></a>Vantagens
 - Integração profunda no Azure. Visualizações podem ser afixadas em dashboards de várias páginas do Azure, incluindo o Explorador de métricas, do Log Analytics e Application Insights.
 - Oferece suporte a métricas e registos.
-- Combinar dados de várias origens, incluindo a saída de [Explorador de métricas](../monitoring-and-diagnostics/monitoring-metric-charts.md), [consultas de análise de registo](../log-analytics/log-analytics-queries.md), e [mapeia](../application-insights/app-insights-app-map.md) e [disponibilidade]()no Application Insights.
+- Combinar dados de várias origens, incluindo a saída de [Explorador de métricas](../monitoring-and-diagnostics/monitoring-metric-charts.md), [consultas de análise de registo](../azure-monitor/log-query/log-query-overview.md), e [mapeia](../application-insights/app-insights-app-map.md) e [disponibilidade]()no Application Insights.
 - Opção para dashboards pessoais ou partilhados. Integrado com o Azure [autenticação baseada em funções (RBAC)](../role-based-access-control/overview.md).
 - Atualização automática. Atualização de métricas depende do intervalo de tempo com o mínimo de cinco minutos. Registos de atualização num minuto.
 - Dashboards de métricas de Parametrized com timestamp e parâmetros personalizados.

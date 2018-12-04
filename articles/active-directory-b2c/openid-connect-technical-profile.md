@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 40922080857563b86d538586b90513381edb5d89
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9a20b8df1f0d9cddbde4c4886e11967bc8c04160
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381534"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842420"
 ---
 # <a name="define-a-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico OpenId Connect em políticas personalizadas do Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O Azure Active Directory (Azure AD) B2C fornece suporte para o [OpenId Connect](http://openid.net/2015/04/17/openid-connect-certification-program/) fornecedor de identidade do protocolo. OpenID Connect 1.0 define uma camada de identidade com base no OAuth 2.0 e representa a Estado da última palavra em protocolos de autenticação moderna.  Com OpenId Connect perfil técnico, pode federar com uma ligação do OpenId com base em fornecedor de identidade, como o Azure AD, que lhe permite aos utilizadores iniciar sessão com existente social ou as identidades de empresa.
+O Azure Active Directory (Azure AD) B2C fornece suporte para o [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) fornecedor de identidade do protocolo. OpenID Connect 1.0 define uma camada de identidade com base no OAuth 2.0 e representa a Estado da última palavra em protocolos de autenticação moderna.  Com OpenId Connect perfil técnico, pode federar com uma ligação do OpenId com base em fornecedor de identidade, como o Azure AD, que lhe permite aos utilizadores iniciar sessão com existente social ou as identidades de empresa.
 
 ## <a name="protocol"></a>Protocolo
 

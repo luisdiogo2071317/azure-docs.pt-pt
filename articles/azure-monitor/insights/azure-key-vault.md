@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 72c7febe48c89041aad3c2e127eeb4e2d33d5eca
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 28246e89d798fa86561930ed52f0c84e433f0d9d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428964"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838748"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solução de análise do Cofre de chaves do Azure no Log Analytics
 
@@ -153,4 +153,4 @@ Os dados recolhidos antes da alteração não é visível na solução de novo. 
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisas de registos no Log Analytics](../../log-analytics/log-analytics-queries.md) para ver os dados detalhados do Azure Key Vault.
+* Uso [pesquisas de registos no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para ver os dados detalhados do Azure Key Vault.

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.date: 12/03/2018
+ms.openlocfilehash: 939c008dbfdb996c84132d5aa0b5ed625e0a68ec
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422515"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837907"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre cópias de segurança automáticas da base de dados SQL
 
@@ -33,8 +33,8 @@ Pode utilizar estas cópias de segurança para:
 
 - Restaure uma base de dados para um ponto anterior no tempo dentro do período de retenção. Esta operação irá criar uma nova base de dados no mesmo servidor que a base de dados original.
 - Restaure uma base de dados eliminada para o tempo que tiver sido eliminado ou a qualquer altura dentro do período de retenção. Só pode ser restaurado a base de dados eliminada no mesmo servidor onde a base de dados original foi criado.
-- Restaure uma base de dados para outra região geográfica. Isto permite-lhe recuperar a partir de um desastre geográfico ao não é possível aceder ao seu servidor e base de dados. Ele cria uma nova base de dados em qualquer servidor existente em qualquer lugar no mundo.
-- Restaure uma base de dados a partir de uma cópia de segurança de longo prazo específica se a base de dados tiver sido configurado com uma política de retenção de longo prazo (LTR). Isto permite-lhe restaurar uma versão antiga da base de dados para satisfazer uma solicitação de conformidade ou para executar uma versão antiga da aplicação. Ver [retenção a longo prazo](sql-database-long-term-retention.md).
+- Restaure uma base de dados para outra região geográfica. O restauro geográfico permite-lhe recuperar a partir de um desastre geográfico ao não é possível aceder ao seu servidor e base de dados. Ele cria uma nova base de dados em qualquer servidor existente em qualquer lugar no mundo.
+- Restaure uma base de dados a partir de uma cópia de segurança de longo prazo específica se a base de dados tiver sido configurado com uma política de retenção de longo prazo (LTR). LTR permite-lhe restaurar uma versão antiga da base de dados para satisfazer uma solicitação de conformidade ou para executar uma versão antiga da aplicação. Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
 - Para efetuar um restauro, consulte [restaurar a base de dados de cópias de segurança](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -42,16 +42,16 @@ Pode utilizar estas cópias de segurança para:
 
 ## <a name="how-long-are-backups-kept"></a>Quanto tempo as cópias de segurança permanecem
 
-Cada base de dados do SQL tem um período de retenção de cópia de segurança padrão entre 7 e 35 dias que depende o [modelo de compra e a camada de serviços](#pitr-retention-period). Pode atualizar o período de retenção de cópia de segurança para uma base de dados num servidor lógico do Azure (esta funcionalidade será ativada brevemente na instância gerida). Ver [período de retenção de cópia de segurança de alteração](#how-to-change-backup-retention-period) para obter mais detalhes.
+Cada base de dados do SQL tem um período de retenção de cópia de segurança padrão entre 7 e 35 dias que depende o [modelo de compra e a camada de serviços](#pitr-retention-period). Pode atualizar o período de retenção de cópia de segurança para uma base de dados num servidor lógico do Azure. Para obter mais informações, consulte [período de retenção de cópia de segurança de alteração](#how-to-change-the-pitr-backup-retention-period).
 
 Se eliminar uma base de dados, base de dados SQL manterá as cópias de segurança da mesma forma que faria para uma base de dados online. Por exemplo, se eliminar uma base de dados básico que tem um período de retenção de sete dias, é guardada uma cópia de segurança que é de quatro dias de antiguidade por três dias mais.
 
-Se precisar de manter as cópias de segurança por mais tempo do que o período de retenção máximo PITR, pode modificar as propriedades de cópia de segurança para adicionar um ou mais períodos de retenção longo prazo para a base de dados. Ver [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md) para obter mais detalhes.
+Se precisar de manter as cópias de segurança por mais tempo do que o período de retenção máxima, pode modificar as propriedades de cópia de segurança para adicionar um ou mais períodos de retenção longo prazo para a base de dados. Para obter mais informações, veja [Retenção de longa duração](sql-database-long-term-retention.md).
 
 > [!IMPORTANT]
 > Se eliminar o servidor de SQL do Azure que aloja as bases de dados SQL, tudo de dados elásticas e bases de dados que pertencem ao servidor também são eliminados e não podem ser recuperados. Não é possível restaurar um servidor foi eliminado. Mas se tiver configurado a retenção de longa duração, as cópias de segurança das bases de dados com LTR não serão eliminadas e esses bancos de dados podem ser restaurados.
 
-### <a name="pitr-retention-period"></a>Período de retenção PITR
+### <a name="default-backup-retention-period"></a>Período de retenção de cópia de segurança predefinido
 
 #### <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
@@ -63,12 +63,10 @@ O período de retenção predefinido para uma base de dados criada com o modelo 
 
 #### <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
 
-Se estiver a utilizar o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), o período de retenção de cópia de segurança predefinido é de 7 dias (ambos em servidores lógicos e instâncias geridas).
+Se estiver a utilizar o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), o período de retenção de cópia de segurança predefinido é de 7 dias (para únicos, agrupados e instância bases de dados). Para todas as bases de dados SQL do Azure (único, agrupados, e de bases de dados de instância gerida, também pode [alterar o período de retenção de cópia de segurança 35 dias](#how-to-change-the-pitr-backup-retention-period).
 
-- Bases de dados individuais e em pool, é possível [alterar o período de retenção de cópia de segurança 35 dias](#how-to-change-backup-retention-period).
-- Alterar o período de retenção de cópia de segurança não está disponível na instância gerida.
-
-Se reduzir o período de retenção atual, todas as cópias de segurança existentes mais antigas do que o período de retenção do novo período são já não estar disponível. Se aumentar o período de retenção atual, base de dados SQL manterá as cópias de segurança existentes até que o período de retenção mais longo for atingido.
+> [!WARNING]
+> Se reduzir o período de retenção atual, todas as cópias de segurança existentes mais antigas do que o período de retenção do novo período são já não estar disponível. Se aumentar o período de retenção atual, base de dados SQL manterá as cópias de segurança existentes até que o período de retenção mais longo for atingido.
 
 ## <a name="how-often-do-backups-happen"></a>Com que frequência as cópias de segurança acontecem
 
@@ -96,21 +94,24 @@ Se a sua base de dados é encriptado com TDE, as cópias de segurança são encr
 
 De forma contínua, a equipe de engenharia do Azure SQL Database automaticamente testa o restauro de cópias de segurança da base de dados automatizada das bases de dados em todo o serviço. Após o restauro, a bases de dados também recebem as verificações de integridade com o DBCC CHECKDB. Quaisquer problemas encontrados durante a verificação de integridade irão resultar num alerta para a equipa de engenharia. Para obter mais informações sobre a integridade dos dados na base de dados do Azure SQL, consulte [integridade dos dados na base de dados do Azure SQL](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
-## <a name="how-do-automated-backups-impact-my-compliance"></a>Como cópias de segurança automáticas afetar minha conformidade
+## <a name="how-do-automated-backups-impact-compliance"></a>Como cópias de segurança automáticas afetar conformidade
 
-Quando migra a base de dados de um escalão de serviço baseado em DTU com o período de retenção PITR padrão de 35 dias, para um escalão de serviço baseado em vCore, o período de retenção PITR é preservado para se certificar de que a política de recuperação de dados do seu aplicativo não é comprometida. Se o período de retenção predefinida não cumprir os requisitos de conformidade, pode alterar o período de retenção PITR com o PowerShell ou a REST API. Ver [período de retenção de cópia de segurança de alteração](#how-to-change-backup-retention-period) para obter mais detalhes.
+Quando migra a base de dados de um escalão de serviço baseado em DTU com o período de retenção PITR padrão de 35 dias, para um escalão de serviço baseado em vCore, o período de retenção PITR é preservado para se certificar de que a política de recuperação de dados do seu aplicativo não é comprometida. Se o período de retenção predefinida não cumprir os requisitos de conformidade, pode alterar o período de retenção PITR com o PowerShell ou a REST API. Ver [período de retenção de cópia de segurança de alteração](#how-to-change-the-pitr-backup-retention-period) para obter mais detalhes.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="how-to-change-backup-retention-period"></a>Como alterar o período de retenção de cópia de segurança
+## <a name="how-to-change-the-pitr-backup-retention-period"></a>Como alterar o período de retenção de cópia de segurança de PITR
 
-> [!Note]
-> Não é possível alterar o período de retenção de cópia de segurança padrão (7 dias) na instância gerida.
-
-Pode alterar o período de retenção predefinido com REST API ou o PowerShell. Os valores suportados são: 7, 14, 21, 28 ou 35 dias. Os exemplos seguintes mostram como alterar a retenção PITR 28 dias.
+Pode alterar o período de retenção de cópia de segurança de PITR predefinido a utilizar o Portal do Azure, PowerShell ou a API REST. Os valores suportados são: 7, 14, 21, 28 ou 35 dias. Os exemplos seguintes mostram como alterar a retenção PITR 28 dias.
 
 > [!NOTE]
-> APIs de Thes só terá impacto sobre o período de retenção PITR. Se tiver configurado LTR da base de dados, não será afetada. Ver [retenção de cópia de segurança de longo prazo](sql-database-long-term-retention.md) para obter detalhes sobre como alterar o period(s) de retenção LTR.
+> APIs de Thes só terá impacto sobre o período de retenção PITR. Se tiver configurado LTR da base de dados, não será afetada. Para obter mais informações sobre como alterar o period(s) de retenção LTR, consulte [retenção a longo prazo](sql-database-long-term-retention.md).
+
+### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Alterar o período de retenção de cópia de segurança de PITR no portal do Azure
+
+Para alterar o período de retenção de cópia de segurança de PITR no portal do Azure, navegue para a base de dados cujo período de retenção que deseja alterar e clique em **descrição geral**.
+
+![Portal do PITR Azure de alteração](./media/sql-database-automated-backup/configure-backup-retention.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Alterar o período de retenção de cópia de segurança de PITR com o PowerShell
 
@@ -154,7 +155,7 @@ Código de estado: 200
 }
 ```
 
-Ver [API de REST de retenção de cópia de segurança](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies) para obter mais detalhes.
+Para obter mais informações, consulte [API de REST de retenção de cópia de segurança](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

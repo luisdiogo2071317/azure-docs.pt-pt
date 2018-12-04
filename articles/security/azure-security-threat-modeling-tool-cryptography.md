@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 4128d113535c67c0b440dc3fb275af05b5c1c1ae
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306150"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844656"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Quadro de segurança: Criptografia | Atenuações 
 | Produtos/serviços | Artigo |
@@ -172,8 +172,8 @@ ms.locfileid: "43306150"
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | SO do dispositivo - Windows IoT Core, conectividade do dispositivo - SDKs de dispositivo do IoT do Azure |
-| **Referências**              | [TPM no Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [configurar TPM no Windows IoT Core](https://developer.microsoft.com/windows/iot/win10/setuptpm), [TPM de SDK de dispositivo de IoT do Azure](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
-| **Passos** | Chaves de Symmetric ou privada do certificado de forma segura num hardware protegidas armazenamento como chips TPM ou Smart Card. Windows 10 IoT Core suporta o utilizador de um TPM e existem vários TPMs compatíveis que podem ser usados: https://developer.microsoft.com/windows/iot/win10/tpm. Recomenda-se para utilizar TPM discreto ou Firmware. Um TPM de Software só deve ser utilizado para fins de testes e de desenvolvimento. Depois de um TPM está disponível e as chaves são aprovisionadas no mesmo, o código que gera o token deve ser escrito sem pré-programá-la informações confidenciais nela. | 
+| **Referências**              | [TPM no Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [configurar TPM no Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm), [TPM de SDK de dispositivo de IoT do Azure](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
+| **Passos** | Chaves de Symmetric ou privada do certificado de forma segura num hardware protegidas armazenamento como chips TPM ou Smart Card. Windows 10 IoT Core suporta o utilizador de um TPM e existem vários TPMs compatíveis que podem ser usados: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. Recomenda-se para utilizar TPM discreto ou Firmware. Um TPM de Software só deve ser utilizado para fins de testes e de desenvolvimento. Depois de um TPM está disponível e as chaves são aprovisionadas no mesmo, o código que gera o token deve ser escrito sem pré-programá-la informações confidenciais nela. | 
 
 ### <a name="example"></a>Exemplo
 ```

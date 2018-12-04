@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: af3a11db44c3799a83e1767f919cb02f14855949
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 44b5702aa765b0e821850f6a390432563126482d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211915"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839913"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar a recuperação após desastre de VMs de Hyper-V no local para o Azure
 
@@ -123,5 +123,5 @@ A Recuperação de Sites verifica que tem uma ou mais contas de armazenamento e 
 
  Pode controlar o progresso da ação **Ativar Proteção** em **Tarefas** > **Tarefas do Site Recovery**. Após a conclusão da tarefa **Finalizar Proteção**, a replicação inicial estará concluída e a máquina virtual estará preparada para a ativação pós-falha.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Executar um teste de recuperação após desastre](tutorial-dr-drill-azure.md)

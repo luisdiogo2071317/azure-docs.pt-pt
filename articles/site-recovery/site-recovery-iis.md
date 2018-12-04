@@ -5,14 +5,14 @@ author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: bac995829e90fea35eebf5e5e57a0ffb85bbba0c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 49435665ae1e99dd2b9696e5e5bb048e438dcc4c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211830"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832961"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação após desastre para uma aplicação web baseada no IIS de várias camadas
 
@@ -52,7 +52,7 @@ Um farm da web com base no IIS com o ARR, um servidor IIS, um servidor de aplica
 
 ![Diagrama de um farm da web com base no IIS que tem quatro escalões](./media/site-recovery-iis/deployment-pattern2.png)
 
-## <a name="site-recovery-support"></a>Suporte de recuperação de site
+## <a name="site-recovery-support"></a>Suporte do Site Recovery
 
 Os exemplos neste artigo, vamos utilizar máquinas virtuais VMware com o IIS 7.5 no Windows Server 2012 R2 Enterprise. Uma vez que a replicação do Site Recovery não é específico do aplicativo, as recomendações neste artigo devem aplicam-se nos cenários listados na tabela a seguir e para as diferentes versões do IIS.
 
@@ -142,7 +142,7 @@ Se tiver uma dependência de específico do aplicativo com base no endereço IP 
 
 1. No portal do Azure, selecione o Cofre de serviços de recuperação.
 2. Selecione o plano de recuperação que criou para a web farm do IIS.
-3. Selecione **ativação pós-falha de teste**.
+3. Selecione **Ativação Pós-falha de Teste**.
 4. Para iniciar o processo de ativação pós-falha de teste, selecione o ponto de recuperação e a rede virtual do Azure.
 5. Quando o ambiente secundário está ativo, pode realizar as validações.
 6. Quando validações forem concluídas, para limpar o ambiente de ativação pós-falha de teste, selecione **validações concluir**.
@@ -153,7 +153,7 @@ Para obter mais informações, consulte [ativação pós-falha de teste para o A
 
 1. No portal do Azure, selecione o Cofre de serviços de recuperação.
 1. Selecione o plano de recuperação que criou para a web farm do IIS.
-1. Selecione **ativação pós-falha**.
+1. Selecione **Ativação pós-falha**.
 1. Para iniciar o processo de ativação pós-falha, selecione o ponto de recuperação.
 
 Para obter mais informações, consulte [ativação pós-falha no Site Recovery](site-recovery-failover.md).

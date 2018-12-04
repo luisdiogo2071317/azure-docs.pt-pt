@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2b21102a5416c1fd7e2abb35be677c48ffc63263
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 1f86631d75ceec5fc013c21f74f03b9157c78b4a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638080"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836462"
 ---
 # <a name="utterances-in-luis"></a>Expressões com no LUIS
 
@@ -55,6 +55,10 @@ Em cada iteração do modelo, não adicione uma grande quantidade de expressões
 LUIS baseia-se em vigor modelos com expressões com cuidadosamente selecionadas. Adicionar expressões com demasiados não é importante porque introduz confusão.  
 
 É melhor começar com algumas expressões, em seguida, [rever expressões de ponto final](luis-how-to-review-endoint-utt.md) para extração correta de entidade e de predição de intenção.
+
+## <a name="punctuation-marks"></a>Marcas de pontuação
+
+LUIS não ignora marcas de pontuação, por predefinição, uma vez que alguns aplicativos de cliente podem efetuar significância essas marcas. Certifique-se que as expressões de exemplo utilizam o pontuação e sem pontuação para que ambos os estilos para devolver as mesmo pontuações relativas. Se a pontuação não tem nenhum significado específico na aplicação de cliente, considere [Ignorar pontuação](#ignoring-words-and-punctuation) usando padrões. 
 
 ## <a name="ignoring-words-and-punctuation"></a>A ignorar a palavras e pontuação
 Se pretender ignorar palavras específicas ou pontuação na expressão de exemplo, utilize um [padrão](luis-concept-patterns.md#pattern-syntax) com o _ignorar_ sintaxe. 

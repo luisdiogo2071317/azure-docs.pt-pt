@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: bfed4318d09a776f56a5a4b6218120d75a49fc80
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d12de42be9cf5d1a48288aabf21b25546e5b4bbc
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715772"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833081"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar os registos do Azure Monitor para VMs (pré-visualização)
-O Monitor para VMs do Azure recolhe métricas de desempenho e a ligação, o computador e o processamento de dados de inventário e informações de estado de funcionamento e encaminhá-la para o arquivo de dados do Log Analytics no Azure Monitor.  Estes dados estão disponíveis para [pesquisa](../../log-analytics/log-analytics-queries.md) no Log Analytics. Pode aplicar esses dados para cenários que incluem planos de migração, análise de capacidade, deteção e resolução de problemas de desempenho a pedido.
+O Monitor para VMs do Azure recolhe métricas de desempenho e a ligação, o computador e o processamento de dados de inventário e informações de estado de funcionamento e encaminhá-la para o arquivo de dados do Log Analytics no Azure Monitor.  Estes dados estão disponíveis para [pesquisa](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics. Pode aplicar esses dados para cenários que incluem planos de migração, análise de capacidade, deteção e resolução de problemas de desempenho a pedido.
 
 ## <a name="map-records"></a>Registos de mapa
 Um registo é gerado por hora para cada computador exclusivo e o processo, além dos registos que são gerados quando um processo ou o computador inicia ou é integrado para o Azure Monitor para a funcionalidade de mapa de VMs. Estes registos têm as propriedades nas tabelas seguintes. Os campos e os valores nos eventos ServiceMapComputer_CL mapeiam para campos do recurso de máquina na API ServiceMap do Azure Resource Manager. Os campos e os valores nos eventos ServiceMapProcess_CL mapeiam os campos do recurso de processo na API ServiceMap do Azure Resource Manager. O campo de ResourceName_s corresponda o campo de nome do recurso de Gestor de recursos correspondente. 

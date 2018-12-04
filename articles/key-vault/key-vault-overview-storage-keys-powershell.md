@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 11/28/2018
-ms.openlocfilehash: 280d3a7783d689c6174ecf6d2b29e52bdbc42417
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7effcc82a737fd2914f06a2c475cece94adc84f3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634664"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841800"
 ---
 # <a name="azure-key-vault-managed-storage-account---powershell"></a>O Azure Key Vault geridos a conta de armazenamento - PowerShell
 
@@ -43,8 +43,10 @@ O exemplo seguinte mostra como permitir que o Key Vault para gerir as chaves de 
 
 ## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Autorizar o Key Vault para aceder à sua conta de armazenamento
 
-> [!TIP]
-> O Azure AD fornece cada aplicação registada com um  **[principal de serviço](/azure/active-directory/develop/developer-glossary#service-principal-object)**, que serve como identidade da aplicação. O principal de serviço, em seguida, pode ser atribuído da autorização para aceder a outros recursos do Azure, como o Cofre de chaves, por meio do controle de acesso baseado em funções (RBAC). Uma vez que o Key Vault é um aplicativo da Microsoft, está registado previamente em todos os inquilinos do Azure AD com o ID de aplicação "cfa8b339-82a2-471a-a3c9-0fc0be7a4093".
+> [!IMPORTANT]
+> Um inquilino do Azure AD fornece cada aplicação registada com um  **[principal de serviço](/azure/active-directory/develop/developer-glossary#service-principal-object)**, que serve como identidade da aplicação. ID da aplicação do principal de serviço é utilizado quando dando a ele autorização para aceder a outros recursos do Azure, através do controlo de acesso baseado em funções (RBAC). Uma vez que o Key Vault é um aplicativo da Microsoft, previamente está registado em todos os inquilinos do Azure AD sob o mesmo ID de aplicação, dentro de cada cloud do Azure:
+> - Utilizam o Azure AD inquilinos na cloud do Azure government ID da aplicação `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
+> - ID da aplicação de utilizar do Azure AD inquilinos na cloud pública do Azure e todos os outros `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 
 Antes de Key Vault pode aceder e gerir as chaves de conta de armazenamento, tem de autorizar o acesso da sua conta de armazenamento. A aplicação do Key Vault requer permissões para *lista* e *voltar a gerar* chaves para a sua conta de armazenamento. Estas permissões são habilitadas através da função RBAC incorporada [função de serviço de operador de chave de conta de armazenamento](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
 
@@ -56,6 +58,7 @@ $resourceGroupName = "rgContoso"
 $storageAccountName = "sacontoso"
 $storageAccountKey = "key1"
 $keyVaultName = "kvContoso"
+$keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # See "IMPORTANT" block above for information on Key Vault Application IDs
 
 # Authenticate your PowerShell session with Azure AD, for use with Azure Resource Manager cmdlets
 $azureProfile = Connect-AzureRmAccount
@@ -64,7 +67,7 @@ $azureProfile = Connect-AzureRmAccount
 $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
 
 # Assign RBAC role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
-New-AzureRmRoleAssignment -ApplicationId “cfa8b339-82a2-471a-a3c9-0fc0be7a4093” -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
+New-AzureRmRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 
 Após a atribuição de função efetuada com êxito, deverá ver um resultado semelhante ao seguinte exemplo:
@@ -102,7 +105,6 @@ Tenha em atenção que as permissões para contas de armazenamento não estão d
 Utilizar a mesma sessão do PowerShell, crie uma conta de armazenamento gerido na sua instância do Key Vault. O `-DisableAutoRegenerateKey` comutador Especifica para não voltar a gerar as chaves de conta de armazenamento.
 
 ```azurepowershell-interactive
-
 # Add your storage account to your Key Vault's managed storage accounts
 Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
 ```
@@ -129,8 +131,6 @@ Se pretender que o Cofre de chaves para regenerar as chaves de conta de armazena
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
-$accountName = $storage.StorageAccountName
-
 Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
 ```
 

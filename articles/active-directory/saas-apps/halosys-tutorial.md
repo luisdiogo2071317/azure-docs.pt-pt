@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 6e0b9d205bf16c92443aadc69a1186b99c6d8cc5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 838e839aeb0b6d227d9350c4b5cd1f3f1a8cad8e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446498"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837201"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>Tutorial: Integração do Azure Active Directory com Halosys
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Halosys, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Halosys logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Halosys com o Azure AD, terá de adicionar Hal
 
 **Para adicionar Halosys a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -115,7 +115,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<company-name>.halosys.com/<instance name>`
 
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte de Halosys](http://halosys.com/halosys#contact) obter esses valores.
+    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte de Halosys](https://halosys.com/halosys#contact) obter esses valores.
  
 1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -129,7 +129,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configuração de Halosys](./media/halosys-tutorial/tutorial_halosys_configure.png) 
 
-1. Para configurar o início de sessão único num **Halosys** lado, terá de enviar o transferido **XML de metadados** e **SAML único início de sessão no URL do serviço** para [Halosys de suporte equipe](http://halosys.com/halosys#contact). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Para configurar o início de sessão único num **Halosys** lado, terá de enviar o transferido **XML de metadados** e **SAML único início de sessão no URL do serviço** para [Halosys de suporte equipe](https://halosys.com/halosys#contact). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -168,7 +168,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
   
 ### <a name="create-a-halosys-test-user"></a>Criar um utilizador de teste Halosys
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Halosys. Trabalhar com [equipa de suporte de Halosys](http://halosys.com/halosys#contact) para adicionar os utilizadores na plataforma Halosys. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Halosys. Trabalhar com [equipa de suporte de Halosys](https://halosys.com/halosys#contact) para adicionar os utilizadores na plataforma Halosys. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -200,7 +200,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

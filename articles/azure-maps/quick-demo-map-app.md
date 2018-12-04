@@ -3,18 +3,18 @@ title: Pesquisa de Mapas Interativa com o Azure Maps | Microsoft Docs
 description: Início Rápido do Azure – Iniciar uma pesquisa de mapas interativa de demonstração com o Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/26/2018
+ms.date: 12/02/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d2aa3385dd7556cfc169b42b36d94a3e1d9ee3dd
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 5f828bfd2ceee81daf86382846be0c5ee7f1fe8c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209977"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836581"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Iniciar uma pesquisa de mapas interativa com o Azure Maps
 
@@ -35,7 +35,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com/).
     - O *Nome* da nova conta.
     - A *Subscrição* que quer utilizar para esta conta.
     - O *Grupo de recursos* para esta conta. Pode optar por *Criar um grupo de recursos novo* ou *Utilizar um grupo de recursos existente*.
-    - Selecione a *Localização do grupo de recursos*.
+    - Selecione o *escalão de preço* à sua escolha.
     - Leia a *Licença* e a *Declaração de Privacidade*, e selecione a caixa de verificação para aceitar os termos.
     - Por último, clique no botão **Criar**.
 
@@ -66,7 +66,7 @@ Os tutoriais explicam detalhadamente como utilizar e configurar o Maps com a sua
 1. Feche o browser que está a executar a aplicação Web **AzureMapDemo.html**.
 2. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione a conta do Maps. Na parte superior do painel **Todos os recursos**, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste Início Rápido, criou a sua conta do Maps e iniciou uma aplicação de demonstração. Para saber como criar a sua própria aplicação com as APIs do Maps, avance para o tutorial seguinte.
 

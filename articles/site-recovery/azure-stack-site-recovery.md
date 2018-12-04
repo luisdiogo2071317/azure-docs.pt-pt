@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8285632d8dea76763c65dd06e8be2d7494a47188
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215213"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838997"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para o Azure
 
@@ -207,8 +207,8 @@ Selecione e verifique os recursos de destino.
 ### <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
 1. Clique em **preparar infraestrutura** > **definições de replicação**.
-2. Na **criar política de replicação**, especifique um nome de política.
-3. Na **limiar RPO**, especifique o limite (RPO) da objetivo de ponto de recuperação.
+2. Em **Criar política de replicação**, especifique um nome de política.
+3. Em **Limiar RPO**, especifique o limite do objetivo de ponto de recuperação (RPO).
     - Pontos de recuperação para os dados replicados são criados de acordo com o conjunto de tempo.
     - Esta definição não afeta a replicação, que é contínua. Simplesmente emite um alerta se o limite do limiar for atingido sem um ponto de recuperação que está sendo criado.
 4. Na **retenção do ponto de recuperação**, especifique o intervalo de tempo que cada ponto de recuperação é mantido. VMs replicadas podem ser recuperadas para qualquer ponto numa janela de tempo especificado.

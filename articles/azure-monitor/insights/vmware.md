@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5caa4940865ff0f0f684a8aa8c3164fee6f321b2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 383b73d335c8993aa99109c7430d2292a3bfea4a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634460"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836445"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de monitorização de VMware (pré-visualização) no Log Analytics
 
@@ -90,7 +90,7 @@ A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre
 
 A tabela seguinte mostra exemplos de campos de dados recolhidos pela solução de monitorização de VMware:
 
-| nome do campo | descrição |
+| Nome do campo | descrição |
 | --- | --- |
 | Device_s |Dispositivos de armazenamento do VMware |
 | ESXIFailure_s |tipos de falha |
@@ -131,7 +131,7 @@ Na **VMware** vista do dashboard, os painéis são organizados por:
 
 Clique em qualquer painel para abrir o painel de pesquisa do Log Analytics que mostra informações detalhadas específico para o painel.
 
-A partir daqui, pode editar a consulta de pesquisa para modificá-lo para algo específico. Para obter detalhes sobre a criação de pesquisas de registos, consulte [encontrar os dados com pesquisas de registos no Log Analytics](../../log-analytics/log-analytics-queries.md).
+A partir daqui, pode editar a consulta de pesquisa para modificá-lo para algo específico. Para obter detalhes sobre a criação de pesquisas de registos, consulte [encontrar os dados com pesquisas de registos no Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Encontrar eventos de anfitrião ESXi
 Um único anfitrião do ESXi gera vários registos, com base em seus processos. A solução de monitorização de VMware centraliza-los e resume as contagens de eventos. Esta vista centralizada ajuda a compreender qual anfitrião ESXi tem um grande volume de eventos e quais eventos com mais frequência ocorrem no seu ambiente.
@@ -206,6 +206,6 @@ Pode haver vários motivos:
     d. Se o ficheiro não existe ou o utilizador e a definição de grupo é errado, tomar medidas corretivas pela [preparar o servidor Linux](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisas de registos](../../log-analytics/log-analytics-queries.md) no Log Analytics para ver o VMware detalhada alojar os dados.
+* Uso [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para ver o VMware detalhada alojar os dados.
 * [Criar seus próprios dashboards](../../azure-monitor/platform/dashboards.md) a mostrar dados de anfitrião do VMware.
 * [Criar alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) quando ocorrem eventos específicos de anfitriões de VMware.

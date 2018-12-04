@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 10ff2118ade13980250608bf4bc238e8ff2f9c64
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4db786723793ca309b8c0abe7c6ede848649576b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312991"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834609"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -42,7 +42,7 @@ Centro de segurança é disponibilizado em dois escalões:
 
 O **escalão gratuito** fornece visibilidade sobre o estado de segurança dos seus recursos do Azure, política de segurança básica, recomendações de segurança e integração com produtos de segurança e serviços de parceiros.
 
-O **escalão Standard** adiciona ameaças avançadas capacidades de deteção, incluindo ameaças inteligência, análise comportamental, deteção de anomalias, incidentes de segurança e relatórios de atribuição de ameaças. O escalão Standard é gratuito durante os 60 dias iniciais. Se optar por continuar a utilizar o serviço além desses 60 dias, começamos automaticamente a cobrar o serviço.  Para atualizar, selecione [escalão de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) na política de segurança.
+O **escalão Standard** adiciona ameaças avançadas capacidades de deteção, incluindo ameaças inteligência, análise comportamental, deteção de anomalias, incidentes de segurança e relatórios de atribuição de ameaças. Pode iniciar uma versão de avaliação do tierfree padrão. Para atualizar, selecione [escalão de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) na política de segurança. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="permissions"></a>Permissões
 O Centro de Segurança do Azure utiliza o [Controlo de Acesso Baseado em Funções (RBAC)](../role-based-access-control/role-assignments-portal.md), que fornece [funções incorporadas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços no Azure.
@@ -133,7 +133,7 @@ Centro de segurança não consegue identificar com antecedência que um agente e
 Se remover a extensão de monitorização da Microsoft, o Centro de segurança não é possível recolher dados de segurança da VM e algumas recomendações de segurança e alertas não estão disponíveis. Dentro de 24 horas, o Centro de segurança determina que a VM está em falta a extensão e reinstala a extensão.
 
 ### <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Como faço para interromper a criação automática do agente de instalação e a área de trabalho?
-Pode desativar aprovisionamento automático das suas subscrições na política de segurança, mas isso não é recomendável. A desativação automáticas limites aprovisionamento recomendações do Centro de segurança e alertas. Aprovisionamento Automático é necessário para as subscrições no escalão de preço padrão. Para desativar o aprovisionamento automático:
+Pode desativar aprovisionamento automático das suas subscrições na política de segurança, mas isso não é recomendável. A desativação automáticas limites aprovisionamento recomendações do Centro de segurança e alertas. Para desativar o aprovisionamento automático:
 
 1. Se a sua subscrição está configurada para o escalão Standard, abra a política de segurança para essa subscrição e selecione o **gratuito** escalão.
 
@@ -163,7 +163,8 @@ Pode querer desativar aprovisionamento automático, se o seguinte se aplica a:
 Depois de concluída a migração, o Centro de segurança não é possível recolher dados de segurança da VM e algumas recomendações de segurança e alertas não estão disponíveis. Se optar por sair, deve instalar o Microsoft Monitoring Agent manualmente. Ver [passos recomendados ao desativá-las](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
 ### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Quais são os passos recomendados quando desativar aprovisionamento automático?
-Deve instalar manualmente o Microsoft Monitoring Agent para que o Centro de segurança possa recolher dados de segurança das suas VMs e fornecer recomendações e alertas. Ver [computadores Windows ligar ao serviço Log Analytics no Azure](../log-analytics/log-analytics-windows-agent.md) para obter orientações sobre a instalação.
+
+Deve instalar manualmente a extensão do Microsoft Monitoring Agent para que o Centro de segurança possa recolher dados de segurança das suas VMs e fornecer recomendações e alertas. Ver [instalação do agente de VM do Windows](../virtual-machines/extensions/oms-windows.md) ou [instalação do agente de VM do Linux](../virtual-machines/extensions/oms-linux.md) para obter orientações sobre a instalação.
 
 Pode ligar o agente para qualquer área de trabalho personalizada existente ou centro de segurança criada a área de trabalho. Se a uma área de trabalho personalizada não tiver as soluções de "Segurança" ou "SecurityCenterFree" ativadas, terá de aplicar uma solução. Para aplicar, selecione a área de trabalho personalizada ou a subscrição e aplicam-se de um escalão de preço através da **política de segurança – escalão de preço** painel.
 
@@ -226,7 +227,7 @@ Uma solução de centro de segurança está instalado na área de trabalho se n�
 Se o Microsoft Monitoring Agent estiver instalado diretamente na VM (não como uma extensão do Azure), o Centro de segurança não instala o Microsoft Monitoring Agent e monitorização de segurança é limitada.
 
 ### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Centro de segurança instalar soluções no meu áreas de trabalho do Log Analytics existentes? Quais são as implicações de faturas?
-Quando o Centro de segurança identifica que uma VM já está ligada a uma área de trabalho que criou, o Centro de segurança permite soluções nesta área de trabalho, de acordo com o escalão de preço. As soluções são aplicadas apenas para as VMs do Azure relevantes, via [filtragem da solução](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), por isso, a faturação permanece o mesmo.
+Quando o Centro de segurança identifica que uma VM já está ligada a uma área de trabalho que criou, o Centro de segurança permite soluções nesta área de trabalho, de acordo com o escalão de preço. As soluções são aplicadas apenas para as VMs do Azure relevantes, via [filtragem da solução](../operations-management-suite/operations-management-suite-solution-targeting.md), por isso, a faturação permanece o mesmo.
 
 - **Escalão gratuito** – Centro de segurança instala a solução de "SecurityCenterFree" no espaço de trabalho. Não são cobradas no escalão gratuito.
 - **Escalão Standard** – Centro de segurança instala a solução de "Segurança" no espaço de trabalho.
@@ -234,7 +235,7 @@ Quando o Centro de segurança identifica que uma VM já está ligada a uma área
    ![Soluções em área de trabalho predefinida][4]
 
 ### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Já tem áreas de trabalho no meu ambiente, posso usá-los para recolher dados de segurança?
-Se uma VM já tiver o Microsoft Monitoring Agent instalado como uma extensão do Azure, o Centro de segurança utiliza a área de trabalho ligada existente. Uma solução de centro de segurança está instalado na área de trabalho se não estiver presente já, e a solução é aplicada apenas às VMs relevantes via [filtragem da solução](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
+Se uma VM já tiver o Microsoft Monitoring Agent instalado como uma extensão do Azure, o Centro de segurança utiliza a área de trabalho ligada existente. Uma solução de centro de segurança está instalado na área de trabalho se não estiver presente já, e a solução é aplicada apenas às VMs relevantes via [filtragem da solução](../operations-management-suite/operations-management-suite-solution-targeting.md).
 
 Quando o Centro de segurança instala o Microsoft Monitoring Agent nas VMs, ele usa as áreas de trabalho predefinida criadas pelo centro de segurança.
 

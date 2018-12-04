@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 48f178a3316eb7232fad7d39b28aaa2fdcd77bff
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 63346068529591d4d396b0590db96a73782181e9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642908"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838859"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta no Log Analytics com a REST API
 A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
@@ -28,7 +28,7 @@ A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Log A
 A API de REST de pesquisa do Log Analytics é RESTful e pode ser acedido através da API de REST do Azure Resource Manager. Neste documento, encontrará exemplos em que a API é acessada a partir de uma linha de comandos do PowerShell através de [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de código-fonte aberto que simplifica a invocar a API do Azure Resource Manager. O uso de ARMClient e o PowerShell é uma das muitas opções para acessar a API de pesquisa do Log Analytics. Com essas ferramentas, pode utilizar o Gestor de recursos do API RESTful do Azure para fazer chamadas para áreas de trabalho do Log Analytics e executar comandos de pesquisa dentro dos mesmos. A API irá enviar os resultados da pesquisa para si no formato JSON, permitindo que use os resultados da pesquisa de muitas formas diferentes através de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Atualmente, os alertas só podem ser criados com uma pesquisa guardada do Log Analytics.  Pode consultar o [API do REST de pesquisa de registo](../../log-analytics/log-analytics-queries.md) para obter mais informações.
+Atualmente, os alertas só podem ser criados com uma pesquisa guardada do Log Analytics.  Pode consultar o [API do REST de pesquisa de registo](../../azure-monitor/log-query/log-query-overview.md) para obter mais informações.
 
 ## <a name="schedules"></a>Agendas
 Uma pesquisa guardada pode ter uma ou mais agendas. O plano define a frequência com que a pesquisa é a execução e o intervalo de tempo durante o qual os critérios é identificado.
@@ -140,7 +140,7 @@ Uma agenda deve ter apenas uma ação do alerta.  Ações de alerta tem uma ou m
 | Gravidade |Etiqueta utilizada para classificar o alerta quando acionado.| É necessário para cada alerta, antes ou depois de eles são estendidos para o Azure. |
 | Suprimir |Opção para parar as notificações de alerta. | Opcional para cada alerta, antes ou depois de eles são estendidos para o Azure. |
 | Grupos de Ação |IDs de ActionGroup do Azure em que são especificadas as ações necessárias, como - emails, SMSs, chamadas de voz, Webhooks, Runbooks de automatização, conectores de ITSM, etc.| Necessário depois de alertas são expandidos para o Azure|
-| Personalizar Ações|Modificar a saída padrão para selecionadas ações de ActionGroup| Opcional para cada alerta, pode ser utilizado depois de alertas são expandidos para o Azure. |
+| Personalizar ações|Modificar a saída padrão para selecionadas ações de ActionGroup| Opcional para cada alerta, pode ser utilizado depois de alertas são expandidos para o Azure. |
 | EmailNotification |Envie um e-mail para vários destinatários. | Não obrigatório, se os alertas são expandidos para o Azure|
 | Remediação |Inicie um runbook na automatização do Azure para tentar corrigir o problema identificado. |Não obrigatório, se os alertas são expandidos para o Azure|
 | Ações de Webhook | Enviar dados de alertas, para o serviço desejado como JSON |Não obrigatório, se os alertas são expandidos para o Azure|
@@ -188,8 +188,8 @@ O log Analytics permite-lhe classificar os alertas em categorias, para permitir 
 
 |Nível de gravidade do log Analytics  |Nível de gravidade de alertas do Azure  |
 |---------|---------|
-|crítico |Gravidade 0|
-|aviso |Gravidade 1|
+|Crítico |Gravidade 0|
+|Aviso |Gravidade 1|
 |Informativa | Gravidade 2|
 
 Segue-se uma resposta de exemplo para uma ação com apenas um limiar e a gravidade. 
@@ -281,7 +281,7 @@ Utilize o método Put com um ID de ação existente para modificar um grupo de a
     $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-#### <a name="customize-actions"></a>Personalizar Ações
+#### <a name="customize-actions"></a>Personalizar ações
 Por ações predefinidas, siga o modelo padrão e o formato para as notificações. No entanto, o utilizador pode personalizar algumas ações, mesmo que eles são controlados por grupos de ação. Atualmente, a personalização é possível para o assunto do E-Mail e Webhook Payload.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Personalizar o assunto do E-Mail para o grupo de ação
@@ -510,6 +510,6 @@ Utilize o método Put com um ID de ação existente para modificar uma ação do
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Utilize o [API REST para realizar pesquisas de registos](../../log-analytics/log-analytics-queries.md) no Log Analytics.
+* Utilize o [API REST para realizar pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics.
 * Saiba mais sobre [alertas de registo nos alertas do azure](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f078c1389e36b82f95b011ca1fbd7fbd1c4f895e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582892"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834243"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>O Azure Active Directory B2C: Configurar a interface do Usuário com conteúdo dinâmico ao utilizar políticas personalizadas
 
@@ -193,7 +193,7 @@ O modelo de HTML5 estiver pronto para utilizar. No entanto, não está disponív
 * Seu servidor de conteúdos está ativado para CORS.
 
     >[!NOTE]
-    >Para verificar se o site em que estiver hospedando o conteúdo tiver ativado o CORS e que pode testar solicitações CORS, vá para o [teste cors.org](http://test-cors.org/) Web site. 
+    >Para verificar se o site em que estiver hospedando o conteúdo tiver ativado o CORS e que pode testar solicitações CORS, vá para o [teste cors.org](https://test-cors.org/) Web site. 
 
 * O seu conteúdo servido está seguro através de **HTTPS**.
 * Estiver a utilizar *URLS absolutos*, tal como *https://yourdomain/content*, para todas as ligações, conteúdo CSS e imagens.

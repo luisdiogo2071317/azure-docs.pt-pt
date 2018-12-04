@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
-ms.openlocfilehash: 399c7b000360a73a9bab06b046be21c9d93a1c70
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: ef06e7b1abd66a2204ef982943fe24354bd7f122
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367136"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837448"
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas no seu ambiente do Time Series Insights
 
@@ -31,7 +31,7 @@ Este artigo descreve alguns problemas que poderá ver no seu ambiente do Time Se
 Há vários motivos comuns, por que não poderá ver os dados no [Explorador de documentos do Azure Time Series Insights](https://insights.timeseries.azure.com):
 
 ### <a name="possible-cause-a-event-source-data-is-not-in-json-format"></a>Causa possível dados de origem de evento de r: não estão no formato JSON
-O Azure Time Series Insights suporta apenas os dados JSON. Para exemplos de JSON, veja [formas JSON suportadas](time-series-insights-send-events.md#supported-json-shapes).
+O Azure Time Series Insights suporta apenas os dados JSON. Para exemplos de JSON, veja [formas JSON suportadas](./how-to-shape-query-json.md).
 
 ### <a name="possible-cause-b-event-source-key-is-missing-a-required-permission"></a>Chave de origem do evento de b: causa possível está em falta uma permissão necessária
 * Para um IoT Hub, tem de fornecer a chave que tenha **ligação de serviço** permissão.
@@ -70,7 +70,7 @@ Por exemplo, suponha que este ambiente está a ingerir mensagens a partir de um 
 
 Conforme mostrado no diagrama, a taxa de entrada diária é ~ 67,000 mensagens. Essa taxa traduz-se aproximadamente 46 mensagens a cada minuto. Se cada mensagem do hub de eventos foi simplificada para um único evento de Time Series Insights, este ambiente não vê nenhuma limitação. Se cada mensagem do hub de eventos foi simplificada para 100 eventos do Time Series Insights, em seguida, 4,600 eventos devem ser ingeridos a cada minuto. Um ambiente de S1 SKU que tem a capacidade de 3 pode 2.100 apenas eventos de entrada a cada minuto (1 milhão de eventos por dia = 700 eventos por minuto em 3 unidades = 2.100 eventos por minuto). Por conseguinte, ver um atraso devido à limitação. 
 
-Para uma compreensão geral de como funciona a mesclar lógica, consulte [formas JSON suportadas](time-series-insights-send-events.md#supported-json-shapes).
+Para uma compreensão geral de como funciona a mesclar lógica, consulte [formas JSON suportadas](./how-to-shape-query-json.md).
 
 ### <a name="recommended-resolution-steps-for-excessive-throttling"></a>Passos de resolução recomendada para a limitação excessiva de
 Para corrigir o atraso, aumente a capacidade SKU do seu ambiente. Para obter mais informações, consulte [como dimensionar o seu ambiente do Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 329bc41555f2def0e2b7001a7b445cd3de16d439
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 51c19447e115426bd39d39fedc86193c8f091df1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828164"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843313"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detetar anomalias na periferia com o acelerador de solução de monitorização remota
 
@@ -24,16 +24,26 @@ Para apresentar o limite de processamento com a monitorização remota, este tut
 
 Contoso quer implementar um módulo de um edge inteligente para o jack de bombeamento de petróleo Deteta anomalias de temperatura. Outro módulo edge envia alertas para a solução de monitorização remota. Quando é recebido um alerta, um operador de Contoso pode expedir um técnico de manutenção. Contoso também pode configurar uma ação automática, tal como enviar uma mensagem de e-mail, para ser executada quando a solução recebe um alerta.
 
-Este tutorial utiliza o seu computador de desenvolvimento local do Windows como um dispositivo IoT Edge. Instalar os módulos do edge para simular o dispositivo de jack de bombeamento de petróleo e para detetar as anomalias de temperatura.
+O diagrama seguinte mostra os principais componentes no cenário de introdução:
+
+![Descrição geral](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 Neste tutorial:
 
 >[!div class="checklist"]
 > * Adicionar um dispositivo IoT Edge para a solução
 > * Criar um manifesto do Edge
-> * Importar um pacote que define os módulos para executar no dispositivo
+> * Importar o manifesto como um pacote que define os módulos para executar no dispositivo
 > * Implementar o pacote no seu dispositivo IoT Edge
 > * Ver alertas do dispositivo
+
+No dispositivo IoT Edge:
+
+* O tempo de execução recebe o pacote e instala os módulos.
+* O módulo do stream analytics Deteta anomalias de temperatura a bomba e envia comandos de resolver o problema.
+* O módulo de análise de fluxo reencaminha dados filtrados para o solution accelerator.
+
+Este tutorial utiliza uma máquina virtual Linux como um dispositivo IoT Edge. Também instalar um módulo de borda para simular o dispositivo de jack de bombeamento de petróleo.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -111,54 +121,23 @@ Um dispositivo do Edge requer o runtime do Edge para ser instalado. Neste tutori
     az vm create \
       --resource-group IoTEdgeDevices \
       --name EdgeVM \
-      --image Canonical:UbuntuServer:16.04-LTS:latest \
+      --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest \
       --admin-username azureuser \
       --generate-ssh-keys \
       --size Standard_B1ms
     ```
 
-    Tome nota do endereço IP público, tem de-la no próximo passo quando ligar através de SSH.
-
-1. Para ligar à VM através de SSH, execute o seguinte comando no cloud shell:
+1. Para configurar o runtime do Edge com a cadeia de ligação do dispositivo, execute o comando seguinte com a cadeia de ligação do dispositivo que anotou anteriormente:
 
     ```azurecli-interactive
-    ssh azureuser@{vm IP address}
+    az vm run-command invoke \
+      --resource-group IoTEdgeDevices \
+      --name EdgeVM \
+      --command-id RunShellScript \
+      --scripts 'sudo /etc/iotedge/configedge.sh "YOUR_DEVICE_CONNECTION_STRING"'
     ```
 
-1. Quando estiver ligado à VM, execute os seguintes comandos para configurar o repositório na VM:
-
-    ```azurecli-interactive
-    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-    ```
-
-1. Para instalar o contentor e o Edge tempos de execução na VM, execute os seguintes comandos:
-
-    ```azurecli-interactive
-    sudo apt-get update
-    sudo apt-get install moby-engine
-    sudo apt-get install moby-cli
-    sudo apt-get update
-    sudo apt-get install iotedge
-    ```
-
-1. Para configurar o runtime do Edge com a cadeia de ligação do dispositivo, edite o ficheiro de configuração:
-
-    ```azurecli-interactive
-    sudo nano /etc/iotedge/config.yaml
-    ```
-
-    Atribuir-lhe cadeia de ligação do dispositivo para o **device_connection_string** variável, guarde as alterações e sair do editor.
-
-1. Reinicie o runtime do Edge para utilizar a nova configuração:
-
-    ```azurecli-interactive
-    sudo systemctl restart iotedge
-    ```
-
-1. Agora pode saia da sessão SSH e fechar o cloud shell.
+    Certifique-se de que incluem a cadeia de ligação dentro de aspas.
 
 Agora instalado e configurado o runtime do IoT Edge num dispositivo Linux. Mais tarde neste tutorial, vai utilizar a solução de monitorização remota para implementar módulos do IoT Edge deste dispositivo.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9f475c7bc373afd8a109873908bb583bc07708f1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722552"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842277"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>O Azure AD B2C: Início de sessão com uma aplicação iOS
 
@@ -39,7 +39,7 @@ Em seguida, precisa de criar uma aplicação no diretório do B2C. O registo de 
 * Configurar uma **URI de redirecionamento** com um esquema personalizado (por exemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). São necessários mais tarde este URI.
 
 ## <a name="create-your-user-flows"></a>Criar os seus fluxos de utilizador
-No Azure AD B2C, cada experiência de utilizador é definida por um [fluxo de utilizador](active-directory-b2c-reference-policies.md). Esta aplicação contém uma experiência de identidade: um combinado início de sessão e inscrição. Criar este fluxo de utilizador, conforme descrito no [artigo de referência do fluxo de utilizador](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Quando cria o fluxo de utilizador, certifique-se de que para:
+No Azure AD B2C, cada experiência de utilizador é definida por um [fluxo de utilizador](active-directory-b2c-reference-policies.md). Esta aplicação contém uma experiência de identidade: um combinado início de sessão e inscrição. Criar este fluxo de utilizador, conforme descrito no [artigo de referência do fluxo de utilizador](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Quando cria o fluxo de utilizador, certifique-se de que para:
 
 * Sob **atributos de inscrição**, selecione o atributo **nome a apresentar**.  Pode selecionar também outros atributos.
 * Sob **afirmações de aplicação**, selecione as declarações **nome a apresentar** e **ID de objeto do utilizador**. Pode selecionar outras afirmações.

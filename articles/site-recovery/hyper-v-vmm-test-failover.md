@@ -1,18 +1,18 @@
 ---
 title: Executar um teste de recuperação após desastre de VMs de Hyper-V para um site secundário com o Azure Site Recovery | Documentos da Microsoft
 description: Saiba como executar um teste de DR para as VMs de Hyper-V em clouds do VMM num Datacenter secundário no local com o Azure Site Recovery.
-author: ponatara
-manager: abhemraj
+author: rajani-janaki-ram
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
-ms.author: ponatara
-ms.openlocfilehash: 3f7e534e9c698e31e1061c35aec713d20c7e570f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/27/2018
+ms.author: rajanaki
+ms.openlocfilehash: 5e6d155a3efebfc8289263ac703a87e9aa3287cd
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211354"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834762"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Executar um teste de DR para as VMs de Hyper-V para um site secundário
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 11452dfb94a5a1c8cf4734b1ef21a44cccafbea1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bccc7abed9a86bcba74a5d994664a20313f3282a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430513"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833810"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Tutorial: Integração do Azure Active Directory com o estado de funcionamento RedBrick
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com o estado de funcionamento RedBrick, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Estado de funcionamento RedBrick logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Estado de funcionamento RedBrick com o Azure A
 
 **Para adicionar RedBrick do Estado de funcionamento a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -110,7 +110,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![RedBrick URLs de domínio de estado de funcionamento e único informações de início de sessão](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
-    a. Na **identificador** caixa de texto, escreva um URL: `http://www.redbrickhealth.com`
+    a. Na **identificador** caixa de texto, escreva um URL: `https://www.redbrickhealth.com`
     
     b. Na **URL de resposta** caixa de texto, escreva um URL: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
     
@@ -205,7 +205,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
   
 ### <a name="create-a-redbrick-health-test-user"></a>Criar um utilizador de teste de estado de funcionamento RedBrick
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no estado de funcionamento RedBrick. Trabalhar com [equipa de suporte do Estado de funcionamento RedBrick](https://home.redbrickhealth.com/contact/) para adicionar os utilizadores na plataforma do Estado de funcionamento RedBrick. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no estado de funcionamento RedBrick. Trabalhar com [equipa de suporte do Estado de funcionamento RedBrick](https://home.redbrickhealth.com/contact/) para adicionar os utilizadores na plataforma do Estado de funcionamento RedBrick. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -237,7 +237,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 63f4c4c48dd0fed3130dc99929a0e84c3cba2026
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 531d19925d24930b6a2bd642a8ff0ec55bd6d16f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466052"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841579"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Funções de diretório do Azure AD que pode gerir no PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -75,7 +75,7 @@ Acesso a Serviços Online da Microsoft pode exigir o também ser atribuída uma 
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Atribuir uma licença a um utilizador no Azure AD
 
-1. Inicie sessão para o [portal do Azure](http://portal.azure.com) com uma função de Administrador Global ou proprietário.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) com uma função de Administrador Global ou proprietário.
 
 1. Selecione o diretório do Azure AD que pretende trabalhar e que tenha licenças associadas ele.
 
@@ -108,6 +108,6 @@ Acesso a Serviços Online da Microsoft pode exigir o também ser atribuída uma 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Começar a utilizar o PIM](pim-getting-started.md)
+- [Comece a utilizar o PIM](pim-getting-started.md)
 - [Atribuir funções de diretório do Azure AD no PIM](pim-how-to-add-role-to-user.md)
 

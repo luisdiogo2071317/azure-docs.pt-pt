@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: cd41fba675a0814e6f2a1b17576add7811a803eb
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a2fed45e4ec51fac7d4d04e50616a7e3748d71c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233485"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834405"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Utilizar o Virtual Kubelet com o serviço Kubernetes do Azure (AKS)
 
@@ -22,9 +22,9 @@ O Azure Container Instances (ACI) fornecem um ambiente de hospedagem para execut
 Ao usar o Virtual Kubelet fornecedor do Azure Container Instances, contentores do Linux e Windows podem ser agendadas numa instância de contentor, como se fosse um nó de Kubernetes padrão. Esta configuração permite-lhe tirar partido das capacidades do Kubernetes e o benefício de valor e o custo de gestão de instâncias do contentor.
 
 > [!NOTE]
+> AKS agora tem suporte incorporado para agendar contentores no ACI, chamado *nós virtuais*. Estes nós virtuais suportam atualmente as instâncias de contentor do Linux. Se precisar de agendar a instâncias de contentor do Windows, pode continuar a utilizar o Virtual Kubelet. Caso contrário, deve usar nós virtuais, em vez das instruções de Virtual Kubelet manuais indicadas neste artigo. Pode começar a utilizar com nós virtuais utilizando o [CLI do Azure] [ virtual-nodes-cli] ou [portal do Azure][virtual-nodes-portal].
+>
 > Virtual Kubelet é um projeto de código-fonte aberto experimental e deve ser utilizado como tal. Para contribuir, problemas de ficheiros e ler mais sobre o virtual kubelet, consulte a [projeto Virtual Kubelet GitHub][vk-github].
-
-Este detalhes de documento, configurar o Virtual Kubelet para instâncias de contentor num AKS.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -235,6 +235,8 @@ Saiba mais sobre o Virtual Kubelet, o [projeto Virtual Kubelet Github][vk-github
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
 [az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
+[virtual-nodes-cli]: virtual-nodes-cli.md
+[virtual-nodes-portal]: virtual-nodes-portal.md
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

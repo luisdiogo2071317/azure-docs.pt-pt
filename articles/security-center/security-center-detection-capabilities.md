@@ -12,22 +12,20 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: fb0e503eedf62a7d72bd58fbf94cba3faac524e9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 922e0afb77a9f1e42f014770ccc51d2a356d112b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632913"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843738"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Capacidades de deteção do Centro de Segurança do Azure
-Este documento descreve as capacidades de deteção avançadas do Centro de Segurança do Azure, o que ajuda a identificar ameaças ativas que ameaçam os seus recursos do Microsoft Azure e fornece informações necessárias para responder rapidamente.
+Este documento discute as capacidades de deteção avançadas do Centro de segurança do Azure, que ajuda a identificar ameaças ativas que ameaçam os seus recursos do Microsoft Azure, Windows e Linux e fornece-lhe as informações necessárias para responder rapidamente.
 
-As deteções avançadas estão disponíveis no Escalão Standard do Centro de Segurança do Azure. Está disponível uma avaliação gratuita de 60 dias. Pode atualizar a partir da seleção do Escalão de Preço na [Política de Segurança](security-center-azure-policy.md). Visite a [página do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para saber mais sobre os preços.
+As deteções avançadas estão disponíveis no Escalão Standard do Centro de Segurança do Azure. Está disponível uma avaliação gratuita. Pode atualizar a partir da seleção do Escalão de Preço na [Política de Segurança](security-center-azure-policy.md). Visite a [página do Centro de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para saber mais sobre os preços.
 
-> [!NOTE]
-> Centro de segurança lançou uma pré-visualização limitada, um novo conjunto de deteções que tiram partido dos registos auditados, uma estrutura de auditoria comum, para detetar comportamentos maliciosos em máquinas do Linux. [Envie-nos](mailto:ASC_linuxdetections@microsoft.com) um e-mail com os seus IDs de subscrição para aderir à pré-visualização.
 
 ## <a name="responding-to-todays-threats"></a>Responder às ameaças atuais
 Nos últimos 20 anos, ocorreram alterações significativas no campo das ameaças. No passado, geralmente, as empresas só tinham de se preocupar com a desfiguração do site por parte de atacantes individuais que estavam interessados, sobretudo, em ver “o que podiam fazer”. Os atacantes de hoje são muito mais sofisticados e organizados. Têm, muitas vezes, objetivos financeiros e estratégicos específicos. Também têm mais recursos disponíveis, uma vez que podem ser financiados por Estados ou pelo crime organizado.

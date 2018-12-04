@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 881188e7dab0e50b5bc62258c87cb546020c8410
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8f12649a126cd618991dce0c98b3472a77acbb8c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723589"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841324"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados para o Log Analytics com a API de Recoletor de dados HTTP (pré-visualização pública)
 Este artigo mostra-lhe como utilizar a API de Recoletor de dados de HTTP para enviar dados para o Log Analytics a partir de um cliente de REST API.  Ele descreve como formatar os dados recolhidos pelo seu script ou aplicativo, incluí-lo num pedido e ter esse pedido autorizado pelo Log Analytics.  São fornecidos exemplos do PowerShell, c# e Python.
@@ -200,7 +200,7 @@ Esta tabela lista o conjunto completo de códigos de estado que o serviço pode 
 Para consultar dados submetidos pelo Log Analytics API HTTP Data Collector, pesquisa de registos com **tipo** que é igual para o **LogType** valor que especificou, anexado com **_CL**. Por exemplo, se utilizou **MyCustomLog**, em seguida, retornará a todos os registos com **tipo = MyCustomLog_CL**.
 
 >[!NOTE]
-> Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-queries.md), em seguida, a consulta acima serão alteradas para o seguinte.
+> Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](../azure-monitor/log-query/log-query-overview.md), em seguida, a consulta acima serão alteradas para o seguinte.
 
 > `MyCustomLog_CL`
 
@@ -469,6 +469,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Utilize o [API de pesquisa de registo](log-analytics-queries.md) para recuperar dados do repositório do Log Analytics.
+- Utilize o [API de pesquisa de registo](../azure-monitor/log-query/log-query-overview.md) para recuperar dados do repositório do Log Analytics.
 
 - Saiba mais sobre como [criar um pipeline de dados com a API de Recoletor de dados](../azure-monitor/platform/create-pipeline-datacollector-api.md) com fluxo de trabalho do Logic Apps para o Log Analytics.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: jeedes
-ms.openlocfilehash: b8f6e69169cd146ec9dd20d8dad43b74ddb59228
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bcea7848c7331ecd326f0ccb6ab9f543ce972205
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726887"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Azure Active Directory com o G Suite
 
@@ -154,8 +154,8 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `http://google.com` |
-    | `http://google.com/a/<yourdomain.com>` |
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente do G Suite](https://www.google.com/contact/) obter esses valores.
@@ -190,7 +190,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configuração do G Suite](common/configuresection.png)
 
-9. Abra um novo separador no seu browser e inicie sessão no [consola de administração do G Suite](http://admin.google.com/) com a sua conta de administrador.
+9. Abra um novo separador no seu browser e inicie sessão no [consola de administração do G Suite](https://admin.google.com/) com a sua conta de administrador.
 
 10. Clique em **segurança**. Se não vir a ligação, podem estar ocultos sob o **More Controls** menu na parte inferior do ecrã.
 

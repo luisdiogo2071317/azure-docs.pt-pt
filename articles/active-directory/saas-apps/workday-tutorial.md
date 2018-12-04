@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
-ms.openlocfilehash: 78b9fe704c5c8a1f81da480787f1791e88bf4f72
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c789f5fec9b31b53d316b23faad5c438b52137c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714723"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Azure Active Directory com o Workday
 
@@ -114,7 +114,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. Na **identificador** caixa de texto, escreva um URL: `http://www.workday.com`
+    b. Na **identificador** caixa de texto, escreva um URL: `https://www.workday.com`
 
 4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte:
 
@@ -225,7 +225,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configuração de SSO](./media/workday-tutorial/WorkdaySSOConfiguratio.png "configuração de SSO")
 
-    a.  Na **ID do fornecedor de serviço** caixa de texto, tipo **http://www.workday.com**.
+    a.  Na **ID do fornecedor de serviço** caixa de texto, tipo **https://www.workday.com**.
 
     b. Selecione **não Deflate o pedido de autenticação iniciado por SP**.
 

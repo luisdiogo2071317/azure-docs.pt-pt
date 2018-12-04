@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d4728d5f631b0671be67ff4976674bde2044d4c0
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: aa940e238601f06a53247c0da4d1a92f16b6f56c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682884"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840610"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planear a capacidade de máquina virtual de Hyper-V com a solução de capacidade e desempenho (pré-visualização)
 
@@ -138,4 +138,4 @@ A tabela seguinte disponibiliza pesquisas de registo de exemplo para dados de ca
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisas de registos no Log Analytics](../../log-analytics/log-analytics-queries.md) para ver os dados detalhados de capacidade e desempenho.
+* Uso [pesquisas de registos no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para ver os dados detalhados de capacidade e desempenho.

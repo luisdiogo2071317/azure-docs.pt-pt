@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: ac8be998a70b31af9829eeeab24902c62fd2fe37
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: ab91ac3eb115504727e5ee9e912d070262027cc7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961519"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834082"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arquivar os dados de métricas e de registos do Azure com o Armazenamento do Azure
 
@@ -182,7 +182,7 @@ Pode agora definir com êxito o arquivamento dos dados de monitorização numa c
 
 5. Se tiver criado uma máquina virtual ou uma aplicação lógica nos passos anteriores, elimine-as também.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a configurar os dados de monitorização do seu ambiente do Azure (subscrição, recursos e SO convidado) para serem arquivados numa conta de armazenamento.
 
@@ -198,4 +198,4 @@ Neste tutorial, aprendeu a configurar os dados de monitorização do seu ambient
 Para tirar mais proveito dos seus dados e obter informações adicionais, envie-os também para o Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Introdução ao Log Analytics](../log-analytics/log-analytics-queries.md)
+> [Introdução ao Log Analytics](../azure-monitor/log-query/log-query-overview.md)

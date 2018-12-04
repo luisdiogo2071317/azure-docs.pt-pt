@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 5f7c82143ab11787f5ce186623c1ed4903891c18
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3ea446a726634ead520b902bd00a54cd8ae32b70
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680356"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844129"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>A monitorização dos dados recolhidos pelo Azure Monitor
 [O Azure Monitor](../../azure-monitor/overview.md) é um serviço que o ajuda a monitorizar as suas aplicações e os recursos que dependem. Central para esta função é um armazenamento de telemetria e outros dados de recursos monitorizados. Este artigo fornece uma descrição completa de como os dados são armazenados e usados pelo Azure Monitor.
@@ -161,7 +161,7 @@ Tarefas que pode realizar com registos incluem o seguinte:
 - Aceda a valores de métrica de uma linha de comando ou um aplicativo personalizado usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) ou [REST API](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Visualização de dados de registo
-Todos os dados do Log Analytics é recuperado usando um [consulta de registo](../../log-analytics/log-analytics-queries.md) que especifica um determinado conjunto de dados. As consultas são escritas utilizando o [linguagem de consulta do Log Analytics](../../log-analytics/query-language/get-started-queries.md) que é uma linguagem de consulta avançada para obter, consolidar e analisar os dados recolhidos rapidamente. Utilize o [página do Log Analytics](../../log-analytics/log-analytics-log-search-portals.md) no portal do Azure para analisar diretamente os dados na sua métrica armazenar e os valores de várias métricas do gráfico ao longo do tempo. Pode ver os gráficos interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações. Também pode obter métricas utilizando o [do Azure de monitorização de REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Todos os dados do Log Analytics é recuperado usando um [consulta de registo](../../azure-monitor/log-query/log-query-overview.md) que especifica um determinado conjunto de dados. As consultas são escritas utilizando o [linguagem de consulta do Log Analytics](../../log-analytics/query-language/get-started-queries.md) que é uma linguagem de consulta avançada para obter, consolidar e analisar os dados recolhidos rapidamente. Utilize o [página do Log Analytics](../../log-analytics/log-analytics-log-search-portals.md) no portal do Azure para analisar diretamente os dados na sua métrica armazenar e os valores de várias métricas do gráfico ao longo do tempo. Pode ver os gráficos interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações. Também pode obter métricas utilizando o [do Azure de monitorização de REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Registos](media/data-collection/logs.png)
 

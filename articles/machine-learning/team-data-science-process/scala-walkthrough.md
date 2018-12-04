@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 836fdb5da13465d77c6e9e6ede4780f5d4048597
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ad97543ee6bc40bdee5b0ffc7ec92f061b16dae4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447168"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839539"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Utilizar o Scala e o Spark para Ciência de Dados no Azure
-Este artigo mostra-lhe como utilizar o Scala para tarefas de aprendizado de máquina supervisionados com os Spark dimensionáveis MLlib e Spark ML pacotes num cluster do Azure HDInsight Spark. Ele explica as tarefas que constituem a [processo de ciência de dados](https://aka.ms/datascienceprocess): ingestão de dados e exploração, visualização, engenharia de funcionalidades, modelação e consumo do modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e aumentou a gradação árvores (GBTs), além de dois supervisionado tarefas de machine learning:
+Este artigo mostra-lhe como utilizar o Scala para tarefas de aprendizado de máquina supervisionados com os Spark dimensionáveis MLlib e Spark ML pacotes num cluster do Azure HDInsight Spark. Ele explica as tarefas que constituem a [processo de ciência de dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestão de dados e exploração, visualização, engenharia de funcionalidades, modelação e consumo do modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e aumentou a gradação árvores (GBTs), além de dois supervisionado tarefas de machine learning:
 
 * Problema de regressão: previsão da quantidade de tip ($) para uma viagem de táxis
 * Classificação binária: previsão de sugestão ou nenhuma sugestão (1/0) para uma viagem de táxis
@@ -1100,7 +1100,7 @@ Em seguida, otimizar o modelo utilizando código personalizado e identificar os 
 Tempo para executar a célula: 61 segundos.
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Consumir modelos de aprendizagem de máquina criados com o Spark automaticamente com o Scala
-Para uma descrição geral dos tópicos que lhe mostram as tarefas que compõem o processo de ciência de dados no Azure, consulte [Team Data Science Process](https://aka.ms/datascienceprocess).
+Para uma descrição geral dos tópicos que lhe mostram as tarefas que compõem o processo de ciência de dados no Azure, consulte [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 [Orientações passo a passo do processo de ciência de dados de equipa](walkthroughs.md) descreve outras instruções ponto a ponto que demonstram os passos no Team Data Science Process para cenários específicos. A instruções passo a passo também mostram como combinar as ferramentas de nuvem e no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente.
 

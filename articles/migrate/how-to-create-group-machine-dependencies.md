@@ -4,14 +4,14 @@ description: Descreve como criar uma avaliação com as dependências das máqui
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 2755cc4e8e0e5a1b2a0e491b00fc73530dd9b958
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e83ec29c5ff06e80c09b9328a7bfe545f3a0f6f3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635684"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844826"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupar máquinas através de mapeamento de dependências de máquina
 
@@ -28,8 +28,9 @@ Para aproveitar a visualização de dependências, precisa associar área de tra
 
     ![Associar área de trabalho do Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Quando cria uma nova área de trabalho, tem de especificar um nome para a área de trabalho. A área de trabalho, em seguida, é criada na mesma subscrição que o projeto de migração e, numa região na mesma [geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) como o projeto de migração.
-- O **utilizar existente** opção apresenta uma lista apenas essas áreas de trabalho que são criadas em regiões onde o mapa de serviço está disponível. Se tiver uma área de trabalho numa região em que o mapa de serviço não está disponível, não serão apresentado na lista pendente.
+- Ao associar uma área de trabalho, obterá a opção para criar uma nova área de trabalho ou anexar um já existente:
+  - Quando cria uma nova área de trabalho, tem de especificar um nome para a área de trabalho. A área de trabalho, em seguida, é criada numa região na mesma [geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) como o projeto de migração.
+  - Quando anexa uma área de trabalho existente, pode escolher entre todas as áreas de trabalho disponíveis na mesma subscrição que o projeto de migração. Tenha em atenção que apenas essas áreas de trabalho estão listadas que foram criados numa região onde [mapa de serviço é suportado](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Para poder ligar uma área de trabalho, certifique-se de que tem acesso de "Reader" para a área de trabalho.
 
 > [!NOTE]
 > Não é possível alterar a área de trabalho associada a um projeto de migração.

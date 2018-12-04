@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 61fb9904e69f5269c345b733ef2396294c6c790a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8c29d054f2e4e9ff4b57785a57e5c6ea512623a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448177"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integração do Azure Active Directory com percepção dos Estados Unidos (não-UltiPro)
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com percepção dos Estados Unidos (não-UltiPro), terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um percepção dos Estados Unidos (não-UltiPro) início de sessão único de subscrição ativada
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração de percepção dos Estados Unidos (não-UltiPro) 
 
 **Para adicionar percepção dos Estados Unidos (não-UltiPro) a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -209,7 +209,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
   
 ### <a name="create-a-perception-united-states-non-ultipro-test-user"></a>Criar um utilizador de teste de percepção dos Estados Unidos (não-UltiPro)
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida na percepção dos Estados Unidos (não-UltiPro). Trabalhar com [equipa de suporte de percepção dos Estados Unidos (não-UltiPro)](http://www.ultimatesoftware.com/Contact/ContactUs) para adicionar os utilizadores na plataforma percepção dos Estados Unidos (não-UltiPro).
+Nesta secção, vai criar um usuário chamado Eduarda Almeida na percepção dos Estados Unidos (não-UltiPro). Trabalhar com [equipa de suporte de percepção dos Estados Unidos (não-UltiPro)](https://www.ultimatesoftware.com/Contact/ContactUs) para adicionar os utilizadores na plataforma percepção dos Estados Unidos (não-UltiPro).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -241,7 +241,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

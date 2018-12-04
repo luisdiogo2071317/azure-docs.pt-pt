@@ -2,18 +2,18 @@
 title: Aprovisionar conjunto do Azure Batch a partir de uma imagem personalizada | Documentos da Microsoft
 description: Crie um lote de nós que contêm o software e os dados que precisa para a sua aplicação de computação do conjunto a partir de uma imagem personalizada para aprovisionar. Imagens personalizadas são uma forma eficiente para configurar nós de computação para executar as cargas de trabalho do Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
-ms.author: danlep
-ms.openlocfilehash: 7d0526dd233afd3976b22d257300681db0bfcead
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: lahugh
+ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885218"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840372"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Utilizar uma imagem personalizada para criar um conjunto de máquinas virtuais 
 
@@ -50,7 +50,13 @@ No Azure pode preparar uma imagem gerida a partir de instantâneos do SO de uma 
 
 ### <a name="prepare-a-vm"></a>Preparar uma VM 
 
-Se estiver a criar uma nova VM para a imagem, utilizar uma imagem do Azure Marketplace suportada pelo Batch, como a imagem de base para a sua imagem gerida e, em seguida, personalizá-lo.  Para obter uma lista de referências de imagens do Azure Marketplace suportado pelo Azure Batch, consulte a [SKUs de agente de nó de lista](/rest/api/batchservice/account/listnodeagentskus) operação. Não é possível utilizar uma imagem de terceiros que sua imagem base.
+Se estiver a criar uma nova VM para a imagem, utilizar uma imagem do Azure Marketplace suportada pelo Batch, como a imagem de base para a sua imagem gerida e, em seguida, personalizá-lo.  Para obter uma lista de referências de imagens do Azure Marketplace suportado pelo Azure Batch, consulte a [SKUs de agente de nó de lista](/rest/api/batchservice/account/listnodeagentskus) operação. 
+
+> [!NOTE]
+> Não é possível utilizar uma imagem de terceiros que tenha licenças adicionais e os termos de compra que sua imagem base. Para obter informações sobre estas imagens do Marketplace, consulte a documentação de orientação para [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) ou [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) VMs.
+
 
 * Certifique-se de que a VM é criada com um disco gerido. Esta é a predefinição de armazenamento ao criar uma VM.
 * Não instale extensões do Azure, como a extensão de Script personalizado na VM. Se a imagem tiver uma extensão pré-instalada, o Azure pode encontrar problemas ao implementar o conjunto do Batch.

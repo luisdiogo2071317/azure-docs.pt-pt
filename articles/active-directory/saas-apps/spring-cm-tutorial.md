@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 034d7b61d4a02ac899c7215a042d47bc7938176d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 777586bc24c0962ec1f0ba3913397bfe26d0d0d5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438152"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841069"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Integração do Azure Active Directory com SpringCM
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com SpringCM, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um SpringCM logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do SpringCM com o Azure AD, terá de adicionar Sp
 
 **Para adicionar SpringCM a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -189,7 +189,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 Para que os utilizadores do Azure Active Directory iniciar sessão no SpringCM, tem de ser aprovisionados em SpringCM. No caso de SpringCM, o aprovisionamento é uma tarefa manual.
 
 >[!NOTE]
->Para obter mais informações, consulte [criar e editar um utilizador SpringCM](http://knowledge.springcm.com/create-and-edit-a-springcm-user). 
+>Para obter mais informações, consulte [criar e editar um utilizador SpringCM](https://knowledge.springcm.com/create-and-edit-a-springcm-user). 
 
 **Para Aprovisionar uma conta de utilizador para SpringCM, execute os seguintes passos:**
 
@@ -248,7 +248,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 ### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
- 
+ 
 Quando clica no mosaico SpringCM no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo SpringCM.
 
 Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 

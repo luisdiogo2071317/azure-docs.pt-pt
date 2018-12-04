@@ -12,16 +12,16 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: b7a3fc6e5dafb59d6981ff4302d4b060b0c73d6b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 02a7a460799a098b6be10a52d6e1a1598b023454
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499240"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839137"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início Rápido: Criar uma Instância Gerida de Base de Dados SQL do Azure
 
-Este guia de início rápido orienta-o ao longo da criação de uma [Instância Gerida](sql-database-managed-instance.md) de Base de Dados SQL do Azure no portal do Azure. 
+Este guia de início rápido orienta-o ao longo da criação de uma [Instância Gerida](sql-database-managed-instance.md) de Base de Dados SQL do Azure no portal do Azure.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -45,7 +45,7 @@ Os passos seguintes mostram como criar uma Instância Gerida.
    | ------ | --------------- | ----------- |
    | **Subscrição** | A sua subscrição | Uma subscrição em que tenha permissão para criar novos recursos |
    |**Nome da instância gerida**|Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Início de sessão de administração da instância gerida**|Qualquer nome de utilizador válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não utilize "serveradmin", que é uma função ao nível do servidor reservada.| 
+   |**Início de sessão de administração da instância gerida**|Qualquer nome de utilizador válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não utilize "serveradmin", que é uma função ao nível do servidor reservada.|
    |**Palavra-passe**|Qualquer palavra-passe válida|A palavra-passe tem de ter, pelo menos, 16 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Localização**|A localização em que pretende criar a Instância Gerida|Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure).|
    |**Rede virtual**|Selecione **criar nova rede virtual** ou uma rede virtual que criou anteriormente no grupo de recursos que forneceu anteriormente neste formulário.| Para configurar uma rede virtual para uma Instância Gerida com definições personalizadas, veja [Configure SQL Managed Instance virtual network environment template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) (Configurar modelo de ambiente de rede virtual de Instância Gerida SQL) no Github. Para obter informações sobre os requisitos para configurar o ambiente de rede para uma instância gerida, veja [configurar uma VNet para a instância gerida da base de dados SQL do Azure](sql-database-managed-instance-vnet-configuration.md). |
@@ -53,15 +53,16 @@ Os passos seguintes mostram como criar uma Instância Gerida.
 
    ![formulário da instância gerida](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. Selecione **escalão de preço** para dimensionar recursos de computação e armazenamento, bem como para rever as opções de escalão de preço. O escalão de preço Fins Gerais com 32 GB de memória e 16 núcleos virtuais é o valor predefinido.
-6. Utilize os controlos de deslize ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais. 
-7. Quando terminar, escolha **aplicar** para guardar a sua seleção.  
-8. Selecione **criar** para implementar a instância gerida.
-9. Selecione o **notificações** ícone para ver o estado da implementação.
+5. Para utilizar a instância gerida como um grupo de ativação pós-falha de instância secundário, selecione o Check-out e especifique a instância gerida DnsAzurePartner. Esta funcionalidade está em pré-visualização e não é mostrado na captura de ecrã que acompanha este artigo.
+6. Selecione **escalão de preço** para dimensionar recursos de computação e armazenamento, bem como para rever as opções de escalão de preço. O escalão de preço Fins Gerais com 32 GB de memória e 16 núcleos virtuais é o valor predefinido.
+7. Utilize os controlos de deslize ou as caixas de texto para especificar a quantidade de armazenamento e o número de núcleos virtuais.
+8. Quando terminar, escolha **aplicar** para guardar a sua seleção.  
+9. Selecione **criar** para implementar a instância gerida.
+10. Selecione o **notificações** ícone para ver o estado da implementação.
 
     ![progresso da implementação da instância gerida](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 
-10. Selecione **implementação em curso** para abrir a janela instância gerida para monitorizar o progresso da implementação ainda mais. 
+11. Selecione **implementação em curso** para abrir a janela instância gerida para monitorizar o progresso da implementação ainda mais.
 
 > [!IMPORTANT]
 > Para a primeira instância numa sub-rede, o tempo de implementação é normalmente muito mais do que nas instâncias subsequentes. Não cancele a operação de implementação porque dura mais do que o esperado. Criar a segunda Instância Gerida na sub-rede demora apenas alguns minutos.
@@ -78,7 +79,6 @@ Depois da implementação ser concluída com êxito, reveja os recursos criados 
 
 3. Sobre o **descrição geral** separador, localize a **anfitrião** propriedade e copie o anfitrião totalmente qualificado de endereços para a instância gerida.
 
-
    ![Recursos da Instância Gerida](./media/sql-database-managed-instance-get-started/host-name.png)
 
    O nome é semelhante à **your_machine_name.a1b2c3d4e5f6.database.windows.net**.
@@ -90,4 +90,4 @@ Depois da implementação ser concluída com êxito, reveja os recursos criados 
   - Para obter um guia de início rápido que mostre como ligar a uma Instância Gerida a partir de uma máquina virtual do Azure, veja [Configurar uma ligação de máquina virtual do Azure](sql-database-managed-instance-configure-vm.md).
   - Para um guia de início rápido que mostre como ligar a uma Instância Gerida a partir de um computador cliente no local através de uma ligação ponto a site, veja [Configurar uma ligação ponto a site](sql-database-managed-instance-configure-p2s.md).
 - Para restaurar uma base de dados do SQL Server existente do local para uma Instância Gerida, pode utilizar o [Azure Database Migration Service (DMS) para a migração](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados ou o [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados.
-- Para a monitorização avançada do desempenho de base de dados de Instância Gerida com informações de resolução de problemas incorporadas, veja [Monitorizar a Base de Dados SQL do Azure com a Análise de SQL do Azure](../log-analytics/log-analytics-azure-sql.md)
+- Para avançadas de monitorização de desempenho da base de dados de instância gerida com inteligência incorporada de resolução de problemas, consulte [SQL Database do Azure Monitor, através da análise de SQL do Azure](../log-analytics/log-analytics-azure-sql.md)

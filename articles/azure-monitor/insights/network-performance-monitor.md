@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 64daab1c5c6c372dc7b8808e2c5d3da75d0fffe6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be3fb5ab58afd4287bd572842e19dd9e41e8b13b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428726"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839301"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -251,7 +251,7 @@ A topologia mostrada no mapa é a topologia de camada 3 e não contém dispositi
 
 ## <a name="log-analytics-search"></a>Pesquisa do log Analytics 
 
-Todos os dados que é páginas graficamente expostas através do dashboard de Monitor de desempenho de rede e a desagregação também está disponível nativamente no [de pesquisa do Log Analytics](../../log-analytics/log-analytics-queries.md). Pode efetuar análises interativas de dados no repositório e correlacione dados de origens diferentes. Também pode criar vistas e alertas personalizados e exportar os dados para Excel, Power BI ou uma ligação partilhável. O **consultas comuns** área no dashboard tem algumas consultas útil que pode utilizar como ponto de partida para criar suas próprias consultas e relatórios. 
+Todos os dados que é páginas graficamente expostas através do dashboard de Monitor de desempenho de rede e a desagregação também está disponível nativamente no [de pesquisa do Log Analytics](../../azure-monitor/log-query/log-query-overview.md). Pode efetuar análises interativas de dados no repositório e correlacione dados de origens diferentes. Também pode criar vistas e alertas personalizados e exportar os dados para Excel, Power BI ou uma ligação partilhável. O **consultas comuns** área no dashboard tem algumas consultas útil que pode utilizar como ponto de partida para criar suas próprias consultas e relatórios. 
 
 ## <a name="alerts"></a>Alertas
 

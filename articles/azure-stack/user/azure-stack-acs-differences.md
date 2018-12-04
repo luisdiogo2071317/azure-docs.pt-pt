@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 14e32bdfcde6969b820c0950d59bd5cf946a51e6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: efdc1cda9b52b6b79a3ccdcfd16542f7cb4b891a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802326"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838553"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>O armazenamento do Azure Stack: diferenças e considerações
 
@@ -84,10 +84,10 @@ O armazenamento do Azure Stack suporta as seguintes bibliotecas de cliente:
 
 | Biblioteca de cliente | Uma versão suportada do Azure Stack | Ligação                                                                                                                                                                                                                                                                                                                                     | Especificação de ponto final       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET           | De 6.2.0 para 8.7.0.          | Pacote de Nuget:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>Versão do GitHub:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | ficheiro App. config              |
+| .NET           | De 6.2.0 para 8.7.0.          | Pacote de NuGet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>Versão do GitHub:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | ficheiro App. config              |
 | Java           | De 4.1.0 para 6.1.0           | Pacote maven:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>Versão do GitHub:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Configuração de cadeia de ligação      |
 | Node.js        | De 1.1.0 para 2.7.0           | Ligação do NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Por exemplo: executar "npm instalar azure-storage@2.7.0")<br> <br>Versão do Github:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Declaração de instância de serviço |
-| C++            | De 2.4.0 para 3.1.0           | Pacote de Nuget:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>Versão do GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Configuração de cadeia de ligação      |
+| C++            | De 2.4.0 para 3.1.0           | Pacote de NuGet:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>Versão do GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Configuração de cadeia de ligação      |
 | PHP            | De 0.15.0 para 1.0.0          | Versão do GitHub:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Instalar através do compositor (ver detalhes abaixo)                                                                                                                                                                                                                  | Configuração de cadeia de ligação      |
 | Python         | De 0.30.0 para 1.0.0          | Versão do GitHub:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Declaração de instância de serviço |
 | Ruby           | De 0.12.1 para 1.0.1          | Pacote do RubyGems:<br>Comuns:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>Fila: https://rubygems.org/gems/azure-storage-queue/<br>Tabela: https://rubygems.org/gems/azure-storage-table/<br> <br>Versão do GitHub:<br>https://github.com/Azure/azure-storage-ruby/releases | Configuração de cadeia de ligação      |

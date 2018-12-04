@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4fd36d58574b60e3e6351cba03c68b9217bc703d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 2c842efd6c66fd70bbac3969090b71c42c725545
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632471"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839642"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Conceber e criar uma solução de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -49,7 +49,7 @@ Existem várias maneiras de origens de dados que podem ser recolhidas no reposit
 Se necessitar de dados que não são acessíveis através de qualquer uma das origens de dados disponíveis, em seguida, pode utilizar o [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) que permite-lhe escrever dados para o repositório do Log Analytics a partir de qualquer cliente que pode chamar uma API REST.  Os meios mais comuns de recolha de dados personalizados numa solução de gestão de consiste em criar uma [runbook na automatização do Azure](../../automation/automation-runbook-types.md) que recolhe os dados necessários a partir dos recursos do Azure ou externos e utiliza a API de Recoletor de dados para escrever o repositório.  
 
 ### <a name="log-searches"></a>Pesquisas de registos
-[Pesquisas de registos](../../log-analytics/log-analytics-queries.md) são usados para extrair e analisar dados no repositório do Log Analytics.  São utilizados pelas vistas e alertas, além de permitir que o usuário execute análise ad hoc de dados no repositório.  
+[Pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) são usados para extrair e analisar dados no repositório do Log Analytics.  São utilizados pelas vistas e alertas, além de permitir que o usuário execute análise ad hoc de dados no repositório.  
 
 Deve definir todas as consultas que acredita que serão úteis para os utilizadores, mesmo que eles não são utilizados por quaisquer vistas ou alertas.  Estes vão estar disponíveis a eles como pesquisas guardadas no portal e também pode incluir os mesmos num [parte de visualização de lista de consultas](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) na vista personalizada.
 

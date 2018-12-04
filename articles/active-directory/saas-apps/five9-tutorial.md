@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ee04008b62867c8eba68b1525cf50edec881cbc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c8d3364f9de298d19df35846af5f421978fea960
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432638"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842174"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Tutorial: Integração do Azure Active Directory com Five9 adaptador Plus (CTI, contacte o Centro de agentes)
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Five9 adaptador Plus (CTI, contacte o Centro de agentes), terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Five9 adaptador Plus (CTI, contacte o Centro de agentes) início de sessão único de subscrição ativada
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do Five9 adaptador Plus (CTI, agentes do Centro d
 
 **Para adicionar Five9 adaptador Plus (CTI, contacte o Centro de agentes) a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -142,11 +142,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. Para configurar o início de sessão único num **Five9 adaptador Plus (CTI, contacte o Centro de agentes)** lado, terá de enviar o transferido **Certificate(Base64), o URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço**para [a equipa de suporte Five9 adaptador Plus (CTI, contacte o Centro de agentes)](https://www.five9.com/about/contact). Também, além disso, para configurar o SSO ainda mais, siga os passos, de acordo com o adaptador abaixo:
 
-    a. "Five9 Plus adaptador para o Toolkit de área de trabalho do agente" Guia do administrador: [http://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
+    a. "Five9 Plus adaptador para o Toolkit de área de trabalho do agente" Guia do administrador: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
     
-    b. "Five9 Plus adaptador para o Microsoft Dynamics CRM" Guia do administrador: [http://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf)
+    b. "Five9 Plus adaptador para o Microsoft Dynamics CRM" Guia do administrador: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf)
     
-    c. "Five9 Plus adaptador para Zendesk" Guia do administrador: [http://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf)
+    c. "Five9 Plus adaptador para Zendesk" Guia do administrador: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf)
 
 
 > [!TIP]
@@ -186,7 +186,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="creating-a-five9-plus-adapter-cti-contact-center-agents-test-user"></a>Criar um utilizador de teste Five9 adaptador Plus (CTI, contacte o Centro de agentes)
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Five9 adaptador Plus (CTI, contacte o Centro de agentes). Trabalhar com [equipa de suporte de Five9 adaptador Plus (CTI, contacte o Centro de agentes)](https://www.five9.com/about/contact) para adicionar os utilizadores na plataforma Five9 adaptador Plus (CTI, contacte o Centro de agentes). Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Five9 adaptador Plus (CTI, contacte o Centro de agentes). Trabalhar com [equipa de suporte de Five9 adaptador Plus (CTI, contacte o Centro de agentes)](https://www.five9.com/about/contact) para adicionar os utilizadores na plataforma Five9 adaptador Plus (CTI, contacte o Centro de agentes). Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

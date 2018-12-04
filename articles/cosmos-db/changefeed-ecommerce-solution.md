@@ -1,20 +1,19 @@
 ---
-title: Utilize o Azure Cosmos DB alterar feed para visualizar a análise de dados em tempo real | Documentos da Microsoft
+title: Utilize o Azure Cosmos DB alterar feed para visualizar a análise de dados em tempo real
 description: Este artigo descreve como feed de alterações pode ser utilizado por uma empresa de revenda para compreender os padrões de utilizador, efetuar a análise de dados em tempo real e visualização.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 03fb56125bcc4133dd87a1dc76d4d6811ebb8f40
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 918ffaf42e7216313a385c866f73bd57a529784a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685502"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838893"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utilize o Azure Cosmos DB alterar feed para visualizar a análise de dados em tempo real
 

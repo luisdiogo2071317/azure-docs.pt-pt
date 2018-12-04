@@ -4,21 +4,18 @@ description: Saiba como utilizar a biblioteca do BulkExecutor para importar em m
 services: cosmos-db
 keywords: grafo, gremlin, em massa, bulkexecutor, migração, dados, cosmosdb, cosmos, base de dados, importar
 author: luisbosquez
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 39abf6d6da8a8035cf486ceb30b9c21186bbb925
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
-ms.translationtype: HT
+ms.openlocfilehash: d5a25bd7cab68f77a37b14ba41bf3cc832c2125f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234424"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836717"
 ---
 # <a name="using-the-graph-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Utilizar a biblioteca .NET do BulkExecutor de grafos para realizar operações em massa na API Gremlin do Azure Cosmos DB
 
@@ -159,7 +156,7 @@ Definição|Descrição
 2. Execute a aplicação. `BulkImportAsync` vai ser chamado duas vezes, uma para importar Vértices e outra para importar Arestas. Se algum dos objetos gerar um erro quando for inserido, será adicionado a `.\BadVertices.txt` ou a `.\BadEdges.txt`.
 3. Consulte a base de dados de grafo para avaliar os resultados. Se a opção `ShouldCleanupOnFinish` estiver definida como verdadeira, a base de dados será eliminada de forma automática.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para conhecer os detalhes do pacote Nuget e as notas de versão da biblioteca .NET de BulkExecutor, veja [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md) (Detalhes do SDK BulkExecutor). 
 * Veja [Performance Tips](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) (Sugestões de Desempenho) para otimizar ainda mais a utilização de BulkExecutor.
 * Reveja o artigo [BulkExecutor.Graph Reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) (Referência de BulkExecutor.Graph) para obter mais detalhes sobre as classes e os métodos definidos neste espaço de nomes.

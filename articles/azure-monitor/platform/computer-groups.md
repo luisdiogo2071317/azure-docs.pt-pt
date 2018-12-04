@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2b811029e2cadcb89238375e8fe50160a58b0c62
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 7575d55f65598d39a8ffe0c3802cf11fa7470180
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52685014"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837788"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Pesquisas de registos de grupos de computadores no Log Analytics
 
-Grupos de computador no Log Analytics permitem-lhe âmbito [pesquisas de registos](../../log-analytics/log-analytics-queries.md) para um determinado conjunto de computadores.  Cada grupo é preenchido com computadores por meio de uma consulta por si ou ao importar grupos de diferentes origens.  Quando o grupo está incluído numa pesquisa de registos, os resultados estão limitados aos registos que correspondem a computadores no grupo.
+Grupos de computador no Log Analytics permitem-lhe âmbito [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para um determinado conjunto de computadores.  Cada grupo é preenchido com computadores por meio de uma consulta por si ou ao importar grupos de diferentes origens.  Quando o grupo está incluído numa pesquisa de registos, os resultados estão limitados aos registos que correspondem a computadores no grupo.
 
 ## <a name="creating-a-computer-group"></a>Criar um grupo de computadores
 Pode criar um grupo de computadores no Log Analytics com qualquer um dos métodos na tabela seguinte.  Obter detalhes sobre cada método são fornecidos nas secções abaixo. 
@@ -70,7 +70,7 @@ Configurar o Log Analytics para importar grupos de segurança do Active Director
 
 Quando os grupos foram importados, o menu de lista o número de computadores com a associação a grupos detetados e o número de grupos importados.  Pode clicar em qualquer uma destas ligações para retornar a **grupo de computador** registos com essas informações.
 
-### <a name="windows-server-update-service"></a>Serviço de Atualização do Windows Server
+### <a name="windows-server-update-service"></a>Serviço de atualização do Windows Server
 Quando configurar o Log Analytics para importar associações a grupos WSUS, analisa a associação ao grupo de direcionamento de todos os computadores com o agente do Log Analytics.  Se estiver a utilizar o lado do cliente como o objetivo, qualquer computador que está ligada ao Log Analytics e faz parte de qualquer WSUS filtragem de grupos tem respetiva associação a grupos importada para o Log Analytics. Se estiver a utilizar o servidor como o objetivo, o Log Analytics agent deve ser instalado no servidor WSUS para que as informações de associação de grupo ser importado para o Log Analytics.  Esta associação é constantemente atualizada a cada 4 horas. 
 
 Configurar o Log Analytics para importar grupos WSUS a partir do Log Analytics **definições avançadas** no portal do Azure.  Selecione **grupos de computadores**, **WSUS**e, em seguida **associações de grupo do WSUS de importação**.  Não há nenhuma configuração adicional.
@@ -79,7 +79,7 @@ Configurar o Log Analytics para importar grupos WSUS a partir do Log Analytics *
 
 Quando os grupos foram importados, o menu de lista o número de computadores com a associação a grupos detetados e o número de grupos importados.  Pode clicar em qualquer uma destas ligações para retornar a **grupo de computador** registos com essas informações.
 
-### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
+### <a name="system-center-configuration-manager"></a>O System Center Configuration Manager
 Quando configurar o Log Analytics para importar subscrições da coleção do Configuration Manager, ele cria um grupo de computadores para cada coleção.  As informações de associação de coleção são recuperadas em três horas a manter os grupos de computadores atualizados. 
 
 Antes de pode importar coleções do Configuration Manager, tem [ligar o Configuration Manager ao Log Analytics](../../log-analytics/log-analytics-sccm.md).  Em seguida, pode configurar a importação do Log Analytics **definições avançadas** no portal do Azure.  Selecione **grupos de computadores**, **SCCM**e, em seguida **associações de coleção do Gestor de configuração da importação**.  Não há nenhuma configuração adicional.
@@ -136,5 +136,5 @@ Na área de trabalho do Log Analytics para cada associação de grupo do computa
 | TimeGenerated |Data e hora, o grupo de computadores foi criado ou atualizado. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [pesquisas de registos](../../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
+* Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
 

@@ -1,9 +1,8 @@
 ---
-title: 'Azure Cosmos DB: criar uma aplicação de consola com Java e a MongoDB API | Microsoft Docs'
+title: 'Azure Cosmos DB: Criar uma aplicação de consola com Java e a API do MongoDB'
 description: Apresenta um exemplo de código Java que pode utilizar para ligar e consultar a Azure Cosmos DB MongoDB API
 services: cosmos-db
 author: slyons
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
@@ -11,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: sclyon
-ms.openlocfilehash: ac5c0427ee178cee3abd71f4fbdfd5f8697f11a7
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: c77d6610939322fcf258e1b650672f319baf0815
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698677"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832416"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: criar uma aplicação de consola da MongoDB API com Java e o portal do Azure
 
@@ -122,7 +121,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     
 ## <a name="run-the-console-app"></a>Executar a aplicação de consola
 
-1. Executar `mvn package` num terminal para instalar os módulos npm necessários
+1. Execute `mvn package` num terminal para instalar os módulos npm necessários
 
 2. Execute `mvn exec:java -D exec.mainClass=GetStarted.Program` num terminal para iniciar a aplicação Java.
 
@@ -136,11 +135,11 @@ Agora, pode utilizar [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mon
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste guia de introdução, aprendeu a criar uma conta do Azure Cosmos DB, a criar uma coleção com o Data Explorer e a executar uma aplicação de consola. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
+Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar uma coleção com o Data Explorer e a executar uma aplicação de consola. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Importar dados da MongoDB para o Azure Cosmos DB](mongodb-migrate.md)
+> [Import MongoDB data into Azure Cosmos DB](mongodb-migrate.md) (Importar dados do MongoDB para o Azure Cosmos DB)
 
 

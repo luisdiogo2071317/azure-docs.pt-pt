@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 74ecfe50170f35420d3cf5dc5531b0fe1046889d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 14b5f13070554328a47cd80185efb487d887a6d5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433855"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832916"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutorial: Integração do Azure Active Directory com o CS estrelas
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com CS estrelas, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um CS estrelas início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração de CS estrelas para o Azure AD, terá de adiciona
 
 **Para adicionar estrelas CS a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.csstars.com/enterprise/`
 
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de estrelas CS](http://www.marshclearsight.com/support/) obter esses valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de estrelas CS](https://www.marshclearsight.com/support/) obter esses valores. 
  
 1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -127,7 +127,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/cs-stars-tutorial/tutorial_general_400.png) 
 <CS>
-1. Para configurar o início de sessão único em **estrelas CS** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de estrelas CS](http://www.marshclearsight.com/support/). 
+1. Para configurar o início de sessão único em **estrelas CS** lado, terá de enviar o transferido **XML de metadados** para [equipa de suporte de estrelas CS](https://www.marshclearsight.com/support/). 
 <CE>
 
 > [!TIP]
@@ -169,7 +169,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no CS estrelas.
 
-Para obter um utilizador criado no CS estrelas, terá de contactar o seu [equipa de suporte de estrelas CS](http://www.marshclearsight.com/support/).
+Para obter um utilizador criado no CS estrelas, terá de contactar o seu [equipa de suporte de estrelas CS](https://www.marshclearsight.com/support/).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

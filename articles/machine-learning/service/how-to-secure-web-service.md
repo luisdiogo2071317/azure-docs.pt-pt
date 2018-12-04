@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: a9dee2d88c986ed292567a18c29cd325833b5e6f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344489"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832875"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Proteger serviços da web do Azure Machine Learning com SSL
 
@@ -118,7 +118,7 @@ Em seguida, tem de atualizar o DNS para apontar para o serviço web.
 
   Atualize o DNS no separador "Configuração" das "Endereço IP público" do cluster AKS conforme mostrado na imagem. Pode encontrar o endereço IP público como um dos tipos de recursos criados no grupo de recursos que contém os nós de agente do AKS e outros recursos de rede.
 
-  ![O serviço do Azure Machine Learning: protegendo serviços da web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)Self-
+  ![O serviço do Azure Machine Learning: protegendo serviços da web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

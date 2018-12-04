@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 3012f07d8c56f2581a087bc8e43aa4a089bf9589
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c21d78d1e0660b97c44130539ab3b5c71b8d6f6b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633517"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843041"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Início de sessão único para aplicações no Azure Active Directory
 Saiba como escolher o método mais apropriado único início de sessão quando configurar as aplicações no Azure Active Directory (Azure AD). 
@@ -178,6 +178,6 @@ Para obter mais informações, consulte [Edições do Azure Active Directory](..
 * [Tutoriais para integrar aplicações SaaS com o Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Tutorial para configurar o início de sessão único](configure-single-sign-on-portal.md)
 * [Introdução à gestão do acesso a aplicações](what-is-access-management.md)
-* Ligação de transferência: [plano de implantação de início de sessão único](http://aka.ms/SSODeploymentPlan).
+* Ligação de transferência: [plano de implantação de início de sessão único](https://aka.ms/SSODeploymentPlan).
 
 

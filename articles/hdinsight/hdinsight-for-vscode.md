@@ -10,16 +10,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 9603751db01eaffdf9fbe26164aed53017c5e23c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fe186966dbddb5aa743e465f897aa5a1a0e07db1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499529"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840219"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar ferramentas do Azure HDInsight para Visual Studio Code
 
-Saiba como utilizar o [Azure HDInsight Tools para Visual Studio Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) (VS Code) para criar e submeter [Apache Hive](https://hive.apache.org/) tarefas, consultas interativas do Apache Hive e PySpark scripts do batch. As ferramentas do HDInsight do Azure pode ser instaladas nas plataformas suportadas pelo código VS. que incluem o Windows, o Linux e o macOS. Pode encontrar os pré-requisitos para plataformas diferentes.
+Saiba como utilizar o Azure HDInsight Tools para Visual Studio Code (VS Code) para criar e submeter tarefas de lote do Apache Hive, consultas interativas do Hive e PySpark scripts para o Apache Spark. Em primeiro lugar, descreveremos como instalar as ferramentas do HDInsight no VS Code e, em seguida, vamos explicar como submeter tarefas do Hive e do Spark. 
+
+As ferramentas do HDInsight do Azure pode ser instaladas nas plataformas suportadas pelo VS Code, que incluem o Windows, Linux e macOS. Veja a seguir, encontrará os pré-requisitos para plataformas diferentes.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: a5910689f34c511c6cf7d8a044ef4358d2e0570d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2b9f3c7905fbb301c74a040a259b2f8666c75377
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445585"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834499"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: Integração do Azure Active Directory com TeamSeer
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com TeamSeer, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um TeamSeer início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do TeamSeer para o Azure AD, terá de adicionar T
 
 **Para adicionar TeamSeer a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -115,7 +115,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
      Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://www.teamseer.com/<companyid>`
 
     > [!NOTE] 
-    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente TeamSeer](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) para obter o valor. 
+    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente TeamSeer](https://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) para obter o valor. 
  
 1. Sobre o **certificado de assinatura SAML** secção, clique em **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 

@@ -7,16 +7,16 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 2f06c9515c6ee79ea7475452b7000d1babdbecfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 043988066cae672225b850b57864bddb3155689c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956528"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833844"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Conceitos de elevada disponibilidade no banco de dados do Azure para MariaDB
-A base de dados do Azure para MariaDB service fornece um nível elevado de disponibilidade garantido. O contrato de nível de serviço com suporte financeiro (SLA) é 99,99% após disponibilidade geral. O SLA não é aplicável a pré-visualização pública. Praticamente nenhuma aplicação período de indisponibilidade quando utilizar este serviço.
+A base de dados do Azure para MariaDB service fornece um nível elevado de disponibilidade garantido. O contrato de nível de serviço com suporte financeiro (SLA) é 99,99% após disponibilidade geral. Praticamente nenhuma aplicação período de indisponibilidade quando utilizar este serviço.
 
 ## <a name="high-availability"></a>Elevada disponibilidade
 O modelo de elevada disponibilidade (HA) baseia-se a mecanismos internos de ativação pós-falha quando ocorre uma interrupção de nível de nó. Uma interrupção de nível de nó pode ocorrer devido a uma falha de hardware ou em resposta a uma implementação de serviço.
@@ -34,4 +34,4 @@ Semelhante ao modelo de HA, quando uma base de dados do Azure para MariaDB é au
 Durante a operação de dimensionamento, ocorre uma interrupção para as ligações de base de dados. As aplicações de cliente estão ligado à Internet e abrir as transações não consolidadas serão canceladas. Assim que a aplicação de cliente a ligação, ou faz com que uma nova ligação, o gateway direciona a ligação à instância do tamanho recentemente.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Para uma descrição geral do serviço, consulte [base de dados do Azure para MariaDB descrição-geral](overview.md)
+- Para uma descrição geral do serviço, consulte [base de dados do Azure para MariaDB descrição-geral](overview.md)

@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/09/2018
-ms.openlocfilehash: 27228904dab0726a1d84e58751a3315f3ff03447
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.date: 12/03/2018
+ms.openlocfilehash: 52caae38c21fe403735b8479ec2e721ef38f521e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515391"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845801"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerir servidores lógicos e bases de dados individuais na base de dados do Azure SQL
 
-Pode criar e gerir servidores de lógicos de base de dados SQL do Azure e bases de dados individuais com o portal do Azure, PowerShell, CLI do Azure, REST API e Transact-SQL.
+Pode criar e gerir bases de dados individuais com o portal do Azure, PowerShell, CLI do Azure, REST API e Transact-SQL e os servidores lógicos de SQL Database do Azure.
 
 ## <a name="azure-portal-manage-logical-servers-and-databases"></a>Portal do Azure: Gerir servidores lógicos e bases de dados
 
@@ -57,10 +57,10 @@ Para gerir uma base de dados existente, navegue para o **bases de dados SQL** p�
 
 ## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell: Gerir servidores lógicos e bases de dados
 
-Para criar e gerir o servidor SQL do Azure, bases de dados e firewalls com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Para criar e gerir servidores lógicos de SQL do Azure, bases de dados únicos e em pool e as firewalls do servidor lógico com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 > [!TIP]
-> Para scripts de exemplo do PowerShell, consulte [utilize o PowerShell para criar uma base de dados SQL do Azure e configurar uma regra de firewall](scripts/sql-database-create-and-configure-database-powershell.md) e [monitorizar e dimensionar um único SQL da base de dados com o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Para scripts de exemplo do PowerShell, consulte [utilize o PowerShell para criar uma base de dados SQL do Azure e configurar uma regra de firewall do servidor lógico](scripts/sql-database-create-and-configure-database-powershell.md) e [monitorizar e dimensionar um único SQL da base de dados com o PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 | Cmdlet | Descrição |
 | --- | --- |
@@ -120,9 +120,8 @@ Para criar e gerir o servidor SQL do Azure, bases de dados e firewalls com Trans
 
 | Comando | Descrição |
 | --- | --- |
-|[Criar base de dados (banco de dados SQL do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria uma nova base de dados. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
-| [Alterar base de dados (banco de dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifica uma base de dados SQL do Azure. |
-|[Alterar base de dados (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Modifica um armazém de dados SQL do Azure.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Cria uma nova base de dados. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
+| [Alterar base de dados (banco de dados SQL do Azure)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica uma base de dados SQL do Azure. |
 |[REMOVER a base de dados (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Elimina uma base de dados.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Devolve o edition (camada de serviço), o objetivo de serviço (escalão de preço) e o nome do conjunto elástico, se existir, para uma base de dados SQL do Azure ou um Azure SQL Data Warehouse. Se a sessão iniciada no banco de dados mestra num servidor de base de dados do Azure SQL, retorna informações sobre todas as bases de dados. Para o Azure SQL Data Warehouse, tem de estar ligado à base de dados mestra.|
 |[dm db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Devolve o consumo de CPU, IO e memória para uma base de dados de base de dados do Azure SQL. Não existe uma linha para cada 15 segundos, mesmo que não existe nenhuma atividade na base de dados.|
@@ -145,7 +144,7 @@ Para criar e gerir o servidor SQL do Azure, bases de dados e firewalls, utilize 
 |[Servidores – criar ou atualizar](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Cria ou atualiza um novo servidor.|
 |[Servidores - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Elimina um SQL server.|
 |[Servidores - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Obtém um servidor.|
-|[Servidores - lista](https://docs.microsoft.com/rest/api/sql/servers/list)|Devolve uma lista de servidores.|
+|[Servidores - lista](https://docs.microsoft.com/rest/api/sql/servers/list)|Devolve uma lista de servidores numa subscrição.|
 |[Servidores - lista por grupo de recursos](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Devolve uma lista de servidores num grupo de recursos.|
 |[Servidores - atualização](https://docs.microsoft.com/rest/api/sql/servers/update)|Atualiza um servidor existente.|
 |[Bases de dados - criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza a base de dados existente.|

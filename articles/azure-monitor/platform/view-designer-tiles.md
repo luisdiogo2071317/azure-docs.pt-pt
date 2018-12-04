@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 17d1419501b4833d0abc3b5670827d57dfd7a286
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 53837573daef56bad12f627400f7db1ccd1c26cf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643349"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836972"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guia de referência para mosaicos do estruturador de vistas no Log Analytics
 Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para os mosaicos que estão disponíveis nas suas vistas personalizadas.
@@ -33,7 +33,7 @@ Para obter mais informações sobre o estruturador de vistas, consulte:
 
 Os mosaicos do estruturador de vistas disponíveis são descritos na tabela a seguir:  
 
-| Mosaico | Descrição |
+| mosaico | Descrição |
 |:--- |:--- |
 | [Número](#number-tile) |A contagem de registos de uma consulta. |
 | [Dois números](#two-numbers-tile) |As contagens de registos de duas consultas diferentes. |
@@ -97,10 +97,10 @@ O **anel** mosaico apresenta um único número que resume uma coluna de valor nu
 | **Anel** |**> Center** |
 | Texto |O texto que é apresentado no valor dentro do anel. |
 | Operação |A operação é executada na propriedade de valor para resumi-lo como um único valor.<ul><li>Soma: Adicione os valores de todos os registos com o valor da propriedade.</li><li>Percentagem: Percentagem dos valores summed de registos com o valor da propriedade em comparação comparada os valores summed de todos os registos.</li></ul> |
-| Valores dos resultados utilizados na operação do centro |Opcionalmente, selecione o sinal de adição (+) para adicionar um ou mais valores. Os resultados da consulta são limitados aos registros com os valores de propriedade que especificar. Se não os valores são adicionados, todos os registos estão incluídos na consulta. |
+| Valores dos resultados utilizados na operação do Centro |Opcionalmente, selecione o sinal de adição (+) para adicionar um ou mais valores. Os resultados da consulta são limitados aos registros com os valores de propriedade que especificar. Se não os valores são adicionados, todos os registos estão incluídos na consulta. |
 | **Anel** |**> Opções adicionais** |
 | Cores |A cor que é apresentada para cada uma das três propriedades principais. Para especificar alternativas cores dos valores de propriedade específica, utilize *Advanced mapeamento de cor*. |
-| Mapeamento de Cores Avançadas |Apresenta uma cor que representa valores de propriedade específicos. Se o valor que especificar nas três principais, a cor alternativa é apresentada em vez da cor padrão. Se a propriedade não estiver a ser os três principais, a cor não é apresentada. |
+| Mapeamento de cores avançadas |Apresenta uma cor que representa valores de propriedade específicos. Se o valor que especificar nas três principais, a cor alternativa é apresentada em vez da cor padrão. Se a propriedade não estiver a ser os três principais, a cor não é apresentada. |
 | **Avançadas** |**> Verificação de fluxo de dados** |
 | Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
 | Consulta |A consulta que é executada para determinar se os dados estão disponíveis para a vista. Se a consulta não devolve nenhum resultado, é apresentada uma mensagem em vez do valor da consulta principal. |
@@ -119,7 +119,7 @@ Este mosaico é um gráfico de linhas que exibe várias séries de uma consulta 
 | **Gráfico de linhas** | |
 | Consulta |A consulta que está a ser executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a *medida* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x utiliza este intervalo de tempo. Se a consulta não utiliza a *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
 | **Gráfico de linhas** |**> Eixo y** |
-| Utilizar Escala Logarítmica |Selecione esta ligação para utilizar escala logarítmica para o eixo y. |
+| Utilizar escala logarítmica |Selecione esta ligação para utilizar escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores devolvidos pela consulta. Estas informações são utilizadas para apresentar as etiquetas no gráfico que indica os tipos de valor e, opcionalmente, para converter os valores. O **tipo de unidade** Especifica a categoria da unidade e define a **tipo de unidade atual** valores que estão disponíveis. Se selecionar um valor na **converter** , em seguida, os valores numéricos são convertidos da **unidade atual** escreva para o **converter** tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y junto à etiqueta para o *unidade* tipo. Se nenhuma etiqueta for especificada, apenas os *unidade* tipo é apresentado. |
 | **Avançadas** |**> Verificação de fluxo de dados** |
@@ -144,7 +144,7 @@ Este mosaico tem tanto de uma linha do gráfico que apresenta várias séries de
 | Nome da série |O valor de propriedade de série a ser utilizado como o valor da nota de aviso. Se não for fornecido nenhum série, todos os registos da consulta são utilizados. |
 | Operação |A operação é executada na propriedade de valor para resumi-lo como um valor único para a nota de aviso.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: Contagem de todos os registos que são devolvidos pela consulta.</li><li>Última de exemplo: O valor do último intervalo que está incluído no gráfico.</li><li>Máx.: O valor máximo de intervalos que estão incluídos no gráfico.</li><li>Mínimo: O valor mínimo de intervalos que estão incluídos no gráfico.</li><li>Soma: A soma dos valores de todos os registos.</li></ul> |
 | **Gráfico de linhas** |**> Eixo y** |
-| Utilizar Escala Logarítmica |Selecione esta ligação para utilizar escala logarítmica para o eixo y. |
+| Utilizar escala logarítmica |Selecione esta ligação para utilizar escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Estas informações são utilizadas para rótulos de gráficos de apresentação que indicam os tipos de valor e, opcionalmente, para converter os valores. O *unidade* tipo Especifica a categoria da unidade e define o disponíveis *unidade atual* tipo de valores. Se selecionar um valor na *converter*, os valores numéricos são convertidos da *unidade atual* escreva para o *converter* tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y junto à etiqueta para o *unidade* tipo. Se nenhuma etiqueta for especificada, apenas os *unidade* tipo é apresentado. |
 | **Avançadas** |**> Verificação de fluxo de dados** |
@@ -162,7 +162,7 @@ O **duas linhas cronológicas** mosaico apresenta os resultados de duas consulta
 |:--- |:--- |
 | Nome |O texto que é apresentado na parte superior do mosaico. |
 | Descrição |O texto que é apresentado sob o nome do mosaico. |
-| Primeiro Gráfico | |
+| Primeiro gráfico | |
 | Legenda |O texto que é apresentado em nota de aviso para a primeira série. |
 | Cor |A cor que é utilizada para as colunas da primeira série. |
 | Consulta de gráfico |A consulta que está a ser executada para a primeira série. A contagem de registos ao longo de cada intervalo de tempo é representada pelas colunas do gráfico. |
@@ -170,7 +170,7 @@ O **duas linhas cronológicas** mosaico apresenta os resultados de duas consulta
 | **Segundo gráfico** | |
 | Legenda |O texto que é apresentado em nota de aviso para a segunda série. |
 | Cor |A cor utilizada para as colunas na segunda série. |
-| Consulta do Gráfico |A consulta que está a ser executada para a segunda série. A contagem de registos ao longo de cada intervalo de tempo é representada pelas colunas do gráfico. |
+| Consulta de gráfico |A consulta que está a ser executada para a segunda série. A contagem de registos ao longo de cada intervalo de tempo é representada pelas colunas do gráfico. |
 | Operação |A operação é executada na propriedade de valor para resumi-lo como um valor único para a nota de aviso.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: Contagem de todos os registos que são devolvidos pela consulta.</li><li>Última de exemplo: O valor do último intervalo que está incluído no gráfico.</li><li>Máx.: O valor máximo de intervalos que estão incluídos no gráfico. |
 | **Avançadas** |**> Verificação de fluxo de dados** |
 | Ativado |Selecione esta ligação se a verificação de fluxo de dados deve estar ativada para o mosaico. Esta abordagem fornece uma mensagem de alternativa, se os dados não estão disponíveis. Normalmente use a abordagem para fornecer uma mensagem durante o período de temporário quando a vista está instalada e os dados ficam disponíveis. |
@@ -179,5 +179,5 @@ O **duas linhas cronológicas** mosaico apresenta os resultados de duas consulta
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [pesquisas de registos](../../log-analytics/log-analytics-queries.md) para oferecer suporte as consultas em mosaicos.
+* Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para oferecer suporte as consultas em mosaicos.
 * Adicione [partes de visualização](view-designer-parts.md) à sua vista personalizada.

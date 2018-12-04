@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e689f93150d225d5b8c9ee9d5cfc422a1154c45a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 41f6027378e48b525345e29e1d1e08dd2c48aaa5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724558"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843755"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>O Azure Active Directory B2C:-Sessão Web com OpenID Connect
 OpenID Connect é um protocolo de autenticação, criado com base no OAuth 2.0, que pode ser utilizado para assinar com segurança os utilizadores aplicações web. Ao utilizar o Azure Active Directory B2C (Azure AD B2C) a implementação do OpenID Connect, que possa terceirizar a inscrição, início de sessão e experiências de outro gestão de identidades nas suas aplicações web ao Azure Active Directory (Azure AD). Este guia mostra-lhe como fazê-lo de forma independente de idioma. Ele descreve como enviar e receber mensagens HTTP sem utilizar qualquer uma das nossas bibliotecas de código-fonte aberto.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) expande o OAuth 2.0 *autorização* protocolo para utilização como um *autenticação* protocolo. Isto permite-lhe efetuar o início de sessão único com o OAuth. Ele introduz o conceito de um *token de ID*, que é um token de segurança que permite que o cliente verificar a identidade do utilizador e obter informações de perfil básicas sobre o utilizador.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) expande o OAuth 2.0 *autorização* protocolo para utilização como um *autenticação* protocolo. Isto permite-lhe efetuar o início de sessão único com o OAuth. Ele introduz o conceito de um *token de ID*, que é um token de segurança que permite que o cliente verificar a identidade do utilizador e obter informações de perfil básicas sobre o utilizador.
 
 Uma vez que expande o OAuth 2.0, também permite aplicações com segurança adquirir *tokens de acesso*. Pode usar access_tokens para aceder aos recursos que estão protegidos por um [servidor de autorização](active-directory-b2c-reference-protocols.md#the-basics). É recomendável OpenID Connect se estiver a criar uma aplicação web que é alojada num servidor e acedida através de um browser. Se pretender adicionar o gerenciamento de identidades às suas aplicações móveis ou ambiente de trabalho utilizando o Azure AD B2C, deve usar [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) em vez de OpenID Connect.
 
@@ -120,7 +120,7 @@ error=access_denied
 | state |Consulte a descrição completa na primeira tabela nesta secção. Se um `state` parâmetro está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar se o `state` valores no pedido e resposta são idênticos. |
 
 ## <a name="validate-the-id-token"></a>Validar o token de ID
-Apenas receber um token de ID não é suficiente para autenticar o utilizador. Tem de validar a assinatura do token de ID e verifique se as afirmações no token de conformidade com os requisitos da sua aplicação. Azure AD B2C utiliza [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar os tokens e certifique-se de que são válidas.
+Apenas receber um token de ID não é suficiente para autenticar o utilizador. Tem de validar a assinatura do token de ID e verifique se as afirmações no token de conformidade com os requisitos da sua aplicação. Azure AD B2C utiliza [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar os tokens e certifique-se de que são válidas.
 
 Existem muitas bibliotecas de código-fonte aberto que estão disponíveis para validar JWTs, consoante o idioma de preferência. Recomendamos explorar essas opções, em vez de implementar sua própria lógica de validação. As informações aqui será útil para descobrir como usar adequadamente dessas bibliotecas.
 
@@ -143,7 +143,7 @@ Depois de ter confirmado a assinatura do token de ID, existem várias afirmaçõ
 * Deve validar o `aud` de afirmação para se certificar de que o token de ID foi emitido para a sua aplicação. O valor deve ser o ID da aplicação da sua aplicação.
 * Deve validar os `iat` e `exp` afirmações para se certificar de que o token de ID não expirou.
 
-Também há vários validações mais que deve executar. Estas são descritas detalhadamente na [especificação do OpenID Connect Core](http://openid.net/specs/openid-connect-core-1_0.html).  Pode também querer validar afirmações adicionais, dependendo do seu cenário. Algumas validações comuns incluem:
+Também há vários validações mais que deve executar. Estas são descritas detalhadamente na [especificação do OpenID Connect Core](https://openid.net/specs/openid-connect-core-1_0.html).  Pode também querer validar afirmações adicionais, dependendo do seu cenário. Algumas validações comuns incluem:
 
 * Garantir que o utilizador/organização tiver se inscrito para a aplicação.
 * Garantir que o utilizador tem autorização/privilégios apropriados.

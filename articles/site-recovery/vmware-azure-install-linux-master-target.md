@@ -4,14 +4,14 @@ description: Saiba como configurar um servidor de destino principal do Linux par
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212374"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833317"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino principal do Linux para reativação pós-falha
 Depois de efetuar a ativação pós-falha de máquinas virtuais para o Azure, pode efetuar a reativação pós-falha as máquinas virtuais para o site no local. Para efetuar a reativação pós-falha, terá de voltar a proteger a máquina virtual do Azure para o site no local. Para que este processo, terá de um servidor de destino mestre no local para receber o tráfego. 
@@ -259,7 +259,7 @@ Utilize os seguintes passos para criar um disco de retenção:
     
     Selecione **inserir** para começar a editar o ficheiro. Criar uma nova linha e, em seguida, insira o seguinte texto. Edite o ID de Multipath i do disco com base no ID de multipath realçado do comando anterior.
 
-    **/Dev/mapeador/ <Retention disks multipath id> /mnt/rw do ext4 do retenção 0 0**
+     **/Dev/mapeador/ <Retention disks multipath id> /mnt/rw do ext4 do retenção 0 0**
 
     Selecione **Esc**e, em seguida, escreva **: wq** (escrever e sair) para fechar a janela do editor.
 

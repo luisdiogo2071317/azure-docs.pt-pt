@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: fe5c355054aab483a7ee8e68305473b7b840779d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 4ddf163ce37c4adf1b89012c214ee807f55a0d98
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336954"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836327"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Recolher contadores de desempenho de aplicações do Linux no Log Analytics 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -118,7 +118,7 @@ Esses privilégios podem ser concedidos ao executar os seguintes comandos de con
 
 Depois de configurar o agente do Log Analytics para Linux enviar dados para o Log Analytics, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho do Log Analytics](data-sources-windows-events.md) com os contadores na tabela seguinte.
 
-| Nome do Objeto | Nome do Contador |
+| Nome do Objeto | Nome do contador |
 |:--|:--|
 | Base de Dados MySQL | Espaço em disco, em Bytes |
 | Base de Dados MySQL | Tabelas |
@@ -154,7 +154,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 Depois de configurar o agente do Log Analytics para Linux enviar dados para o Log Analytics, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho do Log Analytics](data-sources-windows-events.md) com os contadores na tabela seguinte.
 
-| Nome do Objeto | Nome do Contador |
+| Nome do Objeto | Nome do contador |
 |:--|:--|
 | Apache HTTP Server | Operadores de ocupado |
 | Apache HTTP Server | Funções de trabalho ociosas |
@@ -170,4 +170,4 @@ Depois de configurar o agente do Log Analytics para Linux enviar dados para o Lo
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Recolher contadores de desempenho](data-sources-performance-counters.md) agentes de Linux.
-* Saiba mais sobre [pesquisas de registos](../../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 

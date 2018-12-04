@@ -1,20 +1,21 @@
 ---
 title: Implementar o servidor de configuração para a recuperação de desastre do VMware com o Azure Site Recovery | Documentos da Microsoft
-description: Este artigo descreve como implementar um servidor de configuração para a recuperação de desastre do VMware para o Azure com o Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
+description: Este artigo descreve como implementar um servidor de configuração para a recuperação de desastre do VMware com o Azure Site Recovery
+services: site-recovery
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: raynew
-ms.openlocfilehash: 516edd922d6ead9a71f81c3b9b777b15f1fb28ae
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 11/27/2018
+ms.author: ramamill
+ms.openlocfilehash: 5d6510c1e069abe1fc295f2fccd9f2c0a9aad5bf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233162"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837575"
 ---
-# <a name="deploy-a-configuration-server-for-vmware-disaster-recovery-to-azure"></a>Implementar um servidor de configuração para a recuperação de desastre do VMware para o Azure
+# <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
 Implementar um servidor de configuração no local quando utiliza [do Azure Site Recovery](site-recovery-overview.md) para recuperação após desastre de VMs de VMware e servidores físicos para o Azure. As comunicações de coordenadas do servidor de configuração entre locais VMware e o Azure. Ele também gerencia a replicação de dados. Este artigo orienta-o pelos passos necessários para implementar o servidor de configuração quando está a replicar VMs de VMware para o Azure. [Siga este artigo](physical-azure-set-up-source.md) se precisar de configurar um servidor de configuração para a replicação de servidor físico.
 

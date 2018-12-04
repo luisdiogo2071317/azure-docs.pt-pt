@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 779efdd509460ac8175b3922097d701edf8b9b68
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 50fa467a6405fdc6b99c78a8f57411abf3be6336
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311233"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836632"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gerir e responder a alertas de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a utilizar o Centro de Segurança do Azure para gerir e responder a alertas de segurança.
 
 > [!NOTE]
-> Para ativar as deteções avançadas, atualize para o Centro de Segurança do Azure Standard. Está disponível uma avaliação gratuita de 60 dias. Para atualizar, selecione Escalão de Preço na [Política de Segurança](security-center-azure-policy.md). Veja [Preços do Centro de Segurança do Azure](security-center-pricing.md) para saber mais.
+> Para ativar as deteções avançadas, atualize para o Centro de Segurança do Azure Standard. Está disponível uma avaliação gratuita. Para atualizar, selecione Escalão de Preço na [Política de Segurança](security-center-azure-policy.md). Veja [Preços do Centro de Segurança do Azure](security-center-pricing.md) para saber mais.
 >
 >
 

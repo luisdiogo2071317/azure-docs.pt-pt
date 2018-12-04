@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 10/02/2018
+ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: b5f97dac202edd5405c51b75581275166042ac38
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802105"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841460"
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -38,6 +38,8 @@ Historicamente, os contentores têm vindo a oferecer isolamento de dependências
 
 Normalmente, os contentores são otimizados para executarem apenas uma única aplicação, mas as necessidades exatas de cada uma dessas aplicações podem ser bastante diferentes. O Azure Container Instances proporciona uma utilização ideal ao permitir especificações exatas de núcleos de CPU e memória. A faturação é ao segundo e consoante o que precisar, para que possa ajustar os gastos com base nas suas necessidades reais.
 
+Para as tarefas de computação intensiva, como a aprendizagem automática, Azure Container Instances permite agendar contentores do Linux utilizar NVIDIA Tesla [recursos GPU](container-instances-gpu.md) (pré-visualização).
+
 ## <a name="persistent-storage"></a>Armazenamento persistente
 
 Para obter e persistir o estado com o Azure Container Instances, ofereceremos a [montagem direta de partilhas de ficheiros do Azure](container-instances-mounting-azure-files-volume.md).
@@ -59,9 +61,9 @@ O Azure Container Instances suporta o agendamento de [grupos de vários contento
 Atualmente em pré-visualização, esta funcionalidade do Azure Container Instances permite [implementar instâncias de contentor numa rede virtual do Azure](container-instances-vnet.md). Ao implementar instâncias de contentor numa sub-rede da sua rede virtual, estes podem comunicar em segurança com outros recursos na rede virtual, incluindo os que estão no local (através da [gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou de [ ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 > [!IMPORTANT]
-> A implementação de grupos de contentores numa rede virtual está atualmente em pré-visualização e [aplicam-se algumas limitações](container-instances-vnet.md#preview-limitations). As pré-visualizações ser-lhe-ão disponibilizadas na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Algumas funcionalidades do Azure Container Instances estão em pré-visualização e algumas [limitações aplicam-se](container-instances-vnet.md#preview-limitations). As pré-visualizações ser-lhe-ão disponibilizadas na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos destas funcionalidades podem ser alterados antes da disponibilidade geral (GA).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente implementar um contentor no Azure com um único comando através do nosso guia de início rápido:
 

@@ -1,29 +1,27 @@
 ---
 title: 'Azure Cosmos DB: Tutorial de introdução da API SQL com .NET Core | Microsoft Docs'
 description: Um tutorial que cria uma base de dados online e uma aplicação de consola em C# com o SDK de .NET Core da API SQL do Azure Cosmos DB.
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
-ms.custom: devcenter
-ms.openlocfilehash: ca2f855166d9a36f600889059368ebeb313e789c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 772e52960cf76a19c78d50533fe57cbc339ca34a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636293"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838587"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar uma aplicação .Net Core para gerir os dados da API SQL do Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET core (pré-visualização)](sql-api-dotnet-core-get-started-preview.md)
+> * [.NET](sql-api-get-started.md)
+> * [.NET (pré-visualização)](sql-api-dotnet-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -399,7 +397,7 @@ Parabéns! Criou dois documentos do Azure Cosmos DB com êxito.
 
 ## <a id="Query"></a>Passo 7: Consultar recursos do Azure Cosmos DB
 
-O Azure Cosmos DB suporta [consultas](sql-api-sql-query.md) extensas de documentos JSON armazenados em cada coleção. O seguinte código de exemplo mostra várias consultas - utilizando ambas as sintaxes Azure Cosmos DB SQL e LINQ - que podemos procurar nos documentos que inserimos no passo anterior.
+O Azure Cosmos DB suporta [consultas](how-to-sql-query.md) extensas de documentos JSON armazenados em cada coleção. O seguinte código de exemplo mostra várias consultas - utilizando ambas as sintaxes Azure Cosmos DB SQL e LINQ - que podemos procurar nos documentos que inserimos no passo anterior.
 
 Copie e cole o método **ExecuteSimpleQuery** por baixo do seu método **CreateFamilyDocumentIfNotExists**.
 
@@ -456,7 +454,7 @@ O seguinte diagrama ilustra como a sintaxe de consulta do Azure Cosmos DB SQL é
 
 ![Diagrama que ilustra o âmbito e o significado da consulta utilizada pelo tutorial NoSQL para criar uma aplicação de consola C#](./media/sql-api-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
-A palavra-chave [FROM](sql-api-sql-query.md#FromClause) é opcional na consulta porque as consultas do Azure Cosmos DB já estão confinadas a uma única coleção. Por conseguinte, "FROM Families f" pode ser trocada por "FROM root r" ou qualquer outra variável de nome escolher. Por predefinição, o Azure Cosmos DB infere as Famílias, raiz ou o nome da variável que escolheu, referencia a atual coleção.
+A palavra-chave [FROM](how-to-sql-query.md#FromClause) é opcional na consulta porque as consultas do Azure Cosmos DB já estão confinadas a uma única coleção. Por conseguinte, "FROM Families f" pode ser trocada por "FROM root r" ou qualquer outra variável de nome escolher. Por predefinição, o Azure Cosmos DB infere as Famílias, raiz ou o nome da variável que escolheu, referencia a atual coleção.
 
 ## <a id="ReplaceDocument"></a>Passo 8: Substituir um documento JSON
 

@@ -1,9 +1,8 @@
 ---
-title: Criar uma aplicação Node.js do Azure Cosmos DB com a API do Gremlin | Microsoft Docs
+title: Criar uma aplicação node. js do Azure Cosmos DB com API do Gremlin
 description: Apresenta um exemplo de código Node.js que pode utilizar para ligar e consultar o Azure Cosmos DB
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
@@ -11,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 5f7e2a30ee4ea069e8c08187312f09e33a5a921a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: 0f2bcc34a1f82c33c8f640dce8eecccf312651fb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700039"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844215"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB: criar uma aplicação Node.js com a API do Gremlin
 
@@ -199,7 +198,7 @@ Experimente concluir `g.V()` com `.has('firstName', 'Thomas')`, para testar o fi
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu a criar uma conta do Azure Cosmos DB, a criar um gráfico com o Data Explorer e a executar uma aplicação. Agora pode criar consultas mais complexas e implementar a lógica de passagem de gráfico através do Gremlin. 
 

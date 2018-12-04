@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fa6ae230a209d804f244d8bc46a3c6ac1abf6071
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 19f3318c8bcaf634447285cab2951a89abf13a67
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725578"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837482"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Do Azure AD B2C: Protocolos de autenticação
 O Azure Active Directory B2C (Azure AD B2C) fornece identidade como um serviço para as suas aplicações com suporte a dois protocolos de norma da indústria: OpenID Connect e OAuth 2.0. O serviço é compatível com os padrões, mas qualquer duas implementações desses protocolos podem ter ligeiras diferenças. 
@@ -66,7 +66,7 @@ Alguns tokens de segurança tem mecanismos internos que impedem que partes não 
 
 Se um token de portador é transmitido fora de um canal seguro, mal-intencionados podem utilizar um ataque man-in-the-middle adquirir o token e utilizá-lo a obter acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança aplicam-se quando os tokens de portador são armazenados ou colocados em cache para utilização posterior. Certifique-se sempre de que a aplicação transmite e armazena os tokens de portador de forma segura.
 
-Para considerações de segurança de token de portador adicionais, consulte [RFC 6750 secção 5](http://tools.ietf.org/html/rfc6750).
+Para considerações de segurança de token de portador adicionais, consulte [RFC 6750 secção 5](https://tools.ietf.org/html/rfc6750).
 
 Obter mais informações sobre os diferentes tipos de tokens que são utilizados no Azure AD B2C estão disponíveis no [a referência de token do Azure AD](active-directory-b2c-reference-tokens.md).
 

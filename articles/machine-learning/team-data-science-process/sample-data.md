@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b7b233532a526879e886950c3a0d8cfe169251a7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 679d812c239e0f626d2872d29bc9de7848399bc6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441507"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844605"
 ---
 # <a name="heading"></a>Dados de exemplo no Azure, contentores, SQL Server, de BLOBs e tabelas do Hive
 
@@ -26,7 +26,7 @@ Os seguintes artigos descrevem como dados de exemplo que são armazenados em um 
 * [**Dados do SQL Server** ](sample-data-sql-server.md) são objeto de amostragem com SQL e a linguagem de programação de Python. 
 * [**Dados da tabela de Hive** ](sample-data-hive.md) são objeto de amostragem com consultas do Hive.
 
-Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 **Por que dados de exemplo?**
 

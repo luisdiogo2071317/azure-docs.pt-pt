@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 588ce454248f0577a52515a4327d1e43013d34a5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f8ebb282d3f6abbc37739891c0f7228bef110d82
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581804"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842684"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Personalizar a interface do usuário das suas aplicações no Azure Active Directory B2C
 
-Para experiências de usuário mais comuns, tais como inscrição, início de sessão e edição de perfil, pode usar [políticas incorporadas](active-directory-b2c-reference-policies.md) no Azure Active Directory (Azure AD) B2C. As informações neste tutorial ajudam-o a saber como [personalizar a interface de utilizador (IU)](customize-ui-overview.md) destas experiências com seus próprios arquivos HTML e CSS.
+Para experiências de usuário mais comuns, tais como inscrição, início de sessão e edição de perfil, pode usar [fluxos de utilizador](active-directory-b2c-reference-policies.md) no Azure Active Directory (Azure AD) B2C. As informações neste tutorial ajudam-o a saber como [personalizar a interface de utilizador (IU)](customize-ui-overview.md) destas experiências com seus próprios arquivos HTML e CSS.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar arquivos de personalização da interface do Usuário
-> * Criar uma política de inscrição e início de sessão que utiliza os ficheiros
+> * Criar um fluxo de inscrição e início de sessão de utilizador que utiliza os ficheiros
 > * Testar a interface do Usuário personalizada
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -61,7 +61,7 @@ Embora armazene seus arquivos de várias maneiras, para este tutorial, armazene-
 
 ### <a name="enable-cors"></a>Ativar o CORS
 
- Do Azure AD B2C código num navegador usa uma abordagem moderna e padrão para carregar conteúdo personalizado a partir de uma URL que especificar numa política. Recursos de várias origens (CORS) de compartilhamento permite recursos restritos numa página da web para ser pedidos a partir de outros domínios.
+ Azure AD B2C código num navegador usa uma abordagem moderna e padrão para carregar conteúdo personalizado a partir de uma URL que especificou num fluxo de utilizador. Recursos de várias origens (CORS) de compartilhamento permite recursos restritos numa página da web para ser pedidos a partir de outros domínios.
 
 1. No menu, selecione **CORS**.
 2. Para **permitido origens**, introduza `https://your-tenant-name.b2clogin.com`. Substitua `your-tenant-name` com o nome do seu inquilino do Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com`. Tem de utilizar todas as letras minúsculas, ao introduzir o nome do seu inquilino.
@@ -137,9 +137,9 @@ Neste tutorial, vai armazenar os ficheiros que criou na conta de armazenamento p
 4. Copie o URL para o ficheiro que carregou para utilizar mais tarde no tutorial.
 5. Repita os passos 3 e 4 para o *style. CSS* ficheiro.
 
-## <a name="create-a-sign-up-and-sign-in-policy"></a>Criar uma política de inscrição e início de sessão
+## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Criar um fluxo de utilizador de inscrição e início de sessão
 
-Para concluir os passos neste tutorial, terá de criar um aplicativo de teste e uma política de inscrição ou início de sessão no Azure AD B2C. Pode aplicar os princípios descritos neste tutorial para as outras experiências de utilizador, tal como a edição de perfil.
+Para concluir os passos neste tutorial, terá de criar um fluxo de utilizador de aplicação e a inscrição ou início de sessão de teste no Azure AD B2C. Pode aplicar os princípios descritos neste tutorial para as outras experiências de utilizador, tal como a edição de perfil.
 
 ### <a name="create-an-azure-ad-b2c-application"></a>Criar uma aplicação do Azure AD B2C
 
@@ -153,29 +153,34 @@ Comunicação com o Azure AD B2C ocorre por meio de um aplicativo que criar no s
 6. Para **aplicação Web / Web API**, selecione `Yes`e, em seguida, introduza `https://jwt.ms` para o **URL de resposta**.
 7. Clique em **Criar**.
 
-### <a name="create-the-policy"></a>Criar a política
+### <a name="create-the-user-flow"></a>Criar o fluxo de utilizador
 
-Para testar seus arquivos de personalização, crie uma política de inscrição ou início de sessão incorporada que utiliza a aplicação que criou anteriormente.
+Para testar seus arquivos de personalização, crie um fluxo de utilizador incorporada de inscrição ou início de sessão que utiliza a aplicação que criou anteriormente.
 
-1. No seu inquilino do Azure AD B2C, selecione **políticas de inscrição ou início de sessão**e, em seguida, clique em **Add**.
-2. Introduza um nome para a política. Por exemplo, *signup_signin*. O prefixo *B2C_1* é automaticamente adicionado ao nome quando a política é criada.
-3. Selecione **fornecedores de identidade**, defina **inscrição de Email** para uma conta local e, em seguida, clique **OK**.
-4. Selecione **atributos de inscrição**, escolha os atributos que quer recolher do cliente durante a inscrição. Por exemplo, defina **país/região**, **nome a apresentar**, e **Código Postal**e, em seguida, clique em **OK**.
-5. Selecione **afirmações de aplicação**, escolha as afirmações que quer que sejam devolvidas nos tokens de autorização enviados para a sua aplicação depois de uma experiência de inscrição ou início de sessão com êxito. Por exemplo, seleccione **nome a apresentar**, **fornecedor de identidade**, **Código Postal**, **utilizador é novo** e **ID de objeto do utilizador** e, em seguida, clique em **OK**.
-6. Selecione **personalização da IU da página**, selecione **unificado a página de inscrição ou início de sessão**e um simples clique **Sim** para **página personalizada de utilização**.
-7. Na **URI da página personalizada**, introduza o URL para o *ui.html personalizada* ficheiro que registou anteriormente e, em seguida, clique em **OK**.
-8. Clique em **Criar**.
+1. No seu inquilino do Azure AD B2C, selecione **fluxos de utilizador**e, em seguida, clique em **novo fluxo de utilizador**.
+2. Sobre o **recomendado** separador, clique em **inscrever-se e iniciar sessão**.
+3. Introduza um nome para o fluxo de utilizador. Por exemplo, *signup_signin*. O prefixo *B2C_1* é automaticamente adicionado ao nome quando o fluxo de utilizador é criado.
+4. Sob **fornecedores de identidade**, selecione **inscrição de Email**.
+5. Sob **atributos de utilizador e afirmações**, clique em **mostrar mais**.
+6. Na **atributo recolher** coluna, escolha os atributos que quer recolher do cliente durante a inscrição. Por exemplo, defina **país/região**, **nome a apresentar**, e **Código Postal**.
+7. Na **declaração de retorna** coluna, escolha as afirmações que quer que sejam devolvidas nos tokens de autorização enviados para a sua aplicação depois de uma experiência de inscrição ou início de sessão com êxito. Por exemplo, selecione **Nome a Apresentar**, **Fornecedor de Identidade**, **Código Postal**, **O utilizador é novo** e **ID de Objeto do Utilizador**.
+8. Clique em **OK**.
+9. Clique em **Criar**.
+10. Sob **personalizar**, selecione **layouts de página**. Selecione **unificado a página de inscrição ou início de sessão**e um simples clique **Sim** para **utilizar conteúdo da página personalizada**.
+11. Na **URI da página personalizada**, introduza o URL para o *personalizado ui.html* ficheiro que registou anteriormente.
+12. Na parte superior da página, clique em **guardar**.
 
-## <a name="test-the-policy"></a>Testar a política
+## <a name="test-the-user-flow"></a>Testar o fluxo de utilizador
 
-1. No seu inquilino do Azure AD B2C, selecione **políticas de inscrição ou início de sessão**e, em seguida, selecione a política que criou. Por exemplo, *B2C_1_signup_signin*.
-2. Certifique-se de que a aplicação que criou está selecionada na **selecione aplicativo**e, em seguida, clique em **executar agora**.
+1. No seu inquilino do Azure AD B2C, selecione **fluxos de utilizador** e selecione o fluxo de utilizador que criou. Por exemplo, *B2C_1_signup_signin*.
+2. Na parte superior da página, clique em **executar o fluxo de utilizador**.
+3. Clique nas **executar o fluxo de utilizador** botão.
 
-    ![Executar a política de inscrição ou início de sessão](./media/tutorial-customize-ui/signup-signin.png)
+    ![Executar o fluxo de utilizador de inscrição ou início de sessão](./media/tutorial-customize-ui/run-user-flow.png)
 
     Deverá ver uma página semelhante ao seguinte exemplo com os elementos centra-se com base em arquivo CSS que criou:
 
-    ![Resultados da política](./media/tutorial-customize-ui/run-now.png) 
+    ![Resultados de fluxo de utilizador](./media/tutorial-customize-ui/run-now.png) 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -183,7 +188,7 @@ Neste artigo, aprendeu como:
 
 > [!div class="checklist"]
 > * Criar arquivos de personalização da interface do Usuário
-> * Criar uma política de inscrição e início de sessão que utiliza os ficheiros
+> * Criar um fluxo de inscrição e início de sessão de utilizador que utiliza os ficheiros
 > * Testar a interface do Usuário personalizada
 
 > [!div class="nextstepaction"]

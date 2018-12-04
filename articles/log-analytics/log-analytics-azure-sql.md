@@ -11,12 +11,12 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: b2c8ed30e26f5408123fe77606ddfec67479bcad
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 84b5665f434bcf7cdb0ac58a74727244d4155835
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726156"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844554"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
@@ -115,9 +115,9 @@ O abaixo tabela descreve as perspetivas suportadas para duas versões do dashboa
 | Informações | Fornece a desagregação hierárquica em informações inteligentes sobre o desempenho. | Sim | Sim |
 | Erros | Fornece a desagregação hierárquica em erros de SQL que ocorreram nas bases de dados. | Sim | Sim |
 | Tempos limite | Fornece a desagregação hierárquica em tempos limite SQL que ocorreram nas bases de dados. | Sim | Não |
-| Bloqueios | Fornece a desagregação hierárquica no blockings SQL que ocorreram nas bases de dados. | Sim | Não |
+| Blockings | Fornece a desagregação hierárquica no blockings SQL que ocorreram nas bases de dados. | Sim | Não |
 | Esperas de base de dados | Fornece a desagregação hierárquica para estatísticas de espera SQL no nível da base de dados. Inclui resumos de tempo de espera total e o tempo de espera por tipo de espera. |Sim | Sim |
-| Duração da consulta | Fornece a desagregação hierárquica para as estatísticas de execução de consulta, como a duração de consulta, a utilização da CPU, utilização e/s de dados, utilização e/s de registo. | Sim | Sim |
+| Duração de consulta | Fornece a desagregação hierárquica para as estatísticas de execução de consulta, como a duração de consulta, a utilização da CPU, utilização e/s de dados, utilização e/s de registo. | Sim | Sim |
 | Esperas de consulta | Fornece a desagregação hierárquica para as estatísticas de espera de consulta por categoria de espera. | Sim | Sim |
 
 ### <a name="intelligent-insights-report"></a>Relatório de informações inteligente
@@ -185,7 +185,7 @@ Alertas automatizados na solução se baseia em escrever uma consulta do Log Ana
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Criar alertas para a base de dados do Azure SQL
 
-Pode facilmente [criar alertas](../monitoring-and-diagnostics/alert-metric.md) com os dados provenientes de recursos de base de dados do Azure SQL. Aqui estão algumas útil [pesquisa de registos](log-analytics-queries.md) consultas que pode utilizar com um alerta de registo:
+Pode facilmente [criar alertas](../monitoring-and-diagnostics/alert-metric.md) com os dados provenientes de recursos de base de dados do Azure SQL. Aqui estão algumas útil [pesquisa de registos](../azure-monitor/log-query/log-query-overview.md) consultas que pode utilizar com um alerta de registo:
 
 #### <a name="high-cpu-on-azure-sql-database"></a>Elevada da CPU na base de dados SQL do Azure
 
@@ -297,6 +297,6 @@ Embora a solução é gratuita, consumo de telemetria de diagnóstico acima as u
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Uso [pesquisas de registos](log-analytics-queries.md) no Log Analytics para ver os dados de SQL do Azure detalhados.
+- Uso [pesquisas de registos](../azure-monitor/log-query/log-query-overview.md) no Log Analytics para ver os dados de SQL do Azure detalhados.
 - [Criar seus próprios dashboards](../azure-monitor/platform/dashboards.md) a mostrar dados de SQL do Azure.
 - [Criar alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) quando ocorrem eventos específicos do SQL do Azure.

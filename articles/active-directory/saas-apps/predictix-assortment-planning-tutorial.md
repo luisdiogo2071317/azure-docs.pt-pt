@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 1069b7f9bdc0301f840e796f49fdb4031d297cf2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a44812ccb89606416b2161a133adf2c781e81bd0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436245"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842038"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Tutorial: Integração do Azure Active Directory com o planejamento de gama Predictix
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com o planejamento de gama Predictix, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Uma variedade de Predictix planejamento logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do planeamento de gama Predictix com o Azure AD, 
 
 **Para adicionar o planejamento de gama Predictix partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -123,7 +123,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | `https://<sub-domain>.dev.ap.predictix.com`|
     
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de planejamento de gama de Predictix](http://www.infor.com/support) obter esses valores. 
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de planejamento de gama de Predictix](https://www.infor.com/support) obter esses valores. 
  
 
 
@@ -139,7 +139,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configuração de planejamento de gama de Predictix](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_configure.png) 
 
-1. Para configurar o início de sessão único num **planejamento de gama Predictix** lado, terá de enviar o transferido **Certificate(Base64)**, **ID de entidade de SAML**, **SAML Single Sign-On URL do serviço**, e **URL de fim de sessão** para [equipa de suporte de planeamento de gama Predictix](http://www.infor.com/support). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Para configurar o início de sessão único num **planejamento de gama Predictix** lado, terá de enviar o transferido **Certificate(Base64)**, **ID de entidade de SAML**, **SAML Single Sign-On URL do serviço**, e **URL de fim de sessão** para [equipa de suporte de planeamento de gama Predictix](https://www.infor.com/support). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -179,7 +179,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-predictix-assortment-planning-test-user"></a>Criar um utilizador de teste Predictix variedade de planeamento
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no planejamento da variedade de Predictix. Trabalhe em conjunto com [equipa de suporte de planeamento de gama Predictix](http://www.infor.com/contact/) para adicionar os utilizadores na plataforma do planeamento de gama Predictix.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no planejamento da variedade de Predictix. Trabalhe em conjunto com [equipa de suporte de planeamento de gama Predictix](https://www.infor.com/contact/) para adicionar os utilizadores na plataforma do planeamento de gama Predictix.
  > [!NOTE]
  > O titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue uma ligação para confirmar a respetiva conta até se tornar Active Directory.
 
@@ -213,7 +213,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

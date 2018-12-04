@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b043c5ebe4c2a02bd4d40ca4b2bb7d5f488f5747
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237910"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837346"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de análise de dados pré-configurados com o Azure e o Azure Stack 
 
@@ -252,7 +252,7 @@ Utilize os passos e as definições descritas acima para criar outra conta e blo
 
 ## <a name="test-the-queue-triggered-function"></a>Função acionada por fila de teste
 
-1.  No portal do Azure, navegue para a função. Expanda a **registos** na parte inferior da página e certifique-se de que a transmissão de registos não está em pausa.
+1.  No portal do Azure Stack, navegue para a função. Expanda a **registos** na parte inferior da página e certifique-se de que a transmissão de registos não está em pausa.
 
 2.  Abra o Explorador de armazenamento e ligue-se para a conta de armazenamento que criou no início desta secção.
 

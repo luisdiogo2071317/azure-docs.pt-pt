@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 93c8d3302444c7d764849fe41d529bc06696243f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c7f82e9fb286e53f9408e2134dbdc9c2b24ff267
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466176"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837703"
 ---
 # <a name="enable-custom-pronunciation"></a>Ativar pronúncia personalizada
 Ao utilizar pronúncia personalizada, pode definir o formulário fonético e a exibição de uma palavra ou o termo. É útil para lidar com os termos personalizados, tais como nomes de produto ou acrônimos. Tudo o que precisa é um ficheiro de pronúncia (um ficheiro. txt simples).
@@ -61,7 +61,7 @@ Um formulário de apresentação pode ser apenas uma palavra personalizada, um t
 >Não é recomendado utilizar esta funcionalidade para reformulate palavras comuns ou para modificar o formato falado. É melhor executar o Decodificador para ver se algumas palavras pouco habitual (por exemplo, abreviaturas, palavras técnicas ou palavras estrangeiras) estão incorretamente decodificadas. Se forem, adicioná-los para o ficheiro de pronúncia personalizado. No modelo de idioma, deve sempre e apenas usar o formulário de apresentação de uma palavra. 
 
 ## <a name="requirements-for-the-file-size"></a>Requisitos para o tamanho do ficheiro
-O tamanho do ficheiro. txt que contenha as entradas de pronúncia está limitado a 1 megabytes (MB). Normalmente, não precisa de carregar grandes quantidades de dados por meio deste ficheiro. A maioria dos arquivos de pronúncia personalizados são probabilidade de serem apenas alguns quilobytes (KBs) de tamanho. A codificação do ficheiro. txt para todas as localidades deve ser o UTF-8 BOM. Para a Localidade do inglês, ANSI também é aceitável.
+O tamanho do ficheiro. txt que contenha as entradas de pronúncia está limitado a 1 MB (1KB para chaves de escalão gratuito). Normalmente, não precisa de carregar grandes quantidades de dados por meio deste ficheiro. A maioria dos arquivos de pronúncia personalizados são probabilidade de serem apenas alguns quilobytes (KBs) de tamanho. A codificação do ficheiro. txt para todas as localidades deve ser o UTF-8 BOM. Para a Localidade do inglês, ANSI também é aceitável.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Melhorar a precisão de reconhecimento através da criação de um [um modelo acústico personalizado](how-to-customize-acoustic-models.md).

@@ -4,19 +4,18 @@ description: Fornece uma visão geral dos cálculos de avaliação no serviço A
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 04ae28ca566e97570ec64e78d3408ea8bd1e3d42
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9baf6ea70a8e9fa0dcd8ceefc9f58d7fa972767a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010325"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841970"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
 O [do Azure Migrate](migrate-overview.md) serviços avalia os grupos de máquinas no local para migração para o Azure. Pode utilizar a funcionalidade de visualização de dependência no Azure Migrate para criar grupos. Este artigo fornece informações sobre esta funcionalidade.
-
 
 ## <a name="overview"></a>Descrição geral
 
@@ -31,7 +30,13 @@ O Azure Migrate utiliza a [mapa de serviço](../operations-management-suite/oper
 
     ![Associar área de trabalho do Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Quando cria uma nova área de trabalho, tem de especificar um nome para a área de trabalho. A área de trabalho, em seguida, é criada numa região na mesma [geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) como o projeto de migração.
+- Ao associar uma área de trabalho, obterá a opção para criar uma nova área de trabalho ou anexar um já existente:
+      - Quando cria uma nova área de trabalho, tem de especificar um nome para a área de trabalho. A área de trabalho, em seguida, é criada numa região na mesma [geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) como o projeto de migração.
+      - Quando anexa uma área de trabalho existente, pode escolher entre todas as áreas de trabalho disponíveis na mesma subscrição que o projeto de migração. Tenha em atenção que apenas essas áreas de trabalho estão listadas que foram criados numa região onde [mapa de serviço é suportado](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Para poder ligar uma área de trabalho, certifique-se de que tem acesso de "Reader" para a área de trabalho.
+
+  > [!NOTE]
+  > Depois de ter anexada uma área de trabalho para um projeto, não é possível alterá-lo mais tarde.
+
 - O espaço de trabalho associado é marcado com a chave **projeto de migração**e o valor **nome do projeto**, que pode usar para pesquisar no portal do Azure.
 - Para navegar para a área de trabalho associada ao projeto, pode aceder à **Essentials** secção do projeto **descrição geral** página e aceder a área de trabalho
 

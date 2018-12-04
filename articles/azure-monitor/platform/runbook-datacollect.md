@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 4cea2b7feb6d21a0566a4876414b2d75abc29959
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 9f4ee3bdba87747a04dd4a5af9391c9dba6e1b51
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681760"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834227"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recolher dados no Log Analytics com um runbook da automatização do Azure
 Pode recolher uma quantidade significativa de dados no Log Analytics a partir de várias origens, incluindo [origens de dados](../../azure-monitor/platform/agent-data-sources.md) nos agentes e também [dados recolhidos a partir do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md).  Há um cenários, embora em que precisa recolher dados que não acessível através destas origens padrão.  Nestes casos, pode utilizar o [HTTP Data Collector API](../../log-analytics/log-analytics-data-collector-api.md) para escrever dados para o Log Analytics a partir de qualquer cliente de REST API.  Um método comum para efetuar a recolha de dados está a utilizar um runbook na automatização do Azure.   
@@ -145,7 +145,7 @@ A automatização do Azure inclui um ambiente para [testar o runbook](../../auto
     ![Saída de postagem](media/runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5. Certifique-se de registos no Log Analytics
-Depois do runbook foi concluída em teste, e verificado que a saída foi recebida com êxito, pode verificar os registos foram criados com uma [pesquisa de registos no Log Analytics](../../log-analytics/log-analytics-queries.md).
+Depois do runbook foi concluída em teste, e verificado que a saída foi recebida com êxito, pode verificar os registos foram criados com uma [pesquisa de registos no Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
 
 ![Saída de registo](media/runbook-datacollect/log-output.png)
 

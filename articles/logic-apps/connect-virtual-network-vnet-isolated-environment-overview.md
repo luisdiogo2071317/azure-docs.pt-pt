@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/29/2018
-ms.openlocfilehash: eb296a436f6c09a4f592ba3a26ee1c3a0f8e18bb
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.date: 12/03/2018
+ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678837"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845200"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso a recursos de rede Virtual do Azure a partir do Azure Logic Apps, utilizando ambientes de serviço de integração (ISEs)
 
@@ -64,13 +64,15 @@ A diferença entre os conectores ISE e não ISE é nos locais onde executar os a
 
 Quando cria um ambiente de serviço de integração (ISE), selecione uma rede virtual do Azure para onde *injetar* seu ambiente. Injeção implementa uma instância privada do serviço de aplicações lógicas na sua rede virtual. Esta ação resulta num ambiente isolado, onde pode criar e executar as aplicações lógicas em recursos dedicados. Quando cria as aplicações lógicas selecionar seu ISE como localização das suas aplicações. Estas aplicações de lógica podem, em seguida, aceder à sua rede virtual diretamente e ligar a recursos na rede. 
 
-Para sistemas no local numa rede virtual que está ligada a um ISE, aplicações lógicas podem acessar diretamente desses sistemas, utilizando qualquer um destes itens: 
+Para sistemas que estão ligados a uma rede virtual, pode injetar um ISE nessa rede virtual para que as aplicações lógicas podem acessar diretamente desses sistemas, utilizando qualquer um desses itens: 
 
 * Conector do ISE para esse sistema, por exemplo, o SQL Server
+
 * Ação de HTTP 
+
 * Conector personalizado
 
-Para sistemas no local que não estão numa rede virtual ou não tem conectores ISE, pode ligar a esses sistemas após [configurar e utilizar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md).
+Para sistemas no local que não estão ligados a uma rede virtual ou não tem conectores ISE, pode ligar a esses sistemas por [configurar e utilizar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md).
 
 Pode selecionar uma rede virtual do Azure para injetar seu ambiente, tem de configurar permissões de controlo de acesso baseado em funções (RBAC) na sua rede virtual para o serviço do Azure Logic Apps. Esta tarefa requer que atribua os **contribuinte de rede** e **contribuinte clássico** funções para o serviço do Azure Logic Apps.
 Para configurar estas permissões, consulte [ligar a redes virtuais do Azure a partir de aplicações lógicas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access)

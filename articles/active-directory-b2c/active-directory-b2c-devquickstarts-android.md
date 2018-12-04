@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4a4b9863d8f74592a8d9a700c3dbc850cd867331
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a5bf15289e91cc568524e8110702b5608118bc2d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725561"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833929"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>O Azure AD B2C: Início de sessão com uma aplicação Android
 
@@ -42,7 +42,7 @@ Em seguida, precisa de criar uma aplicação no diretório do B2C. Isto proporci
 
 ## <a name="create-your-user-flows"></a>Criar os seus fluxos de utilizador
 
-No Azure AD B2C, cada experiência de utilizador é definida por um [fluxo de utilizador](active-directory-b2c-reference-policies.md), que é um conjunto de políticas que controlam o comportamento do Azure AD. Esta aplicação contém uma experiência de identidade: um fluxo de utilizador de início de sessão e inscrição combinados. Tem de criar este fluxo de utilizador, conforme descrito no [artigo de referência do fluxo de utilizador](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Quando cria o fluxo de utilizador, certifique-se de que para:
+No Azure AD B2C, cada experiência de utilizador é definida por um [fluxo de utilizador](active-directory-b2c-reference-policies.md), que é um conjunto de políticas que controlam o comportamento do Azure AD. Esta aplicação contém uma experiência de identidade: um fluxo de utilizador de início de sessão e inscrição combinados. Tem de criar este fluxo de utilizador, conforme descrito no [artigo de referência do fluxo de utilizador](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Quando cria o fluxo de utilizador, certifique-se de que para:
 
 * Escolha o **nome a apresentar** como um atributo Inscreva-se no seu fluxo de utilizador.
 * Escolha o **nome a apresentar** e **ID de objeto** afirmações de aplicação em cada fluxo de utilizador. Também pode escolher outras afirmações.

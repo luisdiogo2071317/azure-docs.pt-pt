@@ -3,26 +3,25 @@ title: Recomendações de custos do Assistente do Azure | Documentos da Microsof
 description: Utilize o Assistente do Azure para otimizar o custo das suas implementações do Azure.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: 71c380a1caae730b6b01615ce3047c2e22bd6dfb
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.author: kasparks
+ms.openlocfilehash: a4de50e3dc17d9c9543bf1ec8cabb04c5d60070b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054778"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832892"
 ---
 # <a name="advisor-cost-recommendations"></a>Recomendações de custos do Assistente
 
-O assistente o ajuda a otimizar e reduzir sua gerais com o Azure gasta ao identificar recursos subutilizados e inativos. Pode obter custar recomendações do **custo** separador no dashboard do Advisor.
+O assistente o ajuda a otimizar e reduzir sua gerais com o Azure gasta ao identificar recursos subutilizados e inativos. Pode obter custar recomendações do **custo** separador no dashboard do Advisor.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Otimizar a máquina virtual passar por redimensionamento ou encerrar subutilizadas instâncias 
 Embora determinados cenários de aplicação podem resultar numa utilização reduzida por design, pode poupar dinheiro várias vezes ao gerir o tamanho e número de máquinas virtuais. O assistente monitoriza a utilização da máquina virtual durante 14 dias e, em seguida, identifica as máquinas virtuais de baixa utilização. Máquinas virtuais cuja utilização da CPU é 5 por cento ou menos e utilização de rede é de 7 MB ou menos para quatro ou mais dias são considerados máquinas de virtuais de baixa utilização.

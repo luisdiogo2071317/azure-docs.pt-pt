@@ -10,19 +10,21 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 49f3f80832597b231aec812a4c1613da9897f72a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e6fc9ded2b3509f9505d88f0ae7ccc790e47b0f2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722450"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842769"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com a ligação do OpenID com o Azure Active Directory B2C
 
 >[!NOTE]
 > Esta funcionalidade está em pré-visualização pública. Não utilize a funcionalidade em ambientes de produção.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) é um protocolo de autenticação, criado com base no OAuth 2.0, que pode ser utilizado para assinar com segurança os utilizadores. A maioria dos fornecedores de identidade que utilizam esse protocolo, como [do Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), são suportadas no Azure AD B2C. Este artigo explica como pode adicionar fornecedores de identidade OpenID Connect personalizados em seus fluxos de utilizador.
+
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) é um protocolo de autenticação, criado com base no OAuth 2.0, que pode ser utilizado para assinar com segurança os utilizadores. A maioria dos fornecedores de identidade que utilizam esse protocolo, como [do Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), são suportadas no Azure AD B2C. Este artigo explica como pode adicionar fornecedores de identidade OpenID Connect personalizados em seus fluxos de utilizador.
+
 
 ## <a name="add-the-identity-provider"></a>Adicionar o fornecedor de identidade
 
@@ -39,13 +41,13 @@ Todos os fornecedores de identidade OpenID Connect descreve um documento de meta
 Para permitir que os utilizadores iniciem sessão, o fornecedor de identidade exige que os desenvolvedores registar uma aplicação no seu serviço. Esta aplicação tem um ID que é conhecido como o **ID de cliente** e uma **segredo do cliente**. Copie estes valores a partir do fornecedor de identidade e insira-os nos campos correspondentes.
 
 > [!NOTE]
-> O segredo do cliente é opcional. No entanto, tem de introduzir um segredo do cliente se pretender utilizar o [fluxo de código de autorização](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), que utiliza o segredo para trocar o código para o token.
+> O segredo do cliente é opcional. No entanto, tem de introduzir um segredo do cliente se pretender utilizar o [fluxo de código de autorização](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), que utiliza o segredo para trocar o código para o token.
 
 Âmbito define as informações e as permissões que quer para recolher através do seu fornecedor de identidade personalizada. Pedidos de ligação OpenID tem de conter o `openid` analisar o valor para receber o token de ID do fornecedor de identidade. Sem o token de ID, os utilizadores não são capazes de iniciar sessão no Azure AD B2C usando o provedor de identidade personalizada. Outros âmbitos podem ser anexados separados por espaço. Consulte a documentação do fornecedor de identidade personalizado para ver o que podem ser outros âmbitos disponíveis.
 
 O tipo de resposta descreve que tipo de informações é enviado de volta na chamada inicial para o `authorization_endpoint` do fornecedor de identidade personalizada. Podem ser utilizados os seguintes tipos de resposta:
 
-- `code`:, De acordo a [fluxo de código de autorização](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), será devolvido um código de volta para o Azure AD B2C. O Azure AD B2C prossegue, chamando o `token_endpoint` para trocar o código para o token.
+- `code`:, De acordo a [fluxo de código de autorização](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), será devolvido um código de volta para o Azure AD B2C. O Azure AD B2C prossegue, chamando o `token_endpoint` para trocar o código para o token.
 - `token`: Um token de acesso é retornado novamente ao Azure AD B2C do fornecedor de identidade personalizada.
 - `id_token`: Um token de ID é retornado novamente para o Azure AD B2C do fornecedor de identidade personalizada.
 

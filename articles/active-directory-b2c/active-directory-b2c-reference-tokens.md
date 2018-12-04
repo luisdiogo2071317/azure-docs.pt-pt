@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 10de56ac8945be4bb0920f95774b469d283f575b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 81927c4e69f36fbc4859ac2865bc15cbfacb17fb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721379"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843874"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Do Azure AD B2C: Referência de Token
 
@@ -30,9 +30,9 @@ Um token de portador é um token de segurança simples que concede o acesso de "
 
 Se um token de portador é transmitido fora de um canal seguro, mal-intencionados podem utilizar um ataque man-in-the-middle adquirir o token e utilizá-lo a obter acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança aplicam-se quando os tokens de portador são armazenados ou colocados em cache para utilização posterior. Certifique-se sempre de que a aplicação transmite e armazena os tokens de portador de forma segura.
 
-Para considerações de segurança adicionais em tokens de portador, consulte [RFC 6750 secção 5](http://tools.ietf.org/html/rfc6750).
+Para considerações de segurança adicionais em tokens de portador, consulte [RFC 6750 secção 5](https://tools.ietf.org/html/rfc6750).
 
-Muitos dos tokens emitidos pelo Azure AD B2C são implementados como tokens de web JSON (JWTs). Um JWT é um meio de compacto e seguras para URL de transferência de informações entre duas partes. JWTs contêm informações conhecidas como afirmações. Estas são algumas hipóteses de obter informações sobre o portador e o assunto do token. As afirmações no JWTs são objetos JSON, que são codificados e serializados para transmissão. Porque JWTs emitidos pelo Azure AD B2C são assinados, mas não encriptados, pode inspecionar o conteúdo de um JWT para depurá-lo facilmente. Estão disponíveis várias ferramentas que pode fazê-lo, incluindo [jwt.ms](https://jwt.ms). Para obter mais informações sobre JWTs, consulte [especificações JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Muitos dos tokens emitidos pelo Azure AD B2C são implementados como tokens de web JSON (JWTs). Um JWT é um meio de compacto e seguras para URL de transferência de informações entre duas partes. JWTs contêm informações conhecidas como afirmações. Estas são algumas hipóteses de obter informações sobre o portador e o assunto do token. As afirmações no JWTs são objetos JSON, que são codificados e serializados para transmissão. Porque JWTs emitidos pelo Azure AD B2C são assinados, mas não encriptados, pode inspecionar o conteúdo de um JWT para depurá-lo facilmente. Estão disponíveis várias ferramentas que pode fazê-lo, incluindo [jwt.ms](https://jwt.ms). Para obter mais informações sobre JWTs, consulte [especificações JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### <a name="id-tokens"></a>Tokens de ID
 
@@ -68,7 +68,7 @@ Quando a API recebe um token de acesso, tem [validar a assinatura](#token-valida
 
 Quando utilizar o Azure AD B2C, terá um controle refinado sobre o conteúdo dos seus tokens. Pode configurar [fluxos de utilizador](active-directory-b2c-reference-policies.md) e as políticas personalizadas para enviar determinados conjuntos de dados de utilizador nas afirmações que a sua aplicação necessita para suas operações. Essas declarações podem incluir propriedades padrão, como o usuário `displayName` e `emailAddress`. Eles também podem incluir [atributos de utilizador personalizada](active-directory-b2c-reference-custom-attr.md) que pode definir no diretório do B2C. Cada acesso e o ID de token que recebe contém um determinado conjunto de declarações relacionadas à segurança. Seus aplicativos podem usar essas declarações de forma a autenticar os utilizadores e pedidos.
 
-Tenha em atenção que as afirmações nos tokens de ID não são devolvidas em qualquer ordem específica. Além disso, podem ser introduzidas nova afirmações nos tokens de ID em qualquer altura. A aplicação não deve interromper conforme novas declarações são introduzidas. Aqui estão as afirmações que espera existe nos tokens de acesso e de ID emitidos pelo Azure AD B2C. Qualquer afirmações adicionais são determinadas por políticas. Para a prática, tente inspecionar as afirmações no token de ID de exemplo através da colagem-lo para [jwt.ms](https://jwt.ms). Detalhes adicionais podem ser encontrados no [especificação do OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
+Tenha em atenção que as afirmações nos tokens de ID não são devolvidas em qualquer ordem específica. Além disso, podem ser introduzidas nova afirmações nos tokens de ID em qualquer altura. A aplicação não deve interromper conforme novas declarações são introduzidas. Aqui estão as afirmações que espera existe nos tokens de acesso e de ID emitidos pelo Azure AD B2C. Qualquer afirmações adicionais são determinadas por políticas. Para a prática, tente inspecionar as afirmações no token de ID de exemplo através da colagem-lo para [jwt.ms](https://jwt.ms). Detalhes adicionais podem ser encontrados no [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).
 
 | Nome | Afirmação | Valor de exemplo | Descrição |
 | --- | --- | --- | --- |
@@ -78,8 +78,8 @@ Tenha em atenção que as afirmações nos tokens de ID não são devolvidas em 
 | Hora de expiração |`exp` |`1438539443` |Hora de expiração da afirmação é a hora em que o token se torna inválido, representado na hora "Epoch". A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
 | Não antes |`nbf` |`1438535543` |Esta afirmação é a hora em que o token se torna válido, representado na hora "Epoch". Isso normalmente é o mesmo que o tempo que o token foi emitido. A aplicação deve utilizar esta afirmação para verificar a validade da duração do token. |
 | Versão |`ver` |`1.0` |Esta é a versão do token de ID, conforme definido pelo Azure AD. |
-| Hash de código |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Um hash de código está incluído num token de ID apenas quando o token for emitido, juntamente com um código de autorização de OAuth 2.0. Um hash de código pode ser utilizado para validar a autenticidade de um código de autorização. Para obter mais detalhes sobre como efetuar esta validação, consulte a [especificação do OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).  |
-| Hash de token de acesso |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Um hash de token de acesso está incluído num token de ID apenas quando o token for emitido, juntamente com um token de acesso de OAuth 2.0. Um hash de token de acesso pode ser utilizado para validar a autenticidade de um token de acesso. Para obter mais detalhes sobre como efetuar esta validação, consulte o [especificação OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html)  |
+| Hash de código |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Um hash de código está incluído num token de ID apenas quando o token for emitido, juntamente com um código de autorização de OAuth 2.0. Um hash de código pode ser utilizado para validar a autenticidade de um código de autorização. Para obter mais detalhes sobre como efetuar esta validação, consulte a [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
+| Hash de token de acesso |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |Um hash de token de acesso está incluído num token de ID apenas quando o token for emitido, juntamente com um token de acesso de OAuth 2.0. Um hash de token de acesso pode ser utilizado para validar a autenticidade de um token de acesso. Para obter mais detalhes sobre como efetuar esta validação, consulte o [especificação OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Valor de uso único |`nonce` |`12345` |Um valor de uso único é uma estratégia utilizada para mitigar ataques de repetição de token. A aplicação, pode especificar um valor de uso único numa solicitação de autorização utilizando a `nonce` parâmetro de consulta. O valor que fornecer no pedido será emitido sem modificações no `nonce` de afirmação de apenas um token de ID. Isso permite que a sua aplicação verificar o valor com o valor que ele especificado na solicitação, que associa sessão da aplicação um determinado token de ID. A aplicação deve realizar esta validação durante o processo de validação do token de ID. |
 | Requerente |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Este é o principal sobre o qual o token declara informações, como o utilizador de uma aplicação. Este valor é imutável e não pode ser reatribuído ou reutilizado. Ele pode ser usado para realizar verificações de autorização com segurança, por exemplo, quando o token é utilizado para aceder a um recurso. Por predefinição, a afirmação do requerente é preenchida com o ID de objeto do utilizador no diretório. Para obter mais informações, consulte [do Azure Active Directory B2C: Token, sessão e configuração de início de sessão único](active-directory-b2c-token-session-sso.md). |
 | Referência de classe de contexto de autenticação |`acr` |Não aplicável |Não utilizado atualmente, exceto no caso de políticas mais antigas. Para obter mais informações, consulte [do Azure Active Directory B2C: Token, sessão e configuração de início de sessão único](active-directory-b2c-token-session-sso.md). |

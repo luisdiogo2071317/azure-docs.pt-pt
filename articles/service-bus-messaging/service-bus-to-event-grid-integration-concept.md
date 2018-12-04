@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 2173a24eb3bbaafe9dcf25461eb5357ba3a6e7ad
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: c5dcfcb61903c3dbb92e942a5d3dca264ad454e3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166904"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834388"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Descrição geral de integração do Azure Service Bus para o Event Grid
 
@@ -36,10 +36,7 @@ Para ativar a funcionalidade, precisa dos seguintes itens:
 ![19][]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Verifique se tem acesso de contribuinte
-
-Aceda ao espaço de nomes do Service Bus e selecione **Controlo de acesso (IAM)**, conforme mostrado aqui:
-
-![1][]
+Aceda ao seu espaço de nomes do Service Bus e, em seguida, selecione **controlo de acesso (IAM)** e selecione **atribuições de funções** separador. Certifique-se de que tem o acesso de contribuinte ao espaço de nomes. 
 
 ### <a name="events-and-event-schemas"></a>Eventos e esquemas de eventos
 
@@ -173,7 +170,7 @@ New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBS
 
 A partir de aqui, pode explorar as outras opções de configuração ou [testar se os eventos estão a fluir](#test-that-events-are-flowing).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Obtenha [exemplos](service-bus-to-event-grid-integration-example.md) do Service Bus e Event Grid.
 * Saiba mais sobre o [Event Grid](https://docs.microsoft.com/azure/event-grid/).

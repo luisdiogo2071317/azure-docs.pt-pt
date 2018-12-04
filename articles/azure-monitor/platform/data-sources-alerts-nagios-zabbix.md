@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 3331ed7775cd3027f1262b195c6230fbea742497
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 32c8acb28eba0d5a19144e7c0f922f206976b6d0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336928"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833674"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Recolher alertas do Nagios e do Zabbix no Log Analytics a partir do agente do Log Analytics para Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -80,7 +80,7 @@ Recolher alertas no servidor Nagios, execute os seguintes passos.
 
 
 ## <a name="alert-records"></a>Registos de alerta
-Pode obter registos de alertas do Nagios e do Zabbix usando [pesquisas de registos](../../log-analytics/log-analytics-queries.md) no Log Analytics.
+Pode obter registos de alertas do Nagios e do Zabbix usando [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics.
 
 ### <a name="nagios-alert-records"></a>Registos de alerta de Nagios
 
@@ -107,7 +107,7 @@ Alertas de registos recolhidos pelo Zabbix têm uma **tipo** de **alerta** e um 
 | Tipo |*Alertar* |
 | SourceSystem |*Zabbix* |
 | AlertName | Nome do alerta. |
-| AlertPriority | Gravidade do alerta.<br><br>não classificado<br>informações<br>aviso<br>média<br>Alta<br>após desastre  |
+| AlertPriority | Gravidade do alerta.<br><br>não classificado<br>Informações<br>Aviso<br>média<br>Alta<br>após desastre  |
 | AlertState | Estado do alerta.<br><br>0 - estado está atualizado.<br>1 - estado é desconhecido.  |
 | AlertTypeNumber | Especifica se o alerta pode gerar vários eventos de problema.<br><br>0 - estado está atualizado.<br>1 - estado é desconhecido.    |
 | Comentários | Comentários adicionais para o alerta. |
@@ -119,4 +119,4 @@ Alertas de registos recolhidos pelo Zabbix têm uma **tipo** de **alerta** e um 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) no Log Analytics.
-* Saiba mais sobre [pesquisas de registos](../../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 

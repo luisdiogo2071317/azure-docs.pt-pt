@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8dad4c11ac309d959675d525fbeb48fe385cf4a5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 022dd52e05b9227e3ce0920a083f75413a2eebc8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336963"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836921"
 ---
 # <a name="data-sources-in-log-analytics"></a>Origens de dados no Log Analytics
 Log Analytics recolhe dados a partir de origens ligadas e armazena-os em sua área de trabalho do Log Analytics.  Os dados que são recolhidos de cada um são definidos pelas origens de dados que configurou.  Dados do Log Analytics são armazenados como um conjunto de registos.  Cada origem de dados cria registos de um determinado tipo com cada tipo de ter seu próprio conjunto de propriedades.
@@ -68,5 +68,5 @@ Todos os dados recolhidos pelo Log Analytics é armazenado na área de trabalho 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [soluções](../../azure-monitor/insights/solutions.md) que acrescentam funcionalidades ao Log Analytics e também, recolher dados para a área de trabalho.
-* Saiba mais sobre [pesquisas de registos](../../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
+* Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
 * Configurar [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para ser notificado proativamente dos dados vitais recolhidos a partir de origens de dados e soluções.

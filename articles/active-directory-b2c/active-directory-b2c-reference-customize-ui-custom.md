@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139514"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841630"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizar a interface do Usuário de um percurso do utilizador com as políticas personalizadas
 
@@ -31,7 +31,7 @@ Uma experiência de utilizador totalmente integrada é fundamental para qualquer
 
 O Azure AD B2C permite-lhe personalizar o aspeto e funcionalidade da experiência de usuário (UX) nas várias páginas que são servidos e apresentados pelo Azure AD B2C com suas políticas personalizadas.
 
-Para essa finalidade, o Azure AD B2C executa o código no browser do consumidor e utiliza a abordagem moderna e standard [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) para carregar conteúdo personalizado a partir de uma URL específica que especificar numa política personalizada para apontar para os modelos de HTML5/CSS. CORS é um mecanismo que permite recursos restritos, como fontes, numa página da web para ser pedidos a partir de outro domínio fora do domínio a partir do qual o recurso teve origem.
+Para essa finalidade, o Azure AD B2C executa o código no browser do consumidor e utiliza a abordagem moderna e standard [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) para carregar conteúdo personalizado a partir de uma URL específica que especificar numa política personalizada para apontar para os modelos de HTML5/CSS. CORS é um mecanismo que permite recursos restritos, como fontes, numa página da web para ser pedidos a partir de outro domínio fora do domínio a partir do qual o recurso teve origem.
 
 Em comparação com a maneira tradicional antiga, onde as páginas de modelo são propriedade pela solução em que que forneceu limitada de texto e imagens, em que o controle limitado de layout e a funcionalidade foi oferecido que leva a mais que os problemas para obter uma experiência totalmente integrada, a forma CORS oferece suporte a HTML5 e CSS e permitem-lhe:
 
@@ -69,10 +69,10 @@ Para garantir que tudo funciona conforme esperado, tem de:
 - Utilizar URLS absolutos como https://yourdomain/content para todas as ligações e conteúdo CSS.
 
 > [!TIP]
-> Para verificar se o site está a alojar o seu conteúdo em tem CORS ativada e solicitações CORS de teste, pode utilizar o site http://test-cors.org/. Graças a este site, pode enviar o pedido CORS para um servidor remoto (para testar se o CORS é suportado) ou enviar o pedido CORS para um servidor de teste (para explorar algumas funcionalidades do CORS).
+> Para verificar se o site está a alojar o seu conteúdo em tem CORS ativada e solicitações CORS de teste, pode utilizar o site https://test-cors.org/. Graças a este site, pode enviar o pedido CORS para um servidor remoto (para testar se o CORS é suportado) ou enviar o pedido CORS para um servidor de teste (para explorar algumas funcionalidades do CORS).
 
 > [!TIP]
-> O site http://enable-cors.org/ também constitui um mais do que recursos úteis no CORS.
+> O site https://enable-cors.org/ também constitui um mais do que recursos úteis no CORS.
 
 Graças a essa abordagem baseada em CORS, os usuários finais ter experiências consistentes entre a aplicação e o número de páginas apresentados pelo Azure AD B2C.
 
@@ -120,7 +120,7 @@ CORS (partilha de recursos de várias origens) tem de estar ativada no seu ponto
 Para verificar que o armazenamento que está a alojar o seu conteúdo em tem a CORS ativada, continue com os passos seguintes:
 
 1. Abra uma sessão de navegação e navegue para a página *unified.html* utilizando o URL completo do seu local na sua conta de armazenamento, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Por exemplo, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Navegue para http://test-cors.org. Este site permite-lhe verificar se a página que está a utilizar tem a CORS ativada.  
+2. Navegue para https://test-cors.org. Este site permite-lhe verificar se a página que está a utilizar tem a CORS ativada.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->

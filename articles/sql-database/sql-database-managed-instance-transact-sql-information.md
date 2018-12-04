@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/03/2018
+ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712148"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843211"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
 
@@ -145,7 +145,7 @@ Instância gerida não é possível aceder aos ficheiros, pelo que não não pos
 
 ### <a name="collation"></a>Agrupamento
 
-Agrupamento de servidor é `SQL_Latin1_General_CP1_CI_AS` e não pode ser alterado. Ver [agrupamentos](https://docs.microsoft.com/sql/t-sql/statements/collations).
+O agrupamento de instância padrão é `SQL_Latin1_General_CP1_CI_AS` e pode ser especificado como um parâmetro de criação. Ver [agrupamentos](https://docs.microsoft.com/sql/t-sql/statements/collations).
 
 ### <a name="database-options"></a>Opções de base de dados
 
@@ -277,7 +277,8 @@ Operações
 ### <a name="logins--users"></a>Inícios de sessão / utilizadores
 
 - Inícios de sessão SQL criados `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, e `FROM SID` são suportados. Ver [criar início de sessão](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Inícios de sessão do Windows criados com `CREATE LOGIN ... FROM WINDOWS` sintaxe não são suportadas.
+- Inícios de sessão do Active Directory (AAD) do Azure criados com [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) sintaxe ou o [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) sintaxe são suportados (**pré-visualização pública**).
+- Inícios de sessão do Windows criados com `CREATE LOGIN ... FROM WINDOWS` sintaxe não são suportadas. Utilize inícios de sessão do Azure Active Directory e os utilizadores.
 - Tem de utilizador do Active Directory (Azure AD) do Azure que criou a instância [irrestrito privilégios de administrador](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
 - Utilizadores de nível de base de dados do Azure Active Directory (Azure AD) não administradores podem ser criados usando `CREATE USER ... FROM EXTERNAL PROVIDER` sintaxe. Consulte [utilizador de criar... DO FORNECEDOR EXTERNO](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
 
@@ -333,7 +334,7 @@ Para obter informações sobre instruções de restauro, veja [restaurar instru�
 Não é suportado o Mediador de serviço da instância de entre:
 
 - `sys.routes` -Pré-requisito: selecione o endereço de sys.routes. Endereço tem de ser LOCAL em cada rota. Ver [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE` -Não é possível `CREATE ROUTE` com `ADDRESS` diferente de `LOCAL`. Ver [criar rota](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
+- `CREATE ROUTE` -Não é possível usar `CREATE ROUTE` com `ADDRESS` diferente de `LOCAL`. Ver [criar rota](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE` Não é possível `ALTER ROUTE` com `ADDRESS` diferente de `LOCAL`. Ver [ALTER rota](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
 ### <a name="service-key-and-service-master-key"></a>Chave de mestre de chave e de serviço do serviço
@@ -427,14 +428,14 @@ As seguintes variáveis, funções e exibições devolvem resultados diferentes:
 
 Cada instância gerida tem para o armazenamento de 35 TB reservado para o espaço em disco do Azure Premium e cada arquivo de banco de dados é colocado no disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. Não é cobrado o espaço não utilizado no disco, mas a soma total dos tamanhos de disco do Azure Premium não pode ter mais de 35 TB. Em alguns casos, uma instância gerida que não precisa de 8 TB no total pode ter mais de 35 TB Azure limite para o tamanho de armazenamento, devido à fragmentação interna.
 
-Por exemplo, uma instância gerida pode ter um ficheiro 1,2 TB de tamanho que é colocado num disco de 4 TB e 248 ficheiros cada 1 GB de tamanho que são colocadas em discos separados de 128 GB. Neste exemplo:
+Por exemplo, uma instância gerida pode ter um ficheiro 1,2 TB de tamanho que é colocado num disco de 4 TB e 248 ficheiros (cada 1 GB de tamanho), que são colocados em discos separados de 128 GB. Neste exemplo:
 
-- o tamanho de armazenamento total do disco é 1 x 4 TB + GB de 248 x 128 = 35 TB.
+- O tamanho de armazenamento do disco alocado total é 1 x 4 TB + GB de 248 x 128 = 35 TB.
 - total de espaço reservado para bases de dados na instância é 1 x 1.2 TB + GB de 248 1 = 1,4 TB.
 
-Isso ilustra que sob determinadas circunstâncias, devido a uma distribuição muito específica de ficheiros, uma instância gerida atinja 35 TB reservado para o disco de Premium do Azure ligado quando pode esperar que ele não.
+Isso ilustra que, em determinadas circunstâncias, devido a uma distribuição específica de ficheiros, uma instância gerida atinja 35 TB reservado para o disco de Premium do Azure ligado quando pode esperar que ele não.
 
-Neste exemplo bases de dados existentes continuarão a funcionar e cresça sem qualquer problema, desde que não são adicionados novos ficheiros. No entanto novas bases de dados não foi possível ser criados ou restaurados porque não existe espaço suficiente para novas unidades de disco, mesmo que o tamanho total de todas as bases de dados não atinja o limite de tamanho de instância. Nesse caso o erro devolvido não fica claro.
+Neste exemplo, bancos de dados existentes continuarão a funcionar e cresça sem qualquer problema, desde que não são adicionados novos ficheiros. No entanto novas bases de dados não foi possível ser criados ou restaurados porque não existe espaço suficiente para novas unidades de disco, mesmo que o tamanho total de todas as bases de dados não atinja o limite de tamanho de instância. Nesse caso o erro devolvido não fica claro.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Restaurar a configuração incorreta da chave SAS durante a base de dados
 
@@ -443,7 +444,10 @@ Certifique-se de que remove o líder `?` da chave de SAS gerado com o portal do 
 
 ### <a name="tooling"></a>Ferramentas
 
-SQL Server Management Studio e SQL Server Data Tools podem ter alguns problemas ao aceder à instância gerida. Todos os problemas de ferramentas serão resolvidos antes da disponibilidade geral.
+SQL Server Management Studio (SSMS) e o SQL Server Data Tools (SSDT) podem ter alguns problemas ao aceder à instância gerida.
+
+- Usando a utilizadores e inícios de sessão do Azure AD (**pré-visualização pública**) com o SSDT não é atualmente suportada.
+- Scripts para utilizadores e inícios de sessão do Azure AD (**pré-visualização pública**) não são suportadas no SSMS.
 
 ### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Nomes de base de dados incorreto no algumas vistas, registos e as mensagens
 
@@ -451,7 +455,7 @@ Várias vistas de sistema, contadores de desempenho, mensagens de erro, XEvents 
 
 ### <a name="database-mail-profile"></a>Perfil de correio de base de dados
 
-É possível que o perfil de correio de base de dados apenas uma e tem de ser chamado `AzureManagedInstance_dbmail_profile`. Esta é uma limitação temporária que será removida em breve.
+É possível que o perfil de correio de base de dados apenas uma e tem de ser chamado `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>Registos de erros não são persistente
 
@@ -496,7 +500,7 @@ Embora esse código funciona com os dados dentro da instância do mesmo é neces
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>Módulos CLR e algum tempo a servidores ligados não é possível referenciar o endereço IP local
 
-Módulos CLR colocados na instância gerida e consultas servidores ligados/distribuído que fazem referência a instância atual algum tempo não é possível resolver o IP da instância local. Este é o erro transitório.
+Módulos CLR colocados na instância gerida e consultas servidores ligados/distribuído que fazem referência a instância atual algum tempo não é possível resolver o IP da instância local. Este erro é um problema transitório.
 
 **Solução**: utilizar ligações de contexto no módulo CLR, se possível.
 

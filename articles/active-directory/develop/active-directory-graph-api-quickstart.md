@@ -18,12 +18,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: b8dba999ac6523aad29aae40b528fd010fec0550
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 7a3c3e39792119d296c849c012d4798ec85a0e03
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687355"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845501"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Como: utilizar o Azure AD Graph API
 
@@ -82,7 +82,7 @@ Tenha em atenção as seguintes funcionalidades e limitações do Explorador do 
 
 ## <a name="using-fiddler-to-write-to-the-directory"></a>Com o Fiddler para escrevam no diretório
 
-Para efeitos deste guia de início rápido, pode utilizar o depurador de Web do Fiddler para prática realizar "escrita" operações de diretório do Azure AD. Por exemplo, pode obter e carregar fotografia de perfil do usuário (que não é possível com o Azure AD Graph Explorer). Para obter mais informações e para instalar o Fiddler, consulte [ http://www.telerik.com/fiddler ](http://www.telerik.com/fiddler).
+Para efeitos deste guia de início rápido, pode utilizar o depurador de Web do Fiddler para prática realizar "escrita" operações de diretório do Azure AD. Por exemplo, pode obter e carregar fotografia de perfil do usuário (que não é possível com o Azure AD Graph Explorer). Para obter mais informações e para instalar o Fiddler, consulte [ https://www.telerik.com/fiddler ](https://www.telerik.com/fiddler).
 
 No exemplo abaixo, utilize o Fiddler depurador da Web para criar um novo grupo de segurança 'MyTestGroup' no diretório do Azure AD.
 

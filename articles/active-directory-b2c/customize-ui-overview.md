@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b5d3703f052ef47bcbacf0be04072357ee5b9986
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722603"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844962"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Sobre a personalização da interface de utilizador no Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Dependendo das suas necessidades quando se trata estas experiências, personaliz
 - Se estiver a utilizar [políticas personalizadas](active-directory-b2c-overview-custom.md) fornecer a palavra-passe de inscrição ou início de sessão, reposição ou Editar perfil em seu aplicativo, usar [ficheiros de política para personalizar a interface do Usuário](active-directory-b2c-ui-customization-custom.md).
 - Se precisar de fornecer conteúdo dinâmico com base na decisão de um cliente, utilize [conteúdo de página de políticas personalizadas que podem ser alterados](active-directory-b2c-ui-customization-custom-dynamic.md) dependendo de um parâmetro que é enviado numa cadeia de consulta. Por exemplo, a imagem de fundo da página de inscrição ou início de sessão do Azure AD B2C altera, com base num parâmetro que passar de seu aplicativo web ou móvel.
 
-O Azure AD B2C executa o código no browser do seu cliente e utiliza uma abordagem moderna chamada [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). Em tempo de execução, o conteúdo é carregado a partir de uma URL que especificou num fluxo de utilizador ou a política. Especificar URLs diferentes para diferentes páginas. Depois de conteúdo é carregado a partir do URL, é mesclado com um fragmento HTML inserido a partir do Azure AD B2C e, em seguida, é apresentada para o seu cliente.
+O Azure AD B2C executa o código no browser do seu cliente e utiliza uma abordagem moderna chamada [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). Em tempo de execução, o conteúdo é carregado a partir de uma URL que especificou num fluxo de utilizador ou a política. Especificar URLs diferentes para diferentes páginas. Depois de conteúdo é carregado a partir do URL, é mesclado com um fragmento HTML inserido a partir do Azure AD B2C e, em seguida, é apresentada para o seu cliente.
 
 Antes de começar, reveja as seguintes orientações:
 

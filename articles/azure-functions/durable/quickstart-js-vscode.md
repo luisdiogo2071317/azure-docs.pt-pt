@@ -11,18 +11,20 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 114278b2d53cab8dd3302a8a2c2c074b8a5b24fa
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7dceed4d81f1e1767cbf91804573043d1204beee
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638581"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838910"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Criar a sua primeira função durável em JavaScript
 
 *Funções duráveis* é uma extensão da [as funções do Azure](../functions-overview.md) que permite que escreva funções com monitoração de estado num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e reinicializações por si.
 
 Neste artigo, irá aprender a utilizar a extensão de funções de Azure de código do Visual Studio para criar localmente e testar uma função durável "hello world".  Esta função será orquestrar e em conjunto da cadeia de chamadas para outras funções. Em seguida, publique o código de função no Azure.
+
+![Executar a função durável no Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -44,21 +46,21 @@ Para concluir este tutorial:
 
 ## <a name="create-a-starter-function"></a>Criar uma função de iniciante
 
+Primeiro, crie uma função acionada por HTTP, que inicia uma orquestração de função durável.
+
 1. Em **Azure: Funções**, escolha o ícone Criar Função.
 
-    ![Criar uma função](../media/functions-create-first-function-vs-code/create-function.png)
+    ![Criar uma função](./media/quickstart-js-vscode/create-function.png)
 
 1. Selecione a pasta com o projeto da aplicação de funções e selecione o modelo de função **acionador HTTP**.
 
-    ![Escolher o modelo do acionador HTTP](../media/functions-create-first-function-vs-code/create-function-choose-template.png)
+    ![Escolher o modelo do acionador HTTP](./media/quickstart-js-vscode/create-function-choose-template.png)
 
 1. Escreva `HttpStart` para o nome da função e prima Enter, em seguida selecione a autenticação **Anónima**.
 
-    ![Escolher autenticação anónima](../media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
+    ![Escolher autenticação anónima](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
     É criada uma função na linguagem que escolheu com o modelo de função acionada por HTTP.
-
-    ![Modelo de função acionada por HTTP no Visual Studio Code](../media/functions-create-first-function-vs-code/new-function-full.png)
 
 1. Substitua Index com o abaixo JavaScript:
 
@@ -107,23 +109,15 @@ Agora, criamos um ponto de entrada em nossa função durável. Vamos adicionar u
 
 ## <a name="create-an-orchestrator-function"></a>Criar uma função de Orquestrador
 
-1. Em **Azure: Funções**, escolha o ícone Criar Função.
+Em seguida, criar outra função para ser o orchestrator. Utilizamos o modelo de função de Acionador HTTP para sua comodidade. O código de função em si é substituído pelo código do orchestrator.
 
-    ![Criar uma função](../media/functions-create-first-function-vs-code/create-function.png)
+1. Repita os passos da secção anterior para criar uma segunda função usando o modelo de Acionador HTTP. Desta vez chamar a função de `OrchestratorFunction`.
 
-1. Selecione a pasta com o projeto da aplicação de funções e selecione o modelo de função **acionador HTTP**. Uma vez que vai ser substituindo esse código, não importa o acionador em si.
-
-    ![Escolher o modelo do acionador HTTP](../media/functions-create-first-function-vs-code/create-function-choose-template.png)
-
-1. Escreva `OrchestratorFunction` para o nome da função e prima Enter, em seguida selecione a autenticação **Anónima**.
-
-    ![Escolher autenticação anónima](../media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
-
-1. Substitua Index com o abaixo JavaScript:
+1. Abra o ficheiro Index js para a nova função e substitua os conteúdos com o código a seguir:
 
     [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-1. Substitua Function com o abaixo JSON:
+1. Abra o ficheiro de Function e substituí-lo com o seguinte JSON:
 
     [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
 
@@ -131,19 +125,9 @@ Adicionámos um orquestrador para coordenar as funções de atividade. Vamos ago
 
 ## <a name="create-an-activity-function"></a>Criar uma função de atividade
 
-1. Em **Azure: Funções**, escolha o ícone Criar Função.
+1. Repita os passos das secções anteriores para criar uma terceira função usando o modelo de Acionador HTTP. Mas, desta vez chamar a função de `SayHello`.
 
-    ![Criar uma função](../media/functions-create-first-function-vs-code/create-function.png)
-
-1. Selecione a pasta com o projeto da aplicação de funções e selecione o modelo de função **acionador HTTP**. Uma vez que vai ser substituindo esse código, não importa o acionador em si.
-
-    ![Escolher o modelo do acionador HTTP](../media/functions-create-first-function-vs-code/create-function-choose-template.png)
-
-1. Escreva `SayHello` para o nome da função e prima Enter, em seguida selecione a autenticação **Anónima**.
-
-    ![Escolher autenticação anónima](../media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
-
-1. Substitua Index com o abaixo JavaScript:
+1. Abra o ficheiro Index js para a nova função e substitua os conteúdos com o código a seguir:
 
     [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
@@ -151,7 +135,7 @@ Adicionámos um orquestrador para coordenar as funções de atividade. Vamos ago
 
     [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
 
-Agora adicionámos todos os componentes necessários para começar nosso orquestração e funções de atividade em conjunto de cadeia.
+Agora adicionámos todos os componentes necessários para começar uma orquestração e a cadeia das funções de atividade em conjunto.
 
 ## <a name="test-the-function-locally"></a>Testar localmente a função
 

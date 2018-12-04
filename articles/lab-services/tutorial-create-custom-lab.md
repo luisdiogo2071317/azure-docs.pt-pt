@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: ee2def6287a845cd0fd0260254efb20f9638ab2c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467434"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839046"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configurar um laboratório com o Azure DevTest Labs
 Neste tutorial, vai criar um laboratório com o portal do Azure. O administrador do laboratório configura um laboratório numa organização, cria VMs no laboratório e configura as políticas. Os utilizadores do laboratório (por exemplo: o programador e os técnicos de teste) reivindicam as VMs no laboratório, ligam-se a elas e utilizam-nas. 
@@ -80,15 +80,11 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar um labora
 1. Selecione **Configuração e políticas** no menu esquerdo. 
 
     ![Configuração e políticas](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. Selecione **Controlo de acesso(IAM)** no menu e, em seguida, selecione **+ Adicionar** na barra de ferramentas. 
-
-    ![Controlo de acesso–- botão Adicionar utilizador](./media/tutorial-create-custom-lab/access-control-add.png)
+1. Selecione **controlo de acesso (IAM)** no menu e selecione **+ adicionar atribuição de função** na barra de ferramentas. 
 1. Na página **Adicionar permissões**, realize as seguintes ações:
     1. Em **função**, selecione **Utilizador do DevTest Labs**. 
     2. Selecione o **utilizador** que pretende adicionar. 
     3. Selecione **Guardar**.
-
-        ![Adicionar permissões](./media/tutorial-create-custom-lab/add-lab-user.png)
 4. Para fechar **Configuração e políticas – Controlo de acesso (IAM)**, selecione **X** no canto direito. 
 
 ## <a name="cleanup-resources"></a>Recursos de limpeza
@@ -99,7 +95,7 @@ O próximo tutorial mostra como um utilizador do laboratório pode reivindicar e
 3. Selecione **Eliminar grupo de recursos** na barra de ferramentas. A eliminação de um grupo de recursos elimina todos os recursos no grupo, incluindo o laboratório. 
 4. Repita estes passos para eliminar o grupo de recursos adicional criado por si com o nome `<your resource group name><random numbers>`. Por exemplo: `splab3988722144001`. As VMs são criadas neste grupo de recursos em vez de serem criadas no grupo de recursos no qual existe o laboratório. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, criou um laboratório com uma VM e concedeu acesso ao laboratório a um utilizador. Para saber como aceder ao laboratório enquanto um utilizador do laboratório, avance para o próximo tutorial:
 
 > [!div class="nextstepaction"]

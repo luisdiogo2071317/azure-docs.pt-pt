@@ -1,18 +1,18 @@
 ---
 title: Configurar um servidor de processos no Azure para falhar durante a recuperação após desastre de VMs de VMware e servidores físicos com o Azure Site Recovery | Documentos da Microsoft
 description: Este artigo descreve como configurar um servidor de processos no Azure, para a reativação pós-falha do Azure no local durante a recuperação após desastre de VMs de VMware e servidores físicos.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: raynew
-ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/27/2018
+ms.author: ramamill
+ms.openlocfilehash: 2ef08831706a018422ea3700c8eb63bd6f95c469
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212238"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834969"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Escala para reativação pós-falha com servidores de processos adicionais
 
@@ -41,6 +41,7 @@ Em que cada máquina de origem protegida está configurada com discos de 3 de 10
 As pré-requisitos para o servidor de processos adicionais estão resumidos na tabela seguinte.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
 
 
 ## <a name="download-installation-file"></a>Transferir ficheiro de instalação

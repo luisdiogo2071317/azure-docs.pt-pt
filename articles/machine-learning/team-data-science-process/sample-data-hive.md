@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 793431e6e81712bae5033eff1eecddbf448ce120
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: e344ccb02d4d4ac78f4311b1a23a936e6cff99e1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446930"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844894"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dados de exemplo em tabelas do Hive do HDInsight
 Este artigo descreve como dimensionar os dados armazenados em tabelas de ramo de registo do Azure HDInsight com consultas do Hive para reduzi-lo para um tamanho mais gerenciável para análise. Ele abrange três métodos de amostragem popularmente usado:
@@ -28,7 +28,7 @@ Este artigo descreve como dimensionar os dados armazenados em tabelas de ramo de
 **Por que os dados de exemplo?**
 Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa idéia para dimensionar os dados para reduzi-lo para um tamanho mais pequeno, mas representativo e mais gerenciável. Amostragem de baixo facilita a compreensão de dados, a exploração e a engenharia de funcionalidades. O processo de ciência de dados de equipa de sua função é ativar a criação de protótipos rápida das funções de processamento de dados e modelos de machine learning.
 
-Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Como submeter consultas do Hive
 Consultas do Hive podem ser submetidas a partir da consola da linha de comandos do Hadoop no nó principal do cluster de Hadoop. Para tal, inicie sessão no nó principal do cluster do Hadoop, abra a consola de linha de comandos do Hadoop e submeter consultas do Hive a partir daí. Para obter instruções sobre como submeter consultas do Hive na consola da linha de comandos do Hadoop, consulte [submeter consultas do Hive como](move-hive-tables.md#submit).

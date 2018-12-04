@@ -1,21 +1,19 @@
 ---
-title: Introdução ao Azure Cosmos DB | Microsoft Docs
+title: Introdução ao Azure Cosmos DB
 description: Saiba mais sobre o Azure Cosmos DB. Esta base de dados de distribuição global com vários modelos foi concebida para baixa latência, escalabilidade elástica e elevada disponibilidade, e fornece suporte nativo para dados NoSQL.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: 89f5ae27e7ce3ec3155fd3fdbf42bb0f4322aa10
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242295"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835068"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -50,7 +48,7 @@ Como um serviço de base de dados com vários modelos de distribuição global, 
 
 * **Criar aplicações com elevada capacidade de resposta e críticas para a missão**
     * O Azure Cosmos DB garante baixa latência ponto a ponto no percentil 99 aos seus clientes. 
-    * Para um item de 1 KB típico, o Cosmos DB garante a latência ponto a ponto das leituras abaixo dos 10 ms e das escritas indexadas abaixo dos 15 ms no percentil 99, dentro da mesma região do Azure. As latências medianas são significativamente inferiores (abaixo dos 5 ms).
+    * Para um item de 1 a típico KB, o Cosmos DB garante a latência de ponto a ponto das leituras abaixo dos 10 ms e das escritas indexadas abaixo dos 10 ms no percentil 99, dentro da mesma região do Azure. As latências medianas são significativamente inferiores (abaixo dos 5 ms).
 
 * **Garantia de disponibilidade “always on”**
     * SLA de 99,99% de disponibilidade para todas as contas de bases de dados de região única e 99,999% de disponibilidade de leitura em todas as contas de bases de dados de várias regiões.
@@ -79,16 +77,16 @@ O Azure Cosmos DB fornece as melhores capacidades das bases de dados relacionais
 | --- | --- | --- | --- |
 | Distribuição global | Não | Não | Sim, distribuição chave na mão em mais de 30 regiões, com APIs multi-homing|
 | Dimensionamento horizontal | Não | Sim | Sim, pode dimensionar o armazenamento e o débito de forma independente | 
-| Garantias de latência | Não | Sim | Sim, 99% de leituras em < 10 ms e de escritas em < 15 ms | 
+| Garantias de latência | Não | Sim | Sim, 99% de leituras em < 10 ms e de escritas em < 10 ms | 
 | Elevada disponibilidade | Não | Sim | Sim, o Azure Cosmos DB está sempre ativado (“always on”), tem compromissos PACELC bem definidos e oferece opções de ativação pós-falha automáticas e manuais|
-| Modelo de dados + API | Relacional + SQL | Vários modelos e API OSS | Vários modelos + SQL + API OSS (mais em breve) |
+| Modelo de dados + API | Relacional + SQL | Vários modelos e API OSS | Vários modelos + SQL + OSS API |
 | SLAs | Sim | Não | Sim, SLAs abrangentes para latência, débito, consistência e disponibilidade |
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Soluções que tiram partido do Azure Cosmos DB
 
 Qualquer [aplicação Web, móvel, de jogos e de IoT](use-cases.md) que tenha de lidar com quantidades gigantescas de dados, leituras e escritas numa escala [global](distribute-data-globally.md) com tempos de resposta em tempo quase real para os mais variados dados tira partido da elevada disponibilidade [garantida](https://azure.microsoft.com/support/legal/sla/cosmos-db/), do elevado débito, da baixa latência e da consistência ajustável do Azure Cosmos DB. Saiba como o Azure Cosmos DB pode ser aplicado a [IoT e telemática](use-cases.md#iot-and-telematics), [Revenda e marketing](use-cases.md#retail-and-marketing), [Jogos](use-cases.md#gaming) e [aplicações móveis e Web](use-cases.md#web-and-mobile-applications).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Introdução ao Azure Cosmos DB com um dos nossos manuais de introdução:
 
 * [Introdução à API SQL do Azure Cosmos DB](create-sql-api-dotnet.md)

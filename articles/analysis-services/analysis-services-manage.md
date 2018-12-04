@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7ca97c52d81af2c224d27025266a628c28c0af78
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 536ae926ad8f401f952a41e17074536cc2b3c5f1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428912"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832042"
 ---
 # <a name="manage-analysis-services"></a>Gerir os serviços de análise
 Depois de criar um servidor do Analysis Services no Azure, pode haver algumas tarefas de administração e gerenciamento, que precisará executar imediatamente ou algum tempo, mais adiante. Por exemplo, executar processamento para os atualização de dados, controlar quem pode aceder os modelos no seu servidor, ou monitorizar o estado de funcionamento do seu servidor. Algumas tarefas de gestão só podem ser executadas no portal do Azure, as outras pessoas no SQL Server Management Studio (SSMS), e algumas tarefas podem ser feitas em qualquer um.
 
 ## <a name="azure-portal"></a>Portal do Azure
-[Portal do Azure](http://portal.azure.com/) é onde pode criar e eliminar servidores, monitorizar os recursos de servidor, alterar o tamanho e gerir quem tem acesso aos seus servidores.  Se estiver a ter alguns problemas, também pode submeter um pedido de suporte.
+[Portal do Azure](https://portal.azure.com/) é onde pode criar e eliminar servidores, monitorizar os recursos de servidor, alterar o tamanho e gerir quem tem acesso aos seus servidores.  Se estiver a ter alguns problemas, também pode submeter um pedido de suporte.
 
 ![Obter o nome do servidor no Azure](./media/analysis-services-manage/aas-manage-portal.png)
 

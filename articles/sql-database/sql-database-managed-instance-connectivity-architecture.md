@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 08/16/2018
-ms.openlocfilehash: 312425d3ea02d15a992b9a694f09cb2be73b6221
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d0747e9e54a48ecccb7051ad4fe9998d86599ffe
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161595"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840746"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Arquitetura de conectividade de instância de gerida de base de dados SQL do Azure 
 
@@ -66,7 +66,7 @@ Os clientes ligam-se para a instância gerida utilizando o nome de anfitrião qu
 
 Este endereço IP privado pertence para o Managed instância carga balanceador interno (ILB) que direciona o tráfego para o Gateway de instância gerida (GW). Como várias instâncias geridas poderia potencialmente executado dentro do mesmo cluster, o GW utiliza o nome de anfitrião da instância gerida para redirecionar o tráfego para o serviço de motor de SQL correto. 
 
-Serviços de gerenciamento e implantação de ligar à instância gerida com o ponto final público que mapeia para o Balanceador de carga externo. O tráfego é encaminhado para os nós apenas se for recebido no predefinidos de um conjunto de portas que são utilizados exclusivamente por componentes de gerenciamento de instância gerida. Todas as comunicações entre os componentes de gestão e plano de gestão é mutuamente autenticado de certificado. 
+Serviços de gestão e implementação ligar através de instância gerida [ponto final de gestão](sql-database-managed-instance-management-endpoint.md) que mapeia para o Balanceador de carga externo. O tráfego é encaminhado para os nós apenas se tiver recebido num conjunto predefinido de portas que são utilizados exclusivamente por componentes de gerenciamento de instância gerida. Firewall interno em nós está configurado para permitir tráfego apenas a partir de intervalos de IP específicos de Microsoft. Todas as comunicações entre os componentes de gestão e plano de gestão é mutuamente autenticado de certificado. 
 
 ## <a name="next-steps"></a>Passos Seguintes 
 

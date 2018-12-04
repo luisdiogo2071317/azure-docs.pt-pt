@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 69088f7d07312d4110eafea369ea999f0597868b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 85e39e47c5f532888911c00d3e526e51596f57bb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442000"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832824"
 ---
 # <a name="expressroute-monitor"></a>Monitor do ExpressRoute
 
@@ -160,4 +160,4 @@ Pode ver os códigos de notificação e definir alertas nos mesmos via **LogAnal
  
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Pesquisar registos](../../log-analytics/log-analytics-queries.md) para ver os registos de dados de desempenho de rede detalhada.
+[Pesquisar registos](../../azure-monitor/log-query/log-query-overview.md) para ver os registos de dados de desempenho de rede detalhada.

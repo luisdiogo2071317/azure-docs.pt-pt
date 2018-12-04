@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 16e3e73e00af1cc6c2c531575345f12c288f1b69
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8459866aa192f2364ae52d0d5d68eace693e127e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853698"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832688"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Gerir o perfil do publicador "Azure Marketplace" e 'AppSource'
 
@@ -27,7 +27,7 @@ Este documento é uma passo a passo sobre a visualização e gestão de utilizad
 
 Nesse momento, que concluiu os passos para se tornar um publicador do Azure Marketplace e AppSource. O perfil do publicador está registrado no **[Cloud Partner Portal](https://cloudpartner.azure.com/)** após a aprovação do pedido de parceiro. Seu perfil do publicador será aplicada a todas as ofertas e SKUs publicados a partir da conta utilizada durante o registo de parceiro.
 
-Se ainda não registou a sua empresa como um parceiro de cloud, veja [começar com o portal de parceiros da cloud](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal).
+Se ainda não registou a sua empresa como um parceiro de cloud, veja [começar com o portal de parceiros da cloud](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal).
 
 **Perfil do publicador**: seu perfil do publicador distingue a sua empresa no Azure Marketplace e AppSource. Ele consiste em seu ID de publicador, nome a apresentar e email(s) proprietário. Um perfil bem gerido será aumente a visibilidade e ajudar os utilizadores do marketplace facilmente identificar e selecionar uma oferta adequada.
 

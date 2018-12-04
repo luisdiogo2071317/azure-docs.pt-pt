@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 9d3f867dad40017e8e97ec4f5e370533b018263c
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: fcceecbd933980d0ab751fd5e377bbf810b9502e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181179"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837635"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurar uma VNet para a instância gerida de base de dados SQL do Azure
 
@@ -66,6 +66,9 @@ Para criar uma instância gerida, crie uma sub-rede dedicada (sub-rede da instâ
 |gestão  |80, 443, 12000|TCP     |Qualquer              |Qualquer        |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DE MI  |Permitir |
 
+  > [!Note]
+  > Embora as regras de segurança de entrada obrigatório permitem tráfego a partir _qualquer_ origem nas portas 9000, 9003, 1438, 1440, 1452 estas portas são protegidas pelo firewall interno. Isso [artigo](sql-database-managed-instance-management-endpoint.md) mostra como pode descobrir o endereço IP do ponto final de gestão e verifique se as regras de firewall. 
+
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>Determinar o tamanho da sub-rede para instâncias geridas
 
 Quando cria uma instância gerida, o Azure aloca um número de máquinas virtuais, consoante o escalão selecionado durante o aprovisionamento. Uma vez que estas máquinas virtuais estão associadas a sua sub-rede, necessitam de endereços IP. Para garantir a elevada disponibilidade durante operações normais e de manutenção do serviço, o Azure pode alocar máquinas virtuais adicionais. Como resultado, o número de endereços IP necessários numa sub-rede é maior do que o número de instâncias geridas nessa sub-rede. 
@@ -73,7 +76,7 @@ Quando cria uma instância gerida, o Azure aloca um número de máquinas virtuai
 Por design, uma instância gerida necessita de um mínimo de 16 endereços IP numa sub-rede e pode utilizar até 256 endereços IP. Como resultado, pode utilizar máscaras de sub-rede /28 para /24 quando definir os intervalos IP de sub-rede. 
 
 > [!IMPORTANT]
-> Tamanho de sub-rede com 16 endereços IP é o mínimo absoluto com potencial de limitado para a outra instância gerida de ampliação. Ao escolher sub-rede com o prefixo /27 ou abaixo é altamente recomendado. 
+> Tamanho de sub-rede com 16 endereços IP é o mínimo absoluto com potencial de limitado para a outra instância gerida de ampliação. Ao escolher sub-rede com o prefixo /27 ou abaixo é altamente recomendado. 
 
 Se planeia implementar várias instâncias geridas dentro da sub-rede e precisa para otimizar o tamanho da sub-rede, utilize estes parâmetros para formar um cálculo: 
 
@@ -84,7 +87,7 @@ Se planeia implementar várias instâncias geridas dentro da sub-rede e precisa 
 **Exemplo**: planeia ter três para fins gerais e duas empresas instâncias da críticos geridos. Que significa que terá de 5 + 3 * 2 + 2 * 4 = 19 endereços IP. Como intervalos de IP estão definidos na potência de 2, precisa do intervalo IP de 32 (2 ^ 5) endereços IP. Por conseguinte, terá de reservar a sub-rede com a máscara de sub-rede de/27. 
 
 > [!IMPORTANT]
-> Cálculo exibido acima se tornará obsoleto com ainda mais melhorias. 
+> Cálculo exibido acima se tornará obsoleto com ainda mais melhorias. 
 
 ## <a name="create-a-new-virtual-network-for-a-managed-instance"></a>Criar uma nova rede virtual para uma instância gerida
 

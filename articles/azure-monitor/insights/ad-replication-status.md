@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d0156ccc3caea2f47296740d57422ccc706f84f1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: be519dd2a6e6948bedeedd4166c7adf466dbb365
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634239"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836377"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorizar o estado de replicação do Active Directory com o Log Analytics
 
@@ -39,7 +39,7 @@ Utilize as seguintes informações para instalar e configurar a solução.
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes de recolha de dados de estado de replicação do AD
 A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o estado de replicação do AD.
 
-| Plataforma | Agente Direto | Agente do SCOM | Storage do Azure | SCOM necessário? | Dados de agente do SCOM enviados através do grupo de gestão | Frequência de recolha |
+| Plataforma | Agente direto | Agente do SCOM | Storage do Azure | SCOM necessário? | Dados de agente do SCOM enviados através do grupo de gestão | Frequência de recolha |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |cada cinco dias |
 
@@ -110,7 +110,7 @@ Quando clicar em qualquer item em uma das listas, verá detalhes adicionais sobr
 
 ![Erros de estado de replicação de AD nos resultados da pesquisa](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-A partir daqui, pode filtrar ainda mais, modifique a consulta de pesquisa e assim por diante. Para obter mais informações sobre como utilizar a pesquisa de registos, consulte [pesquisas de registos](../../log-analytics/log-analytics-queries.md).
+A partir daqui, pode filtrar ainda mais, modifique a consulta de pesquisa e assim por diante. Para obter mais informações sobre como utilizar a pesquisa de registos, consulte [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md).
 
 O **HelpLink** campo mostra o URL de uma página do TechNet com detalhes adicionais sobre esse erro específico. Pode copiar e colar esta ligação para a janela do browser para ver informações sobre resolução de problemas e corrigir o erro.
 
@@ -154,4 +154,4 @@ Se precisar de assistência a ligar um dos seus controladores de domínio, pode 
 Se não pretender ligar qualquer um dos seus controladores de domínio diretamente ao Log Analytics ou para o System Center Operations Manager, veja [para permitir que um controlador de domínio enviar dados de AD para o Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisas de registos no Log Analytics](../../log-analytics/log-analytics-queries.md) para ver os dados detalhados de estado de replicação do Active Directory.
+* Uso [pesquisas de registos no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para ver os dados detalhados de estado de replicação do Active Directory.

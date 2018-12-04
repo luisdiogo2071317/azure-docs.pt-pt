@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c02dc274c5d22c16b2bda6d7896ee64c41d6e2ab
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 88388be1a0687c3e56fd39dde2f70e40cf578f2a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438999"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Tutorial: Integração do Azure Active Directory com PurelyHR
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com PurelyHR, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um PurelyHR início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do PurelyHR com o Azure AD, terá de adicionar Pu
 
 **Para adicionar PurelyHR a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -121,7 +121,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     Na **URL de início de sessão** caixa de texto, digite o valor usando o seguinte padrão: `https://<companyID>.purelyhr.com/sso-initiate`
      
     > [!NOTE]
-    > Estes valores não são o real. Atualize estes valores com o URL de resposta e o URL de início de sessão real. Contacte [equipa de suporte de cliente PurelyHR](http://support.purelyhr.com/) obter esses valores. 
+    > Estes valores não são o real. Atualize estes valores com o URL de resposta e o URL de início de sessão real. Contacte [equipa de suporte de cliente PurelyHR](https://support.purelyhr.com/) obter esses valores. 
 
 1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 

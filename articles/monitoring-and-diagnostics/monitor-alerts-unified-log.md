@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 4dae003b011e8e33f0ae935d6dd8399a5687dff6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c4279002f599b26ac0333e442bbca7afaebefebe
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633772"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837613"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Azure Monitor
 Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas de suportam o [alertas do Azure](monitoring-overview-alerts.md) e permitir que os utilizadores utilizem a plataforma de análise do Azure como base para alertas.
@@ -122,4 +122,4 @@ Preços aplicáveis para alertas de registo é mencionado no [preços do Azure M
 * Compreender [webhooks em alertas de registo no Azure](monitor-alerts-unified-log-webhook.md).
 * Saiba mais sobre [alertas do Azure](monitoring-overview-alerts.md).
 * Saiba mais sobre [Application Insights](../application-insights/app-insights-analytics.md).
-* Saiba mais sobre [do Log Analytics](../log-analytics/log-analytics-queries.md).    
+* Saiba mais sobre [do Log Analytics](../azure-monitor/log-query/log-query-overview.md).    

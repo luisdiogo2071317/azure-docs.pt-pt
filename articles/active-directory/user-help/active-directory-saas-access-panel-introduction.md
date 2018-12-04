@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: d9ed140d404387b94428cea5d925911806b62552
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705861"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834711"
 ---
 # <a name="what-is-the-myapps-portal"></a>O que é o portal MyApps?
 
@@ -41,9 +41,9 @@ O portal MyApps está separado do portal do Azure. Não requer que tenha uma sub
 
 ## <a name="access-the-myapps-portal"></a>Aceder ao portal MyApps
 
-Pode aceder ao portal de MyApps acedendo a `http://myapps.microsoft.com`.
+Pode aceder ao portal de MyApps acedendo a `https://myapps.microsoft.com`.
 
-Se tiver de marca personalizada configurada para sua página de início de sessão, é possível carregar a imagem corporativa, acrescentando o domínio da sua organização para o URL (por exemplo, `http://myapps.microsoft.com/<your domain>.com`).
+Se tiver de marca personalizada configurada para sua página de início de sessão, é possível carregar a imagem corporativa, acrescentando o domínio da sua organização para o URL (por exemplo, `https://myapps.microsoft.com/<your domain>.com`).
 
 Pode utilizar qualquer nome de domínio do Active Directory ou verificado que tenha sido configurada no portal do Azure, como mostrado aqui: ![nome de domínio da Wingtip Toys][2]  
 

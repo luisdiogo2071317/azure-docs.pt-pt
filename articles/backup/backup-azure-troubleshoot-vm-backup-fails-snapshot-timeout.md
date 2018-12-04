@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Cópia de segurança do Azure; Agente da VM; Conectividade de rede
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: d8b78551a762b4388344aaf3b44e7472127737ae
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 9f26a51a8da2c3fec3ff180dbc8c8de08bb0a93a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977119"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833878"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -156,11 +156,11 @@ Além disso, se a sub-rede não tiver uma rota para tráfego de saída da intern
 #### <a name="solution"></a>Solução
 O agente da VM pode ter sido corrompido ou o serviço pode ter sido parado. Reinstalar o agente da VM ajuda a obter a versão mais recente. Ele também ajuda a reiniciar a comunicação com o serviço.
 
-1. Determine se o serviço de agente de convidado do Windows está em execução nos serviços de VM (Services. msc). Tente reiniciar o serviço de agente de convidado do Windows e iniciar a cópia de segurança.    
-2. Se o serviço de agente de convidado do Windows não está visível nos serviços, no painel de controlo, aceda a **programas e funcionalidades** para determinar se o serviço de agente de convidado do Windows está instalado.
-4. Se o agente convidado do Windows é apresentada no **programas e funcionalidades**, desinstale o agente convidado do Windows.
+1. Determine se o serviço de agente de convidado do Windows Azure está em execução nos serviços de VM (Services. msc). Tente reiniciar o serviço de agente de convidado do Windows Azure e iniciar a cópia de segurança.    
+2. Se o serviço de agente de convidado do Windows Azure não está visível nos serviços, no painel de controlo, aceda a **programas e funcionalidades** para determinar se o serviço de agente de convidado do Windows Azure está instalado.
+4. Se o agente de convidado do Windows Azure é apresentado na **programas e funcionalidades**, desinstale o agente de convidado do Windows Azure.
 5. Transferir e instalar o [mais recente versão do agente do MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Tem de ter direitos de administrador para concluir a instalação.
-6. Certifique-se de que os serviços do agente de convidado do Windows são apresentadas nos serviços.
+6. Certifique-se de que os serviços do agente de convidado do Windows Azure são apresentados nos serviços.
 7. Execute uma cópia de segurança a pedido:
     * No portal, selecione **cópia de segurança agora**.
 

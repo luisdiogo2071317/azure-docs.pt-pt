@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: bwren
 ms.comopnent: ''
-ms.openlocfilehash: e33c30f9de56c4c5dd5f898a6a5136bbcef36c18
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 38f21a3d8f2bf1adcd224480223a37113b347e18
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336913"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838502"
 ---
 # <a name="iis-logs-in-log-analytics"></a>Registo do IIS no Log Analytics
 Serviços de informação Internet (IIS) armazena a atividade do utilizador nos ficheiros de registo que podem ser recolhidos pelo Log Analytics.  
@@ -80,5 +80,5 @@ A tabela seguinte fornece exemplos diferentes de consultas de registo que obter 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Configurar o Log Analytics para recolher outros [origens de dados](agent-data-sources.md) para análise.
-* Saiba mais sobre [pesquisas de registos](../../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
+* Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
 * Configure alertas no Log Analytics para ser notificado proativamente das condições importantes encontradas nos logs do IIS.

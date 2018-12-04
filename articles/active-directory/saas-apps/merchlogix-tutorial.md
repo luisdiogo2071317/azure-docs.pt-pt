@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeedes
-ms.openlocfilehash: b10f9cc5c766796b61e3c56da943e92e84d17488
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dae953276fb89b798ff0a152994dc19f1e7c85a5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442589"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834252"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>Tutorial: Integração do Azure Active Directory com Merchlogix
 
@@ -38,7 +38,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Merchlogix, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Merchlogix logon único habilitado subscrição
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Para configurar a integração do Merchlogix com o Azure AD, terá de adicionar 
 
 **Para adicionar Merchlogix a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -115,7 +115,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<DOMAIN>/simplesaml/module.php/saml/sp/metadata.php/<SAML_NAME>`
     
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de Merchlogix](http://www.merchlogix.com/contact/) obter esses valores.
+    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de Merchlogix](https://www.merchlogix.com/contact/) obter esses valores.
 
 1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -129,7 +129,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configuração de Merchlogix](./media/merchlogix-tutorial/tutorial_merchlogix_configure.png) 
 
-1. Para configurar o início de sessão único num **Merchlogix** lado, terá de enviar o transferido **certificado (Base64)**, **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço**para [a equipa de suporte Merchlogix](http://www.merchlogix.com/contact/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Para configurar o início de sessão único num **Merchlogix** lado, terá de enviar o transferido **certificado (Base64)**, **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço**para [a equipa de suporte Merchlogix](https://www.merchlogix.com/contact/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -169,7 +169,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-merchlogix-test-user"></a>Criar um utilizador de teste Merchlogix
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Merchlogix. Trabalhar com [equipa de suporte de Merchlogix](http://www.merchlogix.com/contact/) para adicionar os utilizadores na plataforma Merchlogix.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Merchlogix. Trabalhar com [equipa de suporte de Merchlogix](https://www.merchlogix.com/contact/) para adicionar os utilizadores na plataforma Merchlogix.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -201,7 +201,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: d02c71865f900c2b75da60bd2e989e04a6823d11
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 7783a10badd98a29488732d68267241ff619b645
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005245"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838672"
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>Manual de Início Rápido: ligar soluções de segurança ao Centro de Segurança
 
@@ -33,7 +33,7 @@ Este manual de início rápido mostra-lhe como:
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/free/).
 
-Para acompanhar este manual de início rápido, tem de estar no escalão de preço Standard do Centro de Segurança. Pode experimentar o Centro de Segurança Standard sem custos durante os primeiros 60 dias. O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
+Para acompanhar este manual de início rápido, tem de estar no escalão de preço Standard do Centro de Segurança. Pode experimentar o Centro de segurança Standard sem encargos. O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 Também precisa de uma [máquina Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-linux), com o serviço de Syslog já ligado ao seu Centro de Segurança.
 
@@ -92,7 +92,7 @@ Se pretender desativar aprovisionamento automático:
 > Desativar o aprovisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure onde o agente tiver sido aprovisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste manual de início rápido, aprendeu a ligar uma solução do Linux Syslog ao Centro de Segurança através de CEF. Ao ligar os seus registos CEF ao Centro de Segurança, pode tirar partido das regras de alerta personalizado e de pesquisa, e enriquecimento das informações sobre ameaças para cada registo. Para saber mais sobre como utilizar o Centro de Segurança, avance para o tutorial para configurar uma política de segurança e avaliar a segurança dos seus recursos.
 
 > [!div class="nextstepaction"]

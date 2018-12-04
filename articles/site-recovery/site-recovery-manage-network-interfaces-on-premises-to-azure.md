@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: afa8dfc39177e3f15db0092691d910b6b2cd3764
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e5757cee2238f44706194da5247da7d4721762f3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212459"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837584"
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gerir as interfaces de rede de máquina virtual para recuperação de desastre no local para o Azure
 Uma máquina virtual (VM) no Azure tem de ter, pelo menos, uma interface de rede ligada ao mesmo. Ele pode ter como muitos anexados a ele como o suporte de tamanho VM de interfaces de rede.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: bwren
-ms.openlocfilehash: 4ef1e302a305f683155139063891b838d8144008
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 493c48fe87158ee357d98eb0b0d1bd2a4fad5b2f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680468"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843789"
 ---
 # <a name="log-analytics-query-language"></a>Linguagem de consulta de análise de registo
 Do log Analytics fornece análise e recolha de registos para o Azure Monitor. Ele se baseia no Explorador de dados do Azure e utiliza uma versão da mesma linguagem de consulta. O [documentação de linguagem de consulta do Explorador de dados do Azure](/azure/kusto/query) tem todos os detalhes para o idioma e deve ser o principal recurso para escrever consultas do Log Analytics. Esta página fornece links para outros recursos para aprender a escrever consultas e nas diferenças com a implementação do Log Analytics da linguagem.
@@ -29,7 +29,7 @@ Do log Analytics fornece análise e recolha de registos para o Azure Monitor. El
 -  [Introdução às consultas no Log Analytics](get-started-queries.md) é algo para escrever consultas usando os dados do Log Analytics.
 
 ## <a name="concepts"></a>Conceitos
-- [Analisar dados do Log Analytics no Azure Monitor](../log-analytics-queries.md) fornece uma breve descrição geral do registo de consulta e descreve a forma como os dados do Log Analytics estão estruturados.
+- [Analisar dados do Log Analytics no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) fornece uma breve descrição geral do registo de consulta e descreve a forma como os dados do Log Analytics estão estruturados.
 - [Visualizando e analisando os dados no Log Analytics](../log-analytics-log-search-portals.md) explica os portais onde criar e executar consultas do Log Analytics.
 
 ## <a name="reference"></a>Referência

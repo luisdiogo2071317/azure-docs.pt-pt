@@ -4,14 +4,14 @@ description: Fornece uma descrição geral dos problemas conhecidos no serviço 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9303f20d84547dee62e7012e0dca50f47ad54083
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413338"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839590"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -19,9 +19,9 @@ ms.locfileid: "50413338"
 
 [O Azure Migrate](migrate-overview.md) avalia as cargas de trabalho no local para migração para o Azure. Utilize este artigo para resolver os problemas quando implementar e utilizar o Azure Migrate.
 
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Estou usando a deteção contínua OVA, mas as VMs que são eliminadas no meu ambiente no local ainda estão a ser mostrada no portal.
+### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Estou usando o OVA que Deteta continuamente meu ambiente no local, mas as VMs que são eliminadas no meu ambiente no local ainda estão a ser mostradas no portal.
 
-A aplicação para a aplicação de deteção contínua só recolhe dados de desempenho continuamente, ele não detecta qualquer alteração de configuração no ambiente no local (ou seja, a adição de VM, eliminação, a adição de disco etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
+A aplicação de deteção contínua só recolhe dados de desempenho continuamente, ele não detecta qualquer alteração de configuração no ambiente no local (ou seja, a adição de VM, eliminação, a adição de disco etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
 
 - Adição de itens (VMs, discos, núcleos, etc.): para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, iniciá-la novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
 
@@ -35,15 +35,36 @@ Este problema pode ocorrer por utilizadores que não tem acesso ao inquilino do 
 
 Quando é recebido o e-mail de convite, terá de abrir o e-mail e clique na ligação no e-mail para aceitar o convite. Depois de o fazer, tem de iniciar sessão fora do portal do Azure e o início de sessão novamente, atualizar o browser não funcionará. Em seguida, pode tentar criar o projeto de migração.
 
+### <a name="i-am-unable-to-export-the-assessment-report"></a>Eu sou não é possível exportar o relatório de avaliação
+
+Se não é possível exportar o relatório de avaliação a partir do portal, tente utilizar a abaixo da API REST para obter um URL de transferência para o relatório de avaliação.
+
+1. Instale *armclient* no seu computador (se não estiver já instalada):
+
+a. Numa janela de linha de comandos de administrador, execute o seguinte comando:  *@powershell - NoProfile - ExecutionPolicy ignorar - comando "iex ((New-Object System.NET. WebClient). DownloadString('https://chocolatey.org/install.ps1')) "& & DEFINA"PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"*
+
+b.In numa janela do Windows PowerShell de administrador, execute o seguinte comando: *choco instalar armclient*
+
+2.  Obter o URL de transferência para o relatório de avaliação com a API de REST de migrar do Azure
+
+a.  Numa janela do Windows PowerShell de administrador, execute o seguinte comando: *armclient início de sessão* esta ação abre o Azure início de sessão pop-up em que precisa ao iniciar sessão no Azure.
+
+b.  Na mesma janela do PowerShell, execute o seguinte comando para obter o URL de transferência para o relatório de avaliação (substitua os parâmetros do URI com os valores apropriados, a API de exemplo do pedido abaixo)
+
+       *armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02*
+
+Pedido de exemplo e a saída:
+
+PS C:\WINDOWS\system32 > armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2 018_12_16_21/downloadUrl? api-version = 2018-02-02 {" assessmentReportUrl":"https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r","expirationTime":" 2018-11-20T22:09:30.5681954 + UTC+05:30 "
+
+3. Copie o URL da resposta e abra-o num browser para transferir o relatório de avaliação.
+4. Assim que o relatório é transferido, utilize o Excel para navegar para a pasta transferida e abra o ficheiro no Excel para vê-la.
+
 ### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Dados de desempenho para os adaptadores de discos e redes mostram como os zeros
 
 Isto pode ocorrer se o nível de definição de estatística no vCenter server está definido como inferior a três. Em três nível ou superior, o vCenter armazena histórico de desempenho da VM para computação, armazenamento e rede. Para o nível menos de três, vCenter não armazena o armazenamento e dados de rede, mas apenas para dados da CPU e memória. Neste cenário, dados de desempenho mostra como zero no Azure Migrate e do Azure Migrate oferece a recomendação de tamanho para discos e redes com base nos metadados recolhidos das máquinas no local.
 
 Para ativar a recolha de dados de desempenho de disco e rede, altere o nível de definições de estatísticas como três. Em seguida, aguarde, pelo menos, um dia para descobrir o seu ambiente e avaliá-lo.
-
-### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Eu agentes instalados e usado a visualização de dependência para criar grupos. Agora após a ativação pós-falha, as máquinas mostram a ação de "Instalar o agente", em vez de "Dependências do modo de exibição"
-* Post planeada ou ativação pós-falha não planeada, no local máquinas estão desativadas e máquinas equivalentes são criadas no Azure. Estas máquinas adquirir um endereço MAC diferente. Eles podem adquirir um endereço IP diferente, com base em se o utilizador optou por manter o endereço IP no local ou não. Se forem diferentes endereços MAC e IP, o Azure Migrate não associa as máquinas no local com quaisquer dados de dependência de mapa de serviço e pede ao utilizador para instalar agentes em vez de visualização de dependências.
-* Após a ativação pós-falha de teste, as máquinas no local mantêm ativadas conforme esperado. As máquinas equivalentes rotacionadas no Azure adquirir o endereço MAC diferente e podem adquirir o endereço IP diferente. A menos que o utilizador bloqueia o tráfego de saída do Log Analytics dessas máquinas, do Azure Migrate não associa as máquinas no local com quaisquer dados de dependência de mapa de serviço e pede ao utilizador para instalar agentes em vez de visualização de dependências.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Eu especifiquei uma geografia do Azure, ao criar um projeto de migração, como posso saber a região do Azure exata em que os metadados detetados seriam armazenados?
 
@@ -55,8 +76,8 @@ Pode ir para o **Essentials** secção a **descrição geral** página do projet
 
 ### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Implementação do Recoletor do Azure Migrate falhou com o erro: O ficheiro de manifesto fornecido é inválido: entrada do manifesto OVF inválido.
 
-1. Certifique-se de que se a ficheiros do Azure Migrate Recoletor OVA é transferido corretamente ao verificar o seu valor de hash. Consulte a [artigo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) para verificar o valor de hash. Se o valor de hash não corresponde, transfira o ficheiro OVA novamente e repetir a implementação.
-2. Se ele ainda falhar, e se estiver a utilizar o VMware vSphere Client para implementar o OVF, tente implantá-lo por meio do vSphere cliente Web. Se continuar a falhar, tente utilizar outro navegador da web.
+1. Certifique-se de que se a ficheiros do Azure Migrate Recoletor OVA é transferido corretamente ao verificar o seu valor de hash. Consulte o [artigo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) para verificar o valor de hash. Se o valor de hash não corresponde, transfira o ficheiro OVA novamente e repetir a implementação.
+2. Se ainda assim falhar e se estiver a utilizar o Cliente VMware vSphere para implementar o OVF, tente implementá-lo por meio do Cliente Web vSphere. Se continuar a falhar, tente utilizar outro navegador da web.
 3. Se estiver a utilizar o cliente de web do vSphere e tentar implantá-lo no vCenter Server 6.5, tentar implementar o OVA diretamente no anfitrião ESXi ao seguir os passos abaixo:
   - Ligar ao anfitrião ESXi diretamente (em vez do vCenter Server) com o cliente web (https:// <*endereço IP do anfitrião*>/UI)
   - Aceda à página inicial > inventário
@@ -128,7 +149,7 @@ Se o problema ainda acontece na versão mais recente, é possível porque a máq
 3. Identifique o número de porta correto para ligar ao vCenter.
 4. Por fim, verifique se o servidor do vCenter está em execução.
 
-## <a name="troubleshoot-dependency-visualization-issues"></a>Resolver problemas de visualização de dependência
+## <a name="dependency-visualization-issues"></a>Problemas de visualização de dependência
 
 ### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Instalei o Microsoft Monitoring Agent (MMA) e o agente de dependência em minhas VMs no local, mas as dependências são agora aparecer no portal do Azure Migrate.
 
@@ -159,7 +180,11 @@ O Azure Migrate permite que visualize as dependências de duração do até uma 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Não consigo me visualize as dependências para grupos com mais de 10 VMs?
 Pode [visualize as dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) que têm cópia de segurança para 10 VMs, se tiver um grupo com mais de 10 VMs, recomendamos que dividir o grupo em grupos mais pequenos e visualize as dependências.
 
-## <a name="troubleshoot-readiness-issues"></a>Resolver problemas de preparação
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Eu agentes instalados e usado a visualização de dependência para criar grupos. Agora após a ativação pós-falha, as máquinas mostram a ação de "Instalar o agente", em vez de "Dependências do modo de exibição"
+* Post planeada ou ativação pós-falha não planeada, no local máquinas estão desativadas e máquinas equivalentes são criadas no Azure. Estas máquinas adquirir um endereço MAC diferente. Eles podem adquirir um endereço IP diferente, com base em se o utilizador optou por manter o endereço IP no local ou não. Se forem diferentes endereços MAC e IP, o Azure Migrate não associa as máquinas no local com quaisquer dados de dependência de mapa de serviço e pede ao utilizador para instalar agentes em vez de visualização de dependências.
+* Após a ativação pós-falha de teste, as máquinas no local mantêm ativadas conforme esperado. As máquinas equivalentes rotacionadas no Azure adquirir o endereço MAC diferente e podem adquirir o endereço IP diferente. A menos que o utilizador bloqueia o tráfego de saída do Log Analytics dessas máquinas, do Azure Migrate não associa as máquinas no local com quaisquer dados de dependência de mapa de serviço e pede ao utilizador para instalar agentes em vez de visualização de dependências.
+
+## <a name="troubleshoot-azure-readiness-issues"></a>Resolver problemas de preparação para o Azure
 
 **Problema** | **Corrigir**
 --- | ---
@@ -173,7 +198,6 @@ Número de bits do SO não suportados | VMs com o sistema operacional de 32 bits
 Requer subscrição do Visual Studio. | A máquina tem um sistema operacional em execução que de cliente do Windows é suportado apenas na subscrição do Visual Studio.
 VM não encontrada para o desempenho de armazenamento necessária. | O desempenho de armazenamento (IOPS/débito) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
 Não foi encontrada para o desempenho de rede necessária uma VM. | O desempenho de rede (entrada/saída) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de rede para a máquina.
-VM não foi encontrada no escalão de preço especificado. | Se o escalão de preço é definido como padrão, considere downsizing a VM antes de migrar para o Azure. Se a camada de dimensionamento for básico, considere alterar o escalão de preço da avaliação para Standard.
 VM não foi encontrada na localização especificada. | Utilize uma localização de destino diferente antes da migração.
 Um ou mais discos não são adequados. | Um ou mais discos ligados à VM não satisfaz os requisitos do Azure. Para cada disco anexado à VM, certifique-se de que o tamanho do disco é < 4 TB; caso contrário, reduzir o tamanho de disco antes de migrar para o Azure. Certifique-se de que o desempenho (IOPS/débito) necessário para cada disco é suportado pelo Azure [discos da máquina virtual geridos](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).   
 Um ou mais adaptadores de rede não são adequados. | Remova os adaptadores de rede não utilizadas da máquina antes da migração.

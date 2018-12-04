@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Criar uma aplicação Node.js com o JavaScript SDK para gerir os dados da API SQL do Azure Cosmos DB | Microsoft Docs'
+title: 'Azure Cosmos DB: Criar uma aplicação Node.js com o JavaScript SDK para gerir os dados da API SQL do Azure Cosmos DB'
 description: Apresenta um exemplo de código Node.js que pode utilizar para ligar e consultar a Azure Cosmos DB SQL API
 services: cosmos-db
 author: deborahc
@@ -10,17 +10,18 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: a8a81556002bec82325bf4cf53b68ff49b8b6917
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 615e03e1905fc282a8561138904a965db6226837
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982329"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833017"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB: Criar uma aplicação Node.js com o JavaScript SDK para gerir os dados da API SQL do Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
+> * [.NET (pré-visualização)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -163,7 +164,7 @@ Agora, pode voltar ao Data Explorer e ver, consultar, modificar e trabalhar com 
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar uma coleção com o Data Explorer e a executar uma aplicação. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
 

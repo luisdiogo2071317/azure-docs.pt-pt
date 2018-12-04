@@ -11,20 +11,20 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: c7153823ade64b086eb38046ed6d7cdb0e0a1381
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: a0aed1fd65444397b3ca084cc0100aa5af49c918
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638633"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839515"
 ---
-# <a name="create-your-first-durable-function-in-c"></a>Criar a primeira função durável noC#
+# <a name="create-your-first-durable-function-in-c"></a>Criar a sua primeira função durável em C\#
 
 *Funções duráveis* é uma extensão da [as funções do Azure](../functions-overview.md) que permite que escreva funções com monitoração de estado num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e reinicializações por si.
 
 Neste artigo, irá aprender a utilizar as ferramentas do Visual Studio 2017 para as funções do Azure para criar localmente e testar uma função durável "hello world".  Esta função será orquestrar e em conjunto da cadeia de chamadas para outras funções. Em seguida, publique o código de função no Azure. Estas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2017.
 
-![Executar a função durável na nuvem](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
+![Executar a função durável no Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,7 +50,7 @@ O modelo do projeto das Funções do Azure no Visual Studio cria um projeto que 
 
 3. Utilize as definições especificadas na tabela a seguir à imagem.
 
-    ![Caixa de diálogo de função nova no Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png) 
+    ![Caixa de diálogo de função nova no Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
     | Definição      | Valor sugerido  | Descrição                      |
     | ------------ |  ------- |----------------------------------------- |

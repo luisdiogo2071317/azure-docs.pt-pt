@@ -4,15 +4,15 @@ description: Disponibiliza uma descrição geral do serviço do Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 11/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85873dc023e63b7cc9f5ba3ff87214c49ac16e34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 98ff54bcfe67d79d8c15da666aad0bebfe48f6e0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246740"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839739"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -36,8 +36,8 @@ O Azure Migrate ajuda-o a:
 - O Azure Migrate só suporta discos geridos para avaliação de migrações.
 -  Só pode criar projetos do Azure Migrate na geografia Estados Unidos. No entanto, pode planear uma migração para qualquer localização de destino do Azure.
     - Os metadados detetados no ambiente no local são armazenados na região do projeto de migração.
-    - Os metadados são armazenados numa das regiões na geografia: E.U.A. Centro-Oeste/E.U.A. Leste.
-    - Se utilizar a visualização de dependência com uma área de trabalho do Log Analytics, é criada na mesma região que o projeto.
+    - Metadados são armazenados em uma das regiões na geografia selecionada: oeste dos E.U.A./Leste-nos.
+    - Se utilizar a visualização de dependências através da criação de uma nova área de trabalho do Log Analytics, a área de trabalho é criada na mesma região que o projeto.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>O que vou pagar?
@@ -51,18 +51,18 @@ As definições da avaliação podem ser personalizadas de acordo com as suas ne
 
 **Propriedade** | **Detalhes**
 --- | ---
-**Localização de destino** | A localização do Azure para a qual pretende migrar.<br/><br/>Atualmente, o Azure Migrate suporta 30 regiões. [Veja as regiões](https://azure.microsoft.com/global-infrastructure/services/). Por predefinição, a região de destino está definida como E.U.A. Oeste 2.
-**Tipo de armazenamento** | O tipo de discos que quer alocar no Azure. Esta propriedade é aplicável quando o critério de dimensionamento é **como no local**. Pode especificar o tipo de disco de destino como discos geridos premium (a predefinição) ou discos geridos standard. Para o dimensionamento com base no desempenho, a recomendação de tamanho do disco é feita automaticamente com base nos dados de desempenho das VMs.
-**Critérios de dimensionamento** | O dimensionamento pode ter por base o **histórico de desempenho** das VMs no local ou **como no local** (a predefinição), sem ter em conta o histórico de desempenho.
+**Localização de destino** | A localização do Azure para a qual pretende migrar.<br/><br/>O Azure Migrate suporta atualmente 33 regiões como localizações dos destinos de migração. [Veja as regiões](https://azure.microsoft.com/global-infrastructure/services/). Por predefinição, a região de destino está definida como E.U.A. Oeste 2.
+**Tipo de armazenamento** | O tipo de discos geridos que pretende alocar para todas as VMs que fazem parte da avaliação. Se o critério de dimensionamento for *no local dimensionamento* pode especificar o tipo de disco de destino como os discos premium (predefinição), os discos standard SSD ou discos HDD standard. Para *dimensionamento com base no desempenho*, juntamente com as opções acima, também tem a opção de selecionar automático que irá garantir que o disco a recomendação do tamanho é automaticamente feito com base nos dados de desempenho das VMs. Por exemplo, se quer atingir um [única instância de VM SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), talvez queira especificar o tipo de armazenamento como discos geridos Premium, que irão garantir que todos os discos na avaliação irão ser recomendados como discos geridos Premium. Note que o Azure Migrate só suporta discos geridos para avaliação de migrações.
+**Instâncias Reservadas** |  Se tem [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure. O Azure Migrate calcula o custo em conformidade.
+**Critérios de dimensionamento** | Dimensionamento pode basear-se no **histórico de desempenho** das VMs no local (predefinição) ou **como no local**, sem considerar o histórico de desempenho.
+**Histórico de desempenho** | Por predefinição, o Azure Migrate avalia o desempenho das máquinas no local através do histórico de desempenho do último dia, com um valor de percentil de 95%.
+**Fator de conforto** | O Azure Migrate considera uma memória intermédia (fator de conforto) durante a avaliação. Esta memória intermédia é aplicada em cima dos dados de utilização das VMs (CPU, memória, disco e rede). O fator de conforto dá conta de problemas como utilização sazonal, histórico de desempenho breve e prováveis aumentos na utilização futura.<br/><br/> Por exemplo, uma VM com 10 núcleos e 20% de utilização resulta, normalmente, numa VM de 2 núcleos. No entanto, com um fator de conforto de 2,0 x, o resultado é uma VM de 4 núcleos. A definição de conforto predefinida é 1,3x.
+**Série das VMs** | A série das VMs utilizada para os cálculos de tamanho. Por exemplo, se tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série. O dimensionamento tem por base apenas as séries selecionadas.   
+**Moeda** | A moeda de faturação. Predefinição é não utilizados no compromisso E.U.A.
+**Desconto (%)** | Eventuais descontos para uma subscrição específica que receba sobre a oferta do Azure. A predefinição é 0%.
+**Tempo de atividade de VM** | Se não se pretender que as VMs em execução 24x7 no Azure, pode especificar a duração (número de dias por mês) e o número de horas por dia para que eles estariam em execução e as estimativas de custos serão efetuadas em conformidade. O valor predefinido é 31 dias por mês e 24 horas por dia.
 **Oferta do Azure** | A [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) em que está escrito. O Azure Migrate calcula o custo em conformidade.
 **Benefício Híbrido do Azure** | Se tiver o software assurance e for elegível para o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) com custos reduzidos.
-**Instâncias Reservadas** |  Se tem [instâncias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) no Azure. O Azure Migrate calcula o custo em conformidade.
-**Tempo de atividade de VM** | O período de tempo durante o qual as VMs vão ser executadas no Azure. Os cálculos de custo são feitos em conformidade.
-**Escalão de preço** | O [escalão de preço (básico/standard)](../virtual-machines/windows/sizes-general.md) para as VMs de destino do Azure. Por exemplo, se estiver a planear a migração de um ambiente de produção, pode considerar o escalão standard, que oferece baixa latência às VMs, mas pode ser mais caro. Por outro lado, num ambiente de teste, pode utilizar o escalão básico, que tem latência mais alta e custos mais baixos. Por predefinição, é utilizado o escalão [standard](../virtual-machines/windows/sizes-general.md).
-**Histórico de desempenho** | Por predefinição, o Azure Migrate avalia o desempenho das máquinas no local através do histórico de desempenho do último dia, com um valor de percentil de 95%.
-**Série das VMs** | A série das VMs utilizada para os cálculos de tamanho. Por exemplo, se tiver um ambiente de produção que não pretende migrar para VMs da série A no Azure, poderá excluir a série A da lista ou da série. O dimensionamento tem por base apenas as séries selecionadas.   
-**Fator de conforto** | O Azure Migrate considera uma memória intermédia (fator de conforto) durante a avaliação. Esta memória intermédia é aplicada em cima dos dados de utilização das VMs (CPU, memória, disco e rede). O fator de conforto dá conta de problemas como utilização sazonal, histórico de desempenho breve e prováveis aumentos na utilização futura.<br/><br/> Por exemplo, uma VM com 10 núcleos e 20% de utilização resulta, normalmente, numa VM de 2 núcleos. No entanto, com um fator de conforto de 2,0 x, o resultado é uma VM de 4 núcleos. A definição de conforto predefinida é 1,3x.
-
 
 ## <a name="how-does-azure-migrate-work"></a>Como funciona o Azure Migrate?
 
@@ -97,7 +97,7 @@ Depois de avaliar as máquinas no local, pode utilizar algumas ferramentas para 
 - **Azure Database Migration**: se as máquinas no local estiverem a executar uma base de dados, como SQL Server, MySQL ou Oracle, pode utilizar o [Azure Database Migration Service](../dms/dms-overview.md) para migrá-las para o Azure.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Siga o tutorial](tutorial-assessment-vmware.md) para criar uma avaliação para uma VM do VMware no local.
 - [Veja as perguntas mais frequentes](resources-faq.md) sobre o Azure Migrate.

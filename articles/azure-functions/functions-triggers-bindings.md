@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: 9b2539d94c645f71b596e53429e6e0d8cc46b9ad
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b071bfe83ba9ef653db2d6d1debad4e3dfa02580
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016748"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845931"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Acionadores de funções do Azure e conceitos de enlaces
 
@@ -231,6 +231,7 @@ Veja o exemplo de idioma específico, que mostra a utilização de valor de reto
 * [Script do c# (.csx)](#c-script-example)
 * [F#](#f-example)
 * [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ### <a name="c-example"></a>Exemplo do c#
 
@@ -291,7 +292,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-### <a name="f-example"></a>Exemplo do F #
+### <a name="f-example"></a>F#exemplo
 
 Este é o enlace de saída no *Function* ficheiro:
 
@@ -304,7 +305,7 @@ Este é o enlace de saída no *Function* ficheiro:
 }
 ```
 
-Eis o código F #:
+Aqui está o F# código:
 
 ```fsharp
 let Run(input: WorkItem, log: ILogger) =
@@ -334,6 +335,29 @@ module.exports = function (context, input) {
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
+```
+
+### <a name="python-example"></a>Exemplo de Python
+
+Este é o enlace de saída no *Function* ficheiro:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+Aqui está o código de Python:
+
+```python
+def main(input: azure.functions.InputStream) -> str:
+    return json.dumps({
+        'name': input.name,
+        'length': input.length,
+        'content': input.read().decode('utf-8')
+    })
 ```
 
 ## <a name="binding-datatype-property"></a>Propriedade de tipo de dados de ligação
@@ -476,7 +500,7 @@ Também pode criar expressões para partes do nome do ficheiro como a extensão.
  
 ### <a name="binding-expressions---trigger-metadata"></a>Expressões de enlace - metadados de Acionador
 
-O payload de dados fornecido por um acionador (por exemplo, o conteúdo da mensagem de fila que uma função acionada por um), além de muitos acionadores fornecem os valores de metadados adicionais. Estes valores podem ser utilizados como parâmetros de entrada em c# e F # ou propriedades no `context.bindings` objetos em JavaScript. 
+O payload de dados fornecido por um acionador (por exemplo, o conteúdo da mensagem de fila que uma função acionada por um), além de muitos acionadores fornecem os valores de metadados adicionais. Estes valores podem ser utilizados como parâmetros de entrada no C# e F# ou as propriedades a `context.bindings` objeto em JavaScript. 
 
 Por exemplo, um acionador do armazenamento de filas do Azure suporta as seguintes propriedades:
 
@@ -541,7 +565,7 @@ A exemplo a seguir mostra a *Function* ficheiro para uma função de webhook que
 }
 ```
 
-Para isso funcionar em c# e F #, precisa de uma classe que define os campos a ser desserializado, como no exemplo seguinte:
+Para isso funcionar C# e F#, terá de uma classe que define os campos a ser desserializado, como no exemplo seguinte:
 
 ```csharp
 using System.Net;

@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 87003a053823cfc257a3b6f41699feefadbbcc66
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039007"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835170"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configurar definições de função de diretório do Azure AD no PIM
 
@@ -50,7 +50,15 @@ Utilize o **ativações** controlo de deslize para definir o tempo máximo, em h
 
 ## <a name="notifications"></a>Notificações
 
-Utilize o **notificações** comutador para especificar se o sistema envia mensagens de correio eletrónico para confirmar que ativaram uma função de administradores. Isso pode ser útil para detetar ativações não autorizadas ou ilegítimo.
+Utilize o **notificações** comutador para especificar se os administradores receberá notificações por e-mail quando funções são ativadas. Isso pode ser útil para detetar ativações não autorizadas ou ilegítimo.
+
+Quando definido como **ativar**, as notificações são enviadas para:
+
+- Administrador de Função com Privilégios 
+- Administrador de Segurança
+- Administrador Global
+
+Para obter mais informações, consulte [notificações no PIM por E-Mail](pim-email-notifications.md).
 
 ## <a name="incidentrequest-ticket"></a>Pedido de suporte de incidente/pedido 
 
@@ -73,7 +81,7 @@ Utilize o **multi-factor Authentication** comutador para especificar se pretende
   * Administrador do Exchange
   * Administrador Global
   * Administrador do Information Protection
-  * Administrador de Serviço Intune
+  * Administrador de Serviços do Intune
   * Administrador do Power BI
   * Administrador de Função com Privilégios 
   * Administrador de Segurança

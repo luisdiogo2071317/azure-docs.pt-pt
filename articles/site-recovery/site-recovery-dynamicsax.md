@@ -5,14 +5,14 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: e2cba8cb53e73bd1fc25f1fe43fa0365247e2bd2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c1714fd6ada45f2b4498a3f5972424200afa9aa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210827"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838145"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação após desastre para uma aplicação com várias camadas do Dynamics AX 
 
@@ -37,7 +37,7 @@ A implementação de recuperação após desastre para aplicações do Dynamics 
 
 • Se o Azure é o seu site de recuperação, execute a ferramenta de avaliação de preparação de máquinas virtuais do Azure nas VMs. Têm de ser compatíveis com os serviços de máquinas virtuais do Azure e o Site Recovery.
 
-## <a name="site-recovery-support"></a>Suporte de recuperação de site
+## <a name="site-recovery-support"></a>Suporte do Site Recovery
 
 Com o objetivo de criar este artigo, nós usamos máquinas virtuais VMware com o Dynamics AX 2012 R3 no Windows Server 2012 R2 Enterprise. Como a replicação do site recovery é independente de aplicativo, esperamos que as recomendações fornecidas aqui para manter-se para os seguintes cenários.
 
@@ -139,7 +139,7 @@ Para obter mais informações específicas para o SQL server durante a ativaçã
 
 2. Selecione o plano de recuperação criado para o Dynamics AX.
 
-3. Selecione **ativação pós-falha de teste**.
+3. Selecione **Ativação Pós-falha de Teste**.
 
 4. Selecione a rede virtual para iniciar o processo de ativação pós-falha de teste.
 

@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 10/29/2018
-ms.openlocfilehash: a9738f95ce8a0de750ffa348e167bce3b0e659f6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.date: 11/27/2018
+ms.openlocfilehash: b3e2beb0245fa790dc60cf742d6ad8938de187f4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821400"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832586"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Resolver problemas de instalação de push do serviço de mobilidade
 
@@ -102,7 +102,7 @@ A instalação do VSS é uma parte da instalação do agente de mobilidade. Este
 
 Este problema é principalmente utilizado quando uma software antivírus está a bloquear as operações de serviços do Azure Site Recovery. Para resolver isso,
 
-1. Excluir todas as pastas mencionadas [aqui](vmware-azure-set-up-source.md#exclude-antivirus-on-the-configuration-server).
+1. Excluir todas as pastas mencionadas [aqui](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
 2. Siga as diretrizes publicadas pelo seu fornecedor de software antivírus para desbloquear o registo do DLL no Windows.
 
 ### <a name="vss-error-7-0x7---exit-code-511"></a>Erro VSS 7 [0x7] - código de saída 511

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 051e39d0e7a58c79eb00bc3dfb73eaf5389617c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b821da194ce41fc419e769336eeeb5927306684
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448368"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843653"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Tutorial: Integração do Azure Active Directory dos quadros de horários do Pacífico
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com dos quadros de horários do Pacífico, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Dos quadros de horários do Pacífico logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do Pacífico dos quadros de horários com o Azure
 
 **Para adicionar dos quadros de horários do Pacífico da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -117,7 +117,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte dos quadros de horários do Pacífico](http://www.pacifictimesheet.com/support) obter esses valores.
+    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Contacte [equipa de suporte dos quadros de horários do Pacífico](https://www.pacifictimesheet.com/support) obter esses valores.
  
 1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 
@@ -131,7 +131,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/pacific-timesheet-tutorial/tutorial_pacifictimesheet_configure.png) 
 
-1. Para configurar o início de sessão único num **dos quadros de horários do Pacífico** lado, terá de enviar o transferido **certificado (Base64)**, **SAML único início de sessão no URL do serviço**e **ID de entidade de SAML** para [equipa de suporte dos quadros de horários do Pacífico](http://www.pacifictimesheet.com/support). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+1. Para configurar o início de sessão único num **dos quadros de horários do Pacífico** lado, terá de enviar o transferido **certificado (Base64)**, **SAML único início de sessão no URL do serviço**e **ID de entidade de SAML** para [equipa de suporte dos quadros de horários do Pacífico](https://www.pacifictimesheet.com/support). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [documentação do embedded do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -170,7 +170,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="creating-a-pacific-timesheet-test-user"></a>Criar um utilizador de teste dos quadros de horários do Pacífico
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida dos quadros de horários do Pacífico. Trabalhar com [equipa de suporte dos quadros de horários do Pacífico](http://www.pacifictimesheet.com/support) para criar um utilizador na aplicação.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida dos quadros de horários do Pacífico. Trabalhar com [equipa de suporte dos quadros de horários do Pacífico](https://www.pacifictimesheet.com/support) para criar um utilizador na aplicação.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 

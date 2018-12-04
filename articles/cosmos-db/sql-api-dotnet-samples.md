@@ -2,21 +2,19 @@
 title: 'Azure Cosmos DB: Exemplos .NET para a API do SQL | Microsoft Docs'
 description: Encontre exemplos de C# .NET no github para tarefas comuns com a API do SQL do Azure Cosmos BD, incluindo operações do CRUD.
 keywords: Exemplo de NoSQL
-services: cosmos-db
 author: rnagpal
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: 5cee4a736232e7734be85b2940ce457bfbfd1613
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 3aa8e915cff7ba641a0181639ffb4ce26840d476
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262300"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837754"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: Exemplos .NET para a API do SQL
 > [!div class="op_single_selector"]
@@ -25,14 +23,16 @@ ms.locfileid: "52262300"
 > * [Exemplos de Async Java](sql-api-async-java-samples.md)
 > * [Exemplos de Node.js](sql-api-nodejs-samples.md)
 > * [Exemplos de Python](sql-api-python-samples.md)
-> * [Galeria de Exemplo de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
+> * [Galeria de Exemplos de Código do Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
 > 
 > 
 
-Estão incluídas as mais recentes soluções de exemplo que executam operações CRUD e outras operações comuns em recursos do Azure Cosmos DB no repositório do GitHub [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples). Este artigo fornece:
+Mais recentes exemplos de soluções que realizam operações CRUD e outras operações comuns em recursos do Azure Cosmos DB estão incluídos os [azure-cosmos-dotnet-v2](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples) repositório do GitHub. Este artigo fornece:
 
 * Ligações para as tarefas em cada um dos ficheiros do projeto de C# de exemplo. 
 * Ligações para o conteúdo relacionado de referência da API.
+
+Para exemplos de código para o .NET SDK versão 3.0 (pré-visualização), consulte os exemplos mais recentes do [azure-cosmos-dotnet-v3](https://github.com/Azure/azure-cosmos-dotnet-v3) repositório do GitHub. 
 
 **Pré-requisitos**
 

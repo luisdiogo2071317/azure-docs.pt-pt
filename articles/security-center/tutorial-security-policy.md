@@ -1,6 +1,6 @@
 ---
-title: Tutorial do Centro de Segurança do Azure - Definir e avaliar políticas de segurança | Microsoft Docs
-description: Tutorial do Centro de Segurança do Azure - Definir e avaliar políticas de segurança
+title: Editar as políticas de segurança no Azure Policy | Documentos da Microsoft
+description: Edite as políticas de segurança na política do Azure.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -9,102 +9,160 @@ editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: d6cc216f71efcd3b3973cd37349dd5145237f02f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027066"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839335"
 ---
-# <a name="tutorial-define-and-assess-security-policies"></a>Tutorial: definir e avaliar as políticas de segurança
-O Centro de Segurança ajuda-o a manter a conformidade com os requisitos de segurança empresariais ou regulamentares mediante a utilização de políticas de segurança que definem a configuração pretendida para as suas cargas de trabalho. Depois de definir políticas para as suas subscrições do Azure e de as adaptar ao tipo de carga de trabalho ou à sensibilidade dos seus dados, o Centro de Segurança pode mostrar recomendações de segurança para os seus recursos de computação, de aplicações, de rede, de dados e armazenamento e de identidade e acesso. Neste tutorial, vai aprender a:
+# <a name="edit-security-policies-in-azure-policy"></a>Editar as políticas de segurança no Azure Policy
+Centro de segurança ajuda-o a ver o estado das políticas de segurança e como são aplicadas em suas cargas de trabalho. Centro de segurança do Azure atribui automaticamente seus [políticas de segurança incorporadas](security-center-policy-definitions.md) em cada subscrição que está incluído. Pode configurá-las no [do Azure Policy](../azure-policy/azure-policy-introduction.md), ou utilizando a API de REST, que também permite-lhe definir políticas em grupos de gestão e em várias subscrições. Para obter mais informações, veja [Integrar políticas de segurança do Centro de Segurança no Azure Policy](security-center-azure-policy.md). Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
-> * Configurar a política de segurança
+> * Configurar uma política de segurança com a API REST
 > * Avaliar a segurança dos seus recursos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no escalão de preço Standard do Centro de Segurança. Pode experimentar o Centro de Segurança Standard sem custos durante os primeiros 60 dias. O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
+Para acompanhar as funcionalidades abrangidas neste tutorial, tem de estar no escalão de preço Standard do Centro de Segurança. Pode experimentar o Centro de segurança Standard sem encargos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
 
-## <a name="configure-security-policy"></a>Configurar a política de segurança
-O Centro de Segurança cria automaticamente uma política de segurança predefinida para cada uma das suas subscrições do Azure. As políticas de segurança são compostas por recomendações que pode ativar ou desativar de acordo com os requisitos de segurança dessa subscrição. Para fazer alterações à política de segurança predefinida, tem de ser proprietário, contribuidor ou administrador de segurança da subscrição em causa.
+## <a name="configure-a-security-policy-using-the-rest-api"></a>Configurar uma política de segurança com a API REST
 
-1. No menu principal do Centro de Segurança, selecione **Política de segurança**.
-2. Selecione a subscrição que pretende utilizar.
+Como parte da integração nativa com o Azure Policy, o Centro de segurança do Azure permite-lhe tirar partido do Azure Policy API de REST para criar atribuições de política. As instruções seguintes explicam como criação de atribuições de política, bem como a personalização de atribuições existentes. 
 
-  ![Política de segurança](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
+Conceitos importantes na política do Azure: 
 
-3. Em **Computação e aplicações**, **Rede** e **Dados**, defina cada configuração de segurança que quer monitorizar como **Ativado**. O Centro de Segurança avalia continuamente a configuração do seu ambiente e, se existirem vulnerabilidades, gerará uma recomendação de segurança. Selecione **Desativar** se a configuração de segurança não for recomendada ou não for relevante. Por exemplo, num ambiente de dev/test, poderá não precisar do mesmo nível de segurança do que num ambiente de produção. Depois de selecionar as políticas que são aplicáveis ao seu ambiente, clique em **Guardar**.
+- R **definição de política** é uma regra 
 
-  ![Configuração de segurança](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
+- Uma **iniciativa** é uma coleção de definições de política (regras) 
 
-Aguarde até que o Centro de Segurança processe estas políticas e gere recomendações. Algumas configurações, como as atualizações ao sistema e as configurações de SO, podem demorar até 12 horas, ao passo que as configurações de grupos de segurança de rede e de encriptação podem ser avaliadas quase de imediato. Quando vir as recomendações no dashboard do Centro de Segurança, pode avançar para o passo seguinte.
+- Uma **atribuição** é uma aplicação de uma iniciativa ou uma política para um âmbito específico (grupo de gestão, subscrição, etc.) 
 
-## <a name="assess-security-of-resources"></a>Avaliar a segurança dos recursos
-1. De acordo com as políticas de segurança que tiverem sido ativadas, o Centro de Segurança irá disponibilizar um conjunto de recomendações de segurança, conforme necessário. Deve começar por rever as recomendações relativas à máquina virtual e aos computadores. No dashboard do Centro de Segurança, selecione **Descrição Geral** e **Computação e aplicações**.
+Centro de segurança tem uma iniciativa incorporada que inclui todas as políticas de segurança. Para avaliar as políticas do Centro de segurança nos recursos do Azure, deve criar uma atribuição no grupo de gestão ou assinatura que deseja avaliar.  
 
-  ![Computação](./media/tutorial-security-policy/tutorial-security-policy-fig2.png)
+A iniciativa incorporada tem todas as políticas do Centro de segurança ativadas por predefinição. Pode optar por desabilitar determinadas políticas da iniciativa de incorporada, por exemplo pode aplicar todas as políticas do Centro de segurança, exceto **firewall de aplicações web**, alterando o valor do parâmetro de efeito da política para  **Desativado**. 
 
-  Priorize as recomendações que aparecem a vermelho (prioridade elevada) e reveja cada recomendação. Algumas destas recomendações têm soluções que podem ser implementadas diretamente a partir do Centro de Segurança, como, por exemplo, os [problemas de proteção de pontos finais](https://docs.microsoft.com/azure/security-center/security-center-install-endpoint-protection). Outras recomendações têm apenas diretrizes para aplicar a solução, tais como a recomendação de encriptação de disco em falta.
+### <a name="api-examples"></a>Exemplos de API
 
-2. Assim que abordar todas as recomendações de computação relevantes, deve avançar para a carga de trabalho seguinte, o funcionamento em rede. No dashboard do Centro de Segurança, clique em **Descrição Geral** e clique em **Funcionamento em Rede**.
+Nos exemplos a seguir, substitua estas variáveis:
 
-  ![Redes](./media/tutorial-security-policy/tutorial-security-policy-fig3.png)
+- **{âmbito}**  introduza o nome do grupo de gestão ou subscrição se aplicar a política.
+- **{poicyAssignmentName}**  introduza o [nome da atribuição de política relevante](#policy-names).
+- **{name}**  introduza o nome ou o nome do administrador que aprovou a alteração de política.
 
-  A página de recomendações de rede tem uma lista de problemas de segurança de configuração de rede, de pontos finais destinados à Internet e de topologia de rede. Tal como com a **Computação e aplicações**, algumas recomendações de rede disponibilizarão soluções integradas e outras não.
+Este exemplo mostra como atribuir a iniciativa de centro de segurança incorporada numa subscrição ou grupo de gestão
+ 
+    PUT  
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
-3. Assim que abordar todas as recomendações de rede relevantes, deve avançar para a carga de trabalho seguinte, o armazenamento e dados. No dashboard do Centro de Segurança, clique em **Descrição geral** e em **Dados e armazenamento**.
+    Request Body (JSON) 
 
-  ![Recursos de dados](./media/tutorial-security-policy/tutorial-security-policy-fig4.png)
+    { 
 
-  A página **Recursos de Dados** contém recomendações relativas à ativação da auditoria para os servidores e as bases de dados SQL do Azure, à ativação da encriptação para as bases de dados SQL e à ativação da encriptação da sua conta de armazenamento do Azure. Se não tiver estas cargas de trabalho, não verá nenhuma recomendação. Tal como com a **Computação e aplicações**, algumas recomendações de dados e armazenamento disponibilizarão soluções integradas e outras não.
+      "properties":{ 
 
-4. Assim que abordar todas as recomendações de dados e armazenamento relevantes, deve avançar para a carga de trabalho seguinte, identidade e acesso. No dashboard do Centro de Segurança, clique em **Descrição Geral** e em **Identidade e acesso**.
+    "displayName":"Enable Monitoring in Azure Security Center", 
 
-  ![Identidade e acesso](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
+    "metadata":{ 
 
-  A página **Identidade e acesso** contém recomendações como:
+    "assignedBy":"{Name}" 
 
-   - Ativar o MFA para contas com privilégios na sua subscrição
-   - Remover contas externas com permissões de escrita da sua subscrição
-   - Remover as contas externas com privilégios da sua subscrição
+    }, 
 
-## <a name="clean-up-resources"></a>Limpar recursos
-Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com inícios rápidos e tutoriais posteriores, continue a executar o escalão Standard e mantenha o aprovisionamento automático ativado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
 
-1. Regresse ao menu principal do Centro de Segurança e selecione **Política de Segurança**.
-2. Selecione a subscrição ou a política para a qual pretende voltar como Gratuita. **Política de segurança** abre-se.
-3. Em **COMPONENTES DA POLÍTICA**, selecione **Escalão de preço**.
-4. Selecione **Gratuito** para alterar a subscrição, do Escalão standard para o Escalão gratuito.
-5. Selecione **Guardar**.
+    "parameters":{}, 
 
-Se pretender desativar aprovisionamento automático:
+    } 
 
-1. Regresse ao menu principal do Centro de Segurança e selecione **Política de segurança**.
-2. Selecione a subscrição para a qual pretende desativar o aprovisionamento automático.
-3. Em **Política de segurança – Recolha de Dados**, selecione **Desativar** em **Inclusão** para desativar o aprovisionamento automático.
-4. Selecione **Guardar**.
+    } 
 
->[!NOTE]
-> Desativar o aprovisionamento automático não remove o Microsoft Monitoring Agent das VMs do Azure onde o agente tiver sido aprovisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
->
+Este exemplo mostra como atribuir a iniciativa de centro de segurança incorporada numa assinatura, com as seguintes políticas desativadas: 
 
-## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, ficou a saber mais sobre a definição básica de políticas e a avaliação de segurança da sua carga de trabalho com o Centro de Segurança, tais como:
+- Atualizações do sistema ("systemUpdatesMonitoringEffect") 
 
-> [!div class="checklist"]
-> * Configuração de política de segurança para garantir a conformidade com os requisitos de segurança da sua empresa ou com os requisitos regulamentares
-> * Avaliação de segurança da computação, das redes, de SQL e armazenamento e de recursos de aplicações
+- Configurações de segurança ("systemConfigurationsMonitoringEffect") 
 
-Avance para o próximo tutorial para saber como utilizar o Centro de Segurança para proteger os seus recursos.
+- Proteção de ponto final ("endpointProtectionMonitoringEffect") 
 
-> [!div class="nextstepaction"]
-> [Proteger os seus recursos](tutorial-protect-resources.md)
+ 
+      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+      Request Body (JSON) 
+
+      { 
+
+        "properties":{ 
+
+      "displayName":"Enable Monitoring in Azure Security Center", 
+
+      "metadata":{ 
+
+      "assignedBy":"{Name}" 
+
+      }, 
+
+      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+
+      "parameters":{ 
+
+      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+
+      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+
+      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+
+      }, 
+
+       } 
+
+      } 
+
+Este exemplo mostra como remover uma atribuição:
+
+    DELETE   
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+
+## Referência de política de nomes <a name="policy-names"></a>
+
+|Nome da política no Centro de segurança|Nome da política apresentado na política do Azure |Nome do parâmetro de efeito de política|
+|----|----|----|
+|Encriptação SQL |Monitorizar a base de dados SQL não encriptada no Centro de segurança do Azure |sqlEncryptionMonitoringEffect| 
+|Auditoria do SQL |Monitorizar a base de dados SQL não auditada no Centro de segurança do Azure |sqlAuditingMonitoringEffect|
+|Atualizações do sistema |Monitorizar atualizações de sistema em falta no Centro de segurança do Azure |systemUpdatesMonitoringEffect|
+|Encriptação do armazenamento |Auditar encriptação de BLOBs em falta para contas de armazenamento |storageEncryptionMonitoringEffect|
+|Acesso à rede JIT |Monitorizar o acesso de apenas no Time (JIT) de rede possível no Centro de segurança do Azure |jitNetworkAccessMonitoringEffect |
+|Controlos de aplicações adaptáveis |Monitorizar aplicação possíveis listas de permissões no Centro de segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
+|Grupos de segurança de rede |Monitorizar o acesso de rede permissivo no Centro de segurança do Azure |networkSecurityGroupsMonitoringEffect| 
+|Configurações de segurança |Monitorizar vulnerabilidades do SO no Centro de segurança do Azure |systemConfigurationsMonitoringEffect| 
+|Endpoint protection |Monitorizar o Endpoint Protection em falta no Centro de segurança do Azure |endpointProtectionMonitoringEffect |
+|Encriptação de disco |Monitorizar discos de VM não encriptados no Centro de segurança do Azure |diskEncryptionMonitoringEffect|
+|Avaliação de vulnerabilidades |Monitor de vulnerabilidades de VM no Centro de segurança do Azure |vulnerabilityAssesmentMonitoringEffect|
+|Firewall de aplicação Web |Monitorizar aplicações web desprotegidas no Centro de segurança do Azure |webApplicationFirewallMonitoringEffect |
+|Firewall da próxima geração |Monitorizar pontos finais de redes desprotegidos no Centro de segurança do Azure| |
+
+
+
+
+
+## <a name="next-steps"></a>Passos Seguintes
+Neste artigo, aprendeu como editar as políticas de segurança na política do Azure. Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:
+
+* [Guia de operações e planeamento do Centro de Segurança do Azure](security-center-planning-and-operations-guide.md): saiba como planear e compreender as considerações de conceção do Centro de Segurança do Azure.
+* [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md): saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
+* [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md): saiba como gerir e responder a alertas de segurança.
+* [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md) (Monitorizar soluções de parceiros com o Centro de Segurança do Azure): saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
+* [Ganhar visibilidade em todo o inquilino para o Centro de Segurança do Azure](security-center-management-groups.md): saiba como configurar grupos de gestão para o Centro de Segurança do Azure.
+* [Azure Security Center FAQ](security-center-faq.md) (FAQ do Centro de Segurança do Azure): obtenha respostas às perguntas mais frequentes sobre como utilizar o serviço.
+* [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): encontre publicações no blogue acerca da segurança e conformidade do Azure.
+
+Para saber mais sobre o Azure Policy, veja [O que é o Azure Policy?](../azure-policy/azure-policy-introduction.md)

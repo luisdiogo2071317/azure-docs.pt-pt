@@ -1,22 +1,20 @@
 ---
-title: 'Azure Cosmos DB: como fazer consultas utilizando a API do MongoDB? | Microsoft Docs'
+title: 'Azure Cosmos DB: como fazer consultas utilizando a API do MongoDB?'
 description: Saiba como fazer consultas com a API do MongoDB na Azure Cosmos DB
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/29/2018
-ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: efb59a73b3c9b0ab06fae2e7b4fe5b97d85249eb
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.date: 03/29/2018
+ms.openlocfilehash: 8c865ab7fa997b169e481612ce791d960688da56
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052817"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841511"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Tutorial: fazer consultas na Azure Cosmos DB com a API do MongoDB
 
@@ -300,7 +298,7 @@ A consulta seguinte devolve todas as famílias em que a matriz de elementos subo
 
 Não serão devolvidos resultados, porque não há famílias com mais de dois subordinados. Esta consulta só será concluída com êxito e devolve o documento completo se o parâmetro for 2.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, fez o seguinte:
 
