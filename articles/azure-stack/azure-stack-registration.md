@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 8d737c9fbf149051a8142f5ff546ea88e648541b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976371"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890556"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -121,8 +121,8 @@ Podem aceder a ambientes conectados à internet e Azure. Para estes ambientes, t
 
 2. Adicione a conta do Azure que utiliza para registar o Azure Stack. Para adicionar a conta, execute o **Add-AzureRmAccount** cmdlet. Lhe for pedido que introduza as credenciais de conta do Azure e poderá ter de utilizar a autenticação de 2 fatores com base na configuração da sua conta.
 
-   ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+   ```PowerShell
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | Parâmetro | Descrição |  
@@ -147,11 +147,15 @@ Podem aceder a ambientes conectados à internet e Azure. Para estes ambientes, t
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. Em seguida, na mesma sessão do PowerShell, certifique-se que estiver conectado ao contexto correto de PowerShell do Azure. Esta é a conta do azure que foi utilizada para registar o fornecedor de recursos do Azure Stack, acima. PowerShell para executar:
+6. Em seguida, na mesma sessão do PowerShell, certifique-se que estiver conectado ao contexto correto de PowerShell do Azure. Esta é a conta do Azure que foi utilizada para registar o fornecedor de recursos do Azure Stack, acima. PowerShell para executar:
 
    ```PowerShell  
-   Add-AzureRmAccount -Environment "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
+
+   | Parâmetro | Descrição |  
+   |-----|-----|
+   | EnvironmentName | O nome de ambiente de subscrição de cloud do Azure. Os nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se utilizar uma subscrição do Azure China **AzureChinaCloud**.  |
 
 7. Na mesma sessão do PowerShell, execute o **Set-AzsRegistration** cmdlet. PowerShell para executar:  
 
@@ -182,7 +186,7 @@ Podem aceder a ambientes conectados à internet e Azure. Para estes ambientes, t
 2. Adicione a conta do Azure que utiliza para registar o Azure Stack. Para adicionar a conta, execute o **Add-AzureRmAccount** cmdlet. Lhe for pedido que introduza as credenciais de conta do Azure e poderá ter de utilizar a autenticação de 2 fatores com base na configuração da sua conta.
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | Parâmetro | Descrição |  
@@ -298,7 +302,7 @@ Opcionalmente, pode utilizar o cmdlet Get-Content para apontar para um ficheiro 
 
 Utilize estes passos para verificar que o Azure Stack com êxito é registrado com o Azure.
 
-1. Inicie sessão para o Azure Stack [portal de administrador](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;região >. &lt;fqdn >*.
+1. Inicie sessão para o Azure Stack [portal de administração](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;região >. &lt;fqdn >*.
 2. Selecione **todos os serviços**e, em seguida, sob o **administração** categoria, selecione **gestão Marketplace** > **adicionar a partir do Azure**.
 
 Se vir uma lista de itens disponíveis do Azure (por exemplo, WordPress), a ativação foi concluída com êxito. No entanto, em ambientes desligados não verá itens do marketplace do Azure no mercado do Azure Stack.

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2018
+ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 60e9a790a9b74bce7ccbdd58b320ad969c0932f3
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 03fd91b8412c75a994f55f589179f718189e67a7
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079287"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891168"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referência do cmdlet Start-AzsReadinessChecker
 
@@ -228,7 +228,8 @@ Neste exemplo, uma tabela de hash é construída com caminhos e palavras-passe p
 **Exemplo: Validar a identidade do Azure**
 ```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
-Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AzureDirectoryTenantName azurestack.contoso.com
+# Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
 Neste exemplo, as credenciais da conta de administrador de serviço recebem um pedido de forma segura e início AzsReadinessChecker verifica que a conta do Azure e Azure Active Directory são válidos para uma implementação de AAD com um nome de inquilino do diretório de "azurestack.contoso.com"
@@ -245,9 +246,10 @@ Neste exemplo, as credenciais da conta de administrador de serviço recebem um p
 
 **Exemplo: Validar o registo do Azure**
 ```PowerShell
-$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner"e.g. subscriptionowner@contoso.onmicrosoft.com"
-$subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
-Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment AzureCloud
+$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
+$subscriptionID = "<subscription ID"
+# Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment "<environment name>"
 ```
 
 Neste exemplo, as credenciais de proprietário da subscrição recebem um pedido de forma segura e AzsReadinessChecker de início, em seguida, executa a validação em relação à determinada conta e subscrição para se certificar de que pode ser utilizada para o registo do Azure Stack. 
@@ -255,8 +257,8 @@ Neste exemplo, as credenciais de proprietário da subscrição recebem um pedido
 
 **Exemplo: Validar o registo do Azure com dados de implementação (equipe de implantação)**
 ```PowerShell
-$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner"e.g. subscriptionowner@contoso.onmicrosoft.com"
-$subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
+$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
+$subscriptionID = "<subscription ID>"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
@@ -446,7 +448,7 @@ Especifica a instância dos serviços do Azure que contém as contas, diretório
 |Escreva:                       |Cadeia   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Nenhuma     |
-|Valores válidos:               |"AzureCloud', 'AzureChinaCloud', 'AzureGermanCloud' |
+|Valores válidos:               |"AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment' |
 |Aceite entrada de pipeline:      |Falso    |
 |Aceite carateres universais: |Falso    |
 

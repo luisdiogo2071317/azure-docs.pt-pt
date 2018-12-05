@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: obter idiomas suportados, C# – API de Texto do Microsoft Translator'
+title: 'Início rápido: Obter lista de idiomas, com suporte C# -API de texto do tradutor'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, obtém uma lista de idiomas com suporte para tradução, Transliteração e pesquisa de dicionário com a API de texto do Translator.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 9c1903f5141d52eb7f333384399fedc5f9ad9f6c
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 54896e96658286297d90f488bd02f11da505ec50
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680434"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889094"
 ---
-# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-c"></a>Início Rápido: obter idiomas suportados com a API de Texto do Microsoft Translator (C#)
+# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>Início rápido: Utilizar a API de texto do Translator para obter uma lista dos idiomas com suporte a utilizarC#
 
 Neste início rápido, obtém uma lista de idiomas com suporte para tradução, Transliteração e pesquisa de dicionário com a API de texto do Translator.
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 5f56022be7968d3be65fd06fef791d859acf14c0
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: acc926151e5abd1d6f9d0992591575198d1fdf44
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585355"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890539"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>Tutorial: Como utilizar o Azure Key Vault com o Azure Máquina Virtual do Linux em Python
 
@@ -189,7 +189,7 @@ O segue-se um processo 2 passo.
     print(kvSecret.json()["value"])
 ```
 
-Ao executar deverá ver o valor secreto 
+Ao executar o comando, deverá ver o valor secreto abaixo 
 
 ```
 python Sample.py
