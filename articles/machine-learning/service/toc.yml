@@ -1,5 +1,5 @@
 items:
-- name: Documentação do Azure Machine Learning (Pré-visualização)
+- name: Documentação do Azure Machine Learning
   href: index.yml
 - name: Descrição geral
   items:
@@ -25,18 +25,22 @@ items:
     href: quickstart-create-workspace-with-python.md
 - name: Tutoriais
   items:
-  - name: 'Preparar modelos: Parte 1'
-    href: tutorial-train-models-with-aml.md
-  - name: 'Implementar modelos: Parte 2'
-    href: tutorial-deploy-models-with-aml.md
-  - name: Preparar modelos de ML automatizados
-    displayName: automl
-    href: tutorial-auto-train-models.md
+  - name: Classificação de imagens (dados MNIST)
+    items:
+    - name: 1. Preparar um modelo
+      href: tutorial-train-models-with-aml.md
+    - name: 2. Implementar um modelo
+      href: tutorial-deploy-models-with-aml.md
+  - name: Regressão (dados dos táxis de Nova Iorque)
+    items:
+    - name: 1. Preparar dados para modelação
+      href: tutorial-data-prep.md
+    - name: 2. Preparar automaticamente um modelo de ML
+      displayName: automl, automated, auto ml,
+      href: tutorial-auto-train-models.md
 - name: Amostras
-  items:
-  - name: Blocos de notas do Jupyter (GitHub)
-    displayName: example, examples
-    href: https://aka.ms/aml-notebooks
+  displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+  href: samples-notebooks.md
 - name: Conceitos
   items:
   - name: Gestão de modelos
@@ -52,11 +56,11 @@ items:
     href: how-to-manage-workspace.md
   - name: Configurar o ambiente de desenvolvimento 
     items:
-    - name: Configurar um ambiente
-      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
+    - name: Configurar o seu ambiente de desenvolvimento
+      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: VS Code Tools para IA
-      displayName: Visual Studio Code, vscode
+    - name: Extensão do Visual Studio Code
+      displayName: Visual Studio Code, vscode, tools, ai, vs
       items:
       - name: Introdução
         href: how-to-vscode-tools.md
@@ -75,7 +79,7 @@ items:
   - name: Preparar modelos
     items:
     - name: Configurar ambientes de preparação
-      displayName: compute target, dsvm, Data Science Virtual Machine, batchai, batch ai, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Aceder aos dados em formação
       href: how-to-access-data.md
@@ -127,12 +131,16 @@ items:
     - name: Consumir em tempo real
       displayName: create client, client, consume
       href: how-to-consume-web-service.md
+    - name: Executar predições em lote
+      href: how-to-run-batch-predictions.md
   - name: Monitorizar serviços Web
     items:
     - name: Recolher e avaliar dados de modelo
       href: how-to-enable-data-collection.md
     - name: Monitorizar com o Application Insights
       href: how-to-enable-app-insights.md
+  - name: Criar o seu primeiro pipeline
+    href: how-to-create-your-first-pipeline.md
   - name: Gerir quotas de recursos
     displayName: limits
     href: how-to-manage-quotas.md
@@ -368,9 +376,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemas Antigos
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 308c767eb4a4bd332037093e23a1cb53a9fd1dc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 67bf0dfb2939cfd561f4558f9003c36883dcef93
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845064"
+ms.locfileid: "52864830"
