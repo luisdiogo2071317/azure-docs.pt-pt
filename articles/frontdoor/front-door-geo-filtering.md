@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/09/2018
 ms.author: sharadag
-ms.openlocfilehash: e36253600dd8039940209cb5912cb2e4c2e0fbcf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: a2ba0fb34dd34129a134aa2639d06816f3523408
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988622"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865510"
 ---
 # <a name="geo-filtering-geographic-based-access-control-to-azure-front-door-service-frontends"></a>Filtragem geográfica: controlo de acesso baseado na área geográfica para front-ends do Azure Front Door Service
 
@@ -31,7 +31,7 @@ Pode configurar uma política de filtragem geográfica para o seu Front Door com
 
 |Código do País | Nome do País |
 | ----- | ----- |
-| AD | Federação Russa |
+| AD | Andorra |
 | AE | Emirados Árabes Unidos|
 | AF | Afeganistão|
 | AG | Antígua e Barbuda|
@@ -209,7 +209,7 @@ Pode configurar uma política de filtragem geográfica para o seu Front Door com
 | ZM | Zâmbia|
 | ZW | Zimbabué|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre a [segurança de camada de aplicação com o Front Door](front-door-application-security.md).
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).

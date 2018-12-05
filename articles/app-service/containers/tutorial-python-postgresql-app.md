@@ -9,21 +9,21 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/28/2018
+ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: f4ce197d541b8573e38fd85dcebb575c8ee99f59
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.openlocfilehash: 3963e2ffb521a4b4732814e9b2992f4e83af1835
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435791"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865629"
 ---
-# <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Criar uma aplicação Web Docker Python com PostgreSQL no Azure
+# <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Criar uma aplicação web Python e PostgreSQL no serviço de aplicações do Azure
 
-[O Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra como criar uma aplicação Web em Python condicionada por dados, com o PostgreSQL como o back-end da base de dados. Quando tiver terminado, terá uma aplicação do Python Flask em execução num contentor de Docker no Serviço de Aplicações no Linux.
+[O Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra como criar uma aplicação Web em Python condicionada por dados, com o PostgreSQL como o back-end da base de dados. Quando tiver terminado, terá uma aplicação Django em execução no serviço de aplicações no Linux.
 
-![Aplicação do Docker Python Flask no Serviço de Aplicações no Linux](./media/tutorial-python-postgresql-app/docker-flask-in-azure.png)
+![Aplicação do Django Python no serviço de aplicações no Linux](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
 Neste tutorial, ficará a saber como:
 
@@ -32,7 +32,6 @@ Neste tutorial, ficará a saber como:
 > * Ligar uma aplicação Python ao PostgreSQL
 > * Implementar a aplicação no Azure
 > * Ver registos de diagnóstico
-> * Atualizar o modelo de dados e voltar a implementar a aplicação
 > * Gerir a aplicação no portal do Azure
 
 Pode seguir os passos neste artigo no macOS. As instruções do Linux e Windows são as mesmas na maioria dos casos, mas as diferenças não estão descritas neste tutorial.
@@ -44,8 +43,8 @@ Pode seguir os passos neste artigo no macOS. As instruções do Linux e Windows 
 Para concluir este tutorial:
 
 1. [Instalar o Git](https://git-scm.com/)
-1. [Instalar o Python](https://www.python.org/downloads/)
-1. [Instalar e executar o PostgreSQL](https://www.postgresql.org/download/)
+2. [Instalar o Python](https://www.python.org/downloads/)
+3. [Instalar e executar o PostgreSQL](https://www.postgresql.org/download/)
 
 ## <a name="test-local-postgresql-installation-and-create-a-database"></a>Testar a instalação do PostgreSQL local e criar uma base de dados
 
@@ -63,12 +62,12 @@ psql postgres
 
 Se a ligação for bem-sucedida, a base de dados PostgreSQL está em execução. Caso contrário, certifique-se de que a base de dados PostgresQL local é iniciada conforme as instruções para o seu sistema operativo em [Transferências - Distribuição do PostgreSQL Core](https://www.postgresql.org/download/).
 
-Crie uma base de dados denominada *eventregistration* e configure um utilizador de base de dados em separado denominado *gestor* com a palavra-passe *supersecretpass*.
+Criar uma base de dados chamado *pollsdb* e defina um com o nome de utilizador de base de dados separada *manager* com palavra-passe *supersecretpass*.
 
 ```sql
-CREATE DATABASE eventregistration;
+CREATE DATABASE pollsdb;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
-GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
+GRANT ALL PRIVILEGES ON DATABASE pollsdb TO manager;
 ```
 
 Escreva `\q` para sair do cliente PostgreSQL.
@@ -77,7 +76,7 @@ Escreva `\q` para sair do cliente PostgreSQL.
 
 ## <a name="create-local-python-app"></a>Criar uma aplicação Python local
 
-Neste passo, vai configurar o projeto Python Flask local.
+Neste passo, vai configurar o projeto de Python Django local.
 
 ### <a name="clone-the-sample-app"></a>Clonar a aplicação de exemplo
 
@@ -86,53 +85,69 @@ Abra a janela de terminal e `CD` num diretório de trabalho.
 Execute os seguintes comandos para clonar o repositório de exemplo.
 
 ```bash
-git clone https://github.com/Azure-Samples/flask-postgresql-app.git
-cd flask-postgresql-app
+git clone https://github.com/Azure-Samples/djangoapp.git
+cd djangoapp
 ```
 
-Este repositório de exemplo contém uma aplicação [Flask](http://flask.pocoo.org/).
+Este repositório de exemplo contém um [Django](https://www.djangoproject.com/) aplicação. É a mesma aplicação orientada por dados obteria ao seguir a [tutorial de introdução na documentação do Django](https://docs.djangoproject.com/en/2.1/intro/tutorial01/). Este tutorial não ensiná-lo Django, mas mostra-lhe como tirar implementar e executar uma aplicação Django (ou outra aplicação de Python condicionada por dados) no serviço de aplicações.
 
-### <a name="run-the-app-locally"></a>Executar a aplicação localmente
+### <a name="configure-environment"></a>Configurar o ambiente
 
-Instale os pacotes necessários e inicie a aplicação.
+Criar um ambiente virtual do Python e utilize um script para definir as definições de ligação de base de dados.
 
 ```bash
 # Bash
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
-cd app
-FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
+source ./env.sh
 
 # PowerShell
-pip install virtualenv
-virtualenv venv
-source venv/bin/activate
+py -3 -m venv venv
+venv\scripts\activate
+.\env.ps1
+```
+
+As variáveis de ambiente definidas *env.sh* e *env.ps1* são utilizadas no _azuresite/settings.py_ para definir as definições de base de dados.
+
+### <a name="run-app-locally"></a>Executar a aplicação localmente
+
+Instalar os pacotes necessários, [execute migrações de Django](https://docs.djangoproject.com/en/2.1/topics/migrations/) e [criar um utilizador administrador](https://docs.djangoproject.com/en/2.1/intro/tutorial02/#creating-an-admin-user).
+
+```bash
 pip install -r requirements.txt
-cd app
-Set-Item Env:FLASK_APP ".\app.py"
-DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+Depois de criar o utilizador administrador, execute o servidor do Django.
+
+```bash
+python manage.py runserver
 ```
 
 Quando a aplicação estiver totalmente carregada, verá algo semelhante à mensagem seguinte:
 
 ```bash
-INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
-INFO  [alembic.runtime.migration] Will assume transactional DDL.
-INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty message
- * Serving Flask app "app"
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+Performing system checks...
+
+System check identified no issues (0 silenced).
+October 26, 2018 - 10:54:59
+Django version 2.1.2, using settings 'azuresite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
 ```
 
-Navegue para `http://localhost:5000` num browser. Clique em **Registar!** e criar um utilizador de teste.
+Navegue para `http://localhost:8000` num browser. Deverá ver a mensagem `No polls are available.`. 
 
-![Aplicação do Python Flask em execução localmente](./media/tutorial-python-postgresql-app/local-app.png)
+Navegue para `http://localhost:8000/admin` e inicie sessão com o utilizador de administrador que criou no último passo. Clique em **Add** junto a **perguntas** e criar uma pergunta de inquérito com algumas opções.
 
-A aplicação Flask de exemplo armazena os dados do utilizador na base de dados. Se registar um utilizador com êxito, a aplicação escreve dados na base de dados PostgreSQL local.
+![Aplicação Python Django em execução localmente](./media/tutorial-python-postgresql-app/django-admin-local.png)
 
-Para parar o servidor do Flask em qualquer altura, escreva Ctrl+C no terminal.
+Navegue para `http://localhost:8000` novamente e ver a pergunta de inquérito apresentada.
+
+A aplicação de exemplo do Django armazena dados de utilizador na base de dados. Se for concluída com êxito ao adicionar uma pergunta de inquérito, a aplicação é escrever dados na base de dados do PostgreSQL local.
+
+Para parar o servidor do Django a qualquer altura, escreva Ctrl + C no terminal.
 
 ## <a name="create-a-production-postgresql-database"></a>Criar uma base de dados PostgreSQL de produção
 
@@ -198,11 +213,11 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 
 ## <a name="connect-python-app-to-production-database"></a>Ligar a aplicação Python base de dados de produção
 
-Neste passo, vai ligar a aplicação de exemplo Flask à Base de Dados do Azure para servidor PostgreSQL que criou.
+Neste passo, vai ligar a aplicação de exemplo do Django para a base de dados do Azure para o servidor PostgreSQL que criou.
 
 ### <a name="create-empty-database-and-user-access"></a>Criar base de dados vazia e acesso de utilizador
 
-Na janela de terminal local, ligue à base de dados ao executar o comando abaixo. Quando a sua palavra-passe de administrador lhe for pedida, utilize a mesma palavra-passe que especificou em [Criar uma Base de Dados do Azure para servidor PostgreSQL](#create-an-azure-database-for-postgresql-server).
+No Cloud Shell, ligue à base de dados ao executar o comando abaixo. Quando a sua palavra-passe de administrador lhe for pedida, utilize a mesma palavra-passe que especificou em [Criar uma Base de Dados do Azure para servidor PostgreSQL](#create-an-azure-database-for-postgresql-server).
 
 ```bash
 psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<postgresql_name> postgres
@@ -210,39 +225,55 @@ psql -h <postgresql_name>.postgres.database.azure.com -U <my_admin_username>@<po
 
 Assim como no seu servidor Postgres local, crie a base de dados e um utilizador no servidor Postgres do Azure.
 
-```bash
-CREATE DATABASE eventregistration;
+```sql
+CREATE DATABASE pollsdb;
 CREATE USER manager WITH PASSWORD 'supersecretpass';
-GRANT ALL PRIVILEGES ON DATABASE eventregistration TO manager;
+GRANT ALL PRIVILEGES ON DATABASE pollsdb TO manager;
 ```
 
 Escreva `\q` para sair do cliente PostgreSQL.
 
 > [!NOTE]
-> Uma prática recomendada é criar utilizadores de base de dados com permissões restritas para aplicações específicas, em vez de utilizar o utilizador administrador. Neste exemplo, o utilizador `manager` tem todos os privilégios _só_ para a base de dados `eventregistration`.
+> Uma prática recomendada é criar utilizadores de base de dados com permissões restritas para aplicações específicas, em vez de utilizar o utilizador administrador. Neste exemplo, o utilizador `manager` tem todos os privilégios _só_ para a base de dados `pollsdb`.
 
 ### <a name="test-app-connectivity-to-production-database"></a>Testar a conectividade da aplicação à base de dados de produção
 
-Novamente na janela do terminal local, execute os seguintes comandos para executar a migração da base de dados do Flask e o servidor Flask.
+Na janela de terminal local, alterar as variáveis de ambiente de base de dados (que configurou anteriormente, executando *env.sh* ou *env.ps1*):
 
 ```bash
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
+# Bash
+export DBHOST="<postgresql_name>.postgres.database.azure.com"
+export DBUSER="manager@<postgresql_name>"
+export DBNAME="pollsdb"
+export DBPASS="supersecretpass"
+
+# PowerShell
+$Env:DBHOST = "<postgresql_name>.postgres.database.azure.com"
+$Env:DBUSER = "manager@<postgresql_name>"
+$Env:DBNAME = "pollsdb"
+$Env:DBPASS = "supersecretpass"
 ```
 
-Quando a aplicação estiver totalmente carregada, verá algo semelhante à mensagem seguinte:
+Executar migração Django para a base de dados do Azure e criar um utilizador administrador.
 
 ```bash
-INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
-INFO  [alembic.runtime.migration] Will assume transactional DDL.
-INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty message
- * Serving Flask app "app"
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+python manage.py migrate
+python manage.py createsuperuser
 ```
 
-Navegue para http://localhost:5000 num browser. Clique em **Registar!** e crie um registo de teste. Está agora a escrever dados na base de dados no Azure.
+Depois de criar o utilizador administrador, execute o servidor do Django.
 
-![Aplicação do Python Flask em execução localmente](./media/tutorial-python-postgresql-app/local-app.png)
+```bash
+python manage.py runserver
+```
+
+Navegue para `http://localhost:8000` no novamente. Deverá ver a mensagem `No polls are available.` novamente. 
+
+Navegue para `http://localhost:8000/admin` e inicie sessão com o utilizador de administrador que criou e criar uma pergunta de inquérito como antes.
+
+![Aplicação Python Django em execução no local](./media/tutorial-python-postgresql-app/django-admin-local.png)
+
+Navegue para `http://localhost:8000` novamente e ver a pergunta de inquérito apresentada. A aplicação é agora escrever dados na base de dados no Azure.
 
 ## <a name="deploy-to-azure"></a>Implementar no Azure
 
@@ -250,13 +281,42 @@ Neste passo, vai implementar a aplicação Python ligada ao Postgres no Serviço
 
 ### <a name="configure-repository"></a>Configurar o repositório
 
-O motor de implementação do Git no Serviço de Aplicações invoca a automatização `pip` quando existe um _application.py_ na raiz do repositório. Neste tutorial, vai permitir que o motor de implementação execute a automatização por si. Na janela do terminal local, navegue até à raiz do repositório, crie um _application.py_ de teste e consolide as suas alterações.
+Django valida o `HTTP_HOST` cabeçalho em solicitações de entrada. Para a sua aplicação Django funcionar no serviço de aplicações, terá de adicionar o nome de domínio completamente qualificados da aplicação para os anfitriões permitidos. Open _azuresite/settings.py_ e localize o `ALLOWED_HOSTS` definição. Altere a linha para:
+
+```python
+ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
+```
+
+Em seguida, não suporta a Django [servir ficheiros estáticos na produção](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), por isso terá de ativar esta opção manualmente. Para este tutorial, utilize [WhiteNoise](http://whitenoise.evans.io/en/stable/). O pacote de WhiteNoise já está incluído no _Requirements. txt_. Terá de configurar o Django usá-lo. 
+
+No _azuresite/settings.py_, localizar o `MIDDLEWARE` definição e adicionar o `whitenoise.middleware.WhiteNoiseMiddleware` middleware à lista, logo abaixo do `django.middleware.security.SecurityMiddleware` middleware. Sua `MIDDLEWARE` definição deve ter o seguinte aspeto:
+
+```python
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    ...
+]
+```
+
+No final da _azuresite/settings.py_, adicione as seguintes linhas.
+
+```python
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+```
+
+Para obter mais informações sobre como configurar WhiteNoise, consulte a [WhiteNoise documentação](http://whitenoise.evans.io/en/stable/).
+
+> [!IMPORTANT]
+> Secção de definições da base de dados já segue a prática recomendada de segurança do uso de variáveis de ambiente. Para obter recomendações de implantação completa, veja [documentação do Django: lista de verificação de implementação](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).
+
+
+Consolide as suas alterações no repositório.
 
 ```bash
-cd ..
-touch application.py
-git add .
-git commit -m "ensure azure automation"
+git commit -am "configure for App Service"
 ```
 
 ### <a name="configure-a-deployment-user"></a>Configurar um utilizador de implementação
@@ -280,7 +340,7 @@ No Serviço de Aplicações, as variáveis de ambiente são definidas como _defi
 O exemplo seguinte especifica os detalhes de ligação de base de dados, como as definições da aplicação. 
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="eventregistration"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBPASS="supersecretpass" DBNAME="pollsdb"
 ```
 
 ### <a name="push-to-azure-from-git"></a>Enviar para o Azure a partir do Git
@@ -288,42 +348,28 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 [!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash 
-Counting objects: 5, done. 
-Delta compression using up to 4 threads. 
-Compressing objects: 100% (5/5), done. 
-Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done. 
-Total 5 (delta 3), reused 0 (delta 0) 
-remote: Updating branch 'master'. 
-remote: Updating submodules. 
-remote: Preparing deployment for commit id '6c7c716eee'. 
-remote: Running custom deployment command... 
-remote: Running deployment command... 
-remote: Handling node.js deployment. 
+Counting objects: 7, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 775 bytes | 0 bytes/s, done.
+Total 7 (delta 4), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id '6520eeafcc'.
+remote: Generating deployment script.
+remote: Running deployment command...
+remote: Python deployment.
+remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
 . 
 . 
 . 
-remote: Deployment successful. 
+remote: Deployment successful.
+remote: App container will begin restart within 10 seconds.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git 
- * [new branch]      master -> master 
+   06b6df4..6520eea  master -> master
 ```  
 
-### <a name="configure-entry-point"></a>Configurar o ponto de entrada
-
-Por predefinição, a imagem incorporada procura um _wsgi.py_ ou _application.py_ no diretório de raiz como o ponto de entrada, mas o ponto de entrada é _app/app.py_. O _application.py_ adicionado anteriormente está vazio e não faz nada.
-
-No Cloud Shell, execute o comando [`az webapp config set`](/cli/azure/webapp/config?view=azure-cli-latest#az-webapp-config-set) para definir um script de arranque personalizado.
-
-```azurecli-interactive
-az webapp config set --name <app_name> --resource-group myResourceGroup --startup-file "gunicorn '--bind=0.0.0.0' --chdir /home/site/wwwroot/app app:app"
-```
-
-O parâmetro `--startup-file` assume um comando personalizado ou o caminho para o ficheiro que contém o comando personalizado. O comando personalizado deve ter o seguinte formato:
-
-```
-gunicorn '--bind=0.0.0.0' --chdir /home/site/wwwroot/<subdirectory> <module>:<variable>
-```
-
-No comando personalizado, `--chdir` é necessário se o ponto de entrada não estiver no diretório de raiz, e `<subdirectory>` é o subdiretório. `<module>` é o nome do ficheiro _.py_ e `<variable>` é a variável no módulo que representa a sua aplicação Web.
+O servidor de implantação do serviço de aplicações vê _Requirements. txt_ na raiz do repositório e executa automaticamente após a gestão de pacotes de Python `git push`.
 
 ### <a name="browse-to-the-azure-web-app"></a>Navegar para a aplicação Web do Azure
 
@@ -333,91 +379,29 @@ Navegue para a aplicação Web implementada. Demora algum tempo a iniciar porque
 http://<app_name>.azurewebsites.net
 ```
 
-Verá os convidados registados anteriormente que foram guardados na base de dados de produção do Azure no passo anterior.
+Deverá ver a pergunta de consulta que criou anteriormente. 
 
-![Aplicação do Python Flask em execução no Azure](./media/tutorial-python-postgresql-app/docker-app-deployed.png)
+Serviço de aplicações Deteta um projeto do Django no seu repositório para procurar um _wsgi.py_ em cada subdiretório, que é criado pela `manage.py startproject` por predefinição. Quando encontra o ficheiro, ele carrega a aplicação Django. Para obter mais informações sobre a forma como o serviço de aplicações carrega aplicações Python, veja [configurar imagem de Python incorporada](how-to-configure-python.md).
+
+Navegue para `<app_name>.azurewebsites.net` e inicie sessão com o mesmo utilizador de administrador que criou. Se desejar, tente criar a algumas perguntas da pesquisa mais.
+
+![Aplicação Python Django em execução no local](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
 **Parabéns!** Está a executar uma aplicação Python no Serviço de Aplicações para Linux.
 
 ## <a name="access-diagnostic-logs"></a>Aceder aos registos de diagnósticos
 
-Uma vez que a aplicação Python está em execução num contentor, o Serviço de Aplicações no Linux permite-lhe aceder aos registos da consola gerados no contentor. Para localizar os registos, navegue para este URL:
+No serviço de aplicações no Linux, aplicações são executadas dentro de um contentor a partir de uma imagem do Docker padrão. Pode acessar os registos de consola gerados a partir de dentro do contentor. Para obter os registos, primeiro ative o registo de contentor ao executar o seguinte comando no Cloud Shell:
 
-```
-https://<app_name>.scm.azurewebsites.net/api/logs/docker
-```
-
-Deverá ver dois objetos JSON, cada um com uma propriedade `href`. Um `href` aponta para os registos de consola do Docker (termina com `_docker.log`) e o outro `href` aponta para os registos da consola gerados no contentor de Python. 
-
-```json
-[  
-   {  
-      "machineName":"RD0003FF61ACD0_default",
-      "lastUpdated":"2018-09-27T16:48:17Z",
-      "size":4766,
-      "href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log",
-      "path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_default_docker.log"
-   },
-   {  
-      "machineName":"RD0003FF61ACD0",
-      "lastUpdated":"2018-09-27T16:48:19Z",
-      "size":2589,
-      "href":"https://<app_name>.scm.azurewebsites.net/api/vfs/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log",
-      "path":"/home/LogFiles/2018_09_27_RD0003FF61ACD0_docker.log"
-   }
-]
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
 ```
 
-Copie o valor `href` pretendido para uma janela do browser, para navegar para os registos. Os registos não foram transmitidos, pelo que pode ocorrer algum atraso. Para ver os registos novos, atualize a página do browser.
+Assim que o registo de contentor está ativado, execute o seguinte comando para ver o fluxo de registo:
 
-## <a name="update-data-model-and-redeploy"></a>Atualizar o modelo de dados e voltar a implementar
-
-Neste passo, vai adicionar o número de participantes de cada registo de evento, ao atualizar o modelo `Guest` e, em seguida, volta a implementar a atualização no Azure.
-
-Na janela de terminal local, confira os ficheiros do ramo `modelChange` com o seguinte comando do git:
-
-```bash
-git checkout origin/modelChange -- .
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
-
-Esta verificação já faz as alterações necessárias ao modelo, às vistas e aos controladores. Também inclui uma migração de base de dados gerada através do *alembic* (`flask db migrate`). Pode ver todas as alterações através do seguinte comando do git:
-
-```bash
-git diff master origin/modelChange
-```
-
-### <a name="test-your-changes-locally"></a>Testar as alterações localmente
-
-Na janela do terminal local, execute os seguintes comandos para testar as suas alterações localmente, mediante a execução do servidor Flask.
-
-```bash
-source venv/bin/activate
-cd app
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask db upgrade
-FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
-```
-
-Navegue até http://localhost:5000 no seu browser para ver as alterações. Crie um registo de teste.
-
-![Aplicação do Python Flask baseada em contentor de Docker, em execução localmente](./media/tutorial-python-postgresql-app/local-app-v2.png)
-
-### <a name="publish-changes-to-azure"></a>Publicar alterações no Azure
-
-Na janela terminal local, consolide todas as alterações no Git e envie as alterações do código para o Azure.
-
-```bash 
-git add . 
-git commit -m "updated data model" 
-git push azure master 
-``` 
-
-Navegue para a aplicação Web do Azure e experimente a nova funcionalidade novamente. Certifique-se de que atualiza a página.
-
-```bash
-http://<app_name>.azurewebsites.net
-```
-
-![Aplicação do Docker Python Flask no Serviço de Aplicações do Azure](./media/tutorial-python-postgresql-app/docker-flask-in-azure.png)
 
 ## <a name="manage-your-web-app-in-the-azure-portal"></a>Gerir a aplicação Web no Portal do Azure
 
@@ -433,7 +417,7 @@ Por predefinição, o portal mostra a página **Descrição Geral** da aplicaç�
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -442,14 +426,13 @@ Neste tutorial, ficou a saber como:
 > * Ligar uma aplicação Python ao PostgreSQL
 > * Implementar a aplicação no Azure
 > * Ver registos de diagnóstico
-> * Atualizar o modelo de dados e voltar a implementar a aplicação
 > * Gerir a aplicação no portal do Azure
 
 Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para a aplicação Web.
 
 > [!div class="nextstepaction"]
-> [Configurar a imagem incorporada do Python](how-to-configure-python.md)
+> [Mapear um nome DNS personalizado existente para as Aplicações Web do Azure](../app-service-web-tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
-> [Mapear um nome DNS personalizado existente para as Aplicações Web do Azure](../app-service-web-tutorial-custom-domain.md)
+> [Configurar incorporadas Python de imagem e resolver problemas de erros](how-to-configure-python.md)
 

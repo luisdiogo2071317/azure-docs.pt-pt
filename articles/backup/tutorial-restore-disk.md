@@ -2,20 +2,20 @@
 title: Restaurar um disco da VM com o Azure Backup
 description: Saiba como restaurar um disco e criar e recuperar uma VM no Azure com Serviços de Cópia de Segurança e de Recuperação.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: tutorial
 ms.date: 4/17/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6a6211302fd6810339ea9967dbcae75e1e413964
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 76b5a5743fd6ac715eca45e49cc08d5006522ad0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987259"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871546"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurar um disco e criar uma VM recuperada no Azure
 O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaurar a partir de um ponto de recuperação, pode restaurar a VM completa ou ficheiros individuais. Este artigo explica como restaurar uma VM completa através do CLI. Neste tutorial, ficará a saber como:
@@ -166,7 +166,7 @@ O último passo é criar uma VM a partir do Disco Gerido.
     ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, restaurou um disco a partir de um ponto de recuperação e, em seguida, criou uma VM a partir do disco. Aprendeu a:
 
 > [!div class="checklist"]

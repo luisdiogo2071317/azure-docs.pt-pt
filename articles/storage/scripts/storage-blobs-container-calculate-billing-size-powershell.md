@@ -1,6 +1,6 @@
 ---
-title: Script do PowerShell do Azure de exemplo - calcular o tamanho total de faturação de um contentor de blob | Microsoft Docs
-description: Calcule o tamanho total de um contentor no Blob storage do Azure para fins de faturação.
+title: Script do Azure PowerShell de exemplo - calcular o tamanho total de faturação de um contentor de BLOBs | Documentos da Microsoft
+description: Calcule o tamanho total de um contentor no armazenamento de Blobs do Azure para efeitos de faturação.
 services: storage
 documentationcenter: na
 author: fhryo-msft
@@ -15,33 +15,33 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: c37b416578a76e9b12e29d68e413d851796ccc6f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: HT
+ms.openlocfilehash: 7e28b8938c8c0eb258fbb599dd5765258a4d52e4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26368549"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867380"
 ---
-# <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total de faturação de um contentor de blob
+# <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total de faturação de um contentor de BLOBs
 
-Este script calcula o tamanho de um contentor no Blob storage do Azure para fins de estimar os custos de faturação. O script totais o tamanho dos blobs no contentor.
+Este script calcula o tamanho de um contentor no armazenamento de Blobs do Azure com o objetivo de estimar os custos de faturação. O script os totais do tamanho dos blobs no contentor.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
-> Este script do PowerShell calcula o tamanho de um contentor para fins de faturação. Se estiver a calcular o tamanho do contentor para outros fins, consulte o artigo [calcular o tamanho total de um contentor de armazenamento de BLOBs](../scripts/storage-blobs-container-calculate-size-powershell.md) para um script mais simples que fornece uma estimativa.
+> Este script do PowerShell calcula o tamanho de um contentor para efeitos de faturação. Se estiver a calcular o tamanho do contentor para outros fins, consulte [calcular o tamanho total de um contentor de armazenamento de BLOBs](../scripts/storage-blobs-container-calculate-size-powershell.md) para um script mais simples que fornece uma estimativa.
 
-## <a name="determine-the-size-of-the-blob-container"></a>Determinar o tamanho do contentor do blob
+## <a name="determine-the-size-of-the-blob-container"></a>Determinar o tamanho do contentor de BLOBs
 
-O tamanho total do contentor do blob inclui o tamanho do contentor próprio e o tamanho de todos os blobs no contentor.
+O tamanho total do contentor de BLOBs inclui o tamanho do contentor em si e o tamanho de todos os blobs no contentor.
 
-As secções seguintes descreve a forma como a capacidade de armazenamento é calculada para contentores de BLOBs e blobs. Na secção seguinte, Len(X) significa que o número de carateres da cadeia.
+As seções a seguir descreve como a capacidade de armazenamento é calculada para contentores de BLOBs e blobs. Na secção seguinte, Len(X) significa que o número de carateres na cadeia de caracteres.
 
 ### <a name="blob-containers"></a>Contentores de BLOBs
 
-O cálculo seguinte descreve como estimar a quantidade de armazenamento é consumido por contentor do blob:
+O cálculo seguinte descreve como estimar a quantidade de armazenamento é consumido por contentor de BLOBs:
 
 `
 48 bytes + Len(ContainerName) * 2 bytes +
@@ -49,20 +49,20 @@ For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
 For-Each Signed Identifier[512 bytes]
 `
 
-Segue-se a repartição:
-* 48 bytes de overhead para cada contentor inclui a hora da última modificação, permissões, definições público e alguns metadados do sistema.
+Segue-se a análise detalhada:
+* 48 bytes de overhead para cada contentor inclui a hora da última modificação, permissões, as definições de público e alguns metadados do sistema.
 
 * O nome do contentor é armazenado como Unicode, por isso, coloque o número de carateres e multiplicar por dois.
 
-* Para cada bloco de metadados do contentor de blob que é armazenado, armazenamos o comprimento do nome (ASCII), juntamente com o comprimento do valor de cadeia.
+* Para cada bloco de metadados do contentor de blob armazenado, armazenamos o comprimento do nome (ASCII), além do comprimento do valor de cadeia.
 
-* Os 512 bytes por assinado identificador inclui o nome do identificador assinado, hora de início, hora de expiração e as permissões.
+* As 512 bytes por identificador assinado inclui o nome do identificador assinado, hora de início, hora de expiração e as permissões.
 
 ### <a name="blobs"></a>Blobs
 
-Os cálculos seguintes mostram como estimar a quantidade de armazenamento consumida por BLOBs.
+Os cálculos seguintes mostram como estimar a quantidade de armazenamento consumido por blob.
 
-* Blob de bloco (base blob ou um instantâneo):
+* Blob de blocos (ou instantâneo de blob de base):
 
    `
    124 bytes + Len(BlobName) * 2 bytes +
@@ -72,7 +72,7 @@ Os cálculos seguintes mostram como estimar a quantidade de armazenamento consum
    SizeInBytes(data in uncommitted data blocks)
    `
 
-* Blob de páginas (base blob ou um instantâneo):
+* Blob de página (blob de base ou instantâneo):
 
    `
    124 bytes + Len(BlobName) * 2 bytes +
@@ -81,16 +81,16 @@ Os cálculos seguintes mostram como estimar a quantidade de armazenamento consum
    SizeInBytes(data in unique pages stored)
    `
 
-Segue-se a repartição:
+Segue-se a análise detalhada:
 
-* 124 bytes de overhead de blob, que inclui:
-    - Hora da última modificação
+* bytes 124 de sobrecarga para o blob, que inclui:
+    - Hora da Última Modificação
     - Tamanho
-    - Cache-Control
+    - Controlo de cache
     - Content-Type
-    - Idioma de conteúdo
+    - Idioma do conteúdo
     - Codificação de conteúdo
-    - Content-MD5
+    - MD5 de conteúdo
     - Permissões
     - Informações de instantâneo
     - Concessão
@@ -98,34 +98,34 @@ Segue-se a repartição:
 
 * O nome do blob é armazenado como Unicode, por isso, coloque o número de carateres e multiplicar por dois.
 
-* Para cada bloco de metadados que é armazenado, adicione o comprimento do nome (armazenado como ASCII), juntamente com o comprimento do valor de cadeia.
+* Para cada bloco de metadados armazenados, adicione o comprimento do nome (armazenado como ASCII), além do comprimento do valor de cadeia.
 
-* Para os blobs de blocos:
+* Para os blobs de bloco:
     * 8 bytes para a lista de bloqueios.
-    * Número de blocos vezes o tamanho de ID do bloco em bytes.
-    * O tamanho dos dados em todos os blocos consolidados e não consolidados. 
-    
-    >[!NOTE]
-    >Quando são utilizados os instantâneos, este tamanho inclui apenas os dados exclusivos para este blob base ou de instantâneo. Se os blocos não consolidados não são utilizados após uma semana, que são recolhidos de libertação da memória. Depois disso, não contagem na direção de faturação.
+    * Número de blocos vezes o tamanho do ID de bloco em bytes.
+    * O tamanho dos dados em todos os blocos consolidados e não consolidados.
 
-* Para blobs de páginas:
-    * O número de intervalos de página nonconsecutive com dados vezes 12 bytes. Este é o número de intervalos de página exclusivo vir ao chamar o **GetPageRanges** API.
-
-    * O tamanho dos dados de todas as páginas armazenadas em bytes. 
-    
     >[!NOTE]
-    >Quando são utilizados os instantâneos, este tamanho inclui apenas as páginas exclusivas para o blob base ou o blob de instantâneo que está a ser contado.
+    >Quando os instantâneos são usados, este tamanho inclui apenas os dados exclusivos para este blob base ou de instantâneo. Se os blocos não consolidados não forem utilizados após uma semana, são coletado pelo lixo. Depois disso, eles não contam para faturação.
+
+* Para blobs de página:
+    * O número de intervalos de página não consecutivos com dados vezes 12 bytes. Este é o número de intervalos de página exclusiva vir ao chamar o **GetPageRanges** API.
+
+    * O tamanho dos dados em bytes de todas as páginas armazenadas.
+
+    >[!NOTE]
+    >Quando os instantâneos são usados, este tamanho inclui somente as páginas exclusivas para o blob de base ou o blob de instantâneo que está a ser contabilizado.
 
 ## <a name="sample-script"></a>Script de exemplo
 
 [!code-powershell[main](../../../powershell_scripts/storage/calculate-container-size/calculate-container-size-ex.ps1 "Calculate container size")]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Consulte [calcular o tamanho total de um contentor de armazenamento de BLOBs](../scripts/storage-blobs-container-calculate-size-powershell.md) para um script simple que fornece uma estimativa do tamanho do contentor.
+- Ver [calcular o tamanho total de um contentor de armazenamento de BLOBs](../scripts/storage-blobs-container-calculate-size-powershell.md) para um script simple que fornece uma estimativa do tamanho do contentor.
 
-- Para obter mais informações sobre faturação de armazenamento do Azure, consulte [compreender o Windows Azure armazenamento faturação](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
+- Para obter mais informações sobre a faturação do armazenamento do Azure, consulte [Noções básicas sobre Windows Azure a cobrança de armazenamento](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-- Para mais informações sobre o módulo Azure PowerShell, consulte [documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.1).
+- Para obter mais informações sobre o módulo Azure PowerShell, consulte [documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.1).
 
-- Pode encontrar exemplos de script do PowerShell de armazenamento adicionais no [exemplos do PowerShell para o Storage do Azure](../blobs/storage-samples-blobs-powershell.md).
+- Pode encontrar exemplos de scripts do PowerShell de armazenamento adicionais no [exemplos do PowerShell do armazenamento do Azure](../blobs/storage-samples-blobs-powershell.md).

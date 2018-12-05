@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 20e07120b80f335397bd7e907f62e14ad8b1d2ee
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 9d9a893a1e62ae35ed3c2f1630c92d4f23cdb2dc
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679057"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887683"
 ---
-# <a name="quickstart-translate-text-with-the-translator-text-rest-api-c"></a>Início Rápido: traduzir texto com a API REST de Texto do Microsoft Translator (C#)
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Início rápido: Utilizar a API de texto do Translator para traduzir usando uma cadeia de caracteresC#
 
 Neste início rápido, irá aprender como converter uma cadeia de texto de inglês, italiano e alemão usando o .NET Core e a API de REST de texto do Translator.
 

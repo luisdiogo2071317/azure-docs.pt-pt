@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2f5cffa0b31d46d76564565001aaed678eb1a649
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 7e0b3fff0ed60d5eb77194e7f9081d35f2e38571
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613597"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869642"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Tutorial: Implementar extensões de máquina virtual com modelos do Azure Resource Manager
 
@@ -116,7 +116,7 @@ Veja a [referência de extensão](https://docs.microsoft.com/azure/templates/mic
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Veja a secção [Implementar o modelo](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) para obter o procedimento de implementação. É recomendado que utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Veja [Pré-requisitos](#prerequisites).
+Veja a secção [Implementar o modelo](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para obter o procedimento de implementação. É recomendado que utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Veja [Pré-requisitos](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 

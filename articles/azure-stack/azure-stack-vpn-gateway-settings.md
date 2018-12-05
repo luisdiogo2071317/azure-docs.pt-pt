@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2018
 ms.author: sethm
-ms.openlocfilehash: 2fa062621e551ce7182facc45ec84b39d4c2dad7
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a770c88b294de24eb9e0f482681038e4d36b1d6f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078754"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874605"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Definições de configuração do gateway VPN para o Azure Stack
 
@@ -185,7 +185,7 @@ Ao contrário do Azure, que suporta várias ofertas como um iniciador e um dispo
 |Encriptação e hash algoritmos (encriptação)     | GCMAES256|
 |Encriptação e hash algoritmos (autenticação) | GCMAES256|
 |Duração de SA (Tempo)  | 27,000 segundos  |
-|Duração de SA (Bytes) | 33,553,408     |
+|Duração de SA (em quilobytes) | 33,553,408     |
 |Perfect Forward Secrecy (PFS) |Nenhum<sup>ver nota 1</sup> |
 |Deteção de Elemento Inutilizado | Suportadas|  
 

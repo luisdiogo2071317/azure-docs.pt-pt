@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963936"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887802"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: configurar a associação ao Azure Active Directory para os domínios geridos
 
@@ -140,6 +140,8 @@ Se alguns dos seus dispositivos associados a um domínio são dispositivos de n�
  
 - Configurar as definições de intranet local para o registo de dispositivos
 
+- Configurar totalmente integrada início de sessão único (SSO)
+
 - Controlar dispositivos de nível inferior do Windows 
 
 
@@ -166,6 +168,11 @@ Para concluir com êxito a associação ao Azure AD híbrido dos seus dispositiv
 - `https://autologon.microsoftazuread-sso.com`.
 
 Além disso, tem de ativar **Permitir atualizações à barra de estado por meio de script** na zona de intranet local do utilizador.
+
+
+### <a name="configure-seamless-sso"></a>Configurar o SSO totalmente integrado
+
+A associação do Azure AD híbrido de concluído com êxito de seu Windows dispositivos de nível inferior num domínio gerido, que está a utilizar autenticação pass-through (PTA) ou a sincronização de Hash de palavra-passe (PHS) como o Azure AD na cloud o método de autenticação, tem também [configurar SSO totalmente integrado](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Controlar dispositivos de nível inferior do Windows 
@@ -206,7 +213,7 @@ Se estiver a ter problemas a completar a associação ao Azure AD híbrido dos d
 - [Troubleshooting Hybrid Azure AD join for Windows down-level devices](troubleshoot-hybrid-join-windows-legacy.md) (Resolver problemas com a associação híbrida ao Azure AD para dispositivos Windows de nível inferior)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Configurar associação ao Azure Active Directory híbrido de domínios federados](hybrid-azuread-join-federated-domains.md)

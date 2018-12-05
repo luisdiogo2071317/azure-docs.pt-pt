@@ -3,19 +3,18 @@ title: Como consultar dados de tabela no Azure Cosmos DB?
 description: Saiba como consultar dados de tabela no Azure Cosmos DB
 services: cosmos-db
 author: kanshiG
-manager: kfile
+ms.author: govindk
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.topic: tutorial
-ms.author: govindk
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: bd7cbe96f7ee3717cf2f2c0c0ce00646f2d61a56
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3d50e51a0d4ccbbd9b21cda87dc457ea1cbe02fd
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832076"
+ms.locfileid: "52879201"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutorial: Consultar o Azure Cosmos DB através da API de Tabela
 

@@ -2,7 +2,7 @@
 title: Criar cópias de segurança de VMs do Azure em escala
 description: Este tutorial apresenta detalhes sobre a criação de cópias de segurança de várias máquinas virtuais do Azure para um cofre dos Serviços de Recuperação.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: virtual machine backup; back up virtual machine; backup and disaster recovery
 ms.service: backup
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 09/06/2017
 ms.author: trinadhk
 ms.custom: mvc
-ms.openlocfilehash: 863960e012a8e345434459ad16526c8971f00b6b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: d2b83963f7af52101ed298e85b6c7fd64fc99a07
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607009"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875591"
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Criar cópias de segurança de máquinas virtuais do Azure em escala
 
@@ -82,7 +82,7 @@ Remove-AzureRmRecoveryServicesVault -Vault $vault1
 ## <a name="troubleshooting-errors"></a>Resolução de erros
 Se se deparar com problemas ao criar a cópia de segurança da sua máquina virtual, veja o [artigo Back up Azure virtual machines troubleshooting](backup-azure-vms-troubleshoot.md) (Resolução de problemas de criação de cópias de segurança de máquinas virtuais do Azure) para obter ajuda.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que já protegeu as suas máquinas virtuais, veja os artigos abaixo para saber mais sobre as tarefas de gestão e como restaurar as máquinas virtuais a partir de um ponto de recuperação.
 
 * Para modificar a política de cópia de segurança, veja [Use AzureRM.RecoveryServices.Backup cmdlets to back up virtual machines](backup-azure-vms-automation.md#create-a-protection-policy) (Utilizar os cmdlets AzureRM.RecoveryServices.Backup para criar cópias de segurança de máquinas virtuais).

@@ -1,21 +1,20 @@
 ---
-title: Como utilizar o Armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos DB com C++ | Microsoft Docs
-description: Armazene dados estruturados na nuvem utilizando o Armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
+title: Como utilizar o armazenamento de tabelas do Azure e a API de tabela do Azure Cosmos DB com C++
+description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 520c0868e51f1212ee1beca8967d3c08f1d6e869
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
-ms.translationtype: HT
+ms.openlocfilehash: dff665a26efb00ed74ddfab4259c5c35ca1abb38
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797918"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880136"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Como utilizar o Armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos DB com C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -203,7 +202,7 @@ std::vector<azure::storage::table_result> results = table.execute_batch(batch_op
 Algumas coisas a salientar nas operações de lote:  
 
 * Pode efetuar até 100 operações de inserir, eliminar, unir, substituir, inserir ou intercalar, e inserir ou substituir em qualquer combinação num lote único.  
-* Uma operação em lote poderá ter uma operação de obter, se for a única operação no lote.  
+* As operações em lote podem ter uma operação de obter se for a única operação no lote.  
 * Todas as entidades numa única operação em lote têm de ter a mesma chave de partição.  
 * Uma operação em lote está limitada a um payload de dados de 4 MB.  
 
@@ -473,7 +472,7 @@ if (table.delete_table_if_exists())
   - Na caixa de diálogo **Páginas de Propriedades**, expanda **Propriedades de Configuração**, expanda **C/C++** e selecione **Idioma**.
   - Definir **Modo de conformidade** para **Não**.
    
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Siga estas ligações para saber mais sobre o Armazenamento do Microsoft Azure e a API de tabela do Azure Cosmos DB: 
 
 * [Introdução à API da Tabela](table-introduction.md)

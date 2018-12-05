@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: 004db061e721f0169491e98bd8e7cdd86e08bb01
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.date: 12/04/2018
+ms.openlocfilehash: ba27ceb784cf139c288a89f3191282fb9b364ddc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963607"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864381"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL online com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do PostgreSQL no local para a [Base de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) com um período de indisponibilidade mínimo. Por outras palavras, a migração pode ser feita com um período de indisponibilidade mínimo para a aplicação. Neste tutorial, vai migrar a base de dados de exemplo **Aluguer de DVDs** de uma instância no local do PostgreSQL 9.6 para a Base de Dados do Azure para PostgreSQL através de uma atividade de migração online no Azure Database Migration Service.
@@ -28,6 +28,9 @@ Neste tutorial, ficará a saber como:
 > * Utilizar o Azure Database Migration Service para criar um projeto de migração.
 > * Executar a migração.
 > * Monitorizar a migração.
+
+> [!NOTE]
+> Utilizar o serviço de migração de base de dados do Azure para efetuar uma migração online requer a criação de uma instância com base no Premium (pré-visualização) escalão de preço.
 
 > [!IMPORTANT]
 > Para uma experiência de migração otimizada, a Microsoft recomenda a criação de uma instância do Azure Database Migration Service na mesma região do Azure que a base de dados de destino. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
@@ -480,7 +483,7 @@ Se precisar de cancelar ou eliminar qualquer tarefa, projeto ou serviço do DMS,
     az dms delete -g ProgresDemo -n PostgresCLI
      ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter informações sobre problemas conhecidos e limitações ao realizar migrações online para a Base de Dados do Azure para PostgreSQL, veja o artigo [Problemas conhecidos e soluções alternativas das migrações online da Base de Dados do Azure para PostgreSQL](known-issues-azure-postgresql-online.md).
 - Para obter informações sobre o Azure Database Migration Service, leia o artigo [O que é o Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
 - Para obter informações sobre a Base de Dados do Azure para MySQL, veja o artigo [O que é Base de Dados do Azure para PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview)

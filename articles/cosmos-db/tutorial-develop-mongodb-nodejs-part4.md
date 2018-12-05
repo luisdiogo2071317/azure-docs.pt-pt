@@ -1,10 +1,8 @@
 ---
-title: Tutorial de MongoDB, Angular e Node para o Azure - Parte 4 | Microsoft Docs
+title: Tutorial de MongoDB, Angular e Node para o Azure - parte 4
 description: Parte 4 da série do tutorial sobre como criar uma aplicação MongoDB com Angular e Node no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB
 services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
@@ -12,12 +10,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: b6654afa27255b0ebd0cc80b94212f44bbf16f34
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 21fd80156bf81b5ab985459bb43ca167fbe2d579
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960081"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865986"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Criar uma aplicação MongoDB com Angular e Azure Cosmos DB - parte 4: Criar uma conta do Azure Cosmos DB com a CLI do Azure
 

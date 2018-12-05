@@ -1,24 +1,22 @@
 ---
-title: 'Tutorial de ASP.NET MVC para Azure Cosmos DB: Programação de Aplicações Web | Microsoft Docs'
+title: 'Tutorial de ASP.NET MVC para o Azure Cosmos DB: programação de aplicações Web'
 description: Tutorial de ASP.NET MVC para criar uma aplicação Web de MVC com o Azure Cosmos DB. Irá armazenar dados de acesso e JSON a partir de uma aplicação de tarefas alojada no em Web Sites do Azure – tutorial ASP NET MVC passo a passo.
 keywords: asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.workload: azure-vs
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 22856b6e9b543504db66bce074d32d9ad70f5238
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8230c2ba8c7fdb10d7e37a317d4eeb5abb120d60
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247675"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868723"
 ---
 # <a name="_Toc395809351"></a>Tutorial do MVC ASP.NET: desenvolvimento de aplicação Web com o Azure Cosmos DB
 

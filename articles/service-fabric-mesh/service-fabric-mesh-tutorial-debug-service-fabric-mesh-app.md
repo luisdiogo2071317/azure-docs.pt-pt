@@ -12,21 +12,21 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997017"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887513"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutorial: Depurar uma aplicação do Service Fabric Mesh em execução no cluster de desenvolvimento local
 
 Este tutorial é a segunda parte de uma série e mostra-lhe como criar e depurar uma aplicação do Azure Service Fabric Mesh no cluster de desenvolvimento local.
 
-Neste tutorial, vai aprender:
+Neste tutorial irá aprender:
 
 > [!div class="checklist"]
 > * O que acontece quando cria uma aplicação do Azure Service Fabric Mesh
@@ -52,7 +52,7 @@ Antes de começar este tutorial:
 
 ## <a name="download-the-to-do-sample-application"></a>Transferir a aplicação de tarefas de exemplo
 
-Se não conseguiu criar a aplicação de tarefas de exemplo na [primeira parte desta série de tutoriais](service-fabric-mesh-tutorial-create-dotnetcore.md), pode transferi-la. Numa janela do comando, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local.
+Se não tiver criado o aplicativo de exemplo de tarefas pendentes na [primeira parte desta série de tutoriais](service-fabric-mesh-tutorial-create-dotnetcore.md), pode baixá-lo. Numa janela do comando, execute o seguinte comando para clonar o repositório da aplicação de exemplo para o seu computador local.
 
 ```
 git clone https://github.com/azure-samples/service-fabric-mesh
@@ -74,9 +74,11 @@ Prima **F5** para compilar e executar o serviço localmente. Quando o projeto é
 
 Depois de a implementação local estar concluída e o Visual Studio estar a executar a aplicação, será aberta uma janela do browser numa página Web de exemplo predefinida.
 
-**Sugestões de depuração**
+## <a name="debugging-tips"></a>Dicas de depuração
 
-Está a ocorrer um problema que faz com que a chamada para `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` falhe ao ligar ao serviço. Isto pode acontecer sempre que altera o seu endereço IP do anfitrião. Para resolver isto:
+Tornar a sua depuração primeiro executar (F5) muito mais rapidamente ao seguir as instruções em [desempenho de otimizar o Visual Studio](service-fabric-mesh-howto-optimize-vs.md).
+
+Está a ocorrer um problema que faz com que a chamada para `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` falhe ligar ao serviço. Isto pode acontecer sempre que altera o seu endereço IP do anfitrião. Para resolver isto:
 
 1. Remova a aplicação do cluster local (no Visual Studio, **Criar** > **Limpar Solução**).
 2. No Gestor do Cluster Local do Service Fabric, selecione **Parar Cluster Local** e, em seguida, **Iniciar Cluster Local**.
@@ -90,14 +92,14 @@ Se ocorrerem erros de compilação em **service.yaml**, certifique-se de que sã
 
 ### <a name="debug-in-visual-studio"></a>Depurar no Visual Studio
 
-Ao depurar uma aplicação do Service Fabric Mesh no Visual Studio, vai utilizar um cluster de desenvolvimento local do Service Fabric. Para ver como os itens de tarefas são obtidos do serviço de back-end, faça a depuração para o método OnGet().
+Ao depurar uma aplicação de malha do Service Fabric no Visual Studio, está a utilizar um cluster de desenvolvimento do Service Fabric local. Para ver como os itens de tarefas são obtidos do serviço de back-end, faça a depuração para o método OnGet().
 1. No projeto **WebFrontEnd**, abra **Pages** > **Index.cshtml** > **Index.cshtml.cs** e defina um ponto de interrupção no método **Get** (linha 17).
 2. No projeto **ToDoService**, abra **TodoController.cs** e defina um ponto de interrupção no método **OnGet** (linha 15).
 3. Regresse ao seu browser e atualize a página. Atingiu o ponto de interrupção no método de front-end da Web `OnGet()`. Pode inspecionar a variável `backendUrl` para ver como as variáveis de ambiente que definiu no ficheiro **service.yaml** são combinadas para o URL utilizado para contactar o serviço de back-end.
 4. Ignore (F10) a chamada `client.GetAsync(backendUrl).GetAwaiter().GetResult())` e irá atingir o ponto de interrupção do controlador `Get()`. Neste método, pode ver como é obtida a lista de itens de tarefas a partir da lista na memória.
-5. Quando tiver terminado, pare a depuração do projeto no Visual Studio ao premir **SHIFT+F5**.
- 
-## <a name="next-steps"></a>Passos seguintes
+5. Quando tiver terminado, pare a depuração de seu projeto no Visual Studio ao premir **SHIFT+F5**.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Nesta parte do tutorial, ficou a saber como:
 

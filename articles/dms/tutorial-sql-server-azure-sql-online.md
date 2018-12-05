@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: be6a5c444444c9482b921ea7fd68bf26ac10a2a2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.date: 12/04/2018
+ms.openlocfilehash: 2df899d1e9db0e2936d69636f4c9d5cd463e68c7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958938"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872226"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Tutorial: Migrar o SQL Server para a Base de Dados SQL do Azure online com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do SQL Server no local para a [Base de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/) com um período de indisponibilidade reduzido. Neste tutorial, vai migrar a base de dados **Adventureworks2012** restaurada para uma instância do SQL Server 2016 (ou posterior) no local para a Base de Dados SQL do Azure com o Azure Database Migration Service.
@@ -30,6 +30,9 @@ Neste tutorial, ficará a saber como:
 > * Executar a migração.
 > * Monitorizar a migração.
 > * Transferir um relatório da migração.
+
+> [!NOTE]
+> Utilizar o serviço de migração de base de dados do Azure para efetuar uma migração online requer a criação de uma instância com base no Premium (pré-visualização) escalão de preço.
 
 > [!IMPORTANT]
 > Para uma experiência de migração otimizada, a Microsoft recomenda a criação de uma instância do Azure Database Migration Service na mesma região do Azure que a base de dados de destino. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
@@ -295,7 +298,7 @@ Depois de concluída a Carga completa inicial, as bases de dados são marcadas c
  
     ![Estado da Atividade - concluído](media\tutorial-sql-server-to-azure-sql-online\dms-activity-completed.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter informações sobre problemas conhecidos e limitações ao realizar migrações online para a Base de Dados do Azure para MySQL, veja o artigo [Problemas conhecidos e soluções alternativas com migrações online de Base de Dados SQL do Azure](known-issues-azure-sql-online.md).
 - Para obter informações sobre o Azure Database Migration Service, leia o artigo [O que é o Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
 - Para obter informações sobre a Base de Dados SQL do Azure, leia o artigo [O que é o serviço da Base de Dados SQL do Azure?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).

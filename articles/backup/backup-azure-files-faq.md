@@ -2,18 +2,18 @@
 title: FAQ sobre como Fazer Cópias de Segurança de Ficheiros do Azure
 description: Este artigo dá detalhes sobre como proteger as partilhas de ficheiros do Azure.
 services: backup
-author: markgalioto
-ms.author: markgal
+author: rayne-wiselman
+ms.author: raynew
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: de91559d9c3626bdd07c2e497a8aa0b124f00b57
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.openlocfilehash: 9ef3525d7867d0ef01b6f17035039d4a4e6def93
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434846"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874572"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 Este artigo responde a questões comuns sobre a cópia de segurança de Ficheiros do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -52,8 +52,8 @@ A cópia de segurança para partilhas de Ficheiros do Azure encontra-se atualmen
 - Oeste do Japão (JPW)
 -   Índia Central (INC) 
 - Índia do Sul (INS)
-- Coreia Central (KRC)
-- Sul da Coreia (KRS)
+- KR do Sul Central (KRC)
+- Sul KR do Sul (KRS)
 -   EUA Centro-Norte (NCUS) 
 -   Europa do Norte (NE) 
 -   EUA Centro-Sul (SCUS) 

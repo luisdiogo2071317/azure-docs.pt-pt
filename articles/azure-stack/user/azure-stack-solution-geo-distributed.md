@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 19e7506dac82e4d12d5aecbdb5ae1c14fb944c29
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 215cc45f09e15c74a39347e3a62945b45eafa130
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961540"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877671"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de aplicação distribuída geograficamente com o Azure e o Azure Stack
 
@@ -81,7 +81,7 @@ Nesta parte, irá criar uma aplicação web.
 
 > [!div class="checklist"]
 > - Criar aplicações web e publicar
-> - Adicione código ao projeto VSTS
+> - Adicione o código para repositórios do Azure
 > - Aponte a compilação de aplicação para vários destinos de cloud.
 > - Gerir e configurar o processo de CD
 
@@ -108,9 +108,9 @@ Configure híbrida CI/CD para implementar aplicação Web no Azure e o Azure Sta
 > [!Note]  
 > O Azure Stack com as imagens apropriadas distribuídos para execução (Windows Server e SQL) e a implementação de serviço de aplicações são necessários. Consulte a documentação do serviço de aplicações "[antes de começar com o serviço de aplicações no Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" secção para o operador do Azure Stack.
 
-#### <a name="add-code-to-vsts-project"></a>Adicione código ao projeto VSTS
+#### <a name="add-code-to-azure-repos"></a>Adicione o código para repositórios do Azure
 
-1. Inicie sessão no Visual Studio com uma **conta com direitos de criação de projeto** no VSTS.
+1. Inicie sessão no Visual Studio com uma **conta com direitos de criação de projeto** em repositórios do Azure.
 
     Pode aplicar híbrida a entrega contínua/integração contínua (CI/CD) de código do aplicativo e o código de infraestrutura. Uso [modelos Azure Resource Manager](https://azure.microsoft.com/resources/templates/) para ambos os desenvolvimento em nuvem alojada e privada.
 
@@ -126,13 +126,13 @@ Configure híbrida CI/CD para implementar aplicação Web no Azure e o Azure Sta
 
     ![Texto alternativo](media\azure-stack-solution-geo-distributed\image3.png)
 
-1.  **Verificar o código no VSTS** usando o Team Explorer.
+1.  **Verificar o código para repositórios de Azure** usando o Team Explorer.
 
-2.  Confirme que o **código da aplicação** foi verificado no Visual Studio Team Services.
+2.  Confirme que o **código da aplicação** foi verificado em repositórios do Azure.
 
 ### <a name="create-the-build-definition"></a>Criar a definição de compilação
 
-1. **Inicie sessão no VSTS** para confirmar a capacidade de criar definições de compilação.
+1. **Inicie sessão no Azure Pipelines** para confirmar a capacidade de criar definições de compilação.
 
 2. Adicione **win10-x64 - r** código. Isso é necessário para acionar uma implementação independente com .net Core.
 
@@ -142,11 +142,11 @@ Configure híbrida CI/CD para implementar aplicação Web no Azure e o Azure Sta
 
 **Utilização de um agente alojado do Azure**
 
-Utilizar um agente de alojada no VSTS é uma opção conveniente para criar e implementar aplicações web. Atualizações e manutenção seja executadas automaticamente pelo Microsoft Azure, permitindo o desenvolvimento contínuo, sem interrupções, teste e implantação.
+Utilizar um agente de hospedado em Pipelines do Azure é uma opção conveniente para criar e implementar aplicações web. Atualizações e manutenção seja executadas automaticamente pelo Microsoft Azure, permitindo o desenvolvimento contínuo, sem interrupções, teste e implantação.
 
 ### <a name="manage-and-configure-the-cd-process"></a>Gerir e configurar o processo de CD
 
-O Visual Studio Team Services (VSTS) e o Team Foundation Server (TFS) fornecem um pipeline totalmente configurável e gerenciável para versões em vários ambientes, tais como o desenvolvimento, teste, controle de qualidade e ambientes de produção; incluindo a exigência de aprovações nos estágios específicos.
+DevOps do Azure e o servidor de DevOps do Azure fornecem um pipeline totalmente configurável e gerenciável para versões em vários ambientes, tais como o desenvolvimento, teste, controle de qualidade e ambientes de produção; incluindo a exigência de aprovações nos estágios específicos.
 
 #### <a name="create-release-definition"></a>Criar definição de versão
 

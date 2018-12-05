@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: ab869e53810f049593803d58b3df75d0c083bbd2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.date: 12/04/2018
+ms.openlocfilehash: ccbfc6e204981a4e14812759715d0482e5b6cb67
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962899"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874768"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server para a Instância Gerida da Base de Dados Azure SQL online com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do SQL Server no local para uma [Instância Gerida da Base de Dados Azure SQL](../sql-database/sql-database-managed-instance.md), com um período de indisponibilidade mínimo. Para métodos adicionais que podem exigir algum trabalho manual, veja o artigo [SQL Server instance migration to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md) (Migração de instância do SQL Server para a Instância Gerida da Base de Dados SQL do Azure).
@@ -32,6 +32,12 @@ Neste tutorial, ficará a saber como:
 > * Crie um projeto de migração e inicie a migração online com o Azure Database Migration Service.
 > * Monitorizar a migração.
 > * Transfira a migração quando estiver pronto.
+
+> [!NOTE]
+> Utilizar o serviço de migração de base de dados do Azure para efetuar uma migração online requer a criação de uma instância com base no Premium (pré-visualização) escalão de preço.
+
+> [!IMPORTANT]
+> Para uma experiência de migração otimizada, a Microsoft recomenda a criação de uma instância do Azure Database Migration Service na mesma região do Azure que a base de dados de destino. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
@@ -213,7 +219,7 @@ Depois de restaurar a cópia de segurança completa da base de dados na instânc
 
     ![Transferência concluída](media\tutorial-sql-server-to-managed-instance-online\dms-cutover-complete.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para um tutorial que lhe mostra como migrar uma base de dados para uma Instância Gerida com o comando T-SQL RESTORE, veja [Restaurar uma cópia de segurança para uma Instância Gerida com o comando “restore”](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
 - Para obter informações sobre a Instância Gerida, veja [What is a Managed Instance](../sql-database/sql-database-managed-instance.md) (O que é uma Instância Gerida?).

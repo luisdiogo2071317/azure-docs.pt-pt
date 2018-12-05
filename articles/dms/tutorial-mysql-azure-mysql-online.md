@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/06/2018
-ms.openlocfilehash: 8b0e15ac6cd59a77e283d9256ab5fa4542dfc9a9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.date: 12/04/2018
+ms.openlocfilehash: 3c3127c7fd94ae0f66cd083e8a83dd9119f71dcb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960519"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867941"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para a Base de Dados do Azure para MySQL online com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do MySQL no local para a [Base de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/) com um período de indisponibilidade mínimo. Por outras palavras, a migração pode ser feita com um período de indisponibilidade mínimo para a aplicação. Neste tutorial, vai migrar a base de dados de exemplo **Colaboradores** de uma instância no local do MySQL 5.7 para a Base de Dados do Azure para MySQL através de uma atividade de migração online no Azure Database Migration Service.
@@ -28,6 +28,9 @@ Neste tutorial, ficará a saber como:
 > * Utilizar o Azure Database Migration Service para criar um projeto de migração.
 > * Executar a migração.
 > * Monitorizar a migração.
+
+> [!NOTE]
+> Utilizar o serviço de migração de base de dados do Azure para efetuar uma migração online requer a criação de uma instância com base no Premium (pré-visualização) escalão de preço.
 
 > [!IMPORTANT]
 > Para uma experiência de migração otimizada, a Microsoft recomenda a criação de uma instância do Azure Database Migration Service na mesma região do Azure que a base de dados de destino. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
@@ -226,7 +229,7 @@ Depois de concluída a Carga completa inicial, as bases de dados são marcadas c
 3.  Selecione **Confirmar** e depois **Aplicar**.
 4. Quando o estado da migração de base de dados apresentar **Concluído**, ligue as suas aplicações à nova Base de Dados SQL do Azure de destino.
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para obter informações sobre problemas conhecidos e limitações ao realizar migrações online para a Base de Dados do Azure para MySQL, veja o artigo [Problemas conhecidos e soluções alternativas com migrações online da Base de Dados do Azure para MySQL](known-issues-azure-mysql-online.md).
 - Para obter informações sobre o Azure Database Migration Service, leia o artigo [O que é o Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
 - Para obter informações sobre a Base de Dados do Azure para MySQL, veja o artigo [O que é Base de Dados do Azure para MySQL?](https://docs.microsoft.com/azure/mysql/overview).

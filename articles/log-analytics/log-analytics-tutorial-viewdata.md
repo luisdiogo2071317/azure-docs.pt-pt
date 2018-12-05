@@ -14,12 +14,12 @@ ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 5537bfbc9f380517b36508792a21b985aea4656b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f953d13de78702328aef2b75d121e775c5f58f44
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723334"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876799"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Ver ou analisar dados recolhidos com a pesquisa de registos do Log Analytics
 
@@ -31,7 +31,7 @@ No Log Analytics, pode tirar partido das pesquisas de registos ao criar consulta
 
 Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente [ligada à área de trabalho do Log Analytics](log-analytics-quick-collect-azurevm.md).  
 
-A criação e edição de consultas, para além de trabalhar interativamente com os dados devolvidos, pode ser feita de duas formas.  Para consultas básicas, utilize a página Pesquisa de Registos no portal do Azure e, para consultas avançadas, pode utilizar o portal Análise Avançada. Para saber mais sobre a diferença na funcionalidade dos dois portais, veja [Portals for creating and editing log queries in Azure Log Analytics](log-analytics-log-search-portals.md) (Portais para criar e editar consultas de registos no Azure Log Analytics).
+A criação e edição de consultas, para além de trabalhar interativamente com os dados devolvidos, pode ser feita de duas formas.  Para consultas básicas, utilize a página Pesquisa de Registos no portal do Azure e, para consultas avançadas, pode utilizar o portal Análise Avançada. Para saber mais sobre a diferença na funcionalidade dos dois portais, veja [Portals for creating and editing log queries in Azure Log Analytics](../azure-monitor/log-query/portals.md) (Portais para criar e editar consultas de registos no Azure Log Analytics).
 
 Neste tutorial, vamos trabalhar com a Pesquisa de Registos no portal do Azure. 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e72a7b967ef314dcdcfb2773627ce3d020e2fdcb
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: dfdad89d628fda476ecef1c43246ce3927927555
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614230"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863504"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Criar modelos ligados do Azure Resource Manager
 
@@ -213,7 +213,7 @@ Para obter mais informações, veja [Utilizar modelos ligados e aninhados ao imp
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Veja a secção [Implementar o modelo](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) para obter o procedimento de implementação. Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Veja [Pré-requisitos](#prerequisites).
+Veja a secção [Implementar o modelo](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para obter o procedimento de implementação. Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Veja [Pré-requisitos](#prerequisites).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

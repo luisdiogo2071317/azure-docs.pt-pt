@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f8310885ddf7e2229054f36b8fda92b92c1ab01e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.openlocfilehash: c271efceacab7f310b8e08a28d101f653c73a186
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406505"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868553"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorizar e atualizar uma máquina virtual do Linux no Azure
 
@@ -208,7 +208,7 @@ Para agendar uma nova Implementação de Atualização para a VM, selecione **Ag
 * **Classificação da atualização** - Selecione os tipos de software que a implementação da atualização incluiu na implementação. Os tipos de classificação são:
   * Atualizações críticas e de segurança
   * Outras atualizações
-* **Atualizações a Excluir** - pode indicar uma lista de nomes de pacotes que devem ser ignorados durante a implementação da atualização. Os nomes dos pacotes suportam carateres universais (como, por exemplo, \*kernal\*).
+* **Atualizações a Excluir** - pode indicar uma lista de nomes de pacotes que devem ser ignorados durante a implementação da atualização. Nomes dos pacotes suportam carateres universais (como, por exemplo \*kernel\*).
 
   ![Ecrã de Definições de Agendamento de Atualizações](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 
@@ -310,7 +310,7 @@ Após alguns minutos, deverá ver a VM nova na área de trabalho do Log Analytic
 
 ![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, configurou, reviu e geriu atualizações para uma VM. Aprendeu a:
 

@@ -1,10 +1,9 @@
 ---
-title: Tutorial de aplicação Web Python Flask para o Azure Cosmos DB | Microsoft Docs
+title: Tutorial de aplicação web Python Flask para o Azure Cosmos DB
 description: Reveja um tutorial de base de dados sobre a utilização do Azure Cosmos DB para armazenar e aceder a dados a partir de uma aplicação Web Python Flask alojada no Azure. Encontre soluções de desenvolvimento de aplicações.
 keywords: Desenvolvimento de aplicações, python flask, aplicação Web python, desenvolvimento Web python
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
@@ -12,12 +11,12 @@ ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9470df09c2724bf89a371ec62e7fb8a7e2132c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: af8b2c3f0b319ce9769e9789f6639e1d5eb266f6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953927"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865221"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Criar uma aplicação Web Python Flask com o Azure Cosmos DB
 
@@ -430,7 +429,7 @@ Se esta for a primeira aplicação de Python que executar no seu computador, cer
 
 Se receber um erro na sua página de voto e se atribuiu outro nome que não **tutorial** ao seu projeto, certifique-se de que o **\_\_init\_\_.py** referencia o nome do projeto correto na linha: `import tutorial.view`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Parabéns! Concluiu a sua primeira aplicação Web Python com o Azure Cosmos DB e publicou-a no Azure.
 
 Para adicionar mais funcionalidades à sua aplicação Web, reveja as APIs disponíveis em [Azure Cosmos DB Python SDK](sql-api-sdk-python.md) (SDK de Python para o Azure Cosmos DB).

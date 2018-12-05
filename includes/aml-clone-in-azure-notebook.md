@@ -9,25 +9,11 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 0ece66c176241b53e333071ccfb1882e7018df4c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: cb3270078c1a79285e672909dc29c258b7b13960
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874149"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52881942"
 ---
-### <a name="azure-notebooks---free-jupyter-based-notebooks-in-the-azure-cloud"></a>**Azure Notebooks** – blocos de notas gratuitos com base no Jupyter na cloud do Azure
-O SDK já está instalado e configurado para si no Azure Notebooks.
-  
-1. Conclua a [introdução ao início rápido](../articles/machine-learning/service/quickstart-get-started.md) para criar uma área de trabalho e iniciar o Azure Notebooks.
-1. Aceda a [Azure Notebooks](https://notebooks.azure.com/)
-1. Na Biblioteca `Getting Started` que criou durante o início rápido, aceda à pasta `tutorials`
-1. Abra o bloco de notas.
-
-### <a name="your-own-jupyter-notebook-server"></a>**O seu servidor de blocos de notas do Jupyter**
-1. Conclua a [introdução ao início rápido do SDK do Python](../articles/machine-learning/service/quickstart-create-workspace-with-python.md) para instalar o SDK e criar uma área de trabalho.
-1. Clone o [repositório do GitHub](https://aka.ms/aml-notebooks).
-1. Copie o diretório `aml_config` que criou durante o início rápido para o diretório clonado.
-1. Inicie o servidor de blocos de notas a partir do diretório clonado.
-1. Aceda à pasta `tutorials`.
-1. Abra o bloco de notas.
+Saiba como executar blocos de notas, seguindo o artigo [blocos de notas do Jupyter de utilização para explorar este serviço](../articles/machine-learning/service/samples-notebooks.md).

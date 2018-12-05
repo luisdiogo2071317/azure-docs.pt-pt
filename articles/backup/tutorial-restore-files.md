@@ -2,20 +2,20 @@
 title: Restaurar ficheiros para uma VM com o Azure Backup
 description: Saiba como realizar restauros ao nível do ficheiro numa VM do Azure com Serviços de Cópia de Segurança e de Recuperação.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: tutorial
 ms.date: 2/14/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2bd5e3e022c0e780b1efede6facb8924fa6cde4f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: a8f9fd5a81f8e95d9787d9800be9962484e8436a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998190"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871859"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Restaurar ficheiros para uma máquina virtual no Azure
 O Azure Backup cria pontos de recuperação que são armazenados em cofres de recuperação georredundantes. Quando restaurar a partir de um ponto de recuperação, pode restaurar a VM completa ou ficheiros individuais. Este artigo dispõe de detalhes sobre como restaurar ficheiros individuais. Neste tutorial, ficará a saber como:
@@ -193,7 +193,7 @@ Com o script de recuperação copiado para a VM, já pode ligar o ponto de recup
         --rp-name myRecoveryPointName
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, ligou um ponto de recuperação a uma VM e restaurou ficheiros para um servidor Web. Aprendeu a:
 
 > [!div class="checklist"]

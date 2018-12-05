@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c69a91ce360b5476541de29dc52ea89057aa726c
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: 334fd01568b05cd16ff6f85725a799234fefda48
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037639"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871834"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial – Gerir discos do Azure com o Azure PowerShell
 
@@ -144,10 +144,10 @@ Depois de um disco ser exposto à máquina virtual, o sistema operativo tem de s
 Crie uma ligação RDP com a máquina virtual. Abra o PowerShell e execute este script.
 
 ```azurepowershell
-Get-Disk | Where partitionstyle -eq 'raw' | `
-Initialize-Disk -PartitionStyle MBR -PassThru | `
-New-Partition -AssignDriveLetter -UseMaximumSize | `
-Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
+Get-Disk | Where partitionstyle -eq 'raw' |
+    Initialize-Disk -PartitionStyle MBR -PassThru |
+    New-Partition -AssignDriveLetter -UseMaximumSize |
+    Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
 
 ## <a name="verify-the-data-disk"></a>Verificar o disco de dados
@@ -171,7 +171,7 @@ VirtualHardDisk :
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu sobre os tópicos de discos de VM, como:
 

@@ -1,21 +1,19 @@
 ---
-title: Importar dados para utilização com a API de Tabelas do Azure Cosmos DB | Microsoft Docs
+title: Importar dados para utilização com a API de Tabelas do Azure Cosmos DB
 description: Aprenda a importar dados para utilização com a API de Tabelas do Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 8614bf7009afab8c005d2ffb8b1a78f3694d2af7
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
+ms.openlocfilehash: d277df3fa98564ebec92e548fa070e92cf76f200
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247514"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874044"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migre os dados para a conta da API de Tabela do Azure Cosmos DB
 
@@ -135,7 +133,7 @@ Para migrar da API de Tabelas (pré-visualização) para API de Tabelas disponí
 
 3. Migre os dados de cliente das tabelas de pré-visualização para tabelas GA utilizando a ferramenta de Migração de Dados. As instruções sobre a utilização da ferramenta de migração de dados para este fim estão descritas em [ferramenta de Migração de Dados](#data-migration-tool). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

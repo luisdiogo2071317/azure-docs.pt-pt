@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/08/2018
-ms.openlocfilehash: fb4eabb247e6a4fe5550b2b23d34862c789bfaa1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.date: 12/04/2018
+ms.openlocfilehash: d723eea6fff54b3a2f90478fcb209df76a6a776e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232329"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872922"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Criar um cluster do Kubernetes com o Azure Kubernetes Service e Terraform
 O [Azure Kubernetes Service (AKS)](/azure/aks/) faz a gestão do seu ambiente alojado do Kubernetes, permitindo implementar e gerir rápida e facilmente aplicações contentorizadas sem que sejam necessários conhecimentos em termos de orquestração de contentores. Também põe fim às tarefas de operações e manutenções contínuas ao aprovisionar, atualizar e dimensionar recursos a pedido, sem que as aplicações sejam colocadas offline.
@@ -82,7 +82,6 @@ Crie o ficheiro de configuração Terraform que declara o fornecedor do Azure.
     terraform {
         backend "azurerm" {}
     }
-
     ```
 
 1. Saia do modo de inserção ao clicar na tecla **Esc**.
@@ -112,6 +111,26 @@ Crie o ficheiro de configuração Terraform que declare os recursos para o clust
         location = "${var.location}"
     }
 
+    resource "azurerm_log_analytics_workspace" "test" {
+        name                = "${var.log_analytics_workspace_name}"
+        location            = "${var.log_analytics_workspace_location}"
+        resource_group_name = "${azurerm_resource_group.k8s.name}"
+        sku                 = "${var.log_analytics_workspace_sku}"
+    }
+
+    resource "azurerm_log_analytics_solution" "test" {
+        solution_name         = "ContainerInsights"
+        location              = "${azurerm_log_analytics_workspace.test.location}"
+        resource_group_name   = "${azurerm_resource_group.k8s.name}"
+        workspace_resource_id = "${azurerm_log_analytics_workspace.test.id}"
+        workspace_name        = "${azurerm_log_analytics_workspace.test.name}"
+
+        plan {
+            publisher = "Microsoft"
+            product   = "OMSGallery/ContainerInsights"
+        }
+    }
+
     resource "azurerm_kubernetes_cluster" "k8s" {
         name                = "${var.cluster_name}"
         location            = "${azurerm_resource_group.k8s.location}"
@@ -122,14 +141,14 @@ Crie o ficheiro de configuração Terraform que declare os recursos para o clust
             admin_username = "ubuntu"
 
             ssh_key {
-            key_data = "${file("${var.ssh_public_key}")}"
+                key_data = "${file("${var.ssh_public_key}")}"
             }
         }
 
         agent_pool_profile {
-            name            = "default"
+            name            = "agentpool"
             count           = "${var.agent_count}"
-            vm_size         = "Standard_DS2_v2"
+            vm_size         = "Standard_DS1_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }
@@ -137,6 +156,13 @@ Crie o ficheiro de configuração Terraform que declare os recursos para o clust
         service_principal {
             client_id     = "${var.client_id}"
             client_secret = "${var.client_secret}"
+        }
+
+        addon_profile {
+            oms_agent {
+            enabled                    = true
+            log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+            }
         }
 
         tags {
@@ -198,6 +224,20 @@ Crie o ficheiro de configuração Terraform que declare os recursos para o clust
     variable location {
         default = "Central US"
     }
+
+    variable log_analytics_workspace_name {
+        default = "testLogAnalyticsWorkspaceName"
+    }
+
+    # refer https://azure.microsoft.com/global-infrastructure/services/?products=monitor for log analytics available regions
+    variable log_analytics_workspace_location {
+        default = "eastus"
+    }
+
+   # refer https://azure.microsoft.com/pricing/details/monitor/ for log analytics pricing 
+   variable log_analytics_workspace_sku {
+        default = "PerGB2018"
+   }
     ```
 
 1. Saia do modo de inserção ao clicar na tecla **Esc**.
@@ -368,7 +408,10 @@ As ferramentas do Kubernetes podem ser utilizadas para verificar o cluster acaba
 
     ![A ferramenta kubectl permite-lhe verificar o estado de funcionamento do seu cluster do Kubernetes](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="monitor-health-and-logs"></a>Monitorizar o estado de funcionamento e os registos
+Quando o cluster do AKS foi criado, a monitorização foi ativada para capturar métricas de estado de funcionamento dos nós do cluster e dos pods. Estas métricas de estado de funcionamento estão disponíveis no portal do Azure. Para obter mais informações sobre a monitorização de estado de funcionamento do contentor, consulte [estado de funcionamento do Monitor do Azure Kubernetes Service](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a utilizar o Terraform e AKS para criar o cluster do Kubernetes. Aqui estão alguns recursos adicionais para o ajudar a saber mais acerca do Terraform no Azure: 
 
  [Hub do Terraform no Microsoft.com](https://docs.microsoft.com/azure/terraform/)  

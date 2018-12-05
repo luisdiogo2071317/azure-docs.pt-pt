@@ -15,12 +15,12 @@ ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 6423b1347d5748b46c4ee35928515cec6891e167
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f4d46b7b8ba245c4a7e3eddbe0615c47a1e99096
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725595"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870441"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e partilhar dashboards dos dados do Log Analytics
 
@@ -55,7 +55,7 @@ Quando cria um dashboard, é privado por predefinição, o que significa que é 
 
 Pode criar consultas básicas numa única linha a partir do portal da Pesquisa de Registos no portal do Azure. O portal da Pesquisa de Registos pode ser utilizado sem iniciar um portal externo e pode utilizá-lo para realizar uma variedade de funções com pesquisas de registos, incluindo a criação de regras de alerta, a criação de grupos de computadores e a exportação dos resultados da consulta. 
 
-O [portal do Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md) é um portal dedicado que oferece funcionalidades avançadas que não estão disponíveis no portal da Pesquisa de Registos. As funcionalidades incluem a capacidade de editar uma consulta em várias linhas, executar código seletivamente, contexto confidencial do Intellisense e Análise Inteligente. No portal da Análise Avançada, irá criar uma vista de desempenho no formulário gráfico, guardá-lo para uma pesquisa futura e afixá-lo ao dashboard partilhado que criou anteriormente.   
+O [portal do Log Analytics](../azure-monitor/log-query/get-started-portal.md) é um portal dedicado que oferece funcionalidades avançadas que não estão disponíveis no portal da Pesquisa de Registos. As funcionalidades incluem a capacidade de editar uma consulta em várias linhas, executar código seletivamente, contexto confidencial do Intellisense e Análise Inteligente. No portal da Análise Avançada, irá criar uma vista de desempenho no formulário gráfico, guardá-lo para uma pesquisa futura e afixá-lo ao dashboard partilhado que criou anteriormente.   
 
 Inicie o portal da Análise Avançada a partir de uma ligação no portal da Pesquisa de Registos.<br> ![Iniciar o portal da Análise Avançada](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
 

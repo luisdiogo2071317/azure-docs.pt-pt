@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 841448f477accb8a73d543447cd317bb9b427408
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0fd3bebc1e2dba3ab7d1204e779a8c80b97c990b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497603"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864065"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Tutorial n.º2:  Implementar um modelo de classificação de imagens no Azure Container Instance (ACI)
 
@@ -22,7 +22,7 @@ Este tutorial é a **segunda parte de uma série composta por duas partes**. No 
 
 Agora, está pronto para implementar o modelo como um serviço Web no [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). Um serviço Web é uma imagem, neste caso, uma imagem do Docker, que encapsula a lógica de classificação e o próprio modelo. 
 
-Nesta parte do tutorial, vai utilizar o serviço do Azure Machine Learning (Pré-visualização) para:
+Nesta parte do tutorial, vai utilizar o serviço Azure Machine Learning para:
 
 > [!div class="checklist"]
 > * Configurar o ambiente de teste
@@ -35,10 +35,12 @@ O ACI não é ideal para implementações de produção, mas é muito bom para t
 
 ## <a name="get-the-notebook"></a>Obter o bloco de notas
 
-Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://aka.ms/aml-notebook-tut-02). Execute o bloco de notas `02.deploy-models.ipynb` no Azure Notebooks ou no seu próprio servidor Jupyter Notebook.
+Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb). Execute o bloco de notas `tutorials/img-classification-part2-deploy.ipynb` no Azure Notebooks ou no seu próprio servidor Jupyter Notebook.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
+>[!NOTE]
+> Código neste artigo foi testado com o Azure Machine Learning SDK versão 1.0.2
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

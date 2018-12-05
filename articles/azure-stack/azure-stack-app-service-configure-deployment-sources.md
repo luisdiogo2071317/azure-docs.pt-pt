@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: d65c8653bc039b591f1c0fb711dfe68e3fbacd88
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353566"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888516"
 ---
 # <a name="configure-deployment-sources"></a>Configurar origens de implementação
 
@@ -38,7 +38,8 @@ Para além do local Git, são suportados os seguintes fornecedores de controle d
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Visualizar origens de implementação na administração de serviço de aplicações
 
 1. Inicie sessão no Portal de administração do Azure Stack (https://adminportal.local.azurestack.external) como o administrador de serviços.
-2. Navegue até **fornecedores de recursos** e selecione o **Admin de fornecedor de recursos de serviço de aplicações**.  ![Administração de fornecedor de recursos do serviço de aplicações][1]
+2. Navegue até **todos os serviços** e selecione o **serviço de aplicações**.
+    ![Administração de fornecedor de recursos do serviço de aplicações][1]
 3. Clique em **configuração do controlo de origem**. Pode ver a lista de todas as origens de implementação configurado.
     ![Configuração de controlo de origem de administração de fornecedor de recursos de serviço de aplicações][2]
 

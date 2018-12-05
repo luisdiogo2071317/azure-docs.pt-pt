@@ -2,18 +2,18 @@
 title: Fazer cópia de segurança das Partilhas de Ficheiros do Azure
 description: Este artigo apresenta detalhes sobre como fazer cópias de segurança e restaurar as partilhas de ficheiros do Azure e explica as tarefas de gestão.
 services: backup
-author: markgalioto
-ms.author: markgal
+author: rayne-wiselman
+ms.author: raynew
 ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 14a6e295eebcc3a7cb3f190a09afd65b0e959d7e
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 4a1fcd27603b0323fffe7b59ef2fdfdcabaf8f58
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265343"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874996"
 ---
 # <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
 Este artigo explica como utilizar o Portal do Azure para fazer a cópia de segurança e restauro das [partilhas de ficheiros do Azure](../storage/files/storage-files-introduction.md).

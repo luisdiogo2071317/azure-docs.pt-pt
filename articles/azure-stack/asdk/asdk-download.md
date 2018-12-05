@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: dc301f218855139cfb3a5faa30109dd5a301eb07
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055566"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871205"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Baixe e extraia o Azure Stack Development Kit (ASDK)
 Depois de assegurar que seu computador de anfitrião do kit de desenvolvimento cumpre os requisitos básicos para instalar o ASDK, a próxima etapa é baixar e extrair o pacote de implementação para obter o Cloudbuilder.vhdx ASDK.
@@ -29,7 +29,7 @@ Depois de assegurar que seu computador de anfitrião do kit de desenvolvimento c
 1. Antes de iniciar a transferência, certifique-se de que o computador cumpre os seguintes pré-requisitos:
 
   - O computador tem de ter, pelo menos, 60 GB de espaço em disco disponível em quatro parte, idênticas lógicas unidades de disco rígido livre além para o disco do sistema operativo.
-  - [.NET framework 4.6 (ou uma versão posterior)](https://aka.ms/r6mkiy) tem de ser instalado.
+  - [.NET framework 4.6 (ou uma versão posterior)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) tem de ser instalado.
 
 2. [Vá para a página de introdução ao](https://azure.microsoft.com/overview/azure-stack/try/?v=try) onde pode transferir o Development Kit do Azure Stack, forneça os detalhes e, em seguida, clique em **submeter**.
 3. Transferir e executar o [Verificador de implementação para o Azure Stack Development Kit](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) script do Verificador de pré-requisitos. Este script autónomo aborda as verificações de pré-requisitos feitas pela configuração para o Azure Stack Development Kit. Fornece uma forma para confirmar que está a cumprir os requisitos de hardware e software, antes de transferir o pacote maior para o Azure Stack Development Kit.

@@ -1,21 +1,20 @@
 ---
-title: Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Java | Microsoft Docs
+title: Como utilizar o armazenamento de tabelas do Azure ou a API de tabela do Azure Cosmos DB do Java
 description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: f4ebcf51ab6682009190e467ca9dbf67caf1c182
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
-ms.translationtype: HT
+ms.openlocfilehash: d7be0ed8d59063f75b3d4fadbf69237bdb2d0d13
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797901"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863691"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -592,7 +591,7 @@ catch (Exception e)
 ```
 [!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Getting Started with Azure Table Service in Java](https://github.com/Azure-Samples/storage-table-java-getting-started) (Introdução ao Serviço Tabela do Azure em Java)
 * O [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.

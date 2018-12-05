@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 9efb08922f3e6f78266baaf8ae623dd241c09522
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: 867c52d87562c11eff8dfe2abd443a2c068eb9ae
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037622"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871885"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -165,7 +165,7 @@ Quando substitui o prefixo de endereço 0.0.0.0/0, para além do tráfego de sa�
         - Não ter uma regra de grupo de segurança de rede associada à mesma que impeça a comunicação com o dispositivo
         - Não negar a comunicação
         - Ser capaz de utilizar a tradução e o reencaminhamento de endereços de rede ou o proxy de tráfego no recurso de destino na sub-rede, bem como de devolvê-lo à Internet. 
-    - **Gateway de rede virtual**: se o gateway for um gateway de rede virtual do ExpressRoute, os dispositivos ligados à Internet no local podem utilizar a tradução e o reencaminhamento de endereços de rede ou o proxy de tráfego para o recurso de destino na sub-rede, através do[peering privado](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) do ExpressRoute.  
+    - **Gateway de rede virtual**: se o gateway for um gateway de rede virtual do ExpressRoute, os dispositivos ligados à Internet no local podem utilizar a tradução e o reencaminhamento de endereços de rede ou o proxy de tráfego para o recurso de destino na sub-rede, através do[peering privado](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#privatepeering) do ExpressRoute.  
 
 Se a rede virtual esiver ligada a um gateway VPN do Azure, não associe nenhuma tabela de rota à [sub-rede do gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluia uma rota com um destino 0.0.0.0/0. Se o fizer, poderá impedir que o gateway funcione corretamente. Para obter detalhes, veja a questão *Por que motivo determinadas portas são abertas no meu gateway de VPN?* nas [FAQ do Gateway de VPN](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports).
 
@@ -256,7 +256,7 @@ A tabela de rotas de *Subnet2* na imagem contém as rotas seguintes:
 
 A tabela de rotas para *Subnet2* contém todas as rotas predefinidas criadas pelo Azure e as rotas opcionais de peering de VNet e de gateway de rede virtual. O Azure adicionou as rotas opcionais a todas as sub-redes na rede virtual quando o gateway e o peering foram adicionados à rede virtual. O Azure removeu as rotas para os prefixos de endereços 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 e 100.64.0.0/10 da tabela de rotas *Subnet1* quando a rota definida pelo utilizador para o prefixo 0.0.0.0/0 foi adicionada a *Subnet1*.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar uma tabela de rotas definidas pelo utilizador com rotas e uma aplicação de rede virtual](tutorial-create-route-table-portal.md)
 - [Configurar o BGP para um Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

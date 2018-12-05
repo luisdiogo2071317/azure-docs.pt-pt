@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 11/5/2018
 ms.author: areddish
-ms.openlocfilehash: 35548284302dead41df1a4b9bf6218d842214e11
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 1b301f2197b16d8cd74c3cf3616de70f28ac64df
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278757"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874945"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Início Rápido: criar um projeto de deteção de objeto com o SDK de Python de Visão Personalizada
 
@@ -24,7 +24,7 @@ Este artigo apresenta informações e código de exemplo para ajudá-lo a começ
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Python 2.7+ ou 3.5+](https://www.python.org/downloads/)
-- ferramenta [pip](https://pip.pypa.io/en/stable/installing/)
+- Ferramenta [pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="install-the-custom-vision-sdk"></a>Instalar o SDK da Visão Personalizada
 
@@ -49,14 +49,16 @@ Crie um novo ficheiro chamado *sample.py* no seu diretório de projetos preferid
 Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Tenha em atenção que a diferença entre criar um projeto de classificação de imagens e um projeto de deteção de objetos é o domínio especificado na chamada **create_project**.
 
 ```Python
-from azure.cognitiveservices.vision.customvision.training import training_api
+from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
 from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry, Region
+
+ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 
 # Replace with a valid key
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
 
-trainer = training_api.TrainingApi(training_key)
+trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
 # Find the object detection domain
 obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection")
@@ -178,12 +180,11 @@ print ("Done!")
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
 ```Python
-from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
-from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
+from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 
 # Now there is a trained endpoint that can be used to make a prediction
 
-predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
+predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
 # Open the sample image and get back the prediction results.
 with open("images/Test/test_od_image.jpg", mode="rb") as test_data:
@@ -206,7 +207,7 @@ A saída da aplicação deverá aparecer na consola. Pode, em seguida, certifica
 
 [!INCLUDE [clean-od-project](includes/clean-od-project.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora viu como cada passo do processo de deteção de objeto pode ser feito no código. Este exemplo executa uma iteração de preparação individual, mas, muitas vezes, terá de preparar e testar o seu modelo várias vezes para torná-lo mais preciso. O guia seguinte aborda a classificação de imagens, mas os seus princípios são semelhantes à deteção de objetos.
 

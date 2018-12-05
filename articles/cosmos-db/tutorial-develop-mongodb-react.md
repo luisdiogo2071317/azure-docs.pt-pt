@@ -1,10 +1,8 @@
 ---
-title: Tutorial de MongoDB, React e Node.js para o Azure | Microsoft Docs
+title: Tutorial de MongoDB, React e node. js para o Azure
 description: Saiba como criar uma aplicação MongoDB com o React e o Node.js no Azure Cosmos DB mediante a utilização das mesmas APIs que são utilizadas para MongoDB nesta série de tutoriais em vídeo.
 services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
@@ -12,12 +10,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 28651f0b9a2c775292b5c9406f676b45fc4e5d14
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: bd72aad51d2649ba6f110ab07b3f85d58da2a09d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701787"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867040"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Criar uma aplicação MongoDB com o React e o Azure Cosmos DB  
 
@@ -95,7 +93,7 @@ Se não pretender continuar a utilizar esta aplicação, siga os passos abaixo p
 1. No menu do lado esquerdo do portal do Azure, clique em **Grupos de recursos** e, em seguida, clique no nome de recurso que criou. 
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -1,6 +1,6 @@
 ---
-title: Criar um ambiente do Azure Time Series Insights (pré-visualização) | Documentos da Microsoft
-description: Saiba como criar um ambiente de atualização do Azure Time Series
+title: Tutorial do Azure Time Series Insights (pré-visualização) | Documentos da Microsoft
+description: Saiba mais sobre o Azure Time Series Insights (pré-visualização)
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,99 +9,184 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.openlocfilehash: 7e256f032c67649a4a8b01311e70d6bc9307ae92
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ed25d03f7c592476b9284790ac12f9954661a42b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852974"
+ms.locfileid: "52872310"
 ---
-# <a name="provisioning-and-managing-an-azure-time-series-insights-preview-environment"></a>Aprovisionamento e gestão de um ambiente do Azure Time Series Insights (pré-visualização)
+# <a name="azure-time-series-insights-preview-tutorial"></a>Tutorial do Azure Time Series Insights (pré-visualização)
 
-Este documento descreve como aprovisionar e gerir um novo ambiente do Azure Time Series Insights (pré-visualização) no portal do Azure.
+Este tutorial descreve o processo de criação de um ambiente de pré-visualização do Azure Time Series Insights (TSI), preenchido com dados a partir de dispositivos simulados. Neste tutorial, ficará a saber como:
 
-## <a name="overview"></a>Descrição geral
+* Crie um ambiente de TSI (pré-visualização).
+* Ligar o ambiente do TSI (pré-visualização) para um Hub de eventos.
+* Execute uma simulação de farm do vento para transmitir dados para o ambiente de pré-visualização do TSI.
+* Execute análise básica nos dados.
+* Definir um tipo de modelo de série de tempo e a hierarquia e associá-lo a suas instâncias.
 
-Uma breve descrição sobre o aprovisionamento após a atualização do Time Series Insights:
+## <a name="create-a-time-series-insights-preview-environment"></a>Criar um ambiente do Time Series Insights (pré-visualização)
 
-* Aprovisione um ambiente de atualização do Azure Time Series Insights (TSI).
-* Como parte do processo de criação de terá de fornecer um **ID de série de tempo**. Pode ser até **três** (3) chaves. Saiba mais sobre [IDs de série de tempo escolher](./time-series-insights-update-how-to-id.md).
-* Quando aprovisiona um ambiente de atualização de Azure TSI cria dois recursos do Azure, um ambiente de atualização do TSI e uma conta do armazenamento do Azure para fins gerais V1.  
-* No futuro, novos clientes do Azure por predefinição apenas poderão aprovisionar uma conta do armazenamento do Azure para fins gerais V2, por conseguinte, iremos suportá-lo quando ocorre a essa alteração.  
-* Não ative a frio/arquivamento propriedades na conta de armazenamento que irá utilizar.
-* Em seguida, pode ligar, opcionalmente, o ambiente de atualização para uma fonte de eventos suportados do Time Series Insights (por exemplo, o IoT Hub).
-* Aqui deseja fornecer a **Timestamp ID** propriedade e forneça um grupo de consumidores exclusivo para garantir que o ambiente tem acesso a todos os seus eventos.
-* Após o aprovisionamento, pode, em seguida, opcionalmente, gerir políticas de acesso e outros atributos de ambiente que suportam os requisitos de negócio.
+Esta secção descreve como criar um ambiente do Azure TSI (pré-visualização) utilizando o [Portal do Azure](https://portal.azure.com/).
 
-## <a name="new-environment-creation"></a>Criação do novo ambiente
+1. Inicie sessão no Portal do Azure com a sua conta de subscrição
+1. Selecione **+ Criar um recurso** no canto superior esquerdo.
+1. Selecione a categoria **Internet das Coisas** e, em seguida, **Time Series Insights**.
 
-1. Selecione `PAYG` partir de **SKU** lista pendente. Também vai introduzir um nome de ambiente, designar que subscrição e grupo de recursos que pretende criar o ambiente no e selecione uma localização suportada para o ambiente estar situada em.  
+  ![um tutorial][1]
 
-1. Crie uma nova conta de armazenamento do Azure ao selecionar um nome de conta de armazenamento e designar uma opção de replicação. Se o fizer, irá criar automaticamente uma conta nova para o armazenamento do Azure para fins gerais V1 na mesma região que o ambiente do Azure TSI (pré-visualização) que selecionou anteriormente.  
+1. Na página de ambiente do Time Series Insights, preencha os parâmetros necessários e clique em **seguinte: origem de evento**
 
-1. Entrada **ID de série de tempo** propriedade:
+  ![Tutorial-dois][2]
 
-    > [!IMPORTANT]
-    > O **ID de série de tempo** diferencia maiúsculas de minúsculas imutável e não pode ser alterada uma vez definida.
+1. Sobre o **origem do evento** página, preencha os parâmetros necessários e clique em **rever + criar**.
 
-    Saiba mais detalhes sobre como selecionar a adequada **ID de série de tempo** ler o artigo sobre [melhores práticas para a seleção de um ID de série de tempo](./time-series-insights-update-how-to-id.md).
+  ![Tutorial-três][3]
 
-    ![environment_details][1]
+1. Reveja todos os detalhes e clique em **criar** para iniciar o aprovisionamento do seu ambiente.
 
-1. Opcionalmente, pode adicionar uma origem de evento:
+  ![Tutorial-quatro][4]
 
-    * Azure TSI suporta o IoT Hub do Azure e Hubs de eventos como opções. Embora só é possível adicionar uma origem de evento único no momento de criação do ambiente, pode adicionar uma origem de eventos adicionais mais tarde. É melhor criar um grupo de consumidores exclusivo para garantir que todos os eventos estão visíveis para o TSI. Pode selecionar um grupo de consumidor existente ou criar um novo grupo de consumidor, ao adicionar a origem do evento.
+1. Receberá uma notificação quando a implementação foi concluída com êxito.
 
-    * Também designar apropriado **Timestamp** propriedade. Por predefinição, o TSI utiliza a hora de colocados em fila de mensagens para cada origem de evento, que pode não ser adequada se estiver a criação de batches de eventos ou carregar dados históricos. Por conseguinte, é fundamental para a propriedade timestamp maiúsculas e minúsculas de entrada, ao adicionar a origem do evento.  
+  ![Tutorial-cinco][5]
 
-     ![environment_event_sources][2]
+## <a name="send-events-to-your-tsi-environment"></a>Enviar eventos para o seu ambiente do TSI
 
-1. Reveja e criar:
+Nesta secção, irá utilizar um simulador de dispositivos de windmill para enviar eventos para o seu ambiente do TSI através de um Hub de eventos.
 
-    ![environment_review][3]
+  1. No Portal do Azure, navegue para o recurso do hub de eventos e ligá-lo ao seu ambiente do TSI. Saiba mais [como ligar o seu recurso a um Hub de eventos existente](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-    Confirme que tudo esteja correto!
+  1. Na página de recursos do Hub de eventos, aceda a **políticas de acesso partilhado** e, em seguida **RootManageSharedAccessKey**. Copiar o **ligação chave primária da cadeia de caracteres** apresentado aqui.
 
-## <a name="management"></a>Gestão
+      ![Tutorial-seis][6]
 
-Tem a capacidade de gerir o seu ambiente atualizado do TSI através do portal do Azure. Os utilizadores familiarizados com TSI será imediatamente confortáveis com a atualização TSI, uma vez que grande parte é transportado entre versões.
+  1. Vá para [https://tsiclientsample.azurewebsites.net/windFarmGen.html]( https://tsiclientsample.azurewebsites.net/windFarmGen.html). Esta aplicação web simula windmill dispositivos.
+  1. Cole a cadeia de ligação é copiada do passo 3 do **cadeia de ligação do Hub de eventos**
 
-Principais diferenças na gestão de um ambiente de L1 TSI versus um S1 ou o ambiente de S2 no portal do Azure são apresentadas abaixo:
+      ![Tutorial-sete][7]
 
-* Portal do TSI Azure *descrição geral* painel:
+  1. Clique em **clique para iniciar** enviar eventos para o Hub de eventos. Nesta fase, um arquivo chamado `instances.json` serão transferidos para o seu computador. Guarde este ficheiro uma vez que irá precisar deste mais tarde.
 
-  * Usar o painel de descrição geral de permanece o mesmo, exceto para:
+  1. Regresse ao seu hub de eventos. Agora, deverá ver os novos eventos a ser recebidos pelo hub.d
 
-    * Capacidade é removida como esse conceito não é relevante para ambientes de L1.
-    * O **ID de série de tempo** propriedade foi adicionada. Essa é uma propriedade imutável adicionado em tempo de aprovisionamento e define como os seus dados estão particionados.
-    * Conjuntos de dados de referência são removidos.
+     ![Tutorial-oito][8]
 
-* Portal do TSI Azure *configurar* painel:
-  
-  * Retenção é removida como retenção será definida como ilimitada.
+## <a name="analyze-data-in-your-environment"></a>Analisar dados no seu ambiente
 
-    * Esperamos que adicionar mais controlos para isso, no futuro, mas por enquanto, não pode definir um limite sobre isso.
-    * Capacidade, a Calculadora e o limite de armazenamento excederam o comportamento de todos os removido.
+Nesta secção, irá efetuar a análise básica em seu tempo explorer de atualização de dados de série com o Time Series Insights.
 
-* Portal do TSI Azure *referência* painel de dados:
+  1. Navegue para o Explorador de atualização do Time Series Insights clicando no URL da página de recursos no Portal do Azure.
 
-  * Este painel todo foi removido como dados de referência não são um componente de ambientes de L1.
+      ![Tutorial-nove][9]
 
-[!INCLUDE [tsi-update-docs](../../includes/time-series-insights-update-documents.md)]
+  1. No explorer, clique nas **instâncias Unparented** nós para ver todas as instâncias de série de tempo no ambiente.
+
+     ![Tutorial-dez][10]
+
+  1. Neste tutorial, vamos analisar os dados enviados durante o último dia. Para tal, clique em **vezes rápidas** e selecione o **últimas 24 horas** opção.
+
+     ![Tutorial-11][11]
+
+  1. Selecione **Sensor_0** e escolha **Mostrar valor de média** para visualizar os dados que está a ser enviados a partir desta instância de série de tempo.
+
+     ![Tutorial-doze][12]
+
+  1. Da mesma forma, pode desenhar dados provenientes de outras instâncias de série de tempo para executar a análise básica.
+
+     ![treze para o tutorial][13]
+
+## <a name="define-a-type--hierarchy"></a>Definir um tipo de & hierarquia 
+
+Nesta secção, irá criar um tipo, a hierarquia e associá-las com as instâncias de série de tempo. Leia mais sobre [modelos de série de tempo](./time-series-insights-update-tsm.md).
+
+  1. No explorer, clique nas **modelo** separador na barra da aplicação.
+
+     ![Tutorial-quatorze][14]
+
+  1. Na secção de tipos, clique em **+ adicionar**. Isso permitirá que criar um novo tipo de modelo de série de tempo.
+
+     ![Tutorial-quinze][15]
+
+  1. No editor de tipo, introduza um **Name**, **Descrição**e criar variáveis para **média**, **Min**, e **Max** os valores, conforme mostrado abaixo. Clique em **criar** para guardar o tipo.
+
+     ![Tutorial-16][16]
+
+     ![Tutorial-seventeen][17]
+
+  1. Na **hierarquias** secção, clique em **+ adicionar**. Isso permitirá que criar uma nova hierarquia de modelo de série de tempo.
+
+     ![Tutorial-dezoito][18]
+
+  1. No editor de hierarquia, introduza um **nome** e adicionar níveis de hierarquia, conforme mostrado abaixo. Clique em **criar** para guardar a hierarquia.
+
+     ![Tutorial-dezenove][19]
+
+     ![Tutorial-vinte][20]
+
+  1. Na **instâncias** secção, selecione uma instância e clique em **editar**. Isso permitirá que associe um tipo e a hierarquia com esta instância.
+
+     ![Tutorial-vinte-um][21]
+
+  1. No editor de instância, escolha o tipo e a hierarquia definidas nos passos 3, 5 acima, conforme mostrado.
+
+     ![Tutorial-vinte-dois][22]
+
+  1. Em alternativa, para fazer isso para todas as instâncias de uma só vez, pode editar o `instances.json` ficheiro transferido anteriormente. Neste ficheiro, substitua todo **typeId** e **hierarchyId** campos com o ID de obteve dos passos 3, 5 acima.
+
+  1. Na **instâncias** secção, clique em **carregar JSON** e carregar o editado `instances.json` ficheiro, conforme mostrado abaixo.
+
+     ![Tutorial-vinte-três][23]
+
+  1. Navegue para o **Analytics** separador e atualize o browser. Agora, deve ver todas as instâncias associadas com o tipo e a hierarquia definido acima.
+
+     ![Tutorial-vinte e quatro][24]
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+Neste tutorial, ficou a saber como:  
+
+* Crie um ambiente de TSI (pré-visualização).
+* Ligar o ambiente do TSI (pré-visualização) para um Hub de eventos.
+* Execute uma simulação de farm do vento para transmitir dados para o ambiente do TSI (pré-visualização).
+* Execute análise básica nos dados.
+* Definir um tipo de modelo de série de tempo, a hierarquia e associá-lo a suas instâncias.
+
+Agora que sabe como criar seu próprio ambiente de atualização TSI, saiba mais sobre os conceitos fundamentais do TSI.
 
 Leia sobre a configuração de armazenamento do TSI:
 
 > [!div class="nextstepaction"]
-> [O TSI do Azure (pré-visualização), armazenamento e de entrada](./time-series-insights-update-storage-ingress.md)
+> [O armazenamento do Azure TSI (pré-visualização) e de entrada](./time-series-insights-update-storage-ingress.md)
 
 Saiba mais sobre os modelos de série de tempo:
 
 > [!div class="nextstepaction"]
-> [TSI do Azure (pré-visualização) TSM](./time-series-insights-update-tsm.md)
+> [Modelação de dados TSI (pré-visualização) do Azure](./time-series-insights-update-tsm.md)
 
 <!-- Images -->
-[1]: media/v2-update-provision/environment_details.png
-[2]: media/v2-update-provision/environment_event_sources.png
-[3]: media/v2-update-provision/environment_review.png
+[1]: media/v2-update-provision/tutorial-one.png
+[2]: media/v2-update-provision/tutorial-two.png
+[3]: media/v2-update-provision/tutorial-three.png
+[4]: media/v2-update-provision/tutorial-four.png
+[5]: media/v2-update-provision/tutorial-five.png
+[6]: media/v2-update-provision/tutorial-six.png
+[7]: media/v2-update-provision/tutorial-seven.png
+[8]: media/v2-update-provision/tutorial-eight.png
+[9]: media/v2-update-provision/tutorial-nine.png
+[10]: media/v2-update-provision/tutorial-ten.png
+[11]: media/v2-update-provision/tutorial-eleven.png
+[12]: media/v2-update-provision/tutorial-twelve.png
+[13]: media/v2-update-provision/tutorial-thirteen.png
+[14]: media/v2-update-provision/tutorial-fourteen.png
+[15]: media/v2-update-provision/tutorial-fifteen.png
+[16]: media/v2-update-provision/tutorial-sixteen.png
+[17]: media/v2-update-provision/tutorial-seventeen.png
+[18]: media/v2-update-provision/tutorial-eighteen.png
+[19]: media/v2-update-provision/tutorial-nineteen.png
+[20]: media/v2-update-provision/tutorial-twenty.png
+[21]: media/v2-update-provision/tutorial-twenty-one.png
+[22]: media/v2-update-provision/tutorial-twenty-two.png
+[23]: media/v2-update-provision/tutorial-twenty-three.png
+[24]: media/v2-update-provision/tutorial-twenty-four.png
