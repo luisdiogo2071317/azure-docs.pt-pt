@@ -98,7 +98,7 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
         - Me(Montenegro)
 
-        - MK (Macedónia, FYRO)
+        - MK (República da Macedónia, FYRO)
 
         - MT(Malta)
 

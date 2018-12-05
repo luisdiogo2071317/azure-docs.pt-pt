@@ -32,7 +32,7 @@ Fase de testes significa implementar o SKU numa "sandbox" privada "onde pode tes
 3. Na **quem pode aceder a sua oferta em etapas?** caixa de diálogo, introduza a lista de subscrições do Azure que irá utilizar para pré-visualizar a oferta no [portal de pré-visualização do Azure](https://portal.azure.com).
    
    > [!NOTE]
-   > Em caso de máquinas virtuais e modelos de soluções, volte **não** subscrições de lista branca de tipo CSP, DreamSpark ou do Azure no Open.
+   > Em caso de máquinas virtuais e modelos de soluções, volte **não** subscrições de lista aprovada de tipo CSP, DreamSpark ou do Azure no Open.
    > 
    > 
 

@@ -162,7 +162,7 @@ Utilize a vista do Marketplace para configurar os campos que são apresentados p
 
 ### <a name="preview-subscription-ids"></a>Ids de subscrição de pré-visualização
 
-A lista de IDs de subscrição do Azure que gostaria de ter acesso para a oferta quando é publicada a oferta. Estas subscrições listadas em branco lhe permitem testar a oferta visualizada antes de ficar em direto. O portal de parceiros permite-lhe a lista branca até 100 subscrições.
+A lista de IDs de subscrição do Azure que gostaria de ter acesso para a oferta quando é publicada a oferta. Estas subscrições listadas em branco lhe permitem testar a oferta visualizada antes de ficar em direto. O portal de parceiros permite-lhe a lista aprovada até 100 subscrições.
 
 ### <a name="suggested-categories"></a>Categorias sugeridas
 

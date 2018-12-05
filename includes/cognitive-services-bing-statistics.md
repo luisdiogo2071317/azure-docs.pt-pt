@@ -89,7 +89,7 @@ Seguem-se as métricas possíveis. Cada métrica notas restrições de ponto fin
   
 - **Distribuição de código de resposta**: códigos de estado de HTTP o de todas as chamadas durante o período de relatório.  
   
-- **Distribuição de origem de chamar**: os tipos de browsers utilizados pelos utilizadores. Por exemplo, Edge, Chrome, Safari e FireFox. Chamadas efetuadas a partir de fora do browser, tais como bots, Postman ou utilizando curl a partir de uma aplicação de consola, são agrupadas em bibliotecas. Determinar a origem com o valor de cabeçalho do agente de utilizador do pedido. Se o pedido não inclui o cabeçalho de agente do utilizador, o Bing tenta derivar a origem outros sinais.  
+- **Distribuição de origem de chamar**: os tipos de browsers utilizados pelos utilizadores. Por exemplo, Microsoft Edge, Chrome, Safari e FireFox. Chamadas efetuadas a partir de fora do browser, tais como bots, Postman ou utilizando curl a partir de uma aplicação de consola, são agrupadas em bibliotecas. Determinar a origem com o valor de cabeçalho do agente de utilizador do pedido. Se o pedido não inclui o cabeçalho de agente do utilizador, o Bing tenta derivar a origem outros sinais.  
   
 - **Distribuição de pesquisa seguro**: A distribuição dos valores de pesquisa seguro. Por exemplo, desativar, moderada ou strict. O `safeSearch` consulta parâmetro contém o valor, se for especificado. Caso contrário, o Bing assume o valor para moderada.  
   

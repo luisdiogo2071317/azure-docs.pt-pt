@@ -36,7 +36,7 @@
 #### [Agente de Funcionamento de Agente](oms-solution-agenthealth.md)
 #### [Gestão de Alertas](../azure-monitor/platform/alert-management-solution.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Análise de Redes do Azure](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-#### [Contentores](../log-analytics/log-analytics-containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+#### [Contentores](../azure-monitor/insights/containers.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Análise do Cofre de Chaves](../azure-monitor/insights/azure-key-vault.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Monitor de Desempenho da Rede](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Office 365](oms-solution-office-365.md)

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: f3e40f9d10ce3d0515d466e9bbdde324458e624d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e94b9e6d39a8a2694658a4231c54a027523af10c
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834116"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889247"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Utilizar a instância gerida do SQL da base de dados com as redes virtuais e quase 100% de compatibilidade
 
@@ -214,7 +214,7 @@ Gerido benefícios de instância de ser sempre up-até à data na nuvem, o que s
 
 ### <a name="managed-instance-administration-features"></a>Funcionalidades de administração de instância geridas
 
-Geridos pelo administrador de sistema de ativação de instância para se focar no que é importante ao máximo para empresas. Muitas atividades de administrador/DBA do sistema não são necessárias, ou eles são simples. Por exemplo, o sistema operacional / instalação RDBMS e aplicação de patches, dinâmica instância redimensionamento e configuração, as cópias de segurança, [replicação de base de dados](replication-with-sql-database-managed-instance.md) (incluindo bases de dados do sistema), configuração de elevada disponibilidade e configuração do Estado de funcionamento e [monitorização do desempenho](../log-analytics/log-analytics-azure-sql.md) fluxos de dados.
+Geridos pelo administrador de sistema de ativação de instância para se focar no que é importante ao máximo para empresas. Muitas atividades de administrador/DBA do sistema não são necessárias, ou eles são simples. Por exemplo, o sistema operacional / instalação RDBMS e aplicação de patches, dinâmica instância redimensionamento e configuração, as cópias de segurança, [replicação de base de dados](replication-with-sql-database-managed-instance.md) (incluindo bases de dados do sistema), configuração de elevada disponibilidade e configuração do Estado de funcionamento e [monitorização do desempenho](../azure-monitor/insights/azure-sql.md) fluxos de dados.
 
 > [!IMPORTANT]
 > Para obter uma lista dos recursos suportados, parcialmente suportadas e não suportados, consulte [funcionalidades de base de dados SQL](sql-database-features.md). Para obter uma lista de diferenças do T-SQL em instâncias geridas em comparação com o SQL Server, consulte [diferenças de T-SQL de instância gerida do SQL Server](sql-database-managed-instance-transact-sql-information.md)
@@ -228,7 +228,7 @@ A tabela seguinte mostra várias propriedades, acessíveis através de Transact 
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Este valor é a mesmo como na base de dados SQL.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Este valor é a mesmo como na base de dados SQL.|
 |`SERVERPROPERTY('EngineEdition')`|8|Este valor identifica exclusivamente a instância gerida.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS de instância completa no seguinte formato:`<instanceName>`.`<dnsPrefix>`. Database.Windows.NET, onde `<instanceName>` é o nome fornecido pelo cliente, enquanto `<dnsPrefix>` é gerado automaticamente parte do mesmo garantindo a exclusividade de nome DNS global ("wcus17662feb9ce98", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Nome DNS de instância completa no seguinte formato:`<instanceName>`.`<dnsPrefix>`.Database.Windows.NET, onde `<instanceName>` é o nome fornecido pelo cliente, enquanto `<dnsPrefix>` é gerado automaticamente parte do mesmo garantindo a exclusividade de nome DNS global ("wcus17662feb9ce98", por exemplo)|Exemplo: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -237,5 +237,5 @@ A tabela seguinte mostra várias propriedades, acessíveis através de Transact 
 - Para obter mais informações sobre a configuração da VNet, veja [Configuração de VNet de Instância Gerida](sql-database-managed-instance-vnet-configuration.md).
 - Para um início rápido que cria uma instância gerida e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma instância gerida](sql-database-managed-instance-get-started.md).
 - Para obter um tutorial, utilizando o Azure Database Migration Service (DMS) para migração, veja [Migração de Instância Gerida com o DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- Para avançadas de monitorização de desempenho da base de dados de instância gerida com inteligência incorporada de resolução de problemas, consulte [SQL Database do Azure Monitor, através da análise de SQL do Azure](../log-analytics/log-analytics-azure-sql.md)
+- Para avançadas de monitorização de desempenho da base de dados de instância gerida com inteligência incorporada de resolução de problemas, consulte [SQL Database do Azure Monitor, através da análise de SQL do Azure](../azure-monitor/insights/azure-sql.md)
 - Para obter informações sobre preços, consulte [preços da SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

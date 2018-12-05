@@ -70,7 +70,7 @@ Segue-se um exemplo:
 
 1.  Não é possível gerar uma imagem do sprite com uma única linha de imagens (SpriteColumn = 1 resultados numa imagem com uma única coluna).
 2.  Segmentação de imagens do sprite nas imagens JPEG moderadamente tamanho ainda não é suportado. Por este motivo, deve ter cuidado para limitar o número de miniaturas e seu tamanho, para que o Sprite de miniatura stitched resultante é em torno de 8 pixels de M ou menos.
-3.  O Azure Media Player suporta sprites em browsers do Edge, Chrome e Firefox. Análise de VTT não é suportada no IE11.
+3.  O Azure Media Player suporta sprites em browsers do Microsoft Edge, Chrome e Firefox. Análise de VTT não é suportada no IE11.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

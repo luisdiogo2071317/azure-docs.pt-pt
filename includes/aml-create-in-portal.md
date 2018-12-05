@@ -9,16 +9,16 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 0b95441fd2805308c601509f1afc477f72bde321
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: edcb2ecb74255ddbb8d601cb69565fb401b756d2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49476347"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52886329"
 ---
-Entrar para o [portal do Azure](https://portal.azure.com/) com as credenciais para a subscrição do Azure que utilizar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
+Entrar para o [portal do Azure](https://portal.azure.com/) com as credenciais para a subscrição do Azure que utilizar. 
 
-Dashboard de área de trabalho do portal é suportado em navegadores Edge, Chrome e Firefox.
+Dashboard de área de trabalho do portal é suportado em navegadores Microsoft Edge, Chrome e Firefox.
 
    ![Portal do Azure](./media/aml-create-in-portal/portal-dashboard.png)
 

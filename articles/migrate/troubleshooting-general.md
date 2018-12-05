@@ -88,7 +88,7 @@ Pode ir para o **Essentials** secção a **descrição geral** página do projet
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Recoletor não é possível estabelecer ligação à internet
 
 Isto pode acontecer quando a máquina que está a utilizar está atrás de um proxy. Certifique-se de que fornecer as credenciais de autorização se o proxy precisar de um.
-Se estiver a utilizar qualquer proxy de firewall baseado em URL para controlar a conectividade de saída, certifique-se a lista branca que estes URLs necessários:
+Se estiver a utilizar qualquer proxy de firewall baseado em URL para controlar a conectividade de saída, certifique-se a lista aprovada que estes URLs necessários:
 
 **URL** | **Objetivo**  
 --- | ---

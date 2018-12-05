@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 0612a7798d3cc2e43efc296bd2b749735e74f765
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 94c03c9aa6e361167b396af5218b308e6cacfafe
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720852"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879813"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Resolução de problemas de alertas de registo no Azure Monitor  
 ## <a name="overview"></a>Descrição geral
@@ -30,7 +30,7 @@ O termo **alertas de registo** descreve os alertas que fire com base numa consul
 Eis algumas razões comuns um configurado [regra de alerta de registo no Azure Monitor](alert-log.md) Estado não mostra [como *disparado* quando esperado](monitoring-alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Tempo de ingestão de dados para os registos
-Alerta de registo executado periodicamente sua consulta com base na [do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Uma vez que o Log Analytics processa muitos terabytes de dados a partir de milhares de clientes de origens variadas em todo o mundo, o serviço é suscetível a um atraso de tempo diferentes. Para obter mais informações, consulte [tempo de ingestão de dados no Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
+Alerta de registo executado periodicamente sua consulta com base na [do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Uma vez que o Log Analytics processa muitos terabytes de dados a partir de milhares de clientes de origens variadas em todo o mundo, o serviço é suscetível a um atraso de tempo diferentes. Para obter mais informações, consulte [tempo de ingestão de dados no Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
 
 Para atenuar o atraso de ingestão de dados, o sistema deve aguardar e repete a consulta de alerta várias vezes se ele encontrar que os dados necessários não são ingeridos ainda. O sistema tem um tempo de espera aumentar exponencialmente definido. Os registo alerta apenas acionadores depois dos dados estão disponíveis para que eles atraso podem ser devido a ingestão de dados de registo lento. 
 
@@ -56,17 +56,17 @@ Por exemplo, suponha que uma regra de alerta de registo de medida da métrica fo
 - lógica de alerta de falhas consecutivas três
 - Agregação após escolhido como $table
 
-Uma vez que o comando inclui *resumir... por* e fornecidas duas variáveis (timestamp & $table), o sistema escolhe $table para "Agregado com". Ordena a tabela de resultados pelo campo *$table* conforme mostrado abaixo e, em seguida, analisa a vários AggregatedValue para cada tipo de tabela (como availabilityResults) para ver se haveria falhas consecutivas de 3 ou mais.
+Uma vez que o comando inclui *resumir por* e fornecidas duas variáveis (timestamp & $table), o sistema escolhe $table para agregação após. Ordena a tabela de resultados pelo campo *$table* conforme mostrado abaixo e, em seguida, analisa a vários AggregatedValue para cada tipo de tabela (como availabilityResults) para ver se haveria falhas consecutivas de 3 ou mais.
 
 ![Execução da consulta medida métrica com vários valores](./media/monitor-alerts-unified/LogMMQuery.png)
 
-Como "Agregadas após" é $table – os dados são ordenados na coluna de $table (como em vermelho); em seguida, podemos de grupo e procurar por tipos de campo "Agregado com" (ou seja) $table – por exemplo: os valores do availabilityResults será considerado como um desenho/entidade (como destacado na cor de laranja). Nesta plotagem de valor/entidade – Serviço de alertas verifica a existência de falhas consecutivas três ocorrendo (como mostra a verde) para a alerta irá obter acionada para o valor de tabela "availabilityResults". Da mesma forma, se em qualquer outro valor de $table se são visualizadas três falhas consecutivas - outra notificação de alertas será acionada para a mesma coisa; com o serviço de alertas classificar automaticamente os valores num desenho/entidade (como cor de laranja) por vez.
+Como agregação após é $table que os dados são ordenados na coluna de $table (como em vermelho); em seguida, podemos de grupo e procurar por tipos de agregação no campo (ou seja) $table por exemplo: os valores do availabilityResults será considerado como um desenho/entidade (como destacado na cor de laranja). Este valor plotagem/entidade Serviço de alertas verifica a existência de falhas consecutivas três ocorrendo (como mostra a verde) para a alerta irá obter acionada para o valor de tabela "availabilityResults". Da mesma forma, se em qualquer outro valor de $table se são visualizadas três falhas consecutivas - outra notificação de alertas será acionada para a mesma coisa; com o serviço de alertas classificar automaticamente os valores num desenho/entidade (como cor de laranja) por vez.
 
-Agora suponha que, medida da métrica regra de alerta de registo foi modificada e a consulta foi `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` com o restante da configuração restante mesmo que antes de incluir a lógica de alerta de falhas consecutivas três. Opção "Aggregate após" nesse caso será por predefinição: timestamp. Uma vez que apenas um valor é fornecido na consulta para resumir... por timestamp (ou seja) semelhante ao exemplo anterior, no final da execução a saída seria conforme ilustrado abaixo. 
+Agora suponha que, medida da métrica regra de alerta de registo foi modificada e a consulta foi `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` com o restante da configuração restante mesmo que antes de incluir a lógica de alerta de falhas consecutivas três. Opção "Aggregate após" nesse caso será por predefinição: timestamp. Uma vez que apenas um valor é fornecido na consulta para resumir por timestamp (ou seja) semelhante ao exemplo anterior, no final da execução a saída seria conforme ilustrado abaixo. 
 
    ![Métrica execução de consultas de medição com o valor único](./media/monitor-alerts-unified/LogMMtimestamp.png)
 
-Como "Agregadas após" é timestamp – os dados são ordenados na coluna timestamp (como em vermelho); em seguida, podemos agrupar por timestamp – por exemplo: os valores de `2018-10-17T06:00:00Z` será considerado como um desenho/entidade (como destacado na cor de laranja). Este valor plotagem/entidade – Serviço de alertas encontrará sem falhas consecutivas que (como a cada valor de timestamp tem apenas uma entrada) e, por conseguinte, alertas nunca irão obter ativadas. Portanto, nesse caso, utilizador ou - tem
+Como agregação após é timestamp que os dados são ordenados na coluna timestamp (como em vermelho); em seguida, podemos agrupar por timestamp por exemplo: os valores de `2018-10-17T06:00:00Z` será considerado como um desenho/entidade (como destacado na cor de laranja). Este valor plotagem/entidade Serviço de alertas encontrará sem falhas consecutivas que (como a cada valor de timestamp tem apenas uma entrada) e, por conseguinte, alertas nunca irão obter ativadas. Portanto, nesse caso, utilizador ou - tem
 - Adicionar uma variável fictícia ou uma variável existente (como $table) a corretamente classificação concluído com o campo "Aggregate após" configurado
 - (Ou) reconfigurar a regra de alerta para utilizar a lógica de alerta com base na *total de violação* em vez disso adequadamente
  
@@ -74,7 +74,7 @@ Como "Agregadas após" é timestamp – os dados são ordenados na coluna timest
 Próxima detalhada são algumas razões comuns, por que um configurado [regra de alerta de registo no Azure Monitor](alert-log.md) podem ser acionadas quando visualizado no [alertas do Azure](monitoring-alerts-managing-alert-states.md), quando não espera que sejam acionados.
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerta acionada por dados parciais
-Análise que alimenta o Log Analytics e Application Insights está sujeitos aos atrasos de ingestão e de processamento; devido a que, ao tempo quando é executada a consulta de alerta de registo fornecida - pode haver um caso de dados não está disponível ou apenas alguns dados estejam disponíveis. Para obter mais informações, consulte [tempo de ingestão de dados no Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
+Análise que alimenta o Log Analytics e Application Insights está sujeitos aos atrasos de ingestão e de processamento; devido a que, ao tempo quando é executada a consulta de alerta de registo fornecida - pode haver um caso de dados não está disponível ou apenas alguns dados estejam disponíveis. Para obter mais informações, consulte [tempo de ingestão de dados no Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
 
 Dependendo de como a regra de alerta é configurada, pode haver enganássemos firing se não existir nenhuma ou apenas dados parciais nos registos no momento da execução de alerta. Nesses casos, Aconselhamo-lo para alterar a configuração ou de consulta de alerta. 
 
@@ -83,7 +83,7 @@ Por exemplo, se a regra de alerta de registo está configurada para acionar quan
 ### <a name="alert-query-output-misunderstood"></a>Saída de consulta de alerta mal compreendida
 Fornecer a lógica para alertas de registo numa consulta do analytics. A consulta do analytics pode utilizar várias grandes quantidades de dados e funções matemáticas.  O serviço de alerta executa a consulta em intervalos especificados com os dados para o período de tempo especificado. O serviço de alerta faz alterações sutis para consulta fornecida com base no tipo de alerta escolhido. Isso pode ser visto na seção "Consultar a ser executado" na *configurar lógica de sinal* ecrã, conforme mostrado abaixo: ![consulta a ser executado](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-O que é mostrado na **consulta a ser executado** caixa está o que é executado o serviço de alerta de registo. Pode executar a consulta declarada como timespan através de [portal do Analytics](../log-analytics/log-analytics-log-search-portals.md) ou o [API de análise de](https://docs.microsoft.com/rest/api/loganalytics/) se quiser entender o que a consulta de alerta de saída pode ser antes de criar, na verdade, o alerta.
+O que é mostrado na **consulta a ser executado** caixa está o que é executado o serviço de alerta de registo. Pode executar a consulta declarada como timespan através de [portal do Analytics](../azure-monitor/log-query/portals.md) ou o [API de análise de](https://docs.microsoft.com/rest/api/loganalytics/) se quiser entender o que a consulta de alerta de saída pode ser antes de criar, na verdade, o alerta.
  
 ## <a name="next-steps"></a>Passos Seguintes
 

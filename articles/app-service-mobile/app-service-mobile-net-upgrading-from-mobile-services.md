@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 25eb5c732927dcfb18bfd92991391ff99d4e3629
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 2d346739cd2e80546aee921317e278c1cff32b34
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918263"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873143"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Atualizar o seu serviço móvel do Azure de .NET existente para o serviço de aplicações
 Serviço de aplicações móveis é uma nova forma de compilação de aplicações móveis com o Microsoft Azure. Para obter mais informações, consulte [O que são Aplicações Móveis?].
@@ -84,18 +84,23 @@ Haverá alguns erros de compilador resultantes de diferenças entre os SDKs, mas
 ### <a name="base-configuration"></a>Configuração base
 Em seguida, no WebApiConfig.cs, pode substituir:
 
-        // Use this class to set configuration options for your mobile service
-        ConfigOptions options = new ConfigOptions();
+```csharp
+// Use this class to set configuration options for your mobile service
+ConfigOptions options = new ConfigOptions();
 
-        // Use this class to set WebAPI configuration options
-        HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+// Use this class to set WebAPI configuration options
+HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+```
 
 com
 
-        HttpConfiguration config = new HttpConfiguration();
-        new MobileAppConfiguration()
-            .UseDefaultConfiguration()
-        .ApplyTo(config);
+```csharp
+HttpConfiguration config = new HttpConfiguration();
+new MobileAppConfiguration()
+    .UseDefaultConfiguration()
+.ApplyTo(config);
+
+```
 
 > [!NOTE]
 > Se quiser saber mais sobre o novo servidor de .NET SDK e como adicionar ou remover recursos da sua aplicação, volte a ver o [como utilizar o SDK do servidor .NET] tópico.
@@ -110,8 +115,10 @@ Se torna a sua aplicação utilizar os recursos de autenticação, também terá
 
 Certifique-se de que o `Configuration()` método termina com:
 
-        app.UseWebApi(config)
-        app.UseAppServiceAuthentication(config);
+```csharp
+app.UseWebApi(config)
+app.UseAppServiceAuthentication(config);
+```
 
 Existem alterações adicionais relacionadas à autenticação que são abordadas na secção autenticação completo abaixo.
 
@@ -120,7 +127,9 @@ Nos serviços móveis, o nome de aplicação móvel serviu-se como o nome do esq
 
 Para se certificar de que tem o mesmo esquema a ser referenciado como antes, utilize o seguinte para definir o esquema no DbContext para a sua aplicação:
 
-        string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```csharp
+string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```
 
 Certifique-se de que tem MS_MobileServiceName definir se o fizer acima. Também pode fornecer outro nome de esquema se seu aplicativo personalizado isso anteriormente.
 
@@ -167,28 +176,30 @@ A maneira mais fácil para resolver o problema é modificar os DTOs para que ele
 
 Por exemplo, define o seguinte `TodoItem` sem propriedades de sistema:
 
-    using System.ComponentModel.DataAnnotations.Schema;
+```csharp
+using System.ComponentModel.DataAnnotations.Schema;
 
-    public class TodoItem : ITableData
-    {
-        public string Text { get; set; }
+public class TodoItem : ITableData
+{
+    public string Text { get; set; }
 
-        public bool Complete { get; set; }
+    public bool Complete { get; set; }
 
-        public string Id { get; set; }
+    public string Id { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? CreatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? CreatedAt { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? UpdatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? UpdatedAt { get; set; }
 
-        [NotMapped]
-        public bool Deleted { get; set; }
+    [NotMapped]
+    public bool Deleted { get; set; }
 
-        [NotMapped]
-        public byte[] Version { get; set; }
-    }
+    [NotMapped]
+    public byte[] Version { get; set; }
+}
+```
 
 Nota: Se obtiver erros no `NotMapped`, adicione uma referência ao assembly `System.ComponentModel.DataAnnotations`.
 
@@ -208,12 +219,16 @@ Todos os ApiControllers que serão consumidas por um cliente móvel agora tem de
 
 O `ApiServices` objeto já não faz parte do SDK. Para aceder às definições da aplicação móvel, pode utilizar o seguinte:
 
-    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```csharp
+MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```
 
 Da mesma forma, o registo agora é conseguido com a escrita de rastreamento do ASP.NET padrão:
 
-    ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
-    traceWriter.Info("Hello, World");  
+```csharp
+ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
+traceWriter.Info("Hello, World");  
+```
 
 ## <a name="authentication"></a>Considerações de autenticação
 Os componentes de autenticação dos serviços móveis agora foram movidos para a funcionalidade de autenticação/autorização do serviço da aplicação. Pode aprender sobre como ativar isso para o seu site com a leitura a [adicionar autenticação à sua aplicação móvel](app-service-mobile-ios-get-started-users.md) tópico.
@@ -227,11 +242,15 @@ Se estivesse usando uma das outras opções de AuthorizeLevel, como administrado
 ### <a name="getting-additional-user-information"></a>Ao obter as informações adicionais de utilizadores
 Pode obter informações de utilizador adicionais, incluindo os tokens de acesso por meio do `GetAppServiceIdentityAsync()` método:
 
-        FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```csharp
+FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```
 
 Além disso, se seu aplicativo usa dependências no utilizador IDs, por exemplo, armazená-los numa base de dados, é importante observar que os IDs de utilizador entre os serviços móveis e aplicações do serviço de aplicações móveis são diferentes. No entanto, ainda pode obter o ID de utilizador de serviços móveis. Todas as subclasses de ProviderCredentials têm uma propriedade de ID de utilizador. Assim, continuar do exemplo antes:
 
-        string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```csharp
+string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```
 
 Se a sua aplicação assumir quaisquer dependências de IDs de usuário, é importante que aproveitar o registo do mesmo com um fornecedor de identidade se possível. IDs de usuário geralmente passam para o registo de aplicação que foi utilizado para que introduzir um novo registo, pode criar problemas com utilizadores aos respetivos dados correspondentes.
 
@@ -243,9 +262,11 @@ Depois de ter um back-end de aplicação móvel operacional, pode trabalhar numa
 
 Uma das principais alterações entre as versões é que os construtores já não necessitam de uma chave de aplicação. Agora simplesmente passa a URL da aplicação móvel. Por exemplo, nos clientes .NET, o `MobileServiceClient` construtor é agora:
 
-        public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://contoso.azurewebsites.net", // URL of the Mobile App
-        );
+```csharp
+public static MobileServiceClient MobileService = new MobileServiceClient(
+    "https://contoso.azurewebsites.net", // URL of the Mobile App
+);
+```
 
 Pode ler sobre como instalar os novos SDKs e usando a nova estrutura por meio dos links a seguir:
 
@@ -259,17 +280,12 @@ Quando tiver a nova versão de cliente pronta, faça um teste em relação a seu
 <!-- URLs. -->
 
 [Portal do Azure]: https://portal.azure.com/
-[Portal clássico do Azure]: https://manage.windowsazure.com/
+[Portal Clássico do Azure]: https://manage.windowsazure.com/
 [O que são Aplicações Móveis?]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [SDK do servidor de aplicações móveis]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
-[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /azure/scheduler/
 [Webjob]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [Como utilizar o SDK do servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Preços do serviço de aplicações]: https://azure.microsoft.com/pricing/details/app-service/
 [Descrição geral do SDK de servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

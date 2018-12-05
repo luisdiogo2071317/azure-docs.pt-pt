@@ -190,7 +190,7 @@ O formulário de marketplace dentro de uma oferta de aplicação do azure pede-l
 
 #### <a name="preview-subscription-ids"></a>IDs de subscrição de pré-visualização
 
-Introduza aqui uma lista de IDs de subscrição do Azure que gostaria de ter acesso para a oferta assim que for publicado. Estas subscrições listadas em branco, poderá testar a oferta visualizada antes de ficar em direto. O portal de parceiros permite-lhe a lista branca até 100 subscrições.
+Introduza aqui uma lista de IDs de subscrição do Azure que gostaria de ter acesso para a oferta assim que for publicado. Estas subscrições listadas em branco, poderá testar a oferta visualizada antes de ficar em direto. O portal de parceiros permite-lhe a lista aprovada até 100 subscrições.
 
 #### <a name="suggested-categories"></a>Categorias sugeridas
 

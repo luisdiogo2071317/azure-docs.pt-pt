@@ -149,7 +149,7 @@ Até lá e Final SSPK licenciados podem enviar perguntas técnicas para [ smooth
 * SmarDTV da A.S.
 * SoftAtHome
 * Sony Corporation
-* Limitado de Marketing no exterior do TCL (especificamente comercial de Macau)
+* Limitado de Marketing no exterior do TCL (especificamente comercial de RAE de Macau)
 * Tecnologias de entrega de Technicolor, SAS
 * Ltd. Global de Tongfang
 * Parte superior Victory investimentos, Ltd.

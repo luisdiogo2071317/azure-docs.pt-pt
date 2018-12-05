@@ -153,7 +153,7 @@ Terá até 1 de Novembro de 2018 para definir um novo preço para as regiões em
 | **Quénia**                | KE        | USD                         |
 | **Kuwait**               | KW        | USD                         |
 | **Listenstaine**        | LI        | EUR                         |
-| **Macedónia (FYRO)**     | MK        | USD                         |
+| **República da Macedónia FYRO**     | MK        | USD                         |
 | **Malásia**             | MEU        | USD                         |
 | **México**               | MX        | USD                         |
 | **Montenegro**           | -ME        | USD                         |

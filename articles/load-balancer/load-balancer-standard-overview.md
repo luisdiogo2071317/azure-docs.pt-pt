@@ -177,7 +177,7 @@ SKUs não são mutáveis. Siga os passos nesta secção para mover de um recurso
 
 1. Crie um novo recurso padrão (Balanceador de carga e IPs públicos, conforme necessário). Recriar suas regras e definições de pesquisa.  Se estava a utilizar uma sonda TCP para 443/tcp anteriormente, pondere alterar este protocolo de sonda para uma pesquisa HTTPS e adicione um caminho.
 
-2. Criar um novo ou Atualize o NSG existente no NIC ou uma sub-rede para o tráfego com balanceamento de carga de lista branca, pesquisa, bem como qualquer outro tráfego que pretende permitir.
+2. Criar um novo ou Atualize o NSG existente no NIC ou uma sub-rede para o tráfego com balanceamento de carga de lista aprovada, pesquisa, bem como qualquer outro tráfego que pretende permitir.
 
 3. Remova os recursos de SKU básico (Balanceador de carga e IPs públicos, conforme aplicável) todas as instâncias VM. Certifique-se de que também remover todas as instâncias VM de um conjunto de disponibilidade.
 

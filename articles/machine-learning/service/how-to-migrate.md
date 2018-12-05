@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8517b469e622068b37bb0fde34f5cfcd8703c7ee
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253453"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877275"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migrar para a versão mais recente do serviço Azure Machine Learning 
 
-**Se tiver instalado a aplicação Workbench (pré-visualização) e/ou ter experimentação e contas de pré-visualização de gestão de modelo, utilize este artigo para migrar para a versão mais recente.**  Se não tiver pré-visualização Workbench instalado, ou uma experimentação e/ou conta de gestão de modelos, não precisa de migrar nada.
+**Se tiver instalado a aplicação Workbench e/ou ter experimentação e contas de pré-visualização de gestão de modelo, utilize este artigo para migrar para a versão mais recente.**  Se não tiver pré-visualização Workbench instalado, ou uma experimentação e/ou conta de gestão de modelos, não precisa de migrar nada.
 
 ## <a name="what-can-i-migrate"></a>O que posso migrar?
 A maioria dos artefactos criados na primeira pré-visualização do serviço Azure Machine Learning são armazenados no seu próprio local ou de armazenamento na nuvem. Estes artefactos não desaparecerem. Para migrar, volte a registar os artefactos com o serviço Azure Machine Learning atualizado. 
@@ -52,7 +52,7 @@ Saiba mais sobre [o que foi alterado nesta versão](overview-what-happened-to-wo
 
 Recursos, tais como as contas de experimentação, as contas de gestão de modelo e machine learning de computação ambientes não podem ser migrados para a versão mais recente do serviço Azure Machine Learning. Consulte a [linha cronológica](overview-what-happened-to-workbench.md#timeline) no quanto seus ativos continuarão a funcionar.
 
-Comece com a versão mais recente através da criação de uma área de trabalho do serviço do Azure Machine Learning no [portal do Azure](quickstart-get-started.md). O dashboard de área de trabalho do portal é suportado apenas nos browsers Edge, Chrome e Firefox.
+Comece com a versão mais recente através da criação de uma área de trabalho do serviço do Azure Machine Learning no [portal do Azure](quickstart-get-started.md). O dashboard de área de trabalho do portal é suportado apenas nos browsers Microsoft Edge, Chrome e Firefox.
 
 Esta nova área de trabalho é o recurso de serviço de nível superior e permite-lhe utilizar todas as funcionalidades mais recentes do serviço Azure Machine Learning. Saiba mais sobre isso [área de trabalho e arquitetura](concept-azure-machine-learning-architecture.md).
 

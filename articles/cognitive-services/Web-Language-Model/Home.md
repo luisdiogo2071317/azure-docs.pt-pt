@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: 39995ca44573fe50bf0c2a2510c2c19fb227ff1d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 99d48e2abdc166fe6472195c86d890c3c1060cfa
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241128"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863793"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>O que é a Web Language Model API? (Pré-visualização)
 
@@ -44,7 +44,7 @@ A Web Language Model API suporta quatro operações de pesquisa:
 1. Subscreva o serviço.
 2. Transfira o [SDK](https://www.github.com/microsoft/cognitive-weblm-windows).
 3. Execute o código de exemplo do SDK.
-4. Veja a [Referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104) para obter detalhes completos sobre os pontos finais, incluindo fragmentos de código em várias linguagens.
+4. Veja a [Referência da API](http://web.archive.org/web/20170503191852/ https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51) para obter detalhes completos sobre os pontos finais, incluindo fragmentos de código em várias linguagens.
 
 ## <a name="underlying-technology"></a>Tecnologia Subjacente
 
