@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/06/2018
+ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bed053f812cc5c14e6cfe76b8a08b1ffe0cadcb3
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 05e0ae8f19e9609bd1ddd05082ead025058f92c1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289126"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966012"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -179,7 +179,7 @@ Para evitar o trabalho administrativo de planeamento e implementação de VHDs e
 
 Para converter de discos não para os discos geridos, consulte os artigos:
 
-- [Converter uma máquina virtual do Windows de discos não geridos para managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks)
+- [Convert a Windows virtual machine from unmanaged disks to managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks) (Converter uma máquina virtual do Windows de discos não geridos em discos geridos)
 - [Converter uma máquina virtual Linux de discos não geridos para managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks)
 
 
@@ -279,7 +279,11 @@ Existem várias práticas recomendadas, o que resultou em centenas de implementa
 
 
 > [!IMPORTANT]
-> Fora de funcionalidade, mas mais importante fora de motivos de desempenho, não é suportada para configurar [aplicações virtuais de rede do Azure](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um SAP NetWeaver, Baseados em sistema SAP Hybris ou S/4HANA. Ainda mais cenários em que não são suportadas NVAs estão em caminhos de comunicação entre as VMs do Azure que representam nós de cluster do Linux Pacemaker e dispositivos SBD conforme descrito em [elevada disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Ou na comunicação de caminhos entre as VMs do Azure e de SOFS do Windows Server é definida conforme descrito em [uma instância do SAP ASCS/SCS de Cluster num cluster de ativação pós-falha do Windows ao utilizar uma partilha de ficheiros no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). NVAs em comunicação caminhos podem facilmente duas vezes a latência de rede entre dois parceiros de comunicação, pode restringir a taxa de transferência em caminhos críticas entre a camada de aplicação SAP e a camada do DBMS. Em alguns cenários observados com os clientes, NVAs podem fazer com que os clusters do Linux de Pacemaker falhe em casos em que as comunicações entre os nós de cluster do Linux Pacemaker têm de comunicar com o respetivo dispositivo SBD através de uma NVA.   
+> Fora de funcionalidade, mas mais importante fora de motivos de desempenho, não é suportada para configurar [aplicações virtuais de rede do Azure](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um SAP NetWeaver, Baseados em sistema SAP Hybris ou S/4HANA. A comunicação entre a camada de aplicação SAP e a camada do DBMS tem de ser um direto. A restrição não inclui [regras ASG do Azure e no NSG](https://docs.microsoft.com/azure/virtual-network/security-overview) , desde que essas regras ASG e NSG permitem uma comunicação direta. Ainda mais cenários em que não são suportadas NVAs estão em caminhos de comunicação entre as VMs do Azure que representam nós de cluster do Linux Pacemaker e dispositivos SBD conforme descrito em [elevada disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Ou na comunicação de caminhos entre as VMs do Azure e de SOFS do Windows Server é definida conforme descrito em [uma instância do SAP ASCS/SCS de Cluster num cluster de ativação pós-falha do Windows ao utilizar uma partilha de ficheiros no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). NVAs em comunicação caminhos podem facilmente duas vezes a latência de rede entre dois parceiros de comunicação, pode restringir a taxa de transferência em caminhos críticas entre a camada de aplicação SAP e a camada do DBMS. Em alguns cenários observados com os clientes, NVAs podem fazer com que os clusters do Linux de Pacemaker falhe em casos em que as comunicações entre os nós de cluster do Linux Pacemaker têm de comunicar com o respetivo dispositivo SBD através de uma NVA.  
+> 
+
+> [!IMPORTANT]
+> Design outro que seja **não** suportada é a diferenciação de camada de aplicação SAP e a camada do DBMS em diferentes redes virtuais do Azure que não são [em modo de peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre si. Recomenda-se para separar a camada de aplicação SAP e a camada DBMS com sub-redes dentro de uma rede virtual do Azure em vez de usar diferentes redes virtuais do Azure. Se decidir não seguir a recomendação e, em vez disso, separar as duas camadas numa rede virtual diferente, as duas redes virtuais tem de ser [em modo de peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Tenha em atenção que o tráfego entre as duas de rede [em modo de peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) redes virtuais do Azure são o assunto dos custos de transferência. Com o volume de dados grandes em muitos Terabytes trocados entre a camada de aplicação SAP e a camada do DBMS custos substanciais podem ser acumulados se a camada de aplicação SAP e o DBMS camada é segregada entre duas redes virtuais do Azure em modo de peering.  
 
 Utilizar duas VMs para sua implementação de DBMS dentro de um conjunto de disponibilidade do Azure e ainda um encaminhamento separado para a camada de aplicação SAP e o tráfego de gerenciamento e operações para as duas VMs DBMS em produção, o diagrama aproximado teria o seguinte aspeto:
 

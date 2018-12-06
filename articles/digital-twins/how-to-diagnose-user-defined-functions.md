@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 559c737c4e8309527d588b59759b93750da33a9e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 85a85fa0a110ba91a423b1be4a24000340d25f8f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837720"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966845"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Como depurar problemas com as funções definidas pelo utilizador no duplos Digital do Azure
 
@@ -25,7 +25,7 @@ Saber como diagnosticar quaisquer problemas que possam surgir dentro de sua inst
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Ativar a análise de registo para a sua instância
 
-Os registos e métricas para a sua instância de duplos Digital do Azure são expostas através do Azure Monitor. A seguinte documentação pressupõe que criou um [do Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) área de trabalho por meio da [Portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md), da funcionalidade [da CLI do Azure](../log-analytics/log-analytics-quick-create-workspace-cli.md), ou através de [ PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md).
+Os registos e métricas para a sua instância de duplos Digital do Azure são expostas através do Azure Monitor. A seguinte documentação pressupõe que criou um [do Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) área de trabalho por meio da [Portal do Azure](../azure-monitor/learn/quick-create-workspace.md), da funcionalidade [da CLI do Azure](../azure-monitor/learn/quick-create-workspace-cli.md), ou através de [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
 > Poderá haver um atraso de 5 minutos, ao enviar eventos para **do Log Analytics** pela primeira vez.

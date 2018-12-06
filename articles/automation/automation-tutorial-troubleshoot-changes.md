@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: alterações, controlo, automatização
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e4ea8f92a562ea4bc90df98d6e459377b9886777
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 95ab686961687829526bb00ed87d43d08aeb7db8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844911"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972274"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Resolver problemas relacionados com alterações no seu ambiente
 
@@ -177,12 +177,11 @@ Ver as alterações no portal do Azure pode ser útil, mas poder ser alertado qu
 
 Para adicionar um alerta a um serviço parado, no portal do Azure, aceda a **Monitorizar**. E, em **Serviços Partilhados**, selecione **Alertas** e clique em **+Nova regra de alerta**
 
-Em **1. Definir condição do alerta**, clique em **+ Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione a sua área de trabalho do Log Analytics e, em seguida, selecione **Concluído**.
+Clique em **selecione** para escolher um recurso. Na **selecionar um recurso** , selecione **do Log Analytics** do **filtrar por tipo de recurso** pendente. Selecione a sua área de trabalho do Log Analytics e, em seguida, selecione **Concluído**.
 
 ![Selecionar um recurso](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-Selecione **+ Adicionar critérios**.
-Em **Configurar lógica de sinal**, na tabela, selecione **Pesquisa de registos personalizada**. Introduza a seguinte consulta na caixa de texto Consulta de pesquisa:
+Clique em **adicionar condição**, na **configurar lógica de sinal** página, na tabela, selecione **pesquisa de registos personalizado**. Introduza a seguinte consulta na caixa de texto Consulta de pesquisa:
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -194,11 +193,9 @@ Em **Lógica de alerta**, para **Limiar**, introduza **0**. Quando tiver termina
 
 ![Configurar lógica de sinal](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-Em **2. Definir detalhes do alerta**, introduza um nome e uma descrição para o alerta. Defina a **Gravidade** para **Informativa (Grav 2)**, **Aviso (Grav 1)** ou **Crítica (Grav 0)**.
+Sob **grupos de ação**, selecione **criar nova**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md).
 
-![Definir detalhes do alerta](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
-
-Em **3. Definir grupo de ações**, selecione **Novo grupo de ações**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Sob **detalhes do alerta**, introduza um nome e descrição do alerta. Defina a **Gravidade** para **Informativa (Grav 2)**, **Aviso (Grav 1)** ou **Crítica (Grav 0)**.
 
 Na caixa **Nome do grupo de ações**, introduza um nome para o alerta e um nome abreviado. O nome abreviado é utilizado em vez de um nome de grupo de ações completo quando as notificações são enviadas ao utilizar deste grupo.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: 39d6b586158ce292f3697af0f7241a3858842374
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722229"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970591"
 ---
 # <a name="local-forwarder"></a>Reencaminhador local
 
@@ -39,7 +39,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 1. Baixe o LF. WindowsServiceHost.zip ficheiro a partir da [página de versão do reencaminhador local](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) no GitHub.
 
-    ![Captura de ecrã da página de transferência de versão do reencaminhador local](.\media\opencensus-local-forwarder\001-local-forwarder-windows-service-host-zip.png)
+    ![Captura de ecrã da página de transferência de versão do reencaminhador local](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
 
 2. Neste exemplo para facilitar a demonstração, vamos apenas extrairá o ficheiro. zip para o caminho `C:\LF-WindowsServiceHost`.
 
@@ -55,7 +55,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
     Para examinar seu novo serviço através do tipo de GUI de serviços ``services.msc``
         
-     ![Captura de ecrã do serviço do reencaminhador local](.\media\opencensus-local-forwarder\002-services.png)
+     ![Captura de ecrã do serviço do reencaminhador local](./media/opencensus-local-forwarder/002-services.png)
 
 3. **Com o botão direito** o novo reencaminhador local e selecione **iniciar**. O serviço irá agora introduzir um Estado de execução.
 
@@ -73,7 +73,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
 6. Para confirmar que as definições desejadas são cumpridos e que o reencaminhador local está escutando para dados de rastreio como verificação esperado o ``LocalForwarder.log`` ficheiro. Deverá ver resultados semelhantes à imagem abaixo, na parte inferior do ficheiro:
 
-    ![Arquivo de captura de ecrã de LocalForwarder.log](.\media\opencensus-local-forwarder\003-log-file.png)
+    ![Arquivo de captura de ecrã de LocalForwarder.log](./media/opencensus-local-forwarder/003-log-file.png)
 
 #### <a name="console-application"></a>Aplicação de consola
 

@@ -2,25 +2,17 @@
 title: Acerca das ligações de VPN do Azure ponto a Site | Documentos da Microsoft
 description: Este artigo ajuda-o a compreender as ligações ponto a Site e ajuda-o a decidir o tipo de autenticação de gateway de P2S VPN a utilizar.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/06/2018
+ms.topic: conceptual
+ms.date: 12/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8cdc80e8e4f8d3feb36ca82740d5610e60716ec6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fe25858f185cf4ddfd17f956b66846a22ddb0e6c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003364"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971376"
 ---
 # <a name="about-point-to-site-vpn"></a>Acerca da VPN ponto a Site
 
@@ -30,14 +22,15 @@ Uma ligação de gateway de VPN Ponto a Site (P2S) permite-lhe criar uma ligaç�
 
 VPN Point-to-site pode utilizar um dos seguintes protocolos:
 
+* OpenVPN, um SSL/TLS com base em protocolo VPN. Uma solução de SSL VPN consegue penetrar firewalls, uma vez que a maioria das firewalls abre a porta TCP 443, que usa SSL. OpenVPN pode ser utilizado para ligar a partir do Android, iOS, dispositivos de Linux e Mac (versões de OSX 10.11 e posterior).
+
 * Secure Socket Tunneling Protocol (SSTP), um protocolo proprietário de VPN baseado em SSL. Uma solução de SSL VPN consegue penetrar firewalls, uma vez que a maioria das firewalls abre a porta TCP 443, que usa SSL. O SSTP só é suportado em dispositivos Windows. O Azure suporta todas as versões do Windows que têm de SSTP (Windows 7 e posterior).
 
 * VPN IKEv2, uma solução de VPN IPsec baseada em normas. A VPN IKEv2 pode ser utilizada para ligar a partir de dispositivos Mac (versões de OSX 10.11 e superiores).
 
-Se tiver um ambiente misto de cliente consiste em dispositivos Windows e Mac, configure o SSTP e IKEv2.
 
 >[!NOTE]
->O IKEv2 para P2S está disponível para apenas o modelo de implementação do Resource Manager. Não está disponível para o modelo de implementação clássica.
+>IKEv2 e OpenVPN para P2S estão disponíveis para apenas o modelo de implementação do Resource Manager. Não estão disponíveis para o modelo de implementação clássica.
 >
 
 ## <a name="authentication"></a>Como é que os clientes VPN de P2S são são autenticados?
@@ -52,11 +45,17 @@ A validação do certificado de cliente é executada pelo gateway de VPN e ocorr
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autenticar com o servidor de domínio do Active Directory (AD)
 
-Autenticação de domínio do AD permite aos utilizadores ligar ao Azure através das respetivas credenciais de domínio da organização. Ele requer um servidor RADIUS que se integra com o servidor do AD. As organizações também podem aproveitar a implantação de RADIUS existente.   
-  O servidor RADIUS pode ser implementado no local ou na sua VNET do Azure. Durante a autenticação, o Gateway de VPN do Azure funciona como um pass-through e encaminha as mensagens de autenticação e volta entre o servidor RADIUS e o dispositivo de ligação. Portanto, a acessibilidade de Gateway para o servidor RADIUS é importante. Se o servidor RADIUS estiver presente no local, em seguida, uma ligação de VPN S2S do Azure para o site no local é necessária para acessibilidade.  
-  O servidor RADIUS também pode integrar com serviços de certificados do AD. Isto permite-lhe utilizar o servidor RADIUS e sua implementação do certificado de empresa para autenticação de certificados P2S como uma alternativa para a autenticação de certificados do Azure. A vantagem é que não é necessário carregar certificados de raiz e certificados revogados para o Azure.
+Autenticação de domínio do AD permite aos utilizadores ligar ao Azure através das respetivas credenciais de domínio da organização. Ele requer um servidor RADIUS que se integra com o servidor do AD. As organizações também podem aproveitar a implantação de RADIUS existente.   
+  
+O servidor RADIUS pode ser implementado no local ou na sua VNET do Azure. Durante a autenticação, o Gateway de VPN do Azure funciona como um pass-through e encaminha as mensagens de autenticação e volta entre o servidor RADIUS e o dispositivo de ligação. Portanto, a acessibilidade de Gateway para o servidor RADIUS é importante. Se o servidor RADIUS estiver presente no local, em seguida, uma ligação de VPN S2S do Azure para o site no local é necessária para acessibilidade.  
+  
+O servidor RADIUS também pode integrar com serviços de certificados do AD. Isto permite-lhe utilizar o servidor RADIUS e sua implementação do certificado de empresa para autenticação de certificados P2S como uma alternativa para a autenticação de certificados do Azure. A vantagem é que não é necessário carregar certificados de raiz e certificados revogados para o Azure.
 
 Um servidor RADIUS também pode integrar com outros sistemas de identidade externo. Isso abre muitas opções de autenticação para VPN P2S, incluindo opções de acesso multifatores.
+
+>[!NOTE]
+>Protocolo de OpenVPN não é suportado com a autenticação RADIUS.
+>
 
 ![ponto a site](./media/point-to-site-about/p2s.png "ponto a Site")
 
@@ -77,13 +76,11 @@ O ficheiro zip também fornece os valores de algumas das definições importante
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="gwsku"></a>Quais P2S de suporte de SKUs de Gateway VPN?
+## <a name="gwsku"></a>O suporte de SKUs de gateway P2S VPN?
 
-[!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
+[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-* A Referência de Débito de Agregação baseia-se em medidas de vários túneis agregados através de um único gateway. Não é uma taxa de transferência garantida devido a condições de tráfego de internet e comportamentos da sua aplicação.
-* Informações sobre os preços podem ser encontrados na página de preços 
-* Informações de SLA (contrato de nível de serviço) podem ser encontradas na página do SLA.
+* Para obter recomendações de SKU de Gateway, veja [definições sobre o Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 >[!NOTE]
 >A SKU Básica não suporta a autenticação IKEv2 ou RADIUS.

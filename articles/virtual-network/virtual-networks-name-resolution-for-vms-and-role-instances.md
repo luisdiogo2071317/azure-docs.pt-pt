@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 53e3a298dd8a3eebca1943d9bade51187f14d722
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 17bcc7ada244484c2c2df5bd81c82f695a8b5342
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058458"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969912"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes de recursos em redes virtuais do Azure
 
@@ -125,7 +125,7 @@ options timeout:1 attempts:5
 O ficheiro resolv é normalmente gerado automaticamente e não deve ser editado. Os passos específicos para adicionar o *opções* linha variam consoante a distribuição:
 
 * **Ubuntu** (utiliza resolvconf):
-  1. Adicionar a *opções* linha para **/etc/resolveconf/resolv.conf.d/head**.
+  1. Adicionar a *opções* linha para **/etc/resolvconf/resolv.conf.d/tail**.
   2. Executar `resolvconf -u` para atualizar.
 * **SUSE** (utiliza netconf):
   1. Adicione *timeout:1 tentativas: 5* para o **NETCONFIG_DNS_RESOLVER_OPTIONS = ""** parâmetro na **/etc/sysconfig/network/config**. 

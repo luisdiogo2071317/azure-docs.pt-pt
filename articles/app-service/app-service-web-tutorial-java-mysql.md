@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: ec942d97e7671c0477d8d723afacb06b73565c1c
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: ad199f71fda020d86bb08706d346fa847e5c4d9f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414562"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966896"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Tutorial: Criar uma aplicação Web Java e MySQL no Azure
 
@@ -143,7 +143,7 @@ No Cloud Shell, crie um servidor na Base de Dados do Azure para MySQL com o coma
 No seguinte comando, substitua um nome de servidor exclusivo para o marcador de posição *\<mysql_server_name>*, um nome de utilizador para o marcador de posição *\<admin_user>* e uma palavra-passe para o marcador de posição *\<admin_password>*. O nome do servidor é utilizado como parte do ponto final do PostgreSQL (`https://<mysql_server_name>.mysql.database.azure.com`), por isso, o nome tem de ser exclusivo em todos os servidores no Azure.
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql_server_name>--location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
+az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
 ```
 
 > [!NOTE]
@@ -272,7 +272,7 @@ Quando a definição de aplicação Web estiver pronta, a CLI do Azure mostra in
 
 No Cloud Shell, configure a configuração do tempo de execução de Java que a sua aplicação precisa, com o comando [`az webapp config set`](/cli/azure/webapp/config#az-webapp-config-set).
 
-O comando seguinte configura a aplicação Web para ser executada num [Java 8 JDK](https://aka.ms/azure-jdks) recente e [Apache Tomcat](http://tomcat.apache.org/) 8.0.
+O comando seguinte configura a aplicação Web para ser executada num [Java 8 JDK](https://aka.ms/azure-jdks) recente e [Apache Tomcat](https://tomcat.apache.org/) 8.0.
 
 ```azurecli-interactive
 az webapp config set --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Tomcat --java-container-version 8.0

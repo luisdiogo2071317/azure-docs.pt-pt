@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: spelluru
-ms.openlocfilehash: 99caf04698226de8daa9cfb8f60662e5cb0f8b49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9634c70566aba21bdd28ee016c9fa94464ec9c1b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449828"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956335"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Eliminar uma VM de laboratório ou num laboratório no Azure DevTest Labs
 Este artigo mostra-lhe como eliminar uma VM de laboratório ou num laboratório.
@@ -34,16 +34,16 @@ Para eliminar um laboratório, efetue as seguintes ações:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os recursos** no menu à esquerda, selecione **DevTest Labs** para o tipo de serviço e selecione o laboratório.
 
-    ![Selecione o seu laboratório](media\devtest-lab-delete-lab-vm\select-lab.png)
+    ![Selecione o seu laboratório](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. Sobre o **laboratório Dev/Test** página, clique em **eliminar** na barra de ferramentas. 
 
-    ![Botão de eliminar](media\devtest-lab-delete-lab-vm\delete-button.png)
+    ![Botão de eliminar](media/devtest-lab-delete-lab-vm/delete-button.png)
 4. Sobre o **confirmação** página, introduza o **nome** do seu laboratório e selecione **eliminar**. 
 
-    ![Confirmar](media\devtest-lab-delete-lab-vm\confirm-delete.png)
+    ![Confirmar](media/devtest-lab-delete-lab-vm/confirm-delete.png)
 5. Para ver o estado da operação, selecione **notificações** ícone (campainha). 
 
-    ![Notificações](media\devtest-lab-delete-lab-vm\delete-status.png)
+    ![Notificações](media/devtest-lab-delete-lab-vm/delete-status.png)
 
  
 ## <a name="delete-a-vm-in-a-lab"></a>Eliminar uma VM num laboratório
@@ -59,16 +59,16 @@ Para eliminar uma VM num laboratório, efetue as seguintes ações:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os recursos** no menu à esquerda, selecione **DevTest Labs** para o tipo de serviço e selecione o laboratório.
 
-    ![Selecione o seu laboratório](media\devtest-lab-delete-lab-vm\select-lab.png)
+    ![Selecione o seu laboratório](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. Selecione **... (reticências)**  para a VM na lista de VMs e selecione **eliminar**. 
 
-    ![Eliminar VM no menu](media\devtest-lab-delete-lab-vm\delete-vm-menu-in-list.png)
+    ![Eliminar VM no menu](media/devtest-lab-delete-lab-vm/delete-vm-menu-in-list.png)
 4. Sobre o **confirmação** caixa de diálogo, selecione **Ok**. 
 5. Para ver o estado da operação, selecione **notificações** ícone (campainha). 
 
 Para eliminar uma VM a partir da **página de Máquina Virtual**, selecione **eliminar** da barra de ferramentas, conforme mostrado na imagem seguinte:
 
-![Eliminar VM a partir da página VM](media\devtest-lab-delete-lab-vm\delete-from-vm-page.png) 
+![Eliminar VM a partir da página VM](media/devtest-lab-delete-lab-vm/delete-from-vm-page.png) 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

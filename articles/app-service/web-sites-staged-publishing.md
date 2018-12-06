@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 32f3dd0543e841c4aae87cf48654c95a4609e51a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: c6e28554f86a6a7de5d50027ceb552e15856bc96
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682848"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970863"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no serviço de aplicações do Azure
 <a name="Overview"></a>
@@ -58,7 +58,7 @@ A aplicação tem de executar o **padrão**, **Premium**, ou **Isolated* escalã
 4. No painel de recursos da sua aplicação, clique em **blocos de implementação**, em seguida, clique num bloco de implementação para abrir o painel de recursos desse bloco, com um conjunto de métricas e configuração assim como qualquer outra aplicação. O nome do slot é mostrado na parte superior do painel para lembrá-lo de que está a ver o bloco de implementação.
    
     ![Título do bloco de implementação][StagingTitle]
-5. Clique no URL da aplicação no painel da ranhura. Observe que o bloco de implementação tem seu próprio nome de anfitrião e também é uma aplicação em direto. Para limitar o acesso público a ranhura de implementação, consulte [aplicação Web do App Service – bloquear o acesso web a blocos de implementação de não produção](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
+5. Clique no URL da aplicação no painel da ranhura. Observe que o bloco de implementação tem seu próprio nome de anfitrião e também é uma aplicação em direto. Para limitar o acesso público a ranhura de implementação, consulte [aplicação Web do App Service – bloquear o acesso web a blocos de implementação de não produção](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
 Não existe conteúdo após a criação de ranhura de implementação. Pode implementar para o bloco de um ramo do repositório diferente ou um repositório completamente diferente. Também pode alterar a configuração da ranhura. Utilize as credenciais de implementação ou perfil de publicar associadas com o bloco de implementação para atualizações de conteúdo.  Por exemplo, pode [publicar esta ranhura com o git](app-service-deploy-local-git.md).
 
@@ -258,7 +258,7 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 Para [CLI do Azure](https://github.com/Azure/azure-cli) comandos para blocos de implementação, consulte [bloco de implementação do az webapp](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Passos Seguintes
-[A aplicação – bloquear o acesso web a blocos de implementação de não produção de Web de serviço de aplicações do Azure](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[A aplicação – bloquear o acesso web a blocos de implementação de não produção de Web de serviço de aplicações do Azure](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
 [Introdução ao serviço de aplicações no Linux](../app-service/containers/app-service-linux-intro.md)  
 [Versão de avaliação gratuita do Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 

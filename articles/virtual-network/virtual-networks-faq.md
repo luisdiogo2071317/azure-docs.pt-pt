@@ -4,22 +4,19 @@ description: Respostas às perguntas mais frequentes sobre as redes virtuais do 
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 54bee086-a8a5-4312-9866-19a1fba913d0
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 6c429931a7a17ab62892ecc774a5cca15a532f72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 49f7e0b19f454e37e70774f3a675bd5094687114
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237639"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967083"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -242,7 +239,7 @@ Se a sua ligação de peering de VNet está num estado desligado, significa um d
 Sim. Pode configurar o peering entre VNets entre subscrições e entre regiões.
 
 ### <a name="can-i-peer-two-vnets-with-matching-or-overlapping-address-ranges"></a>Pode posso configurar o peering entre duas VNets com intervalos de endereços correspondente ou sobrepostos?
-Não. Espaços de endereços tem de ser não overalap ative o Peering de VNet.
+Não. Espaços de endereços não pode sobrepor ative o Peering de VNet.
 
 ### <a name="how-much-do-vnet-peering-links-cost"></a>Fazer quanto de custos de ligações de peering de VNet?
 Não existe nenhum custo associado para a criação de uma ligação de peering de VNet. Transferência de dados em ligações de peering é cobrada. [Veja aqui](https://azure.microsoft.com/pricing/details/virtual-network/).
@@ -257,7 +254,7 @@ Aprofundar a ligações de peering de VNet *desligado* estado quando uma ligaç�
 Não. Peering transitivo não é suportada. Deve configurar o peering também e estão no mesmo peer para que isso ocorra.
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Existem limitações de largura de banda para ligações de peering?
-Não. VNet peering, sejam locais ou globais, não impõe quaisquer restrições de largura de banda. Largura de banda é apenas limites pelo recurso VM ou de computação.
+Não. VNet peering, sejam locais ou globais, não impõe quaisquer restrições de largura de banda. Largura de banda é limitada apenas pela VM ou o recurso de computação.
 
 ## <a name="virtual-network-tap"></a>TAP de rede virtual
 
@@ -280,3 +277,108 @@ Rede virtual TOQUE está em developer preview. Durante a pré-visualização, n�
 ### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>É accelerated networking para [Linux](create-vm-accelerated-networking-cli.md) ou [Windows](create-vm-accelerated-networking-powershell.md) suportado com o teste de rede virtual?
 
 Poderá adicionar uma configuração de TOQUE numa interface de rede ligada a uma máquina virtual que está ativada com redes aceleradas. Mas o desempenho e a latência na máquina virtual serão afetados pela adição de configuração de TOQUE, uma vez que a descarga de tráfego de espelhamento de não é atualmente suportada pelo Azure accelerated networking.
+
+## <a name="virtual-network-service-endpoints"></a>Pontos finais de serviço de rede virtual
+
+### <a name="what-is-the-right-sequence-of-operations-to-set-up-service-endpoints-to-an-azure-service"></a>O que é a sequência certa de operações para configurar pontos finais de serviço para um serviço do Azure?
+Existem dois passos para proteger um recurso de serviço do Azure através de pontos finais de serviço:
+1. Ative pontos finais de serviço para o serviço do Azure.
+2. Configure ACLs de VNet no serviço do Azure.
+
+A primeira etapa é uma operação do lado de rede e o segundo passo é uma operação de lado do recurso de serviço. Os dois passos podem ser executados ao mesmo administrador ou administradores diferentes com base nas permissões RBAC concedidas à função de administrador. Recomendamos que primeiro ativar pontos finais de serviço da rede virtual antes de configurar ACLs de VNet no lado do serviço do Azure. Por conseguinte, os passos devem ser efetuados na sequência listada acima para configurar pontos finais de serviço da VNet.
+
+>[!NOTE]
+> Ambas as operações descritas acima devem ser concluídas antes de pode limitar o acesso de serviço do Azure para a VNet e a sub-rede permitidos. Ativar apenas a pontos finais de serviço para o serviço do Azure no lado de rede não concede o acesso limitado. Além disso, tem também de configurar ACLs de VNet no lado do serviço do Azure.
+
+Determinados serviços (como SQL e o cosmos DB) permitem exceções para a sequência de acima através da **IgnoreMissingVnetServiceEndpoint** sinalizador. Assim que o sinalizador é definido como **True**, ACLs de VNet pode ser definidas no lado do serviço do Azure antes de configurar os pontos de extremidade de serviço no lado de rede. Serviços do Azure fornecem este sinalizador para ajudar os clientes nos casos em que as firewalls IP específicas estão configuradas em serviços do Azure e ativar os pontos de extremidade de serviço do lado de rede pode levar a uma queda de conectividade, uma vez que o IP de origem é alterado de um endereço IPv4 público para um endereço privado. Configurar ACLs de VNet no lado do serviço do Azure antes de definir os pontos finais de serviço do lado de rede pode ajudar a evitar uma queda de conectividade.
+
+### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>Todos os serviços Azure residem na rede virtual do Azure fornecida pelo cliente? Como funciona com serviços do Azure ponto final de serviço de VNet?
+
+Não, nem todos os serviços do Azure residem na rede virtual do cliente. A maioria dos dados do Azure de serviços, como o armazenamento do Azure, SQL do Azure e Azure Cosmos DB, são serviços de multi-inquilinos, que podem ser acedidos através de endereços IP públicos. Pode saber mais sobre a integração de rede virtual para serviços do Azure [aqui](virtual-network-for-azure-services.md). 
+
+Quando utiliza a funcionalidade de pontos finais de serviço de VNet (ativar o ponto final de serviço de VNet do lado de rede e configurar ACLs de VNet apropriadas no lado do serviço do Azure), acesso a um serviço do Azure é impedido de uma VNet e sub-rede permitidos.
+
+### <a name="how-does-vnet-service-endpoint-provide-security"></a>Como é que o ponto final de serviço da VNet fornece segurança?
+
+A funcionalidade de ponto final de serviço de VNet (ativar o ponto final de serviço de VNet do lado de rede e configurar ACLs de VNet apropriadas no lado do serviço do Azure) limita o acesso de serviço do Azure para permitidos VNet e sub-rede, fornecendo uma segurança ao nível da rede e o isolamento de o tráfego de serviço do Azure. Todo o tráfego através de pontos finais de serviço de VNet flui através do backbone do Microsoft, fornecendo outra camada de isolamento da internet pública. Além disso, os clientes podem escolher remover completamente o acesso público à Internet para os recursos de serviço do Azure e permitir tráfego apenas das suas redes virtuais através de uma combinação de firewall do IP e ACLs de VNet, protegendo, assim, os recursos de serviço do Azure de não autorizado acesso.      
+
+### <a name="what-does-the-vnet-service-endpoint-protect---vnet-resources-or-azure-service"></a>O que faz a VNet em modo de proteção de ponto final de serviço - recursos da VNet ou de serviço do Azure?
+Pontos finais de serviço de VNet ajudam a proteger os recursos de serviço do Azure. Recursos da VNet estão protegidos através de grupos de segurança de rede (NSGs).
+
+### <a name="is-there-any-cost-for-using-vnet-service-endpoints"></a>Existe qualquer custo para a utilização de pontos finais de serviço de VNet?
+
+Não, não existe nenhum custo adicional para a utilização de pontos finais de serviço da VNet.
+
+### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-subscriptions"></a>Pode ligar pontos finais de serviço de VNet e configurar ACLs de VNet, se a rede virtual e os recursos de serviço do Azure pertencerem a subscrições diferentes?
+
+Sim, é possível. Redes virtuais e os recursos de serviço do Azure podem ser uma nas subscrições idêntica ou diferentes. O único requisito é que a rede virtual e os recursos de serviço do Azure tem de estar no mesmo inquilino do Active Directory (AD).
+
+### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>Pode ligar pontos finais de serviço de VNet e configurar ACLs de VNet, se a rede virtual e os recursos de serviço do Azure pertencerem a diferentes inquilinos do AD?
+Não, pontos finais de serviço de VNet e ACLs de VNet não são suportadas em inquilinos do AD.
+
+### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-express-route-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>Endereço IP de um dispositivo no local que está conectado por meio do gateway de rede Virtual do Azure (VPN) ou o gateway do Express route pode acessar serviços de PaaS do Azure através de pontos finais de serviço de VNet?
+Por predefinição, os recursos de serviço do Azure obtidos para redes virtuais não são acessíveis a partir de redes no local. Se pretender permitir o tráfego no local, tem também de permitir o IP público (habitualmente NAT) endereços do seu no local ou ExpressRoute. Estes endereços IP podem ser adicionados através da configuração de firewall do IP para os recursos de serviço do Azure.
+
+### <a name="can-i-use-vnet-service-endpoint-feature-to-secure-azure-service-to-multiple-subnets-with-in-a-virtual-network-or-across-multiple-virtual-networks"></a>Pode utilizar a funcionalidade de ponto final de serviço de VNet para proteger o serviço do Azure para várias sub-redes numa rede Virtual ou em várias redes virtuais?
+Para proteger serviços do Azure para várias sub-redes numa rede virtual ou em várias redes virtuais, ativar pontos finais de serviço no lado de rede em cada um das sub-redes de forma independente e, em seguida, proteger os recursos de serviço do Azure para todas as sub-redes através da configuração ACLs de VNet apropriadas no lado do serviço do Azure.
+ 
+### <a name="how-can-i-filter-outbound-traffic-from-a-virtual-network-to-azure-services-and-still-use-service-endpoints"></a>Como pode filtrar o tráfego de saída de uma rede virtual para serviços do Azure e continuar a utilizar pontos finais de serviço?
+Se pretender inspecionar ou filtrar o tráfego destinado a um serviço do Azure de uma rede virtual, pode implementar uma aplicação virtual de rede na rede virtual. Em seguida, pode aplicar pontos finais de serviço para a sub-rede em que a aplicação virtual de rede é implementado e segura de serviço do Azure de recursos apenas para esta sub-rede através de ACLs da VNet. Este cenário também pode ser útil se pretender restringir o acesso de serviço do Azure da sua rede virtual apenas para recursos específicos do Azure com a filtragem de aplicação virtual de rede. Para obter mais informações, veja [saída com aplicações de rede virtual](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>O que acontece quando acessar uma conta de serviço do Azure com a rede virtual lista de controle acesso (ACL) ativada a partir de fora da VNet?
+É devolvido o erro de HTTP 404.
+
+### <a name="are-subnets-of-a-virtual-network-created-in-different-regions-allowed-to-access-an-azure-service-account-in-another-region"></a>São as sub-redes de uma rede virtual criados em regiões diferentes, permitidas para aceder a uma conta de serviço do Azure noutra região? 
+Sim, para a maioria dos serviços do Azure, as redes virtuais criadas em regiões diferentes podem aceder a serviços do Azure noutra região através de pontos finais de serviço de VNet. Por exemplo, se uma conta do Azure Cosmos DB está na região E.U.A. oeste ou E.U.A. leste e redes virtuais estão em várias regiões, a rede virtual pode aceder ao Azure Cosmos DB. Armazenamento e SQL são exceções e são regionais por natureza e a rede virtual e o serviço do Azure, precisa de estar na mesma região.
+  
+### <a name="can-an-azure-service-have-both-vnet-acl-and-an-ip-firewall"></a>Um serviço do Azure pode ter a ACL de VNet e uma firewall do IP?
+Sim, a ACL de VNet e uma firewall do IP podem coexistir. Os dois recursos complementam entre si para garantir a segurança e isolamento.
+ 
+### <a name="what-happens-if-you-delete-a-virtual-network-or-subnet-that-has-service-endpoint-turned-on-for-azure-service"></a>O que acontece se eliminar uma rede virtual ou sub-rede que tem o ponto final de serviço ativado para o serviço do Azure?
+A eliminação de VNets e sub-redes são operações independentes e são suportadas, mesmo quando estão ativados pontos finais de serviço para serviços do Azure. Em casos em que os serviços do Azure têm ACLs de VNet, configurar, para essas VNets e sub-redes, as informações de VNet ACLs associados com que o serviço do Azure é desabilitado quando a VNet ou sub-rede que tem o ponto final de serviço de VNet ativada é eliminado.
+ 
+### <a name="what-happens-if-azure-service-account-that-has-vnet-service-endpoint-enabled-is-deleted"></a>O que acontece se eliminar a conta de serviço do Azure que tenha o ponto final de serviço de VNet ativado?
+A eliminação da conta de serviço do Azure é uma operação independente e é suportada, mesmo quando o ponto final de serviço está ativado no lado da rede e ACLs de VNet estão configuradas no lado do serviço do Azure. 
+
+### <a name="what-happens-to-the-source-ip-address-of-a-resource-like-a-vm-in-a-subnet-that-has-vnet-service-endpoint-enabled"></a>O que acontece com o endereço IP de origem de um recurso (como uma VM numa sub-rede) que tem o ponto final de serviço de VNet ativado?
+Quando estão ativados pontos finais de serviço de rede virtual, os endereços IP de origem dos recursos na sub-rede da rede virtual muda de utilizar endereços IPV4 públicos para os endereços IP privados da rede virtual do Azure para o tráfego para o serviço do Azure. Tenha em atenção que isto pode causar específicas de firewall IP que estão definidas para o endereço IPV4 público anteriormente para efetuar a ativação de serviços do Azure. 
+
+### <a name="does-service-endpoint-route-always-take-precedence"></a>Rota do ponto final de serviço sempre têm prioridade?
+Pontos finais de serviço, adicione uma rota de sistema que tem precedência sobre as rotas BGP e fornece encaminhamento ideal para o tráfego de ponto final de serviço. Pontos finais de serviço assumem sempre o tráfego de serviço diretamente a partir da sua rede virtual para o serviço na rede backbone do Microsoft Azure. Para obter mais informações sobre como o Azure seleciona uma rota, veja [Azure Virtual rede encaminhamento de tráfego] (virtual-redes-udr-overview.md).
+ 
+### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>Como funciona o NSG numa sub-rede com pontos finais de serviço?
+Para alcançar o serviço do Azure, os NSGs necessário permitir a conectividade de saída. Se seus NSGs estão abertas para todo tráfego de saída da Internet, o tráfego de ponto final de serviço deve funcionar. Também pode limitar o tráfego de saída ao serviço de IPs utilizando apenas as etiquetas de serviço.  
+ 
+### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>Que permissões preciso configurar pontos finais de serviço?
+Pontos finais de serviço podem ser configurados numa rede virtual de forma independente por um utilizador com acesso de escrita para a rede virtual. Para proteger os recursos de serviço do Azure para uma VNet, o utilizador tem de ter permissão **Microsoft.Network/JoinServicetoaSubnet** para as sub-redes que estão a ser adicionadas. Esta permissão está incluída na função de administrador de serviço interno por padrão e pode ser modificada através da criação de funções personalizadas. Saiba mais sobre as funções incorporadas e atribuição de permissões específicas para [funções personalizadas](https://docs.microsoft.com/azure/role-based-access-control/custom-roles?toc=%2fazure%2fvirtual-network%2ftoc.json).
+ 
+
+### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Pode, filtrar tráfego de rede virtual para serviços do Azure, permitindo que apenas os recursos específicos de serviço do azure, através de pontos finais de serviço de VNet? 
+
+Políticas de ponto final de serviço de rede virtual (VNet) permitem-lhe filtrar o tráfego de rede virtual para serviços do Azure, permitindo que os recursos de serviço do Azure específico apenas sobre os pontos finais de serviço. Políticas de ponto final fornecem controlo de acesso granular do tráfego de rede virtual para os serviços do Azure. Pode saber mais sobre as políticas de ponto final de serviço [aqui](virtual-network-service-endpoint-policies-overview.md).
+ 
+### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Existem limites sobre quantos VNet pontos finais de serviço que pode configurar na minha VNet?
+Não existe nenhum limite no número total de pontos finais de serviço de VNet numa rede virtual. Para um recurso de serviço do Azure (como uma conta do Armazenamento do Microsoft Azure), os serviços podem impor limites ao número de sub-redes utilizadas para a proteção do recurso. A tabela seguinte mostra alguns limites de exemplo: 
+
+|||
+|---|---|
+|Serviço do Azure| Limites para as regras de VNet|
+|Storage do Azure| 100|
+|SQL do Azure| 128|
+|Azure SQL Data Warehouse|  128|
+|Cofre de chaves do Azure|    128|
+|Azure Cosmos DB|   64|
+|Hub de Eventos do Azure|   128|
+|Service Bus do Azure| 128|
+|V1 do Azure Data Lake Store|  100|
+ 
+>[!NOTE]
+> Os limites estão sujeitos a alterações a critério do serviço do Azure. Consulte a documentação do respetivo serviço para obter detalhes de serviços. 
+
+
+
+
+  
+
+
+

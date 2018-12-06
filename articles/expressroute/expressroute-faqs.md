@@ -2,17 +2,17 @@
 title: FAQ do ExpressRoute do Azure | Documentos da Microsoft
 description: FAQ do ExpressRoute contém informações sobre serviços suportados do Azure, custo, dados e ligações, SLA, fornecedores e localizações, largura de banda e detalhes técnicos adicionais.
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.author: cherylmc
-ms.openlocfilehash: 8cde172207717aca2af5dfa706f7d9c6d290c36e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 10/28/2018
+ms.author: jaredro;cherylmc
+ms.openlocfilehash: 728e5b9b4934372e060374aeb273843d695c4ba8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239207"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972461"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -68,8 +68,8 @@ O ExpressRoute suporta [três domínios de encaminhamento](expressroute-circuit-
 
 * Power BI
 * Dynamics 365 para finanças e operações (anteriormente conhecidas como o Dynamics AX Online)
-* A maioria dos serviços do Azure é suportada. Entre em contacto diretamente com o serviço que pretende utilizar para verificar o suporte.<br>
-  NÃO são suportados os seguintes serviços:
+* A maioria dos serviços do Azure é suportada. Entre em contacto diretamente com o serviço que pretende utilizar para verificar o suporte.<br><br>
+  **Os seguintes serviços não são suportados**:
     * CDN
     * Multi-Factor Authentication
     * Gestor de Tráfego
@@ -81,7 +81,7 @@ O ExpressRoute suporta [três domínios de encaminhamento](expressroute-circuit-
 * Power BI
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Comunidade de serviços globais do Azure)
-* A maioria dos serviços do Azure é suportada. Entre em contacto diretamente com o serviço que pretende utilizar para verificar o suporte.<br>Os serviços seguintes estão **nepodporuje**:
+* A maioria dos serviços do Azure é suportada. Entre em contacto diretamente com o serviço que pretende utilizar para verificar o suporte.<br><br>**Os seguintes serviços não são suportados**:
     * CDN
     * Multi-Factor Authentication
     * Gestor de Tráfego

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 7c67cac7a5579386921b2b949e9312cb4e5da172
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2aa59bcf0d56358601b81730abe330a56ca35d02
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984677"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966913"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar a sua base de dados do PostgreSQL com a captura e restauro
 Pode usar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extrair um banco de dados do PostgreSQL para um arquivo de despejo e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar a base de dados do PostgreSQL a partir de um ficheiro de arquivo criado pelo pg_dump.
@@ -71,7 +71,7 @@ Uma forma de migrar a base de dados existente do PostgreSQL para base de dados d
     ```
 
 ### <a name="for-the-restore"></a>Para o restauro
-- Sugerimos que mover o ficheiro de cópia de segurança para uma VM do Azure na mesma região que a base de dados do Azure para o servidor PostgreSQL está a migrar para e fazer o pg_restore dessa VM para reduzir a latência de rede. Recomendamos também que a VM é criada com [accelerated networking](..\virtual-network\create-vm-accelerated-networking-powershell.md) ativada.
+- Sugerimos que mover o ficheiro de cópia de segurança para uma VM do Azure na mesma região que a base de dados do Azure para o servidor PostgreSQL está a migrar para e fazer o pg_restore dessa VM para reduzir a latência de rede. Recomendamos também que a VM é criada com [accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) ativada.
 - Ele deve ser feito já por predefinição, mas abrir o ficheiro de informação para verificar que as declarações de índice de criar após a inserção dos dados. Se não for o caso, mova as declarações de índice de criar depois dos dados são inseridos.
 - Restaurar com os comutadores de -Fc e -j *#* para paralelizar o restauro. *#* é o número de núcleos no servidor de destino. Também pode tentar com *#* definido como duas vezes o número de núcleos de servidor de destino para ver o impacto. Por exemplo:
 

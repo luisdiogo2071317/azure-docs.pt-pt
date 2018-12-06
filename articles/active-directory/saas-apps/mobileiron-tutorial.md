@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 8bdf49f4cea7c6f0ff30e37bcf1cf2fed3abc2bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584116"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963815"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Tutorial: Integração do Azure Active Directory com MobileIron
 
@@ -50,24 +50,27 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando MobileIron da Galeria
 1. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-mobileiron-from-the-gallery"></a>Adicionando MobileIron da Galeria
+
 Para configurar a integração do MobileIron com o Azure AD, terá de adicionar MobileIron a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar MobileIron a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory][1]
 
 1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![O painel de aplicações empresariais][2]
-    
+
 1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![O novo botão de aplicativo][3]
@@ -103,7 +106,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Configurar a ligação de início de sessão única][4]
 
 1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
+
     ![Caixa de diálogo de início de sessão único](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
 1. Sobre o **MobileIron domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
@@ -119,12 +122,13 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![URLs de domínio MobileIron e início de sessão único](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<host>.mobileiron.com/user/login.html`
-    
-    > [!NOTE]  Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Irá obter os valores de chave e o anfitrião do portal administrativo de MobileIron que é explicado mais tarde no tutorial.
+
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Irá obter os valores de chave e o anfitrião do portal administrativo de MobileIron que é explicado mais tarde no tutorial.
 
 1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
-    ![O link de download de certificado](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png) 
+    ![O link de download de certificado](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png)
 
 1. Clique em **guardar** botão.
 
@@ -134,7 +138,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. Aceda a **administrador** > **identidade**.
 
-   * Selecione **AAD** opção a **informações sobre a configuração do IDP na Cloud** campo.
+   - Selecione **AAD** opção a **informações sobre a configuração do IDP na Cloud** campo.
 
     ![Configurar a administração de início de sessão único botão](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
@@ -143,7 +147,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Configurar a administração de início de sessão único botão](./media/mobileiron-tutorial/key.png)
 
 1. Na **ficheiro de metadados de exportação do AAD e importação para o campo de Cloud MobileIron** clique em **Escolher ficheiro** para carregar os metadados transferido a partir do portal do Azure. Clique em **feito** depois de carregados.
- 
+
     ![Configurar o início de sessão único botão de metadados do administrador](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
 > [!TIP]
@@ -203,20 +207,20 @@ No caso de MobileIron, o aprovisionamento é uma tarefa manual.
     1. Na **nome próprio** texto, introduza o nome de utilizador, como a Eduarda.
 
     1. Na **Apelido** texto, digite o apelido do utilizador, como Simon.
-    
-    1. Clique em **Concluído**.  
+
+    1. Clique em **Concluído**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para MobileIron.
 
-![Atribuir a função de utilizador][200] 
+![Atribuir a função de utilizador][200]
 
 **Para atribuir a Eduarda Almeida a MobileIron, execute os seguintes passos:**
 
 1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
-    ![Atribuir utilizador][201] 
+    ![Atribuir utilizador][201]
 
 1. Na lista de aplicações, selecione **MobileIron**.
 
@@ -235,19 +239,18 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
+
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Quando clica no mosaico MobileIron no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo MobileIron.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 <!--Image references-->
 
@@ -262,4 +265,3 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 [201]: ./media/mobileiron-tutorial/tutorial_general_201.png
 [202]: ./media/mobileiron-tutorial/tutorial_general_202.png
 [203]: ./media/mobileiron-tutorial/tutorial_general_203.png
-

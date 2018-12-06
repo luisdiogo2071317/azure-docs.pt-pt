@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: 3a9fba644bd379f3f54cf07cf35c0a54029756da
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: b09bb65cdb571c9df95d1922f4132abe5b77907c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287188"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963952"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Palavra-passe sem início de sessão no telefone com a aplicação Microsoft Authenticator (pré-visualização pública)
 
@@ -50,7 +50,7 @@ Pode ativar o telefone de palavra-passe sem início de sessão pré-visualizaç�
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Como ativar início de sessão no telefone os meus utilizadores finais?
 
-Para a pré-visualização pública, não é possível para impor que os usuários para criar ou utilizar nesta credencial nova. Um utilizador final só irá encontrar iniciar sessão sem palavra-passe depois de um administrador como ativado o respetivo inquilino e o utilizador atualizou a aplicação Microsoft Authenticator para ativar o início de sessão no telefone.
+Para a pré-visualização pública, não é possível para impor que os usuários para criar ou utilizar nesta credencial nova. Um utilizador final só irá encontrar iniciar sessão sem palavra-passe depois de um administrador tiver ativado o respetivo inquilino e o utilizador atualizou a aplicação Microsoft Authenticator para ativar o início de sessão no telefone.
 
 > [!NOTE]
 > Esta capacidade está na aplicação desde Março de 2017, para que haja uma possibilidade que quando a política está ativada para um inquilino, os utilizadores poderão encontrar este fluxo imediatamente. Lembre-se e preparar os seus utilizadores para esta alteração.

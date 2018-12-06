@@ -1,17 +1,17 @@
 ---
-title: Script da CLI do Azure - Criar uma firewall para o Azure Cosmos DB | Microsoft Docs
+title: Script do Azure CLI-criar uma firewall para o Azure Cosmos DB
 description: Exemplo do Script da CLI do Azure - Criar uma firewall para o Azure Cosmos DB
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: b43fff02f247e557d018a74772ca115543d904bf
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 793fc68bfcd2d7afdc7a5a4b1916737889d27ba5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013042"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955371"
 ---
 # <a name="azure-cosmos-db-create-a-firewall-using-azure-cli"></a>Azure Cosmos DB: Criar uma firewall com a CLI do Azure
 
@@ -44,7 +44,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) | Atualiza uma conta do Azure CosmosDB. |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

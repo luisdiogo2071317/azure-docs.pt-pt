@@ -4,7 +4,6 @@ description: Como começar a utilizar o armazenamento de Blobs do Azure num proj
 services: storage
 author: ghogen
 manager: douge
-ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
@@ -12,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: b8c0891d8528e0622682788e5b10d5a76ad92ec8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 93859b3b6fcdad67d46604f2ab34bec4138feb2b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42062072"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969622"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao Blob do Azure (ASP.NET) de serviços de ligado de armazenamento e o Visual Studio
 
@@ -25,7 +24,7 @@ ms.locfileid: "42062072"
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [Núcleo do ASP.NET](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na cloud como objetos ou os blobs. O Blob Storage pode armazenar qualquer tipo de texto ou de dados binários, tal como um documento, um ficheiro de multimédia ou um instalador da aplicação. O Blob Storage também é referido como um armazenamento de objetos.
+Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na cloud como objetos ou os blobs. O Blob Storage pode armazenar qualquer tipo de texto ou de dados binários, tal como um documento, um ficheiro de multimédia ou um instalador da aplicação. O Blob Storage também é referido como um armazenamento de objetos. Para saber mais sobre o armazenamento de BLOBs, veja [introdução ao armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md).
 
 Este tutorial mostra como escrever código do ASP.NET para alguns cenários comuns que utilizam o armazenamento de Blobs. Os cenários incluem criar um contentor de BLOBs, carregar, listagem, transferir e eliminar blobs.
 
@@ -34,9 +33,6 @@ Este tutorial mostra como escrever código do ASP.NET para alguns cenários comu
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-
-[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
-
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 

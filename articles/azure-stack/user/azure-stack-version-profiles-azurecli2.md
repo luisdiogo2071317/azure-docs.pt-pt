@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277278"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969962"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utilizar perfis de versão de API com a CLI do Azure no Azure Stack
 
@@ -36,7 +36,7 @@ Deverá ver a versão da CLI do Azure e outras bibliotecas dependentes instalada
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar no certificado de raiz de AC do Azure Stack
 
-1. Obter o certificado de raiz da AC do Azure Stack [seu operador do Azure Stack](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) e confiar nele. Para confiar no certificado de raiz de AC do Azure Stack, anexe-o para o certificado de Python existente.
+1. Obter o certificado de raiz da AC do Azure Stack [seu operador do Azure Stack](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) e confiar nele. Para confiar no certificado de raiz de AC do Azure Stack, anexe-o para o certificado de Python existente.
 
 1. Encontre a localização do certificado no seu computador. A localização pode variar dependendo de onde instalou o Python. Precisará ter [pip](https://pip.pypa.io) e o [certifi](https://pypi.org/project/certifi/) módulo instalado. Pode utilizar o seguinte comando de Python de linha de comandos do bash:
 
@@ -242,6 +242,6 @@ Existem alguns problemas conhecidos que deve ficar atento ao utilizar a CLI no A
 
 [Implementar modelos com a CLI do Azure](azure-stack-deploy-template-command-line.md)
 
-[Ativar a CLI do Azure para utilizadores do Azure Stack (operador)](..\azure-stack-cli-admin.md)
+[Ativar a CLI do Azure para utilizadores do Azure Stack (operador)](../azure-stack-cli-admin.md)
 
 [Gerir permissões de utilizador](azure-stack-manage-permissions.md)

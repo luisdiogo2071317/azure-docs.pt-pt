@@ -8,14 +8,15 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 0ed05cab774360c4165e89399ba16f7443debb85
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5ef9c15d4edf62ef63b16765f16971a9be5ca58b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165165"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970710"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault
+
 Microsoft Azure está empenhada em ajudar a proteger e salvaguardar os seus dados para satisfazer os seus compromissos de conformidade e segurança organizacionais. Uma forma que a plataforma de armazenamento do Azure protege os seus dados é através do Storage Service Encryption (SSE), que encripta os dados ao escrevê-lo para o armazenamento e desencripta os dados quando recuperá-lo. A encriptação e desencriptação é automático, transparente e utiliza a 256 bits [encriptação AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard), um bloco mais cifras disponíveis.
 
 Pode utilizar chaves de encriptação gerida pela Microsoft e o SSE ou pode usar suas próprias chaves de encriptação. Este artigo descreve como utilizar as suas próprias chaves de encriptação. Para obter mais informações sobre como utilizar chaves geridas pela Microsoft, ou sobre o SSE em geral, consulte [encriptação do serviço de armazenamento para dados Inativos](storage-service-encryption.md).
@@ -28,23 +29,33 @@ O SSE para o armazenamento de Blobs do Azure e ficheiros do Azure estão integra
 Porquê criar suas próprias chaves? Chaves personalizadas dão-lhe mais flexibilidade, para que pode criar, girar, desativar e definir controlos de acesso. Chaves personalizadas também permitem-lhe auditar as chaves de encriptação utilizadas para proteger os seus dados.
 
 ## <a name="get-started-with-customer-managed-keys"></a>Começar com chaves geridas pelo cliente
-Para utilizar chaves geridas pelo cliente e o SSE, pode criar um novo cofre de chaves e chave ou pode usar um cofre de chaves existente e a chave. A conta de armazenamento e o Cofre de chaves têm de estar na mesma região, mas podem estar em diferentes subscrições. 
+
+Para utilizar chaves geridas pelo cliente e o SSE, pode criar um novo cofre de chaves e chave ou pode usar um cofre de chaves existente e a chave. A conta de armazenamento e o Cofre de chaves têm de estar na mesma região, mas podem estar em diferentes subscrições.
 
 ### <a name="step-1-create-a-storage-account"></a>Passo 1: Criar uma conta de armazenamento
-Primeiro, crie uma conta de armazenamento, se ainda não tiver um. Para obter mais informações, consulte [criar uma conta de armazenamento](storage-quickstart-create-account.md).
+
+Primeiro, crie uma conta de armazenamento, se ainda não tiver um. Para obter mais informações, veja [Criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Passo 2: Ativar o SSE para o armazenamento de BLOBs e ficheiros
+
 Para ativar o SSE com chaves geridas pelo cliente, os dois recursos de proteção de chaves, eliminação de forma recuperável e fazer limpar, também devem ser ativados no Azure Key Vault. Estas definições Certifique-se que as chaves não podem ser de forma acidental ou intencionalmente eliminados. O período de retenção máximo de chaves está definido para 90 dias, proteger os usuários contra atores maliciosos ou ataques de ransomware.
 
 Se quiser habilitar programaticamente a chaves geridas pelo cliente para o SSE, pode utilizar o [API de REST de fornecedor de recursos de armazenamento do Azure](https://docs.microsoft.com/rest/api/storagerp), o [biblioteca do cliente de fornecedor de recursos do armazenamento para .NET](https://docs.microsoft.com/dotnet/api), [ O Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), ou o [CLI do Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
-Para utilizar chaves geridas pelo cliente e o SSE, tem de atribuir uma identidade de conta de armazenamento para a conta de armazenamento. Pode definir a identidade, executando o seguinte comando do PowerShell:
+Para utilizar chaves geridas pelo cliente e o SSE, tem de atribuir uma identidade de conta de armazenamento para a conta de armazenamento. Pode definir a identidade, executando o seguinte comando do PowerShell ou CLI do Azure:
 
 ```powershell
 Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
 ```
 
-Pode ativar a eliminação de forma recuperável e fazer não remover executando os seguintes comandos do PowerShell:
+```azurecli-interactive
+az storage account \
+    --account-name <account_name> \
+    --resource-group <resource_group> \
+    --assign-identity
+```
+
+Pode ativar a eliminação de forma recuperável e fazer não remover executando os seguintes comandos do PowerShell ou CLI do Azure:
 
 ```powershell
 ($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
@@ -62,31 +73,44 @@ Set-AzureRmResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
+```azurecli-interactive
+az resource update \
+    --id $(az keyvault show --name <vault_name> -o tsv | awk '{print $1}') \
+    --set properties.enableSoftDelete=true
+
+az resource update \
+    --id $(az keyvault show --name <vault_name> -o tsv | awk '{print $1}') \
+    --set properties.enablePurgeProtection=true
+```
+
 ### <a name="step-3-enable-encryption-with-customer-managed-keys"></a>Passo 3: Ativar a encriptação com chaves geridas pelo cliente
+
 Por predefinição, o SSE usa chaves geridas pela Microsoft. Pode ativar o SSE com chaves geridas pelo cliente para a conta de armazenamento utilizando o [portal do Azure](https://portal.azure.com/). Sobre o **definições** painel para a conta de armazenamento, clique em **encriptação**. Selecione o **sua própria chave** opção, conforme mostrado na figura a seguir.
 
 ![Opção de encriptação do portal de captura de ecrã de com](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 
 ### <a name="step-4-select-your-key"></a>Passo 4: Selecione a sua chave
+
 Pode especificar a chave como um URI ou ao selecionar a chave a partir de um cofre de chaves.
 
 #### <a name="specify-a-key-as-a-uri"></a>Especifique uma chave como um URI
+
 Para especificar a chave de um URI, siga estes passos:
 
-1. Escolha o **URI da chave de Enter** opção.  
+1. Escolha o **URI da chave de Enter** opção.
 2. Na **URI da chave** campo, especifique o URI.
 
-    ![Portal captura de ecrã que mostra a encriptação com introduza a opção de chave de uri](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
+   ![Portal captura de ecrã que mostra a encriptação com introduza a opção de chave de uri](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
+#### <a name="specify-a-key-from-a-key-vault"></a>Especifique uma chave de um cofre de chaves
 
-#### <a name="specify-a-key-from-a-key-vault"></a>Especifique uma chave de um cofre de chaves 
 Para especificar a chave de um cofre de chaves, siga estes passos:
 
-1. Escolha o **selecione do Key Vault** opção.  
+1. Escolha o **selecione do Key Vault** opção.
 2. Escolha o Cofre de chaves que contém a chave que pretende utilizar.
 3. Escolha a chave de Cofre de chaves.
 
-    ![Utilizam o portal encriptações de captura de ecrã com sua própria opção de chave](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
+   ![Utilizam o portal encriptações de captura de ecrã com sua própria opção de chave](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
 
 Se a conta de armazenamento não tem acesso ao Cofre de chaves, pode executar o comando do PowerShell do Azure mostrado na imagem seguinte para conceder acesso.
 
@@ -94,8 +118,8 @@ Se a conta de armazenamento não tem acesso ao Cofre de chaves, pode executar o 
 
 Também pode conceder acesso através do portal do Azure ao navegar para o Cofre de chaves do Azure no portal do Azure e conceder acesso à conta de armazenamento.
 
-
 Pode associar a chave acima com uma conta de armazenamento existente com os seguintes comandos do PowerShell:
+
 ```powershell
 $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
 $keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
@@ -105,12 +129,15 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Passo 5: Copiar dados para a conta de armazenamento
+
 Para transferir dados para a sua nova conta de armazenamento para que este está encriptado. Para obter mais informações, consulte [FAQ sobre a encriptação do serviço de armazenamento](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### <a name="step-6-query-the-status-of-the-encrypted-data"></a>Passo 6: Consultar o estado dos dados encriptados
+
 Consulte o estado dos dados encriptados.
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>FAQ sobre a SSE com chaves cliente gerido
+
 **Estou usando o armazenamento Premium; Pode utilizar chaves geridas pelo cliente e o SSE?**  
 Sim, o SSE com chaves geridas pela Microsoft e gerida pelo cliente é suportada no armazenamento Standard e o armazenamento Premium.
 
@@ -154,6 +181,7 @@ O SSE com chaves geridas pelo cliente está disponível em todas as regiões par
 Contacte [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) para quaisquer problemas relacionados com a encriptação do serviço de armazenamento.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 - Para obter mais informações sobre o conjunto abrangente de segurança a recursos que ajudam os programadores criar aplicações seguras, consulte a [guia de segurança de armazenamento](storage-security-guide.md).
 - Para obter informações gerais sobre o Azure Key Vault, consulte [o que é o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
 - Para começar a trabalhar no Azure Key Vault, consulte [introdução ao Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).

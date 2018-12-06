@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 20a87148e3c0df29e5f4dffd74a8f5389e3658b9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 761637a9c44cc490d6633aeb1a9b8d81f8885583
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364563"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972087"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -45,7 +45,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 
     O Azure Files é especificamente um sistema de ficheiros. Os ficheiros do Azure tem todos os resumos de arquivo que conhece e gosta de anos de trabalhar com sistemas de operativos no local. Como o armazenamento de BLOBs, ficheiros do Azure oferece uma interface REST e bibliotecas de cliente baseada em REST. Ao contrário do armazenamento de Blobs do Azure, ficheiros do Azure oferece acesso SMB para partilhas de ficheiros do Azure. Com o SMB, pode montar uma partilha de ficheiros Azure diretamente no Windows, Linux ou macOS, no local ou em VMs, na cloud sem escrever qualquer código ou anexar quaisquer controladores especiais para o sistema de ficheiros. Também pode colocar em cache as partilhas de ficheiros do Azure em servidores de ficheiros no local com o Azure File Sync para um acesso rápido, próximo de onde os dados são utilizados. 
    
-    Para obter uma descrição mais detalhada sobre as diferenças entre ficheiros do Azure e o armazenamento de Blobs do Azure, consulte [decidindo quando usar o armazenamento de Blobs do Azure, ficheiros do Azure ou discos do Azure para](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Para saber mais sobre o armazenamento de Blobs do Azure, veja [introdução ao armazenamento de BLOBs](../blobs/storage-blobs-introduction.md).
+    Para obter uma descrição mais detalhada sobre as diferenças entre ficheiros do Azure e o armazenamento de Blobs do Azure, consulte [decidindo quando usar o armazenamento de Blobs do Azure, ficheiros do Azure ou discos do Azure para](../common/storage-decide-blobs-files-disks.md). Para saber mais sobre o armazenamento de Blobs do Azure, veja [introdução ao armazenamento de BLOBs](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a>**Por que motivo devo utilizar uma partilha de ficheiros do Azure em vez de discos do Azure?**  
     Um disco em discos do Azure é simplesmente um disco. Para obter o valor de discos do Azure, tem de anexar um disco a uma máquina virtual que está em execução no Azure. Discos do Azure podem ser utilizados por tudo o que usaria um disco para um servidor no local. Pode usá-lo como um disco de sistema do sistema operacional, como o espaço de comutação para um sistema operacional ou como armazenamento dedicado para uma aplicação. Um uso interessante para os discos do Azure é criar um servidor de ficheiros na cloud para utilizar nos mesmos locais onde poderá utilizar uma partilha de ficheiros do Azure. Implementar um servidor de ficheiros em máquinas de virtuais do Azure é uma forma de alto desempenho para obter o armazenamento de ficheiros no Azure quando necessitar de opções de implementação que não são atualmente suportadas pelo serviço ficheiros do Azure (por exemplo, o NFS protocolo premium ou suporte de armazenamento). 
@@ -54,7 +54,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 
     É uma abordagem para obter o melhor dos ficheiros do Azure e um servidor de ficheiros que está alojado em máquinas de virtuais do Azure (além de utilizar discos do Azure como armazenamento de back-end) instalar o Azure File Sync num servidor de ficheiros que está alojado numa VM de cloud. Se a partilha de ficheiros do Azure está na mesma região que o servidor de ficheiros, pode ativar a cloud em camadas e defina o volume de percentagem de espaço livre para máximo (99%). Isso garante o mínimo duplicação de dados. Também pode utilizar todas as aplicações que quiser com seus servidores de ficheiros, como suportam a aplicativos que exigem do protocolo NFS.
 
-    Para obter informações sobre uma opção para configurar um servidor de ficheiros de elevado desempenho e de elevada disponibilidade no Azure, consulte [clusters de convidados de implantação de VM de IaaS no Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Para obter uma descrição mais aprofundada das diferenças entre os ficheiros do Azure e discos do Azure, consulte [decidindo quando usar o armazenamento de Blobs do Azure, ficheiros do Azure ou discos do Azure para](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Para saber mais sobre os discos do Azure, veja [descrição geral do Managed Disks do Azure](../../virtual-machines/windows/managed-disks-overview.md).
+    Para obter informações sobre uma opção para configurar um servidor de ficheiros de elevado desempenho e de elevada disponibilidade no Azure, consulte [clusters de convidados de implantação de VM de IaaS no Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Para obter uma descrição mais aprofundada das diferenças entre os ficheiros do Azure e discos do Azure, consulte [decidindo quando usar o armazenamento de Blobs do Azure, ficheiros do Azure ou discos do Azure para](../common/storage-decide-blobs-files-disks.md). Para saber mais sobre os discos do Azure, veja [descrição geral do Managed Disks do Azure](../../virtual-machines/windows/managed-disks-overview.md).
 
 * <a id="get-started"></a>
 **Como posso começar a utilizar com os ficheiros do Azure?**  
@@ -205,7 +205,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
     Se a subscrição sob a qual a partilha de ficheiros é implementada está associada com o mesmo inquilino do Azure AD como o recurso do Azure AD Domain Services para que a VM está associado a um domínio, em seguida, em seguida, pode aceder a ficheiros do Azure com as mesmas credenciais do Azure AD. A limitação é imposta não na subscrição, mas no Azure AD associado de inquilino.    
     
 * <a id="ad-support-subscription"></a>
-**Posso ativar a autenticação do Azure AD através de SMB para ficheiros do Azure com um inquilino do Azure AD que é diferente do inquilino principal, com a qual a partilha de ficheiros é assoicated?**
+**Posso ativar a autenticação do Azure AD através de SMB para ficheiros do Azure com um inquilino do Azure AD que é diferente do inquilino principal, à qual a partilha de ficheiros está associada?**
 
     Não, ficheiros do Azure só suporta a integração do Azure AD com um inquilino do Azure AD que residem na mesma subscrição que a partilha de ficheiros. Apenas uma subscrição pode ser associada um inquilino do Azure AD.
 
@@ -242,7 +242,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 * <a id="data-compliance-policies"></a>
 **Que políticas de conformidade de dados suporta ficheiros do Azure?**  
 
-   Os ficheiros do Azure é executado sobre a mesma arquitetura de armazenamento que é utilizada noutros serviços de armazenamento no armazenamento do Azure. Os ficheiros do Azure aplica-se as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do armazenamento do Azure, pode consultar [ofertas de conformidade de armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings)e vá para o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
+   Os ficheiros do Azure é executado sobre a mesma arquitetura de armazenamento que é utilizada noutros serviços de armazenamento no armazenamento do Azure. Os ficheiros do Azure aplica-se as mesmas políticas de conformidade de dados que são usadas em outros serviços de armazenamento do Azure. Para obter mais informações sobre a conformidade de dados do armazenamento do Azure, pode consultar [ofertas de conformidade de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)e vá para o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Acesso no local
 * <a id="expressroute-not-required"></a>
@@ -258,7 +258,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 ## <a name="backup"></a>Cópia de segurança
 * <a id="backup-share"></a>
 **Como posso fazer cópia de segurança meu arquivo do Azure partilhar?**  
-    Pode usar periódica [instantâneos de partilha](storage-snapshots-files.md) para proteção contra eliminações acidentais. Também pode utilizar o AzCopy, Robocopy ou uma ferramenta de cópia de segurança de terceiros que pode fazer backup de uma partilha de ficheiros instalado. Cópia de segurança do Azure oferece a cópia de segurança de ficheiros do Azure. Saiba mais sobre [cópia de segurança do Azure partilhas pelo Azure Backup de ficheiros](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
+    Pode usar periódica [instantâneos de partilha](storage-snapshots-files.md) para proteção contra eliminações acidentais. Também pode utilizar o AzCopy, Robocopy ou uma ferramenta de cópia de segurança de terceiros que pode fazer backup de uma partilha de ficheiros instalado. Cópia de segurança do Azure oferece a cópia de segurança de ficheiros do Azure. Saiba mais sobre [cópia de segurança do Azure partilhas pelo Azure Backup de ficheiros](https://docs.microsoft.com/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Instantâneos de partilha
 

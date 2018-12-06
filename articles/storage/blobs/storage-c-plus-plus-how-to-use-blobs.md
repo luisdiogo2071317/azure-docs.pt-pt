@@ -8,23 +8,21 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: d0b0f8ef2fcc4307482b4ccffcb46410eaba33d5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f928f27c8c1dbfe6c65cb25cb5c34680fc58bff3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306209"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955875"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Como utilizar o armazenamento de Blobs do C++
 
-Este guia demonstra como executar tarefas comuns com o serviço de armazenamento de Blobs do Azure. Os exemplos são escritos no C++ e utilizam a [Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Os cenários abrangidos incluem carregar, listar, baixar e eliminar blobs.  
+Este guia demonstra como realizar cenários comuns utilizando o armazenamento de Blobs do Azure. Os exemplos mostram como carregar, listar, transferir e eliminar blobs. Os exemplos são escritos no C++ e utilizam a [Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
+
+Para saber mais sobre o armazenamento de BLOBs, veja [introdução ao armazenamento de Blobs do Azure](storage-blobs-introduction.md).
 
 > [!NOTE]
 > Este guia destina-se à Biblioteca de Clientes de Armazenamento do Microsoft Azure para C++ versão 1.0.0 e acima. A Microsoft recomenda utilizar a versão mais recente da biblioteca de clientes de armazenamento para C++, disponível através de [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
-
-## <a name="what-is-blob-storage"></a>O que é o armazenamento de BLOBs?
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 5ab54dcd94ebf0a1bad71613a8d749cef0de64f4
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: ebb95093d96a3c1fd36565831215355b18ac5d1a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678683"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968430"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operativo no App Service do Azure
 Este artigo descreve a funcionalidade de sistema operativo de linha de base comum, que está disponível para todas as aplicações do Windows em execução no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidade inclui o ficheiro, rede e acesso ao Registro e os registos de diagnóstico e eventos. 
@@ -85,7 +85,7 @@ Nas unidades locais anexadas à máquina virtual que executa uma aplicação, se
 
 Dois exemplos de como o serviço de aplicações utiliza um armazenamento temporário local são o diretório para ficheiros temporários do ASP.NET e o diretório para o IIS de ficheiros comprimidos. O sistema de compilação do ASP.NET utiliza o diretório de "Temporary ASP.NET Files" como uma localização da cache de compilação temporário. O IIS utiliza o diretório de "Arquivos compactados temporária de IIS" para armazenar a saída de resposta compactada. Ambos os tipos de arquivo de utilização (bem como outras pessoas) remapeados no serviço de aplicações no armazenamento temporário local de por aplicação. Este remapeamento garante que continua como esperado.
 
-Cada aplicação no App Service é executado como uma identidade de processo de trabalho de baixo privilégio exclusivo aleatório chamada "identidade do conjunto aplicacional", ainda mais descrita aqui: [ http://www.iis.net/learn/manage/configuring-security/application-pool-identities ](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Código do aplicativo usa esta identidade para acesso só de leitura básico para a unidade de sistema operativo (a unidade D:\). Isso significa que o código da aplicação pode listar as estruturas de diretório comum e ler ficheiros comuns na unidade do sistema operativo. Embora pareça estar num nível abrangente de um pouco de acesso, o mesmo diretórios e ficheiros são acessíveis quando Aprovisiona uma função de trabalho no Azure serviço alojado e ler o conteúdo de unidade. 
+Cada aplicação no App Service é executado como uma identidade de processo de trabalho de baixo privilégio exclusivo aleatório chamada "identidade do conjunto aplicacional", ainda mais descrita aqui: [ https://www.iis.net/learn/manage/configuring-security/application-pool-identities ](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). Código do aplicativo usa esta identidade para acesso só de leitura básico para a unidade de sistema operativo (a unidade D:\). Isso significa que o código da aplicação pode listar as estruturas de diretório comum e ler ficheiros comuns na unidade do sistema operativo. Embora pareça estar num nível abrangente de um pouco de acesso, o mesmo diretórios e ficheiros são acessíveis quando Aprovisiona uma função de trabalho no Azure serviço alojado e ler o conteúdo de unidade. 
 
 <a name="multipleinstances"></a>
 

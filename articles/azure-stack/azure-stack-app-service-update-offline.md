@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: c91f92a519c91f4c0fe32ed102c5bb9fab528868
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 740a3ce36dde953cb92c52a10cbebf12544adae0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614815"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968157"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Atualização offline do serviço de aplicações do Azure no Azure Stack
 
@@ -101,7 +101,7 @@ Para atualizar o serviço de aplicações num ambiente desligado, primeiro tem d
 
    1. Clique nas **Connect** junto aos **subscrições do Azure Stack** caixa.
         * Se estiver a utilizar o Azure Active Directory (Azure AD), introduza a conta de administrador do Azure AD e a palavra-passe que forneceu quando implementou o Azure Stack. Clique em **iniciar sessão**.
-        * Se estiver a utilizar os serviços de Federação do Active Directory (AD FS), forneça a sua conta de administrador. Por exemplo, *cloudadmin@azurestack.local*. Introduza a palavra-passe e clique em **sessão**.
+        * Se estiver a utilizar os serviços de Federação do Active Directory (AD FS), forneça a sua conta de administrador. Por exemplo _cloudadmin@azurestack.local_. Introduza a palavra-passe e clique em **sessão**.
    2. Na **subscrições do Azure Stack** caixa, selecione a **subscrição do fornecedor predefinido**.
    3. Na **localizações do Azure Stack** caixa, selecione a localização que corresponde à região que está a implementar. Por exemplo, seleccione **local** se sua a implementar o Development Kit do Azure Stack.
    4. Se for detetada uma implementação existente do serviço de aplicações, em seguida, a conta de armazenamento e de grupo de recursos será preenchida e a cinzento.

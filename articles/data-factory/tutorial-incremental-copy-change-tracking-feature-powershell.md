@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 246b423e69fa8fb73db45f44fa17c1bc65407681
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: be08740024e87179a48f3dfd6f8406fa6a2bbca6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090730"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963526"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações 
 Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -445,26 +445,26 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Clique em **Todos os serviços**, pesquise com a palavra-chave `data factories` e selecione **Fábricas de dados**. 
 
-    ![Menu de fábricas de dados](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-data-factories-menu-1.png)
+    ![Menu de fábricas de dados](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
 3. Pesquise pela **sua fábrica de dados** na lista de fábricas de dados e selecione-a para iniciar a página da Fábrica de dados. 
 
-    ![Pesquisar pela sua fábrica de dados](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-search-data-factory-2.png)
+    ![Pesquisar pela sua fábrica de dados](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
 4. Na página Fábrica de dados, clique no mosaico **Monitorizar e Gerir**. 
 
-    ![Mosaico Monitorizar e Gerir](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-monitor-manage-tile-3.png)    
+    ![Mosaico Monitorizar e Gerir](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
 5. A **Aplicação de Integração de Dados**  abre-se numa aba separada. Pode ver todas as **execuções de pipelines** e os respetivos estados. Note que no seguinte exemplo, o estado da execução do pipeline é **Com Êxito**. Pode verificar os parâmetros transmitidos para o pipeline ao clicar na ligação na coluna **Parâmetros**. Se tiver ocorrido um erro, pode ver uma ligação na coluna **Erro**. Clique na ligação na coluna **Ações**. 
 
-    ![Execuções de pipeline](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-4.png)    
+    ![Execuções de pipeline](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. Ao clicar na ligação na coluna **Ações**, verá a seguinte página que mostra todas as **execuções de atividade** no pipeline. 
 
-    ![Execuções de atividade](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-5.png)
+    ![Execuções de atividade](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. Para mudar de volta para a visualização **Execuções do pipeline**, clique em **Pipelines** conforme mostrado na imagem. 
 
 
 ### <a name="review-the-results"></a>Rever os resultados
 Vai ver um ficheiro chamado `incremental-<GUID>.txt` na pasta `incchgtracking` do contentor `adftutorial`. 
 
-![Ficheiro de saída a partir da cópia completa](media\tutorial-incremental-copy-change-tracking-feature-powershell\full-copy-output-file.png)
+![Ficheiro de saída a partir da cópia completa](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
 O ficheiro deve ter os dados da base de dados SQL do Azure:
 
@@ -633,16 +633,16 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Res
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Monitorizar o pipeline da cópia incremental
 1. Na **Aplicação de Integração de Dados**, atualize a vista de **execuções de pipeline**. Confirme que vê o IncrementalCopyPipeline na lista. Clique na ligação na coluna **Ações**.  
 
-    ![Execuções de pipeline](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-6.png)    
+    ![Execuções de pipeline](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. Ao clicar na ligação na coluna **Ações**, verá a seguinte página que mostra todas as **execuções de atividade** no pipeline. 
 
-    ![Execuções de atividade](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-7.png)
+    ![Execuções de atividade](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. Para mudar de volta para a visualização **Execuções do pipeline**, clique em **Pipelines** conforme mostrado na imagem. 
 
 ### <a name="review-the-results"></a>Rever os resultados
 Vai ver um segundo ficheiro na pasta `incchgtracking` do contentor `adftutorial`. 
 
-![Ficheiro de saída a partir da cópia incremental](media\tutorial-incremental-copy-change-tracking-feature-powershell\incremental-copy-output-file.png)
+![Ficheiro de saída a partir da cópia incremental](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
 O ficheiro deve ter apenas os dados delta da base de dados SQL do Azure. O registo com `U` é a linha atualizada na base de dados e `I` é a linha adicionada. 
 
@@ -661,7 +661,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Avance para o tutorial seguinte para saber como transformar dados através de um cluster do Spark no Azure:
 
 > [!div class="nextstepaction"]

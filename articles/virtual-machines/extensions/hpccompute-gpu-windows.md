@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 12/5/2018
 ms.author: roiyz
-ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2a29cae6e7f391dfee75e89ea91525268db3fa62
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495968"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971968"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de controladores de NVIDIA GPU para Windows
 
@@ -78,17 +78,8 @@ O JSON seguinte mostra o esquema para a extensão.
 | tipo | NvidiaGpuDriverWindows | cadeia |
 | typeHandlerVersion | 1.2 | int |
 
-### <a name="settings"></a>Definições
-
-Todas as definições são opcionais. O comportamento padrão é instalar o controlador mais recente suportado conforme aplicável.
-
-| Nome | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
-| ---- | ---- | ---- | ---- | ---- |
-| driverVersion | NV: Versão do controlador de GRADE<br> NC/ND: Versão do controlador CUDA | mais recente | GRID: "411.81", "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | cadeia |
-| installGridND | Instale o controlador de GRADE na série ND VMs | false | VERDADEIRO, FALSO | boolean |
 
 ## <a name="deployment"></a>Implementação
-
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager 
 
@@ -135,8 +126,6 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-O exemplo seguinte Espelha o exemplo acima do ARM e o PowerShell e também adiciona definições personalizadas como um exemplo para a instalação de driver de não-padrão. Especificamente, ele instala um controlador específico de GRADE, mesmo que uma VM da série ND está a ser aprovisionada.
-
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -145,8 +134,6 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
-    "driverVersion": "391.03",
-    "installGridND": true
   }'
 ```
 

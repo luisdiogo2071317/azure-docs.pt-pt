@@ -3,7 +3,7 @@ title: Criar e gerir conjuntos elásticos com o PowerShell | Documentos da Micro
 description: PowerShell utilizado para gerir os conjuntos de base de dados do Azure SQL
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: pwershell
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 9ed5026211bec11b510d095decac25f8d4b8a52a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 36b03794f4b55af3de89f96ecee02f5542f40f01
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243202"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972104"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Criar e gerir conjuntos elásticos de base de dados SQL com o PowerShell (pré-visualização)
 
@@ -34,7 +34,7 @@ As APIs do PowerShell para o **tarefas de bases de dados elásticas** (em pré-v
 * **Tarefas de base de dados elásticas** pacotes do PowerShell: veja [tarefas de instalação de bases de dados elásticas](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Selecione a sua subscrição do Azure
-Para selecionar a subscrição tem o Id de subscrição (**- SubscriptionId**) ou o nome da subscrição (**- SubscriptionName**). Se tiver várias subscrições podem executar o **Get-AzureRmSubscription** cmdlet e copie as informações de subscrição pretendida do resultado definido. Depois de ter as informações da sua subscrição, execute o commandlet seguinte para definir esta subscrição como o predefinido, ou seja o destino para a criação e gestão de tarefas:
+Para selecionar a subscrição tem o Id de subscrição (**- SubscriptionId**) ou o nome da subscrição (**- SubscriptionName**). Se tiver várias subscrições podem executar o **Get-AzureRmSubscription** cmdlet e copie as informações de subscrição pretendida do resultado definido. Depois de ter as informações da sua subscrição, execute o cmdlet seguinte para definir esta subscrição como predefinição, ou seja o destino para a criação e gestão de tarefas:
 
     Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 
