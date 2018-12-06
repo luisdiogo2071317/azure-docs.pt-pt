@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7d76827a4e4ba4ccb7a146c5f8282000d143eb35
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4de4a5a659f38577c1261b169a43df560bf05495
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624442"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971271"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Configurar clientes OpenVPN para o Gateway de VPN do Azure (pré-visualização)
 
@@ -67,11 +67,11 @@ Certifique-se de que concluiu os passos para configurar OpenVPN para o seu gatew
 2. Transfira o perfil VPN para o gateway. Isso pode ser feito na guia configuração ponto a site no portal do Azure ou com "New-AzureRmVpnClientConfiguration" no PowerShell.
 3. Deszipe o perfil. Abra o ficheiro de configuração vpnconfig.ovpn pasta OpenVPN no bloco de notas.
 4. Preencha a secção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Num certificado com o formato PEM, basta abrir o ficheiro .cer e copiar a chave base64 entre os cabeçalhos do certificado. Ver [exportar a chave pública](vpn-gateway-certificates-point-to-site.md#cer) para obter informações sobre como exportar um certificado para obter a chave pública codificada.
-5. Preencha a secção de chave privada com a chave privada do certificado cliente P2S em base64. Ver [exportar a chave privada](https://www.geotrust.eu/en/support/manuals/microsoft/all+windows+servers/export+private+key+or+certificate/) para obter informações sobre como extrair a chave privada.
+5. Preencha a secção de chave privada com a chave privada do certificado cliente P2S em base64. Ver [exportar a chave privada](https://openvpn.net/community-resources/how-to/#pki) para obter informações sobre como extrair uma chave privada.
 6. Não altere os outros campos. Utilize a configuração preenchida na entrada de cliente para ligar à VPN.
 7. Clique duas vezes o ficheiro de perfil para criar o perfil no tunnelblik.
 8. Inicie Tunnelblik a partir da pasta de aplicativos.
-9. Clique no ícone na Bandeja do sistema Tunneblik e escolher ligar.
+9. Clique no ícone na Bandeja do sistema Tunnelblik e escolher ligar.
 
 ## <a name="linux"></a>Clientes Linux
 

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: c8a100577ba4bc67d12c7376b5897f397d010d4d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1512098c29c8916a0486ed66b438654ba29f0601
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844928"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968242"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Limites de recursos de instância gerida da base de dados SQL do Azure de descrição geral
 
@@ -52,8 +52,12 @@ A instância gerida tem dois escalões de serviço - fins gerais e crítico para
 | Tamanho máximo de armazenamento | 8 TB | Gen 4: 1 TB <br/> Geração 5: <br/>-1 TB para 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
 | Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máx. de bases de dados por instância | 100 | 100 |
-| Ficheiros de base de dados máximo por instância | Até 280 | Ilimitado |
-| Débito de e/s (aproximado) | 5000 IOPS por núcleo com 200 000 IOPS máximos |
+| Ficheiros de base de dados máximo por instância | Até 280 | 32.767 ficheiros por base de dados |
+| IOPS (aproximado) | 500-7500 por ficheiro<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11 mil - 110 mil (1375 por vCore) |
+| Latência de e/s (aproximada) | 5 a 10 ms | 1 a 2 ms |
+| Tamanho máximo de tempDB | 192 1920 GB (24 GB por vCore) | Determinado pelo tamanho de armazenamento máximo por instância |
+
+- O utilizador e as bases de dados do sistema estão incluídas no tamanho de armazenamento de instância é comparado com o limite de tamanho de armazenamento máximo. Uso <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">master_files</a> vista de sistema para determinar o total de espaço utilizado pelas bases de dados. Registos de erros não são persistentes e não incluídos no tamanho. As cópias de segurança não estão incluídas no tamanho de armazenamento.
 
 ## <a name="supported-regions"></a>Regiões suportadas
 

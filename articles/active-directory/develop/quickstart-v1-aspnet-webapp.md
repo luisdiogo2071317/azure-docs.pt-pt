@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: a421527de275d38650c314d3722a7d2f93e8331d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 10de179c6055feb46439792ea74a0a3131f39646
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285021"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970662"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início Rápido: adicionar início de sessão com a Microsoft a uma aplicação Web ASP.NET
 
@@ -56,7 +56,7 @@ Este início rápido utiliza os seguintes pacotes:
 | [Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/) | Middleware que permite que uma aplicação utilize o OpenIdConnect para autenticação |
 | [Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies) |Middleware que permite que uma aplicação mantenha a sessão de utilizador com cookies |
 | [Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb) | Permite que as aplicações com base em OWIN sejam executados nos IIS através do pipeline de pedidos do ASP.NET |
-|  |  | 
+|  |  |
 
 ## <a name="step-1-set-up-your-project"></a>Passo 1: configurar o seu projeto
 
@@ -104,11 +104,11 @@ Para criar uma *Classe de Arranque* de middleware OWIN:
 
 1. Adicione os espaços de nomes *OWIN* e *Microsoft.IdentityModel* a `Startup.cs`:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
 2. Substitua a classe de Arranque pelo código seguinte:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=Startup "Startup.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
@@ -129,11 +129,11 @@ Crie um novo controlador para expor os métodos de início de sessão e fim de s
 4.  Dê-lhe o nome `HomeController` e selecione **Adicionar**.
 5.  Adicione espaços de nomes **OWIN** à classe:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
 6. Adicione os seguintes métodos para processar o início de sessão e fim de sessão para o seu controlador, iniciando um desafio de autenticação por meio do código:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
 
 ## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Passo 6: criar a página de boas-vindas da aplicação para os utilizadores iniciarem sessão através de um botão de início de sessão
 
@@ -158,11 +158,11 @@ Este controlador demonstra as utilizações do atributo `[Authorize]` para prote
 1. Dê-lhe o nome **ClaimsController**.
 1. Substitua o código da sua classe de controlador pelo código seguinte - esta ação adiciona o atributo `[Authorize]` à classe:
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
-> Devido à utilização do atributo `[Authorize]`, todos os métodos deste controlador só podem ser executados se o utilizador estiver autenticado. Se o utilizador não estiver autenticado e tentar aceder ao controlador, o OWIN inicia um desafio de autenticação e força o utilizador a autenticar. O código acima examina a coleção de afirmações do utilizador relativamente aos atributos específicos incluídos no token do utilizador. Estes atributos incluem o nome completo do utilizador e o nome de utilizador, bem como o assunto do identificador de utilizador global. Também contém o *ID de inquilino*, que representa o ID da organização do utilizador. 
+> Devido à utilização do atributo `[Authorize]`, todos os métodos deste controlador só podem ser executados se o utilizador estiver autenticado. Se o utilizador não estiver autenticado e tentar aceder ao controlador, o OWIN inicia um desafio de autenticação e força o utilizador a autenticar. O código acima examina a coleção de afirmações do utilizador relativamente aos atributos específicos incluídos no token do utilizador. Estes atributos incluem o nome completo do utilizador e o nome de utilizador, bem como o assunto do identificador de utilizador global. Também contém o *ID de inquilino*, que representa o ID da organização do utilizador.
 <!--end-collapse-->
 
 ## <a name="step-8-create-a-view-to-display-the-users-claims"></a>Passo 8: criar uma vista para apresentar as afirmações do utilizador
@@ -187,7 +187,7 @@ No Visual Studio, crie uma nova vista para apresentar as afirmações do utiliza
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="RedirectUrl" value="Enter_the_Redirect_Url_here" />
     <add key="Tenant" value="common" />
-    <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
+    <add key="Authority" value="https://login.microsoftonline.com/{0}" />
     ```
 2. No Explorador de Soluções, selecione o projeto e observe a janela <i>Propriedades</i> (se não vir uma janela Propriedades, prima F4)
 3. Alterar SSL ativado para <code>True</code>
@@ -227,10 +227,12 @@ Para obter mais informações sobre esta definição e o conceito de aplicaçõe
 Esta opção é um cenário comum para aplicações de linha de negócio.
 
 Se quiser que a aplicação aceite inícios de sessão apenas de contas que pertençam a uma instância específica do Azure AD (incluindo *contas de convidado* dessa instância), siga estes passos:
+
 1. Substitua o parâmetro `Tenant` em *web.config* de `Common` pelo nome de inquilino da organização – por exemplo, *contoso.onmicrosoft.com*.
 1. Altere o argumento `ValidateIssuer` na sua [*Classe de Arranque do OWIN*](#configure-the-authentication-pipeline) para `true`.
 
 Para permitir utilizadores de apenas uma lista de organizações específicas, siga estes passos:
+
 1. Defina `ValidateIssuer` como verdadeiro.
 1. Utilize o parâmetro `ValidIssuers` para especificar uma lista de organizações.
 

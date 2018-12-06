@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 45ce5bfc516d51feddad7ebdad5828705b14620d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 58dc344cc7ab40218a122e34a9032276107a944c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850847"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964463"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Sobre o Azure Site Recovery Deployment Planner de VMware para o Azure
 Este artigo é o manual do utilizador do Planeador de Implementações do Azure Site Recovery para implementações de produção de VMware para o Azure.
@@ -99,9 +99,9 @@ Pode executá-la no Windows Server 2012 R2 se o servidor tiver acesso à rede pa
 Esta contém vários ficheiros e sub-pastas. O ficheiro executável é ASRDeploymentPlanner.exe, na pasta principal.
 
     Exemplo: copie o ficheiro .zip para a unidade E:\ e extraia-o.
-    E:\ASR Deployment Planner_v2.2.zip
+    E:\ASR Planner_v2.3.zip de implementação
 
-    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+    E:\ASR implementação Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Atualizar para a versão mais recente do Planeador de Implementações
 Se tiver uma versão anterior do Planeador de Implementações, execute um dos seguintes procedimentos:
@@ -117,7 +117,7 @@ Se tiver uma versão anterior do Planeador de Implementações, execute um dos s
 
 
 ## <a name="version-history"></a>Histórico de versões
-A versão mais recente da ferramenta Planeador de Implementações do Site Recovery é 2.2.
+A versão mais recente da ferramenta Site Recovery Deployment Planner é 2.3.
 Veja a página [Histórico de versões do Planeador de Implementações do Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para obter as correções que foram adicionadas em cada atualização.
 
 ## <a name="next-steps"></a>Passos Seguintes

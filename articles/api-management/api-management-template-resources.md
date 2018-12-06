@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 36b64912eb3393ad496d04ff656bed5b0c41566c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444772"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970336"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo de gestão de API do Azure
 Gestão de API do Azure fornece os seguintes tipos de recursos para utilização em que o desenvolvedor modelos de portais.  
@@ -176,7 +176,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
 |WebDocumentationTemplatesDeveloperKey|Especifique a chave de subscrição|  
 |WebDocumentationTemplatesJavaApache|Este exemplo utiliza o cliente Apache HTTP no HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)|  
 |WebDocumentationTemplatesOptionalParams|Especifique valores para parâmetros opcionais, conforme necessário|  
-|WebDocumentationTemplatesPhpPackage|Este exemplo utiliza o pacote HTTP_Request2. (para obter mais informações: http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|Este exemplo utiliza o pacote HTTP_Request2. (para obter mais informações: https://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|Especifique valores para os parâmetros de caminho (apresentados como {...}) e para o corpo do pedido, se necessário|  
 |WebDocumentationTemplatesRequestBody|Especifique o corpo do pedido|  
 |WebDocumentationTemplatesRequiredParams|Especifique valores para os parâmetros necessários seguintes|  
@@ -571,13 +571,13 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
 |ApiManagementUserLimitReached|Este serviço atingiu o número máximo de utilizadores permitidos. Atualize para um escalão de preço superior.|  
   
 ##  <a name="glyphs"></a> Recursos de glifo  
- Modelos de portais de Programador de gestão de API podem utilizar os glifos partir [Glyphicons de arranque de](http://getbootstrap.com/components/#glyphicons). Este conjunto de glifos inclui mais de 250 glifos no formato de tipo de letra a partir da [Glyphicon](http://glyphicons.com/) Halflings definido. Para utilizar um glifo a partir desse conjunto, utilize a seguinte sintaxe.  
+ Modelos de portais de Programador de gestão de API podem utilizar os glifos partir [Glyphicons de arranque de](https://getbootstrap.com/components/#glyphicons). Este conjunto de glifos inclui mais de 250 glifos no formato de tipo de letra a partir da [Glyphicon](https://glyphicons.com/) Halflings definido. Para utilizar um glifo a partir desse conjunto, utilize a seguinte sintaxe.  
   
 ```html  
 <span class="glyphicon glyphicon-user">  
 ```  
   
- Para obter a lista completa de glifos, consulte [Glyphicons de arranque de](http://getbootstrap.com/components/#glyphicons).
+ Para obter a lista completa de glifos, consulte [Glyphicons de arranque de](https://getbootstrap.com/components/#glyphicons).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do Programador de gestão de API através de modelos](api-management-developer-portal-templates.md).

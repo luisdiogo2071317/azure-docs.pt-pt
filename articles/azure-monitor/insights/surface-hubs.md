@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5de652c1296ddcf94015f8c00529fc5288f98291
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a2cedb95469f97b564aaad2baa0ff7c784d67bf8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834779"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960996"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Monitorizar o Surface Hubs com o Log Analytics para controlar o respetivo estado de funcionamento
 
@@ -35,7 +35,7 @@ Utilize as seguintes informações para instalar e configurar a solução. Para 
 
 * R [subscrição do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) nível que irá suportar o número de dispositivos que pretende monitorizar. Preços do log Analytics variam consoante o número de dispositivos é inscritos e a quantidade de dados-processos. Vai querer ter isto em consideração ao planejar sua implementação do Surface Hub.
 
-Em seguida, irá adicionar uma área de trabalho do Log Analytics existente ou crie um novo. Encontrará instruções detalhadas para utilizando um dos métodos tenha [criar uma área de trabalho do Log Analytics no portal do Azure](../../log-analytics/log-analytics-quick-create-workspace.md). Uma vez que a área de trabalho do Log Analytics é configurada, existem duas formas de inscrever os dispositivos Surface Hub:
+Em seguida, irá adicionar uma área de trabalho do Log Analytics existente ou crie um novo. Encontrará instruções detalhadas para utilizando um dos métodos tenha [criar uma área de trabalho do Log Analytics no portal do Azure](../../azure-monitor/learn/quick-create-workspace.md). Uma vez que a área de trabalho do Log Analytics é configurada, existem duas formas de inscrever os dispositivos Surface Hub:
 
 * Automaticamente através do Intune
 * Manualmente através de **definições** no seu dispositivo Surface Hub.

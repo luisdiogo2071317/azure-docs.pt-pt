@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: vainolo
+ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/25/2018
-ms.openlocfilehash: fc82fa592a513d735d4adc602bedaf8e492af13b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e947c284843074cf36c2d85dd240df23a1958cd5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092956"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971526"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -39,8 +39,6 @@ Pode utilizar a auditoria de base de dados SQL para:
 - **Reter** uma trilha de auditoria de eventos selecionados. Pode definir categorias de ações de base de dados para serem auditados.
 - **Relatório** na atividade de base de dados. Pode utilizar um dashboard e relatórios pré-configurados para começar rapidamente com a atividade e relatórios de eventos.
 - **Analisar** relatórios. Pode encontrar eventos suspeitos, atividade invulgar e tendências.
-
-Pode configurar a auditoria para diferentes tipos de categorias de eventos, conforme explicado no [configurar a auditoria da base de dados](#subheading-2) secção.
 
 > [!IMPORTANT]
 > Registos de auditoria são escritos **Blobs de acréscimo** num armazenamento de Blobs do Azure na sua subscrição do Azure.
@@ -198,7 +196,7 @@ Na produção, é provável que atualizar as chaves de armazenamento periodicame
 3. Vá para a página de configuração de auditoria, mude a chave de acesso de armazenamento secundária para primária de e, em seguida, clique em **OK**. Em seguida, clique em **guardar** no topo da página de configuração da auditoria.
 4. Volte para a página de configuração de armazenamento e voltar a gerar a chave de acesso secundária (em preparação para o ciclo de atualização da chave seguinte).
 
-## <a name="additional-information"></a>Informações Adicionais
+## <a name="additional-information"></a>Informação Adicional
 
 - Para obter detalhes sobre o registo de formatar, hierarquia da pasta de armazenamento e convenções de nomenclatura, consulte a [referência de formato de registo de auditoria de Blob](https://go.microsoft.com/fwlink/?linkid=829599).
 

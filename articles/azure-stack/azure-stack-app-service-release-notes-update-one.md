@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: ee6e4397345b4cb169e7e22d951d4c4fdff5b7b7
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078720"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971900"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Serviço de aplicações no notas de versão 1 de atualização do Azure Stack
 
@@ -145,7 +145,7 @@ Troca de ranhura do site é apresentada nesta versão. Para restaurar a funciona
 
       # Commit the changes back to NSG
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
+    ```
 
 2. Navegue para o **CN0-VM** em máquinas virtuais no portal do administrador do Azure Stack e **clicar em ligar** para abrir uma sessão de área de trabalho remota com a instância do controlador. Utilize as credenciais especificadas durante a implementação do serviço de aplicações.
 3. Inicie **PowerShell como administrador** e execute o seguinte script
@@ -197,18 +197,20 @@ Troca de ranhura do site é apresentada nesta versão. Para restaurar a funciona
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-- Os trabalhos são não é possível alcançar o servidor de ficheiros quando o serviço de aplicações é implementado numa rede virtual existente e o servidor de ficheiros só está disponível na rede privada.
- 
+
+6. Os trabalhos são não é possível alcançar o servidor de ficheiros quando o serviço de aplicações é implementado numa rede virtual existente e o servidor de ficheiros só está disponível na rede privada.
+
 Se optar por implementar numa rede virtual existente e um endereço IP interno para se ligar ao seu servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo que o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB. Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
- * Origem: qualquer
- * Intervalo de portas de origem: *
- * Destino: Endereços IP
- * Intervalo de endereços IP de destino: intervalo de IPs para o servidor de ficheiros
- * Intervalo de portas de destino: 445
- * Protocolo: TCP
- * Ação: permitir
- * Prioridade: 700
- * Nome: Outbound_Allow_SMB445
+
+- Origem: qualquer
+- Intervalo de portas de origem: *
+- Destino: Endereços IP
+- Intervalo de endereços IP de destino: intervalo de IPs para o servidor de ficheiros
+- Intervalo de portas de destino: 445
+- Protocolo: TCP
+- Ação: permitir
+- Prioridade: 700
+- Nome: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemas conhecidos para os administradores de nuvem operacional de serviço de aplicações do Azure no Azure Stack
 

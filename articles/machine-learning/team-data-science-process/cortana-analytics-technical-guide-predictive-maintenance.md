@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: 904e9c22f23255f1bee7f532d7f577c7cd457778
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d5f6934385d616390baf336404ddd79d4bc2a490
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443751"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965441"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia técnico para o modelo de solução do Cortana Intelligence para manutenção preditiva no espaço aéreo e outros negócios
 
@@ -218,7 +218,7 @@ Os seguintes passos guiá-lo como visualizar a saída de dados de tarefas do Str
    * Certifique-se de que o ***visualizações*** painel é aberto e é apresentado no lado direito da tela.
 3. Depois de ter os dados que flui para o Power BI, pode começar a visualizar os dados de transmissão em fluxo. Abaixo está um dashboard de exemplo com algumas visualizações o hot path afixado ao mesmo. Pode criar outros mosaicos de dashboard com base em conjuntos de dados apropriados. Consoante o tempo que executa seu gerador de dados, os seus números nas visualizações podem ser diferentes.
 
-    ![Vista do Dashboard](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+    ![Vista do Dashboard](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
 
 1. Eis alguns passos para criar um dos mosaicos acima – "visão frota de Sensor 11 vs. Limiar 48.26" mosaico:
    

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 79d78faa53962ea72178281d75cef3c2f61320b1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614043"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971509"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um fornecedor de recursos do serviço de aplicações para um ambiente desligado do Azure Stack protegido pelo AD FS
 
@@ -200,7 +200,7 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
 2. Na descrição geral, em estado, verifique que o **Status** apresenta **todas as funções estão prontas**.
 
     ![Gestão de serviço de aplicações](media/azure-stack-app-service-deploy/image12.png)
-    
+
 > [!NOTE]
 > Se optar por implementar numa rede virtual existente e um endereço IP para ligar ao seu servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo que o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB.  Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
 > * Origem: qualquer
@@ -221,9 +221,9 @@ Depois de implementar e registar o fornecedor de recursos do serviço de aplica�
 > [!NOTE]
 > Terá de criar uma oferta que tenha o espaço de nomes Microsoft. Web dentro do plano. Em seguida, tem de ter uma subscrição de inquilino que se inscreve para esta oferta. Para obter mais informações, consulte [criar oferta](azure-stack-create-offer.md) e [criar plano](azure-stack-create-plan.md).
 >
-*Tem* tem uma subscrição de inquilino para criar aplicativos que usam o serviço de aplicações no Azure Stack. As capacidades de apenas um administrador de serviço pode ser no portal de administração estão relacionados com a administração de fornecedor de recursos do serviço de aplicações. Esses recursos incluem adicionar capacidade, a configuração de origens de implementação e a adição de escalões de Worker e SKUs.
+> *Tem* tem uma subscrição de inquilino para criar aplicativos que usam o serviço de aplicações no Azure Stack. As capacidades de apenas um administrador de serviço pode ser no portal de administração estão relacionados com a administração de fornecedor de recursos do serviço de aplicações. Esses recursos incluem adicionar capacidade, a configuração de origens de implementação e a adição de escalões de Worker e SKUs.
 >
-A partir do terceiro technical preview criar a web, API e o Azure funciona aplicações, tem de utilizar o portal de inquilinos e ter uma subscrição de inquilino.
+> A partir do terceiro technical preview criar a web, API e o Azure funciona aplicações, tem de utilizar o portal de inquilinos e ter uma subscrição de inquilino.
 
 1. No portal de inquilino do Azure Stack, clique em **+ criar um recurso** > **Web + móvel** > **aplicação Web**.
 

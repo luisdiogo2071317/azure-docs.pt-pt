@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 4a2ea188a35b5157950f0d61f35a5f2a4a0e83d3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3015db350b8011ccd328369732c5af3fa028a438
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856241"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963560"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analisar dados do Log Analytics no Azure Monitor
 
@@ -31,7 +31,7 @@ Dados de registo recolhidos pelo Azure Monitor são armazenados numa área de tr
 
 ## <a name="log-queries"></a>Consultas de registo
 
-Precisa de uma consulta de log para obter todos os dados do Log Analytics.  Esteja [análise de dados no portal](../../log-analytics/log-analytics-log-search-portals.md), [configura uma regra do alerta](../../monitoring-and-diagnostics/alert-metric.md) para ser notificado de uma determinada condição ou ao obter dados com o [API do Log Analytics](https://dev.loganalytics.io/), irá utilizar uma consulta para especificar os dados que pretende.  Este artigo descreve como as consultas de registo são usadas no Log Analytics e fornece os conceitos que deve compreender antes de criar um.
+Precisa de uma consulta de log para obter todos os dados do Log Analytics.  Esteja [análise de dados no portal](../../azure-monitor/log-query/portals.md), [configura uma regra do alerta](../../monitoring-and-diagnostics/alert-metric.md) para ser notificado de uma determinada condição ou ao obter dados com o [API do Log Analytics](https://dev.loganalytics.io/), irá utilizar uma consulta para especificar os dados que pretende.  Este artigo descreve como as consultas de registo são usadas no Log Analytics e fornece os conceitos que deve compreender antes de criar um.
 
 
 
@@ -39,7 +39,7 @@ Precisa de uma consulta de log para obter todos os dados do Log Analytics.  Este
 
 As diferentes formas que irá utilizar consultas do Log Analytics incluem o seguinte:
 
-- **Portais.** Pode executar análises interativas de dados de registo no [portal do Azure](../../log-analytics/log-analytics-log-search-portals.md).  Isto permite-lhe editar a consulta e analisar os resultados numa variedade de formatos e visualizações.  
+- **Portais.** Pode executar análises interativas de dados de registo no [portal do Azure](../../azure-monitor/log-query/portals.md).  Isto permite-lhe editar a consulta e analisar os resultados numa variedade de formatos e visualizações.  
 - **Regras de alerta.** [Regras de alerta](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) identificar proativamente os problemas dos dados na sua área de trabalho.  Cada regra de alerta baseia-se uma pesquisa de registos que está a ser executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
 - **Dashboards.** Pode afixar os resultados de qualquer consulta numa [dashboard do Azure](../../azure-monitor/platform/dashboards.md) que permitem que visualize os dados de registos e de métricas em conjunto e, opcionalmente, partilhar com outros utilizadores do Azure. 
 - **Modos de exibição.**  Pode criar visualizações de dados a serem incluídos nos dashboards do utilizador com [estruturador de vistas](../../azure-monitor/platform/view-designer.md).  Consultas de registo que fornecem os dados utilizados pelo [mosaicos](../../azure-monitor/platform/view-designer-tiles.md) e [partes de visualização](../../azure-monitor/platform/view-designer-parts.md) em cada vista.  
@@ -50,7 +50,7 @@ As diferentes formas que irá utilizar consultas do Log Analytics incluem o segu
 ![Pesquisas de registos](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>Escrever uma consulta
-Utilizações de análise de registo [uma versão da linguagem de consulta Data Explorer](../../log-analytics/query-language/get-started-queries.md) para recuperar e analisar dados de registo de diversas formas.  Geralmente começa com a consultas básicas e, em seguida, avançar para utilizar as funções mais avançadas, como os seus requisitos se tornam mais complexos.
+Utilizações de análise de registo [uma versão da linguagem de consulta Data Explorer](../../azure-monitor/log-query/get-started-queries.md) para recuperar e analisar dados de registo de diversas formas.  Geralmente começa com a consultas básicas e, em seguida, avançar para utilizar as funções mais avançadas, como os seus requisitos se tornam mais complexos.
 
 A estrutura básica de uma consulta é uma tabela de origem, seguida de uma série de operadores, separados por um caráter de pipe `|`.  Em conjunto pode encadear vários operadores para refinar os dados e realizar funções avançadas.
 
@@ -94,9 +94,9 @@ union Update, workspace("contoso-workspace").Update
 ```
 
 ## <a name="how-log-analytics-data-is-organized"></a>Como os dados do Log Analytics são organizados
-Quando cria uma consulta, comece por determinar que tabelas contêm os dados que estava procurando. Diferentes tipos de dados estão divididos em tabelas dedicadas em cada [área de trabalho do Log Analytics](../../log-analytics/log-analytics-quick-create-workspace.md).  Documentação para origens de dados inclui o nome do tipo de dados que ele cria e uma descrição de cada uma de suas propriedades.  Muitas consultas só vão precisar dados a partir de uma única tabela, mas podem usar uma variedade de opções para incluir dados de várias tabelas.
+Quando cria uma consulta, comece por determinar que tabelas contêm os dados que estava procurando. Diferentes tipos de dados estão divididos em tabelas dedicadas em cada [área de trabalho do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).  Documentação para origens de dados inclui o nome do tipo de dados que ele cria e uma descrição de cada uma de suas propriedades.  Muitas consultas só vão precisar dados a partir de uma única tabela, mas podem usar uma variedade de opções para incluir dados de várias tabelas.
 
-Embora [Application Insights](../../application-insights/app-insights-overview.md) armazena dados de aplicação, tais como pedidos, exceções, rastreios e utilização do Log Analytics, estes dados são armazenados numa partição diferente do que os dados de registo. Utilizar a mesma linguagem de consulta para aceder a estes dados, mas tem de utilizar o [consola do Application Insights](../../application-insights/app-insights-analytics.md) ou [API de REST do Application Insights](https://dev.applicationinsights.io/) para aceder ao mesmo. Pode usar [consultas entre recursos](../../log-analytics/log-analytics-cross-workspace-search.md) para combinar dados do Application Insights com outros dados no Log Analytics.
+Embora [Application Insights](../../application-insights/app-insights-overview.md) armazena dados de aplicação, tais como pedidos, exceções, rastreios e utilização do Log Analytics, estes dados são armazenados numa partição diferente do que os dados de registo. Utilizar a mesma linguagem de consulta para aceder a estes dados, mas tem de utilizar o [consola do Application Insights](../../application-insights/app-insights-analytics.md) ou [API de REST do Application Insights](https://dev.applicationinsights.io/) para aceder ao mesmo. Pode usar [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md) para combinar dados do Application Insights com outros dados no Log Analytics.
 
 
 ![Tabelas](media/log-query-overview/queries-tables.png)
@@ -109,5 +109,5 @@ Embora [Application Insights](../../application-insights/app-insights-overview.m
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [pesquisas de registos de portais que utilizar para criar e editar](../../log-analytics/log-analytics-log-search-portals.md).
-- Veja uma [tutorial sobre como escrever consultas](../../log-analytics/query-language/get-started-queries.md) usando a nova linguagem de consulta.
+- Saiba mais sobre o [pesquisas de registos de portais que utilizar para criar e editar](../../azure-monitor/log-query/portals.md).
+- Veja uma [tutorial sobre como escrever consultas](../../azure-monitor/log-query/get-started-queries.md) usando a nova linguagem de consulta.

@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b79d64cc063105cb8ecce537a09a7f39a78eef4c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 8b6257519c3b1db2180335523047e8dc55558d57
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275032"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954597"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Remover o fornecedor de recursos do SQL
 
 Antes de remover o fornecedor de recursos do SQL, tem de remover todas as dependências de fornecedor. Também terá uma cópia do pacote de implementação que foi utilizada para instalar o fornecedor de recursos.
 
 > [!NOTE]
-> Pode encontrar as ligações de transferência para o recurso de programas de instalação do fornecedor na [implementar os pré-requisitos do fornecedor de recursos](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
+> Pode encontrar as ligações de transferência para o recurso de programas de instalação do fornecedor na [implementar os pré-requisitos do fornecedor de recursos](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 Remover o fornecedor de recursos do SQL não eliminar bases de dados do inquilino de alojar servidores.
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6d58a62ef70cb5bacb44a3a9832516a30fc91ffa
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: fcc81c8eb3a34b0bda5d91a1a67dd2e04e052967
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248064"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967764"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Ativar manter sessão iniciada (KMSI) no Azure Active Directory B2C
 
@@ -152,7 +152,9 @@ Atualize o ficheiro da entidade confiadora de terceiros (RP) que inicia o percur
 
     KMSI está configurado com o **UserJourneyBehaviors** elemento. O **KeepAliveInDays** atributo controla o tempo que o usuário permanece com sessão iniciada. No exemplo seguinte, a sessão KMSI automaticamente expira após `7` dias, independentemente da frequência com que o utilizador efetua a autenticação silenciosa. Definindo a **KeepAliveInDays** valor a `0` desativa a funcionalidade KMSI. Por predefinição, este valor é `0`. Se o valor de **SessionExpiryType** é `Rolling`, a sessão KMSI é ampliada pela `7` dias sempre que o utilizador efetua a autenticação silenciosa.  Se `Rolling` é selecionado, deve manter o número de dias para mínimo. 
 
-    O valor de **SessionExpiryInSeconds** representa a hora de expiração de uma sessão SSO. Isso é utilizado internamente pelo Azure AD B2C para verificar se a sessão para KMSI expirou ou não. O valor de **KeepAliveInDays** determina o valor de Expires/Max-Age do cookie SSO no navegador da web. Ao contrário **SessionExpiryInSeconds**, **KeepAliveInDays** serve para impedir que o navegador de limpar o cookie quando está fechado. Um utilizador silenciosamente pode iniciar sessão apenas se existir o cookie de sessão SSO, que é controlada pela **KeepAliveInDays**e não é expirou, que é controlado pelas **SessionExpiryInSeconds**. É recomendado que defina o valor de **SessionExpiryInSeconds** ser momento equivalente da **KeepAliveInDays** em segundos, conforme mostrado no exemplo a seguir.
+    O valor de **SessionExpiryInSeconds** representa a hora de expiração de uma sessão SSO. Isso é utilizado internamente pelo Azure AD B2C para verificar se a sessão para KMSI expirou ou não. O valor de **KeepAliveInDays** determina o valor de Expires/Max-Age do cookie SSO no navegador da web. Ao contrário **SessionExpiryInSeconds**, **KeepAliveInDays** serve para impedir que o navegador de limpar o cookie quando está fechado. Um utilizador silenciosamente pode iniciar sessão apenas se existir o cookie de sessão SSO, que é controlada pela **KeepAliveInDays**e não está expirado, que é controlado pelas **SessionExpiryInSeconds**. 
+    
+    Se um utilizador não permite **manter sessão iniciada** na página de inscrição e início de sessão, uma sessão expira após o tempo indicado pelo **SessionExpiryInSeconds** passou ou o browser é fechado. Se um utilizador ativa **manter sessão iniciada**, o valor de **KeepAliveInDays** substitui o valor de **SessionExpiryInSeconds** e determina o tempo de expiração da sessão. Até mesmo os usuários, feche o browser e abra-o novamente, eles podem ainda silenciosamente início de sessão, desde que esteja dentro do momento da **KeepAliveInDays**. É recomendado que defina o valor de **SessionExpiryInSeconds** um período curto (segundos 1200), enquanto o valor de **KeepAliveInDays** pode ser definida para um período relativamente longo (7 dias), como mostra a exemplo a seguir:
 
     ```XML
     <RelyingParty>
@@ -160,7 +162,7 @@ Atualize o ficheiro da entidade confiadora de terceiros (RP) que inicia o percur
       <UserJourneyBehaviors>
         <SingleSignOn Scope="Tenant" KeepAliveInDays="7" />
         <SessionExpiryType>Absolute</SessionExpiryType>
-        <SessionExpiryInSeconds>604800</SessionExpiryInSeconds>
+        <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
       </UserJourneyBehaviors>
       <TechnicalProfile Id="PolicyProfile">
         <DisplayName>PolicyProfile</DisplayName>

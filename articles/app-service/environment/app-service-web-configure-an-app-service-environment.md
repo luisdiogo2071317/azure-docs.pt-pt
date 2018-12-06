@@ -1,6 +1,6 @@
 ---
-title: Como configurar um serviço de aplicações ambiente v1
-description: Configuração, gestão e monitorização do v1 ambiente de serviço de aplicações
+title: Como configurar um serviço de aplicações v1 do ambiente
+description: Configuração, gestão e monitorização do ambiente de serviço de aplicações v1
 services: app-service
 documentationcenter: ''
 author: ccompy
@@ -14,185 +14,185 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 34fb3f15c03a3d3ef5f0a27081539bf0a6d19c5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 60e086197b61d14394cad3d54a7efc4baede1f7b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23837219"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965825"
 ---
-# <a name="configuring-an-app-service-environment-v1"></a>Configurar uma aplicação do serviço ambiente v1
+# <a name="configuring-an-app-service-environment-v1"></a>Configuração de uma aplicação v1 do ambiente de serviço
 
 > [!NOTE]
-> Este artigo é sobre o ambiente de serviço de aplicações v1.  Há uma versão mais recente do ambiente de serviço de aplicações que são mais fáceis de utilizar e é executada na infraestrutura mais poderosa. Para saber mais sobre o novo início de versão com o [introdução ao ambiente de serviço de aplicações](intro.md).
+> Este artigo é sobre o ambiente de serviço de aplicações v1.  Existe uma versão mais recente do ambiente de serviço de aplicação que é mais fácil de usar e é executado numa infraestrutura mais poderosa. Para saber mais sobre o novo início de versão com o [introdução ao ambiente de serviço de aplicações](intro.md).
 > 
 
 ## <a name="overview"></a>Descrição geral
-Um nível elevado, um ambiente de serviço de aplicações do Azure é composta por vários componentes principais:
+Num alto nível, um ambiente de serviço de aplicações do Azure é composta por vários componentes principais:
 
-* Recursos de computação que estão em execução no serviço alojado de ambiente de serviço de aplicações
+* Recursos de computação que estão a executar o serviço de ambiente de serviço de aplicações alojadas
 * Armazenamento
 * Uma base de dados
 * Uma Classic(V1) ou recurso Manager(V2) Azure rede Virtual (VNet) 
 * Uma sub-rede com o serviço de ambiente de serviço de aplicações alojadas em execução no mesmo
 
-### <a name="compute-resources"></a>Recursos de computação
-Utilize os recursos de computação para os agrupamentos de recursos de quatro.  Cada ambiente de serviço de aplicações (ASE) tem um conjunto de front-ends e três conjuntos de trabalho possíveis. Não precisa de utilizar todos os conjuntos de trabalho três – se quiser, apenas pode utilizar um ou dois.
+### <a name="compute-resources"></a>Calcular recursos
+Utilize os recursos de computação para os seus agrupamentos de recursos de quatro.  Cada ambiente de serviço de aplicações (ASE) tem um conjunto de front-ends e três conjuntos de trabalho possíveis. Não precisa de utilizar todos os conjuntos de trabalho de três, se desejar, pode simplesmente usar um ou dois.
 
-Os anfitriões nos agrupamentos de recursos (front-ends e trabalhadores) não estão acessíveis diretamente aos inquilinos. Não é possível utilizar o protocolo RDP (Remote Desktop Protocol) para ligar aos mesmos, altere o respetivo tipo de aprovisionamento ou atuar como um administrador nos mesmos.
+Os anfitriões nos agrupamentos de recursos (front-ends e trabalhos) não estão diretamente acessíveis aos inquilinos. Não é possível utilizar o protocolo RDP (Remote Desktop) para se ligar aos mesmos, altere o seu aprovisionamento ou agir como um administrador nos mesmos.
 
-Pode definir a quantidade de agrupamento de recursos e o tamanho. Está num ASE, terá de quatro opções de tamanho, que são etiquetadas P1 através de P4. Para obter detalhes sobre os tamanhos e os seus preços, consulte [preços do serviço de aplicações](https://azure.microsoft.com/pricing/details/app-service/).
-Alterar a quantidade ou o tamanho é designado por uma operação de escala.  Operação de dimensionamento apenas um pode estar em curso cada vez.
+Pode definir a quantidade de agrupamento de recursos e o tamanho. Num ASE, terá quatro opções de tamanho, que estão identificados como P1 a P4. Para obter detalhes sobre estes tamanhos e seus preços, consulte [preços do serviço de aplicações](https://azure.microsoft.com/pricing/details/app-service/).
+Alterar a quantidade ou o tamanho é chamado de uma operação de dimensionamento.  Operação de dimensionamento apenas uma pode estar em curso, ao mesmo tempo.
 
-**Extremidades do FrontPage**: os front-ends são pontos finais de HTTP/HTTPS para as aplicações que são guardados na sua ASE. Não executar cargas de trabalho nos front-ends.
+**Front-ends**: os front-ends são os pontos finais de HTTP/HTTPS para as suas aplicações que são mantidas no seu ASE. Não executar cargas de trabalho no front-ends.
 
-* ASE começa com dois P2s, que é suficiente para cargas de trabalho de programador/teste e cargas de trabalho de produção de baixo nível. Recomendamos vivamente que P3s para moderada para cargas de trabalho pesadas de produção.
-* Para moderada para cargas de trabalho pesadas de produção, recomendamos que tem, pelo menos, quatro P3s para assegurar que existem suficientes extremidades front-em execução quando ocorre a manutenção agendada. Atividades de manutenção agendada serão apresentada para baixo um front-end cada vez. Esta reduz global capacidade disponível de front-end decorrer das atividades de manutenção.
+* Um ASE é iniciado com dois P2s, que é suficiente para cargas de trabalho de programador/teste e cargas de trabalho de produção de nível baixo. É altamente recomendável P3s para moderada para cargas de trabalho pesadas de produção.
+* Para moderada para cargas de trabalho pesadas de produção, recomendamos que tenha, pelo menos, quatro P3s para garantir que existem suficientes front-ends em execução quando ocorre a manutenção agendada. Atividades de manutenção agendada serão prejudicar um front-end ao mesmo tempo. Isso reduz global capacidade disponível de front-end durante as atividades de manutenção.
 * Front-ends podem demorar até uma hora para aprovisionar. 
-* Para mais fine-tuning escala, deve monitorizar a percentagem de CPU, percentagem de memória e métricas de pedidos ativos para o conjunto de front-end. Se o percentagens de CPU ou memória acima 70 por cento durante a execução P3s, adicione mais extremidades front. Se o valor de pedidos ativos averages para 15 000 para 20.000 pedidos por front-end, deverá ainda adicionar mais extremidades front. O objetivo geral é manter 70% de CPU e memória percentagens abaixo, e de fim de pedidos ativos uma média de para abaixo 15 000 pedidos por frente quando estiver a executar o P3s.  
+* Para Ajustar escala ainda mais, deve monitorar a percentagem de CPU, percentagem de memória e métricas de pedidos ativos para o conjunto de front-end. Se os percentuais de CPU ou memória são acima 70 por cento durante a execução P3s, adicione mais front-ends. Se o valor de pedidos ativos calcula a média 15.000 para 20 000 pedidos por front-end, deverá ainda adicionar mais front-ends. O objetivo geral é manter percentuais de CPU e memória abaixo 70% e pedidos ativos uma média de para abaixo de 15 000 pedidos por front end quando estiver a executar o P3s.  
 
-**Os funcionários**: os trabalhadores são em que efetivamente executam as suas aplicações. Quando dimensionar os planos de serviço de aplicações, que utiliza os funcionários do conjunto de trabalho associados.
+**Os operadores**: os trabalhadores estão onde, na verdade, executam as suas aplicações. Ao aumentar verticalmente os planos de serviço de aplicações, que utiliza funções de trabalho no conjunto de trabalho associados.
 
-* De forma instantânea não é possível adicionar workers. Pode demorar uma hora para aprovisionar.
-* O tamanho de um recurso de computação para qualquer conjunto de dimensionamento irão demorar < 1 hora por domínio de atualização. Existem 20 domínios de atualização está num ASE. Se ampliada o tamanho de computação de um conjunto de trabalho com 10 instâncias, pode demorar até 10 horas a concluir.
-* Se alterar o tamanho dos recursos de computação que são utilizadas num conjunto de trabalho, irá causar arranques das aplicações que estão em execução nesse conjunto de trabalho.
+* Instantaneamente não é possível adicionar funções de trabalho. Poderá demorar até uma hora para aprovisionar.
+* O tamanho de um recurso de computação para qualquer conjunto de dimensionamento irão demorar < 1 hora por domínio de atualização. Há 20 domínios de atualização num ASE. Se aumentado o tamanho de computação de um conjunto de trabalho com 10 instâncias, pode demorar até 10 horas a concluir.
+* Se alterar o tamanho dos recursos de computação que são usados num conjunto de trabalho, fará com que arranques a frio das aplicações que estão em execução nesse agrupamento de trabalho.
 
-A forma mais rápida para alterar o tamanho de recursos de computação de um conjunto de trabalho que não está em execução quaisquer aplicações é:
+É a forma mais rápida para alterar o tamanho do recurso de computação de um conjunto de trabalho que não está a executar todas as aplicações:
 
-* Reduzir verticalmente a quantidade de funcionários 2.  A escala mínimo baixo tamanho no portal é 2. Irá demorar alguns minutos a Desalocação suas instâncias. 
-* Selecione o novo tamanho de computação e o número de instâncias. Aqui, irá demorar até duas horas a concluir.
+* Reduza a quantidade de trabalhos para 2.  O dimensionamento mínimo para baixo de tamanho no portal do é 2. Irá demorar alguns minutos para desalocar as instâncias. 
+* Selecione o novo tamanho de computação e o número de instâncias. A partir daqui, demorará até duas horas a concluir.
 
-Se as aplicações requerem um tamanho de recursos de computação maior, não é possível tirar partido da documentação de orientação anterior. Em vez de alterar o tamanho do conjunto de trabalho que está a alojar essas aplicações, pode preencher o outro conjunto de trabalho com trabalhadores do tamanho pretendido e mova as suas aplicações sobre nesse agrupamento.
+Se as suas aplicações requerem um tamanho de recursos de computação maior, não é possível tirar partido das orientações anteriores. Em vez de alterar o tamanho do conjunto de trabalho que está a alojar as aplicações, pode preencher o outro conjunto de trabalho com funções de trabalho do tamanho desejado e mover as suas aplicações para esse agrupamento.
 
-* Crie as instâncias adicionais do tamanho da computação necessários noutro conjunto de trabalho. Isto irá demorar até uma hora para concluir.
-* Reatribua os planos de serviço de aplicações que alojam as aplicações que necessitam de um tamanho maior para o conjunto de trabalho recentemente configurada. Esta é uma operação rápida que deve demorar menos de um minuto.  
-* Reduzir verticalmente o primeiro conjunto de trabalho se não precisar já essas instâncias não utilizadas. Esta operação demora alguns minutos a concluir.
+* Crie as instâncias adicionais do tamanho de computação necessários no outro conjunto de trabalho. Isto irá demorar até uma hora para concluir.
+* Reatribua seus planos de serviço de aplicações que estão a alojar as aplicações que precisam de um tamanho maior para o conjunto de trabalho recém configurada. Esta é uma operação rápida que deve demorar menos de um minuto para concluir.  
+* Reduza verticalmente o primeiro conjunto de trabalho se não precisa mais essas instâncias não utilizadas. Esta operação demora alguns minutos a concluir.
 
-**Dimensionamento automático**: uma das ferramentas que podem ajudá-lo a gerir o seu consumo de recursos de computação é que o dimensionamento automático. Pode utilizar o dimensionamento automático de front-end ou os conjuntos de trabalho. Pode fazer coisas como aumento as instâncias de qualquer tipo de agrupamento da manhã e reduzir o evening. Ou, talvez, pode adicionar instâncias quando o número de funcionários que estão disponíveis num conjunto de trabalho descerem abaixo de um determinado limiar.
+**Dimensionamento automático**: uma das ferramentas que podem ajudar a gerir o seu consumo de recursos de computação é que o dimensionamento automático. Pode utilizar o dimensionamento automático para front-end ou conjuntos de trabalho. Pode fazer coisas como aumento as instâncias de qualquer tipo de conjunto de manhã e reduzi-lo durante a noite. Ou talvez pode adicionar instâncias quando o número de trabalhos que estão disponíveis num conjunto de trabalhos cai abaixo de um determinado limiar.
 
-Se pretender definir regras de dimensionamento automático à volta de métricas de agrupamento de recursos de computação, em seguida, tenha em atenção o tempo que necessita de aprovisionamento. Para obter mais detalhes sobre o dimensionamento automático ambientes do App Service, consulte [como configurar o dimensionamento automático num ambiente de serviço de aplicações][ASEAutoscale].
+Se pretender definir regras de dimensionamento automático em torno de métricas de conjunto de recursos de computação, em seguida, tenha em mente o tempo que necessita de aprovisionamento. Para obter mais detalhes sobre o dimensionamento automático de ambientes de serviço de aplicações, consulte [como configurar o dimensionamento automático num ambiente de serviço de aplicações][ASEAutoscale].
 
 ### <a name="storage"></a>Armazenamento
-Cada ASE está configurado com 500 GB de armazenamento. Este espaço é utilizado em todas as aplicações a ASE. Este espaço de armazenamento é uma parte de ASE e atualmente não pode ser mudado para utilizar o seu espaço de armazenamento. Se estiver a efetuar ajustes à sua rede virtual encaminhamento ou a segurança, terá de permitir que o acesso ao armazenamento do Azure ou o ASE não pode funcionar.
+Cada ASE está configurado com 500 GB de armazenamento. Este espaço é utilizado em todas as aplicações no ASE. Este espaço de armazenamento é uma parte do ASE e atualmente não pode ser mudado para utilizar o seu espaço de armazenamento. Se estiver a fazer ajustes para o encaminhamento da rede virtual ou a segurança, precisa para ainda permitir acesso ao armazenamento do Azure ou o ASE não funcionará.
 
 ### <a name="database"></a>Base de Dados
-A base de dados mantém as informações que define o ambiente, bem como os detalhes sobre as aplicações que estão em execução dentro da mesma. Isto é demasiado uma parte da subscrição do Azure-contido. Não é um problema que tem uma capacidade para manipular direta. Se estiver a efetuar ajustes à sua rede virtual encaminhamento ou a segurança, é necessário permitir que o acesso ao Azure SQL Server – ou o ASE não pode funcionar.
+A base de dados mantém as informações que definem o ambiente, bem como os detalhes sobre as aplicações que estão em execução dentro da mesma. Isso também é uma parte da subscrição do Azure-mantidos. Não é algo que tem uma capacidade direta para manipular. Se estiver a fazer ajustes para o encaminhamento da rede virtual ou a segurança, precisa para ainda permitir acesso ao SQL Azure – ou o ASE não funcionará.
 
 ### <a name="network"></a>Rede
-A VNet que é utilizada com o ASE pode ser um que introduziu quando criou o ASE ou que efetuou antecedência. Quando criar a sub-rede durante a criação de ASE, força o ASE estar no mesmo grupo de recursos de rede virtual. Se precisar do grupo de recursos utilizado pelo seu ASE ser diferente da VNet, terá de criar a sua ASE utilizando um modelo do resource manager.
+A VNet a que é utilizada com o seu ASE pode ser que fez quando criou o ASE ou um que efetuou antes do tempo. Ao criar a sub-rede durante a criação do ASE, ela força o ASE para estar no mesmo grupo de recursos que a rede virtual. Se precisar do grupo de recursos utilizado pelo seu ASE para ser diferente da sua VNet, em seguida, terá de criar o seu ASE utilizando um modelo do resource manager.
 
-Existem algumas restrições na rede virtual que é utilizado para ASE:
+Existem algumas restrições sobre a rede virtual que é utilizado para um ASE:
 
 * A rede virtual tem de ser uma rede virtual regional.
-* Tem de haver uma sub-rede com 8 ou mais endereços de onde o ASE é implementado.
-* Depois de uma sub-rede é utilizada para alojar ASE, não é possível alterar o intervalo de endereços da sub-rede. Por este motivo, recomendamos que a sub-rede contém, pelo menos, 64 endereços para contemplar qualquer crescimento futuro da ASE.
-* Pode ser mais na sub-rede, mas o ASE nada.
+* Deve haver uma sub-rede com 8 ou mais endereços em que o ASE é implementado.
+* Depois de uma sub-rede é utilizada para alojar um ASE, não é possível alterar o intervalo de endereços da sub-rede. Por esse motivo, recomendamos que a sub-rede contém, pelo menos, 64 endereços para contemplar qualquer crescimento futuro do ASE.
+* Pode haver nada mais na sub-rede, mas o ASE.
 
-Ao contrário do serviço alojado que contém o ASE o [rede virtual] [ virtualnetwork] e sub-rede estão sob o controlo de utilizador.  Pode administrar a sua rede virtual através da IU de rede Virtual ou do PowerShell.  ASE pode ser implementado num clássico ou VNet do Resource Manager.  O portal e as experiências de API são ligeiramente diferentes entre VNets do Resource Manager e o clássico, mas a experiência de ASE é o mesmo.
+Ao contrário do serviço alojado que contém o ASE, o [rede virtual] [ virtualnetwork] e sub-rede estão sob o controle de usuário.  Pode administrar a sua rede virtual através da IU de rede Virtual ou do PowerShell.  Um ASE pode ser implementado num clássico ou VNet do Resource Manager.  O portal e experiências de API são um pouco diferentes entre VNets do Resource Manager e o clássico, mas a experiência de ASE é o mesmo.
 
-A VNet que é utilizada para alojar ASE pode utilizar qualquer um dos endereços RFC1918 IP privados ou pode utilizar endereços IP públicos.  Se pretender utilizar um intervalo IP que não é abrangido por RFC1918 (10.0.0.0/8 172.16.0.0/12, 192.168.0.0/16), em seguida, terá de criar as suas VNet e sub-rede a serem utilizadas pela sua ASE antes da criação de ASE.
+A VNet a que é utilizada para alojar um ASE pode utilizar qualquer um dos endereços RFC1918 IP privados ou pode utilizar endereços IP públicos.  Se pretender utilizar um intervalo IP que não é abrangido por RFC1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), em seguida, precisa para criar a VNet e sub-rede a ser utilizado pelo seu ASE antes da criação do ASE.
 
-Porque esta capacidade coloca o App Service do Azure na sua rede virtual, significa que as aplicações que estão alojadas na sua ASE podem agora aceder aos recursos que são disponibilizados através do ExpressRoute ou de site para site redes privadas virtuais (VPNs) diretamente. As aplicações que estejam dentro do seu ambiente de serviço de aplicações não necessitam de funcionalidades de rede adicionais para aceder aos recursos disponíveis para a rede virtual que está a alojar o ambiente de serviço de aplicações. Isto significa que não é necessário utilizar a integração de VNET ou ligações híbridas para obter a recursos em ou com ligação à sua rede virtual. Pode continuar a utilizar ambas as funcionalidades para aceder a recursos em redes que não estão ligados à sua rede virtual.
+Uma vez que esta capacidade coloca o serviço de aplicações do Azure em sua rede virtual, significa que as suas aplicações alojadas no ASE podem agora aceder a recursos que são disponibilizados através do ExpressRoute ou redes privadas virtuais (VPNs) site a site diretamente. As aplicações que estejam dentro do ambiente de serviço de aplicações não precisam de funcionalidades de rede adicionais para aceder aos recursos disponíveis para a rede virtual que está a alojar o ambiente de serviço de aplicações. Isso significa que não tem de utilizar a integração de VNET ou ligações híbridas para obter a recursos em ou ligados à sua rede virtual. Pode continuar a utilizar ambos esses recursos para aceder a recursos em redes que não estão ligados à sua rede virtual.
 
-Por exemplo, pode utilizar a integração de VNET para integrar com uma rede virtual que está na sua subscrição, mas não está ligada à rede virtual que está a ser o ASE. Ainda também pode utilizar ligações híbridas para aceder a recursos que estão em outras redes, tal como o pode fazer normalmente.  
+Por exemplo, pode utilizar a integração de VNET para integrar com uma rede virtual que está na sua subscrição, mas não está ligada à rede virtual que está a seu ASE. Ainda também pode utilizar as ligações híbridas para aceder aos recursos que estão em outras redes, como pode fazer normalmente.  
 
-Se tiver a rede virtual configurada com uma VPN ExpressRoute, deve ter conhecimento de algumas as necessidades de encaminhamento que tenha ASE. Existem algumas configurações de rota definida pelo utilizador (UDR) que são incompatíveis com ASE. Para obter mais detalhes sobre como executar ASE numa rede virtual com o ExpressRoute, consulte [com um ambiente de serviço de aplicações numa rede virtual com o ExpressRoute][ExpressRoute].
+Se tiver sua rede virtual configurado com uma VPN do ExpressRoute, deve estar ciente de alguns das necessidades de encaminhamento que tenha um ASE. Existem algumas configurações de rota definidas pelo utilizador (UDR) que são incompatíveis com um ASE. Para obter mais detalhes sobre a execução de um ASE numa rede virtual com o ExpressRoute, veja [com um ambiente de serviço de aplicações numa rede virtual com o ExpressRoute][ExpressRoute].
 
 #### <a name="securing-inbound-traffic"></a>Proteger o tráfego de entrada
-Existem dois métodos principais para controlar o tráfego de entrada para a sua ASE.  Pode utilizar Groups(NSGs) de segurança de rede para controlar qual IP endereços podem aceder ao seu ASE conforme descrito aqui [como controlar o tráfego de entrada num ambiente de serviço de aplicações](app-service-app-service-environment-control-inbound-traffic.md) e também pode configurar o seu ASE com um Balancer(ILB) de carga interno.  Estas funcionalidades também podem ser utilizadas em conjunto se pretender restringir o acesso utilizando NSGs para ASE o ILB.
+Existem dois métodos principais para controlar o tráfego de entrada para o seu ASE.  Pode usar Groups(NSGs) de segurança de rede para controlar quais IP endereços podem acessar seu ASE, conforme descrito aqui [como controlar o tráfego de entrada num ambiente de serviço de aplicações](app-service-app-service-environment-control-inbound-traffic.md) e também pode configurar o ASE com um balanceador de carga interno (ILB).  Esses recursos também podem ser usados juntos para restringir o acesso com NSGs para o ASE de ILB.
 
-Quando cria ASE, criará um VIP na sua VNet.  Existem dois tipos de VIP, internos e externos.  Quando cria ASE com um VIP externo as suas aplicações na sua ASE será acessíveis através de um endereço IP encaminhável internet. Quando seleciona interno sua ASE será configurado com um ILB e não será diretamente acessíveis de internet.  ILB ASE ainda necessita de um VIP externo, mas só é utilizado para acesso de gestão e manutenção do Azure.  
+Ao criar um ASE, ele criará um VIP na sua VNet.  Existem dois tipos de VIP, externos e internos.  Quando criar um ASE com um VIP externo, em seguida, as suas aplicações no ASE estará acessíveis por meio de um endereço IP encaminhável da internet. Quando seleciona interno seu ASE será configurado com um ILB e não serão diretamente acessível pela internet.  Um ASE de ILB ainda requer um VIP externo, mas só é utilizado para acesso de gestão e manutenção do Azure.  
 
-Durante a criação do ILB ASE fornecer o subdomínio utilizado pelo ASE ILB e vai ter de gerir os seus próprios DNS para o subdomínio que especificar.  Porque é definir o nome de subdomínio que terá também de gerir o certificado utilizado para acesso HTTPS.  Após a criação de ASE lhe for pedido que forneça o certificado.  Para obter mais informações sobre como criar e utilizar ILB ASE ler [através de um balanceador de carga interno com um ambiente de serviço de aplicações][ILBASE]. 
+Durante a criação do ASE de ILB fornecem o subdomínio utilizado pelo ASE de ILB e terá de gerir o seu próprio DNS para o subdomínio que especificar.  Uma vez que definir o nome de subdomínio que terá também de gerir o certificado utilizado para acesso HTTPS.  Após a criação do ASE lhe for pedido para fornecer o certificado.  Para saber mais sobre como criar e utilizar um ASE de ILB leia [com um balanceador de carga interno com um ambiente de serviço de aplicações][ILBASE]. 
 
 ## <a name="portal"></a>Portal
-Pode gerir e monitorizar o seu ambiente de serviço de aplicações através da IU no portal do Azure. Se tiver ASE, em seguida, é provável que ver o símbolo de serviço de aplicações na sua barra lateral. Este símbolo é utilizado para representar os ambientes de serviço de aplicação no portal do Azure:
+Pode gerir e monitorizar o ambiente de serviço de aplicações através da IU no portal do Azure. Se tiver um ASE, em seguida, é provável que vir o símbolo de serviço de aplicações na sua barra lateral. Esse símbolo é usado para representar os ambientes do serviço de aplicações no portal do Azure:
 
 ![Símbolo de ambiente de serviço de aplicações][1]
 
-Para abrir a IU que lista todos os seus ambientes do App Service, pode utilizar o ícone ou selecione na divisa (">" símbolo) na parte inferior da barra lateral para selecionar os ambientes do App Service. Ao selecionar uma das ASEs listados, abra a IU do que é utilizada para monitorizar e geri-lo.
+Para abrir a interface do Usuário que lista todos os seus ambientes de serviço de aplicações, pode utilizar o ícone ou selecione a divisa (">" símbolo) na parte inferior da barra lateral para selecionar os ambientes de serviço de aplicações. Ao selecionar uma das ASEs listados, abra a interface do Usuário que é utilizado para monitorizar e geri-la.
 
-![IU para monitorizar e gerir o ambiente de serviço de aplicações][2]
+![Interface do Usuário para monitorizar e gerir o ambiente de serviço de aplicações][2]
 
-Este primeiro painel mostra algumas propriedades do seu ASE, juntamente com um gráfico de métrico por agrupamento de recursos. Algumas das propriedades que são apresentadas as **Essentials** bloco também são hiperligações que irão abrir o painel que está associado este. Por exemplo, pode selecionar o **rede Virtual** nome para abrir a IU associada com a rede virtual que está a executar no seu ASE. **Planos do App Service** e **aplicações** Abra cada painéis listam estes itens que estão na sua ASE.  
+Este primeiro painel mostra algumas propriedades do ASE, juntamente com um gráfico de métricas por agrupamento de recursos. Algumas das propriedades que são mostradas na **Essentials** bloco também são hiperligações que irão abrir o painel que está associado ele. Por exemplo, pode selecionar o **rede Virtual** nome para abrir a interface do usuário associadas à rede virtual que está a executar no seu ASE. **Planos do App Service** e **aplicações** cada abra painéis que listam esses itens que estão no seu ASE.  
 
 ### <a name="monitoring"></a>Monitorização
-Os gráficos permitem-lhe ver várias métricas de desempenho em cada agrupamento de recursos. Para o conjunto de front-end, pode monitorizar a média da CPU e memória. Para conjuntos de trabalho, pode monitorizar a quantidade que é utilizada e a quantidade que está disponível.
+Os gráficos permitem-lhe ver várias métricas de desempenho em cada agrupamento de recursos. Para o conjunto de front-end, pode monitorizar a média da CPU e memória. Para os conjuntos de trabalho, pode monitorar a quantidade utilizada e a quantidade disponível.
 
-Serviço de aplicações de vários planos podem tornar a utilização dos trabalhadores de um conjunto de trabalho. A carga de trabalho não é distribuída de forma a mesma como com os servidores front-end, por isso, a utilização da CPU e memória não fornecer muito in the way of informações úteis. É mais importante para controlar quantas trabalhadores que utilizou e estão disponível, especialmente se estiver a gerir este sistema para que outros a utilizar.  
+Serviço de aplicações de vários planos podem tornar a utilização dos operadores num conjunto de trabalho. A carga de trabalho não é distribuída da mesma maneira como com os servidores front-end, por isso, a utilização de CPU e memória não oferecer muito a respeito informações úteis. É mais importante controlar quantas funções de trabalho que utilizou e estão disponíveis, especialmente se estiver a gerir este sistema para utilização de terceiros.  
 
-Também pode utilizar todas as métricas que podem ser controladas nos gráficos para configurar alertas. Como configurar alertas aqui funciona tal como noutro local no App Service. Pode definir um alerta a partir de **alertas** IU parte ou a partir de desagregação em qualquer métricas da IU e selecionando **Adicionar alerta**.
+Também pode utilizar todas as métricas que podem ser controladas nos gráficos para configurar alertas. Configuração de alertas aqui funciona tal como em outro lugar no serviço de aplicações. Pode definir um alerta a partir do **alertas** interface do Usuário parte ou a partir de desagregação em qualquer métrica da interface do Usuário e selecionando **Adicionar alerta**.
 
-![Métricas da IU][3]
+![Métricas da interface do Usuário][3]
 
-As métricas que foram abordadas apenas são as métricas de ambiente de serviço de aplicações. Também existem métricas que estão disponíveis ao nível do plano de serviço de aplicações. Este é onde a monitorização da CPU e memória torna muito sentido.
+As métricas que apenas foram discutidas são as métricas de ambiente de serviço de aplicações. Também existem métricas que estão disponíveis ao nível do plano do serviço de aplicações. Isso é onde a monitorização da CPU e memória faz muito sentido.
 
-Está num ASE, todos os planos de serviço de aplicações são dedicados planos de serviço de aplicações. Isto significa que as únicas aplicações que estão em execução em anfitriões atribuídos a que o plano do App Service são as aplicações que plano de serviço de aplicações. Para ver detalhes sobre o seu plano de serviço de aplicações, trazer o plano de serviço de aplicações de qualquer uma das listas na IU do ASE ou a partir de **planos do App Service/procurar** (que apresenta uma lista de todos eles).   
+Num ASE, todos os planos de serviço de aplicações são planos dedicados do serviço de aplicações. Isso significa que as únicas aplicações que são executados nos anfitriões alocados para que o plano do serviço de aplicações são as aplicações nesse plano do serviço de aplicações. Para ver detalhes sobre o seu plano do serviço de aplicações, traga verticalmente o seu plano do serviço de aplicações a partir de qualquer uma das listas na IU do ASE ou a partir **planos do serviço de aplicações de procurar** (que apresenta uma lista de todos eles).   
 
 ### <a name="settings"></a>Definições
-No painel de ASE, há um **definições** secção que contém várias funcionalidades importantes:
+No painel do ASE, há uma **definições** seção que contém diversos recursos importantes:
 
-**Definições** > **propriedades**: O **definições** painel abre automaticamente quando trazer o seu painel ASE. Na parte superior é **propriedades**. Existem um número de itens de sessão aqui redundante veem no **Essentials**, mas o que é muito útil **endereço IP Virtual**, bem como **saída endereços IP**.
+**As definições** > **propriedades**: O **definições** painel abre automaticamente quando abrir o painel do ASE. Na parte superior é **propriedades**. Existem alguns itens aqui que redundantes para que vê na **Essentials**, mas o que é muito útil é **endereço IP Virtual**, bem como **endereços IP de saída**.
 
 ![Painel de definições e propriedades][4]
 
-**Definições** > **endereços IP**: quando criar uma aplicação de IP Secure Sockets Layer (SSL) no seu ASE, terá um endereço de IP SSL. Para obter um, o ASE tem endereços de IP SSL que lhe pertençam que podem ser atribuídos. Quando é criado ASE, tem um endereço de IP SSL para esta finalidade, mas pode adicionar mais. Há uma cobrança para endereços de SSL de IP adicionais, conforme mostrado no [preços do serviço de aplicações] [ AppServicePricing] (na secção de ligações de SSL). O preço adicional é o preço de SSL de IP.
+**As definições** > **endereços IP**: Quando cria uma aplicação de IP Secure Sockets Layer (SSL) no seu ASE, precisa de um endereço IP SSL. Para obter uma, o ASE tem endereços de IP SSL que ele possui que podem ser alocados. Quando um ASE é criado, ele tem um endereço IP SSL para este fim, mas pode adicionar mais. Existe uma cobrança para endereços de SSL de IP adicionais, conforme mostrado na [preços do serviço de aplicações] [ AppServicePricing] (na secção de ligações SSL). O preço adicional é o preço de SSL de IP.
 
-**Definições** > **conjunto de Front-End** / **conjuntos de trabalho**: cada nestes painéis de agrupamento de recursos oferece a capacidade para ver informações apenas nesse agrupamento de recursos, além de proporcionarem controlos totalmente Dimensionar nesse agrupamento de recursos.  
+**As definições** > **conjunto de Front-End** / **conjuntos de trabalho**: cada um desses painéis de conjunto de recursos oferece a capacidade de ver informações apenas sobre esse pool de recursos, na Além de fornecer controles para dimensionar completamente esse agrupamento de recursos.  
 
-O painel base para cada agrupamento de recursos fornece um gráfico com a métrica para esse agrupamento de recursos. Tal como com os gráficos no painel ASE, pode ir para o gráfico e configurar alertas conforme pretendido. Definir um alerta a partir do painel ASE para um agrupamento de recursos específico efetua a mesma coisa como fazê-lo do agrupamento de recursos. Conjunto de trabalho da **definições** painel, tem acesso a todas as aplicações ou planos de serviço de aplicações que estão em execução neste conjunto de trabalho.
+O painel de base para cada agrupamento de recursos fornece um gráfico com a métrica para esse pool de recursos. Assim como com os gráficos do painel do ASE, pode ir para o gráfico e configurar alertas conforme pretendido. Definir um alerta a partir do painel de ASE para um agrupamento de recursos específico faz a mesma coisa como fazê-lo do agrupamento de recursos. Do conjunto de trabalho **definições** painel, tem acesso a todas as aplicações ou planos de serviço de aplicações que estão a executar este conjunto de trabalho.
 
-![Definições do conjunto de trabalho da IU][5]
+![Definições do conjunto de trabalho da interface do Usuário][5]
 
-### <a name="portal-scale-capabilities"></a>Capacidades de dimensionamento de portal
+### <a name="portal-scale-capabilities"></a>Capacidades de escala de portal
 Existem três operações de dimensionamento:
 
-* Alterar o número de endereços IP a ASE que estão disponíveis para utilização de SSL de IP.
-* Alteração do tamanho do recurso de computação que é utilizado no agrupamento de recursos.
+* Alterar o número de endereços IP no ASE que estão disponíveis para utilização de SSL de IP.
+* Alterar o tamanho do recurso de computação que é utilizado num agrupamento de recursos.
 * Alterar o número de recursos de computação que são utilizados no agrupamento de recursos, manualmente ou através de dimensionamento automático.
 
-No portal, existem três formas de controlar o número de servidores que tenham nos seus conjuntos de recursos:
+No portal, existem três formas de controlar o número de servidores que têm nos seus conjuntos de recursos:
 
-* Uma operação de escala no painel principal ASE na parte superior. Pode efetuar a escala várias alterações de configuração para os conjuntos de front-end e de trabalho. Estas são todos aplicadas como uma única operação.
+* Uma operação de dimensionamento do painel principal do ASE na parte superior. Pode fazer dimensionamento várias alterações de configuração para os conjuntos de front-end e de trabalho. Eles são todos aplicados como uma única operação.
 * Uma operação de dimensionamento manual do agrupamento de recursos individuais **escala** painel, que está sob **definições**.
-* Dimensionamento automático, o que é configurado o agrupamento de recursos individuais **escala** painel.
+* Dimensionamento automático, que configurou do agrupamento de recursos individuais **dimensionamento** painel.
 
-Para utilizar a operação de dimensionamento no painel ASE, arraste o controlo de deslize para a quantidade que pretende e guarda. Este IU também suporta a alteração do tamanho.  
+Para utilizar a operação de dimensionamento no painel do ASE, arraste o controlo de deslize para a quantidade desejado e salvar. Essa interface do Usuário também suporta a alteração do tamanho.  
 
-![Escala da IU][6]
+![Dimensionamento da interface do Usuário][6]
 
-Para utilizar as capacidades de manual ou de dimensionamento automático num agrupamento de recursos específico, aceda a **definições** > **conjunto de Front-End** / **conjuntos de trabalho** conforme adequado. Em seguida, abra o conjunto que pretende alterar. Aceda a **definições** > **aumentar horizontalmente** ou **definições** > **aumentar verticalmente**. O **aumentar horizontalmente** painel permite-lhe controlar a quantidade de instância. **Aumentar verticalmente** permite-lhe controlar o tamanho do recurso.  
+Para utilizar as capacidades de manual ou o dimensionamento automático num agrupamento de recursos específico, aceda a **configurações** > **conjunto de Front-End** / **conjuntos de trabalho** como apropriado. Em seguida, abra o pool de que pretende alterar. Aceda a **configurações** > **aumentar horizontalmente** ou **definições** > **aumentar verticalmente**. O **aumentar horizontalmente** painel permite-lhe controlar a quantidade de instância. **Aumentar verticalmente** permite-lhe controlar o tamanho do recurso.  
 
-![Definições de dimensionamento da IU][7]
+![Definições de dimensionamento da interface do Usuário][7]
 
-## <a name="fault-tolerance-considerations"></a>Considerações de tolerância a falhas
-Pode configurar um ambiente de serviço de aplicação para utilizar até 55 recursos de computação total. Esses 55 de recursos de computação, 50 só pode ser utilizado para alojar cargas de trabalho. O motivo para isto é tem dois objetivos. Não há um mínimo de 2 recursos de computação de front-end.  Que deixa até 53 para suportar a alocação de conjunto de trabalho. Para fornecer tolerância a falhas, tem de ter um recurso de computação adicional que é atribuído, de acordo com as seguintes regras:
+## <a name="fault-tolerance-considerations"></a>Considerações sobre tolerância
+Pode configurar um ambiente de serviço de aplicações para utilizar recursos de computação total até 55. Esses 55 de recursos de computação, 50 só pode ser utilizado para alojar cargas de trabalho. O motivo para isso é duplo. Existe um mínimo de 2 recursos de computação de front-end.  Isso deixa até 53 para suportar a alocação de conjunto de trabalho. Para fornecer tolerância a falhas, tem de ter um recurso de computação adicionais que podem é alocado, de acordo com as seguintes regras:
 
-* Cada conjunto de trabalho tem de, pelo menos, 1 recursos de computação adicional que não estão disponível para ser atribuída uma carga de trabalho.
-* Quando a quantidade de recursos de computação num conjunto de trabalho ultrapassar um determinado valor, é necessário para tolerância a falhas outro recurso de computação. Não é este o caso no conjunto de front-end.
+* Cada conjunto de trabalho tem de, pelo menos, 1 recurso de computação adicionais que não está disponível para ser atribuído uma carga de trabalho.
+* Quando a quantidade de recursos de computação num conjunto de trabalho ultrapassem um determinado valor, em seguida, outro recurso de computação é necessário para a tolerância a falhas. Não é o caso no conjunto de front-end.
 
 Dentro de qualquer conjunto de trabalho único, os requisitos de tolerância a falhas são que para um determinado valor de X recursos atribuídos a um conjunto de trabalho:
 
-* Se X é entre 2 e 20, a quantidade de recursos de computação utilizável que pode utilizar para cargas de trabalho é X-1.
-* Se X for entre 21 e 40, a quantidade de recursos de computação utilizável que pode utilizar para cargas de trabalho é X-2.
-* Se X for entre 41 e 53, a quantidade de recursos de computação utilizável que pode utilizar para cargas de trabalho é X-3.
+* Se X for a entre 2 e 20, a quantidade de recursos de computação utilizável, que pode utilizar para cargas de trabalho é X-1.
+* Se X for entre 21 e 40, a quantidade de recursos de computação utilizável, que pode utilizar para cargas de trabalho é X-2.
+* Se X for entre 41 e 53, a quantidade de recursos de computação utilizável, que pode utilizar para cargas de trabalho é X-3.
 
-Os requisitos de espaço mínimo tem 2 servidores front-end e 2 workers.  Com as instruções acima, em seguida, seguem-se alguns exemplos para esclarecer:  
+Os requisitos mínimos tem 2 servidores de front-end e 2 funções de trabalho.  Com as instruções acima, em seguida, aqui estão alguns exemplos para esclarecer:  
 
-* Se tiver 30 trabalhadores num único conjunto, 28 deles pode ser utilizado para alojar cargas de trabalho.
-* Se tiver 2 trabalhadores num único conjunto, 1 pode ser utilizado para alojar cargas de trabalho.
-* Se tiver 20 trabalhadores num único conjunto, 19 pode ser utilizado para alojar cargas de trabalho.  
-* Se tiver 21 trabalhadores num conjunto único, em seguida, ainda 19 só pode ser utilizado para alojar cargas de trabalho.  
+* Se tiver 30 funcionários num único pool, em seguida, 28 delas pode ser utilizado para alojar cargas de trabalho.
+* Se tiver 2 funções de trabalho num único pool, em seguida, 1 pode ser utilizado para alojar cargas de trabalho.
+* Se tiver 20 funções de trabalho num único pool, em seguida, 19 pode ser utilizado para alojar cargas de trabalho.  
+* Se tiver 21 trabalhadores num único pool, em seguida, ainda 19 apenas pode ser utilizado para alojar cargas de trabalho.  
 
-O aspeto de tolerância a falhas é importante, mas tem de guardá-lo em mente, à medida que acima determinados limiares. Se pretende adicionar mais capacidade que vai da 20 instâncias, em seguida, aceda a 22 ou superior porque 21 não adiciona quaisquer mais capacidade. O mesmo se aplica a vai acima 40, onde o número seguinte que adiciona a capacidade é 42.  
+O aspecto de tolerância é importante, mas precisa ter em mente, à medida que aumenta acima determinados limites. Se pretender adicionar mais capacidade do 20 instâncias, em seguida, aceda a 22 ou superior porque 21 não adiciona quaisquer mais capacidade. O mesmo é verdadeiro vai acima 40, em que o número seguinte que adiciona a capacidade é 42.  
 
 ## <a name="deleting-an-app-service-environment"></a>Eliminar um ambiente de serviço de aplicações
-Se pretender eliminar ambiente de serviço de aplicações, em seguida, basta utilizar o **eliminar** ação na parte superior do painel de ambiente de serviço de aplicações. Ao fazê-lo, será solicitado para introduzir o nome do ambiente de serviço de aplicações para confirmar que pretende realmente fazê-lo. Tenha em atenção que ao eliminar ambiente de serviço de aplicações, elimine todo o conteúdo dentro da mesma bem.  
+Se pretender eliminar um ambiente de serviço de aplicações, em seguida, basta usar o **eliminar** ação na parte superior do painel de ambiente de serviço de aplicações. Ao fazê-lo, será solicitado para introduzir o nome do seu ambiente de serviço de aplicações para confirmar que pretende realmente fazê-lo. Tenha em atenção que ao eliminar um ambiente de serviço de aplicações, elimine todo o conteúdo dentro dele também.  
 
-![Eliminar um ambiente de serviço de aplicações da IU][9]  
+![Eliminar um ambiente de serviço de aplicações da interface do Usuário][9]  
 
 ## <a name="getting-started"></a>Introdução
-Para começar com ambientes do App Service, consulte o artigo [como criar um ambiente de serviço de aplicações](app-service-web-how-to-create-an-app-service-environment.md).
+Para começar a utilizar com ambientes de serviço de aplicações, veja [como criar um ambiente de serviço de aplicações](app-service-web-how-to-create-an-app-service-environment.md).
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
@@ -214,7 +214,7 @@ Para começar com ambientes do App Service, consulte o artigo [como criar um amb
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
 [ILBASE]: app-service-environment-with-internal-load-balancer.md

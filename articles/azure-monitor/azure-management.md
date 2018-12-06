@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: abb57fbfbe883686709335ed80f7fe90f11c0cef
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 29daa447be051af3df86ba9211bc2e4871d8c71e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728366"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965110"
 ---
 # <a name="azure-management---monitoring"></a>Gestão do Azure - Monitorização
 
@@ -37,7 +37,7 @@ As secções seguintes descrevem resumidamente as diferentes áreas de gestão e
 A monitorização é o ato de recolha e análise de dados para determinar o desempenho, o estado de funcionamento e a disponibilidade da sua aplicação empresarial e dos recursos de que esta depende. Uma estratégia de monitorização eficaz irá ajudá-lo a compreender o funcionamento detalhado dos diferentes componentes da sua aplicação e a aumentar o tempo de atividade ao notificá-lo proativamente dos problemas críticos, para que possa resolvê-los antes que se tornem realmente graves. A monitorização no Azure é principalmente fornecida pelo [Azure Monitor](../azure-monitor/overview.md) que fornece os meios comuns para armazenar dados de monitorização, várias origens de dados para a recolha de dados das diferentes camadas que suportam a sua aplicação e funcionalidades para analisar e responder aos dados recolhidos.
 
 ## <a name="configure"></a>Configurar
-Configurar refere-se à implementação inicial e à configuração dos recursos e aplicações e à respetiva manutenção contínua com correções de erros e atualizações.  A automatização destas tarefas através de scripts e políticas permite-lhe eliminar a redundância, minimizar o tempo e esforço que despende e aumentar a precisão e eficiência.  A [Automatização do Azure](..\automation\automation-intro.md) fornece-lhe o conjunto de serviços que lhe permite automatizar as tarefas de configuração.  Para além dos runbooks para a automatização de processos, este serviço fornece a gestão de atualizações e configuração, o que o ajuda a gerir a configuração através de políticas e a identificar e implementar atualizações.
+Configurar refere-se à implementação inicial e à configuração dos recursos e aplicações e à respetiva manutenção contínua com correções de erros e atualizações.  A automatização destas tarefas através de scripts e políticas permite-lhe eliminar a redundância, minimizar o tempo e esforço que despende e aumentar a precisão e eficiência.  A [Automatização do Azure](../automation/automation-intro.md) fornece-lhe o conjunto de serviços que lhe permite automatizar as tarefas de configuração.  Para além dos runbooks para a automatização de processos, este serviço fornece a gestão de atualizações e configuração, o que o ajuda a gerir a configuração através de políticas e a identificar e implementar atualizações.
 
 ## <a name="govern"></a>Governação
 A governação fornece mecanismos e processos para manter o controlo sobre os recursos e aplicações no Azure.  A governação envolve o planeamento das suas iniciativas e a definição de prioridades estratégicas.  A governação no Azure é implementada principalmente com dois serviços.  O [Azure Policy](../governance/policy/overview.md) permite-lhe criar, atribuir e gerir definições de política que impõem diferentes regras e ações aos recursos, para que esses recursos mantenham a conformidade face às normas empresariais e aos contratos de nível de serviço. O [Azure Cost Management da Cloudyn](../cost-management/overview.md) permite-lhe controlar a utilização da cloud e as despesas dos seus recursos do Azure e outros fornecedores de cloud, incluindo AWS e Google.

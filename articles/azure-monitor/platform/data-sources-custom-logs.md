@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 11/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 099fe053f354f2773dfec1d3085c03d83671ed2a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 03c561001999245b55e6e76b02f8916d0b2d619f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833861"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963237"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registos personalizados no Log Analytics
-A origem de dados de registos personalizado no Log Analytics permite-lhe recolher eventos do ficheiros de texto em computadores Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registo padrão, como o registo de eventos do Windows ou Syslog.  Depois de recolhidos, pode analisar cada registo no início de sessão campos individuais utilizando o [campos personalizados](../../log-analytics/log-analytics-custom-fields.md) recurso do Log Analytics.
+A origem de dados de registos personalizado no Log Analytics permite-lhe recolher eventos do ficheiros de texto em computadores Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registo padrão, como o registo de eventos do Windows ou Syslog. Depois de recolhidos, pode analisar os dados em campos individuais em suas consultas ou extrair os dados durante a coleção de campos individuais.
 
 ![Recolha de registos personalizado](media/data-sources-custom-logs/overview.png)
 
@@ -105,13 +105,10 @@ Assim que o Log Analytics começa a recolher de log personalizado, seus registos
 
 > [!NOTE]
 > Se a propriedade de RawData está em falta da pesquisa, terá de fechar e reabrir o browser.
->
->
+
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Passo 6. Analisar as entradas de registo personalizado
-A entrada de registo inteiro será armazenada numa única propriedade chamada **RawData**.  Provavelmente desejará separar as diferentes partes de informações em cada entrada em propriedades individuais, armazenadas no registo.  Faz isso usando o [campos personalizados](../../log-analytics/log-analytics-custom-fields.md) recurso do Log Analytics.
-
-Os passos detalhados para analisar a entrada de registo personalizado não são fornecidos aqui.  Consulte a [campos personalizados](../../log-analytics/log-analytics-custom-fields.md) documentação para obter estas informações.
+A entrada de registo inteiro será armazenada numa única propriedade chamada **RawData**.  Provavelmente desejará separar as diferentes partes de informações em cada entrada em propriedades individuais para cada registo. Consulte a [analisar dados de texto no Log Analytics](../log-query/parse-text.md) para obter as opções na análise **RawData** em várias propriedades.
 
 ## <a name="removing-a-custom-log"></a>Remover um registo personalizado
 Utilize o seguinte processo no portal do Azure para remover um registo personalizado que definiu anteriormente.
@@ -123,7 +120,7 @@ Utilize o seguinte processo no portal do Azure para remover um registo personali
 ## <a name="data-collection"></a>Recolha de dados
 O log Analytics recolherá novas entradas de cada registo personalizado, aproximadamente a cada 5 minutos.  O agente registrará seu lugar em cada arquivo de log recolhidos dos.  Se o agente ficar offline durante um período de tempo, em seguida, do Log Analytics recolherá entradas onde pela última vez parou, mesmo que essas entradas foram criadas, enquanto o agente estava offline.
 
-Todo o conteúdo da entrada de log é gravado numa única propriedade chamada **RawData**.  Pode analisar isso em várias propriedades que podem ser analisadas e pesquisadas separadamente através da definição [campos personalizados](../../log-analytics/log-analytics-custom-fields.md) depois de criar o registo personalizado.
+Todo o conteúdo da entrada de log é gravado numa única propriedade chamada **RawData**.  Ver [analisar dados de texto no Log Analytics](../log-query/parse-text.md) para métodos para analisar cada importados entrada de log em várias propriedades.
 
 ## <a name="custom-log-record-properties"></a>Propriedades de registo de registo personalizado
 Registros de log personalizado tem um tipo com o nome de registo que fornece e as propriedades na tabela seguinte.
@@ -132,18 +129,8 @@ Registros de log personalizado tem um tipo com o nome de registo que fornece e a
 |:--- |:--- |
 | TimeGenerated |Data e hora em que o registo foi recolhido pelo Log Analytics.  Se o registo de utilizar um delimitador baseados no tempo, em seguida, esta é a vez recolhida a partir da entrada. |
 | SourceSystem |Tipo de registo foi recolhido a partir do agente. <br> Ligar OpsManager – agente de Windows, direta ou System Center Operations Manager <br> Linux – todos os agentes do Linux |
-| RawData |Texto completo da entrada recolhido. |
+| RawData |Texto completo da entrada recolhido. Provavelmente vai querer [analisar estes dados em propriedades individuais](../log-query/parse-text.md). |
 | ManagementGroupName |Nome do grupo de gestão para agentes do System Center Operations Manager.  Para outros agentes, é AOI -\<ID da área de trabalho\> |
-
-## <a name="log-searches-with-custom-log-records"></a>Pesquisas de registos com registros de log personalizado
-Registos de registos personalizados são armazenados na área de trabalho do Log Analytics como registos de qualquer outra fonte de dados.  Eles terão um tipo que corresponde ao nome que fornece ao definir o registo de, pelo que pode utilizar o tipo de propriedade na pesquisa para obter registos recolhidos a partir de um registo específico.
-
-A tabela seguinte fornece exemplos diferentes de pesquisas de registos que obtêm registos de registos personalizados.
-
-| Consulta | Descrição |
-|:--- |:--- |
-| MyApp_CL |Todos os eventos a partir de um personalizado MyApp_CL com nome de registo. |
-| MyApp_CL &#124; where Severity_CF=="error" |Todos os eventos a partir de um personalizado MyApp_CL com nome de registo com um valor de *erro* num campo personalizado chamado *Severity_CF*. |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Instruções de exemplo da adição de um registo personalizado
@@ -181,5 +168,5 @@ Podemos usar campos personalizados para definir o *EventTime*, *código*, *estad
 ![Consulta de registo com campos personalizados](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [campos personalizados](../../log-analytics/log-analytics-custom-fields.md) para analisar as entradas no início de sessão personalizada para campos individuais.
-* Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
+* Ver [analisar dados de texto no Log Analytics](../log-query/parse-text.md) para métodos para analisar cada importados entrada de log em várias propriedades.
+* Saiba mais sobre [pesquisas de registos](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.

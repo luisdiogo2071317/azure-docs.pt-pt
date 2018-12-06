@@ -10,18 +10,19 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d999350f309dbd2bf74bbb3d10e74feddf6ee602
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 34583d8052dfd29a3f08187b88c15e3847a4dbb9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642383"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966284"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Recuperação após desastre e distribuição geográfica
 
 ## <a name="overview"></a>Descrição geral
 No Azure Functions durável, todos os Estados são mantidos no armazenamento do Azure. R [hub tarefas](durable-functions-task-hubs.md) é um contentor lógico para os recursos de armazenamento do Azure que são utilizadas para orquestrações. As funções do Orchestrator e atividade só podem interagir entre si quando eles pertencem ao mesmo hub de tarefa.
 Os cenários descritos propor opções de implementação para aumentar a disponibilidade e minimizar o período de indisponibilidade durante as atividades de recuperação após desastre.
+
 É importante observar que esses cenários são com base nas configurações de ativo-passivo, uma vez que eles são orientados pela utilização do armazenamento do Azure. Este padrão consiste na implementação de uma aplicação de cópia de segurança de funções (passivo) para uma região diferente. O Gestor de tráfego irá monitorizar a aplicação de função (Active Directory) principal para disponibilidade. Ocorrerá uma falha ao longo para a aplicação de funções de cópia de segurança se primária falhar. Para obter mais informações, consulte [Gestor de tráfego](https://azure.microsoft.com/services/traffic-manager/)do [o método de encaminhamento de tráfego de prioridade.](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)
 
 

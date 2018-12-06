@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 01a02296354ebe3d60f0e1fda6a6da8554a265fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4c5a4dfcdde91d1bd0c2728ff9d071d4c2f73f0e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239071"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969775"
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Notas de versão do Azure SDK para .NET 2.7 e o .NET 2.7.1
 ## <a name="overview"></a>Descrição geral
@@ -40,7 +40,7 @@ Os aprimoramentos de início de sessão incluídos com o Azure SDK 2.7 só estã
 Atualizado **Mobile Apps** modelos para refletir a mais recente [pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) e o processo de configuração.
 
 ### <a name="service-bus"></a>Service Bus
-Gerais de correções de erros e melhorias. Para obter detalhes sobre atualizações e funcionalidades, consulte as notas de versão da versão mais recente [NuGet do Service Bus](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
+Gerais de correções de erros e melhorias. Para obter detalhes sobre atualizações e funcionalidades, consulte as notas de versão da versão mais recente [NuGet do Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/).
 
 ### <a name="hdinsight-tools"></a>Ferramentas do HDInsight
 Nesta versão, foram efetuadas as seguintes atualizações. Estas atualizações estão em pré-visualização. Para obter mais informações, consulte [este blog](https://go.microsoft.com/fwlink/?LinkId=619108).

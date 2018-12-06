@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ff85f2c9ef708c7cbac9be4933541f063a6c95b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b1b8c660dfd6ea6890a940a97f5ff1ec1617c28d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568595"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963390"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Detalhes de utilização de certificados do Azure IoT Edge
 
@@ -51,7 +51,7 @@ De qualquer forma, o fabricante utiliza um certificado de AC intermediária no f
 
 ### <a name="device-ca-certificate"></a>Certificado de acesso condicional de dispositivo
 
-O certificado de AC do dispositivo é gerado a partir do e assinado pelo certificado de AC intermediário final do processo. Este certificado é instalado no dispositivo de limite, preferencialmente no armazenamento seguro, como um módulo de segurança de hardware (HSM). Além disso, um certificado de AC de dispositivo identifica exclusivamente um dispositivo IoT Edge. Para o IoT Edge, o certificado de AC do dispositivo é capaz de emitir outros certificados. Por exemplo, o certificado do dispositivo AC emite folha certificados de dispositivo que são utilizados para autenticar dispositivos para o [serviço aprovisionamento de dispositivos IoT do Azure](..\iot-dps\about-iot-dps.md).
+O certificado de AC do dispositivo é gerado a partir do e assinado pelo certificado de AC intermediário final do processo. Este certificado é instalado no dispositivo de limite, preferencialmente no armazenamento seguro, como um módulo de segurança de hardware (HSM). Além disso, um certificado de AC de dispositivo identifica exclusivamente um dispositivo IoT Edge. Para o IoT Edge, o certificado de AC do dispositivo é capaz de emitir outros certificados. Por exemplo, o certificado do dispositivo AC emite folha certificados de dispositivo que são utilizados para autenticar dispositivos para o [serviço aprovisionamento de dispositivos IoT do Azure](../iot-dps/about-iot-dps.md).
 
 ### <a name="iot-edge-workload-ca"></a>Carga de trabalho do IoT Edge AC
 

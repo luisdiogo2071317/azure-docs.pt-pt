@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: bd5082d9f66e65bb487c9216131b7e13f825340e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8b43ef81385f1d185fdd63d2a33453c75684fd21
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246655"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969929"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios da API Management
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -38,7 +38,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 ```xml  
 <cross-domain>  
    <!-Policy configuration is in the Adobe cross-domain policy file format,   
-      see http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
+      see https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
 </cross-domain>  
 ```  
   
@@ -56,7 +56,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 |Nome|Descrição|Necessário|  
 |----------|-----------------|--------------|  
-|entre domínios|Elemento raiz. Elementos subordinados têm de cumprir os [especificação do ficheiro de política entre domínios de Adobe](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sim|  
+|entre domínios|Elemento raiz. Elementos subordinados têm de cumprir os [especificação do ficheiro de política entre domínios de Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sim|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  

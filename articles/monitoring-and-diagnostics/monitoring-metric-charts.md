@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: f82b4dff20e2b26e62889c41b3ff3c27bc86066a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d1cfaadd06d20a0f57d75cd43d00040c9e44c429
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901418"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966029"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Monitor do Azure
 
@@ -100,6 +100,21 @@ Pode dividir uma métrica por dimensão para visualizar como diferentes segmento
    > [!NOTE]
    > Utilize a filtragem e agrupamento na mesma dimensão para ocultar os segmentos que são irrelevantes para o seu cenário e facilitam a leitura de gráficos.
 
+## <a name="how-do-i-lock-lower-and-upper-boundaries-of-the-chart-y-axis"></a>Como posso bloquear limites mínimo e máximo do eixo y gráfico?
+
+Bloquear o intervalo do eixo y torna-se importante quando o gráfico mostra o menores flutuações de valores maiores. 
+
+Por exemplo, quando o volume de pedidos com êxito cai de 99,99% a 99,5%, ele pode representar uma redução significativa na qualidade de serviço. No entanto, observar flutuação um pequeno valor numérico seria difícil ou até mesmo impossível as configurações de gráfico do padrão. Em vez disso pode bloquear o limite mais baixo do gráfico para 99%, o que tornaria esta lista pequena mais aparentes. 
+
+Outro exemplo é uma flutuação na memória disponível, onde o valor tecnicamente nunca atingirá 0. Corrigir o intervalo a um valor mais alto pode fazer o cai na memória disponível mais fácil encontrá-las. 
+
+Para controlar o intervalo do eixo y, utilize o "..." menu do gráfico e selecione **editar gráfico** para gráfico definições avançado de acesso. Modificar os valores na secção de intervalo do eixo y ou utilize **automática** botão para reverter para predefinições.
+
+![imagem de métrica](./media/monitoring-metric-charts/0013.png)
+
+> [!WARNING]
+> Bloquear os limites do eixo y os que monitorizam vários gráficos de conta ou soma num período de tempo (e, portanto, contagem de uso, soma, agregações mínimas ou máxima), normalmente, necessita de especificar uma granularidade de tempo fixo, em vez de confiar nas predefinições do automática. Isso é necessário porque os valores em gráficos de alteram quando a granularidade de tempo automaticamente é modificada pelo utilizador redimensionar a janela do browser ou vai da resolução do ecrã. Resultante alterar os efeitos de granularidade de tempo a aparência do gráfico, invalidando a seleção atual de intervalo do eixo y.
+
 ## <a name="how-do-i-pin-charts-to-dashboards"></a>Como posso afixar gráficos nos dashboards?
 
 Depois de configurar os gráficos, pode querer adicioná-lo aos dashboards, para que possa vê-la novamente, possivelmente no contexto de outro telemetria de monitorização, ou partilhar com a sua equipa. 
@@ -108,7 +123,7 @@ Para afixar um gráfico configurado a um dashboard:
 
 Depois de configurar o seu gráfico, clique nas **ações do gráfico** menu no lado direito principais do gráfico e clique em **afixar ao dashboard**.
 
-   ![imagem de métrica](./media/monitoring-metric-charts/0013.png)
+![imagem de métrica](./media/monitoring-metric-charts/0013.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

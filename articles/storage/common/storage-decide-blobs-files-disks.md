@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c7e9c841e7a1d73fcdedd99e210eefb1e52bbf3e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9819b2bf3c5e5a07d788dc7f51b674a07e6c41ef
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498749"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972342"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidindo quando usar os Blobs do Azure, ficheiros do Azure ou discos do Azure
 
@@ -26,7 +26,7 @@ A tabela seguinte compara os ficheiros, Blobs e discos e mostra os cenários de 
 | Funcionalidade | Descrição | Quando utilizar |
 |--------------|-------------|-------------|
 | **Ficheiros do Azure** | Fornece uma interface SMB, bibliotecas de cliente e um [REST interface](/rest/api/storageservices/file-service-rest-api) que permita o acesso em qualquer lugar para ficheiros armazenados. | Pretende "lift- and -shift" uma aplicação para a nuvem que já utiliza as APIs do sistema de arquivo nativo para partilhar dados entre os mesmos e outras aplicações em execução no Azure.<br/><br/>Pretende armazenar o desenvolvimento e ferramentas que precisam de ser acedidos a partir de várias máquinas virtuais de depuração. |
-| **Blobs do Azure** | Dispõe de bibliotecas de cliente e um [REST interface](/rest/api/storageservices/blob-service-rest-api) que permite que os dados não estruturados ser armazenados e acedidos em grande escala nos blobs de blocos. | Pretende que a aplicação para suportar a transmissão em fluxo e os cenários de acesso aleatório.<br/><br/>Quer ser capaz de acessar dados da aplicação de qualquer lugar. |
+| **Blobs do Azure** | Dispõe de bibliotecas de cliente e um [REST interface](/rest/api/storageservices/blob-service-rest-api) que permite que os dados não estruturados ser armazenados e acedidos em grande escala nos blobs de blocos.<br/><br/>Também suporta [geração 2 de armazenamento do Azure Data Lake](../blobs/data-lake-storage-introduction.md) para soluções de análise de grandes volumes de dados empresariais. | Pretende que a aplicação para suportar a transmissão em fluxo e os cenários de acesso aleatório.<br/><br/>Quer ser capaz de acessar dados da aplicação de qualquer lugar.<br/><br/>Pretende compilar um lake de dados empresariais no Azure e realizar análises de macrodados. |
 | **Discos do Azure** | Dispõe de bibliotecas de cliente e um [REST interface](/rest/api/compute/manageddisks/disks/disks-rest-api) que permite que os dados de forma permanente ser armazenados e acedidos a partir de um disco rígido virtual anexado. | Pretende lift- and -shift de aplicações que utilizam APIs de sistema de ficheiros de nativo para ler e gravar dados em discos persistentes.<br/><br/>Deseja armazenar dados que não é necessários seja acessado de fora da máquina virtual à qual o disco está ligado. |
 
 ## <a name="comparison-files-and-blobs"></a>Comparação: Ficheiros e Blobs

@@ -8,12 +8,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 83bbb777f5af6d29736db3b53ca39c449402c78e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: e4a4aa7bb944ec15d4283893c0f3e8c647a1d8b4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977718"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968634"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para tarefas do Azure Stream Analytics
  
@@ -27,7 +27,7 @@ Nível de compatibilidade controla o comportamento de tempo de execução de uma
 
 Certifique-se de que parar a tarefa antes de atualizar o nível de compatibilidade. Não é possível atualizar o nível de compatibilidade, se o seu trabalho está num Estado em execução. 
 
-![Nível de compatibilidade no portal](media\stream-analytics-compatibility-level/image1.png)
+![Nível de compatibilidade no portal](media/stream-analytics-compatibility-level/image1.png)
 
  
 Ao atualizar o nível de compatibilidade, o compilador de T-SQL valida a tarefa com a sintaxe que corresponde ao nível de compatibilidade selecionado. 

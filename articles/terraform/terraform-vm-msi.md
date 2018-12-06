@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 6fef56d780fe664e79f66fa23be526aec71d7e7b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242097"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971169"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual Terraform Linux com identidades geridas para recursos do Azure
 
@@ -37,7 +37,7 @@ Eis os passos para criar uma instância de uma máquina virtual Terraform do Lin
 
 3. No separador de detalhes do Terraform, no canto inferior direito, selecione o botão **Criar**.
 
-    ![Criar uma máquina virtual do Terraform](media\terraformmsi.png)
+    ![Criar uma máquina virtual do Terraform](media/terraformmsi.png)
 
 4. As seguintes secções fornecem informações sobre cada um dos passos no assistente para criar a máquina virtual Terraform do Linux. A secção seguinte lista as informações necessárias para configurar cada passo.
 
@@ -93,7 +93,7 @@ O script anterior utiliza o mecanismo de [início de sessão interativo do AZ CL
 
  Para mais informações sobre a Gestão de Estado Remoto, veja [esta página sobre o estado remoto do Terraform](https://www.terraform.io/docs/state/remote.html). A chave de acesso ao armazenamento está exposta neste ficheiro e tem de ser excluída antes de consolidar os ficheiros de configuração do Terraform no controlo de origem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a configurar uma máquina virtual Terraform do Linux no Azure. Aqui estão alguns recursos adicionais para o ajudar a saber mais acerca do Terraform no Azure: 
 
  [Hub do Terraform no Microsoft.com](https://docs.microsoft.com/azure/terraform/)  

@@ -10,32 +10,33 @@ ms.service: mariadb
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 11/10/2018
-ms.openlocfilehash: 9e8edb2aaeaa116ac71889f7007e435a1a869b7f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 1f17ab167c6487d59ce31106f1bbcffd86a29fd8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516290"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955201"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MariaDB com a CLI do Azure
 
 ## <a name="backup-happens-automatically"></a>Cópia de segurança ocorre automaticamente
+
 Base de dados do Azure para MariaDB servidores são uma cópia de segurança periodicamente para ativar funcionalidades de restauro. Ao utilizar esta funcionalidade pode restaurar o servidor e todas as suas bases de dados para um anterior ponto anterior no tempo, num servidor novo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Para concluir este guia de procedimentos, terá de:
+
 - Um [base de dados do Azure para MariaDB servidor e base de dados](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
- 
 
 > [!IMPORTANT]
 > Este guia de procedimentos é necessário utilizar a CLI do Azure versão 2.0 ou posterior. Para confirmar a versão, no prompt de comando da CLI do Azure, introduza `az --version`. Para instalar ou atualizar, veja [instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="set-backup-configuration"></a>Configuração de conjunto de cópia de segurança
 
-Fazer a escolha entre configurar seu servidor para cópias de segurança localmente redundantes ou cópias de segurança georredundante durante a criação do servidor. 
+Fazer a escolha entre configurar seu servidor para cópias de segurança localmente redundantes ou cópias de segurança georredundante durante a criação do servidor.
 
 > [!NOTE]
 > Depois de criar um servidor, o tipo de redundância tem, vs geograficamente redundantes localmente redundantes, não pode ser mudado.
@@ -58,7 +59,8 @@ O exemplo anterior altera o período de retenção de cópia de segurança de my
 O período de retenção de cópia de segurança controla até que ponto no tempo que pode ser obtido um restauro de ponto no tempo, uma vez que é baseado em cópias de segurança disponíveis. Restauro de ponto no tempo é descrito mais detalhadamente na secção seguinte.
 
 ## <a name="server-point-in-time-restore"></a>Restauro de ponto no tempo do servidor
-Pode restaurar o servidor para um ponto anterior no tempo. Os dados restaurados são copiados para um novo servidor e o servidor existente é deixado como está. Por exemplo, se uma tabela acidentalmente cair no meio-dia hoje em dia, pode restaurar para o tempo, pouco antes do meio-dia. Em seguida, pode obter a tabela em falta e os dados da cópia restaurada do servidor. 
+
+Pode restaurar o servidor para um ponto anterior no tempo. Os dados restaurados são copiados para um novo servidor e o servidor existente é deixado como está. Por exemplo, se uma tabela acidentalmente cair no meio-dia hoje em dia, pode restaurar para o tempo, pouco antes do meio-dia. Em seguida, pode obter a tabela em falta e os dados da cópia restaurada do servidor.
 
 Para restaurar o servidor, utilize a CLI do Azure [restauro do servidor az mariadb](/cli/azure/mariadb/server#az-mariadb-server-restore) comando.
 
@@ -85,6 +87,7 @@ A localização e valores de escalão de preço para o servidor restaurado perma
 Depois do processo de restauro estar concluído, localize o novo servidor e certifique-se de que os dados são restaurados conforme esperado.
 
 ## <a name="geo-restore"></a>Restauro geográfico
+
 Se tiver configurado o seu servidor para cópias de segurança georredundante, um novo servidor de pode ser criado da cópia de segurança desse servidor existente. Este novo servidor de pode ser criado em qualquer região que a base de dados do Azure para MariaDB está disponível.  
 
 Para criar um servidor utilizando uma cópia de segurança com redundância geográfica, utilize a CLI do Azure `az mariadb server georestore` comando.
@@ -96,8 +99,9 @@ Para criar um servidor utilizando uma cópia de segurança com redundância geog
 A geo restaurar o servidor, no prompt de comando da CLI do Azure, introduza o seguinte comando:
 
 ```azurecli-interactive
-az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
+az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8
 ```
+
 Este comando cria um novo servidor chamado *mydemoserver georestored* na região E.U.A. Leste que irão pertencer ao *myresourcegroup*. É para fins gerais, servidor de geração 5 com 8 vCores. O servidor é criado a partir da cópia de segurança georredundante de *mydemoserver*, que também se encontra no grupo de recursos *myresourcegroup*
 
 Se quiser criar o novo servidor no grupo de recursos diferente do servidor existente, em seguida, no `--source-server` parâmetro seria qualificar o nome do servidor como no exemplo seguinte:
@@ -116,12 +120,12 @@ O `az mariadb server georestore` comando requer os seguintes parâmetros:
 |localização | eualeste | A localização do novo servidor. |
 |sku-name| GP_Gen5_8 | Este parâmetro define o escalão de preço, a geração de computação e o número de vCores do novo servidor. GP_Gen5_8 mapeia para fins gerais, servidor de geração 5 com 8 vCores.|
 
-
 >[!Important]
 >Ao criar um novo servidor por um restauro geográfico, ele herda o mesmo tamanho de armazenamento e o escalão de preço que o servidor de origem. Não não possível alterar estes valores durante a criação. Depois de criar o novo servidor, o tamanho de armazenamento pode ser aumentado.
 
 Depois do processo de restauro estar concluído, localize o novo servidor e certifique-se de que os dados são restaurados conforme esperado.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 - Saiba mais sobre o serviço [cópias de segurança](concepts-backup.md).
 - Saiba mais sobre [continuidade do negócio](concepts-business-continuity.md) opções.

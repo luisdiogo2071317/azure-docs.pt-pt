@@ -1,25 +1,20 @@
 ---
-title: Script do Azure PowerShell - Regenerar chave da conta do Azure Cosmos DB | Microsoft Docs
+title: Chave da conta do Azure PowerShell-regenerar de Script do Azure Cosmos DB
 description: Exemplo do Script do Azure PowerShell - Regenerar chave da conta do Azure Cosmos DB
 services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
 ms.service: cosmos-db
+author: SnehaGunda
+ms.author: sngun
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/10/2017
-ms.author: sngun
-ms.openlocfilehash: bf3ad12b34641f597fcf0f762d63b6d6fce8dc4f
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: HT
+ms.openlocfilehash: b06d95ada39a544b02409cacd333c3c2583ebdda
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41919536"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965194"
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-powershell"></a>Regenerar uma chave da conta do Azure Cosmos DB com o Azure PowerShell
 
@@ -51,7 +46,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

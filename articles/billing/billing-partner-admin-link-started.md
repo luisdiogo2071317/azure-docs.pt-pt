@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a0dad228f23b055d68009eb737e0347ade49e94b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274184"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968053"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>ID de parceiro de ligação para suas contas do Azure
 
@@ -30,7 +30,7 @@ Antes de ligar o seu ID de parceiro, seu cliente tem de dar acesso aos seus recu
 
 - **Utilizador convidado:** seu cliente pode adicioná-lo como um utilizador convidado e atribuir a todas as funções RBAC. Para obter mais informações, consulte [adicionar utilizadores convidados a partir de outro diretório](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Conta de diretório:** seu cliente pode criar um novo utilizador da sua organização em seu diretório e atribuir qualquer função RBAC.
+- **Conta de diretório:** seu cliente pode criar uma conta de utilizador para si no seu próprio diretório e atribuir qualquer função RBAC.
 
 - **Principal de serviço:** seu cliente pode adicionar uma aplicação ou script da sua organização em seu diretório e atribuir qualquer função RBAC. A identidade da aplicação ou script é conhecida como principal de serviço.
 

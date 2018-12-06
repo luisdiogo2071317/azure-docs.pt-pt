@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
-ms.openlocfilehash: 12611c9a4016b634cb865bbf609b1c7a6961abb7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b73739ca6d392af191d1a51eca2d646a8a5cd4c4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155070"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955077"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver erros de diretório sem correspondência para domínios geridos existentes do Azure AD Domain Services
 Tem um domínio gerido do Azure AD Domain Services existente. Quando navegar para o portal do Azure e ver o domínio gerido, verá a seguinte mensagem de erro:
 
-![Erro de diretório sem correspondência](.\media\getting-started\mismatched-tenant-error.png)
+![Erro de diretório sem correspondência](./media/getting-started/mismatched-tenant-error.png)
 
 Não é possível administrar este domínio gerido até que o erro seja resolvido.
 

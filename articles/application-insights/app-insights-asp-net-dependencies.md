@@ -10,19 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 12/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 767497a6ced0eb54559b9bdd10761b659e32a33f
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 034e611f6ea95675dc3169feefe1916a81c50943
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681029"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972376"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: controlo de dependência
 R *dependência* é um componente externo que é chamado pela sua aplicação. Normalmente, é um serviço chamado através de HTTP, ou uma base de dados ou um sistema de ficheiros. [O Application Insights](app-insights-overview.md) mede o tempo que o aplicativo aguardará dependências e a frequência com que uma chamada de dependência falha. Pode investigar chamadas específicas e estão relacionadas com pedidos e exceções.
-
-![gráficos de exemplo](./media/app-insights-asp-net-dependencies/10-intro.png)
 
 O monitor de dependência de out-of-the-box relatórios atualmente chamadas para esses tipos de dependências:
 
@@ -30,13 +28,16 @@ O monitor de dependência de out-of-the-box relatórios atualmente chamadas para
   * Bases de dados SQL
   * ASP.NET web e serviços do WCF que usar associações com base em HTTP
   * Chamadas HTTP locais ou remotas
-  * Azure Cosmos DB, tabela, armazenamento de BLOBs e filas
+  * Azure Cosmos DB, tabela, armazenamento de BLOBs e filas 
 * Páginas Web
   * Chamadas AJAX
 
 A monitorização funciona utilizando [instrumentação de código de byte](https://msdn.microsoft.com/library/z9z62c29.aspx) em torno de métodos selecionados. Sobrecarga de desempenho é mínima.
 
 Também pode escrever suas próprias chamadas SDK para monitorizar outras dependências, ambos no código de cliente e servidor, utilizando o [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+
+> [!NOTE]
+> O Azure Cosmos DB é controlado automaticamente apenas se [HTTP/HTTPS](../cosmos-db/performance-tips.md#networking) é utilizado. Modo TCP não ser capturado pelo Application Insights.
 
 ## <a name="set-up-dependency-monitoring"></a>Configurar a monitorização de dependência
 Informações de dependência parciais são recolhidas automaticamente pelos [SDK do Application Insights](app-insights-asp-net.md). Para obter dados completos, instale o agente adequado para o servidor de anfitrião.

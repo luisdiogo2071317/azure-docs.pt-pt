@@ -2,18 +2,18 @@
 title: Fazer backup de servidores de VMware no servidor de cópia de segurança do Azure
 description: Utilize o servidor de cópia de segurança do Azure para criar cópias de segurança um servidores vCenter/ESXi do VMware para o Azure ou o disco. Este artigo fornece passo = instruções passo a passo para a cópia de segurança (ou proteger) suas cargas de trabalho do VMware.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.openlocfilehash: ce7b255359c076ddae642ed44f056e444b655e25
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e39e5d12610164ca4a1372830cf25ea203fd382c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216415"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968839"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Criar cópias de segurança um servidor VMware para o Azure
 
@@ -55,7 +55,7 @@ Para corrigir este problema e criar uma ligação segura, transfira os certifica
 4. Com o botão direito **download.zip**e, em seguida, selecione **extrair tudo** para extrair o conteúdo.
 
     O ficheiro. zip extrai os respetivos conteúdos para uma pasta denominada **certificados**. São apresentados dois tipos de ficheiros na pasta de certificados. O ficheiro de certificado de raiz tem uma extensão que começa com uma sequência numerada como.0 e.1.
-    
+
     O ficheiro CRL tem uma extensão que começa com uma seqüência como .r0 ou .r1. O ficheiro CRL está associado um certificado.
 
     ![Transferir ficheiro extraído localmente ](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
@@ -249,7 +249,7 @@ Antes de adicionar o servidor VMware para o servidor de cópia de segurança do 
     ![Caixa de diálogo Adicionar credencial do servidor de cópia de segurança do Azure](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
     Clique em **adicionar** para adicionar a nova credencial ao servidor de cópia de segurança do Azure. A nova credencial aparece na lista na **gerir credenciais** caixa de diálogo.
-    
+
     ![Caixa de diálogo de credenciais de gerir o servidor de cópia de segurança do Azure](./media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 5. Para fechar a **gerir credenciais** caixa de diálogo, clique nas **X** no canto superior direito.
@@ -271,7 +271,7 @@ Para abrir o Assistente de adição do servidor de produção, execute o seguint
 
 2. Sobre o **tipo de selecionar o servidor de produção** , selecione **servidores VMware**e, em seguida, clique em **seguinte**.
 
-3. Na **servidor de nome/endereço IP**, especifique o nome de domínio completamente qualificado (FQDN) ou o endereço IP do servidor VMware. Se todos os servidores do ESXi são geridos pelo mesmo vCenter, pode utilizar o nome do vCenter.
+3. Na **servidor de nome/endereço IP**, especifique o nome de domínio completamente qualificado (FQDN) ou o endereço IP do servidor VMware (o servidor anfitrião ESXi). Se todos os servidores do ESXi são geridos pelo mesmo vCenter, pode utilizar o nome do vCenter.
 
     ![Especifique o endereço IP ou FQDN do servidor de VMware](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 

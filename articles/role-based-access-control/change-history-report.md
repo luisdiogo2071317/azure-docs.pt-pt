@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62389edabb6d510fa1294affeb8e874efd18fc06
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678428"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967900"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Ver registos de atividade para alterações RBAC
 
@@ -117,7 +117,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 Aqui estão as etapas básicas para começar a utilizar:
 
-1. [Criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+1. [Criar uma área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. [Configurar a solução Log Analytics da atividade](../azure-monitor/platform/collect-activity-logs.md#configuration) sua área de trabalho.
 
@@ -125,7 +125,7 @@ Aqui estão as etapas básicas para começar a utilizar:
 
    ![Opção de análise de registo no portal](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Opcionalmente, utilize o [pesquisa de registos](../log-analytics/log-analytics-log-search.md) página ou o [portal da análise avançada](../log-analytics/query-language/get-started-analytics-portal.md) para consultar e ver os registos. Para obter mais informações sobre estas duas opções, consulte [página de pesquisa de registos ou o portal da análise avançada](../log-analytics/log-analytics-log-search-portals.md).
+1. Opcionalmente, utilize o [pesquisa de registos](../log-analytics/log-analytics-log-search.md) página ou o [portal da análise avançada](../azure-monitor/log-query/get-started-portal.md) para consultar e ver os registos. Para obter mais informações sobre estas duas opções, consulte [página de pesquisa de registos ou o portal da análise avançada](../azure-monitor/log-query/portals.md).
 
 Eis uma consulta que retorna as novas atribuições de função organizadas pelo fornecedor de recursos de destino:
 

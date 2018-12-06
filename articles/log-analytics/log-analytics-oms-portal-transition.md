@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 5010426db97a9cd404d265d1ea9b319877eda1de
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4dde0663c6db4187cd4728dd88b808fc22b66708
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723963"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964174"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS para o Azure
 
@@ -71,7 +71,7 @@ Em ambos os casos, o administrador tem de atribuir manualmente a função adequa
  
 
 ## <a name="new-workspaces"></a>Novas áreas de trabalho
-Já não estão a ser capaz de criar novas áreas de trabalho através do portal do OMS. Siga as orientações no [criar uma área de trabalho do Log Analytics no portal do Azure](log-analytics-quick-create-workspace.md) para criar uma nova área de trabalho no portal do Azure.
+Já não estão a ser capaz de criar novas áreas de trabalho através do portal do OMS. Siga as orientações no [criar uma área de trabalho do Log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md) para criar uma nova área de trabalho no portal do Azure.
 
 ## <a name="changes-to-alerts"></a>Alterações para alertas
 
@@ -93,7 +93,7 @@ A aplicação móvel do OMS será sunsetted, juntamente com o portal do OMS. Em 
 ## <a name="application-insights-connector-and-solution"></a>Conector do Application Insights e solução
 [Conector do Application Insights](../azure-monitor/platform/app-insights-connector.md) fornece uma forma de trazer dados do Application Insights para uma área de trabalho do Log Analytics. Essa duplicação de dados era necessária para ativar a visibilidade em todos os dados de infraestrutura e a aplicação.
 
-Com o apoio da [consultas entre recursos](log-analytics-cross-workspace-search.md), já não existe essa necessidade de duplicar os dados. Como tal, a solução existente do Application Insights vai ser preterida. A partir de Outubro, não será capaz de ligar os novos recursos do Application Insights a áreas de trabalho do Log Analytics. Ligações existentes e dashboards vão continuar a funcionar até 15 de Janeiro de 2019.
+Com o apoio da [consultas entre recursos](../azure-monitor/log-query/cross-workspace-query.md), já não existe essa necessidade de duplicar os dados. Como tal, a solução existente do Application Insights vai ser preterida. A partir de Outubro, não será capaz de ligar os novos recursos do Application Insights a áreas de trabalho do Log Analytics. Ligações existentes e dashboards vão continuar a funcionar até 15 de Janeiro de 2019.
 
 
 ## <a name="azure-network-security-group-analytics"></a>Análise do Grupo de Segurança de Rede do Azure
@@ -111,7 +111,7 @@ Esta solução analisa os registos de fluxo de NSG e fornece informações sobre
 Pode continuar a confiar em definições de diagnóstico para enviar registos NSG para o Log Analytics, para que os já existentes guardar pesquisas, alertas, dashboards continuarão a funcionar. Os clientes que já tenham instalado a solução podem continuar a utilizá-lo até aviso prévio. A partir 5 de Setembro, a solução de análise do grupo de segurança de rede será removida do marketplace e disponibilizada por meio da Comunidade como um [modelo de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights).
 
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
-Se tiver [ligado o grupo de gestão do Operations Manager ao Log Analytics](log-analytics-om-agents.md), em seguida, irá continuar a trabalhar sem alterações. Em novas ligações no entanto, tem de seguir as orientações no [Microsoft System Center Operations Manager Management Pack para configurar o Operations Management Suite](https://blogs.technet.microsoft.com/momteam/2018/07/25/microsoft-system-center-operations-manager-management-pack-to-configure-operations-management-suite/).
+Se tiver [ligado o grupo de gestão do Operations Manager ao Log Analytics](../azure-monitor/platform/om-agents.md), em seguida, irá continuar a trabalhar sem alterações. Em novas ligações no entanto, tem de seguir as orientações no [Microsoft System Center Operations Manager Management Pack para configurar o Operations Management Suite](https://blogs.technet.microsoft.com/momteam/2018/07/25/microsoft-system-center-operations-manager-management-pack-to-configure-operations-management-suite/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Ver [perguntas comuns para a transição do portal do OMS para o portal do Azure para utilizadores do Log Analytics](log-analytics-oms-portal-faq.md) para obter orientações sobre a mudança do portal do OMS para o portal do Azure.

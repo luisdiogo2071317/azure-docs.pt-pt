@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 6796ecd272c7a1ed1d29c89fbe06c87dc2d4601b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 87d2ebcf6a12f51775b15e906ea7813962e3630f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242811"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965381"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -78,7 +78,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 
 |Nome|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
-|Aplicam-se|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> Aplique - sempre - sempre a conversão.<br />converter o - json de tipo de conteúdo - apenas se o cabeçalho de resposta Content-Type indica a presença de JSON.|Sim|N/A|
+|aplicar|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> Aplique - sempre - sempre a conversão.<br />converter o - json de tipo de conteúdo - apenas se o cabeçalho de resposta Content-Type indica a presença de JSON.|Sim|N/A|
 |Considere-aceitar-cabeçalho|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> aplica - verdadeiro - conversão se JSON é solicitado no pedido. o cabeçalho Accept.<br />-FALSO - aplique sempre conversão.|Não|true|
 |data de análise|Quando definido como `false` valores de data simplesmente são copiados durante a transformação|Não|true|
 
@@ -123,7 +123,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |Nome|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |tipo|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> javascript-amigável - o JSON convertido tem uma forma amigável aos desenvolvedores JavaScript.<br />-direto - o JSON convertido reflete a estrutura do documento XML original.|Sim|N/A|
-|Aplicam-se|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> -sempre - converta sempre.<br />converter o-conteúdo tipo-xml - apenas se o cabeçalho de resposta Content-Type indica a presença de XML.|Sim|N/A|
+|aplicar|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> -sempre - converta sempre.<br />converter o-conteúdo tipo-xml - apenas se o cabeçalho de resposta Content-Type indica a presença de XML.|Sim|N/A|
 |Considere-aceitar-cabeçalho|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> aplica - verdadeiro - conversão se XML é solicitado no pedido. o cabeçalho Accept.<br />-FALSO - aplique sempre conversão.|Não|true|
 
 ### <a name="usage"></a>Utilização
@@ -708,8 +708,8 @@ OriginalUrl.
 |Nome|Descrição|Necessário|
 |----------|-----------------|--------------|
 |transformação XSL|Elemento raiz.|Sim|
-|Parâmetro|Utilizado para definir variáveis usadas na transformação|Não|
-|xsl:stylesheet|Elemento de folha de estilo de raiz. Todos os elementos e atributos definidos no siga o padrão [especificação XSLT](http://www.w3.org/TR/xslt)|Sim|
+|parâmetro|Utilizado para definir variáveis usadas na transformação|Não|
+|xsl:stylesheet|Elemento de folha de estilo de raiz. Todos os elementos e atributos definidos no siga o padrão [especificação XSLT](https://www.w3.org/TR/xslt)|Sim|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
