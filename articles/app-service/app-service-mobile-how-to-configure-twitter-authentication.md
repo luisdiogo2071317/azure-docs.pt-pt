@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 717772a65d14620547e824d993b5acfe5e259519
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 42d857fe712658ca3c17d824d061742cf7195e39
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250905"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967356"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Como configurar a sua aplicação de serviço de aplicações para utilizar o início de sessão do Twitter
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -64,6 +64,6 @@ Agora está pronto para utilizar o Twitter para autenticação na sua aplicaçã
 
 <!-- URLs. -->
 
-[Os desenvolvedores do twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[Os desenvolvedores do twitter]: https://go.microsoft.com/fwlink/p/?LinkId=268300
 [Portal do Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

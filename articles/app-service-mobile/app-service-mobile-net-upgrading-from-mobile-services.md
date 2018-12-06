@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 2d346739cd2e80546aee921317e278c1cff32b34
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4fd896e3b26ae66621ba49d1bb8a5d86c0dd63ee
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873143"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963271"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Atualizar o seu serviço móvel do Azure de .NET existente para o serviço de aplicações
 Serviço de aplicações móveis é uma nova forma de compilação de aplicações móveis com o Microsoft Azure. Para obter mais informações, consulte [O que são Aplicações Móveis?].
@@ -204,7 +204,7 @@ public class TodoItem : ITableData
 Nota: Se obtiver erros no `NotMapped`, adicione uma referência ao assembly `System.ComponentModel.DataAnnotations`.
 
 ### <a name="cors"></a>CORS
-Os serviços móveis incluído algum suporte para CORS, envolvendo a solução de CORS do ASP.NET. Esta camada de encapsulamento de aplicações foi removida para dar mais controle, o desenvolvedor de forma que possa aproveitar diretamente [suporte de CORS do ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
+Os serviços móveis incluído algum suporte para CORS, envolvendo a solução de CORS do ASP.NET. Esta camada de encapsulamento de aplicações foi removida para dar mais controle, o desenvolvedor de forma que possa aproveitar diretamente [suporte de CORS do ASP.NET](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
 As principais áreas de preocupação se utilizando a CORS são que o `eTag` e `Location` cabeçalhos têm de ser permitidos por ordem para os SDKs do cliente para funcionar corretamente.
 
@@ -282,7 +282,7 @@ Quando tiver a nova versão de cliente pronta, faça um teste em relação a seu
 [Portal do Azure]: https://portal.azure.com/
 [Portal Clássico do Azure]: https://manage.windowsazure.com/
 [O que são Aplicações Móveis?]: app-service-mobile-value-prop.md
-[SDK do servidor de aplicações móveis]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[SDK do servidor de aplicações móveis]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /azure/scheduler/
 [Webjob]: https://github.com/Azure/azure-webjobs-sdk/wiki

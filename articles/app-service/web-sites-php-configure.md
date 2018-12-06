@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 1e5f7ed2fb4c77e0a738cbe6ee6c84b46bc59bb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f9e863146b78fa510ea6f5b6eb9b3aa0fc4ce926
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230840"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965791"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurar o PHP em aplicações Web do serviço de aplicações do Azure
 
@@ -148,7 +148,7 @@ As extensões de Zend também são suportadas ao utilizar um **PHP_ZENDEXTENSION
 
 Em vez do runtime PHP predefinido, o App Service Web Apps pode utilizar um tempo de execução do PHP por si para executar scripts PHP. O tempo de execução que fornecer pode ser configurado por um `php.ini` arquivo que também fornecer. Para utilizar um runtime PHP personalizado com as aplicações Web, seguindo estes passos.
 
-1. Obter um não-thread-safe, VC9 ou VC11 versão compatível do PHP para Windows. Versões recentes do PHP para Windows podem ser encontradas aqui: [ http://windows.php.net/download/ ]. Versões mais antigas podem ser encontradas no arquivo morto aqui: [ http://windows.php.net/downloads/releases/archives/ ].
+1. Obter um não-thread-safe, VC9 ou VC11 versão compatível do PHP para Windows. Versões recentes do PHP para Windows podem ser encontradas aqui: [ https://windows.php.net/download/ ]. Versões mais antigas podem ser encontradas no arquivo morto aqui: [ https://windows.php.net/downloads/releases/archives/ ].
 1. Modificar o `php.ini` ficheiro para o runtime. As definições de configuração que são as diretivas de sistema de nível-só são ignoradas pelos aplicativos Web. (Para obter informações sobre as diretivas de sistema de nível-só, consulte [lista de diretivas de PHP. ini]).
 1. Opcionalmente, adicionar extensões ao seu tempo de execução do PHP e ativá-los no `php.ini` ficheiro.
 1. Adicionar uma `bin` diretório para o seu diretório de raiz e put o diretório que contém o runtime PHP no mesmo (por exemplo, `bin\php`).
@@ -196,7 +196,7 @@ Para obter mais informações, consulte a [Centro de programadores PHP](https://
 >
 
 [avaliação gratuita]: https://www.windowsazure.com/pricing/free-trial/
-[phpinfo()]: http://php.net/manual/en/function.phpinfo.php
+[phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [Lista de diretivas de PHP. ini]: http://www.php.net/manual/en/ini.list.php
 [. user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
@@ -206,8 +206,8 @@ Para obter mais informações, consulte a [Centro de programadores PHP](https://
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [php-extensions]: ./media/web-sites-php-configure/php-extensions.png
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[http://windows.php.net/download/]: http://windows.php.net/download/
-[http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
+[https://windows.php.net/download/]: https://windows.php.net/download/
+[https://windows.php.net/downloads/releases/archives/]: https://windows.php.net/downloads/releases/archives/
 [SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png

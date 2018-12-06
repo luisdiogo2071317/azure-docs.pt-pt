@@ -13,18 +13,18 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 0de561b177a1474b0ce4f0f203803e8265db5e7a
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 8eef75a6e1f4f05aa6d7ce8f9e6fdda52162d0bc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818351"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960724"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Como uso iOS biblioteca de cliente para aplicações móveis do Azure
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-Este guia ensina-lhe executar tarefas comuns com a versão mais recente [SDK iOS do Mobile Apps do Azure][1]. Se estiver familiarizado com aplicações móveis do Azure, primeiro conclua [do Azure Mobile Apps início rápido] para criar um back-end, criar uma tabela e transfira um projeto do Xcode iOS criados previamente. Neste guia, vamos nos concentrar no SDK do iOS do lado do cliente. Para saber mais sobre o SDK do lado do servidor para o back-end, consulte o HOWTOs de SDK do servidor.
+Este guia ensina-lhe executar tarefas comuns com a versão mais recente [SDK iOS do Mobile Apps do Azure][1]. Se estiver familiarizado com aplicações móveis do Azure, primeiro conclua [Início rápido de aplicações móveis do Azure] para criar um back-end, criar uma tabela e transfira um projeto do Xcode iOS criados previamente. Neste guia, vamos nos concentrar no SDK do iOS do lado do cliente. Para saber mais sobre o SDK do lado do servidor para o back-end, consulte o HOWTOs de SDK do servidor.
 
 ## <a name="reference-documentation"></a>Documentação de referência
 
@@ -715,7 +715,7 @@ Pode utilizar o SDK do Facebook para iOS para inscrever-se os utilizadores na su
 Pode utilizar recursos de infraestrutura para iOS para inscrever-se os utilizadores na sua aplicação utilizando o Twitter. Autenticação de fluxo de cliente é preferível a utilizar o `loginWithProvider:completion:` método, como ele fornece uma noção da experiência do Usuário mais nativa e permite a personalização adicional.
 
 1. Configurar o seu back-end de aplicação móvel para início de sessão no Twitter ao seguir a [como configurar o serviço de aplicações para início de sessão do Twitter](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) tutorial.
-2. Adicionar recursos de infraestrutura ao seu projeto ao seguir a [recursos de infraestrutura para iOS - introdução ao] documentação e a configuração TwitterKit.
+2. Adicionar recursos de infraestrutura ao seu projeto ao seguir a [Recursos de infraestrutura para iOS - introdução] documentação e a configuração TwitterKit.
 
    > [!NOTE]
    > Por predefinição, os recursos de infraestrutura cria um aplicativo do Twitter para. Pode evitar a criação de um aplicativo registrando-se a chave de consumidor e o segredo de consumidor que criou anteriormente com os seguintes fragmentos de código.    Em alternativa, pode substituir os valores de chave de consumidor e o segredo de consumidor que fornecem ao serviço de aplicações com os valores que pode ver na [Dashboard de recursos de infraestrutura]. Se escolher esta opção, certifique-se de que definir o URL de retorno de chamada para um valor de marcador de posição, tal como `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
@@ -890,7 +890,7 @@ Pode utilizar o SDK de início de sessão do Google para iOS para inscrever-se o
 <!-- Images. -->
 
 <!-- URLs. -->
-[do Azure Mobile Apps início rápido]: app-service-mobile-ios-get-started.md
+[Início rápido de aplicações móveis do Azure]: app-service-mobile-ios-get-started.md
 
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
@@ -899,26 +899,26 @@ Pode utilizar o SDK de início de sessão do Google para iOS para inscrever-se o
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
 [Portal do Azure]: https://portal.azure.com/
-[Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
-[Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
+[Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
+[Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
+[Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
 [Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[Esquema dinâmico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
+[Esquema dinâmico]: https://go.microsoft.com/fwlink/p/?LinkId=296271
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
-[NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
-[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[Create a table]: https://msdn.microsoft.com/library/windowsazure/jj193162.aspx
+[NSDictionary object]: https://go.microsoft.com/fwlink/p/?LinkId=301965
+[ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [Dashboard de recursos de infraestrutura]: https://www.fabric.io/home
-[recursos de infraestrutura para iOS - introdução ao]: https://docs.fabric.io/ios/fabric/getting-started.html
+[Recursos de infraestrutura para iOS - introdução]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
-[2]: http://azure.github.io/azure-mobile-apps-ios-client/
+[2]: https://azure.github.io/azure-mobile-apps-ios-client/
 [3]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
-[5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
+[5]: https://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [8]:../active-directory/develop/quickstart-v1-ios.md

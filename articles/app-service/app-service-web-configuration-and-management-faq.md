@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 8cc47fc7ec60027851525b98cdf95e7d534ea556
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b98b0ea68e91bad2a62f40d3dc611308f1bed2de
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241859"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967747"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQs sobre a configuração e gestão de aplicações Web no Azure
 
@@ -106,7 +106,7 @@ Para obter mais informações, consulte [FAQs para certificados de serviço de a
 
 ## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>Por que vejo a mensagem "Êxito parcial" quando tento fazer cópias de segurança da minha aplicação web?
 
-Uma causa comum de falha de cópia de segurança é que alguns ficheiros estão em utilização pela aplicação. Ficheiros que estão em utilização são bloqueados enquanto executa a cópia de segurança. Isso impede que esses arquivos a cópia de segurança e poderá resultar num Estado de "Êxito parcial". Pode potencialmente impedir que tal aconteça excluindo ficheiros do processo de cópia de segurança. Pode optar por criar cópias de segurança apenas o que é necessário. Para obter mais informações, consulte [apenas as partes importantes do seu site com aplicações web do Azure de cópia de segurança](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
+Uma causa comum de falha de cópia de segurança é que alguns ficheiros estão em utilização pela aplicação. Ficheiros que estão em utilização são bloqueados enquanto executa a cópia de segurança. Isso impede que esses arquivos a cópia de segurança e poderá resultar num Estado de "Êxito parcial". Pode potencialmente impedir que tal aconteça excluindo ficheiros do processo de cópia de segurança. Pode optar por criar cópias de segurança apenas o que é necessário. Para obter mais informações, consulte [apenas as partes importantes do seu site com aplicações web do Azure de cópia de segurança](https://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Como posso remover um cabeçalho de resposta HTTP?
 
@@ -288,7 +288,7 @@ Para obter documentação detalhada para autenticação e autorização no servi
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Como redirecionar o padrão *. domínio azurewebsites.net para o domínio personalizado da minha aplicação web do Azure?
 
-Quando cria um novo Web site através da utilização de aplicações Web no Azure, um padrão *sitename*. domínio azurewebsites.net é atribuído ao seu site. Se adicionar um nome de anfitrião personalizado ao seu site e não quiser que os utilizadores possam acessar seu padrão *. domínio azurewebsites.net, pode redirecionar o URL predefinido. Para saber como redirecionar todo o tráfego de domínio do seu Web site predefinido ao seu domínio personalizado, veja [redirecionar o domínio predefinido para o seu domínio personalizado em aplicações web do Azure](http://zainrizvi.io/blog/block-default-azure-websites-domain/).
+Quando cria um novo Web site através da utilização de aplicações Web no Azure, um padrão *sitename*. domínio azurewebsites.net é atribuído ao seu site. Se adicionar um nome de anfitrião personalizado ao seu site e não quiser que os utilizadores possam acessar seu padrão *. domínio azurewebsites.net, pode redirecionar o URL predefinido. Para saber como redirecionar todo o tráfego de domínio do seu Web site predefinido ao seu domínio personalizado, veja [redirecionar o domínio predefinido para o seu domínio personalizado em aplicações web do Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Como posso determinar qual é a versão do .NET está instalada a versão no serviço de aplicações?
 

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: abf09444e92c6faded42a9143b4b5c849a4cf41d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: be204c8c20825aab75e19acd0157b427ef4a388c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853271"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968664"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Como configurar a sua aplicação de serviço de aplicações para utilizar o Microsoft Account login
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -68,5 +68,5 @@ Agora está pronto para utilizar o Microsoft Account para autenticação na sua 
 
 <!-- URLs. -->
 
-[As Minhas Aplicações]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[As Minhas Aplicações]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Portal do Azure]: https://portal.azure.com/

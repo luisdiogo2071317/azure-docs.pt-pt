@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 60675d7d40dbab863677ea120c25986cff61a308
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443513"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960146"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicações Web no Serviço de Aplicações do Azure
 
@@ -179,14 +179,14 @@ Para obter mais informações, consulte [como: monitorizar o estado do ponto fin
 
 <!-- URL List -->
 
-[SignalR de ASP.NET]: http://www.asp.net/signalr
+[SignalR de ASP.NET]: https://www.asp.net/signalr
 [Portal do Azure]: https://portal.azure.com/
 [Configurar um nome de domínio personalizado no Serviço de Aplicações do Azure]: ./app-service-web-tutorial-custom-domain.md
 [Implementar em ambientes de teste para aplicações Web no serviço de aplicações do Azure]: ./web-sites-staged-publishing.md
 [Ativar HTTPS para uma aplicação no serviço de aplicações do Azure]: ./app-service-web-tutorial-custom-ssl.md
-[Como: monitorizar o estado do ponto final web]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Como: monitorizar o estado do ponto final web]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Noções básicas sobre monitorização para aplicações Web no App Service do Azure]: ./web-sites-monitor.md
-[modo de pipeline]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[modo de pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Dimensionar uma aplicação web no serviço de aplicações do Azure]: ./web-sites-scale.md
 [Experimentar o App Service]: https://azure.microsoft.com/try/app-service/
 

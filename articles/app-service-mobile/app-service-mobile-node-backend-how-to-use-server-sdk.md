@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: cbedb17bb7563620d0d9db81333d9a79301b4ee0
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 926712d8d38f144c583dcf61c3cd0f078566296a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817513"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964003"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como utilizar o SDK de node. js de aplicações móveis
 
@@ -97,11 +97,11 @@ Esta aplicação cria uma API da Web otimizadas para mobilidade com um único po
 * [Início rápido de cliente do xamarin. Android]
 * [Início rápido de cliente do xamarin. Forms]
 
-Pode encontrar o código para esta aplicação básica no [basicapp exemplo no GitHub].
+Pode encontrar o código para esta aplicação básica no [exemplo de basicapp no GitHub].
 
 ### <a name="howto-vs2015-basicapp"></a>Criar um back-end de node. js com o Visual Studio 2015
 
-Visual Studio 2015 requer uma extensão para desenvolver aplicações node. js no IDE. Para começar, instale o [1.1 de ferramentas do node. js para Visual Studio]. Quando concluir a instalação, crie um aplicativo de 4.x expresso:
+Visual Studio 2015 requer uma extensão para desenvolver aplicações node. js no IDE. Para começar, instale o [Ferramentas do node. js 1.1 para o Visual Studio]. Quando concluir a instalação, crie um aplicativo de 4.x expresso:
 
 1. Abra o **novo projeto** caixa de diálogo (da **ficheiro** > **novo** > **projeto**).
 1. Expanda **modelos** > **JavaScript** > **node. js**.
@@ -148,11 +148,11 @@ Selecione a caixa **reconheço que esta ação substituirá todo o conteúdo do 
 
 ### <a name="download-quickstart"></a>Transferir o projeto de código de início rápido de back-end de node. js utilizando o Git
 
-Ao criar um back-end de aplicações móveis do node. js com o portal **guia de introdução** painel, um projeto de node. js é criada para si e implementada em seu site. No portal, pode adicionar tabelas e as APIs e editar arquivos de código para o back-end de node. js. Também pode utilizar várias ferramentas de implantação para transferir o projeto de back-end, para que pode adicionar ou modificar tabelas e as APIs e, em seguida, voltar a publicar o projeto. Para obter mais informações, consulte a [guia de implantação do App Service do Azure].
+Ao criar um back-end de aplicações móveis do node. js com o portal **guia de introdução** painel, um projeto de node. js é criada para si e implementada em seu site. No portal, pode adicionar tabelas e as APIs e editar arquivos de código para o back-end de node. js. Também pode utilizar várias ferramentas de implantação para transferir o projeto de back-end, para que pode adicionar ou modificar tabelas e as APIs e, em seguida, voltar a publicar o projeto. Para obter mais informações, consulte a [Guia de implementação do serviço de aplicações do Azure].
 
 O procedimento seguinte utiliza um repositório de Git para transferir o código de projeto de início rápido:
 
-1. Instale o Git, se ainda não o tiver feito. Os passos necessários para instalar o Git variam entre sistemas operativos. Para as distribuições de sistema operativo específico e orientações de instalação, consulte [instalar o Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
+1. Instale o Git, se ainda não o tiver feito. Os passos necessários para instalar o Git variam entre sistemas operativos. Para as distribuições de sistema operativo específico e orientações de instalação, consulte [instalar o Git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
 1. Ver [preparar o seu repositório](../app-service/app-service-deploy-local-git.md#prepare-your-repository) para ativar o repositório de Git para o seu site de back-end. Tome nota do nome de utilizador de implementação e a palavra-passe.
 1. No painel para as suas aplicações de Mobile back-end, anote o **URL de clone de Git** definição.
 1. Executar o `git clone` comando utilizando o URL de clone de Git. Introduza a palavra-passe quando for necessário, como no exemplo seguinte:
@@ -171,11 +171,11 @@ O site será replicado sempre que um novo conjunto de consolidações é emitido
 
 ### <a name="howto-publish-to-azure"></a>Publicar o seu back-end de node. js no Azure
 
-O Microsoft Azure fornece vários mecanismos para publicar o node. js de aplicações do Mobile back-end para o serviço do Azure. Estes mecanismos incluem ferramentas de implantação integradas ao Visual Studio, as ferramentas da linha de comandos e opções de implementação contínua com base no controle de origem. Para obter mais informações, consulte a [guia de implantação do App Service do Azure].
+O Microsoft Azure fornece vários mecanismos para publicar o node. js de aplicações do Mobile back-end para o serviço do Azure. Estes mecanismos incluem ferramentas de implantação integradas ao Visual Studio, as ferramentas da linha de comandos e opções de implementação contínua com base no controle de origem. Para obter mais informações, consulte a [Guia de implementação do serviço de aplicações do Azure].
 
 Serviço de aplicações do Azure tem conselhos específico para aplicações node. js, que deve rever antes de publicar o back-end:
 
-* Como [especificar a versão do nó]
+* Como [Especifique a versão de nó]
 * Como [utilizar módulos do nó]
 
 ### <a name="howto-enable-homepage"></a>Ativar uma home page de seu aplicativo
@@ -382,7 +382,7 @@ A maioria das definições no ficheiro azureMobile.js tem uma definição de apl
 
 Para definir uma definição de aplicação:
 
-1. Inicie sessão no [Portal do Azure].
+1. Inicie sessão no [portal do Azure].
 1. Selecione **todos os recursos** ou **dos serviços de aplicações**e, em seguida, selecione o nome da sua aplicação móvel.
 1. O **definições** painel abre-se por predefinição. Se não, selecione **definições**.
 1. Sobre o **gerais** menu, selecione **configurações de aplicativo**.
@@ -399,7 +399,7 @@ Alterar a maioria das definições de aplicação requer um reinício do serviç
 
 Utilizar a SQL Database do Azure como um arquivo de dados é idêntica em todos os tipos de aplicação do serviço de aplicações do Azure. Se não o tiver feito isso já, siga estes passos para criar um back-end de aplicações móveis:
 
-1. Inicie sessão no [Portal do Azure].
+1. Inicie sessão no [portal do Azure].
 1. No canto superior esquerdo da janela, selecione o **+ novo** botão > **Web + móvel** > **aplicação móvel**e, em seguida, forneça um nome para as suas aplicações de Mobile back-end.
 1. Na **grupo de recursos** , introduza o mesmo nome que a sua aplicação.
 1. A predefinição é selecionado o plano do serviço de aplicações. Se pretender alterar o seu plano do serviço de aplicações:
@@ -968,27 +968,27 @@ Ao utilizar o portal do Azure, pode editar os ficheiros de script de back-end de
 [Configurar a autenticação do Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
 [Configurar a autenticação da Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Configurar a autenticação do Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
-[guia de implantação do App Service do Azure]: ../app-service/app-service-deploy-local-git.md
+[Guia de implementação do serviço de aplicações do Azure]: ../app-service/app-service-deploy-local-git.md
 [Monitorização do serviço de aplicações do Azure]: ../app-service/web-sites-monitor.md
 [Ativar o registo de diagnóstico no serviço de aplicações do Azure]: ../app-service/web-sites-enable-diagnostic-log.md
 [Resolver problemas relacionados com o serviço de aplicações do Azure no Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
-[especificar a versão do nó]: ../nodejs-specify-node-version-azure-apps.md
+[Especifique a versão de nó]: ../nodejs-specify-node-version-azure-apps.md
 [utilizar módulos do nó]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
-[Express]: http://expressjs.com/
-[Swagger]: http://swagger.io/
+[Express]: https://expressjs.com/
+[Swagger]: https://swagger.io/
 
 [Portal do Azure]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Promessa]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-[basicapp exemplo no GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
+[exemplo de basicapp no GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [lista de tarefas exemplo no GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
 [diretório de exemplos no GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
-[1.1 de ferramentas do node. js para Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
+[Ferramentas do node. js 1.1 para o Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [pacote de node. js MSSQL]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS middleware]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

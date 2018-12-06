@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 5f52dfb4547cfac991387d333c3f5684544d691f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9fd25e8730bf98c8fccf1e77436b8f2f480c7cca
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877515"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966556"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementação contínua no App Service do Azure
 Este artigo mostra-lhe como configurar a implementação contínua para [App Service do Azure](app-service-web-overview.md). Serviço de aplicações permite a implementação contínua do BitBucket, GitHub, e [serviços do Azure DevOps](https://www.visualstudio.com/team-services/) Pegando as atualizações mais recentes do seu repositório existente em um destes serviços.
@@ -147,9 +147,9 @@ No menu à esquerda, clique em **Deployment Center** > **GitHub** ou **serviços
 
 [Azure portal]: https://portal.azure.com
 [Azure DevOps portal]: https://azure.microsoft.com/services/devops/
-[Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[Installing Git]: https://git-scm.com/book/en/Getting-Started-Installing-Git
 [Como utilizar o PowerShell para o Azure]: /powershell/azureps-cmdlets-docs
-[Documentação do Git]: http://git-scm.com/documentation
+[Documentação do Git]: https://git-scm.com/documentation
 
 [Criar um repositório (GitHub)]: https://help.github.com/articles/create-a-repo
 [Criar um repositório (BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html
