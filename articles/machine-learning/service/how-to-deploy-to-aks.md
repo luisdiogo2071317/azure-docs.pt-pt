@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 5db0efd825a655143828e7ccea73704516893ea2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7df23420445e40efe4ce95c8e55993f6069a1613
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845268"
+ms.locfileid: "52867229"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Como implementar modelos de serviço do Azure Machine Learning no serviço Kubernetes do Azure
 
@@ -95,6 +95,9 @@ Serviço Kubernetes do Azure utiliza imagens do Docker. Para criar a imagem, uti
     # Wait for the create process to complete
     image.wait_for_creation(show_output = True)
     ```
+
+> [!NOTE]
+> Ao criar uma imagem que utiliza a aceleração por GPU, a imagem de base de GPU deve ser utilizada apenas em serviços do Microsoft Azure.
 
 ## <a name="create-the-aks-cluster"></a>Criar o Cluster do AKS
 
