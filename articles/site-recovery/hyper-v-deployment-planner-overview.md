@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7c65dceadf8afb6a0eacf268dd953feb8477a8df
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7c5a5cddca2aa8e459bde711465425bdd32c669e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842718"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964021"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Sobre o Azure Site Recovery Deployment Planner para recuperação após desastre de Hyper-V para o Azure
 
@@ -115,9 +115,9 @@ A configuração recomendada da VM: 8 vCPUs, 16 GB de RAM, HDD de 300 GB.
 1.  Extraia a pasta .zip.
 Esta contém vários ficheiros e sub-pastas. O ficheiro executável é ASRDeploymentPlanner.exe, na pasta principal.
 
-Exemplo: copie o ficheiro .zip para a unidade E:\ e extraia-o. E:\ASR Deployment Planner_v2.2.zip
+Exemplo: copie o ficheiro .zip para a unidade E:\ e extraia-o. E:\ASR Planner_v2.3.zip de implementação
 
-E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
+E:\ASR implementação Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Atualizar para a versão mais recente do Planeador de Implementações
 Se tiver uma versão anterior do Planeador de Implementações, execute um dos seguintes procedimentos:
@@ -132,7 +132,7 @@ Se tiver uma versão anterior do Planeador de Implementações, execute um dos s
   >Cada Deployment Planner novo é uma atualização acumulativa do ficheiro .zip. Não tem de copiar os ficheiros mais recentes para a pasta anterior. Pode criar e utilizar uma pasta nova.
 
 ## <a name="version-history"></a>Histórico de versões
-A versão mais recente da ferramenta ASR Deployment Planner é 2.2.
+A versão mais recente da ferramenta ASR Deployment Planner é 2.3.
 Consulte a página [Histórico de Versões do Planeador de Implementações do ASR](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para obter as correções que foram adicionadas em cada atualização.
 
 

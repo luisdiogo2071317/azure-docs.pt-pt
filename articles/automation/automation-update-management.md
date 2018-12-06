@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/28/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c6202ff6f00412a779fb62b7a3bcc3f30ecbb25a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 504bb56a7cb3b9582d5c8d2ab1e770d55b8ca9e5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682330"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961625"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -120,7 +120,7 @@ Se o grupo de gestão do System Center Operations Manager estiver ligado a uma �
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Pacote de Gestão de Implementação de Atualização
 
-Para obter mais informações sobre como são atualizados os pacotes de gestão de solução, consulte [ligar o Operations Manager ao Log Analytics](../log-analytics/log-analytics-om-agents.md).
+Para obter mais informações sobre como são atualizados os pacotes de gestão de solução, consulte [ligar o Operations Manager ao Log Analytics](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
 > Para sistemas com o agente do Operations Manager, para poder ser completamente geridos pela gestão de atualizações, o agente tem de ser atualizado para o Microsoft Monitoring Agent. Para saber como atualizar o agente, veja [como atualizar um agente do Operations Manager](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
@@ -158,7 +158,7 @@ Se o agente não consegue comunicar com o Log Analytics e o agente estiver confi
 
 Agentes do Linux adicionados recentemente mostram um Estado de **Updated** depois de uma avaliação foi realizada. Este processo pode demorar até seis horas.
 
-Para confirmar que um grupo de gestão do Operations Manager está a comunicar com o Log Analytics, consulte [integração de validar o Operations Manager com o Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
+Para confirmar que um grupo de gestão do Operations Manager está a comunicar com o Log Analytics, consulte [integração de validar o Operations Manager com o Log Analytics](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## <a name="data-collection"></a>Recolha de dados
 
@@ -583,6 +583,6 @@ Avance para o tutorial para saber como gerir atualizações para as suas máquin
 > [Gerir atualizações e correções para as VMs do Windows Azure](automation-tutorial-update-management.md)
 
 * Utilizar as pesquisas de registos no [do Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver os dados de atualizações detalhados.
-* [Criar alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) quando são detetadas atualizações críticas em falta nos computadores ou se um computador tiver as atualizações automáticas desativadas.
+* [Criar alertas](automation-tutorial-update-management.md#configure-alerts) para obter o estado de implementação de atualização.
 
 * Para saber como interagir com a gestão de atualizações por meio da API REST, veja [as configurações de atualização de Software](/rest/api/automation/softwareupdateconfigurations)

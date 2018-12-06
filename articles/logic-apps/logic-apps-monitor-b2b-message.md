@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: 15bfe871731f5a6a04cae623faf0bd27cdba27fc
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 5dccfe61eaf97f27b211aa6812145f21f2098738
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233196"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961268"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Monitorizar mensagens B2B com o Azure Log Analytics no Azure Logic Apps
 
@@ -27,7 +27,7 @@ Depois de definir a comunicação de B2B entre parceiros comerciais na sua conta
 
 * Uma aplicação de lógica que está configurada com o registo de diagnósticos. Saiba mais [como criar uma aplicação lógica](quickstart-create-first-logic-app-workflow.md) e [como configurar o registo para essa aplicação lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* Depois de cumprir os requisitos anteriores, também precisa de uma área de trabalho do Log Analytics, que são utilizados para monitorizar e a controlar B2B comunicação com o Log Analytics. Se não tiver uma área de trabalho do Log Analytics, saiba [como criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+* Depois de cumprir os requisitos anteriores, também precisa de uma área de trabalho do Log Analytics, que são utilizados para monitorizar e a controlar B2B comunicação com o Log Analytics. Se não tiver uma área de trabalho do Log Analytics, saiba [como criar uma área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 * Uma conta de integração que está ligada à sua aplicação lógica. Saiba mais [como criar uma conta de integração com uma ligação à sua aplicação lógica](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 

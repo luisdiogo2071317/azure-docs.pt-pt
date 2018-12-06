@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 09/18/2018
-ms.openlocfilehash: 0fc5ca73dec79942e05c7dfd410bc0a13e5ffb44
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.date: 12/04/2018
+ms.openlocfilehash: 3469b03cae88a5bdf7c9ccd51b54af92ea8d7b23
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648722"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958393"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure SQL e SQL Data Warehouse
 
@@ -145,7 +145,7 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 ## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>Impacto da remoção de 'Serviços do Azure permitem que acedam ao servidor'
 
 Número de utilizadores que pretende remover **dos serviços do Azure permitem ao servidor de acesso** de seus servidores de SQL do Azure e substituí-lo com uma regra de Firewall da VNet.
-No entanto, a remover Isto afeta as seguintes funcionalidades de base de dados do Azure SQL:
+No entanto, a remover Isto afeta as seguintes funcionalidades:
 
 ### <a name="import-export-service"></a>Serviço de exportação de importação
 
@@ -166,12 +166,64 @@ Base de dados SQL do Azure tem a funcionalidade de sincronização de dados que 
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impacto da utilização de pontos finais de serviço de VNet com o armazenamento do Azure
 
-O armazenamento do Azure implementou a mesma funcionalidade que permite limitar a conectividade à sua conta de armazenamento.
-Se optar por utilizar esta funcionalidade com uma conta de armazenamento que está a ser utilizada por um servidor de SQL do Azure, poderá ter problemas. Em seguida, há uma lista e a discussão sobre os recursos de base de dados do Azure SQL que são influenciados por isto.
+O armazenamento do Azure implementou a mesma funcionalidade que permite limitar a conectividade à sua conta de armazenamento do Azure. Se optar por utilizar esta funcionalidade com uma conta de armazenamento do Azure que está a ser utilizada pelo Azure SQL Server, poderá ter problemas. Em seguida, há uma lista e a discussão sobre recursos do Azure SQL Database e o Azure SQL Data Warehouse que são influenciados por isto.
 
 ### <a name="azure-sql-data-warehouse-polybase"></a>PolyBase do armazém de dados SQL do Azure
 
-Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL Data Warehouse de contas de armazenamento. Se a conta de armazenamento que está a carregar dados de limite o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade entre o PolyBase e a conta. Há uma atenuação para isso, e pode contactar o suporte da Microsoft para obter mais informações.
+Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL Data Warehouse a partir de contas de armazenamento do Azure. Se a conta de armazenamento do Azure que está a carregar dados de limite o acesso apenas a um conjunto de sub-redes da VNet, irá interromper a conectividade entre o PolyBase e a conta. Para ativar as duas PolyBase importar e exportar cenários com o Azure SQL Data Warehouse ao ligar ao armazenamento do Azure que está protegida a VNet, siga os passos indicados abaixo:
+
+#### <a name="prerequisites"></a>Pré-requisitos
+1.  Instalar o Azure PowerShell através desta [guia](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+2.  Se tiver uma conta de armazenamento para fins gerais v1 ou BLOBs, tem de atualizar primeiro para fins gerais v2 através desta [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+3.  Tem de ter **permitir confiável a serviços da Microsoft para aceder a esta conta de armazenamento** ativada na conta de armazenamento do Azure **Firewalls e redes virtuais** menu definições. Consulte este [guia](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para obter mais informações.
+ 
+#### <a name="steps"></a>Passos
+1.  No PowerShell, **registar o servidor SQL lógico** com o Azure Active Directory (AAD):
+
+    ```powershell
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId your-subscriptionId
+    Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
+    ```
+    
+ 1. Criar uma **para fins gerais v2 conta de armazenamento** usando essa [guia](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+
+    > [!NOTE]
+    > - Se tiver uma conta de armazenamento para fins gerais v1 ou BLOBs, tem **atualizar primeiro para v2** usando essa [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    > - Para problemas conhecidos com geração 2 de armazenamento do Azure Data Lake, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+    
+1.  Na sua conta de armazenamento, navegue até **controlo de acesso (IAM)** e clique em **adicionar atribuição de função**. Atribua **contribuinte de dados de Blob de armazenamento (pré-visualização)** função RBAC para o servidor SQL lógico.
+
+    > [!NOTE] 
+    > Apenas os membros com privilégios de proprietário podem efetuar este passo. Para várias funções incorporadas para recursos do Azure, consulte este [guia](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  
+1.  **Polybase a conectividade à conta de armazenamento do Azure:**
+
+    1. Criar uma base de dados **[chave mestra](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)** se ainda não criou uma anteriormente:
+        ```SQL
+        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
+        ```
+    
+    1. Criar credencial com âmbito de base de dados com **IDENTITY = "Identidade do serviço gerido"**:
+
+        ```SQL
+        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+        ```
+        > [!NOTE] 
+        > - Não é necessário especificar o segredo com chave de acesso de armazenamento do Azure porque usa esse mecanismo [identidade gerido](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) nos bastidores.
+        > - Nome de identidade deve ser **"Identidade do serviço gerido"** para conectividade de PolyBase trabalhar com a conta de armazenamento do Azure obtida para a VNet.    
+    
+    1. Criar origem de dados externa com abfss: / / esquema para ligar à sua conta de armazenamento para fins gerais v2 com o PolyBase:
+
+        ```SQL
+        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+        ```
+        > [!NOTE] 
+        > - Se já tiver associadas à conta de armazenamento para fins gerais v1 ou blob de tabelas externas, deve primeiro remover essas tabelas externas e, em seguida, remover a origem de dados externa correspondente. Em seguida, criar origem de dados externa com abfss: / / esquema ligar à conta de armazenamento para fins gerais v2 conforme apresentado acima e voltar a criar todas as tabelas externas usando essa nova fonte de dados externa. Poderia usar [gerar e o Assistente de publicação de Scripts](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017) para gerar scripts de criar para todas as tabelas externas para facilitar.
+        > - Para obter mais informações sobre abfss: / / esquema, consulte este [guia](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+        > - Para obter mais informações sobre criar origem de dados externa, consulte este [guia](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+        
+    1. Consulta como normal usando [tabelas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### <a name="azure-sql-database-blob-auditing"></a>Base de dados SQL do Azure a auditoria de BLOBs
 
@@ -179,11 +231,11 @@ Auditoria de BLOBs envia por push de registos de auditoria para a sua própria c
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionar uma regra de Firewall da VNet ao seu servidor sem ativar na VNet pontos finais de serviço
 
-Há muito tempo, antes desta funcionalidade foi melhorada, era necessário para ativar a pontos finais de serviço de VNet antes de poderia implementar uma regra de VNet em direto na Firewall. Os pontos finais relacionados com uma determinada sub-rede de VNet para uma base de dados do SQL do Azure. Mas agora a partir de Janeiro de 2018, pode contornar este requisito, definindo a **IgnoreMissingServiceEndpoint** sinalizador.
+Há muito tempo, antes desta funcionalidade foi melhorada, era necessário para ativar a pontos finais de serviço de VNet antes de poderia implementar uma regra de VNet em direto na Firewall. Os pontos finais relacionados com uma determinada sub-rede de VNet para uma base de dados do SQL do Azure. Mas agora a partir de Janeiro de 2018, pode contornar este requisito, definindo a **IgnoreMissingVNetServiceEndpoint** sinalizador.
 
-Simplesmente definir uma regra de Firewall não ajudam a proteger o servidor. Tem também de ativar pontos finais de serviço de VNet para garantir a segurança entrem em vigor. Quando ativar pontos finais de serviço, a sub-rede da VNet experiências de tempo de inatividade até concluir a transição de desativado para no. Isso é especialmente verdadeiro no contexto de VNets grandes. Pode utilizar o **IgnoreMissingServiceEndpoint** sinalizador para reduzir ou eliminar o período de indisponibilidade durante a transição.
+Simplesmente definir uma regra de Firewall não ajudam a proteger o servidor. Tem também de ativar pontos finais de serviço de VNet para garantir a segurança entrem em vigor. Quando ativar pontos finais de serviço, a sub-rede da VNet experiências de tempo de inatividade até concluir a transição de desativado para no. Isso é especialmente verdadeiro no contexto de VNets grandes. Pode utilizar o **IgnoreMissingVNetServiceEndpoint** sinalizador para reduzir ou eliminar o período de indisponibilidade durante a transição.
 
-Pode definir o **IgnoreMissingServiceEndpoint** sinalizador com o PowerShell. Para obter detalhes, consulte [PowerShell para criar um ponto final de serviço de rede Virtual e uma regra para o Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Pode definir o **IgnoreMissingVNetServiceEndpoint** sinalizador com o PowerShell. Para obter detalhes, consulte [PowerShell para criar um ponto final de serviço de rede Virtual e uma regra para o Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="errors-40914-and-40615"></a>Erros 40914 e 40615
 

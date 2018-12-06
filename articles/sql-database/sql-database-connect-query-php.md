@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: be3ac9fab6c89c65ad9673811e108cefe2c80d00
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b768b50af7ad6736e5cc3c885e6ac5016976f48a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724252"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958547"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o PHP para consultar uma base de dados SQL do Azure
 
@@ -32,9 +32,9 @@ Para concluir este exemplo, certifique-se de que tem os seguintes pré-requisito
 
 - Software relacionado com o PHP instalado para o seu sistema operativo:
 
-    - **MacOS**, instale o Homebrew e o PHP, o controlador ODBC e o SQLCMD, em seguida, instale o controlador PHP para SQL Server. Veja os [Passos 1.2, 1.3 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/).
+    - **MacOS**, instalar o PHP, o controlador ODBC, em seguida, instale o controlador PHP para SQL Server. Ver [passo 1, 2 e 3](/sql/connect/php/installation-tutorial-linux-mac).
 
-    - **Ubuntu**, instale o PHP e outros pacotes necessários, em seguida, instale o controlador PHP para SQL Server. Veja os [Passos 1.2 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
+    - **Linux**, instalar o PHP, o controlador ODBC, em seguida, instale o controlador PHP para SQL Server. Ver [passo 1, 2 e 3](/sql/connect/php/installation-tutorial-linux-mac).
 
     - **Windows**, instalar o PHP para IIS Express e o Chocolatey, em seguida, instale o controlador ODBC e o SQLCMD. Veja os [Passos 1.2 e 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 

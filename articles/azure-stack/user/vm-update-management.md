@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
-ms.openlocfilehash: 1ef20dc35b069c5f12c2f31d0979949be27271e0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: be793fa5d346d05e6b7bd9f93f1108b7a3542fa6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324275"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959177"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Atualização de VM de pilha e gestão do Azure
 Pode utilizar os seguintes recursos de solução de automatização do Azure para gerir VMs do Windows que são implementadas através do Azure Stack:
@@ -41,7 +41,7 @@ Vários pré-requisitos têm de ser cumpridos antes de utilizar estas funcionali
 Para utilizar o inventário, controlo de alterações e recursos de automatização do Azure de gestão de atualização para as VMs do Windows de pilha do Azure, primeiro tem de ativar estas soluções no Azure.
 
 > [!TIP]
-> Se já tiver estas funcionalidades ativadas para VMs do Azure, pode utilizar as credenciais de área de trabalho LogAnalytics já existentes. Se já tiver um LogAnalytics WorkspaceID e a chave primária que pretende utilizar, avançar diretamente para [a próxima seção](.\vm-update-management.md#in-the-azure-stack-administration-portal). Caso contrário, continue nesta secção para criar uma nova conta de área de trabalho LogAnalytics e automação.
+> Se já tiver estas funcionalidades ativadas para VMs do Azure, pode utilizar as credenciais de área de trabalho LogAnalytics já existentes. Se já tiver um LogAnalytics WorkspaceID e a chave primária que pretende utilizar, avançar diretamente para [a próxima seção](./vm-update-management.md#in-the-azure-stack-administration-portal). Caso contrário, continue nesta secção para criar uma nova conta de área de trabalho LogAnalytics e automação.
 
 É o primeiro passo para estas soluções de ativação [criar uma área de trabalho LogAnalytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) na sua subscrição do Azure. Uma área de trabalho do Log Analytics é um ambiente do Log Analytics exclusivo com seu próprio repositório de dados, origens de dados e soluções. Depois de criar uma área de trabalho, tenha em atenção o WorkspaceID e a chave. Para ver estas informações, aceda ao painel de área de trabalho, clique em **definições avançadas**e reveja a **ID de área de trabalho** e **chave primária** valores. 
 

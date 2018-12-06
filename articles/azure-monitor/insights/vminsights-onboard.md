@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 93cbb9a891f83eed623f095f208319c9071e287e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d38c93f1e6e390117ff5d9e8772119ed1c26fd10
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635548"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965535"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Como carregar para o Azure Monitor para VMs (pré-visualização)
 Este artigo descreve como configurar o Azure Monitor para as VMs monitorizar o estado de funcionamento do sistema operativo de suas máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais no seu ambiente, incluindo a deteção e o mapeamento de dependências de aplicações que pode estar alojado nos mesmos.  
@@ -48,7 +48,7 @@ Atualmente é suportada uma área de trabalho do Log Analytics nas seguintes reg
 >Máquinas virtuais do Azure pode ser integrado em qualquer região e não estão limitadas para as regiões suportadas para a área de trabalho do Log Analytics.
 >
 
-Se não tiver uma área de trabalho, pode criar ele por meio [CLI do Azure](../../log-analytics/log-analytics-quick-create-workspace-cli.md), da funcionalidade [PowerShell](../../log-analytics/log-analytics-quick-create-workspace-posh.md), no [portal do Azure](../../log-analytics/log-analytics-quick-create-workspace.md), ou com [doAzureResourceManager](../../log-analytics/log-analytics-template-workspace-configuration.md).  Se pretende ativar a monitorização para uma única VM do Azure no portal do Azure, terá a opção para criar uma área de trabalho durante este processo.  
+Se não tiver uma área de trabalho, pode criar ele por meio [CLI do Azure](../../azure-monitor/learn/quick-create-workspace-cli.md), da funcionalidade [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md), no [portal do Azure](../../azure-monitor/learn/quick-create-workspace.md), ou com [doAzureResourceManager](../../azure-monitor/platform/template-workspace-configuration.md).  Se pretende ativar a monitorização para uma única VM do Azure no portal do Azure, terá a opção para criar uma área de trabalho durante este processo.  
 
 Ativar a solução para uma escala de cenário primeiro exige a configuração o seguinte na sua área de trabalho do Log Analytics:
 
@@ -185,7 +185,7 @@ Para ativar a monitorização da sua VM do Azure no portal do Azure, efetue o se
 5. Sobre o **integração de informações do Azure Monitor** página, se tiver um existentes do Log Analytics área de trabalho na mesma subscrição, selecione-o na lista pendente.  A lista preselects a área de trabalho predefinida e a localização que a máquina virtual é implementada na subscrição. 
 
     >[!NOTE]
-    >Se quiser criar uma nova área de trabalho do Log Analytics para armazenar os dados de monitorização da VM, siga as instruções em [criar uma área de trabalho do Log Analytics](../../log-analytics/log-analytics-quick-create-workspace.md) em uma das regiões suportadas listadas anteriormente.   
+    >Se quiser criar uma nova área de trabalho do Log Analytics para armazenar os dados de monitorização da VM, siga as instruções em [criar uma área de trabalho do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) em uma das regiões suportadas listadas anteriormente.   
 
 Depois de ativar a monitorização, poderá demorar cerca de 10 minutos antes de poder visualizar as métricas de estado de funcionamento para a máquina virtual. 
 

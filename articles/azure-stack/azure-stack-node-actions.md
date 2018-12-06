@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f299cca57e3eaddd2a9d4868f3bae822392e45a0
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a792bc083c3a2c78b24d5895c34420b86b0863bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944941"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959772"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ações de nó de unidade de dimensionamento no Azure Stack
 
@@ -148,9 +148,9 @@ Quando executa a ação de reparação, tem de especificar o endereço IP do BMC
 Para executar a ação de reparação através do PowerShell:
 
   ````PowerShell
-  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
+  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ````
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre o módulo de administrador de recursos de infraestrutura do Azure Stack, veja [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.4.0).
+Para saber mais sobre o módulo de administrador de recursos de infraestrutura do Azure Stack, veja [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.5.0).

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 517926a3c78e9c95a9ecef9ae058c33e47566adb
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.openlocfilehash: 0811b8e81d8c2c4327885007685e15a8d2aea88e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432613"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963407"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Utilizar uma imagem personalizada do Docker para as Aplicações Web para Contentores
 
@@ -292,7 +292,7 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Para que a
     > [!NOTE]
     > Esta configuração não permite ligações externas ao contentor. O SSH só está disponível através do Site Kudu/SCM. O site Kudu/SCM é autenticado com as credenciais de publicação.
 
-* Uma instrução [COPY](https://docs.docker.com/engine/reference/builder/#copy) que diz ao motor do Docker para copiar o ficheiro [sshd_config](http://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*. O seu ficheiro de configuração deve basear-se [neste ficheiro sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
+* Uma instrução [COPY](https://docs.docker.com/engine/reference/builder/#copy) que diz ao motor do Docker para copiar o ficheiro [sshd_config](https://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*. O seu ficheiro de configuração deve basear-se [neste ficheiro sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -556,7 +556,7 @@ O comando revela um resultado semelhante à cadeia JSON seguinte, que mostra que
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Build a Docker Python and PostgreSQL web app in Azure](tutorial-python-postgresql-app.md) (Criar uma aplicação Web Docker Python com PostgreSQL no Azure)

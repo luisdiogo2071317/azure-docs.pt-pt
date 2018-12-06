@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1bfa52d07ddc4eaf86bce17c0ad7c63493a8b5fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dccbd2d87b5a5616c25caed070a337eff9fa753e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255732"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956657"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de MXChip IoT DevKit a sua aplicação do Azure IoT Central
 
@@ -23,7 +23,7 @@ Este artigo descreve como, como um desenvolvedor de dispositivo, para ligar um d
 
 Para executar os passos descritos neste artigo é necessário o seguinte:
 
-1. Uma aplicação do Azure IoT Central, criada a partir da **Devkits exemplo** o modelo de aplicativo. Para obter mais informações, consulte a [criar um guia de introdução do aplicativo](quick-deploy-iot-central.md).
+1. Uma aplicação do Azure IoT Central, criada a partir da **Devkits exemplo** o modelo de aplicativo. Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
 1. Um dispositivo de DevKit. Para comprar um dispositivo de DevKit, visite [MXChip IoT DevKit](http://mxchip.com/az3166).
 
 
@@ -49,12 +49,12 @@ Na aplicação do Azure IoT Central, adicionar um dispositivo real a partir do *
     * Introduza o Id de dispositivo **<span style="color:Red">(deve ser minúscula)</span>** ou utilize o ID de dispositivo sugerido.
     * Introduza o nome do dispositivo ou utilize o nome sugerido
     
-    ![Adicionar Dispositivo](media\concepts-connectivity\add-device.png)
+    ![Adicionar Dispositivo](media/concepts-connectivity/add-device.png)
 
 
 1. Obter os detalhes de ligação, tal como **chave de ID de âmbito, o ID de dispositivo e o primário** para o dispositivo foi adicionado ao clicar em **Connect** na página do dispositivo.
  
-    ![Detalhes da ligação](media\concepts-connectivity\device-connect.PNG)
+    ![Detalhes da ligação](media/concepts-connectivity/device-connect.PNG)
 
 3. Certifique-se guardar estes detalhes, como irá temporaritly obter desligado da internet para preparar o dispositivo DevKit. 
 

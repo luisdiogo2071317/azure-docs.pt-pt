@@ -11,19 +11,19 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 32d1956741f739234a3fdea7034f2f1e33a4c082
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 12/04/2018
+ms.openlocfilehash: 0c819e4efb158baa2150b00368c618c5467a01e0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408230"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966786"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>O Azure SQL encriptação de dados transparente: Oferecer suporte de sua própria chave
 
-Oferecer suporte Your Own Key (BYOK) para [encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) permite-lhe encriptar a chave de encriptação da base de dados (DEK) com uma chave assimétrica chamada Protetor de TDE.  O Protetor de TDE é armazenado em seu controle no [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), sistema de gestão chave externa baseada na nuvem do Azure. O Azure Key Vault é o primeiro serviço de gestão de chaves com a qual TDE tem suporte integrado para o BYOK. O DEK TDE, que é armazenado na página de arranque de uma base de dados é encriptado e desencriptado pelo protetor de TDE. O Protetor de TDE é armazenado no Azure Key Vault e nunca deixa o Cofre de chaves. Se o acesso ao Cofre de chaves do servidor tiver sido revogado, uma base de dados não é possível ser descriptografada e ler na memória.  O protetor de TDE está definido ao nível do servidor lógico e é herdado por todas as bases de dados associados a esse servidor.
+Oferecer suporte Your Own Key (BYOK) para [encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) permite-lhe encriptar a chave de encriptação da base de dados (DEK) com uma chave assimétrica chamada Protetor de TDE.  O Protetor de TDE é armazenado em seu controle no [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), sistema de gestão chave externa baseada na nuvem do Azure. O Azure Key Vault é o primeiro serviço de gestão de chaves com a qual TDE tem suporte integrado para o BYOK. O DEK TDE, que é armazenado na página de arranque de uma base de dados é encriptado e desencriptado pelo protetor de TDE. O Protetor de TDE é armazenado no Azure Key Vault e nunca deixa o Cofre de chaves. Se o acesso ao Cofre de chaves do servidor tiver sido revogado, uma base de dados não é possível ser descriptografada e ler na memória. Para a base de dados SQL do Azure, o protetor de TDE está definido ao nível do servidor lógico e é herdado por todas as bases de dados associados a esse servidor. Para SQL instância gerida do Azure, o protetor de TDE está definido ao nível da instância e esta é herdada por todos os *encriptados* bases de dados nessa instância. O termo *servidor* refere-se tanto ao servidor e a instância em todo este documento, a menos que indicado de forma diferente.
 
-Com suporte BYOK, os utilizadores agora podem controlar tarefas de gestão de chaves, incluindo rotações de chave, de permissões do Cofre de chaves, a eliminação de chaves e ativar a auditoria/relatórios sobre todos os protetores de TDE com a funcionalidade do Azure Key Vault. Key Vault fornece gestão de chaves central, tira partido de módulos de segurança de rigidamente monitorizados de hardware (HSMs) e permite a separação de funções entre a gestão de chaves e dados de acordo com a conformidade a normas.  
+Com suporte BYOK, os utilizadores podem controlar tarefas de gestão de chaves, incluindo rotações de chave, permissões de Cofre de chaves, a eliminar chaves e ativar a auditoria/relatórios sobre todos os protetores de TDE com a funcionalidade do Azure Key Vault. Key Vault fornece gestão de chaves central, tira partido de módulos de segurança de rigidamente monitorizados de hardware (HSMs) e permite a separação de funções entre a gestão de chaves e dados de acordo com a conformidade a normas.  
 
 TDE com o BYOK fornece as seguintes vantagens:
 
@@ -43,34 +43,33 @@ TDE com o BYOK fornece as seguintes vantagens:
 Quando a TDE primeiro estiver configurado para utilizar um protetor de TDE do Key Vault, o servidor envia o DEK de cada base de dados habilitados para TDE para o Key Vault para um pedido de chave de moldagem. Key Vault devolve a chave de encriptação de banco de dados criptografado, o que é armazenada na base de dados do utilizador.  
 
 > [!IMPORTANT]
-> É importante ter em conta que **assim que um Protetor de TDE está armazenado no Azure Key Vault, nunca sai do Azure Key Vault**. O servidor lógico só pode enviar solicitações de operação de chave para o material de chave de protetor de TDE dentro do Cofre de chaves, e **nunca acede ou armazena em cache o protetor de TDE**. O administrador do Cofre de chaves tem o direito de revogar as permissões do Cofre de chaves do servidor a qualquer momento, caso em que todas as ligações ao servidor serão cortados.
+> É importante ter em conta que **assim que um Protetor de TDE está armazenado no Azure Key Vault, nunca sai do Azure Key Vault**. O servidor só pode enviar solicitações de operação de chave para o material de chave de protetor de TDE dentro do Cofre de chaves, e **nunca acede ou armazena em cache o protetor de TDE**. O administrador do Cofre de chaves tem o direito de revogar as permissões do Cofre de chaves do servidor a qualquer momento, caso em que todas as ligações ao servidor serão cortados.
 
 ## <a name="guidelines-for-configuring-tde-with-byok"></a>Diretrizes para configurar o TDE com o BYOK
 
 ### <a name="general-guidelines"></a>Diretrizes gerais
 
-- Certifique-se de que o Cofre de chaves do Azure e base de dados do Azure SQL vai estar no mesmo inquilino.  Interações de cofre e o servidor de chaves entre inquilinos **não são suportadas**.
+- Certifique-se de que o Cofre de chaves do Azure e Azure SQL da base de dados/instância gerida vai estar no mesmo inquilino.  Interações de cofre e o servidor de chaves entre inquilinos **não são suportadas**.
 - Decidir quais as subscrições que vão ser utilizados para os recursos necessários – uma nova configuração do TDE com BYOKs necessita de mover o servidor entre subscrições mais tarde. Saiba mais sobre [mover recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - Ao configurar o TDE com o BYOK, é importante levar em consideração a carga colocada no Cofre de chaves por repetidas moldar/anular moldagem de operações. Por exemplo, uma vez que todos os bancos de dados associados a um servidor lógico usam o mesmo protetor de TDE, irá acionar uma ativação pós-falha desse servidor como muitas operações-chave em relação a quantos do cofre são bases de dados no servidor. Com base em nossa experiência e documentadas [limites de serviço do Cofre de chaves](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits), recomendamos que a associação de no máximo, 500 Standard / fins gerais ou 200 Premium / bases de dados críticas para a empresa com um Azure Key Vault numa única subscrição para garantir consistentemente elevada disponibilidade ao acessar o protetor de TDE no cofre.
 - Recomendado: Manter uma cópia do protetor de TDE no local.  Isso exige um dispositivo HSM para criar um Protetor de TDE localmente e um sistema de caução de chaves para armazenar uma cópia local do Protetor de TDE.  Saiba mais [como transferir uma chave de um HSM local ao Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Diretrizes para configurar o Azure Key Vault
 
-- Criar um cofre de chaves com [recuperável](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) ativada para proteger contra eliminação de perda em caso de chave acidental – ou o Cofre de chaves – de dados.  Tem de utilizar [PowerShell para ativar a propriedade de "eliminação de forma recuperável"](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) no Cofre de chaves (esta opção não está disponível no AKV Portal ainda –, mas é necessário pelo SQL):  
+- Criar um cofre de chaves com [recuperável](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) ativada para proteger contra eliminação de perda em caso de chave acidental – ou o Cofre de chaves – de dados.  Tem de utilizar [PowerShell para ativar a propriedade de "eliminação de forma recuperável"](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) no Cofre de chaves (esta opção não está disponível no AKV Portal ainda – mas exigidas pelo SQL do Azure):  
   - Recursos de eliminado de forma recuperável são retidos durante um determinado período de tempo, 90 dias, a menos que eles são recuperados ou removidos.
   - O **recuperar** e **remover** ações têm suas próprias permissões associadas a uma política de acesso do Cofre de chaves.
 - Defina um bloqueio de recursos no Cofre de chaves para controlar quem pode eliminar este recurso crítico e ajudar a impedir a eliminação acidental ou não autorizada.  [Saiba mais sobre bloqueios de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
-- Conceda o acesso do servidor lógico para o Cofre de chaves utilizando a respetiva identidade do Azure Active Directory (Azure AD).  Ao utilizar a IU do Portal, a identidade do Azure AD é criada automaticamente e as permissões de acesso do Cofre de chaves são concedidas para o servidor.  Utilizar o PowerShell para configurar o TDE com o BYOK, a identidade do Azure AD tem de ser criada e a conclusão deve ser verificada. Ver [TDE configurar com o BYOK](transparent-data-encryption-byok-azure-sql-configure.md) para obter instruções passo a passo detalhadas ao utilizar o PowerShell.
+- Conceda o acesso do servidor lógico para o Cofre de chaves utilizando a respetiva identidade do Azure Active Directory (Azure AD).  Ao utilizar a IU do Portal, a identidade do Azure AD é criada automaticamente e as permissões de acesso do Cofre de chaves são concedidas para o servidor.  Utilizar o PowerShell para configurar o TDE com o BYOK, a identidade do Azure AD tem de ser criada e a conclusão deve ser verificada. Ver [TDE configurar com o BYOK](transparent-data-encryption-byok-azure-sql-configure.md) e [configurar TDE com o BYOK para a instância gerida](http://aka.ms/sqlmibyoktdepowershell) para obter instruções passo a passo detalhadas ao utilizar o PowerShell.
 
   > [!NOTE]
   > Se o Azure AD Identity **é acidentalmente eliminado ou permissões do servidor são revogadas** usando a política de acesso do Cofre de chaves, o servidor perde o acesso ao Cofre de chaves e bases de dados do TDE encriptado são removidas dentro de 24 horas.
 
-- Ao utilizar firewalls e redes virtuais com o Azure Key Vault, tem de configurar o seguinte: 
-  - Permitr serviços Microsoft fidedignos contornem esta firewall – escolher Sim 
-         
-    > [!NOTE] 
-    > Se o TDE encriptados bases de dados SQL perdem o acesso ao Cofre de chaves, porque eles não consigam ignorar a firewall, as bases de dados são removidas dentro de 24 horas.
+- Ao utilizar firewalls e redes virtuais com o Azure Key Vault, tem de configurar o seguinte: - permitir que os serviços Microsoft fidedignos contornem esta firewall – escolher Sim
+
+ > [!NOTE]
+ > Se o TDE encriptados bases de dados SQL perdem o acesso ao Cofre de chaves, porque eles não consigam ignorar a firewall, as bases de dados são removidas dentro de 24 horas.
 
 - Ativar auditoria e relatórios em todas as chaves de encriptação: Key Vault fornece registos que são fáceis de injetar em outras ferramentas de gestão (SIEM) de informações e eventos da segurança. Operations Management Suite (OMS) [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) é um exemplo de um serviço que já está integrado.
 - Para garantir a elevada disponibilidade de bases de dados encriptados, configure cada servidor lógico com dois cofres de chaves do Azure que residem em diferentes regiões.

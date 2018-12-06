@@ -5,15 +5,15 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 46fecf6f1b2826f0e23b7b6c4f4511ce9a662d1c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 4f152273503d9d8026047301975cf54d2ef47d27
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365694"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961497"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Criar um ambiente do Azure Time Series Insights
 
@@ -26,9 +26,9 @@ Este tutorial vai ajudá-lo durante o processo de criação de um ambiente do Ti
 > * Executar uma simulação de dispositivos para transmitir dados para o ambiente TSI
 > * Verificar os dados de telemetria simulados
 
-## <a name="video"></a>Vídeo: 
+## <a name="video"></a>Vídeo
 
-### <a name="in-this-video-we-show-you-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-that-can-be-used-to-get-started-with-time-series-insightsbr"></a>Neste vídeo, vamos mostrar como utilizar um Acelerador de Soluções de IoT do Azure para gerar dados que podem ser utilizados para começar a utilizar o Time Series Insights.</br>
+Neste vídeo, vamos mostrar como utilizar um Acelerador de Soluções de IoT do Azure para gerar dados que podem ser utilizados para começar a utilizar o Time Series Insights.
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
@@ -40,7 +40,7 @@ A conta de início de sessão do Azure também tem de ser um membro da função 
 
 ## <a name="overview"></a>Descrição geral
 
-O ambiente TSI é onde os dados do dispositivo são recolhidos e armazenados. Depois de armazenados no ambiente TSI, pode utilizar o [Explorador do TSI](time-series-quickstart.md) e a [API de Consulta do TSI](/rest/api/time-series-insights/time-series-insights-reference-queryapi) para consultar e analisar os dados.
+O ambiente TSI é onde os dados do dispositivo são recolhidos e armazenados. Depois de armazenados no ambiente TSI, pode utilizar o [Explorador do TSI ](time-series-quickstart.md) e a [API de Consulta do TSI](/rest/api/time-series-insights/time-series-insights-reference-queryapi) para consultar e analisar os dados.
 
 Tal como acontece com todos os dispositivos, simulados ou físicos, o Hub IoT é o ponto de ligação utilizado pelos dispositivos para ligar e transmitir dados para a cloud do Azure de forma segura. Tal como foi explicado na [Descrição geral do TSI](time-series-insights-overview.md), o Hub IoT também funciona como uma origem de evento, para transmitir fluxos de dados para o ambiente do TSI. 
 
@@ -99,7 +99,7 @@ Em seguida, crie a solução de simulação de dispositivos, o que irá gerar da
 3. Quando o aprovisionamento estiver concluído, o texto por cima da nova solução mudará de “A aprovisionar...” para “Pronto”:
 
    >[!IMPORTANT]
-   > Não clique ainda no botão **Iniciar**! Mas mantenha esta página Web aberta, pois regressará a ela mais tarde.
+   > Não clique ainda no botão **Iniciar**! Mas mantenha esta página Web aberta, pois regressará à ela mais tarde.
 
    ![Aprovisionamento da solução de simulação de dispositivos concluída](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)
 
@@ -153,7 +153,7 @@ Agora, ligue o novo ponto final de evento “grupo de consumidores” do hub IoT
    **Subscrição** | Selecione a mesma subscrição onde criou o ambiente do TSI e os recursos de Simulação de Dispositivos.
    **Nome do hub IoT** | Deve ser predefinido para o nome do hub IoT que anotou anteriormente. Caso contrário, selecione o hub IoT correto.
    **Nome da política do hub IoT** | Deixe com o valor predefinido de “iothubowner”.
-   **Grupo de consumidores do hub IoT** | Deve ser predefinido para o nome do grupo de consumidores do hub IoT que criou anteriormente. Caso contrário, selecione o nome do grupo de consumidores correto. 
+   **Grupo de consumidores do hut IoT** | Deve ser predefinido para o nome do grupo de consumidores do hub IoT que criou anteriormente. Caso contrário, selecione o nome do grupo de consumidores correto. 
    **Formato de serialização de eventos** | Deixe com o valor predefinido de “JSON”.
    **Nome da propriedade Carimbo de data/hora** | Especificar como “carimbo de data/hora”.
 
@@ -226,7 +226,7 @@ No menu esquerdo do portal do Azure:
 1. Clique no ícone **Grupos de recursos** e, em seguida, selecione o grupo de recursos que criou para o Ambiente do TSI. Na parte superior da página, clique em **Eliminar grupo de recursos**, escreva o nome do grupo de recurso e, em seguida, clique em **Eliminar**. 
 2. Clique no ícone **Grupos de recursos** e, em seguida, selecione o grupo de recursos que foi criado pelo acelerador de soluções da simulação de dispositivos. Na parte superior da página, clique em **Eliminar grupo de recursos**, escreva o nome do grupo de recurso e, em seguida, clique em **Eliminar**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

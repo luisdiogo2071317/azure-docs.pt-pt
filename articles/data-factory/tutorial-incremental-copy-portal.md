@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 342fdce9a0e9b47380a8d8c975703ebb7f57e3b6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: e31f35aadfa7e46426a1779cdc057691bef91336
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087134"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965552"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure
 Neste tutorial, vai criar uma fábrica de dados do Azure com um pipeline que carrega dados delta de uma tabela numa base de dados SQL do Azure para o armazenamento de Blobs do Azure. 
@@ -43,7 +43,7 @@ Vai executar os seguintes passos neste tutorial:
 ## <a name="overview"></a>Descrição geral
 Eis o diagrama da solução de alto nível: 
 
-![Carregar dados de forma incremental](media\tutorial-Incremental-copy-portal\incrementally-load.png)
+![Carregar dados de forma incremental](media/tutorial-Incremental-copy-portal/incrementally-load.png)
 
 Eis os passos importantes para criar esta solução: 
 

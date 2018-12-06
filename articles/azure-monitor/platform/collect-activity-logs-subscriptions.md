@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e4ec1ecbde04cbf843f99bdcdf36977a856c3b03
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: eccd81d50c93c2fdeb67e2536a0afa879c08a1b4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684657"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970285"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recolher Registos de Atividades do Azure no Log Analytics entre subscrições
 
@@ -344,4 +344,4 @@ O último passo é verificar a área de trabalho do Log Analytics, para confirma
 Neste artigo, criou uma aplicação lógica para ler os Registos de Atividades do Azure a partir de um hub de eventos e enviá-los para análise no Log Analytics. Para saber mais sobre como visualizar dados no Log Analytics, incluindo criar dashboards, veja o tutorial Visualize data (Visualizar dados).
 
 > [!div class="nextstepaction"]
-> [Visualize Log Search data tutorial](./../../log-analytics/log-analytics-tutorial-dashboards.md) (Tutorial sobre como Visualizar dados da Pesquisa de Registos)
+> [Visualize Log Search data tutorial](./../../azure-monitor/learn/tutorial-logs-dashboards.md) (Tutorial sobre como Visualizar dados da Pesquisa de Registos)

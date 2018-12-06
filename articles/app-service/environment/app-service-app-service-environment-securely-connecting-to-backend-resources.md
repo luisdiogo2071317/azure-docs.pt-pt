@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 1732e6778febac60a25da74c330cb3d3da94154d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4fccfbb4cbc1b0db0c032d95ad66b497520aa619
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580058"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960945"
 ---
 # <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Ligar com segurança a recursos de back-end, a partir de um ambiente de serviço de aplicações
 ## <a name="overview"></a>Descrição geral
@@ -95,7 +95,7 @@ Para obter mais detalhes em torno de controlar o tráfego de entrada para o ambi
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [ControlInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md
 [SiteToSite]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
-[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
 [NetworkAccessControlLists]: https://azure.microsoft.com/documentation/articles/virtual-networks-acl/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md

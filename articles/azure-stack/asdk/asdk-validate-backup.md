@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 6fa3ba36dca45d5b99c6b5f2ba24367bcd077024
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 181f37fb72584e18cc963ba1ffde070379a1b0c6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028657"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961469"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Utilize o ASDK para validar uma cópia de segurança do Azure Stack
-Depois de implementar o Azure Stack e o aprovisionamento de recursos de utilizador, tais como ofertas, planos, quotas e subscrições, deve [ativar cópia de segurança do Azure Stack infraestrutura](..\azure-stack-backup-enable-backup-console.md). Agendamento e execução de cópias de segurança da infraestrutura regular irão garantir que os dados de gestão de infraestrutura não são perdidos se ocorrer uma falha de serviço ou de hardware de catastrófico.
+Depois de implementar o Azure Stack e o aprovisionamento de recursos de utilizador, tais como ofertas, planos, quotas e subscrições, deve [ativar cópia de segurança do Azure Stack infraestrutura](../azure-stack-backup-enable-backup-console.md). Agendamento e execução de cópias de segurança da infraestrutura regular irão garantir que os dados de gestão de infraestrutura não são perdidos se ocorrer uma falha de serviço ou de hardware de catastrófico.
 
 > [!TIP]
-> Recomendamos que [executar cópias de segurança a pedido](..\azure-stack-backup-back-up-azure-stack.md) antes de iniciar este procedimento para garantir que tenha uma cópia dos dados infrastrcuture mais recentes disponíveis. Lembre-se de que capture o ID da cópia de segurança depois de concluir com êxito a cópia de segurança. Este ID será necessário durante a recuperação de nuvem. 
+> Recomendamos que [executar cópias de segurança a pedido](../azure-stack-backup-back-up-azure-stack.md) antes de iniciar este procedimento para garantir que tenha uma cópia dos dados infrastrcuture mais recentes disponíveis. Lembre-se de que capture o ID da cópia de segurança depois de concluir com êxito a cópia de segurança. Este ID será necessário durante a recuperação de nuvem. 
 
 Cópias de segurança de infraestrutura do Azure Stack contenham dados importantes sobre a nuvem que pode ser restaurada durante a nova implementação do Azure Stack. Pode usar o ASDK para validar estas cópias de segurança sem afetar a sua nuvem de produção. 
 

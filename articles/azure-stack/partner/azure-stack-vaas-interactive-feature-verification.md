@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bc2fbf7aadf99a2f765def2d352819dfa6cd5fa4
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: dc0c6a37e11574cef857a7af773a9d90bea57357
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265906"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972070"
 ---
 # <a name="interactive-feature-verification-testing"></a>Teste de verificação de recurso interativo  
 
@@ -48,7 +48,7 @@ Um teste para a substituição do disco é um cenário comum. Neste exemplo, o t
 
 3.  Selecione **começar** sobre o **aprovação de teste** mosaico.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image1.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image1.png)
 
 4.  Introduza um nome para o **aprovação de teste** fluxo de trabalho.
 
@@ -63,7 +63,7 @@ Um teste para a substituição do disco é um cenário comum. Neste exemplo, o t
 > [!Note]  
 > Utilizador de administrador de domínio e palavra-passe tem de ser especificados para o teste de verificação de recurso interativo de identificação de disco.
 
-![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image2.png)
+![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image2.png)
 
 ## <a name="select-the-test"></a>Selecione o teste
 
@@ -72,51 +72,51 @@ Um teste para a substituição do disco é um cenário comum. Neste exemplo, o t
     > [!Note]  
     > A versão do teste irá incrementar quando são feitas melhorias para os acessórios de teste. Sempre deve ser utilizada a versão mais recente, a menos que a Microsoft contrária.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image4.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
 2.  Fornecer o utilizador de administrador de domínio e palavra-passe, selecionando **editar**.
 
 3.  Selecione o teste apropriado execução agente/DVM para iniciar o teste.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image5.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
 4.  Selecione **submeter** para iniciar o teste.
 
-![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image6.png)
+![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
 ## <a name="start-the-test"></a>Iniciar o teste
 
 Mostram as instruções de teste de identificação de disco no computador que executa o agente de VaaS. Normalmente, isso é o DVM ou a Jumpbox para a instância do Azure Stack.
 
-![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image8.png)
+![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
 ## <a name="choose-the-actions"></a>Escolha as ações
 
 1.  Siga os **documentação** e **validação** links para rever as instruções da Microsoft sobre como efetuar este cenário.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image9.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
 2.  Selecione **Seguinte**.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image10.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
 3.  Siga as instruções para executar o script precheck.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image11.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
 4.  Depois do script precheck concluído com êxito, executar o cenário manual (substituição do disco), de acordo a **documentação** e **validação** liga-se do **informações**separador.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image12.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
 5.  Não feche a caixa de diálogo enquanto estiver a executar o cenário manual.
 
 6.  Quando tiver terminado de executar o cenário manual, siga as instruções para executar o script de verificação de post.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image13.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
 7.  A conclusão com êxito do cenário manual (substituição do disco), selecione **seguinte**.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image14.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
 > [!Important]  
 > Se fechar a janela, o teste irá parar antes de terminar.
@@ -125,7 +125,7 @@ Mostram as instruções de teste de identificação de disco no computador que e
 
 1.  Quando o teste estiver concluído, será solicitado para fornecer comentários.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image15.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
 2.  Estas perguntas ajudará a avaliar a qualidade de taxa de e a versão de sucesso do cenário de Microsoft.
 
@@ -133,7 +133,7 @@ Mostram as instruções de teste de identificação de disco no computador que e
 
 1.  Anexe quaisquer ficheiros de registo que pretende enviar à Microsoft.
 
-    ![Texto alternativo](media\azure-stack-vaas-interactive-feature-verification\image16.png)
+    ![Texto alternativo](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
 2.  Aceite o EULA de envio de comentários.
 

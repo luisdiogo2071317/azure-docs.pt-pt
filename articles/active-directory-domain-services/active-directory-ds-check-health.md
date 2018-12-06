@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: a9248e2310e509bbc4f527608246b47543a03fc4
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502182"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969009"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Verifique o estado de funcionamento de um domínio gerido do Azure AD Domain Services
 
@@ -32,7 +32,7 @@ Usando a página de estado de funcionamento no portal do Azure, é capazes de se
 2. Clique no domínio que pretende ver o estado de funcionamento.
 3. No painel de navegação do lado esquerdo, clique em **estado de funcionamento**.
 
-A imagem seguinte ilustra uma página de estado de funcionamento de exemplo: ![página de estado de funcionamento de exemplo](.\media\active-directory-domain-services-alerts\health-page.png)
+A imagem seguinte ilustra uma página de estado de funcionamento de exemplo: ![página de estado de funcionamento de exemplo](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > Estado de funcionamento do seu domínio gerido é avaliado a cada hora. Depois de efetuar alterações ao seu domínio gerido, aguarde até o próximo ciclo de avaliação para ver o estado de funcionamento atualizado do seu domínio gerido. O carimbo de hora "Avaliado pela última vez" no canto superior direito mostra quando o estado de funcionamento do seu domínio gerido foi avaliado pela última vez.
@@ -43,10 +43,10 @@ O estado no canto superior direito do seu estado de funcionamento da página ind
 
 | Estado | Ícone | Explicação |
 | --- | :----: | --- |
-| A executar | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | O domínio gerido está a funcionar sem problemas e não tem quaisquer alertas críticas ou de aviso. Este domínio pode ter alertas informativos. |
-| Necessita de atenção (aviso) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | Não existem sem alertas críticos no seu domínio gerido, mas existem um ou mais alertas de aviso que precisam ser abordadas. |
-| Necessita de atenção (crítico) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | Existem um ou mais alertas críticos no seu domínio gerido. Também pode ter alertas de aviso e/ou informativas. |
-| A implementar | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | O domínio está no processo de que está sendo implantado. |
+| A executar | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | O domínio gerido está a funcionar sem problemas e não tem quaisquer alertas críticas ou de aviso. Este domínio pode ter alertas informativos. |
+| Necessita de atenção (aviso) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | Não existem sem alertas críticos no seu domínio gerido, mas existem um ou mais alertas de aviso que precisam ser abordadas. |
+| Necessita de atenção (crítico) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | Existem um ou mais alertas críticos no seu domínio gerido. Também pode ter alertas de aviso e/ou informativas. |
+| A implementar | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | O domínio está no processo de que está sendo implantado. |
 
 ## <a name="monitors"></a>Monitores
 Monitores são aspectos do seu domínio gerido que o Azure AD Domain Services monitoriza regularmente. É a melhor forma de manter seus monitores em bom estado de funcionamento resolver quaisquer alertas ativos para o seu domínio gerido.

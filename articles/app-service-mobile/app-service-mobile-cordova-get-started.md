@@ -16,12 +16,12 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 07/07/2017
 ms.author: crdun
-ms.openlocfilehash: 223e9e35fcab347f9b5b8db01a9fd667b9f5d55d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 0c00709417f3b393e8505dc7232abd5541c4e961
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488651"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954974"
 ---
 # <a name="create-an-apache-cordova-app"></a>Criar uma aplicação Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -51,7 +51,7 @@ Também pode ignorar o Visual Studio e utilizar diretamente a linha de comandos 
 ## <a name="download-and-run-the-apache-cordova-app"></a>Transferir e executar a aplicação Apache Cordova
 [!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 Agora que concluiu este tutorial de início rápido, avance para um dos seguintes tutoriais:
 
 * [Adicionar Dados Offline](app-service-mobile-cordova-get-started-offline-data.md) à sua aplicação do Apache Cordova.
@@ -74,7 +74,7 @@ Saiba como utilizar os SDKs.
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: https://www.visualstudio.com/
 [Visual Studio Tools para Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Dados Offline]: app-service-mobile-offline-data-sync.md
 [Autenticação]: app-service-mobile-auth.md

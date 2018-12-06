@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: b84992f5deea1135692c368900f63773b51453bb
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634333"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959687"
 ---
-# <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Resolver problemas de ligação de RDP da VM do Azure por ID de evento 
+# <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Resolver problemas de ligação de RDP da VM do Azure por ID de Evento 
 
 Este artigo explica como utilizar os IDs de eventos para resolver os problemas que impedem uma ligação de protocolo (RDP) do ambiente de trabalho remoto para uma Máquina Virtual do Azure (VM).
 
@@ -37,7 +37,7 @@ Para resolver este problema, reveja os registos de eventos na VM e, em seguida, 
 
 ### <a name="create-a-backup-snapshot"></a>Criar um instantâneo de cópia de segurança
 
-Para criar um instantâneo de cópia de segurança, siga os passos em [instantâneo de um disco](..\windows\snapshot-copy-managed-disk.md).
+Para criar um instantâneo de cópia de segurança, siga os passos em [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
 ### <a name="connect-to-the-vm-remotely"></a>Ligar remotamente à VM
 
@@ -56,35 +56,35 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 
 **Nome do registo:** sistema <br />
 **Origem:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Data:***tempo*  <br />
+**Data:***tempo* <br />
 **ID de evento:** 1058 <br />
 **Categoria de tarefa:** None <br />
 **Nível:** erro <br />
 **Palavras-chave:** clássico <br />
 **Utilizador:** n/d <br />
-**Computador:***computador*  <br />
+**Computador:***computador* <br />
 **Descrição:** o servidor de anfitrião de sessões de RD tem falha ao substituir a expirou auto assinado o certificado utilizado para autenticação de servidor de anfitrião de sessões de RD em ligações de SSL. O código de estado relevantes era que o acesso é negado.
 
 **Nome do registo:** sistema <br />
 **Origem:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Data:***tempo*  <br />
+**Data:***tempo* <br />
 **ID de evento:** 1058 <br />
 **Categoria de tarefa:** None <br />
 **Nível:** erro <br />
 **Palavras-chave:** clássico <br />
 **Utilizador:** n/d <br />
-**Computador:***computador*  <br />
+**Computador:***computador* <br />
 **Descrição:** servidor de anfitrião de sessões de RD não conseguiu criar um novo certificado autoassinado a ser utilizado para autenticação de servidor de anfitrião de sessões de RD em ligações de SSL, o código de estado relevantes era objeto já existe.
 
 **Nome do registo:** sistema <br />
 **Origem:** Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Data:***tempo*  <br />
+**Data:***tempo* <br />
 **ID de evento:** 1057 <br />
 **Categoria de tarefa:** None <br />
 **Nível:** erro <br />
 **Palavras-chave:** clássico <br />
 **Utilizador:** n/d <br />
-**Computador:***computador*  <br />
+**Computador:***computador* <br />
 **Descrição:** o servidor de anfitrião de sessões de RD não conseguiu criar um novo certificado a ser utilizado para autenticação de servidor de anfitrião de sessões de RD em ligações de SSL auto assinado. O código de estado relevantes foi o que conjunto de chaves não existe
 
 Também pode procurar eventos de erro SCHANNEL 36872 e 36870 ao executar os comandos seguintes:
@@ -102,7 +102,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Nível:** erro <br />
 **Palavras-chave:**       <br />
 **Utilizador:** sistema <br />
-**Computador:***computador*  <br />
+**Computador:***computador* <br />
 **Descrição:** Ocorreu um erro fatal ao tentar aceder à chave privada do servidor credencial SSL. O código de erro devolvido do módulo criptográfico é 0x8009030D.  <br />
 O estado de erro interno é 10001.
 
@@ -224,7 +224,7 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 **Nível:** erro <br />
 **Palavras-chave:**       <br />
 **Utilizador:** sistema <br />
-**Computador:***computador*  <br />
+**Computador:***computador* <br />
 **Descrição:** Ocorreu um erro fatal ao criar uma credencial de servidor TLS. O estado de erro interno é 10013.
  
 ### <a name="cause"></a>Causa
@@ -248,13 +248,13 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 
 **Nome do registo:** Microsoft-Windows-TerminalServices-SessionBroker/operacional <br />
 **Origem:** Microsoft-Windows-TerminalServices-SessionBroker <br />
-**Data:***tempo*  <br />
+**Data:***tempo* <br />
 **ID de evento:** 2056 <br />
 **Categoria de tarefa:** (109) <br />
 **Nível:** erro <br />
 **Palavras-chave:**       <br />
 **Utilizador:** serviço de rede <br />
-**Computador:***fqdn do computador*  <br />
+**Computador:***fqdn do computador* <br />
 **Descrição:** não é possível encontrar a descrição do evento ID 2056 da Microsoft-Windows-TerminalServices-SessionBroker de origem. O componente que gera esse evento não está instalado no seu computador local ou a instalação está danificada. Pode instalar ou reparar o componente no computador local. <br />
 Se a origem do evento em outro computador, tinham de apresentar as informações sejam guardados com o evento. <br />
 As seguintes informações foi incluídas com o evento: <br />
@@ -264,13 +264,13 @@ Falha de início de sessão para a base de dados.
 
 **Nome do registo:** Microsoft-Windows-TerminalServices-SessionBroker-cliente/operacional <br />
 **Origem:** Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
-**Data:***tempo*  <br />
+**Data:***tempo* <br />
 **ID de evento:** 1296 <br />
 **Categoria de tarefa:** (104) <br />
 **Nível:** erro <br />
 **Palavras-chave:**       <br />
 **Utilizador:** serviço de rede <br />
-**Computador:***fqdn do computador*  <br />
+**Computador:***fqdn do computador* <br />
 **Descrição:** não é possível encontrar a descrição de 1296 de ID de evento da origem Microsoft-Windows-TerminalServices-SessionBroker-Client. O componente que gera esse evento não está instalado no seu computador local ou a instalação está danificada. Pode instalar ou reparar o componente no computador local.
 Se a origem do evento em outro computador, tinham de apresentar as informações sejam guardados com o evento.
 As seguintes informações foi incluídas com o evento:  <br />

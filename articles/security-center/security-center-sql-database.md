@@ -3,7 +3,7 @@ title: Serviço de centro de segurança do Azure e SQL Database do Azure | Docum
 description: Este artigo mostra como o Centro de segurança pode ajudar a proteger as bases de dados na base de dados do Azure SQL.
 services: sql-database
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: 2b16bc98c456c9c85d8e49e01171086933533707
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: rkarlin
+ms.openlocfilehash: 4535b141d177e49567d99a88d0c3883f5ddf746a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312634"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956811"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Serviço de centro de segurança do Azure e base de dados do Azure SQL
 O [Centro de Segurança do Azure](https://azure.microsoft.com/documentation/services/security-center/) ajuda-o a evitar, detetar e responder a ameaças. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.

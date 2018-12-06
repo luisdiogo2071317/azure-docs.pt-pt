@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 3c27aecf18fcb5e14347d8f02d71891b351292be
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 87ba13334b037f7eb47264a120bb91b2be5f8a79
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341842"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963918"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Proteger máquinas virtuais implementadas no Azure Stack
 
@@ -58,7 +58,7 @@ Planeie a estratégia de recuperação de cópia de segurança e recuperação a
 | **O Azure Stack implementado no datacenter CSP e operados pelo CSP** | VMs do utilizador são implementadas na pilha do Azure CSP operado. VMs do utilizador são restauradas a partir de cópia de segurança ou a ativação pós-falha diretamente para o Azure. | CSP opera as instâncias principais e secundárias do Azure Stack em seus próprios datacenters. VMs do utilizador são restauradas ou efetuar a ativação pós-falha entre as duas instâncias do Azure Stack. | CSP opera o Azure Stack no site primário. Centro de dados do cliente é o destino de restauro ou de ativação pós-falha. |
 | **O Azure Stack implementados no Centro de dados do cliente e em funcionamento por parte do cliente** | VMs do utilizador são implementadas para o cliente operado Azure Stack. VMs do utilizador são restauradas a partir de cópia de segurança ou a ativação pós-falha diretamente para o Azure. | Cliente opera as instâncias principais e secundárias do Azure Stack em seus próprios datacenters. VMs do utilizador são restauradas ou efetuar a ativação pós-falha entre as duas instâncias do Azure Stack. | Cliente opera o Azure Stack no site primário. Datacenter do CSP é o destino de restauro ou de ativação pós-falha. |
 
-![Combinações de origem-destino](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![Combinações de origem-destino](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
 ## <a name="application-recovery-objectives"></a>Objetivos de recuperação de aplicações
 
@@ -77,7 +77,7 @@ Outra métrica é **tempo médio de recuperar** (MTTR), que é o tempo médio ne
 
 O esquema de proteção mais comuns para aplicações baseadas em VM consiste em utilizar o software de backup. Cópia de segurança de uma VM normalmente inclui o sistema operativo, configuração do sistema operativo, binários de aplicativos e dados da aplicação. As cópias de segurança são criadas por um instantâneo de volumes, discos ou toda a VM. Com o Azure Stack, tem a flexibilidade de criar cópias de segurança de dentro do contexto de SO convidado ou do armazenamento do Azure Stack e as APIs de computação. O Azure Stack não suporta cópias de segurança e tirar ao nível do hipervisor.
  
-![Restor de cópia de segurança](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Restor de cópia de segurança](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 Recuperar a aplicação requer o restauro de uma ou mais VMs para a nuvem mesmo ou para uma cloud nova. Pode direcionar uma cloud no seu datacenter ou na cloud pública. A cloud que escolher é completamente dentro de seu controle e baseia-se nos seus requisitos de privacidade e soberania de dados.
  
@@ -107,7 +107,7 @@ Uma abordagem alternativa para alta disponibilidade é replicar as VMs de aplica
 
 Com esta abordagem, a aplicação é implementada numa nuvem e suas VM é replicado para outra solução em nuvem. Se uma ativação pós-falha é disparada, o secundário as VMs têm de ser ativada na cloud segundo. Em alguns cenários, a ativação pós-falha cria os discos de VMs e anexa a eles. Este processo pode demorar muito tempo a concluir, especialmente com um aplicativo de várias camadas de mensagens em fila que exija uma sequência de arranque específico. Também pode ser passos que tem de ser executados antes do aplicativo está pronto para iniciar a manutenção de pedidos.
 
-![Ativação pós-falha do manual de replicação](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![Ativação pós-falha do manual de replicação](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO: Medida de tempo de inatividade em minutos
  - RPO: Perda de dados da variável (dependendo da frequência de replicação)

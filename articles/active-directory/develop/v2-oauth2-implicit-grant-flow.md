@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 878c2596a1d884e26a4b4a4ed4764cfd9ce6b39b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e9de2c9b7f79dd6cba3050d84ccfa0795bc2d09a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424105"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962584"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocolos - SPAs com o fluxo implícito
 
@@ -36,7 +36,7 @@ Com o ponto final v2.0, pode iniciar a sessão de utilizadores nas suas aplicaç
 
 Para estas aplicações (AngularJS, ember, react. js, etc.), o Azure Active Directory (Azure AD) suporta o fluxo de concessão implícita OAuth 2.0. O fluxo implícito está descrito com o [especificação do OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.2). O principal benefício é que ela permite que a aplicação obter os tokens do Azure AD sem executar um servidor de back-end exchange de credencial. Isso permite que a aplicação iniciar a sessão do utilizador, manter a sessão e obtenha tokens para outras APIs web tudo dentro do cliente código JavaScript. Existem algumas considerações de segurança importante levar em conta ao utilizar o fluxo implícito especificamente cerca [cliente](https://tools.ietf.org/html/rfc6749#section-10.3) e [representação de utilizadores](https://tools.ietf.org/html/rfc6749#section-10.3).
 
-Se pretender utilizar o fluxo implícito e o Azure AD para adicionar autenticação à sua aplicação do JavaScript, é recomendado que utilize a biblioteca de JavaScript de código-fonte aberto [msal](https://github.com/AzureAD/microsoft-authentication-library-for-js). 
+Se pretender utilizar o fluxo implícito e o Azure AD para adicionar autenticação à sua aplicação do JavaScript, é recomendado que utilize a biblioteca de JavaScript de código-fonte aberto [msal](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
 No entanto, se preferir não usar uma biblioteca na sua aplicação de página única e enviar mensagens de protocolo por conta própria, siga os passos gerais abaixo.
 
@@ -71,7 +71,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!TIP]
 > Para testar a iniciar sessão utilizando o fluxo implícito, clique em <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank"> https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> Depois de iniciar sessão, o browser deve ser redirecionado para `https://localhost/myapp/` com um `id_token` na barra de endereço.
-> 
+>
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |

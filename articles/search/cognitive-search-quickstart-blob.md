@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: bc88ca63f14c5480210455abcf403771b6a4c232
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ef4a445539efa27ebd154980a4ea8b70b5aba082
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264133"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956913"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início Rápido: criar um pipeline de pesquisa cognitiva com competências e dados de exemplo
 
@@ -66,7 +66,7 @@ Primeiro, inscreva-se no serviço do Azure Search.
 
 1. Clique em **Criar um recurso**, procure o Azure Search e clique em **Criar**. Veja [Criar um serviço do Azure Search no portal](search-create-service-portal.md) se estiver a configurar um serviço de pesquisa pela primeira vez e precisar de mais ajuda.
 
-  ![Portal do dashboard](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Criar serviço do Azure Search no portal")
+  ![Portal do dashboard](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Criar serviço do Azure Search no portal")
 
 1. Para Grupo de recursos, crie um grupo de recursos para conter todos os recursos que criar neste início rápido. Tal torna mais fácil limpar os recursos depois de concluir o início rápido.
 
@@ -76,12 +76,14 @@ Primeiro, inscreva-se no serviço do Azure Search.
 
   O serviço Gratuito está limitado a 3 índices, um tamanho de blob máximo de 16 MB e 2 minutos de indexação, o que é insuficiente para executar todas as funcionalidades da pesquisa cognitiva. Para rever os limites dos diferentes escalões, veja [Limites do Serviço](search-limits-quotas-capacity.md).
 
+  ![Página de definição de serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "página de definição de serviço no portal")
+  ![página de definição de serviço no portal do](./media/cognitive-search-tutorial-blob/create-search-service2.png "página de definição de serviço no o portal")
   > [!NOTE]
   > A Pesquisa cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuito. Posteriormente, iremos anunciar os preços desta capacidade.
 
 1. Afixe o serviço no dashboard para ter acesso rápido às informações do serviço.
 
-  ![Página de definições do serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service.png "Página de definições do serviço no portal")
+  ![Página de definições do serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definições do serviço no portal")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurar o serviço Blob do Azure e carregar dados de exemplo
 
@@ -103,7 +105,7 @@ Volte à página do dashboard do serviço do Azure Search e clique em **Importar
 
 Em **Ligar aos seus dados** > **Armazenamento de Blobs do Azure**, selecione a conta e o contentor que criou. Dê um nome à origem de dados e utilize os valores predefinidos para o resto. 
 
-   ![Configuração de blobs do Azure](./media/cognitive-search-quickstart-blob/blob-datasource.png)
+   ![Configuração de blobs do Azure](./media/cognitive-search-quickstart-blob/blob-datasource2.png)
 
 
 Clique em **OK** para criar a origem de dados.

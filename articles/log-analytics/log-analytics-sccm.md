@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 8e30b1ba093e38f81c9a09a0b9107e5a3b2eb768
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5cd28ec685842f6782699a7538e2f582c3226271
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847376"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955945"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Ligar o Configuration Manager ao Log Analytics
 Pode ligar o seu ambiente do System Center Configuration Manager para o Azure Log Analytics para sincronizar dados de coleção de dispositivo e fazem referência a essas coleções no Log Analytics e a automatização do Azure.  
@@ -42,7 +42,7 @@ Os passos seguintes resumem os passos para configurar a integração do Configur
 Pode ler mais sobre como ligar o Configuration Manager ao Log Analytics na [sincronizar dados do Configuration Manager ao Log Analytics a Microsoft](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Gestor de configuração de concessão com permissões para o Log Analytics
-No procedimento seguinte, pode conceder a *contribuinte* função na sua área de trabalho do Log Analytics para a aplicação do AD e principal de serviço que criou anteriormente para o Configuration Manager.  Se ainda não tiver uma área de trabalho, consulte [criar uma área de trabalho no Azure Log Analytics](log-analytics-quick-create-workspace.md) antes de continuar.  Isso permite que o Configuration Manager para se autenticar e ligar à sua área de trabalho do Log Analytics.  
+No procedimento seguinte, pode conceder a *contribuinte* função na sua área de trabalho do Log Analytics para a aplicação do AD e principal de serviço que criou anteriormente para o Configuration Manager.  Se ainda não tiver uma área de trabalho, consulte [criar uma área de trabalho no Azure Log Analytics](../azure-monitor/learn/quick-create-workspace.md) antes de continuar.  Isso permite que o Configuration Manager para se autenticar e ligar à sua área de trabalho do Log Analytics.  
 
 > [!NOTE]
 > Tem de especificar permissões no Log Analytics para o Configuration Manager. Caso contrário, receberá uma mensagem de erro quando utiliza o Assistente de configuração no Configuration Manager.

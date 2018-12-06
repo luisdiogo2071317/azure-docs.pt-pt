@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: ae8739a65efbe7662a8f72e961d772fecaf4b527
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a4c96ea75bae69fa5a1af13e4e8b908759817e95
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303700"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959330"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementação de Git Local no Serviço de Aplicações do Azure
 
@@ -30,7 +30,7 @@ Este guia de procedimentos mostra como implementar o código para [App Service d
 
 Para seguir os passos neste guia de procedimentos:
 
-* [Instalar o Git](http://www.git-scm.com/downloads).
+* [Instalar o Git](https://www.git-scm.com/downloads).
 * Manter um repositório de Git local com o código de que pretende implementar.
 
 Para utilizar um repositório de exemplos para acompanhar, execute o seguinte comando na janela de terminal local:

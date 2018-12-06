@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 8020db5f099f0d2c3dc8203f2d4afeea6a38cb41
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 52657ae18b6fd06408887df82bd822eb2ff8fffe
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844758"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964361"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de Hyper-V no local para o Azure
 
@@ -170,6 +170,9 @@ Tipo de VM | Geração 1<br/><br/> Geração 2 – Windows | VMs de geração 2,
 --- | --- | ---
 Mover o Cofre entre grupos de recursos<br/><br/> Dentro e entre subscrições | Não | Não
 Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre subscrições | Não | Não
+
+> [!NOTE]
+> Ao replicar VMs de Hyper-(geridas com/sem SCVMM) no local para o Azure, pode replicar apenas um inquilino do AD de um ambiente específico - site Hyper-V ou o SCVMM, conforme aplicável.
 
 
 ## <a name="provider-and-agent"></a>Fornecedor e agente

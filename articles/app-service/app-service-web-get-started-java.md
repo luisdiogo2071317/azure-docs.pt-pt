@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
-ms.translationtype: HT
+ms.openlocfilehash: 4b812cfa2c551e9d2f365f74bebee96626f4dd94
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283933"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968321"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Criar a primeira aplicação Web Java no Azure
 
-[As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática. Este guia de introdução mostra como implementar uma aplicação Web Java no Serviço de Aplicações com o [IDE do Eclipse para Programadores de Java EE](http://www.eclipse.org/).
+[As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática. Este guia de introdução mostra como implementar uma aplicação Web Java no Serviço de Aplicações com o [IDE do Eclipse para Programadores de Java EE](https://www.eclipse.org/).
 
 > [!NOTE]
 >
@@ -41,7 +41,7 @@ Quando tiver concluído este guia de introdução, a aplicação terá um aspeto
 
 Para concluir este guia de introdução, instale:
 
-* O <a href="http://www.eclipse.org/downloads/" target="_blank">IDE do Eclipse para Programadores de Java EE</a> gratuito. Este guia de introdução utiliza o Eclipse Neon.
+* O <a href="https://www.eclipse.org/downloads/" target="_blank">IDE do Eclipse para Programadores de Java EE</a> gratuito. Este guia de introdução utiliza o Eclipse Neon.
 * O <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit para Eclipse</a>.
 
 > [!NOTE]
@@ -94,7 +94,7 @@ Guarde as alterações.
 
 ## <a name="publish-the-web-app-to-azure"></a>Publicar a aplicação Web no Azure
 
-No Explorador de Projeto, clique com o botão direito do rato no projeto e, em seguida, selecione **Azure** > **Publicar como Aplicação Web do Azure**.
+No Project Explorer, clique com o botão direito do rato no projeto e, em seguida, selecione **Azure** > **Publish as Azure Web App** (Publicar como Aplicação Web do Azure).
 
 ![Menu de contexto Publicar como Aplicação Web do Azure](./media/app-service-web-get-started-java/publish-as-azure-web-app-context-menu.png)
 

@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 915aedd23019a91d434444c6da3b67a8c9c15337
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 87c3633bb3ed3537d1e258b9d8d50fd6d6356d81
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849195"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960035"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurar e gerir a autenticação do Azure Active Directory com o SQL
 
@@ -343,7 +343,7 @@ Utilize este método se tiver sessão iniciada Windows com as suas credenciais d
 
     ![Selecione o nome de base de dados][13]
 
-## <a name="active-directory-password-authentication"></a>Autenticação de palavra-passe do Active Directory
+## <a name="active-directory-password-authentication"></a>Autenticação por palavra-passe do Active Directory
 
 Utilize este método quando estabelecer ligação com um nome do principal do Azure AD com o Azure AD o domínio gerido. Também pode utilizar para contas federadas sem acesso ao domínio, por exemplo, ao trabalhar remotamente.
 
@@ -375,7 +375,7 @@ conn.Open();
 
 A palavra-chave da cadeia de ligação ``Integrated Security=True`` não é suportada para ligar à base de dados do Azure SQL. Ao fazer uma conexão ODBC, terá de remover espaços e defina a autenticação para 'ActiveDirectoryIntegrated'.
 
-### <a name="active-directory-password-authentication"></a>Autenticação de palavra-passe do Active Directory
+### <a name="active-directory-password-authentication"></a>Autenticação por palavra-passe do Active Directory
 
 Para ligar a uma base de dados através da autenticação integrada e uma identidade do Azure AD, a palavra-chave de autenticação tem de ser definida para a palavra-passe de diretório Active Directory. A cadeia de ligação tem de conter ID/UID de utilizador e palavras-chave de palavra-passe/PWD e valores. O seguinte exemplo de código do c# usa ADO .NET.
 
@@ -402,7 +402,7 @@ Cadeia de ligação de exemplo:
 ```c#
 string ConnectionString =@"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;"
 SqlConnection conn = new SqlConnection(ConnectionString);
-connection.AccessToken = "Your JWT token"
+conn.AccessToken = "Your JWT token"
 conn.Open();
 ```
 

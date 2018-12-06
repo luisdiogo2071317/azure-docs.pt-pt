@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: d784bf3637c83c724c3616a1a42b66c4914b4ff7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f4c687ff0d02c78b88b24834f6c3acfc563ecbfc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987244"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963577"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>O Gestor de tráfego perguntas mais frequentes (FAQ)
 
@@ -134,7 +134,7 @@ Sim, apenas a versão de API 2017-03-01 e a mais recente suporta o encaminhament
 ## <a name="traffic-manager-subnet-traffic-routing-method"></a>Método de encaminhamento de tráfego do Gestor de tráfego de sub-rede
 
 ### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>Quais são alguns casos de utilização em que o encaminhamento de sub-rede é útil?
-Encaminhamento de sub-rede permite-lhe diferenciar a experiência de que entrega para conjuntos específicos de usuários identificados por IP de origem do respetivo endereço IP de pedidos DNS. Um exemplo seria conteúdo diferente do que mostra que os utilizadores estabeleçam ligação a um Web site do seu sede corporativa. Outra seria restringindo os utilizadores de determinados ISPs apenas aceder a pontos finais que suportam ligações apenas de IPv4, se esses ISPs têm um desempenho inferior par, quando o IPv6 é utilizado.
+Encaminhamento de sub-rede permite-lhe diferenciar a experiência de que entrega para conjuntos específicos de usuários identificados por IP de origem do respetivo endereço IP de pedidos DNS. Um exemplo seria conteúdo diferente do que mostra que os utilizadores estabeleçam ligação a um Web site da sua sede corporativa. Outra seria restringindo os utilizadores de determinados ISPs apenas aceder a pontos finais que suportam ligações apenas de IPv4, se esses ISPs têm um desempenho inferior par, quando o IPv6 é utilizado.
 Outro motivo para usar o método de encaminhamento de sub-rede está em conjunto com outros perfis num perfil aninhado definido. Por exemplo, se desejar usar o método de encaminhamento geográfico de perímetro geográfico os seus utilizadores, mas para um ISP específico que pretende fazer um método de encaminhamento diferente, pode ter um perfil withy sub-rede método de encaminhamento como o perfil de principal e substituir esse ISP para utilizar um filho específico pro ficheiros e ter o perfil geográfico padrão para todos os outros.
 
 ### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>Como é que o Gestor de tráfego saber o endereço IP do utilizador final?

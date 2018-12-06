@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: e3880bda434f692277e3d53ecc5d2d880f8060dc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4803723511c43fc4f12ea6326c40022b1fdf9d17
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834796"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969095"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB enlaces das funções do Azure 2.x
 
@@ -24,7 +24,7 @@ ms.locfileid: "52834796"
 > * [Versão 1](functions-bindings-cosmosdb.md)
 > * [Versão 2](functions-bindings-cosmosdb-v2.md)
 
-Este artigo explica como trabalhar com [do Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) enlaces no funções do Azure 2.x. Funções do Azure suporta acionaram, de entrada e saída enlaces para o Azure Cosmos DB.
+Este artigo explica como trabalhar com [do Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) enlaces no funções do Azure 2.x. Funções do Azure suporta acionaram, de entrada e saída enlaces para o Azure Cosmos DB.
 
 > [!NOTE]
 > Este artigo destina-se [versão das funções do Azure 2.x](functions-versions.md).  Para obter informações sobre como utilizar essas ligações nas funções 1.x, consulte [do Azure Cosmos DB enlaces das funções do Azure 1.x](functions-bindings-cosmosdb.md).
@@ -1973,12 +1973,12 @@ Esta secção descreve as definições de configuração global disponíveis par
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |GatewayMode|Gateway|O modo de ligação utilizado pela função, ao ligar ao serviço do Azure Cosmos DB. As opções são `Direct` e `Gateway`|
-|Protocolo|https|O protocolo de ligação utilizado pela função quando a ligação ao serviço do Azure Cosmos DB.  Leitura [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)| 
+|Protocolo|Https|O protocolo de ligação utilizado pela função quando a ligação ao serviço do Azure Cosmos DB.  Leitura [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)| 
 |leasePrefix|n/d|Prefixo de concessão para utilizar em todas as funções num aplicativo.| 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Saiba mais sobre a base de dados sem servidor computação com o Cosmos DB](..\cosmos-db\serverless-computing-database.md)
+* [Saiba mais sobre a base de dados sem servidor computação com o Cosmos DB](../cosmos-db/serverless-computing-database.md)
 * [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)
 
 <!---

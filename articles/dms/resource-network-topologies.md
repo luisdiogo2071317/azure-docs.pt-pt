@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/8/2018
-ms.openlocfilehash: 9b036b74141ce2091d2e68b68d10c44a56a8696d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: cd62b60718a35aed9129db61413086266bb9f2c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300697"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971084"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Topologias de rede para migrações de instância gerida BD SQL do Azure com o serviço de migração de base de dados do Azure
 Este artigo aborda várias topologias de rede que funciona com o serviço de migração de base de dados do Azure para proporcionar uma experiência de migração abrangente de servidores do SQL Server no local para a instância gerida da base de dados SQL do Azure.
@@ -24,7 +24,7 @@ Este artigo aborda várias topologias de rede que funciona com o serviço de mig
 ## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>O Azure SQL Database Managed Instance configurado para cargas de trabalho híbrida 
 Utilize esta topologia se o seu Azure SQL Database Managed Instance está ligado à sua rede no local. Esta abordagem fornece o encaminhamento de rede mais simplificado e produz o débito de dados máximo durante a migração.
 
-![Topologia de rede para cargas de trabalho híbrida](media\resource-network-topologies\hybrid-workloads.png)
+![Topologia de rede para cargas de trabalho híbrida](media/resource-network-topologies/hybrid-workloads.png)
 
 **Requisitos**
 - Neste cenário, o Azure SQL Database Managed Instance e a instância do serviço de migração de base de dados do Azure são criados na mesma VNET do Azure, mas usam diferentes sub-redes.  
@@ -36,7 +36,7 @@ Utilize esta topologia de rede se o seu ambiente requer um ou mais dos seguintes
 - Se as políticas de controlo de acesso baseado em ' (RBAC) da função estão em vigor e precisar de limitar os utilizadores a aceder à mesma subscrição que está a alojar o Azure SQL Database Managed Instance.
 - As VNETs utilizado para o Azure SQL Database Managed Instance e o serviço de migração de base de dados do Azure estão em subscrições diferentes.
 
-![Topologia de rede para a instância gerida isolada da rede no local](media\resource-network-topologies\mi-isolated-workload.png)
+![Topologia de rede para a instância gerida isolada da rede no local](media/resource-network-topologies/mi-isolated-workload.png)
 
 **Requisitos**
 - A VNET que utiliza o Azure Database Migration Service para este cenário tem também de estar ligada à rede no local através de um (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
@@ -47,7 +47,7 @@ Utilize esta topologia de rede se o seu ambiente requer um ou mais dos seguintes
 
 Utilize esta topologia se a origem do SQL Server estiver alojada numa VM do Azure e compartilha a mesma VNET com a instância gerida da base de dados SQL do Azure e o serviço de migração de base de dados do Azure.
 
-![Topologia de rede para migrações de Cloud para a Cloud com uma vnet partilhada](media\resource-network-topologies\cloud-to-cloud.png)
+![Topologia de rede para migrações de Cloud para a Cloud com uma vnet partilhada](media/resource-network-topologies/cloud-to-cloud.png)
 
 **Requisitos**
 - Não existem requisitos adicionais.
@@ -59,7 +59,7 @@ Utilize esta topologia de rede se o seu ambiente requer um ou mais dos seguintes
 - Se as políticas de controlo de acesso baseado em ' (RBAC) da função estão em vigor e precisar de limitar os utilizadores a aceder à mesma subscrição que está a alojar o Azure SQL Database Managed Instance.
 - As VNETs utilizadas para a instância gerida da base de dados SQL do Azure e o serviço de migração de base de dados do Azure estão em subscrições diferentes.
 
-![Topologia de rede para migrações de Cloud para a Cloud com uma vnet isolada](media\resource-network-topologies\cloud-to-cloud-isolated.png)
+![Topologia de rede para migrações de Cloud para a Cloud com uma vnet isolada](media/resource-network-topologies/cloud-to-cloud-isolated.png)
 
 **Requisitos**
 - Configurar [VNET peering da rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre a VNET utilizada para a instância gerida da base de dados SQL do Azure e o serviço de migração de base de dados do Azure.

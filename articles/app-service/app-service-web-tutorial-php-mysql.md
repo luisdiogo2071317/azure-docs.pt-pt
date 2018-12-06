@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9a1468c27e668663ca9079f5f1c9e5e97e51d2d5
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: e5574eee1ac553151f073fe4e398a84c596c55f2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291296"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968233"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: Criar uma aplicação Web PHP e MySQL no Azure
 
@@ -49,7 +49,7 @@ Neste tutorial, ficará a saber como:
 Para concluir este tutorial:
 
 * [Instalar o Git](https://git-scm.com/)
-* [Instalar o PHP 5.6.4 ou superior](http://php.net/downloads.php)
+* [Instalar o PHP 5.6.4 ou superior](https://php.net/downloads.php)
 * [Instalar o Composer](https://getcomposer.org/doc/00-intro.md)
 * Ative as extensões do PHP seguintes, de que o Laravel precisa: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Instalar e iniciar o MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
@@ -598,9 +598,9 @@ Assim que a transmissão em fluxo do registo tiver iniciado, atualize a aplicaç
 Para parar a transmissão de registos em fluxo em qualquer altura, escreva `Ctrl`+`C`.
 
 > [!TIP]
-> Uma aplicação PHP pode utilizar o padrão [error_log()](http://php.net/manual/function.error-log.php) como saída para a consola. A aplicação de exemplo utiliza esta abordagem em _app/Http/routes.php_.
+> Uma aplicação PHP pode utilizar o padrão [error_log()](https://php.net/manual/function.error-log.php) como saída para a consola. A aplicação de exemplo utiliza esta abordagem em _app/Http/routes.php_.
 >
-> Como uma arquitetura Web [o Laravel utiliza o Monolog](https://laravel.com/docs/5.4/errors) como fornecedor de registo. Para ver como o Monolog envia mensagens para a consola, veja [PHP: como utilizar o Monolog para iniciar sessão na consola (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
+> Como uma arquitetura Web [o Laravel utiliza o Monolog](https://laravel.com/docs/5.4/errors) como fornecedor de registo. Para ver como o Monolog envia mensagens para a consola, veja [PHP: como utilizar o Monolog para iniciar sessão na consola (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >
 >
 

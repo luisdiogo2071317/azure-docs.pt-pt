@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e10c6580c29784f8d56a31e267c47ec08894113b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5c5bdb8fad60a2e4196c2c9f74764e27cec5ba62
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418369"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970778"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Resolver problemas de domínio e problemas de certificado SSL em aplicações web do Azure
 
@@ -145,7 +145,7 @@ Como alternativa, pode utilizar o método de página Web HTML para verificar man
 3.  Carregar este ficheiro na raiz do servidor web que está a alojar o seu domínio.
 4.  Selecione **atualizar** para verificar o estado do certificado. Poderá demorar alguns minutos para efeitos de verificação concluir.
 
-Por exemplo, se estiver comprando um certificado standard para azure.com com o 1234abcd de token de verificação de domínio, feita uma solicitação da web para http://azure.com/1234abcd.html deverá devolver 1234abcd. 
+Por exemplo, se estiver comprando um certificado standard para azure.com com o 1234abcd de token de verificação de domínio, feita uma solicitação da web para https://azure.com/1234abcd.html deverá devolver 1234abcd. 
 
 > [!IMPORTANT]
 > Um pedido de certificado tem prazo de 15 dias para concluir a operação de verificação de domínio. Após 15 dias, a autoridade de certificação nega o certificado e não lhe são cobradas para o certificado. Nesta situação, elimine este certificado e tente novamente.

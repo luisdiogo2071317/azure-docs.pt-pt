@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 7f4af06222141eb0e143e67ba4bfcdcb2f5f92fa
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 06123944072142187bfd5b875cbadd36b4d47bd2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614009"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958905"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registar instância de contentor com o Azure Log Analytics
 
@@ -24,7 +24,7 @@ Para enviar dados do Azure Container Instance para o Azure Log Analytics, tem de
 
 Para ativar o registo nas instâncias de contentor, precisa do seguinte:
 
-* [Área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
+* [Área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 * [CLI do Azure](/cli/azure/install-azure-cli) (ou [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Obter credenciais do Azure Log Analytics

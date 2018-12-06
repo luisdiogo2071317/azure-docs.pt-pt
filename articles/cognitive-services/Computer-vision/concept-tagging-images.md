@@ -10,18 +10,18 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 0025cdcfaa64a262a5ca54ab4db5a84f6a5768ba
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7e9181b6e805a768ca5dd8ed558b8feea45f22d3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338918"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960912"
 ---
 # <a name="tagging-images"></a>Identificar imagens
 
-Imagem digitalizada devolve etiquetas com base em mais de 2000 objetos reconhecíveis, seres vivos, paisagens e ações. Quando as etiquetas são ambíguas ou dados de conhecimento não comuns, a resposta de API fornece "sugestões" para clarificar o significado da etiqueta no contexto de uma configuração conhecida. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança existem. Uma coleção de etiquetas de conteúdos serve de alicerce para uma imagem 'description', apresentado como linguagem legível humana formatada em sentenças completas. Tenha em atenção que neste momento inglês é o único idioma suportado para a descrição da imagem.
+Imagem digitalizada devolve etiquetas com base em milhares de objetos reconhecíveis, seres vivos, paisagens e ações. Quando as etiquetas são ambíguas ou não são do conhecimento geral, a resposta da API fornece "sugestões" para clarificar o significado da etiqueta no contexto de um cenário conhecido. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança. Uma coleção de etiquetas de conteúdos é a base da "descrição" de uma imagem apresentada como um idioma legível por humanos e formatada em frases completas. Tenha em atenção que, neste momento, o inglês é o único idioma suportado para a descrição de imagens.
 
-Depois de carregar uma imagem ou especificar um URL de imagem, algoritmos de imagem digitalizada saída etiquetas com base em objetos, seres vivos e ações identificadas na imagem. Marcação não se limita ao assunto principal, por exemplo, uma pessoa em primeiro plano, mas também inclui o mobiliário (fechado ou equipamentos esportivos), de definição, ferramentas, plantas, animais, acessórios, gadgets etc.
+Depois de carregar uma imagem ou especificar um URL de imagem, algoritmos de imagem digitalizada saída etiquetas com base em objetos, seres vivos e ações identificadas na imagem. As etiquetas não se limitam ao tema principal, como por exemplo uma pessoa em primeiro plano, mas também incluem o cenário (interior ou exterior), o mobiliário, ferramentas, plantas, animais, acessórios, gadgets, etc.
 
 ## <a name="image-tagging-example"></a>Exemplo de marcação de imagem
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: bd72abd4f8f23414ea1003c74d2f90cde3b51d34
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 326fd38f7cb738540a389c93de2a9b5be015e0d7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034342"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968737"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Recuperar da perda catastrófica de dados
 
@@ -40,11 +40,11 @@ Isso resolve de cenário recuperar a sua instalação inteira em caso de falha d
 
 A jornada de proteger o início Azure começa com o backup de dados de aplicação/inquilino e de infraestrutura em separado. Este documento aborda como proteger a infraestrutura. 
 
-![Implementação inicial do Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow1.png)
+![Implementação inicial do Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
 No pior cenários de casos em que todos os dados são perdidos, a recuperação do Azure Stack é o processo de restauro dos dados de infraestrutura exclusivos para essa implementação do Azure Stack e todos os dados de utilizador. 
 
-![Implementar o Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow2.png)
+![Implementar o Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
 ## <a name="restore"></a>Restauro
 

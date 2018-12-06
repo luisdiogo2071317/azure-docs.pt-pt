@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 3c3127c7fd94ae0f66cd083e8a83dd9119f71dcb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a820287c79dcd8d904c9029de3f58d930118e840
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867941"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959517"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para a Base de Dados do Azure para MySQL online com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do MySQL no local para a [Base de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/) com um período de indisponibilidade mínimo. Por outras palavras, a migração pode ser feita com um período de indisponibilidade mínimo para a aplicação. Neste tutorial, vai migrar a base de dados de exemplo **Colaboradores** de uma instância no local do MySQL 5.7 para a Base de Dados do Azure para MySQL através de uma atividade de migração online no Azure Database Migration Service.
@@ -121,24 +121,24 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
 1. Inicie sessão no portal do Azure, selecione **Todos os serviços** e **Subscrições**.
  
-   ![Mostrar subscrições no portal](media\tutorial-mysql-to-azure-mysql-online\portal-select-subscriptions.png)
+   ![Mostrar subscrições no portal](media/tutorial-mysql-to-azure-mysql-online/portal-select-subscriptions.png)
        
 2. Selecione a subscrição na qual pretende criar a instância do Database Migration Service do Azure e, em seguida, selecione **Fornecedores de recursos**.
  
-    ![Mostrar fornecedores de recursos](media\tutorial-mysql-to-azure-mysql-online\portal-select-resource-provider.png)
+    ![Mostrar fornecedores de recursos](media/tutorial-mysql-to-azure-mysql-online/portal-select-resource-provider.png)
     
 3.  Procure por migração e, à direita de **Microsoft.DataMigration**, selecione **Registar**.
  
-    ![Registar o fornecedor de recursos](media\tutorial-mysql-to-azure-mysql-online\portal-register-resource-provider.png)    
+    ![Registar o fornecedor de recursos](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)    
 
 ## <a name="create-a-dms-instance"></a>Criar uma instância do DMS
 1.  No portal do Azure, selecione + **Criar um recurso**, procure o Azure Database Migration Service e selecione **Azure Database Migration Service** na lista pendente.
 
-    ![Azure Marketplace](media\tutorial-mysql-to-azure-mysql-online\portal-marketplace.png)
+    ![Azure Marketplace](media/tutorial-mysql-to-azure-mysql-online/portal-marketplace.png)
 
 2.  No ecrã **Azure Database Migration Service**, selecione **Criar**.
  
-    ![Criar instância do Azure Database Migration Service](media\tutorial-mysql-to-azure-mysql-online\dms-create1.png)
+    ![Criar instância do Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-online/dms-create1.png)
   
 3.  No ecrã **Criar Serviço de Migração**, especifique um nome para o serviço, a subscrição e um grupo de recursos novo ou já existente.
 
@@ -154,7 +154,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     Se precisar de ajuda para escolher o escalão certo do Azure Database Migration Service, veja as recomendações na mensagem de blogue [Choosing an Azure Database Migration Service (Azure DMS) tier](https://go.microsoft.com/fwlink/?linkid=861067). 
 
-     ![Configurar as definições da instância do Azure Database Migration Service](media\tutorial-mysql-to-azure-mysql-online\dms-settings3.png)
+     ![Configurar as definições da instância do Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-online/dms-settings3.png)
 
 7.  Selecione **Criar** para criar o serviço.
 
@@ -163,17 +163,17 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 1. No portal do Azure, selecione **Todos os serviços**, procure Azure Database Migration Service e selecione **Azure Database Migration Services**.
  
-      ![Localizar todas as instâncias do Azure Database Migration Service](media\tutorial-mysql-to-azure-mysql-online\dms-search.png)
+      ![Localizar todas as instâncias do Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-online/dms-search.png)
 
 2. No ecrã **Azure Database Migration Services**, procure o nome da instância do Azure Database Migration Service que criou e selecione-a.
  
-     ![Localizar a instância do Azure Database Migration Service](media\tutorial-mysql-to-azure-mysql-online\dms-instance-search.png)
+     ![Localizar a instância do Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-online/dms-instance-search.png)
  
 3. Selecione + **Novo Projeto de Migração**.
 4. No ecrã **Novo projeto de migração**, indique um nome para o projeto, na caixa de texto **Tipo de servidor de origem**, selecione **MySQL**, na caixa de texto **Tipo de servidor de destino**, selecione **AzureDbForMySQL**.
 5. Na secção **Escolher tipo de atividade**, selecione **Migração de dados online**
 
-    ![Criar Projeto do Azure Database Migration Service](media\tutorial-mysql-to-azure-mysql-online\dms-create-project4.png)
+    ![Criar Projeto do Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-online/dms-create-project4.png)
 
     > [!NOTE]
     > Em alternativa, pode escolher **Apenas criar projeto** para criar o projeto de migração agora e executar a migração mais tarde.
@@ -183,22 +183,22 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 ## <a name="specify-source-details"></a>Especificar os detalhes da origem
 1. No ecrã **Adicionar Detalhes da Origem**, especifique os detalhes da ligação para a instância do MySQL de origem.
  
-    ![Ecrã Adicionar Detalhes da Origem](media\tutorial-mysql-to-azure-mysql-online\dms-add-source-details.png)   
+    ![Ecrã Adicionar Detalhes da Origem](media/tutorial-mysql-to-azure-mysql-online/dms-add-source-details.png)   
 
 ## <a name="specify-target-details"></a>Especificar os detalhes do destino
 1. Selecione **Guardar** e, no ecrã **Detalhes do destino**, especifique os detalhes de ligação do servidor da Base de Dados do Azure para MySQL de destino, que é a instância pré-aprovisionada da Base de Dados do Azure para MySQL na qual o esquema de **Colaboradores** foi implementado através do mysqldump.
 
-    ![Ecrã Detalhes do destino](media\tutorial-mysql-to-azure-mysql-online\dms-add-target-details.png)
+    ![Ecrã Detalhes do destino](media/tutorial-mysql-to-azure-mysql-online/dms-add-target-details.png)
 
 2. Selecione **Guardar** e, no ecrã **Mapear para bases de dados de destino**, mapeie as bases de dados de origem e destino para migração.
 
     Se o nome da base de dados de destino for o mesmo da de origem, o Azure Database Migration Service seleciona a base de dados de destino por predefinição.
 
-    ![Mapear para as bases de dados de destino](media\tutorial-mysql-to-azure-mysql-online\dms-map-target-details.png)
+    ![Mapear para as bases de dados de destino](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
 
 3.  Selecione **Guardar**, no ecrã **Resumo da migração**, na caixa de texto **Nome da atividade**, especifique um nome para a atividade de migração e, em seguida, reveja o resumo para garantir que os detalhes de origem e de destino correspondem aos que foram anteriormente especificados.
 
-    ![Resumo da migração](media\tutorial-mysql-to-azure-mysql-online\dms-migration-summary.png)
+    ![Resumo da migração](media/tutorial-mysql-to-azure-mysql-online/dms-migration-summary.png)
 
 ## <a name="run-the-migration"></a>Executar a migração
 - Selecione **Executar a migração**.
@@ -208,22 +208,22 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 ## <a name="monitor-the-migration"></a>Monitorizar a migração
 1. No ecrã de atividade de migração, selecione **Atualizar** para atualizar a vista até que o **Estado** da migração apareça como **Concluída**.
 
-     ![Estado da Atividade - concluída](media\tutorial-mysql-to-azure-mysql-online\dms-activity-completed.png)
+     ![Estado da Atividade - concluída](media/tutorial-mysql-to-azure-mysql-online/dms-activity-completed.png)
 
 2. Em **Nome da Base de Dados**, selecione uma base de dados específica para obter o estado da migração para as operações **Carregamento de dados completo** e **Sincronização de dados incremental**.
 
     O Carregamento de dados completo irá mostrar o estado de migração de carregamento inicial, enquanto a Sincronização de dados incremental irá mostrar o estado de captura de dados alterados (CDC).
    
-     ![Estado da Atividade - Carregamento completo concluído](media\tutorial-mysql-to-azure-mysql-online\dms-activity-full-load-completed.png)
+     ![Estado da Atividade - Carregamento completo concluído](media/tutorial-mysql-to-azure-mysql-online/dms-activity-full-load-completed.png)
 
-     ![Estado da Atividade - Sincronização de dados incremental](media\tutorial-mysql-to-azure-mysql-online\dms-activity-incremental-data-sync.png)
+     ![Estado da Atividade - Sincronização de dados incremental](media/tutorial-mysql-to-azure-mysql-online/dms-activity-incremental-data-sync.png)
 
 ## <a name="perform-migration-cutover"></a>Realizar transferência de migração
 Depois de concluída a Carga completa inicial, as bases de dados são marcadas como **Preparadas para transferência**.
 
 1. Quando estiver pronto para concluir a migração da base de dados, selecione **Iniciar Transferência**.
 
-    ![Iniciar transferência](media\tutorial-mysql-to-azure-mysql-online\dms-start-cutover.png)
+    ![Iniciar transferência](media/tutorial-mysql-to-azure-mysql-online/dms-start-cutover.png)
  
 2.  Certifique-se de que para todas as transações de entrada para a base de dados de origem; aguarde até que o contador **Alterações pendentes** mostre **0**.
 3.  Selecione **Confirmar** e depois **Aplicar**.

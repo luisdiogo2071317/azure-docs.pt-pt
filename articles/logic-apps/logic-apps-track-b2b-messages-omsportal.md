@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 0bfb652d9e64b9dbf61ad4032f1449fd484cc80a
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: aacdaf4ec55b1223ce993a7246ed9f0405a5054e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233566"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957186"
 ---
 # <a name="track-b2b-messages-with-azure-log-analytics"></a>Monitorizar mensagens B2B com o Azure Log Analytics
 
@@ -37,11 +37,11 @@ Depois de definir a comunicação de B2B entre parceiros comerciais na sua conta
 
 * Se ainda não o fez, [publicar dados de diagnóstico para o Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-* Depois de cumprir os requisitos anteriores, também precisa de uma área de trabalho do Log Analytics, que são utilizados para comunicação de B2B através da análise de registo de controlo. Se não tiver uma área de trabalho do Log Analytics, saiba [como criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+* Depois de cumprir os requisitos anteriores, também precisa de uma área de trabalho do Log Analytics, que são utilizados para comunicação de B2B através da análise de registo de controlo. Se não tiver uma área de trabalho do Log Analytics, saiba [como criar uma área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="install-logic-apps-b2b-solution"></a>Instalar a solução de aplicações lógicas B2B
 
-Antes de pode ter o Log Analytics monitorizar mensagens B2B para a aplicação lógica, adicione a **Logic Apps B2B/EDI** solução para o Log Analytics. Saiba mais sobre [adicionar soluções ao Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Antes de pode ter o Log Analytics monitorizar mensagens B2B para a aplicação lógica, adicione a **Logic Apps B2B/EDI** solução para o Log Analytics. Saiba mais sobre [adicionar soluções ao Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. No [portal do Azure](https://portal.azure.com), selecione **Todos os serviços**. Na caixa de pesquisa, encontre "log analytics" e selecione **do Log Analytics**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e5011dbaad5e5935f3aa792bd3a3ed2b271f23bc
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 726159f7450c29385a331b29191c38085a820876
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632438"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957628"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Melhores práticas para criar soluções de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "52632438"
 Este artigo fornece as práticas recomendadas para [criando um arquivo de solução de gestão](solutions-solution-file.md) no Azure.  Estas informações serão atualizadas conforme as melhores práticas adicionais são identificadas.
 
 ## <a name="data-sources"></a>Origens de dados
-- Origens de dados podem ser [configurado com um modelo do Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md), mas não devem ser incluídos num arquivo de solução.  O motivo é que configurar origens de dados não é atualmente idempotentes, que significa que a sua solução poderia substituir a configuração existente na área de trabalho do utilizador.<br><br>Por exemplo, a sua solução pode exigir eventos de aviso e erro do registo de eventos do aplicativo.  Se especificar isso como uma origem de dados na sua solução, corre o risco de remover os eventos de informação se o usuário tivesse esta configuração em sua área de trabalho.  Se tiver incluído todos os eventos, pode ser a recolher eventos excessivos de informações na área de trabalho do utilizador.
+- Origens de dados podem ser [configurado com um modelo do Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), mas não devem ser incluídos num arquivo de solução.  O motivo é que configurar origens de dados não é atualmente idempotentes, que significa que a sua solução poderia substituir a configuração existente na área de trabalho do utilizador.<br><br>Por exemplo, a sua solução pode exigir eventos de aviso e erro do registo de eventos do aplicativo.  Se especificar isso como uma origem de dados na sua solução, corre o risco de remover os eventos de informação se o usuário tivesse esta configuração em sua área de trabalho.  Se tiver incluído todos os eventos, pode ser a recolher eventos excessivos de informações na área de trabalho do utilizador.
 
 - Se sua solução necessitar de dados a partir de uma das origens de dados padrão, deve definir isso como um pré-requisito.  Estado na documentação de que o cliente tem de configurar a origem de dados por conta própria.  
 - Adicionar uma [verificação de fluxo de dados](../../azure-monitor/platform/view-designer-tiles.md) mensagem para todas as vistas na sua solução para instruir o utilizador em origens de dados que devem ser configurados para os dados necessários a serem recolhidos.  Esta mensagem é apresentada no mosaico da exibição quando os dados necessários não foi encontrados.

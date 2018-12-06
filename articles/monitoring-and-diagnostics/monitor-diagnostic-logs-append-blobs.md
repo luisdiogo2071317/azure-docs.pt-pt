@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: b83c67e5c2ca47e73c1743d8eeaea03a8d92ea1f
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 48295a48700ee8b7331ae9811b7dd43a0ec8fa69
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247857"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959891"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Preparar para alteração de formato para os registos de diagnóstico do Azure Monitor arquivado para uma conta de armazenamento
 
@@ -47,11 +47,11 @@ Só foi afetado por esta alteração se:
  
 Para identificar se tiver definições de diagnóstico de recursos que estão a enviar dados para uma conta de armazenamento do Azure, pode navegar para o **Monitor** secção do portal, clique em **das definições de diagnóstico**e a identificar todos os recursos que tenham **estado de diagnóstico** definida como **ativado**:
 
-![Painel de definições de diagnóstico do Monitor do Azure](./media/monitor-diagnostic-logs-append-blobs\portal-diag-settings.png)
+![Painel de definições de diagnóstico do Monitor do Azure](./media/monitor-diagnostic-logs-append-blobs/portal-diag-settings.png)
 
 Se o estado de diagnóstico está definido como ativado, tem uma definição de diagnóstico active esse recurso. Clique no recurso para ver se as definições de diagnóstico estão a enviar dados para uma conta de armazenamento:
 
-![Conta de armazenamento ativada](./media/monitor-diagnostic-logs-append-blobs\portal-storage-enabled.png)
+![Conta de armazenamento ativada](./media/monitor-diagnostic-logs-append-blobs/portal-storage-enabled.png)
 
 Se tiver recursos enviar dados para uma conta de armazenamento com estas definições de diagnóstico de recursos, o formato dos dados nessa conta de armazenamento será afetado por esta alteração. A menos que tenha as ferramentas personalizadas que opera fora essas contas de armazenamento, a alteração de formato não afetarão.
 

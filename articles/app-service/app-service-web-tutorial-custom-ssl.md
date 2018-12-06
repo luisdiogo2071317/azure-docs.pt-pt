@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a543561658d593398ca74f8ae68dd6d0d27bcdaa
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: df2ab9b16201cdb408cbe028b1814de7a3dfb4c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636461"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962897"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Vincular um certificado SSL personalizado já existente às Aplicações Web do Azure
 
@@ -139,9 +139,9 @@ Na página **Adicionar Enlace de SSL**, utilize os menus pendentes para selecion
 >
 >
 
-Em **Tipo de SSL**, selecione se vai utilizar **[SSL baseado em Indicação do Nome de Servidor (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** ou baseado em IP.
+Em **Tipo de SSL**, selecione se vai utilizar **[SSL baseado em Indicação do Nome de Servidor (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication)** ou baseado em IP.
 
-- **SSL baseado em SNI** - podem ser adicionados vários enlaces de SSL baseado em SNI. Esta opção permite utilizar vários certificados SSL para proteger múltiplos domínios no mesmo endereço IP. Os browsers mais modernos (incluindo o Internet Explorer, o Chrome, o Firefox e o Opera) suportam SNI (encontre informações mais abrangentes sobre o suporte de browsers em [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication) [Indicação do Nome de Servidor]).
+- **SSL baseado em SNI** - podem ser adicionados vários enlaces de SSL baseado em SNI. Esta opção permite utilizar vários certificados SSL para proteger múltiplos domínios no mesmo endereço IP. Os browsers mais modernos (incluindo o Internet Explorer, o Chrome, o Firefox e o Opera) suportam SNI (encontre informações mais abrangentes sobre o suporte de browsers em [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) [Indicação do Nome de Servidor]).
 - **SSL baseado em IP** - só pode ser adicionado um enlace SSL baseado em IP. Esta opção permite utilizar apenas um certificado SSL para proteger um endereço IP público dedicado. Para proteger vários domínios, tem de protegê-los a todos com o mesmo certificado SSL. Esta é a opção tradicional para o enlace de SSL.
 
 Clique em **Adicionar Enlace**.

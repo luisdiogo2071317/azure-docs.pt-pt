@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 2df899d1e9db0e2936d69636f4c9d5cd463e68c7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: aea6b9628ffff4ba5075338c48340b88c95b6174
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872226"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956862"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Tutorial: Migrar o SQL Server para a Base de Dados SQL do Azure online com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do SQL Server no local para a [Base de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/) com um período de indisponibilidade reduzido. Neste tutorial, vai migrar a base de dados **Adventureworks2012** restaurada para uma instância do SQL Server 2016 (ou posterior) no local para a Base de Dados SQL do Azure com o Azure Database Migration Service.
@@ -120,7 +120,7 @@ Para avaliar uma base de dados no local, siga os passos seguintes:
 
     Quando a avaliação estiver concluída, os resultados são apresentados tal como no gráfico abaixo:
 
-    ![Avaliar migração de dados](media\tutorial-sql-server-to-azure-sql-online\dma-assessments.png)
+    ![Avaliar migração de dados](media/tutorial-sql-server-to-azure-sql-online/dma-assessments.png)
 
     Na Base de Dados SQL do Azure, as avaliações identificam problemas de paridade de funcionalidades e problemas que impedem a migração.
 
@@ -143,52 +143,52 @@ Para migrar o esquema **AdventureWorks2012** para a Base de Dados SQL do Azure, 
 
     Depois de realizar os passos anteriores, a interface do DMA deverá ser apresentada, conforme mostrado na imagem abaixo:
     
-    ![Criar Projeto do Assistente de Migração de Dados](media\tutorial-sql-server-to-azure-sql-online\dma-create-project.png)
+    ![Criar Projeto do Assistente de Migração de Dados](media/tutorial-sql-server-to-azure-sql-online/dma-create-project.png)
 
 4.  Selecione **Create** (Criar) para criar o projeto.
 5.  No DMA, indique os detalhes da ligação de origem do SQL Server, selecione **Connect** (Ligar) e selecione a base de dados **AdventureWorks2012**.
 
-    ![Detalhes da Ligação de Origem do Assistente de Migração de Dados](media\tutorial-sql-server-to-azure-sql-online\dma-source-connect.png)
+    ![Detalhes da Ligação de Origem do Assistente de Migração de Dados](media/tutorial-sql-server-to-azure-sql-online/dma-source-connect.png)
 
 6.  Selecione **Next** (Seguinte), em **Connect to target server** (Ligar a servidor de destino), especifique os detalhes da ligação de destino da base de dados SQL do Azure, selecione **Connect** (Ligar) e, em seguida, selecione a base de dados **AdventureWorksAzure** que pré-aprovisionou na Base de Dados SQL do Azure.
 
-    ![Detalhes da Ligação de Destino do Assistente de Migração de Dados](media\tutorial-sql-server-to-azure-sql-online\dma-target-connect.png)
+    ![Detalhes da Ligação de Destino do Assistente de Migração de Dados](media/tutorial-sql-server-to-azure-sql-online/dma-target-connect.png)
 
 7.  Selecione **Next** (Seguinte) para avançar para o ecrã **Select objects** (Selecionar objetos), no qual pode especificar os objetos do esquema na base de dados **AdventureWorks2012** que têm de ser implementados na Base de Dados SQL do Azure.
 
     Por predefinição, estão selecionados todos os objetos.
 
-    ![Gerar scripts do SQL](media\tutorial-sql-server-to-azure-sql-online\dma-assessment-source.png)
+    ![Gerar scripts do SQL](media/tutorial-sql-server-to-azure-sql-online/dma-assessment-source.png)
 
 8.  Selecione **Generate SQL script** (Gerar script do SQL) para criar os scripts do SQL e reveja-os para ver se têm erros.
 
-    ![Script do esquema](media\tutorial-sql-server-to-azure-sql-online\dma-schema-script.png)
+    ![Script do esquema](media/tutorial-sql-server-to-azure-sql-online/dma-schema-script.png)
 
 9.  Selecione **Deploy schema** (Implementar esquema) para implementar o esquema na Base de Dados SQL do Azure e, após a implementação, verifique o servidor de destino quanto a anomalias.
 
-    ![Implementar o esquema](media\tutorial-sql-server-to-azure-sql-online\dma-schema-deploy.png)
+    ![Implementar o esquema](media/tutorial-sql-server-to-azure-sql-online/dma-schema-deploy.png)
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
 1. Inicie sessão no portal do Azure, selecione **Todos os serviços** e **Subscrições**.
  
-   ![Mostrar subscrições no portal](media\tutorial-sql-server-to-azure-sql-online\portal-select-subscription1.png)
+   ![Mostrar subscrições no portal](media/tutorial-sql-server-to-azure-sql-online/portal-select-subscription1.png)
        
 2. Selecione a subscrição na qual pretende criar a instância do Database Migration Service do Azure e, em seguida, selecione **Fornecedores de recursos**.
  
-    ![Mostrar fornecedores de recursos](media\tutorial-sql-server-to-azure-sql-online\portal-select-resource-provider.png)
+    ![Mostrar fornecedores de recursos](media/tutorial-sql-server-to-azure-sql-online/portal-select-resource-provider.png)
     
 3.  Procure por migração e, à direita de **Microsoft.DataMigration**, selecione **Registar**.
  
-    ![Registar o fornecedor de recursos](media\tutorial-sql-server-to-azure-sql-online\portal-register-resource-provider.png)    
+    ![Registar o fornecedor de recursos](media/tutorial-sql-server-to-azure-sql-online/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Criar uma instância
 1.  No portal do Azure, selecione + **Criar um recurso**, procure o Azure Database Migration Service e selecione **Azure Database Migration Service** na lista pendente.
 
-    ![Azure Marketplace](media\tutorial-sql-server-to-azure-sql-online\portal-marketplace.png)
+    ![Azure Marketplace](media/tutorial-sql-server-to-azure-sql-online/portal-marketplace.png)
 
 2.  No ecrã **Azure Database Migration Service**, selecione **Criar**.
  
-    ![Criar instância do Azure Database Migration Service](media\tutorial-sql-server-to-azure-sql-online\dms-create1.png)
+    ![Criar instância do Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql-online/dms-create1.png)
   
 3.  No ecrã **Criar Serviço de Migração**, especifique um nome para o serviço, a subscrição e um grupo de recursos novo ou já existente.
 
@@ -206,7 +206,7 @@ Para migrar o esquema **AdventureWorks2012** para a Base de Dados SQL do Azure, 
 
     Se precisar de ajuda para escolher o escalão certo do Azure Database Migration Service, veja as recomendações [nesta](https://go.microsoft.com/fwlink/?linkid=861067) mensagem.  
 
-     ![Configurar as definições da instância do Azure Database Migration Service](media\tutorial-sql-server-to-azure-sql-online\dms-settings2.png)
+     ![Configurar as definições da instância do Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7.  Selecione **Criar** para criar o serviço.
 
@@ -215,17 +215,17 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 1. No portal do Azure, selecione **Todos os serviços**, procure Azure Database Migration Service e selecione **Azure Database Migration Services**.
  
-      ![Localizar todas as instâncias do Azure Database Migration Service](media\tutorial-sql-server-to-azure-sql-online\dms-search.png)
+      ![Localizar todas as instâncias do Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql-online/dms-search.png)
 
 2. No ecrã **Azure Database Migration Services**, procure o nome da instância do Azure Database Migration Service que criou e selecione-a.
  
-     ![Localizar a instância do Azure Database Migration Service](media\tutorial-sql-server-to-azure-sql-online\dms-instance-search.png)
+     ![Localizar a instância do Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql-online/dms-instance-search.png)
  
 3. Selecione + **Novo Projeto de Migração**.
 4. No ecrã **Novo projeto de migração**, indique um nome para o projeto, na caixa de texto **Tipo de servidor de origem**, selecione **SQL Server**, na caixa de texto **Tipo de servidor de destino**, selecione **Base de Dados SQL do Azure**.
 5. Na secção **Escolher tipo de atividade**, selecione **Migração de dados online**
 
-    ![Criar Projeto do Azure Database Migration Service](media\tutorial-sql-server-to-azure-sql-online\dms-create-project3.png)
+    ![Criar Projeto do Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql-online/dms-create-project3.png)
 
     > [!NOTE]
     > Em alternativa, pode escolher **Apenas criar projeto** para criar o projeto de migração agora e executar a migração mais tarde.
@@ -234,7 +234,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 7. Selecione **Criar e executar atividade** para criar o projeto e executar a atividade de migração.
 
-    ![Criar e Executar uma Atividade do Database Migration Service](media\tutorial-sql-server-to-azure-sql-online\dms-create-and-run-activity.png)
+    ![Criar e Executar uma Atividade do Database Migration Service](media/tutorial-sql-server-to-azure-sql-online/dms-create-and-run-activity.png)
  
 ## <a name="specify-source-details"></a>Especificar os detalhes da origem
 1. No ecrã **Detalhes da origem da migração**, especifique os detalhes da ligação da instância do SQL Server de origem.
@@ -248,55 +248,55 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
     > [!CAUTION]
     > As ligações SSL encriptadas que utilizem um certificado autoassinado não proporcionam segurança forte. São suscetíveis a ataques man-in-the-middle. Não deve confiar em SSL com certificados autoassinados num ambiente de produção ou em servidores que estejam ligados à Internet.
 
-   ![Detalhes da origem](media\tutorial-sql-server-to-azure-sql-online\dms-source-details3.png)
+   ![Detalhes da origem](media/tutorial-sql-server-to-azure-sql-online/dms-source-details3.png)
 
 ## <a name="specify-target-details"></a>Especificar os detalhes do destino
 1. Selecione **Guardar** e, no ecrã, **Detalhes do destino da migração**, especifique os detalhes da ligação do servidor da Base de Dados SQL do Azure de destino, que é a Base de Dados SQL do Azure pré-aprovisionada na qual o esquema de **AdventureWorks2012** foi implementada com o DMA.
 
-    ![Selecionar o Destino](media\tutorial-sql-server-to-azure-sql-online\dms-select-target3.png)
+    ![Selecionar o Destino](media/tutorial-sql-server-to-azure-sql-online/dms-select-target3.png)
 
 2. Selecione **Guardar** e, no ecrã **Mapear para bases de dados de destino**, mapeie as bases de dados de origem e destino para migração.
 
     Se o nome da base de dados de destino for o mesmo da de origem, o Azure Database Migration Service seleciona a base de dados de destino por predefinição.
 
-    ![Mapear para as bases de dados de destino](media\tutorial-sql-server-to-azure-sql-online\dms-map-targets-activity3.png)
+    ![Mapear para as bases de dados de destino](media/tutorial-sql-server-to-azure-sql-online/dms-map-targets-activity3.png)
 
 3. Selecione **Guardar**, no ecrã **Selecionar tabelas**, expanda a lista de tabelas e reveja a lista dos campos afetados.
 
     O Azure Database Migration Service seleciona automaticamente todas as tabelas de origem vazias que existem na instância da Base de Dados SQL do Azure de destino. Se quiser voltar a emigrar tabelas que já incluem dados, tem de selecionar explicitamente as tabelas neste painel.
 
-    ![Selecionar tabelas](media\tutorial-sql-server-to-azure-sql-online\dms-configure-setting-activity3.png)
+    ![Selecionar tabelas](media/tutorial-sql-server-to-azure-sql-online/dms-configure-setting-activity3.png)
 
 4.  Selecione **Guardar**, no ecrã **Resumo da migração**, na caixa de texto **Nome da atividade**, especifique um nome para a atividade de migração e, em seguida, reveja o resumo para garantir que os detalhes de origem e de destino correspondem aos que foram anteriormente especificados.
 
-    ![Resumo da migração](media\tutorial-sql-server-to-azure-sql-online\dms-migration-summary.png)
+    ![Resumo da migração](media/tutorial-sql-server-to-azure-sql-online/dms-migration-summary.png)
 
 ## <a name="run-the-migration"></a>Executar a migração
 - Selecione **Executar a migração**.
 
     É apresentada a janela de atividade da migração e o **Estado** da atividade é **A inicializar**.
 
-    ![Estado da Atividade - a inicializar](media\tutorial-sql-server-to-azure-sql-online\dms-activity-status2.png)
+    ![Estado da Atividade - a inicializar](media/tutorial-sql-server-to-azure-sql-online/dms-activity-status2.png)
 
 ## <a name="monitor-the-migration"></a>Monitorizar a migração
 1. No ecrã de atividade da migração, selecione **Atualizar** para atualizar a vista até que o **Estado** da migração apareça como **Em execução**.
 
 2. Clique numa base de dados específica para obter o estado da migração para as operações **Carregamento de dados completo** e **Sincronização de dados incrementais**.
 
-    ![Estado da Atividade - em progresso](media\tutorial-sql-server-to-azure-sql-online\dms-activity-in-progress.png)
+    ![Estado da Atividade - em progresso](media/tutorial-sql-server-to-azure-sql-online/dms-activity-in-progress.png)
 
 ## <a name="perform-migration-cutover"></a>Realizar transferência de migração
 Depois de concluída a Carga completa inicial, as bases de dados são marcadas como **Preparadas para transferência**.
 
 1. Quando estiver pronto para concluir a migração da base de dados, selecione **Iniciar Transferência**.
 
-    ![Iniciar transferência](media\tutorial-sql-server-to-azure-sql-online\dms-start-cutover.png)
+    ![Iniciar transferência](media/tutorial-sql-server-to-azure-sql-online/dms-start-cutover.png)
  
 2.  Certifique-se de que para todas as transações de entrada para a base de dados de origem; aguarde até que o contador **Alterações pendentes** mostre **0**.
 3.  Selecione **Confirmar** e depois **Aplicar**.
 4. Quando o estado da migração de base de dados apresentar **Concluído**, ligue as suas aplicações à nova Base de Dados SQL do Azure de destino.
  
-    ![Estado da Atividade - concluído](media\tutorial-sql-server-to-azure-sql-online\dms-activity-completed.png)
+    ![Estado da Atividade - concluído](media/tutorial-sql-server-to-azure-sql-online/dms-activity-completed.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Para obter informações sobre problemas conhecidos e limitações ao realizar migrações online para a Base de Dados do Azure para MySQL, veja o artigo [Problemas conhecidos e soluções alternativas com migrações online de Base de Dados SQL do Azure](known-issues-azure-sql-online.md).

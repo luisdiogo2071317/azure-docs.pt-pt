@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/12/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: b2483d93fdc83970ca1568326f4bc728de16f77c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3df4be80e1a979590a05ff10601485e950de54bd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038872"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962222"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Inicie sessão com o telefone, não com a palavra-passe.
 A aplicação Microsoft Authenticator não só ajuda a manter as suas contas segura ao efetuar a verificação de dois passos depois de introduzir a palavra-passe, mas agora ele pode substituir a palavra-passe da sua conta Microsoft inteiramente.
@@ -43,13 +43,13 @@ Se sua organização tiver ativado a esta nova experiência, será capaz de ativ
 
     Depois de escrever o seu nome de utilizador, verá uma página com um número de dois dígitos, que lhe pede para aprovar o início de sessão através da aplicação Microsoft Authenticator. Se não pretender utilizar este início de sessão no método, pode selecionar **em alternativa, utilize a palavra-passe**e inicie sessão com a sua palavra-passe.
 
-    ![Aprovar início de sessão de caixa](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
+    ![Aprovar início de sessão de caixa](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
 
 2. Na aplicação Microsoft Authentication, receberá uma notificação que lhe pede para **aprovar início de sessão**. Escolher **aprovar** se reconhecer a tentativa de início de sessão. Caso contrário, escolha **negar**. 
 
 3. Toque no mesmo número que vê no **aprovar início de sessão** ecrã. Utilize a sua chave de Biometria ou PIN de seu telefone para concluir a autenticação.
 
-    ![Aprovar início de sessão caixa com o número para selecionar](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
+    ![Aprovar início de sessão caixa com o número para selecionar](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
 
 ## <a name="turn-on-phone-sign-in-for-your-personal-account"></a>Ativar o telefone início de sessão para a sua conta pessoal 
 Pode ativar o início de sessão no telefone para a sua conta Microsoft pessoal, como a conta que utiliza para iniciar sessão no Outlook.com, Xbox ou Skype.

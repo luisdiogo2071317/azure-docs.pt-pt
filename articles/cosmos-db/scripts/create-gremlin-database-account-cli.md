@@ -1,18 +1,18 @@
 ---
-title: Script da CLI do Azure - Criar uma conta, base de dados e grafo da API Gremlin do Azure Cosmos DB | Microsoft Docs
+title: Script do Azure CLI-criar uma conta de API do Gremlin do Azure Cosmos DB, base de dados e gráficos
 description: Exemplo do Script da CLI do Azure - Criar uma conta, base de dados e grafo da API Gremlin do Azure Cosmos DB
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: c920fd55442897688fab8c88e599fe4837667cf9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 0e870b00cefc235a99c084c5a405b69c07187907
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019609"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956674"
 ---
 # <a name="azure-cosmos-db-create-a-gremlin-api-account-using-azure-cli"></a>Azure Cosmos DB: Criar uma conta da API Gremlin com a CLI do Azure
 
@@ -46,7 +46,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Cria um gráfico do Azure Cosmos DB para Gremlin. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

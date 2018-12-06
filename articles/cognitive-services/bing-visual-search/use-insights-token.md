@@ -10,16 +10,16 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: c7464558dd7227303fd7a3cc8be71ca5e2d2cfca
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 76fb61f0f1dd3c1f72c4c6132d1bfdc8b516477a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414969"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955552"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Com um token de informações para obter informações sobre uma imagem
 
-A API de Pesquisa Visual do Bing devolve informações sobre uma imagem que indicar. Pode fornecer a imagem através do URL da mesma, de um token de informações ou do carregamento da mesma. Para obter informações sobre estas opções, consulte [o que é a API de pesquisa Visual do Bing?](overview.md). Este artigo demonstra como utilizar um token de informações. Para exemplos que demonstram a carregar uma imagem para obter informações, veja os inícios rápidos ([c#](quickstarts\csharp.md) | [Java](quickstarts\java.md) | [node. js](quickstarts\nodejs.md)  |  [Python](quickstarts\python.md)).
+A API de Pesquisa Visual do Bing devolve informações sobre uma imagem que indicar. Pode fornecer a imagem através do URL da mesma, de um token de informações ou do carregamento da mesma. Para obter informações sobre estas opções, consulte [o que é a API de pesquisa Visual do Bing?](overview.md). Este artigo demonstra como utilizar um token de informações. Para exemplos que demonstram a carregar uma imagem para obter informações, veja os inícios rápidos ([c#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node. js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
 
 
 Se enviar o token ou o URL de uma imagem para a Pesquisa Visual, o seguinte mostra os dados de formato que tem de incluir no corpo de POST. Os dados do formulário tem de incluir o cabeçalho Content-Disposition e a respetiva `name` parâmetro tem de ser definido como "knowledgeRequest". Para obter detalhes sobre o objeto `imageInfo`, veja [O pedido](#the-request).

@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 68d546fc4c853f1a19230b8aee7e86519aaa7e4c
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 5d7f275be1f04658f9901aba9faca83375a9bbf5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729057"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956198"
 ---
 # <a name="what-is-cognitive-search"></a>O que é a pesquisa cognitiva?
 
@@ -31,7 +31,7 @@ As capacidades cognitivas no Azure Search baseiam-se os mesmos algoritmos de IA 
 Linguagem natural e processamento de imagens é aplicada durante a fase de ingestão de dados, com resultados se tornar parte de composição de um documento num índice pesquisável no Azure Search. Os dados são originados como um conjunto de dados do Azure e, em seguida, enviados por meio de um pipeline de indexação com o que ocorrer [habilidades internas](cognitive-search-predefined-skills.md) que precisa. A arquitetura é extensível, de modo a se as habilidades internas não forem suficientes, pode criar e anexar [competências personalizadas](cognitive-search-create-custom-skill-example.md) para integrar o processamento personalizado. Exemplos podem ser um classificador de módulo ou o documento de entidade personalizada destinado um domínio específico, como Finanças, publicações científicas ou medicina.
 
 > [!NOTE]
-> A Pesquisa Cognitiva está em pré-visualização pública. Conjunto de capacidades execução e a extração de imagem e a normalização atualmente são oferecidos gratuitamente. Posteriormente, os preços para estas capacidades serão anunciado. 
+> A Pesquisa Cognitiva está em pré-visualização pública. A execução de conjuntos de capacidades e a normalização e extração de imagens estão atualmente disponíveis gratuitamente. Posteriormente, anunciaremos os preços destas funcionalidades. 
 
 ## <a name="components-of-cognitive-search"></a>Componentes de pesquisa cognitiva
 
@@ -90,8 +90,19 @@ Os índices são gerados a partir de um esquema de índice que define os campos,
 
 **Passo 1: Criar um serviço de pesquisa numa região, fornecendo as APIs** 
 
++ EUA Centro-Oeste
 + EUA Centro-Sul
++ EUA Leste
++ EUA Leste 2
++ EUA Oeste 2
++ Canadá Central
 + Europa Ocidental
++ Reino Unido Sul
++ Europa do Norte
++ Sul do Brasil
++ Sudeste Asiático
++ Índia Central
++ Leste da Austrália
 
 **Passo 2: Experiência prática para dominar o fluxo de trabalho**
 

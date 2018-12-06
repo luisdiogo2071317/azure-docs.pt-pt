@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 5989ec9f95e2f5129a128d19326833718f37b508
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ec2b623650818877930ac6b95a17ee264f07efdf
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52730355"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959544"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de cluster do Service Fabric do Linux do Syslog
 
@@ -94,7 +94,7 @@ Seguem-se as alterações para chamar
 ```
 
 ## <a name="log-analytics-integration"></a>Integração de análise de registos
-Pode ler esses eventos do Syslog numa ferramenta de monitoramento, como o Log Analytics. Pode criar uma área de trabalho do Log Analytics ao utilizar o Azure Marketplace a utilizar estas [instruções]. (.. / log-analytics/log-analytics-quick-create-workspace.md) também tem de adicionar o agente Log Analytics ao seu cluster para recolher e enviar estes dados para a área de trabalho. Este é o mesmo agente utilizado para recolher contadores de desempenho. 
+Pode ler esses eventos do Syslog numa ferramenta de monitoramento, como o Log Analytics. Pode criar uma área de trabalho do Log Analytics ao utilizar o Azure Marketplace a utilizar estas [instruções]. (.. / azure-monitor/learn/quick-create-workspace.md) também tem de adicionar o agente Log Analytics ao seu cluster para recolher e enviar estes dados para a área de trabalho. Este é o mesmo agente utilizado para recolher contadores de desempenho. 
 
 1. Navegue para o `Advanced Settings` painel
 

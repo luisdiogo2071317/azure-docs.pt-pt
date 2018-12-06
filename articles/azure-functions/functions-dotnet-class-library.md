@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: bdae72f5ed4ebed87842ade05ec7a6bc21d349dc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 4711c766c2a074c25f019ce5b523e0ba8b599c17
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086646"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971322"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do Azure funções c# para programadores
 
@@ -81,7 +81,7 @@ O atributo de Acionador Especifica o tipo de Acionador e vincula os dados de ent
 A assinatura do método pode conter parâmetros que não seja usado com o atributo de Acionador. Aqui estão alguns dos parâmetros adicionais que pode incluir:
 
 * [Entrada e saída enlaces](functions-triggers-bindings.md) marcados como tal decorando-los com atributos.  
-* Uma `ILogger` ou `TraceWriter` parâmetro para [registo](#logging).
+* Uma `ILogger` ou `TraceWriter` ([versão 1.x só](functions-versions.md#creating-1x-apps)) parâmetro [registo](#logging).
 * R `CancellationToken` parâmetro [desligamento não](#cancellation-tokens).
 * [Expressões de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns) acionam de parâmetros para obter metadados.
 
@@ -233,7 +233,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>Registo
 
-Para iniciar sessão a saída para os registos de transmissão em fluxo em C#, incluem um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Recomendamos que atribua um nome `log`. Evite utilizar `Console.Write` nas funções do Azure.
+Para iniciar sessão a saída para os registos de transmissão em fluxo em C#, incluem um argumento do tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Recomendamos que atribua um nome `log`, como no exemplo a seguir:  
 
 ```csharp
 public static class SimpleExample
@@ -248,8 +248,7 @@ public static class SimpleExample
 } 
 ```
 
-> [!NOTE]
-> Para obter informações sobre uma arquitetura de registo mais recente que pode utilizar em vez de `TraceWriter`, consulte [registos de escrita no c# funções](functions-monitoring.md#write-logs-in-c-functions) no **as funções do Azure de Monitor** artigo.
+Evite utilizar `Console.Write` nas funções do Azure. Para obter mais informações, consulte [registos de escrita no C# funções](functions-monitoring.md#write-logs-in-c-functions) no **as funções do Monitor do Azure** artigo.
 
 ## <a name="async"></a>Async
 

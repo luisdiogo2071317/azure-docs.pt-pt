@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 05/17/2018
-ms.openlocfilehash: cb3d8629d5d72644e647da14e7c3b31a4914814d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/05/2018
+ms.openlocfilehash: 6523828b522379dd1cd70f1c548caf7af15b5d90
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159567"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964770"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Proteção avançada contra ameaças para a base de dados SQL do Azure
 
@@ -32,7 +32,7 @@ Da proteção contra ameaças avançadas SQL (ATP) fornece um conjunto de funç�
 
 Ative o ATP de SQL uma vez permitir que todos esses incluído funcionalidades. Com um clique, pode ativar o ATP em todo o servidor da sua base de dados, aplicando-se a todas as bases de dados no servidor. 
 
-Preços do ATP se alinha com o escalão standard do Centro de segurança do Azure us $15/nó/mês, em que cada servidor de base de dados SQL protegido é contabilizado como um nó. Os primeiros 60 dias após a ativação são considerados um período de avaliação gratuito e não são cobrados. Para obter mais informações, consulte a [Centro de segurança do Azure página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+Preços do ATP se alinha com o escalão standard do Centro de segurança do Azure, em que cada servidor de base de dados SQL protegido é contabilizado como um nó. Recursos recentemente protegidos se qualificam para uma avaliação gratuita do escalão standard do Centro de segurança. Para obter mais informações, consulte a [Centro de segurança do Azure página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## <a name="getting-started-with-atp"></a>Guia de introdução do ATP 
@@ -45,7 +45,7 @@ Ativar o ATP ao navegar até **proteção avançada contra ameaças** sob a **se
 ![Ativar o ATP](./media/sql-advanced-protection/enable_atp.png) 
 
 > [!NOTE]
-> O custo da ATP é US $15/nó/mês, em que um nó é todo servidor lógico SQL. É, portanto, pagando apenas uma vez para proteger todas as bases de dados com o ATP no servidor. Os primeiros 60 dias são considerados uma avaliação gratuita.
+> O custo da ATP é alinhado com o escalão standard do Centro de segurança do Azure de preços por nó, em que um nó é todo servidor lógico SQL. É, portanto, pagando apenas uma vez para proteger todas as bases de dados com o ATP no servidor. Pode experimentar ATP inicialmente com uma avaliação gratuita.
 
 ## <a name="2-configure-vulnerability-assessment"></a>2. Configurar a avaliação de vulnerabilidade
 

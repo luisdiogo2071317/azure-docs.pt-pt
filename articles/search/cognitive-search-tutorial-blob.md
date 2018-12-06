@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 4694d7a580c9544e43cf0b56b192b55c02257531
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 3350f182e236cc0828040f1ee1eb73cf54cf18a8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730669"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957372"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar APIs de pesquisa cognitiva (Pré-visualização)
 
@@ -34,7 +34,7 @@ O resultado é um índice pesquisável de texto completo no Azure Search. Pode m
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
-> A Pesquisa Cognitiva está em pré-visualização pública. A execução de conjuntos de competências e a normalização e extração de imagens estão atualmente disponíveis gratuitamente. Posteriormente, anunciaremos os preços destas funcionalidades. 
+> A Pesquisa Cognitiva está em pré-visualização pública. A execução de conjuntos de capacidades e a normalização e extração de imagens estão atualmente disponíveis gratuitamente. Posteriormente, anunciaremos os preços destas funcionalidades. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,22 +52,25 @@ Primeiro, inscreva-se no serviço do Azure Search.
 
 1. Clique em **Criar um recurso**, procure o Azure Search e clique em **Criar**. Veja [Criar um serviço do Azure Search no portal](search-create-service-portal.md) se estiver a configurar um serviço de pesquisa pela primeira vez.
 
-  ![Portal do dashboard](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Criar o serviço do Azure Search no portal")
+  ![Portal do dashboard](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Criar o serviço do Azure Search no portal")
 
 1. Para Grupo de recursos, crie um grupo de recursos para conter todos os recursos que criar neste tutorial. Tal torna mais fácil limpar os recursos depois de concluir o tutorial.
 
-1. Para Localização, escolha **EUA Centro-Sul** ou **Europa Ocidental**. Atualmente, a pré-visualização está disponível apenas nestas regiões.
+1. Para a localização, escolha uma da [regiões suportadas](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob#supported-regions) para pesquisa cognitiva.
 
 1. Para Escalão de preço, pode criar um serviço **Gratuito** para concluir os tutoriais e os inícios rápidos. Para uma investigação mais aprofundada através dos seus próprios dados, crie um [serviço pago](https://azure.microsoft.com/pricing/details/search/), como **Básico** ou **Standard**. 
 
   O serviço Gratuito está limitado a 3 índices, um tamanho de blob máximo de 16 MB e 2 minutos de indexação, o que é insuficiente para executar todas as funcionalidades da pesquisa cognitiva. Para rever os limites dos diferentes escalões, veja [Limites do Serviço](search-limits-quotas-capacity.md).
+
+  ![Página de definição de serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "página de definição de serviço no portal")
+  ![página de definição de serviço no portal do](./media/cognitive-search-tutorial-blob/create-search-service2.png "página de definição de serviço no o portal")
 
   > [!NOTE]
   > A Pesquisa cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuito. Posteriormente, iremos anunciar os preços desta capacidade.
 
 1. Afixe o serviço no dashboard para ter acesso rápido às informações do serviço.
 
-  ![Página de definições do serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service.png "Página de definições do serviço no portal")
+  ![Página de definições do serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definições do serviço no portal")
 
 1. Depois de criar o serviço, recolha as seguintes informações: o **URL** da página de Descrição geral e a **chave de API** (primária ou secundária) da página Chaves.
 
@@ -523,7 +526,7 @@ Para voltar a indexar os documentos com as novas definições:
 2. Modifique um conjunto de competências e a definição do índice.
 3. Volte a criar um índice e o indexador no serviço para executar o pipeline. 
 
-Pode utilizar o portal para eliminar os índices e os indexadores. Os conjuntos de competências só podem ser eliminados através de um comando HTTP, caso decida eliminá-los.
+Pode utilizar o portal para eliminar índices, indexadores e conjuntos de competências.
 
 ```http
 DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
@@ -547,7 +550,7 @@ Por fim, aprendeu como testar os resultados e repor o sistema para iterações f
 
 A forma mais rápida de os limpar no final do tutorial passa por eliminar o grupo de recursos que contém o serviço do Azure Search e o serviço Blob do Azure. Assumindo que coloca ambos os serviços no mesmo grupo, elimine o grupo de recursos agora para eliminar definitivamente todo o seu conteúdo, incluindo os serviços e quaisquer conteúdos armazenados criados para este tutorial. No portal, o nome do grupo de recursos está na página Descrição geral de cada serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Personalize ou expanda o pipeline com competências personalizadas. A criação de uma competência personalizada e a sua adição a um conjunto de competências permite-lhe carregar análises de texto ou imagem que escreveu. 
 

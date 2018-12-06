@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: a096bd2f23910eb2eb3bc4aa36e34400ccfbb701
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853409"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956990"
 ---
 # <a name="translator-text-api-30-translate"></a>API 3.0 de texto de tradutor: traduzir
 
@@ -42,11 +42,11 @@ Parâmetros de pedido passados na seqüência de consulta são:
   </tr>
   <tr>
     <td>de</td>
-    <td>*O parâmetro opcional*.<br/>Especifica o idioma do texto de entrada. Localizar quais idiomas estão disponíveis para efetuar a conversão de pesquisando [idiomas suportados](.\v3-0-languages.md) usando o `translation` âmbito. Se o `from` parâmetro não for especificado, a deteção de idioma automática é aplicada para determinar o idioma de origem.</td>
+    <td>*O parâmetro opcional*.<br/>Especifica o idioma do texto de entrada. Localizar quais idiomas estão disponíveis para efetuar a conversão de pesquisando [idiomas suportados](./v3-0-languages.md) usando o `translation` âmbito. Se o `from` parâmetro não for especificado, a deteção de idioma automática é aplicada para determinar o idioma de origem.</td>
   </tr>
   <tr>
     <td>para</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de saída. O idioma de destino tem de ser o [idiomas suportados](.\v3-0-languages.md) incluído no `translation` âmbito. Por exemplo, utilizar `to=de` para efetuar a conversão para o alemão.<br/>É possível converter para vários idiomas em simultâneo, repetindo o parâmetro na cadeia de consulta. Por exemplo, utilizar `to=de&to=it` para efetuar a conversão para o alemão e italiano.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de saída. O idioma de destino tem de ser o [idiomas suportados](./v3-0-languages.md) incluído no `translation` âmbito. Por exemplo, utilizar `to=de` para efetuar a conversão para o alemão.<br/>É possível converter para vários idiomas em simultâneo, repetindo o parâmetro na cadeia de consulta. Por exemplo, utilizar `to=de&to=it` para efetuar a conversão para o alemão e italiano.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -86,7 +86,7 @@ Parâmetros de pedido passados na seqüência de consulta são:
   </tr>
   <tr>
     <td>AllowFallback</td>
-    <td>*O parâmetro opcional*.<br/>Especifica que o serviço tem permissão para contingência para um sistema geral, quando um sistema personalizado não existe. Os valores possíveis são: `true` (predefinição) ou `false`.<br/><br/>`AllowFallback=false` Especifica que a tradução só deve utilizar sistemas de preparação para o `category` especificado pelo pedido. Se precisar de uma tradução para a linguagem X para a linguagem Y encadeamento por meio de uma linguagem dinâmica E, em seguida, todos os sistemas na cadeia (X -> i e I -> Y) tem de ser personalizado e ter a mesma categoria. Se não for encontrado nenhum sistema com uma categoria específica, o pedido irá devolver um código de 400 estado. `AllowFallback=true` Especifica que o serviço tem permissão para contingência para um sistema geral, quando um sistema personalizado não existe.
+    <td>*O parâmetro opcional*.<br/>Especifica que o serviço tem permissão para contingência para um sistema geral, quando um sistema personalizado não existe. Os valores possíveis são: `true` (predefinição) ou `false`.<br/><br/>`allowFallback=false` Especifica que a tradução só deve utilizar sistemas de preparação para o `category` especificado pelo pedido. Se precisar de uma tradução para a linguagem X para a linguagem Y encadeamento por meio de uma linguagem dinâmica E, em seguida, todos os sistemas na cadeia (X -> i e I -> Y) tem de ser personalizado e ter a mesma categoria. Se não for encontrado nenhum sistema com uma categoria específica, o pedido irá devolver um código de 400 estado. `allowFallback=true` Especifica que o serviço tem permissão para contingência para um sistema geral, quando um sistema personalizado não existe.
 </td>
   </tr>
 </table> 
@@ -111,11 +111,6 @@ Cabeçalhos de pedido incluem:
   <tr>
     <td>X ClientTraceId</td>
     <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta com um parâmetro de consulta com o nome `ClientTraceId`.</td>
-  </tr>
-  <tr>
-    <td>Sistema de MT de X</td>
-    <td>*Opcional*.<br/>Especifica o tipo de sistema que foi utilizado para a tradução para cada idioma "para" pedido para a tradução. O valor é uma lista separada por vírgulas de cadeias de caracteres. Cada cadeia indica um tipo:<br/><ul><li>Custom - pedido inclui um sistema personalizado e, pelo menos, um sistema personalizado foi utilizado durante a tradução.</li><li>Equipe - todos os outros pedidos</li></ul>
-</td>
   </tr>
 </table> 
 
@@ -174,6 +169,21 @@ Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de 
 
 Exemplo de respostas JSON são fornecidos na [exemplos](#examples) secção.
 
+## <a name="response-headers"></a>Cabeçalhos de resposta
+
+<table width="100%">
+  <th width="20%">Cabeçalhos</th>
+  <th>Descrição</th>
+    <tr>
+    <td>X-RequestId</td>
+    <td>Valor gerado pelo serviço para identificar o pedido. É utilizado para fins de resolução de problemas.</td>
+  </tr>
+  <tr>
+    <td>Sistema de MT de X</td>
+    <td>Especifica o tipo de sistema que foi utilizado para a tradução para cada idioma "para" pedido para a tradução. O valor é uma lista separada por vírgulas de cadeias de caracteres. Cada cadeia indica um tipo:<br/><ul><li>Custom - pedido inclui um sistema personalizado e, pelo menos, um sistema personalizado foi utilizado durante a tradução.</li><li>Equipe - todos os outros pedidos</li></td>
+  </tr>
+</table> 
+
 ## <a name="response-status-codes"></a>Códigos de estado de resposta
 
 Seguem-se os possíveis códigos de estado HTTP que retorna um pedido. 
@@ -199,7 +209,7 @@ Seguem-se os possíveis códigos de estado HTTP que retorna um pedido.
   </tr>
   <tr>
     <td>408</td>
-    <td>O pedido não foi possível ser concluído porque um recurso está em falta. Verifique os detalhes da mensagem de erro. Quando utilizar um personalizado `category`, isso geralmente indica que o sistema de tradução personalizadas ainda não está disponível para servir pedidos. O pedido deve ser repetido após um período de espera (por exemplo, 10 minutos).</td>
+    <td>O pedido não foi possível ser concluído porque um recurso está em falta. Verifique os detalhes da mensagem de erro. Quando utilizar um personalizado `category`, isso geralmente indica que o sistema de tradução personalizadas ainda não está disponível para servir pedidos. O pedido deve ser repetido após um período de espera (por exemplo, 1 minuto).</td>
   </tr>
   <tr>
     <td>429</td>

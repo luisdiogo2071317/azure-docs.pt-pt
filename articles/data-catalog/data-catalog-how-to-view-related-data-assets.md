@@ -7,12 +7,12 @@ ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 156673bfac9bfa38772e4daca166e3431f81c09a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e68dc22943b7a53693320528f91670d9229b806f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405014"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958337"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Como ver dados relacionados ativos no catálogo de dados do Azure?
 O catálogo de dados do Azure permite-lhe ver os recursos de dados relacionados com um relações de recurso e da vista de dados selecionados entre eles. 
@@ -31,7 +31,7 @@ Ao registar recursos de dados das seguintes origens de dados, o catálogo de dad
 ## <a name="view-related-data-assets"></a>Ver recursos de dados relacionados
 Para ver os recursos de dados que estão relacionados com um conjunto de dados selecionado, utilize o **relações** separador conforme mostrado na imagem seguinte: 
 
-![Catálogo de dados do Azure - recursos de dados relacionados com o modo de exibição](media\data-catalog-how-to-view-related-data-assets\relationships-tab.png)
+![Catálogo de dados do Azure - recursos de dados relacionados com o modo de exibição](media/data-catalog-how-to-view-related-data-assets/relationships-tab.png)
 
 Neste exemplo, existem duas relações para selecionado **ProductSubcategory** recurso de dados: 
 
@@ -43,7 +43,7 @@ Neste exemplo, existem duas relações para selecionado **ProductSubcategory** r
 
 Para ver mais detalhes, como o nome completamente qualificado da coluna, mova o rato sobre e verá um pop-up semelhante à imagem seguinte: 
 
-![Catálogo de dados do Azure – pop-up de relação](media\data-catalog-how-to-view-related-data-assets\relationship-popup.png)
+![Catálogo de dados do Azure – pop-up de relação](media/data-catalog-how-to-view-related-data-assets/relationship-popup.png)
 
 Para incluir as relações entre os recursos de que já tenham sido registadas, volte a registar esses ativos.
 

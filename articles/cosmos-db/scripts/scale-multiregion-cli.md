@@ -1,17 +1,17 @@
 ---
-title: Script da CLI do Azure - Replicação de várias regiões para o Azure Cosmos DB | Microsoft Docs
+title: Replicação de Script-Multi-região da CLI do Azure para o Azure Cosmos DB
 description: Exemplo do Script da CLI do Azure - Replicação de várias regiões para o Azure Cosmos DB
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: d9f1420b5d2706ed4547e46639739c0f707559ab
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 9981d41a259eeb48354002a98c9440156a7f2481
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015211"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962516"
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>Replicar uma conta de base de dados do Azure Cosmos DB em várias regiões e configurar prioridades de ativação pós-falha com a CLI do Azure
 
@@ -43,7 +43,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) | Atualiza uma conta do Azure Cosmos DB. |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

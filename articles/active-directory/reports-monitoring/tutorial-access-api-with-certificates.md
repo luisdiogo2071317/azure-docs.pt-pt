@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0ee756828a50cdf62471923614afbe88e238b9ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 7535aad95f7410d25ada232b4946fe52ebc4ba67
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624562"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961965"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Utilizar obter dados do Azure Active Directory reporting API com certificados
 
@@ -39,9 +39,7 @@ Neste tutorial, irá aprender a utilizar um certificado de teste para aceder à 
     - Tokens de acesso de utilizador, chaves de aplicação e certificados, através da ADAL
     - Graph API que processa resultados paginados
 
-4. Se for a primeira vez utilizando o módulo execute **Install-MSCloudIdUtilsModule**, caso contrário, importe-o utilizando o **Import-Module** comando do Powershell. A sua sessão deve ter um aspeto semelhante a este ecrã:
-
-        ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+4. Se for a primeira vez utilizando o módulo execute **Install-MSCloudIdUtilsModule**, caso contrário, importe-o utilizando o **Import-Module** comando do Powershell. A sua sessão deve ter um aspeto semelhante a este ecrã: ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
 5. Utilize o **New-SelfSignedCertificate** commandlet do Powershell para criar um certificado de teste.
 

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f7b3826e1e77933b49f0a742ebf8dfb994bf7ea9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5d149f26ce953efef316e68fe75bc07d1e240ae2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848736"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970404"
 ---
-# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Consultar dados do Azure Cosmos DB com consultas SQL
+# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Exemplos de consulta SQl para consultar dados do Azure Cosmos Db
 
 O Azure Cosmos DB suporta itens de consultas com o SQL (Structured Query Language) como uma linguagem de consulta JSON em contas da API de SQL. Ao conceber a linguagem de consulta para o Azure Cosmos DB, são considerados os seguintes dois objetivos:
 

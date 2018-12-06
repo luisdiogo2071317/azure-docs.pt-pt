@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 8c30af5023cb83ee1f9ca0f41db5b7f977cc4bc7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 1725be4209bfc9335654c574098c43102eca5a2d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883912"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961183"
 ---
 # <a name="monitor-migration-activity"></a>Monitorizar a atividade de migração
 Neste artigo, saiba como monitorizar o progresso de uma migração num nível de base de dados e um nível de tabela.
@@ -24,7 +24,7 @@ Neste artigo, saiba como monitorizar o progresso de uma migração num nível de
 ## <a name="monitor-at-the-database-level"></a>Monitorizar a nível da base de dados
 Para monitorizar a atividade ao nível da base de dados, ver o painel de nível de base de dados:
 
-![Painel de nível de base de dados](media\how-to-monitor-migration-activity\dms-database-level-blade.png)
+![Painel de nível de base de dados](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
 
 > [!NOTE]
 > Selecionar o hiperlink de base de dados irá mostrar a lista de tabelas e o progresso da migração.
@@ -104,7 +104,7 @@ Para monitorizar a atividade no nível da tabela, ver o painel de nível de tabe
 
 A parte inferior do painel lista as tabelas e mostra um resumo rápido de progresso da migração.
 
-![Painel de nível de tabela – resumo rápido](media\how-to-monitor-migration-activity\dms-table-level-blade-summary.png)
+![Painel de nível de tabela – resumo rápido](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
 
 A tabela seguinte descreve os campos exibidos nos detalhes do nível de tabela.
 
@@ -123,9 +123,9 @@ A tabela seguinte descreve os campos exibidos nos detalhes do nível de tabela.
 ## <a name="monitor-at-table-level--detailed-summary"></a>Monitorizar no nível de tabela – Resumo detalhadas
 Há duas guias que mostram o progresso de migração no carregamento completo e sincronização de dados incrementais.
     
-![Separador de carregamento completo](media\how-to-monitor-migration-activity\dms-full-load-tab.png)
+![Separador de carregamento completo](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
 
-![Separador de sincronização de dados incrementais](media\how-to-monitor-migration-activity\dms-incremental-data-sync-tab.png)
+![Separador de sincronização de dados incrementais](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
 
 A tabela seguinte descreve os campos exibidos em curso de nível de migração de tabela.
 

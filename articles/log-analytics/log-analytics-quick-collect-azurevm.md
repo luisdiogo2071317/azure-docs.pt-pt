@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 78d266d8300026856b783c168c8f27d39ee29716
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e151e178e0aafd6d27d6364dc350af093d4f1eec
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835680"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964446"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Recolher dados sobre Máquinas Virtuais do Azure
 O [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) pode recolher dados diretamente das máquinas virtuais do Azure e de outros recursos no seu ambiente para um único repositório para análise e correlação detalhadas.  Este início rápido mostra como configurar e recolher dados das VMs do Linux e Windows do Azure em alguns passos simples.  
@@ -125,4 +125,4 @@ Agora que está a recolher dados operacionais e de desempenho das máquinas virt
 Para saber como ver e analisar os dados, avance para o tutorial.   
 
 > [!div class="nextstepaction"]
-> [Ver ou analisar dados no Log Analytics](log-analytics-tutorial-viewdata.md)
+> [Ver ou analisar dados no Log Analytics](../azure-monitor/learn/tutorial-viewdata.md)

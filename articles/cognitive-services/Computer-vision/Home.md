@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 8f18b01409680c07b942087b75b1618c75973391
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c5340599bc4ed400ce11ea8ba997d03c4df7cc05
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634333"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963220"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -35,14 +35,16 @@ A Imagem Digitalizada pode realizar as seguintes ações ao analisar uma imagem:
 
 | Ação | Descrição |
 | ------ | ----------- |
-|**[Etiquetar elementos visuais](concept-tagging-images.md)**|Identifique e etiquete elementos visuais numa imagem, com base em mais de 2000 objetos reconhecíveis, seres vivos, paisagens e ações. Quando as etiquetas são ambíguas ou não são do conhecimento geral, a resposta fornece “sugestões” para clarificar o significado da etiqueta no contexto de um cenário conhecido. A identificação não se limita ao motivo principal, por exemplo, uma pessoa em primeiro plano, mas também inclui o cenário (interior ou exterior), mobiliário, ferramentas, plantas, animais, acessórios, gadgets, etc.|
+|**[Etiquetar elementos visuais](concept-tagging-images.md)**|Identificar e etiquetar recursos visuais numa imagem, a partir de um conjunto de milhares de objetos reconhecíveis, vivos, paisagens e ações. Quando as etiquetas são ambíguas ou dados de conhecimento não comuns, a resposta de API fornece "sugestões" para clarificar o significado da etiqueta no contexto de uma configuração conhecida. A identificação não se limita ao motivo principal, por exemplo, uma pessoa em primeiro plano, mas também inclui o cenário (interior ou exterior), mobiliário, ferramentas, plantas, animais, acessórios, gadgets, etc.|
+|**[Detetar objetos](concept-object-detection.md)**| Deteção de objetos é semelhante à marcação, mas a API devolve as coordenadas da caixa delimitadora para cada etiqueta aplicada. Por exemplo, se uma imagem contiver um cachorro, gato e person, a operação de deteção irá listar esses objetos, juntamente com suas coordenadas na imagem. Pode utilizar esta funcionalidade para processar mais relações entre os objetos numa imagem. Ele também permite-lhe saber quando existem várias instâncias da mesma marca numa imagem.|
 |**[Categorizar uma imagem](concept-categorizing-images.md)**|Identifique e categorize uma imagem inteira, com uma [taxonomia de categorias](Category-Taxonomy.md) com hierarquias hereditárias principais/subordinadas. As categorias podem ser utilizadas isoladamente ou com os nossos novos modelos de identificação.<br/>Atualmente, o inglês é o único idioma suportado para identificar e categorizar imagens.|
 |**[Descrever uma imagem](concept-describing-images.md)**|Gere uma descrição de uma imagem inteira numa linguagem legível por humanos, com frases completas. Os algoritmos da Imagem Digitalizada geram várias descrições com base nos objetos identificados na imagem. Cada uma das descrições é avaliada e é gerada uma pontuação de confiança. Em seguida, é devolvida uma lista ordenada da pontuação de confiança mais alta para a mais baixa.|
 |**[Detetar rostos](concept-detecting-faces.md)** |Detete rostos numa imagem e forneça informações sobre cada rosto detetado. A Imagem Digitalizada devolve as coordenadas, o retângulo, o sexo e a idade para cada rosto detetado.<br/>A Imagem Digitalizada fornece um subconjunto das funcionalidades que podem ser encontradas na [Face](/azure/cognitive-services/face/) e pode utilizar o serviço Face para uma análise mais detalhada, como identificação facial e deteção de poses.|
 |**[Detetar tipos de imagem](concept-detecting-image-types.md)**|Detete características sobre uma imagem como, por exemplo, se uma imagem é um desenho de linha ou a probabilidade de uma imagem ser ClipArt.|
 |**[Detetar conteúdo específico de um domínio](concept-detecting-domain-content.md)**|Utilize modelos de domínio para detetar e identificar conteúdo específico de um domínio numa imagem, como celebridades e marcos de referência. Por exemplo, se uma imagem incluir pessoas, a Imagem Digitalizada pode utilizar um modelo de domínio para celebridades incluído com o serviço para determinar se as pessoas detetadas na imagem correspondem a celebridades conhecidas.|
 |**[Detetar o esquema de cores](concept-detecting-color-schemes.md)**|Analise a utilização de cor numa imagem. A Imagem Digitalizada pode determinar se uma imagem é a preto e branco ou a cores, e no caso das imagens a cores, identificar as cores dominantes e de destaque.|
-|**[Gerar uma miniatura](concept-generating-thumbnails.md)**|Analise o conteúdo de uma imagem para gerar uma miniatura adequada dessa imagem. A Imagem Digitalizada primeiro gera uma miniatura de alta qualidade e, em seguida, analisa os objetos na imagem para determinar a *região de interesse* (ROI). Em seguida, a Imagem Digitalizada recorta a imagem de acordo com os requisitos da região de interesse. A miniatura gerada pode ser apresentada com uma proporção diferente da proporção da imagem original, consoante as suas necessidades.|
+|**[Gerar uma miniatura](concept-generating-thumbnails.md)**|Analise o conteúdo de uma imagem para gerar uma miniatura adequada dessa imagem. Imagem digitalizada primeiro gera uma miniatura de alta qualidade e, em seguida, analisa os objetos na imagem para determinar a *área de interesse*. Imagem digitalizada, em seguida, recorta a imagem de acordo com os requisitos da área de interesse. A miniatura gerada pode ser apresentada com uma proporção diferente da proporção da imagem original, consoante as suas necessidades.|
+|**[Obter a área de interesse](concept-generating-thumbnails.md#area-of-interest)**|Analisar o conteúdo de uma imagem para retornar as coordenadas do *área de interesse*. Esta é a mesma função que é utilizada para gerar uma miniatura, mas em vez de corte a imagem, de imagem digitalizada devolve as coordenadas da caixa delimitadora da região, para que o aplicativo de chamada pode modificar a imagem original, conforme desejado.|
 
 ## <a name="extracting-text-from-images"></a>Extrair texto de imagens
 

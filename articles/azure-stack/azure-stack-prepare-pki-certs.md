@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: ef9fe0e05343f9c99656634a075b1bd464a13c7e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379593"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972039"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparar os certificados PKI de pilha do Azure para a implementação
 Os ficheiros de certificado [obtido a partir de sua autoridade de certificação à escolha](azure-stack-get-pki-certs.md) tem de ser importados e exportados com propriedades correspondentes a requisitos de certificado do Azure Stack.
@@ -38,15 +38,15 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
 
 1. Na **Assistente para importar certificados**, selecione **máquina Local** como a localização de importação. Selecione **Seguinte**. No ecrã seguinte, clique novamente em Avançar.
 
-    ![Localização de importação do computador local](.\media\prepare-pki-certs\1.png)
+    ![Localização de importação do computador local](./media/prepare-pki-certs/1.png)
 
 1.  Escolher **colocar todos os certificados no seguinte arquivo** e, em seguida, selecione **Enterprise confiar** como a localização. Clique em **OK** para fechar a caixa de diálogo de seleção de arquivo do certificado e, em seguida **próxima**.
 
-    ![Configurar o arquivo de certificados](.\media\prepare-pki-certs\3.png)
+    ![Configurar o arquivo de certificados](./media/prepare-pki-certs/3.png)
 
     a. Se estiver a importar um PFX, ser-lhe-á apresentada uma caixa de diálogo adicional. Sobre o **proteção por chave privada** página, introduza a palavra-passe para os seus ficheiros de certificado e, em seguida, ative o **marcar esta chave como exportável. Isto permite-lhe criar cópias de segurança ou transportar as chaves num momento posterior** opção. Selecione **Seguinte**.
 
-    ![Marcar chave como exportável](.\media\prepare-pki-certs\2.png)
+    ![Marcar chave como exportável](./media/prepare-pki-certs/2.png)
 
 1. Clique em Concluir para concluir a importação.
 
@@ -58,11 +58,11 @@ Abra a consola do Gestor de certificados do MMC e ligue-se para o arquivo de cer
 
 1. Clique em arquivo, adicionar/remover Snap-In, em seguida, selecione os certificados, clique em Adicionar.
 
-    ![Adicionar Snap-in de certificados](.\media\prepare-pki-certs\mmc-2.png)
+    ![Adicionar Snap-in de certificados](./media/prepare-pki-certs/mmc-2.png)
  
 1. Selecione a conta de computador, clique em seguinte, em seguida, selecione o computador Local, em seguida, concluir. Clique em ok para fechar a página Adicionar/Remover Snap-In.
 
-    ![Adicionar Snap-in de certificados](.\media\prepare-pki-certs\mmc-3.png)
+    ![Adicionar Snap-in de certificados](./media/prepare-pki-certs/mmc-3.png)
 
 1. Navegue para certificados > empresarial de confiança > localização do certificado. Certifique-se de que vê o certificado no lado direito.
 

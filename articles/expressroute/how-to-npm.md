@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: d334fdba48f248bb7989c2b549517413b1ef793c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 93bafb739c35b81796186dc845f7933a82e1675b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404346"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968123"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para o ExpressRoute
 
@@ -62,7 +62,7 @@ Crie uma área de trabalho na subscrição que tem a ligação de VNets a circui
    >Pode criar uma nova área de trabalho ou utilizar uma área de trabalho existente. Se pretender utilizar uma área de trabalho existente, tem de certificar-se de que a área de trabalho foi migrada para a nova linguagem de consulta. [Obter mais informações...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
-   ![portal](.\media\how-to-npm\3.png)<br><br>
+   ![portal](./media/how-to-npm/3.png)<br><br>
 2. Na parte inferior da principal **Monitor de desempenho de rede** página, clique em **Create** para abrir **Monitor de desempenho de rede - criar nova solução** página. Clique em **registo de área de trabalho Analytics - Selecione uma área de trabalho** para abrir a página de áreas de trabalho. Clique em **+ criar nova área de trabalho** para abrir a página de área de trabalho.
 3. Sobre o **área de trabalho do Log Analytics** página, selecione **criar novo**, em seguida, configure as seguintes definições:
 
@@ -76,11 +76,11 @@ Crie uma área de trabalho na subscrição que tem a ligação de VNets a circui
     >O circuito do ExpressRoute pode estar em qualquer lugar do mundo. Não tem de estar na mesma região que a área de trabalho.
     >
   
-    ![área de trabalho](.\media\how-to-npm\4.png)<br><br>
+    ![área de trabalho](./media/how-to-npm/4.png)<br><br>
 4. Clique em **OK** para guardar e implementar o modelo de definições. Depois de valida o modelo, clique em **criar** para implementar a área de trabalho.
 5. Depois da área de trabalho ter sido implementada, navegue para o **NetworkMonitoring(name)** recurso que criou. Validar as definições, em seguida, clique em **solução requer configuração adicional**.
 
-   ![configuração adicional](.\media\how-to-npm\5.png)
+   ![configuração adicional](./media/how-to-npm/5.png)
 
 ## <a name="agents"></a>Passo 2: Instalar e configurar agentes
 
@@ -90,7 +90,7 @@ Crie uma área de trabalho na subscrição que tem a ligação de VNets a circui
 2. Em seguida, copie os **ID da área de trabalho** e **chave primária** ao bloco de notas.
 3. Partir do **configurar agentes do Log Analytics para monitorizar através do protocolo TCP** secção, transfira o Script do Powershell. O script do PowerShell ajuda-o a abrir a porta de firewall relevantes para as transações de TCP.
 
-  ![Script do PowerShell](.\media\how-to-npm\7.png)
+  ![Script do PowerShell](./media/how-to-npm/7.png)
 
 ### <a name="installagent"></a>2.2: instalar um agente de monitorização em cada servidor de monitorização (em cada VNET que pretende monitorizar)
 
@@ -108,13 +108,13 @@ Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação do 
 
   * Se optar por ligar à **do Azure Log Analytics**, cole a **ID de área de trabalho** e **chave da área de trabalho** (chave primária) que copiou no bloco de notas na secção anterior. Clique depois em **Seguinte**.
 
-    ![ID e a chave](.\media\how-to-npm\8.png)
+    ![ID e a chave](./media/how-to-npm/8.png)
   * Se tiver escolhido estabelecer ligação ao **Operations Manager**, no **configuração do grupo de gestão** página, escreva o **nome do grupo de gestão**, **servidor de gestão** e o **porta do servidor de gestão**. Clique depois em **Seguinte**.
 
-    ![Operations Manager](.\media\how-to-npm\9.png)
+    ![Operations Manager](./media/how-to-npm/9.png)
   * Sobre o **conta de ação do agente** página, escolha o o **Sistema Local** conta, ou **domínio ou conta de computador Local**. Clique depois em **Seguinte**.
 
-    ![Conta](.\media\how-to-npm\10.png)
+    ![Conta](./media/how-to-npm/10.png)
 6. Sobre o **pronto para instalar** página, reveja as suas opções e, em seguida, clique em **instalar**.
 7. Na página **Configuração Concluída com Êxito**, clique em **Concluir**.
 8. Quando terminar, o Microsoft Monitoring Agent é apresentada no painel de controlo. Pode rever a configuração e certifique-se de que o agente está ligado ao Azure Log Analytics. Quando estiver ligado, o agente apresenta uma mensagem que diz: **o Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite**.
@@ -132,7 +132,7 @@ Para configurar definições de proxy para o Microsoft Monitoring Agent com o pa
 3. Clique no separador **Definições de Proxy**.
 4. Selecione **utilizar um servidor proxy** e escreva o URL e o número de porta, se for necessária. Se o servidor proxy requer autenticação, escreva o nome de utilizador e a palavra-passe para aceder ao servidor proxy.
 
-  ![Proxy](.\media\how-to-npm\11.png)
+  ![Proxy](./media/how-to-npm/11.png)
 
 ### <a name="verifyagent"></a>2.4: verificar a conectividade de agente
 
@@ -143,7 +143,7 @@ Pode verificar facilmente se os agentes estão a comunicar.
 3. Clique nas **do Azure Log Analytics** separador.
 4. Na **estado** coluna, deverá ver que o agente ligado com êxito para o Log Analytics.
 
-  ![status](.\media\how-to-npm\12.png)
+  ![status](./media/how-to-npm/12.png)
 
 ### <a name="firewall"></a>2.5: abrir as portas de firewall nos servidores de agente de monitorização
 
@@ -160,7 +160,7 @@ Por predefinição a porta 8084 está aberta. Pode utilizar uma porta personaliz
 
 Nos servidores de agente, abra uma janela do PowerShell com privilégios administrativos. Executar o [EnableRules](https://aka.ms/npmpowershellscript) script do PowerShell (que transferiu anteriormente). Não utilize quaisquer parâmetros.
 
-![PowerShell_Script](.\media\how-to-npm\script.png)
+![PowerShell_Script](./media/how-to-npm/script.png)
 
 ## <a name="opennsg"></a>Passo 3: Configurar regras de grupo de segurança de rede
 
@@ -176,13 +176,13 @@ Para obter mais informações sobre o NSG, consulte [grupos de segurança de red
 
 1. Navegue para o mosaico de descrição geral do Monitor de desempenho de rede ao aceder a **todos os recursos** página, em seguida, clique na lista de permissões NPM área de trabalho.
 
-  ![área de trabalho do npm](.\media\how-to-npm\npm.png)
+  ![área de trabalho do npm](./media/how-to-npm/npm.png)
 2. Clique nas **Monitor de desempenho de rede** mosaico de descrição geral para apresentar o dashboard. O dashboard contém uma página do ExpressRoute, que mostra que o ExpressRoute é um "Estado não configurado". Clique em **configuração de funcionalidade** para abrir a página de configuração de Monitor de desempenho de rede.
 
-  ![configuração de funcionalidade](.\media\how-to-npm\npm2.png)
+  ![configuração de funcionalidade](./media/how-to-npm/npm2.png)
 3. Na página de configuração, navegue até a guia "Peerings do ExpressRoute", localizada no painel do lado esquerdo. Em seguida, clique em **detetar agora**.
 
-  ![detetar](.\media\how-to-npm\13.png)
+  ![detetar](./media/how-to-npm/13.png)
 4. Quando tiver concluído a deteção, verá uma lista que contém os seguintes itens:
   * Todas as ligações de peering da Microsoft em circuitos de ExpressRoute que estão associados esta subscrição.
   * Todas as ligações de peering privadas que ligar às VNets associada a esta subscrição.
@@ -195,7 +195,7 @@ Nesta secção, vai configurar os monitores. Siga os passos para o tipo de peeri
 
 Para peering privado, quando a deteção for concluído, verá serão regras para exclusivo **nome do circuito** e **nome da VNet**. Inicialmente, estas regras estão desativadas.
 
-![regras](.\media\how-to-npm\14.png)
+![regras](./media/how-to-npm/14.png)
 
 1. Verifique os **monitorizar este peering** caixa de verificação.
 2. Selecione a caixa de verificação **ativar a monitorização de estado de funcionamento para este peering**.
@@ -211,10 +211,10 @@ Para peering da Microsoft, clique em do Microsoft peering ligação (ões) que p
 1. Verifique os **monitorizar este peering** caixa de verificação. 
 2. (Opcional) Pode alterar o ponto de extremidade de serviço da Microsoft de destino. Por predefinição, o NPM escolhe um ponto de extremidade de serviço do Microsoft como o destino. NPM monitora a conectividade dos seus servidores no local para este ponto de extremidade de destino através do ExpressRoute. 
     * Para alterar este ponto de extremidade de destino, clique a **(editar)** ligação sob **destino:** e selecione outro ponto final do destino de serviço Microsoft na lista de URLs.
-      ![Editar o destino](.\media\how-to-npm\edit_target.png)<br>
+      ![Editar o destino](./media/how-to-npm/edit_target.png)<br>
 
     * Pode utilizar um URL ou endereço IP personalizado. Esta opção é especialmente relevante se estiver a utilizar o peering para estabelecer uma ligação a serviços de PaaS do Azure, como o armazenamento do Azure, bases de dados SQL e sites que são oferecidos em endereços IP públicos da Microsoft. Para tal, clique no link **(Utilize URL personalizado ou o endereço IP em vez disso)** na parte inferior da lista de URL, em seguida, introduza o ponto final público do seu serviço de PaaS do Azure que está ligado através do peering da Microsoft do ExpressRoute.
-    ![URL personalizado](.\media\how-to-npm\custom_url.png)<br>
+    ![URL personalizado](./media/how-to-npm/custom_url.png)<br>
 
     * Se estiver a utilizar estas definições opcionais, certifique-se de que apenas o Microsoft ponto final de serviço está selecionado aqui. O ponto final tem de ser ligada ao ExpressRoute e pode ser acedida pelos agentes no local.
 3. Selecione a caixa de verificação **ativar a monitorização de estado de funcionamento para este peering**.
@@ -227,37 +227,37 @@ Para peering da Microsoft, clique em do Microsoft peering ligação (ões) que p
 
 Quando vir os mosaicos de monitorização, os circuitos do ExpressRoute e os recursos de ligação estão a ser monitorizados pelo NPM. Pode clicar num mosaico do Peering da Microsoft para fazer uma busca detalhada no estado de funcionamento de ligações de Peering da Microsoft.
 
-![monitorização de mosaicos](.\media\how-to-npm\15.png)
+![monitorização de mosaicos](./media/how-to-npm/15.png)
 
 ### <a name="dashboard"></a>Página de Monitor de desempenho de rede
 
 A página NPM contém uma página para o ExpressRoute, que mostra uma descrição geral do Estado de funcionamento dos circuitos do ExpressRoute e de peerings.
 
-![Dashboard](.\media\how-to-npm\dashboard.png)
+![Dashboard](./media/how-to-npm/dashboard.png)
 
 ### <a name="circuits"></a>Lista de circuitos
 
 Para ver uma lista de todos os monitorizados circuitos do ExpressRoute, clique nas **circuitos do ExpressRoute** mosaico. Pode selecionar um circuito e ver o estado de funcionamento, gráficos de tendências para perda de pacotes, utilização de largura de banda e latência. Os gráficos são interativos. Pode selecionar uma janela de tempo personalizado para desenhar gráficos. É possível arrastar o mouse sobre uma área no gráfico para ampliar e ver os pontos de dados detalhados.
 
-![circuit_list](.\media\how-to-npm\circuits.png)
+![circuit_list](./media/how-to-npm/circuits.png)
 
 #### <a name="trend"></a>Tendência de perda, latência e débito
 
 Os gráficos de largura de banda, latência e perda são interativos. Pode ampliar a qualquer seção de nestes gráficos, usando controles de mouse. Também pode ver as largura de banda, latência e perda de dados para outros intervalos clicando **data/hora**, localizado abaixo do botão de ações no canto superior esquerdo.
 
-![tendência](.\media\how-to-npm\16.png)
+![tendência](./media/how-to-npm/16.png)
 
 ### <a name="peerings"></a>Lista de Peerings
 
 Para ver a lista de todas as ligações a redes virtuais através do peering privado, clique nas **Peerings privados** mosaico no dashboard. Aqui, pode selecionar um virtual ligação de rede e para ver o estado de funcionamento, gráficos de tendências para perda de pacotes, utilização de largura de banda e latência.
 
-![lista de circuito](.\media\how-to-npm\peerings.png)
+![lista de circuito](./media/how-to-npm/peerings.png)
 
 ### <a name="nodes"></a>Vista de nós
 
 Para ver a lista de todas as ligações entre os nós no local e pontos finais de serviço de Azure VMs/Microsoft para a ligação de peering do ExpressRoute escolhido, clique em **ver ligações de nó**. Pode ver o estado de funcionamento de cada ligação, bem como a tendência de perda e latência associados aos mesmos.
 
-![Vista de nós](.\media\how-to-npm\nodes.png)
+![Vista de nós](./media/how-to-npm/nodes.png)
 
 ### <a name="topology"></a>Topologia de circuito
 
@@ -265,9 +265,9 @@ Para ver a topologia de circuito, clique a **topologia** mosaico. Isto leva-o pa
 
 Pode aumentar o nível de visibilidade para incluir saltos no local ao mover a barra de controlo de deslize abaixo **filtros**. Mover a barra de controlo de deslize para a esquerda ou direita, aumentos/diminui o número de saltos no gráfico de topologia. A latência em cada segmento é visível, que permitem o isolamento mais rápido de segmentos de alta latência na sua rede.
 
-![filtros](.\media\how-to-npm\topology.png)
+![filtros](./media/how-to-npm/topology.png)
 
 #### <a name="detailed-topology-view-of-a-circuit"></a>Vista de topologia detalhada de um circuito
 
 Esta vista mostra as ligações de VNet.
-![topologia detalhados](.\media\how-to-npm\17.png)
+![topologia detalhados](./media/how-to-npm/17.png)

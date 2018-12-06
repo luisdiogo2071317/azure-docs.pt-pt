@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4020d754bd8c7728b43ef583aa7e7d8dbddcebec
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e6f85d327fff1ee32dca6dfb2231b28e6dc96c61
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634462"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965641"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>O que é o módulo do PowerShell ADConnectivityTool?
 
@@ -40,7 +40,7 @@ Sobre o **ligar os seus diretórios** página, o Assistente do Azure AD Connect,
 Sempre que algum desses problemas seja localizado, é apresentada uma mensagem de erro relacionadas no Assistente do AADConnect:
 
 
-![Erro](media\how-to-connect-adconnectivitytools\error1.png)
+![Erro](media/how-to-connect-adconnectivitytools/error1.png)
 
 Por exemplo, quando estamos está a tentar adicionar um diretório no **ligar os seus diretórios** ecrã, o Azure AD Connect precisa verificar se isso e deve ser capaz de comunicar com um controlador de domínio através da porta 389.  Se não for possível, veremos o erro que é mostrado na captura de ecrã acima.  
 

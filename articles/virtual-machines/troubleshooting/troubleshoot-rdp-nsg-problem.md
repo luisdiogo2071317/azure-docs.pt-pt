@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: cb9058d4f68b2dc202edeeaa6cafb2eefa82470b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284732"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954617"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Não é possível ligar remotamente a uma VM porque a porta RDP não está ativada no NSG
 
@@ -51,7 +51,7 @@ Para ativar a porta RDP num NSG, siga estes passos:
     **Destinos**: qualquer </br>
     **Ação**: permitir </br>
 
-Em especificar o endereço IP de origem, esta definição permite o tráfego apenas a partir de um endereço IP específico ou intervalo de endereços IP para ligar à VM. Certifique-se de que o computador que estiver a utilizar para iniciar a sessão do RDP está dentro do intervalo.
+Se especificar o endereço IP de origem, esta definição permite o tráfego apenas a partir de um endereço IP específico ou intervalo de endereços IP para ligar à VM. Certifique-se de que o computador que estiver a utilizar para iniciar a sessão do RDP está dentro do intervalo.
 
 Para obter mais informações sobre NSGs, consulte [grupo de segurança de rede](../../virtual-network/security-overview.md).
 

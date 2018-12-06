@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/14/2018
+ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705383"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966828"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>O que há de novo no Azure SQL Data Warehouse? Outubro de 2018
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Outubro de 2018.
@@ -62,6 +62,7 @@ O Azure SQL Data Warehouse (SQL DW) agora tem uma integração nativa com geraç
 | **CETAS a falhas de Parquet em classes de recursos pequeno em armazéns de dados de DW2000 e muito mais** | Esta correção identifica corretamente uma referência nula na criar externo tabela como caminho de código Parquet. |
 |**Valor da coluna de identidade poderá perder algumas operação CTAS** | Não pode ser mantido o valor de uma coluna de identidade quando CTASed para outra tabela. Comunicados num blog: [ https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/ ](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/). |
 | **Falha interna em alguns casos, quando uma sessão é terminada enquanto uma consulta ainda está em execução** | Esta correção aciona uma InvalidOperationException se uma sessão é terminada quando a consulta ainda está em execução. |
+| **(Implementado em Novembro de 2018) Os clientes estavam tendo um desempenho inferior ao ideal ao tentar carregar vários arquivos pequenos do ADLS (geração 1) com o Polybase.** | Desempenho do sistema foi um afunilamento durante a validação de token de segurança do AAD. Problemas de desempenho foram atenuados ao ativar a colocação em cache de tokens de segurança. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

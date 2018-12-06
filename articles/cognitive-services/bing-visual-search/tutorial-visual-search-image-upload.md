@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 24b4bacd6a369812a07095b1d9c114f557d10d57
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443462"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960062"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Tutorial: Discriminar o carregamento na Pesquisa Visual do Bing
 
@@ -1340,4 +1340,4 @@ Segue-se o exemplo completo do HTML e do JavaScript.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber como utilizar um token de informações para as obter veja [Bing Visual Search SDK ImageInsightsToken tutorial](.\tutorial-visual-search-insights-token.md) (Tutorial de ImageInsightsToken do SDK da Pesquisa Visual do Bing).
+Para saber como utilizar um token de informações para as obter veja [Bing Visual Search SDK ImageInsightsToken tutorial](./tutorial-visual-search-insights-token.md) (Tutorial de ImageInsightsToken do SDK da Pesquisa Visual do Bing).

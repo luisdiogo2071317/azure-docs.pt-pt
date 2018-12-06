@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 925537b3dff852921aad1e74d009e09fc90c394a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 9b64cedb54ac0777c4402d39bad5a23df79e5cf7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445081"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961251"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web Ruby e Postgres no Serviço de Aplicações do Azure no Linux
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar uma aplicação Web Ruby e ligá-la a uma base de dados Postgres. Quando tiver terminado, terá uma aplicação [Ruby on Rails](http://rubyonrails.org/) em execução no Serviço de Aplicações no Linux.
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este tutorial mostra como criar uma aplicação Web Ruby e ligá-la a uma base de dados Postgres. Quando tiver terminado, terá uma aplicação [Ruby on Rails](https://rubyonrails.org/) em execução no Serviço de Aplicações no Linux.
 
 ![Aplicação Ruby on Rails em execução no Serviço de Aplicações do Azure](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -41,9 +41,9 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-* [Instale o Git](https://git-scm.com/)
+* [Instalar o Git](https://git-scm.com/)
 * [Instalar o Ruby 2.3](https://www.ruby-lang.org/en/documentation/installation/)
-* [Instalar o Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
+* [Instalar o Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
 * [Instalar e executar o PostgreSQL](https://www.postgresql.org/download/)
 
 ## <a name="prepare-local-postgres"></a>Preparar o Postgres local
@@ -92,7 +92,7 @@ bundle install --path vendor/bundle
 
 ### <a name="run-the-sample-locally"></a>Executar o exemplo localmente
 
-Execute as [migrações do Rails](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations) para criar as tabelas de que a aplicação precisa. Para ver que tabelas são criadas nas migrações, veja o diretório _db/migrate_ no repositório Git.
+Execute as [migrações do Rails](https://guides.rubyonrails.org/active_record_migrations.html#running-migrations) para criar as tabelas de que a aplicação precisa. Para ver que tabelas são criadas nas migrações, veja o diretório _db/migrate_ no repositório Git.
 
 ```bash
 rake db:create
@@ -494,7 +494,7 @@ O menu do lado esquerdo disponibiliza páginas para configurar a aplicação.
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

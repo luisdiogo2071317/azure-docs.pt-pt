@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: f5465040f7dc0efd90591050ed9953149aca34b0
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
-ms.translationtype: HT
+ms.openlocfilehash: ed3d21719908a4c16b92d610b8ac75ac0b235ec1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456445"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968717"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Criar uma nova instância de serviço da Gestão de API do Azure
 
@@ -31,7 +31,7 @@ Este início rápido descreve os passos para a criação de uma nova instância 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em http://portal.azure.com.
+Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-new-service"></a>Criar um novo serviço
 
@@ -79,7 +79,7 @@ Quando já não for necessário, pode remover o grupo de recursos e todos os rec
 5. Confirme a eliminação ao inserir o nome do seu grupo de recursos.
 6. Clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Importar e publicar a sua primeira API](import-and-publish.md)

@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.openlocfilehash: 180b0cb9f52858d9b0f079ea711fd5ccab738ecf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f058bf8195c56681be0419a0a30f3d814e5d1906
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582318"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960837"
 ---
 # <a name="management-in-azure"></a>Gestão no Azure
 
@@ -34,7 +34,7 @@ A monitorização é o ato de recolha e análise de dados para determinar o dese
 
 ## <a name="configure"></a>Configurar
 
-Configurar refere-se à implementação inicial e à configuração dos recursos e aplicações e à respetiva manutenção contínua com correções de erros e atualizações. A automatização destas tarefas através de scripts e políticas permite-lhe eliminar a redundância, minimizar o tempo e esforço que despende e aumentar a precisão e eficiência. A [Automatização do Azure](..\automation\automation-intro.md) fornece-lhe o conjunto de serviços que lhe permite automatizar as tarefas de configuração. Para além dos runbooks para a automatização de processos, este serviço fornece a gestão de atualizações e configuração, o que o ajuda a gerir a configuração através de políticas e a identificar e implementar atualizações.
+Configurar refere-se à implementação inicial e à configuração dos recursos e aplicações e à respetiva manutenção contínua com correções de erros e atualizações. A automatização destas tarefas através de scripts e políticas permite-lhe eliminar a redundância, minimizar o tempo e esforço que despende e aumentar a precisão e eficiência. A [Automatização do Azure](../automation/automation-intro.md) fornece-lhe o conjunto de serviços que lhe permite automatizar as tarefas de configuração. Para além dos runbooks para a automatização de processos, este serviço fornece a gestão de atualizações e configuração, o que o ajuda a gerir a configuração através de políticas e a identificar e implementar atualizações.
 
 ## <a name="govern"></a>Governação
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 291f895ed367ab4871d27ea02cd23eddc496434c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844843"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958683"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavra-passe do Azure AD no ecrã de início de sessão
 
@@ -29,8 +29,8 @@ Neste tutorial, vai permitir aos utilizadores repor as respetivas palavras-passe
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Atualização de 10 de abril de 2018 do Windows ou o cliente mais recente:
-   * [associado ao Azure AD](../device-management-azure-portal.md) ou 
-   * [associado ao Azure AD Híbrido](../device-management-hybrid-azuread-joined-devices-setup.md)
+   * [Máquina associados ao Azure AD](../device-management-azure-portal.md) ou
+   * [Azure AD híbrido associou máquina](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio para o próximo início de sessão depois de redefinir a palavra-passe.
 * A reposição de palavras-passe self-service do Azure AD tem de estar ativada.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar a ligação Repor palavra-passe com o Intune

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: chlandsi
-ms.openlocfilehash: 7d1e05e13e55b8b7bc07eda71d63f96f12c81ff9
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 3f9b523c1efc22a94ef2a18367689c356c5be8f1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219193"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971628"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer voz em Objective-C no iOS com o SDK do Serviço de Voz
 
@@ -25,8 +25,11 @@ Neste artigo, vai aprender a criar uma aplicação iOS em Objective-C com o SDK 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave de subscrição para o serviço de Voz. Veja [Experimente o Serviço de Voz gratuitamente](get-started.md).
-* Um Mac com o Xcode 9.4.1 instalado como ambiente de desenvolvimento iOS. Este tutorial destina-se às versões 11.4 do iOS. Se ainda não tiver o Xcode, pode instalá-lo a partir da [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
+Antes de começar, eis uma lista de pré-requisitos:
+
+* R [chave de subscrição](get-started.md) para o serviço de voz
+* Um computador macOS com [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior
+* O destino definido como o iOS versão 11.4 ou posterior
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Obter o SDK de Voz para iOS
 
@@ -37,7 +40,7 @@ A versão atual do SDK de Voz dos Serviços Cognitivos é `1.1.0`.
 O SDK de Voz dos Serviços Cognitivos para Mac e iOS é atualmente distribuído como uma Arquitetura Cocoa.
 Pode ser transferido a partir de https://aka.ms/csspeech/iosbinary. Transfira o ficheiro para o diretório raiz.
 
-## <a name="create-an-xcode-project"></a>Criar um Projeto Xcode 
+## <a name="create-an-xcode-project"></a>Criar um Projeto Xcode
 
 Inicie o Xcode e um novo projeto ao clicar em **File (Ficheiro)** > **New (Novo)** > **Project (Projeto)**.
 Na caixa de diálogo de seleção do modelo, selecione o modelo "iOS Single View App" (Vista de Aplicação Única de iOS).
@@ -99,8 +102,7 @@ Atualmente, o SDK de Voz apenas suporta plataformas iOS de 64 bits.
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Procure este exemplo na pasta `quickstart/objectivec-ios`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Obter os nossos exemplos](speech-sdk.md#get-the-samples)
-

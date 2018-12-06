@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: e5ce479940faaaae95467fe6d426e999b4c6569f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468675"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959201"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Alterar o proprietário de uma subscrição de utilizador do Azure Stack
 
@@ -40,8 +40,8 @@ Existem dois tipos de *proprietários* que são atribuídas a uma subscrição:
 
 Execute o script seguinte para alterar o proprietário de faturação de subscrição de utilizador. O computador que utiliza para executar o script tem de ligar ao Azure Stack e executar o módulo do Azure Stack do PowerShell 1.3.0 ou posterior. Para obter mais informações, consulte [instalar o Azure Stack do PowerShell](azure-stack-powershell-install.md). 
 
-> [!Note]  
->  Num multi-inquilino do Azure Stack, o novo proprietário tem de estar no mesmo diretório que o proprietário existente. Antes de poder fornecer propriedade da subscrição a um utilizador que está em outro diretório, primeiro tem [convidar o utilizador como convidado no seu diretório](../active-directory/b2b/add-users-administrator.md). 
+> [!Note]
+>  Num multi-inquilino do Azure Stack, o novo proprietário tem de estar no mesmo diretório que o proprietário existente. Antes de poder fornecer propriedade da subscrição a um utilizador que está em outro diretório, primeiro tem [convidar o utilizador como convidado no seu diretório](../active-directory/b2b/add-users-administrator.md). 
 
 Substitua os seguintes valores no script antes da execução: 
  

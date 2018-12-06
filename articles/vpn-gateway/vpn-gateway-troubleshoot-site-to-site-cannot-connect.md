@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: a2330cee3d5ea48f9f679ac02f6889ccce6c1d7c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 18900c4a1dbc25526a3f60c7410ad87e7dd9a9fa
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242760"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967849"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Resolução de problemas: Uma conexão de VPN de site a site do Azure não é possível ligar e deixa de funcionar
 
@@ -39,7 +39,7 @@ Verifique o tipo do gateway de VPN do Azure.
 
 2. Verifique os **descrição geral** página do gateway VPN para obter as informações de tipo.
     
-    ![Descrição geral do gateway](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
+    ![Descrição geral do gateway](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Passo 1. Verifique se o dispositivo VPN no local é validado
 

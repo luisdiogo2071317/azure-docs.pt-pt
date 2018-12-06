@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.openlocfilehash: 200df7602f94f70f3fb9c62ad81a0710923184c7
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 81c5eabcfcca6818293ff9dbbfb1515d5729dd79
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291424"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963289"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Compreender a monitorização de tarefa do Stream Analytics e como monitorizar consultas
 
@@ -29,7 +29,7 @@ Será apresentada a janela conforme mostrado:
 ## <a name="metrics-available-for-stream-analytics"></a>Métricas disponíveis para o Stream Analytics
 | Métrica                 | Definição                               |
 | ---------------------- | ---------------------------------------- |
-| Eventos de Entrada Pendentes       | Número de eventos de entrada que são ' pendentes. |
+| Eventos de Entrada Pendentes       | Número de eventos de entrada que estão pendentes. |
 | Erros de Conversão de Dados | Número de eventos de saída que não foi possível converter para o esquema de saída esperada. |
 | Eventos de Entrada Antigos       | Número de eventos recebidos no início. |
 | Falha no pedido de funções | Número de chamadas de função, com falhas do Azure Machine Learning (se presente). |

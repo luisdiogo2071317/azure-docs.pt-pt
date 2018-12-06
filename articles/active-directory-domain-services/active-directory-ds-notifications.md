@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: f5049d6092bfc6b3f70ebafdc501e02ad9fe7936
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6d827629850de88940f41febeeca61b812d692e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431395"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958530"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Definições de notificação no Azure AD Domain Services
 
@@ -41,7 +41,7 @@ Na página lista todos os destinatários de e-mail para notificações por e-mai
 
 A imagem seguinte é um exemplo de uma notificação por e-mail:
 
-![Notificação de e-mail de exemplo](.\media\active-directory-domain-services-alerts\email-alert.png)
+![Notificação de e-mail de exemplo](./media/active-directory-domain-services-alerts/email-alert.png)
 
 O e-mail Especifica o domínio gerido que o alerta está presente, bem como dar a hora da deteção e uma ligação para a página de estado de funcionamento do Azure AD Domain Services no portal do Azure.
 

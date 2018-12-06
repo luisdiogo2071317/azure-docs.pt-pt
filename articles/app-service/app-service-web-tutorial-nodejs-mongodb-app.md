@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 2363f7f2e17bfc451ea9fd5486ba60fbc8ccb993
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: a74360575f1dbaeb86886e0e04240eb97baa521a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364290"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971696"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Tutorial: Compilar uma aplicação Web Node.js e MongoDB no Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "49364290"
 > Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um Serviço de Aplicações no _Linux_, veja [Compilar uma aplicação Web Node.js e MongoDB no Serviço de Aplicações do Azure no Linux](./containers/tutorial-nodejs-mongodb-app.md).
 >
 
-As Aplicações Web do Azure dispõem de um serviço de alojamento na Web, altamente dimensionável e com correção automática. Este tutorial mostra como criar uma aplicação Web Node.js e ligá-la a uma base de dados MongoDB. Quando terminar, terá uma aplicação MEAN (MongoDB, Express, AngularJS e Node.js) em execução no [Serviço de Aplicações do Azure](app-service-web-overview.md). Para obter simplicidade, a aplicação de exemplo utiliza a [estrutura Web MEAN.js](http://meanjs.org/).
+As Aplicações Web do Azure dispõem de um serviço de alojamento na Web, altamente dimensionável e com correção automática. Este tutorial mostra como criar uma aplicação Web Node.js e ligá-la a uma base de dados MongoDB. Quando terminar, terá uma aplicação MEAN (MongoDB, Express, AngularJS e Node.js) em execução no [Serviço de Aplicações do Azure](app-service-web-overview.md). Para obter simplicidade, a aplicação de exemplo utiliza a [estrutura Web MEAN.js](https://meanjs.org/).
 
 ![Aplicação MEAN.js em execução no Serviço de Aplicações do Azure](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -48,10 +48,10 @@ O que irá aprender:
 
 Para concluir este tutorial:
 
-1. [Instale o Git](https://git-scm.com/)
+1. [Instalar o Git](https://git-scm.com/)
 1. [Instale o Node.js e o NPM](https://nodejs.org/)
-1. [Instalar Bower](https://bower.io/) (exigido pelo [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
-1. [Instalar Gulp.js](http://gulpjs.com/) (exigido pelo [MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started))
+1. [Instalar Bower](https://bower.io/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+1. [Instalar Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
 1. [Instalar e executar a Edição de Comunidade do MongoDB](https://docs.mongodb.com/manual/administration/install-community/) 
 
 ## <a name="test-local-mongodb"></a>Testar MongoDB local
@@ -310,10 +310,10 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ``` 
 
-Poderá reparar que o processo de implementação executa o [Gulp](http://gulpjs.com/) depois de `npm install`. O Serviço de Aplicações não executa tarefas do Gulp ou do Grunt durante a implementação, pelo que este repositório de exemplo tem dois ficheiros adicionais no diretório raiz para a permitir: 
+Poderá reparar que o processo de implementação executa o [Gulp](https://gulpjs.com/) depois de `npm install`. O Serviço de Aplicações não executa tarefas do Gulp ou do Grunt durante a implementação, pelo que este repositório de exemplo tem dois ficheiros adicionais no diretório raiz para a permitir: 
 
 - _.implementação_ - este ficheiro diz ao Serviço de Aplicações para executar `bash deploy.sh` como o script de implementação personalizado.
 - _deploy.sh_ - o script de implementação personalizado. Se vir o ficheiro, verá que executa `gulp prod` a seguir a `npm install` e `bower install`. 

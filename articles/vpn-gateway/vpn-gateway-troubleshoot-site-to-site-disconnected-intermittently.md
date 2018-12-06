@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 9d831f7f08af174dfc6ce429da4d0a0daaeda0e9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2fdd82c2f0c96b3bd20231911bb88cf54c172931
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240023"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958019"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Resolução de problemas: Azure VPN de Site a Site desliga se intermitentemente
 
@@ -36,7 +36,7 @@ Verifique o tipo de gateway de rede virtual do Azure:
 1. Aceda a [portal do Azure](https://portal.azure.com).
 2. Verifique os **descrição geral** página do gateway de rede virtual para obter as informações de tipo.
     
-    ![A descrição geral do gateway](media\vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently\gatewayoverview.png)
+    ![A descrição geral do gateway](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>Passo 1 Verifique se o dispositivo VPN no local é validado
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284834"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969486"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -49,7 +49,7 @@ Quando mover dados entre locais e a nuvem, a atividade utiliza um runtime de int
 
 Este é um fluxo de dados de alto nível para o resumo de passos para copiar com um ir Autoalojado:
 
-![Descrição geral de alto nível](media\create-self-hosted-integration-runtime\high-level-overview.png)
+![Descrição geral de alto nível](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. O desenvolvedor de dados cria um runtime de integração autoalojado dentro de uma fábrica de dados do Azure com um cmdlet do PowerShell. Atualmente, o portal do Azure não suporta esta funcionalidade.
 2. O desenvolvedor de dados cria um serviço ligado para um arquivo de dados no local, especificando a instância do runtime de integração autoalojado que ele deve utilizar para ligar aos arquivos de dados. Como parte da configuração de serviço ligado, o desenvolvedor de dados utiliza a aplicação do Gestor de credenciais (atualmente não suportada) para a definição de tipos de autenticação e credenciais. A aplicação do Gestor de credenciais se comunica com o arquivo de dados para testar a ligação e o runtime de integração autoalojado para guardar as credenciais.
@@ -131,7 +131,7 @@ Quando a memória disponível no runtime de integração autoalojado é baixa e 
 
 Quando a memória disponível e a CPU não são utilizados bem, mas a execução de tarefas simultâneas está a atingir o limite, deve aumentar verticalmente ao aumentar o número de tarefas simultâneas que podem ser executadas num nó. Também poderá querer aumentar verticalmente quando as atividades são exceder o tempo limite porque o runtime de integração autoalojado está sobrecarregado. Conforme mostrado na imagem seguinte, pode aumentar a capacidade máxima para um nó:  
 
-![Cada vez maiores tarefas simultâneas que podem ser executadas num nó](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![Cada vez maiores tarefas simultâneas que podem ser executadas num nó](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>Requisitos de certificado TLS/SSL
 
@@ -162,33 +162,33 @@ Para obter uma introdução de doze minutos e demonstração desta funcionalidad
 
 1. No runtime de integração autoalojado para ser compartilhado, conceder permissão à fábrica de dados no qual pretende criar o ir ligado. 
 
-   ![Botão para a concessão de permissão no separador Partilha](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![Botão para a concessão de permissão no separador Partilha](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
 
-   ![Seleções para atribuição de permissões](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+   ![Seleções para atribuição de permissões](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)
 
 2. Tenha em atenção o ID de recurso do Runtime de integração autoalojado para ser partilhado.
 
-   ![Localização do ID do recurso](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+   ![Localização do ID do recurso](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
 
 3. Na fábrica de dados aos quais foram concedidas as permissões, criar um runtime de integração autoalojado novo (ligado) e introduza o ID de recurso.
 
-   ![Botão para criar um runtime de integração autoalojado ligado](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+   ![Botão para criar um runtime de integração autoalojado ligado](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
 
-   ![Caixas de nome e ID de recurso](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+   ![Caixas de nome e ID de recurso](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
 ### <a name="monitoring"></a>Monitorização 
 
 - **Runtime de integração partilhado**
 
-  ![Seleções para localizar um runtime de integração partilhado](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![Seleções para localizar um runtime de integração partilhado](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-  ![Separador para monitorizar](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![Separador para monitorizar](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
 - **Runtime de integração ligado**
 
-  ![Seleções para localizar um runtime de integração ligado](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![Seleções para localizar um runtime de integração ligado](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-  ![Separador para monitorizar](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![Separador para monitorizar](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitações conhecidas de compartilhamento de Runtime de integração autoalojado
 
@@ -211,12 +211,12 @@ Para obter uma introdução de doze minutos e demonstração desta funcionalidad
 
 Se mover o cursor sobre o ícone ou a mensagem na área de notificação, pode encontrar detalhes sobre o estado do runtime de integração autoalojado.
 
-![Notificações na área de notificação](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![Notificações na área de notificação](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
 ## <a name="ports-and-firewall"></a>Portas e firewall
 Existem duas firewalls a serem considerados: o *firewall Corporativo* em execução no router central da organização e o *firewall do Windows* configurado como um daemon no computador local em que o runtime de integração autoalojado é instalado.
 
-![Firewall](media\create-self-hosted-integration-runtime\firewall.png)
+![Firewall](media/create-self-hosted-integration-runtime/firewall.png)
 
 Com o *firewall Corporativo* nível, terá de configurar os seguintes domínios e as portas de saída:
 
@@ -249,11 +249,11 @@ Por exemplo, para copiar a partir de um arquivo de dados no local para um sink d
 ## <a name="proxy-server-considerations"></a>Considerações do servidor proxy
 Se o seu ambiente de rede Corporativo utiliza um servidor proxy para aceder à internet, configure o runtime de integração autoalojado para utilizar definições de proxy apropriados. Pode definir o proxy durante a fase de registro inicial.
 
-![Especificar o proxy](media\create-self-hosted-integration-runtime\specify-proxy.png)
+![Especificar o proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
 O runtime de integração autoalojado utiliza o servidor proxy para ligar ao serviço cloud. Selecione **ligação de alteração** durante a configuração inicial. Verá a caixa de diálogo de definição de proxy.
 
-![Proxy de conjunto](media\create-self-hosted-integration-runtime\set-http-proxy.png)
+![Proxy de conjunto](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
 Existem três opções de configuração:
 
@@ -272,7 +272,7 @@ Depois do integration runtime autoalojado for registado com êxito, se pretender
 
 Pode ver e atualizar o proxy HTTP com a ferramenta Configuration Manager.
 
-![Proxy de vista](media\create-self-hosted-integration-runtime\view-proxy.png)
+![Proxy de vista](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
 > Se configurar um servidor proxy com a autenticação NTLM, o serviço de anfitrião do integration runtime é executado sob a conta de domínio. Se alterar a palavra-passe para a conta de domínio mais tarde, lembre-se atualizar as definições de configuração para o serviço e reinicie-o em conformidade. Devido a este requisito, sugerimos que utilize uma conta de domínio dedicado para aceder ao servidor de proxy que não necessita de atualizar a palavra-passe com frequência.

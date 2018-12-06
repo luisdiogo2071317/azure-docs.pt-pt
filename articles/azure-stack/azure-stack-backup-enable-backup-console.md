@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d7d47b61c926c6704a06dacc55f00d77a1266988
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038370"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962567"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Ativar cópia de segurança para o Azure Stack a partir do portal de administração
-Ative o serviço de cópia de segurança de infraestrutura através do portal de administração para que o Azure Stack pode gerar as cópias de segurança. Pode utilizar estas cópias de segurança para restaurar o seu ambiente na cloud de recuperação na eventualidade de a utilizar [uma falha catastrófica](.\azure-stack-backup-recover-data.md). O objetivo de recuperação na cloud é garantir que seus operadores e os utilizadores podem iniciar sessão no portal do após a conclusão da recuperação. Os utilizadores terão suas assinaturas restauradas, incluindo permissões de acesso baseado em funções e funções, originais planos, ofertas e a computação definidos anteriormente, armazenamento e quotas de rede.
+Ative o serviço de cópia de segurança de infraestrutura através do portal de administração para que o Azure Stack pode gerar as cópias de segurança. Pode utilizar estas cópias de segurança para restaurar o seu ambiente na cloud de recuperação na eventualidade de a utilizar [uma falha catastrófica](./azure-stack-backup-recover-data.md). O objetivo de recuperação na cloud é garantir que seus operadores e os utilizadores podem iniciar sessão no portal do após a conclusão da recuperação. Os utilizadores terão suas assinaturas restauradas, incluindo permissões de acesso baseado em funções e funções, originais planos, ofertas e a computação definidos anteriormente, armazenamento e quotas de rede.
 
 No entanto, o serviço de cópia de segurança de infraestrutura não cópia de segurança de VMs de IaaS, configurações de rede e recursos de armazenamento, como contas de armazenamento, blobs, tabelas, e assim por diante, para que os utilizadores iniciar sessão após a recuperação de nuvem é concluído não verão qualquer um dos anteriormente existente recursos. Plataforma como serviço (PaaS) recursos e os dados são também não backup pelo serviço. 
 
@@ -58,31 +58,31 @@ Os administradores e utilizadores são responsáveis por fazer backup e restaura
     ```
 10. Selecione **OK** para guardar as definições de cópia de segurança do controlador.
 
-    ![O Azure Stack - definições do controlador de cópia de segurança](media\azure-stack-backup\backup-controller-settings.png)
+    ![O Azure Stack - definições do controlador de cópia de segurança](media/azure-stack-backup/backup-controller-settings.png)
 
 ## <a name="start-backup"></a>Iniciar cópia de segurança
 Para iniciar uma cópia de segurança, clique em **agora a cópia de segurança** para iniciar uma cópia de segurança a pedido. Uma cópia de segurança a pedido não irá modificar a hora para o próximo backup agendado. Depois da tarefa estiver concluída, pode confirmar as definições no **Essentials**:
 
-![O Azure Stack - cópia de segurança a pedido](media\azure-stack-backup\scheduled-backup.png)
+![O Azure Stack - cópia de segurança a pedido](media/azure-stack-backup/scheduled-backup.png)
 
 Também pode executar o cmdlet do PowerShell **Start-AzsBackup** no seu computador de administração do Azure Stack. Para obter mais informações, consulte [cópia de segurança do Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 
 ## <a name="enable-or-disable-automatic-backups"></a>Ativar ou desativar as cópias de segurança automáticas
 As cópias de segurança agendadas automaticamente ao ativar a cópia de segurança. Pode verificar a próxima hora de cópia de segurança agendada na **Essentials**. 
 
-![O Azure Stack - cópia de segurança a pedido](media\azure-stack-backup\on-demand-backup.png)
+![O Azure Stack - cópia de segurança a pedido](media/azure-stack-backup/on-demand-backup.png)
 
 Se tiver de desativar futuras cópias de segurança agendadas, clique em **desativar cópias de segurança automáticas**. Desativar as cópias de segurança automática irão manter as definições de cópia de segurança configuradas e irão reter a agenda de cópia de segurança. Esta ação simplesmente diz ao scheduler para ignorar futuras cópias de segurança. 
 
-![O Azure Stack - desativar agendado cópias de segurança](media\azure-stack-backup\disable-auto-backup.png)
+![O Azure Stack - desativar agendado cópias de segurança](media/azure-stack-backup/disable-auto-backup.png)
 
 Confirme que futuras cópias de segurança agendadas foram desativadas na **Essentials**:
 
-![O Azure Stack - confirmar as cópias de segurança foram desativadas](media\azure-stack-backup\confirm-disable.png)
+![O Azure Stack - confirmar as cópias de segurança foram desativadas](media/azure-stack-backup/confirm-disable.png)
 
 Clique em **habilitar cópias de segurança automáticas** para informar o scheduler para iniciar cópias de segurança futuras no horário programado. 
 
-![O Azure Stack - ativar agendado cópias de segurança](media\azure-stack-backup\enable-auto-backup.png)
+![O Azure Stack - ativar agendado cópias de segurança](media/azure-stack-backup/enable-auto-backup.png)
 
 
 > [!Note]  

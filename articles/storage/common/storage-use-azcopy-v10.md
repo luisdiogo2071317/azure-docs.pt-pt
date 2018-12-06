@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: a1b183e5b0929a2149502aa340e2e69c725dba6d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 2ab933506ea03ae72198113d70888460e5001a6d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49168272"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958427"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Transferir dados com v10 o AzCopy (pré-visualização)
 
@@ -84,6 +84,16 @@ Para ver a página de ajuda e exemplos para um comando específico, execute o co
 .\azcopy cp -h
 ```
 
+## <a name="create-a-file-system-azure-data-lake-storage-gen2-only"></a>Criar um sistema de ficheiros (apenas com o Azure Data Lake Storage Gen2)
+
+Se tiver ativado o espaços de nomes hierárquicos na sua conta de armazenamento de BLOBs, pode utilizar o seguinte comando para criar um novo sistema de ficheiros, de modo a que pode carregar arquivos de download para o mesmo.
+
+```azcopy
+.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name" --recursive=true
+```
+
+O ``account`` parte da cadeia de caracteres corresponde ao nome da conta de armazenamento. O ``top-level-resource-name`` parte da cadeia de caracteres é o nome do sistema de ficheiros que pretende criar.
+
 ## <a name="copy-data-to-azure-storage"></a>Copiar dados para o armazenamento do Azure
 
 Utilize o comando de cópia para transferir dados da origem para o destino. A origem/destino podem ser:
@@ -107,10 +117,22 @@ O comando seguinte carrega todos os ficheiros em recursivamente de C:\local\path
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
+Se tiver ativado o espaços de nomes hierárquicos na sua conta de armazenamento de BLOBs, pode utilizar o seguinte comando para carregar ficheiros para o sistema de ficheiros:
+
+```azcopy
+.\azcopy cp "C:\local\path" "https://myaccount.dfs.core.windows.net/myfolder<sastoken>" --recursive=true
+```
+
 O comando seguinte carrega todos os ficheiros na pasta C:\local\path (sem recursing para os subdiretórios) para o contentor "mycontainer1":
 
 ```azcopy
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+```
+
+Se tiver ativado o espaços de nomes hierárquicos na sua conta de armazenamento de BLOBs, pode utilizar o seguinte comando:
+
+```azcopy
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/myfolder<sastoken>"
 ```
 
 Para obter mais exemplos, utilize o seguinte comando:
@@ -127,6 +149,8 @@ Para copiar os dados entre duas contas de armazenamento, utilize o seguinte coma
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
+
+Para trabalhar com as contas de armazenamento de BLOBs que tenham espaços de nomes hierárquicos ativados, substitua a cadeia de caracteres ``blob.core.windows.net`` com ``dfs.core.windows.net`` nesses exemplos.
 
 > [!NOTE]
 > O comando irá enumerar todos os contentores de BLOBs e copiá-los para a conta de destino. Neste momento AzCopy v10 suporta apenas blobs de blocos entre contas de armazenamento de dois a copiar. Todos os outros objetos de conta de armazenamento (blobs, blobs de páginas, ficheiros, tabelas e filas de acréscimo) serão ignorados.
@@ -154,6 +178,8 @@ Da mesma forma pode sincronizar um contentor de BLOBs para baixo para um sistema
 ```
 
 O comando permite-lhe uma forma incremental a sincronizar a origem para o destino com base na última carimbos de data / modificada. Se adicionar ou eliminar um ficheiro na origem, o AzCopy v10 irá fazer o mesmo no destino.
+
+[!NOTE] Para trabalhar com as contas de armazenamento de BLOBs que tenham espaços de nomes hierárquicos ativados, substitua a cadeia de caracteres ``blob.core.windows.net`` com ``dfs.core.windows.net`` nesses exemplos.
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 

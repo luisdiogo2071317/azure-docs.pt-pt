@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: c0e502c1627ebe9d63ca43cb46b982bb0639f3d7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 87e5b6098ff9ee74ef8a4314362c30c436d5ad20
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444736"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967934"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de programador na gestão de API do Azure com o OAuth 2.0
 
-Suportam a várias APIs [OAuth 2.0](http://oauth.net/2/) para proteger a API e certifique-se de que apenas os utilizadores válidos têm acesso, e apenas podem aceder a recursos aos quais estão qualificados. Para utilizar a consola de programador interativo da gestão de API do Azure com essas APIs, o serviço permite-lhe configurar a sua instância de serviço para trabalhar com o OAuth 2.0 API ativada.
+Suportam a várias APIs [OAuth 2.0](https://oauth.net/2/) para proteger a API e certifique-se de que apenas os utilizadores válidos têm acesso, e apenas podem aceder a recursos aos quais estão qualificados. Para utilizar a consola de programador interativo da gestão de API do Azure com essas APIs, o serviço permite-lhe configurar a sua instância de serviço para trabalhar com o OAuth 2.0 API ativada.
 
 ## <a name="prerequisites"> </a>Pré-requisitos
 
@@ -143,7 +143,7 @@ Para obter mais informações sobre como utilizar o OAuth 2.0 e a gestão de API
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[http://oauth.net/2/]: http://oauth.net/2/
+[https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 
 [Prerequisites]: #prerequisites

@@ -3,21 +3,21 @@ title: Configuração de segurança de dividir / unir | Documentos da Microsoft
 description: Configurar x409 certificados para a encriptação com o serviço de divisão/intercalação para o dimensionamento flexível.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: 06e9b443c5b0dc1c23b325c7127511f8542a1a11
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231402"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964837"
 ---
 # <a name="split-merge-security-configuration"></a>Configuração de segurança de dividir / unir
 Para utilizar o serviço de divisão/intercalação, tem de configurar corretamente a segurança. O serviço é parte da funcionalidade do dimensionamento flexível da base de dados do Microsoft Azure SQL. Para obter mais informações, consulte [Split de escala elástica e intercalar Tutorial de serviço](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -142,7 +142,7 @@ Existem dois mecanismos diferentes suportados para detetar e prevenir ataques De
 Eles se baseiam nos recursos de documentado mais adiante no segurança IP dinâmica no IIS. Quando alterar esta configuração Tome cuidado com os seguintes fatores:
 
 * O comportamento de proxies e dispositivos de tradução de endereços de rede sobre as informações do anfitrião remoto
-* Cada solicitação a qualquer recurso na função da web é considerada (por exemplo, carregar scripts, imagens, etc)
+* Cada solicitação a qualquer recurso na função da web é considerada (por exemplo, carregamento de scripts, imagens, etc)
 
 ## <a name="restricting-number-of-concurrent-accesses"></a>Restringir o número de acessos simultâneos
 As definições que configurar esse comportamento são:
@@ -178,7 +178,7 @@ Execute:
       -n "CN=myservice.cloudapp.net" ^
       -e MM/DD/YYYY ^
       -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
 Para personalizar:
@@ -239,7 +239,7 @@ Execute os seguintes passos para criar um certificado autoassinado para atuar co
     -n "CN=MyCA" ^
     -e MM/DD/YYYY ^
      -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
+     -a sha256 -len 2048 ^
       -sr localmachine -ss my ^
       MyCA.cer
 
@@ -280,7 +280,7 @@ Atualize o valor da definição seguinte com o mesmo thumbprint:
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
 ## <a name="issue-client-certificates"></a>Emitir certificados de cliente
-Cada pessoa tem autorizada para aceder ao serviço deve ter um certificado de cliente emitido para his/hers exclusivo utilizar e deve escolher que HIS/hers própria palavra-passe segura para proteger a respetiva chave privada. 
+Cada pessoa tem autorizada para aceder ao serviço deve ter um certificado de cliente emitido para seu uso exclusivo e deve escolher a sua própria palavra-passe segura para proteger a respetiva chave privada. 
 
 Os seguintes passos tem de ser executados no mesmo computador em que o certificado de AC autoassinado foi gerado e armazenado:
 
@@ -288,7 +288,7 @@ Os seguintes passos tem de ser executados no mesmo computador em que o certifica
       -n "CN=My ID" ^
       -e MM/DD/YYYY ^
       -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
@@ -316,14 +316,14 @@ Introduza a palavra-passe e, em seguida, exportar o certificado com estas opçõ
 * A pessoa a quem este certificado é emitido deve escolher a palavra-passe de exportação
 
 ## <a name="import-client-certificate"></a>Importar o certificado de cliente
-Cada pessoa para quem foi emitido um certificado de cliente deve importar o par de chaves nas máquinas, que ele irá utilizar para comunicar com o serviço:
+Cada pessoa para quem foi emitido um certificado de cliente deve importar o par de chaves nas máquinas, será utilizado para comunicar com o serviço:
 
 * Faça duplo clique na. Ficheiro PFX no Explorador do Windows
 * Importar o certificado em pessoal armazenar com, pelo menos, esta opção:
   * Incluir todas as propriedades expandidas verificadas
 
 ## <a name="copy-client-certificate-thumbprints"></a>Copie os thumbprints de certificado de cliente
-Cada pessoa para quem foi emitido um certificado de cliente tem de seguir estes passos para obter o thumbprint de his/hers certificado que será adicionado ao arquivo de configuração de serviço:
+Cada pessoa para quem foi emitido um certificado de cliente tem de seguir estes passos para obter o thumbprint do respetivo certificado, o que será adicionado ao arquivo de configuração de serviço:
 
 * Executar certmgr.exe
 * Selecione o separador pessoa
@@ -339,7 +339,7 @@ Atualize o valor da definição seguinte no ficheiro de configuração do servi�
     <Setting name="AllowedClientCertificateThumbprints" value="" />
 
 ## <a name="configure-client-certificate-revocation-check"></a>Configurar a verificação de revogação de certificado de cliente
-Não verifica se a configuração padrão com a autoridade de certificação para o estado de revogação de certificado de cliente. Para ativar as verificações, se a autoridade de certificação que emitiu certificados de cliente oferece suporte a essas verificações, altere a definição seguinte com um dos valores definidos na enumeração X509RevocationMode:
+Não verifica se a configuração padrão com a autoridade de certificação para o estado de revogação de certificado de cliente. Para ativar as verificações, se a autoridade de certificação que emitiu o cliente certificados oferece suporte a essas verificações, altere a definição seguinte com um dos valores definidos na enumeração X509RevocationMode:
 
     <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
 

@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/06/2018
+ms.date: 12/04/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 45b6de7693325b5ccfcb01ad9babc61dd2f6e003
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: d716a27cc2b4879451a8d5edbca46ca1bbfeaf40
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289143"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968992"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações de infraestrutura de SAP HANA e operações no Azure
 Este documento fornece orientações para configurar a infraestrutura do Azure e operar sistemas SAP HANA que estão implementados em máquinas de virtuais (VMs) nativas do Azure. O documento também inclui informações de configuração para o SAP HANA aumentar horizontalmente para o SKU de VM M128s. Este documento não se destina a substituir a documentação de SAP padrão, o que inclui o seguinte conteúdo:
@@ -190,7 +190,11 @@ Verifique se o débito de armazenamento para os diferentes volumes sugeridos ser
 Quando tiver conectividade de site a site para o Azure através de VPN ou ExpressRoute, tem de ter pelo menos uma rede virtual do Azure que está ligada através de um Gateway Virtual ao circuito VPN ou ExpressRoute. Em Implantações simples, o Gateway Virtual podem ser implementado numa sub-rede da rede virtual do Azure (VNet) que aloja o SAP HANA nas instâncias também. Para instalar o SAP HANA, crie duas sub-redes adicionais dentro da rede virtual do Azure. Uma sub-rede hospeda as VMs para executar as instâncias do SAP HANA. A outra sub-rede executa Jumpbox ou VMs de gestão para alojar o SAP HANA Studio, o gerenciamento de software ou o seu software de aplicação.
 
 > [!IMPORTANT]
-> Fora de funcionalidade, mas mais importante fora de motivos de desempenho, não é suportada para configurar [aplicações virtuais de rede do Azure](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e o HANA instância (s) de um SAP de base de dados Baseados em sistema SAP NetWeaver, Hybris ou S/4HANA. Ainda mais cenários em que não são suportadas NVAs estão em caminhos de comunicação entre as VMs do Azure que representam nós de cluster do Linux Pacemaker e dispositivos SBD conforme descrito em [elevada disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Ou na comunicação de caminhos entre as VMs do Azure e de SOFS do Windows Server é definida conforme descrito em [uma instância do SAP ASCS/SCS de Cluster num cluster de ativação pós-falha do Windows ao utilizar uma partilha de ficheiros no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). NVAs em comunicação caminhos podem facilmente duas vezes a latência de rede entre dois parceiros de comunicação, pode restringir a taxa de transferência em caminhos críticas entre a camada de aplicação SAP e as instâncias de base de dados do HANA. Em alguns cenários observados com os clientes, NVAs podem fazer com que os clusters do Linux de Pacemaker falhe em casos em que as comunicações entre os nós de cluster do Linux Pacemaker têm de comunicar com o respetivo dispositivo SBD através de uma NVA.   
+> Fora de funcionalidade, mas mais importante fora de motivos de desempenho, não é suportada para configurar [aplicações virtuais de rede do Azure](https://azure.microsoft.com/solutions/network-appliances/) no caminho de comunicação entre o aplicativo SAP e a camada DBMS de um SAP NetWeaver, Baseados em sistema SAP Hybris ou S/4HANA. A comunicação entre a camada de aplicação SAP e a camada do DBMS tem de ser um direto. A restrição não inclui [regras ASG do Azure e no NSG](https://docs.microsoft.com/azure/virtual-network/security-overview) , desde que essas regras ASG e NSG permitem uma comunicação direta. Ainda mais cenários em que não são suportadas NVAs estão em caminhos de comunicação entre as VMs do Azure que representam nós de cluster do Linux Pacemaker e dispositivos SBD conforme descrito em [elevada disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse). Ou na comunicação de caminhos entre as VMs do Azure e de SOFS do Windows Server é definida conforme descrito em [uma instância do SAP ASCS/SCS de Cluster num cluster de ativação pós-falha do Windows ao utilizar uma partilha de ficheiros no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). NVAs em comunicação caminhos podem facilmente duas vezes a latência de rede entre dois parceiros de comunicação, pode restringir a taxa de transferência em caminhos críticas entre a camada de aplicação SAP e a camada do DBMS. Em alguns cenários observados com os clientes, NVAs podem fazer com que os clusters do Linux de Pacemaker falhe em casos em que as comunicações entre os nós de cluster do Linux Pacemaker têm de comunicar com o respetivo dispositivo SBD através de uma NVA.  
+> 
+
+> [!IMPORTANT]
+> Design outro que seja **não** suportada é a diferenciação de camada de aplicação SAP e a camada do DBMS em diferentes redes virtuais do Azure que não são [em modo de peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre si. Recomenda-se para separar a camada de aplicação SAP e a camada DBMS com sub-redes dentro de uma rede virtual do Azure em vez de usar diferentes redes virtuais do Azure. Se decidir não seguir a recomendação e, em vez disso, separar as duas camadas numa rede virtual diferente, as duas redes virtuais tem de ser [em modo de peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Tenha em atenção que o tráfego entre as duas de rede [em modo de peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) redes virtuais do Azure são o assunto dos custos de transferência. Com o volume de dados grandes em muitos Terabytes trocados entre a camada de aplicação SAP e a camada do DBMS custos substanciais podem ser acumulados se a camada de aplicação SAP e o DBMS camada é segregada entre duas redes virtuais do Azure em modo de peering. 
 
 Ao instalar as VMs a executar o SAP HANA, tem das VMs:
 

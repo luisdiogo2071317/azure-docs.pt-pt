@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: c463599190c5bfaac47a70dbca7b8a67dc830f3a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363488"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957645"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Resolução de problemas do Microsoft Azure Stack
 
@@ -43,7 +43,7 @@ Este comportamento é provavelmente somente o resultado do comportamento predefi
 Tem de adicionar um item de imagem e a galeria do Windows Server antes de implementar VMs no Azure Stack.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Depois de reiniciar o meu host do Azure Stack, algumas VMs podem não iniciar automaticamente.
-Depois de reiniciar o seu anfitrião, poderá reparar serviços do Azure Stack não estão disponíveis imediatamente.  Isto acontece porque o Azure Stack [VMs de infraestrutura](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) e fornecedores de recursos demoram algum tempo para verificar a consistência, mas, eventualmente, serão iniciada automaticamente.
+Depois de reiniciar o seu anfitrião, poderá reparar serviços do Azure Stack não estão disponíveis imediatamente.  Isto acontece porque o Azure Stack [VMs de infraestrutura](../azure-stack/asdk/asdk-architecture.md#virtual-machine-roles) e fornecedores de recursos demoram algum tempo para verificar a consistência, mas, eventualmente, serão iniciada automaticamente.
 
 Também pode observar esse inquilino que VMS não são iniciados automaticamente após um reinício do anfitrião do kit de desenvolvimento do Azure Stack. Isso é um problema conhecido e requer apenas alguns passos manuais para colocá-los online:
 

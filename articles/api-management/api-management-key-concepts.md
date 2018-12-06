@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: cded90d4f36e353241bb594bae35b7c7e03599b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
-ms.translationtype: HT
+ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436016"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965160"
 ---
 # <a name="what-is-api-management"></a>O que é a API Management?
 
@@ -59,7 +59,7 @@ O sistema é constituído pelos seguintes componentes:
   * Criar uma conta e subscrever para obter chaves de API.
   * Aceder a análises sobre a sua própria utilização.
 
-Para obter mais informações, consulte o documento técnico em PDF [API Management baseada na nuvem: tirar partido do poder das APIs](http://j.mp/ms-apim-whitepaper). Este documento técnico introdutório sobre a API Management da CITO Research abrange: 
+Para obter mais informações, consulte o documento técnico em PDF [API Management baseada na nuvem: tirar partido do poder das APIs](https://j.mp/ms-apim-whitepaper). Este documento técnico introdutório sobre a API Management da CITO Research abrange: 
  
  * Requisitos e desafios de API comuns
  * Desassociar APIs e apresentar fachadas
@@ -120,7 +120,7 @@ Para obter mais informações sobre a Gestão de API, veja a seguinte apresenta�
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Conclua o guia de início rápido seguinte e comece a utilizar a Gestão de API do Azure:
 

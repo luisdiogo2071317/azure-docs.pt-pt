@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: db02df7ed27e011e51b4af470e80ac00054bf0dc
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 52fe5ac108e2788e481d89901dd24098cdb3c9b4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727941"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965211"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 Saiba mais sobre o desempenho e a utilização da sua aplicação ou página Web. Se adicionar o [Application Insights](app-insights-overview.md) ao seu script de página, obterá as temporizações de carregamentos de página e chamadas AJAX, contagens e detalhes de falhas de AJAX e exceções de browser, bem como contagens de utilizadores e sessões. Todas estas podem ser segmentadas por página, SO de cliente e versão do browser, geolocalização e outras dimensões. Pode definir alertas em contagens de falhas ou carregamento lento de página. E, ao inserir chamadas de rastreio no seu código JavaScript, pode controlar a utilização das diferentes funcionalidades da sua aplicação da página Web.
@@ -75,8 +75,6 @@ Insira o script imediatamente antes da etiqueta `</head>` de todas as páginas q
 O script contém a chave de instrumentação que direciona os dados para o recurso do Application Insights. 
 
 ([Explicação mais aprofundada do script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
-
-*(Se estiver a utilizar uma estrutura de página Web conhecida, procure adaptadores do Application Insights. Por exemplo, existe [um módulo AngularJS](http://ngmodules.org/modules/angular-appinsights).)*
 
 ## <a name="detailed-configuration"></a>Configuração detalhada
 Existem vários [parâmetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) que pode definir, embora na maioria dos casos não deverá ser preciso. Por exemplo, pode desativar ou limitar o número de chamadas Ajax reportadas por visualização de página (para reduzir o tráfego). Pode ainda configurar o modo de depuração para que a telemetria se mova rapidamente no pipeline sem estar em lote.

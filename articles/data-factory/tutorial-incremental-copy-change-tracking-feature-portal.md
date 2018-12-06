@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: f06094fb82f10276f7a41d1b22f6dd99836a497f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: eaafc8acb73dd48e213d05d953d9ada457c53132
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095515"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957270"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações 
 Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -322,7 +322,7 @@ Clique em **Acionar**, na barra de ferramentas do pipeline, e clique em **Aciona
 ### <a name="review-the-results"></a>Rever os resultados
 Vai ver um ficheiro chamado `incremental-<GUID>.txt` na pasta `incchgtracking` do contentor `adftutorial`. 
 
-![Ficheiro de saída a partir da cópia completa](media\tutorial-incremental-copy-change-tracking-feature-portal\full-copy-output-file.png)
+![Ficheiro de saída a partir da cópia completa](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
 O ficheiro deve ter os dados da base de dados SQL do Azure:
 
@@ -414,7 +414,7 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
         | Nome | Tipo | Valor | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
-        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
+        | TableName | Cadeia | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![Atividade Stored Procedure - Parâmetros](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Ligue a atividade Copy à atividade Stored Procedure**. Arraste e largue o botão **verde** associado à atividade Copy na atividade Stored Procedure. 
@@ -445,7 +445,7 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
 ### <a name="review-the-results"></a>Rever os resultados
 Vai ver um segundo ficheiro na pasta `incchgtracking` do contentor `adftutorial`. 
 
-![Ficheiro de saída a partir da cópia incremental](media\tutorial-incremental-copy-change-tracking-feature-portal\incremental-copy-output-file.png)
+![Ficheiro de saída a partir da cópia incremental](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
 O ficheiro deve ter apenas os dados delta da base de dados SQL do Azure. O registo com `U` é a linha atualizada na base de dados e `I` é a linha adicionada. 
 
@@ -464,7 +464,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Avance para o tutorial seguinte para saber como transformar dados através de um cluster do Spark no Azure:
 
 > [!div class="nextstepaction"]

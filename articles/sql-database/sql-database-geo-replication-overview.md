@@ -3,7 +3,7 @@ title: Ativação pós-falha de grupos e a georreplicação ativa - base de dado
 description: Utilizar grupos de ativação pós-falha automática com a georreplicação ativa e ativar a ativação pós-falha automática em caso de interrupção.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: de439683082909e65d285a7946a71eb781287937
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c951791031b6304a26aadd434fa7336a9c7c474f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843483"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963152"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Descrição geral: Grupos de georreplicação e ativação pós-falha automática Active Directory
 
@@ -25,7 +25,7 @@ Georreplicação ativa é a funcionalidade de base de dados do Azure SQL permite
 
 ![Georreplicação](./media/sql-database-geo-replication-failover-portal/geo-replication.png )
 
-Replicação geográfica activa foi concebida como uma solução de continuidade de negócio que permite que o aplicativo efetuar a recuperação após desastre rápida de bases de dados individuais em caso de um regional disastor ou interrupções de grande escala. Se a georreplicação está ativada, o aplicativo pode iniciar a ativação pós-falha para uma base de dados secundária numa região diferente do Azure. Até quatro bases de dados secundárias são suportados nas regiões idêntica ou diferentes e as bases de dados secundárias também podem ser utilizados para consultas de acesso só de leitura. A ativação pós-falha tem de ser iniciada manualmente pelo aplicativo ou pelo utilizador. Após a ativação pós-falha, a nova principal tem um ponto de final de ligação diferente.
+Replicação geográfica activa foi concebida como uma solução de continuidade de negócio que permite que o aplicativo efetuar a recuperação após desastre rápida de bases de dados individuais em caso de um desastre regional ou interrupções de grande escala. Se a georreplicação está ativada, o aplicativo pode iniciar a ativação pós-falha para uma base de dados secundária numa região diferente do Azure. Até quatro bases de dados secundárias são suportados nas regiões idêntica ou diferentes e as bases de dados secundárias também podem ser utilizados para consultas de acesso só de leitura. A ativação pós-falha tem de ser iniciada manualmente pelo aplicativo ou pelo utilizador. Após a ativação pós-falha, a nova principal tem um ponto de final de ligação diferente.
 
 > [!NOTE]
 > Replicação geográfica activa está disponível para todas as bases de dados em todos os escalões de serviço em todas as regiões.
@@ -206,11 +206,11 @@ Se a sua aplicação utilizar a instância gerida, como a camada de dados, siga 
 
 - **Criar a segunda instância na mesma zona de DNS como a instância principal**
 
-  Quando é criada uma nova instância, um id exclusivo é automaticamente gerado como a zona DNS e incluído no nome DNS da instância. Um domínio multi (SAN) de certificado para esta instância é aprovisionada com o campo de SAN na forma de &lt;zone_id&gt;. database.windows.net. Este certificado pode ser utilizado para autenticar as ligações de cliente para uma instância na mesma zona de DNS. Para garantir a conectividade não é interrompido para a instância primária após a ativação pós-falha a primária e secundária instâncias tem de ser na mesma zona de DNS. Quando o aplicativo está pronto para implantação de produção, criar uma instância secundária numa região diferente e certifique-se de que partilha a zona DNS com a instância primária. Isso é feito ao especificar uma `DNS Zone Partner` parâmetro opcional do `create instance` comando do PowerShell.
+  Quando é criada uma nova instância, um id exclusivo é automaticamente gerado como a zona DNS e incluído no nome DNS da instância. Um domínio multi (SAN) de certificado para esta instância é aprovisionada com o campo de SAN na forma de &lt;zone_id&gt;. database.windows.net. Este certificado pode ser utilizado para autenticar as ligações de cliente para uma instância na mesma zona de DNS. Para garantir a conectividade não é interrompido para a instância primária após a ativação pós-falha a primária e secundária instâncias tem de ser na mesma zona de DNS. Quando o aplicativo está pronto para implantação de produção, criar uma instância secundária numa região diferente e certifique-se de que partilha a zona DNS com a instância primária. Isso é feito ao especificar um `DNS Zone Partner` parâmetro opcional com o portal do Azure, PowerShell ou a API REST.
 
 - **Ativar o tráfego de replicação entre duas instâncias**
 
-  Uma vez que cada instância é isolada na sua própria VNET, o tráfego de dois unidirecional entre nestas VNETs têm de ser permitido. Ver [instância gerida de replicação de base de dados SQL](replication-with-sql-database-managed-instance.md).
+  Uma vez que cada instância é isolada na sua própria VNET, o tráfego de dois unidirecional entre nestas VNETs têm de ser permitido. Ver [gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 - **Configurar um grupo de ativação pós-falha para gerir a ativação pós-falha de toda instância**
 
@@ -229,8 +229,8 @@ Se a sua aplicação utilizar a instância gerida, como a camada de dados, siga 
 
   > [!NOTE]
   > Em determinadas camadas de serviços, a base de dados SQL do Azure suporta a utilização de [réplicas só de leitura](sql-database-read-scale-out.md) carregar saldo consulta só de leitura cargas de trabalho utilizar a capacidade de uma réplica só de leitura e a utilizar o `ApplicationIntent=ReadOnly` parâmetro na ligação cadeia de caracteres. Quando tiver configurado uma secundária georreplicada, pode utilizar esta capacidade para ligar a qualquer uma réplica só de leitura na localização primária ou na localização georreplicado.
-  > - Para ligar a uma réplica só de leitura na localização primária, utilize uso &lt;nome do grupo de ativação pós-falha&gt;.&lt; zone_id&gt;. database.windows.net.
-  > - Para ligar a uma réplica só de leitura na localização primária, utilize uso &lt;nome do grupo de ativação pós-falha&gt;.secondary.&lt; zone_id&gt;. database.windows.net.
+  > - Para ligar a uma réplica só de leitura na localização primária, utilize &lt;nome do grupo de ativação pós-falha&gt;.&lt; zone_id&gt;. database.windows.net.
+  > - Para ligar a uma réplica só de leitura na localização primária, utilize &lt;nome do grupo de ativação pós-falha&gt;.secondary.&lt; zone_id&gt;. database.windows.net.
 - **Esteja preparado para degradação de desempenho**
 
   Decisão de ativação pós-falha SQL é independente do restante do aplicativo ou outros serviços utilizados. O aplicativo pode ser "misturar" com alguns componentes numa região e alguns em outro. Para evitar a degradação, certifique-se a implementação da aplicação redundante na região DR e siga as diretrizes de segurança de rede neste artigo <link>.
@@ -380,6 +380,7 @@ Como discutido anteriormente, grupos de ativação pós-falha automática e o Ac
 | Conjunto AzureRmSqlDatabaseInstanceFailoverGroup |Modifica a configuração do grupo de ativação pós-falha|
 | Get-AzureRmSqlDatabaseInstanceFailoverGroup |Obtém a configuração do grupo de ativação pós-falha|
 | Comutador AzureRmSqlDatabaseInstanceFailoverGroup |Ativação pós-falha de acionadores de grupo de ativação pós-falha para o servidor secundário|
+| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Remove um grupo de ativação pós-falha|
 
 ### <a name="manage-sql-database-failover-using-the-rest-api"></a>Gerir a ativação pós-falha de base de dados SQL com a API REST
 

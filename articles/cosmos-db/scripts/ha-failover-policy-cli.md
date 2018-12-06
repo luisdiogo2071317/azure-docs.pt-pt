@@ -1,17 +1,17 @@
 ---
-title: Script da CLI do Azure - Criar uma política de ativação pós-falha para elevada disponibilidade | Microsoft Docs
+title: Script do Azure CLI-criar uma política de ativação pós-falha para elevada disponibilidade
 description: Exemplo do Script da CLI do Azure - Criar uma política de ativação pós-falha para elevada disponibilidade
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: abfe386c438e943cbe481168daaa4c58a39ed44f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 613177f61e9b50af7f671b3c0f20c83a97ac6133
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014320"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969265"
 ---
 # <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Criar uma política de ativação pós-falha para elevada disponibilidade com a CLI do Azure
 
@@ -44,7 +44,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) | Atualiza conta do Azure Cosmos DB. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

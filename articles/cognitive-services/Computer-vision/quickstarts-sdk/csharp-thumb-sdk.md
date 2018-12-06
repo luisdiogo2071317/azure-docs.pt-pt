@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: d3340131c1f174201cc9fd1dcb31bd4a4b8cd07a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8c8a15af39972b79086a3eb2d392fdc4e7635323
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854089"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959432"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Guia de Início Rápido: gerar uma miniatura com o SDK de Imagem Digitalizada e C#
 
@@ -32,9 +32,9 @@ Neste início rápido, irá gerar uma miniatura a partir de uma imagem através 
 > [!TIP]
 > Obter o código mais recente como uma solução do Visual Studio a partir do [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
-Os métodos `GenerateThumbnailAsync` e `GenerateThumbnailInStreamAsync` encapsulam a [API de Obter Miniatura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) para imagens remotas e locais, respetivamente.  Pode utilizar estes métodos para gerar uma miniatura de uma imagem. Especifica a altura e a largura, que podem ser diferentes da proporção da imagem de entrada. A Imagem Digitalizada utiliza o recorte inteligente para identificar de forma inteligente a região de interesse e gerar coordenadas de recorte com base nessa região.
+Os métodos `GenerateThumbnailAsync` e `GenerateThumbnailInStreamAsync` encapsulam a [API de Obter Miniatura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) para imagens remotas e locais, respetivamente.  Pode utilizar estes métodos para gerar uma miniatura de uma imagem. O utilizador especifica a altura e a largura, que podem ser diferentes da proporção da imagem introduzida. Imagem digitalizada utiliza o corte inteligente para inteligentemente identificar a área de interesse e gerar as coordenadas de recorte com base na região.
 
-Para executar o exemplo, siga os passos seguintes:
+Para executar o exemplo, siga os seguintes passos:
 
 1. Crie uma nova Aplicação da Consola Visual C# no Visual Studio.
 1. Instale o pacote NuGet da biblioteca de cliente de Imagem Digitalizada.

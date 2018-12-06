@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bbba7898329af9d9bca9d35883e3cb4097ca3de4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473718"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968617"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabalhe com o SDK do servidor de back-end .NET para Aplicações Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -66,7 +66,7 @@ Instalar o [Azure SDK para .NET] [ 4] (versão 2.9.0 ou posterior) para criar um
 
 1. Abra o **novo projeto** caixa de diálogo (da **ficheiro** > **novo** > **Project...** ).
 2. Expanda **modelos** > **em Visual C#** e selecione **Web**.
-3. Selecione **aplicação ASP.NET Web**.
+3. Selecione **Aplicação Web ASP.NET**.
 4. Preencha o nome do projeto. Em seguida, clique em **OK**.
 5. Sob *ASP.NET 4.5.2 modelos*, selecione **aplicação móvel do Azure**. Verifique **alojar na nuvem** para criar um back-end móvel na cloud para o qual pode publicar este projeto.
 6. Clique em **OK**.
@@ -131,12 +131,12 @@ Os métodos de extensão usados são:
 Os seguintes pacotes de NuGet com base na extensão fornecem vários recursos móveis que podem ser utilizados pela sua aplicação. Ativar extensões durante a inicialização, utilizando o **MobileAppConfiguration** objeto.
 
 * [Microsoft.Azure.Mobile.Server.Quickstart] suporta a configuração de aplicações móveis básica. Adicionado à configuração ao chamar o **UseDefaultConfiguration** método de extensão durante a inicialização. Esta extensão inclui seguintes extensões: notificações, a autenticação, a entidade, tabelas, entre domínios e os pacotes de Home. Este pacote é utilizado pelo Guia de introdução do aplicações móveis disponível no portal do Azure.
-* [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) implementa a predefinição *esta aplicação móvel está em execução página* para a raiz do web site. Adicione à configuração ao chamar o **AddMobileAppHomeController** método de extensão.
-* [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) inclui classes para trabalhar com dados e conjuntos de cópia de segurança o pipeline de dados. Adicione à configuração ao chamar o **AddTables** método de extensão.
-* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) permite que o Entity Framework para aceder a dados na base de dados SQL. Adicione à configuração ao chamar o **AddTablesWithEntityFramework** método de extensão.
+* [Microsoft.Azure.Mobile.Server.Home](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) implementa a predefinição *esta aplicação móvel está em execução página* para a raiz do web site. Adicione à configuração ao chamar o **AddMobileAppHomeController** método de extensão.
+* [Microsoft.Azure.Mobile.Server.Tables](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) inclui classes para trabalhar com dados e conjuntos de cópia de segurança o pipeline de dados. Adicione à configuração ao chamar o **AddTables** método de extensão.
+* [Microsoft.Azure.Mobile.Server.Entity](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) permite que o Entity Framework para aceder a dados na base de dados SQL. Adicione à configuração ao chamar o **AddTablesWithEntityFramework** método de extensão.
 * [Microsoft.Azure.Mobile.Server.Authentication] permite a autenticação e o middleware da OWIN utilizado para validar os tokens de segurança de conjuntos. Adicione à configuração ao chamar o **AddAppServiceAuthentication** e **IAppBuilder**. **UseAppServiceAuthentication** métodos de extensão.
 * [Microsoft.Azure.Mobile.Server.Notifications] permite enviar notificações push e define um ponto de final do registo de push. Adicione à configuração ao chamar o **AddPushNotifications** método de extensão.
-* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) cria um controlador que serve os dados para navegadores da web herdado da sua aplicação móvel. Adicione à configuração ao chamar o **MapLegacyCrossDomainController** método de extensão.
+* [Microsoft.Azure.Mobile.Server.CrossDomain](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) cria um controlador que serve os dados para navegadores da web herdado da sua aplicação móvel. Adicione à configuração ao chamar o **MapLegacyCrossDomainController** método de extensão.
 * [Microsoft.Azure.Mobile.Server.Login] fornece o método AppServiceLoginHandler.CreateToken(), que é um método estático usado durante a cenários de autenticação personalizado.
 
 ## <a name="publish-server-project"></a>Como: publicar o projeto de servidor
@@ -483,10 +483,10 @@ Utilizar a chave de assinatura para o *authSigningKey* parâmetro na sua configu
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
 [Portal do Azure]: https://portal.azure.com
-[NuGet.org]: http://www.nuget.org/
-[Microsoft.Azure.Mobile.Server]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
-[Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
-[Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
-[Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
-[Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
+[NuGet.org]: https://www.nuget.org/
+[Microsoft.Azure.Mobile.Server]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
+[Microsoft.Azure.Mobile.Server.Quickstart]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
+[Microsoft.Azure.Mobile.Server.Authentication]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
+[Microsoft.Azure.Mobile.Server.Login]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
+[Microsoft.Azure.Mobile.Server.Notifications]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx

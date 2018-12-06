@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 2eb736891b12c07441bc8828ca07dd0b9fa13d98
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: e346aed2efaab6afcd24e622f577708221b47cb1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458127"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965859"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
@@ -82,7 +82,7 @@ O caminho para o diretório de raiz em que o *Host. JSON* função de ficheiros 
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Especifica o repositório ou o fornecedor a utilizar para armazenamento de chaves. Atualmente, os repositórios suportados são o armazenamento de BLOBs ("Blob") e o sistema de arquivos local ("ficheiros"). A predefinição é o blob na versão 1 e o sistema de ficheiros na versão 2. Tenha em atenção que na versão 1 sistema de ficheiros só funciona para as funções em execução num plano do serviço de aplicações.
+Especifica o repositório ou o fornecedor a utilizar para armazenamento de chaves. Atualmente, os repositórios suportados são o armazenamento de BLOBs ("Blob") e o sistema de arquivos local ("ficheiros"). A predefinição é o blob na versão 2 e o sistema de ficheiros na versão 1.
 
 |Chave|Valor da amostra|
 |---|------------|
@@ -122,7 +122,7 @@ A versão do runtime das funções para utilizar esta aplicação de função. U
 
 ## <a name="functionsworkerruntime"></a>AS FUNÇÕES\_TRABALHO\_TEMPO DE EXECUÇÃO
 
-O runtime de trabalho de idioma carregar na function app.  Corresponderá à linguagem a ser utilizada na sua aplicação (por exemplo, "dotnet"). Para as funções em vários idiomas será preciso publicá-los para várias aplicações, cada um com um valor de tempo de execução de trabalho correspondente.  Os valores válidos são `dotnet` (C# /F #), `node` (JavaScript), e `java` (Java).
+O runtime de trabalho de idioma carregar na function app.  Corresponderá à linguagem a ser utilizada na sua aplicação (por exemplo, "dotnet"). Para as funções em vários idiomas será preciso publicá-los para várias aplicações, cada um com um valor de tempo de execução de trabalho correspondente.  Os valores válidos são `dotnet` (C#/F#), `node` (JavaScript), e `java` (Java).
 
 |Chave|Valor da amostra|
 |---|------------|

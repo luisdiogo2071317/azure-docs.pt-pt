@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: fdcc230171006c6388e75b947e10a73fb953001a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294684"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970183"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilizar serviços externos do serviço de gestão de API do Azure
 As políticas disponíveis no serviço de gestão de API do Azure podem fazer uma grande variedade de trabalho úteis com base exclusivamente na solicitação de entrada, a resposta de saída e informações básicas de configuração. No entanto, a capacidade de interagir com serviços externos da gestão de API políticas abre muitas oportunidades de mais.
@@ -68,13 +68,13 @@ Existem determinadas vantagens e desvantagens em usar um estilo de disparar e es
 O `send-request` ativa de política com um serviço externo para realizar funções de processamento complexo e retornar dados para a gestão de API de serviço que pode ser utilizada para processamento adicional da política.
 
 ### <a name="authorizing-reference-tokens"></a>Autorizar os tokens de referência
-Uma função importante da gestão de API está a proteger os recursos de back-end. Se o servidor de autorização utilizado pela sua API cria [JWT tokens](http://jwt.io/) como parte do seu fluxo de OAuth2, como [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) faz, em seguida, pode utilizar o `validate-jwt` política para verificar a validade do token. Alguns servidores de autorização criar os chamados [referenciar tokens](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) que não é possível verificar sem fazer uma chamada de retorno para o servidor de autorização.
+Uma função importante da gestão de API está a proteger os recursos de back-end. Se o servidor de autorização utilizado pela sua API cria [JWT tokens](https://jwt.io/) como parte do seu fluxo de OAuth2, como [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) faz, em seguida, pode utilizar o `validate-jwt` política para verificar a validade do token. Alguns servidores de autorização criar os chamados [referenciar tokens](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) que não é possível verificar sem fazer uma chamada de retorno para o servidor de autorização.
 
 ### <a name="standardized-introspection"></a>Introspeção padronizada
 No passado, não houve nenhuma forma padronizada de verificar um token de referência com um servidor de autorização. No entanto um padrão proposto recentemente [RFC 7662](https://tools.ietf.org/html/rfc7662) foi publicado pelo IETF que define como um servidor de recurso pode verificar a validade de um token.
 
 ### <a name="extracting-the-token"></a>Extrair o token
-O primeiro passo é extrair o token do cabeçalho de autorização. O valor de cabeçalho deve ser formatado com o `Bearer` esquema de autorização, um único espaço e, em seguida, o token de autorização, de acordo [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Infelizmente há casos em que o esquema de autorização é omitido. Para justificar isso durante a análise, gestão de API divide o valor do cabeçalho num espaço e seleciona a cadeia de caracteres última matriz de cadeias de caracteres retornada. Isso fornece uma solução alternativa para cabeçalhos de autorização incorretamente formatado.
+O primeiro passo é extrair o token do cabeçalho de autorização. O valor de cabeçalho deve ser formatado com o `Bearer` esquema de autorização, um único espaço e, em seguida, o token de autorização, de acordo [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1). Infelizmente há casos em que o esquema de autorização é omitido. Para justificar isso durante a análise, gestão de API divide o valor do cabeçalho num espaço e seleciona a cadeia de caracteres última matriz de cadeias de caracteres retornada. Isso fornece uma solução alternativa para cabeçalhos de autorização incorretamente formatado.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
@@ -118,7 +118,7 @@ Pode utilizar um `<choose>` política para detetar se o token é inválido e nes
 </choose>
 ```
 
-De acordo [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) que descreve como `bearer` tokens devem ser usados, gestão de API também devolve um `WWW-Authenticate` cabeçalho com a resposta 401. O WWW-Authenticate destina-se para instruir um cliente sobre como construir um pedido devidamente autorizado. Devido à grande variedade de abordagens possíveis com o framework de OAuth2, é difícil comunicar todas as informações necessárias. Felizmente, existem os esforços em curso para o ajudar a [clientes descobrir como autorizar corretamente os pedidos para um servidor de recurso](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+De acordo [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) que descreve como `bearer` tokens devem ser usados, gestão de API também devolve um `WWW-Authenticate` cabeçalho com a resposta 401. O WWW-Authenticate destina-se para instruir um cliente sobre como construir um pedido devidamente autorizado. Devido à grande variedade de abordagens possíveis com o framework de OAuth2, é difícil comunicar todas as informações necessárias. Felizmente, existem os esforços em curso para o ajudar a [clientes descobrir como autorizar corretamente os pedidos para um servidor de recurso](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
 ### <a name="final-solution"></a>Solução final
 No final, obterá a seguinte política:

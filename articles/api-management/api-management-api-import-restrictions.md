@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: a9f4a4ed4a8771f32a4d66aed2457a43abb92a63
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 34e6fb195ae64823336684e9ad2e9382316822b0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285878"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961081"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 ## <a name="about-this-list"></a>Sobre esta lista
 Ao importar uma API, poderá se deparou com algumas restrições ou identificar problemas que precisam de ser retificados antes de poder importá com êxito. Documentos neste artigo, organizadas pelo formato de importação da API.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger
-Se estiver a receber erros de importar o seu documento OpenAPI, certifique-se de que validar-o-usando o designer no portal do Azure (Design - Front-End - Editor de especificação de OpenAPI,) ou com uma aplicação de terceiros, tais como de ferramenta <a href="http://editor.swagger.io">Swagger Editor</a>.
+Se estiver a receber erros de importar o seu documento OpenAPI, certifique-se de que validar-o-usando o designer no portal do Azure (Design - Front-End - Editor de especificação de OpenAPI,) ou com uma aplicação de terceiros, tais como de ferramenta <a href="https://editor.swagger.io">Swagger Editor</a>.
 
 * É suportado apenas o formato JSON de OpenAPI.
 * Parâmetros obrigatórios no caminho e consulta tem de ter nomes exclusivos. (No OpenAPI um nome de parâmetro apenas tem de ser exclusivo dentro de um local, por exemplo, caminho, consulta e cabeçalho.  No entanto, na gestão de API, podemos permitir operações a ser discriminados por parâmetros de caminho e consulta (que não suporta a OpenAPI). Por conseguinte Exigimos que os nomes de parâmetros de ser exclusivo dentro do modelo de URL completo.)

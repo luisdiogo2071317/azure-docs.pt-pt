@@ -4,12 +4,12 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 5f7cbdd98d25855e9b8bb102413bd71148193318
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 488fbb2acbf43ac092a7834fc25f433ef09d2b00
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133002"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52973243"
 ---
 ### <a name="server-auth"></a>Como: autenticar com um fornecedor (Fluxo de Servidor)
 Para que as Aplicações Móveis giram o processo de autenticação na sua aplicação, tem de registar a aplicação com o seu fornecedor de identidade. Em seguida, no seu Serviço de Aplicações do Azure, tem de configurar o ID da aplicação e o segredo fornecidos pelo seu fornecedor.
@@ -52,27 +52,6 @@ client.login(
 
 ```
 Este exemplo assume que o token fornecido pelo SDK do fornecedor respetivo é armazenado na variável do token.
-
-#### <a name="microsoft-account-example"></a>Exemplo da Conta Microsoft
-
-O exemplo seguinte utiliza o Live SDK, que suporta início de sessão único para aplicações da Loja Windows, através da Conta Microsoft:
-
-```
-WL.login({ scope: "wl.basic"}).then(function (result) {
-      client.login(
-            "microsoftaccount",
-            {"authenticationToken": result.session.authentication_token})
-      .done(function(results){
-            alert("You are now signed in as: " + results.userId);
-      },
-      function(error){
-            alert("Error: " + err);
-      });
-});
-
-```
-
-Este exemplo obtém um token do Live Connect, que é fornecido ao seu Serviço de Aplicações, ao chamar a função de início de sessão.
 
 ### <a name="auth-getinfo"></a>Como: obter informações sobre o utilizador autenticado
 

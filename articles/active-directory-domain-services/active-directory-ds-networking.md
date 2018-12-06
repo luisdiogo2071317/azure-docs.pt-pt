@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: eb97e709e18daba3722dc43a869ef034dbe573cf
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c13a4606219ebdb1d23a83a0bd3bdf14f1a3882e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157433"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970914"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerações de redes para o Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Como selecionar uma rede virtual do Azure
@@ -102,7 +102,7 @@ A tabela a seguir ilustra um exemplo de NSG que pode configurar uma rede virtual
 
 Além disso, o NSG também ilustra como bloquear o acesso de secure LDAP pela internet. Ignore esta regra se não tiver ativado acesso de secure LDAP ao seu domínio gerido através da internet. O NSG contém um conjunto de regras que permitam o acesso de LDAPS entrada através da porta TCP 636 apenas a partir de um conjunto especificado de endereços IP. A regra NSG para permitir o acesso LDAPS através da internet a partir de endereços IP especificados tem prioridade sobre a regra de DenyAll NSG.
 
-![Exemplo de NSG para proteger o acesso LDAPS através da internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![Exemplo de NSG para proteger o acesso LDAPS através da internet](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 **Obter mais informações** - [criar um grupo de segurança de rede](../virtual-network/manage-network-security-group.md).
 

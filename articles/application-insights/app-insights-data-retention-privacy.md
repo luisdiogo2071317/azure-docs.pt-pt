@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 075358ad559806c375d44b6a125e8d2839b6632f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2814ecb0ff9fc49e4763dbe604fef353394f9aac
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726309"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965245"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
@@ -102,9 +102,8 @@ A Microsoft utiliza os dados apenas para fornecer o serviço para.
 ## <a name="where-is-the-data-held"></a>Onde são mantidos os dados?
 * Nos EUA, Europa ou Sudeste asiático. Pode selecionar a localização quando cria um novo recurso do Application Insights. 
 
-
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Significa que meu aplicativo tem a serem alojadas na EUA, Europa ou Sudeste asiático?
-* Não. Seu aplicativo pode executar em qualquer lugar e em seu próprio anfitriões no local ou na Cloud.
+* Não. Seu aplicativo pode executar em qualquer lugar e em seu próprio anfitriões no local ou na cloud.
 
 ## <a name="how-secure-is-my-data"></a>Quão seguros são meus dados?
 O Application Insights é um serviço do Azure. As políticas de segurança descritas a [white paper de segurança do Azure, privacidade e conformidade](https://go.microsoft.com/fwlink/?linkid=392408).
@@ -280,6 +279,9 @@ Para [SDKs para outras plataformas][platforms], veja os seus documentos.
 | Diagnóstico SDK |Mensagem de rastreio ou exceção |
 
 Pode [optar por desativar alguns dos dados ao editar applicationinsights. config][config]
+
+> [!NOTE]
+> Cliente IP é utilizado para inferir a localização geográfica, mas por padrão os dados IP já não são armazenados e todos os zeros são escritos para o campo associado. Para saber mais sobre o processamento de dados pessoais, recomendamos isso [artigo](../log-analytics/log-analytics-personal-data-mgmt.md#application-data). Se tiver de armazenar o endereço IP pode fazê-lo com uma [inicializador de telemetria](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="credits"></a>Ficha técnica
 Este produto inclui dados de GeoLite2 criados pelo MaxMind, disponível a partir [ http://www.maxmind.com ](http://www.maxmind.com).

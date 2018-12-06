@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821553"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961149"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no Guia do protocolo do Azure Service Bus e dos Hubs de eventos
 
@@ -94,7 +94,7 @@ O contentor de iniciar a ligação pede o contentor oposto para aceitar uma liga
 
 Ligações são com o nome e associadas a nós. Conforme mencionado no início, nós são as entidades de comunicação dentro de um contentor.
 
-No Service Bus, um nó é diretamente equivalente a uma fila, um tópico, uma subscrição ou uma subfila de mensagens não entregues de uma fila ou subscrição. O nome do nó utilizado no AMQP, portanto, é o nome relativo da entidade dentro do espaço de nomes do Service Bus. Se uma fila com o nome `myqueue`, que também é o nome do nó AMQP. Uma subscrição de tópico segue a Convenção de API de HTTP, pelo que está a ser ordenadas numa coleção de recursos "subscrições" e, assim, uma subscrição **sub** ou um tópico **mytopic** tem o nome do nó AMQP  **mytopic/subscrições/sub**.
+No Service Bus, um nó é diretamente equivalente a uma fila, um tópico, uma subscrição ou uma subfila de mensagens não entregues de uma fila ou subscrição. O nome do nó utilizado no AMQP, portanto, é o nome relativo da entidade dentro do espaço de nomes do Service Bus. Se uma fila com o nome `myqueue`, que também é o nome do nó AMQP. Uma subscrição de tópico segue a Convenção de API de HTTP, pelo que está a ser ordenadas numa coleção de recursos "subscrições" e, assim, uma subscrição **sub** sobre um tópico **mytopic** tem o nome do nó AMQP  **mytopic/subscrições/sub**.
 
 O cliente da ligação também é necessária para utilizar um nome de nó local para a criação de ligações; Barramento de serviço não é prescritivo sobre esses nomes de nó e não interpretá-los. Pilhas de cliente AMQP 1.0 geralmente, utilizam um esquema para garantir que esses nomes de nó efémeras são exclusivos no âmbito do cliente.
 

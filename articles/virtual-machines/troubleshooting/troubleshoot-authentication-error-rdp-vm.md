@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 5f9d933f0f294855719c8d187e759708ef8c9931
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 47d3b827099d3a4a7520ac66765d2928795b6e49
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634405"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967985"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Resolver erros de autenticação ao utilizar o RDP para ligar à VM do Azure
 
@@ -75,7 +75,7 @@ A VM tiver sido configurada para aceitar apenas Federal Information Processing S
 
 ### <a name="create-a-backup-snapshot"></a>Criar um instantâneo de cópia de segurança
 
-Para criar um instantâneo de cópia de segurança, siga os passos em [instantâneo de um disco](..\windows\snapshot-copy-managed-disk.md).
+Para criar um instantâneo de cópia de segurança, siga os passos em [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
 ### <a name="connect-to-the-vm-remotely"></a>Ligar remotamente à VM
 

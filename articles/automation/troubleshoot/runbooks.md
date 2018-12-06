@@ -4,16 +4,16 @@ description: Saiba como resolver problemas com os runbooks de automatização do
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9a60d8c17ba091da7c5eaf0e28160573d5faafa8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094869"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963135"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Resolver problemas de erros com runbooks
 
@@ -337,6 +337,27 @@ Os cmdlets do PowerShell que permitem o cenário de runbook subordinado são:
 [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) -este cmdlet permite-lhe iniciar um runbook e passar parâmetros para o runbook
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) -este cmdlet permite-lhe verificar o estado da tarefa para cada filho, se existem operações que precisam ser executadas após a conclusão do runbook subordinado.
+
+### <a name="429"></a>Cenário: 429: A taxa de pedidos atualmente é demasiado grande. Tente novamente
+
+#### <a name="issue"></a>Problema
+
+A receber a seguinte mensagem de erro ao executar o `Get-AzureRmAutomationJobOutput` cmdlet:
+
+```
+429: The request rate is currently too large. Please try again
+```
+
+#### <a name="cause"></a>Causa
+
+Este erro pode ocorrer ao obter o resultado da tarefa a partir de um runbook que tem muitas [fluxos verbosos](../automation-runbook-output-and-messages.md#verbose-stream).
+
+#### <a name="resolution"></a>Resolução
+
+Existem duas formas de resolver este erro:
+
+* Editar o runbook e reduzir o número de fluxos de trabalho que emite.
+* Reduza o número de fluxos para ser recuperado quando executar o cmdlet. Para tal, pode especificar a `-Stream Output` parâmetro para o `Get-AzureRmAutomationJobOutput` fluxos de saída do cmdlet para obter apenas. 
 
 ## <a name="common-errors-when-importing-modules"></a>Erros comuns ao importar módulos
 

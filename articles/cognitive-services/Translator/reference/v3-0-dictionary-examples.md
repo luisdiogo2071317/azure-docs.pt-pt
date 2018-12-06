@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1e6bd1b7ddb38d0fad33ab9d282f8edc4ff8c765
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4b24ba4b4d83ac3f0c8291308debb6317efa4a55
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129136"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968002"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Texto do Translator API 3.0: Exemplos de dicionário
 
-Fornece exemplos que mostram como os termos no dicionário são utilizados no contexto. Esta operação é utilizada em conjunto com [pesquisa de dicionário](.\v3-0-dictionary-lookup.md).
+Fornece exemplos que mostram como os termos no dicionário são utilizados no contexto. Esta operação é utilizada em conjunto com [pesquisa de dicionário](./v3-0-dictionary-lookup.md).
 
-## <a name="request-url"></a>URL do pedido
+## <a name="request-url"></a>URL do Pedido
 
 Enviar um `POST` pedido para:
 
@@ -42,11 +42,11 @@ Parâmetros de pedido passados na seqüência de consulta são:
   </tr>
   <tr>
     <td>de</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de entrada. O idioma de origem tem de ser o [idiomas suportados](.\v3-0-languages.md) incluído no `dictionary` âmbito.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de entrada. O idioma de origem tem de ser o [idiomas suportados](./v3-0-languages.md) incluído no `dictionary` âmbito.</td>
   </tr>
   <tr>
     <td>para</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de saída. O idioma de destino tem de ser o [idiomas suportados](.\v3-0-languages.md) incluído no `dictionary` âmbito.</td>
+    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de saída. O idioma de destino tem de ser o [idiomas suportados](./v3-0-languages.md) incluído no `dictionary` âmbito.</td>
   </tr>
 </table>
 
@@ -77,9 +77,9 @@ Cabeçalhos de pedido incluem:
 
 O corpo do pedido é uma matriz JSON. Cada elemento da matriz é um objeto JSON com as seguintes propriedades:
 
-  * `Text`: Uma cadeia que especifica o termo de pesquisa. Isso deve ser o valor de um `normalizedText` campo de back-traduções de anterior [pesquisa de dicionário](.\v3-0-dictionary-lookup.md) pedido. Também pode ser o valor da `normalizedSource` campo.
+  * `Text`: Uma cadeia que especifica o termo de pesquisa. Isso deve ser o valor de um `normalizedText` campo de back-traduções de anterior [pesquisa de dicionário](./v3-0-dictionary-lookup.md) pedido. Também pode ser o valor da `normalizedSource` campo.
 
-  * `Translation`: Uma cadeia que especifica o texto traduzido devolvido anteriormente pela [pesquisa de dicionário](.\v3-0-dictionary-lookup.md) operação. Isso deve ser o valor do `normalizedTarget` campo no `translations` lista da [pesquisa de dicionário](.\v3-0-dictionary-lookup.md) resposta. O serviço retornará exemplos para um par de origem-destino específico.
+  * `Translation`: Uma cadeia que especifica o texto traduzido devolvido anteriormente pela [pesquisa de dicionário](./v3-0-dictionary-lookup.md) operação. Isso deve ser o valor do `normalizedTarget` campo no `translations` lista da [pesquisa de dicionário](./v3-0-dictionary-lookup.md) resposta. O serviço retornará exemplos para um par de origem-destino específico.
 
 Um exemplo é:
 

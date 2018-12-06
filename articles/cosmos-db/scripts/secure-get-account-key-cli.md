@@ -1,17 +1,17 @@
 ---
-title: Script da CLI do Azure - Obter chaves de conta para o Azure Cosmos DB | Microsoft Docs
+title: Azure CLI Script-obter chaves de conta para o Azure Cosmos DB
 description: Exemplo do Script da CLI do Azure - Obter chaves da conta para o Azure Cosmos DB
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 342c874fc3ada6f9a2480db2632a74cd51031305
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 354184313e541dfa0cbe32c36abbd097c9a97b3c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005187"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965893"
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-the-azure-cli"></a>Obter chaves de conta do Azure Cosmos DB com a CLI do Azure
 
@@ -43,7 +43,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) | Liste as chaves de acesso para uma conta do Cosmos DB. |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

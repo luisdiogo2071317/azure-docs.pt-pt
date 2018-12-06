@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: 9474b2d64c97b6e6d0fc06c3c448fa6e0515e70c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 22afdc0ae483959940776aecd20b0a29854097d9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633653"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970761"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configurar a aplicação Python para o Serviço de Aplicações do Azure no Linux
 
@@ -48,7 +48,7 @@ Aplicações Python implementadas no serviço de aplicações no Linux em execu�
 
 Este contentor tem as seguintes características:
 
-- As aplicações são executadas com o [Servidor HTTP WSGI do Gunicorn](http://gunicorn.org/), com os argumentos adicionais `--bind=0.0.0.0 --timeout 600`.
+- As aplicações são executadas com o [Servidor HTTP WSGI do Gunicorn](https://gunicorn.org/), com os argumentos adicionais `--bind=0.0.0.0 --timeout 600`.
 
 - Por predefinição, a imagem base inclui a arquitetura Web Flask, mas o contentor suporta outras arquiteturas compatíveis com o WSGI e o Python 3.7, como o Django.
 
@@ -100,7 +100,7 @@ Se o seu módulo principal estiver numa subpasta, como `website`, especifique es
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-Também pode adicionar todos os argumentos adicionais para o Gunicorn ao comando, como `--workers=4`. Para obter mais informações, veja [Executar o Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+Também pode adicionar todos os argumentos adicionais para o Gunicorn ao comando, como `--workers=4`. Para obter mais informações, veja [Executar o Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
 Para fornecer um comando personalizado, siga os passos abaixo:
 

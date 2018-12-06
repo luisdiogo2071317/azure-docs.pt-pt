@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: HT
+ms.openlocfilehash: 09a7f02df1102e42bc45b4615a2af4235372bcdc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982110"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957032"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>O que é a Versão 1.0 da API de Imagem Digitalizada?
 
@@ -44,7 +44,7 @@ A API de Imagem Digitalizada baseada na cloud fornece aos programadores acesso a
 * Dimensão da imagem: superior a 50x50 pixéis.
 
 ## <a name="tagging-images"></a>Identificar Imagens
-A API de Imagem Digitalizada devolve etiquetas com base em mais de 2000 objetos, seres vivos, paisagens e ações reconhecíveis. Quando as etiquetas são ambíguas ou não são do conhecimento geral, a resposta da API fornece "sugestões" para clarificar o significado da etiqueta no contexto de um cenário conhecido. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança. Uma coleção de etiquetas de conteúdos é a base da "descrição" de uma imagem apresentada como um idioma legível por humanos e formatada em frases completas. Tenha em atenção que, neste momento, o inglês é o único idioma suportado para a descrição de imagens.
+API de imagem digitalizada devolve etiquetas com base em milhares de objetos reconhecíveis, seres vivos, paisagens e ações. Quando as etiquetas são ambíguas ou não são do conhecimento geral, a resposta da API fornece "sugestões" para clarificar o significado da etiqueta no contexto de um cenário conhecido. As etiquetas não são organizadas como uma taxonomia e não existem hierarquias de herança. Uma coleção de etiquetas de conteúdos é a base da "descrição" de uma imagem apresentada como um idioma legível por humanos e formatada em frases completas. Tenha em atenção que, neste momento, o inglês é o único idioma suportado para a descrição de imagens.
 
 Depois de carregar uma imagem ou especificar o URL de uma imagem, os algoritmos da API de Imagem Digitalizada geram etiquetas com base nos objetos, seres vivos e ações identificados na imagem. As etiquetas não se limitam ao tema principal, como por exemplo uma pessoa em primeiro plano, mas também incluem o cenário (interior ou exterior), o mobiliário, ferramentas, plantas, animais, acessórios, gadgets, etc.
 
@@ -267,12 +267,12 @@ Nota: esta tecnologia está atualmente em pré-visualização e só está dispon
 ## <a name="generating-thumbnails"></a>Gerar Miniaturas
 Uma miniatura é uma representação pequena de uma imagem de tamanho normal. Vários dispositivos, como telemóveis, tablets e PCs, criam a necessidade de esquemas de experiência de utilizador (UX) e tamanhos de miniaturas diferentes. Ao utilizar o recorte inteligente, esta funcionalidade da API de Imagem Digitalizada ajuda a resolver o problema.
 
-Depois de carregar uma imagem, é gerada uma miniatura de alta qualidade e o algoritmo da API de Imagem Digitalizada analisa os objetos na imagem. Em seguida, recorta a imagem de acordo com os requisitos da "região de interesse" (ROI). O resultado é apresentado numa estrutura especial, conforme a ilustração abaixo. A miniatura gerada pode ser apresentada com uma proporção diferente da proporção da imagem original, para se adaptar às necessidades do utilizador.
+Depois de carregar uma imagem, é gerada uma miniatura de alta qualidade e o algoritmo da API de Imagem Digitalizada analisa os objetos na imagem. Ele, em seguida, recorta a imagem de acordo com os requisitos da área de interesse. O resultado é apresentado numa estrutura especial, conforme a ilustração abaixo. A miniatura gerada pode ser apresentada com uma proporção diferente da proporção da imagem original, para se adaptar às necessidades do utilizador.
 
 O algoritmo de miniatura funciona da seguinte forma:
 
-1. Remove elementos de distração da imagem e reconhece o objeto principal, ou seja, a "região de interesse" (ROI).
-2. Recorta a imagem com base na "região de interesse" identificada.
+1. Remove a distração de elementos da imagem e reconhece o objeto principal, a área de interesse.
+2. Recorta a imagem com base na área de identificados de interesse.
 3. Altera a proporção de acordo com as dimensões da miniatura de destino.
 
 ![Miniaturas](./Images/thumbnail-demo.png)

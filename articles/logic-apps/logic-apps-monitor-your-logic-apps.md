@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4e1a8bd60c71bfc46b3c57cff6a87c5b2477146e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405740"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956453"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorizar o estado, configurar o registo de diagnóstico e ative alertas para o Azure Logic Apps
 
@@ -74,7 +74,7 @@ Para obter notificações sobre falhas ou outros problemas possíveis, configure
 
 Para depuração mais avançada com detalhes de tempo de execução e eventos, pode configurar com o registo de diagnósticos [do Azure Log Analytics](../log-analytics/log-analytics-overview.md). O log Analytics é um serviço no Azure que monitoriza a sua cloud e ambientes para o ajudar a manter a disponibilidade e desempenho no local. 
 
-Antes de começar, tem de ter uma área de trabalho do Log Analytics. Saiba mais [como criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Antes de começar, tem de ter uma área de trabalho do Log Analytics. Saiba mais [como criar uma área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. Na [portal do Azure](https://portal.azure.com), localize e selecione a sua aplicação lógica. 
 
@@ -92,7 +92,7 @@ Antes de começar, tem de ter uma área de trabalho do Log Analytics. Saiba mais
    2. Sob **do Log Analytics**, escolha **configurar**. 
    3. Sob **áreas de trabalho do OMS**, selecione a área de trabalho para utilizar para o registo.
    > [!NOTE]
-   > Áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
+   > As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
    4. Sob **Log**, selecione a **WorkflowRuntime** categoria.
    5. Escolha o intervalo de métrica.
    6. Quando tiver terminado, escolha **Save** (Guardar).
@@ -137,7 +137,7 @@ Para refinar a sua consulta por adicionar um filtro, escolha **+ adicionar**.
    Este exemplo utiliza a palavra "status" para encontrar eventos de falha sob **AzureDiagnostics**.
    Aqui o filtro para **status_s** já está selecionada.
 
-   ![Selecione o filtro](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
+   ![Selecione um filtro](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
 7. Na barra esquerda, selecione o valor do filtro que pretende utilizar e escolha **aplicar**.
 

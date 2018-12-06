@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: c775798591a3063fdfe6d399c8337aac2e2f207e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 67d27587e8a5f85eb339efb83e661c061b621ed1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351359"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959840"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o serviço de aplicações do Azure
 
@@ -74,7 +74,7 @@ Na **estado do Key Vault** página, clique em **repositório do Key Vault** para
 | Localização | Selecione a mesma localização que a sua aplicação de serviço de aplicações. |
 | Escalão de preço | Para obter informações, consulte [os detalhes dos preços do Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Políticas de acesso| Define as aplicações e de ter permissão para aceder aos recursos do cofre. Pode configurá-lo mais tarde, seguindo os passos indicados em [conceder acesso de aplicações de vários para um cofre de chaves](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Acesso à rede virtual | Restringir o acesso do cofre para determinadas redes virtuais do Azure. Pode configurá-lo mais tarde, seguindo os passos indicados em [configurar o Azure Key Vault Firewalls e redes virtuais](../key-vault/key-vault-network-security.md) |
+| Acesso de Rede Virtual | Restringir o acesso do cofre para determinadas redes virtuais do Azure. Pode configurá-lo mais tarde, seguindo os passos indicados em [configurar o Azure Key Vault Firewalls e redes virtuais](../key-vault/key-vault-network-security.md) |
 
 Assim que tiver selecionado o cofre, feche o **repositório do Key Vault** página. O **Store** opção deve mostrar uma marca de verificação verde para o sucesso. Mantenha a página aberta para a próxima etapa.
 
@@ -114,7 +114,7 @@ Utilize a seguinte tabela para o ajudar a configurar o enlace na **enlaces SSL**
 |-|-|
 | Nome de anfitrião | Adicionar enlace de SSL para o nome de domínio. |
 | Thumbprint do Certificado Privado | O certificado para o enlace. |
-| Tipo de SSL | <ul><li>**SNI SSL** -enlaces SSL baseado em SNI várias podem ser adicionados. Esta opção permite utilizar vários certificados SSL para proteger múltiplos domínios no mesmo endereço IP. Os browsers mais modernos (incluindo o Internet Explorer, o Chrome, o Firefox e o Opera) suportam SNI (encontre informações mais abrangentes sobre o suporte de browsers em [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication) [Indicação do Nome de Servidor]).</li><li>**SSL baseado em IP** - só pode ser adicionado um enlace SSL baseado em IP. Esta opção permite utilizar apenas um certificado SSL para proteger um endereço IP público dedicado. Após configurar o enlace, siga os passos em [remapear um registo a para IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+| Tipo de SSL | <ul><li>**SNI SSL** -enlaces SSL baseado em SNI várias podem ser adicionados. Esta opção permite utilizar vários certificados SSL para proteger múltiplos domínios no mesmo endereço IP. Os browsers mais modernos (incluindo o Internet Explorer, o Chrome, o Firefox e o Opera) suportam SNI (encontre informações mais abrangentes sobre o suporte de browsers em [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) [Indicação do Nome de Servidor]).</li><li>**SSL baseado em IP** - só pode ser adicionado um enlace SSL baseado em IP. Esta opção permite utilizar apenas um certificado SSL para proteger um endereço IP público dedicado. Após configurar o enlace, siga os passos em [remapear um registo a para IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
 ## <a name="verify-https-access"></a>Verificar o acesso HTTPS
 
@@ -147,11 +147,11 @@ Para renovar manualmente o certificado em vez disso, clique em **renovação Man
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Mais recursos
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 91cbebecc227d24337b2d1b421dd1611bf0fac46
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390801"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966080"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Aceder a registos de diagnóstico para a geração 1 de armazenamento do Azure Data Lake
 Aprenda a ativar o diagnóstico de registo para a sua conta de geração 1 de armazenamento do Azure Data Lake e ver os registos recolhidos para a sua conta.
@@ -46,7 +46,7 @@ As organizações podem ativar o registo de diagnóstico para a respetiva conta 
         
         * Selecione a opção para **Stream para um hub de eventos** para transmitir dados de registo para um Hub de eventos do Azure. É muito provável que irá utilizar esta opção se tiver um pipeline de processamento a jusante para analisar os registos recebidos em tempo real. Se selecionar esta opção, tem de fornecer os detalhes para o Hub de eventos do Azure que pretende utilizar.
 
-        * Selecione a opção para **enviar para o Log Analytics** para utilizar o serviço do Azure Log Analytics para analisar os dados de registo gerado. Se selecionar esta opção, tem de fornecer os detalhes para a área de trabalho do Log Analytics que poderá utilizar a análise de registos de executar. Ver [ver ou analisar os dados recolhidos com a pesquisa de registos do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre como utilizar o Log Analytics.
+        * Selecione a opção para **enviar para o Log Analytics** para utilizar o serviço do Azure Log Analytics para analisar os dados de registo gerado. Se selecionar esta opção, tem de fornecer os detalhes para a área de trabalho do Log Analytics que poderá utilizar a análise de registos de executar. Ver [ver ou analisar os dados recolhidos com a pesquisa de registos do Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) para obter detalhes sobre como utilizar o Log Analytics.
      
    * Especifique se pretende obter registos de auditoria, registos de pedidos ou ambas.
    * Especifique o número de dias para o qual os dados devem ser mantidos. Retenção só é aplicável se estiver a utilizar a conta de armazenamento do Azure para arquivar dados de registo.
@@ -130,7 +130,7 @@ Aqui está uma entrada de exemplo no registo de pedido de formato JSON. Cada blo
 | --- | --- | --- |
 | HttpMethod |Cadeia |O método HTTP utilizado para a operação. Por exemplo, obter. |
 | Caminho |Cadeia |O caminho a operação foi realizado em |
-| RequestContentLength |Int |O comprimento do conteúdo da solicitação HTTP |
+| RequestContentLength |int |O comprimento do conteúdo da solicitação HTTP |
 | ClientRequestId |Cadeia |O ID que identifica exclusivamente este pedido |
 | startTime |Cadeia |O tempo em que o servidor recebeu o pedido |
 | endTime |Cadeia |O tempo em que o servidor enviou uma resposta |
@@ -178,7 +178,7 @@ Aqui está uma entrada de exemplo no log de auditoria de formato JSON. Cada blob
 | StreamName |Cadeia |O caminho a operação foi realizado em |
 
 ## <a name="samples-to-process-the-log-data"></a>Exemplos para processar os dados de registo
-Ao enviar registos de geração 1 de armazenamento do Azure Data Lake para o Azure Log Analytics (consulte [ver ou analisar os dados recolhidos com a pesquisa de registos do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) para obter detalhes sobre como utilizar o Log Analytics), a seguinte consulta devolve uma tabela que contém uma lista do utilizador nomes a apresentar, a hora dos eventos e a contagem de eventos para a hora do evento, juntamente com o gráfico visual. Pode ser facilmente modificado para mostrar o GUID de utilizador ou outros atributos:
+Ao enviar registos de geração 1 de armazenamento do Azure Data Lake para o Azure Log Analytics (consulte [ver ou analisar os dados recolhidos com a pesquisa de registos do Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) para obter detalhes sobre como utilizar o Log Analytics), a seguinte consulta devolve uma tabela que contém uma lista do utilizador nomes a apresentar, a hora dos eventos e a contagem de eventos para a hora do evento, juntamente com o gráfico visual. Pode ser facilmente modificado para mostrar o GUID de utilizador ou outros atributos:
 
 ```
 search *

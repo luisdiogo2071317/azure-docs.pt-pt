@@ -1,20 +1,18 @@
 ---
-title: Casos de utilização comuns e cenários para o Azure Cosmos DB | Documentos da Microsoft
+title: Casos de utilização comuns e cenários para o Azure Cosmos DB
 description: 'Saiba mais sobre a parte superior, cinco casos de utilização para o Azure Cosmos DB: utilizador gerado conteúdo, log de eventos, dados de catálogo, dados de preferências do usuário e Internet das coisas (IoT).'
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: sngun
-ms.openlocfilehash: 50bc70fa18bc8fb04e4f8117340c66665204282c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 400ce3ddb2a01db32faa7d3303c89a76c2c4649a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251078"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960044"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de utilização comuns do Azure Cosmos DB
 Este artigo fornece uma visão geral dos vários casos de utilização comuns para o Azure Cosmos DB.  As recomendações neste artigo, servem como ponto de partida, como desenvolver a sua aplicação com Cosmos DB.   

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 2c8ac43d96c100f0c26281fea1d4e9eba41bc178
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1370f541f8913d86db948a3165d6660a8cd66528
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282339"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963509"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script personalizado para Windows
 
@@ -37,11 +37,11 @@ Este documento fornece detalhes sobre como utilizar a extensão de Script person
 
 ### <a name="operating-system"></a>Sistema Operativo
 
-A extensão de Script personalizado para Linux será executado na extensão de extensão suportada do sistema operacional, para obter mais informações, veja isso [artigo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+A extensão de Script personalizado para Linux será executado na extensão de extensão suportada OSs, para obter mais informações, veja isso [artigo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
 
 ### <a name="script-location"></a>Localização do script
 
-Pode utilizar a extensão para utilizar as suas credenciais do armazenamento de Blobs do Azure, para aceder ao armazenamento de Blobs do Azure. Em alternativa, a localização do script pode ser qualquer where, desde que a VM pode encaminhar para esse ponto de extremidade, como o GitHub, o servidor de ficheiros interna etc.
+Pode utilizar a extensão para utilizar as suas credenciais do armazenamento de Blobs do Azure, para aceder ao armazenamento de Blobs do Azure. Em alternativa, a localização do script pode ser em qualquer lugar, desde que a VM pode encaminhar para esse ponto de extremidade, como o GitHub, o servidor de ficheiros interna etc.
 
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
@@ -52,15 +52,15 @@ Se o script num servidor local, então ainda pode ser necessário adicionais fir
 ### <a name="tips-and-tricks"></a>Sugestões e Truques
 * A mais alta taxa de falhas para esta extensão é devido a erros de sintaxe no script, teste o script é executado sem erros e também coloca no registo para o script para torná-lo mais fácil encontrar onde falha adicional.
 * Escrever scripts que são idempotentes, para que se obtenha execute novamente mais do que uma vez acidentalmente, não irá causar as alterações do sistema.
-* Certifique-se de que os scripts não necessitam de entrada do usuário quando eles são executados.
+* Certifique-se de que os scripts não exigem intervenção do usuário quando eles são executados.
 * Há 90 minutos permitidos para o script a executar, nada mais tempo irá resultar numa falha ao aprovisionar da extensão.
-* Não coloque reinicializações dentro do script, isso causará problemas com outras extensões que estão a ser instalados e, após o reinício, a extensão não será continuada após o reinício. 
-* Se tiver um script que fará com que um reinício, em seguida, instalar aplicativos e executar scripts, etc. Deve agendar o reinício através de uma tarefa agendada do Windows ou com ferramentas como o DSC ou Chef, extensões de Puppet.
+* Não coloque reinicializações dentro do script, essa ação causará problemas com outras extensões que estão a ser instalados. Reinício de postagem, a extensão não continuar após o reinício. 
+* Se tiver um script que fará com que um reinício, em seguida, instalar aplicativos e executar scripts, etc. Pode agendar o reinício através de uma tarefa agendada do Windows ou com ferramentas como o DSC ou Chef, extensões de Puppet.
 * A extensão apenas será executado um script de uma vez, se quiser executar um script em cada inicialização, em seguida, tem de utilizar a extensão para criar uma tarefa agendada do Windows.
 * Se quiser agendar quando um script é executado, deve utilizar a extensão para criar uma tarefa agendada do Windows. 
 * Quando o script é executado, verá apenas um "transição" Estado da extensão do portal do Azure ou da CLI. Se pretender que as atualizações mais freqüentes de estado de um script em execução, terá de criar sua própria solução.
 * Extensão de Script personalizado não suporta nativamente servidores proxy, no entanto, pode usar uma ferramenta de transferência de ficheiros que suporta servidores de proxy no seu script, como *Curl* 
-* Lembre-se dos locais de diretório não padrão que seus scripts ou comandos podem basear-se, ter uma lógica para lidar com isso.
+* Lembre-se de não-padrão localizações do que seus scripts ou comandos possam depender, ter uma lógica para lidar com essa situação.
 
 
 ## <a name="extension-schema"></a>Esquema de extensão
@@ -92,7 +92,8 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
         "settings": {
             "fileUris": [
                 "script location"
-            ]
+            ],
+            "timestamp":123456789
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
@@ -113,6 +114,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | tipo | CustomScriptExtension | cadeia |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| Timestamp (por exemplo) | 123456789 | número inteiro de 32 bits |
 | commandToExecute (por exemplo) | PowerShell - ExecutionPolicy irrestrito - configurar-música-app.ps1 de ficheiros | cadeia |
 | storageAccountName (por exemplo) | examplestorageacct | cadeia |
 | storageAccountKey (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | cadeia |
@@ -123,19 +125,20 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 #### <a name="property-value-details"></a>Detalhes de valor de propriedade
  * `commandToExecute`: (**necessário**, cadeia de caracteres) o script do ponto de entrada para executar. Utilize este campo em vez disso, se o comando contém segredos como palavras-passe, ou seu fileUris são confidenciais.
 * `fileUris`: (opcional, matriz de cadeia) as URLs para o ficheiro (s) a serem baixados.
+* `timestamp` Este campo só para acionar uma volte a executar o script alterando o valor deste campo utilização de (inteiro opcional, 32 bits).  Qualquer valor inteiro é aceitável; só tem de ser diferente do valor anterior.
 * `storageAccountName`: (opcional, cadeia de caracteres) o nome da conta de armazenamento. Se especificar credenciais de armazenamento, todas as `fileUris` tem de ser URLs para os Blobs do Azure.
 * `storageAccountKey`: (opcional, cadeia) a chave de acesso da conta de armazenamento
 
 Os seguintes valores podem ser definidos nas definições de públicas ou protegidas, a extensão irão rejeitar qualquer configuração onde os valores abaixo são definidos nas definições de públicas e protegidas.
 * `commandToExecute`
 
-Utilizar as definições de públicas pode ser útil para depuração, mas ele é altamente recomendável que utilize definições protegidas.
+Utilizar definições públicas pode ser útil para depuração, mas é recomendado que utilize definições protegidas.
 
 Definições de públicas são enviadas em texto não criptografado para a VM em que o script será executado.  Definições protegidas são encriptadas com uma chave só conhecida o Azure e a VM. As definições são guardadas para a VM à medida que eles sejam encaminhados, ou seja, se as definições foram encriptadas que são guardados encriptados na VM. O certificado utilizado para desencriptar os valores criptografados é armazenado na VM e utilizado para desencriptar as definições (se necessário) em tempo de execução.
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser utilizado num modelo do Azure Resource Manager para executar a extensão de Script personalizado durante uma implementação de modelo do Azure Resource Manager. Os exemplos seguintes mostram como utilizar a extensão de Script personalizado:
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON, que se encontra detalhado na secção anterior pode ser utilizado num modelo do Azure Resource Manager para executar a extensão de Script personalizado durante uma implementação de modelo do Azure Resource Manager. Os exemplos seguintes mostram como utilizar a extensão de Script personalizado:
 
 * [Tutorial: Implementar extensões de máquinas virtuais com modelos Azure Resource Manager](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
 * [Implementar a aplicação de duas camadas no Windows e BD SQL do Azure](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
@@ -182,7 +185,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG `
 ```
 
 ### <a name="running-scripts-from-a-local-share"></a>Executar scripts a partir de uma partilha local
-Neste exemplo, pode querer utilizar um servidor do SMB local para a sua localização do script, tenha em atenção de que não é necessário passar em outro outras definições, exceto *commandToExecute*.
+Neste exemplo, pode querer utilizar um servidor do SMB local para a sua localização do script, tenha em atenção de que não precisa passar em outro outras definições, exceto *commandToExecute*.
 
 ```powershell
 $ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
@@ -199,9 +202,9 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ```
 
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>Como executar o script personalizado mais de uma vez com a CLI
-Se quiser executar a extensão de script personalizado mais de uma vez, só pode fazer isso sob estas condições:
+Se quiser executar a extensão de script personalizado mais de uma vez, apenas pode efetuar esta ação sob estas condições:
 1. O parâmetro de "Name" de extensão é o mesmo que a implementação anterior da extensão.
-2. Tem de atualizar a configuração, caso contrário, que o comando não será novamente executado, por exemplo, poderia adicionar numa propriedade dinâmica para o comando, como um carimbo. 
+2. Tem de atualizar a configuração, caso contrário, que o comando não será novamente executado. Pode adicionar uma propriedade dinâmica para o comando, como um carimbo.
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 
@@ -222,9 +225,9 @@ Os ficheiros especificados são transferidos para o diretório seguinte na máqu
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
-onde `<n>` é um número inteiro decimal que pode ser alteradas por execuções da extensão.  O `1.*` valor corresponde ao atual real, `typeHandlerVersion` valor da extensão.  Por exemplo, o diretório real pode ser `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
+onde `<n>` é um número inteiro decimal, o que pode ser alteradas por execuções da extensão.  O `1.*` valor corresponde ao atual real, `typeHandlerVersion` valor da extensão.  Por exemplo, o diretório real pode ser `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.8\Downloads\2`.  
 
-Ao executar o `commandToExecute` comando, a extensão define este diretório (por exemplo, `...\Downloads\2`) como o atual diretório de trabalho. Isto permite o uso de caminhos relativos para localizar os arquivos baixados via o `fileURIs` propriedade. Consulte a tabela abaixo para obter exemplos.
+Ao executar o `commandToExecute` comando, a extensão define este diretório (por exemplo, `...\Downloads\2`) como o atual diretório de trabalho. Este processo permite a utilização de caminhos relativos para localizar os arquivos baixados via o `fileURIs` propriedade. Consulte a tabela abaixo para obter exemplos.
 
 Uma vez que o caminho de transferência absoluto pode variar ao longo do tempo, é melhor otimizado para caminhos de script/ficheiro relativo no `commandToExecute` string, sempre que possível. Por exemplo:
 ```json
@@ -244,4 +247,4 @@ Informações de caminho após o primeiro segmento URI é mantido para arquivos 
 
 ### <a name="support"></a>Suporte
 
-Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Também pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).

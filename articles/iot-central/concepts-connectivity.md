@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 7b2dd4e97d23f37c8261e51f3f65e78436493ddc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e90fb6bcfa1bfab59177cbc6c717fefc163a67a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238742"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960102"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividade do dispositivo no Azure IoT Central
 
@@ -44,12 +44,12 @@ Ligar um único dispositivo ao IoT Central através da SAS é fácil e demora ap
 1. Adicionar uma **dispositivo real** do Device Explorer, clique em **+ novo > Real** para adicionar um dispositivo real.
     * Introduza o Id de dispositivo **<span style="color:Red">(deve ser minúscula)</span>** ou utilize o ID de dispositivo sugerido.
     * Introduza o nome do dispositivo ou utilize o nome sugerido   
-    ![Adicionar Dispositivo](media\concepts-connectivity\add-device.png)
+    ![Adicionar Dispositivo](media/concepts-connectivity/add-device.png)
 1. Obter os detalhes de ligação, tal como **chave de ID de âmbito, o ID de dispositivo e o primário** para o dispositivo foi adicionado ao clicar em **Connect** na página do dispositivo.
     * **[Definir âmbito de ID](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope)**  é por aplicações de IoT Central e é gerado por pontos de distribuição, usados para garantir que o ID de dispositivo exclusivo dentro de uma aplicação.
     * **Id de dispositivo** é o ID por aplicação, o dispositivo tem de enviar o Id do dispositivo como parte da chamada de registo de dispositivo exclusivo.   
     * **Chave primária** é um token SAS gerado pelo centro de IoT para esse dispositivo específico. 
-    ![Detalhes da ligação](media\concepts-connectivity\device-connect.PNG)
+    ![Detalhes da ligação](media/concepts-connectivity/device-connect.PNG)
 1. Utilize estes detalhes de ligação **identidade de dispositivo, o nome do dispositivo e a chave primária do dispositivo** em seu código de dispositivo para aprovisionar e ligar o seu dispositivo e começar a ver os dados fluem instantaneamente. Se estiver a utilizar a siga de dispositivo de MxChip [aqui as instruções passo a passo](howto-connect-devkit.md#add-a-real-device), começar na secção **preparar o dispositivo DevKit**.   
 
     Seguem-se as referências para outros idiomas, que pode querer utilizar.
@@ -137,13 +137,13 @@ Para ligar dispositivos ao IoT Central usando X509 certificados, aqui estão as 
 
     *   **Adicionar X509 certificado raiz ou intermediário** estiver a utilizar para gerar os certificados de dispositivos de folha. Aceda a administração > ligação do dispositivo > certificados. 
     
-        ![Definições de ligação](media\concepts-connectivity\connection-settings.PNG)
+        ![Definições de ligação](media/concepts-connectivity/connection-settings.PNG)
     *   **Verificação de certificado:** verificar a propriedade do certificado garante que o carregador do certificado está na posse da chave privada do certificado. Para verificar o certificado
         *  Gerar código de verificação, clique no botão junto ao campo de código de verificação para gerar o código de verificação. 
         *  Crie um certificado de verificação de X.509 com o código de verificação, guarde o certificado como um ficheiro. cer. 
         *  Carregue o certificado de verificação assinado e clique em verificar.
 
-        ![Definições de ligação](media\concepts-connectivity\verify-cert.png)
+        ![Definições de ligação](media/concepts-connectivity/verify-cert.png)
     *   **Certificado secundário:** durante o ciclo de vida da sua solução de IoT, terá de implementar certificados. Duas das principais razões para implementar certificados seria uma violação de segurança e expirações de certificado. Certificados secundários são usados para reduzir o período de indisponibilidade para dispositivos tentar aprovisionar enquanto está a atualizar o certificado primário.
 
     **PARA FINS DE TESTE APENAS** 
@@ -180,7 +180,7 @@ Um dos principais cenários que IOT Central permite é para OEMs para dispositiv
 
 Segue-se o fluxo para ligar os dispositivos com esta funcionalidade
 
-![Definições de ligação](media\concepts-connectivity\device-connection-flow.PNG)
+![Definições de ligação](media/concepts-connectivity/device-connection-flow.PNG)
 
 
 Siga os passos com base na sua escolha de esquema de autenticação do dispositivo (X509/SAS)
@@ -188,7 +188,7 @@ Siga os passos com base na sua escolha de esquema de autenticação do dispositi
 1. **Definições de ligação** 
     * **X509 certificados:** [adicionar e verificar o certificado de raiz/intermédio](#connect-devices-using-x509-certificates) e utilizá-lo para gerar os certificados de dispositivo no próximo passo.
     * **SAS:** copie a chave primária (esta chave é a chave SAS de grupo para esta aplicação do Centro de IoT) e utilizá-lo para gerar as chaves SAS do dispositivo no próximo passo. 
-![Definições de ligação SAS](media\concepts-connectivity\connection-settings-sas.png)
+![Definições de ligação SAS](media/concepts-connectivity/connection-settings-sas.png)
 
 1. **Gerar credenciais de dispositivo** 
     *   **Certificados X509:** gerar os certificados de folha para os seus dispositivos com o certificado de raiz/intermédio adicionou a esta aplicação. Certifique-se de que utiliza a **ID do dispositivo** como um cname nos certificados de folha e  **<span style="color:Red">(deve ser minúscula)</span>**. Aqui está uma [ferramenta de linha de comandos](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) para gerar certificados de folha/dispositivo para fins de teste.
@@ -232,7 +232,7 @@ O dispositivo está Registeretd quando
 Pode obter cadeia de ligação do Iot hub dispositivo hub IoT do Azure utilizando os passos seguintes 
 1. Obter os detalhes de ligação, como **ID de âmbito, ID de dispositivo, chave primária do dispositivo** da página de dispositivo (tem de página do dispositivo > clicar em Connect) 
 
-    ![Detalhes da ligação](media\concepts-connectivity\device-connect.PNG)
+    ![Detalhes da ligação](media/concepts-connectivity/device-connect.PNG)
 
 1. Obter a cadeia de ligação do dispositivo com a ferramenta de linha de commnd abaixo.
     Utilize as instruções para obter a cadeia de ligação do dispositivo abaixo  

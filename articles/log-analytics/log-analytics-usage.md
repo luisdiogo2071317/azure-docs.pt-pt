@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 843271901b8d58c2c5a6c4cf495997498b8278b6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c72e1c92815f70838db20ab67c3f70fc5223ac03
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848855"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964752"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar a utilização de dados do Log Analytics
 
@@ -47,6 +47,7 @@ Vamos dar uma olhada em como podemos pode saber mais sobre ambos estes causas.
 
 > [!NOTE]
 > Alguns dos campos do tipo de dados de utilização, enquanto ainda está no esquema, foram preteridos e já não são preenchidos a seus valores. Estes são **computador** , bem como campos relacionados com a ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** e **AverageProcessingTimeMs**.
+> Veja abaixo para a nova forma de consultar a quantidade de dados ingeridos por computador. 
 
 ### <a name="data-volume"></a>Volume de dados 
 Sobre o **utilização e custos estimados** página, o *ingestão de dados por solução* gráfico mostra o volume total de dados enviados e a quantidade está a ser enviado por cada solução. Isto permite-lhe determinar as tendências, como se a utilização de dados global (ou a utilização por uma solução específica) está a crescer, permanece estável ou diminui. É a consulta usada para gerar este
@@ -64,24 +65,32 @@ Pode explorar mais a ver as tendências de dados para tipos de dados específico
 
 ### <a name="nodes-sending-data"></a>Nós a enviar dados
 
-Para compreender o número de nós de dados de relatórios no mês passado, utilize
+Para compreender o número de computadores (nós), dados de relatórios no mês passado, utilize
 
 `Heartbeat | where TimeGenerated > startofday(ago(31d))
 | summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Para ver a contagem de eventos ingeridos por computador, utilize
+Para ver os **tamanho** de eventos a cobrar ingeridos por computador, utilize
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+
+Utilize estas consultas com moderação, como análises em todos os tipos de dados são dispendiosas. Esta consulta substitui o método antigo de consulta isso com o tipo de dados de utilização. 
+
+Para ver os **contagem** de eventos ingeridos por computador, utilize
 
 `union withsource = tt *
 | summarize count() by Computer | sort by count_ nulls last`
 
-Utilize esta consulta moderadamente, uma vez que é dispendiosa. Para ver a contagem de eventos a cobrar ingeridos por computador, utilize 
+Para ver a contagem de eventos a cobrar ingeridos por computador, utilize 
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | summarize count() by Computer  | sort by count_ nulls last`
 
-Se quiser ver os tipos de dados cobrar estão a enviar dados para um computador específico, utilize:
+Se quiser ver contagens para tipos de dados cobrar estão a enviar dados para um computador específico, utilize:
 
 `union withsource = tt *
 | where Computer == "*computer name*"
@@ -209,7 +218,7 @@ Especifique um existente ou crie um novo [Grupo de Ação](../monitoring-and-dia
 Quando receber um alerta, utilize os passos da secção seguinte para resolver o motivo pelo qual a utilização é superior ao esperado.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Veja [Pesquisas de registos no Log Analytics](../azure-monitor/log-query/log-query-overview.md) para aprender a utilizar a linguagem de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
+* Veja [Pesquisas de registos no Log Analytics](log-analytics-queries.md) para aprender a utilizar a linguagem de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
 * Utilize os passos descritos em [create a new log alert](../monitoring-and-diagnostics/alert-metric.md) (criar um novo alerta de registo) para ser notificado de quando um critério de pesquisa for cumprido.
 * Utilize a [segmentação de soluções](../azure-monitor/insights/solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
 * Para configurar uma política de recolha de eventos de segurança eficaz, veja [Política de filtragem do Centro de Segurança do Azure](../security-center/security-center-enable-data-collection.md).

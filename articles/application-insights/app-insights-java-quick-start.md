@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b36e4598f5ff20b921c5cd150ae19be233cc2d14
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.openlocfilehash: 4ed5363cc927c3e36e6efa7554511d78e1e96d24
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246518"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970931"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Java
 
@@ -130,7 +130,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Gráficos de métricas de servidor](./media/app-insights-java-quick-start/livemetricsjava.png)
 
-Para saber mais sobre a monitorização de Java, veja a [documentação adicional de Java do App Insights](.\app-insights-java-get-started.md).
+Para saber mais sobre a monitorização de Java, veja a [documentação adicional de Java do App Insights](./app-insights-java-get-started.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -139,7 +139,7 @@ Se quiser continuar a trabalhar com inícios rápidos subsequentes ou com os tut
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Encontrar e diagnosticar problemas de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

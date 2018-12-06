@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: a914d20f61b5b632e792ca29f6c201964db4a203
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 0516ee7a8319b85765280b4c84f5febec8343ada
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452144"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965620"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Gerir a capacidade de memória física para o Azure Stack
 
@@ -33,7 +33,7 @@ Para aumentar a capacidade de memória total disponível para o Azure Stack, pod
 
 O diagrama de fluxo que se segue mostra o processo geral para adicionar memória a cada nó de unidade de escala.
 
-![Adicionar memória a cada nó de unidade de escala](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
+![Adicionar memória a cada nó de unidade de escala](media/azure-stack-manage-storage-physical-capacity/process-to-add-memory-to-scale-unit.png)
 
 ## <a name="add-memory-to-an-existing-node"></a>Adicione memória a um nó existente
 Os passos seguintes fornecem uma visão geral sobre o processo de memória de adicionar. 

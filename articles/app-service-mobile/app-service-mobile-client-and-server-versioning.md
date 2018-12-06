@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 1f5626b1001f2d5deb3fa84d64eab6acf6c94b7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dfdabed95d89e02b5a4b23ba23949cd0aaf838f3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239530"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959400"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Versão do cliente e servidor em aplicações móveis e os serviços móveis
 A versão mais recente do serviços móveis do Azure é o **Mobile Apps** recurso do App Service do Azure.
@@ -62,7 +62,7 @@ O gráfico abaixo mostra a compatibilidade entre todos os tipos de cliente e ser
 
 <!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
 
-<!-- NOTE: the fwlink to this document is http://go.microsoft.com/fwlink/?LinkID=690568 -->
+<!-- NOTE: the fwlink to this document is https://go.microsoft.com/fwlink/?LinkID=690568 -->
 
 ## <a name="1.0.0"></a>Cliente de serviços móveis e o servidor
 Os SDKs do cliente na tabela abaixo são compatíveis com o **os serviços móveis**.
@@ -75,7 +75,7 @@ Nota: os serviços móveis SDKs do cliente *isso não é possível* enviar um va
 | Cliente gerenciado (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |n/d |
 | iOS |[2.2.2](https://aka.ms/gc6fex) |n/d |
 | Android |[2.0.3](https://go.microsoft.com/fwLink/?LinkID=280126) |n/d |
-| HTML |[1.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |n/d |
+| HTML |[1.2.7](https://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |n/d |
 
 ### <a name="mobile-services-server-sdks"></a>Mobile *serviços* SDKs do servidor
 | Plataforma de servidor | Versão | Cabeçalho de versão aceite |
@@ -128,5 +128,5 @@ A verificação de versão está incluída nos seguintes versões do SDK de serv
 [Clientes de aplicações móveis]: #MobileAppsClients
 
 
-[Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
+[Mobile App Server SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Migrar um serviço móvel para o serviço de aplicações do Azure]: app-service-mobile-migrating-from-mobile-services.md

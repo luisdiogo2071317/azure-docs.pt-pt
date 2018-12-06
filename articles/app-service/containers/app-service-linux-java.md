@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: cf3e5bf6752311881e1266d2fb49aa5b7108e68a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497334"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965569"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia de programação Java para o serviço de aplicações no Linux
 
@@ -151,36 +151,47 @@ Siga as instruções no [vincular um certificado SSL personalizado existente](/a
 >[!NOTE]
 > Se a sua aplicação utilizar o Spring Framework ou o Spring Boot, pode definir as informações de ligação de base de dados para a Primavera dados JPA como variáveis de ambiente [em seu arquivo de propriedades da aplicação]. Em seguida, utilize [as definições da aplicação](/azure/app-service/web-sites-configure#app-settings) para definir esses valores para a sua aplicação no portal do Azure ou na CLI.
 
-Os fragmentos de configuração de exemplo nesta secção utilizam a base de dados MySQL. Para obter mais informações, consulte os documentos de configuração para [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [JDBC do SQL Server](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), e [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
+Estas instruções aplicam-se a todas as ligações de base de dados. Precisará preencher espaços reservados com um nome de classe do controlador da base de dados escolhido e JAR do ficheiro. Fornecida é uma tabela com nomes de classes e downloads de driver para bases de dados comuns.
 
-Para configurar o Tomcat para utilizar ligações geridas para bases de dados com a conectividade de banco de dados de Java (JDBC) ou a API de persistência de Java (JPA), primeiro de personalizá-a variável de ambiente de CATALINA_OPTS lida por Tomcat na inicialização. Defina estes valores através de uma definição de aplicação no plug-in Maven do serviço de aplicações:
+| Base de Dados   | Nome da classe de controlador                             | JDBC Driver                                                                      |
+|------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
+| PostgreSQL | `org.postgresql.Drvier`                        | [Transferência](https://jdbc.postgresql.org/download.html)                                    |
+| MySQL      | `com.mysql.jdbc.Driver`                        | [Transferir](https://dev.mysql.com/downloads/connector/j/) (selecione "Independente de plataforma") |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Transferência](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+
+Para configurar o Tomcat para utilizar a conectividade de banco de dados de Java (JDBC) ou a API de persistência de Java (JPA), personalizar o `CATALINA_OPTS` variável de ambiente que é lidos por Tomcat início a cópia de segurança. Definir esses valores por meio de uma definição de aplicação no [Plug-in Maven do serviço de aplicações](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 
 ```xml
 <appSettings> 
     <property> 
         <name>CATALINA_OPTS</name> 
-        <value>"$CATALINA_OPTS -Dmysqluser=${mysqluser} -Dmysqlpass=${mysqlpass} -DmysqlURL=${mysqlURL}"</value> 
+        <value>"$CATALINA_OPTS -Ddbuser=${DBUSER} -Ddbpassword=${DBPASSWORD} -DconnURL=${CONNURL}"</value> 
     </property> 
 </appSettings> 
 ```
 
-Ou um serviço de aplicações equivalente a definição do portal do Azure.
+Ou definir as variáveis de ambiente no painel "Definições de aplicação" no portal do Azure.
 
-Em seguida, determine se a origem de dados tem de ser disponibilizados apenas para uma aplicação ou para todos os aplicativos em execução no plano de serviço de aplicações.
+>[!NOTE]
+> Se estiver a utilizar a base de dados do Azure para Postgres, substitua `ssl=true` com `sslmode=require` na cadeia de ligação de JDBC.
 
-Para origens de dados de nível de aplicativo: 
+Em seguida, determine se a origem de dados deve estar disponível para um aplicativo ou a todas as aplicações em execução no Tomcat servlet.
 
-1. Adicionar uma `context.xml` ficheiro se não existe para a aplicação web e adicioná-lo a `META-INF` diretório do ficheiro WAR quando o projeto é criado.
+#### <a name="for-application-level-data-sources"></a>Para origens de dados de nível de aplicativo: 
 
-2. Nesse arquivo, adicione um `Context` entrada de caminho para ligar à origem de dados para um endereço JNDI.
+1. Criar uma `context.xml` de ficheiros a `META-INF/` diretório do seu projeto. Criar o `META-INF/` directory se não existir.
+
+2. Na `context.xml`, adicione um `Context` elemento para ligar à origem de dados para um endereço JNDI. Substitua o `driverClassName` marcador de posição com um nome de classe do seu controlador da tabela acima.
 
     ```xml
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
     ```
@@ -189,38 +200,50 @@ Para origens de dados de nível de aplicativo:
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-Para recursos partilhados de ao nível do servidor:
+#### <a name="for-shared-server-level-resources"></a>Para recursos partilhados de ao nível do servidor:
 
 1. Copie o conteúdo do `/usr/local/tomcat/conf` em `/home/tomcat/conf` no seu Linux do serviço de aplicações de instância através de SSH se ainda não tiver uma configuração de existir.
+    ```
+    mkdir -p /home/tomcat
+    cp -a /usr/local/tomcat/conf /home/tomcat/conf
+    ```
 
-2. Adicionar o contexto de sua `server.xml`
+2. Adicionar um elemento de contexto no seu `server.xml` dentro do `<Server>` elemento.
 
     ```xml
+    <Server>
+    ...
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
+    ...
+    </Server>
     ```
 
 3. Atualizar a sua aplicação `web.xml` para utilizar a origem de dados na sua aplicação.
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-4. Certifique-se de que os ficheiros de controlador JDBC estão disponíveis para o classloader Tomcat, colocando-os no `/home/tomcat/lib` diretório. Para carregar esses arquivos à sua instância do serviço de aplicações, execute os seguintes passos:  
+#### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Por fim, coloque os JARs de driver no Tomcat classpath e reinicie o serviço de aplicações: 
+
+1. Certifique-se de que os ficheiros de controlador JDBC estão disponíveis para o classloader Tomcat, colocando-os no `/home/tomcat/lib` diretório. (Criar este diretório se ainda não exista.) Para carregar esses arquivos à sua instância do serviço de aplicações, execute os seguintes passos:  
     1. Instale a extensão de webpp do App Service do Azure:
 
       ```azurecli-interactive
@@ -235,7 +258,9 @@ Para recursos partilhados de ao nível do servidor:
 
     3. Ligue à porta de túnel local com o cliente SFTP e carregar os ficheiros para o `/home/tomcat/lib` pasta.
 
-5. Reinicie a aplicação do Linux do serviço de aplicações. Tomcat redefinirá `CATALINA_HOME` para `/home/tomcat/conf` e usar as classes e a configuração atualizada.
+    Em alternativa, pode utilizar um cliente de FTP para carregar o controlador JDBC. Siga estes [instruções para obter as suas credenciais FTP](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+
+2. Se tiver criado uma origem de dados ao nível do servidor, reinicie a aplicação do Linux do serviço de aplicações. Tomcat redefinirá `CATALINA_HOME` para `/home/tomcat/conf` e utilizar a configuração atualizada.
 
 ## <a name="docker-containers"></a>Contentores do Docker
 
@@ -245,7 +270,7 @@ Para utilizar o JDK de Zulu suportada pelo Azure em seus contentores, certifique
 
 Serviço de aplicações para Linux suporta dois runtimes de hospedagem gerenciada de aplicativos da web de Java:
 
-- O [contentor servlet do Tomcat](http://tomcat.apache.org/) para a execução de aplicativos empacotados como arquivos mortos (WAR) da web. Versões suportadas são 8.5 e 9.0.
+- O [contentor servlet do Tomcat](https://tomcat.apache.org/) para a execução de aplicativos empacotados como arquivos mortos (WAR) da web. Versões suportadas são 8.5 e 9.0.
 - Ambiente de tempo de execução Java SE para executar aplicações em pacote como arquivo de Java ficheiros (JAR). A única versão suportada de principais é Java 8.
 
 ## <a name="java-runtime-statement-of-support"></a>Instrução de tempo de execução Java de suporte 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 753818526ad637db0baa13c92e92d2725b19dbf8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158337"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957679"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Associar uma máquina virtual do Windows Server a um domínio gerido
 Este artigo mostra como implementar uma máquina virtual do Windows Server com o portal do Azure. Em seguida, mostra como associar a máquina virtual a um domínio gerido do Azure Active Directory Domain Services (Azure AD DS).
@@ -30,7 +30,7 @@ Este artigo mostra como implementar uma máquina virtual do Windows Server com o
 ## <a name="step-1-create-a-windows-server-virtual-machine"></a>Passo 1: Criar uma máquina virtual do Windows Server
 Para criar uma máquina virtual do Windows que está associada à rede virtual em que ativou o Azure AD DS, efetue os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na parte superior do painel esquerdo, selecione **New**.
 3. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**.
 

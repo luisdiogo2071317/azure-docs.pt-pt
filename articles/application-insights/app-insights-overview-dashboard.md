@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: 59052a2f0f2fbaa898502073f27b23185026e45e
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: cd8bcc9345ec73f95e8e742446522ec41c1f0f65
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724422"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956959"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard de descrição geral de informações de aplicações
 
@@ -27,17 +27,17 @@ O Application Insights sempre forneceu um painel de descrição geral de resumo 
 
 O novo dashboard de descrição geral agora é iniciado por predefinição:
 
-![Painel de visualização de descrição geral](.\media\app-insights-overview-dashboard\overview.png)
+![Painel de visualização de descrição geral](./media/app-insights-overview-dashboard/overview.png)
 
 ## <a name="better-performance"></a>Um melhor desempenho
 
 Seleção do intervalo de tempo foi simplificada para uma interface de um clique simples.
 
-![Intervalo de tempo](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
+![Intervalo de tempo](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-03.png)
 
 Em geral desempenho tem sido aumentou bastante. Tem acesso de um clique a funcionalidades populares, como **pesquisa** e **Analytics**. Cada padrão dinamicamente a atualizar o mosaico KPI fornece informações sobre os recursos correspondentes do Application Insights. Para saber mais sobre a falha selecione pedidos **falhas** sob a **investigar** cabeçalho:
 
-![Falhas](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
+![Falhas](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>Dashboard de aplicações
 
@@ -45,11 +45,11 @@ Dashboard de aplicação tira partido da tecnologia de dashboard existente do Az
 
 Para aceder a dashboard predefinido, selecione _Dashboard de aplicações_ no canto superior esquerdo.
 
-![Vista do Dashboard](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
+![Vista do Dashboard](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Se esta for a primeira vez que aceder ao dashboard, ele iniciará uma vista predefinida:
 
-![Vista do Dashboard](.\media\app-insights-overview-dashboard\0001-dashboard.png)
+![Vista do Dashboard](./media/app-insights-overview-dashboard/0001-dashboard.png)
 
 Se gosta, pode manter a vista predefinida. Ou, também pode adicionar e eliminar a partir do dashboard para melhor se adequa às necessidades da sua equipa.
 
@@ -58,7 +58,7 @@ Se gosta, pode manter a vista predefinida. Ou, também pode adicionar e eliminar
 
 Para navegar de volta para a experiência de descrição geral, basta selecionar:
 
-![Botão de descrição geral](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+![Botão de descrição geral](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-07.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

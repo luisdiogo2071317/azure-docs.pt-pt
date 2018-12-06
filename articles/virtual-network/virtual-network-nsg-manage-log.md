@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 25d5bd3b798af181b8dd4e7028dd4a531995d464
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 19ea4892bc39d1d577455bb1c21824d6f5f5e9db
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682609"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956419"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registo de diagnósticos para um grupo de segurança de rede
 
@@ -121,7 +121,7 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-Se não tiver uma área de trabalho existente, pode criar uma com o [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Existem duas categorias de registo, que pode ativar os registos para. 
+Se não tiver uma área de trabalho existente, pode criar uma com o [portal do Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Existem duas categorias de registo, que pode ativar os registos para. 
 
 Se pretender apenas registar dados para uma categoria ou outro, remova a categoria que não pretende registar dados para no comando anterior. Se quiser iniciar a outro [destino](#log-destinations) que uma área de trabalho do Log Analytics, utilizar os parâmetros adequados para um Azure [conta de armazenamento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Hub de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

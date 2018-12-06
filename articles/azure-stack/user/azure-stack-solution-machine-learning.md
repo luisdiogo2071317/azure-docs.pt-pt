@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8c947e2effab84b17ea88623695e0a6b0d020d0f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7c92b2a060e73484b73a60f9215425cba40ea3f1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285123"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966726"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma edge solução de machine learning com o Azure e o Azure Stack
 
@@ -163,23 +163,23 @@ Crie uma conta de armazenamento e um contentor para limpar dados a residir.
 
 10. Selecione **Criar** para criar a conta de armazenamento.
 
-    ![Texto alternativo](\media\azure-stack-solution-machine-learning\image1.png)
+    ![Texto alternativo](/media/azure-stack-solution-machine-learning/image1.png)
 
 11.  Selecione a conta de armazenamento recentemente criada.
 
 12.  Selecione no **Blobs**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image2.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image2.png)
 
 13.  Selecione no **+ contentor** e selecione no **contentor**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image3.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image3.png)
 
 14.  Atribua o nome de contentor **uploadeddata** e escolha o tipo de acesso **contentor**.
 
 15.  Selecione no **criar**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image4.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image4.png)
 
 ## <a name="step-2-create-a-data-science-virtual-machine"></a>Passo 2: Criar uma máquina de Virtual de ciência de dados
 
@@ -189,11 +189,11 @@ Crie uma Máquina Virtual de ciência de dados de Ubuntu (DSVM) no portal do Azu
 
 2.  Selecione sobre o **+ novo** link e procure "Data Science Virtual Machine para Linux Ubuntu CSP
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image5.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image5.png)
 
 1.  Escolher **Máquina Virtual de ciência de dados para Linux (Ubuntu)** na lista e siga na tela instruções para criar a DSVM.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image6.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image6.png)
 
 > ! [Importante]  
 > **Escolher** palavra-passe * * como o*tipo de autenticação*.
@@ -268,19 +268,19 @@ Utilize o portal do Azure para aprovisionar as contas do Azure Machine Learning:
 
 1.  Inicie sessão para o [portal do Azure](https://portal.azure.com/) com as credenciais para a subscrição do Azure a ser utilizado. Para obter uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image7.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image7.png)
 
 1.  Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do portal.
 
-    ![Criar um recurso no portal do Azure](media\azure-stack-solution-machine-learning\image8.png)
+    ![Criar um recurso no portal do Azure](media/azure-stack-solution-machine-learning/image8.png)
 
 1.  Introduza **Machine Learning** na barra de pesquisa. Selecione o resultado da pesquisa com o nome **Experimentação do Machine Learning (pré-visualização)**.
 
-    ![Pesquisa por Azure Machine Learning](media\azure-stack-solution-machine-learning\image9.png)
+    ![Pesquisa por Azure Machine Learning](media/azure-stack-solution-machine-learning/image9.png)
 
 1.  Na **experimentação do Machine Learning** painel, desloque-se para baixo e selecione **criar** para começar a definir a conta de experimentação.
 
-    ![Azure Machine Learning - criar conta de experimentação](media\azure-stack-solution-machine-learning\image10.png)
+    ![Azure Machine Learning - criar conta de experimentação](media/azure-stack-solution-machine-learning/image10.png)
 
 1.  Na **experimentação do ML** painel Configurar a conta de experimentação do Machine Learning.
 
@@ -299,15 +299,15 @@ Utilize o portal do Azure para aprovisionar as contas do Azure Machine Learning:
     | Escalão de preços da Gestão de Modelos | **DEV/TEST** | Selecione **nenhum escalão de preço selecionado** para especificar o escalão de preço para a nova conta de gestão de modelos. Para poupar nos custos, selecione o escalão de preço Dev/Test, se estiver disponível na subscrição (disponibilidade limitada). Caso contrário, selecione o escalão de preço S1. Escolha a selecionar a opção para guardar a seleção do escalão de preço. |
     | Afixar ao dashboard | Verificação | Selecione o **afixar ao dashboard** opção para permitir uma fácil monitorização da conta de experimentação do Machine Learning na página de rosto do dashboard do portal do Azure. |
 
-    ![Configuração da conta de Experimentação do Machine Learning](media\azure-stack-solution-machine-learning\image11.png)
+    ![Configuração da conta de Experimentação do Machine Learning](media/azure-stack-solution-machine-learning/image11.png)
 
 1.  Selecione **Criar** para começar o processo de criação da conta de Experimentação, juntamente com a conta de Gestão de Modelos.
 
-    ![Configuração da conta de Experimentação do Machine Learning](media\azure-stack-solution-machine-learning\image12.png)
+    ![Configuração da conta de Experimentação do Machine Learning](media/azure-stack-solution-machine-learning/image12.png)
 
     Pode demorar alguns minutos para criar uma conta. Verificar o estado do processo de implantação, selecionando o ícone de notificações (campainha) na barra de ferramentas de portal do Azure.
 
-    ![Notificações do portal do Azure](media\azure-stack-solution-machine-learning\image13.png)
+    ![Notificações do portal do Azure](media/azure-stack-solution-machine-learning/image13.png)
 
 ### <a name="install-and-log-in-to-workbench"></a>Instalar e iniciar sessão no workbench 
 
@@ -349,7 +349,7 @@ Azure Machine Learning Workbench está disponível para Windows ou macOS. Veja a
 
 1.  Selecione o sinal de adição (+) no painel **PROJETOS** e escolha **Novo Projeto**.
 
-    ![Nova área de trabalho](media\azure-stack-solution-machine-learning\image14.png)
+    ![Nova área de trabalho](media/azure-stack-solution-machine-learning/image14.png)
 
 1.  Preencha os campos do formulário e selecione o botão **Criar** para criar um novo projeto no Workbench.
 
@@ -362,11 +362,11 @@ Azure Machine Learning Workbench está disponível para Windows ou macOS. Veja a
     | Área de trabalho selecionada | IrisGarden (se existir) | Escolha uma área de trabalho criada para a conta de experimentação no portal do Azure. <br>Utilizar o início rápido, área de trabalho com o nome IrisGarden está listada. Caso contrário, utilize a área de trabalho com o nome da conta de experimentação ou um nome de conta preferida. |
     | Modelo de projeto | Classifying Iris | Os modelos contêm scripts e os dados utilizados para explorar o produto. Este modelo contém os scripts e os dados necessários para este início rápido e de outros tutoriais neste site de documentação. |
 
-    ![Novo projeto](media\azure-stack-solution-machine-learning\image15.png)
+    ![Novo projeto](media/azure-stack-solution-machine-learning/image15.png)
 
 1.  É criado um novo projeto e o dashboard do projeto abre com esse projeto. Explore a home page do projeto, origens de dados, blocos de notas e arquivos de código de origem.
 
-    ![Abrir projeto](media\azure-stack-solution-machine-learning\image16.png)
+    ![Abrir projeto](media/azure-stack-solution-machine-learning/image16.png)
 
 ### <a name="attach-a-dsvm-compute-target"></a>Anexar um destino de computação DSVM
 
@@ -374,7 +374,7 @@ Quando a DSVM estiver criada, anexá-lo ao projeto do Azure ML.
 
 1.  A partir da aplicação do Azure ML Workbench, inicie o CLI do Azure ML Workbench selecionando **arquivo**->**PowerShell aberto**
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image17.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image17.png)
 
 1.  Assim que o PowerShell abriu a linha de comandos, utilize o seguinte comando:
 
@@ -384,19 +384,19 @@ Quando a DSVM estiver criada, anexá-lo ao projeto do Azure ML.
 
 1.  Receba o seguinte pedido:
 
-     ![Texto alternativo](media\azure-stack-solution-machine-learning\image18.png)
+     ![Texto alternativo](media/azure-stack-solution-machine-learning/image18.png)
 
 1.  Navegue para o site conforme detalhado na linha de comandos e introduza o código fornecido.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image19.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image19.png)
 
 1.  Selecionar continuar quando lhe for pedido, em seguida, selecione a conta do Azure que se encontra associada a conta Experimental do Azure ML.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image20.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image20.png)
 
 1.  A CLI do Azure ML Workbench, em seguida, irá enviar o seguinte pedido:
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image21.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image21.png)
 
 1.  Quando o início de sessão de conta de ML e área de trabalho é mostrado a conclusão com êxito, anexe a DSVM.
 
@@ -406,7 +406,7 @@ Quando a DSVM estiver criada, anexá-lo ao projeto do Azure ML.
 
     Será apresentada a seguinte notificação:
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image22.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image22.png)
 
     ```PowerShell  
         # prepare the Docker image on the DSVM 
@@ -427,15 +427,15 @@ Este pacote de preparação de dados pode ser posteriormente entregue a um tempo
 
     Este ficheiro contém uma tabela com 5 colunas e 50 linhas. Quatro das colunas são colunas de funcionalidades numéricas. A quinta coluna é uma coluna de cadeia de caracteres de destino. Nenhuma das colunas tem nomes de cabeçalho.
 
-    ![iris.csv](media\azure-stack-solution-machine-learning\image23.png)
+    ![iris.csv](media/azure-stack-solution-machine-learning/image23.png)
 
 1.  Na **Vista de dados**, selecione o sinal de adição (**+**) para adicionar uma origem de dados nova. É aberta a página **Adicionar Origem de Dados**.
 
-    ![Vista de dados no Azure Machine Learning Workbench](media\azure-stack-solution-machine-learning\image24.png)
+    ![Vista de dados no Azure Machine Learning Workbench](media/azure-stack-solution-machine-learning/image24.png)
 
 1.  Selecione **arquivos de texto (\*. csv, \*. JSON, \*. txt.,...)** .
 
-    ![Origem de dados no Azure Machine Learning Workbench](media\azure-stack-solution-machine-learning\image25.png)
+    ![Origem de dados no Azure Machine Learning Workbench](media/azure-stack-solution-machine-learning/image25.png)
 
 1.  Selecione **Seguinte**.
 
@@ -444,39 +444,39 @@ Este pacote de preparação de dados pode ser posteriormente entregue a um tempo
     > [!Important]  
     > Selecione o **IRIS** partir de ficheiros no diretório do projeto atual para este exercício. Caso contrário, os passos posteriores poderão falhar.
 
-    ![Selecionar iris](media\azure-stack-solution-machine-learning\image26.png)
+    ![Selecionar iris](media/azure-stack-solution-machine-learning/image26.png)
 
 1.  Um novo ficheiro designado `*iris-1.dsource` é criado. O ficheiro é denominado exclusivamente com `-1` porque o projeto de exemplo já vem com um atribuído **dsource** ficheiro.
 
     O ficheiro abre-se e os dados são apresentados. Uma série de cabeçalhos de coluna, partir **Column1** ao **Column5**, é automaticamente adicionada a este conjunto de dados. Desloque para baixo e tenha em atenção que a última linha do conjunto de dados está vazia. A linha está vazia por causa da quebra de linha extra no ficheiro CSV.
 
-    ![Vista de dados de iris](media\azure-stack-solution-machine-learning\image27.png)
+    ![Vista de dados de iris](media/azure-stack-solution-machine-learning/image27.png)
 
 1.  Selecione o botão **Métricas**. Os histogramas são gerados e apresentados.
 
     Mude novamente para a vista de dados ao selecionar o **dados** botão.
 
-    ![Vista de dados de iris](media\azure-stack-solution-machine-learning\image28.png)
+    ![Vista de dados de iris](media/azure-stack-solution-machine-learning/image28.png)
 
 1.  Observe os histogramas. Foi calculado para cada coluna um conjunto completo de estatísticas.
 
-    ![Vista de dados de iris](media\azure-stack-solution-machine-learning\image29.png)
+    ![Vista de dados de iris](media/azure-stack-solution-machine-learning/image29.png)
 
 1.  Comece a criar um pacote de preparação de dados ao selecionar o botão **Preparar**. É aberta a caixa de diálogo **Preparar**.
 
     O projeto de exemplo contém um **IRIS. dprep** ficheiro de preparação de dados que está selecionado por predefinição.
 
-    ![Vista de dados de iris](media\azure-stack-solution-machine-learning\image30.png)
+    ![Vista de dados de iris](media/azure-stack-solution-machine-learning/image30.png)
 
 1.  Criar um novo pacote de preparação de dados, selecionando **+ novo pacote de preparação de dados** no menu.
 
-    ![Vista de dados de iris](media\azure-stack-solution-machine-learning\image31.png)
+    ![Vista de dados de iris](media/azure-stack-solution-machine-learning/image31.png)
 
 1.  Introduza um novo valor para o nome do pacote (utilize **iris-1**) e, em seguida, selecione **OK**.
 
     Um novo pacote de preparação de dados com o nome **iris-1.dprep** é criado e aberto no editor de preparação de dados.
 
-    ![Vista de dados de iris](media\azure-stack-solution-machine-learning\image32.png)
+    ![Vista de dados de iris](media/azure-stack-solution-machine-learning/image32.png)
 
     Em seguida, é necessária a preparação de dados.
 
@@ -484,7 +484,7 @@ Este pacote de preparação de dados pode ser posteriormente entregue a um tempo
 
     Por ordem, introduza **Sepal Length**, **Sepal Width**, **Petal Length**, **largura da Pétala**, e **Species** nas cinco colunas, respetivamente.
 
-    ![Mudar o nome das colunas](media\azure-stack-solution-machine-learning\image33.png)
+    ![Mudar o nome das colunas](media/azure-stack-solution-machine-learning/image33.png)
 
 1.  Faça a contagem dos valores distintos:
 
@@ -496,23 +496,23 @@ Este pacote de preparação de dados pode ser posteriormente entregue a um tempo
 
         O painel **Inspectors** é aberto por baixo dos dados. É apresentado um histograma com quatro barras. A coluna de destino tem quatro valores distintos: **iris_virginica**, **iris_versicolor**,**Iris-setosa**e um **(null)** valor.
 
-    ![Selecione Contagens de Valores](media\azure-stack-solution-machine-learning\image34.png)
+    ![Selecione Contagens de Valores](media/azure-stack-solution-machine-learning/image34.png)
 
-    ![Histograma da contagem de valores](media\azure-stack-solution-machine-learning\image35.png)
+    ![Histograma da contagem de valores](media/azure-stack-solution-machine-learning/image35.png)
 
 1.  Para filtrar os valores nulos, selecione a barra "(null)" e, em seguida, selecione o sinal de subtração (**-**).
 
     Em seguida, a linha (null) aparece a cinzento para indicar que foi filtrada.
 
-    ![Filtrar valores nulos](media\azure-stack-solution-machine-learning\image36.png)
+    ![Filtrar valores nulos](media/azure-stack-solution-machine-learning/image36.png)
 
 1.  Repare nos passos de preparação de dados individuais descritos no painel **STEPS**. À medida que forem mudadas colunas e linhas com valores nulos são filtradas, cada ação é registada como um passo de preparação de dados. Edite os passos individuais para ajustar as definições, reordenar os passos e remover passos.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image37.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image37.png)
 
 1.  Feche o editor de preparação de dados. Selecione o ícone **x** no separador **iris-1** com o ícone de gráfico para fechar o separador. O trabalho é guardado automaticamente no **iris-1.dprep** arquivo mostrado sob a **preparações de dados** cabeçalho.
 
-    ![Fechar](media\azure-stack-solution-machine-learning\image38.png)
+    ![Fechar](media/azure-stack-solution-machine-learning/image38.png)
 
 ### <a name="generate-python-code-to-invoke-a-data-preparation-package"></a>Gerar código de Python para invocar um pacote de preparação de dados
 
@@ -522,7 +522,7 @@ O resultado de um pacote de preparação de dados pode ser explorado diretamente
 
 2.  Clique com o botão direito do rato no ficheiro **iris-1.dprep** e selecione **Gerar Ficheiro de Código de Acesso a Dados** no menu de contexto.
 
-    ![Gerar código](media\azure-stack-solution-machine-learning\image39.png)
+    ![Gerar código](media/azure-stack-solution-machine-learning/image39.png)
 
     Um novo ficheiro designado **IRIS-1.PY** abre-se com as seguintes linhas de código para invocar a lógica que criou como um pacote de preparação de dados:
 
@@ -552,18 +552,18 @@ O resultado de um pacote de preparação de dados pode ser explorado diretamente
 
 1.  No projeto aberto, selecione o **ficheiros** botão (o ícone de pasta), no painel à extrema esquerda para abrir a lista de ficheiros na pasta de projeto.
 
-    ![Abrir o projeto do Azure Machine Learning Workbench](media\azure-stack-solution-machine-learning\image40.png)
+    ![Abrir o projeto do Azure Machine Learning Workbench](media/azure-stack-solution-machine-learning/image40.png)
 
 1.  Selecione o ficheiro de script de Python **iris_sklearn.py**.
 
-    ![Escolher um script](media\azure-stack-solution-machine-learning\image41.png)
+    ![Escolher um script](media/azure-stack-solution-machine-learning/image41.png)
 
     O código é aberto num novo separador do editor de texto dentro do Workbench.
 
     > [!Note]  
     > O código apresentado pode não ser exatamente o mesmo que o código anterior porque este projeto de exemplo é atualizado frequentemente.
 
-    ![Abrir um ficheiro](media\azure-stack-solution-machine-learning\image42.png)
+    ![Abrir um ficheiro](media/azure-stack-solution-machine-learning/image42.png)
 
 1.  Examine o código do script de Python para se familiarizar com o estilo de programação.
 
@@ -615,31 +615,31 @@ O resultado de um pacote de preparação de dados pode ser explorado diretamente
 
 2.  Localize o separador chamado **iris_sklearn.py**.
 
-    ![Localizar separador com o script](media\azure-stack-solution-machine-learning\image43.png)
+    ![Localizar separador com o script](media/azure-stack-solution-machine-learning/image43.png)
 
 1.  Na barra de ferramentas desse separador, selecione **local** como o ambiente de execução andiris_sklearn.pyas o script seja executado. Estes podem já estar selecionados.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image44.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image44.png)
 
 1.  Mover para o lado direito da barra de ferramentas e enter0.01in a **argumentos** campo.
 
     Este valor corresponde à taxa de regularização do modelo de regressão logística.
 
-    ![Escolha de local e script](media\azure-stack-solution-machine-learning\image45.png)
+    ![Escolha de local e script](media/azure-stack-solution-machine-learning/image45.png)
 
 1.  Selecionar o botão **Executar**. É agendado imediatamente um trabalho. O trabalho é listado no painel **Trabalhos**, no lado direito da janela do Workbench.
 
-    ![Escolha de local e script](media\azure-stack-solution-machine-learning\image46.png)
+    ![Escolha de local e script](media/azure-stack-solution-machine-learning/image46.png)
 
     Após alguns instantes, o estado do trabalho passa de **submeter**ao **em execução**e, finalmente, para **concluído**.
 
 1.  Selecione **Concluído** no texto do estado do trabalho, no painel **Trabalhos**.
 
-    ![Executar sklearn](media\azure-stack-solution-machine-learning\image47.png)
+    ![Executar sklearn](media/azure-stack-solution-machine-learning/image47.png)
 
     Uma janela de pop-up abre e apresenta o texto de saída padrão (stdout) para a execução. Para fechar o texto stdout, selecione o **feche** (**x**) botão no canto superior direito da janela de pop-up.
 
-    ![Saída padrão](media\azure-stack-solution-machine-learning\image48.png)
+    ![Saída padrão](media/azure-stack-solution-machine-learning/image48.png)
 
 1.  No mesmo Estado de tarefa na **trabalhos** painel, selecione o texto azul **iris_sklearn.py \[n\] **(* n * é o número de execuções) imediatamente acima a  **Concluído** estado e a hora de início. É aberta a janela **Propriedades da Execução**, que mostra as informações abaixo relativas a essa execução:
 
@@ -701,13 +701,13 @@ No Azure Machine Learning Workbench, cada execução de script é capturada como
 
 1.  Para abrir a lista de **Execuções**, selecione o botão **Execuções** (ícone de relógio), na barra de ferramentas do lado esquerdo. Em seguida, selecione **iris_sklearn. PY** para mostrar o **Dashboard da execução** ofiris_sklearn.py.
 
-    ![Vista de execução](media\azure-stack-solution-machine-learning\image49.png)
+    ![Vista de execução](media/azure-stack-solution-machine-learning/image49.png)
 
 1.  O separador **Dashboard da Execução** abre-se.
 
     Reveja as estatísticas capturadas nas várias execuções. Os gráficos são compostos na parte superior do separador. Cada execução tem um número consecutivo e os detalhes da execução estão listados na tabela na parte inferior do ecrã.
 
-    ![Dashboard da execução](media\azure-stack-solution-machine-learning\image50.png)
+    ![Dashboard da execução](media/azure-stack-solution-machine-learning/image50.png)
 
 1.  Filtre a tabela e selecione um dos gráficos para ver o estado, a duração, a precisão e a taxa de regularização de cada execução.
 
@@ -715,11 +715,11 @@ No Azure Machine Learning Workbench, cada execução de script é capturada como
 
 3.  Para regressar a **Dashboard da Execução**, selecione o botão de retrocesso **Lista de Execuções** no canto superior esquerdo do painel **Comparação**.
 
-    ![Regressar a Lista de execuções](media\azure-stack-solution-machine-learning\image51.png)
+    ![Regressar a Lista de execuções](media/azure-stack-solution-machine-learning/image51.png)
 
 1.  Selecione uma execução individual para ver a vista de detalhes da mesma. Repare que as estatísticas da execução selecionada são listadas na secção **Propriedades da Execução**. Os ficheiros escritos na pasta de saída são listados no **saídas** secção e transferir os ficheiros a partir daí.
 
-    ![Detalhes da Execução](media\azure-stack-solution-machine-learning\image52.png)
+    ![Detalhes da Execução](media/azure-stack-solution-machine-learning/image52.png)
 
 Os dois gráficos -- matriz de confusão e curva COR multiclasse -- são compostos na secção **Visualizações**. Também estão disponíveis na secção **Registos** todos os ficheiros de registos.
 
@@ -840,13 +840,13 @@ Os dois gráficos -- matriz de confusão e curva COR multiclasse -- são compost
 
     Selecione o ícone de pasta no painel da esquerda para listar os ficheiros do projeto.  Abra o script de Python com o nome **run.py**. Este script é útil ao loop através de vários taxas de regularização. 
 
-    ![Regresse à lista de execuções](media\azure-stack-solution-machine-learning\image53.png)
+    ![Regresse à lista de execuções](media/azure-stack-solution-machine-learning/image53.png)
 
 1.  Execute a experimentação múltiplas vezes com estas taxas.
 
     Este script inicia` aniris_sklearn.pyjob` com um s da taxa de regularização `10.0` (um número ridiculamente grande). O script diminui, em seguida, a taxa para metade na execução seguinte e assim por diante, até que a taxa não seja inferior `0.005`. O script contém o seguinte código:
 
-    ![Regressar a Lista de execuções](media\azure-stack-solution-machine-learning\image54.png)
+    ![Regressar a Lista de execuções](media/azure-stack-solution-machine-learning/image54.png)
 
 1.  Execute o script **run.py** a partir da linha de comandos, do seguinte modo:
 
@@ -906,7 +906,7 @@ Este fragmento de código mostra como o ficheiro de saída de pickle foi gerado.
 
     3. Abre-se o painel **Propriedades da Execução**. Na secção de canto superior direito do painel, tenha em atenção a **saídas** secção. d\. Para transferir o ficheiro pickle, selecione a caixa de verificação junto aos **pkl** do ficheiro e, em seguida, selecione **transferir**. Guarde o ficheiro na raiz da pasta do projeto. O ficheiro é necessário nos passos.  
 
-    ![Transferir o ficheiro pickle](media\azure-stack-solution-machine-learning\image55.png)
+    ![Transferir o ficheiro pickle](media/azure-stack-solution-machine-learning/image55.png)
 
 ### <a name="get-scoring-script-and-schema-files"></a>Obter a classificação de ficheiros de script e de esquema
 
@@ -918,7 +918,7 @@ Para implementar o serviço web juntamente com o ficheiro de modelo, o script de
 
 3.  Selecione o ficheiro **score_iris.py**. É aberto o script de Python. Este ficheiro é utilizado como o ficheiro de classificação.
 
-    ![Ficheiro de classificação](media\azure-stack-solution-machine-learning\image56.png)
+    ![Ficheiro de classificação](media/azure-stack-solution-machine-learning/image56.png)
 
 1.  Para obter o ficheiro de esquema, execute o script. Selecione o ambiente **local** e o script **score_iris.py** na barra de comandos e selecione **Executar**.
 
@@ -1040,7 +1040,7 @@ O motor do Docker tem de estar em execução localmente para concluir os passos 
 
     Certifique-se de que o "Estado de aprovisionamento" tem o valor "Com êxito", conforme mostrado, antes de configurar o ambiente no passo 5:
 
-    ![Estado do Aprovisionamento](media\azure-stack-solution-machine-learning\image57.png)
+    ![Estado do Aprovisionamento](media/azure-stack-solution-machine-learning/image57.png)
 
 1.  Defina o ambiente.
 
@@ -1160,7 +1160,7 @@ A partir do subsistema Windows para Linux sessão utilize os seguintes comandos 
     The key fingerprint is: SHA256:lUtUUjzaqWqGeolEPKeBmsnrhcNGM9Dn2OxYatt05SE  <user>@<machine-name>
     The key's randomart image is:  
     ```
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image58.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image58.png)
 
 4. Depois de gerar a chave, cole as informações de chave com os comandos seguintes: 
     ```Bash
@@ -1217,11 +1217,11 @@ Atribua o principal de serviço acesso à subscrição, para que ele pode criar 
 
 9.  Selecione **+ nova** > **computação** > **Cluster do Kubernetes**. Selecione **Criar**.
 
-    ![Implementar Modelo de Solução](media\azure-stack-solution-machine-learning\image59.png)
+    ![Implementar Modelo de Solução](media/azure-stack-solution-machine-learning/image59.png)
 
 10\. Selecione **Noções básicas** na criar o Cluster de Kubernetes.
 
-    ![Deploy Solution Template](media\azure-stack-solution-machine-learning\image60.png)
+    ![Deploy Solution Template](media/azure-stack-solution-machine-learning/image60.png)
 
 11. Introduza o **nome de utilizador de administrador VM de Linux**. Nome de utilizador para as máquinas de virtuais de Linux que fazem parte do cluster de Kubernetes e DVM.
 
@@ -1250,7 +1250,7 @@ Atribua o principal de serviço acesso à subscrição, para que ele pode criar 
 
 1.  Selecione o **definições de carimbo de data / do Azure Stack**.
 
-    ![Implementar Modelo de Solução](media\azure-stack-solution-machine-learning\image61.png)
+    ![Implementar Modelo de Solução](media/azure-stack-solution-machine-learning/image61.png)
 
 2.  Introduza o **ponto final do Gestor de recursos do Azure do inquilino**. Este é o ponto de final do Azure Resource Manager para ligar ao criar o grupo de recursos para o cluster de Kubernetes. O ponto final do operador do Azure Stack é necessário para um sistema integrado. Para o Azure Stack Development Kit (ASDK), utilize `https://management.local.azurestack.external`.
 
@@ -1356,7 +1356,7 @@ Depois do ficheiro JSON local é obtido, numa nova sessão WSL, utilize os segui
 
 Definições de configuração Kubernetes serão definidas (ver um resultado abaixo).
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image62.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image62.png)
 
 Inicie o serviço de local proxy:
 
@@ -1366,19 +1366,19 @@ kubectl proxy
 
 Navegue para o cluster de kubernetes da interface do Usuário no seguinte endereço: `https://localhost:8001`.
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image63.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image63.png)
 
 Agora tem um local para implementar o contentor e um contentor que reside na cloud que pode ver no local.
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image64.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image64.png)
 
 Personalizar o **iris_deployment.yaml** ficheiro (localizado na /*mnt/c/utilizadores/<current user>/documentos/Kube diretório*), de modo **webservicename** e contentores  **Imagem** e **nome** corresponder a implementação, utilizando qualquer editor de código à escolha.
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image65.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image65.png)
 
 Defina a porta do contentor para **5001.**
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image66.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image66.png)
 
 E, em seguida, crie o **imagePullSecret**:
 
@@ -1409,7 +1409,7 @@ Guardar a **iris_deployment.yaml** ficheiro (localizado na /*mnt/c/utilizadores/
 kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deployment.yaml
 ```
 
-    ![Alt text](media\azure-stack-solution-machine-learning\image67.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image67.png)
 
 Verifique o estado da implementação:
 
@@ -1417,7 +1417,7 @@ Verifique o estado da implementação:
 Kubectl get deployments
 ```
 
-    ![Alt text](media\azure-stack-solution-machine-learning\image68.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image68.png)
 
 A implementação pode demorar algum tempo.
 
@@ -1429,7 +1429,7 @@ A implementação pode demorar algum tempo.
 
 2.  Na página de projetos, selecione **novo projeto**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image69.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image69.png)
 
 1.  Nomeie o projeto **HybridMLIris**.
 
@@ -1437,7 +1437,7 @@ A implementação pode demorar algum tempo.
 
 3.  Selecione um processo e selecione **criar**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image70.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image70.png)
 
 ### <a name="import-some-code--create-repository"></a>Importar um criar repositório de código
 
@@ -1447,15 +1447,15 @@ A implementação pode demorar algum tempo.
 
 1.  A partir do painel de projeto padrão, selecione as credenciais do Git gerar.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image71.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image71.png)
 
 1.  Introduza a palavra-passe sempre que necessário e guarde as credenciais do Git.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image72.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image72.png)
 
 1.  Inicializar o repositório, selecionando o **inicializar** botão e a criação de um **Leiame** ficheiro.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image73.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image73.png)
 
 #### <a name="clone-the-git-repository-locally-and-upload-the-code"></a>Clone o repositório de Git localmente e carregar o código. 
 
@@ -1465,7 +1465,7 @@ A implementação pode demorar algum tempo.
     sudo mkdir /mnt/c/users/<User>/source sudo mkdir /mnt/c/users/<User>/source/repos sudo mkdir /mnt/c/users/<User>/source/repos/hybridMLIris cd /mnt/c/users/<User>/source/repos/hybridMLIris sudo git clone  https://<yourvstssite>.visualstudio.com/HybridMLIris/_git/HybridMLIris
     ```
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image74.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image74.png)
 
 1.  Navegue para o repositório recentemente clonado:
 
@@ -1474,7 +1474,7 @@ A implementação pode demorar algum tempo.
     cd ./HybridMLIris
     ```
     
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image75.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image75.png)
 
 1.  Copiar o **iris_deployment.yaml** ficheiros no repositório.
 
@@ -1488,7 +1488,7 @@ A implementação pode demorar algum tempo.
     git add . git commit -m Added Deployment YAML git push
     ```
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image76.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image76.png)
 
 ### <a name="prepare-the-private-build-and-release-agent-for-vsts-integration"></a>Preparar o compilação privada e o agente de lançamento para a integração de VSTS
 
@@ -1514,27 +1514,27 @@ Um Principal de serviço requer uma chave para autenticação, siga os passos ne
 
 1.  Partir **registos das aplicações** no Azure Active Directory, selecione a aplicação.
 
-    ![selecionar aplicação](media\azure-stack-solution-machine-learning\image77.png)
+    ![selecionar aplicação](media/azure-stack-solution-machine-learning/image77.png)
 
 1.  Tome nota do valor do **ID da aplicação. O valor é utilizado quando configurar o ponto final de serviço no VSTS.**
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image78.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image78.png)
 
 1.  Para gerar uma chave de autenticação, selecione **Definições**.
 
-    ![selecionar as definições](media\azure-stack-solution-machine-learning\image79.png)
+    ![selecionar as definições](media/azure-stack-solution-machine-learning/image79.png)
 
 1.  Selecione **Chaves**.
 
-    ![selecionar chaves](media\azure-stack-solution-machine-learning\image80.png)
+    ![selecionar chaves](media/azure-stack-solution-machine-learning/image80.png)
 
 1.  Indique uma descrição e uma duração para a chave. Quando terminar, selecione **Guardar**.
 
-    ![guardar chave](media\azure-stack-solution-machine-learning\image81.png)
+    ![guardar chave](media/azure-stack-solution-machine-learning/image81.png)
 
 Depois de guardar a chave, o valor da mesma é apresentado. Copie este valor, que é necessário mais tarde. O **valor da chave** com a aplicação é necessário um ID para iniciar sessão como o aplicativo. Store onde a aplicação o possa obter o valor da chave.
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image82.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image82.png)
 
 #### <a name="get-tenant-id"></a>Obter ID de inquilino
 
@@ -1542,15 +1542,15 @@ Como parte da configuração do ponto final de serviço, o VSTS requer o **ID de
 
 1.  Selecione **Azure Active Directory**.
 
-    ![selecionar Azure Active Directory](media\azure-stack-solution-machine-learning\image83.png)
+    ![selecionar Azure Active Directory](media/azure-stack-solution-machine-learning/image83.png)
 
 1.  Para obter o ID de inquilino, selecione **propriedades** para o inquilino do Azure AD.
 
-    ![selecionar propriedades do Azure AD](media\azure-stack-solution-machine-learning\image84.png)
+    ![selecionar propriedades do Azure AD](media/azure-stack-solution-machine-learning/image84.png)
 
 1.  Copie o **ID do Diretório**. Este valor é o ID do inquilino.
 
-    ![ID do inquilino](media\azure-stack-solution-machine-learning\image85.png)
+    ![ID do inquilino](media/azure-stack-solution-machine-learning/image85.png)
 
 Conceder os direitos de Principal de serviço para implementar recursos na subscrição do Azure Stack
 
@@ -1560,27 +1560,27 @@ Defina o âmbito no nível da subscrição, no grupo de recursos ou ao recurso. 
 
 1.  Navegue para o nível desejado de âmbito para atribuir a aplicação. Por exemplo, para atribuir uma função no âmbito da subscrição, selecione **subscrições**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image86.jpeg)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image86.jpeg)
 
 1.  Selecione o **subscrição** (grupo de recursos ou recurso) para atribuir a aplicação.
 
-    ![Selecione a subscrição para atribuição](media\azure-stack-solution-machine-learning\image87.png)
+    ![Selecione a subscrição para atribuição](media/azure-stack-solution-machine-learning/image87.png)
 
 1.  Selecione **controlo de acesso (IAM)**.
 
-    ![Selecione o acesso](media\azure-stack-solution-machine-learning\image88.png)
+    ![Selecione o acesso](media/azure-stack-solution-machine-learning/image88.png)
 
 1.  Selecione **Adicionar**.
 
-    ![Selecione adicionar](media\azure-stack-solution-machine-learning\image89.png)
+    ![Selecione adicionar](media/azure-stack-solution-machine-learning/image89.png)
 
 1.  Selecione a função para atribuir a aplicação. A imagem seguinte mostra os **proprietário** função.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image90.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image90.png)
 
 1.  Por predefinição, as aplicações do Azure Active Directory não são apresentadas nas opções disponíveis. Para localizar a aplicação, **forneça o nome** na pesquisa campo e selecioná-lo.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image91.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image91.png)
 
 1.  Selecione **guardar** para concluir a atribuir a função. A aplicação é apresentada na lista de utilizadores atribuídos a uma função para esse âmbito.
 
@@ -1598,18 +1598,18 @@ Em vez de gerir individualmente cada agente, os agentes estão organizados nas *
 
  -  Selecione **gerir a segurança** à página de criação de token de acesso.
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image92.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image92.png)
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image93.jpeg)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image93.jpeg)
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image94.jpeg)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image94.jpeg)
 
 > [!Note]  
 > Obter as informações do token. Não será apresentado depois de deixar este ecrã.
 
 1.  Copiar o **token**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image95.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image95.png)
 
 #### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Instalar que agente de compilação VSTS na pilha do Azure alojado o servidor de compilação do
 
@@ -1660,7 +1660,7 @@ Em vez de gerir individualmente cada agente, os agentes estão organizados nas *
 
 2.  Baixe e implante o agente de compilação como um serviço a utilizar um **token de acesso pessoal (PAT)** e executar como a conta de administrador de VM.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image96.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image96.png)
 
     ```Bash  
         cd \home\<user>
@@ -1678,7 +1678,7 @@ Em vez de gerir individualmente cada agente, os agentes estão organizados nas *
         ./config.sh
     ```
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image97.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image97.png)
 
 2.  Após **./config.sh**concluído, execute o seguinte código para ativar o serviço no arranque do servidor e iniciar o serviço:
 
@@ -1693,23 +1693,23 @@ O agente agora está visível na pasta do VSTS.
 
 Os utilizadores podem criar pontos finais para que compilações VSTO podem implementar aplicações de serviço do Azure para a pilha. VSTS liga-se para o agente de compilação, que, em seguida, liga-se com o Azure Stack.
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image98.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image98.png)
 
 1.  Sobre o **configurações** menu, selecione **segurança**.
 
 2.  Na **grupos de VSTS** lista à esquerda, selecione **criadores de ponto final**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image99.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image99.png)
 
 3.  Sobre o **separador Membros,** selecione a **+ adicionar**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image100.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image100.png)
 
 1.  Tipo **nome de utilizador** e selecione o nome de utilizador da lista.
 
 2.  Selecione **guardar alterações**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image101.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image101.png)
 
 3.  Na **grupos de VSTS** lista à esquerda, selecione **administradores do ponto final**.
 
@@ -1719,13 +1719,13 @@ Os utilizadores podem criar pontos finais para que compilações VSTO podem impl
 
 6.  Selecione **guardar as alterações.**
 
-    ![buchatech](media\azure-stack-solution-machine-learning\image102.jpeg)
+    ![buchatech](media/azure-stack-solution-machine-learning/image102.jpeg)
 
     O agente de compilação no Azure Stack ganhos de instruções do VSTS, que, em seguida, transmite informações de ponto final para comunicação com o Azure Stack.
 
     VSTS para ligação do Azure Stack agora está pronto.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image103.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image103.png)
 
 ### <a name="configure-build-and-release-definitions"></a>Configurar as definições de compilação e versão
 
@@ -1735,61 +1735,61 @@ Agora que as ligações são estabelecidas, manualmente será criada endpoint do
 
 1.  Selecione a secção baseia-se sob o hub de compilação e lançamento e criar uma nova definição.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image104.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image104.png)
 
 1.  Selecione o Git do VSTS e selecione o repositório que criou anteriormente.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image105.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image105.png)
 
 1.  Selecione o Pipeline vazio como modelo
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image106.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image106.png)
 
 1.  Nome da compilação **artefacto de cópia** e selecione o servidor de compilação do Azure Stack para a fila de agente.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image107.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image107.png)
 
 1.  Selecione os processos de fase 1 e mude o nome para **artefacto de cópia**, em seguida, **adicionar uma tarefa** para a fase de:
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image108.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image108.png)
 
 1.  Selecione **publicar artefactos de compilação** partir a **utilitário** lista e selecione **Add**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image109.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image109.png)
 
 1.  Selecione o **caminho para publicar** e selecione o **iris_deployment.yaml** ficheiro.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image110.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image110.png)
 
 1.  Nome do artefacto **iris_deployment** e selecione o local de publicação ser **Visual Studio Team Services/TFS**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image111.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image111.png)
 
 1.  Selecione **guardar e colocar em fila**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image112.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image112.png)
 
 1.  Verificar o estado da compilação ao selecionar o ID de compilação.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image113.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image113.png)
 
 Êxito terá um aspeto semelhante a este:
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image114.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image114.png)
 
 #### <a name="create-the-release-definition-for-the-yaml-code"></a>Criar a definição de versão para o código YAML
 
 1.  Selecione a secção de versões sob o hub de criação e versão, uma nova definição
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image115.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image115.png)
 
 1.  Selecione o Pipeline vazio como um modelo.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image106.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image106.png)
 
 1.  Nome do Azure de ambiente de pilha.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image116.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image116.png)
 
 1.  Adicione um artefacto novo selecionando **artefactos** e **+ adicionar**
 
@@ -1799,25 +1799,25 @@ Agora que as ligações são estabelecidas, manualmente será criada endpoint do
 
 4.  Em seguida, selecione **adicionar**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image117.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image117.png)
 
 1.  Selecione o Azure Stack dos ambientes, em seguida, adicionar uma nova tarefa ao Azure Stack
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image118.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image118.png)
 
 
 1.  Sobre a fase de agente, defina a fila de agente para o servidor do Azure Stack alojado criar.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image119.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image119.png)
 
 1.  Adicionar uma nova tarefa para esta fase, selecione a implementar a tarefa de Kubernetes em implementar e selecione Adicionar.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image120.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image120.png)
 
 
 1.  Atribua o nome **Kubectl aplicar** (nome predefinido) e selecione o comando apply.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image121.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image121.png)
 
     Agora, crie uma nova ligação de serviço do Kubernetes.
 
@@ -1846,7 +1846,7 @@ Agora que as ligações são estabelecidas, manualmente será criada endpoint do
 
 11. Aceda a <https://aka.ms/devicelogin> no browser. Quando lhe for pedido, introduza o código, recebido na CLI, no navegador.
 
-    ![Ponto final de serviço do Kubernetes](media\azure-stack-solution-machine-learning\image122.png)
+    ![Ponto final de serviço do Kubernetes](media/azure-stack-solution-machine-learning/image122.png)
 
 1.  Escreva o seguinte comando no prompt de comando para obter as credenciais de acesso para o cluster de Kubernetes.
 
@@ -1854,20 +1854,20 @@ Agora que as ligações são estabelecidas, manualmente será criada endpoint do
 
 AZ aks get-credentials-grupo de recursos <yourResourceGroup> nome <yourazurecontainerservice>
 
-![Ponto final de serviço do Kubernetes](media\azure-stack-solution-machine-learning\image123.png)
+![Ponto final de serviço do Kubernetes](media/azure-stack-solution-machine-learning/image123.png)
 
 1.  Navegue para o **.kube**pasta sob o diretório de raiz (por exemplo: c:\\utilizadores\\<user>\\documentos\\Kube)
 
 2.  Copie o conteúdo dos**config**de ficheiros e cole-a na janela de ligação de Kubernetes. Selecione o**OK**botão.
 
-    ![Ponto final de serviço do Kubernetes](media\azure-stack-solution-machine-learning\image124.png)
+    ![Ponto final de serviço do Kubernetes](media/azure-stack-solution-machine-learning/image124.png)
     
 
 3.  Depois do ponto de extremidade do Kubernetes é criado e selecionado, selecione a caixa de verificação da ficheiros de configuração utilizado para adicionar um ficheiro de configuração. Em seguida, procure o ficheiro de iris_deployment.yaml nos artefactos ligado.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image125.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image125.png)
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image126.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image126.png)
 
 4.  Guarde a definição de versão.
 
@@ -1883,7 +1883,7 @@ kubectl get deployments
 
 O resultado deverá ter um aspeto semelhante a esta, enquanto estiver no processo de implantação.
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image127.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image127.png)
 
 ```Bash  
 kubectl proxy
@@ -1891,7 +1891,7 @@ kubectl proxy
 
 Assim que o kubernetes interface do Usuário está em execução, navegue para a implantação na [ **https://localhost:8001/** ](https://localhost:8001/) , em seguida, navegue para **cargas de trabalho -> conjuntos de réplicas**.
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image128.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image128.png)
 
 ### <a name="deploy-the-yaml-service"></a>Implementar o serviço YAML
 
@@ -1903,7 +1903,7 @@ Assim que o kubernetes interface do Usuário está em execução, navegue para a
     cd /mnt/c/users/<User>/source/repos/HybridMLIris/HybridMLIris/
     ```
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image75.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image75.png)
 
 1.  Copiar o **iris_service.yaml** ficheiros no repositório.
 
@@ -1919,21 +1919,21 @@ Assim que o kubernetes interface do Usuário está em execução, navegue para a
     git push
     ```
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image129.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image129.png)
 
 #### <a name="update-the-build-definition-for-the-yaml-code"></a>Atualizar a definição de compilação para o código YAML do
 
 1.  Selecione a secção baseia-se sob o hub de criação e versão e selecione a definição que criou anteriormente.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image130.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image130.png)
 
 2.  Selecione o botão Editar para editar a definição.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image131.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image131.png)
 
 3.  **Adicionar uma tarefa** para a fase. Selecione **publicar artefactos de compilação** partir a **utilitário** lista e selecione **Add**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image108.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image108.png)
 
 4.  Atribua o nome **Kubectl aplicar** (nome predefinido) e selecione o comando apply.
 
@@ -1943,26 +1943,26 @@ Assim que o kubernetes interface do Usuário está em execução, navegue para a
 
 1.  Selecione a secção de theReleases sob o hub de criação e versão e selecione a definição de versão que criou anteriormente. Em seguida, selecione a ligação editar.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image132.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image132.png)
 
 1.  Selecione o ambiente **do Azure Stack** , em seguida, adicionar uma nova tarefa ao Azure Stack.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image133.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image133.png)
 
 1.  Adicionar uma **nova tarefa** para esta fase, selecione o **implementar no Kubernetes** tarefas sob **implementar** e selecione **adicionar**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image134.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image134.png)
 
 1.  Atribua o nome **Kubectl aplicar** (nome predefinido) e selecione o comando apply.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image109.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image109.png)
 
 1.  Definir a ligação de serviço Kubernates para a ligação de pilha do Azure criado anteriormente e, em seguida, selecione o **utilizar ficheiros de configuração** caixa de verificação para adicionar um ficheiro de configuração. Procure o ficheiro de iris_service.yaml nos artefactos ligado.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image135.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image135.png)
 
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image136.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image136.png)
 
 1.  Guarde a definição de versão.
 
@@ -1978,7 +1978,7 @@ kubectl get deployments
 
 O resultado deverá ter um aspeto semelhante a esta, enquanto estiver no processo de implantação.
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image127.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image127.png)
 
 
 ```Bash  
@@ -1987,7 +1987,7 @@ kubectl proxy
 
 Assim que o kubernetes interface do Usuário está em execução, navegue para a implantação na [ **https://localhost:8001/** ](https://localhost:8001/) , em seguida, navegue para **cargas de trabalho -> conjuntos de réplicas**.
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image137.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image137.png)
 
 
 ### <a name="kubernetes-scoring-and-validation"></a>Kubernetes de classificação e a validação
@@ -2000,15 +2000,15 @@ kubectl proxy
 
 Navegue para a IU do Kubernetes em seguida, aceda a **implementações** -> **Iris-implementação** -> **novo conjunto de réplicas**  ->  **Iris-implantação-xxxxxxxxx** (onde os xs são o ID de implementação).
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image138.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image138.png)
 
 Em seguida, navegue até **serviços** e selecione o **ponto final externo** do serviço para validar que está a funcionar.
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image139.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image139.png)
 
 Deverá ser apresentada uma mensagem de validação semelhante ao seguinte:
 
-![Texto alternativo](media\azure-stack-solution-machine-learning\image140.png)
+![Texto alternativo](media/azure-stack-solution-machine-learning/image140.png)
 
 #### <a name="create-azure-stack-scoring-function-app-in-the-azure-stack-portal"></a>Criar a pilha do Azure, aplicação de funções de classificação no Portal do Azure Stack
 
@@ -2016,37 +2016,37 @@ Uma aplicação de funções é necessário para alojar a execução de cada fun
 
 1.  A partir do portal de utilizador do Azure Stack, selecione o **+ novo** botão encontrado no canto superior esquerdo, em seguida, selecione**Web + móvel** >**aplicação de funções**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image141.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image141.png)
 
 1.  Dê um nome de função **funções de dados** e coloque-o no mesmo grupo de recursos com o Machine Learning restantes conteúdo. Permitir que a ferramenta de auto-criar um novo plano do serviço de aplicações para consumo e utilizar a conta de armazenamento criada anteriormente para o armazenamento de aplicação.
 
-    ![Definir novas definições de aplicação de função](media\azure-stack-solution-machine-learning\image142.png)
+    ![Definir novas definições de aplicação de função](media/azure-stack-solution-machine-learning/image142.png)
 
 1.  Selecione**criar**para aprovisionar e implementar a aplicação de funções.
 
 2.  Selecione o ícone de notificação no canto superior direito do portal e procure o**implementação concluída com êxito** mensagem.
 
-    ![Definir novas definições da aplicação de funções](media\azure-stack-solution-machine-learning\image143.png)
+    ![Definir novas definições da aplicação de funções](media/azure-stack-solution-machine-learning/image143.png)
 
 1.  Selecione**Ir para recurso** para ver a nova aplicação de função.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image144.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image144.png)
 
 1.  Criar uma nova função, selecionando **funções**, em seguida, o **+ nova função** botão.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image145.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image145.png)
 
 1.  Selecione o acionador HTTP
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image146.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image146.png)
 
 1.  Selecione **C\#**  como o idioma e o nome da função: **apagar classificação de dados**e definir o nível de autorização **anónimo**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image147.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image147.png)
 
 1.  Copiar-colar o conteúdo do exemplo de código para apagar classificação de dados para a função.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image148.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image148.png)
 
 #### <a name="use-postman-to-validate-functions"></a>Utilizar o Postman para validar as funções
 
@@ -2054,39 +2054,39 @@ Para se certificar de que configurou seu Kbernetes e funções corretamente pode
 
 1.  Navegue para a IU do Kubernetes em seguida, aceda a **implementações** -> **Iris-implementação** -> **novo conjunto de réplicas**  ->  **Iris-implantação-xxxxxxxxx** (onde os xs são o ID de implementação)
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image138.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image138.png)
 
 1.  Em seguida, navegue até **serviços** e copie a **ponto final externo**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image149.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image149.png)
 
 1.  Transferir e instalar a aplicação Postman [aqui](https://www.getpostman.com/apps) se for necessário.
 
 2.  Inicie sessão na aplicação Postman e fechar a caixa de diálogo novo ficheiro.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image150.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image150.png)
 
 1.  Na aplicação postman, selecione POST....
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image151.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image151.png)
 
 1.  Colar o **ponto final externo** URL na aplicação postman sob a **URL do pedido** adicionando  **\\pontuação** ao final do URL, conforme mostrado abaixo.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image152.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image152.png)
 
 1.  Selecione o **corpo** separador e, em seguida, os dados de tipo como **brutos**, em seguida, **JSON**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image153.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image153.png)
 
 1.  A partir de um navegador da web, navegue para **ponto final externo**. Adicionar o seguinte para o URL **/swagger.json** isso nos leva para o ficheiro Swagger de serviços, utilizado para testar o programa de configuração.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image154.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image154.png)
 
 1.  Copie o exemplo listado na **swagger** ficheiro.
 
 2.  Na aplicação Postman, cole o exemplo no corpo da postagem e selecione **enviar**. Ele deve retornar um valor semelhante ao mostrado abaixo.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image155.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image155.png)
 
 ## <a name="step-7-create-an-azure-stack-storage-account-and-storage-queue"></a>Passo 7: Criar uma conta de armazenamento do Azure Stack e a fila de armazenamento
 
@@ -2106,29 +2106,29 @@ Crie uma conta de armazenamento do Azure Stack e a fila de armazenamento para da
 
 7.  Selecione**criar**para criar a conta de armazenamento.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image156.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image156.png)
 
 1.  Selecione a conta de armazenamento recentemente criada.
 
 2.  Selecione no**filas**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image157.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image157.png)
 
 1.  Selecione no **+ fila** e dê o nome de fila e selecione **OK.**
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image158.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image158.png)
 
 1.  Obter o **cadeia de ligação** para a fila de armazenamento e copie-o.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image159.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image159.png)
 
 1.  Navegue para a aplicação de funções do Azure e, em seguida, selecione **as definições da aplicação**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image160.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image160.png)
 
 1.  Configurações de aplicativo da aplicação de funções, desloque para baixo para as definições da aplicação e selecione **+ Adicionar nova definição**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image161.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image161.png)
 
 1.  Introduza o nome da conta de armazenamento na **nome** campo, adicionando ao fim; _STORAGE
 
@@ -2136,11 +2136,11 @@ Isso permite que a aplicação para compreender o que se trata de um ponto de ex
 
 1.  Em seguida, cole a cadeia de ligação para o **valor** campo.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image162.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image162.png)
 
 1.  Desloque-se para a parte superior das configurações de aplicativo e selecione **guardar**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image163.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image163.png)
 
 ### <a name="update-the-scoring-function-to-use-storage-queue"></a>Atualizar a função de classificação de mensagens em fila para utilizar a fila de armazenamento
 
@@ -2150,15 +2150,15 @@ Isso permite que a aplicação para compreender o que se trata de um ponto de ex
 
 3.  Em seguida, selecione **+ nova saída** das saídas.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image164.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image164.png)
 
 1.  Em seguida, selecione **armazenamento de filas do Azure** e escolha **selecione**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image165.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image165.png)
 
 1.  Atualização do **nome da fila** para a fila de armazenamento criado anteriormente e, em seguida, defina o **ligação da conta de armazenamento** para a ligação de conta de armazenamento criada anteriormente e selecione **guardar.**
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image166.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image166.png)
 
 ## <a name="step-8-create-a-function-to-handle-clean-data"></a>Passo 8: Criar uma função para processar limpar dados
 
@@ -2166,15 +2166,15 @@ Crie uma nova função do Azure Stack para mover os apagar dados do Azure Stack 
 
 1.  Criar uma nova função, selecionando **funções**, em seguida, o **+ nova função** botão.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image167.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image167.png)
 
 1.  Selecione **acionador de temporizador**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image168.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image168.png)
 
 1.  Selecione **C\#**  como o idioma e o nome da função: **carregamento para o azure** e defina a agenda **0 0 \*/1 \* \* \***  que CRON notação é uma vez por hora.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image169.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image169.png)
 
 ### <a name="get-the-connection-string-to-the-azure-hosted-storage-account"></a>Obter a cadeia de ligação para a conta de armazenamento alojado do Azure
 
@@ -2182,17 +2182,17 @@ Crie uma nova função do Azure Stack para mover os apagar dados do Azure Stack 
 
 2.  Selecione **chaves de acesso**, em seguida, copie a **cadeia de ligação** para a conta de armazenamento.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image170.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image170.png)
 
 ### <a name="update-the-upload-to-azure-function-to-use-the-azure-hosted-storage"></a>Atualizar o carregamento para o azure função a utilizar o armazenamento alojado do Azure
 
 1.  Navegue para a aplicação de funções do Azure e, em seguida, selecione **as definições da aplicação**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image171.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image171.png)
 
 1.  Configurações de aplicativo da aplicação de funções, desloque para baixo para as definições da aplicação e selecione **+ Adicionar nova definição**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image172.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image172.png)
 
 1.  Introduza o nome da conta de armazenamento na **nome** campo, adicionando ao fim; _STORAGE
 
@@ -2200,11 +2200,11 @@ Isso permite que a aplicação para compreender o que se trata de um ponto de ex
 
 1.  Em seguida, cole a Azure alojado armazenamento conta cadeia de ligação para o **valor** campo.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image173.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image173.png)
 
 1.  Desloque-se para a parte superior das configurações de aplicativo e selecione **guardar**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image174.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image174.png)
 
 1.  Navegue de volta para o **carregamento para o azure** função.
 
@@ -2212,15 +2212,15 @@ Isso permite que a aplicação para compreender o que se trata de um ponto de ex
 
 3.  Em seguida, selecione **+ nova saída** das saídas.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image175.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image175.png)
 
 1.  Em seguida, selecione **armazenamento de Blobs do Azure** e escolha **selecione**.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image176.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image176.png)
 
 1.  Atualização do **caminho** para o contentor de armazenamento criado anteriormente no seguinte formato: **uploadeddata /. txt de {rand-guid}** e, em seguida, defina o **ligação da conta de armazenamento** para o Ligação da conta de armazenamento para o Azure criado anteriormente e selecione **guardar.**
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image177.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image177.png)
 
 1.  Copiar-colar o conteúdo do exemplo de código para **carregamento para o azure** na função.
 
@@ -2228,11 +2228,11 @@ Isso permite que a aplicação para compreender o que se trata de um ponto de ex
 
 3.  Salve e execute o código.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image178.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image178.png)
 
 1.  Verificar a conta de armazenamento alojado do Azure para ver os dados tenha sido analisada para a cloud do Azure: êxito terá um aspeto semelhante para o abaixo.
 
-    ![Texto alternativo](media\azure-stack-solution-machine-learning\image179.png)
+    ![Texto alternativo](media/azure-stack-solution-machine-learning/image179.png)
 
 Foi corrigidos de dados confidenciais, o Azure Stack alojado Kubernetes Machine Learning e carregados para a Cloud pública do Azure da pilha do Azure no local, através do Azure Stack alojado aplicações Function App, os dados e pode preparar os dados para carregamentos num borda/desligado cenário.
 

@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: adc97da12d1a55dd3dcf435fc8051a8eb9b537a9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232381"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968191"
 ---
 # <a name="monitor-logic-apps-with-azure-log-analytics"></a>Monitorizar aplicações lógicas com o Azure Log Analytics
 
@@ -27,7 +27,7 @@ Para ativar o Azure Log Analytics para o logic apps existentes, siga estes passo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, terá de uma área de trabalho do Log Analytics. Saiba mais [como criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
+Antes de começar, terá de uma área de trabalho do Log Analytics. Saiba mais [como criar uma área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Ativar o registo de diagnóstico durante a criação de aplicações lógicas
 

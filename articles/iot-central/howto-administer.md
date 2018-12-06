@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4bfb7dc2b65dc479189ac7920509e1fd8a23ce4f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a641b5bb754c265a4fa5fb7e2fe85989d4813354
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961353"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955178"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrar a sua aplicação do Centro de IoT
 
@@ -35,7 +35,7 @@ Aceder e utilizar o **Administration** seção, deve estar no **administrador** 
 ### <a name="change-application-name-and-url"></a>Alterar o nome do aplicativo e URL
 Na **as configurações do aplicativo** página, pode alterar o nome e o URL do seu aplicativo, em seguida, selecione **guardar**.
 
-![Página de definições de aplicação](media\howto-administer\image0-a.png)
+![Página de definições de aplicação](media/howto-administer/image0-a.png)
 
 > [!Note]
 > Se alterar o URL, o seu URL antigo pode ser realizado por outro cliente do Azure IoT Central. Se isto acontecer, já não está disponível para utilização. Quando altera o URL, o antigo URL já não funciona, e precisa notificar os utilizadores sobre o novo URL a utilizar.
@@ -48,11 +48,11 @@ Pode criar uma cópia de qualquer aplicativo, menos quaisquer instâncias de dis
 
 Clique nas **cópia** botão. Na caixa de diálogo, introduza os detalhes para a nova aplicação de pay as you go. Em seguida, clique nas **cópia** botão para confirmar que pretende prosseguir. Saiba mais sobre os campos neste formulário na [criar uma aplicação](quick-deploy-iot-central.md) início rápido.
 
-![Página de definições de aplicação](media\howto-administer\appCopy2.png)
+![Página de definições de aplicação](media/howto-administer/appCopy2.png)
 
 Depois da operação de cópia da aplicação for bem-sucedida, pode ir para a nova aplicação que foi criada ao copiar a sua aplicação através da ligação que aparece.
 
-![Página de definições de aplicação](media\howto-administer\appCopy3.png)
+![Página de definições de aplicação](media/howto-administer/appCopy3.png)
 
 > [!Note]
 > Também copiar um aplicativo copia a definição de regras e ações. Mas uma vez que os utilizadores que têm acesso à sua aplicação original não são copiados para a aplicação de copiado, tem de adicionar manualmente os utilizadores a ações como o e-mail para o qual os usuários são um pré-requisito. Em geral é uma boa idéia para verificar as regras e ações para se certificar de que são atualizados na nova aplicação.
@@ -71,13 +71,13 @@ Para obter mais informações, consulte [ajuda de conta da Microsoft](https://su
 
 1. Para adicionar um utilizador a uma aplicação IoT Central, vá para o **usuários** página no **administração** secção.
 
-    ![Lista de utilizadores](media\howto-administer\image1.png)
+    ![Lista de utilizadores](media/howto-administer/image1.png)
 
 1. Para adicionar um utilizador, o **usuários** página, selecione **+ adicionar utilizador**.
 
 1. Escolher uma função para o utilizador a partir da **função** menu pendente. Saiba mais sobre as funções no [gerir funções](#manage-roles) seção deste artigo.
 
-    ![Seleção da função](media\howto-administer\image3.png)
+    ![Seleção da função](media/howto-administer/image3.png)
 
     > [!NOTE]
     >  Para adicionar utilizadores em volume, introduza o utilizador IDs de todos os utilizadores que pretende adicionar separados por ponto e vírgula. Escolha uma função a partir da **função** menu pendente. Em seguida, selecione **Guardar**.
@@ -117,10 +117,10 @@ Para ver a sua fatura, vá para o **faturação** página no **administração**
 
 Pode converter a sua aplicação de avaliação para uma aplicação de pay as you go. Estas são as diferenças entre esses tipos de aplicativos.
 
-- **Versão de avaliação** aplicativos são gratuitos durante sete dias antes que ocorra. Elas podem ser convertidas para pay as you go a qualquer momento antes que ocorra.
-- **Pay as you go** aplicações são cobradas por dispositivo, com os primeiros 5 dispositivos Gratuitos.
+- As aplicações de **avaliação** são gratuitas durante sete dias, até que expiram. Podem ser convertidas em Pay As You Go a qualquer momento antes de expirarem.
+- As aplicações **Pay As You Go** são cobradas por dispositivo, sendo os primeiros cinco gratuitos.
 
-Saiba mais sobre os preços sobre o [do Azure IoT Central página de preços](https://azure.microsoft.com/pricing/details/iot-central/).
+Saiba mais sobre os preços na [página de preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
     
 Para concluir este processo self-service, siga estes passos:
 

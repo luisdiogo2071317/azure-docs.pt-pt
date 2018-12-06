@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 11/30/2018
+ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: e9a286e4ce510cd673a7069b8b7e7d6f631ffb6a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9929662f1fe4612e51c82248f64e3191f7fdb223
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726445"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955212"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-by-using-the-portal"></a>Início rápido: Configurar o DNS do Azure para resolução de nomes com o portal
 
@@ -30,7 +30,7 @@ You can also perform these steps using [Azure PowerShell](dns-getstarted-powersh
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Para todos os passos do portal, inicie sessão para o [portal do Azure](https://portal.azure.com).
-   
+
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
 Uma zona DNS contém as entradas de DNS para um domínio. Para começar a alojar o seu domínio no DNS do Azure, crie uma zona DNS para esse nome de domínio. 
@@ -68,7 +68,7 @@ Criar entradas DNS ou registos para o seu domínio dentro da zona DNS. Crie um n
    - **Unidade de TTL**: selecione **horas**. Esta é a unidade de tempo para o **TTL** valor. 
    - **Endereço IP**: para este exemplo de início rápido, digite *10.10.10.10*. Este valor é que o nome do registo de endereço IP é resolvido para o. Num cenário do mundo real, deve introduzir o endereço IP público para o servidor web.
 
-Uma vez que este guia de introdução não utiliza um domínio real, não é necessário para configurar os servidores de nomes do DNS do Azure numa entidade de registo de nome de domínio. Com um domínio real, desejará qualquer pessoa na internet para resolver o nome de anfitrião para ligar ao servidor web ou aplicação. Vai visitar a sua entidade de registo de nome de domínio para substituir os registos do servidor de nome com os servidores de nomes do DNS do Azure. Para obter mais informações, veja [Delegar um domínio ao DNS do Azure](dns-delegate-domain-azure-dns.md).
+Uma vez que este guia de introdução não utiliza um domínio real, não é necessário para configurar os servidores de nomes do DNS do Azure numa entidade de registo de nome de domínio. Com um domínio real, desejará qualquer pessoa na internet para resolver o nome de anfitrião para ligar ao servidor web ou aplicação. Vai visitar a sua entidade de registo de nome de domínio para substituir os registos do servidor de nome com os servidores de nomes do DNS do Azure. Para obter mais informações, consulte [Tutorial: alojar o seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
 ## <a name="test-the-name-resolution"></a>Testar a resolução de nomes
 

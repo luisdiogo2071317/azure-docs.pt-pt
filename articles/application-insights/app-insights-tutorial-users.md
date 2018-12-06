@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 6d4f96a2c1d288648543a92614cab0f8cf5ee2ea
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d5e97d82a011bc4aba29aa597a7fc6473d17a3b2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256005"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970795"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Utilize o Azure Application Insights para compreender de que forma os clientes estão a utilizar a sua aplicação
 
@@ -53,20 +53,20 @@ O painel **Users** (Utilizadores) permite-lhe ficar a par de detalhes importante
 2. Selecione **Users** (Utilizadores), no menu.
 3. A vista predefinida mostra o número de utilizadores únicos que se ligaram à sua aplicação nas últimas 24 horas.  Pode alterar o período de tempo e definir vários outros critérios, para filtrar estas informações.
 
-    ![Construtor de Consultas](media\app-insights-tutorial-users\QueryBuilder.png)
+    ![Construtor de Consultas](media/app-insights-tutorial-users/QueryBuilder.png)
 
 6. Clique no menu pendente **During** (Durante) e altere o período de tempo para 7 dias.  Isto aumenta os dados incluídos nos diversos gráficos do painel.
 
-    ![Alterar o Intervalo de Tempo](media\app-insights-tutorial-users\TimeRange.png)
+    ![Alterar o Intervalo de Tempo](media/app-insights-tutorial-users/TimeRange.png)
 
 4. Clique no menu pendente **Split by** (Dividir por) para adicionar uma discriminação por propriedade do utilizador ao gráfico.  Selecione **Country or region** (País ou região).  O gráfico inclui os mesmos dados, mas permite ver uma discriminação do número de utilizadores de cada país.
 
-    ![Gráfico de País ou Região](media\app-insights-tutorial-users\CountryorRegion.png)
+    ![Gráfico de País ou Região](media/app-insights-tutorial-users/CountryorRegion.png)
 
 5. Posicione o cursor por cima das diferentes barras no gráfico e repare que a contagem de cada país reflete apenas o período de tempo que as barras representam.
 6. Veja a coluna **Insights** (Informações), no lado direito, que analisam os seus dados de utilizador.  Essas análises disponibilizam informações como o número de sessões únicas durante o período de tempo e registos com propriedades comuns significativas dos dados dos utilizadores 
 
-    ![Coluna Informações](media\app-insights-tutorial-users\insights.png)
+    ![Coluna Informações](media/app-insights-tutorial-users/insights.png)
 
 
 ## <a name="analyze-user-sessions"></a>Analisar as sessões dos utilizadores
@@ -75,15 +75,15 @@ O painel **Sessions** (Sessões) é semelhante ao painel **Users** (Utilizadores
 1. Selecione **Sessions** (Sessões), no menu.
 2. Veja o gráfico e repare que as opções para filtrar e discriminar os dados são iguais às do painel **Users** (Utilizadores).
 
-    ![Construtor de Consultas de Sessões](media\app-insights-tutorial-users\SessionsBuilder.png)
+    ![Construtor de Consultas de Sessões](media/app-insights-tutorial-users/SessionsBuilder.png)
 
 3. O painel **Sample of these sessions** (Amostra destas sessões), no lado direito, mostra as sessões que incluem um grande número de eventos.  São sessões cuja análise é interessante.
 
-    ![Amostra destas sessões](media\app-insights-tutorial-users\SessionsSample.png)
+    ![Amostra destas sessões](media/app-insights-tutorial-users/SessionsSample.png)
 
 4. Clique numa da sessões para ver **Session Timeline** (Linha Cronológica da Sessão), que mostra todas as ações na mesma.  Esta informação pode ajudá-lo a identificar informações, como as sessões com um grande número de exceções.
 
-    ![Linha Cronológica das Sessões](media\app-insights-tutorial-users\SessionsTimeline.png)
+    ![Linha Cronológica das Sessões](media/app-insights-tutorial-users/SessionsTimeline.png)
 
 ## <a name="group-together-similar-users"></a>Agrupar utilizadores semelhantes
 Um **coorte** é um conjunto de utilizadores agrupados com base em características semelhantes.  Pode utilizar coortes para filtrar os dados de outros painéis, o que lhe permite analisar grupos específicos de utilizadores.  Por exemplo, poderá querer analisar apenas utilizadores que tenham concluído uma compra.
@@ -92,12 +92,12 @@ Um **coorte** é um conjunto de utilizadores agrupados com base em característi
 2.  Clique em **New** (Novo) para criar um coorte novo.
 3.  Selecione o menu pendente **Who used** (Quem utilizou) e uma ação.  Só serão incluídos os utilizadores que realizaram essa ação durante o período de tempo do relatório.
 
-    ![Coorte que realizou ações especificadas](media\app-insights-tutorial-users\CohortsDropdown.png)
+    ![Coorte que realizou ações especificadas](media/app-insights-tutorial-users/CohortsDropdown.png)
 
 4.  Selecione **Users** (Utilizadores), no menu.
 5.  No menu pendente **Show** (Mostrar), selecione o coorte que acabou de criar.  Os dados do gráfico estão limitados a esses utilizadores.
 
-    ![Ferramenta de coorte nos utilizadores](media\app-insights-tutorial-users\UsersCohort.png)
+    ![Ferramenta de coorte nos utilizadores](media/app-insights-tutorial-users/UsersCohort.png)
 
 
 ## <a name="compare-desired-activity-to-reality"></a>Comparar a atividade pretendida com a realidade
@@ -105,16 +105,16 @@ Ao passo que os painéis acima estão orientados para o que os utilizadores da s
 
 1. Selecione **Funnels** (Funis), no menu, e clique em **New** (Novo). 
 
-    ![](media\app-insights-tutorial-users\funnelsnew.png)
+    ![](media/app-insights-tutorial-users/funnelsnew.png)
 
 2. Preencha **Funnel Name** (Nome do Funil).
 3. Crie um funil com, pelo menos, dois passos e selecione uma ação para cada passo.  A lista de ações é compilada a partir dos dados de utilização que o Application Insights recolhe.
 
-    ![](media\app-insights-tutorial-users\funnelsedit.png)
+    ![](media/app-insights-tutorial-users/funnelsedit.png)
 
 4. Clique em **Save** (Guardar) para guardar o funil e veja os resultados.  A janela no lado direito do funil mostra os eventos mais comuns antes da primeira atividade e depois da última atividade, que o ajudam a compreender as tendências do utilizador em torno da sequência específica.
 
-    ![](media\app-insights-tutorial-users\funnelsright.png)
+    ![](media/app-insights-tutorial-users/funnelsright.png)
 
 
 ## <a name="learn-which-customers-return"></a>Saber que clientes regressaram
@@ -123,11 +123,11 @@ Ao passo que os painéis acima estão orientados para o que os utilizadores da s
 1. Selecione **Retention** (Retenção), no menu.
 2. Por predefinição, as informações analisadas incluem utilizadores que realizaram qualquer ação e, depois, regressaram para realizar outra ação qualquer.  Pode mudar este filtro para qualquer ação, como, por exemplo, apenas os utilizadores que regressaram depois de concluírem uma compra.
 
-    ![](media\app-insights-tutorial-users\retentionquery.png)
+    ![](media/app-insights-tutorial-users/retentionquery.png)
 
 3. Os utilizadores que regressam e que correspondam aos critérios são apresentados, quer num gráfico, quer numa tabela, relativamente a períodos diferentes.  O padrão típico mostra uma queda gradual nos utilizadores que regressam ao longo do tempo.  Uma queda abrupta de um período de tempo para o seguinte pode ser motivo de preocupação. 
 
-    ![](media\app-insights-tutorial-users\retentiongraph.png)
+    ![](media/app-insights-tutorial-users/retentiongraph.png)
 
 ## <a name="analyze-user-navigation"></a>Analisar a navegação dos utilizadores
 Os **fluxos de utilizador** mostram como é que os utilizadores navegam entre as páginas e as funcionalidades da aplicação.  Essas informações permitem responder a perguntas como para onde, regra geral, é que os utilizadores vão de uma determinada página, como é que, geralmente, saem da sua aplicação e se repetem regularmente alguma ação.
@@ -136,15 +136,15 @@ Os **fluxos de utilizador** mostram como é que os utilizadores navegam entre as
 2.  Clique em **New** (Novo), para criar um fluxo de utilizador novo, e clique em **Edit** (Editar), para editar os detalhes.
 3.  Aumente **Time Range** (Intervalo de Tempo) para 7 dias e selecione um evento inicial.  O fluxo vai acompanhar sessões de utilizadores que comecem com esse evento.
 
-    ![](media\app-insights-tutorial-users\flowsedit.png)
+    ![](media/app-insights-tutorial-users/flowsedit.png)
 
 4.  O fluxo do utilizador é apresentado e pode ver os diferentes caminhos do utilizador, bem como os números de sessões.  As linhas azuis indicam uma ação que o utilizador realizou a seguir à ação atual.  As linhas vermelhas indicam o fim da sessão do utilizador.
 
-    ![](media\app-insights-tutorial-users\flows.png)
+    ![](media/app-insights-tutorial-users/flows.png)
 
 5.  Para remover um evento do fluxo, clique em **x**, no canto da ação, e clique em**Create Graph** (Criar Gráfico).  O gráfico é redesenhado com todas as instâncias desse evento removidas.  Clique em **Edit** (Editar) para ver que o evento foi adicionado a **Excluded events** (Eventos excluídos).
 
-    ![](media\app-insights-tutorial-users\flowsexclude.png)
+    ![](media/app-insights-tutorial-users/flowsexclude.png)
 
 ## <a name="consolidate-usage-data"></a>Consolidar os dados de utilização
 Os **livros** combinam visualizações de dados, consultas do Analytics e textos em documentos interativos.  Pode utilizar os livros para agrupar informações de utilização comuns, consolidar informações de um incidente específico ou informar a sua equipa sobre a utilização da aplicação.
@@ -153,17 +153,17 @@ Os **livros** combinam visualizações de dados, consultas do Analytics e textos
 2.  Clique em **New** (Novo) para criar um livro novo.
 3.  Já é fornecida uma consulta que inclui todos os dados de utilização no último dia, apresentada como um gráfico de barras.  Pode utilizar essa consulta, editá-la manualmente ou clicar em **Sample queries** (Exemplos de consultas) para selecionar outras consultas úteis.
 
-    ![](media\app-insights-tutorial-users\samplequeries.png)
+    ![](media/app-insights-tutorial-users/samplequeries.png)
 
 4.  Clique em **Done editing** (Edição concluída).
 5.  Clique em **Edit** (Editar), no painel superior, para editar o texto que aparece no cimo do livro.  Esse texto é formatado com Markdown.
 
-    ![](media\app-insights-tutorial-users\markdown.png)
+    ![](media/app-insights-tutorial-users/markdown.png)
 
 6.  Clique em **Add users** (Adicionar utilizadores) para adicionar um gráfico com informações do utilizador.  Se pretender, edite os detalhes do gráfico e clique em **Done editing** (Edição concluída), para o guardar.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que já aprendeu a analisar os seus utilizadores, avance para o tutorial seguinte e aprenda a criar dashboards personalizados que combinam essas informações com outros dados úteis da aplicação.
 
 > [!div class="nextstepaction"]

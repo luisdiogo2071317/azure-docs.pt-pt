@@ -4,17 +4,17 @@ description: O Azure Blueprints é um serviço no Azure que serve para criar, de
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a48876adc853ca94f606f58f7eeb13c3d1a57ce8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f1ebbc10109563b771c5417a0449efec12138526
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498605"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967696"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -111,7 +111,7 @@ Para atribuir ou anular a atribuição de um esquema, a sua conta necessita das 
 > [!NOTE]
 > À medida que as atribuições de esquema são criadas numa subscrição, as permissões de atribuição e anulação da atribuição de esquema têm de ser concedidas no âmbito de uma subscrição ou herdadas para o âmbito de uma subscrição.
 
-Além das permissões de atribuição de esquema, estas permissões estão incluídas nas funções **Proprietário** e **Contribuidor**. Se estas funções incorporadas não se adaptarem às suas necessidades de segurança, considere criar uma [função personalizada](../../role-based-access-control/custom-roles.md).
+Todas as permissões acima estão incluídas no **proprietário** função. O **contribuinte** função tem permissões de esquema de esquema e eliminação de criação, mas não tem permissões de atribuição do esquema. Se estas funções incorporadas não se adaptarem às suas necessidades de segurança, considere criar uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > O principal de serviço do Azure Blueprint requer a função **Proprietário** na subscrição atribuída para ativar a implementação. Se utilizar o portal, esta função é automaticamente concedida e revogada para a implementação. Se utilizar a API REST, esta função tem de ser concedida manualmente, mas continua a ser revogada automaticamente depois de concluída a implementação.

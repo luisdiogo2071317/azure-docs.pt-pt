@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 1877acbd39f4e312e3a567e092bb0bcf7531b96b
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 967404fbbff3616d3faf9e315123bccbf3ac9276
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276334"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969075"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Ligar uma conta do Google Cloud Platform
 
@@ -31,7 +31,7 @@ Comece a coleta de informações sobre o seu projeto.
 1. Inicie sessão na consola do Google Cloud Platform em [ https://console.cloud.google.com ](https://console.cloud.google.com).
 2. Reveja as informações de projeto que pretende integrar ao Cloudyn e tenha em atenção a **nome do projeto** e o **ID do projeto**. Manter as informações úteis para os passos seguintes.  
     ![Consola do Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
-3. Se a faturação não está ativada e ligada ao seu projeto, crie uma conta de cobrança. Para obter mais informações, consulte [criar uma nova conta de faturação](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create\_a\_new\_billing\_account).
+3. Se a faturação não está ativada e ligada ao seu projeto, crie uma conta de cobrança. Para obter mais informações, consulte [criar uma nova conta de faturação](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account).
 
 ## <a name="enable-storage-bucket-billing-export"></a>Ativar a exportação de faturação de bucket de armazenamento
 

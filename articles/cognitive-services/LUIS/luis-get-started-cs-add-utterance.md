@@ -10,14 +10,14 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aab9651092f7ad5dbc78c31db8df4ef3538fedfc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 82cc5d940a48cfca33a4ad9e160905df34f86454
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039977"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960469"
 ---
-# <a name="quickstart-change-model-using-c"></a>Guia de Início Rápido: Alterar o modelo com C#
+# <a name="quickstart-change-model-using-c"></a>Início rápido: Alterar o modelo com C#
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
@@ -98,9 +98,7 @@ Adicione o método de pedido POST à classe **Programa**.
 
 Adicione expressões de exemplo do método de ficheiro à classe **Programa**.
 
-   [!code-csharp[Add example utterances from file.
-](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.
-")]
+   [!code-csharp[Add example utterances from file.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.")]
 
 Depois das alterações serem aplicadas ao modelo, treine-o. Adicione o método à classe **Programa**.
 
@@ -139,6 +137,6 @@ Esta linha de comandos apresenta os resultados da chamada à API de expressões 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando tiver terminado o início rápido, remova todos os ficheiros criados neste início rápido. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"] 
 > [Criar uma aplicação LUIS programaticamente](luis-tutorial-node-import-utterances-csv.md) 

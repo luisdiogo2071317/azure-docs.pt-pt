@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c84c15e1e0edcf65f956ed1ed4fd148d1206b65b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 84924900403a4aa2a65143c65a0b26f2c95a1e5b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848583"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962652"
 ---
 # <a name="azure-stack-registration"></a>Registo do Azure Stack
 Pode registrar sua instalação do Azure Stack Development Kit (ASDK) com o Azure para transferir itens do marketplace do Azure e configurar relatórios de volta à Microsoft de dados de comércio. É necessário Registro para dar suporte a todas as funcionalidades do Azure Stack, incluindo a distribuição de mercado. Registo é recomendado porque permite-lhe testar a funcionalidade importante do Azure Stack, como relatórios de utilização e distribuição de mercado. Depois de registar o Azure Stack, a utilização é comunicada ao Azure commerce. Pode vê-lo sob a subscrição utilizada para o registo. No entanto, os utilizadores ASDK para não são cobrados qualquer utilização que reportam.
@@ -218,4 +218,4 @@ Mover um recurso de registro entre grupos de recursos na mesma subscrição **é
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Adicionar um item do mercado do Azure Stack](.\.\azure-stack-marketplace.md)
+[Adicionar um item do mercado do Azure Stack](../azure-stack-marketplace.md)

@@ -8,41 +8,44 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 11/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 9cb82b40d1fbec513b0219f26d1959fbd7f64570
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7d914f394ecfcf02ed26f41cd8fe2ef799cf6103
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343967"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966743"
 ---
 # <a name="generating-thumbnails"></a>Gerar miniaturas
 
-Uma miniatura é uma representação pequenas de uma imagem em tamanho normal. Variados dispositivos como telemóveis, tablets e PCs criam a necessidade de layouts de experiência (UX) de utilizador diferente e tamanhos de miniatura. Utilizar o corte inteligente, esse recurso de imagem digitalizada ajuda a resolver o problema.
+Uma miniatura é uma representação de tamanho reduzido de uma imagem. Elas são usadas para representar as imagens e outros dados de uma forma compatível com esquema mais econômica. A API de imagem digitalizada utiliza o corte inteligente, juntamente com a redimensionar a imagem, para criar miniaturas intuitivas para uma determinada imagem.
 
-Depois de carregar uma imagem, de imagem digitalizada gera uma miniatura de alta qualidade e, em seguida, analisa os objetos na imagem para identificar os *região de interesse* (ROI). Opcionalmente, ele pode recortar a imagem de acordo com os requisitos do ROI. A miniatura gerada pode ser apresentada com uma taxa de proporção diferente da proporção da imagem original, para acomodar suas necessidades.
+O algoritmo de geração de miniaturas de imagem digitalizada funciona da seguinte forma:
+1. Remover elementos distração da imagem e identificar os _área de interesse_&mdash;a área da imagem em que o objeto principal (s) aparece.
+1. Recortar a imagem com base no identificados _área de interesse_.
+1. Altere a proporção de acordo com as dimensões de miniatura de destino.
 
-O algoritmo de miniatura funciona da seguinte forma:
+## <a name="area-of-interest"></a>Área de interesse
 
-1. Remove a distração de elementos da imagem e identifica o objeto principal, a região de interesse.
-2. Recorta a imagem com base na região de interesse identificado.
-3. Altera a taxa de proporção de acordo com as dimensões de miniatura de destino.
+Ao carregar uma imagem, a API de imagem digitalizada analisa para determinar a *área de interesse*. Em seguida, pode utilizar esta região para determinar como recortar a imagem. A operação de recorte, no entanto, sempre corresponderá a proporção pretendida se for especificado.
+
+Também pode obter as coordenadas de caixa delimitadora não processados disso mesmos *área de interesse* chamando o **areaOfInterest** API em vez disso. Em seguida, pode utilizar estas informações para modificar a imagem original, no entanto, o que desejar.
+
+## <a name="examples"></a>Exemplos
 
 A miniatura gerada pode variar bastante, dependendo do que especificou para a altura, largura e corte inteligente, conforme mostrado na imagem seguinte.
 
 ![Miniaturas](./Images/thumbnail-demo.png)
 
-## <a name="thumbnail-generation-examples"></a>Exemplos de geração de miniaturas
-
 A tabela seguinte ilustra as miniaturas típicas geradas de imagem digitalizada para as imagens de exemplo. As miniaturas geradas para uma altura de destino especificado e a largura de 50 pixels, com o corte inteligente ativado.
 
 | Imagem | Miniatura |
 |-------|-----------|
-|![Hora das regiões equipamentos esportivos](./Images/mountain_vista.png) | ![Miniatura de montanha de equipamentos esportivos](./Images/mountain_vista_thumbnail.png) |
-|![Visão analisar flor](./Images/flower.png) | ![Miniatura de analisar flor de imagem digitalizada](./Images/flower_thumbnail.png) |
-|![Teto de mulher](./Images/woman_roof.png) | ![Miniatura de teto de mulher](./Images/woman_roof_thumbnail.png) |
+|![Exterior/Montanha](./Images/mountain_vista.png) | ![Miniatura de montanha de equipamentos esportivos](./Images/mountain_vista_thumbnail.png) |
+|![Análise de Imagem de Flor](./Images/flower.png) | ![Miniatura de analisar flor de imagem digitalizada](./Images/flower_thumbnail.png) |
+|![Mulher num Terraço](./Images/woman_roof.png) | ![Miniatura de teto de mulher](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Conheça os conceitos [marcação de imagens](concept-tagging-images.md) e [categorizar imagens](concept-categorizing-images.md).
+Saiba mais sobre [marcação de imagens](concept-tagging-images.md) e [categorizar imagens](concept-categorizing-images.md).

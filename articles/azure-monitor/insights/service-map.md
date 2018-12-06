@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: dd7f76e20e43e24c31f5afd8c8d9eb97db04255f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 68c838481120dea7635ac5ea76859a8088d732fb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843228"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957355"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o mapa de serviço, pode ver os servidores da forma que considerá-los: como sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos, latência de ligação de entrada e saída e as portas em qualquer arquitetura ligado a TCP, sem qualquer configuração necessária que a instalação de um agente.
@@ -38,7 +38,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 2. Na barra de pesquisa, escreva **mapa de serviço** e prima **Enter**.
 3. Na página de resultados de pesquisa do marketplace, selecione **mapa de serviço** da lista.<br><br> ![Selecione a solução mapa de serviço dos resultados da pesquisa do Azure Marketplace](./media/service-map/marketplace-search-results.png)<br>
 4. Sobre o **mapa de serviço** painel de descrição geral, reveja os detalhes da solução e, em seguida, clique em **criar** para iniciar o processo de inclusão para a área de trabalho do Log Analytics.<br><br> ![Integrar a solução mapa de serviço](./media/service-map/service-map-onboard.png).
-5. Na **configurar uma solução** painel, selecione um existente ou criar uma nova área de trabalho do Log Analytics.  Para obter mais informações sobre como criar uma nova área de trabalho, consulte [criar uma área de trabalho do Log Analytics no portal do Azure](../../log-analytics/log-analytics-quick-create-workspace.md). Depois de fornecer as informações necessárias, clique em **criar**.  
+5. Na **configurar uma solução** painel, selecione um existente ou criar uma nova área de trabalho do Log Analytics.  Para obter mais informações sobre como criar uma nova área de trabalho, consulte [criar uma área de trabalho do Log Analytics no portal do Azure](../../azure-monitor/learn/quick-create-workspace.md). Depois de fornecer as informações necessárias, clique em **criar**.  
 
 Enquanto as informações são confirmadas e a solução é implementada, pode acompanhar o progresso em **notificações** no menu. 
 
@@ -147,24 +147,24 @@ Determinados processos atendem a funções específicas em máquinas: servidores
 |:--|:--|
 | ![Servidor Web](media/service-map/role-web-server.png) | Servidor Web |
 | ![Servidor de aplicações](media/service-map/role-application-server.png) | Servidor de aplicações |
-| ![Servidor de base de dados](media/service-map/role-database.png) | Servidor de base de dados |
+| ![Servidor de bases de dados](media/service-map/role-database.png) | Servidor de bases de dados |
 | ![Servidor LDAP](media/service-map/role-ldap.png) | Servidor LDAP |
 | ![Servidor SMB](media/service-map/role-smb.png) | Servidor SMB |
 
 ![Ícones de função](media/service-map/role-icons.png)
 
 
-## <a name="failed-connections"></a>Ligações falhadas
+## <a name="failed-connections"></a>Ligações com falhas
 Ligações falhadas são exibidas no mapa de serviço mapas para processos e computadores, com uma linha vermelha tracejada que indica que é um sistema de cliente que está a conseguir chegar a um processo ou a porta. Ligações falhadas forem comunicadas a partir de qualquer sistema com um agente de mapa de serviço implementado se esse sistema for a tentar a falha de ligação. Mapa de serviço mede este processo ao observar os sockets TCP que não obedeçam a estabelecer uma ligação. Esta falha pode resultar de uma firewall, uma configuração incorreta no cliente ou servidor ou um serviço remoto indisponível.
 
-![Ligações falhadas](media/service-map/failed-connections.png)
+![Ligações com falhas](media/service-map/failed-connections.png)
 
 Noções sobre ligações falhadas podem ajudar na resolução de problemas, validação da migração, a análise de segurança e a compreensão arquitetônica gerais. Ligações falhadas, às vezes, são inofensivos, mas, muitas vezes, apontam diretamente para um problema, como um ambiente de ativação pós-falha, de repente, tornando-se inacessível ou duas camadas da aplicação que está a ser não é possível comunicar com o após a migração para a cloud.
 
-## <a name="client-groups"></a>Grupos de clientes
+## <a name="client-groups"></a>Grupos de Clientes
 Grupos de clientes são caixas no mapa, que representam computadores cliente que não têm os agentes de dependência. Um único grupo de cliente representa os clientes para uma máquina ou processo individual.
 
-![Grupos de clientes](media/service-map/client-groups.png)
+![Grupos de Clientes](media/service-map/client-groups.png)
 
 Para ver os endereços IP dos servidores num grupo de cliente, selecione o grupo. O conteúdo do grupo está listado na **das propriedades do grupo de cliente** painel.
 
@@ -178,7 +178,7 @@ Grupos de portas de servidor são caixas que representam as portas de servidor n
 ## <a name="context-menu"></a>Menu Contexto
 Ao clicar no botão de reticências (...) na parte superior direita de qualquer servidor apresenta o menu de contexto para esse servidor.
 
-![Ligações falhadas](media/service-map/context-menu.png)
+![Ligações com falhas](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Carregar mapa do servidor
 Clicar **carregar mapa do servidor** leva-o para um novo mapa com o servidor selecionado como a nova máquina de foco.
@@ -497,7 +497,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ## <a name="rest-api"></a>API REST
 Todos os dados de servidor, o processo e dependência no mapa de serviço estão disponíveis através da [API de REST do mapa de serviço](https://docs.microsoft.com/rest/api/servicemap/).
 
-## <a name="diagnostic-and-usage-data"></a>Dados de diagnóstico e utilização
+## <a name="diagnostic-and-usage-data"></a>Dados de utilização e diagnóstico
 A Microsoft recolhe automaticamente dados de utilização e desempenho através da utilização do serviço do mapa de serviço. A Microsoft utiliza estes dados para fornecer e melhorar a qualidade, segurança e integridade do serviço de mapa de serviço. Para fornecer capacidades de resolução de problemas exatas e eficientes, os dados incluem informações sobre a configuração de software, como o sistema operativo e o versão, o endereço IP, o nome DNS e o nome da estação de trabalho. Microsoft não recolhe nomes, moradas ou outras informações de contacto.
 
 Para obter mais informações sobre a recolha de dados e a utilização, consulte a [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).

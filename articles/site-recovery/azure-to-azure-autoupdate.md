@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 061811705b0572059f99300f2a658c5c5b4406c5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839845"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957696"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
 
@@ -66,11 +66,11 @@ Quando ativa a replicação para a máquina virtual a partir de qualquer [da vis
 
 1. Se existem novas atualizações disponíveis para o serviço de mobilidade instalado em suas VMs do Azure, verá uma notificação que lê a "atualização do agente de replicação de recuperação do novo Site está disponível. Clique para instalar."
 
-     ![Janela de itens replicados](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![Janela de itens replicados](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 3. Selecione a notificação para abrir a página de seleção de máquina virtual.
 4. Selecione as máquinas virtuais que pretende atualizar o serviço de mobilidade no e selecione **OK**.
 
-     ![Lista de VMS de itens de replicados](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![Lista de VMS de itens de replicados](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 A tarefa de serviço de mobilidade de atualização é iniciada para cada uma das máquinas virtuais selecionadas.
 

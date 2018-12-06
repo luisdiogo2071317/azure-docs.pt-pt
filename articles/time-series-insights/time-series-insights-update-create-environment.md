@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.openlocfilehash: ed25d03f7c592476b9284790ac12f9954661a42b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9a8486a5022a58dd9d4b94ddbe71f3a4e66f18cf
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872310"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969503"
 ---
 # <a name="azure-time-series-insights-preview-tutorial"></a>Tutorial do Azure Time Series Insights (pré-visualização)
 
@@ -34,23 +34,23 @@ Esta secção descreve como criar um ambiente do Azure TSI (pré-visualização)
 1. Selecione **+ Criar um recurso** no canto superior esquerdo.
 1. Selecione a categoria **Internet das Coisas** e, em seguida, **Time Series Insights**.
 
-  ![um tutorial][1]
+   ![um tutorial][1]
 
 1. Na página de ambiente do Time Series Insights, preencha os parâmetros necessários e clique em **seguinte: origem de evento**
 
-  ![Tutorial-dois][2]
+   ![Tutorial-dois][2]
 
 1. Sobre o **origem do evento** página, preencha os parâmetros necessários e clique em **rever + criar**.
 
-  ![Tutorial-três][3]
+   ![Tutorial-três][3]
 
 1. Reveja todos os detalhes e clique em **criar** para iniciar o aprovisionamento do seu ambiente.
 
-  ![Tutorial-quatro][4]
+   ![Tutorial-quatro][4]
 
 1. Receberá uma notificação quando a implementação foi concluída com êxito.
 
-  ![Tutorial-cinco][5]
+   ![Tutorial-cinco][5]
 
 ## <a name="send-events-to-your-tsi-environment"></a>Enviar eventos para o seu ambiente do TSI
 
@@ -71,7 +71,7 @@ Nesta secção, irá utilizar um simulador de dispositivos de windmill para envi
 
   1. Regresse ao seu hub de eventos. Agora, deverá ver os novos eventos a ser recebidos pelo hub.d
 
-     ![Tutorial-oito][8]
+      ![Tutorial-oito][8]
 
 ## <a name="analyze-data-in-your-environment"></a>Analisar dados no seu ambiente
 
@@ -83,37 +83,37 @@ Nesta secção, irá efetuar a análise básica em seu tempo explorer de atualiz
 
   1. No explorer, clique nas **instâncias Unparented** nós para ver todas as instâncias de série de tempo no ambiente.
 
-     ![Tutorial-dez][10]
+      ![Tutorial-dez][10]
 
   1. Neste tutorial, vamos analisar os dados enviados durante o último dia. Para tal, clique em **vezes rápidas** e selecione o **últimas 24 horas** opção.
 
-     ![Tutorial-11][11]
+      ![Tutorial-11][11]
 
   1. Selecione **Sensor_0** e escolha **Mostrar valor de média** para visualizar os dados que está a ser enviados a partir desta instância de série de tempo.
 
-     ![Tutorial-doze][12]
+      ![Tutorial-doze][12]
 
   1. Da mesma forma, pode desenhar dados provenientes de outras instâncias de série de tempo para executar a análise básica.
 
-     ![treze para o tutorial][13]
+      ![treze para o tutorial][13]
 
-## <a name="define-a-type--hierarchy"></a>Definir um tipo de & hierarquia 
+## <a name="define-a-type-and-hierarchy"></a>Definir um tipo e a hierarquia
 
 Nesta secção, irá criar um tipo, a hierarquia e associá-las com as instâncias de série de tempo. Leia mais sobre [modelos de série de tempo](./time-series-insights-update-tsm.md).
 
   1. No explorer, clique nas **modelo** separador na barra da aplicação.
 
-     ![Tutorial-quatorze][14]
+      ![Tutorial-quatorze][14]
 
   1. Na secção de tipos, clique em **+ adicionar**. Isso permitirá que criar um novo tipo de modelo de série de tempo.
 
-     ![Tutorial-quinze][15]
+      ![Tutorial-quinze][15]
 
   1. No editor de tipo, introduza um **Name**, **Descrição**e criar variáveis para **média**, **Min**, e **Max** os valores, conforme mostrado abaixo. Clique em **criar** para guardar o tipo.
 
-     ![Tutorial-16][16]
+      ![Tutorial-16][16]
 
-     ![Tutorial-seventeen][17]
+      ![Tutorial-seventeen][17]
 
   1. Na **hierarquias** secção, clique em **+ adicionar**. Isso permitirá que criar uma nova hierarquia de modelo de série de tempo.
 

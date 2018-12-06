@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 12/05/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 37fb4c330004ce87afd900d9cafebb337261ec06
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 88041cf185aeb6ae5cb27f2405b62401cae069d9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568238"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964258"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização de 1808 de pilha do Azure
 
@@ -163,7 +163,7 @@ Esta atualização também contém atenuação para a vulnerabilidade de canal d
 > Prepare-se a implementação do Azure Stack para o anfitrião de extensão. Preparar o seu sistema usando as seguintes orientações [preparar para o anfitrião de extensão para o Azure Stack](azure-stack-extension-host-prepare.md).
 
 Após a instalação desta atualização, instale as correções aplicáveis. Para obter mais informações, consulte os seguintes artigos da base de dados de conhecimento, bem como nossos [política de manutenção](azure-stack-servicing-policy.md). 
-- [KB 4468920 – o Azure Stack correção Azure Stack correção 1.1808.7.113](https://support.microsoft.com/help/4471992/)
+- [KB 4481066 – o Azure Stack correção Azure Stack correção 1.1808.9.117](https://support.microsoft.com/help/4481066/)
 
 
 ## <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
@@ -220,7 +220,7 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
    
   Volte a executar o [AzureStack teste](azure-stack-diagnostic-test.md) cmdlet para verificar o estado de funcionamento das instâncias de função de infraestrutura e dimensionar nós de unidade. Se não existem problemas são detetados pelo [AzureStack teste](azure-stack-diagnostic-test.md), pode ignorar estes alertas. Se for detetado um problema, pode tentar iniciar a instância de função de infraestrutura ou o nó com o portal de administração ou PowerShell.
 
-  Este problema é resolvido da versão mais recente [versão de correção de 1808](https://support.microsoft.com/help/4471992/), por isso, certifique-se de que instale esta correção, se estiver a ter o problema.
+  Este problema é resolvido da versão mais recente [versão de correção de 1808](https://support.microsoft.com/help/4481066/), por isso, certifique-se de que instale esta correção, se estiver a ter o problema.
 
 <!-- 1264761 - IS ASDK --> 
 - Poderá ver alertas para o **controlador de estado de funcionamento** componente que tem os seguintes detalhes:  
@@ -269,7 +269,7 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
       1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
       2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que **disco gerido do Azure Stack –** está listado.
    2. Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos:
-      1. Aplicar a [correção de pilha do 1808 Azure](https://support.microsoft.com/help/4471992/).
+      1. Aplicar a [correção de pilha do 1808 Azure](https://support.microsoft.com/help/4481066/).
       2. Siga os passos em [este artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
       
 <!-- 3179561 - IS --> 

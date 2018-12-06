@@ -1,30 +1,28 @@
 ---
-title: 'Do Azure Cosmos DB: Referência de consulta de sintaxe SQL | Documentos da Microsoft'
+title: 'Do Azure Cosmos DB: Referência de consulta de sintaxe SQL'
 description: Documentação de referência para a linguagem de consulta de SQL do Azure Cosmos DB.
 services: cosmos-db
 author: LalithaMV
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 26dc21a7d6d24df70a0d7884c67180624074636a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623949"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972478"
 ---
-# <a name="azure-cosmos-db-sql-syntax-reference"></a>Referência de sintaxe do Azure Cosmos DB SQL
+# <a name="azure-cosmos-db-sql-language-reference"></a>Referência de linguagem do Azure Cosmos DB SQL 
 
-Azure Cosmos DB suporta consultas de documentos através de uma consulta de SQL (Structured Query Language), como gramática através de documentos JSON hierárquicos sem a necessidade de esquema explícito ou criação de índices secundários. Este artigo fornece documentação para a sintaxe de linguagem de consulta SQL, que é compatível com contas da API de SQL. Para obter instruções de consultas SQL de exemplo, consulte [consultas SQL no Cosmos DB](sql-api-sql-query.md).  
+Azure Cosmos DB suporta consultas de documentos através de uma consulta de SQL (Structured Query Language), como gramática através de documentos JSON hierárquicos sem a necessidade de esquema explícito ou criação de índices secundários. Este artigo fornece documentação para a sintaxe de linguagem de consulta SQL, que é compatível com contas da API de SQL. Para obter instruções de consultas SQL de exemplo, consulte [consultas SQL no Cosmos DB](how-to-sql-query.md).  
   
 Visite o [recreio de consultas](http://www.documentdb.com/sql/demo) onde pode experimentar o Cosmos DB e executar consultas SQL no nosso conjunto de dados.  
   
 ## <a name="select-query"></a>Consulta SELECT  
-Cada consulta é composta por uma cláusula SELECT e FROM opcional e cláusulas WHERE por padrões ANSI SQL. Normalmente, para cada consulta, a origem na cláusula FROM é enumerada. Em seguida, o filtro na cláusula WHERE é aplicado na origem para obter um subconjunto de documentos JSON. Por fim, a cláusula SELECT é utilizada para os valores JSON de pedidos na lista de seleção do projeto. As convenções usadas para descrever as instruções SELECT são apresentadas na secção de convenções de sintaxe. Para obter exemplos, consulte [exemplos de consulta SELECT](sql-api-sql-query.md#SelectClause)
+Cada consulta é composta por uma cláusula SELECT e FROM opcional e cláusulas WHERE por padrões ANSI SQL. Normalmente, para cada consulta, a origem na cláusula FROM é enumerada. Em seguida, o filtro na cláusula WHERE é aplicado na origem para obter um subconjunto de documentos JSON. Por fim, a cláusula SELECT é utilizada para os valores JSON de pedidos na lista de seleção do projeto. As convenções usadas para descrever as instruções SELECT são apresentadas na secção de convenções de sintaxe. Para obter exemplos, consulte [exemplos de consulta SELECT](how-to-sql-query.md#SelectClause)
   
 **Sintaxe**  
   
@@ -69,7 +67,7 @@ A linguagem de consulta suporta comentários de estilo de T-SQL, como
 Enquanto os carateres de espaço em branco e os comentários não tem qualquer significado na gramática, deve ser utilizados para separar os tokens. Por exemplo: `-1e5` é um pouco de token, número único`: – 1 e5` é seguido de um token de subtração pelo número 1 e o identificador e5.  
 
 ##  <a name="bk_select_query"></a> Cláusula SELECT  
-As cláusulas na instrução SELECT tem de ser ordenadas conforme mostrado acima. Qualquer uma das cláusulas opcionais pode ser omitida. Mas quando cláusulas opcionais são usadas, eles devem aparecer na ordem correta. Para obter exemplos, consulte [exemplos de consulta SELECT](sql-api-sql-query.md#SelectClause).
+As cláusulas na instrução SELECT tem de ser ordenadas conforme mostrado acima. Qualquer uma das cláusulas opcionais pode ser omitida. Mas quando cláusulas opcionais são usadas, eles devem aparecer na ordem correta. Para obter exemplos, consulte [exemplos de consulta SELECT](how-to-sql-query.md#SelectClause).
 
 **Sintaxe**  
 
@@ -132,7 +130,7 @@ Ambos `SELECT <select_list>` e `SELECT *` são "açúcar sintático" e pode ser 
 [Cláusula SELECT](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> Cláusula FROM  
-Especifica a origem ou associado ao origens. A cláusula FROM é opcional, a menos que a origem é filtrada ou prevista mais tarde na consulta. O objetivo essa cláusula é especificar a origem de dados no qual a consulta deve operar. Normalmente o contentor inteiro é a origem, mas um pode especificar um subconjunto do contentor em vez disso. Se essa cláusula não for especificada, as outras cláusulas ainda serão executadas como se a cláusula FROM fornecido um único documento. Para obter exemplos, consulte [dos exemplos de cláusula](sql-api-sql-query.md#FromClause)
+Especifica a origem ou associado ao origens. A cláusula FROM é opcional, a menos que a origem é filtrada ou prevista mais tarde na consulta. O objetivo essa cláusula é especificar a origem de dados no qual a consulta deve operar. Normalmente o contentor inteiro é a origem, mas um pode especificar um subconjunto do contentor em vez disso. Se essa cláusula não for especificada, as outras cláusulas ainda serão executadas como se a cláusula FROM fornecido um único documento. Para obter exemplos, consulte [dos exemplos de cláusula](how-to-sql-query.md#FromClause)
   
 **Sintaxe**  
   
@@ -216,7 +214,7 @@ Uma expressão de contentor pode ser no âmbito do contentor ou no âmbito do do
   
 Na versão atual, o Cosmos DB suporta associações internas. Capacidades de associação adicionais serão disponibilizadas. 
 
-Associações internas resultam num produto cruzado completo dos conjuntos de participar na União. O resultado de uma junção N-vias é um conjunto de cadeias de identificação de elemento de N, onde cada valor na cadeia de identificação é associado o alias definido a participar na União e pode ser acedido ao consultar esse alias em outras cláusulas. Para obter exemplos, consulte [exemplos de palavra-chave de JUNÇÃO](sql-api-sql-query.md#Joins)
+Associações internas resultam num produto cruzado completo dos conjuntos de participar na União. O resultado de uma junção N-vias é um conjunto de cadeias de identificação de elemento de N, onde cada valor na cadeia de identificação é associado o alias definido a participar na União e pode ser acedido ao consultar esse alias em outras cláusulas. Para obter exemplos, consulte [exemplos de palavra-chave de JUNÇÃO](how-to-sql-query.md#Joins)
   
 A avaliação da associação depende do escopo de contexto dos conjuntos de participantes:  
   
@@ -311,7 +309,7 @@ Vejamos o seguinte cláusula FROM: `<from_source1> JOIN <from_source2> JOIN ... 
  [Cláusula SELECT](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> Cláusula WHERE  
- Especifica a condição de pesquisa para os documentos devolvidos pela consulta. Para obter exemplos, consulte [exemplos de cláusula WHERE](sql-api-sql-query.md#WhereClause)
+ Especifica a condição de pesquisa para os documentos devolvidos pela consulta. Para obter exemplos, consulte [exemplos de cláusula WHERE](how-to-sql-query.md#WhereClause)
   
  **Sintaxe**  
   
@@ -336,7 +334,7 @@ WHERE <filter_condition>
  Para que o documento a ser devolvida uma expressão especificada como filtro de condição deve ser avaliado como true. Apenas o valor booleano true satisfaça a condição, qualquer outro valor: indefinido, nulo, FALSO, número, matriz ou objeto não satisfaçam a condição.  
   
 ##  <a name="bk_orderby_clause"></a> Cláusula ORDER BY  
- Especifica a ordem de classificação para obter os resultados devolvidos pela consulta. Para obter exemplos, consulte [exemplos de cláusula ORDER BY](sql-api-sql-query.md#OrderByClause)
+ Especifica a ordem de classificação para obter os resultados devolvidos pela consulta. Para obter exemplos, consulte [exemplos de cláusula ORDER BY](how-to-sql-query.md#OrderByClause)
   
  **Sintaxe**  
   
@@ -374,7 +372,7 @@ ORDER BY <sort_specification>
  Embora a gramática de consulta oferece suporte a vários ordem por propriedades, o tempo de execução de consulta do Cosmos DB suporta a classificação apenas em relação a uma única propriedade e somente nos nomes de propriedade (não contra as propriedades calculadas). Classificação também requer que a política de indexação inclui um índice do intervalo para a propriedade e o tipo especificado, com a precisão máxima. Consulte a documentação de política de indexação para obter mais detalhes.  
   
 ##  <a name="bk_scalar_expressions"></a> Expressões escalares  
- Uma expressão escalar é uma combinação de símbolos e operadores que podem ser avaliados como para obter um valor único. Expressões simples podem ser constantes, referências de propriedade, referências de elemento de matriz, referências de alias ou chamadas de função. Expressões simples podem ser combinadas em expressões complexas usando operadores. Para obter exemplos, consulte [exemplos de expressões escalares](sql-api-sql-query.md#scalar-expressions)
+ Uma expressão escalar é uma combinação de símbolos e operadores que podem ser avaliados como para obter um valor único. Expressões simples podem ser constantes, referências de propriedade, referências de elemento de matriz, referências de alias ou chamadas de função. Expressões simples podem ser combinadas em expressões complexas usando operadores. Para obter exemplos, consulte [exemplos de expressões escalares](how-to-sql-query.md#scalar-expressions)
   
  Para obter detalhes sobre os valores que pode ter expressão escalar, consulte [constantes](#bk_constants) secção.  
   
@@ -2905,6 +2903,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>Passos Seguintes  
 
-- [Sintaxe SQL e consulta SQL para o Cosmos DB](sql-api-sql-query.md)
+- [Sintaxe SQL e consulta SQL para o Cosmos DB](how-to-sql-query.md)
 
 - [Documentação do cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  

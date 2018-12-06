@@ -1,18 +1,18 @@
 ---
-title: Script da CLI do Azure - Criar uma conta, base de dados e tabela da API de Tabela do Azure Cosmos DB | Microsoft Docs
+title: Script do Azure CLI-criar uma conta de API de tabela do Azure Cosmos DB, base de dados e tabela
 description: Exemplo do Script da CLI do Azure - Criar uma conta, base de dados e tabela da API de Tabela do Azure Cosmos DB
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 178ecfe6971a47009781d8866986d936f8e3a5d2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 5e9cd406f02ea17c4d91e316cbd3f0cc937f6afc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019587"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957577"
 ---
 # <a name="azure-cosmos-db-create-a-table-api-account-using-azure-cli"></a>Azure Cosmos DB: Criar uma conta da API de Tabela com a CLI do Azure
 
@@ -46,7 +46,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Cria uma tabela do Azure Cosmos DB. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

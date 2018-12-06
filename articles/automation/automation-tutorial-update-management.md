@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8a99a784292c4294456296c1f105e5f485689368
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d66221dea768d75395300ab663c9466718a0140d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679907"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966796"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerir atualizações do Windows com a Automatização do Azure
 
@@ -82,48 +82,24 @@ Clique em qualquer outro local na atualização para abrir o painel **Pesquisa d
 
 ## <a name="configure-alerts"></a>Configurar alertas
 
-Neste passo, aprende a configurar um alerta que o informa quando as atualizações foram implementadas com êxito através de uma consulta do Log Analytics ou através do controlo do runbook mestre da Gestão de Atualizações para implementações que falharam.
+Neste passo, vai aprender a configurar um alerta para informá-lo o estado de uma implementação de atualização.
 
 ### <a name="alert-conditions"></a>Condições de alerta
 
-Para cada tipo de alerta, existem diferentes condições de alerta que têm de ser definidas.
+Na sua conta de automatização, sob **monitorização** aceda à **alertas**e, em seguida, clique em **+ nova regra de alerta**.
 
-#### <a name="log-analytics-query-alert"></a>Alerta de consulta do Log Analytics
+Sua conta de automatização já está selecionada como o recurso. Se pretender alterá-la pode clicar em **selecionar** e, no **selecione um recurso** , selecione **contas de automatização** no **filtrar por tipo de recurso** lista pendente. Selecione a sua Conta de Automatização e, em seguida, selecione **Concluído**.
 
-Para as implementações com êxito, pode criar um alerta com base numa consulta do Log Analytics. Para as implementações que falharam, pode utilizar os passos de [Alerta de runbook](#runbook-alert) para o alertar quando o runbook master que orquestra as implementações de atualizações falha. Pode escrever uma consulta personalizada para alertas adicionais, de forma a cobrir muitos cenários diferentes.
+Clique em **adicionar condição** para selecionar o sinal de que é adequado para a sua implementação de atualização. A tabela seguinte mostra os detalhes dos dois sinais disponíveis para implementações de atualizações:
 
-No portal do Azure, navegue até **Monitorizar** e, em seguida, selecione **Criar Alerta**.
+|Nome do sinal|Dimensões|Descrição|
+|---|---|---|
+|**Execuções da implementação de atualização total**|-Atualizar o nome da implementação</br>-Estado|Este sinal é utilizado para o alerta sobre o estado geral de uma implementação de atualização.|
+|**Execuções do computador de implementação de atualização total**|-Atualizar o nome da implementação</br>-Estado</br>-Computador de destino</br>-Atualizar o Id de execução de implementação|Este sinal é utilizado para o alerta sobre o status de uma implementação de atualização direcionada para máquinas específicas|
 
-Em **1. Definir condição do alerta**, clique em **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione a sua área de trabalho do Log Analytics e, em seguida, selecione **Concluído**.
-
-![Criar alerta](./media/automation-tutorial-update-management/create-alert.png)
-
-Selecione **Adicionar critérios**.
-
-Em **Configurar lógica de sinal**, na tabela, selecione **Pesquisa de registos personalizada**. Introduza a seguinte consulta na caixa de texto **Consulta de pesquisa**:
-
-```loganalytics
-UpdateRunProgress
-| where InstallationStatus == 'Succeeded'
-| where TimeGenerated > now(-10m)
-| summarize by UpdateRunName, Computer
-```
-Esta consulta devolve os computadores e o nome da atualização executada que foi concluída no período de tempo especificado.
-
-Em **Lógica de alerta**, para **Limiar**, introduza **1**. Quando tiver terminado, selecione **Concluído**.
+Para os valores de dimensão, selecione um valor válido na lista. Se o valor que está procurando não estiver na lista, clique nas **\+** início de sessão ao lado da dimensão e escreva o nome personalizado. Em seguida, pode selecionar o valor que pretende procurar. Se pretender selecionar todos os valores de uma dimensão, clique nas **selecionar \***  botão. Se não escolher um valor para uma dimensão, essa dimensão será ignorada durante a avaliação.
 
 ![Configurar lógica de sinal](./media/automation-tutorial-update-management/signal-logic.png)
-
-#### <a name="runbook-alert"></a>Alerta de runbook
-
-Para implementações com falha deve alertar em caso de falha do runbook principal.
-No portal do Azure, navegue até **Monitorizar** e, em seguida, selecione **Criar Alerta**.
-
-Em **1. Definir condição do alerta**, clique em **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Contas de Automatização**. Selecione a sua Conta de Automatização e, em seguida, selecione **Concluído**.
-
-Para **Nome do runbook**, clique no sinal **\+** e introduza **Patch-MicrosoftOMSComputers** como nome personalizado. Para **Estado**, escolha **Com falhas** ou clique no sinal **\+** para introduzir **Com falhas**.
-
-![Configurar lógica de sinal para runbooks](./media/automation-tutorial-update-management/signal-logic-runbook.png)
 
 Em **Lógica de alerta**, para **Limiar**, introduza **1**. Quando tiver terminado, selecione **Concluído**.
 
@@ -133,7 +109,7 @@ Em **2. Definir detalhes do alerta**, introduza um nome e uma descrição para o
 
 ![Configurar lógica de sinal](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Em **3. Definir grupo de ações**, selecione **Novo grupo de ações**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Sob **grupos de ação**, selecione **criar nova**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md).
 
 Na caixa **Nome do grupo de ações**, introduza um nome para o alerta e um nome abreviado. O nome abreviado é utilizado em vez de um nome de grupo de ações completo quando as notificações são enviadas ao utilizar deste grupo.
 
@@ -159,7 +135,7 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 
 * **Sistema operativo**: selecione o SO de destino para a implementação da atualização.
 
-* **Grupos a atualizar (pré-visualização)**: defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para saber mais, veja [Grupos Dinâmicos](automation-update-management.md#using-dynamic-groups)
+* **Grupos a atualizar (pré-visualização)**: defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para obter mais informações, consulte [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
 
 * **Computadores a atualizar**: Selecione uma Pesquisa guardada, o Grupo importado ou escolha a Máquina a partir do menu pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md)
 
@@ -174,7 +150,7 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 
    Para obter uma descrição dos tipos de classificação, veja [Classificações de atualizações](automation-update-management.md#update-classifications).
 
-* **Atualizações a incluir/excluir**: esta opção abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter informações adicionais sobre como é processada a inclusão, veja [comportamento de inclusão](automation-update-management.md#inclusion-behavior).
+* **Atualizações a incluir/excluir**: esta opção abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é processada, consulte [comportamento de inclusão](automation-update-management.md#inclusion-behavior)
 
 * **Definições da agenda**: o painel **Definições da Agenda** abre. A hora de início predefinida é 30 minutos depois da hora atual. Pode definir a hora de início para qualquer hora a partir de 10 minutos no futuro.
 

@@ -3,7 +3,7 @@ title: Gerir ligada a soluções no Centro de segurança do Azure de parceiros |
 description: Este documento vai ajudá-lo a compreender como o Centro de Segurança do Azure lhe permite monitorizar rapidamente o estado de funcionamento das suas soluções de parceiros integradas na sua subscrição do Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/20/2018
-ms.author: terrylan
-ms.openlocfilehash: 103e0e353efeaf493fb1d72f03eb6ce6469cd683
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: rkarlin
+ms.openlocfilehash: 27a8abe0008c0b9c3854ea663e1c0fb3b55cfc30
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235671"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964548"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Gerir soluções de parceiros ligadas com o Centro de segurança do Azure
 Este artigo explica como gerir e monitorizar soluções de segurança ligada no Centro de segurança do Azure.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 5f558ea851d63b08885293efcff3fef600f2cc17
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ac62800e81cece61e9f51c496ace2868629a49a1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726394"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960248"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Gerir os direitos de acesso para BLOBs do Azure e dados de fila com o RBAC (pré-visualização)
 
@@ -40,14 +40,14 @@ Também pode definir funções personalizadas para utilização com contentores 
 
 ## <a name="assign-a-role-to-a-security-principal"></a>Atribuir uma função a uma entidade de segurança
 
-Atribua uma função RBAC para uma identidade do Azure para conceder permissões para contentores ou filas na conta de armazenamento. Pode definir o âmbito de atribuição de função para a conta de armazenamento ou para um contentor específico ou a fila. A tabela seguinte resume os direitos de acesso concedidos por funções incorporadas, consoante o âmbito: 
+Atribua uma função RBAC para uma identidade do Azure para conceder permissões para contentores ou filas na conta de armazenamento. Pode definir o âmbito de atribuição de função para a conta de armazenamento ou para um contentor específico ou a fila. A tabela seguinte resume os direitos de acesso concedidos por funções incorporadas, consoante o âmbito:
 
-|                                 |     Contribuinte de dados de blob                                                 |     Leitor de dados de blob                                                |     Contribuinte de dados de fila                                  |     Leitor de dados de fila                                 |
-|---------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------|----------------------------------------------------------|
-|    No âmbito de subscrição       |    Acesso de leitura/escrita a todos os contentores e blobs na subscrição       |    Acesso de leitura a todos os contentores e blobs na subscrição       |    Acesso de leitura/gravação para todas as filas na subscrição       |    Acesso de leitura para todas as filas na subscrição         |
-|    No âmbito do grupo de recursos     |    Acesso de leitura/escrita a todos os contentores e blobs, no grupo de recursos     |    Acesso de leitura a todos os contentores e blobs, no grupo de recursos     |    Acesso de leitura/gravação para todas as filas no grupo de recursos     |    Acesso de leitura para todas as filas no grupo de recursos     |
-|    No âmbito de conta de armazenamento    |    Acesso de leitura/escrita a todos os contentores e blobs na conta de armazenamento    |    Acesso de leitura a todos os contentores e blobs na conta de armazenamento    |    Acesso de leitura/gravação para todas as filas na conta de armazenamento    |    Acesso de leitura para todas as filas na conta de armazenamento    |
-|    O âmbito contentor/fila    |    Acesso de leitura/gravação para o contentor especificado e respetivos blobs              |    Acesso de leitura para o contentor especificado e respetivos blobs              |    Acesso de leitura/escrita para a fila especificada                  |    Acesso de leitura para a fila especificada                    |
+|Âmbito|Proprietário de dados de blob|Contribuinte de dados de blob|Leitor de dados de blob|Contribuinte de dados de fila|Leitor de dados de fila|
+|---|---|---|---|---|---|
+|Nível de subscrição|Acesso de leitura/escrita a todos os contentores e blobs na subscrição|Acesso de leitura/escrita a todos os contentores e blobs na subscrição| Acesso de leitura a todos os contentores e blobs na subscrição|Acesso de leitura/gravação para todas as filas na subscrição|Acesso de leitura para todas as filas na subscrição|
+|Ao nível do grupo de recursos|Acesso de leitura/escrita a todos os contentores e blobs, no grupo de recursos|Acesso de leitura/escrita a todos os contentores e blobs, no grupo de recursos|Acesso de leitura a todos os contentores e blobs, no grupo de recursos|Acesso de leitura/gravação para todas as filas no grupo de recursos|Acesso de leitura para todas as filas no grupo de recursos|
+|Nível de conta de armazenamento|Acesso de leitura/escrita a todos os contentores e blobs na conta de armazenamento|Acesso de leitura/escrita a todos os contentores e blobs na conta de armazenamento|Acesso de leitura a todos os contentores e blobs na conta de armazenamento|Acesso de leitura/gravação para todas as filas na conta de armazenamento|Acesso de leitura para todas as filas na conta de armazenamento|
+|Nível de contêiner/fila|Acesso de leitura/gravação para o contentor especificado e respetivos blobs|Acesso de leitura/gravação para o contentor especificado e respetivos blobs|Acesso de leitura para o contentor especificado e respetivos blobs|Acesso de leitura/escrita para a fila especificada|Acesso de leitura para a fila especificada|
 
 > [!NOTE]
 > Como proprietário da conta de armazenamento do Azure, não é atribuídos automaticamente permissões para aceder aos dados. Tem explicitamente de atribuir-se uma função RBAC do armazenamento do Azure. Pode atribuí-la no nível da sua subscrição, grupo de recursos, conta de armazenamento, ou um contentor ou fila.
@@ -76,6 +76,9 @@ Para atribuir uma função incorporada conceder acesso a todos os contentores ou
 
 ### <a name="assign-a-role-scoped-to-a-container-or-queue-in-the-azure-portal"></a>Atribuir uma função no âmbito de um contentor ou a fila no portal do Azure
 
+> [!IMPORTANT]
+> Não é possível fazê-lo se estiver a utilizar uma conta com o espaço de nomes hierárquico ainda ativado.
+
 Os passos para atribuir uma função incorporada de âmbito para um contentor ou a uma fila são semelhantes. O procedimento apresentado aqui atribui uma função no âmbito de um contentor, mas pode seguir os mesmos passos para atribuir uma função no âmbito de uma fila: 
 
 1. Na [portal do Azure](https://portal.azure.com), navegue para a sua conta de armazenamento e exibir o **descrição geral** para a conta.
@@ -90,7 +93,7 @@ Os passos para atribuir uma função incorporada de âmbito para um contentor ou
 
     ![Captura de ecrã a mostrar lista de utilizadores atribuídos a uma função](media/storage-auth-aad-rbac/container-scoped-role.png)
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais sobre o RBAC, veja [o que é o controlo de acesso baseado em funções (RBAC)?](../../role-based-access-control/overview.md).
 - Para saber como atribuir e gerir atribuições de funções RBAC com o Azure PowerShell, CLI do Azure ou da API REST, veja estes artigos:
@@ -99,4 +102,3 @@ Os passos para atribuir uma função incorporada de âmbito para um contentor ou
     - [Gerir o controlo de acesso baseado em funções (RBAC) com a API REST](../../role-based-access-control/role-assignments-rest.md)
 - Para saber como autorizar o acesso a contentores e filas de dentro dos seus aplicativos de armazenamento, veja [utilize o Azure AD com aplicações de armazenamento do Azure](storage-auth-aad-app.md).
 - Para obter mais informações sobre a integração do Azure AD para contentores do Azure e filas de mensagens em fila, consulte a postagem no armazenamento do Azure team blog [a autenticação de pré-visualização do Azure AD para o armazenamento do Azure a anunciar](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
-- 

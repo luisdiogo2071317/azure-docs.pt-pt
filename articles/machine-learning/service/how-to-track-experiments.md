@@ -8,66 +8,55 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: 9af7e57db0e465f59f43c93d0b5f6ec220836ff7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.openlocfilehash: 44c5cce103996f1774fb87b46760c23dc9ab575c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308193"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957713"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Controle experimentações e métricas de formação no Azure Machine Learning
 
 No serviço do Azure Machine Learning, pode controlar suas experimentações e monitorizar as métricas para melhorar o processo de criação de modelo. Neste artigo, irá aprender sobre as diferentes formas de adicionar registos ao seu script de treinamento, como submeter a experimentação com **start_logging** e **ScriptRunConfig**, como verificar o progresso de um tarefa de execução e como visualizar os resultados de uma execução. 
 
->[!NOTE]
-> Código neste artigo foi testado com o Azure Machine Learning SDK versão 0.1.74 
 
 ## <a name="list-of-training-metrics"></a>Lista de métricas de treinamento 
 
-As métricas seguintes podem ser adicionadas a uma execução enquanto uma experimentação de preparação. Para ver uma lista mais detalhada das quais podem ser acompanhadas numa execução, consulte a [documentação de referência do SDK](https://aka.ms/aml-sdk).
+As métricas seguintes podem ser adicionadas a uma execução enquanto uma experimentação de preparação. Para ver uma lista mais detalhada das quais podem ser acompanhadas numa execução, consulte a [execute a documentação de referência de classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Tipo| Função de Python | Exemplo | Notas|
-|----|:----|:----|:----|
-|Valores escalares | `run.log(name, value, description='')`| `run.log("accuracy", 0.95) ` |Iniciar um numéricos ou de cadeia de valor para a execução com o nome fornecido. Registo de uma métrica para uma execução faz com que essa métrica sejam armazenadas no registo de execução na experimentação.  Pode se conectar a mesma métrica várias vezes dentro de uma execução, o resultado a ser considerado um vetor dessa métrica.|
-|Listas| `run.log_list(name, value, description='')`| `run.log_list("accuracies", [0.6, 0.7, 0.87])` | Inicie a sessão de uma lista de valores para a execução com o nome fornecido.|
-|Linha| `run.log_row(name, description=None, **kwargs)`| `run.log_row("Y over X", x=1, y=0.4)` | Usando *log_row* cria uma métrica com várias colunas, conforme descrito em kwargs. Cada parâmetro nomeado gera uma coluna com o valor especificado.  *log_row* pode ser chamado uma vez para iniciar sessão uma tupla arbitrária, ou várias vezes num loop para gerar uma tabela completa.|
-|Tabela| `run.log_table(name, value, description='')`| `run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]})` | Inicie a sessão de um objeto de dicionário para a execução com o nome fornecido. |
-|Imagens| `run.log_image(name, path=None, plot=None)`| `run.log_image("ROC", plt)` | Inicie a sessão de uma imagem para o registo de execução. Utilizar log_image para registar um ficheiro de imagem ou um matplotlib gráfico para a execução.  Estas imagens serão visíveis e comparável no registo de execução.|
-|Marcar uma execução| `run.tag(key, value=None)`| `run.tag("selected", "yes")` | Marca a execução com uma chave de cadeia de caracteres e o valor de cadeia de caracteres opcional.|
-|Carregar o ficheiro ou diretório|`run.upload_file(name, path_or_stream)`| Run.upload_file ("best_model.pkl", ". / pkl") | Carregar um ficheiro para o registo de execução. Execuções de recolher automaticamente o ficheiro no diretório de saída especificado, o que está predefinida para ". / saídas" para a mais tipos de execução.  Utilize upload_file apenas quando os ficheiros adicionais devem ser carregados ou não for especificado um diretório de saída. Sugerimos que adicionar `outputs` para o nome, de modo que ele é carregado para o diretório de saídas. Pode listar todos os ficheiros que estão associados com esta opção executar o registo por chamada `run.get_file_names()`|
+|Tipo| Função de Python | Notas|
+|----|:----|:----|
+|Valores escalares |Função:<br>`run.log(name, value, description='')`<br><br>Exemplo:<br>Run.log ("precisão", 0.95) |Iniciar um numéricos ou de cadeia de valor para a execução com o nome fornecido. Registo de uma métrica para uma execução faz com que essa métrica sejam armazenadas no registo de execução na experimentação.  Pode se conectar a mesma métrica várias vezes dentro de uma execução, o resultado a ser considerado um vetor dessa métrica.|
+|Listas|Função:<br>`run.log_list(name, value, description='')`<br><br>Exemplo:<br>Run.log_list ("precisões", [0,6, 0,7, 0,87]) | Inicie a sessão de uma lista de valores para a execução com o nome fornecido.|
+|Linha|Função:<br>"run.log_row (nome, descrição = None, * * kwargs)<br>Exemplo:<br>Run.log_row ("Y ao longo de X", x = 1, y = 0.4) | Usando *log_row* cria uma métrica com várias colunas, conforme descrito em kwargs. Cada parâmetro nomeado gera uma coluna com o valor especificado.  *log_row* pode ser chamado uma vez para iniciar sessão uma tupla arbitrária, ou várias vezes num loop para gerar uma tabela completa.|
+|Tabela|Função:<br>`run.log_table(name, value, description='')`<br><br>Exemplo:<br>Run.log_table ("Y ao longo de X", {"x": [1, 2, 3], "y": [0,6, 0,7, 0.89]}) | Inicie a sessão de um objeto de dicionário para a execução com o nome fornecido. |
+|Imagens|Função:<br>`run.log_image(name, path=None, plot=None)`<br><br>Exemplo:<br>Run.log_image ("", plt) MULTICLASSE | Inicie a sessão de uma imagem para o registo de execução. Utilizar log_image para registar um ficheiro de imagem ou um matplotlib gráfico para a execução.  Estas imagens serão visíveis e comparável no registo de execução.|
+|Marcar uma execução|Função:<br>`run.tag(key, value=None)`<br><br>Exemplo:<br>Run.tag ("selecionado", "Sim") | Marca a execução com uma chave de cadeia de caracteres e o valor de cadeia de caracteres opcional.|
+|Carregar o ficheiro ou diretório|Função:<br>`run.upload_file(name, path_or_stream)`<br> <br> Exemplo:<br>Run.upload_file ("best_model.pkl", ". / pkl") | Carregar um ficheiro para o registo de execução. Execuções de recolher automaticamente o ficheiro no diretório de saída especificado, o que está predefinida para ". / saídas" para a mais tipos de execução.  Utilize upload_file apenas quando os ficheiros adicionais devem ser carregados ou não for especificado um diretório de saída. Sugerimos que adicionar `outputs` para o nome, de modo que ele é carregado para o diretório de saídas. Pode listar todos os ficheiros que estão associados com esta opção executar o registo por chamada `run.get_file_names()`|
 
 > [!NOTE]
 > As métricas de escalares, listas, linhas e tabelas podem ter o tipo: número de vírgula flutuante, número inteiro ou uma cadeia.
 
-## <a name="log-metrics-for-experiments"></a>Métricas de registo de experimentações
+## <a name="start-logging-metrics"></a>Iniciar as métricas de registo
 
 Se pretender controlar ou monitorizar a sua experimentação, tem de adicionar o código para iniciar o log ao submeter a execução. Seguem-se formas para acionar o envio de execução:
 * __Run.start_logging__ - adicionar funções de registo para o script de treinamento e iniciar uma sessão de registo interativo na experimentação do especificado. **start_logging** cria uma execução interativa para utilização em cenários como blocos de notas. Qualquer métricas que são registadas durante a sessão são adicionadas ao registo de execução na experimentação.
 * __ScriptRunConfig__ - adicionar funções de registo para o script de formação e a pasta de script inteiro com a execução de carga.  **ScriptRunConfig** é uma classe para a configuração de configurações para o script é executado. Com esta opção, pode adicionar o código de monitorização para ser notificado da conclusão de ou para obter um widget visual para monitorizar.
 
-## <a name="set-up-the-workspace-and-experiment"></a>Configurar a área de trabalho e experimentação
-Antes de adicionar o registo e submeter uma experimentação, tem de configurar a área de trabalho e a experimentação.
+## <a name="set-up-the-workspace"></a>Configurar a área de trabalho
+Antes de adicionar o registo e submeter uma experimentação, tem de configurar a área de trabalho.
 
 1. Carregar a área de trabalho. Para saber mais sobre como definir a configuração de área de trabalho, siga os [guia de introdução](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
 
   ```python
-  from azureml.core import Workspace, Run
+  from azureml.core import Experiment, Run, Workspace
   import azureml.core
   
   ws = Workspace(workspace_name = <<workspace_name>>,
                subscription_id = <<subscription_id>>,
                resource_group = <<resource_group>>)
    ```
-
-2. Crie a experimentação.
-
-  ```python
-  from azureml.core import Experiment
-
-  # make up an arbitrary name
-  experiment_name = 'train-in-notebook'
-  ```
   
 ## <a name="option-1-use-startlogging"></a>Opção 1: Utilizar start_logging
 
@@ -102,22 +91,34 @@ O exemplo seguinte prepara um modelo simples de sklearn Ridge localmente num blo
 2. Adicionar controlo de experimentação com o SDK do serviço do Azure Machine Learning e carregar um modelo persistente para a experimentação executar o registo. O código a seguir adiciona etiquetas, os registos e carrega um ficheiro de modelo para a experimentação executar.
 
   ```python
-  experiment = Experiment(workspace = ws, name = experiment_name)
-  run = experiment.start_logging()
-  run.tag("Description","My first run!")
+  # Get an experiment object from Azure Machine Learning
+  experiment = Experiment(workspace = ws, name = "train-within-notebook")
+  
+  # Create a run object in the experiment
+  run = experiment.start_logging()# Log the algorithm parameter alpha to the run
   run.log('alpha', 0.03)
-  reg = Ridge(alpha = 0.03)
-  reg.fit(data['train']['X'], data['train']['y'])
-  preds = reg.predict(data['test']['X'])
-  run.log('mse', mean_squared_error(preds, data['test']['y']))
-  joblib.dump(value = reg, filename = 'model.pkl')
-  # Upload file directly to the outputs folder
-  run.upload_file(name = 'outputs/model.pkl', path_or_stream = './model.pkl')
 
+  # Create, fit, and test the scikit-learn Ridge regression model
+  regression_model = Ridge(alpha=0.03)
+  regression_model.fit(data['train']['X'], data['train']['y'])
+  preds = regression_model.predict(data['test']['X'])
+
+  # Output the Mean Squared Error to the notebook and to the run
+  print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
+  run.log('mse', mean_squared_error(data['test']['y'], preds))
+
+  # Save the model to the outputs directory for capture
+  joblib.dump(value=regression_model, filename='outputs/model.pkl')
+
+  # Take a snapshot of the directory containing this notebook
+  run.take_snapshot('./')
+
+  # Complete the run
   run.complete()
+  
   ```
 
-O script termina com ```run.complete()```, que marca a execução como concluída.  Isso é normalmente utilizado em cenários de bloco de notas interativo.
+O script termina com ```run.complete()```, que marca a execução como concluída.  Esta função é normalmente utilizada em cenários de bloco de notas interativo.
 
 ## <a name="option-2-use-scriptrunconfig"></a>Opção 2: Utilizar ScriptRunConfig
 
@@ -125,7 +126,7 @@ O script termina com ```run.complete()```, que marca a execução como concluíd
 
 Este exemplo Expande o modelo básico de sklearn Ridge acima. Ele faz um parâmetro simple paramétrico para paramétrico sobre os valores alfabéticos do modelo para capturar métricas com modelos de formação em é executado sob a experimentação. O exemplo é executado localmente em relação a um ambiente gerenciado por utilizador. 
 
-1. Crie um script de treinamento. Esta opção utiliza ```%%writefile%%``` escrever o código de treinamento para a pasta de script como ```train.py```.
+1. Crie um script de treinamento. Esse código usa ```%%writefile%%``` escrever o código de treinamento para a pasta de script como ```train.py```.
 
   ```python
   %%writefile $project_folder/train.py
@@ -208,7 +209,8 @@ Este exemplo Expande o modelo básico de sklearn Ridge acima. Ele faz um parâme
 
   ```python
   from azureml.core import ScriptRunConfig
-
+  
+  experiment = Experiment(workspace=ws, name="train-on-local")
   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
   run = experiment.submit(src)
   ```
@@ -221,11 +223,28 @@ Quando utiliza a **ScriptRunConfig** executa o método para submeter, pode ver o
 1. Ver o widget de Jupyter enquanto aguarda a execução concluir.
 
   ```python
-  from azureml.train.widgets import RunDetails
+  from azureml.widgets import RunDetails
   RunDetails(run).show()
   ```
 
   ![Widget de bloco de notas de captura de ecrã do Jupyter](./media/how-to-track-experiments/widgets.PNG)
+
+2. **[Máquina automatizada aprendizagem execuções]**  Para acessar os gráficos de uma execução anterior. Substitua `<<experiment_name>>` com o nome de experimentação apropriado:
+
+   ``` 
+   from azureml.train.widgets import RunDetails
+   from azureml.core.run import Run
+
+   experiment = Experiment (workspace, <<experiment_name>>)
+   run_id = 'autoML_my_runID' #replace with run_ID
+   run = Run(experiment, run_id)
+   RunDetails(run).show()
+   ```
+
+  ![Widget de bloco de notas de captura de ecrã do Jupyter](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
+
+
+Para ver mais detalhes de um clique de pipeline ao pipeline que gostaria de explorar na tabela e os gráficos serão renderizados num pop-up do portal do Azure.
 
 ### <a name="get-log-results-upon-completion"></a>Obter resultados do registo após a conclusão
 
@@ -235,19 +254,20 @@ Modelo de formação e monitorização ocorre em segundo plano para que possam e
 
 Pode ver as métricas de usar um modelo preparado ```run.get_metrics()```. Agora pode obter todas as métricas que foram registadas no exemplo acima para determinar o melhor modelo.
 
-<a name='view-the-experiment-in-the-web-portal'/>
+<a name="view-the-experiment-in-the-web-portal"></a>
 ## <a name="view-the-experiment-in-the-azure-portal"></a>Ver a experimentação no portal do Azure
 
-Quando uma experimentação estiver concluída em execução, pode navegar para a experimentação gravada executar o registo. Pode fazê-lo de duas formas:
+Quando uma experimentação estiver concluída em execução, pode navegar para a experimentação gravada executar o registo. Pode fazer aceder ao histórico de duas formas:
 
 * Obter o URL para a execução diretamente ```print(run.get_portal_url())```
-* Ver os detalhes da execução, enviando o nome da execução (neste caso, ```run```). Isso aponta para o nome de experimentação, ID, tipo, estado, página de detalhes, uma ligação para o portal do Azure e uma ligação para a documentação.
+* Ver os detalhes da execução, enviando o nome da execução (neste caso, ```run```). Desta forma aponta o nome de experimentação, ID, tipo, estado, página de detalhes, uma ligação para o portal do Azure e uma ligação para a documentação.
 
 A ligação para a execução traz até diretamente para a página de detalhes da execução no portal do Azure. Aqui pode ver quaisquer propriedades, métricas registadas, imagens e gráficos que são registados na experimentação. Neste caso, fizemos logon MSE e os valores alfa.
 
   ![Captura de ecrã de detalhes da execução no portal do Azure](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 Também pode ver qualquer saídas ou registos para a execução, ou transferir o instantâneo da experimentação submetida para que possa partilhar a pasta de experimentação com outras pessoas.
+
 ### <a name="viewing-charts-in-run-details"></a>Ver gráficos em detalhes da execução
 
 Existem várias formas de utilizar as APIs para tipos diferentes de registo de métricas de log durante uma execução e visualizá-los como gráficos no portal do Azure. 
@@ -259,13 +279,146 @@ Existem várias formas de utilizar as APIs para tipos diferentes de registo de m
 |Inicie uma linha com 2 colunas numéricas repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de linhas de duas variáveis|
 |Tabela de logs de 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linhas de duas variáveis|
 
+<a name="auto"></a>
+## <a name="understanding-automated-ml-charts"></a>Noções básicas sobre automatizada gráficos de ML
+
+Depois de submeter um trabalho de ML automatizado num bloco de notas, um histórico dessas execuções pode ser encontrado na sua área de trabalho do serviço de aprendizagem. 
+
+Saiba mais sobre:
++ [Os gráficos e as curvas para modelos de classificação](#classification)
++ [Tabelas e gráficos para modelos de regressão](#regression)
++ [Capacidade de explicar de modelo](#model-explain-ability-and-feature-importance)
+
+
+### <a name="how-to-see-run-charts"></a>Como ver gráficos de execução:
+
+1. Vá para a área de trabalho. 
+
+1. Selecione **experimentações** no painel mais à esquerda da sua área de trabalho.
+
+  ![Captura de ecrã do menu de experimentação](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_menu.PNG)
+
+1. Selecione a experimentação que está interessado.
+
+  ![Captura de ecrã do menu de experimentação](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_list.PNG)
+
+1. Na tabela, selecione o número de executar.
+
+   ![Captura de ecrã do menu de experimentação](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_run.PNG)
+
+1.  Na tabela, selecione o número de iteração para o modelo que pretende explorar ainda mais.
+
+   ![Captura de ecrã do menu de experimentação](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
+
+
+
+### <a name="classification"></a>Classificação
+
+Para cada modelo de classificação que cria através da utilização de recursos do Azure Machine Learning de aprendizagem automatizada, pode ver os gráficos seguintes: 
++ [Matriz de confusão](#confusion-matrix)
++ [Gráfico de Recolhimento de precisão](#precision-recall-chart)
++ [Recetor operacional características (ou ROC)](#ROC)
++ [Curva de comparação de precisão](#lift-curve)
++ [Curva de ganhos](#gains-curve)
++ [Desenho de calibragem](#calibration-plot)
+
+#### <a name="confusion-matrix"></a>Matriz de confusão
+
+Uma matriz de confusão é usada para descrever o desempenho de um modelo de classificação. Cada linha apresenta as instâncias da classe verdadeira, e cada coluna representa as instâncias da classe prevista. A matriz de confusão mostra as etiquetas classificadas corretamente e as etiquetas classificadas incorretamente de um modelo específico.
+
+Para problemas de classificação, o Azure Machine Learning fornece automaticamente uma matriz de confusão para cada modelo que foi criado. Para cada matriz de confusão, ML automatizada mostrará as etiquetas classificadas corretamente como rótulos de verdes e classificados incorretamente a vermelho. O tamanho do círculo representa o número de amostras no contentor. Além disso, a contagem de frequência de cada etiqueta prevista e cada etiqueta verdadeira é fornecida em gráficos de barras adjacentes. 
+
+Exemplo 1: Um modelo de classificação com precisão fraco ![um modelo de classificação com precisão fraca](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
+
+Exemplo 2: Um modelo de classificação com precisão elevada (ideal) ![um modelo de classificação com precisão elevada](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+
+
+#### <a name="precision-recall-chart"></a>Gráfico de recolhimento de precisão
+
+Com este gráfico, pode comparar as curvas de recolhimento de precisão para cada modelo determinar qual modelo tem uma relação aceitável entre precisão e lembre-se para o seu problema comercial em particular. Este gráfico mostra o Recolhimento de precisão de média Macro, o Recolhimento de precisão de média Micro e o recolhimento de precisão associado com todas as classes para um modelo.
+
+O termo que precisão representa essa habilidade para um classificador que identifique todas as instâncias corretamente. Lembre-se representa a capacidade para um classificador localizar todas as instâncias de uma etiqueta específica. A curva de recolhimento de precisão mostra a relação entre esses dois conceitos. O ideal é que o modelo teria a precisão de 100% e a precisão de 100%.
+
+Exemplo 1: Um modelo de classificação com precisão baixa e lembre-se de baixa ![um modelo de classificação com precisão baixa e lembre-se de baixa](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
+
+Exemplo 2: Um modelo de classificação com aproximadamente 100% precisão e ~ 100% recolhimento (ideal) ![uma precisão de alta de modelo de classificação e lembre-se](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+
+#### <a name="roc"></a>COR MULTICLASSE
+
+Recetor operacional característica (ou ROC) é um desenho das etiquetas classificadas corretamente vs. as etiquetas classificadas incorretamente para um determinado modelo. A curva cor MULTICLASSE pode ser menos informativa quando os modelos de formação em conjuntos de dados com tendência alto, como ele não mostrará as etiquetas de positivas FALSO.
+
+Exemplo 1: Um modelo de classificação com etiquetas verdadeiras baixas e alta etiquetas falso ![modelo de classificação com etiquetas verdadeiras baixas e alta etiquetas FALSO](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
+
+Exemplo 2: Um modelo de classificação com etiquetas verdadeiras alta e baixas etiquetas falso ![um modelo de classificação com etiquetas verdadeiras alta e baixas etiquetas FALSO](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
+
+#### <a name="lift-curve"></a>Curva de comparação de precisão
+
+Pode comparar a comparação de precisão do modelo criado automaticamente com o Azure Machine Learning para a linha de base para visualizar o ganho de valor desse modelo específico.
+
+Gráficos de comparação de precisão são utilizados para avaliar o desempenho de um modelo de classificação. Mostra quanto melhor pode esperar fazer com um modelo em comparação comparado sem um modelo. 
+
+Exemplo 1: Modelo executa pior do que um modelo de seleção aleatória ![um modelo de classificação que modelam os pior do que uma seleção aleatória](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
+
+Exemplo 2: Modelo tem um desempenho melhor do que um modelo de seleção aleatória ![um modelo de classificação que tem um desempenho melhor](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
+
+#### <a name="gains-curve"></a>Curva de ganhos
+
+Um gráfico de ganhos avalia o desempenho de um modelo de classificação por cada parte dos dados. Ela mostra para cada percentil do conjunto de dados, quanto melhor pode esperar efetuar comparado com um modelo de seleção aleatória.
+
+Utilize o gráfico de quadro de ganhos cumulativos para ajudar a escolher o limite classificação usando uma percentagem que corresponde a um ganho de pretendida do modelo. Estas informações proporciona outra forma de ver os resultados num gráfico de comparação de precisão que acompanha este artigo.
+
+Exemplo 1: Um modelo de classificação com ganho mínimo ![um modelo de classificação com ganho mínimo](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
+
+Exemplo 2: Um modelo de classificação com ganho significativo ![um modelo de classificação com ganho significativo](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+
+#### <a name="calibration-plot"></a>Desenho de calibragem
+
+Para todos os problemas de classificação, pode rever a linha de calibração para cada classe num determinado modelo preditivo, média de macro e micro-média. 
+
+Um desenho de calibragem é utilizado para apresentar a confiança de um modelo preditivo. Ele faz isso ao mostrar a relação entre a probabilidade prevista e a probabilidade real, em que "probabilidade" representa a probabilidade de que uma instância específica pertence alguns da etiqueta. Um modelo calibrated também se alinha com a y = x linha, onde é razoavelmente confiante em sua previsões. Um modelo de confident excessiva se alinha com a y = 0 linha, em que a probabilidade prevista está presente, mas não existe nenhuma probabilidade real.
+
+Exemplo 1: Um modelo mais bem calibrated ![ mais bem calibrated modelo](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
+
+Exemplo 2: Um excesso confident modelo ![um modelo de confident excessiva](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+
+### <a name="regression"></a>Regressão
+Para cada modelo de regressão, será criado usando a automatizada capacidades de machine learning do Azure Machine Learning, pode ver os gráficos seguintes: 
++ [Vs previstas. VERDADEIRO](#pvt)
++ [Histograma da residuals](#histo)
+
+<a name="pvt"></a>
+
+#### <a name="predicted-vs-true"></a>Vs previstas. Verdadeiro
+
+Vs previstas. TRUE mostra a relação entre um valor previsto e o respetivo valor de verdadeiro correlating para um problema de regressão. Este gráfico pode ser utilizado para medir o desempenho de um modelo como o mais perto de y = x linha os valores previstos são, melhor será a precisão de um modelo preditivo.
+
+Após cada execução, pode ver um previstos versus verdadeiro gráfico para cada modelo de regressão. Para proteger a privacidade dos dados, os valores são posicionados em conjunto e o tamanho de cada contentor é mostrado como um gráfico de barras na parte inferior da área do gráfico. Pode comparar o modelo de previsão, com a área de tom mais clara, que mostra de margens de erro, com o valor ideal de onde o modelo deve ser.
+
+Exemplo 1: Um modelo de regressão com precisão baixa em previsões ![um modelo de regressão com precisão baixa em previsões](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
+
+Exemplo 2: Um modelo de regressão com precisão elevada em suas previsões ![um modelo de regressão com precisão elevada em suas previsões](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
+
+<a name="histo"></a>
+
+#### <a name="histogram-of-residuals"></a>Histograma da residuals
+
+Um residuais representa um y observado – o y previsto. Para mostrar uma margem de erro com tendência baixa, o histograma de residuals deve ser formatado como uma curva de sino centrada em torno de 0. 
+
+Exemplo 1: Um modelo de regressão com tendência a erros ![modelo de regressão de SA com tendência a erros](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
+
+Exemplo 2: Um modelo de regressão com distribuição mais uniforme de erros ![um modelo de regressão com distribuição mais uniforme de erros](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
+
+### <a name="model-explain-ability-and-feature-importance"></a>Importância de capacidade de explicar e funcionalidade de modelo
+
+Importância da funcionalidade dá uma pontuação que indica o quão valiosa foi de cada funcionalidade na construção de um modelo. Pode rever a classificação de importância de funcionalidade para o modelo geral, bem como por classe num modelo preditivo. Pode ver por funcionalidade como a importância se compara em relação a cada classe e geral.
+
+![Capacidade de explicar de funcionalidade](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature_explain1.PNG)
+
 ## <a name="example-notebooks"></a>Blocos de notas de exemplo
 Os seguintes blocos de notas demonstram os conceitos deste artigo:
-* [01.Getting-Started/01.Train-within-Notebook/01.Train-within-Notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
-* [01.Getting-Started/02.Train-on-local/02.Train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
-* [01.Getting-Started/06.Logging-API/06.Logging-API.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/06.logging-api/06.logging-api.ipynb)
-
-Obtenha estes blocos de notas:
+* [How-to-use-azureml/Training/Train-within-Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training\train-within-notebook)
+* [How-to-use-azureml/Training/Train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+* [How-to-use-azureml/Training/Logging-API/Logging-API.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

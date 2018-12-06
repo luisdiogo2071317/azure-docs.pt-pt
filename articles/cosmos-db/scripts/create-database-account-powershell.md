@@ -1,25 +1,20 @@
 ---
-title: Script do Azure PowerShell-Criar uma conta API SQL do Azure Cosmos DB | Microsoft Docs
+title: Script do Azure PowerShell - criar uma conta do Azure Cosmos DB SQL API
 description: Exemplo de Script do Azure PowerShell - Criar uma conta API SQL do Azure Cosmos DB
 services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
 ms.service: cosmos-db
+author: SnehaGunda
+ms.author: sngun
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/10/2017
-ms.author: sngun
-ms.openlocfilehash: 48653dc181df146fbbe1078b4c51cdcaacbef058
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: HT
+ms.openlocfilehash: c6b523837096a34c0a60e164883e325519c4393a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41919790"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955569"
 ---
 # <a name="azure-cosmos-db-create-a-sql-api-account-using-powershell"></a>Azure Cosmos DB: Criar uma conta da API SQL com o PowerShell
 
@@ -50,7 +45,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 

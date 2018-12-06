@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 1c5dfeb6f4f1bb1b56981b61671bb76a1b835e2a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e54161dbcf7ede4147228bf9bc17d9e81a62c552
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720274"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964531"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configurar o agente do Log Analytics para computadores Linux num ambiente híbrido
 O [Azure Log Analytics](../azure-monitor/platform/agent-windows.md) pode recolher dados diretamente do seu computador Linux físico ou virtual no seu datacenter ou noutro ambiente na cloud para um único repositório, para análise e correlação detalhadas.  Este início rápido mostra como configurar e recolher dados do seu computador com Linux em alguns passos simples.  Para as VMs do Linux do Azure, veja o tópico seguinte [Recolher dados sobre Máquinas Virtuais do Azure](log-analytics-quick-collect-azurevm.md).  
@@ -130,4 +130,4 @@ Agora que está a recolher dados operacionais e de desempenho do computador com 
 Para saber como ver e analisar os dados, avance para o tutorial.   
 
 > [!div class="nextstepaction"]
-> [Ver ou analisar dados no Log Analytics](log-analytics-tutorial-viewdata.md)
+> [Ver ou analisar dados no Log Analytics](../azure-monitor/learn/tutorial-viewdata.md)

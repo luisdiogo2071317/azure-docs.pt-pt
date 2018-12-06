@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1b9d6342d30c5f5e9ef80213664447c48a62494c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
-ms.translationtype: HT
+ms.openlocfilehash: ed226ff689649b7eb6a4717fd07be043e1cdfc1e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521905"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966947"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Aprovisionar o dispositivo num hub IoT com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
 
@@ -89,9 +89,9 @@ Após o arranque do dispositivo, devem ocorrer as ações seguintes:
 
     ![Ligação com êxito ao hub no portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-Para obter mais informações, veja a aplicação de exemplo do simulador de TPM [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c). 
+Para obter mais informações, consulte o exemplo de cliente para o dispositivo aprovisionamento [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). O exemplo demonstra o aprovisionamento de um dispositivo simulado com o TPM, certificados X.509 e as chaves simétricas. Veja novamente o [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), [X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509), e [chave simétrica](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key) inícios rápidos de atestado para obter instruções passo a passo sobre como utilizar o exemplo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]

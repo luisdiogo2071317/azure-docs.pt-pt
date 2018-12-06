@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 537c94976dbb4f7753b7fafb3b6c94e97cc2cc17
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6cc4a5d5bfc2056f2517bcbcecb19b9f6b2f437a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126331"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966267"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Gerir recursos de geração 1 de armazenamento do Azure Data Lake com o Explorador de armazenamento
 
@@ -136,7 +136,7 @@ Os itens seguintes mostram como gerir os recursos dentro de uma conta de geraç�
 
    ![Caixa de diálogo com o carregamento em curso](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
 
-> [!NOTE] 
+> [!NOTE]
 > Pode arrastar diretamente as pastas e os ficheiros do computador local para iniciar o carregamento. 
        
 ### <a name="download-folders-or-files-to-your-local-computer"></a>Transferir pastas ou ficheiros para o computador local
@@ -164,7 +164,7 @@ O ficheiro é transferido e aberto com a aplicação associada ao respetivo tipo
 
 ![Seleções para copiar uma pasta](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
-> [!NOTE] 
+> [!NOTE]
 > As operações de copiar/colar em tipos de armazenamento não são suportadas. Pode copiar ficheiros ou pastas de geração 1 de armazenamento do Data Lake e cole-os em outra conta de geração 1 de armazenamento do Data Lake. Mas *não é possível* copiar ficheiros ou pastas de geração 1 de armazenamento do Data Lake e colá-los no armazenamento de Blobs do Azure ou o caminho inverso.
 > 
 > A operação de copiar/colar funciona ao transferir as pastas ou os ficheiros para o computador local e, em seguida, carregá-los para o destino. A ferramenta *não* executa a ação no back-end. A operação de copiar/colar ficheiros grandes é lenta. A otimização de copiar/mover ficheiros de elevado desempenho está em curso.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 687feec668e628e36f9c23cec9943220524cc6e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e3967319cd41399209bd50886bce88efc8ba6ba6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841936"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956521"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de mobilidade para VMs de VMware e servidores físicos
 
@@ -56,11 +56,11 @@ Se as máquinas que pretende replicar tem active software de antivírus em execu
 2. No portal, abra o Cofre > **itens replicados**.
 3. Se o servidor de configuração é a versão mais recente, verá uma notificação que lê a "atualização do agente de replicação de recuperação do novo Site está disponível. Clique para instalar."
 
-     ![Janela de itens replicados](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![Janela de itens replicados](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
 4. Clique na notificação e, em **atualização do agente**, selecione as máquinas em que pretende atualizar o serviço de mobilidade. Em seguida, clique em **OK**.
 
-     ![Lista de VMS de itens de replicados](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![Lista de VMS de itens de replicados](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 5. A tarefa de serviço de mobilidade de atualização é iniciada para cada uma das máquinas selecionadas.
 

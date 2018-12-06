@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 2028de68b3c50f24c46bfafd804b00e84301a9d7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eafb4e82a319a0fdbe954757158a09aba83e9be0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256600"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972291"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Resolver problemas de uma aplicação web no serviço de aplicações do Azure com o Visual Studio
 ## <a name="overview"></a>Descrição geral
@@ -90,7 +90,7 @@ Normalmente, implementa um projeto da web com o `customErrors` sinalizador no ar
 
 ![Página de erro inúteis](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
-Com frequência a forma mais fácil de encontrar a causa do erro é permitir mensagens de erro detalhada, que o primeiro de capturas de ecrã anteriores explica como fazer. Isso exija uma alteração no arquivo Web. config implantado. Pode editar a *Web. config* de ficheiros no projeto e voltar a implementar o projeto ou criar um [transformação Web. config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) e implementar uma compilação de depuração, mas há uma maneira mais rápida: no **Explorador de soluções** , pode ver e editar ficheiros no aplicativo web remoto, utilizando diretamente o *vista remota* funcionalidade.
+Com frequência a forma mais fácil de encontrar a causa do erro é permitir mensagens de erro detalhada, que o primeiro de capturas de ecrã anteriores explica como fazer. Isso exija uma alteração no arquivo Web. config implantado. Pode editar a *Web. config* de ficheiros no projeto e voltar a implementar o projeto ou criar um [transformação Web. config](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) e implementar uma compilação de depuração, mas há uma maneira mais rápida: no **Explorador de soluções** , pode ver e editar ficheiros no aplicativo web remoto, utilizando diretamente o *vista remota* funcionalidade.
 
 1. Na **Explorador de servidores**, expanda **Azure**, expanda **serviço de aplicações**, expanda o grupo de recursos localizado na sua aplicação web e, em seguida, expanda o nó para a sua aplicação web.
 
@@ -491,7 +491,7 @@ You can send logs to any or all of three destinations:
 
 You can specify a different severity level for each destination.
 
-Tables make it easy to view details of logs online, and they support streaming; you can query logs in tables and see new logs as they are being created. Blobs make it easy to download logs in files and to analyze them using HDInsight, because HDInsight knows how to work with blob storage. For more information, see **Hadoop and MapReduce** in [Data Storage Options (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options).
+Tables make it easy to view details of logs online, and they support streaming; you can query logs in tables and see new logs as they are being created. Blobs make it easy to download logs in files and to analyze them using HDInsight, because HDInsight knows how to work with blob storage. For more information, see **Hadoop and MapReduce** in [Data Storage Options (Building Real-World Cloud Apps with Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options).
 
 You currently have file system logs set to verbose level; the following steps walk you through setting up information level logs to go to storage account tables. Information level means all logs created by calling `Trace.TraceInformation`, `Trace.TraceWarning`, and `Trace.TraceError` will be displayed, but not logs created by calling `Trace.WriteLine`.
 
@@ -629,12 +629,12 @@ Para obter mais informações sobre resolução de problemas de aplicações web
 
 Para obter ajuda com uma pergunta específica de resolução de problemas, inicie um thread em um dos Fóruns do seguintes:
 
-* [O Fórum do Azure no site do ASP.NET](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
+* [O Fórum do Azure no site do ASP.NET](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
 * [O Fórum do Azure no MSDN](https://social.msdn.microsoft.com/Forums/windowsazure/).
-* [StackOverflow.com](http://www.stackoverflow.com).
+* [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Depuração no Visual Studio
-Para obter mais informações sobre como utilizar o modo de depuração no Visual Studio, consulte [depuração no Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) e [dicas de depuração com o Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Para obter mais informações sobre como utilizar o modo de depuração no Visual Studio, consulte [depuração no Visual Studio](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx) e [dicas de depuração com o Visual Studio 2010](https://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 ### <a name="remote-debugging-in-azure"></a>Depuração no Azure remota
 Para obter mais informações sobre depuração remota para aplicações web do Azure e WebJobs, consulte os seguintes recursos:
@@ -649,7 +649,7 @@ Se a sua aplicação web utiliza um back-end de API Web do Azure ou serviços m�
 ### <a name="tracing-in-aspnet-applications"></a>Rastreio em aplicativos ASP.NET
 Não há nenhum introduções completas e atualizadas para rastreamento do ASP.NET disponíveis na Internet. O melhor que pode fazer é começar com o antigos materiais introdutórios escritos para o Web Forms porque MVC não ainda existe e complementar que com o blog da mais recente publica que se concentram no problemas específicos. Alguns bons lugares para iniciar são os seguintes recursos:
 
-* [Monitorização e telemetria (criação de aplicações na Cloud reais com o Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
+* [Monitorização e telemetria (criação de aplicações na Cloud reais com o Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
   Capítulo do livro eletrônico com recomendações para rastreamento em aplicações na cloud do Azure.
 * [Rastreamento do ASP.NET](https://msdn.microsoft.com/library/ms972204.aspx)<br/>
   Velha, mas ainda um bom recurso para uma introdução básica para o assunto.
@@ -672,12 +672,12 @@ catch (Exception ex)
 }
 ```
 
-* [Registo a partir da linha de comandos do Azure (mais rápida visualização!) de rastreio de diagnóstico de transmissão em fluxo](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-  Como utilizar a linha de comandos para fazer o que este tutorial mostra como fazer no Visual Studio. [Antevisão](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) é uma ferramenta para depuração de aplicativos do ASP.NET.
+* [Registo a partir da linha de comandos do Azure (mais rápida visualização!) de rastreio de diagnóstico de transmissão em fluxo](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
+  Como utilizar a linha de comandos para fazer o que este tutorial mostra como fazer no Visual Studio. [Antevisão](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) é uma ferramenta para depuração de aplicativos do ASP.NET.
 * [Utilizar aplicações Web, registo e diagnóstico - com David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) e [transmissão em fluxo registos de aplicações Web – com David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Vídeos por Scott Hanselman e David Ebbo.
 
-Para o registo de erro, uma alternativa para escrever seu próprio código de rastreamento é usar uma arquitetura de registo de código-fonte aberto, como [ELMAH](http://nuget.org/packages/elmah/). Para obter mais informações, consulte [mensagens de blogue de Scott Hanselman sobre o ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
+Para o registo de erro, uma alternativa para escrever seu próprio código de rastreamento é usar uma arquitetura de registo de código-fonte aberto, como [ELMAH](https://nuget.org/packages/elmah/). Para obter mais informações, consulte [mensagens de blogue de Scott Hanselman sobre o ELMAH](https://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
 Além disso, não precisa usar o ASP.NET ou `System.Diagnostics` registos de rastreio para obter a transmissão em fluxo do Azure. A aplicação web do Azure, serviço de registo de transmissão em fluxo transmite em fluxo qualquer *. txt*, *. HTML*, ou *. log* ficheiros encontrados no *LogFiles* pasta. Portanto, poderia criar seu próprio sistema de registo que escreve para o sistema de ficheiros da aplicação web e seu arquivo é transmitido em fluxo e transferido automaticamente. Tudo o que precisa fazer é o código de aplicação de escrita que cria arquivos no *d:\home\logfiles* pasta.
 
@@ -686,13 +686,13 @@ Para obter mais informações sobre como analisar os registos do servidor web, c
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Uma ferramenta para ver os dados nos registos de servidor web (*. log* ficheiros).
-* [Resolução de problemas de desempenho do IIS ou erros de aplicações com LogParser ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Resolução de problemas de desempenho do IIS ou erros de aplicações com LogParser ](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Uma introdução à ferramenta Analisador de registos que pode usar para analisar registos do servidor web.
 * [Mensagens de blogue por Robert McMurray sobre a utilização do LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [O código de estado HTTP no IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analisar registos de rastreio de pedido falhado
-Site do Microsoft TechNet inclui um [usando Failed Request Tracing](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) seção, que pode ser útil para compreender como utilizar estes registos. No entanto, esta documentação concentra-se principalmente sobre como configurar o rastreio de pedidos falhados no IIS, que não pode ser feito em aplicações Web do Azure.
+Site do Microsoft TechNet inclui um [usando Failed Request Tracing](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) seção, que pode ser útil para compreender como utilizar estes registos. No entanto, esta documentação concentra-se principalmente sobre como configurar o rastreio de pedidos falhados no IIS, que não pode ser feito em aplicações Web do Azure.
 
 [GetStarted]: app-service-web-get-started-dotnet.md
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

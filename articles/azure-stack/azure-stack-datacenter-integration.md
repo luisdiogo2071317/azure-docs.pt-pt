@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 9e5a8cf59d4f1dc47495c5889f8ed4aae64f7ff7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720451"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962686"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Sistemas integrados de considerações de integração do Centro de dados para o Azure Stack
 Se estiver interessado num sistema integrado do Azure Stack, deve compreender alguns das principais considerações de planeamento, à implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas questões para ajudar a tomar decisões importantes de infraestrutura para o seu sistema de vários nó do Azure Stack. Uma compreensão destas considerações ajuda ao trabalhar com o fornecedor do hardware de OEM, à medida que implementam o Azure Stack para o seu datacenter.  
@@ -57,7 +57,7 @@ Precisará considerar qual o fornecedor de identidade que pretende utilizar para
 
 Sua escolha de fornecedor de identidade não tem efeito em máquinas de virtuais de inquilino, o sistema de identidade e contas que utilizam, se eles podem aderir a um domínio do Active Directory, etc. Isso é separado.
 
-Pode saber mais sobre como escolher um fornecedor de identidade no [artigo de modelos de ligação de sistemas integrados do Azure Stack](.\azure-stack-connection-models.md).
+Pode saber mais sobre como escolher um fornecedor de identidade no [artigo de modelos de ligação de sistemas integrados do Azure Stack](./azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>Integração do AD FS e do Graph
 Se optar por implementar o Azure Stack através do AD FS como o fornecedor de identidade, tem de integrar a instância do AD FS no Azure Stack com uma instância do AD FS existente por meio de uma fidedignidade de Federação. Isso permite que as identidades numa floresta existente do Active Directory para autenticar com recursos no Azure Stack.

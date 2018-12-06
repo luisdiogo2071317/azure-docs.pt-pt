@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: bc80bfacf6896161fae03b9ed93f5fe22e13ada2
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2ccb4d2ff7beeeac53bafe726122c3b47682db03
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725289"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955434"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights
 
@@ -60,26 +60,6 @@ Informações à direita ressaltar padrões interessantes no conjunto de dados.
 * O **sessões** relatório conta o número de sessões de utilizador ao seu site. Uma sessão é um período de atividade por um utilizador, terminada por um período de inatividade de mais do que meia hora.
 
 [Mais informações sobre as ferramentas de utilizadores, sessões e eventos](app-insights-usage-segmentation.md)  
-
-## <a name="page-views"></a>Visualizações da página
-
-No painel de utilização, clique no mosaico de vistas de página para obter uma análise detalhada de suas páginas mais populares:
-
-![No painel Descrição geral, clique no gráfico de vistas de página](./media/app-insights-usage-overview/05-games.png)
-
-O exemplo acima é de um web site de jogos. A partir de gráficos, podemos pode instantaneamente ver:
-
-* Utilização não melhorada na última semana. Talvez é necessário pensar sobre a otimização do mecanismo de pesquisa?
-* Tênis é a página de jogo mais popular. Vamos nos concentrar em ainda mais melhorias para esta página.
-* Em média, os utilizadores visitam a página de Tênis a cerca de três vezes por semana. (Há cerca de três vezes mais sessões de utilizadores.)
-* A maioria dos usuários visite o site durante a semana de trabalho dos EUA e no horário de trabalho. Talvez iremos deve fornecer um botão "hide rápida" na página da web.
-* O [anotações](app-insights-annotations.md) no gráfico mostram quando foram implementadas novas versões do Web site. Nenhuma das implementações recentes tinha um efeito considerável na utilização.
-
-E se quiser investigar o tráfego para o seu site em mais detalhes, como divisão por uma propriedade personalizada que seu site envia na sua telemetria de vista de página?
-
-1. Abra o **eventos** ferramenta no menu de recursos do Application Insights. Esta ferramenta permite-lhe analisar o número de vistas de página e eventos personalizados foram enviados pelo seu aplicativo, com base numa variedade de opções de filtragem, cohorting e segmentação.
-2. Na lista pendente "Quem utilizou", selecione "Qualquer vista de página".
-3. Na lista pendente "Split por", selecione uma propriedade pela qual dividir a telemetria de vista de página.
 
 ## <a name="retention---how-many-users-come-back"></a>Retenção - voltar o número de utilizadores?
 

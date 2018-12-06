@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: aa511e98fefaf25a08f55f2aa47c43c9ed10a10f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 726e0f335a1586dc35aa1f254ea2b1fae729f01a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261050"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956998"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorizar os serviços do Azure no Grafana
 Agora pode monitorizar serviços do Azure e aplicações a partir [Grafana](https://grafana.com/) utilizando o [Plug-in de origem de dados do Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in reúne dados de desempenho de aplicativo recolhidos pelo Monitor do Azure, incluindo vários registos e métricas. Em seguida, pode exibir esses dados no seu dashboard da Grafana.
@@ -50,7 +50,7 @@ Para configurar um servidor o Grafana local, [transfira e instale o Grafana no s
 
 1. Com o endereço IP do seu servidor, abra a página de início de sessão no *http://\<endereço IP\>: 3000* ou o  *\<DNSName >\:3000* no seu browser. Embora 3000 é a porta predefinida, tenha em atenção de que poderá ter selecionado uma porta diferente durante a configuração. Deverá ver uma página de início de sessão do servidor o Grafana que criou.
 
-    ![Ecrã de início de sessão o Grafana](.\media\monitor-how-to-grafana\grafana-login-screen.png)
+    ![Ecrã de início de sessão o Grafana](./media/monitor-how-to-grafana/grafana-login-screen.png)
 
 2. Inicie sessão com o nome de utilizador *administrador* e a senha de administrador de servidor Grafana que criou anteriormente. Se estiver a utilizar uma instalação local, a palavra-passe predefinida seria *administrador*, e deve ser solicitada alterá-la no primeiro início de sessão.
 
@@ -58,7 +58,7 @@ Para configurar um servidor o Grafana local, [transfira e instale o Grafana no s
 
 Depois de iniciado sessão com êxito, deverá ver que o plug-in da origem de dados do Azure Monitor já está incluído.
 
-![O Grafana inclui o plug-in do Azure Monitor](.\media\monitor-how-to-grafana\grafana-includes-azure-monitor-plugin-dark.png)
+![O Grafana inclui o plug-in do Azure Monitor](./media/monitor-how-to-grafana/grafana-includes-azure-monitor-plugin-dark.png)
 
 1. Selecione **Adicionar origem de dados** para adicionar e configurar a origem de dados do Azure Monitor.
 
@@ -83,7 +83,7 @@ Depois de iniciado sessão com êxito, deverá ver que o plug-in da origem de da
 5. Se utilizar o Application Insights, também pode incluir o API do Application Insights e o ID de aplicação para recolher métricas do Application Insights com base. Para obter mais informações, consulte [obter a sua chave de API e o ID da aplicação](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
 6. Selecione **guardar**, e o Grafana testará as credenciais para cada API. Deverá ver uma mensagem semelhante ao seguinte.  
-    ![Config aprovada da origem de dados do Grafana](.\media\monitor-how-to-grafana\grafana-data-source-config-approved-dark.png)
+    ![Config aprovada da origem de dados do Grafana](./media/monitor-how-to-grafana/grafana-data-source-config-approved-dark.png)
 
 ## <a name="build-a-grafana-dashboard"></a>Criar um dashboard da Grafana
 
@@ -92,11 +92,11 @@ Depois de iniciado sessão com êxito, deverá ver que o plug-in da origem de da
 2. No novo dashboard, selecione o **Graph**. Pode experimentar outras opções de criação de gráficos, mas este artigo usa *Graph* como exemplo.
 
 3. Um gráfico em branco aparece no seu dashboard. Clique com o título do painel e selecione **editar** para introduzir os detalhes dos dados que quer representar neste gráfico de gráfico.
-    ![O Grafana novo gráfico](.\media\monitor-how-to-grafana\grafana-new-graph-dark.png)
+    ![O Grafana novo gráfico](./media/monitor-how-to-grafana/grafana-new-graph-dark.png)
 
 4. Selecione a origem de dados do Azure Monitor que configurou.
     * Azure Monitor a recolher métricas – selecione **do Azure Monitor** na lista pendente de serviço. Uma lista de seletores é exibida, onde pode selecionar os recursos e a métrica a monitorizar neste gráfico. Para recolher métricas de uma VM, utilize o espaço de nomes **Microsoft.Compute/VirtualMachines**. Assim que tiver selecionado as VMs e as métricas, pode começar a ver seus dados no dashboard.
-    ![O Grafana gráfico config para o Azure Monitor](.\media\monitor-how-to-grafana\grafana-graph-config-for-azure-monitor-dark.png)
+    ![O Grafana gráfico config para o Azure Monitor](./media/monitor-how-to-grafana/grafana-graph-config-for-azure-monitor-dark.png)
     * Azure Log Analytics a recolher dados – selecione **do Azure Log Analytics** na lista pendente de serviço. Selecione a área de trabalho que gostaria de consultar e definir o texto da consulta. Pode copiar, aqui, qualquer consulta do Log Analytics já tem ou crie um novo. À medida que escreve na sua consulta, o IntelliSense aparece e opções de preenchimento automático de sugerir. Selecione o tipo de visualização **série de tempo** **tabela**, e execute a consulta.
     
     > [!NOTE]
@@ -104,7 +104,7 @@ Depois de iniciado sessão com êxito, deverá ver que o plug-in da origem de da
     > A consulta predefinida fornecida com o plug-in utiliza duas macros: "__interval $__timeFilter() e $. 
     > Essas macros permitem o Grafana calcular dinamicamente o intervalo de tempo e o intervalo de tempo, quando aplica zoom parte de um gráfico. Pode remover essas macros e utilizar um filtro de hora padrão, como *TimeGenerated > há (1H)*, mas isso significa que o gráfico não suporte o zoom na funcionalidade.
     
-    ![O Grafana gráfico config para o Azure Log Analytics](.\media\monitor-how-to-grafana\grafana-graph-config-for-azure-log-analytics-dark.png)
+    ![O Grafana gráfico config para o Azure Log Analytics](./media/monitor-how-to-grafana/grafana-graph-config-for-azure-log-analytics-dark.png)
 
 5. Segue-se um dashboard simple com dois gráficos. Um no lado esquerdo mostra a percentagem de CPU de duas VMs. O gráfico à direita mostra as transações numa conta de armazenamento do Azure, dividida por tipo de transação de API.
     ![O Grafana dois gráficos exemplo](media/monitor-send-to-grafana/grafana6.png)
@@ -140,7 +140,7 @@ Usage
 Pode configurar uma variável que listará todos disponíveis **solução** valores e, em seguida, atualize a consulta para utilizá-lo.
 Para criar um clique de variável, novo botão de definições do dashboard na área superior direita, selecione **variáveis**e, em seguida **New**.
 Na página de variável, defina a origem de dados e consulta de executar para obter a lista de valores.
-![Variável de configurar o Grafana](.\media\monitor-how-to-grafana\grafana-configure-variable-dark.png)
+![Variável de configurar o Grafana](./media/monitor-how-to-grafana/grafana-configure-variable-dark.png)
 
 Depois de criado, ajustar a consulta para utilizar o valor ou valores selecionado e seus gráficos irão responder de acordo:
 ```
@@ -150,13 +150,13 @@ Usage
 | sort by TimeGenerated
 ```
     
-![Variáveis de utilizar o Grafana](.\media\monitor-how-to-grafana\grafana-use-variables-dark.png)
+![Variáveis de utilizar o Grafana](./media/monitor-how-to-grafana/grafana-use-variables-dark.png)
 
 ### <a name="create-dashboard-playlists"></a>Criar listas de reprodução do dashboard
 
 Uma das várias funcionalidades da Grafana é a lista de reprodução do dashboard. Pode criar vários dashboards e adicioná-los para configurar um intervalo para cada dashboard mostrar uma lista de reprodução. Selecione **reproduzir** para ver os dashboards percorrer. Poderá exibi-los num monitor de parede grande para fornecer um quadro de estado para o seu grupo.
 
-![Exemplo de lista de reprodução o Grafana](.\media\monitor-how-to-grafana\grafana7.png)
+![Exemplo de lista de reprodução o Grafana](./media/monitor-how-to-grafana/grafana7.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
