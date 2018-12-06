@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: d228fbde230f89848d895bd1c004724b88de4431
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a8d91c0410d2a59e4b22866aa48d36c026f3ee8e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883827"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956300"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Limitações de migração/problemas conhecidos com as migrações de online para a BD SQL do Azure
 
@@ -30,7 +30,7 @@ Se a sua base de dados de origem é composta por um ou mais tabelas temporais, a
 
 {"resourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Erro de migração de base de dados", "errorEvents": "[" funcionalidades de captura não foi possível definir. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 mensagem: [Microsoft][SQL Server Native Client 11.0][SQL][SQL Server] a utilização da replicação não é suportado com a tabela temporal com versão do sistema '[aplicativo. Cidades] "linha: 1 coluna: -1"] "}
  
- ![Exemplo de erros de tabela temporal](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
+ ![Exemplo de erros de tabela temporal](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **Solução**
 
@@ -52,7 +52,7 @@ Para obter mais informações, consulte o artigo [tabelas temporais](https://doc
 
 Poderá ver uma exceção de SQL sugerindo "ntext é incompatível com hierarchyid" durante a operação de "carregamento de dados completa":
      
-![exemplo de erros de hierarchyid](media\known-issues-azure-sql-online\dms-hierarchyid-errors.png)
+![exemplo de erros de hierarchyid](media/known-issues-azure-sql-online/dms-hierarchyid-errors.png)
 
 **Solução**
 
@@ -107,7 +107,7 @@ Se precisar de DMS para migrar o valor exato timestamp armazenado na tabela de o
 
 Quando encontrar as falhas de migração na vista de estado de detalhes de bases de dados, selecionando o **erros de migração de dados** link da faixa de opções principais poderão não fornecer detalhes adicionais específicos para as falhas de migração.
 
-![erros de migração de dados nenhum exemplo de detalhes](media\known-issues-azure-sql-online\dms-data-migration-errors-no-details.png)
+![erros de migração de dados nenhum exemplo de detalhes](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
 **Solução**
 
@@ -115,6 +115,6 @@ Para obter detalhes sobre a falha específica, siga os passos abaixo.
 
 1. Feche o painel de estado detalhado da base de dados para apresentar o ecrã de atividade de migração.
 
-     ![ecrã de atividade de migração](media\known-issues-azure-sql-online\dms-migration-activity-screen.png)
+     ![ecrã de atividade de migração](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
 2. Selecione **ver detalhes do erro** para ver mensagens de erro específicas que ajudam a resolver problemas de erros de migração.

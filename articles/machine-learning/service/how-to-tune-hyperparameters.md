@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.date: 12/04/2018
+ms.openlocfilehash: b722af6fd5dd29a5b7cef8581d27d421825fb323
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140811"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868162"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Otimizar hiperparâmetros para o modelo
 
@@ -36,8 +36,6 @@ Em cenários de aprendizagem profunda de aprendizagem automática / máquinas, d
 
 O Azure Machine Learning permite-lhe automatizar hiper-parâmetros exploração de uma forma eficiente, economizando tempo significativo e recursos. Especifique o intervalo de valores de hiper-parâmetros e executa um número máximo de treinamento. O sistema, em seguida, inicia várias execuções simultâneas com configurações de parâmetros diferentes e automaticamente localiza a configuração que resulta em melhor desempenho, medido pela métrica que escolher. Execuções de preparação com mau desempenho são automaticamente antecipadas terminada, a redução de desperdício de recursos de computação. Estes recursos em vez disso, são utilizados para explorar outras configurações de hiper-parâmetros.
 
->[!NOTE]
-> Código neste artigo foi testado com o Azure Machine Learning SDK versão 0.168 
 
 ## <a name="define-search-space"></a>Definir o espaço de pesquisa
 
@@ -311,7 +309,7 @@ hyperdrive_run = experiment.submit(hyperdrive_run_config)
 O SDK do Azure Machine Learning fornece um widget de bloco de notas que apresenta o progresso do seu treinamento é executado. O fragmento seguinte visualiza a todos os seus hiper-parâmetros otimização é executada num único local num bloco de notas do Jupyter:
 
 ```Python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(hyperdrive_run).show()
 ```
 
@@ -348,10 +346,9 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## <a name="sample-notebook"></a>Bloco de notas de exemplo
-Consulte a 
-* [Training/03.Train-hyperparameter-Tune-Deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow) para obter um tutorial sobre ajuste de hiperparâmetros para um modelo do Tensorflow. 
-
-Obter este bloco de notas:
+Consulte estes blocos de notas:
+* [How-to-use-azureml/Training-with-Deep-Learning/Train-hyperparameter-Tune-Deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch) 
+* [How-to-use-azureml/Training-with-Deep-Learning/Train-hyperparameter-Tune-Deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

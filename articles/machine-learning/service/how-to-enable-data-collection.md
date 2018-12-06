@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
-ms.openlocfilehash: f4340d1ef30bb4317e658c9a9a936f009054e784
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0f09e168cf3e7944db0381bc54e66e0b95d0dd8e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710635"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877155"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recolher dados para modelos em produção
 
@@ -45,8 +45,6 @@ O caminho para os dados de saída no blob segue esta sintaxe:
 /modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
->[!NOTE]
-> Código neste artigo foi testado com o Azure Machine Learning SDK versão 0.1.74
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -172,7 +170,7 @@ Para aceder rapidamente os dados a partir do seu blob:
 
 ### <a name="analyzing-model-data-through-power-bi"></a>Análise de dados de modelo através do Power BI
 
-1. Transfira e abra [Power BI Desktop](http://www.powerbi.com)
+1. Transfira e abra [Power BI Desktop](https://www.powerbi.com)
 
 1. Selecione **obter dados** e clique em [ **armazenamento de Blobs do Azure**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 
@@ -231,8 +229,6 @@ Para aceder rapidamente os dados a partir do seu blob:
 
 ## <a name="example-notebook"></a>Bloco de notas de exemplo
 
-O [00. obtendo Started/12.enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/12.enable-data-collection-for-models-in-aks) bloco de notas demonstra conceitos deste artigo.  
+O [how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb) bloco de notas demonstra conceitos deste artigo.  
 
-Obter este bloco de notas:
- 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
