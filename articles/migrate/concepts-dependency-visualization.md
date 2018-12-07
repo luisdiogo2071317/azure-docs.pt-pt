@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: 9baf6ea70a8e9fa0dcd8ceefc9f58d7fa972767a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9cbb1f080b9a5a98984ad48854bccc4fb2044c16
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841970"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998342"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -68,7 +68,7 @@ Saiba mais sobre os preços do Azure Migrate [aqui](https://azure.microsoft.com/
 
 ## <a name="how-do-i-manage-the-workspace"></a>Como posso gerir a área de trabalho?
 
-Pode utilizar a área de trabalho do Log Analytics fora do Azure Migrate. Não é eliminado se eliminar o projeto de migração no qual foi criado. Se já não precisar de área de trabalho, [eliminá-lo](../log-analytics/log-analytics-manage-access.md) manualmente.
+Pode utilizar a área de trabalho do Log Analytics fora do Azure Migrate. Não é eliminado se eliminar o projeto de migração no qual foi criado. Se já não precisar de área de trabalho, [eliminá-lo](../azure-monitor/platform/manage-access.md) manualmente.
 
 Não elimine a área de trabalho criada pelo Azure Migrate, a menos que excluir o projeto de migração. Se o fizer, a funcionalidade de visualização de dependência não funcionará conforme esperado.
 

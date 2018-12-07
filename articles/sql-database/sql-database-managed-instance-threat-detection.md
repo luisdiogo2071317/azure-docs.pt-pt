@@ -11,25 +11,21 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: 7f05bd6c96a8e22b1e039c3edcec491b7c079d54
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/06/2018
+ms.openlocfilehash: a456a214143f39ed9504af40129f9199b2535e46
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162414"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997145"
 ---
-# <a name="azure-sql-database-managed-instance-threat-detection"></a>Deteção de ameaças da instância de gerida de base de dados SQL do Azure
+# <a name="azure-sql-database-managed-instance-threat-detection-preview"></a>Base de dados SQL do Azure geridos a deteção de ameaças da instância (pré-visualização)
 
-Deteção de ameaças do SQL Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados numa instância de gerida de base de dados do Azure SQL.
+SQL do Azure [deteção de ameaças](sql-database-threat-detection-overview.md) para [SQL Database Managed Instance](sql-database-managed-instance-index.yml) Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados. Deteção de ameaças pode identificar **injeção SQL potencial**, **acesso a partir do Centro de dados ou localização invulgar**, **acesso a partir de familiarizado aplicativo de principal ou potencialmente prejudicial**, e **credenciais SQL de força bruta** -veja mais detalhes no [alertas de deteção de ameaças](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
 
-## <a name="overview"></a>Descrição geral
+Pode receber notificações sobre as ameaças detetadas através de [notificações por e-mail](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) ou [portal do Azure](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 
-Deteção de ameaças Deteta atividades anómalas da base de dados, indicando potenciais ameaças de segurança para a instância gerida. Deteção de ameaças está agora em pré-visualização para a instância gerida.
-
-Deteção de ameaças oferece uma nova camada de segurança, o que permite aos clientes detetar e responder a potenciais ameaças à medida que ocorrem ao fornecer alertas de segurança relativamente a atividades anómalas da base de dados. Deteção de ameaças facilita lidar com potenciais ameaças à instância gerida, sem a necessidade de ser um especialista em segurança ou gerir sistemas de monitorização de segurança avançados. Para uma experiência de investigação completo, é recomendado para ativar a auditoria do Azure geridos instância, que escreve o registo de eventos de base de dados para uma auditoria na sua conta de armazenamento do Azure. 
-
-Deteção de ameaças SQL integra alertas no [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/), e, em cada instância protegida geridos é cobrada de acordo com o mesmo preço do escalão Standard de centro de segurança do Azure, US $15/nó/mês, onde cada um protegido instância gerida é contabilizado como um nó.  
+[Deteção de ameaças](sql-database-threat-detection-overview.md) faz parte da [proteção contra ameaças avançadas do SQL](sql-advanced-threat-protection.md) oferta (ATP), o que é um pacote unificado para funções de segurança avançadas do SQL. Deteção de ameaças pode ser acessada e gerenciada através do portal SQL ATP central. O serviço de deteção de ameaças é cobrado 15$ / mês por instância gerida, com os primeiros 30 dias sem encargos.
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Configurar a deteção de ameaças da sua instância gerida no portal do Azure
 1. Iniciar o portal do Azure no [ https://portal.azure.com ](https://portal.azure.com).
@@ -42,39 +38,10 @@ Deteção de ameaças SQL integra alertas no [Centro de segurança do Azure](htt
 
    ![Deteção de ameaças](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
 
-## <a name="explore-anomalous-managed-instance-activities-upon-detection-of-a-suspicious-event"></a>Explore a atividades anómalas da instância gerida após a deteção de um evento suspeita
-
-1. Receber uma notificação por e-mail após a deteção de atividades anómalas da base de dados. 
-
-   O e-mail fornece informações sobre o evento de segurança suspeito, incluindo a natureza das atividades anómalas, o nome de base de dados, o nome do servidor e a hora do evento. Além disso, ele fornece informações sobre as causas possíveis e as ações recomendadas para investigar e mitigar a potencial ameaça à instância gerida.
-
-   ![e-mail de deteção de ameaças](./media/sql-database-managed-instance-threat-detection/threat-detection-email.png)
-
-2. Clique nas **ver alertas recentes do SQL** ligação no e-mail para iniciar o portal do Azure e mostrar a página de alertas do Centro de segurança do Azure, que fornece uma visão geral do Active Directory foram detetadas de ameaças SQL na base de dados a instância gerida.
-
-   ![ameaças ativas](./media/sql-database-managed-instance-threat-detection/active-threats.png)
-
-3. Clique num alerta específico para obter detalhes adicionais e ações para esta ameaça a investigar e remediar ameaças futuras.
-
-   Por exemplo, injeção de SQL é uma dos problemas comuns de segurança de aplicação Web na Internet. Injeção de SQL é utilizada para atacar aplicações condicionadas por dados. Os atacantes tiram partido das vulnerabilidades das aplicações para injetar instruções SQL maliciosas nos campos de entrada do aplicativo, violar ou modificar os dados na base de dados. Para os alertas de Injeção de SQL, os detalhes do alerta incluem a instrução SQL vulnerável, que foi explorada.
-
-   ![injeção de SQL](./media/sql-database-managed-instance-threat-detection/sql-injection.png)
-
-## <a name="managed-instance-threat-detection-alerts"></a>Alertas de deteção de ameaças da instância geridas 
-
-Deteção de ameaças da instância gerida Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados e ele pode acionar os seguintes alertas:
-- **Vulnerabilidade a Injeção de SQL**: este alerta é acionado quando uma aplicação gera uma instrução SQL defeituosa na base de dados. Tal pode indicar uma possível vulnerabilidade a ataques de injeção de SQL. Existem dois motivos possíveis para a geração de uma instrução defeituosa:
- - Um defeito no código da aplicação que constitui a instrução SQL defeituosa
- - O código de aplicação ou os procedimentos armazenados não saneiam a entrada de utilizador ao criar a instrução SQL defeituosa, o que pode ser explorado para Injeção SQL
-- **Potencial injeção SQL**: este alerta é acionado quando uma exploração ativa ocorre contra uma vulnerabilidade de aplicação identificada para a injeção SQL. Isso significa que o atacante está a tentar injetar instruções SQL maliciosas usando o código de aplicativo vulnerável ou procedimentos armazenados.
-- **Acesso a partir de uma localização invulgar**: este alerta é acionado quando ocorre uma alteração no padrão de acesso para uma instância gerida, em que alguém iniciou sessão à instância gerida de uma localização geográfica invulgar. Em alguns casos, o alerta Deteta uma ação legítima (uma nova aplicação ou operação de manutenção do desenvolvedor). Em outros casos, o alerta Deteta uma ação maliciosa (ex-funcionário, atacante externo e assim por diante).
-- **Acesso a partir do Centro de dados do Azure invulgar**: este alerta é acionado quando ocorre uma alteração no padrão de acesso para a instância gerida, em que alguém iniciou sessão à instância gerida a partir de um centro de dados do Azure que não foi visualizado, aceder a este gerida Instância durante o período recente. Em alguns casos, o alerta Deteta uma ação legítima (sua nova aplicação no Azure, o Power BI, o Editor de consultas de SQL do Azure e assim por diante). Noutros casos, o alerta deteta uma ação maliciosa de um recurso/serviço do Azure (ex-funcionário, atacante externo).
-- **Acesso a partir de principal invulgar**: este alerta é acionado quando ocorre uma alteração no padrão de acesso ao servidor de instância gerida, em que alguém iniciou sessão para a instância gerida através de um principal invulgar (utilizador SQL). Em alguns casos, o alerta Deteta uma ação legítima (operação de manutenção do novo desenvolvedor de aplicativos). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
-- **Acesso de uma localização potencialmente prejudicial**: este alerta é acionado quando uma aplicação potencialmente prejudicial é utilizada para aceder à base de dados. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque através de ferramentas de ataque comuns.
-- **Credenciais SQL de força bruta**: este alerta é acionado quando existe um número anormalmente elevado de inícios de sessão falhados com diferentes credenciais. Em alguns casos, o alerta deteta testes de penetração em ação. Em outros casos, o alerta Deteta um ataque de força bruta.
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre a instância gerida, consulte [o que é uma instância gerida](sql-database-managed-instance.md)
-- Saiba mais sobre [auditoria de instância gerida](https://go.microsoft.com/fwlink/?linkid=869430) 
-- Saiba mais sobre [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Saiba mais sobre [deteção de ameaças](sql-database-threat-detection-overview.md). 
+- Saiba mais sobre a instância gerida, veja [o que é uma instância gerida](sql-database-managed-instance.md). 
+- Saiba mais sobre [deteção de ameaças da base de dados única](sql-database-threat-detection.md). 
+- Saiba mais sobre [auditoria de instância gerida](https://go.microsoft.com/fwlink/?linkid=869430). 
+- Saiba mais sobre [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro).

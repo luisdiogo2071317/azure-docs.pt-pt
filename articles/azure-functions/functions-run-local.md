@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 89236575a73325d650f1357ff03abb53bbc7b00c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2264e6ff686519f7ef0d436d67f3055a48a7421b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848957"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997087"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -210,7 +210,7 @@ Mesmo ao usar o emulador de armazenamento para o desenvolvimento, talvez queira 
 
   ![Copie a cadeia de ligação do portal do Azure](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ Uso [Explorador de armazenamento do Azure](http://storageexplorer.com/) para ligar à sua conta do Azure. Na **Explorer**, expanda a sua subscrição, selecione a sua conta de armazenamento e copie a cadeia de ligação primária ou secundária. 
++ Uso [Explorador de armazenamento do Azure](https://storageexplorer.com/) para ligar à sua conta do Azure. Na **Explorer**, expanda a sua subscrição, selecione a sua conta de armazenamento e copie a cadeia de ligação primária ou secundária. 
 
   ![Copie a cadeia de ligação do Explorador de armazenamento](./media/functions-run-local/storage-explorer.png)
 

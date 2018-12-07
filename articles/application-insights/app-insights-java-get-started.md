@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 46ba2aa42f6669443354ceb7661684612e26f45f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9f58c8c99fa48c0ffb4c76dd9752993b5e7d092e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728043"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994377"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introdução ao Application Insights num projeto Web em Java
 
@@ -74,7 +74,7 @@ Em seguida, atualize as dependências do projeto para obter os binários transfe
     </dependencies>
 ```
 
-* *Fazer a compilação ou a soma de verificação dos erros de validação?* Tente utilizar uma versão específica, como: `<version>2.0.n</version>`. Pode encontrar a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos [artefactos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Fazer a compilação ou a soma de verificação dos erros de validação?* Tente utilizar uma versão específica, como: `<version>2.0.n</version>`. Pode encontrar a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos [artefactos Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Tem de atualizar para um novo SDK?* Atualize as dependências do seu projeto.
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Se estiver a utilizar o Gradle... <a name="gradle-setup" />
@@ -97,7 +97,7 @@ Em seguida, atualize as dependências do projeto para obter os binários transfe
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Se estiver a utilizar o Eclipse para criar um projeto Web Dinâmico...
 Utilize o [Application Insights SDK para o Plug-in Java][eclipse]. Nota: Apesar de utilizar este plug-in irá ajudá-lo com uma execução do Application Insights mais rápida (partindo do princípio que não está a utilizar Maven/Gradle), não é um sistema de gestão de dependência. Como tal, atualizar o plug-in não atualizará automaticamente as bibliotecas do Application Insights no seu projeto.
 
-* *Fazer a compilação ou a soma de verificação dos erros de validação?* Tente utilizar uma versão específica, como: `version:'2.0.n'`. Pode encontrar a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos [artefactos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Fazer a compilação ou a soma de verificação dos erros de validação?* Tente utilizar uma versão específica, como: `version:'2.0.n'`. Pode encontrar a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos [artefactos Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Para atualizar para um SDK novo* Atualize as dependências do seu projeto.
 
 #### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Caso contrário, se estiver a gerir as dependências manualmente...

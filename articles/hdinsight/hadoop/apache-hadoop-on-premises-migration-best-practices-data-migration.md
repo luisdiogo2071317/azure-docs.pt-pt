@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 492087f7eeca8628ac6ac9a9e42f355a9356f1ce
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 54741bd2d76a7ba414613a40e07c47be703aa033
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584711"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994393"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de migração de dados
 
 Este artigo oferece recomendações para a migração de dados para o Azure HDInsight. É parte de uma série que fornece as práticas recomendadas para ajudar a migrar sistemas de Apache Hadoop no local para Azure HDInsight.
 
-## <a name="migrate-data-from-on-premises-to-azure"></a>Migrar dados no local para o Azure
+## <a name="migrate-on-premises-data-to-azure"></a>Migrar dados no local para o Azure
 
 Existem duas opções principais para migrar os dados no local para o ambiente do Azure:
 
@@ -49,7 +49,7 @@ A tabela a seguir com duração de transferência de dados aproximada com base n
 
 Ferramentas nativas para o Azure, como DistCp, Azure Data Factory e AzureCp, podem ser usadas para transferir dados através da rede. A ferramenta de terceiros que wandisco também pode ser utilizado com o mesmo objetivo. Kafka Mirrormaker e Sqoop podem ser utilizado para transferência de dados em curso no local para sistemas de armazenamento do Azure.
 
-## <a name="performance-considerations-when-using-apache-distcp"></a>Considerações de desempenho ao utilizar o Apache DistCp
+## <a name="performance-considerations-with-apache-distcp"></a>Considerações de desempenho com o Apache DistCp
 
 DistCp é um projeto do Apache que utiliza uma tarefa de MapReduce mapa para transferir dados, manipular os erros e recuperar esses erros. Atribui uma lista de ficheiros de origem para cada tarefa de mapa. A tarefa de mapa, em seguida, copia todos os seus ficheiros atribuídos para o destino. Existem várias técnicas podem melhorar o desempenho de DistCp.
 
@@ -92,14 +92,14 @@ O metastore hive pode ser migrado usando os scripts ou utilizando a replicação
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Migração de metastore Hive através de scripts
 
-1. Gere o DDLs do Hive a partir de metastore de Hive no local. Este passo pode ser feito usando um [script de bash de wrapper]. (https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
-1. Editar a DDL gerada para substituir o url HDFS com URLs do ADLS/WASB/ABFS
-1. Execute a DDL atualizada no metastore do cluster do HDInsight
-1. Certifique-se de que a versão de metastore Hive é compatível entre no local e na cloud
+1. Gere o DDLs do Hive a partir de metastore de Hive no local. Este passo pode ser feito usando uma [script de bash de wrapper](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Edite a DDL gerada para substituir o url HDFS pelo ADLS/WASB/ABFS URLs.
+1. Execute a DDL atualizada no metastore do HDInsight cluster.
+1. Certifique-se de que a versão de metastore Hive é compatível entre no local e na cloud.
 
 #### <a name="hive-metastore-migration-using-db-replication"></a>Migração de metastore Hive utilizando a replicação de DB
 
-- Configurar a replicação de base de dados entre locais metastore de Hive DB e HDInsight metastore DB
+- Configure a replicação de base de dados entre locais metastore de Hive DB e HDInsight metastore DB.
 - Utilize "MetaTool do Hive" para substituir o url HDFS com urls do ADLS/WASB/ABFS, por exemplo:
 
 ```bash

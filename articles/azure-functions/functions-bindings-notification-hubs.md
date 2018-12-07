@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: e51a74783f7d7f080d1caa237bb7aabab0100e72
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 72c0db44e1f56cab190f343a87c6b453625a7f70
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248591"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996039"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Ligação para as funções do Azure de saída dos Hubs de notificação
 
@@ -28,7 +28,7 @@ Os Hubs de notificação do Azure tem de ser configurados para o serviço de pla
 
 ## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
-Os enlaces de Hubs de notificação são fornecidos na [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) pacote NuGet, versão 1.x. Código-fonte para o pacote está no [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) repositório do GitHub.
+Os enlaces de Hubs de notificação são fornecidos na [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) pacote NuGet, versão 1.x. Código-fonte para o pacote está no [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) repositório do GitHub.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -136,7 +136,7 @@ private static TemplateNotification GetTemplateNotification(string message)
 }
 ```
 
-### <a name="f-template-example"></a>Exemplo de modelo do F #
+### <a name="f-template-example"></a>F#exemplo de modelo
 
 Neste exemplo envia uma notificação um [registo de modelo](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) que contém `location` e `message`.
 

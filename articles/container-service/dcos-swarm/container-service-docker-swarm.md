@@ -1,6 +1,6 @@
 ---
-title: Gerir o cluster Swarm do Azure com a API do Docker
-description: Implementar contentores para um cluster Docker Swarm no serviço de contentor do Azure
+title: (PRETERIDO) Gerir um cluster do Swarm do Azure com a API do Docker
+description: Implementar contentores para um cluster Docker Swarm no Azure Container Service
 services: container-service
 author: rgardler
 manager: madhana
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 3f8d18bc053bc303ab124ba38c8621d4ee2e8cb8
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 04cc9048271d653bd77fd7f2707c8f510ea8c29f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26331550"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997953"
 ---
-# <a name="container-management-with-docker-swarm"></a>Gestão de contentores com o Docker Swarm
+# <a name="deprecated-container-management-with-docker-swarm"></a>(PRETERIDO) Gestão de contentores com o Docker Swarm
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 O Docker Swarm fornece um ambiente para a implementação de cargas de trabalho de conteúdo através de um conjunto agrupado de anfitriões de Docker. O Docker Swarm utiliza a API do Docker nativa. O fluxo de trabalho para gerir contentores num Docker Swarm é quase idêntico ao que de um anfitrião de contentor único. Este documento fornece exemplos simples de implementação de cargas de trabalho de conteúdo numa instância de Serviço de Contentor do Azure do Docker Swarm. Para obter documentação mais detalhada sobre o Docker Swarm, consulte [Docker Swarm em Docker.com](https://docs.docker.com/swarm/).
 
@@ -110,6 +112,6 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 Naturalmente, pode utilizar `docker-compose ps` para examinar apenas os contentores definidos noficheiro `compose.yml`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Saiba mais sobre o Docker Swarm](https://docs.docker.com/swarm/)
 

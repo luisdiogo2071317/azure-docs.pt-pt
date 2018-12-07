@@ -1,6 +1,6 @@
 ---
-title: Ciência de dados com a profunda Learning dados ciência de Máquina Virtual no Azure | Microsoft Docs
-description: Como efetuar várias tarefas de ciência de dados comuns com a VM de ciência de dados de aprendizagem profunda.
+title: Ciência de dados com o Deep Learning Data Science Virtual Machine no Azure | Documentos da Microsoft
+description: Como realizar várias tarefas de ciência de dados comuns com a VM de ciência de dados de aprendizagem profunda.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -14,34 +14,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 2053ed8cc420183d493097eeb2cd2ad93c82c70c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 91c1727907c9a134a257e8f7d7c1efb6721c1906
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167250"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993770"
 ---
-# <a name="using-the-deep-learning-virtual-machine"></a>Utilização avançada de aprendizagem Máquina Virtual
+# <a name="using-the-deep-learning-virtual-machine"></a>Utilizar a Máquina Virtual de aprendizagem profunda
 
-Depois de ter aprovisionado a Máquina Virtual de aprendizagem profunda (DLVM), pode iniciar a criação de modelos de rede neuronal profundidade para criar aplicações de AI em domínios, como a visão do computador e a compreensão de idiomas. 
+Depois de ter aprovisionado sua máquina Virtual de aprendizagem profunda (DLVM), pode começar a criar modelos de rede neural profunda para criar aplicações de IA em domínios, como a visão do computador e compreensão de idiomas. 
 
-Existem várias ferramentas fornecido na VM Learning avançada para AI. O [página de estruturas de aprendizagem profunda e AI](dsvm-deep-learning-ai-frameworks.md) contém detalhes sobre como utilizar estas ferramentas. 
+Há uma série de ferramentas fornecidas na VM de aprendizagem profunda para IA. O [página de estruturas de aprendizagem profunda e IA](dsvm-deep-learning-ai-frameworks.md) contém detalhes sobre como usar essas ferramentas. 
 
-## <a name="deep-learning-tutorials-and-walkthroughs"></a>Learning profundo tutoriais e instruções
+## <a name="deep-learning-tutorials-and-walkthroughs"></a>Aprendizagem profunda tutoriais e orientações passo a passo
 
-Para além das amostras com base em framework, um conjunto de instruções abrangentes também é fornecido que ter sido validado no DLVM. Estas instruções ajudam a iniciar o desenvolvimento de aplicações de aprendizagem profunda em domínios, como a imagem e a compreensão de idiomas de texto /. Tutoriais de ponto a ponto mais em domínios diferentes e tecnologia irão continuar a ser adicionado.   
+Além de exemplos baseados em framework, um conjunto de instruções passo a passo abrangente também é disponibilizado que foram validadas no DLVM. Esta instruções passo a passo ajudam a promover seu desenvolvimento de aplicativos de aprendizagem profunda em domínios, como a imagem e compreensão de idiomas de texto /. Mais tutoriais de ponto a ponto entre domínios diferentes e tecnologia continuará a ser adicionado.   
 
 
-- [A execução de redes neurais em estruturas diferentes](https://github.com/ilkarman/DeepLearningFrameworks): instruções abrangente que mostra como migrar o código de uma estrutura para outro. É também demonstra como comparar o modelo e execute o desempenho do tempo em estruturas. 
+- [Com redes neurais em diferentes estruturas](https://github.com/ilkarman/DeepLearningFrameworks): um passo a passo abrangente que mostra como migrar o código de uma estrutura para outro. Ele também demonstra como comparar o modelo e executar o desempenho de tempo em estruturas. 
 
-- [Um guia de procedimentos para criar uma solução ponto a ponto para detetar produtos dentro imagens](https://github.com/Azure/cortana-intelligence-product-detection-from-images): deteção de imagem é uma técnica que possam localizar e classificar objetos dentro de imagens. Esta tecnologia tem o potencial de colocar recompensas enormes em vários domínios de negócio de vida real. Por exemplo, retalhistas podem utilizar esta técnica para determinar o shelf tem captado que produto um cliente. Estas informações ajudam, por sua vez, arquivos de gerir o inventário de produtos. 
+- [Um guia de procedimentos para criar uma solução ponto a ponto para detetar os produtos em imagens](https://github.com/Azure/cortana-intelligence-product-detection-from-images): deteção de imagem é uma técnica que possam localizar e classificar objetos em imagens. Esta tecnologia tem o potencial para trazer enormes remunerações em muitos domínios de negócio da vida real. Por exemplo, os varejistas podem usar essa técnica para determinar o produto que um cliente tenha escolhido do prateleira. Estas informações ajudam, por sua vez, arquivos de gerir o inventário de produtos. 
 
-- [Com o nome de extração de entidade de PubMed abstracts](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition) este tutorial mostra como extrair as entidades com nome, como nomes de drug ou nomes de disease, a partir de texto não estruturado. Trains uma palavra personalizada incorporar no corpus texto de milhões de 18 PubMed abstracts, utiliza esse modelo para criar um modelo de rede neuronal periódica de memória de curto prazo longo (LSTM) para extração de entidade e mostra que a palavra específicas do domínio ao incorporar o modelo pode superam o desempenho de um word genérico incorporar para extração de entidade.
+- [Aprendizagem para áudio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) este tutorial mostra como preparar um modelo de aprendizagem profunda para deteção de evento de áudio no [conjunto de dados de sons urbanos](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) e fornecer uma visão geral de como trabalhar com dados de áudio.
 
-- [Ligação avançada de áudio aprendizagem](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) este tutorial mostra como preparar um modelo de aprendizagem avançada para deteção de evento de áudio no [sons urbano conjunto de dados](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) e forneça uma descrição geral de como trabalhar com dados de áudio.
-
-- [Classificação dos documentos de texto](https://github.com/anargyri/lstm_han): esta explicação passo a passo demonstra como criar e preparar duas arquiteturas de outra rede neuronal: rede hierárquica atenção rede e de tempo curto prazo memória (LSTM). As redes neurais utilizam a API de Keras para profunda de aprendizagem para classificar documentos de texto. Keras é um front-end para três a profunda mais popular estruturas de aprendizagem: Microsoft cognitivos Toolkit, TensorFlow e Theano.
+- [Classificação dos documentos de texto](https://github.com/anargyri/lstm_han): este passo a passo demonstra como criar e formar duas arquiteturas de rede neural diferentes: rede de rede hierárquica de atenção e muito curto prazo memória (LSTM). Estas redes neurais utilizam a API Keras para aprendizagem profunda para classificar documentos de texto. Keras é um front-end a três da estruturas de aprendizagem mais popular: Microsoft Cognitive Toolkit, TensorFlow e Theano.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-O [página amostras](dsvm-samples-and-walkthroughs.md) fornece indicações para os exemplos de código previamente carregados na VM para cada um das estruturas para o ajudar a começar rapidamente. 
+O [página de exemplos](dsvm-samples-and-walkthroughs.md) fornece ponteiros para os exemplos de código previamente carregados na VM para cada uma das estruturas para ajudá-lo a começar a trabalhar rapidamente. 

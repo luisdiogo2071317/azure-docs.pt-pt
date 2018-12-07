@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74987d09a9b8979d3c3596c87764f8f3bd4b5795
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d2f1035427815facf501c1349619a73e0f134eff
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846684"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995614"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar o Log Analytics guardar pesquisas e alertas para solução de gestão (pré-visualização)
 
@@ -37,7 +37,7 @@ Este artigo pressupõe que já está familiarizado com a [criar uma solução de
 
 
 ## <a name="log-analytics-workspace"></a>Área de trabalho do Log Analytics
-Todos os recursos do Log Analytics estão contidos num [área de trabalho](../../log-analytics/log-analytics-manage-access.md).  Conforme descrito em [área de trabalho do Log Analytics e a conta de automatização](solutions.md#log-analytics-workspace-and-automation-account), a área de trabalho não está incluída na solução de gestão, mas tem de existir antes da solução está instalada.  Se não estiver disponível, em seguida, a instalação da solução falha.
+Todos os recursos do Log Analytics estão contidos num [área de trabalho](../../azure-monitor/platform/manage-access.md).  Conforme descrito em [área de trabalho do Log Analytics e a conta de automatização](solutions.md#log-analytics-workspace-and-automation-account), a área de trabalho não está incluída na solução de gestão, mas tem de existir antes da solução está instalada.  Se não estiver disponível, em seguida, a instalação da solução falha.
 
 O nome da área de trabalho é no nome de cada recurso do Log Analytics.  Isso é feito na solução com o **área de trabalho** parâmetro como no seguinte exemplo de um recurso de SavedSearch.
 

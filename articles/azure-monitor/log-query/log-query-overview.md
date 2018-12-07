@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 3015db350b8011ccd328369732c5af3fa028a438
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2c1949fe991b599e9b002caf4c98c305a3791977
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963560"
+ms.locfileid: "53000869"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analisar dados do Log Analytics no Azure Monitor
 
@@ -43,7 +43,7 @@ As diferentes formas que irá utilizar consultas do Log Analytics incluem o segu
 - **Regras de alerta.** [Regras de alerta](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) identificar proativamente os problemas dos dados na sua área de trabalho.  Cada regra de alerta baseia-se uma pesquisa de registos que está a ser executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
 - **Dashboards.** Pode afixar os resultados de qualquer consulta numa [dashboard do Azure](../../azure-monitor/platform/dashboards.md) que permitem que visualize os dados de registos e de métricas em conjunto e, opcionalmente, partilhar com outros utilizadores do Azure. 
 - **Modos de exibição.**  Pode criar visualizações de dados a serem incluídos nos dashboards do utilizador com [estruturador de vistas](../../azure-monitor/platform/view-designer.md).  Consultas de registo que fornecem os dados utilizados pelo [mosaicos](../../azure-monitor/platform/view-designer-tiles.md) e [partes de visualização](../../azure-monitor/platform/view-designer-parts.md) em cada vista.  
-- **Exportar.**  Quando importa dados da área de trabalho do Log Analytics para o Excel ou [Power BI](../../log-analytics/log-analytics-powerbi.md), cria uma consulta de registo para definir os dados para exportar.
+- **Exportar.**  Quando importa dados da área de trabalho do Log Analytics para o Excel ou [Power BI](../../azure-monitor/platform/powerbi.md), cria uma consulta de registo para definir os dados para exportar.
 - **PowerShell.** Pode executar um script do PowerShell a partir de uma linha de comando ou um runbook da automatização do Azure que utiliza [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) para recuperar dados do Log Analytics.  Este cmdlet requer uma consulta para determinar os dados a obter.
 - **API do log Analytics.**  O [a API de pesquisa de registos do Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) permite que qualquer cliente de REST API recuperar dados de registo de área de trabalho.  O pedido de API inclui uma consulta que é executada no Log Analytics para determinar os dados a obter.
 

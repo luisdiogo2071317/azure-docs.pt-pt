@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 936c9198eebfa229db6ac34426e435c9e6ed96e8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 46618b76f43247199e85c2023a5391c5566f3394
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254717"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978703"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Inícios rápidos e tutoriais
 
@@ -45,6 +45,7 @@ Utilize os seguintes inícios rápidos e tutoriais para saber como desenvolver m
     |[Criar modelos ligados](../articles/azure-resource-manager/resource-manager-tutorial-create-linked-templates.md)|Modularizar modelos e chamar outros modelos a partir de um modelo. No tutorial, vai criar uma rede virtual, uma máquina virtual e os recursos dependentes.  A conta de armazenamento dependente é definida num modelo ligado. |
     |[Implementar extensões de máquina virtual](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|Execute tarefas de pós-implementação ao utilizar extensões. O tutorial, vai implementar uma extensão de script de cliente para instalar o servidor web na máquina virtual. |
     |[Implementar extensões SQL](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|Execute tarefas de pós-implementação ao utilizar extensões. O tutorial, vai implementar uma extensão de script de cliente para instalar o servidor web na máquina virtual. |
+    |[Proteger os artefactos](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|Proteja os artefactos necessários para concluir as implementações. O tutorial, saiba como proteger o artefacto que utilizou no tutorial de extensões de implementar o SQL. |
     |[Utilize as práticas recomendadas de implementação segura](../articles/azure-resource-manager/deployment-manager-tutorial.md)|Utilize o Azure Deployment manager. |
 
 Estes tutoriais podem ser utilizados individualmente ou como uma série para saber os principais conceitos de desenvolvimento do modelo do Resource Manager.

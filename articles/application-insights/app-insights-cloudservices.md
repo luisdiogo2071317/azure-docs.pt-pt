@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: c39cb01f1477e51623b02941bae03a51a389e197
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b52604fa19a5598e8aff5b8a1ea25e7361add553
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682888"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997020"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para os Serviços Cloud do Azure
 As [aplicações de Serviço cloud do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorizadas pelo [Application Insights][start] quanto à disponibilidade, ao desempenho, às falhas e à utilização, ao combinar dados de SDKs do Application Insights com dados do [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dos seus Serviços Cloud. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -28,7 +28,7 @@ As [aplicações de Serviço cloud do Microsoft Azure](https://azure.microsoft.c
 ## <a name="before-you-start"></a>Antes de começar
 Precisa de:
 
-* Uma subscrição do [Microsoft Azure](http://azure.com). Inicie sessão com uma conta Microsoft, que poderá ter para o Windows, o XBox Live ou outros serviços cloud do Microsoft. 
+* Uma subscrição do [Microsoft Azure](https://azure.com). Inicie sessão com uma conta Microsoft, que poderá ter para o Windows, o XBox Live ou outros serviços cloud do Microsoft. 
 * Ferramentas do Microsoft Azure 2.9 ou posterior
 * Developer Analytics Tools 7.10 ou posterior
 
@@ -150,7 +150,7 @@ Para ver contadores de desempenho e contagens de eventos, abra o [Explorador de 
 
 ![Dados de diagnósticos do Azure](./media/app-insights-cloudservices/23-wad.png)
 
-Utilize a [Pesquisa](app-insights-diagnostic-search.md) ou uma [consulta do Analytics](../log-analytics/query-language/get-started-analytics-portal.md) para pesquisar pelos vários registos de rastreio que o Diagnóstico do Azure envia. Por exemplo, imagine que tem uma exceção não processada que fez com que uma Função falhasse e se reciclasse. Esta informação apareceria no canal Aplicação do Registo de Eventos do Windows. Pode utilizar a Pesquisa para ver o erro do Registo de Eventos do Windows e obter o rastreio de pilha completo da exceção. Isto ajudará a determinar a causa do problema.
+Utilize a [Pesquisa](app-insights-diagnostic-search.md) ou uma [consulta do Analytics](../azure-monitor/log-query/get-started-portal.md) para pesquisar pelos vários registos de rastreio que o Diagnóstico do Azure envia. Por exemplo, imagine que tem uma exceção não processada que fez com que uma Função falhasse e se reciclasse. Esta informação apareceria no canal Aplicação do Registo de Eventos do Windows. Pode utilizar a Pesquisa para ver o erro do Registo de Eventos do Windows e obter o rastreio de pilha completo da exceção. Isto ajudará a determinar a causa do problema.
 
 ![Pesquisa nos diagnósticos do Azure](./media/app-insights-cloudservices/25-wad.png)
 
@@ -241,7 +241,7 @@ Compilou para .NET 4.6? O 4.6 não é suportado automaticamente nas funções do
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md
-[portal]: http://portal.azure.com/
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md 

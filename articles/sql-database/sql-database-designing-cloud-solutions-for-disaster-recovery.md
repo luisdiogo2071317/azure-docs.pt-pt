@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 07/26/2018
-ms.openlocfilehash: 8522fea10a4ec8f85d20e5a9ec04712c77bb6b94
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3c5c4d24d68fffc86a654e0dee5e2d3f36f15aea
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064276"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000463"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Criando serviços globalmente disponíveis com a base de dados do Azure SQL
 
@@ -34,7 +34,7 @@ Neste cenário, os aplicativos têm as seguintes características:
 *   Camada Web e camada de dados devem ser colocalizados para reduzir o custo de latência e de tráfego 
 *   Fundamentalmente, o tempo de inatividade é um risco mais alto do negócio para estas aplicações de perda de dados
 
-Neste caso, a topologia de implementação de aplicações está otimizada para manipular a desastres regionais quando precisam de todos os componentes da aplicação para ativação pós-falha em conjunto. O diagrama abaixo mostra esta topologia. Para a redundância geográfica, os recursos do aplicativo são implementados para a região A e B. No entanto, os recursos na região B não serão utilizados até que a região A falha. Um grupo de ativação pós-falha está configurado entre as duas regiões para gerir a conectividade da base de dados, replicação e ativação pós-falha. O serviço web em ambas as regiões está configurado para acessar o banco de dados através do serviço de escuta de leitura / escrita  **&lt;nome do grupo de ativação pós-falha&gt;. database.windows.net** (1). O Gestor de tráfego está configurado para utilizar [método de encaminhamento prioritário](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
+Neste caso, a topologia de implementação de aplicações está otimizada para manipular a desastres regionais quando precisam de todos os componentes da aplicação para ativação pós-falha em conjunto. O diagrama abaixo mostra esta topologia. Para a redundância geográfica, os recursos do aplicativo são implementados para a região A e B. No entanto, os recursos na região B não serão utilizados até que a região A falha. Um grupo de ativação pós-falha está configurado entre as duas regiões para gerir a conectividade da base de dados, replicação e ativação pós-falha. O serviço web em ambas as regiões está configurado para acessar o banco de dados através do serviço de escuta de leitura / escrita  **&lt;nome do grupo de ativação pós-falha&gt;. database.windows.net** (1). O Gestor de tráfego está configurado para utilizar [método de encaminhamento prioritário](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2).  
 
 > [!NOTE]
 > [O Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) ao longo deste artigo, é utilizado apenas para fins ilustrativos. Pode usar qualquer solução de balanceamento de carga de mensagens em fila que suporta o método de encaminhamento de prioridade.    
@@ -47,7 +47,7 @@ O diagrama seguinte mostra esta configuração antes de uma falha:
 Após uma falha na região primária, o serviço de base de dados SQL Deteta que a base de dados primária não está acessível e aciona a ativação pós-falha para a região secundária com base nos parâmetros da política de ativação pós-falha automática (1). Consoante o SLA de aplicativo, pode configurar um período de tolerância que controla o tempo entre a detecção da falha e a ativação pós-falha em si. É possível que o Gestor de tráfego inicia a ativação pós-falha do ponto final antes do grupo de ativação pós-falha aciona a ativação pós-falha da base de dados. Nesse caso a aplicação web não é imediatamente voltar a ligar à base de dados. Mas os reconnections serão automaticamente bem-sucedidas assim que concluir a ativação pós-falha de base de dados. Quando a região com falha é restaurado e voltar a ficar online, o principal anterior volta ligar automaticamente como um secundário novo. O diagrama abaixo ilustra a configuração após a ativação pós-falha.
  
 > [!NOTE]
-> Todas as transações consolidadas após a ativação pós-falha são perdidas durante o restabelecimento. Depois de concluída a ativação pós-falha, a aplicação na região B é capaz de voltar a ligar e reinicie o processamento de pedidos de utilizador. A aplicação web e a base de dados primária estão agora na região B e permanecem localizadas conjuntamente. n>
+> Todas as transações consolidadas após a ativação pós-falha são perdidas durante o restabelecimento. Depois de concluída a ativação pós-falha, a aplicação na região B é capaz de voltar a ligar e reinicie o processamento de pedidos de utilizador. A aplicação web e a base de dados primária estão agora na região B e permanecem localizadas conjuntamente. 
 
 ![Cenário 1. Configuração após a ativação pós-falha](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 
@@ -135,7 +135,7 @@ Se um período de indisponibilidade ocorre na Europa do Norte por exemplo, a ati
 ![Cenário 3. Falha na Europa do Norte.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 
 > [!NOTE]
-> Pode reduzir o tempo quando a experiência do utilizador final na Europa está degradada pela latência longo. Para fazer isso, deve proativamente implementar uma cópia do aplicativo e criar bases de dados secundárias noutra região local (Europa Ocidental) como uma substituição da instância da aplicação offline na Europa do Norte. Quando a última opção é voltar a ficar online pode decidir se pretende continuar a utilizar a Europa ocidental ou remova a cópia da aplicação lá e mudar para o Norte da Europa,
+> Pode reduzir o tempo quando a experiência do utilizador final na Europa está degradada pela latência longo. Para fazer isso, deve proativamente implementar uma cópia do aplicativo e criar bases de dados secundárias noutra região local (Europa Ocidental) como uma substituição da instância da aplicação offline na Europa do Norte. Quando a última opção é voltar a ficar online pode decidir se pretende continuar a utilizar a Europa ocidental ou remova a cópia da aplicação lá e mudar para o Norte da Europa.
 >
 
 A chave **benefícios** deste design são:

@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 6589a90f6eea2bfd7188e89b701233b37c162d54
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 10cfaab44343a494dd654d0e930e12fa268ea2e3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978771"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992894"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador das funções do Azure 
 
@@ -28,13 +28,13 @@ Este artigo explica como trabalhar com acionadores de temporizadores nas funçõ
 
 ## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
-O acionador de temporizador é fornecido na [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet, versão 2.x. Código-fonte para o pacote está no [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) repositório do GitHub.
+O acionador de temporizador é fornecido na [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet, versão 2.x. Código-fonte para o pacote está no [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) repositório do GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
 
-O acionador de temporizador é fornecido na [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet, versão 3.x. Código-fonte para o pacote está no [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) repositório do GitHub.
+O acionador de temporizador é fornecido na [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) pacote NuGet, versão 3.x. Código-fonte para o pacote está no [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) repositório do GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -50,7 +50,7 @@ Veja o exemplo de idioma específico:
 
 ### <a name="c-example"></a>Exemplo do c#
 
-A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que é executado a cada cinco minutos:
+A exemplo a seguir mostra um [ C# função](functions-dotnet-class-library.md) que é executado sempre que os minutos de ter um valor divisível por cinco (por exemplo, se a função começa às 18:00 57:, o desempenho seguinte será 19: 00:00):
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -92,9 +92,9 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
-### <a name="f-example"></a>Exemplo do F #
+### <a name="f-example"></a>F#exemplo
 
-O exemplo seguinte mostra um acionador de temporizador de enlace num *Function* ficheiro e uma [função de script do F #](functions-reference-fsharp.md) que utiliza o enlace. A função escreve um registo que indica se esta invocação de função é devido a uma ocorrência de agendamento em falta.
+O exemplo seguinte mostra um acionador de temporizador de enlace num *Function* ficheiro e uma [ F# função do script](functions-reference-fsharp.md) que utiliza o enlace. A função escreve um registo que indica se esta invocação de função é devido a uma ocorrência de agendamento em falta.
 
 Eis a vinculação de dados a *Function* ficheiro:
 
@@ -107,7 +107,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 }
 ```
 
-Aqui está o código de script do F #:
+Aqui está o F# código de script:
 
 ```fsharp
 let Run(myTimer: TimerInfo, log: ILogger ) =
@@ -150,7 +150,7 @@ module.exports = function (context, myTimer) {
 
 ### <a name="java-example"></a>Exemplo de Java
 
-A seguinte função de exemplo aciona e executa a cada cinco minutos. O `@TimerTrigger` anotação na função define a agenda com o mesmo formato de cadeia de caracteres que [expressões CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression).
+A seguinte função de exemplo aciona e executa a cada cinco minutos. O `@TimerTrigger` anotação na função define a agenda com o mesmo formato de cadeia de caracteres que [expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 ```java
 @FunctionName("keepAlive")

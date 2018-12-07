@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 52fe5ac108e2788e481d89901dd24098cdb3c9b4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 937cbc1346ce41670270b911e474e900f406a93b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965211"
+ms.locfileid: "52993619"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 Saiba mais sobre o desempenho e a utilização da sua aplicação ou página Web. Se adicionar o [Application Insights](app-insights-overview.md) ao seu script de página, obterá as temporizações de carregamentos de página e chamadas AJAX, contagens e detalhes de falhas de AJAX e exceções de browser, bem como contagens de utilizadores e sessões. Todas estas podem ser segmentadas por página, SO de cliente e versão do browser, geolocalização e outras dimensões. Pode definir alertas em contagens de falhas ou carregamento lento de página. E, ao inserir chamadas de rastreio no seu código JavaScript, pode controlar a utilização das diferentes funcionalidades da sua aplicação da página Web.
@@ -74,7 +74,7 @@ Insira o script imediatamente antes da etiqueta `</head>` de todas as páginas q
 
 O script contém a chave de instrumentação que direciona os dados para o recurso do Application Insights. 
 
-([Explicação mais aprofundada do script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
+([Explicação mais aprofundada do script.](https://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
 ## <a name="detailed-configuration"></a>Configuração detalhada
 Existem vários [parâmetros](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) que pode definir, embora na maioria dos casos não deverá ser preciso. Por exemplo, pode desativar ou limitar o número de chamadas Ajax reportadas por visualização de página (para reduzir o tráfego). Pode ainda configurar o modo de depuração para que a telemetria se mova rapidamente no pipeline sem estar em lote.
@@ -125,7 +125,7 @@ O painel Browser é um [painel do Explorador de Métricas](app-insights-metrics-
 ## <a name="page-load-performance"></a>Desempenho de carregamento de página
 Na parte superior, está um gráfico segmentado dos tempos de carregamento de página. A altura total do gráfico representa o tempo médio para carregar e apresentar páginas a partir da sua aplicação nos browsers dos seus utilizadores. O tempo é medido desde que o browser envia o pedido HTTP inicial até que todos os eventos de carregamento síncronos tenham sido processados, incluindo esquema e scripts em execução. Não inclui tarefas assíncronas, como carregar peças Web a partir de chamadas AJAX.
 
-O gráfico segmenta o tempo total de carregamento da página nas [temporizações padrão definidas pelo W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
+O gráfico segmenta o tempo total de carregamento da página nas [temporizações padrão definidas pelo W3C](https://www.w3.org/TR/navigation-timing/#processing-model). 
 
 ![](./media/app-insights-javascript/08-client-split.png)
 

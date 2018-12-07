@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: f4d8f4a927415426248860b07a40e7294c84de59
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a4f84d6e61d3a100f952908883e6eb70d81f66b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406966"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998807"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Segurança do Azure e o esquema de conformidade - análise de dados para SP do NIST 800-171
 
@@ -69,7 +69,7 @@ A secção seguinte fornece detalhes sobre os elementos de implantação e a imp
 
 **As funções do Azure**: [as funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-overview) é um serviço de computação sem servidor que executa o código a pedido. Não tem de aprovisionar ou gerir a infraestrutura explicitamente. Utilize as Funções do Azure para executar um script ou fragmento de código em resposta a uma variedade de eventos.
 
-**O Azure Machine Learning**: [Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) é uma técnica de ciência de dados que permite aos computadores utilizar dados existentes para prever futuros comportamentos, resultados e tendências.
+**O serviço do Azure Machine Learning**: [Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) é uma técnica de ciência de dados que permite aos computadores utilizar dados existentes para prever futuros comportamentos, resultados e tendências.
 
 **O catálogo de dados do Azure**: [catálogo de dados](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) facilita a detetar e compreender pelos utilizadores que gerem os dados de origens de dados. Podem ser registadas, marcadas e está à procura dados de origens de dados comuns. Os dados permanecem na localização existente, mas uma cópia dos respetivos metadados é adicionada ao catálogo de dados. Uma referência para a localização de origem de dados está incluída. Os metadados são indexados para tornar cada origem de dados fácil de descobrir através da pesquisa. Indexação também torna compreensível para os utilizadores que a detetarem.
 

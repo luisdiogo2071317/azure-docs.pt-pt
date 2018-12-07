@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: d9bf3618b32ce7c5ba7a300a929428dd0614743d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9e845d005af9481919472d8baba0aea17a877a5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276249"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992336"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gerir os dados de utilizador encontrados numa investigação do Centro de segurança do Azure
 Este artigo fornece informações sobre como gerir os dados de utilizador encontrados na funcionalidade de investigação do Centro de segurança do Azure. Investigação de dados é armazenada no [do Azure Log Analytics](../log-analytics/log-analytics-overview.md) e expostos no Centro de segurança. Gestão de dados de utilizador inclui a capacidade de eliminar ou exportar dados.
@@ -58,4 +58,4 @@ A função de proprietário, contribuinte, atribuída a um utilizador de centro 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a gestão de dados do utilizador, consulte [gerir os dados de utilizador no Centro de segurança do Azure](security-center-privacy.md).
-Para saber mais sobre a eliminação de dados privados no Log Analytics, veja [como exportar e eliminar dados privados](../log-analytics/log-analytics-personal-data-mgmt.md#how-to-export-and-delete-private-data).
+Para saber mais sobre a eliminação de dados privados no Log Analytics, veja [como exportar e eliminar dados privados](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).

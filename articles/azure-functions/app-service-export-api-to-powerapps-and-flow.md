@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: ceb0b1ce0d04c15a5b949519caad65d2c33b40ed
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c91508cbd98f18c875411cc7a36f9d71d817fb31
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092456"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997863"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportar uma API alojado no Azure para o PowerApps e Microsoft Flow
 
@@ -25,7 +25,7 @@ ms.locfileid: "44092456"
 Da mesma forma, os desenvolvedores que desejam expõem suas APIs mais amplamente dentro de uma organização podem disponibilizar suas APIs aos criadores de aplicações e fluxo. Este tópico mostra-lhe como exportar uma API criada com [as funções do Azure](../azure-functions/functions-overview.md) ou [App Service do Azure](../app-service/app-service-web-overview.md). A API exportada se torna um *conector personalizado*, que é usado no PowerApps e Microsoft Flow como um conector incorporado.
 
 ## <a name="create-and-export-an-api-definition"></a>Criar e exportar uma definição de API
-Antes de exportar uma API, tem de descrever a API com uma definição de OpenAPI (anteriormente conhecida como uma [Swagger](http://swagger.io/) ficheiro). Esta definição contém informações sobre as operações que estão disponíveis numa API e a forma como os dados de pedido e resposta para a API devem ser estruturados. PowerApps e Microsoft Flow, podem criar conectores personalizados para qualquer definição de OpenAPI 2.0. Serviço de aplicações do Azure e as funções do Azure têm suporte incorporado para criar, alojar e gerir as definições de OpenAPI. Para obter mais informações, consulte [alojar uma API RESTful com CORS no App Service do Azure](../app-service/app-service-web-tutorial-rest-api.md).
+Antes de exportar uma API, tem de descrever a API com uma definição de OpenAPI (anteriormente conhecida como uma [Swagger](https://swagger.io/) ficheiro). Esta definição contém informações sobre as operações que estão disponíveis numa API e a forma como os dados de pedido e resposta para a API devem ser estruturados. PowerApps e Microsoft Flow, podem criar conectores personalizados para qualquer definição de OpenAPI 2.0. Serviço de aplicações do Azure e as funções do Azure têm suporte incorporado para criar, alojar e gerir as definições de OpenAPI. Para obter mais informações, consulte [alojar uma API RESTful com CORS no App Service do Azure](../app-service/app-service-web-tutorial-rest-api.md).
 
 > [!NOTE]
 > Também pode criar conectores personalizados no PowerApps e Microsoft Flow da interface do Usuário, sem utilizar uma definição de OpenAPI. Para obter mais informações, consulte [registar e utilizar um conector personalizado (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) e [registar e utilizar um conector personalizado (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/).
@@ -113,7 +113,7 @@ Para importar a definição de API para PowerApps e Microsoft Flow, siga estes p
 
 4. Sobre o **gerais** separador, reveja as informações que vem da definição de OpenAPI.
 
-5. Sobre o **segurança** separador, se lhe for pedido para fornecer detalhes de autenticação, introduza os valores adequados para o tipo de autenticação. Clique em **continuar**.
+5. Sobre o **segurança** separador, se lhe for pedido para fornecer detalhes de autenticação, introduza os valores adequados para o tipo de autenticação. Clique em **Continue** (Continuar).
 
     ![Guia de segurança](media/app-service-export-api-to-powerapps-and-flow/tab-security.png)
 

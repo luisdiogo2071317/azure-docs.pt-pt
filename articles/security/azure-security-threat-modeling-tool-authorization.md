@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: eec628a5084dc663978e16e617192802d3ecfcfa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ddf40538fc3d6e39fe48ff49311f86314008b4ce
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307661"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994763"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Quadro de segurança: Autorização | Atenuações 
 | Produtos/serviços | Artigo |
@@ -220,7 +220,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure DocumentDB | 
+| **Componente**               | DB de documentos do Azure | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
@@ -349,7 +349,7 @@ O `<behaviorExtensions/>` elemento do ficheiro de configuração de WCF abaixo I
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, o .NET Framework 3 |
 | **Atributos**              | N/A  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reforçamos Unido](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_unauthorized_access) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reforçamos Unido](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Passos** | <p>Este serviço não utiliza um controlo de autorização. Quando um cliente chama um determinado serviço WCF, o WCF fornece vários esquemas de autorização que verifique se o chamador tem permissão para executar o método de serviço no servidor. Se os controlos de autorização não estão ativados para os serviços WCF, um utilizador autenticado pode alcançar o Escalamento de privilégios.</p>|
 
 ### <a name="example"></a>Exemplo

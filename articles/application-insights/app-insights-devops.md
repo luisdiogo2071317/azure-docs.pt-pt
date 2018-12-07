@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57e201403374ac72ef79bb4335294e1e937c8757
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bf096032d0ab429a5c6c06d5ada568c4bfb56d9f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720309"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994429"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos avançados de aplicações Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que razão necessito de Application Insights?
@@ -79,7 +79,7 @@ As principais categorias de dados são:
 * Rastreios de registo utilizados para depuração.
 
 ## <a name="case-study-real-madrid-fc"></a>Estudo de caso: Real Madrid F.C.
-O serviço web do [clube de futebol do Real Madrid](http://www.realmadrid.com/) serve cerca de 450 milhões de fãs em todo o mundo. Os fãs acessá-lo através de browsers e aplicações móveis do clube. Fãs podem não apenas pedidos de suporte do livro, mas também acessar clipes de informações e vídeo nos resultados, jogadores e jogos futuros. Pode pesquisar com filtros, como números das metas classificada. Também existem links para mídia social. A experiência do usuário é altamente personalizada e foi concebida como uma comunicação bidirecional para interagir com os fãs.
+O serviço web do [clube de futebol do Real Madrid](https://www.realmadrid.com/) serve cerca de 450 milhões de fãs em todo o mundo. Os fãs acessá-lo através de browsers e aplicações móveis do clube. Fãs podem não apenas pedidos de suporte do livro, mas também acessar clipes de informações e vídeo nos resultados, jogadores e jogos futuros. Pode pesquisar com filtros, como números das metas classificada. Também existem links para mídia social. A experiência do usuário é altamente personalizada e foi concebida como uma comunicação bidirecional para interagir com os fãs.
 
 A solução [é um sistema de serviços e aplicações no Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Escalabilidade é um requisito-chave: tráfego é a variável e pode chegar a volumes muito elevados durante e em torno de correspondências.
 

@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d9fa5d70a633f423c82457759d7ed18047167e3e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228985"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999902"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerir uma aplicação de funções no portal do Azure 
 
 Nas funções do Azure, uma aplicação de funções fornece o contexto de execução para as suas funções individuais. Comportamentos da aplicação de função aplicam-se a todas as funções alojadas por uma aplicação de função especificada. Este tópico descreve como configurar e gerir as suas aplicações de função no portal do Azure.
 
-Para começar, vá para o [portal do Azure](http://portal.azure.com) e inicie sessão na sua conta do Azure. Na barra de pesquisa na parte superior do portal, escreva o nome da sua aplicação de função e selecione-a na lista. Depois de selecionar a sua aplicação function app, verá a página seguinte:
+Para começar, vá para o [portal do Azure](https://portal.azure.com) e inicie sessão na sua conta do Azure. Na barra de pesquisa na parte superior do portal, escreva o nome da sua aplicação de função e selecione-a na lista. Depois de selecionar a sua aplicação function app, verá a página seguinte:
 
 ![Descrição geral da aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
@@ -118,7 +118,7 @@ Para obter mais informações sobre como trabalhar com definições de serviço 
 
 | | |
 |-|-|
-| ![Aplicação de funções CORS no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | Para impedir a execução de código mal-intencionado nos seus serviços, o serviço de aplicações bloqueia chamadas às suas aplicações de função de fontes externas. As funções suportam os recursos de várias origens (CORS) para permitem-lhe definir uma "lista branca" de origens permitidas a partir do qual as suas funções podem aceitar pedidos remotos de partilha.  |
+| ![Aplicação de funções CORS no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | Para impedir a execução de código mal-intencionado nos seus serviços, o serviço de aplicações bloqueia chamadas às suas aplicações de função de fontes externas. As funções suportam os recursos de várias origens (CORS) para permitem-lhe definir uma "lista aprovada" de origens permitidas a partir do qual as suas funções podem aceitar pedidos remotos de partilha.  |
 
 ![Configurar a aplicação de funções CORS](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 

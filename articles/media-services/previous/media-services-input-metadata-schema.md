@@ -6,32 +6,32 @@ manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: d72848e2-4b65-4c84-94bc-e2a90a6e7f47
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 1f37dcd14c1b3e85c3fae3bbf7aa67c16b8a898d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3eea59eba9fc1fc79a6f72a61860ee7e66a7df5b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249021"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994289"
 ---
 # <a name="input-metadata"></a>Metadados de entrada
+
 Uma tarefa de codificação está associada a um recurso de entrada (ou recursos) no qual pretende efetuar algumas tarefas de codificação.  Após a conclusão de uma tarefa, um elemento de saída é produzido.  O elemento de saída contém vídeo, áudio, miniaturas, manifesto, etc. O elemento de saída também contém um ficheiro com metadados sobre o elemento de entrada. O nome de ficheiro dos metadados de XML tem o seguinte formato: &lt;asset_id&gt;_metadata.xml (por exemplo, d de 57-8 41114ad3-eb5e - 4c 92-5354e2b7d4a4_metadata.xml), onde &lt;asset_id&gt; é o valor de AssetId das elemento de entrada.  
+
+Serviços de multimédia não rastreia preventivamente ativos de entrada para gerar metadados. Metadados de entrada é gerado apenas como um artefato quando uma entrada de que recurso é processado numa tarefa. Por conseguinte, este artefacto é escrito na saída ativo. Ferramentas diferentes são utilizadas para gerar metadados para os recursos de entrada e saída ativos. Por conseguinte, os metadados de entrada tem um esquema ligeiramente diferentes dos metadados de saída.
 
 Se quiser examinar o ficheiro de metadados, pode criar uma **SAS** localizador e transfira o ficheiro para o computador local. Pode encontrar um exemplo sobre como criar um localizador SAS e transfira um ficheiro [usando as extensões de SDK de .NET de serviços de multimédia](media-services-dotnet-get-started.md).  
 
 Este artigo aborda os elementos e tipos do esquema XML no qual os metadados de entrada (&lt;asset_id&gt;_metadata.xml) baseia-se.  Para obter informações sobre o ficheiro que contém metadados sobre o elemento de saída, consulte [metadados de saída](media-services-output-metadata-schema.md).  
 
-> [!NOTE]
-> Pode encontrar os [código de esquema](media-services-input-metadata-schema.md#code) um [exemplo XML](media-services-input-metadata-schema.md#xml) no final deste artigo.  
-> 
-> 
+Pode encontrar os [código de esquema](media-services-input-metadata-schema.md#code) um [exemplo XML](media-services-input-metadata-schema.md#xml) no final deste artigo.  
+ 
 
 ## <a name="AssetFiles"></a> AssetFiles elemento (elemento de raiz)
 Contém uma coleção de [AssetFile elemento](media-services-input-metadata-schema.md#AssetFile)s para o trabalho de codificação.  

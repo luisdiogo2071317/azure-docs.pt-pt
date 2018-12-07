@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08238732c9e2d4e09e1f956c18768a15c95828c2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6a1641a76d43cdbac6253e00ea35f70325870853
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958188"
+ms.locfileid: "52993388"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de infraestrutura
 
 Este artigo fornece recomendações para a gestão da infraestrutura do Azure HDInsight clusters. É parte de uma série que fornece as práticas recomendadas para ajudar a migrar sistemas de Apache Hadoop no local para Azure HDInsight.
 
-## <a name="plan-well-for-the-capacity-needed-for-hdinsight-clusters"></a>Plano bem para a capacidade necessária para os clusters do HDInsight
+## <a name="plan-for-hdinsight-cluster-capacity"></a>Planejamento de capacidade de cluster do HDInsight
 
 As opções principais para tornar para planeamento de capacidade de cluster do HDInsight são as seguintes:
 
@@ -29,13 +29,13 @@ As opções principais para tornar para planeamento de capacidade de cluster do 
 - **Escolha o tamanho da VM e o tipo (agora suporta a série G)** - cada tipo de cluster tem um conjunto de tipos de nó e cada tipo de nó tem opções específicas para seu tipo e tamanho VM. O tamanho da VM e o tipo é determinado pela CPU processamento, o tamanho de RAM e latência de rede. Uma carga de trabalho simulada pode ser utilizada para determinar o tamanho da VM ideal e o tipo para cada tipo de nó.
 - **Escolha o número de nós de trabalho** -o número inicial de nós de trabalho pode ser determinado com as cargas de trabalho simuladas. O cluster pode ser dimensionado, mais tarde, ao adicionar mais nós de trabalho para os picos de procura de carga. O cluster mais tarde pode ser dimensionado quando os nós de trabalho adicionais não são necessários.
 
-Para obter mais informações, consulte o artigo [planeamento de capacidade para clusters do HDInsight](../hdinsight-capacity-planning.md)
+Para obter mais informações, consulte o artigo [planeamento de capacidade para clusters do HDInsight](../hdinsight-capacity-planning.md).
 
-## <a name="use-the-recommended-virtual-machine-types-for-cluster-nodes"></a>Utilize os tipos de máquinas virtuais recomendados para nós de cluster
+## <a name="use-recommended-virtual-machine-type-for-cluster"></a>Utilize o tipo de máquinas virtuais recomendados para o cluster
 
 Ver [predefinido de tamanhos de máquina virtual e configuração de nó para clusters](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) para recomendado tipos de máquina virtual para cada tipo de cluster do HDInsight.
 
-## <a name="check-the-availability-of-hadoop-components-in-hdinsight"></a>Verificar a disponibilidade de componentes do Hadoop no HDInsight
+## <a name="check-hadoop-components-availability-in-hdinsight"></a>Verificar a disponibilidade de componentes do Hadoop no HDInsight
 
 Cada versão do HDInsight é uma distribuição de nuvem de uma versão do Hortonworks Data Platform (HDP) e consiste num conjunto de componentes do Hadoop sistema ao meio ambiente. Ver [controlo de versões de componente de HDInsight](../hdinsight-component-versioning.md) para obter detalhes sobre todos os componentes do HDInsight e suas versões atuais.
 
@@ -97,7 +97,7 @@ Ações de script também podem ser publicadas no Azure Marketplace como uma apl
 
 Para obter mais informações, veja os artigos seguintes:
 
-- [Instalar aplicações do Hadoop de terceiros no HDInsight](../hdinsight-apps-install-applications.md)
+- [Instalar aplicações do terceiro Apache Hadoop no HDInsight](../hdinsight-apps-install-applications.md)
 - [Personalizar clusters do HDInsight com ações de script](../hdinsight-hadoop-customize-cluster-linux.md)
 - [Publicar uma aplicação de HDInsight no Azure Marketplace](../hdinsight-apps-publish-applications.md)
 
@@ -128,9 +128,9 @@ New—AzureRmHDInsightCluster `
     —Config $config
 ```
 
-Para obter mais informações, consulte o artigo [HDInsight personalizar clusters com o arranque de](../hdinsight-hadoop-customize-cluster-bootstrap.md)
+Para obter mais informações, consulte o artigo [clusters do HDInsight personalizar com o arranque de](../hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## <a name="use-edge-nodes-on-hadoop-clusters-in-hdinsight-to-access-the-client-tools"></a>Utilizar nós de extremidade em clusters do Hadoop no HDInsight para acessar as ferramentas de cliente
+## <a name="access-client-tools-from-hdinsight-hadoop-cluster-edge-nodes"></a>Nós de extremidade do cluster de ferramentas de cliente de acesso do HDInsight Hadoop
 
 Um nó de extremidade vazio é uma máquina virtual do Linux com as mesmas ferramentas de cliente instalado e configurado como sobre os nós principais, mas com não existem serviços do Hadoop em execução. Nó de extremidade pode ser usado para os seguintes fins:
 
@@ -140,9 +140,9 @@ Um nó de extremidade vazio é uma máquina virtual do Linux com as mesmas ferra
 
 Nós de extremidade podem ser criados e eliminado através do portal do Azure e podem ser utilizadas durante ou após a criação de cluster. Depois do nó de extremidade tiver sido criado, pode ligar ao nó de extremidade através de SSH e executar as ferramentas de cliente para aceder ao cluster de Hadoop no HDInsight. Nó de extremidade ssh ponto final é `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`.
 
-Para obter mais informações, consulte o artigo [utilizar nós de extremidade em branco em clusters do Hadoop no HDInsight](../hdinsight-apps-use-edge-node.md)
+Para obter mais informações, consulte o artigo [utilizar nós de extremidade em branco em clusters do Apache Hadoop no HDInsight](../hdinsight-apps-use-edge-node.md).
 
-## <a name="use-the-scale-up-and-scale-down-feature-of-clusters"></a>Utilizar a funcionalidade de ampliação e redução vertical de clusters
+## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>Funcionalidade de ampliação e redução vertical de utilização de clusters
 
 HDInsight fornece elasticidade, dando-lhe a opção de aumentar verticalmente e reduzir verticalmente o número de nós de trabalho nos seus clusters. Esta funcionalidade permite-lhe diminuir um cluster após horas ou no fim de semana e expanda-o durante picos de procura de negócios.
 
@@ -174,7 +174,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 Depois de sair do modo de segurança, manualmente pode remover os ficheiros temporários, ou esperar para o Hive, eventualmente, limpá-los automaticamente.
 
-Para obter mais informações, consulte o artigo [clusters do HDInsight de dimensionamento](../hdinsight-scaling-best-practices.md)
+Para obter mais informações, consulte o artigo [clusters do HDInsight de escala](../hdinsight-scaling-best-practices.md).
 
 ## <a name="use-hdinsight-with-azure-virtual-network"></a>Utilizar o HDInsight com a rede Virtual do Azure
 
@@ -196,7 +196,7 @@ Para obter mais informações, veja os artigos seguintes:
 - [Virtual-redes-descrição geral do Azure](../../virtual-network/virtual-networks-overview.md)
 - [Expandir o Azure HDInsight utilizando uma rede Virtual do Azure](../hdinsight-extend-hadoop-virtual-network.md)
 
-## <a name="use-azure-virtual-network-service-endpoints-to-securely-connect-to-other-azure-services"></a>Utilizar pontos finais de serviço de rede Virtual do Azure para ligar em segurança para outros serviços do Azure
+## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Ligar de forma segura aos serviços do Azure com pontos finais de serviço de rede Virtual do Azure
 
 HDInsight suporta [pontos finais de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) que permitem-lhe ligar de forma segura para as bases de dados do armazenamento de Blobs do Azure, geração 2 de armazenamento do Azure Data Lake, Cosmos DB e SQL. Ao ativar um ponto de extremidade de serviço para o Azure HDInsight, o tráfego flui através de uma rota segura no Centro de dados do Azure. Com este nível avançado de segurança na camada de rede, pode bloquear as contas de armazenamento de grandes volumes de dados às respetivas redes virtuais especificado (VNETs) e ainda usar facilmente clusters do HDInsight para aceder e processar dados.
 

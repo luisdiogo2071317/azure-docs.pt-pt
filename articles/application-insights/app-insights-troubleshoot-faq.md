@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 894c3e42378ddcbe9cba7b6f33d8500988695754
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 0e934a629edc41ce09cad810b0d3b9b88e36c6d6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721022"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996526"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>O Application Insights: Perguntas mais frequentes
 
@@ -140,7 +140,7 @@ Verificar o endereço IP (IPv4 ou IPv6) do cliente web usando [GeoLite2](http://
 * Telemetria do browser: obtemos o endereço IP do remetente.
 * Telemetria do servidor: módulo o Application Insights recolhe o endereço IP do cliente. Não são coletada se `X-Forwarded-For` está definido.
 
-Pode configurar o `ClientIpHeaderTelemetryInitializer` para tirar o endereço IP a partir de um cabeçalho diferente. Em alguns sistemas, por exemplo, ele será movido por um proxy, CDN para ou Balanceador de carga `X-Originating-IP`. [Saiba mais](http://apmtips.com/blog/2016/07/05/client-ip-address/).
+Pode configurar o `ClientIpHeaderTelemetryInitializer` para tirar o endereço IP a partir de um cabeçalho diferente. Em alguns sistemas, por exemplo, ele será movido por um proxy, CDN para ou Balanceador de carga `X-Originating-IP`. [Saiba mais](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 Pode [utilizar o Power BI](app-insights-export-power-bi.md) para apresentar a telemetria de pedido num mapa.
 
@@ -184,7 +184,7 @@ Utilize um único recurso para todos os componentes ou funções num sistema ún
 ## <a name="what-are-the-user-and-session-counts"></a>Quais são os utilizadores e a sessão de conta?
 
 * O JavaScript SDK define um cookie de utilizador do cliente da web, para identificar os utilizadores de devolução e um cookie de sessão para atividades de grupo.
-* Se não houver nenhum script do lado do cliente, pode [definir cookies no servidor](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* Se não houver nenhum script do lado do cliente, pode [definir cookies no servidor](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Se um utilizador real utiliza o seu site em diferentes navegadores ou ao utilizar a navegação em privado/incognito ou computadores diferentes, em seguida, eles serão contadas mais de uma vez.
 * Para identificar um utilizador com sessão iniciada em máquinas e navegadores, adicione uma chamada para [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users).
 

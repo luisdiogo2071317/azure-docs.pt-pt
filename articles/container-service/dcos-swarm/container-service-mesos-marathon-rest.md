@@ -1,5 +1,5 @@
 ---
-title: Gerir o cluster DC/OS do Azure com a API REST do Marathon
+title: (PRETERIDO) Gerir o cluster DC/OS do Azure com a API REST do Marathon
 description: Implemente contentores num cluster de DC/OS do Azure Container Service com a API de REST do Marathon.
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 34fc6f946d172f1431367e84f9d4d8a6855003ed
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 157d70b628ca3583cb8134ec1cccc185c6ff4c8d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901772"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52991721"
 ---
-# <a name="dcos-container-management-through-the-marathon-rest-api"></a>Gestão de contentores DC/OS através da API de REST do Marathon
+# <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(PRETERIDO) Gestão de contentores DC/OS através da API de REST do Marathon
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 O DC/OS fornece um ambiente para implementação e dimensionamento de cargas de trabalho em cluster, abstraindo o hardware subjacente. Na parte superior do DC/OS, existe uma estrutura que gere o agendamento e a execução de cargas de trabalho de computação. Embora as estruturas estejam disponíveis para muitas cargas de trabalho populares, este documento apresenta-lhe criar e dimensionar as implementações de contentores com a API de REST do Marathon. 
 

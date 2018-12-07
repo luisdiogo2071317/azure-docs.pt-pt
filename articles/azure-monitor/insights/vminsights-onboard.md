@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: d38c93f1e6e390117ff5d9e8772119ed1c26fd10
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4e374528a0fa757458e7e4881714370937b56f9c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965535"
+ms.locfileid: "52998296"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Como carregar para o Azure Monitor para VMs (pré-visualização)
 Este artigo descreve como configurar o Azure Monitor para as VMs monitorizar o estado de funcionamento do sistema operativo de suas máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais no seu ambiente, incluindo a deteção e o mapeamento de dependências de aplicações que pode estar alojado nos mesmos.  
@@ -169,7 +169,7 @@ O seguinte acesso tem de ser concedido aos seus utilizadores para habilitar e ac
 
 - Para ver o desempenho, o estado de funcionamento e mapear dados, terá de adicionado como um membro da função do leitor de monitorização para a VM do Azure e a área de trabalho do Log Analytics configurado com o Azure Monitor para as VMs.   
 
-Para obter mais informações sobre como controlar o acesso a uma área de trabalho do Log Analytics, consulte [gerir áreas de trabalho](../../log-analytics/log-analytics-manage-access.md).
+Para obter mais informações sobre como controlar o acesso a uma área de trabalho do Log Analytics, consulte [gerir áreas de trabalho](../../azure-monitor/platform/manage-access.md).
 
 ## <a name="enable-from-the-azure-portal"></a>Ativar a partir do portal do Azure
 Para ativar a monitorização da sua VM do Azure no portal do Azure, efetue o seguinte:
@@ -197,7 +197,7 @@ Nas instruções nesta secção sobre como efetuar na implementação de escala 
 
 Resumidos são os passos que necessários para efetuar para configurar previamente a sua área de trabalho do Log Analytics antes de poder prosseguir com a integração suas máquinas virtuais.
 
-1. Criar uma nova área de trabalho se não ainda existir que pode ser utilizada para suportar o Azure Monitor de VMs. Revisão [gerir áreas de trabalho](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) antes de criar uma nova área de trabalho para compreender as considerações de custo, gestão e conformidade antes de continuar.       
+1. Criar uma nova área de trabalho se não ainda existir que pode ser utilizada para suportar o Azure Monitor de VMs. Revisão [gerir áreas de trabalho](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json) antes de criar uma nova área de trabalho para compreender as considerações de custo, gestão e conformidade antes de continuar.       
 2. Ative os contadores de desempenho na área de trabalho para a coleção em Linux e VMs do Windows.
 3. Instalar e ativar a **ServiceMap** e **InfrastructureInsights** solução na sua área de trabalho.  
 

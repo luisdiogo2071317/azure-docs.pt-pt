@@ -6,14 +6,14 @@ author: normesta
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: 83e9dfbe18dd79e8547e6b48daef39a5aed2cced
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 29fe100821e5ad2d9d5d340a1178c19c60c6d821
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975285"
+ms.locfileid: "52995436"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 
@@ -35,7 +35,9 @@ Discos não geridos da Máquina Virtual (VM) dependem essas APIs, portanto, se p
 
 ## <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
 
-Algumas funcionalidades do Explorador de armazenamento ainda não funcionam com os sistemas de ficheiros de geração 2 de armazenamento do Azure Data Lake. Essas limitações aplicam-se tanto a [versão autônoma](https://azure.microsoft.com/features/storage-explorer/) do Explorador de armazenamento do Azure, bem como a versão que aparece no portal do Azure.
+Para ver ou gerir contas de geração 2 de armazenamento do Data Lake ao utilizar o Explorador de armazenamento do Azure, tem de ter, pelo menos, versão `1.6.0` da ferramenta que está disponível como uma [gratuitamente para download](https://azure.microsoft.com/features/storage-explorer/).
+
+Tenha em atenção que a versão do Explorador de armazenamento que está incorporada no Portal do Azure faz atualmente não suporta a visualização ou gerenciamento de contas de geração 2 de armazenamento do Data Lake com espaços de nomes hierárquicos ativados.
 
 ## <a name="blob-viewing-tool"></a>Ferramenta de visualização de blob
 
@@ -57,21 +59,9 @@ Em alternativa, utilize a versão de pré-visualização mais recente do AzCopy 
 
 Serviços como o Azure Databricks, HDInsight e Azure Data Factory ainda não integram com a autenticação de token de portador do OAuth do Azure Active Directory (Azure AD).
 
-## <a name="access-control-lists-acl"></a>Listas de controlo de acesso (ACL)
-
-Diretório e listas de controle de acesso de nível de arquivo (ACL) são difíceis de gerir. Não há nenhuma ferramenta baseada na interface do Usuário que pode usar para obter e definir essas listas de controlo de acesso.
-
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
 [O Azure Event Grid](https://azure.microsoft.com/services/event-grid/) não receber eventos de contas de geração 2 do Azure Data Lake, porque essas contas ainda não gerá-los.  
-
-## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
-
-Não é possível aplicar o controlo de acesso baseado em funções aos objetos de sistema de ficheiros numa conta de geração 2 de armazenamento do Azure Data Lake.
-
-## <a name="sql-data-warehouse-polybase"></a>PolyBase do SQL Data Warehouse
-
-Quando os Firewalls de armazenamento estão ativadas numa conta de armazenamento do Azure, o SQL Data Warehouse [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017) não é possível aceder essas contas.
 
 ## <a name="soft-delete-and-snapshots"></a>Eliminação de forma recuperável e instantâneos
 

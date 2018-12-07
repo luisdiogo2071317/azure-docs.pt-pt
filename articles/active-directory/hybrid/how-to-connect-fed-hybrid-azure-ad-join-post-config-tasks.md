@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2306c03480956a63859355428cbffe0706f43cbc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312481"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999236"
 ---
-# <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Publicar tarefas de configuração para associação ao Azure AD híbrido
+# <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Publicar tarefas de configuração para associação ao Azure AD Híbrido
 
 Depois de executar o Azure AD Connect para configurar a sua organização para associação ao Azure AD híbrido, existem algumas etapas adicionais que tem de concluir para finalizar a que a instalação.  Executar apenas os passos que se aplicam para os seus dispositivos.
 
@@ -77,7 +77,7 @@ Para registar dispositivos de nível inferior do Windows, terá de certificar-se
 
 Adicione o ponto de final de autenticação de dispositivo do Azure AD para as zonas da Intranet locais nos seus dispositivos de nível inferior do Windows para evitar avisos de certificado quando está a autenticar os dispositivos: https://device.login.microsoftonline.com 
 
-Se estiver a utilizar [SSO totalmente integrado](https://aka.ms/hybrid/sso), também ativar a opção "Permitir que as atualizações da barra de estado por meio de script" nessa zona e adicione o seguinte ponto de extremidade: https://autologon.microsoftazuread-sso.com 
+Se estiver a utilizar [SSO totalmente integrado](how-to-connect-sso.md), também ativar a opção "Permitir que as atualizações da barra de estado por meio de script" nessa zona e adicione o seguinte ponto de extremidade: https://autologon.microsoftazuread-sso.com 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Instalar o Microsoft Workplace Join em dispositivos de nível inferior do Windows
 

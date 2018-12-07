@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: c8f2677e91eb1c3d2ac670a51793f319e82d61fe
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f2f237d250a6b6e2a0f6ed2e62540968d9fcc7eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719934"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997977"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Aplicações de consola do Application Insights para .NET
 [O Application Insights](app-insights-overview.md) permite-lhe monitorizar a sua aplicação web de disponibilidade, desempenho e utilização.
 
-Precisa de uma subscrição com [Microsoft Azure](http://azure.com). Inicie sessão com uma conta Microsoft, que poderá ter para o Windows, Xbox Live ou outros serviços cloud da Microsoft. Sua equipe pode ter uma subscrição organizacional do Azure: peça ao proprietário para adicionar à mesma com a sua conta Microsoft.
+Precisa de uma subscrição com [Microsoft Azure](https://azure.com). Inicie sessão com uma conta Microsoft, que poderá ter para o Windows, Xbox Live ou outros serviços cloud da Microsoft. Sua equipe pode ter uma subscrição organizacional do Azure: peça ao proprietário para adicionar à mesma com a sua conta Microsoft.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -124,7 +124,7 @@ TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelation
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-* Para a aplicação do Windows do .NET Framework, também pode instalar e inicializar o módulo de recoletor de contador de desempenho, tal como descrito [aqui](http://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* Para a aplicação do Windows do .NET Framework, também pode instalar e inicializar o módulo de recoletor de contador de desempenho, tal como descrito [aqui](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
 
 #### <a name="full-example"></a>Exemplo completo
 

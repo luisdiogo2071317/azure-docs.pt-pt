@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 71cb39465bd6c180861325ab451aa11be14a80e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f2c58d64a662a6e2be355c1f672c01e5a679b3f8
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231674"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993229"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Adicionar notificações push à aplicação Xamarin.Android
 
@@ -36,7 +36,7 @@ Se não utilizar o projeto de servidor de início rápido transferido, terá do 
 Este tutorial requer a configuração:
 
 * Uma conta Google ativa. Pode inscrever-se para obter uma conta Google no [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
-* [Google Cloud Messaging componente cliente](http://components.xamarin.com/view/GCMClient/).
+* [Google Cloud Messaging componente cliente](https://components.xamarin.com/view/GCMClient/).
 
 ## <a name="configure-hub"></a>Configurar um Hub de notificação
 
@@ -80,5 +80,5 @@ Pode testar a aplicação ao utilizar um dispositivo virtual no emulador. Existe
 
 <!-- URLs. -->
 [Xamarin.Android quick start]: app-service-mobile-xamarin-android-get-started.md
-[Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
-[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
+[Google Cloud Messaging Client Component]: https://components.xamarin.com/view/GCMClient/
+[Azure Mobile Services Component]: https://components.xamarin.com/view/azure-mobile-services/

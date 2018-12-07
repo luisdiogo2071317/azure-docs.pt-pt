@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 8d0b0c99b743461da41a518feae9c781f90c8b63
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2cb4895fc2f884d6da41b55faa91fbcb9e88f52f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988445"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978736"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Chamar a API do Microsoft Graph a partir de uma aplicação de página única (SPA) de JavaScript
 
@@ -46,7 +46,7 @@ Este guia utiliza a biblioteca do seguinte:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticação da Microsoft para pré-visualização do JavaScript|
 
 > [!NOTE]
-> *msal* destinos a *ponto final de v2.0 do Azure Active Directory* -que permite que as contas pessoais, escolares e profissionais iniciar sessão e adquirir tokens. O *ponto final de v2.0 do Azure Active Directory* tem [algumas limitações](..\articles\active-directory\develop\active-directory-v2-limitations.md).
+> *msal* destinos a *ponto final de v2.0 do Azure Active Directory* -que permite que as contas pessoais, escolares e profissionais iniciar sessão e adquirir tokens. O *ponto final de v2.0 do Azure Active Directory* tem [algumas limitações](../articles/active-directory/develop/active-directory-v2-limitations.md).
 > Para compreender as diferenças entre pontos finais v1.0 e v2.0, leia os [guia de comparação de ponto final](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

@@ -9,18 +9,18 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 35e7d36043defd236252f86facf4b9e2ed945d67
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 3a21b2521cc16b97519f2f84b40a3f51536757e2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054386"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999663"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitorizar a utilização e custos estimados
 
 > [!NOTE]
 > Este artigo descreve como ver a utilização e custos estimados entre várias funcionalidades de monitorização do Azure para diferentes modelos de preços.  Veja os artigos seguintes para obter informações relacionadas.
-> - [Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics](../log-analytics/log-analytics-manage-cost-storage.md) descreve como controlar os custos ao alterar o período de retenção de dados.
+> - [Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics](../azure-monitor/platform/manage-cost-storage.md) descreve como controlar os custos ao alterar o período de retenção de dados.
 > - [Analisar a utilização de dados do Log Analytics](../log-analytics/log-analytics-usage.md) descreve como analisar e alerta sobre a utilização de dados.
 > - [Gerir preços e volumes de dados no Application Insights](../application-insights/app-insights-pricing.md) descreve como analisar a utilização de dados do Application Insights.
 

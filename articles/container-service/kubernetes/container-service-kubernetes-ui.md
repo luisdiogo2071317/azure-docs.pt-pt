@@ -1,5 +1,5 @@
 ---
-title: Gerir o cluster de Kubernetes do Azure com a IU da web
+title: (PRETERIDO) Gerir o cluster de Kubernetes do Azure com a IU da web
 description: Usando a IU web do Kubernetes no Azure Container Service
 services: container-service
 author: bburns
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: b5079ddb63f468f924577f61adda6a3056ec8c6c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998530"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996143"
 ---
-# <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Utilizar a IU web do Kubernetes com o Azure Container Service
+# <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(PRETERIDO) Utilizar a IU web do Kubernetes com o Azure Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para a versão atualizada, o que este artigo utiliza o serviço Kubernetes do Azure, veja [aceder ao dashboard de web do Kubernetes no Azure Kubernetes Service (AKS)](../../aks/kubernetes-dashboard.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este passo a passo pressupõe que tenha [criado um cluster de Kubernetes com o Azure Container Service](container-service-kubernetes-walkthrough.md).

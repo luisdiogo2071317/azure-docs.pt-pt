@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 76b3d23a042fae452b25b0a707e3c7ff9bbda613
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f48283222f5c5d3b18d3dba17c2856801856fb94
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838197"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992123"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Sobre o funcionamento em rede no Azure para replicação
 
@@ -114,7 +114,10 @@ Este exemplo mostra como configurar regras NSG para uma VM a replicar.
 
       ![etiqueta de armazenamento](./media/azure-to-azure-about-networking/storage-tag.png)
 
-2. Criar regras de saída de HTTPS (443) para todos os intervalos de endereços IP que correspondem ao Office 365 [pontos finais do endereço IP V4 autenticação e identidade](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Crie uma regra de segurança de saída HTTPS (443) para "AzureActiveDirectory" no NSG conforme mostrado na captura de ecrã abaixo.
+
+      ![etiqueta de aad](./media/azure-to-azure-about-networking/aad-tag.png)
+
 3. Crie regras de saída HTTPS (443) para os IPs de recuperação de Site que correspondem à localização de destino:
 
    **Localização** | **Endereço de IP de recuperação de site** |  **Endereço IP de monitorização de recuperação de site**
@@ -127,7 +130,7 @@ Estas regras são necessárias para que os replicação pode ser ativada a parti
 
 1. Crie uma regra de segurança de saída HTTPS (443) para "Storage.CentralUS" no NSG.
 
-2. Criar regras de saída de HTTPS (443) para todos os intervalos de endereços IP que correspondem ao Office 365 [pontos finais do endereço IP V4 autenticação e identidade](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
+2. Crie uma regra de segurança de saída HTTPS (443) para "AzureActiveDirectory" no NSG.
 
 3. Crie regras de saída HTTPS (443) para os IPs de recuperação de Site que correspondem à localização de origem:
 

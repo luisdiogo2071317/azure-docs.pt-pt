@@ -12,27 +12,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: e92bcd412071d1a991a0bd3ec7b28df9f509c54c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 35b728793b81c41f0a81c5c7621b9e17edf1f22a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250891"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994665"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 ## <a name="overview"></a>Descrição geral
 Uma tarefa de codificação está associada a um recurso de entrada (ou recursos) no qual pretende efetuar algumas tarefas de codificação. Por exemplo, codificar um arquivo MP4 para conjuntos de velocidade de transmissão adaptável H.264 MP4; criar uma miniatura; Crie sobreposições. Após a conclusão de uma tarefa, um elemento de saída é produzido.  O elemento de saída contém vídeo, áudio, miniaturas, etc. O elemento de saída também contém um ficheiro com metadados sobre o elemento de saída. O nome de ficheiro dos metadados de XML tem o seguinte formato: &lt;source_file_name&gt;_manifest.xml (por exemplo, BigBuckBunny_manifest.xml).  
 
+Serviços de multimédia não rastreia preventivamente ativos de entrada para gerar metadados. Metadados de entrada é gerado apenas como um artefato quando uma entrada de que recurso é processado numa tarefa. Por conseguinte, este artefacto é escrito na saída ativo. Ferramentas diferentes são utilizadas para gerar metadados para os recursos de entrada e saída ativos. Por conseguinte, os metadados de entrada tem um esquema ligeiramente diferentes dos metadados de saída.
+
 Se quiser examinar o ficheiro de metadados, pode criar uma **SAS** localizador e transfira o ficheiro para o computador local.  
 
 Este artigo aborda os elementos e tipos do esquema XML no qual os metadados de saída (&lt;source_file_name&gt;_manifest.xml) baseia-se. Para obter informações sobre o ficheiro que contém metadados sobre o elemento de entrada, consulte [dos metadados de entrada](media-services-input-metadata-schema.md).  
 
-> [!NOTE]
-> Pode encontrar o código de esquema completo e o exemplo XML no final deste artigo.  
->
->
+Pode encontrar o código de esquema completo e o exemplo XML no final deste artigo.  
 
 ## <a name="AssetFiles "></a> Elemento de raiz de AssetFiles
 Coleção de entradas de AssetFile para a tarefa de codificação.  

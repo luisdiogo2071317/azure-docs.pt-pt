@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2e99abfbc89d96f1dc5ca3c59789e13dd157a10
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5380372cc1f2928b79b0d20f4dd46e429a93dc5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678955"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992264"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrar as implementações de atualização do OMS para o Azure
 
-O portal do Operations Management Suite (OMS) está sendo [preterido](../log-analytics/log-analytics-oms-portal-transition.md). Todas as funcionalidades que estava disponível no portal do OMS para gerenciamento de atualizações estão disponível no portal do Azure. Este artigo fornece as informações que necessárias para migrar para o portal do Azure.
+O portal do Operations Management Suite (OMS) está sendo [preterido](../azure-monitor/platform/oms-portal-transition.md). Todas as funcionalidades que estava disponível no portal do OMS para gerenciamento de atualizações estão disponível no portal do Azure. Este artigo fornece as informações que necessárias para migrar para o portal do Azure.
 
 ## <a name="key-information"></a>Informações da chave
 

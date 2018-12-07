@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 212628c0ec97524e91ab8eaeb766c3e405023aaf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: aabbcb45edf087b4a7d6268dcca90b21afa16f7c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846169"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998115"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Como fornecer acesso remoto seguro a aplicações no local
 
@@ -59,16 +59,16 @@ Com o Proxy de aplicações do Azure AD pode aceder a diferentes tipos de aplica
 * Aplicações de cliente rico que estão integradas com o Active Directory Authentication Library (ADAL)
 
 ## <a name="how-does-application-proxy-work"></a>Como funciona o Proxy de aplicações?
-Existem dois componentes que terá de configurar para tornar o Proxy de aplicações de trabalho: um conector e um ponto final externo. 
+Existem dois componentes que terá de configurar para tornar o Proxy de aplicações de trabalho: um conector e um ponto final. 
 
 O conector é um agente leve que se encontram no Windows Server no interior da rede. O conector facilita o fluxo de tráfego do serviço Proxy de aplicações na cloud à sua aplicação no local. Utiliza apenas as ligações de saída, para que não tenha de abrir portas de entrada nem colocar nada num DMZ. Os conectores são sem monitoração de estado e extraem informações a partir da cloud conforme necessário. Para obter mais informações sobre conectores, como como eles balanceamento de carga e autenticar, consulte [conectores de Proxy de aplicações do AD Azure compreender](application-proxy-connectors.md). 
 
-O ponto final externo é a forma como os seus utilizadores alcançar seus aplicativos enquanto fora da sua rede. Podem optar por aceder diretamente a um URL externo que determinar, ou eles podem aceder à aplicação através do portal MyApps. Quando os utilizadores aceder a um desses pontos de extremidade, eles se autenticar no Azure AD e, em seguida, são encaminhados através do conector para o aplicativo no local.
+O ponto final pode ser um URL ou um [portal de utilizador final](end-user-experiences.md). Os utilizadores possam contactar aplicativos enquanto fora da sua rede ao aceder a um URL externo. Os utilizadores na sua rede possam aceder à aplicação através de um URL ou um portal de utilizador final. Quando os utilizadores aceder a um desses pontos de extremidade, eles se autenticar no Azure AD e, em seguida, são encaminhados através do conector para o aplicativo no local.
 
  ![Diagrama de Proxy de aplicações do AzureAD](./media/application-proxy/azureappproxxy.png)
 
-1. O usuário acessa o aplicativo através do serviço de Proxy de aplicações e é direcionado para a página de início de sessão do Azure AD para autenticar.
-2. Depois de um sessão com êxito-, um token é gerado e enviado para o dispositivo de cliente.
+1. Depois do usuário acessa o aplicativo por meio de um ponto de extremidade, o utilizador é direcionado para a página de início de sessão do Azure AD. 
+2. Depois de um sessão com êxito-, um token é gerado e enviado para o dispositivo do utilizador cliente.
 3. O cliente envia o token para o serviço de Proxy de aplicações, que obtém o nome principal de utilizador (UPN) e o nome principal de segurança (SPN) do token, em seguida, direciona o pedido para o conector do Proxy de aplicações.
 4. Se tiver configurado o início de sessão único, o conector efetua qualquer autenticação adicional necessária em nome do utilizador.
 5. O conector envia o pedido para a aplicação no local.  

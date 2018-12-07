@@ -9,14 +9,14 @@ keywords: das funções do Azure, funções, processamento de eventos, computaç
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 09/03/2018
+ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 4f8135dd26b58b5b285798af5c420aa09b03074b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b386cf72525c6ef6234d99255ca0eed5ade32066
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850126"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000487"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -29,11 +29,11 @@ Este artigo explica como trabalhar com ligações de armazenamento de Blobs do A
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Utilize o acionador do Event Grid em vez do acionador do armazenamento de BLOBs para contas de armazenamento apenas de BLOBs, para uma escala elevada, ou para evitar atrasos de arranque a frio. Para obter mais informações, consulte a [acionador](#trigger) secção.
+> Utilize o acionador do Event Grid em vez do acionador do armazenamento de BLOBs para contas de armazenamento apenas de BLOBs, para uma escala elevada, ou para reduzir a latência. Para obter mais informações, consulte a [acionador](#trigger) secção.
 
 ## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
-Os enlaces de armazenamento de BLOBs são fornecidos na [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet, versão 2.x. Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) repositório do GitHub.
+Os enlaces de armazenamento de BLOBs são fornecidos na [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet, versão 2.x. Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) repositório do GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -55,7 +55,7 @@ Utilize o Event Grid, em vez do acionador do armazenamento de BLOBs para os segu
 
 * Contas do Blob Storage
 * Alta escalabilidade
-* Minimizando o atraso de arranque a frio
+* Minimizando a latência
 
 ### <a name="blob-storage-accounts"></a>Contas do Blob Storage
 
@@ -65,9 +65,9 @@ Utilize o Event Grid, em vez do acionador do armazenamento de BLOBs para os segu
 
 Alta escalabilidade pode ser definida vagamente como contentores que tenham mais de 100 000 blobs nas mesmas ou contas de armazenamento que têm mais de 100 atualizações de blob por segundo.
 
-### <a name="cold-start-delay"></a>Atraso de arranque a frio
+### <a name="latency-issues"></a>Problemas de latência
 
-Se a aplicação de funções no plano de consumo, pode haver até um atraso de 10 minutos no processamento novos blobs, se uma aplicação de funções tornou-se inativo. Para evitar este atraso de arranque a frio, pode mudar para um plano do serviço de aplicações com o Always On ativado ou utilizar um tipo diferente de Acionador.
+Se a aplicação de funções no plano de consumo, pode haver até um atraso de 10 minutos no processamento novos blobs, se uma aplicação de funções tornou-se inativo. Para evitar esta latência, pode mudar para um plano do serviço de aplicações com o Always On ativado. Também pode utilizar um [acionador do Event Grid](functions-bindings-event-grid.md) com a sua conta de armazenamento de Blobs. Por exemplo, veja a [tutorial do Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json). 
 
 ### <a name="queue-storage-trigger"></a>Acionador do armazenamento de fila
 

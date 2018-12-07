@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: e0a47da168ae9371979290b3febc9d767e8755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 164ec0898e2f7ad461ab63ce0fcaf47a87998797
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428016"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997835"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Cópia de Segurança e Restauro para SQL Server em Máquinas Virtuais do Azure
 
@@ -40,7 +40,7 @@ A tabela seguinte fornece informações sobre várias opções de cópia de segu
 
 As secções seguintes descrevem cada opção em mais detalhes. A seção final deste artigo fornece um resumo na forma de uma matriz de funcionalidade.
 
-## <a id="autoamted"></a> Cópia de segurança automatizada
+## <a id="automated"></a> Cópia de segurança automatizada
 
 Cópia de segurança automatizada fornece um serviço de cópia de segurança automática para as edições do SQL Server Standard e Enterprise em execução numa VM do Windows no Azure. Este serviço é fornecido pelos [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md), que é instalado automaticamente em imagens de máquinas virtuais do SQL Server Windows no portal do Azure.
 

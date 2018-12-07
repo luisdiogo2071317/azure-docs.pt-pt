@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
-ms.openlocfilehash: 358d17f29960983af1834e87f502331141fcff46
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e9a8c6345ca45234ffcec1588a98bf1b8d634e06
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726122"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000691"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Notas de Versão das Ferramentas de Análise de Programador
 
@@ -180,7 +180,7 @@ Pode gerir a sua aplicação de várias formas no portal do HockeyApp. Isto incl
 
 ![Portal do HockeyApp](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
 
-Consulte a [Base de dados de conhecimento do HockeyApp](http://support.hockeyapp.net/kb/app-management-2) para obter mais detalhes sobre a gestão de aplicações.
+Consulte a [Base de dados de conhecimento do HockeyApp](https://support.hockeyapp.net/kb/app-management-2) para obter mais detalhes sobre a gestão de aplicações.
 
 ### <a name="windows-forms-apps"></a>Aplicações de formulários do Windows
 O menu de contexto para um nó do projeto de formulário do Windows inclui agora uma opção para carregar sua compilação para o HockeyApp.

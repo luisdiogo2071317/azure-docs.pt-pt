@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d3a2fe9b51e0e6e9de653abb1bfa56a2529218cb
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2092816946dae20f5b3ae5b0a09179197dda00eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722470"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992819"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de pedido: modelo de dados do Application Insights
 
@@ -29,7 +29,7 @@ Pedido de telemetria suporta o modelo de extensibilidade padrão usando custom `
 
 Nome do pedido representa o caminho de código para processar o pedido. Valor de cardinalidade baixa para permitir a melhor de agrupamento de pedidos. Para solicitações de HTTP, ele representa o método HTTP e o modelo de caminho de URL, como `GET /values/{id}` sem o real `id` valor.
 
-Web do Application Insights SDK envia o nome do pedido "como estão" com respeito entre maiúsculas/minúsculas. Agrupamento pela interface do Usuário diferencia maiúsculas de minúsculas, de modo `GET /Home/Index` são contadas em separado da `GET /home/INDEX` , apesar de muitas vezes eles resultam na execução de controlador e ação mesmo. O motivo disso é que em geral são urls [diferencia maiúsculas de minúsculas](http://www.w3.org/TR/WD-html40-970708/htmlweb.html). Pode querer ver se todos os `404` aconteceu para os urls de tipos em maiúsculas. Pode ler mais coleção do nome do pedido ativado pelo SDK de Web de ASP.Net no [mensagem de blogue](http://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Web do Application Insights SDK envia o nome do pedido "como estão" com respeito entre maiúsculas/minúsculas. Agrupamento pela interface do Usuário diferencia maiúsculas de minúsculas, de modo `GET /Home/Index` são contadas em separado da `GET /home/INDEX` , apesar de muitas vezes eles resultam na execução de controlador e ação mesmo. O motivo disso é que em geral são urls [diferencia maiúsculas de minúsculas](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Pode querer ver se todos os `404` aconteceu para os urls de tipos em maiúsculas. Pode ler mais coleção do nome do pedido ativado pelo SDK de Web de ASP.Net no [mensagem de blogue](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 Comprimento máximo: 1024 carateres
 
@@ -69,7 +69,7 @@ Para as aplicações web, Application Insights definir pedido como falha quando 
 
 Parcialmente aceites conteúdo `206` pode indicar uma falha de um pedido geral. Por exemplo, o ponto final do Application Insights recebe um lote de itens de telemetria como um único pedido. Ele retorna `206` quando alguns itens no lote não foram processados com êxito. Taxa de cada vez maior de `206` indica um problema que tem de ser investigado. Uma lógica similar aplica-se a `207` multi estado em que o sucesso pode ser o pior dos códigos de resposta à parte.
 
-Pode ler mais resultado do pedido no código e o código de estado no [mensagem de blogue](http://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
+Pode ler mais resultado do pedido no código e o código de estado no [mensagem de blogue](https://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
 
 ## <a name="custom-properties"></a>Propriedades personalizadas
 

@@ -3,17 +3,17 @@ title: Escolher o melhor de escalão de preço para o Azure Maps | Documentos da
 description: Saiba mais sobre oferecidos pelo Azure Maps de escalões de preço
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/03/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 20c59f95dcdb47ef3e457f177d7ad1a300981907
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ee277867f449afddeb89c3fd73b5b577a68a4497
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856273"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998371"
 ---
 # <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>Escolher o direito de escalão de preço no Azure Maps
 
@@ -34,14 +34,16 @@ S0 e escalões de preço S1 podem lidar com diferentes quantidades de débito de
 | Composição                                  |        ✓           |     ✓    |
 | Trânsito                                 |        ✓           |     ✓    |
 | Fusos horários                              |        ✓           |     ✓    |
-| Imagens + híbrida imagens (pré-visualização)      |                    |     ✓    |
-| Intervalo de rota (pré-visualização)                   |                    |     ✓    |
-| Localização do IP 2 (pré-visualização)                 |                    |     ✓    |
-| Polígonos da pesquisa (pré-visualização)          |                    |     ✓    |
-| Geocodificação de batch (pré-visualização)               |                    |     ✓    |
-| Encaminhamento de batch (pré-visualização)                 |                    |     ✓    |
-| Roteamento de matriz (pré-visualização)                |                    |     ✓    |
+| * Imagens + híbrida imagens (pré-visualização)     |        ✓           |     ✓    |
+| * Intervalo de rota (pré-visualização)                  |        ✓           |     ✓    |
+| * Localização de 2 IP (pré-visualização)                |        ✓           |     ✓    |
+| * Os polígonos da pesquisa (pré-visualização)         |        ✓           |     ✓    |
+| * Batch Geocodificação (pré-visualização)              |        ✓           |     ✓    |
+| * Encaminhamento de batch (pré-visualização)                |        ✓           |     ✓    |
+| * Encaminhamento de matriz (pré-visualização)               |        ✓           |     ✓    |
 
+> [!Note]
+> Acesso a estas capacidades de S0 escalão de preço será preterido após 4 de Fevereiro de 2019.
 
 Alguns pontos de dados adicionais que vale a pena considerar, que tipo de enterprise tem ou quão crítico é o aplicativo sendo criados?
 

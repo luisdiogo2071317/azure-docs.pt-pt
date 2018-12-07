@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2018
 ms.author: mathoma
-ms.openlocfilehash: 44aee447c7f935cd67ca55902c53c5f6f9eb6fda
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 52036d8f5d25fc4a4f2d1b602428e9cba4762b7f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52500418"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993145"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server nas notas de versão da Máquina Virtual do Azure
 
@@ -28,8 +28,8 @@ Azure permite-lhe implementar uma máquina virtual com uma imagem do SQL Server 
 
 
 ## <a name="november-2018"></a>Novembro de 2018
-- **Fornecedor de recursos do novo SQL**: existe um fornecedor de recursos novo para VMs de SQL que permitem a melhor gerenciamento da sua VM. Para obter mais informações sobre a registar a sua VM, consulte [registar herdados VM do SQL Server com o novo fornecedor de recursos](virtual-machines-windows-sql-ahb.md#register-legacy-sql-vm-with-new-resource-provider).
-- **Mudar o modelo de licenciamento**: agora pode alternar entre o modelo de pagamento por utilização e a trazer a sua própria licença para a VM do SQL através da CLI do Azure ou do Powershell. Para obter mais informações, consulte [como alterar o modelo de licenciamento de uma VM do SQL](virtual-machines-windows-sql-ahb.md)
+- **Fornecedor de recursos do novo SQL**: existe um fornecedor de recursos novo para VMs de SQL que permitem a melhor gerenciamento da sua VM. Para obter mais informações sobre a registar a sua VM, consulte [registar a VM de SQL existente com o novo fornecedor de recursos](virtual-machines-windows-sql-ahb.md#register-existing-sql-vm-with-new-resource-provider).
+- **Mudar o modelo de licenciamento**: agora pode alternar entre o modelo de pagamento por utilização e a trazer a sua própria licença para a VM do SQL através da CLI do Azure ou do PowerShell. Para obter mais informações, consulte [como alterar o modelo de licenciamento de uma VM do SQL](virtual-machines-windows-sql-ahb.md)
 
 
 

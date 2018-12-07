@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 4711c766c2a074c25f019ce5b523e0ba8b599c17
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971322"
+ms.locfileid: "52994540"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do Azure funções c# para programadores
 
@@ -154,7 +154,7 @@ O gerado *Function* ficheiro inclui um `configurationSource` propriedade que ind
 
 ## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
-O *Function* geração de ficheiros é efetuada pelo pacote NuGet [Microsoft\.NET\.Sdk\.funções](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
+O *Function* geração de ficheiros é efetuada pelo pacote NuGet [Microsoft\.NET\.Sdk\.funções](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
 O mesmo pacote é utilizado para as versões 1.x e 2.x do runtime das funções. A estrutura de destino é o que diferencia um projeto de 1.x de um projeto de 2.x. Aqui estão as partes relevantes *. csproj* unidades de destino em ficheiros, que mostra diferentes estruturas e o mesmo `Sdk` pacote:
 
@@ -183,7 +183,7 @@ O mesmo pacote é utilizado para as versões 1.x e 2.x do runtime das funções.
 
 Entre o `Sdk` as dependências de pacote são acionadores e enlaces. Um projeto de 1.x refere-se para 1.x acionadores e enlaces porque aquelas têm como destino o .NET Framework, embora 2.x acionadores e enlaces .NET Core de destino.
 
-O `Sdk` pacote também depende [newtonsoft](http://www.nuget.org/packages/Newtonsoft.Json)e, no indiretamente [windowsazure. Storage](http://www.nuget.org/packages/WindowsAzure.Storage). Estas dependências, certifique-se de que o seu projeto usa as versões desses pacotes que funcionam com a versão de runtime das funções que os destinos de projeto. Por exemplo, `Newtonsoft.Json` tem a versão 11 para o .NET Framework 4.6.1, mas só é compatível com o runtime das funções que tenha como destino o .NET Framework 4.6.1 `Newtonsoft.Json` 9.0.1. Para que o código de função desse projeto também tem de utilizar `Newtonsoft.Json` 9.0.1.
+O `Sdk` pacote também depende [newtonsoft](https://www.nuget.org/packages/Newtonsoft.Json)e, no indiretamente [windowsazure. Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Estas dependências, certifique-se de que o seu projeto usa as versões desses pacotes que funcionam com a versão de runtime das funções que os destinos de projeto. Por exemplo, `Newtonsoft.Json` tem a versão 11 para o .NET Framework 4.6.1, mas só é compatível com o runtime das funções que tenha como destino o .NET Framework 4.6.1 `Newtonsoft.Json` 9.0.1. Para que o código de função desse projeto também tem de utilizar `Newtonsoft.Json` 9.0.1.
 
 O código-fonte `Microsoft.NET.Sdk.Functions` está disponível no repositório do GitHub [azure\-funções\-vs\-criar\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 

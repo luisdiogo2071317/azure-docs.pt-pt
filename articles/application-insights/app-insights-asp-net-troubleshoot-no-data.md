@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: cc255d69a9a8b63ee65fb5dfcfe3879e68844a01
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 234cba3a3c58f1cff45925fcfcf23019dfa8d90e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679567"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998466"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Resolução de problemas sem dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alguns dos meus telemetria está em falta
@@ -68,7 +68,7 @@ No Solution Explorer, clique no projeto e escolha **Application Insights > confi
 ## <a name="NuGetBuild"></a> "Os pacotes de NuGet estão em falta" no meu servidor de compilação
 *Tudo o que cria OK, quando eu estou depuração em minha máquina de desenvolvimento, mas recebo uma mensagem de erro do NuGet no servidor de compilação.*
 
-Veja [restauro do pacote NuGet](http://docs.nuget.org/Consume/Package-Restore) e [restauro do pacote automática](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
+Veja [restauro do pacote NuGet](https://docs.nuget.org/Consume/Package-Restore) e [restauro do pacote automática](https://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
 
 ## <a name="missing-menu-command-to-open-application-insights-from-visual-studio"></a>Comando de menu em falta para abrir o Application Insights a partir do Visual Studio
 *Quando eu com o botão direito meu projeto do Solution Explorer, não vejo qualquer comando do Application Insights ou não vejo um comando abrir Application Insights.*
@@ -140,7 +140,7 @@ CORREÇÃO:
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * Na [dashboard inicial do Microsoft Azure](https://portal.azure.com), ver o mapa de estado de funcionamento do serviço. Se existirem algumas indicações de alerta, aguarde até que eles tem devolvido para OK e, em seguida, feche e volte a abrir o painel de aplicações do Application Insights.
-* Verifique também [nosso blogue de estado](https://blogs.msdn.com/b/applicationinsights-status/).
+* Verifique também [nosso blogue de estado](https://blogs.msdn.microsoft.com/servicemap-status/).
 * Fez escrever qualquer código para o [SDK do lado do servidor](app-insights-api-custom-events-metrics.md) que podem ser alteradas a chave de instrumentação na `TelemetryClient` instâncias ou na `TelemetryContext`? Ou fez escrever um [configuração de filtro ou amostragem](app-insights-api-filtering-sampling.md) que poderá ser filtragem horizontalmente muito?
 * Se editou o applicationinsights. config, verifique com cuidado a configuração do [TelemetryInitializers e TelemetryProcessors](app-insights-api-filtering-sampling.md). Um tipo chamado incorretamente ou um parâmetro pode fazer com que o SDK para enviar dados não.
 

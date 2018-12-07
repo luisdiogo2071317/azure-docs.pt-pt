@@ -1,5 +1,5 @@
 ---
-title: Aplicação ou serviço Marathon específico do utilizador
+title: (PRETERIDO) Aplicação ou serviço Marathon específico do utilizador
 description: Criar um serviço Marathon específico para aplicações ou utilizadores
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 4ff263fe0ca4f435199127ed64faadee1c2527f9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1ba5ca54c0aa604289eab9c4475297b12580b69a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164545"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996122"
 ---
-# <a name="create-an-application-or-user-specific-marathon-service"></a>Criar um serviço Marathon específico para aplicações ou utilizadores
+# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(PRETERIDO) Criar uma aplicação ou serviço Marathon específico do utilizador
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 O Serviço de Contentor do Azure fornece um conjunto de servidores principais no qual podemos pré-configurar o Apache Mesos e o Marathon. Estes podem ser utilizados para orquestrar as aplicações no cluster, mas é melhor não utilizar os servidores mestres para esta finalidade. Por exemplo, para ajustar a configuração do Marathon, necessita de iniciar sessão nos próprios servidores mestres e efetuar as alterações – isto encoraja servidores mestre exclusivos, que são ligeiramente diferentes do padrão e têm de ser tratados e geridos de forma independente. Para além disso, a configuração necessária para uma equipa pode não ser a configuração ideal para outra equipa.
 

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a30e562b04a3414a1305604a521e0d659753142
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 83dfd77c311e1b3324540d352432ec7a6b706d78
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720410"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993368"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed do Power BI do Application Insights
-[Power BI](http://www.powerbi.com/) é um conjunto de ferramentas de negócio que o ajuda a analisar dados e partilhar informações. Dashboards avançados estão disponíveis em todos os dispositivos. Pode combinar dados de várias origens, incluindo consultas de análise de [do Azure Application Insights](app-insights-overview.md).
+[Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócio que o ajuda a analisar dados e partilhar informações. Dashboards avançados estão disponíveis em todos os dispositivos. Pode combinar dados de várias origens, incluindo consultas de análise de [do Azure Application Insights](app-insights-overview.md).
 
 Existem três métodos de exportação de dados do Application Insights para o Power BI:
 
@@ -40,7 +40,7 @@ Para importar a sua consulta do Application Insights, utilize a versão de área
 Instale [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exportar uma consulta do Analytics
-1. [Abrir o Analytics e escrever a sua consulta](../log-analytics/query-language/get-started-analytics-portal.md).
+1. [Abrir o Analytics e escrever a sua consulta](../azure-monitor/log-query/get-started-portal.md).
 2. Testar e refinar a consulta até estar satisfeito com os resultados. Certifique-se de que a consulta é executada corretamente no Analytics antes de exportá-lo.
 3. Sobre o **exportar** menu, escolha **Power BI (M)**. Guarde o ficheiro de texto.
    
@@ -152,6 +152,6 @@ Pode editar o dashboard, combinando os gráficos do Application Insights com as 
 Após a importação inicial, o dashboard e os relatórios continuam a ser atualizados diariamente. Pode controlar a agenda de atualização no conjunto de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Power BI – Saiba mais](http://www.powerbi.com/learning/)
-* [Tutorial de análise](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Power BI – Saiba mais](https://www.powerbi.com/learning/)
+* [Tutorial de análise](../azure-monitor/log-query/get-started-portal.md)
 

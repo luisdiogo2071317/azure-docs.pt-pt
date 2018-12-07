@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 9df44ec59e9384ac047b5c67abae334d51ff4dd3
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b883ccc475a221c8aee135c5d14da32f7598b90c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679278"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999048"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Resolver problemas de Análise no Application Insights
 Problemas com [Analytics do Application Insights](app-insights-analytics.md)? Comece aqui. A análise é a ferramenta de pesquisa poderosa do Azure Application Insights.
@@ -104,7 +104,7 @@ O URL é inválido.
 * Abra o recurso de aplicação no [portal do Application Insights](https://portal.azure.com). Em seguida, utilize o botão de análise.
 
 ## <a name="cookies"></a>Permitir cookies de terceiros
-  Ver [como desativar os cookies de terceiros](http://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), mas observe que precisamos **ativar** -los.
+  Ver [como desativar os cookies de terceiros](https://www.digitalcitizen.life/how-disable-third-party-cookies-all-major-browsers), mas observe que precisamos **ativar** -los.
 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]

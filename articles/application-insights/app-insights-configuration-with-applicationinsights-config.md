@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 885482d8baa305695e2b5a6d4247783c5a89b278
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d18ea661dda0caa33ca5aff34505ce308f7eaec7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680876"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997107"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurar o SDK do Application Insights com ApplicationInsights.config ou .xml
-O SDK de .NET do Application Insights é composta por um número de pacotes de NuGet. O [pacote core](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria para o Application Insights. [Pacotes adicionais](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecer telemetria *módulos* e *inicializadores* para rastrear automaticamente telemetria da sua aplicação e de seu contexto. Ao ajustar o ficheiro de configuração, pode ativar ou desativar os módulos de telemetria e inicializadores e definir parâmetros para alguns deles.
+O SDK de .NET do Application Insights é composta por um número de pacotes de NuGet. O [pacote core](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fornece a API para enviar telemetria para o Application Insights. [Pacotes adicionais](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fornecer telemetria *módulos* e *inicializadores* para rastrear automaticamente telemetria da sua aplicação e de seu contexto. Ao ajustar o ficheiro de configuração, pode ativar ou desativar os módulos de telemetria e inicializadores e definir parâmetros para alguns deles.
 
 O ficheiro de configuração é denominado `ApplicationInsights.config` ou `ApplicationInsights.xml`, dependendo do tipo da sua aplicação. Este é adicionado automaticamente ao seu projeto quando [instalar a maioria das versões do SDK][start]. Ele também é adicionado a uma aplicação web por [Monitor de estado num servidor IIS][redfield], ou ao selecionar o Application Insights [extensão para um Web site do Azure ou a VM](app-insights-azure-web-apps.md).
 
@@ -43,58 +43,58 @@ Há um nó no ficheiro de configuração para cada módulo. Para desativar um m�
 Também pode escrever sua própria dependência controlo de código com o [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
-* [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) pacote NuGet.
+* [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) pacote NuGet.
 
 ### <a name="performance-collector"></a>Recoletor de desempenho
 [Recolhe os contadores de desempenho do sistema](app-insights-performance-counters.md) , tais como CPU, memória e rede de carga das instalações do IIS. Pode especificar quais contadores para recolher, incluindo os contadores de desempenho que tiver definido por.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
-* [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) pacote NuGet.
+* [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) pacote NuGet.
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Telemetria de diagnóstico do Application Insights
 O `DiagnosticsTelemetryModule` reporta erros no código de instrumentação do Application Insights em si. Por exemplo, se o código não é possível acessar contadores de desempenho ou se um `ITelemetryInitializer` lança uma exceção. Telemetria de rastreio controlada por este módulo é apresentada no [pesquisa de diagnóstico][diagnostic]. Envia dados de diagnóstico para dc.services.vsallin.net.
 
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
-* [Applicationinsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) pacote NuGet. Se apenas instalar este pacote, o ficheiro applicationinsights. config não é criado automaticamente.
+* [Applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) pacote NuGet. Se apenas instalar este pacote, o ficheiro applicationinsights. config não é criado automaticamente.
 
 ### <a name="developer-mode"></a>Modo de programador
 `DeveloperModeWithDebuggerAttachedTelemetryModule` força o Application Insights `TelemetryChannel` para enviar dados imediatamente, item de telemetria de uma de cada vez, quando um depurador for anexado ao processo de aplicação. Isso reduz a quantidade de tempo entre o momento em que, quando seu aplicativo controla a telemetria e quando aparecer no portal do Application Insights. Ele faz com que uma sobrecarga significativa na largura de banda de CPU e da rede.
 
 * `Microsoft.ApplicationInsights.WindowsServer.DeveloperModeWithDebuggerAttachedTelemetryModule`
-* [Windows Server do Application Insights](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) pacote NuGet
+* [Windows Server do Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) pacote NuGet
 
 ### <a name="web-request-tracking"></a>Rastreamento de solicitações da Web
 Relatórios do [código de tempo e o resultado da resposta](app-insights-asp-net.md) de pedidos HTTP.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
-* [Applicationinsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) pacote NuGet
+* [Applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) pacote NuGet
 
 ### <a name="exception-tracking"></a>Controlo de exceções
 `ExceptionTrackingTelemetryModule` roteiros exceções não processadas na sua aplicação web. Ver [falhas e exceções][exceptions].
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
-* [Applicationinsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) pacote NuGet
+* [Applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) pacote NuGet
 * `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` -roteiros [unobserved exceções de tarefa](https://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx).
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` -controla as exceções sem tratamento para funções de trabalho, serviços do windows e aplicativos de console.
-* [Windows Server do Application Insights](http://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) pacote NuGet.
+* [Windows Server do Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) pacote NuGet.
 
 ### <a name="eventsource-tracking"></a>Controlo de EventSource
 `EventSourceTelemetryModule` permite-lhe configurar EventSource eventos a serem enviados para o Application Insights como rastreios. Para informações sobre como acompanhar eventos de EventSource, consulte [usando o EventSource Events](app-insights-asp-net-trace-logs.md#using-eventsource-events).
 
 * `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
-* [Microsoft.ApplicationInsights.EventSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
+* [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
 
 ### <a name="etw-event-tracking"></a>Registo de eventos do ETW
 `EtwCollectorTelemetryModule` permite-lhe configurar eventos a partir de fornecedores ETW a serem enviados para o Application Insights como rastreios. Para informações sobre como acompanhar eventos do ETW, consulte [usando o ETW Events](app-insights-asp-net-trace-logs.md#using-etw-events).
 
 * `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
-* [Microsoft.ApplicationInsights.EtwCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
+* [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
 O pacote de applicationinsights fornece a [core API](https://msdn.microsoft.com/library/mt420197.aspx) do SDK. Utilizam esta opção os outros módulos de telemetria e também pode [utilizá-lo para definir sua própria telemetria](app-insights-api-custom-events-metrics.md).
 
 * Nenhuma entrada no applicationinsights. config.
-* [Applicationinsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) pacote NuGet. Se instalou apenas este NuGet, não é gerado nenhum ficheiro. config.
+* [Applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) pacote NuGet. Se instalou apenas este NuGet, não é gerado nenhum ficheiro. config.
 
 ## <a name="telemetry-channel"></a>Canal de telemetria
 O canal de telemetria gere o armazenamento em buffer e transmissão de telemetria para o serviço do Application Insights.

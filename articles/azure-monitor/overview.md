@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: a3e0125a66c4b8bbda6e0b7087fe5e0e387d43e4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ccdee1963d3d37966f6784e7a7421c500d6a8a51
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847393"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994218"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -39,9 +39,9 @@ Para muitos recursos do Azure, verá os dados recolhidos pelo direito de Monitor
 
 ![Métricas](media/overview/metrics.png)
 
-Dados de registo recolhidos pelo Monitor do Azure são armazenados no Log Analytics, que inclui um [linguagem de consulta avançada](../azure-monitor/log-query/log-query-overview.md) rapidamente obter, consolidar e analisar os dados recolhidos.  Pode criar e testar consultas através do [página do Log Analytics](../log-analytics/log-analytics-log-search-portals.md) no portal do Azure e, em seguida, em qualquer um, analisar diretamente os dados através destas ferramentas ou guardar consultas para utilização com [visualizações](visualizations.md) ou [ regras de alerta](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Dados de registo recolhidos pelo Monitor do Azure são armazenados no Log Analytics, que inclui um [linguagem de consulta avançada](../azure-monitor/log-query/log-query-overview.md) rapidamente obter, consolidar e analisar os dados recolhidos.  Pode criar e testar consultas através do [página do Log Analytics](../azure-monitor/log-query/portals.md) no portal do Azure e, em seguida, em qualquer um, analisar diretamente os dados através destas ferramentas ou guardar consultas para utilização com [visualizações](visualizations.md) ou [ regras de alerta](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
-A linguagem de consulta do Log Analytics é adequada para consultas de registo simples, mas também inclui funcionalidades avançadas, como agregações, associações e análises inteligentes. Pode aprender rapidamente a linguagem de consulta através de [várias lições](../log-analytics/query-language/get-started-queries.md) que estão disponíveis.  É fornecida orientação específica para os utilizadores que já estejam familiarizados com [SQL](../log-analytics/query-language/sql-cheatsheet.md) e [Splunk](../log-analytics/query-language/splunk-cheatsheet.md).
+A linguagem de consulta do Log Analytics é adequada para consultas de registo simples, mas também inclui funcionalidades avançadas, como agregações, associações e análises inteligentes. Pode aprender rapidamente a linguagem de consulta através de [várias lições](../azure-monitor/log-query/get-started-queries.md) que estão disponíveis.  É fornecida orientação específica para os utilizadores que já estejam familiarizados com [SQL](../azure-monitor/log-query/sql-cheatsheet.md) e [Splunk](../azure-monitor/log-query/splunk-cheatsheet.md).
 
 ![Registos](media/overview/logs.png)
 
@@ -61,7 +61,7 @@ Expandir os dados que está a recolher sobre o funcionamento real dos recursos p
 [Adicionar um pacote de instrumentação à sua aplicação](../application-insights/app-insights-azure-web-apps.md), para ativar o Application Insights para recolher as informações detalhadas sobre a sua aplicação, incluindo exceções, pedidos de aplicações e vistas de página. Verificar a disponibilidade da sua aplicação ao configurar uma [teste de disponibilidade](../application-insights/app-insights-monitor-web-app-availability.md) para simular o tráfego de utilizador.
 
 ### <a name="custom-sources"></a>Origens personalizadas
-O Azure Monitor pode recolher dados de registo de qualquer cliente REST utilizando o [API do Recoletor de dados](../log-analytics/log-analytics-data-collector-api.md). Isto permite-lhe criar cenários de monitorização personalizados e expande a monitorização para recursos que não expõem a telemetria por meio de outras origens.
+O Azure Monitor pode recolher dados de registo de qualquer cliente REST utilizando o [API do Recoletor de dados](../azure-monitor/platform/data-collector-api.md). Isto permite-lhe criar cenários de monitorização personalizados e expande a monitorização para recursos que não expõem a telemetria por meio de outras origens.
 
 
 
@@ -119,7 +119,7 @@ Dimensionamento automático permite que tenha a quantidade certa de recursos em 
 ![Vista do Log Analytics](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com) é um serviço de análise de negócio que fornece visualizações interativas numa variedade de origens de dados e é um meio eficaz de disponibilizar dados para outras pessoas dentro e fora da sua organização. Pode configurar o Power BI para [importar automaticamente os dados de registo do Azure Monitor](../log-analytics/log-analytics-powerbi.md) para aproveitar essas visualizações adicionais.
+[Power BI](https://powerbi.microsoft.com) é um serviço de análise de negócio que fornece visualizações interativas numa variedade de origens de dados e é um meio eficaz de disponibilizar dados para outras pessoas dentro e fora da sua organização. Pode configurar o Power BI para [importar automaticamente os dados de registo do Azure Monitor](../azure-monitor/platform/powerbi.md) para aproveitar essas visualizações adicionais.
 
 
 ![Power BI](media/overview/power-bi.png)

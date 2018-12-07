@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: a7d498349342e34cb56f031bfe1440e01e79173b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2906f6dff84cdd6a09c05734988ee005a3d65aac
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841851"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994645"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -40,7 +40,7 @@ Este artigo resume as configurações suportadas e componentes quando implementa
 **Migrar VMs em várias regiões nos clusters geográficas suportados (dentro e entre subscrições)** | Suportado no mesmo inquilino do Azure Active Directory.
 **Migrar VMs na mesma região** | Não suportado.
 
-# <a name="region-support"></a>Suporte de região
+## <a name="region-support"></a>Suporte de região
 
 Pode replicar e recuperar VMs entre quaisquer duas regiões dentro do mesmo cluster geográfico.
 
@@ -62,11 +62,10 @@ China | Leste da China, Norte da China
 
 A tabela seguinte resume o suporte para a conta de armazenamento de cache utilizada pelo Site Recovery durante a replicação.
 
-**Definição** | **Detalhes**
---- | ---
+**Definição** | **Suporte** | **Detalhes**
+--- | --- | ---
 Contas de armazenamento para V2 de fins gerais (acesso frequente e escalão acesso esporádico) | Não suportado. | A limitação existe para o armazenamento de cache, porque os custos de transação para o V2 são consideravelmente mais do que as contas de armazenamento V1.
-Firewalls de armazenamento do Azure para redes virtuais  | Não | Permitir o acesso a redes virtuais do Azure específicas em contas de armazenamento de cache utilizadas para armazenar dados replicados não é suportada.
-
+Firewalls de armazenamento do Azure para redes virtuais  | Suportadas | Se estiver a utilizar a conta de armazenamento de cache de firewall ativada ou conta de armazenamento de destino, certifique-se de que ["Permitir fidedigna serviços da Microsoft"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
 ## <a name="replicated-machine-operating-systems"></a>Sistemas de operativos máquina replicada
@@ -145,7 +144,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default 
 --- | --- | ---
 Tamanho | Qualquer tamanho de VM do Azure com, pelo menos, 2 núcleos de CPU e 1 GB de RAM | Certifique-se [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md).
 Conjuntos de disponibilidade | Suportadas | Se ativar a replicação para uma VM do Azure com as opções padrão, um conjunto de disponibilidade é criado automaticamente com base nas definições de região de origem. Pode modificar estas definições.
-Zonas de disponibilidade | Não suportado | Atualmente, não é possível replicar as VMs implementadas em zonas de disponibilidade.
+Zonas de disponibilidade | Suportadas |  
 Benefício de utilização híbrida (HUB) | Suportadas | Se a VM de origem tem uma licença HUB ativada, uma ativação pós-falha de teste ou efetuar a ativação pós-falha VM utiliza também a licença HUB.
 Conjuntos de dimensionamento de VMs | Não suportado |
 Imagens da galeria do Azure - Microsoft publicado | Suportadas | Suportada se a VM é executado num sistema operativo suportado.
@@ -194,7 +193,7 @@ GRS | Suportadas |
 RA-GRS | Suportadas |
 ZRS | Não suportado |  
 Armazenamento de acesso esporádico e frequente | Não suportado | Discos da máquina virtual não são suportados no armazenamento de acesso esporádico e frequente
-Firewalls de armazenamento do Azure para redes virtuais  | Sim | Se estão a restringir o acesso de rede virtual para contas de armazenamento, certifique-se de que os serviços Microsoft fidedignos tenham permissão para aceder à conta de armazenamento.
+Firewalls de armazenamento do Azure para redes virtuais  | Suportadas | Se estão a restringir o acesso de rede virtual para contas de armazenamento, certifique-se de que ["Permitir fidedigna serviços da Microsoft"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Contas de armazenamento para fins gerais V2 (camada de acesso tanto frequente ou esporádico) | Não | Aumento dos custos de transação substancialmente em comparação com fins gerais V1 contas de armazenamento
 
 >[!IMPORTANT]

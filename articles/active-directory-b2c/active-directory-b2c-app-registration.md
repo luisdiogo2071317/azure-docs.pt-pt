@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8068c4a8f38cd33a1a0547f5db5079bc75c76ec1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fcebada4ef10c3e0bb298e9308d66ecb37247832
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013416"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999262"
 ---
 # <a name="register-an-application-in-azure-active-directory-b2c"></a>Registar uma aplicação no Azure Active Directory B2C
 
@@ -82,7 +82,4 @@ Se seu aplicativo chama uma API web protegida pelo Azure AD B2C, terá de criar 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que tem uma aplicação registada no Azure AD B2C, pode concluir um dos [guias de introdução](active-directory-b2c-overview.md) para começar a trabalhar.
-
-> [!div class="nextstepaction"]
-> [Criar uma aplicação Web ASP.NET com inscrição, início de sessão e reposição da palavra-passe](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+Saiba mais sobre a utilização de tokens de acesso por aplicativos concedem permissões a APIs [pedir tokens de acesso](active-directory-b2c-access-tokens.md)

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 12/03/2018
-ms.openlocfilehash: 8ad4c356c5826532b94721bc4d9071179e8bd93a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/06/2018
+ms.openlocfilehash: b0fd2466d72b1aae65a54b9e9813a5af51bf1672
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846700"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997518"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Ligar a redes virtuais do Azure a partir do Azure Logic Apps, por meio de um ambiente de serviço de integração (ISE)
 
@@ -65,7 +65,7 @@ Quando cria um ambiente de serviço de integração (ISE), selecione uma rede vi
 
    1. Sob **função**, selecione **Contribuidor de rede**. 
    
-   1. Sob **atribuir acesso aos**, selecione **utilizador do Azure AD, grupo ou aplicação**.
+   1. Sob **atribuir acesso aos**, selecione **utilizador, grupo ou principal de serviço do Azure AD**.
 
    1. Sob **selecionar**, introduza **Azure Logic Apps**. 
 
@@ -141,14 +141,17 @@ Na lista de resultados, selecione **o ambiente de serviço de integração (pré
 
    ![Após a validação com êxito, escolha "Criar"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
-   Azure inicia a implantação de seu ambiente, mas este processo poderá demorar *até duas horas* antes de terminar. 
+   Azure começa a implantação de seu ambiente, mas esse processo *poderá* demorar até duas horas antes de terminar. 
    Para verificar o estado de implementação, na sua barra de ferramentas do Azure, selecione o ícone de notificações, que abre o painel de notificações.
 
    ![Verificar o estado de implementação](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
-   Após a conclusão com êxito da implementação, o Azure mostra esta notificação:
+   Se a conclusão da implementação, o Azure mostra esta notificação:
 
    ![Implementação efetuada com êxito](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+
+   > [!NOTE]
+   > Se falhar a implementação ou eliminar seu ISE, do Azure *poderá* demorar até uma hora antes de lançar as sub-redes. Por isso, poderá ter de aguardar antes de reutilizar essas sub-redes no ISE do outro.
 
 1. Para ver o seu ambiente, escolha **Ir para recurso** se o Azure não passar automaticamente para o seu ambiente após a conclusão da implementação.  
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 1069916efc1932b0a1a3139d015f448d4f8153a4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5df4ae93930002a00be4097e3eaa80ff77446a18
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843126"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994636"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows e Linux origens de dados de desempenho do Log Analytics
 Contadores de desempenho no Windows e no Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  Log Analytics pode recolher contadores de desempenho em intervalos frequentes para análise quase em Tempo Real (NRT), além de agregar dados de desempenho para análise de termo mais tempo e relatórios.
@@ -92,16 +92,16 @@ Os parâmetros neste elemento são descritos na tabela seguinte.
 
 A tabela seguinte lista os objetos e os contadores que pode especificar no arquivo de configuração.  Há contadores adicionais disponíveis para determinadas aplicações conforme descrito em [recolher contadores de desempenho de aplicações do Linux no Log Analytics](data-sources-linux-applications.md).
 
-| Nome do Objeto | Nome do contador |
+| Nome do Objeto | Nome do Contador |
 |:--|:--|
 | Disco lógico | % De Inodes livres |
 | Disco lógico | % De espaço livre |
 | Disco lógico | % De Inodes utilizados |
 | Disco lógico | % De espaço utilizado |
-| Disco lógico | Bytes lidos/seg de disco |
+| Disco lógico | Bytes Lidos de Disco/seg |
 | Disco lógico | Leituras de disco/seg |
 | Disco lógico | As transferências de disco/seg |
-| Disco lógico | Bytes de escrita de disco/seg |
+| Disco lógico | Bytes Escritos em Disco/seg |
 | Disco lógico | Escritas de disco/seg |
 | Disco lógico | Megabytes livres |
 | Disco lógico | Bytes de disco lógico/seg |
@@ -228,4 +228,4 @@ A tabela seguinte fornece exemplos diferentes de pesquisas de registos que obter
 ## <a name="next-steps"></a>Passos Seguintes
 * [Recolher contadores de desempenho de aplicações do Linux](data-sources-linux-applications.md) incluindo MySQL e Apache HTTP Server.
 * Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
-* Exportar os dados recolhidos para [Power BI](../../log-analytics/log-analytics-powerbi.md) para análise e visualizações adicionais.
+* Exportar os dados recolhidos para [Power BI](../../azure-monitor/platform/powerbi.md) para análise e visualizações adicionais.

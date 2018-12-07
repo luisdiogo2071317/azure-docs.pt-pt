@@ -1,5 +1,5 @@
 ---
-title: Implementar contentores com Helm no Kubernetes do Azure
+title: (PRETERIDO) Implementar contentores com Helm no Kubernetes do Azure
 description: Utilize a ferramenta de empacotamento do Helm para implementar contentores num cluster do Kubernetes no Azure Container Service
 services: container-service
 author: sauryadas
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 882e785968f94473e80c7a14e5a68498add37735
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634158"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997892"
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Utilizar o Helm para implementar contentores num cluster do Kubernetes
+# <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(PRETERIDO) Utilizar o Helm para implementar contentores num cluster do Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para a versão atualizada, o que este artigo utiliza o serviço Kubernetes do Azure, veja [instalar aplicações com Helm no Azure Kubernetes Service (AKS)](../../aks/kubernetes-helm.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Helm](https://github.com/kubernetes/helm/) é uma ferramenta de empacotamento de código-fonte aberto que ajuda a instalar e gerenciar o ciclo de vida de aplicações do Kubernetes. Assim como gestores de pacotes do Linux, como Apt-get e Yum, Helm é utilizado para gerir gráficos de Kubernetes, que são pacotes de recursos do Kubernetes pré-configurada. Este artigo mostra como trabalhar com Helm num cluster de Kubernetes implementado no Azure Container Service.
 

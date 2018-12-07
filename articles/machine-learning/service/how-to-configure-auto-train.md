@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: c73b4f677341a16c80a6f7b98e3609810006a938
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b2be09d69013cc8361f92cb0b6e3aa5fef3bcc02
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877998"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000306"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Configurar seu automatizada experimentação do machine learning
 
@@ -33,7 +33,11 @@ Opções de configuração disponíveis no automatizada de machine learning:
 * Registe e implemente o modelo
 
 ## <a name="select-your-experiment-type"></a>Selecione o tipo de experimentação
-Antes de começar a sua experimentação, deve determinar o tipo de problema de aprendizado de máquina que está a resolver. Automatizada de machine learning suporta tipos de tarefa de classificação, regressão e previsão. Automatizada de machine learning suporta os seguintes algoritmos durante a automação e o processo de otimização. Como um utilizador, não é necessário para especificar o algoritmo.
+Antes de começar a sua experimentação, deve determinar o tipo de problema de aprendizado de máquina que está a resolver. Automatizada de machine learning suporta tipos de tarefa de classificação, regressão e previsão. 
+
+Enquanto as capacidades de aprendizagem de máquina automáticos estão disponíveis em geral, **previsão ainda está em pré-visualização pública.**
+
+Automatizada de machine learning suporta os seguintes algoritmos durante a automação e o processo de otimização. Como um utilizador, não é necessário para especificar o algoritmo.
 
 Classificação | Regressão | Previsão
 |-- |-- |--
@@ -305,6 +309,8 @@ root_mean_squared_log_error|Raiz significa de erro do registo ao quadrado é a r
 normalized_root_mean_squared_log_error|Erro de registo ao quadrado mean Noramlized raiz é dividido pelo intervalo dos dados de erro do registo ao quadrado médio de raiz|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divida por intervalo dos dados|
 
 ## <a name="explain-the-model"></a>Explicar o modelo
+
+Enquanto as capacidades de aprendizagem de máquina automáticos estão disponíveis em geral, **a modelo explainability funcionalidade ainda está em pré-visualização pública.**
 
 Aprendizagem automática permite-lhe compreender a importância de funcionalidade.  Durante o processo de treinamento, pode obter a importância de recurso global para o modelo.  Para cenários de classificação, também pode obter a importância de recurso de nível de classe.  Tem de fornecer um conjunto de dados de validação (X_valid) para obter a importância de funcionalidade.
 

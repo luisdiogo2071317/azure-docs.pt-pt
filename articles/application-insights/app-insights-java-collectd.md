@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6cc817b86170ddab3152a041924ae99ff52a23ec
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 528b344063dd9f84720ee55c4b3663c20127e5fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723929"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995039"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>recolhidos: métricas de desempenho do Linux no Application Insights
 
 
-Para explorar métricas de desempenho do sistema Linux no [Application Insights](app-insights-overview.md), instale [recolhidos](http://collectd.org/), juntamente com o seu plug-in do Application Insights. Esta solução de código-fonte aberto reúne várias estatísticas de sistema e de rede.
+Para explorar métricas de desempenho do sistema Linux no [Application Insights](app-insights-overview.md), instale [recolhidos](https://collectd.org/), juntamente com o seu plug-in do Application Insights. Esta solução de código-fonte aberto reúne várias estatísticas de sistema e de rede.
 
 Normalmente, irá utilizar recolhidos se já tiver [instrumentada seu serviço web em Java com o Application Insights][java]. Ele dá-lhe mais dados para ajudar a melhorar o desempenho da sua aplicação ou diagnosticar problemas. 
 
@@ -38,7 +38,7 @@ Fazer uma cópia da chave de instrumentação, que identifica o recurso.
 ## <a name="install-collectd-and-the-plug-in"></a>Instalar recolhidos e o plug-in
 Nas suas máquinas de servidor Linux:
 
-1. Instale [recolhidos](http://collectd.org/) versão 5.4.0 ou posterior.
+1. Instale [recolhidos](https://collectd.org/) versão 5.4.0 ou posterior.
 2. Transfira o [Plug-in do Application Insights recolhidos escritor](https://aka.ms/aijavasdk). Tenha em atenção o número de versão.
 3. Copiar o plug-in JAR em `/usr/share/collectd/java`.
 4. Editar `/etc/collectd/collectd.conf`:

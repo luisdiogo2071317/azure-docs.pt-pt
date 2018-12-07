@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 8e265f2bed480f7b40476e09ab8f442aedcc9dd4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578642"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999458"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementar o cluster vFXT
 
@@ -286,7 +286,7 @@ RESOURCE_GROUP=
 * Nome da sub-rede
 * Nome do Azure AD runtime função - se seguiu o exemplo na [criar a função de acesso de nó de cluster](#create-the-cluster-node-access-role), utilize ``avere-cluster``. 
 * Nome de conta de armazenamento (se criar um novo contentor de BLOBs)
-* Nome do cluster - não pode ter dois clusters de vFXT com o mesmo nome no mesmo grupo de recursos. 
+* Nome do cluster - não pode ter dois clusters de vFXT com o mesmo nome no mesmo grupo de recursos. Dê um nome exclusivo para o procedimento recomendado de cada cluster.
 * Palavra-passe administrativa - escolha uma palavra-passe segura para a monitorização e administrar o cluster. Esta palavra-passe é atribuída ao utilizador ``admin``. 
 * Tipo de instância de nó - consulte [tamanhos de nó vFXT](avere-vfxt-deploy-plan.md#vfxt-node-sizes) para obter informações
 * Tamanho da cache de nó - consulte [tamanhos de nó vFXT](avere-vfxt-deploy-plan.md#vfxt-node-sizes) para obter informações
@@ -306,6 +306,15 @@ Quando o script tiver concluído, copie o endereço IP de gestão, o que é nece
 
 ![Saída da linha de comando do script exibindo o endereço IP de gestão perto do fim](media/avere-vfxt-mgmt-ip.png)
 
+> [!IMPORTANT] 
+> Se tiver criado um novo contentor de BLOBs, pode estar encriptado com uma chave de predefinição que não é guardada fora do cluster. Antes de armazenar os dados no contentor, tem de transferir o ficheiro de recuperação de chaves ou criar sua própria chave de encriptação e guardar o ficheiro de recuperação numa localização persistente. 
+> 
+> Se utilizar a chave predefinida sem a transferir o ficheiro de recuperação, é possível perder o acesso aos dados criptografados no filtro de núcleo Blob se o cluster vFXT é destruído ou perdido.
+>
+> Se o seu script mostra `WARNING` mensagens, como aquelas com círculos na captura de ecrã abaixo, siga as instruções em [configurar o armazenamento](avere-vfxt-add-storage.md) para transferir o ficheiro de chave ou crie uma nova chave para o contentor de Blobs. Utilize a ferramenta de configuração de cluster, o painel de controlo de Avere.
+
+![Saída da linha de comando do script exibindo mensagens de aviso sobre a criação de uma nova chave de encriptação](media/avere-vfxt-key-warning.png)
+
 ## <a name="next-step"></a>Passo seguinte
 
-Agora que o cluster está em execução e sabe que o respetivo endereço IP de gestão, pode [ligue-se para a ferramenta de configuração de cluster](avere-vfxt-cluster-gui.md) para ativar o suporte e adicionar armazenamento, se necessário.
+Agora que o cluster está em execução e sabe que o respetivo endereço IP de gestão, pode [ligue-se para a ferramenta de configuração de cluster](avere-vfxt-cluster-gui.md) para ativar o suporte, adicionar armazenamento, se necessário, ou o endereço a chave de encriptação predefinido no seu novo armazenamento de Blobs.

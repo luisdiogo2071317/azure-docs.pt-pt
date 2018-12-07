@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 536ae926ad8f401f952a41e17074536cc2b3c5f1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0bae06d46c2c96ba9dd058e9c2d380379523811c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832042"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993932"
 ---
 # <a name="manage-analysis-services"></a>Gerir os serviços de análise
 Depois de criar um servidor do Analysis Services no Azure, pode haver algumas tarefas de administração e gerenciamento, que precisará executar imediatamente ou algum tempo, mais adiante. Por exemplo, executar processamento para os atualização de dados, controlar quem pode aceder os modelos no seu servidor, ou monitorizar o estado de funcionamento do seu servidor. Algumas tarefas de gestão só podem ser executadas no portal do Azure, as outras pessoas no SQL Server Management Studio (SSMS), e algumas tarefas podem ser feitas em qualquer um.
@@ -35,7 +35,7 @@ Para obter todas as funcionalidades mais recentes e a experiência mais tranqüi
 
 
 ### <a name="to-connect-with-ssms"></a>Para estabelecer ligação com o SSMS
- Ao utilizar o SSMS, antes de ligar ao seu servidor pela primeira vez, certifique-se de que o seu nome de utilizador está incluído no grupo de administradores do Analysis Services. Para obter mais informações, consulte [os administradores de servidor](#server-administrators) mais adiante neste artigo.
+ Ao utilizar o SSMS, antes de ligar ao seu servidor pela primeira vez, certifique-se de que o seu nome de utilizador está incluído no grupo de administradores do Analysis Services. Para obter mais informações, consulte [os administradores de servidor e os utilizadores de base de dados](#server-administrators-and-database-users) mais adiante neste artigo.
 
 1. Antes de ligar, terá de obter o nome do servidor. No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**, copie o nome do servidor.
    

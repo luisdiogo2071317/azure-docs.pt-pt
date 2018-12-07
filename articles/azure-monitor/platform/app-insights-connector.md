@@ -15,19 +15,19 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c704639ce696672a87485a36d43a282d04a47a7e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5183e626ac990e265e9f4794220f24d43d865ed7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845182"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999999"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gestão de informações de conector de aplicações (pré-visualização)
 
 ![Símbolo do Application Insights](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Com o apoio da [consultas entre recursos](../../log-analytics/log-analytics-cross-workspace-search.md), a solução de gestão de conector do Application Insights já não é necessária e será preterida. A partir de Julho, não será capaz de ligar os novos recursos do Application Insights a áreas de trabalho do Log Analytics. Ligações existentes e dashboards vão continuar a funcionar até Novembro de 2018. Para obter mais informações, consulte [portal do OMS para o Azure](../../log-analytics/log-analytics-oms-portal-transition.md).
+> Com o apoio da [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md), a solução de gestão de conector do Application Insights já não é necessária e será preterida. A partir de Julho, não será capaz de ligar os novos recursos do Application Insights a áreas de trabalho do Log Analytics. Ligações existentes e dashboards vão continuar a funcionar até Novembro de 2018. Para obter mais informações, consulte [portal do OMS para o Azure](../../azure-monitor/platform/oms-portal-transition.md).
 
 A solução de conector de informações de aplicações ajuda-o a diagnosticar problemas de desempenho e compreender o que os utilizadores fazem com a sua aplicação quando está a ser monitorizado com [Application Insights](../../application-insights/app-insights-overview.md). Vistas da mesma telemetria de aplicações que os desenvolvedores vêem no Application Insights estão disponíveis no Log Analytics. No entanto, quando integrar as suas aplicações do Application Insights com o Log Analytics, visibilidade de seus aplicativos é aumentada em ter dados operacionais e da aplicação num único local. Ter os mesmos modos de exibição ajuda-o a colaborar com os programadores de aplicações. As vistas comuns podem ajudar a reduzir o tempo para detetar e resolver os problemas de plataforma de aplicativos e.
 
@@ -46,7 +46,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 | --- | --- | --- |
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não | A solução não recolhe informações de agentes do Windows. |
 | [Agentes do Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Não | A solução não recolhe informações de agentes do Linux. |
-| [Grupo de gestão do SCOM](../../log-analytics/log-analytics-om-agents.md) | Não | A solução não recolhe informações de agentes num grupo de gestão ligado do SCOM. |
+| [Grupo de gestão do SCOM](../../azure-monitor/platform/om-agents.md) | Não | A solução não recolhe informações de agentes num grupo de gestão ligado do SCOM. |
 | [Conta de armazenamento do Azure](collect-azure-metrics-logs.md) | Não | A solução faz não informações da coleção do armazenamento do Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos

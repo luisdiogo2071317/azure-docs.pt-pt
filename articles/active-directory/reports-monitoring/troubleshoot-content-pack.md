@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a76486eaf2f9df8eb47b8bb73f1577324152a80f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 65747da92a3cad770cd9d474d27645782f7306b9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623303"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998744"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Resolução de problemas de atividade do Active Directory do Azure regista erros de pacote de conteúdos 
 
@@ -34,7 +34,8 @@ Ao trabalhar com o pacote de conteúdos do Power BI para o Azure Active Director
 
 - [Falha na atualização](troubleshoot-content-pack.md#refresh-failed) 
 - [Falha ao atualizar as credenciais de origem de dados](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [Importação de dados está a demorar demasiado tempo](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long)  
+- [Importação de dados está a demorar demasiado tempo](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
+
 Este artigo fornece informações sobre as possíveis causas e como corrigir estes erros.
  
 ## <a name="refresh-failed"></a>Falha na atualização 

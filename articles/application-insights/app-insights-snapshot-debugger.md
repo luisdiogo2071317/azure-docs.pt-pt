@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 2c5e99c16ed6ae0df9af4783fb6431edcbb6f100
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 11e9099ba9008ead6583eaf30292cdec63475f02
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725408"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994263"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Instantâneos de depuração com exceções em aplicações .NET
 
-Quando ocorre uma exceção, é possível recolher automaticamente um instantâneo de depuração da sua aplicação web em direto. O instantâneo mostra o estado do código-fonte e variáveis no momento que a exceção foi acionada. Snapshot Debugger (pré-visualização) [do Azure Application Insights](app-insights-overview.md) monitoriza a telemetria de exceção da sua aplicação web. Recolhe os instantâneos em suas exceções jogando em cima, de modo a que tem as informações necessárias diagnosticar problemas na produção. Incluir o [pacote de NuGet do recoletor de instantâneos](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) na sua aplicação e, opcionalmente, configure parâmetros de coleção no [applicationinsights. config](app-insights-configuration-with-applicationinsights-config.md). Os instantâneos são apresentadas na [exceções](app-insights-asp-net-exceptions.md) no portal do Application Insights.
+Quando ocorre uma exceção, é possível recolher automaticamente um instantâneo de depuração da sua aplicação web em direto. O instantâneo mostra o estado do código-fonte e variáveis no momento que a exceção foi acionada. Snapshot Debugger (pré-visualização) [do Azure Application Insights](app-insights-overview.md) monitoriza a telemetria de exceção da sua aplicação web. Recolhe os instantâneos em suas exceções jogando em cima, de modo a que tem as informações necessárias diagnosticar problemas na produção. Incluir o [pacote de NuGet do recoletor de instantâneos](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) na sua aplicação e, opcionalmente, configure parâmetros de coleção no [applicationinsights. config](app-insights-configuration-with-applicationinsights-config.md). Os instantâneos são apresentadas na [exceções](app-insights-asp-net-exceptions.md) no portal do Application Insights.
 
 Pode ver instantâneos de depuração no portal para visualizar a pilha de chamadas e inspecionar as variáveis em cada frame de pilha de chamadas. Para obter uma experiência de depuração mais poderosa com o código de origem, abra instantâneos com Visual Studio 2017 Enterprise. No Visual Studio, pode também [definir Snappoints interativamente tirar instantâneos](https://aka.ms/snappoint) sem esperar por uma exceção.
 
@@ -45,7 +45,7 @@ São suportados os seguintes ambientes:
 
 1. [Ativar o Application Insights na sua aplicação web](app-insights-asp-net.md), se ainda não fez isso ainda.
 
-2. Incluir o [snapshotcollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pacote NuGet na sua aplicação.
+2. Incluir o [snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pacote NuGet na sua aplicação.
 
 3. Reveja as opções predefinidas que o pacote adicionado à [applicationinsights. config](app-insights-configuration-with-applicationinsights-config.md):
 
@@ -91,7 +91,7 @@ São suportados os seguintes ambientes:
     > [!NOTE]
     > Ser-se de que seu aplicativo faz referência a versão 2.1.1 ou mais recente do pacote Microsoft.ApplicationInsights.AspNetCore.
 
-2. Incluir o [snapshotcollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pacote NuGet na sua aplicação.
+2. Incluir o [snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pacote NuGet na sua aplicação.
 
 3. Modificar a sua aplicação `Startup` classe para adicionar e configurar o processador de telemetria do Recoletor de instantâneos.
 
@@ -168,7 +168,7 @@ São suportados os seguintes ambientes:
 
 1. Se a sua aplicação já não é instrumentada com o Application Insights, comece por [ativar o Application Insights e definir a chave de instrumentação](app-insights-windows-desktop.md).
 
-2. Adicionar a [snapshotcollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pacote NuGet na sua aplicação.
+2. Adicionar a [snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pacote NuGet na sua aplicação.
 
 3. Os instantâneos são coletados apenas em exceções que são enviadas para o Application Insights. Terá de modificar o código para relatá-los. A código de manipulação de exceção depende da estrutura do seu aplicativo, mas um exemplo é abaixo:
     ```csharp
@@ -225,7 +225,7 @@ Instantâneos podem incluir informações confidenciais e, por predefinição n�
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Depure instantâneos com o Visual Studio 2017 Enterprise
 1. Clique nas **transferir instantâneo** botão para transferir um `.diagsession` arquivo, que pode ser aberto pelo Visual Studio 2017 Enterprise.
 
-2. Para abrir o `.diagsession` ficheiro, tem de ter o componente de VS de depurador de instantâneos instalado. O componente de depurador de instantâneos é um componente necessário da carga de trabalho do ASP.net no VS e pode ser selecionado na lista de componentes individuais no instalador do VS. Se estiver a utilizar uma versão do Visual Studio antes de 15,5 terá de instalar a extensão a partir da [marketplace do VS](http://aka.ms/snapshotdebugger).
+2. Para abrir o `.diagsession` ficheiro, tem de ter o componente de VS de depurador de instantâneos instalado. O componente de depurador de instantâneos é um componente necessário da carga de trabalho do ASP.net no VS e pode ser selecionado na lista de componentes individuais no instalador do VS. Se estiver a utilizar uma versão do Visual Studio antes de 15,5 terá de instalar a extensão a partir da [marketplace do VS](https://aka.ms/snapshotdebugger).
 
 3. Depois de abrir o ficheiro de instantâneo, é apresentada a página de Minidespejo depuração no Visual Studio. Clique em **depurar código gerenciado** para iniciar a depuração do instantâneo. O instantâneo é aberta a linha de código em que a exceção foi acionada, para que pode depurar o estado atual do processo.
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 56616ff01ff70230a591285014ed291a2fdc7b34
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3fc31306af1c85a67a1afca8a34be82a711f2527
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250993"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999543"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de tabelas do Azure para as funções do Azure
 
@@ -26,7 +26,7 @@ Este artigo explica como trabalhar com ligações de armazenamento de tabelas do
 
 ## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
-Os enlaces de armazenamento de tabela são fornecidos na [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet, versão 2.x. Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) repositório do GitHub.
+Os enlaces de armazenamento de tabela são fornecidos na [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) pacote NuGet, versão 2.x. Código-fonte para o pacote está no [sdk do webjobs do azure](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) repositório do GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -325,9 +325,9 @@ Para obter mais informações sobre como utilizar CloudTable, consulte [introdu�
 
 Se tentar fazer a ligação `CloudTable` e obter uma mensagem de erro, certifique-se de que tem uma referência ao [a versão correta do SDK de armazenamento](#azure-storage-sdk-version-in-functions-1x).
 
-### <a name="input---f-example"></a>Introdução - exemplo do F #
+### <a name="input---f-example"></a>Entrada - F# exemplo
 
-O exemplo seguinte mostra um enlace de entrada de tabela num *Function* ficheiro e [skriptu F #](functions-reference-fsharp.md) código que utiliza o enlace. A função utiliza um acionador de fila para ler uma única linha da tabela. 
+O exemplo seguinte mostra um enlace de entrada de tabela num *Function* ficheiro e [ F# script](functions-reference-fsharp.md) código que utiliza o enlace. A função utiliza um acionador de fila para ler uma única linha da tabela. 
 
 O *Function* ficheiro Especifica um `partitionKey` e um `rowKey`. O `rowKey` valor "{queueTrigger}" indica que a chave de linha é proveniente de cadeia de caracteres de mensagem da fila.
 
@@ -357,7 +357,7 @@ O *Function* ficheiro Especifica um `partitionKey` e um `rowKey`. O `rowKey` val
 
 O [configuração](#input---configuration) seção explica essas propriedades.
 
-Eis o código F #:
+Aqui está o F# código:
 
 ```fsharp
 [<CLIMutable>]
@@ -627,9 +627,9 @@ public class Person
 
 ```
 
-### <a name="output---f-example"></a>Saída - exemplo do F #
+### <a name="output---f-example"></a>Saída - F# exemplo
 
-O exemplo seguinte mostra uma saída de tabela de enlace num *Function* ficheiro e [skriptu F #](functions-reference-fsharp.md) código que utiliza o enlace. A função escreve várias entidades da tabela.
+O exemplo seguinte mostra uma saída de tabela de enlace num *Function* ficheiro e [ F# script](functions-reference-fsharp.md) código que utiliza o enlace. A função escreve várias entidades da tabela.
 
 Aqui está o *Function* ficheiro:
 
@@ -655,7 +655,7 @@ Aqui está o *Function* ficheiro:
 
 O [configuração](#output---configuration) seção explica essas propriedades.
 
-Eis o código F #:
+Aqui está o F# código:
 
 ```fsharp
 [<CLIMutable>]

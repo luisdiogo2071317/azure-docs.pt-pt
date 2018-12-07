@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 49956234c00129508254b96d7d63a4b30af3ad55
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 5c590b8df2eeb8859a6b78f4d719661c8b542ebe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037588"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000268"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Data Science Máquina Virtual do Linux no Azure
 Estas instruções mostram como realizar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux. A Máquina Virtual de ciência de dados de Linux (DSVM) é uma imagem de máquina virtual disponível no Azure que está pré-instalado com uma coleção de ferramentas utilizadas para análise de dados e machine learning. Os componentes de software importantes estão descritos a [aprovisionar a máquina de Virtual de ciência de dados do Linux](linux-dsvm-intro.md) tópico. A imagem de VM torna mais fácil começar a fazer ciência de dados em minutos, sem ter de instalar e configurar cada uma das ferramentas individualmente. Pode facilmente aumentar verticalmente a VM, se necessário e pará-la quando não está em utilização. Portanto, este recurso é económico e flexível.
@@ -357,7 +357,7 @@ Instalar e iniciar Rattle com os seguintes comandos:
 >
 >
 
-Rattle usa uma interface baseada em guias. A maioria das guias corresponde aos passos a [processo de ciência de dados](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), como carregamento de dados ou ao explorá-lo. O processo de ciência de dados flui da esquerda para direita nos separadores. Mas a última guia contém um registo dos comandos executados pelo Rattle R.
+Rattle usa uma interface baseada em guias. A maioria das guias corresponde aos passos a [processo de ciência de dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), como carregamento de dados ou ao explorá-lo. O processo de ciência de dados flui da esquerda para direita nos separadores. Mas a última guia contém um registo dos comandos executados pelo Rattle R.
 
 Para carregar e configurar o conjunto de dados:
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 2f10db6eddcfc7d398072a3c0aa709798c72c72e
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: da9ec327edc27e2f37f76704d6b5481869621049
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721047"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997486"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -104,7 +104,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="open-tracing-and-application-insights"></a>Rastreamento de aberto e Application Insights
 
-O [especificação do modelo de dados de rastreio aberto](http://opentracing.io/) e modelos de dados do Application Insights do mapa da seguinte forma:
+O [especificação do modelo de dados de rastreio aberto](https://opentracing.io/) e modelos de dados do Application Insights do mapa da seguinte forma:
 
 | Application Insights                  | Abra o rastreio                                      |
 |------------------------------------   |-------------------------------------------------  |

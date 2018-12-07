@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2d378c537d4e20698863c789101e4ad3167b7f10
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: f36d0ec4446ee6591798c0d8926f41a4e177d81d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680825"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997061"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas aplicações web com o Application Insights
 Exceções na sua aplicação web em direto são enviadas pelos [Application Insights](app-insights-overview.md). Pode correlacionar pedidos com falhas com exceções e outros eventos no cliente e servidor, para que pode rapidamente a diagnosticar as causas.
@@ -168,7 +168,7 @@ Os parâmetros de propriedades e medidas são opcionais, mas são úteis para [f
 ## <a name="browser-exceptions"></a>Exceções de browser
 A maioria das exceções do browser são relatadas.
 
-Se sua página da web inclui os arquivos de script de redes de entrega de conteúdos ou outros domínios, certifique-se de sua marca de script tem o atributo ```crossorigin="anonymous"```, e que o servidor envia [cabeçalhos CORS](http://enable-cors.org/). Isso permitirá que obter um rastreio de pilha e os detalhes de exceções de JavaScript não processadas destes recursos.
+Se sua página da web inclui os arquivos de script de redes de entrega de conteúdos ou outros domínios, certifique-se de sua marca de script tem o atributo ```crossorigin="anonymous"```, e que o servidor envia [cabeçalhos CORS](https://enable-cors.org/). Isso permitirá que obter um rastreio de pilha e os detalhes de exceções de JavaScript não processadas destes recursos.
 
 ## <a name="web-forms"></a>Formulários da Web
 Para formulários da web, será possível recolher as exceções quando não há nenhum redirecionamentos configurados com CustomErrors o módulo de HTTP.
