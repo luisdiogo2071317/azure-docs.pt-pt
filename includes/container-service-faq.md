@@ -4,14 +4,16 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: c5200e7e4d5550f26343fab1561c214ee19d6741
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.openlocfilehash: b385c3e3e5f39e812545143df4a3adcc08ebfce5
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572596"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002196"
 ---
-# <a name="container-service-frequently-asked-questions"></a>Perguntas mais frequentes sobre o Container Service
+# <a name="deprecated-container-service-frequently-asked-questions"></a>(PRETERIDO) Perguntas mais frequentes de serviço de contentor
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 ## <a name="orchestrators"></a>Orquestradores
 
@@ -115,7 +117,7 @@ Existem alguns problemas conhecidos do DNS no Windows cujas correções ainda es
 | Acesso de VIP do serviço encontra-se interrompido | Configure um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) para efetuar sempre uma execução pod normal (não privilegiada) |
 |Quando o nó do contentor que está a ser executado fica indisponível, as consultas DNS podem falhar, resultando na "entrada de cache negativa" | Execute os seguintes contentores afetados no interior: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> Se isto não resolver o problema, então, tente desativar completamente a colocação em cache de DNS: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba mais](../articles/container-service/kubernetes/container-service-intro-kubernetes.md) sobre o Azure Container Service.
 * Implementar um cluster do serviço de contentor através do [portal](../articles/container-service/dcos-swarm/container-service-deployment.md) ou do [ CLI do Azure](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).

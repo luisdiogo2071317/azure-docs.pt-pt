@@ -1,20 +1,21 @@
 ---
-title: 'Início Rápido: Criar uma área de trabalho do serviço de aprendizagem automática no portal do Azure – Azure Machine Learning'
-description: Utilize o portal do Azure para criar uma área de trabalho do Azure Machine Learning. Esta área de trabalho é o pilar na cloud que utiliza para experimentar, preparar e implementar modelos de machine learning com o Azure Machine Learning.
+title: 'Início rápido: Utilizar o serviço começar com o Azure Machine Learning portal do Azure'
+description: Introdução ao serviço Azure Machine Learning. Utilize o portal do Azure para criar uma área de trabalho, o que é o bloco fundamental na cloud que utilizar para testar, preparar e implementar modelos de aprendizagem automática.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: rastala
-ms.author: roastala
-ms.date: 09/24/2018
-ms.openlocfilehash: 7ed45b5e8a8c3cab26c0998260055ffd7a0f0c5d
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+author: hning86
+ms.author: haining
+ms.date: 12/04/2018
+ms.custom: seodec12
+ms.openlocfilehash: 3b874abc3896b9e6520500370d09e685d49ff82c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710261"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015710"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início Rápido: Utilizar o portal do Azure para começar a trabalhar com o Azure Machine Learning
 
@@ -35,7 +36,7 @@ Os seguintes recursos do Azure são adicionados automaticamente à sua área de 
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Cofre de Chaves do Azure](https://azure.microsoft.com/services/key-vault/)
 
-Os recursos que criar podem ser utilizados como pré-requisitos para outros tutoriais e artigos de procedimentos do serviço Machine Learning. Tal como noutros serviços do Azure, existem limites em certos recursos associados com Machine Learning. Um exemplo é o tamanho do cluster do Azure Batch AI. Para obter informações sobre os limites predefinidos e como aumentar a quota, veja [este artigo](how-to-manage-quotas.md).
+Os recursos que criar podem ser utilizados como pré-requisitos para outros tutoriais e artigos de procedimentos do serviço Machine Learning. Como com outros serviços do Azure, existem limites em certos recursos associados com o Machine Learning, como tamanho de cluster de computação. Saiba mais sobre [os limites predefinidos e como aumentar a quota](how-to-manage-quotas.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
@@ -69,7 +70,7 @@ Selecione `Open Azure Notebooks` para realizar a sua primeira experimentação.
 
 A sua organização poderá precisar de [consentimento de administrador](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) antes de poder iniciar sessão.
 
-Depois de iniciar sessão, é aberto um novo separador e um aviso `Clone Library` é apresentado. Selecione `Clone`
+Depois de iniciar sessão, é aberto um novo separador e um aviso `Clone Library` é apresentado. Selecione `Clone`.
 
 
 ### <a name="run-the-notebook"></a>Executar o bloco de notas

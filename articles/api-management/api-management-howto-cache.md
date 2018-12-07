@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 2c417a0e9a3f50032aa3c97ced57d3249bc7c93a
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 549194ce1dcab5cd449c60c934421b3bea154d6a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620677"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015692"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Adicionar a colocação em cache para melhorar o desempenho na API Management do Azure
 
@@ -38,7 +38,7 @@ O que irá aprender:
 ## <a name="availability"></a>Disponibilidade
 
 > [!NOTE]
-> Não está disponível na cache interna a **consumo** camada de API Management do Azure. Pode [utilizar uma cache de Redis externa](api-management-howto-cache-external.md) em vez disso.
+> Não está disponível na cache interna a **consumo** camada de API Management do Azure. Pode [utilizar uma Cache do Azure externo para Redis](api-management-howto-cache-external.md) em vez disso.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -76,7 +76,7 @@ Com as políticas de colocação em cache deste exemplo, o primeiro pedido efetu
     **Duração** especifica o intervalo de expiração das respostas em cache. Neste exemplo, o intervalo restante é de **20** segundos.
 
 > [!TIP]
-> Se estiver a utilizar uma cache externo, conforme descrito em [utilizar uma cache de Redis externa na gestão de API do Azure](api-management-howto-cache-external.md), pode pretender especificar o `cache-preference` atributo das políticas de colocação em cache. Ver [colocação em cache as políticas de gestão de API](api-management-caching-policies.md) para obter mais detalhes.
+> Se estiver a utilizar uma cache externo, conforme descrito em [utilizar uma Cache do Azure externo para Redis na gestão de API do Azure](api-management-howto-cache-external.md), pode pretender especificar o `cache-preference` atributo das políticas de colocação em cache. Ver [colocação em cache as políticas de gestão de API](api-management-caching-policies.md) para obter mais detalhes.
 
 ## <a name="test-operation"> </a>Chamar uma operação e testar a colocação em cache
 Para ver a colocação em cache em ação, chame a operação a partir do portal do programador.
@@ -91,7 +91,7 @@ Para ver a colocação em cache em ação, chame a operação a partir do portal
 ## <a name="next-steps"> </a>Passos seguintes
 * Para obter mais informações sobre as políticas de colocação em cache, consulte [Políticas de colocação em cache][Caching policies] na [Referência de política da Gestão de API][API Management policy reference].
 * Para obter informações sobre a colocação em cache de itens por chave utilizando expressões de política, consulte [Colocação em cache personalizada na API Management do Azure](api-management-sample-cache-by-key.md).
-* Para obter mais informações sobre como utilizar a cache de Redis externa, consulte [utilizar uma cache de Redis externa na gestão de API do Azure](api-management-howto-cache-external.md).
+* Para obter mais informações sobre como utilizar a Cache do Azure externo para Redis, consulte [utilizar uma Cache do Azure externo para Redis na gestão de API do Azure](api-management-howto-cache-external.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

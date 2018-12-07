@@ -10,12 +10,12 @@ ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: e6f7d255fbfbcd740d9f3a7c2743f57cecea1abf
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: MT
+ms.openlocfilehash: a2c08c541c3726579d57d99141a147d98bf45849
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298760"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996716"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integração no datacenter - publicar pontos de extremidade
 
@@ -79,10 +79,14 @@ O Azure Stack suporta apenas os servidores de proxy transparente. Numa implement
 |NTP|(Servidor de IP do NTP fornecido para a implementação)|UDP|123|
 |DNS|(Servidor de IP de DNS fornecido para a implementação)|TCP<br>UDP|53|
 |CRL|(URL em pontos de distribuição de CRL no seu certificado)|HTTP|80|
+|Cópia de segurança da infraestrutura|(IP ou FQDN do servidor de ficheiros de destino externo)|SMB|445|
 |     |     |     |     |
 
 > [!Note]  
 > URLs de saída são balanceado em carga utilizando o Gestor de tráfego do Azure para fornecer a melhor conectividade de possíveis com base na localização geográfica. Com os URLs com balanceamento de carga, a Microsoft pode atualizar e alterar os pontos finais de back-end sem afetar os clientes. A Microsoft não partilhar a lista de endereços IP para a carga balanceada URLs. Deve usar um dispositivo que suporte a filtragem por URL em vez de IP.
+
+> [!Note]  
+> No 1809, o serviço de cópia de segurança da infraestrutura comunica com o servidor de ficheiro externo da rede VIP pública. Antes de 1809, o serviço se comunica através da rede de infraestrutura públicas. Se seus ambientes de não permite o acesso aos recursos de infraestrutura da rede VIP pública, aplique a correção de 1809 mais recentes para o Azure Stack. Esta correção irá mover o serviço de cópia de segurança da infraestrutura novamente para a rede de infraestrutura públicas. 1811, se aplicado a correção de 1809, o serviço de cópia de segurança da infraestrutura irá permanecer na rede pública de infraestrutura. Se não a aplicar a correção, a atualização irá mover o serviço novamente para a rede de infraestrutura públicas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

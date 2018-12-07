@@ -1,18 +1,19 @@
 ---
-title: Tutorial - Tutorial sobre como configurar as funções do utilizador e de administrador de servidor do Azure Analysis Services | Microsoft Docs
+title: Tutorial - configurar funções de utilizador e administrador do Azure Analysis Services | Documentos da Microsoft
+description: Saiba como configurar funções do Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 1c1dd5316eead5e91dd77d3e6b21a7a14d39afeb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: HT
+ms.openlocfilehash: a1e6e04c4019086d56cc0eb25176a507e514c477
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929234"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000635"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de utilizador e de administrador de servidor
 
@@ -35,7 +36,7 @@ Para saber mais sobre a segurança do utilizador no Azure Analysis Services, vej
 - [Adicionar o modelo de exemplo adventureworks](../analysis-services-create-sample-model.md) ao seu servidor.
 - [Instalar a versão mais recente do SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
 Inicie sessão no [portal](https://portal.azure.com/).
 
@@ -139,7 +140,7 @@ Nesta tarefa, irá utilizar o comando [Criar](https://docs.microsoft.com/sql/ana
 Quando já não for preciso, elimine as funções e contas de utilizador ou de grupo. Para tal, utilize as **Propriedades da Função** > **Associação** para remover contas de utilizador, ou clique com o botão direito do rato numa função e, em seguida, clique em **Eliminar**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu a ligar ao seu servidor AS do Azure e a explorar as propriedades e as bases de dados modelo e propriedades de exemplo adventureworks no SSMS. Também aprendeu a utilizar scripts SSMS e TMSL para adicionar utilizadores ou grupos às funções novas e atuais. Agora que tem permissões de utilizador configuradas para o seu servidor e base de dados modelo de exemplo, o utilizador e outros utilizadores podem ligar-se ao mesmo ao utilizar aplicações cliente, como o Power BI. Para obter mais informações, avance para o próximo tutorial. 
 
 > [!div class="nextstepaction"]

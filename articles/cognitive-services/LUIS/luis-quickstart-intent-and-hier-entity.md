@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: d3b8d0597f0732a4a3cfab79125a885b2d141c9f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 36751f533b59e0ff140f5ad03e7f1fc0fa9cad41
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424711"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000570"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: extrair dados relacionados contextualmente
 Neste tutorial, localize fragmentos de dados relacionados com base no contexto. Por exemplo, as localizações de origem e destino para uma mudança física de um edifício e escritório para outros estão relacionadas. Para gerar uma ordem de trabalho, ambos os fragmentos de dados podem ser necessários e estão relacionados entre si.  
@@ -55,7 +55,7 @@ Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seg
 3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `hier`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL. 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Remover a entidade de número pré-concebida da aplicação
-Para ver toda a expressão e marcar os subordinados hierárquicos, remova temporariamente a entidade de número pré-concebida.
+Para ver a expressão inteira e marcar os filhos hierárquicos, [remover temporariamente a entidade de número pré-criados](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token). 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 

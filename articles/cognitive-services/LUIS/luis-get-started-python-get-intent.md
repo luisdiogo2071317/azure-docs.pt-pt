@@ -1,21 +1,22 @@
 ---
-title: Guia de Início Rápido de Python – prever a intenção – LUIS
-titleSuffix: Azure Cognitive Services
-description: Neste início rápido, vai aprender a chamar uma aplicação LUIS com Python.
+title: 'Início rápido: obter a intenção - Python'
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha a intenção e as entidades.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bec438933e83bfc0abf4930935f74a1af731565c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6121448906960ee3da41a16eac974f15ebdb46b5
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422342"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015522"
 ---
 # <a name="quickstart-get-intent-using-python"></a>Guia de Início Rápido: Obter a intenção com Python
 Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha a intenção e as entidades.

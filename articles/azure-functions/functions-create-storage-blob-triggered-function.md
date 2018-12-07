@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f71db50678ad0f1b37e30a4120b90d47d9090942
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
-ms.translationtype: HT
+ms.openlocfilehash: fcc5052d73d921a8181ad068453111e5ead4361a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113857"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999878"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Criar uma função acionada pelo Armazenamento de blobs do Azure
 
@@ -27,7 +27,7 @@ Saiba como criar uma função que é acionada quando são carregados ou atualiza
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-+ Transferir e instalar o [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
++ Transferir e instalar o [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 + Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-an-azure-function-app"></a>Criar uma aplicação de Funções do Azure
@@ -76,7 +76,7 @@ Em seguida, vai ligar à sua conta de Armazenamento do Azure e criar o contentor
 
     ![Obtenha as credenciais de ligação da conta de Armazenamento.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. Execute a ferramenta [Microsoft Azure Storage Explorer](http://storageexplorer.com/), clique no ícone de ligação à esquerda, escolha **Utilizar um nome e uma chave de conta de armazenamento** e clique em **Seguinte**.
+1. Execute a ferramenta [Microsoft Azure Storage Explorer](https://storageexplorer.com/), clique no ícone de ligação à esquerda, escolha **Utilizar um nome e uma chave de conta de armazenamento** e clique em **Seguinte**.
 
     ![Execute a ferramenta Microsoft Azure Storage Explorer.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 
@@ -111,7 +111,7 @@ Agora que já tem um contentor de blobs, pode carregar um ficheiro para o mesmo 
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Criou uma função que é executada quando um blob é adicionado ou atualizado no Armazenamento de blobs. 
 

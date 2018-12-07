@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 196c3cb58eb60922f4898b6919c8393853c6126a
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: db6a02db3a154193a9326e2957038e5daa2faae7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094290"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992365"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Serviço de Kubernetes do Azure (AKS)
 
@@ -103,7 +103,7 @@ O Azure Kubernetes Service (AKS) foi certificado com CNCF como sendo compatível
 
 O Azure Kubernetes Service (AKS) está em conformidade com SOC, ISO, PCI DSS e HIPAA.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre como implementar e gerir o AKS com o guia de introdução da CLI do Azure.
 
@@ -111,7 +111,7 @@ Saiba mais sobre como implementar e gerir o AKS com o guia de introdução da CL
 > [Início Rápido do AKS][aks-cli]
 
 <!-- LINKS - external -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [draft]: https://github.com/Azure/draft
 [helm]: https://helm.sh/
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/

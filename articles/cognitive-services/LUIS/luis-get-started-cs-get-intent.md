@@ -1,21 +1,22 @@
 ---
-title: Guia de Início Rápido do C# – prever a intenção – LUIS
-titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com C#, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
+title: 'Início rápido: obter a intenção-C#'
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com C#, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 51c23029cc771db5351575ce329944a9f06dd286
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: c498554bea0722f81d5dd52d77c0bc88d16e2332
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035849"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015070"
 ---
 # <a name="quickstart-get-intent-using-c"></a>Guia de Início Rápido: Obter a intenção com C#
 
@@ -68,9 +69,9 @@ Utilize a linguagem C# para consultar o ponto final de predição [API](https://
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando terminar este início rápido, feche o projeto do Visual Studio e remova o diretório do projeto do sistema de ficheiros. 
+Quando terminar este guia de introdução, feche o projeto do Visual Studio e remova o diretório do projeto do sistema de ficheiros. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Adicionar expressões e formação com C#](luis-get-started-cs-add-utterance.md)

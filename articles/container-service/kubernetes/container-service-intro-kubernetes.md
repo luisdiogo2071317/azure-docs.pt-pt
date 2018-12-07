@@ -1,5 +1,5 @@
 ---
-title: Introdução ao Azure Container Service para Kubernetes
+title: (PRETERIDO) Introdução ao Azure Container Service para Kubernetes
 description: O Azure Container Service para Kubernetes permite a implementação e gestão fácil de aplicações baseadas em contentores no Azure.
 services: container-service
 author: gabrtv
@@ -9,16 +9,19 @@ ms.topic: overview
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 3e019f02d13ade6a42f4739eacae55f5bf6ac2af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: e00ac57cc36b3331cfb847ecedc6c75132cdeb6b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973597"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999183"
 ---
-# <a name="introduction-to-azure-container-service-for-kubernetes"></a>Introdução ao Azure Container Service para Kubernetes
+# <a name="deprecated-introduction-to-azure-container-service-for-kubernetes"></a>(PRETERIDO) Introdução ao Azure Container Service para Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para a versão atualizada, o que este artigo utiliza o serviço Kubernetes do Azure, veja [descrição geral do Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 O Azure Container Service para Kubernetes simplifica a criação, configuração e gestão de um cluster de máquinas virtuais que estão pré-configuradas para executar aplicações em contentores. Isto permite-lhe utilizar as suas competências ou basear-se num corpo extenso e crescente de conhecimentos da comunidade, para implementar e gerir aplicações baseadas em contentores do Microsoft Azure.
 
@@ -59,6 +62,6 @@ Ferramentas para Programar e Implementar Aplicações no Kubernetes (Azure OpenD
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore o [Kubernetes Quickstart](container-service-kubernetes-walkthrough.md) (Início Rápido do Kubernetes) para começar a explorar o Azure Container Service.

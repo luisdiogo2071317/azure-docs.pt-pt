@@ -1,6 +1,6 @@
 ---
-title: O que está a acontecer ao Azure Machine Learning Workbench? | Microsoft Docs
-description: Saiba mais sobre o que está a acontecer à aplicação Workbench, o que mudou no Azure Machine Learning e qual é a linha cronológica de suporte.
+title: O que aconteceu ao Azure Machine Learning Workbench?
+description: Saiba mais sobre o que aconteceu com a Bancada de trabalho de aplicação, o que mudou no serviço Azure Machine Learning e o que é a linha cronológica de suporte.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +9,15 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: db09203e86c32a7e03b4b2c4bcc670d16583ab20
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: b6df86d63e897d5cde34fb697ad2364c107a8fbe
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879439"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011147"
 ---
-# <a name="what-is-happening-to-workbench-in-azure-machine-learning"></a>O que está acontecendo à Bancada de trabalho no Azure Machine Learning?
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning-service"></a>O que acontece à Bancada de trabalho no serviço Azure Machine Learning?
 
 A aplicação Workbench e alguns outros recursos antecipados foram preteridos e substituídos na versão de Setembro de 2018 para tornar a forma de uma melhor [arquitetura](concept-azure-machine-learning-architecture.md). A versão contém várias atualizações importantes baseadas no feedback dos clientes para melhorar a sua experiência. A funcionalidade principal das execuções experimentais para a implementação de modelos não foi alterada, mas agora pode utilizar um <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> e uma [CLI](reference-azure-machine-learning-cli.md) robustos para concluir tarefas e pipelines de machine learning.  
 

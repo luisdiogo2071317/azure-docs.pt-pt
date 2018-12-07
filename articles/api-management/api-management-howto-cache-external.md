@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: f57b6b35ffff85aad4d970cf9aa908d2a80eadf1
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 06052bd0cba6d119d07e86ed6aed833dec9f1f92
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52621663"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014570"
 ---
-# <a name="use-an-external-redis-cache-in-azure-api-management"></a>Utilizar uma cache de Redis externa na gestão de API do Azure
+# <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Utilizar uma Cache do Azure externo para Redis na gestão de API do Azure
 
-Para além de utilizar a cache interna, gestão de API do Azure também permite que para colocar em cache as respostas num cache de Redis externa.
+Além de utilizar a cache interna, API Management do Azure também permite a colocação em cache as respostas num Cache externo do Azure para Redis.
 
 Utilizar uma cache externa permite superar algumas limitações da cache interna. É especialmente útil se quiser:
 
@@ -53,15 +53,15 @@ Para concluir este tutorial, precisa de:
 + [crie uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
 + Compreender [colocação em cache na gestão de API do Azure](api-management-howto-cache.md)
 
-## <a name="create-cache"> </a> Criar a Cache de Redis do Azure
+## <a name="create-cache"> </a> Criar a Cache do Azure para Redis
 
-Esta secção explica como criar uma cache de Redis no Azure. Se já tiver uma cache de Redis, dentro ou fora do Azure, pode <a href="#add-external-cache">ignorar</a> para a secção seguinte.
+Esta secção explica como criar uma Cache do Azure para Redis no Azure. Se já tiver uma Cache do Azure para Redis, dentro ou fora do Azure, pode <a href="#add-external-cache">ignorar</a> para a secção seguinte.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 ## <a name="add-external-cache"> </a>Adicionar a cache de externo
 
-Siga os passos abaixo para adicionar uma cache de Redis externa na gestão de API do Azure.
+Siga os passos abaixo para adicionar uma Cache do Azure externo para Redis na gestão de API do Azure.
 
 ![Traga a sua própria cache para APIM](media/api-management-howto-cache-external/add-external-cache.png)
 
@@ -70,7 +70,7 @@ Siga os passos abaixo para adicionar uma cache de Redis externa na gestão de AP
 >
 > Por exemplo, se a gestão de API está alojada nas regiões E.U.A. leste, Sudeste asiático e Europa Ocidental e existem dois caches configurado, um para **predefinido** e outra para **Sudeste asiático**, gestão de API no  **Sudeste asiático** utilizará o seu próprio cache, enquanto as outras duas regiões utilizarão o **predefinido** entrada da cache.
 
-### <a name="add-an-azure-redis-cache-from-the-same-subscription"></a>Adicionar uma Cache de Redis do Azure da mesma subscrição
+### <a name="add-an-azure-cache-for-redis-from-the-same-subscription"></a>Adicionar uma Cache do Azure para Redis da mesma subscrição
 
 1. Navegue para a sua instância de gestão de API no portal do Azure.
 2. Selecione o **cache externo** separador no menu à esquerda.
@@ -79,14 +79,14 @@ Siga os passos abaixo para adicionar uma cache de Redis externa na gestão de AP
 5. Selecione **predefinido** ou especificar a região desejada na **utilizada a partir do** campo de lista pendente.
 6. Clique em **Guardar**.
 
-### <a name="add-a-redis-cache-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Adicionar uma cache de Redis alojada fora da subscrição do Azure atual ou o Azure, em geral
+### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Adicionar uma Cache do Azure para Redis alojados fora da subscrição do Azure atual ou o Azure, em geral
 
 1. Navegue para a sua instância de gestão de API no portal do Azure.
 2. Selecione o **cache externo** separador no menu à esquerda.
 3. Clique nas **+ adicionar** botão.
 4. Selecione **personalizada** no **instância da Cache** campo de lista pendente.
 5. Selecione **predefinido** ou especificar a região desejada na **utilizada a partir do** campo de lista pendente.
-6. Fornecer a cadeia de ligação da cache de Redis no **cadeia de ligação** campo.
+6. Fornecer a sua Cache do Azure para a cadeia de ligação de Redis no **cadeia de ligação** campo.
 7. Clique em **Guardar**.
 
 ## <a name="use-the-external-cache"></a>Utilizar a cache de externa

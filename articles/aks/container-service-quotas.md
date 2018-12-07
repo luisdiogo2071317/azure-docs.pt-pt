@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 08/01/2018
 ms.author: iainfou
-ms.openlocfilehash: 266e2c1f986ba78c9aac40887bc9a7dee1cbff82
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 62c58e44fa62c7c244da556a89682fe697d0ba24
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420362"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000130"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>As quotas e a disponibilidade das regiões do Serviço Kubernetes do Azure (AKS)
 
@@ -40,12 +40,14 @@ O Azure Container Service (AKS) está disponível nas seguintes regiões:
 - Leste do Japão
 - Europa do Norte
 - Sudeste Asiático
+- Sul da Índia
 - Reino Unido Sul
+- Reino Unido Oeste
 - Europa Ocidental
 - EUA Oeste
 - EUA Oeste 2
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Podem ser aumentados determinados limites e quotas predefinidos. Para pedir um aumento de um ou mais recursos que suportam tal aumento, submeta um [pedido de suporte do Azure][azure-support] (selecione "Quota" no **Tipo de problema**).
 

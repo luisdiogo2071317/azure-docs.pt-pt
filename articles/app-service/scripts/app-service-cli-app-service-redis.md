@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script da CLI do Azure - Ligar uma aplicação Web a uma cache de redis | Microsoft Docs
-description: Exemplo do Script da CLI do Azure - Ligar uma aplicação Web a uma cache de redis
+title: Script da CLI do Azure de exemplo - ligar uma aplicação web a uma Cache do Azure para Redis | Documentos da Microsoft
+description: Script da CLI do Azure de exemplo - ligar uma aplicação web a uma Cache do Azure para Redis
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 0d2ec551183d798da9e6c2f1d79ee2ca5f362f5b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: e909a86912c16cac8f9c92d1632ba2eb29ee1d30
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969279"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012101"
 ---
-# <a name="connect-a-web-app-to-a-redis-cache"></a>Ligar uma aplicação Web a uma cache de redis
+# <a name="connect-a-web-app-to-an-azure-cache-for-redis"></a>Ligar uma aplicação web para uma Cache do Azure para Redis
 
-Este script de exemplo cria uma cache de redis do Azure e uma aplicação Web do Azure. Em seguida, liga a cache de redis à aplicação Web com as definições da aplicação.
+Este script de exemplo cria uma Cache do Azure para Redis e uma aplicação web do Azure. Em seguida, liga a Cache do Azure para Redis à aplicação web com as definições da aplicação.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -35,24 +35,24 @@ Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou pos
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Azure Redis Cache")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Azure Cache for Redis")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para criar um grupo de recursos, uma aplicação Web, uma cache de redis e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
+Este script utiliza os seguintes comandos para criar um grupo de recursos, a aplicação web, Azure Cache de Redis, e todos os recursos relacionados. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação Web do Azure. |
-| [`az redis create`](/cli/azure/redis?view=azure-cli-latest#az-redis-create) | Crie uma nova instância da Cache de Redis. |
-| [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys) | Lista as chaves de acesso para a instância da cache de redis. |
+| [`az redis create`](/cli/azure/redis?view=azure-cli-latest#az-redis-create) | Crie nova Cache do Azure para a instância de Redis. |
+| [`az redis list-keys`](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys) | Lista as chaves de acesso para a Cache do Azure para a instância de Redis. |
 | [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Cria ou atualiza uma definição de aplicação para uma aplicação Web do Azure. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

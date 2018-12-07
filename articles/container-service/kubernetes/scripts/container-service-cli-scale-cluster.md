@@ -3,7 +3,7 @@ title: Exemplo do Script da CLI do Azure - Dimensione um Cluster de ACS | Micros
 description: Exemplo do Script da CLI do Azure - Dimensione um Cluster de ACS
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -15,15 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
-ms.openlocfilehash: 1e5ca9fb44ea3ad15206f36a16e61f2865d79f5f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.author: iainfou
+ms.openlocfilehash: 199a2f09df57878d6523cfed6873001f190e14f5
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427776"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992247"
 ---
-# <a name="scale-an-azure-container-service-cluster"></a>Dimensionar um Cluster do Azure Container Service
+# <a name="deprecated-scale-an-azure-container-service-cluster"></a>(PRETERIDO) Dimensionar um Cluster do serviço de contentor do Azure
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 Este exemplo dimensiona o Azure Container Service. 
 
@@ -53,7 +55,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 |---|---|
 | [az acs scale](/cli/azure/acs#az-acs-scale) | Dimensionar um cluster ACS. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

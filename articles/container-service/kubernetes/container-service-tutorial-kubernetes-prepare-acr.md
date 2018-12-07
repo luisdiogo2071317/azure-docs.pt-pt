@@ -1,24 +1,27 @@
 ---
-title: Tutorial do Azure Container Service – Prepara ACR
+title: (PRETERIDO) Tutorial do Azure Container Service - preparar o ACR
 description: Tutorial do Azure Container Service – Prepara ACR
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 735aca5509373f840c56e28887088f7a696ca137
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.openlocfilehash: c3e5e7c4fb46b3f68013ac857dcad2e5434a978d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024091"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998315"
 ---
-# <a name="deploy-and-use-azure-container-registry"></a>Implementar e utilizar o Azure Container Registry
+# <a name="deprecated-deploy-and-use-azure-container-registry"></a>(PRETERIDO) Implementar e utilizar o Azure Container Registry
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para a versão atualizada neste tutorial que utiliza o Azure Kubernetes Service, consulte [Tutorial: implementar e utilizar o Azure Container Registry](../../aks/tutorial-kubernetes-prepare-acr.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 O Azure Container Registry (ACR) é um registo privado e baseado no Azure para imagens de contentor do Docker. Este tutorial, parte 2 de 7, orienta-o na implementação de uma instância do Azure Container Registry e no envio de uma imagem de contentor para a mesma. Os passos concluídos incluem:
 
@@ -154,7 +157,7 @@ v1
 
 Ao concluir o tutorial, a imagem de contentor foi armazenada numa instância privada do Azure Container Registry. Esta imagem é implementada do ACR para um cluster do Kubernetes em tutoriais posteriores.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, um Azure Container Registry foi preparado para utilização num cluster do AKS Kubernetes. Foram efetuados os seguintes passos:
 

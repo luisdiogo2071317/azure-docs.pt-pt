@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/27/2018
+ms.date: 12/05/2018
 ms.author: danlep
-ms.openlocfilehash: 2694e8cdc4f1918aab36794804ff48f5a70b44be
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: e0ced96d032467dea4a9e32a48e5288df3cfd254
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739690"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996433"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Quotas e disponibilidade das regiões do Azure Container Instances
 
@@ -30,9 +30,9 @@ O Azure Container Instances está disponível nas seguintes regiões com a CPU e
 | -------- | -- | :---: | :-----------: |
 | EUA Leste, Europa do Norte, Europa Ocidental, EUA Oeste, EUA Oeste 2 | Linux | 4 | 14 |
 | Leste da Austrália, EUA Leste 2, Sudeste Asiático | Linux | 2 | 7 |
-| Canadá Central, Índia Central, EUA Centro-Sul | Linux | 2 | 3.5 |
+| Canadá Central, Índia Central, Leste asiático, Norte dos E.U.A., Centro-Sul dos E.U.A. | Linux | 2 | 3.5 |
 | EUA Leste, Europa Ocidental, EUA Oeste | Windows | 4 | 14 |
-| Leste da Austrália, Canadá Central, Índia Central, EUA Leste 2, Europa do Norte, EUA Centro-Sul, Sudeste Asiático, EUA Oeste 2 | Windows | 2 | 3.5 |
+| Leste da Austrália, Canadá Central, Índia Central, Ásia Oriental, E.U.A. Leste 2, Centro-Norte, Europa do Norte, EUA Centro-Sul, Sudeste asiático, E.U.A. oeste 2 | Windows | 2 | 3.5 |
 
 As instâncias de contentor criadas dentro destes limites de recursos estão sujeitas à disponibilidade numa região de implementação. Quando uma região está sob muita carga, pode ocorrer uma falha ao implementar instâncias. Para mitigar essa falha de implementação, experimente implementar instâncias com definições de memória e CPU inferior ou tente implementar mais tarde.
 
@@ -40,7 +40,7 @@ Informe a equipa das regiões adicionais necessárias ou do aumento dos limites 
 
 Para obter mais informações sobre a resolução de problemas de implementação de instância de contentor, veja [Troubleshoot deployment issues with Azure Container Instances (Resolver problemas de implementação com o Azure Container Instances)](container-instances-troubleshooting.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Podem ser aumentados determinados limites e quotas predefinidos. Para pedir um aumento de um ou mais recursos que suportam tal aumento, submeta um [pedido de suporte do Azure][azure-support] (selecione "Quota" no **Tipo de problema**).
 

@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.openlocfilehash: 9a8486a5022a58dd9d4b94ddbe71f3a4e66f18cf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d4f69533a68e11b3e171963429b141cf0736472d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969503"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014638"
 ---
 # <a name="azure-time-series-insights-preview-tutorial"></a>Tutorial do Azure Time Series Insights (pré-visualização)
 
@@ -36,11 +36,11 @@ Esta secção descreve como criar um ambiente do Azure TSI (pré-visualização)
 
    ![um tutorial][1]
 
-1. Na página de ambiente do Time Series Insights, preencha os parâmetros necessários e clique em **seguinte: origem de evento**
+1. Na página de ambiente do Time Series Insights, preencha os parâmetros necessários e clique em **seguinte: origem de evento**. Para este tutorial, defina o **ID de série de tempo** como `Id`. Para saber mais sobre **IDs de série de tempo**, leia [IDs de série de tempo](./time-series-insights-update-how-to-id.md).
 
    ![Tutorial-dois][2]
 
-1. Sobre o **origem do evento** página, preencha os parâmetros necessários e clique em **rever + criar**.
+1. Sobre o **origem do evento** página, preencha os parâmetros necessários e clique em **rever + criar**. Para este tutorial, defina o **Timestamp** campo de propriedade como `Timestamp`.
 
    ![Tutorial-três][3]
 
@@ -69,7 +69,7 @@ Nesta secção, irá utilizar um simulador de dispositivos de windmill para envi
 
   1. Clique em **clique para iniciar** enviar eventos para o Hub de eventos. Nesta fase, um arquivo chamado `instances.json` serão transferidos para o seu computador. Guarde este ficheiro uma vez que irá precisar deste mais tarde.
 
-  1. Regresse ao seu hub de eventos. Agora, deverá ver os novos eventos a ser recebidos pelo hub.d
+  1. Regresse ao seu Hub de eventos. Agora, deverá ver os novos eventos a ser recebidos pelo hub.d
 
       ![Tutorial-oito][8]
 

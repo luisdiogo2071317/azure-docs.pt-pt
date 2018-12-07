@@ -1,5 +1,5 @@
 ---
-title: Guia de Introdução do Azure Container Service - Implementar Cluster do DC/OS
+title: (PRETERIDO) Azure Container Service início rápido - implementar Cluster DC/OS
 description: Guia de Introdução do Azure Container Service - Implementar Cluster do DC/OS
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cd7f2284f3449fe8abdf1a6f8e85b9b0b712d7a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: efaf82c3f378f572c289b587dbe5df1923a58c62
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998564"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000523"
 ---
-# <a name="deploy-a-dcos-cluster"></a>Criar um cluster do DC/OS
+# <a name="deprecated-deploy-a-dcos-cluster"></a>(PRETERIDO) Implementar um cluster DC/OS
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 O DC/OS oferece uma plataforma distribuída para executar aplicações modernas em contentores. Com o Azure Container Service, o aprovisionamento de um cluster DC/OS pronto para produção é simples e rápido. Este guia de introdução detalha os passos básicos necessários para implementar um DC/OS do cluster e executar carga de trabalho básica.
 
@@ -163,7 +165,7 @@ Quando já não for necessário, pode utilizar o comando [az group delete](/cli/
 az group delete --name myResourceGroup --no-wait
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de introdução, implementou um cluster DC/OS e executou um contentor de Docker simples no cluster. Para saber mais sobre o Azure Container Service, continue o tutorial do ACS.
 

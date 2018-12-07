@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8371e99224b511a87b2061708f00822a70c024b0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139979"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999068"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entidades previamente concebidas para reconhecer os tipos de dados comuns
 
@@ -54,6 +54,12 @@ Teste a intenção de novo no ponto final adicionado por um valor para o **p** p
 |Cancelar a marcação de 3 de Março|LUIS devolveu o mais recente 3 de Março no passado (2018-03-03) e 3 de Março no futuro (2019-03-03) porque a expressão não especificou um ano.|
 |Agendar uma reunião em 10 am|10:00:00|
 
+## <a name="marking-entities-containing-a-prebuilt-entity-token"></a>Marcar entidades que contém um token de entidade predefinidos
+ Se tiver texto, como `HH-1234`, que pretende marcar como uma entidade personalizada _e_ tiver [número pré-criados](luis-reference-prebuilt-number.md) adicionada ao modelo, não será possível marcar a entidade personalizada no portal do LUIS. Pode marcá-la com a API. 
+
+ Para marcar esse tipo de token, onde parte dele já está marcado com uma entidade pré-criados, remova a entidade pré-concebidos a partir da aplicação do LUIS. Não precisa de preparar a aplicação. Em seguida, marque o token com sua própria entidade personalizada. Em seguida, adicione a entidade criados previamente para a aplicação do LUIS.
+
+ Por outro exemplo, considere a expressão como uma lista de preferências de classe: `I want first year spanish, second year calculus, and fourth year english lit.` se a aplicação do LUIS tiver adicionado, o Ordinal de Prebuild `first`, `second`, e `fourth` já serão assinaladas com ordinais. Se quiser capturar o ordinal e a classe, pode criar uma entidade composta e encapsular o Ordinal criados previamente e a entidade personalizada para o nome da classe.
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]

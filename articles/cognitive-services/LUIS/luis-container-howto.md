@@ -1,21 +1,22 @@
 ---
-title: Como instalar e executar contentores do docker - compreensão de idiomas (LUIS)
-titleSuffix: Azure Cognitive Services
+title: Contentores do Docker
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: O contentor de LUIS carrega a aplicação publicada ou preparada para um contentor do docker e fornece acesso para as previsões de consulta de pontos finais da API do contentor.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 085273bbf16ba7cb3557763dd392a7a7207d30db
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a6170d51e1a8756020b4f2caa733c388b2ce4060
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965586"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013821"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contentores
  

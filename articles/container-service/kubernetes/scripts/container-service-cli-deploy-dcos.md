@@ -3,7 +3,7 @@ title: Exemplo do Script da CLI do Azure - Criar Cluster do ACS DC/OS | Microsof
 description: Exemplo do Script da CLI do Azure - Criar Cluster do ACS DC/OS
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -15,15 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
-ms.openlocfilehash: db136fb1c68c243086d3e83424ed2c9864638c8f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.author: iainfou
+ms.openlocfilehash: 2d9f58527908a17dd445b6afecbcd7e93f70de2c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433390"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001618"
 ---
-# <a name="create-an-azure-container-service-dcos-cluster"></a>Criar um Cluster DC/OS do Azure Container Service
+# <a name="deprecated-create-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Criar um Cluster de DC/OS do serviço de contentor do Azure
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 Este exemplo cria um cluster do Azure Container Service em execução no DCOS.
 
@@ -60,7 +62,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az acs create](https://docs.microsoft.com/cli/azure/acs#az-acs-create) | Cria e cluster ACS. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

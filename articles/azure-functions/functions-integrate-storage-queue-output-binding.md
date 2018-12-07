@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 0cd3d3044623e2265a4ef5f817ed41258e63ae1c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854529"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995525"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure
 
@@ -31,7 +31,7 @@ Para concluir este guia de início rápido:
 
 * Siga as indicações em [Criar a primeira função a partir do portal do Azure](functions-create-first-azure-function.md) e não siga o passo **Limpar recursos**. Esse início rápido cria a aplicação de função e a função que vai utilizar aqui.
 
-* Instale o [Explorador de Armazenamento do Microsoft Azure](http://storageexplorer.com/). Esta é uma ferramenta que irá utilizar para examinar as mensagens de fila que o seu enlace de saída cria.
+* Instale o [Explorador de Armazenamento do Microsoft Azure](https://storageexplorer.com/). Esta é uma ferramenta que irá utilizar para examinar as mensagens de fila que o seu enlace de saída cria.
 
 ## <a name="add-binding"></a>Adicionar um enlace de saída
 
@@ -122,7 +122,7 @@ Da primeira vez que o enlace de saída é utilizado, o runtime das Funções cri
 
 Ignore esta secção se já tiver instalado o Explorador de Armazenamento e o tiver ligado à conta de armazenamento que está a utilizar com este início rápido.
 
-2. Execute a ferramenta [Explorador de Armazenamento do Microsoft Azure](http://storageexplorer.com/), selecione o ícone de ligação à esquerda, escolha **Utilizar um nome e uma chave da conta de armazenamento** e selecione **Seguinte**.
+2. Execute a ferramenta [Explorador de Armazenamento do Microsoft Azure](https://storageexplorer.com/), selecione o ícone de ligação à esquerda, escolha **Utilizar um nome e uma chave da conta de armazenamento** e selecione **Seguinte**.
 
     ![Execute a ferramenta Microsoft Azure Storage Explorer.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -160,7 +160,7 @@ Ignore esta secção se já tiver instalado o Explorador de Armazenamento e o ti
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, adicionou um enlace de saída a uma função já existente. Para obter mais informações sobre o enlace para o Armazenamento de filas, veja [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md) (Enlaces da fila de Armazenamento das Funções do Azure). 
 

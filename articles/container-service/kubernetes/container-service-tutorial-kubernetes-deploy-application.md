@@ -1,24 +1,27 @@
 ---
-title: Tutorial do Azure Container Service – Implementar Aplicação
+title: (PRETERIDO) Tutorial do Azure Container Service – implementar aplicação
 description: Tutorial do Azure Container Service – Implementar Aplicação
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7f9c0c3ad11cb6988f528503d614ab26dcc0968
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
-ms.translationtype: HT
+ms.openlocfilehash: dafbb8d1221d5e9c6194611ad338b3714a089cea
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920597"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998786"
 ---
-# <a name="run-applications-in-kubernetes"></a>Executar aplicações no Kubernetes
+# <a name="deprecated-run-applications-in-kubernetes"></a>(PRETERIDO) Executar aplicações no Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para a versão atualizada neste tutorial que utiliza o Azure Kubernetes Service, consulte [Tutorial: executar aplicações no Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-deploy-application.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Neste tutorial, parte quatro de sete, a aplicação de exemplo é implementada num cluster do Kubernetes. Os passos concluídos incluem:
 
@@ -104,7 +107,7 @@ Para ver a aplicação, navegue para o endereço IP externo.
 
 ![Imagem do cluster do Kubernetes no Azure no Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, a aplicação do Azure vote foi implementada num cluster de Kubernetes do Azure Container Service. As tarefas concluídas incluem:  
 

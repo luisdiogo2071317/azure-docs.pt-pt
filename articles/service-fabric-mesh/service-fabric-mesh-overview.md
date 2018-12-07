@@ -9,12 +9,12 @@ ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: f753d7273c685a7ec3e4e0877e171df04e69e5b4
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: da5370e274aa1904f803227d8c85912a7d26c533
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978320"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000651"
 ---
 # <a name="what-is-service-fabric-mesh"></a>O que é o Service Fabric Mesh?
 
@@ -50,6 +50,7 @@ Com o Service Fabric Mesh pode:
 - Implementar e gerir os recursos com o [portal do Azure](https://portal.azure.com), modelos do Resource Manager ou bibliotecas da CLI do Azure/PowerShell.
 - Configurar a monitorização operacional e alertas através do [Application Insights](/azure/application-insights/) (ou da ferramenta à sua escolha) para capturar rastreios operacionais e de diagnóstico a partir da plataforma.
 - Aceder às informações de diagnóstico das aplicações emitidas a partir do modelo de aplicação com o [Application Insights](/azure/application-insights/) ou a ferramenta à sua escolha.
+- Otimize a utilização de recursos, especificando as regras de dimensionamento automático para os serviços na definição da aplicação.
 
 ## <a name="mission-critical-platform-capabilities"></a>Capacidades da plataforma fundamentais
 
@@ -63,7 +64,7 @@ Com o Service Fabric Mesh pode:
 - Implementar aplicações em [Zonas de Disponibilidade](/azure/availability-zones/az-overview) e várias regiões para fiabilidade geográfica.
 - Utilizar todas as funcionalidades de segurança e conformidade fornecidas pelo Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Demora apenas alguns passos a implementar um projeto de exemplo com o Visual Studio. Para obter mais informações, veja [Criar um site ASP.NET Core](service-fabric-mesh-quickstart-dotnet-core.md). 
 

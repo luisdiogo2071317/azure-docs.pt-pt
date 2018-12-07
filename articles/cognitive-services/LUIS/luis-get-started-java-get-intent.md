@@ -1,22 +1,25 @@
 ---
-title: Guia de Início Rápido de Java – prever a intenção – LUIS
-titleSuffix: Azure Cognitive Services
+title: 'Início rápido: obter a intenção - Java'
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com o Java, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c492a0d0a9d90a79b0e05d4e7de6f5ef0796184a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 417b1138d581a54a3a0a992cebf18ea20fa8dbee
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417538"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013599"
 ---
 # <a name="quickstart-get-intent-using-java"></a>Guia de Início Rápido: obter a intenção com Java
+
+Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha a intenção e as entidades.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -63,6 +66,6 @@ Pode utilizar o Java para aceder aos mesmos resultados que viu na janela do brow
 
 Elimine o ficheiro Java. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Adicionar expressões](luis-get-started-java-add-utterance.md)

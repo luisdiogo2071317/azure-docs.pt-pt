@@ -1,23 +1,26 @@
 ---
-title: Guia de Início Rápido de Node.js – prever a intenção – LUIS
-titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com o Node.js, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
+title: 'Início rápido: obter a intenção - node. js'
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com o Node.js, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 37a94b217e2b9c0d417ad0bdd7678b13e333305d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 8a355b59a7674e21eddddbc311d90a9798931f89
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038923"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012713"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>Guia de Início Rápido: Obter a intenção com Node.js
+
+Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha a intenção e as entidades.
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -70,6 +73,6 @@ Pode utilizar o Node.js para aceder aos mesmos resultados que viu na janela do b
 
 Elimine o ficheiro Node.js.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Adicionar expressões](luis-get-started-node-add-utterance.md)

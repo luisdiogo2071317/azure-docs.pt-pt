@@ -1,22 +1,23 @@
 ---
-title: 'Tutorial: Implementar um modelo de classificação de imagens no Azure Container Instance (ACI) com o serviço do Azure Machine Learning'
+title: 'Tutorial de classificação de imagem: implementar modelos com o serviço Azure Machine Learning'
 description: Este tutorial mostra como utilizar o serviço do Azure Machine Learning para implementar um modelo de classificação de imagens com scikit-learn num bloco de notas Jupyter em Python.  Este tutorial é a segunda parte de uma série composta por duas partes.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: tutorial
+ms.custom: seodec12
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 0fd3bebc1e2dba3ab7d1204e779a8c80b97c990b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6e56fe88eec70af313d0b0dd8cf0aaf27b054121
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864065"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011543"
 ---
-# <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Tutorial n.º2:  Implementar um modelo de classificação de imagens no Azure Container Instance (ACI)
+# <a name="tutorial-part-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Tutorial (parte 2): implementar um modelo de classificação de imagem na instância de contentor do Azure (ACI)
 
 Este tutorial é a **segunda parte de uma série composta por duas partes**. No [tutorial anterior](tutorial-train-models-with-aml.md), preparou os modelos de machine learning e registou um modelo na sua área de trabalho na cloud.  
 

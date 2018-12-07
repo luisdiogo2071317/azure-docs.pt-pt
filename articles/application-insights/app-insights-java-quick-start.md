@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 4ed5363cc927c3e36e6efa7554511d78e1e96d24
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 45d1275ac3b78836cbb77c4e1508d0689c215d69
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970931"
+ms.locfileid: "52998596"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Java
 
@@ -29,7 +29,7 @@ Este manual de início rápido orienta-o ao longo da adição do Application Ins
 Para concluir este guia de início rápido:
 
 - Instalar o JRE 1.7 ou 1.8
-- Instale o [Eclipse IDE for Java EE Developers gratuito](http://www.eclipse.org/downloads/). Este início rápido utiliza o Eclipse Oxygen (4.7)
+- Instale o [Eclipse IDE for Java EE Developers gratuito](https://www.eclipse.org/downloads/). Este início rápido utiliza o Eclipse Oxygen (4.7)
 - Irá precisar de uma Subscrição do Azure e de um Projeto Web Dinâmico Java existente
  
 Se não tiver um Projeto Web Dinâmico Java, pode criar um com o [Início rápido Criar uma aplicação Web Java](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java).
@@ -67,7 +67,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Formulário de recurso novo do App Insights](./media/app-insights-java-quick-start/000-j.png)
 
-2. Copie ```http://dl.microsoft.com/eclipse``` para o campo "Work With" > Marque **Azure Toolkit for Java** > Selecione **Application Insights Plugin for Java** > **Desmarque** "Contact all update sites during install to find required software" (Contactar todos os sites de atualizações durante a instalação para localizar o software necessário).
+2. Copie ```https://dl.microsoft.com/eclipse``` para o campo "Work With" > Marque **Azure Toolkit for Java** > Selecione **Application Insights Plugin for Java** > **Desmarque** "Contact all update sites during install to find required software" (Contactar todos os sites de atualizações durante a instalação para localizar o software necessário).
 
 3. Assim que a instalação estiver concluída, ser-lhe-á pedido para **Restart Eclipse (Reiniciar o Eclipse)**.
 

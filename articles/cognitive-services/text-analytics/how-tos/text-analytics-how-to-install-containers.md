@@ -5,17 +5,18 @@ description: Como transferir, instalar e executar contentores para análise de t
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 99bdb42d9a0d86d0d2acc4a6272e0c802042e6b5
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: dc5e34f1a9a63b5b3ce30cdd547b900a32eba42c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635019"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017224"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contentores
 
@@ -27,7 +28,7 @@ Análise de texto fornece o seguinte conjunto de contentores do Docker, cada um 
 |----------|-------------|
 |Extração de Expressões-Chave | Extrai as expressões-chave para identificar os pontos principais. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”. |
 |Deteção de Idioma | Para até 120 idiomas, Deteta e reporta em que idioma está escrito o texto de entrada. O contentor comunica um código de idioma único para cada documento que está incluído no pedido. O código de idioma é emparelhado com uma pontuação que indica a força da pontuação. |
-|Análise de Sentimentos | Analisa o texto não processado para dicas sobre o sentimento positivo ou negativo. Esta API devolve uma pontuação de sentimento entre 0 e 1 para cada documento, em que 1 é o mais positivo. Os modelos de análise previamente são treinados com um corpo extenso de tecnologias de texto e de linguagem natural da Microsoft. Para os [idiomas selecionados](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md), a API pode analisar e classificar qualquer texto não processado que fornecer, devolvendo diretamente os resultados à aplicação de chamada. |
+|Análise de Sentimentos | Analisa o texto não processado para dicas sobre o sentimento positivo ou negativo. Esta API devolve uma pontuação de sentimento entre 0 e 1 para cada documento, em que 1 é o mais positivo. Os modelos de análise previamente são treinados com um corpo extenso de tecnologias de texto e de linguagem natural da Microsoft. Para os [idiomas selecionados](../language-support.md), a API pode analisar e classificar qualquer texto não processado que fornecer, devolvendo diretamente os resultados à aplicação de chamada. |
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -43,7 +44,7 @@ Docker tem de ser configurado para permitir que os contentores para se ligar com
 
 Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Requisitos de servidor e recomendações
+### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
 
 A tabela seguinte descreve os núcleos de CPU mínimos e recomendados, pelo menos 2,6 GHz (gigahertz) ou mais rápida e memória, em gigabytes (GB), ao alocar para cada contentor de análise de texto.
 
@@ -51,7 +52,7 @@ A tabela seguinte descreve os núcleos de CPU mínimos e recomendados, pelo meno
 |-----------|---------|-------------|
 |Extração de Expressões-Chave | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |
 |Deteção de Idioma | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |
-|Análise de Sentimentos | 1 núcleo, 8 GB de memória | 1 núcleo, 8 GB de memória |
+|Análise de Sentimentos | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |
 
 ## <a name="download-container-images-from-microsoft-container-registry"></a>Transferir imagens de contentor a partir do registo de contentor da Microsoft
 
@@ -149,11 +150,13 @@ Para obter mais informações sobre estas opções, consulte [configurar content
 Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e análise de texto contentores em execução. Em resumo:
 
 * Análise de texto fornece três contentores do Linux para o Docker, encapsulando a extração de expressões-chave, deteção de idioma e análise de sentimentos.
-* Imagens de contentor são transferidas a partir de um registo de contentor privado no Azure.
+* Imagens de contentor são transferidas a partir do registo de contentor do Microsoft (MCR) no Azure.
 * Executam imagens de contentor no Docker.
 * Pode utilizar a REST API ou o SDK para chamar operações em contentores de análise de texto ao especificar o URI do contentor do anfitrião.
 * Tem de especificar informações de faturação ao instanciar um contentor.
-* * * Cognitivos contentores de serviços não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.  
+
+> [!IMPORTANT]
+> Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

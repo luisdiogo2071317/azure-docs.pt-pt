@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 4148370828f4ac2b7e75b49ed13cf1d1dafb8844
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: a91a7493ee1353eda076c6831ed114df4c57d429
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724399"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53019241"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Obter o nome do anfitrião, as portas e as chaves de acesso através do portal do Azure
 
-Ao ligarem a uma instância da Cache de Redis do Azure, os clientes de cache precisam do nome de anfitrião, das portas e de uma chave da cache. Alguns clientes podem mencionar esses itens com nomes ligeiramente diferentes. Pode obter estas informações no portal do Azure.
+Ao ligar a uma Cache do Azure do Azure para a instância de Redis, clientes de cache tem o nome de anfitrião, portas e uma chave para a cache. Alguns clientes podem mencionar esses itens com nomes ligeiramente diferentes. Pode obter estas informações no portal do Azure.
 
 #### <a name="to-retrieve-the-access-keys-and-host-name"></a>Para obter as chaves de acesso e o nome do anfitrião
 
 1. Para obter as chaves de acesso através do [portal do Azure](https://portal.azure.com), navegue até à sua cache e selecione **Chaves de acesso**. 
 
-    ![Chaves da Cache de Redis do Azure](media/redis-cache-access-keys/redis-cache-keys.png)
+    ![Cache do Azure do Azure para as chaves de Redis](media/redis-cache-access-keys/redis-cache-keys.png)
 
 2. Para obter o nome do anfitrião e as portas, selecione **Propriedades**.
 
-    ![Propriedades da Cache de Redis do Azure](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
+    ![Cache do Azure do Azure para as propriedades de Redis](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 

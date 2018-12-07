@@ -1,24 +1,27 @@
 ---
-title: Principal de serviço do cluster de Kubernetes do Azure
+title: (PRETERIDO) Principal de serviço para o cluster de Kubernetes do Azure
 description: Criar e gerir um principal de serviço do Azure Active Directory para um cluster de Kubernetes no Azure Container Service
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 53bb09824a88980a171fa4067a9efd2fc067a898
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954577"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992151"
 ---
-# <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurar o principal de serviço do Azure AD para um cluster de Kubernetes no Container Service
+# <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(PRETERIDO) Configurar um principal de serviço do Azure AD para um cluster de Kubernetes no Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para a versão atualizada, o que este artigo utiliza o serviço Kubernetes do Azure, veja [com o Azure Kubernetes Service (AKS) de principais de serviço](../../aks/kubernetes-service-principal.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 No Azure Container Service, um cluster de Kubernetes requer um [principal de serviço do Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) para interagir com APIs do Azure. O principal de serviço tem de gerir dinamicamente recursos, como [rotas definidas pelo utilizador](../../virtual-network/virtual-networks-udr-overview.md) e o [Balanceador de Carga do Azure de Camada 4](../../load-balancer/load-balancer-overview.md).
 
@@ -165,7 +168,7 @@ Saída:
 
 Em seguida, atualize `/etc/kubernetes/azure.json` com as novas credenciais em todos os nós do cluster e reinicie os nós.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Introdução ao Kubernetes](container-service-kubernetes-walkthrough.md) no cluster de serviço do contentor.
 

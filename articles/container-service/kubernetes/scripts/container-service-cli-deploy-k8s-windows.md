@@ -3,7 +3,7 @@ title: Exemplo do Script da CLI do Azure - Criar Cluster do ACS Windows Kubernet
 description: Exemplo do Script da CLI do Azure - Criar Cluster do ACS Windows Kubernetes
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -15,15 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
-ms.openlocfilehash: 7078b79685cbb8c593de4832377e841914082abe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.author: iainfou
+ms.openlocfilehash: 1f24f036858f9c77ed6b07af27617d3e3706bba2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447263"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001574"
 ---
-# <a name="create-an-azure-container-service-kubernetes-windows-cluster"></a>Criar um Cluster Windows do Azure Container Service no Kubernetes
+# <a name="deprecated-create-an-azure-container-service-kubernetes-windows-cluster"></a>(PRETERIDO) Criar um Cluster de Kubernetes Windows do Azure Container Service
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 Este exemplo cria um cluster do Azure Container Service em execução no Kubernetes para contentores baseados no Windows.
 
@@ -63,7 +65,7 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az acs create](https://docs.microsoft.com/cli/azure/acs#az-acs-create) | Cria e cluster ACS. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

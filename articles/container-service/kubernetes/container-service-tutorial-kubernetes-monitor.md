@@ -1,24 +1,27 @@
 ---
-title: Tutorial do Azure Container Service - monitorizar o Kubernetes
+title: (PRETERIDO) Tutorial do Azure Container Service - monitorizar o Kubernetes
 description: Tutorial do Azure Container Service - Monitorizar o Kubernetes com o Log Analytics
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 04/05/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2243851d62cc17dc52407dce051cc2e0f4bcb12
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 6f95aa701228730682c0122dc1fd46d8a2537ce1
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889213"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001601"
 ---
-# <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Monitorizar um cluster do Kubernetes com o Log Analytics
+# <a name="deprecated-monitor-a-kubernetes-cluster-with-log-analytics"></a>(PRETERIDO) Monitorizar um cluster de Kubernetes com o Log Analytics
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para a versão atualizada neste tutorial que utiliza o Azure Kubernetes Service, consulte [Monitor do Azure para contentores (pré-visualização)-Descrição geral](../../azure-monitor/insights/container-insights-overview.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 É fundamental monitorizar o cluster e os contentores do Kubernetes, especialmente ao gerir um cluster de produção em escala, com várias aplicações.
 

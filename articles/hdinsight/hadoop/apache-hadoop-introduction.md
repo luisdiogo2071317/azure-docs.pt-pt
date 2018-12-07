@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.openlocfilehash: 190d6203c4a00ed3f448bdbb7366db5bc22c45f8
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 259cef465f39f027c6db81d5d7de137b6a089581
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634520"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017710"
 ---
 # <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>O que é o Azure HDInsight e a pilha de tecnologia do Apache Hadoop
 
@@ -24,7 +24,7 @@ Este artigo disponibiliza uma introdução ao Apache Hadoop no Azure HDInsight. 
 
 ## <a name="what-is-hdinsight-and-the-hadoop-technology-stack"></a>O que é o HDInsight e a pilha de tecnologia do Hadoop?
 
-O [Apache Hadoop](http://hadoop.apache.org/) era a arquitetura de código aberto original para processamento distribuído e análise de conjuntos de macrodados em clusters. A pilha de tecnologia do Hadoop inclui software e utilitários relacionados, entre os quais Apache Hive, HBase, Spark, Kafka e muitos outros.
+O [Apache Hadoop](https://hadoop.apache.org/) era a arquitetura de código aberto original para processamento distribuído e análise de conjuntos de macrodados em clusters. A pilha de tecnologia do Hadoop inclui software e utilitários relacionados, entre os quais Apache Hive, HBase, Spark, Kafka e muitos outros.
 
 O Azure HDInsight é uma distribuição de cloud dos componentes do Hadoop da [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/). O Azure HDInsight torna mais fácil, rápido e rentável processar quantidades enormes de dados. Pode utilizar as estruturas de código aberto mais populares, como o Hadoop, o Spark, o Hive, o LLAP, o Kafka, o Storm, o R, entre outras. Com estas estruturas, pode permitir um vasto leque de cenários como extrair, transformar e carregar (ETL), armazenamento de dados, machine learning e IoT.
 
@@ -86,9 +86,9 @@ O HDInsight inclui tipos de clusters específicos e capacidades de personalizaç
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: uma arquitetura que utiliza o HDFS, a gestão de recursos YARN e um modelo de programação simples, o MapReduce, para processar e analisar dados de lotes em paralelo.
 
-* **[Apache Spark](http://spark.apache.org/)**: arquitetura de processamento paralelo de código aberto que suporta o processamento dentro da memória para melhorar o desempenho de aplicações de análise de macrodados. Veja [O que é o Apache Spark no HDInsight?](../spark/apache-spark-overview.md)
+* **[Apache Spark](https://spark.apache.org/)**: arquitetura de processamento paralelo de código aberto que suporta o processamento dentro da memória para melhorar o desempenho de aplicações de análise de macrodados. Veja [O que é o Apache Spark no HDInsight?](../spark/apache-spark-overview.md)
 
-* **[Apache HBase](http://hbase.apache.org/)**: uma base de dados NoSQL incorporada no Hadoop e que proporciona acesso aleatório e consistência segura para grandes quantidades de dados não estruturados e semiestruturados -- potencialmente, biliões de linhas vezes milhões de colunas. Veja [O que é o HBase no HDInsight?](../hbase/apache-hbase-overview.md)
+* **[Apache HBase](https://hbase.apache.org/)**: uma base de dados NoSQL incorporada no Hadoop e que proporciona acesso aleatório e consistência segura para grandes quantidades de dados não estruturados e semiestruturados -- potencialmente, biliões de linhas vezes milhões de colunas. Veja [O que é o HBase no HDInsight?](../hbase/apache-hbase-overview.md)
 
 * **[Serviços ML](https://msdn.microsoft.com/microsoft-r/rserver)**: um servidor para alojar e gerir processos R paralelos distribuídos. Fornece cientistas de dados, peritos em estatística e programadores de R com acesso a pedido a métodos dimensionáveis distribuídos de análise no HDInsight. Veja [Descrição geral dos Serviços ML no HDInsight](../r-server/r-server-overview.md).
 
@@ -100,7 +100,7 @@ O HDInsight inclui tipos de clusters específicos e capacidades de personalizaç
 
 ## <a name="open-source-components-in-hdinsight"></a>Componentes de código aberto no HDInsight
 
-O Azure HDInsight permite-lhe criar clusters com estruturas de código aberto, como o Hadoop, o Spark, o Hive, o LLAP, o Kafka, o Storm, o HBase e o R. Estes clusters, por predefinição, são fornecidos com outros componentes de código aberto incluídos no cluster, como o [Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md), o [Avro](http://avro.apache.org/docs/current/spec.html), o [Hive](http://hive.apache.org), o [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/), o [Mahout](https://mahout.apache.org/), o [MapReduce](http://wiki.apache.org/hadoop/MapReduce), o [YARN](http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), o [Phoenix](http://phoenix.apache.org/), o [Pig](http://pig.apache.org/), o [Sqoop](http://sqoop.apache.org/), o [Tez](http://tez.apache.org/), o [Oozie](http://oozie.apache.org/) e o [ZooKeeper](http://zookeeper.apache.org/).  
+O Azure HDInsight permite-lhe criar clusters com estruturas de código aberto, como o Hadoop, o Spark, o Hive, o LLAP, o Kafka, o Storm, o HBase e o R. Estes clusters, por predefinição, são fornecidos com outros componentes de código aberto incluídos no cluster, como o [Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md), o [Avro](https://avro.apache.org/docs/current/spec.html), o [Hive](https://hive.apache.org), o [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/), o [Mahout](https://mahout.apache.org/), o [MapReduce](https://wiki.apache.org/hadoop/MapReduce), o [YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), o [Phoenix](https://phoenix.apache.org/), o [Pig](https://pig.apache.org/), o [Sqoop](https://sqoop.apache.org/), o [Tez](https://tez.apache.org/), o [Oozie](https://oozie.apache.org/) e o [ZooKeeper](https://zookeeper.apache.org/).  
 
 
 ## <a name="programming-languages-in-hdinsight"></a>Linguagens de programação no HDInsight
@@ -152,4 +152,4 @@ Neste artigo, aprendeu o que é o Azure HDInsight e como fornece o Hadoop e outr
 
 
 [component-versioning]: ../hdinsight-component-versioning.md
-[zookeeper]: http://zookeeper.apache.org/
+[zookeeper]: https://zookeeper.apache.org/

@@ -1,23 +1,27 @@
 ---
-title: Tutorial do Azure Container Service - Preparar Aplicação
+title: (PRETERIDO) Tutorial do Azure Container Service - preparar aplicação
 description: Tutorial do Azure Container Service - Preparar Aplicação
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2fe160652bf8df289d590722ef4024f0b3dd397c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: a003248104c45fa2bcc1020e0ad8ea895d759457
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992382"
 ---
-# <a name="create-container-images-to-be-used-with-azure-container-service"></a>Criar imagens de contentor para utilizar com o Azure Container Service
+# <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(PRETERIDO) Criar imagens de contentor a ser utilizado com o Azure Container Service
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para a versão atualizada neste tutorial que utiliza o Azure Kubernetes Service, consulte [Tutorial: preparar um aplicativo para o Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Neste tutorial, a parte um de sete, uma aplicação de contentores múltiplos é preparada para utilização com o Kubernetes. Os passos concluídos incluem:  
 
@@ -121,7 +125,7 @@ docker-compose down
 
 Após a conclusão, tem uma imagem de contentor que contém a aplicação Azure Vote.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, uma aplicação foi testada e imagens de contentor foram criadas para a aplicação. Foram efetuados os seguintes passos:
 

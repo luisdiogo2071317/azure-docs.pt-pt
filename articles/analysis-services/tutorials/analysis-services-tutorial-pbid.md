@@ -2,17 +2,18 @@
 title: Tutorial - Ligar ao Azure Analysis Services com o Power BI Desktop | Microsoft Docs
 author: minewiskan
 manager: kfile
+description: Saiba como ligar ao Azure Analysis Services com o Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: ad97fd7569690d0d199b0ce1a82f31f8dfa64c26
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 0025655b3df8ddfb91857bbd56c04507ac6bca5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426135"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993969"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Ligar com o Power BI Desktop
 
@@ -29,8 +30,8 @@ Neste tutorial, utiliza o Power BI Desktop para ligar à base de dados do modelo
 - Tenha [*permissões*](../analysis-services-server-admins.md) de leitura para a base de dados do modelo de exemplo adventureworks.
 - [Instale o Power BI Desktop mais recente](https://powerbi.microsoft.com/desktop).
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
-Neste tutorial, inicia sessão no portal para obter apenas o nome do servidor. Normalmente, os utilizadores iriam obter o nome do servidor a partir do administrador do servidor.
+## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+Neste tutorial, de início de sessão para o portal para obter apenas o nome do servidor. Normalmente, os utilizadores iriam obter o nome do servidor a partir do administrador do servidor.
 
 Inicie sessão no [portal](https://portal.azure.com/).
 
@@ -51,7 +52,7 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
 
    ![Especificar a base de dados e o modelo do servername](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aas-servername.png)
 
-3. Quando lhe for pedido, introduza as suas credenciais de início de sessão. A conta que introduzir tem de ter, pelo menos, permissões de leitura para a base de dados do modelo de exemplo adventureworks.
+3. Quando lhe for pedido, introduza as suas credenciais. A conta que introduzir tem de ter, pelo menos, permissões de leitura para a base de dados do modelo de exemplo adventureworks.
 
     O modelo adventureworks abre-se no Power BI Desktop com um relatório em branco na vista de Relatório. A lista **Campos** apresenta todos os objetos de modelo não oculto. O estado de ligação é apresentado no canto inferior direito.
 
@@ -69,5 +70,5 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
 
 Se já não for preciso, não guarde o relatório ou elimine o ficheiro se o tiver guardado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, aprendeu a utilizar o Power BI Desktop para ligar a um modelo de dados num servidor e criar um relatório básico. Se não estiver familiarizado sobre como criar um modelo de dados, veja o [tutorial de modelação de dados tabular de Vendas da Internet do Adventure Works](aas-adventure-works-tutorial.md).

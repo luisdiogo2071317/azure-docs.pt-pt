@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: bee684409b2ef3fffeb9f175c2b469d3736b6484
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986460"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993845"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Tutorial: Oferecem elevada disponibilidade bases de dados MySQL
 
@@ -46,7 +46,7 @@ Antes de iniciar os passos neste tutorial, certifique-se de que o [fornecedor de
 > Todas as ações seguintes são necessários para criar o cluster do MySQL.
 
 - [MySQL com a replicação](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). Este é o modelo de solução de Bitnami que será utilizado para a implementação de cluster do MySQL.
-- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview). Debian 8 "Jessie" com o kernel de backports para o Microsoft Azure fornecido pelo credativ. Debian GNU/Linux é uma das distribuições de Linux mais populares.
+- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian). Debian 8 "Jessie" com o kernel de backports para o Microsoft Azure fornecido pelo credativ. Debian GNU/Linux é uma das distribuições de Linux mais populares.
 - [Script personalizado para linux 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.custom-script-linux?tab=Overview). Extensão de Script personalizado é uma ferramenta para executar a sua VM personalização tarefas post VM aprovisionar. Quando esta extensão é adicionada a uma Máquina Virtual, pode transferir os scripts do armazenamento do Azure e executá-los na VM. Tarefas de extensão de Script personalizadas também podem ser automatizadas usando os cmdlets do PowerShell do Azure e a Interface de linha de comandos do Azure para várias plataformas (xPlat CLI).
 - Acesso VM para Linux extensão 1.4.7. A extensão de acesso à VM permite-lhe para repor a palavra-passe, a chave SSH ou as configurações de SSH, pelo que pode recuperar o acesso à sua VM. Também pode adicionar um novo utilizador com palavra-passe ou chave SSH, ou eliminar um utilizador com esta extensão. Esta extensão destina-se as VMs do Linux.
 
@@ -109,11 +109,11 @@ Por predefinição, nenhum acesso público está configurado para MySQL para o a
 
 1. No portal do administrador, navegue para o grupo de recursos criado quando implementar o cluster MySQL e selecione o grupo de segurança de rede (**predefinição-sub-rede-sg**):
 
-   ![abrir](media/azure-stack-tutorial-mysqlrp/6.png)
+   ![abre](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. Selecione **regras de segurança de entrada** e, em seguida, clique em **Add**.<br><br>Introduza **3306** no **intervalo de portas de destino** e, opcionalmente, forneça uma descrição no **nome** e **Descrição** campos. Clique em Adicionar para fechar a caixa de diálogo de regra de segurança de entrada.
 
-   ![abrir](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![abre](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>Configurar o acesso externo ao MySQL cluster
 Antes do cluster MySQL pode ser adicionado como um anfitrião do servidor MySQL do Azure Stack, o acesso externo tem de estar ativado.

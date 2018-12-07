@@ -1,25 +1,26 @@
 ---
-title: Bot de LUIS com c# – Web app Bot - Bot Framework SDK 3.0
-titleSuffix: Azure Cognitive Services
-description: Usando c#, crie um chatbot integrado (LUIS) de compreensão de idiomas. Este chatbot utiliza o domínio de HomeAutomation criados previamente para implementar rapidamente uma solução de bot.
+title: Bot comC#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Com o C#, crie um chatbot integrado com compreensão de idiomas (LUIS). Este chatbot utiliza o domínio de HomeAutomation criados previamente para implementar rapidamente uma solução de bot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 0ad95d5683ea10803c2f3986be97617051f191cf
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 59d98b46827a5e60dcdcbd109dc484891cef9ba8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032279"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011798"
 ---
 # <a name="luis-bot-in-c"></a>Bot de LUIS em c#
 
-Usando c#, crie um chatbot integrado (LUIS) de compreensão de idiomas. Este chatbot utiliza o domínio de HomeAutomation criados previamente para implementar rapidamente uma solução de bot. O bot baseia-se com o Bot Framework 3.x e bot de aplicação Web do Azure.
+Com o C#, crie um chatbot integrado com compreensão de idiomas (LUIS). Este chatbot utiliza o domínio de HomeAutomation criados previamente para implementar rapidamente uma solução de bot. O bot baseia-se com o Bot Framework 3.x e bot de aplicação Web do Azure.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -154,7 +155,7 @@ No portal do Azure, clique em **teste na Web Chat** para testar o bot. Escreva m
 ## <a name="download-the-bot-to-debug"></a>Transferir o bot para depurar
 Se o seu bot não está a funcionar, transfira o projeto no seu computador local e continuar [depuração](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot). 
 
-## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre arquitetura de Bot
+## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre o Bot Framework
 Saiba mais sobre [Bot Framework](https://dev.botframework.com/) e o [3.x](https://github.com/Microsoft/BotBuilder) e [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDKs.
 
 ## <a name="next-steps"></a>Passos Seguintes

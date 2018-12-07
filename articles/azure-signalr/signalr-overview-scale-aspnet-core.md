@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: af100c015845d095f39ee4245f71689a4d2a43c0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 1492b2145187f7334d1e7d9df91adc109ca826ee
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385012"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016934"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Dimensionar aplicações do SignalR do ASP.NET Core com o Azure SignalR Service
 
@@ -44,9 +44,9 @@ Outro motivo poderá ser o facto de que talvez não tenha necessidade de realmen
 
 ## <a name="how-does-it-scale"></a>Como é dimensionado?
 
-É comum dimensionar o SignalR com o SQL Server, o Azure Service Bus ou a Cache de Redis. O Azure SignalR Service lida com a abordagem de dimensionamento por si. O desempenho e o custo são comparáveis a estas abordagens, sem a complexidade de ter de lidar com estes outros serviços. Tudo o que tem de fazer é atualizar a contagem de unidades do seu serviço. Cada unidade suporta até 1000 ligações de cliente.
+É comum para dimensione SignalR com o SQL Server, Service bus do Azure ou Azure Cache de Redis. O Azure SignalR Service lida com a abordagem de dimensionamento por si. O desempenho e o custo são comparáveis a estas abordagens, sem a complexidade de ter de lidar com estes outros serviços. Tudo o que tem de fazer é atualizar a contagem de unidades do seu serviço. Cada unidade suporta até 1000 ligações de cliente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Quickstart: Create a chat room with Azure SignalR](signalr-quickstart-dotnet-core.md) (Início rápido: Criar uma sala de chat com o Azure SignalR)  
   
 

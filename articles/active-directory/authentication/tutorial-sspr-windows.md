@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 291f895ed367ab4871d27ea02cd23eddc496434c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6b3299bc93910d1211b0188bdb6639b19302be3c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958683"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014460"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavra-passe do Azure AD no ecrã de início de sessão
 
@@ -30,7 +30,7 @@ Neste tutorial, vai permitir aos utilizadores repor as respetivas palavras-passe
 
 * Atualização de 10 de abril de 2018 do Windows ou o cliente mais recente:
    * [Máquina associados ao Azure AD](../device-management-azure-portal.md) ou
-   * [Azure AD híbrido associou máquina](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio para o próximo início de sessão depois de redefinir a palavra-passe.
+   * [Azure AD híbrido associou máquina](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio.
 * A reposição de palavras-passe self-service do Azure AD tem de estar ativada.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurar a ligação Repor palavra-passe com o Intune
@@ -126,6 +126,8 @@ As seguintes definições de política são conhecidas por interferir com a capa
    * Explorer.exe é substituído por um shell personalizado
 
 Se as máquinas do Windows 10 estiverem atrás de um servidor proxy ou firewall, o tráfego HTTPS (443) para passwordreset.microsoftonline.com e ajax.aspnetcdn.com deve ser permitido.
+
+Para cenários híbridos associados a um domínio, um cenário existe em que o fluxo de trabalho SSPR será concluída sem a necessidade de um controlador de domínio do Active Directory. Conectividade com um controlador de domínio é necessário para utilizar a nova palavra-passe pela primeira vez.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

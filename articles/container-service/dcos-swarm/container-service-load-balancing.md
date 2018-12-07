@@ -1,5 +1,5 @@
 ---
-title: Contentores de balanceamento de carga no cluster DC/OS do Azure
+title: (PRETERIDO) Contentores de balanceamento de carga num cluster DC/OS do Azure
 description: Balanceamento de carga entre múltiplos contentores num cluster DC/OS do Azure Container Service.
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 8e8ad913c6e5b8e947b17ed8920285de3fcfd8ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 5a1883412a5285c4916c43a5c6ad81168096dd7f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964365"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993559"
 ---
-# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Contentores de balanceamento de carga num cluster DC/OS do Azure Container Service
+# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Contentores de balanceamento de carga num cluster DC/OS do Azure Container Service
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Neste artigo, exploramos como criar um balanceador de carga interno num DC/OS gerido pelo Azure Container Service com o Marathon-LB. Esta configuração permite dimensionar as suas aplicações horizontalmente. Permite também tirar partido dos clusters de agentes públicos e privados, ao colocar os balanceadores de carga no cluster público e os contentores aplicacionais no cluster privado. Neste tutorial:
 
@@ -111,7 +113,7 @@ Por predefinição, o Balanceador de Carga do Azure expõe as portas 80, 8080 e 
 
 Se utilizar uma porta diferente, terá de adicionar uma regra round-robin e uma sonda no balanceador de carga para a porta que utilizou. Pode fazê-lo a partir da [CLI do Azure](../../azure-resource-manager/xplat-cli-azure-resource-manager.md), com os comandos `azure network lb rule create` e `azure network lb probe create`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer o balanceamento de carga no ACS com os balanceadores de carga Marathon e do Azure, incluindo as seguintes ações:
 
