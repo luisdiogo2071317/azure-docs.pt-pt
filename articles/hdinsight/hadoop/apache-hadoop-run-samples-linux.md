@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 283171fa00837a8a7b4e0a13d7bca5645cf63a83
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: bf1fa41abe1c1f9b0d07ee7d77fe1c819e88ddc1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633070"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017625"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Executar os exemplos de MapReduce incluídos no HDInsight
 
@@ -167,7 +167,7 @@ O valor devolvido por este comando é semelhante à **3.14159155000000000000**. 
 
 GraySort é uma espécie de benchmark. A métrica é a taxa de ordenação (TB por minuto) que é obtida ao ordenar grandes quantidades de dados, normalmente, um 100 TB Mínimo.
 
-Este exemplo utiliza um modesto 10 GB de dados para que podem ser executada relativamente rapidamente. Ele usa os aplicativos de MapReduce desenvolvidos pela Owen O'Malley e a Arun Murthy. Esses aplicativos venceram o parâmetro de comparação de ordenação de terabytes de fins gerais ("daytona") anual em 2009, com uma taxa de 0.578 TB por minuto (100 TB, em minutos 173). Para obter mais informações sobre este e outros parâmetros de comparação de classificação, consulte a [Sortbenchmark](http://sortbenchmark.org/) site.
+Este exemplo utiliza um modesto 10 GB de dados para que podem ser executada relativamente rapidamente. Ele usa os aplicativos de MapReduce desenvolvidos pela Owen O'Malley e a Arun Murthy. Esses aplicativos venceram o parâmetro de comparação de ordenação de terabytes de fins gerais ("daytona") anual em 2009, com uma taxa de 0.578 TB por minuto (100 TB, em minutos 173). Para obter mais informações sobre este e outros parâmetros de comparação de classificação, consulte a [Sortbenchmark](https://sortbenchmark.org/) site.
 
 Este exemplo utiliza três conjuntos de programas MapReduce:
 

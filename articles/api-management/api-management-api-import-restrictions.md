@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: 34e6fb195ae64823336684e9ad2e9382316822b0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c55a80749506b0a03af2f8c5f0179b67c8a78d15
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961081"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016747"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 ## <a name="about-this-list"></a>Sobre esta lista
@@ -34,6 +34,7 @@ Se estiver a receber erros de importar o seu documento OpenAPI, certifique-se de
 * **$ref** ponteiros não podem referenciar arquivos externos.
 * **x-ms-caminhos** e **x-servers** são as extensões suportadas apenas.
 * Extensões personalizadas são ignoradas ao importar e não são guardadas ou preservadas para exportação.
+* **Recursão** -definições que são definidos recursivamente (por exemplo, consulte a próprios) não são suportadas pelo APIM.
 
 > [!IMPORTANT]
 > Veja este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) para obter informações importantes e sugestões relacionadas com a importação de OpenAPI.

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: dc287325b3ef0fc951dab127e0def5f4023534ca
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: d852919b762dd7350b74372acbbbcaa31f0a8f90
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632497"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016679"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Ligar o Excel para Apache Hadoop com o Power Query
 Uma funcionalidade-chave da solução de grandes volumes de dados do Microsoft é a integração de componentes do Microsoft business intelligence (BI) com clusters do Apache Hadoop no HDInsight do Azure. Um exemplo principal é a capacidade de ligar o Excel à conta de armazenamento do Azure que contém os dados associados a seu cluster do Hadoop ao utilizar o Microsoft Power Query para o suplemento do Excel. Este artigo explica como configurar e utilizar o Power Query para consultar dados associados a um cluster de Hadoop gerido com o HDInsight.
@@ -80,4 +80,4 @@ Neste artigo, aprendeu a utilizar o Power Query para recuperar dados do HDInsigh
 [image-hdi-powerquery-importdata]: ./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.importdata.png
 [image-hdi-powerquery-imported-table]: ./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.importedtable.PNG
 
-[powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
+[powerquery-download]: https://go.microsoft.com/fwlink/?LinkID=286689

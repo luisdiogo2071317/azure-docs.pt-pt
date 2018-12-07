@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b4a4c76ec47d09c43edc74181e0cbddf95e5fa3d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b09f64e2183453b3656efa340d53682a241dd00e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879184"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017958"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -695,31 +695,31 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
-> | Ação | Microsoft.Cache/checknameavailability/action | Verifica se um nome está disponível para utilização com uma nova Cache de Redis |
+> | Ação | Microsoft.Cache/checknameavailability/action | Verifica se um nome está disponível para utilização com uma nova Cache do Azure para Redis |
 > | Ação | Microsoft.Cache/locations/operationresults/read | Obtém o resultado de uma operação de longa duração da qual o cabeçalho "Localização" foi devolvido anteriormente ao cliente |
 > | Ação | Microsoft.Cache/operations/read | Lista as operações que o fornecedor "Microsoft.Cache" suporta. |
-> | Ação | Microsoft.Cache/redis/delete | Eliminar a Cache de Redis completa |
+> | Ação | Microsoft.Cache/redis/delete | Eliminar todo o Cache do Azure para Redis |
 > | Ação | Microsoft.Cache/redis/export/action | Exportar dados Redis para os blobs de armazenamento com prefixo no formato especificado |
-> | Ação | Microsoft.Cache/redis/firewallRules/delete | Eliminar as regras de firewall do IP da Cache de Redis |
-> | Ação | Microsoft.Cache/redis/firewallRules/read | Obter as regras de firewall do IP da Cache de Redis |
-> | Ação | Microsoft.Cache/redis/firewallRules/write | Editar regras de firewall do IP de uma Cache de Redis |
+> | Ação | Microsoft.Cache/redis/firewallRules/delete | Eliminar regras de firewall do IP de uma Cache do Azure para Redis |
+> | Ação | Microsoft.Cache/redis/firewallRules/read | Obter as regras de firewall do IP de uma Cache do Azure para Redis |
+> | Ação | Microsoft.Cache/redis/firewallRules/write | Editar as regras de firewall do IP de uma Cache do Azure para Redis |
 > | Ação | Microsoft.Cache/redis/forceReboot/action | Forçar reinício de uma instância da cache, potencialmente com perda de dados. |
 > | Ação | Microsoft.Cache/redis/import/action | Importar dados de um formato especificado a partir de vários blobs para Redis |
-> | Ação | Microsoft.Cache/redis/linkedservers/delete | Eliminar Servidor Ligado de uma Cache de Redis |
-> | Ação | Microsoft.Cache/redis/linkedservers/read | Obter Servidores Ligados associados a uma cache de redis. |
-> | Ação | Microsoft.Cache/redis/linkedservers/write | Adicionar Servidor Ligado a uma Cache de Redis |
-> | Ação | Microsoft.Cache/redis/listKeys/action | Ver o valor das chaves de acesso da Cache de Redis no portal de gestão |
+> | Ação | Microsoft.Cache/redis/linkedservers/delete | Eliminar servidor ligado de uma Cache do Azure para Redis |
+> | Ação | Microsoft.Cache/redis/linkedservers/read | Obter servidores ligados associados a uma Cache do Azure para Redis. |
+> | Ação | Microsoft.Cache/redis/linkedservers/write | Adicionar servidor ligado a uma Cache do Azure para Redis |
+> | Ação | Microsoft.Cache/redis/listKeys/action | Ver o valor de Cache do Azure para as chaves de acesso de Redis no portal de gestão |
 > | Ação | Microsoft.Cache/redis/listUpgradeNotifications/read | Listar as Notificações de Atualização mais recentes para o inquilino da cache. |
-> | Ação | Microsoft.Cache/redis/metricDefinitions/read | Obtem as métricas disponíveis para uma Cache de Redis |
-> | Ação | Microsoft.Cache/redis/patchSchedules/delete | Eliminar a agenda de correção da Cache de Redis |
-> | Ação | Microsoft.Cache/redis/patchSchedules/read | Obtém a agenda de correções de uma Cache de Redis |
-> | Ação | Microsoft.Cache/redis/patchSchedules/write | Modificar a agenda de correções de uma Cache de Redis |
-> | Ação | Microsoft.Cache/redis/read | Ver as definições e a configuração da Cache de Redis no portal de gestão |
-> | Ação | Microsoft.Cache/redis/recommendations/read | Leia as Recomendações de Cache de Redis do Azure |
-> | Ação | Microsoft.Cache/redis/regenerateKey/action | Alterar o valor das chaves de acesso da Cache de Redis no portal de gestão |
+> | Ação | Microsoft.Cache/redis/metricDefinitions/read | Obtém as métricas disponíveis para uma Cache do Azure para Redis |
+> | Ação | Microsoft.Cache/redis/patchSchedules/delete | Eliminar a agenda de correção de um Cache do Azure para Redis |
+> | Ação | Microsoft.Cache/redis/patchSchedules/read | Obtém a agenda de correções de uma Cache do Azure para Redis |
+> | Ação | Microsoft.Cache/redis/patchSchedules/write | Modificar a agenda de correções de uma Cache do Azure para Redis |
+> | Ação | Microsoft.Cache/redis/read | Ver a Cache do Azure para as definições e configuração do Redis no portal de gestão |
+> | Ação | Microsoft.Cache/redis/recommendations/read | Ler a Cache do Azure para obter recomendações de Redis |
+> | Ação | Microsoft.Cache/redis/regenerateKey/action | Altere o valor de Cache do Azure para as chaves de acesso de Redis no portal de gestão |
 > | Ação | Microsoft.Cache/redis/start/action | Iniciar uma instância de cache. |
 > | Ação | Microsoft.Cache/redis/stop/action | Parar uma instância de cache. |
-> | Ação | Microsoft.Cache/redis/write | Modificar as definições e a configuração da Cache de Redis no portal de gestão |
+> | Ação | Microsoft.Cache/redis/write | Modificar a Cache do Azure para as definições e configuração no portal de gestão do Redis |
 > | Ação | Microsoft.Cache/register/action | Regista o fornecedor de recursos "Microsoft.Cache" com uma subscrição |
 > | Ação | Microsoft.Cache/unregister/action | Anula o registo do fornecedor de recursos "Microsoft.Cache" com uma subscrição |
 

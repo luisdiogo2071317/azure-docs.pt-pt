@@ -5,25 +5,25 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/17/2017
+ms.date: 12/05/2018
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: d1cfaadd06d20a0f57d75cd43d00040c9e44c429
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ff487fef9400803de0dba78352a1d29c5a71e6d2
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966029"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017924"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Monitor do Azure
 
 Explorador de métricas do Azure Monitor é um componente do portal do Microsoft Azure que lhe permite desenhar gráficos, visualmente correlacionar as tendências e investigar picos e quedas nos valores das métricas. Explorador de métricas é um ponto de partida essencial para vários problemas de disponibilidade com as suas aplicações e infraestrutura alojados no Azure ou monitorizado pelos serviços do Azure Monitor de desempenho e a investigar. 
 
-## <a name="what-are-metrics-in-azure"></a>Quais são as métricas no Azure?
+## <a name="metrics-in-azure"></a>Métricas no Azure
 
 As métricas no Microsoft Azure estão a série de valores de medida e contagens de que são recolhidas e armazenadas ao longo do tempo. Existem métricas standard (ou "plataforma") e métricas personalizadas. As métricas standard são fornecidas pela própria plataforma do Azure. Métricas padrão refletem as estatísticas de estado de funcionamento e a utilização de recursos do Azure. Ao passo que as métricas personalizadas são enviadas para o Azure pelas suas aplicações com o [API do Application Insights para eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Métricas personalizadas são armazenadas nos recursos do Application Insights, juntamente com outras métricas específicas do aplicativo.
 
-## <a name="how-do-i-create-a-new-chart"></a>Como posso criar um novo gráfico?
+## <a name="create-a-new-chart"></a>Crie um novo gráfico
 
 1. Abra o portal do Azure
 2. Navegue para a nova **Monitor** separador e, em seguida, selecione **métricas**.
@@ -54,11 +54,11 @@ As métricas no Microsoft Azure estão a série de valores de medida e contagens
    > [!NOTE]
    > Geralmente não querem ter métricas com diferentes unidades de medida (ou seja, "milissegundos" e "quilobytes") ou com dimensionamento significativamente diferente num gráfico. Em vez disso, considere a utilização de vários gráficos. Clique no botão Adicionar gráfico para criar vários gráficos no Explorador de métricas.
 
-## <a name="how-do-i-apply-filters-to-the-charts"></a>Como posso aplicar filtros para os gráficos?
+## <a name="apply-filters-to-charts"></a>Aplicar filtros para gráficos
 
 Pode aplicar filtros para os gráficos que mostram as métricas com dimensões. Por exemplo, se a métrica "Contagem de transações" tem uma dimensão, "Tipo de resposta", que indica se a resposta das transações foi concluída com êxito ou falha, em seguida, filtrar esta dimensão seria desenhar uma linha do gráfico para apenas com êxito (ou apenas com falhas) transações. 
 
-### <a name="to-add-a-filter"></a>Para adicionar um filtro:
+### <a name="to-add-a-filter"></a>Para adicionar um filtro
 
 1. Clique no ícone de adicionar filtro ![ícone de filtro](./media/monitoring-metric-charts/icon002.png) acima do gráfico
 
@@ -76,11 +76,11 @@ Pode aplicar filtros para os gráficos que mostram as métricas com dimensões. 
 
 5. Pode repetir os passos 1 a 4 para aplicar vários filtros para os mesmo gráficos.
 
-## <a name="how-do-i-segment-a-chart"></a>Como posso segmentar um gráfico?
+## <a name="segment-a-chart"></a>Segmentar um gráfico
 
 Pode dividir uma métrica por dimensão para visualizar como diferentes segmentos da comparação de métrica em relação a si e identificar os segmentos afastados de uma dimensão. 
 
-### <a name="to-segment-a-chart"></a>Para segmentar um gráfico:
+### <a name="to-segment-a-chart"></a>Para segmentar um gráfico
 
 1. Clique no ícone de adicionar agrupamento  ![imagem de métrica](./media/monitoring-metric-charts/icon003.png) acima do gráfico.
  
@@ -100,7 +100,7 @@ Pode dividir uma métrica por dimensão para visualizar como diferentes segmento
    > [!NOTE]
    > Utilize a filtragem e agrupamento na mesma dimensão para ocultar os segmentos que são irrelevantes para o seu cenário e facilitam a leitura de gráficos.
 
-## <a name="how-do-i-lock-lower-and-upper-boundaries-of-the-chart-y-axis"></a>Como posso bloquear limites mínimo e máximo do eixo y gráfico?
+## <a name="lock-boundaries-of-chart-y-axis"></a>Limites de bloqueio do eixo y do gráfico
 
 Bloquear o intervalo do eixo y torna-se importante quando o gráfico mostra o menores flutuações de valores maiores. 
 
@@ -110,12 +110,12 @@ Outro exemplo é uma flutuação na memória disponível, onde o valor tecnicame
 
 Para controlar o intervalo do eixo y, utilize o "..." menu do gráfico e selecione **editar gráfico** para gráfico definições avançado de acesso. Modificar os valores na secção de intervalo do eixo y ou utilize **automática** botão para reverter para predefinições.
 
-![imagem de métrica](./media/monitoring-metric-charts/0013.png)
+![imagem de métrica](./media/monitoring-metric-charts/0014-manually-set-granularity.png)
 
 > [!WARNING]
 > Bloquear os limites do eixo y os que monitorizam vários gráficos de conta ou soma num período de tempo (e, portanto, contagem de uso, soma, agregações mínimas ou máxima), normalmente, necessita de especificar uma granularidade de tempo fixo, em vez de confiar nas predefinições do automática. Isso é necessário porque os valores em gráficos de alteram quando a granularidade de tempo automaticamente é modificada pelo utilizador redimensionar a janela do browser ou vai da resolução do ecrã. Resultante alterar os efeitos de granularidade de tempo a aparência do gráfico, invalidando a seleção atual de intervalo do eixo y.
 
-## <a name="how-do-i-pin-charts-to-dashboards"></a>Como posso afixar gráficos nos dashboards?
+## <a name="pin-charts-to-dashboards"></a>Gráficos de PIN para dashboards
 
 Depois de configurar os gráficos, pode querer adicioná-lo aos dashboards, para que possa vê-la novamente, possivelmente no contexto de outro telemetria de monitorização, ou partilhar com a sua equipa. 
 

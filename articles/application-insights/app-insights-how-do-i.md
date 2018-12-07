@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 35c401ed59f859e741c62aa801f6a0c75a8d9194
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 1c76e25c29d79213fbdf36d563b4bd316b832b06
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720495"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017036"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como... no Application Insights?
 ## <a name="get-an-email-when-"></a>Receber um e-mail quando...
@@ -82,7 +82,7 @@ Alguns pontos a considerar:
 
 ## <a name="separate-telemetry-from-different-versions"></a>Telemetria separado de diferentes versões
 
-* Várias funções num aplicativo: utilizar um único recurso do Application Insights e filtre os cloud_Rolename. [Saiba mais](app-insights-monitor-multi-role-apps.md)
+* Várias funções num aplicativo: utilizar um único recurso do Application Insights e filtre [cloud_Rolename](app-insights-app-map.md).
 * Separar o desenvolvimento, teste e versões de lançamento: utilizar diferentes recursos do Application Insights. Escolha a segurança das chaves de instrumentação do Web. config. [Saiba mais](app-insights-separate-resources.md)
 * Relatório de versões de compilação: adicionar uma propriedade com um inicializador de telemetria. [Saiba mais](app-insights-separate-resources.md)
 

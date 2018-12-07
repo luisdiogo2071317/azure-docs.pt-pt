@@ -8,22 +8,23 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: 27d4ad03e4a7f911fe3c9981618337a2fff51317
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: dcd7b58e2c1f4d6e556515ad7db778f2989588b9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114622"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017428"
 ---
-# <a name="how-to-train-pytorch-models"></a>Como criar modelos de PyTorch
+# <a name="pytorch-models-with-azure-machine-learning-service"></a>Modelos de PyTorch com o serviço Azure Machine Learning
 
 Para aprender de rede neurais profundas (DNN) com o PyTorch, o Azure Machine Learning fornece um personalizado `PyTorch` classe do `Estimator`. O Azure SDK `PyTorch` estimator permite-lhe submeter facilmente trabalhos de treinamento de PyTorch para execuções de nó único e distribuídos na computação do Azure.
 
 ## <a name="single-node-training"></a>Treinamento de nó único
 Treinamento com o `PyTorch` estimator é semelhante à utilização do [base `Estimator` ](how-to-train-ml-models.md), leia o artigo que mostra como primeiro e certifique-se de que compreende os conceitos apresentados aqui.
   
-Para executar uma tarefa de PyTorch, instanciar um `PyTorch` objeto. Deverá ter já criado seu [destino de computação](how-to-set-up-training-targets.md#batch) objeto `compute_target` e a sua [arquivo de dados](how-to-access-data.md) objeto `ds`.
+Para executar uma tarefa de PyTorch, instanciar um `PyTorch` objeto. Deverá ter já criado seu [destino de computação](how-to-set-up-training-targets.md#amlcompute) objeto `compute_target` e a sua [arquivo de dados](how-to-access-data.md) objeto `ds`.
 
 ```Python
 from azureml.train.dnn import PyTorch
@@ -44,7 +45,7 @@ Parâmetro | Descrição
 --|--
 `source_directory` |  Diretório de local que contém todos os seus códigos necessários para a tarefa de preparação. Esta pasta é copiada a partir do seu computador local para a computação remota
 `script_params` |  Especificar os argumentos da linha de comandos para o script de treinamento de dicionário `entry_script`, na forma de < argumento da linha de comandos, valor > pares
-`compute_target` |  Computação remota que o script de treinamento serão executados nesse caso, um [Batch AI](how-to-set-up-training-targets.md#batch) cluster
+`compute_target` |  Destino de computação remota que o script de treinamento serão executados no, neste caso uma computação do Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster
 `entry_script` |  Caminho do ficheiro (relativa a `source_directory`) do script de treinamento para ser executado na computação remota. Este ficheiro e todos os arquivos adicionais depende, devem ser localizados na pasta
 `conda_packages` |  Lista de pacotes de Python a serem instalados por meio de conda necessário ao seu script de treinamento. O construtor tem outro parâmetro chamado `pip_packages` que pode utilizar quaisquer pacotes de pip necessário
 `use_gpu` |  Definir este sinalizador `True` para tirar partido de GPU para treinamento. Assume a predefinição `False`
@@ -100,13 +101,9 @@ run = exp.submit(pt_est)
 ```
 
 ## <a name="examples"></a>Exemplos
-Para um tutorial sobre o treinamento de PyTorch de nó único, consulte:
-* [Training/01.Train-hyperparameter-Tune-Deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/01.train-hyperparameter-tune-deploy-with-pytorch)
 
-Para um tutorial sobre PyTorch distribuído com Horovod, consulte:
-* [treinamento/02.distributed-pytorch-com-horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/02.distributed-pytorch-with-horovod)
-
-Obtenha estes blocos de notas:
+Para blocos de notas na aprendizagem profunda distribuída, consulte:
+* [How-to-use-azureml/Training-with-Deep-Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 55d4f53a23c92bb96934e84c0400bc182bc3d87e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 80a32335b8b9b89bdc5bf53cbed994d78a6ca81e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976813"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017608"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -245,7 +245,7 @@ Serviços, como [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
-Executar a sua aplicação no Azure provavelmente envolve o trabalho com vários serviços do Azure, que siga o mesmo ciclo de vida e pode ser considerada como uma unidade lógica. Por exemplo, uma aplicação web poderá utilizar aplicações Web, base de dados SQL, armazenamento, Cache de Redis do Azure e serviços de rede de entrega de conteúdos do Azure. [O Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) permite que trabalhe com os recursos em seu aplicativo como um grupo. Pode implementar, atualizar ou eliminar todos os recursos numa operação única e coordenada.
+Executar a sua aplicação no Azure provavelmente envolve o trabalho com vários serviços do Azure, que siga o mesmo ciclo de vida e pode ser considerada como uma unidade lógica. Por exemplo, uma aplicação web poderá utilizar aplicações Web, base de dados SQL, armazenamento, Cache do Azure para Redis e os serviços de rede de entrega de conteúdos do Azure. [O Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) permite que trabalhe com os recursos em seu aplicativo como um grupo. Pode implementar, atualizar ou eliminar todos os recursos numa operação única e coordenada.
 
 Além de logicamente de agrupamento e gerir os recursos relacionados, o Azure Resource Manager inclui capacidades de implementação que lhe permite personalizar a implementação e configuração de recursos relacionados. Por exemplo, utilizando o Gestor de recursos, pode implementar e configurar uma aplicação que consiste em várias máquinas virtuais, um balanceador de carga e uma base de dados SQL do Azure como uma única unidade.
 

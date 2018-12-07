@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 6bcd1add3985112fe60aab22f1799e40ad8889b2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6ed07ea3cc625c518d6733f7a86f4542f91f425c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421867"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017121"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: Integração do Azure Active Directory com Promapp
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Promapp, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Promapp logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do Promapp com o Azure AD, terá de adicionar Pro
 
 **Para adicionar Promapp a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -113,6 +113,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Configurar o início de sessão único](./media/promapp-tutorial/tutorial_promapp_url.png)
 
     a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|
     | `https://go.promapp.com/TENANTNAME/`|

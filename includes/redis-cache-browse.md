@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: a9d0f4c8de26d3c501c3b04e42864efaa880ee62
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fd337d6eb9711bbd82e9e8ba8e4e7caeeac35255
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32297608"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53019880"
 ---
 Se não tiver afixado a sua cache ao dashboard, encontre a sua cache no [Portal do Azure](https://portal.azure.com) ao utilizar **Todos os serviços**.
 
-![Painel de Navegação da Cache de Redis do Azure](media/redis-cache-browse/redis-cache-browse.png)
+![Cache do Azure para o painel de navegação de Redis do Azure](media/redis-cache-browse/redis-cache-browse.png)
 
-Para ver as suas caches, clique em **todos os serviços** e pesquise por **Caches de Redis**. 
+Para ver as caches, clique em **todos os serviços** e procure **Cache do Azure para Rediss**. 
 
 Selecione a cache pretendida para ver e configurar as definições dessa cache.
 
-![Lista de Caches de Redis do Azure após a Procura ](media/redis-cache-browse/redis-caches.png)
+![Cache do Azure para a lista de Cache de procurar de Redis do Azure](media/redis-cache-browse/redis-caches.png)
 
-Pode ver e configurar a cache a partir do painel **Cache de Redis**.
+Pode ver e configurar a cache a partir da **a Cache de Redis do Azure** painel.
 
-![Todas as Definições da Cache de Redis](media/redis-cache-browse/redis-cache-blade.png)
+![A Cache do Azure para todas as definições de Redis](media/redis-cache-browse/redis-cache-blade.png)
 
 

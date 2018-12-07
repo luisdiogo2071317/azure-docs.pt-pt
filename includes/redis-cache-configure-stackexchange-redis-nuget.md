@@ -4,17 +4,17 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
-ms.openlocfilehash: ba73c481dace43dc72f6740a94bca362763dabac
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 570ed080e208a890bec867b665c4344c502e4d71
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572601"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53020215"
 ---
 As aplicações .NET podem utilizar o cliente de cache **StackExchange.Redis**, que poderá ser configurado no Visual Studio com um pacote NuGet que simplifica a configuração das aplicações cliente de cache. 
 
 > [!NOTE]
-> Para obter mais informações, veja a página do GitHub [StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis) e a [Documentação do cliente de cache StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis#documentation).
+> Para obter mais informações, consulte a [stackexchange. redis](http://github.com/StackExchange/StackExchange.Redis) página do github e o [StackExchange.Azure Cache para a documentação do cliente Redis](http://github.com/StackExchange/StackExchange.Redis#documentation).
 > 
 > 
 
@@ -31,7 +31,7 @@ Introduza **StackExchange.Redis** ou **StackExchange.Redis.StrongName** na caixa
 
 ![Pacote NuGet StackExchange.Redis](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
 
-O pacote NuGet transfere e adiciona as referências de assemblagem necessárias para a sua aplicação cliente aceder à Cache de Redis do Azure com o cliente de cache StackExchange.Redis.
+O pacote NuGet transfere e adiciona as referências de assemblagem necessárias para a sua aplicação de cliente acessar o Cache do Azure do Azure para Redis com a Cache de StackExchange.Azure para cliente do Redis.
 
 > [!NOTE]
 > Se configurou anteriormente o seu projeto para utilizar StackExchange.Redis, pode procurar atualizações para o pacote a partir do **Gestor de Pacotes NuGet**. Para procurar e instalar versões atualizadas do pacote NuGet do stackexchange. redis, clique em **atualizações** no **Gestor de pacotes NuGet** janela. Se estiver disponível uma atualização do pacote NuGet do StackExchange.Redis, pode atualizar o seu projeto para utilizar a versão atualizada.

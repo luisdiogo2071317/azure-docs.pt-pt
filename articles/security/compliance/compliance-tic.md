@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388325"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017104"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Documentação de orientação de ligações de Internet fidedigna
 
@@ -157,7 +157,7 @@ Serviços que suportam a implementação de instâncias dedicadas numa rede virt
 |Azure Active Directory                | GA               |
 |Azure Batch                           | GA               |
 |Ambiente do Serviço de Aplicações               | GA               |
-|Cache de Redis do Azure                     | GA               |
+|Cache do Azure para Redis                     | GA               |
 |Azure HDInsight                       | GA               |
 |Conjuntos de dimensionamento de máquinas virtuais             | GA               |
 |Cloud Services do Azure                  | GA               |
@@ -263,7 +263,7 @@ Pode configurar facilmente o acesso para o Microsoft Azure, Office 365 e Dynamic
 | Base de Dados | Base de Dados do Azure para PostgreSQL | | | Sim |
 | Base de Dados | Azure SQL Data Warehouse | | | Sim |
 | Base de Dados | Azure Cosmos DB | | | Sim |
-| Base de Dados | Cache de Redis do Azure | | Sim | |
+| Base de Dados | Cache do Azure para Redis | | Sim | |
 | Armazenamento | Armazenamento de Blobs do Azure | Sim | | |
 | Armazenamento | Ficheiros do Azure | Sim | | |
 | Armazenamento | Armazenamento de filas do Azure | Sim | | |

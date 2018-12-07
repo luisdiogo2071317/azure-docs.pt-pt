@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: byvinyal
-ms.openlocfilehash: bd20ea58c7693b3be8f583810384aa26dde572d8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 2ee5eca6f138d9aaa1a2b7cebb61b56fd26e17cc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219567"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017214"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista algumas das limitações mais comuns do Microsoft Azure, que também são chamadas quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abordar mais da plataforma.
@@ -329,7 +329,7 @@ Para saber mais sobre os limites num nível mais granular, tais como o tamanho d
 ### <a name="api-management-limits"></a>Limites de gestão de API
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-### <a name="azure-redis-cache-limits"></a>Limites de Cache de Redis do Azure
+### <a name="azure-cache-for-redis-limits"></a>Limita a Cache de Redis do Azure
 [!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
 ### <a name="key-vault-limits"></a>Limites do Key Vault

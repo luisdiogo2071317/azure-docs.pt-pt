@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/09/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 99e42f404fe103f406c4b3835f8c455bc2b91e07
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273804"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017693"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar o seu investimento na cloud com o Azure Cost Management
 
@@ -140,7 +140,7 @@ Para obter mais informações, consulte [análise de custo](quick-acm-cost-analy
 
 ### <a name="export-billing-data-on-a-schedule"></a>Exportar dados de faturação com base numa agenda
 
-Precisa importar os seus dados de faturação para um sistema externo, como um dashboard ou o sistema financeiro? Pode agendar relatórios automatizados, todos os dias para evitar o download de manualmente ficheiros de todos os meses. E pode exportar dados de faturação para uma conta de armazenamento do Azure e receba uma notificação utilizando [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md). Em seguida, pode utilizar os seus dados do Azure para combiná-los com dados personalizados que pode usar em seus próprios sistemas.
+Precisa importar os seus dados de faturação para um sistema externo, como um dashboard ou o sistema financeiro? Configurar exportações automatizadas para o armazenamento do Azure e evitar o download manualmente ficheiros de todos os meses. Pode, em seguida, configurar facilmente automática integrações com outros sistemas para manter os seus dados de faturação em sincronia.
 
 Para obter mais informações sobre a exportação de dados de faturação, consulte [criar e gerir os dados exportados](tutorial-export-acm-data.md).
 

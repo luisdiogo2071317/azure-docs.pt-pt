@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: a44812ccb89606416b2161a133adf2c781e81bd0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6040300b4cb569d0e78503d7e5a36507e79de67c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842038"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017445"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>Tutorial: Integração do Azure Active Directory com o planejamento de gama Predictix
 
@@ -111,12 +111,14 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Domínio de planejamento do Predictix variedade e URLs únicas início de sessão em informações](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_url.png)
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
+
     | |
     |--|--|
     | `https://<sub-domain>.ap.predictix.com/sso/request`|
     | `https://<sub-domain>.dev.ap.predictix.com/`|
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|--|
     | `https://<sub-domain>.ap.predictix.com`|

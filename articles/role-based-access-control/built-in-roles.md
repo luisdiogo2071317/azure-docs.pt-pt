@@ -15,12 +15,12 @@ ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: d082ba8550925d12d3a60d71111c72d561c083c5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f2143d15156c8f69430610eac2f467c5a6887300
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969072"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017822"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
 [Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de funções são a forma de controlar o acesso aos recursos no Azure. Se as [funções incorporadas](custom-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
@@ -98,7 +98,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuidor de Rede](#network-contributor) | Permite-lhe gerir redes, mas não aceder-lhes. |
 | [Contribuinte de conta APM do novo Relic](#new-relic-apm-account-contributor) | Permite-lhe gerir contas e aplicações do New Relic Application Performance Management, mas não aceder-lhes. |
 | [Leitor e acesso a dados](#reader-and-data-access) | Permite-lhe ver tudo, mas não lhe permitirá eliminar ou criar uma conta de armazenamento ou recurso contido. Também irá permitir acesso de leitura/gravação para todos os dados contidos numa conta de armazenamento através do acesso às chaves de conta de armazenamento. |
-| [Contribuinte de Cache de redis](#redis-cache-contributor) | Permite-lhe gerir caches de Redis, mas não aceder-lhes. |
+| [Cache do Azure para o contribuinte de Redis](#redis-cache-contributor) | Permite-lhe gerir a Cache do Azure para Rediss, mas não aceder-lhes. |
 | [Contribuinte de política de recurso (pré-visualização)](#resource-policy-contributor-preview) | (Pré-visualização) Os utilizadores substituídos de EA, com direitos para criar/modificar a política de recurso, criam pedidos de suporte e leem recursos/hierarquia. |
 | [Contribuinte de coleções de tarefa do Scheduler](#scheduler-job-collections-contributor) | Permite-lhe gerir coleções de tarefas do Scheduler, mas não aceder-lhes. |
 | [Contribuinte de serviços de pesquisa](#search-service-contributor) | Permite-lhe gerir serviços de Pesquisa, mas não aceder-lhes. |
@@ -1285,15 +1285,15 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Storage/storageAccounts/listKeys/action | Devolve as chaves de acesso da conta de armazenamento especificada. |
 > | Microsoft.Storage/storageAccounts/read | Devolve a lista de contas de armazenamento ou obtém as propriedades da conta de armazenamento especificada. |
 
-## <a name="redis-cache-contributor"></a>Contribuinte de Cache de Redis
+## <a name="azure-cache-for-redis-contributor"></a>Cache do Azure para o contribuinte de Redis
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite-lhe gerir caches de Redis, mas não aceder-lhes. |
+> | **Descrição** | Permite-lhe gerir a Cache do Azure para Rediss, mas não aceder-lhes. |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de função |
-> | Microsoft.Cache/redis/* | Criar e gerir as caches de Redis |
+> | Microsoft.Cache/redis/* | Criar e gerir a Cache do Azure para Rediss |
 > | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |

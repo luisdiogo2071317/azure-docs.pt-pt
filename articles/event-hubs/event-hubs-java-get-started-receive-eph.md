@@ -7,14 +7,15 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/26/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4768fbb845eb09e8aa3469dc2c4c29c4a323d662
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240637"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017310"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Receber eventos dos Hubs de eventos do Azure com Java
 
@@ -44,11 +45,11 @@ Para utilizar o EventProcessorHost, tem de ter uma [conta de armazenamento do Az
 1. Inicie sessão para o [portal do Azure][Azure portal]e clique em **+ criar um recurso** no lado esquerdo do ecrã.
 2. Clique em **Armazenamento** e, em seguida, clique em **Conta de armazenamento**. Na **criar conta de armazenamento** janela, escreva um nome para a conta de armazenamento. Conclua o resto dos campos, selecione a região pretendida e, em seguida, clique em **criar**.
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
+    ![Criar conta de armazenamento](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. Clique na conta de armazenamento recentemente criada e, em seguida, clique em **chaves de acesso**:
    
-    ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
+    ![Obter chaves de acesso](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
     Copie o valor de chave1 para uma localização temporária. Vai utilizá-lo mais tarde no tutorial.
 
@@ -277,7 +278,7 @@ Criar uma classe que implementa a interface com.microsoft.azure.eventprocessorho
 
 Utilizar a sua implementação personalizada do Gestor de ponto de verificação (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-Dentro de sua implementação, pode substituir o mecanismo de ponto de verificação padrão e implementar nossos própria pontos de verificação com base no seu próprio arquivo de dados (SQL Server, CosmosDB, etc de Cache de Redis). Recomendamos que o arquivo utilizado para fazer uma cópia de sua implementação do Gestor de ponto de verificação está acessível a todas as instâncias EPH que estão a processar os eventos para o grupo de consumidores.
+Dentro de sua implementação, pode substituir o mecanismo de ponto de verificação padrão e implementar nossos própria pontos de verificação com base no seu próprio arquivo de dados (SQL Server, cosmos DB, Cache do Azure para Redis etc). Recomendamos que o arquivo utilizado para fazer uma cópia de sua implementação do Gestor de ponto de verificação está acessível a todas as instâncias EPH que estão a processar os eventos para o grupo de consumidores.
 
 Pode usar qualquer arquivo de dados que está disponível no seu ambiente.
 

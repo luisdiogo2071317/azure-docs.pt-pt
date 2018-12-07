@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 13bb128836590fb43e0c6a2f7131f83a99a23eaf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 871abffc07ee29df388205395110e89a85dd7344
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506683"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017659"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Tutorial: Integração do Azure Active Directory com ProMaster (por Inlogik)
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com ProMaster (por Inlogik), terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um ProMaster (por Inlogik) início de sessão único de subscrição ativada
 
 > [!NOTE]
@@ -62,7 +62,7 @@ Para configurar a integração do ProMaster (por Inlogik) para o Azure AD, terá
 
 **Para adicionar ProMaster (por Inlogik) a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory][1]
 
@@ -111,6 +111,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Informações de início de sessão de único proMaster (por Inlogik) de domínio e URLs](./media/promaster-tutorial/tutorial_promaster_url1.png)
 
     a. Na **identificador** caixa de texto, utilize um padrão de URL seguinte:
+
     | |
     | - |-|
     |  `https://secure.inlogik.com/<COMPANYNAME>`|
@@ -118,6 +119,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | |
 
     b. Na **URL de resposta** caixa de texto, utilize um padrão de URL seguinte:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
@@ -129,6 +131,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Informações de início de sessão de único proMaster (por Inlogik) de domínio e URLs](./media/promaster-tutorial/tutorial_promaster_url2.png)
 
     Na **URL de início de sessão** caixa de texto, utilize um padrão de URL seguinte:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
@@ -182,7 +185,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 ### <a name="create-a-promaster-by-inlogik-test-user"></a>Criar um utilizador de teste ProMaster (por Inlogik)
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no ProMaster (por Inlogik). Trabalhar com [ProMaster (por Inlogik) a equipa de suporte](mailto:michael.boldiston@inlogik.com) para adicionar os utilizadores na plataforma ProMaster (por Inlogik). Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no ProMaster (por Inlogik). Trabalhar com [ProMaster (por Inlogik) a equipa de suporte](mailto:michael.boldiston@inlogik.com) para adicionar os utilizadores na plataforma ProMaster (por Inlogik). Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -214,7 +217,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

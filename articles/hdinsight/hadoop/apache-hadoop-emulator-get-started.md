@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: fc5f27ee17ba750e47c5609d9deb94d7f7c9dd8a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 074e2dd932cada5ae46ee0423dbc29fc8bc7495d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631562"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016781"
 ---
 # <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Começar com uma área de segurança do Apache Hadoop, um emulador numa máquina virtual
 
@@ -27,7 +27,7 @@ Saiba como instalar o Apache Hadoop sandbox da Hortonworks numa máquina virtual
 
 
 ## <a name="download-and-install-the-virtual-machine"></a>Transfira e instale a máquina virtual
-1. Navegue para o [Hortonworks downloads](http://hortonworks.com/downloads/#sandbox).
+1. Navegue para o [Hortonworks downloads](https://hortonworks.com/downloads/#sandbox).
 
 2. Clique em **BAIXAR para VIRTUALBOX** para transferir a Sandbox da Hortonworks mais recente numa VM. São-lhe pedido para registar com a Hortonworks antes de inicia a transferência. Demora uma ou duas horas para transferir consoante a velocidade da rede.
    
@@ -78,6 +78,6 @@ Para transferir um sandbox de versão mais antiga do HDP, expanda o arquivo:
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Saiba como utilizar o Visual Studio com a Sandbox da Hortonworks](../hdinsight-hadoop-emulator-visual-studio.md)
-* [Aprender tudo de que a Sandbox da Hortonworks](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Tutorial do Hadoop - guia de introdução HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Aprender tudo de que a Sandbox da Hortonworks](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Tutorial do Hadoop - guia de introdução HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

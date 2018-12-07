@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 98eee29dc6810d35ee1792c601e6d2f147602cae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee62e81b8c75200f26dfb5f7303083190f83eb8e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262187"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016849"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações de PaaS
 
@@ -163,7 +163,7 @@ Neste artigo, nos concentramos nos vantagens de segurança de uma implementaçã
 - [Serviço de Aplicações do Azure](security-paas-applications-using-app-services.md)
 - [Base de dados SQL do Azure e o armazém de dados SQL do Azure](security-paas-applications-using-sql.md)
 - [Armazenamento do Azure](security-paas-applications-using-storage.md)
-- Cache REDIS do Azure
+- Cache do Azure para Redis
 - Service Bus do Azure
 - Firewalls de aplicações Web
 

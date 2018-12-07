@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 45a5e4c895a0c7a8f76bb34aa5aaf22fa31f4333
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 07ea61ffe3ffc17cd255b826e3506ffe2b1ce9cd
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864864"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017727"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecione e utilize um destino de computação para preparar o seu modelo
 
@@ -139,7 +139,8 @@ Pode criar a computação do Azure Machine Learning sob demanda quando agendar u
 
 Pode criar a computação do Azure Machine Learning como um destino de computação em tempo de execução. Neste caso, a computação é criada automaticamente para a execução, dimensiona até max_nodes que especificou na sua configuração de execução e, em seguida, é __eliminados automaticamente__ após a execução for concluída.
 
-Esta funcionalidade está atualmente em estado de pré-visualização e não irá funcionar com as tarefas de otimização de hiper-parâmetros ou Machine Learning automatizada.
+> [!IMPORTANT]
+> Criação de computação do Azure Machine Learning baseados em execução está atualmente no estado de pré-visualização. Não utilize a criação com base em execução, se estiver a utilizar a otimização de hiper-parâmetros ou automatizada Machine Learning. Se precisar de utilizar a otimização de hiper-parâmetros ou Machine Learning automatizada, crie a computação do Azure Machine Learning antes de submeter uma execução.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3da4ecb1193959fcc8782f8aa5fdf32c130ee238
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 381f8c5fb59379c0494dabcd22f4675be9535837
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840151"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016696"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook da automatização do Azure com um webhook
 
@@ -31,7 +31,7 @@ A tabela seguinte descreve as propriedades que devem ser configuradas para um we
 |:--- |:--- |
 | Nome |Pode fornecer qualquer nome que pretende para um webhook, uma vez que isso não seja exposto ao cliente. É utilizado apenas para si para identificar o runbook na automatização do Azure. <br> Como melhor prática, deve dar o webhook um nome relacionado com o cliente que o utiliza. |
 | do IdP |O URL do webhook é o endereço exclusivo que um cliente chama-se com um HTTP POST para iniciar o runbook associado para o webhook. É gerado automaticamente quando cria o webhook. Não é possível especificar um URL personalizado. <br> <br> O URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por esse motivo, deve ser tratada como uma palavra-passe. Por motivos de segurança, apenas pode ver o URL no portal do Azure no momento que o webhook for criado. Anote o URL numa localização segura para utilização futura. |
-| Data de validade |Como um certificado, cada webhook tem uma data de expiração nesse momento que já não pode ser utilizado. Esta data de expiração pode ser modificada depois do webhook for criado. |
+| Data de validade |Como um certificado, cada webhook tem uma data de expiração nesse momento que já não pode ser utilizado. Esta data de expiração pode ser modificada depois do webhook for criado, desde que o webhook não expirou. |
 | Ativado |Um webhook está ativado por predefinição, quando é criado. Se definido como desativado, nenhum cliente é capaz de usá-lo. Pode definir o **ativado** propriedade ao criar o webhook ou em qualquer altura uma vez é criada. |
 
 ### <a name="parameters"></a>Parâmetros
@@ -121,6 +121,12 @@ Partindo do princípio de que a solicitação for bem-sucedida, a resposta do we
 ```
 
 O cliente não consegue determinar quando a tarefa de runbook é concluída ou o estado de conclusão de que o webhook. Ele pode determinar essas informações com o ID da tarefa com outro método, como [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) ou o [API de automação de Azure](/rest/api/automation/job).
+
+## <a name="renew-webhook"></a>Renovar um webhook
+
+Quando é criado um webhook tem um tempo de validade de um ano. Depois desse ano tempo o webhook automaticamente expira. Após a expiração de um webhook não pode ser novamente ativado, tem de ser removido e recriado. Se um webhook não atingiu o seu tempo de expiração, ele pode ser estendido.
+
+Para expandir um webhook, navegue para o runbook que contém o webhook. Selecione **Webhooks** sob **recursos**. Clique com o webhook que deseja estender, esta ação abre o **Webhook** página.  Escolha uma nova data de expiração e hora e clique em **guardar**.
 
 ## <a name="sample-runbook"></a>Runbook de exemplo
 

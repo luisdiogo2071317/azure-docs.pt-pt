@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0c7e8b7ab10771c611f80d36fb1c9ed0cf3e6f1b
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 7422e7d91edc9c190bee4300717b3d4c6fe8186b
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632361"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017856"
 ---
 # <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>Utilizar DataFu de Apache Pig com o Apache Pig no HDInsight
 
@@ -66,7 +66,7 @@ DataFu pode ser baixado e instalado a partir do repositório Maven. Utilize os s
     > Substitua o URL que copiou anteriormente o link no comando.
 
     ```
-    wget http://central.maven.org/maven2/org/apache/datafu/datafu-pig/1.4.0/datafu-pig-1.4.0.jar
+    wget https://central.maven.org/maven2/org/apache/datafu/datafu-pig/1.4.0/datafu-pig-1.4.0.jar
     ```
 
 3. Em seguida, carregue o ficheiro para o armazenamento padrão para o seu cluster do HDInsight. Colocar o arquivo em default armazenamento torna-o disponível para todos os nós do cluster.

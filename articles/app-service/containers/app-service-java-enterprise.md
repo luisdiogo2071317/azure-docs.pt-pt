@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 6613def8891109e3a0ddf818111898a893a8035d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b632ef49f49768c86b7a7ce2efc601f036532a29
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629308"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017591"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guia de Java Enterprise para o serviço de aplicações no Linux
 
@@ -27,17 +27,18 @@ Este guia fornece os conceitos chave e instruções para desenvolvedores de Java
 
 ## <a name="scale-with-app-service"></a>Dimensionamento com o serviço de aplicações 
 
-O servidor de aplicações de WildFly em execução no serviço de aplicações no Linux é executado no modo autónomo, não numa configuração de domínio. 
+O servidor de aplicações de WildFly em execução no serviço de aplicações no Linux é executado no modo autónomo, não numa configuração de domínio. Ao aumentar horizontalmente o plano do serviço de aplicações, cada instância de WildFly está configurada como um servidor autónomo.
 
- Dimensionar vertical ou horizontalmente a sua aplicação com [Dimensionar regras](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) e por [aumentar sua contagem de instâncias](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+ Dimensionar vertical ou horizontalmente a sua aplicação com [Dimensionar regras](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) e por [aumentar sua contagem de instâncias](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). 
 
 ## <a name="customize-application-server-configuration"></a>Personalizar a configuração do servidor de aplicação
 
-Os desenvolvedores podem escrever um script de Bash para executar configuração adicional necessária para seu aplicativo, como de arranque:
+Instâncias de aplicações Web são sem monitoração de estado, portanto, cada nova instância iniciada tem de ser configurada no arranque para suportar a configuração de Wildfly aplicação precisa.
+Pode escrever um script de Bash para chamar a CLI WildFly para de arranque:
 
 - Configurar origens de dados
 - Configurar fornecedores de mensagens
-- Adicionar outros módulos e dependnecies para a configuração do servidor Wildfly.
+- Adicione outros módulos e dependências para a configuração do servidor Wildfly.
 
  O script é executado quando Wildfly está em execução, mas antes de iniciar a aplicação. O script deve utilizar o [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) chamado a partir de `/opt/jboss/wildfly/bin/jboss-cli.sh` para configurar o servidor de aplicações com qualquer configuração ou as alterações necessárias depois do servidor é iniciado. 
 
@@ -51,7 +52,7 @@ Carregar o script de inicialização para `/home/site/deployments/tools` na sua 
 
 Definir o **Script de inicialização** campo no portal do Azure para a localização do seu script de shell de inicialização, por exemplo `/home/site/deployments/tools/your-startup-script.sh`.
 
-Utilizar [as definições da aplicação](/azure/app-service/web-sites-configure#application-settings) para definir as variáveis de ambiente para utilização no script. Estas definições ficam disponíveis para o ambiente de script de inicialização e mantenha as cadeias de ligação e outros segredos fora do controle de versão.
+Fornecer [as definições da aplicação](/azure/app-service/web-sites-configure#application-settings) na configuração da aplicação para passar as variáveis de ambiente para utilização no script. Definições da aplicação tenha cadeias de ligação e outros segredos necessários para configurar o aplicativo fora do controle de versão.
 
 ## <a name="modules-and-dependencies"></a>Módulos e dependências
 
@@ -102,7 +103,7 @@ Por predefinição, o serviço de aplicações no Linux irá utilizar cookies de
 - Se uma instância de aplicação é reiniciada ou reduzida verticalmente, o estado de sessão do utilizador no servidor de aplicativos serão perdido.
 - Se as aplicações têm definições de tempo limite da sessão de longa ou um número fixo de utilizadores, pode demorar algum tempo para dimensionado automaticamente novas instâncias para receber a carga, uma vez que apenas novas sessões serão encaminhados para as instâncias recentemente iniciadas.
 
-Pode configurar Wildfly a usar um armazenamento de sessão externo, como [Cache de Redis](/azure/redis-cache/). Precisará [desativar a afinidade de instância existente do ARR](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuração para desativar a sessão com base no cookie encaminhamento e permitir que o arquivo de sessão Wildfly configurado operar sem interferência.
+Pode configurar Wildfly a usar um armazenamento de sessão externo, como [a Cache de Redis do Azure](/azure/azure-cache-for-redis/). Precisará [desativar a afinidade de instância existente do ARR](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuração para desativar a sessão com base no cookie encaminhamento e permitir que o arquivo de sessão Wildfly configurado operar sem interferência.
 
 ## <a name="enable-web-sockets"></a>Ativar web sockets
 
