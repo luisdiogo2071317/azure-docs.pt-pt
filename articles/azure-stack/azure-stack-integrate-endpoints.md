@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: a2c08c541c3726579d57d99141a147d98bf45849
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 1800ab19e2d99eb639ef4064e64d7bc475aa0c36
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996716"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014876"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack integração no datacenter - publicar pontos de extremidade
 
@@ -86,7 +86,7 @@ O Azure Stack suporta apenas os servidores de proxy transparente. Numa implement
 > URLs de saída são balanceado em carga utilizando o Gestor de tráfego do Azure para fornecer a melhor conectividade de possíveis com base na localização geográfica. Com os URLs com balanceamento de carga, a Microsoft pode atualizar e alterar os pontos finais de back-end sem afetar os clientes. A Microsoft não partilhar a lista de endereços IP para a carga balanceada URLs. Deve usar um dispositivo que suporte a filtragem por URL em vez de IP.
 
 > [!Note]  
-> No 1809, o serviço de cópia de segurança da infraestrutura comunica com o servidor de ficheiro externo da rede VIP pública. Antes de 1809, o serviço se comunica através da rede de infraestrutura públicas. Se seus ambientes de não permite o acesso aos recursos de infraestrutura da rede VIP pública, aplique a correção de 1809 mais recentes para o Azure Stack. Esta correção irá mover o serviço de cópia de segurança da infraestrutura novamente para a rede de infraestrutura públicas. 1811, se aplicado a correção de 1809, o serviço de cópia de segurança da infraestrutura irá permanecer na rede pública de infraestrutura. Se não a aplicar a correção, a atualização irá mover o serviço novamente para a rede de infraestrutura públicas.
+> No 1809, o serviço de cópia de segurança da infraestrutura comunica com o servidor de ficheiro externo da rede VIP pública. Antes de 1809, o serviço comunicadas através da rede de infraestrutura públicas. Se o seu ambiente não permite o acesso aos recursos de infraestrutura da rede VIP pública, aplicam-se a versão mais recente [correção 1809](azure-stack-update-1809.md#post-update-steps) para o Azure Stack. Esta correção irá mover o serviço de cópia de segurança da infraestrutura novamente para a rede de infraestrutura públicas. 1811, se aplicar a correção de 1809, o serviço de cópia de segurança da infraestrutura permanece na rede pública de infraestrutura. Se não aplicar a correção, a atualização move o serviço de volta para a rede de infraestrutura públicas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

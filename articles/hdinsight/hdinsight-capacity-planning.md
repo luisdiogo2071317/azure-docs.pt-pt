@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: b8b562e1f783a9da7621b29fbf6d5bd1ff6ca5ef
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499128"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013514"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento da capacidade para clusters do HDInsight
 
@@ -97,7 +97,7 @@ Pode aumentar horizontalmente o seu cluster para os picos de procura de carga, e
 
 Erros, às vezes, podem ocorrer devido à execução paralela de mapa vários e reduzir componentes num cluster de vários nós. Para ajudar a isolar o problema, tente testes distribuídos sendo executada em simultâneo vários trabalhos num cluster de nó único, em seguida, expanda essa abordagem para executar várias tarefas simultaneamente em clusters que contêm mais de um nó. Para criar um cluster de HDInsight nó único no Azure, utilize o *avançadas* opção.
 
-Também pode instalar um ambiente de desenvolvimento de nó único no seu computador local e testar a solução aqui. Hortonworks fornece um ambiente de desenvolvimento local de nó único para soluções baseadas no Hadoop que é útil para o desenvolvimento inicial, prova de conceito e teste. Para obter mais informações, consulte [Sandbox da Hortonworks](http://hortonworks.com/products/hortonworks-sandbox/).
+Também pode instalar um ambiente de desenvolvimento de nó único no seu computador local e testar a solução aqui. Hortonworks fornece um ambiente de desenvolvimento local de nó único para soluções baseadas no Hadoop que é útil para o desenvolvimento inicial, prova de conceito e teste. Para obter mais informações, consulte [Sandbox da Hortonworks](https://hortonworks.com/products/hortonworks-sandbox/).
 
 Identificar o problema num cluster local de nó único pode voltar a executar tarefas com falhas e ajustar os dados de entrada ou utilizar conjuntos de dados mais pequenos. Como executar essas tarefas depende da plataforma e o tipo de aplicação.
 

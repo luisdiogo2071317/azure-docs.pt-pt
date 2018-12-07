@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c59cb8277bee13a83d0bf17c26deef1b8fc8d3e6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: e01262d67b6d08cd1cb05a6375344a5087fffce3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822848"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012526"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Métricas de Hubs de eventos do Azure no Azure Monitor (pré-visualização)
 
@@ -37,13 +38,13 @@ As métricas estão ativadas por predefinição e pode aceder os mais recentes 3
 
 Pode monitorizar as métricas ao longo do tempo na [portal do Azure](https://portal.azure.com). O exemplo seguinte mostra como ver pedidos com êxito e solicitações de entrada ao nível da conta:
 
-![][1]
+![Ver métricas de sucesso][1]
 
 Também pode aceder a métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nomes e, em seguida, clique em **métricas (Peview)**. Para apresentar métricas filtradas para o escopo do hub de eventos, selecione o hub de eventos e, em seguida, clique em **métricas (pré-visualização)**.
 
 Para as métricas que suporta dimensões, tem de filtrar com o valor de dimensão pretendida, conforme mostrado no exemplo a seguir:
 
-![][2]
+![Filtrar com valor de dimensão][2]
 
 ## <a name="billing"></a>Faturação
 

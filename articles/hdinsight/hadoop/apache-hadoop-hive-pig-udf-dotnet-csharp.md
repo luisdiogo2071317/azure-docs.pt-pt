@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2ef88fff1313a0e7b1aa0abb502629512daaf636
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 21186c522e46dac11c1dc88bbad5c4b330bc1e3f
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633840"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012033"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Utilize C# funções definidas pelo utilizador com o Apache Hive e Apache Pig, transmissão em fluxo no Apache Hadoop no HDInsight
 
@@ -45,7 +45,7 @@ Tanto o Hive e Pig pode passar dados em aplicativos externos para processamento.
 
 * __HDInsight baseado em Linux__ clusters com [Mono (https://mono-project.com) ](https://mono-project.com) para executar aplicações de .NET. Versão mono 4.2.1 está incluída com o HDInsight versão 3.6.
 
-    Para obter mais informações sobre a Mono compatibilidade com versões do .NET Framework, consulte [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/).
+    Para obter mais informações sobre a Mono compatibilidade com versões do .NET Framework, consulte [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
 
     Para utilizar uma versão específica do Mono, consulte a [instalar ou atualizar o Mono](../hdinsight-hadoop-install-mono.md) documento.
 
@@ -60,7 +60,7 @@ Para obter mais informações sobre a versão do .NET framework e Mono incluído
 1. Abra o Visual Studio e crie uma solução. Para o tipo de projeto, selecione **aplicação de consola (.NET Framework)** e dê o nome do novo projeto **HiveCSharp**.
 
     > [!IMPORTANT]
-    > Selecione __.NET Framework 4.5__ se estiver a utilizar um cluster do HDInsight baseado em Linux. Para obter mais informações sobre a Mono compatibilidade com versões do .NET Framework, consulte [Mono compatibility](http://www.mono-project.com/docs/about-mono/compatibility/).
+    > Selecione __.NET Framework 4.5__ se estiver a utilizar um cluster do HDInsight baseado em Linux. Para obter mais informações sobre a Mono compatibilidade com versões do .NET Framework, consulte [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
 
 2. Substitua o conteúdo do **Program.cs** com o código a seguir:
 

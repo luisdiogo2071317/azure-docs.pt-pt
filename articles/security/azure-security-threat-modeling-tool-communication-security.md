@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be0dd7147e3864befa90434ade86b4032cd45cc3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247386"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013190"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Quadro de segurança: Segurança de comunicação | Atenuações 
 | Produtos/serviços | Artigo |
@@ -34,7 +34,7 @@ ms.locfileid: "51247386"
 | **Cliente móvel** | <ul><li>[Implementar a afixação de certificado](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Ativar o HTTPS - proteger o canal de transporte](#https-transport)</li><li>[WCF: Segurança de mensagem de conjunto de nível de proteção para EncryptAndSign](#message-protection)</li><li>[WCF: Utilizar uma conta com privilégios mínimos para executar seu serviço do WCF](#least-account-wcf)</li></ul> |
 | **API Web** | <ul><li>[Forçar todo o tráfego para as APIs da Web através de ligação HTTPS](#webapi-https)</li></ul> |
-| **Cache de Redis do Azure** | <ul><li>[Certifique-se de que a comunicação para a Cache de Redis do Azure é através de SSL](#redis-ssl)</li></ul> |
+| **Cache de Redis do Azure** | <ul><li>[Certifique-se de que a comunicação para a Cache do Azure para o Redis é através de SSL](#redis-ssl)</li></ul> |
 | **Gateway de campo de IoT** | <ul><li>[Proteger o dispositivo para a comunicação de Gateway de campo](#device-field)</li></ul> |
 | **Gateway de Cloud da IoT** | <ul><li>[Proteger o dispositivo para a comunicação de Gateway de nuvem utilizando o SSL/TLS](#device-cloud)</li></ul> |
 
@@ -372,16 +372,16 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a id="redis-ssl"></a>Certifique-se de que a comunicação para a Cache de Redis do Azure é através de SSL
+## <a id="redis-ssl"></a>Certifique-se de que a comunicação para a Cache do Azure para o Redis é através de SSL
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Cache de Redis do Azure | 
+| **Componente**               | Cache do Azure para Redis | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Suporte de SSL de Redis do Azure](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Passos** | Redis server não suporta SSL de imediato, mas não de Cache de Redis do Azure. Se estiver a ligar à Cache de Redis do Azure e o cliente suportar o SSL, como stackexchange. redis, em seguida, deve usar SSL. Por predefinição a porta não SSL está desativada para novas instâncias da Cache de Redis do Azure. Certifique-se de que as predefinições seguras não são alteradas, a menos que existe uma dependência no suporte SSL para clientes de redis. |
+| **Passos** | Redis server não suporta SSL de imediato, mas não da Cache de Redis do Azure. Se estiver a ligar à Cache do Azure para Redis e o cliente suportar o SSL, como stackexchange. redis, em seguida, deve usar SSL. Por predefinição a porta não SSL está desativada para o novo Cache do Azure para instâncias de Redis. Certifique-se de que as predefinições seguras não são alteradas, a menos que existe uma dependência no suporte SSL para clientes de redis. |
 
 Tenha em atenção que o Redis é projetado para ser acessado por clientes fidedignos dentro de ambientes confiáveis. Isso significa que, normalmente, não é uma boa idéia para expor a instância de Redis diretamente à internet ou, em geral, para um ambiente em que os clientes não fidedignos podem acessar diretamente a porta Redis TCP ou o UNIX socket. 
 

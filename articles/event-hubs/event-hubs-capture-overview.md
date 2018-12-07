@@ -1,5 +1,5 @@
 ---
-title: Captura de descrição geral dos Hubs de eventos do Azure | Documentos da Microsoft
+title: Capturar eventos de transmissão em fluxo através dos Hubs de eventos do Azure | Documentos da Microsoft
 description: Capturar dados de telemetria com a captura de Hubs de eventos
 services: event-hubs
 documentationcenter: ''
@@ -9,21 +9,21 @@ editor: ''
 ms.assetid: e53cdeea-8a6a-474e-9f96-59d43c0e8562
 ms.service: event-hubs
 ms.workload: na
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 91263d7f6e8c0c2774df560a45eeff9efc672343
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fe096c0ee1747b3162f80ba4230ebf470ad50343
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408429"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011492"
 ---
-# <a name="azure-event-hubs-capture"></a>Captura de Hubs de eventos do Azure
-
-Captura de Hubs de eventos do Azure permite-lhe fornecer automaticamente os dados de transmissão em fluxo nos Hubs de eventos para um [armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) ou [do Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) à sua escolha, com a flexibilidade adicional do especificar um hora ou intervalo de tamanho. Configurar a captura é rápido, existem sem os custos administrativos para executá-lo e é escalado automaticamente com os Hubs de eventos [unidades de débito](event-hubs-features.md#capacity). Captura de Hubs de eventos é a forma mais fácil de carregar dados de transmissão em fluxo para o Azure e permite-lhe concentrar-se no processamento de dados em vez de captura de dados.
+# <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capturar eventos através dos Hubs de eventos do Azure no armazenamento de Blobs do Azure ou de armazenamento do Azure Data Lake
+Os Hubs de eventos do Azure permite-lhe capturar automaticamente os dados de transmissão em fluxo nos Hubs de eventos num [armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) ou [o armazenamento do Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) à sua escolha, com a flexibilidade adicional do especificar um hora ou intervalo de tamanho. Configurar a captura é rápido, existem sem os custos administrativos para executá-lo e é escalado automaticamente com os Hubs de eventos [unidades de débito](event-hubs-features.md#capacity). Captura de Hubs de eventos é a forma mais fácil de carregar dados de transmissão em fluxo para o Azure e permite-lhe concentrar-se no processamento de dados em vez de captura de dados.
 
 Captura de Hubs de eventos permite-lhe processar pipelines em tempo real e em lote no mesmo fluxo. Isso significa que pode criar soluções que aumentam com as suas necessidades ao longo do tempo. Se estiver a criar sistemas baseados em batch hoje em dia com um olho em direção futuro processamento em tempo real, ou que pretende adicionar um caminho típico eficiente para uma solução em tempo real, a captura de Hubs de eventos torna o trabalho com dados mais fácil de transmissão em fluxo.
 
@@ -68,7 +68,7 @@ Captura de Hubs de eventos cria arquivos no formato Avro, conforme especificado 
 
 Os ficheiros produzidos pela captura de Hubs de eventos com o esquema de Avro seguinte:
 
-![][3]
+![Esquema de acro][3]
 
 Uma forma fácil de explorar os ficheiros Avro é utilizando o [ferramentas do Avro] [ Avro Tools] jar do Apache. Depois de baixar este jar, pode ver o esquema de um arquivo específico do Avro executando o seguinte comando:
 

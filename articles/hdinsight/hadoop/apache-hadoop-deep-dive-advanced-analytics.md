@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 40536aae15f2ae9fa5e186cdbea1f75f7d264437
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7253a31057d8e7af5c0273ef112b1155cf15a014
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047145"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011662"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Aprofunde-se-análises avançadas
 
@@ -63,7 +63,7 @@ HDInsight tem aprendizagem várias opções para um fluxo de trabalho de anális
 
 ### <a name="machine-learning-and-spark"></a>Machine Learning e Spark
 
-[Spark do HDInsight](../spark/apache-spark-overview.md) é uma oferta alojado no Azure de [Spark](http://spark.apache.org/), um unificada de código fonte aberto, a arquitetura de processamento de dados paralela que utiliza o processamento dentro da memória para melhorar a análise de macrodados. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e análise sofisticadas. Recursos de computação distribuída de dentro da memória do Spark tornam uma boa opção para algoritmos iterativos, utilizada em cálculos de machine learning e do graph. 
+[Spark do HDInsight](../spark/apache-spark-overview.md) é uma oferta alojado no Azure de [Spark](https://spark.apache.org/), um unificada de código fonte aberto, a arquitetura de processamento de dados paralela que utiliza o processamento dentro da memória para melhorar a análise de macrodados. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e análise sofisticadas. Recursos de computação distribuída de dentro da memória do Spark tornam uma boa opção para algoritmos iterativos, utilizada em cálculos de machine learning e do graph. 
 
 Existem três bibliotecas de aprendizado de máquina dimensionável que fornecer capacidades de modelação de algoritmos para este ambiente distribuído:
 

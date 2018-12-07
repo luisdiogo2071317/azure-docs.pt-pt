@@ -8,12 +8,12 @@ ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 9a60d8c17ba091da7c5eaf0e28160573d5faafa8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963135"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015471"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Resolver problemas de erros com runbooks
 
@@ -123,7 +123,7 @@ Se tiver de autenticação multifator na sua conta do Azure, não é possível u
 
 #### <a name="resolution"></a>Resolução
 
-Para utilizar um certificado com os cmdlets do modelo de implementação clássica do Azure, veja [criação e adição de um certificado para gerir serviços do Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Para utilizar um principal de serviço com os cmdlets do Azure Resource Manager, veja [criar através do portal do Azure principal de serviço](../../active-directory/develop/howto-create-service-principal-portal.md) e [autenticar um principal de serviço com o Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+Para utilizar um certificado com os cmdlets do modelo de implementação clássica do Azure, veja [criação e adição de um certificado para gerir serviços do Azure.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Para utilizar um principal de serviço com os cmdlets do Azure Resource Manager, veja [criar através do portal do Azure principal de serviço](../../active-directory/develop/howto-create-service-principal-portal.md) e [autenticar um principal de serviço com o Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erros comuns ao trabalhar com runbooks
 
@@ -337,6 +337,24 @@ Os cmdlets do PowerShell que permitem o cenário de runbook subordinado são:
 [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) -este cmdlet permite-lhe iniciar um runbook e passar parâmetros para o runbook
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) -este cmdlet permite-lhe verificar o estado da tarefa para cada filho, se existem operações que precisam ser executadas após a conclusão do runbook subordinado.
+
+### <a name="expired webhook"></a>Cenário: Estado: 400 pedido inválido ao invocar um webhook
+
+#### <a name="issue"></a>Problema
+
+Quando tentar invocar um webhook para um runbook de automatização do Azure receberá o seguinte erro.
+
+```error
+400 Bad Request : This webhook has expired or is disabled
+```
+
+#### <a name="cause"></a>Causa
+
+O webhook que está a tentar invocar está desabilitado ou expirou.
+
+#### <a name="resolution"></a>Resolução
+
+Se o webhook está desabilitado, pode reativar o webhook através do portal do Azure. Se o webhook expirou, o webhook tem de ser eliminado e recriado. Só é possível [renovar um webhook](../automation-webhooks.md#renew-webhook) se não tiver já expirado.
 
 ### <a name="429"></a>Cenário: 429: A taxa de pedidos atualmente é demasiado grande. Tente novamente
 

@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/30/2018
-ms.openlocfilehash: d38cb244eeaf64fa0adfa78547d6d9dd4a8ad366
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.date: 12/07/2018
+ms.openlocfilehash: a3580c2939f03e6ede6341e7afb293e7f7c5f885
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684727"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016134"
 ---
 # <a name="service-and-tools-for-data-migration"></a>Serviço e ferramentas de migração de dados
 
@@ -41,8 +41,8 @@ A tabela a seguir identifica o serviço e as ferramentas que pode utilizar para 
 | Oracle | BD do Azure para PostgreSQL |  |  |  |
 | MongoDB | BD do Cosmos | [Cloudamize *](https://www.cloudamize.com/) | [Cloudamize *](https://www.cloudamize.com/) |  |
 | Cassandra | BD do Cosmos |  |  |  |
-| MySQL RDS/Aurora/no local | BD do Azure para MySQL |  |  | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
-| PostgreSQL RDS/Aurora/no local | BD do Azure para PostgreSQL |  |  | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
+| MySQL RDS/no local | BD do Azure para MySQL |  |  | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
+| PostgreSQL RDS/no local | BD do Azure para PostgreSQL |  |  | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
 | MySQL | VM do Azure SQL DB, MI, | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [Cloud Atlas *](https://www.unifycloud.com/cloud-migration-tool/) | [Calculadora de TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
 | DB2 | VM do Azure SQL DB, MI, |  |  |  |
 | Access | VM do Azure SQL DB, MI, |  |  |  |
@@ -63,8 +63,8 @@ A tabela a seguir identifica o serviço e as ferramentas que pode utilizar para 
 | Oracle | BD do Azure para PostgreSQL |  |  |  |
 | MongoDB | BD do Cosmos |  | [Cloudamize *](https://www.cloudamize.com/) | [Cloudamize *](https://www.cloudamize.com/) |
 | Cassandra | BD do Cosmos |  |  |  |
-| MySQL RDS/Aurora/no local | BD do Azure para MySQL |  |  |  |
-| PostgreSQL RDS/Aurora/no local | BD do Azure para PostgreSQL |  |  |  |
+| MySQL RDS/no local | BD do Azure para MySQL |  |  |  |
+| PostgreSQL RDS/no local | BD do Azure para PostgreSQL |  |  |  |
 | MySQL | VM do Azure SQL DB, MI, |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Cloud Atlas *](https://www.unifycloud.com/cloud-migration-tool/) |  |
 | DB2 | VM do Azure SQL DB, MI, |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Access | VM do Azure SQL DB, MI, |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
@@ -85,8 +85,8 @@ A tabela a seguir identifica o serviço e as ferramentas que pode utilizar para 
 | Oracle | BD do Azure para PostgreSQL |  |  |  |
 | MongoDB | BD do Cosmos | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize *](https://www.cloudamize.com/)<br/>[Imanis dados *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize *](https://www.cloudamize.com/)<br/>[Imanis dados *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Cloudamize *](https://www.cloudamize.com/)<br/>[Imanis dados *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Cassandra | BD do Cosmos | [Imanis dados *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Imanis dados *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Imanis dados *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) |
-| MySQL RDS/Aurora/no local | BD do Azure para MySQL | [MySQL despejo *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
-| PostgreSQL RDS/Aurora/no local | BD do Azure para PostgreSQL | [PG despejo *](https://www.postgresql.org/docs/11/static/app-pgdump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| MySQL RDS/no local | BD do Azure para MySQL | [MySQL despejo *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| PostgreSQL RDS/no local | BD do Azure para PostgreSQL | [PG despejo *](https://www.postgresql.org/docs/11/static/app-pgdump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | MySQL | VM do Azure SQL DB, MI, | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | DB2 | VM do Azure SQL DB, MI, | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Access | VM do Azure SQL DB, MI, | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |
@@ -107,8 +107,8 @@ A tabela a seguir identifica o serviço e as ferramentas que pode utilizar para 
 | Oracle | BD do Azure para PostgreSQL |  |
 | MongoDB | BD do Cosmos | [Cloudamize *](https://www.cloudamize.com/) |
 | Cassandra | BD do Cosmos |  |
-| MySQL RDS/Aurora/no local | BD do Azure para MySQL |  |
-| PostgreSQL RDS/Aurora/no local | BD do Azure para PostgreSQL |  |
+| MySQL RDS/no local | BD do Azure para MySQL |  |
+| PostgreSQL RDS/no local | BD do Azure para PostgreSQL |  |
 | MySQL | VM do Azure SQL DB, MI, |  |
 | DB2 | VM do Azure SQL DB, MI, |  |
 | Access | VM do Azure SQL DB, MI, |  |

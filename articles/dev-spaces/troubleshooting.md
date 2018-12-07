@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: 36516030741678ec66b4211f49ede35cfdb98605
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 531b431a0753e34592e88211d8a58328fe8a4e45
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706454"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014553"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -236,7 +236,7 @@ Reiniciar os nós de agente no seu cluster normalmente resolve este problema.
 ### <a name="reason"></a>Razão
 Quando ativar espaços de desenvolvimento num espaço de nomes no seu cluster do AKS, um contentor adicional chamado _mindaro proxy_ está instalado em cada um dos pods em execução dentro desse espaço de nomes. Este contentor intercepta as chamadas para os serviços no pod, que é integral para recursos de desenvolvimento de equipe dos espaços de desenvolvimento.
 
-Infelizmente, ele pode interferir com determinados serviços em execução nos pods. Especificamente, interfere com pods em execução a cache de Redis, fazendo com que os erros de ligação e falhas de comunicação de mestre/subordinado.
+Infelizmente, ele pode interferir com determinados serviços em execução nos pods. Especificamente, interfere com pods em execução Azure Cache de Redis, fazendo com que os erros de ligação e falhas de comunicação de mestre/subordinado.
 
 ### <a name="try"></a>Experimente:
 Pode mover o pod(s) afetados para um espaço de nomes dentro do cluster que faz _não_ ter espaços de desenvolvimento ativada, continuando a execução do resto do seu aplicativo dentro de um espaço de nomes de ativado o espaços de desenvolvimento. Espaços de desenvolvimento não irá instalar o _mindaro proxy_ espaços de nomes do contentor dentro de espaços não Dev ativados.

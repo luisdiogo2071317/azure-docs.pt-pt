@@ -1,5 +1,5 @@
 ---
-title: Versão canary com Vamp num cluster DC/OS do Azure
+title: (PRETERIDO) Versão canary com Vamp num cluster DC/OS do Azure
 description: Como utilizar Vamp para serviços de versão canary e aplicar filtragem num cluster DC/OS do Azure Container Service de tráfego inteligente
 services: container-service
 author: gggina
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 116f8ad1760f8e61c70b34d614a0265d11e3ae65
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7ab63b869d9cd8a5b1f2b60429c5b54d0da5761f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975861"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002060"
 ---
-# <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Microsserviços de versão canary com Vamp num cluster DC/OS do Azure Container Service
+# <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Microsserviços de versão canary com Vamp num cluster DC/OS do Azure Container Service
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Nestas instruções, criamos Vamp no Azure Container Service com um cluster DC/OS. Podemos canary o serviço de demonstração de Vamp "sava" da versão e, em seguida, resolver uma incompatibilidade do serviço com o Firefox ao aplicar a filtragem de tráfego inteligente. 
 

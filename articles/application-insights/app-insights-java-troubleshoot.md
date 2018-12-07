@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: e39fb82796c8e6b09f624b2030ff6266bd4189f1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 95eb5475f5584830eac5bd9c690be4a6a85de5c8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720427"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016732"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Resolução de problemas e Perguntas e Respostas para o Application Insights para Java
 Perguntas ou problemas com [do Azure Application Insights no Java][java]? Eis algumas sugestões.
@@ -56,7 +56,7 @@ Perguntas ou problemas com [do Azure Application Insights no Java][java]? Eis al
 ### <a name="java-agent-cannot-capture-dependency-data"></a>Agente Java não é possível capturar dados de dependência
 * Ter que configurou o agente Java seguindo [configurar o agente de Java](app-insights-java-agent.md) ?
 * Certifique-se de que o jar do agente de java e o ficheiro de IA Agent.xml são colocados na mesma pasta.
-* Certifique-se de que a dependência que está a tentar a recolher automática é suportada para a recolha automática. Atualmente só suportamos MySQL, MsSQL, Oracle DB e coleção de dependência de Cache de Redis.
+* Certifique-se de que a dependência que está a tentar a recolher automática é suportada para a recolha automática. Atualmente só suportamos MySQL, MsSQL, Oracle DB e Cache do Azure para a recolha de dependência de Redis.
 * Está a utilizar JDK 1.7 ou 1.8? Atualmente não suportamos a coleção de dependência JDK 9.
 
 ## <a name="no-usage-data"></a>Não existem dados de utilização
@@ -156,7 +156,7 @@ O Application Insights utiliza `org.apache.http`. Isso é realocado dentro do Ap
 * [Capturar os registos de diagnóstico][javalogs]
 
 ## <a name="get-help"></a>Obter ajuda
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Enviar um problema no GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->

@@ -11,12 +11,12 @@ ms.topic: article
 ms.technology: azds-kubernetes
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
-ms.openlocfilehash: 49e9a974dc01548c250f0b0a8b9b5afac5f286ff
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e155b4151a3b974e9ccc56a88028a89c35896522
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705502"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014006"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Como gerir segredos ao trabalhar com um espaço de desenvolvimento do Azure
 
@@ -112,5 +112,5 @@ Espaços de desenvolvimento do Azure fornece duas opções para armazenar segred
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Com esses métodos, pode agora ligar de forma segura a uma base de dados, uma cache de Redis ou acesso seguro, serviços do Azure.
+Através destes métodos, pode agora ligar a uma base de dados, uma Cache do Azure para Redis, ou de forma segura aceder aos serviços do Azure seguros.
  

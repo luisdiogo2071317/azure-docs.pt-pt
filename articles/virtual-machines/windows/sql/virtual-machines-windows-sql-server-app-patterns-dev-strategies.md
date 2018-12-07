@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 9ccf7d85b52759a3f2cd64facc6ee8d7255f0fac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0b47172df2ab3bd286db0faa21eb5197fd061bfd
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253181"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012900"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Padrões de Aplicação e Estratégias de Desenvolvimento para o SQL Server em Máquinas Virtuais do Azure
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -192,7 +192,7 @@ Conforme ilustrado no diagrama, o Azure Load Balancer distribui o tráfego por v
 
 ![Padrões de aplicação com os serviços Cloud](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-Outra abordagem para implementar este padrão de aplicação é usar uma função da web consolidado que contém a camada de apresentação e componentes de camada de negócios, conforme mostrado no diagrama seguinte. Este padrão de aplicação é útil para aplicações que necessitam de design com monitoração de estado. Uma vez que o Azure fornece nós de computação sem monitoração de estado no funções web e de trabalho, recomendamos que implementar uma lógica para armazenar o estado da sessão através de uma das seguintes tecnologias: [colocação em cache do Azure](https://azure.microsoft.com/documentation/services/redis-cache/), [oarmazenamentodetabelasdoAzure](../../../cosmos-db/table-storage-how-to-use-dotnet.md) ou [base de dados SQL do Azure](../../../sql-database/sql-database-technical-overview.md).
+Outra abordagem para implementar este padrão de aplicação é usar uma função da web consolidado que contém a camada de apresentação e componentes de camada de negócios, conforme mostrado no diagrama seguinte. Este padrão de aplicação é útil para aplicações que necessitam de design com monitoração de estado. Uma vez que o Azure fornece nós de computação sem monitoração de estado no funções web e de trabalho, recomendamos que implementar uma lógica para armazenar o estado da sessão através de uma das seguintes tecnologias: [colocação em cache do Azure](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/), [oarmazenamentodetabelasdoAzure](../../../cosmos-db/table-storage-how-to-use-dotnet.md) ou [base de dados SQL do Azure](../../../sql-database/sql-database-technical-overview.md).
 
 ![Padrões de aplicação com os serviços Cloud](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 

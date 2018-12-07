@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e0c612407047a51c4e3d4101a0ee192f55458afe
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 772807fc0a1378eea662a7c4a7e3c720d7092bef
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496995"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013019"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar as definições de multi-factor Authentication do Azure
 
@@ -384,3 +384,7 @@ A funcionalidade reduz o número de autenticações nas aplicações web, que no
 ### <a name="mark-a-device-as-trusted"></a>Marcar um dispositivo fidedigno
 
 Depois de ativar a funcionalidade de multi-factor Authentication de lembrar, os usuários podem marcar um dispositivo como fidedigno quando iniciam sessão, selecionando **não perguntar novamente**.
+
+# <a name="next-steps"></a>Passos Seguintes
+
+[Modifique a marca de página de início de sessão do Azure AD](..\fundamentals\customize-branding.md)

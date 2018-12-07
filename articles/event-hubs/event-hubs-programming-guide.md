@@ -5,18 +5,18 @@ services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 ms.service: event-hubs
+ms.custom: seodec18
 ms.topic: article
-ms.date: 08/12/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bfb2db8a4a0091e26cc2b893e615ba831da30ac7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: cd97aed36e9fd82df0d37913d5ea9e57c875a673
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746329"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011458"
 ---
-# <a name="event-hubs-programming-guide"></a>Guia de programação dos Event Hubs
-
+# <a name="programming-guide-for-azure-event-hubs"></a>Guia de programação do Event Hubs do Azure
 Este artigo aborda alguns cenários comuns em escrever código usando o Event Hubs do Azure. Parte do princípio de que possui compreensão preliminar dos Event Hubs. Para obter uma descrição geral conceptual dos Event Hubs, consulte [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md).
 
 ## <a name="event-publishers"></a>Publicadores de eventos
@@ -55,7 +55,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="send-events-to-an-event-hub"></a>Enviar eventos para um hub de eventos
 
-Enviar eventos para um hub de eventos através da criação de um [EventHubClient][] instância e enviá-la de modo assíncrono através do [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) método. Este método obtém um único [EventData][] parâmetro de instância e de forma síncrona envia-os para um hub de eventos.
+Enviar eventos para um hub de eventos através da criação de um [EventHubClient][] instância e enviá-la de modo assíncrono através do [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) método. Este método obtém um único [EventData][] parâmetro de instância e de forma assíncrona envia-os para um hub de eventos.
 
 ## <a name="event-serialization"></a>Serialização de eventos
 

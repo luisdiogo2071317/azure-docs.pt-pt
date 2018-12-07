@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6a0a2dec6beeecca3779f4b047d3b5fe6295a1e6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 999b5ca1f229677b9e11068f4beaa6e2704afd3d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495304"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012577"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Utilize a API de REST do Apache Spark para submeter as tarefas remotas para um cluster do Spark do HDInsight
 
@@ -26,7 +26,7 @@ Pode usar o Livy para executar o Spark interativa shells ou submeter as tarefas 
 
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, veja [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* [cURL](http://curl.haxx.se/). Este artigo utiliza o cURL para demonstrar como fazer chamadas de REST API em relação a um cluster do Spark do HDInsight.
+* [cURL](https://curl.haxx.se/). Este artigo utiliza o cURL para demonstrar como fazer chamadas de REST API em relação a um cluster do Spark do HDInsight.
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Submeter uma tarefa de lote do Apache Spark do Livy
 Antes de submeter uma tarefa do batch, tem de carregar o aplicativo jar no armazenamento de cluster associado ao cluster. Para o fazer, pode utilizar [**AzCopy**](../../storage/common/storage-use-azcopy.md), um utilitário de linha de comandos. Existem vários outros clientes, que pode utilizar para carregar dados. Pode saber mais sobre elas, em [carregar dados para as tarefas do Apache Hadoop no HDInsight](../hdinsight-upload-data.md).

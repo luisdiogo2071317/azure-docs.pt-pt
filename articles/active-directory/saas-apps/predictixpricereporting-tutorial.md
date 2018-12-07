@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: c8708de847e1aeb6e460000c1517078512ec439b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a7b6122638636193b363d0ac57aae22a9c7da57a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838349"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Tutorial: Integração do Azure Active Directory com os relatórios de preço Predictix
 
@@ -113,6 +113,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname-pricing>.predictix.com/sso/request`
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|
     | `https://<companyname-pricing>.predictix.com` |

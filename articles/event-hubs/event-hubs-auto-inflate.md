@@ -10,16 +10,17 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1bbbbbada07dc898a4c1424a315d472cf910926f
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987006"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010829"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Dimensionar automaticamente unidades de débito dos Hubs de eventos do Azure
 
@@ -49,13 +50,13 @@ Pode ativar ou desativar a ampliação automática num espaço de nomes de Hubs 
 
 Pode ativar a funcionalidade de ampliação automática durante a criação de um espaço de nomes de Hubs de eventos:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+![Ativar automaticamente aumente a criação de hub de eventos de tempo](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 Com esta opção ativada, pode começar com pouco com as unidades de débito e aumentar verticalmente, conforme a sua utilização precisa aumentar. O limite superior inflação não afetam imediatamente preços, que depende do número de unidades de débito utilizadas por hora.
 
 Também pode ativar a ampliação automática com o **dimensionamento** opção no painel de definições no portal do:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+![Ativar automaticamente ampliação usando a opção de dimensionamento](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
 
 > [!NOTE]

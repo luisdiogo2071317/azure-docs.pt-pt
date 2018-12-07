@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: f30114797c7ba62fde555487d3202de5edf48ecb
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 6122c1ef14d8ed1d93f682fdb3dbaaaaf30efabc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182353"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015029"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gerir o Log Analytics com o PowerShell
 Pode utilizar o [cmdlets do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para executar várias funções no Log Analytics numa linha de comandos ou como parte de um script.  Exemplos das tarefas que pode efetuar com o PowerShell:
@@ -199,13 +199,13 @@ Para a monitorização sem agente de recursos do Azure, os recursos tem de ter o
 | Data Lake analytics     | Sim | | 
 | Arquivo do Data Lake         | Sim | |
 | Conjunto elástico de SQL        |     | Sim |
-| Espaço de nomes do Hub de Eventos     |     | Sim |
+| Espaço de nomes do hub de eventos     |     | Sim |
 | Hubs IoT                |     | Sim |
 | Cofre de Chaves               | Sim | |
 | Balanceador de Carga          | Sim | |
 | Aplicações Lógicas              | Sim | Sim |
 | Grupos de Segurança de Rede | Sim | |
-| Cache de Redis             |     | Sim |
+| Cache do Azure para Redis             |     | Sim |
 | Procurar serviços         | Sim | Sim |
 | Espaço de nomes do Service Bus   |     | Sim |
 | SQL (v12)               |     | Sim |
@@ -221,7 +221,7 @@ $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegrou
 
 $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
 
-Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
 Também pode utilizar o cmdlet anterior para recolher registos de recursos que estão em subscrições diferentes. O cmdlet é capaz de trabalhar em várias subscrições, uma vez que está a fornecer o id do recurso a criar registos e os registos são enviados para a área de trabalho.

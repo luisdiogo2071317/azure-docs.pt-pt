@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 6a1247048907d81b3c9db644bcdb7b5e5eee5fba
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 4eb4fa201a435df5e2b5016ba9686d76707c0635
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633636"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011635"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Utilizar o Apache Pig com o Apache Hadoop no HDInsight
 
-Aprenda a usar [Apache Pig](http://pig.apache.org/) com HDInsight.
+Aprenda a usar [Apache Pig](https://pig.apache.org/) com HDInsight.
 
 Apache Pig é uma plataforma para criar programas para o Apache Hadoop ao utilizar uma linguagem de procedimento conhecida como *Pig Latin*. PIg é uma alternativa ao Java para criar *MapReduce* soluções, que é incluído com o Azure HDInsight. Utilize a tabela seguinte para detetar as várias formas, Pig, podem ser utilizadas com o HDInsight:
 
@@ -69,7 +69,7 @@ Cada registo dentro do arquivo consiste numa linha de campos que contém um `[LO
 No exemplo anterior, o nível de registo é o erro.
 
 > [!NOTE]
-> Também pode gerar um ficheiro de log4j, utilizando o [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) ferramenta de registo e, em seguida, carregar esse ficheiro para o blob. Ver [carregar dados para o HDInsight](../hdinsight-upload-data.md) para obter instruções. Para obter mais informações sobre a utilização de blobs no armazenamento do Azure com o HDInsight, consulte [utilize armazenamento de Blobs do Azure com o HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+> Também pode gerar um ficheiro de log4j, utilizando o [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) ferramenta de registo e, em seguida, carregar esse ficheiro para o blob. Ver [carregar dados para o HDInsight](../hdinsight-upload-data.md) para obter instruções. Para obter mais informações sobre a utilização de blobs no armazenamento do Azure com o HDInsight, consulte [utilize armazenamento de Blobs do Azure com o HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 
 ## <a id="job"></a>Tarefa de exemplo
 
@@ -120,12 +120,12 @@ Agora que aprendeu como utilizar o Pig com o HDInsight, utilize as seguintes lig
 * [Utilizar o Oozie com o HDInsight](../hdinsight-use-oozie.md)
 * [Utilizar tarefas de MapReduce com o HDInsight][hdinsight-use-mapreduce]
 
-[apachepig-home]: http://pig.apache.org/
-[putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
-[curl]: http://curl.haxx.se/
-[pigtask]: http://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[apachepig-home]: https://pig.apache.org/
+[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+[curl]: https://curl.haxx.se/
+[pigtask]: https://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
+[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md
@@ -136,7 +136,7 @@ Agora que aprendeu como utilizar o Pig com o HDInsight, utilize as seguintes lig
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: a97032344b904442ed3606c6297251578c3b4ff7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 15b7dce5af984e4eb719024368479df1b5c8320a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263898"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010965"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Débito de aprovisionar em contentores de Cosmos do Azure e bases de dados
 
@@ -19,7 +19,7 @@ Uma base de dados do Cosmos do Azure é uma unidade de gestão para um conjunto 
 
 O Azure Cosmos DB permite-lhe configurar o débito em duas granularidades - **contentores do Azure Cosmos** e **bases de dados do Azure Cosmos**.
 
-# <a name="setting-throughput-on-a-azure-cosmos-container"></a>A definição de débito num contentor do Cosmos do Azure  
+## <a name="setting-throughput-on-a-container"></a>Débito de definição num contentor  
 
 O débito aprovisionado num contentor do Azure Cosmos é reservado exclusivamente para o contentor. O contentor recebe o débito aprovisionado o tempo todo. O débito aprovisionado num contentor com suporte financeiro suporte dos SLAs. Para configurar o débito num contentor, consulte [como aprovisionar o débito num contentor do Azure Cosmos](how-to-provision-container-throughput.md).
 
@@ -31,7 +31,7 @@ Débito aprovisionado num contentor do Azure Cosmos é distribuído uniformement
 
 ![Partição de recursos](./media/set-throughput/resource-partition.png)
 
-# <a name="setting-throughput-on-a-azure-cosmos-database"></a>A definição de débito num banco de dados do Cosmos do Azure
+## <a name="setting-throughput-on-a-database"></a>Débito de definição numa base de dados
 
 Quando aprovisionar o débito numa base de dados do Cosmos do Azure, o débito é compartilhado entre todos os contentores na base de dados, a menos que tiver especificado um débito aprovisionado em contentores específicos. O débito de base de dados entre seus contêineres de partilha é análogo ao que aloja uma base de dados num cluster de máquinas. Uma vez que todos os contentores dentro de uma base de dados partilham os recursos disponíveis numa máquina, naturalmente não obtém um desempenho previsível em qualquer contentor específico. Para configurar o débito numa base de dados, consulte [como configurar o débito aprovisionado num banco de dados do Azure Cosmos](how-to-provision-database-throughput.md).
 
@@ -53,7 +53,7 @@ Várias partições lógicas partilha o débito aprovisionado para um banco de d
 
 ![Partição de recursos](./media/set-throughput/resource-partition2.png)
 
-## <a name="setting-throughput-on-a-azure-cosmos-database-and-a-container"></a>Definir débito de uma base de dados do Cosmos do Azure e um contentor
+## <a name="setting-throughput-on-a-database-and-a-container"></a>Definir débito de uma base de dados e um contentor
 
 Pode combinar os dois modelos, aprovisionamento de débito no banco de dados e o contentor é permitido. O exemplo seguinte mostra como aprovisionar o débito num banco de dados do Cosmos do Azure e um contentor:
 

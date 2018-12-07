@@ -1,30 +1,34 @@
 ---
-title: O que é automatizada Machine Learning - Azure Machine Learning
-description: Neste artigo, pode aprender sobre aprendizagem automática. O serviço Azure Machine Learning automaticamente pode escolher um algoritmo para e gerar um modelo a partir do mesmo. Automatizado aprendizagem automática ajuda a poupar tempo utilizando os parâmetros e os critérios fornecidos para selecionar o melhor algoritmo para o seu modelo.
+title: O que é automatizada Machine Learning - serviço do Azure Machine Learning
+description: Saiba mais sobre como serviço Azure Machine Learning pode automaticamente escolher um algoritmo para e gerar um modelo com ele para poupar que tempo utilizando os parâmetros e os critérios fornecidos para selecionar o melhor algoritmo para o seu modelo.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: krishnan
-author: krishnaanumalasetty
-ms.date: 9/24/2018
-ms.openlocfilehash: 2a9c05b68d05102fab80b2aa8fb1c1dad8a367ea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+author: nacharya1
+ms.author: nilesha
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 4b9356c7cba14cf5bd112c7d7ae1aab2842fb9d1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960044"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010897"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é automatizado aprendizagem automática?
 
-Neste artigo, pode aprender sobre aprendizagem automática. O serviço Azure Machine Learning automaticamente pode escolher um algoritmo para e gerar um modelo a partir do mesmo. Automatizado aprendizagem automática ajuda a poupar tempo utilizando os parâmetros e os critérios fornecidos para selecionar o melhor algoritmo para o seu modelo.
+Neste artigo, pode aprender sobre aprendizagem automática. O serviço Azure Machine Learning automaticamente pode escolher um algoritmo para e gerar um modelo a partir do mesmo. Aprendizagem automática poupa tempo através da geração de modelos ajustados de objetivos e restrições definidas para a experimentação, como o tempo para a experimentação para execução ou que modela à lista de bloqueio.
 
 ## <a name="how-it-works"></a>Como funciona
 
-1. Configurar o tipo de problema de aprendizado de máquina que está a tentar resolver. Duas categorias de aprendizagem supervisionada são suportadas:
+1. Configurar o tipo de problema de aprendizado de máquina que está a tentar resolver. Categorias de aprendizagem supervisionada são suportadas:
    + Classificação
    + Regressão
+   + Previsão 
+
+   Enquanto a aprendizagem automática está disponível em geral, **a previsão funcionalidade ainda está em pré-visualização pública.**
 
    Consulte a [lista de modelos](how-to-configure-auto-train.md#select-your-experiment-type) pode experimentar o Azure Machine Learning ao treinar.
 

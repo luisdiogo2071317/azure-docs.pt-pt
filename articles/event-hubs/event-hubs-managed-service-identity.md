@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 51b9aa33fd186a46d51f7e2fb64b42648b854cd3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d7ed4f0276e6220e6df528075e83cb9fabc6cc84
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833912"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011475"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identidades geridas para recursos do Azure com os Hubs de eventos
 
@@ -47,7 +48,7 @@ A primeira etapa é criar um aplicativo ASP.NET de serviço de aplicações. Se 
 
 Depois de criar a aplicação, navegue para a aplicação web recentemente criada no portal do Azure (também mostrada os procedimentos), em seguida, navegue para o **identidade do serviço gerido** de páginas e ativar a funcionalidade: 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![Página de identidade do serviço gerida](./media/event-hubs-managed-service-identity/msi1.png)
  
 Assim que tive ativado a funcionalidade, uma nova identidade de serviço é criada no Azure Active Directory e configurada o Host de serviço de aplicações.
 
@@ -67,7 +68,7 @@ Observe como o [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.mes
 
 Depois de efetuar estas alterações, publicar e executar a aplicação. Pode obter os dados de publicação corretos ao transferir e, em seguida, importar um perfil de publicação no Visual Studio:
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![Importar perfil de publicação](./media/event-hubs-managed-service-identity/msi3.png)
  
 Para enviar ou receber mensagens, introduza o nome do espaço de nomes e o nome da entidade que criou, em seguida, clique em **enviar** ou **receber**. 
  

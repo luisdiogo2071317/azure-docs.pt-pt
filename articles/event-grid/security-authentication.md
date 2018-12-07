@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: fe13c424a3da91e92a04cceb807b98fd1ffe4db0
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 427eb8abdede8c821d214d9f6a64fc6a122699de
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914044"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002016"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -25,21 +25,23 @@ O Azure Event Grid tem três tipos de autenticação:
 
 ## <a name="webhook-event-delivery"></a>Entrega de eventos de WebHook
 
-Os Webhooks são uma das diversas formas de receber eventos do Azure Event Grid. Quando um novo evento estiver pronto, o serviço de EventGrid publica uma solicitação HTTP para o ponto final configurado com o evento no corpo do pedido.
+Os Webhooks são uma das diversas formas de receber eventos do Azure Event Grid. Quando um novo evento estiver pronto, o serviço do Event Grid publica uma solicitação HTTP para o ponto final configurado com o evento no corpo do pedido.
 
-Como muitos outros serviços que suportam webhooks, EventGrid tem de provar a "propriedade" do ponto final do Webhook, antes de iniciar a entrega de eventos para esse ponto final. Este requisito é impedir que um ponto de extremidade insuspeitos tornar-se o ponto de extremidade de destino para a entrega de eventos de EventGrid. No entanto, quando utiliza qualquer um dos três serviços do Azure listados abaixo, a infraestrutura do Azure processa automaticamente esta validação:
+Como muitos outros serviços que suportam webhooks, o Event Grid requer a provar a propriedade do ponto final do Webhook, antes de iniciar a entrega de eventos para esse ponto final. Esse requisito impede que um utilizador mal intencionado sobrecarregar o ponto final com eventos. Quando utiliza qualquer um dos três serviços do Azure listados abaixo, a infraestrutura do Azure processa automaticamente esta validação:
 
 * Azure Logic Apps,
 * Automatização do Azure,
-* Funções do Azure EventGrid acionador.
+* Funções do Azure para o acionador do Event Grid.
 
-Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acionador HTTP com base em função do Azure, o código de ponto final tem de participar de um handshake de validação com EventGrid. EventGrid oferece suporte a dois modelos de handshake de validação diferente:
+Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acionador HTTP com base em função do Azure, o código de ponto final tem de participar de um handshake de validação com o Event Grid. Event Grid suporta duas formas de validar a subscrição.
 
-1. **ValidationCode handshake**: no momento da criação de subscrição de eventos, EventGrid publica um "evento do validação de subscrição" para o ponto final. O esquema deste evento é semelhante a qualquer outro EventGridEvent e a parte de dados deste evento inclui um `validationCode` propriedade. Assim que a sua aplicação ter verificado que o pedido de validação é para uma subscrição de evento esperado, o código da aplicação tem de responder ao repetir o código de validação para EventGrid. Esse mecanismo de handshake é suportado em todas as versões de EventGrid.
+1. **Handshake ValidationCode (programático)**: se controlar o código-fonte para o ponto final, este método é recomendado. No momento da criação de subscrição de eventos, o Event Grid envia um evento de validação de subscrição para o ponto final. O esquema deste evento é semelhante a qualquer outro evento do Event Grid. A parte de dados deste evento inclui um `validationCode` propriedade. A aplicação verifica que o pedido de validação é uma subscrição de evento esperado e ecoa o código de validação para o Event Grid. Esse mecanismo de handshake é suportado em todas as versões do Event Grid.
 
-2. **O handshake de ValidationURL (Manual handshake)**: em certos casos, pode não ter controle do código-fonte do ponto de extremidade para implementar o handshake ValidationCode com base. Por exemplo, se usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), não consegue responder através de programação com o código de validação. A partir da versão de 2018-05-01-pré-visualização, EventGrid agora oferece suporte a um handshake de validação manual. Se estiver a criar uma subscrição de evento com um SDK ou ferramenta que utiliza a versão de 2018-05-01-a pré-visualização da API ou posterior, EventGrid envia um `validationUrl` propriedade como parte da parte de dados do evento de validação de subscrição. Para concluir o handshake, basta um GET solicitá a esse URL, por meio de um cliente REST ou com o browser. O URL de validação fornecido é válido apenas para cerca de 10 minutos. Durante esse tempo, o estado de aprovisionamento a subscrição de evento é `AwaitingManualAction`. Se não concluir a validação manual no prazo de 10 minutos, o estado de aprovisionamento é definido como `Failed`. Terá de criar a subscrição de evento novamente antes de iniciar a validação manual.
+2. **O handshake de ValidationURL (manual)**: em certos casos, não é possível acessar o código-fonte do ponto de extremidade para implementar o handshake ValidationCode. Por exemplo, se usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), não pode responder por meio de programação com o código de validação.
 
-Esse mecanismo de validação manual está em pré-visualização. Para a utilizar, tem de instalar a [extensão do Event Grid](/cli/azure/azure-cli-extensions-list) para a [CLI do Azure](/cli/azure/install-azure-cli). Pode instalá-la com `az extension add --name eventgrid`. Se estiver a utilizar a API REST, certifique-se de que está a utilizar `api-version=2018-05-01-preview`.
+   A partir da versão de 2018-05-01-pré-visualização, o Event Grid suporta um handshake de validação manual. Se estiver a criar uma subscrição de evento com um SDK ou ferramenta que utiliza a versão de 2018-05-01-a pré-visualização da API ou posterior, o Event Grid envia um `validationUrl` propriedade na parte de dados do evento de validação de subscrição. Para concluir o handshake, encontrar essa URL nos dados de eventos e manualmente enviar um pedido GET para o mesmo. Pode utilizar um cliente REST ou de seu navegador da web.
+
+   O URL fornecido é válido durante 10 minutos. Durante esse tempo, o estado de aprovisionamento a subscrição de evento é `AwaitingManualAction`. Se não concluir a validação manual no prazo de 10 minutos, o estado de aprovisionamento é definido como `Failed`. Terá de criar a subscrição de evento novamente antes de iniciar a validação manual.
 
 ### <a name="validation-details"></a>Detalhes da validação
 
@@ -80,7 +82,7 @@ Para provar a propriedade de ponto de extremidade, retornar o código de valida�
 
 Em alternativa, pode validar manualmente a subscrição ao enviar um pedido GET para o URL de validação. A subscrição de evento permanece no estado pendente até que sejam validados.
 
-Pode encontrar o exemplo de c# que mostra como lidar com o handshake de validação de assinatura em https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs.
+Para obter um exemplo de manipular o handshake de validação de assinatura, consulte um [ C# exemplo](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
 ### <a name="checklist"></a>Lista de verificação
 

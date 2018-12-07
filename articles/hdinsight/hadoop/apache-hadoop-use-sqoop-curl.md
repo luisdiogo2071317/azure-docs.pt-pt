@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4b565252c78bfe2194530d840651a57df2686728
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: cf7c47e14ef41f58ca1d674521da669e56e7e892
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633178"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012186"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Executar tarefas de Apache Sqoop com o Hadoop no HDInsight com Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -27,8 +27,8 @@ Curl é utilizado para demonstrar como pode interagir com o HDInsight através d
 Para concluir os passos neste artigo, precisará do seguinte:
 
 * Concluída [utilização Sqoop com o Hadoop no HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) para configurar um ambiente com um cluster do HDInsight e uma base de dados SQL do Azure.
-* [Curl](http://curl.haxx.se/). Curl é uma ferramenta para transferir dados de ou para um cluster do HDInsight.
-* [jq](http://stedolan.github.io/jq/). O utilitário de jq é usado para processar os dados JSON retornados de pedidos REST.
+* [Curl](https://curl.haxx.se/). Curl é uma ferramenta para transferir dados de ou para um cluster do HDInsight.
+* [jq](https://stedolan.github.io/jq/). O utilitário de jq é usado para processar os dados JSON retornados de pedidos REST.
 
 ## <a name="submit-sqoop-jobs-by-using-curl"></a>Submeter tarefas de Sqoop com o Curl
 > [!NOTE]
@@ -36,7 +36,7 @@ Para concluir os passos neste artigo, precisará do seguinte:
 > 
 > Para os comandos nesta secção, substitua **USERNAME** pelo utilizador para autenticar-se o cluster e substitua **PASSWORD** pela palavra-passe da conta de utilizador. Substitua **CLUSTERNAME** pelo nome do cluster.
 > 
-> A API de REST está protegida por [autenticação básica](http://en.wikipedia.org/wiki/Basic_access_authentication). Deve sempre efetuar pedidos utilizando HTTP Secure (HTTPS) para ajudar a garantir que as credenciais são enviadas de forma segura para o servidor.
+> A API de REST está protegida por [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Deve sempre efetuar pedidos utilizando HTTP Secure (HTTPS) para ajudar a garantir que as credenciais são enviadas de forma segura para o servidor.
 > 
 > 
 

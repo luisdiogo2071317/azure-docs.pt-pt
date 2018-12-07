@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253725"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014502"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: Premium (pré-visualização), frequente, esporádico e de camadas de armazenamento de arquivo
 
@@ -113,7 +113,7 @@ Podem coexistir na mesma conta blobs nas três camadas de armazenamento. Um blob
 Dados armazenados na camada de acesso Premium não podem ser camadas frequente, esporádico ou arquivo usando [Set Blob Tier](/rest/api/storageservices/set-blob-tier) ou utilizar a gestão de ciclo de vida de armazenamento de Blobs do Azure. Para mover dados, tem forma síncrona de copiar blobs contra o acesso de Premium para frequente utilizando o [colocar o bloco de API de URL](/rest/api/storageservices/put-block-from-url) ou uma versão do AzCopy que suporte esta API. O *colocar o bloco de URL* API de forma síncrona copia os dados no servidor, que significa que a chamada é concluída apenas uma vez todos os dados são movidos da localização original do servidor para a localização de destino.
 
 ### <a name="blob-lifecycle-management"></a>Gerenciamento de ciclo de vida de blob
-Gestão de ciclo de vida de armazenamento de BLOBs (pré-visualização) oferece uma política de avançado e baseado em regras que pode utilizar para fazer a transição de seus dados para a camada de acesso melhor e expirar os dados no final do seu ciclo de vida. Ver [gerir o ciclo de vida de armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts) para saber mais.  
+Gestão de ciclo de vida de armazenamento de BLOBs (pré-visualização) oferece uma política de avançado e baseado em regras que pode utilizar para fazer a transição de seus dados para a camada de acesso melhor e expirar os dados no final do seu ciclo de vida. Ver [gerir o ciclo de vida de armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md) para saber mais.  
 
 ### <a name="blob-level-tiering-billing"></a>Faturação da criação de camadas ao nível de blobs
 
@@ -245,7 +245,7 @@ O armazenamento de dados, juntamente com outros limites, é definido ao nível d
 
 [Verificar a disponibilidade de acesso frequente, esporádico e arquivo por região](https://azure.microsoft.com/regions/#services)
 
-[Gerir o ciclo de vida de armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
+[Gerir o ciclo de vida de armazenamento de Blobs do Azure](storage-lifecycle-management-concepts.md)
 
 [Avaliar a utilização das suas contas de armazenamento atuais ao ativar as métricas do Armazenamento do Azure](../common/storage-enable-and-view-metrics.md)
 

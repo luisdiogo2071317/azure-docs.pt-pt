@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: eb77046c6e673012209f0db452b20bf25046cd67
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f61a00e3ea243dfdf777af88b5f211580f35d8a0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250976"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001642"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Enlaces de aplicações móveis para as funções do Azure 
 
@@ -31,13 +31,13 @@ Os enlaces de aplicações móveis permitem-lhe ler e atualizar tabelas de dados
 
 ## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 
-Enlaces de aplicações móveis são fornecidos na [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) pacote NuGet, versão 1.x. Código-fonte para o pacote está no [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) repositório do GitHub.
+Enlaces de aplicações móveis são fornecidos na [Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) pacote NuGet, versão 1.x. Código-fonte para o pacote está no [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) repositório do GitHub.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="input"></a>Input
 
-O enlace de entrada de aplicações móveis carrega um registo a partir de um ponto de final de tabela móveis e passa-o para a sua função. No c# e F # funções, todas as alterações feitas no registo são automaticamente enviadas para a tabela quando a função é encerrado com êxito.
+O enlace de entrada de aplicações móveis carrega um registo a partir de um ponto de final de tabela móveis e passa-o para a sua função. No C# e F# as funções, todas as alterações feitas no registo são automaticamente enviadas para a tabela quando a função é encerrado com êxito.
 
 ## <a name="input---example"></a>Entrada - exemplo
 
@@ -157,11 +157,11 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 ## <a name="input---usage"></a>Introdução - utilização
 
-No c# das funções, quando o registo com o ID especificado é encontrado, ele é passado para o nomeado [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parâmetro. Quando o registo não for encontrado, o valor do parâmetro é `null`. 
+No c# das funções, quando o registo com o ID especificado é encontrado, ele é passado para o nomeado [JObject](https://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) parâmetro. Quando o registo não for encontrado, o valor do parâmetro é `null`. 
 
 Nas funções de JavaScript, o registo é passado para o `context.bindings.<name>` objeto. Quando o registo não for encontrado, o valor do parâmetro é `null`. 
 
-Nas funções de c# e F #, qualquer alteração feita por para a entrada de registo (parâmetro de entrada) são automaticamente enviados para a tabela quando a função é encerrado com êxito. Não é possível modificar um registo nas funções de JavaScript.
+No C# e F# as funções, quaisquer alterações efetuadas para a entrada de registo (parâmetro de entrada) são automaticamente enviados para a tabela quando a função é encerrado com êxito. Não é possível modificar um registo nas funções de JavaScript.
 
 ## <a name="output"></a>Saída
 

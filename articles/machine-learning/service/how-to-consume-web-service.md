@@ -1,6 +1,6 @@
 ---
-title: Como consumir implementações de serviço web - Azure Machine Learning
-description: Saiba como consumir um serviço web criado ao implementar um modelo do Azure Machine Learning. Implementar um modelo do Azure Machine Learning cria um serviço web que expõe uma API REST. Pode criar clientes para esta API usando a linguagem de programação da sua preferência. Neste documento, saiba como aceder à API com Python e C#.
+title: Como consumir implementações de serviço web - serviço do Azure Machine Learning
+description: Saiba como consumir um serviço web que foi gerado quando um modelo foi implementado com o modelo do Azure Machine Learning. O serviço web que expõe uma API REST. Crie clientes para esta API usando a linguagem de programação da sua preferência.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,13 +8,14 @@ ms.topic: conceptual
 ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
-ms.date: 10/30/2018
-ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/03/2018
+ms.custom: seodec18
+ms.openlocfilehash: d964eef08557ddd95ff86bc9e7de806cd4a8ca18
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262912"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016645"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como um serviço web
 
@@ -100,7 +101,7 @@ A API REST espera que o corpo da solicitação para ser um documento JSON com a 
 > [!IMPORTANT]
 > A estrutura dos dados tem de corresponder ao que a classificação script e o modelo no expect serviço. O script de classificação pode modificar os dados antes de o transmitir para o modelo.
 
-Por exemplo, o modelo no [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) exemplo espera uma matriz de 10 números. O script de classificação para este exemplo cria uma matriz de Numpy da solicitação e passa-o para o modelo. O exemplo seguinte mostra os dados que deste serviço de espera:
+Por exemplo, o modelo no [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exemplo espera uma matriz de 10 números. O script de classificação para este exemplo cria uma matriz de Numpy da solicitação e passa-o para o modelo. O exemplo seguinte mostra os dados que deste serviço de espera:
 
 ```json
 {
@@ -126,7 +127,7 @@ O serviço web pode aceitar vários conjuntos de dados numa solicitação. Ele r
 
 ## <a name="call-the-service-c"></a>Chamar o serviço (C#)
 
-Este exemplo demonstra como utilizar o C# para chamar o serviço web criado a partir do [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) exemplo:
+Este exemplo demonstra como utilizar o C# para chamar o serviço web criado a partir do [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exemplo:
 
 ```csharp
 using System;
@@ -215,7 +216,7 @@ Os resultados retornados são semelhantes para o documento JSON seguinte:
 
 ## <a name="call-the-service-go"></a>Chamar o serviço (Go)
 
-Este exemplo demonstra como utilizar o Go para chamar o serviço web criado a partir da [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) exemplo:
+Este exemplo demonstra como utilizar o Go para chamar o serviço web criado a partir da [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exemplo:
 
 ```go
 package main
@@ -307,7 +308,7 @@ Os resultados retornados são semelhantes para o documento JSON seguinte:
 
 ## <a name="call-the-service-java"></a>Chamar o serviço (Java)
 
-Este exemplo demonstra como utilizar o Java para chamar o serviço web criado a partir da [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) exemplo:
+Este exemplo demonstra como utilizar o Java para chamar o serviço web criado a partir da [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exemplo:
 
 ```java
 import java.io.IOException;
@@ -387,7 +388,7 @@ Os resultados retornados são semelhantes para o documento JSON seguinte:
 
 ## <a name="call-the-service-python"></a>Chamar o serviço (Python)
 
-Este exemplo demonstra como utilizar Python para chamar o web service criado a partir da [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) exemplo:
+Este exemplo demonstra como utilizar Python para chamar o web service criado a partir da [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exemplo:
 
 ```python
 import requests

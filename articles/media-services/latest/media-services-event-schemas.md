@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 8124b399b859f812ec3bf9f7ea64b6643446a1b5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 9de0d8bc389218d3102633b09073b3af323d2ceb
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249331"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011999"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>O Azure Event Grid esquemas para eventos de serviços de multimédia
 
@@ -112,9 +112,12 @@ O objeto de dados tem as seguintes propriedades:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | previousState | cadeia | O estado da tarefa antes do evento. |
-| state | cadeia | O novo estado da tarefa a ser notificado neste evento. Por exemplo, "em fila: A tarefa está aguardando o recursos" ou "agendada: A tarefa está pronta para começar a".|
+| state | cadeia | O novo estado da tarefa a ser notificado neste evento. Por exemplo, "agendado: A tarefa está pronta para começar a" ou "concluído: A tarefa estiver concluída".|
 
 Em que o estado da tarefa pode ser um dos valores: *em fila*, *agendada*, *processamento*, *concluído*, *erro*, *Cancelada*, *Cancelar*
+
+> [!NOTE]
+> *Em fila* apenas vai estar presente no **previousState** propriedade, mas não na **estado** propriedade.
 
 ### <a name="jobscheduled-jobprocessing-jobcanceling"></a>JobCanceling JobScheduled, JobProcessing,
 

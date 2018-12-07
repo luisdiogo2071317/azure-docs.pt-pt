@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: ae728cd1cfc27a17badcce319a8cd047b54ddb1e
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 9727a990548977e0b07710d879881669161c7a4c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634010"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015267"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Serializar dados no Apache Hadoop com o Microsoft Avro Library
 
@@ -27,7 +27,7 @@ Este tópico mostra como utilizar o [Microsoft Avro Library](https://github.com/
 [!INCLUDE [windows-only](../../../includes/hdinsight-windows-only.md)]
 
 ## <a name="apache-avro"></a>Apache Avro
-O <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implementa o sistema de serialização de dados do Apache Avro para o ambiente de Microsoft.NET. Apache Avro fornece um formato de intercâmbio de dados binários compact para serialização. Ele usa <a href="http://www.json.org" target="_blank">JSON</a> para definir um esquema de linguagem desconhecida que assegura a interoperabilidade da linguagem. Dados serializados numa linguagem podem ser lidos noutra. Atualmente são suportados C, C++, c#, Java, PHP, Python e Ruby. Obter informações detalhadas sobre o formato podem ser encontradas no <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">especificação do Apache Avro</a>. 
+O <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implementa o sistema de serialização de dados do Apache Avro para o ambiente de Microsoft.NET. Apache Avro fornece um formato de intercâmbio de dados binários compact para serialização. Ele usa <a href="http://www.json.org" target="_blank">JSON</a> para definir um esquema de linguagem desconhecida que assegura a interoperabilidade da linguagem. Dados serializados numa linguagem podem ser lidos noutra. Atualmente são suportados C, C++, c#, Java, PHP, Python e Ruby. Obter informações detalhadas sobre o formato podem ser encontradas no <a href="https://avro.apache.org/docs/current/spec.html" target="_blank">especificação do Apache Avro</a>. 
 
 >[!NOTE]
 >A Microsoft Avro Library não suporta a parte de (RPCs chamadas) de procedimento remoto dessa especificação.
@@ -58,7 +58,7 @@ Quando o esquema de dados é conhecido para o escritor e o leitor da transmissã
 ## <a name="compile-schemas-using-avro-library"></a>Compilar esquemas com a biblioteca do Avro
 A Microsoft Avro Library contém um utilitário de geração de código que permite a criação de c# tipos automaticamente com base no esquema JSON definido anteriormente. O utilitário de geração de código não é distribuído como um executável binário, mas pode ser facilmente construído com o seguinte procedimento:
 
-1. Transfira o ficheiro. zip com a versão mais recente do código-fonte do SDK do HDInsight <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">Microsoft .NET SDK para Hadoop</a>. (Clique a **baixe** ícone, não a **Downloads** separador.)
+1. Transfira o ficheiro. zip com a versão mais recente do código-fonte do SDK do HDInsight <a href="https://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">Microsoft .NET SDK para Hadoop</a>. (Clique a **baixe** ícone, não a **Downloads** separador.)
 2. Extraia o SDK do HDInsight para um diretório no computador com o .NET Framework 4 instalado e ligado à Internet para transferir pacotes de NuGet necessárias de dependência. Veja a seguir, partimos do princípio de que o código-fonte é extraído para C:\SDK.
 3. Aceda à pasta C:\SDK\src\Microsoft.Hadoop.Avro.Tools e execute o Build. bat. (O ficheiro chamadas MSBuild partir a distribuição de 32 bits do .NET Framework. Se gostaria de utilizar a versão de 64 bits, editar Build. bat, seguindo os comentários dentro do arquivo.) Certifique-se de que a compilação seja bem-sucedida. (Em alguns sistemas, MSBuild pode produzir avisos. Esses avisos não afetam o utilitário, desde que não há nenhum erro de compilação.)
 4. O utilitário compilado está localizado em C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools.
@@ -852,7 +852,7 @@ Os dados, em seguida, são lidas a partir do ficheiro e desserializados numa col
 ## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Exemplo 5: Serialização utilizar ficheiros de contentor de objeto com um codec de compressão personalizado
 O exemplo quinto mostra como utilizar um codec de compressão personalizadas para ficheiros do Avro objeto contentor. Um exemplo que contém o código para este exemplo pode ser transferido a partir da [exemplos de código do Azure](https://code.msdn.microsoft.com/Serialize-data-with-the-67159111) site.
 
-O [especificação do Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) permite a utilização de um codec de compressão opcional (além **nulo** e **Deflate** predefinições). Neste exemplo não é implementar um novo codec como Snappy (mencionado como um codec opcional suportado no [especificação do Avro](http://avro.apache.org/docs/current/spec.html#snappy)). Ele mostra como usar o .NET Framework 4.5 de implementação do [ **Deflate** ] [ deflate-110] codec, que fornece um melhor algoritmo de compactação com base no [zlib ](http://zlib.net/) biblioteca de compressão que a versão do .NET Framework 4 padrão.
+O [especificação do Avro](https://avro.apache.org/docs/current/spec.html#Required+Codecs) permite a utilização de um codec de compressão opcional (além **nulo** e **Deflate** predefinições). Neste exemplo não é implementar um novo codec como Snappy (mencionado como um codec opcional suportado no [especificação do Avro](https://avro.apache.org/docs/current/spec.html#snappy)). Ele mostra como usar o .NET Framework 4.5 de implementação do [ **Deflate** ] [ deflate-110] codec, que fornece um melhor algoritmo de compactação com base no [zlib ](https://zlib.net/) biblioteca de compressão que a versão do .NET Framework 4 padrão.
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1351,7 +1351,7 @@ O exemplo de sexto ilustra algumas técnicas de programação relacionadas com a
 O exemplo faz as seguintes tarefas:
 
 * Liga-se a um cluster de serviço existente do HDInsight.
-* Serializa vários ficheiros CSV e carrega o resultado para o armazenamento de Blobs do Azure. (Os arquivos CSV são distribuídos em conjunto com o exemplo e representam uma extração de dados históricos de AMEX Stock distribuídos pela [Infochimps](http://www.infochimps.com/) para o período de 1970 2010. O exemplo lê os dados de ficheiro CSV, converte os registos para instâncias do **Stock** de classe e, em seguida, serializa-los usando reflexão. Definição de tipo de stock é criada a partir de um esquema JSON por meio do utilitário de geração de código do Microsoft Avro Library.
+* Serializa vários ficheiros CSV e carrega o resultado para o armazenamento de Blobs do Azure. (Os arquivos CSV são distribuídos em conjunto com o exemplo e representam uma extração de dados históricos de AMEX Stock distribuídos pela [Infochimps](https://www.infochimps.com/) para o período de 1970 2010. O exemplo lê os dados de ficheiro CSV, converte os registos para instâncias do **Stock** de classe e, em seguida, serializa-los usando reflexão. Definição de tipo de stock é criada a partir de um esquema JSON por meio do utilitário de geração de código do Microsoft Avro Library.
 * Cria uma nova tabela externa, chamada **Stocks** no Hive e links para os dados carregado no passo anterior.
 * Executa uma consulta através do Hive através do **Stocks** tabela.
 
@@ -1378,5 +1378,5 @@ Para limpar o cluster, execute o seguinte comando:
 
     AvroHDISample clean
 
-[deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
-[deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
+[deflate-100]: https://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
+[deflate-110]: https://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx

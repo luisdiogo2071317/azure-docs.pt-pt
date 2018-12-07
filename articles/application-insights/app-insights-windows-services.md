@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: f0ec2ff0b10e9554485f482bca6b160da0c4e016
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52719900"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001731"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurar manualmente o Application Insights para aplicações .NET
 
@@ -29,7 +29,7 @@ Pode configurar o [Application Insights](app-insights-overview.md) para monitori
 
 É necessário:
 
-* Uma subscrição do [Microsoft Azure](http://azure.com). Se a sua equipa ou organização tiver uma subscrição do Azure, o proprietário pode adicioná-lo à mesma, utilizando a sua [conta Microsoft](http://live.com).
+* Uma subscrição do [Microsoft Azure](https://azure.com). Se a sua equipa ou organização tiver uma subscrição do Azure, o proprietário pode adicioná-lo à mesma, utilizando a sua [conta Microsoft](https://live.com).
 * Visual Studio 2013 ou posterior.
 
 ## <a name="add"></a>1. Escolher um recurso do Application Insights

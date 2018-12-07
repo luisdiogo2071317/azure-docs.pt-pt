@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: b4bc632b4951781b85847699d38fd10df14c1a87
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 3106e523e3f8edd17cc27991181267acfab4308b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720750"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002129"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Instruções: Ativar a telemetria para utilizar o Application Insights do Microsoft Dynamics CRM Online
 Este artigo mostra-lhe como obter dados de telemetria dos [do Microsoft Dynamics CRM Online](https://www.dynamics.com/) usando [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Vamos examinar o processo completo de adicionar o script do Application Insights à sua aplicação, capturar dados e visualização de dados.
@@ -32,7 +32,7 @@ Este artigo mostra-lhe como obter dados de telemetria dos [do Microsoft Dynamics
 Para monitorizar a sua aplicação, adicione um Application Insights SDK à sua aplicação. O SDK envia a telemetria para o [portal do Application Insights](https://portal.azure.com), onde pode utilizar as nossas ferramentas de diagnóstico e análise poderosas, ou exportar os dados para o armazenamento.
 
 ### <a name="create-an-application-insights-resource-in-azure"></a>Criar um recurso do Application Insights no Azure
-1. Obtenha [uma conta no Microsoft Azure](http://azure.com/pricing). 
+1. Obtenha [uma conta no Microsoft Azure](https://azure.com/pricing). 
 2. Inicie sessão para o [portal do Azure](https://portal.azure.com) e adicionar um novo recurso do Application Insights. Isso é onde os seus dados serão processados e apresentados.
 
     ![Clique em +, serviços de programação, Application Insights.](./media/app-insights-sample-mscrm/01.png)

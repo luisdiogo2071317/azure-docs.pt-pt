@@ -1,5 +1,5 @@
 ---
-title: Filtros de IP de Hubs de eventos do Azure | Documentos da Microsoft
+title: Restringir o acesso ao utilizar os filtros IP de Event Hubs do Azure | Documentos da Microsoft
 description: Utilize o IP de filtragem para bloquear as conexões de endereços IP específicos para os Hubs de eventos do Azure.
 services: event-hubs
 documentationcenter: ''
@@ -7,18 +7,18 @@ author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
+ms.custom: seodec18
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: d0114821b5239146f64dde0b01652dc320994585
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 5ed952421186210e55d6065cee51f4d54b4c0d46
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408154"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014400"
 ---
-# <a name="use-ip-filters"></a>Utilizar filtros de IP
-
+# <a name="restrict-access-to-azure-event-hubs-using-ip-filters"></a>Restringir o acesso ao utilizar os filtros IP de Event Hubs do Azure
 Para cenários em que os Hubs de eventos do Azure deve ser apenas acessíveis a partir de certos sites conhecidos, o *filtro IP* funcionalidade permite-lhe configurar regras para rejeitar ou aceitar o tráfego proveniente de endereços de IPv4 específicos. Por exemplo, estes endereços podem ser de um gateway empresarial do NAT.
 
 ## <a name="when-to-use"></a>Quando utilizar

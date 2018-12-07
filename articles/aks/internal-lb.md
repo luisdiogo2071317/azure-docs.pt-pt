@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 042d2ee0f615ce5216fc11152f0f65518ff9bd5c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5fe1739fa341a5e3bd2f4d26ef1e94d725b74a61
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376384"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001241"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utilizar um balanceador de carga interno com o Azure Kubernetes Service (AKS)
 
 Para restringir o acesso às suas aplicações no Azure Kubernetes Service (AKS), pode criar e utilizar um balanceador de carga interno. Um balanceador de carga interno torna um serviço do Kubernetes acessível apenas para aplicações em execução na mesma rede virtual do cluster de Kubernetes. Este artigo mostra-lhe como criar e utilizar um balanceador de carga interno com o Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> O Balanceador de carga do Azure está disponível em dois SKUs - *básica* e *padrão*. Para obter mais informações, consulte [comparação SKU do Balanceador de carga do Azure][azure-lb-comparison]. AKS suporta atualmente o *básica* SKU. Se pretender utilizar o *padrão* SKU, pode usar o montante [motor de acs][acs-engine].
+> O Balanceador de carga do Azure está disponível em dois SKUs - *básica* e *padrão*. Para obter mais informações, consulte [comparação SKU do Balanceador de carga do Azure][azure-lb-comparison]. AKS suporta atualmente o *básica* SKU. Se pretender utilizar o *padrão* SKU, pode usar o montante [motor de aks][aks-engine].
 
 ## <a name="create-an-internal-load-balancer"></a>Criar um balanceador de carga interno
 
@@ -128,7 +128,7 @@ Saiba mais sobre os serviços do Kubernetes com o [documentação dos serviços 
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-advanced-networking.md

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ebbb12a6454a093ad0ac3b3cc30eb489eeef21ec
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e9e92254db37edbd978b5799b13e63652e227f86
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687219"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014519"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Otimizar as consultas do Hive no HDInsight do Azure
 
@@ -40,7 +40,7 @@ Para obter mais informações sobre o dimensionamento do HDInsight, consulte [cl
 
 ## <a name="use-tez-instead-of-map-reduce"></a>Utilizar o Tez, em vez de reduzir o mapa
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/) é um motor de execução alternativo para o mecanismo de MapReduce. Clusters do HDInsight baseado em Linux têm Tez ativado por predefinição.
+[Apache Tez](https://hortonworks.com/hadoop/tez/) é um motor de execução alternativo para o mecanismo de MapReduce. Clusters do HDInsight baseado em Linux têm Tez ativado por predefinição.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -52,7 +52,7 @@ Tez é mais rápido porque:
 * **Reutiliza contentores**. Sempre que possível Tez é capaz de reutilizar contentores para garantir que a latência devido a iniciar contentores é reduzida.
 * **Técnicas de otimização contínua**. Tradicionalmente, otimização foi realizada durante a fase de compilação. No entanto, estão disponíveis mais informações sobre as entradas que permitem uma melhor otimização durante o tempo de execução. Tez utiliza técnicas de otimização contínua que lhe permitem otimizar ainda mais o plano para a fase de tempo de execução.
 
-Para obter mais informações sobre estes conceitos, veja [Apache TEZ](http://hortonworks.com/hadoop/tez/).
+Para obter mais informações sobre estes conceitos, veja [Apache TEZ](https://hortonworks.com/hadoop/tez/).
 
 Pode fazer qualquer consulta do Hive no Tez ativada atribuindo a consulta com o seguinte comando do conjunto:
 

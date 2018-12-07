@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: dd876462559ac10fc0463c64413bf11eabbc88a1
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d0af6c098f68c23bf9ef6161bd307afec518ead7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443530"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011699"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começam com as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -120,7 +120,7 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
 | * / 25                       | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligar para o reencaminhamento de SMTP para enviar emails                    | Externo e interno  |
 | * / 587                      | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligar para o reencaminhamento de SMTP para enviar emails                    | Externo e interno  |
 | * / 25028                    | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligar para o reencaminhamento de SMTP para enviar emails                    | Externo e interno  |
-| * / 6381 - 6383              | Entrada e saída | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Instâncias de Cache de Redis de acesso entre RoleInstances          | Externo e interno  |
+| * / 6381 - 6383              | Entrada e saída | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Aceder a Cache do Azure para instâncias de Redis entre RoleInstances          | Externo e interno  |
 | * / *                        | Entrada            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Balanceador de carga da infraestrutura do Azure                          | Externo e interno  |
 
 >[!IMPORTANT]

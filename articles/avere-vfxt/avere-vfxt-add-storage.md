@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163176"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001958"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -19,6 +19,12 @@ Este passo configura o sistema de armazenamento de back-end para o seu cluster v
 
 > [!TIP]
 > Se tiver utilizado o `create-cloudbacked-cluster` script de protótipo para criar um novo contentor de BLOBs, juntamente com o cluster de vFXT Avere, que o contentor já está configurado para utilização e não é necessário adicionar armazenamento.
+>
+> No entanto, se o novo contentor de Blob foi encriptado com uma chave de encriptação predefinido, terá transferir o ficheiro de recuperação de chaves do cluster ou substituir a chave de padrão com uma nova chave antes de armazenar dados. A chave predefinida é guardada apenas no cluster e não é possível obter se o cluster for perdido ou fica indisponível.
+>
+> Depois de ligar para o painel de controle de Avere, clique no **definições** separador, em seguida, escolha **filtro de Core** > **definições de encriptação de Cloud**. Na **Store de chave Local** secção, escolha uma destas opções: 
+> * Utilize o **transfira novamente recuperação ficheiro** botão para obter o ficheiro de recuperação para a chave existente. O ficheiro de recuperação é encriptado com a palavra-passe administrativa do cluster. Certifique-se guardar o ficheiro num local confiável. 
+> * Siga as instruções no **gerar uma nova chave mestra** secção da página para criar uma nova chave de encriptação que controla. Esta opção permite-lhe especificar uma frase de acesso exclusivo e ele requer que carregar e transferir novamente o ficheiro de recuperação para validar o par de ficheiros de frase de acesso.
 
 Siga estas instruções se tiver utilizado o `create-minimal-cluster` script de protótipo para o seu cluster, ou se pretender adicionar um hardware adicional ou um sistema de armazenamento com base na cloud.
 
@@ -91,7 +97,7 @@ Para adicionar armazenamento de BLOBs depois de criar o cluster, siga estes pass
    * **Grupo de recursos** – mesmo que o grupo de cluster vFXT (opcional)
    * **Localização** – mesmo que o cluster vFXT
    * **Desempenho** - Standard (armazenamento Premium é suportado)
-   * **Tipo de conta** - geral V2 para fins (StorageV2)
+   * **Tipo de conta** -General-purpose V2 (StorageV2)
    * **Replicação** -armazenamento localmente redundante (LRS)
    * **Camada de acesso** - acesso frequente
    * **Transferência segura necessária** -desativar esta opção (valor não predefinido)

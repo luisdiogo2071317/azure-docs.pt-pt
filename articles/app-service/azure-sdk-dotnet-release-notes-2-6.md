@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 040eea1efd3abdbbfa65c24b2950ebece9d4acbc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dfc1fe223dbff178c35a969e0273ed80fb4c8be9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258396"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016431"
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Notas de versão do Azure SDK para .NET 2.6
 Este documento contém as notas de versão para o Azure SDK para .NET 2.6 versão. 
@@ -59,7 +59,7 @@ Com o Azure SDK 2.6, pode desenvolver aplicativos de serviço cloud (PaaS) desti
     Neste momento o armazenamento do Azure versão 2011-08-18 está agendado para ser removido a 1 de Agosto de 2016. Qualquer migrações de Cache na função do Azure SDK 2.5 ou abaixo para 2.6 tem de ser concluídas neste momento. Para obter mais informações sobre a desativação de armazenamento do Azure versão 2011-08-18, consulte [os atualização do remoção de versão do serviço de armazenamento do Microsoft Azure: extensão para o 2016](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 > [!IMPORTANT]
-> Estamos a anunciar a desativação de 30 de Novembro de 2016, para o serviço de Cache gerida do Azure e Cache na função do Azure. Recomendamos que migre para a Cache de Redis do Azure em preparação para esta extinção. Para obter mais informações sobre as datas e orientações de migração, consulte [ofertas da Cache de Azure que é mais adequada para mim?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+> Estamos a anunciar a desativação de 30 de Novembro de 2016, para o serviço de Cache gerida do Azure e Cache na função do Azure. Recomendamos que migre para a Cache do Azure para Redis em preparação para esta extinção. Para obter mais informações sobre as datas e orientações de migração, consulte [ofertas da Cache de Azure que é mais adequada para mim?](../azure-cache-for-redis/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 > 
 > 
 

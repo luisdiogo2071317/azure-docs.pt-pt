@@ -9,12 +9,13 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 9e0f07e744aaf5f1c35666b40285937dce6dd4de
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: ef26bd433d311e63e122f48871654c9fbc26216a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275059"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013173"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Monitorizar os seus modelos do Azure Machine Learning com o Application Insights
 
@@ -24,9 +25,6 @@ Neste artigo, saiba como configurar o Azure Application Insights para o seu serv
 * Exceções.
 
 [Saiba mais sobre o Application Insights](../../application-insights/app-insights-overview.md). 
-
->[!NOTE]
-> Código neste artigo foi testado com o Azure Machine Learning SDK versão 0.1.74
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -100,7 +98,7 @@ Pode ativar e desativar o Application Insights no portal do Azure.
 1. Na [portal do Azure](https://portal.azure.com), abra a área de trabalho.
 1. Selecione **implementações**, selecione o serviço e selecione **editar**.
 
-   [![Botão Editar](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Utilize o botão de edição](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. Na **definições avançadas**, desmarque a **diagnóstico do AppInsights ativar** caixa de verificação. 
 
@@ -130,7 +128,7 @@ Para saber mais sobre como utilizar o Application Insights, veja [o que é o App
 
 ## <a name="example-notebook"></a>Bloco de notas de exemplo
 
-O [00. obtendo Started/13.enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/13.enable-app-insights) bloco de notas demonstra conceitos deste artigo.  Obter este bloco de notas:
+O [how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) bloco de notas demonstra conceitos deste artigo. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

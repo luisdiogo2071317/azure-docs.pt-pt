@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: d1b91d62eaafa60426c837cd0e40faaf7b60600b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 747ce8dc4a4e4c8ac1e26e5b051a431176096d71
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844588"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015981"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Assistente do Azure
 
@@ -63,7 +63,7 @@ Pode acessar as recomendações do assistente como *proprietário*, *contribuint
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Que recursos o assistente fornece recomendações para?
 
-O assistente fornece recomendações para as máquinas virtuais, conjuntos de disponibilidade, gateways de aplicação, serviços de aplicações, servidores do SQL Server e a Cache de Redis.
+O assistente fornece recomendações para as máquinas virtuais, conjuntos de disponibilidade, gateways de aplicação, serviços de aplicações, servidores do SQL Server e Cache do Azure para Redis.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Pode adiar ou ignorar uma recomendação?
 

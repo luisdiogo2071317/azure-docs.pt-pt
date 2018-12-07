@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 194f84d2ce5360aa9ad9f3d771bf24f153ac6f5c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a75514013a1945d9ca5718be115184f6ba9950d9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496303"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015760"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar mais contas de armazenamento ao HDInsight
 
@@ -95,7 +95,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > Definir `$PASSWORD` para a palavra-passe da conta de início de sessão (admin) do cluster. Definir `$CLUSTERNAME` para o nome do HDInsight cluster. Definir `$STORAGEACCOUNTNAME` para o nome da conta de armazenamento.
 >
-> Este exemplo utiliza [curl (http://curl.haxx.se/) ](http://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/) ](https://stedolan.github.io/jq/) para recuperar e analisar dados JSON.
+> Este exemplo utiliza [curl (https://curl.haxx.se/) ](https://curl.haxx.se/) e [jq (https://stedolan.github.io/jq/) ](https://stedolan.github.io/jq/) para recuperar e analisar dados JSON.
 
 Quando utilizar este comando, substitua __CLUSTERNAME__ com o nome do HDInsight cluster. Substitua __palavra-passe__ com a palavra-passe de início de sessão HTTP para o cluster. Substitua __STORAGEACCOUNT__ com o nome da conta de armazenamento foi adicionado com a ação de script. Informações retornadas este comando parece ser semelhantes ao seguinte texto:
 

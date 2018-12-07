@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262374"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002055"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Quadro de segurança: Dados confidenciais | Atenuações 
 | Produtos/serviços | Artigo |
@@ -429,7 +429,7 @@ Definir clientCredentialType para o certificado ou Windows.
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico, o .NET Framework 3 |
 | **Atributos**              | Mensagem de modo - transporte, modo de segurança - segurança |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reforçamos Unido](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [Noções básicas de segurança do WCF CoDe Magazine](http://www.codemag.com/article/0611051) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reforçamos Unido](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Noções básicas de segurança do WCF CoDe Magazine](http://www.codemag.com/article/0611051) |
 | **Passos** | Não foi definida nenhuma segurança de transporte ou de mensagens. Aplicativos que transmitir mensagens sem transporte ou mensagem de segurança não pode garantir a integridade ou confidencialidade das mensagens. Quando uma associação de segurança do WCF é definida como None, a segurança de transporte e de mensagem estão desativadas. |
 
 ### <a name="example"></a>Exemplo

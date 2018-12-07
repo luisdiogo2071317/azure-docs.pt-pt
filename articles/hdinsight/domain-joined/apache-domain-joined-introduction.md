@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: ed735b8344c301be413dfe998ccf7f44bd686115
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632004"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011236"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Uma introdução à segurança do Apache Hadoop com o Enterprise Security Package
 
@@ -22,7 +22,7 @@ No passado, o Azure HDInsight suportado apenas um único utilizador: administrad
 
 Pode criar um cluster do HDInsight com o pacote de segurança empresarial (ESP), que está associado a um domínio do Active Directory. Em seguida, pode configurar uma lista de funcionários da empresa que podem autenticar através do Azure Active Directory para iniciar sessão no cluster do HDInsight. Ninguém de fora da empresa pode iniciar sessão ou aceder ao cluster do HDInsight. 
 
-O administrador da empresa, pode configurar o controlo de acesso baseado em funções (RBAC) para o Apache Hive security utilizando [Apache Ranger](http://hortonworks.com/apache/ranger/). Configurar o RBAC restringe o acesso a dados a apenas o que é necessário. Por fim, o administrador pode auditar o acesso a dados por funcionários e quaisquer alterações efetuadas às políticas de controlo de acesso. O administrador, em seguida, pode obter um alto grau de governação de recursos da sua empresa.
+O administrador da empresa, pode configurar o controlo de acesso baseado em funções (RBAC) para o Apache Hive security utilizando [Apache Ranger](https://hortonworks.com/apache/ranger/). Configurar o RBAC restringe o acesso a dados a apenas o que é necessário. Por fim, o administrador pode auditar o acesso a dados por funcionários e quaisquer alterações efetuadas às políticas de controlo de acesso. O administrador, em seguida, pode obter um alto grau de governação de recursos da sua empresa.
 
 > [!NOTE]
 > Oozie está agora ativada nos clusters do ESP. Para aceder à IU da web de Oozie, devem ativar os utilizadores [túnel](../hdinsight-linux-ambari-ssh-tunnel.md).
@@ -44,14 +44,14 @@ Com esta configuração, empregados da empresa podem iniciar sessão nós do clu
 ## <a name="authorization"></a>Autorização
 Uma prática recomendada que se seguem a maioria das empresas é garantir que nem todos os empregados têm acesso a todos os recursos da empresa. Da mesma forma, o administrador pode definir políticas de controlo de acesso baseado em funções para os recursos do cluster. 
 
-Por exemplo, o administrador pode configurar o [Apache Ranger](http://hortonworks.com/apache/ranger/) para definir políticas de controlo de acesso para o Hive. Esta funcionalidade garante que os empregados podem aceder apenas quantidade de dados que precisam para ter êxito nas suas tarefas. Acesso SSH ao cluster também está limitado a apenas o administrador.
+Por exemplo, o administrador pode configurar o [Apache Ranger](https://hortonworks.com/apache/ranger/) para definir políticas de controlo de acesso para o Hive. Esta funcionalidade garante que os empregados podem aceder apenas quantidade de dados que precisam para ter êxito nas suas tarefas. Acesso SSH ao cluster também está limitado a apenas o administrador.
 
 ## <a name="auditing"></a>Auditoria
 A auditoria de acesso de todos os recursos de cluster e os dados, é necessário para controlar o acesso não autorizado ou não intencional dos recursos. É tão importante quanto a proteger os recursos de cluster do HDInsight contra utilizadores não autorizados e proteção dos dados. 
 
 O administrador pode ver e comunicar todo o acesso aos dados e recursos de cluster do HDInsight. O administrador também pode ver e comunicar todas as alterações para as políticas de controlo de acesso criadas nos pontos finais suportados do Ranger Apache. 
 
-Um cluster do HDInsight com ESP usa a IU familiar do Ranger Apache para procurar registos de auditoria. No back-end, o Ranger utiliza [Apache Solr](http://hortonworks.com/apache/solr/) para armazenar e procurar os registos.
+Um cluster do HDInsight com ESP usa a IU familiar do Ranger Apache para procurar registos de auditoria. No back-end, o Ranger utiliza [Apache Solr](https://hortonworks.com/apache/solr/) para armazenar e procurar os registos.
 
 ## <a name="encryption"></a>Encriptação
 Proteção de dados é importante para os requisitos de segurança e conformidade organizacionais no reunião. Além de restringir o acesso aos dados de empregados não autorizados, deve criptografá-lo. 

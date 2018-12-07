@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 48b1e47befa647a9d221e5cdf5bf0485c3b66028
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 588e56c9ae22578c08dbca07c7c576fe8b577b58
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423832"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Tutorial: Integração do Azure Active Directory com pequenas melhorias
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com pequenas melhorias, precisa do seguinte:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um pequeno melhorias logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração de pequenas melhorias para o Azure AD, terá de a
 
 **Para adicionar pequenas melhorias a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -216,7 +216,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no pequenas melhorias, te
 
     b. Introduza o **Apelido** do utilizador, como **Simon**.
 
-    c. Introduza o **E-Mail** do utilizador, como **brittasimon@contoso.com**. 
+    c. Introduza o **E-Mail** do utilizador, como <strong>brittasimon@contoso.com</strong>. 
 
     d. Também é possível inserir a mensagem pessoal na **Enviar notificação por e-mail** caixa. Se não pretender enviar a notificação, em seguida, desmarque esta caixa de verificação.
 
