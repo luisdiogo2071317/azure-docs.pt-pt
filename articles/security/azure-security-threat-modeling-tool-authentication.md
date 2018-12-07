@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: e502004db62713585d68cdda6f80b4e4024dde28
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1170266ed0b59c53adce4e44fe3e7a0bc62f394e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971220"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014866"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Quadro de segurança: Autenticação | Atenuações 
 | Produtos/serviços | Artigo |
@@ -245,7 +245,7 @@ ms.locfileid: "52971220"
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Implementação de servidores de identidade - colocação em cache](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
-| **Passos** | <p>IdentityServer tem um simple cache de memória incorporado. Embora isso seja bom para aplicações nativas de pequena escala, não dimensionar para aplicações de camada e o back-end mid pelos seguintes motivos:</p><ul><li>Esses aplicativos são acessados por vários utilizadores em simultâneo. A guardar todos os tokens de acesso no mesmo arquivo cria os problemas de isolamento e apresenta desafios quando operando em escala: muitos usuários, cada um com os tokens dos recursos que a aplicação acede em seu nome, podem significar a enorme quantidade e operações de pesquisa muito dispendiosa</li><li>Esses aplicativos são normalmente implantados em topologias distribuídas, em que vários nós tem de ter acesso ao mesmo cache</li><li>Tokens em cache devem sobreviver causam a reciclagem das processo e desativações</li><li>Por motivos acima, durante a implementação de aplicações web, recomenda-se para substituir o cache de token do servidor de identidades de padrão com uma alternativa dimensionável, como o cache de Redis do Azure</li></ul>|
+| **Passos** | <p>IdentityServer tem um simple cache de memória incorporado. Embora isso seja bom para aplicações nativas de pequena escala, não dimensionar para aplicações de camada e o back-end mid pelos seguintes motivos:</p><ul><li>Esses aplicativos são acessados por vários utilizadores em simultâneo. A guardar todos os tokens de acesso no mesmo arquivo cria os problemas de isolamento e apresenta desafios quando operando em escala: muitos usuários, cada um com os tokens dos recursos que a aplicação acede em seu nome, podem significar a enorme quantidade e operações de pesquisa muito dispendiosa</li><li>Esses aplicativos são normalmente implantados em topologias distribuídas, em que vários nós tem de ter acesso ao mesmo cache</li><li>Tokens em cache devem sobreviver causam a reciclagem das processo e desativações</li><li>Por motivos acima, durante a implementação de aplicações web, recomenda-se para substituir o cache de tokens do servidor de identidades de predefinido com uma alternativa dimensionável, como o Azure Cache de Redis</li></ul>|
 
 ## <a id="binaries-signed"></a>Certifique-se de que os binários da aplicação implementada são assinados digitalmente
 
@@ -361,7 +361,7 @@ O `<netMsmqBinding/>` elemento do ficheiro de configuração de WCF abaixo Instr
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Autenticação moderna com o Azure Active Directory para aplicações Web](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [usando o Redis como cache de token da ADAL](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
-| **Passos** | <p>O cache padrão que utiliza a ADAL (Active Directory Authentication Library) é uma cache dentro da memória que se baseia num armazenamento estático, disponível em todo o processo. Embora funcione para aplicativos nativos, não dimensionar para aplicações de camada e o back-end mid pelos seguintes motivos:</p><ul><li>Esses aplicativos são acessados por vários utilizadores em simultâneo. A guardar todos os tokens de acesso no mesmo arquivo cria os problemas de isolamento e apresenta desafios quando operando em escala: muitos usuários, cada um com os tokens dos recursos que a aplicação acede em seu nome, podem significar a enorme quantidade e operações de pesquisa muito dispendiosa</li><li>Esses aplicativos são normalmente implantados em topologias distribuídas, em que vários nós tem de ter acesso ao mesmo cache</li><li>Tokens em cache devem sobreviver causam a reciclagem das processo e desativações</li></ul><p>Por motivos acima, durante a implementação de aplicações web, recomenda-se para substituir o padrão cache de token ADAL com uma alternativa dimensionável, como o cache de Redis do Azure.</p>|
+| **Passos** | <p>O cache padrão que utiliza a ADAL (Active Directory Authentication Library) é uma cache dentro da memória que se baseia num armazenamento estático, disponível em todo o processo. Embora funcione para aplicativos nativos, não dimensionar para aplicações de camada e o back-end mid pelos seguintes motivos:</p><ul><li>Esses aplicativos são acessados por vários utilizadores em simultâneo. A guardar todos os tokens de acesso no mesmo arquivo cria os problemas de isolamento e apresenta desafios quando operando em escala: muitos usuários, cada um com os tokens dos recursos que a aplicação acede em seu nome, podem significar a enorme quantidade e operações de pesquisa muito dispendiosa</li><li>Esses aplicativos são normalmente implantados em topologias distribuídas, em que vários nós tem de ter acesso ao mesmo cache</li><li>Tokens em cache devem sobreviver causam a reciclagem das processo e desativações</li></ul><p>Por motivos acima, durante a implementação de aplicações web, recomenda-se para substituir o padrão cache de token ADAL com uma alternativa dimensionável, como o Azure Cache de Redis.</p>|
 
 ## <a id="tokenreplaycache-adal"></a>Certifique-se de que TokenReplayCache é utilizado para evitar a repetição de tokens de autenticação da ADAL
 

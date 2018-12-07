@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: a4f9fc31f411d36e63775a3665b6dfe27eec7710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e76464e294a3378bf3a275ec4fe7ccbd87c09475
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319380"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011645"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Políticas de segurança do Azure monitorizadas pelo centro de segurança do Azure
 Este artigo fornece uma lista de definições de política do Azure que pode ser monitorizada no Centro de segurança.
@@ -43,7 +43,7 @@ Para compreender as diretivas internas que são monitorizadas pelo centro de seg
 |Auditar a definição da propriedade ClusterProtectionLevel para EncryptAndSign no Service Fabric|O Service Fabric fornece três níveis de proteção (nenhum, início de sessão e EncryptAndSign) para a comunicação de nó para nó a utilizar um certificado de cluster principal. Defina o nível de proteção para garantir que todas as mensagens de nó para nó são criptografadas e assinadas digitalmente.| 
 |Auditoria de utilização do Azure Active Directory para autenticação de clientes no Service Fabric|Auditoria de utilização de autenticação de cliente apenas através do Azure Active Directory no Service Fabric| 
 |Auditoria de ativação de registos de diagnóstico para o serviço de Pesquisa|Ativar registos de auditoria e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida.| 
-|Auditoria de ativação apenas de ligações seguras à Cache de Redis|Auditoria que ative apenas as ligações através de SSL para a Cache de Redis. Utilização de ligações seguras garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camada de rede, tais como o man-in-the-middle, interceptação e seqüestro de sessão| 
+|Auditar a habilitação de protegeria apenas ligações a sua Cache do Azure para Redis|Auditoria que ative apenas ligações através de SSL para o Azure Cache de Redis. Utilização de ligações seguras garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camada de rede, tais como o man-in-the-middle, interceptação e seqüestro de sessão| 
 |Auditoria de ativação de registos de diagnóstico no Logic Apps|Ativar registos de auditoria e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida.| 
 |Auditoria de ativação de registos de diagnóstico no Cofre de Chaves|Ativar registos de auditoria e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida.|
 |Auditar a ativação dos registos de diagnóstico no Hub de Eventos|Ativar registos de auditoria e retenha-los até um ano. Isto permite que a recriação de registos de atividade para efeitos de investigação, quando ocorrer um incidente de segurança ou a rede estiver comprometida.| 

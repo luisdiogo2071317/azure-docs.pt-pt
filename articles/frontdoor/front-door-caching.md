@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 6c62e2e559749ae8dc29e86d9c2414c28b487995
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 97c02726c7e359195c6bf4ea793404562f2acccf
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965624"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001951"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Colocação em cache com o serviço de porta de entrada do Azure
 O documento seguinte especifica o comportamento de porta de entrada com regras de encaminhamento que tem ativado a colocação em cache.
@@ -26,7 +26,7 @@ O serviço de porta de entrada do Azure fornece ficheiros grandes sem um limite 
 
 </br>Depois do bloco chega ao ambiente de porta de entrada, é colocado em cache e servido imediatamente para o utilizador. Em seguida, a porta da frente pré-busca o próximo bloco em paralelo. Este obtenção prévia garante que o conteúdo permanece um trecho de um passo à frente do utilizador, o que reduz a latência. Este processo continua até que todo o ficheiro é transferido (se requerido), todos os intervalos de byte estão disponíveis (se requerido), ou o cliente encerra a conexão.
 
-</br>Para obter mais informações sobre a solicitação de intervalo de bytes, leia [RFC 7233](http://www.rfc-base.org/rfc-7233.html).
+</br>Para obter mais informações sobre a solicitação de intervalo de bytes, leia [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
 Porta de entrada armazena em cache quaisquer partes à medida que estão a receber e para que todo o arquivo não precisa ser colocado em cache na cache de porta de entrada. Pedidos subsequentes para os intervalos de bytes ou ficheiro são servidos a partir da cache. Se não todos os segmentos são colocadas em cache, obtenção prévia é utilizado para pedir a segmentos de back-end. Essa otimização baseia-se à capacidade de back-end para suportar pedidos de intervalo de bytes; Se o back-end não suportar pedidos de intervalo de bytes, essa otimização não é eficaz.
 
 ## <a name="file-compression"></a>Compressão de ficheiros
@@ -116,5 +116,5 @@ Os seguintes cabeçalhos de pedido não serão reencaminhados para um back-end a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [criar uma porta de entrada](quickstart-create-front-door.md).
-- Saiba mais [como funciona a porta da frente](front-door-routing-architecture.md).
+- Saiba como [criar um Front Door](quickstart-create-front-door.md).
+- Saiba [como funciona o Front Door](front-door-routing-architecture.md).

@@ -19,7 +19,7 @@
 # Relacionado
 ## [Centro de Segurança](https://azure.microsoft.com/services/security-center/)
 ## [Assistente de BD SQL](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
-## [Cache de Redis](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
+## [Cache do Azure para Redis](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
 ## [Serviço de Aplicações](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # Recursos

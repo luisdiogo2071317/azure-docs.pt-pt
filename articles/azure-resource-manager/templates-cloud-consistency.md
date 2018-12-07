@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: mavane
-ms.openlocfilehash: f1ff151c0b8d89910949d961b732c10901f19293
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fc1ca468545dc3a715fb11dbec459e14e60ade5b
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38590535"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017778"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolver modelos Azure Resource Manager para consistência de cloud
 
@@ -434,7 +434,7 @@ Recursos podem ter referências a outros serviços na plataforma. Por exemplo, u
 Os dois exemplos seguintes são comuns espaços de nomes de ponto final que têm de ser explicitamente especificados durante a criação de um recurso:
 
 * Contas de armazenamento (blob, fila, tabela e ficheiro)
-* Cadeias de ligação de bases de dados e a Cache de Redis
+* Cadeias de ligação de bases de dados e a Cache de Redis do Azure
 
 Espaços de nomes de ponto final podem também servir na saída de um modelo de informações para o utilizador quando a implementação estiver concluída. Seguem-se exemplos comuns:
 

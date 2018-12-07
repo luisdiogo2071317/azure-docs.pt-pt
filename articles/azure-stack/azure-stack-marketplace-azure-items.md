@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: adde29b0719f777bc6cf3ab86adbdeec4befddf0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e4f15da8464c2103b5f6540d342cb7c741a67c5f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842429"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994849"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Itens do Azure Marketplace disponíveis para o Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack.*
 
-## <a name="virtual-machine-extensions"></a>Extensões de máquina virtual
+## <a name="virtual-machine-extensions"></a>Extensões da Máquina Virtual
 
 Sempre que existirem atualizações para extensões de máquina virtual (VM) que utiliza, deve baixá-los. Extensões fornecidas no produto não atualizar no processo normal de patches e atualizações; então, procure atualizações com frequência. Outras extensões só estão disponíveis através da gestão do Marketplace.
 
@@ -88,7 +88,6 @@ Microsoft Azure Stack suporta as seguintes máquinas virtuais do Azure Marketpla
 | ![Contentor Linux, CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Contentor Linux, CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Contentor Linux é uma distribuição Linux mínima e moderna, fornecendo uma forma fácil de executar contentores, gerir clusters e atualizar os servidores de forma totalmente integrada – todos os componentes que permitem a escala do armazém de computação. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server é Linux de mais popular do mundo para ambientes de nuvem. | Canónico |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux é uma das distribuições de Linux mais populares. | credativ |
-| ![Debian 9 "Stretch"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 "Stretch"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian9) | Debian GNU/Linux é uma das distribuições de Linux mais populares. | credativ |
 | ![6.9 baseada em centOS](media/azure-stack-marketplace-azure-items/roguewave.png) | [6.9 baseada em centOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | Essa distribuição do Linux é baseada em CentOS e é fornecida pelo Software de onda de sistemas não autorizados. | Software de onda de não autorizado (anteriormente conhecido como OpenLogic)  |
 | ![6.10 baseada em centOS](media/azure-stack-marketplace-azure-items/roguewave.png) | [6.10 baseada em centOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Essa distribuição do Linux é baseada em CentOS e é fornecida pelo Software de onda de sistemas não autorizados. | Software de onda de não autorizado (anteriormente conhecido como OpenLogic)  |
 | ![CentOS-based 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [Baseada em centOS 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | Essa distribuição do Linux é baseada em CentOS e é fornecida pelo Software de onda de sistemas não autorizados. | Software de onda de não autorizado (anteriormente conhecido como OpenLogic) |
