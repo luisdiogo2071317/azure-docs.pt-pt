@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: efca5c4155372456100126671e7d5cd1ccf0cbbc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981691"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53027903"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utilize as ferramentas de automatização de infraestrutura com máquinas virtuais no Azure
 Para criar e gerir máquinas virtuais do Azure (VMs) de forma consistente à escala, alguma forma de automatização é normalmente pretende-se. Existem muitas ferramentas e soluções que permitem-lhe automatizar a implementação de toda a infraestrutura do Azure e o ciclo de vida de gestão. Este artigo apresenta algumas das ferramentas de automatização de infraestruturas que pode utilizar no Azure. Essas ferramentas normalmente se adaptam a uma das abordagens seguintes:
@@ -23,7 +23,7 @@ Para criar e gerir máquinas virtuais do Azure (VMs) de forma consistente à esc
     - [A automatização do Azure](#azure-automation) pode realizar ações em toda a infraestrutura do Azure e no local.
 
 - Automatizar a implantação de aplicativos e de entrega
-    - Os exemplos incluem [serviços do Azure DevOps](#visual-studio-team-services) e [Jenkins](#jenkins).
+    - Os exemplos incluem [serviços do Azure DevOps](#azure-devops-services) e [Jenkins](#jenkins).
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/) é um motor de automatização para gestão de configuração, a criação da VM ou implementação de aplicação. Ansible utiliza um modelo sem agente, normalmente, com chaves SSH, para autenticar e gerir máquinas de destino. Tarefas de configuração são definidas no playbooks, com um número de módulos do Ansible disponíveis para executar tarefas específicas. Para obter mais informações, consulte [funciona como Ansible](https://www.ansible.com/how-ansible-works).
