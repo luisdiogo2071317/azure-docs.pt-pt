@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: obter a intenção-C#'
+title: Obter a intenção,C#
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com C#, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
+description: Neste C# início rápido, utilize uma aplicação do LUIS pública disponível para determinar a intenção de um utilizador de texto de conversação.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c498554bea0722f81d5dd52d77c0bc88d16e2332
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 22b2faa91be9b4a2504bff542deb559d33b9fa4f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015070"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101046"
 ---
 # <a name="quickstart-get-intent-using-c"></a>Guia de Início Rápido: Obter a intenção com C#
 

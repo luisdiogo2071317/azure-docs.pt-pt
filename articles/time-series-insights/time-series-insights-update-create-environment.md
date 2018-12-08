@@ -1,6 +1,6 @@
 ---
-title: Tutorial do Azure Time Series Insights (pré-visualização) | Documentos da Microsoft
-description: Saiba mais sobre o Azure Time Series Insights (pré-visualização)
+title: Configurar um tutorial de ambiente de pré-visualização do Azure Time Series Insights | Documentos da Microsoft
+description: Saiba como configurar o ambiente de pré-visualização do Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,161 +9,164 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.openlocfilehash: d4f69533a68e11b3e171963429b141cf0736472d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 20cec1305f84bd1ff7e01f2e1d38f374aa17bc6f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014638"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106688"
 ---
-# <a name="azure-time-series-insights-preview-tutorial"></a>Tutorial do Azure Time Series Insights (pré-visualização)
+# <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutorial: Configurar um ambiente de pré-visualização do Azure Time Series Insights
 
-Este tutorial descreve o processo de criação de um ambiente de pré-visualização do Azure Time Series Insights (TSI), preenchido com dados a partir de dispositivos simulados. Neste tutorial, ficará a saber como:
+Este tutorial orienta-o ao longo do processo de criação de um ambiente de pré-visualização do Azure Time Series Insights, que é preenchido com dados a partir de dispositivos simulados. Neste tutorial, ficará a saber como:
 
-* Crie um ambiente de TSI (pré-visualização).
-* Ligar o ambiente do TSI (pré-visualização) para um Hub de eventos.
-* Execute uma simulação de farm do vento para transmitir dados para o ambiente de pré-visualização do TSI.
+* Crie um ambiente de pré-visualização do Time Series Insights.
+* Ligar o ambiente de pré-visualização do Time Series Insights para um hub de eventos nos Hubs de eventos do Azure.
+* Execute uma simulação de farm do vento para transmitir dados para o ambiente de pré-visualização do Time Series Insights.
 * Execute análise básica nos dados.
 * Definir um tipo de modelo de série de tempo e a hierarquia e associá-lo a suas instâncias.
 
-## <a name="create-a-time-series-insights-preview-environment"></a>Criar um ambiente do Time Series Insights (pré-visualização)
+## <a name="create-a-time-series-insights-preview-environment"></a>Criar um ambiente de pré-visualização do Time Series Insights
 
-Esta secção descreve como criar um ambiente do Azure TSI (pré-visualização) utilizando o [Portal do Azure](https://portal.azure.com/).
+Esta secção descreve como criar um ambiente de pré-visualização do Time Series Insights com o [portal do Azure](https://portal.azure.com/).
 
-1. Inicie sessão no Portal do Azure com a sua conta de subscrição
-1. Selecione **+ Criar um recurso** no canto superior esquerdo.
-1. Selecione a categoria **Internet das Coisas** e, em seguida, **Time Series Insights**.
+1. Inicie sessão no portal do Azure com a sua conta de subscrição.
 
-   ![um tutorial][1]
+1. Selecione **criar um recurso**.
 
-1. Na página de ambiente do Time Series Insights, preencha os parâmetros necessários e clique em **seguinte: origem de evento**. Para este tutorial, defina o **ID de série de tempo** como `Id`. Para saber mais sobre **IDs de série de tempo**, leia [IDs de série de tempo](./time-series-insights-update-how-to-id.md).
+1. Selecione o **Internet das coisas** categoria e, em seguida, selecione **Time Series Insights**.
 
-   ![Tutorial-dois][2]
+  ![Selecione criar um recurso, em seguida, selecione a Internet das coisas e, em seguida, selecione o Time Series Insights][1]
 
-1. Sobre o **origem do evento** página, preencha os parâmetros necessários e clique em **rever + criar**. Para este tutorial, defina o **Timestamp** campo de propriedade como `Timestamp`.
+1. Sobre o **Noções básicas** separador, introduza os parâmetros necessários e, em seguida, selecione **seguinte: origem de evento**
 
-   ![Tutorial-três][3]
+  ![O separador de noções básicas de ambiente do Time Series Insights e o próximo: botão de origem do evento][2]
 
-1. Reveja todos os detalhes e clique em **criar** para iniciar o aprovisionamento do seu ambiente.
+1. Sobre o **origem do evento** separador, introduza os parâmetros necessários e, em seguida, selecione **rever + criar**.
 
-   ![Tutorial-quatro][4]
+  ![O separador de origem do evento e a revisão + botão Criar][3]
 
-1. Receberá uma notificação quando a implementação foi concluída com êxito.
+1. Sobre o **resumo** separador, reveja todos os detalhes e, em seguida, selecione **criar** para iniciar o aprovisionamento do seu ambiente.
 
-   ![Tutorial-cinco][5]
+  ![A guia resumo e no botão Criar][4]
 
-## <a name="send-events-to-your-tsi-environment"></a>Enviar eventos para o seu ambiente do TSI
+1. Quando a implementação for bem-sucedida, é apresentada uma notificação.
 
-Nesta secção, irá utilizar um simulador de dispositivos de windmill para enviar eventos para o seu ambiente do TSI através de um Hub de eventos.
+  ![Notificação de implementação concluída com êxito][5]
 
-  1. No Portal do Azure, navegue para o recurso do hub de eventos e ligá-lo ao seu ambiente do TSI. Saiba mais [como ligar o seu recurso a um Hub de eventos existente](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+## <a name="send-events-to-your-time-series-insights-environment"></a>Enviar eventos para o seu ambiente do Time Series Insights
 
-  1. Na página de recursos do Hub de eventos, aceda a **políticas de acesso partilhado** e, em seguida **RootManageSharedAccessKey**. Copiar o **ligação chave primária da cadeia de caracteres** apresentado aqui.
+Nesta secção, vai utilizar um simulador de dispositivos de windmill para enviar eventos para o seu ambiente do Time Series Insights através de um hub de eventos.
 
-      ![Tutorial-seis][6]
+  1. No portal do Azure, aceda ao seu recurso do hub de eventos e ligá-lo ao seu ambiente do Time Series Insights. Para saber como, veja [ligar o seu recurso para um hub de eventos existente](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-  1. Vá para [https://tsiclientsample.azurewebsites.net/windFarmGen.html]( https://tsiclientsample.azurewebsites.net/windFarmGen.html). Esta aplicação web simula windmill dispositivos.
-  1. Cole a cadeia de ligação é copiada do passo 3 do **cadeia de ligação do Hub de eventos**
+  1. Na página de recursos do hub de eventos, aceda a **políticas de acesso partilhado** > **RootManageSharedAccessKey**. Copie o valor para **ligação chave primária da cadeia de caracteres**.
 
-      ![Tutorial-sete][7]
+      ![Copie o valor para a cadeia de ligação da chave primária][6]
 
-  1. Clique em **clique para iniciar** enviar eventos para o Hub de eventos. Nesta fase, um arquivo chamado `instances.json` serão transferidos para o seu computador. Guarde este ficheiro uma vez que irá precisar deste mais tarde.
+  1. Vá para [https://tsiclientsample.azurewebsites.net/windFarmGen.html]( https://tsiclientsample.azurewebsites.net/windFarmGen.html). Esta aplicação web no URL simula windmill dispositivos.
 
-  1. Regresse ao seu Hub de eventos. Agora, deverá ver os novos eventos a ser recebidos pelo hub.d
+  1. Na **cadeia de ligação do Hub de eventos** caixa na página Web, cole a cadeia de ligação que copiou no passo anterior.
 
-      ![Tutorial-oito][8]
+      ![Cole a cadeia de ligação da chave primária na caixa de cadeia de ligação do Hub de eventos][7]
+
+  1. Selecione **clique aqui para iniciar** para enviar eventos para o event hub. Um ficheiro denominado *instances.json* é transferido para o seu computador. Guarde este ficheiro para utilizar mais tarde.
+
+  1. Regresse ao seu hub de eventos no portal do Azure. No hub de eventos **descrição geral** página, novos eventos que estão a ser recebidos pelo hub de eventos são apresentados.
+
+     ![Uma página de descrição geral do hub de eventos que mostra as métricas para o hub de eventos][8]
 
 ## <a name="analyze-data-in-your-environment"></a>Analisar dados no seu ambiente
 
-Nesta secção, irá efetuar a análise básica em seu tempo explorer de atualização de dados de série com o Time Series Insights.
+Nesta secção, é possível executar análise básica em seu tempo explorer de atualização de dados de série com o Time Series Insights.
 
-  1. Navegue para o Explorador de atualização do Time Series Insights clicando no URL da página de recursos no Portal do Azure.
+  1. Vá para o Explorador de atualização do Time Series Insights clicando no URL da página de recursos no portal do Azure.
 
-      ![Tutorial-nove][9]
+      ![O URL de Explorador do Time Series Insights][9]
 
-  1. No explorer, clique nas **instâncias Unparented** nós para ver todas as instâncias de série de tempo no ambiente.
+  1. No explorer, em **hierarquia física**, selecione a **instâncias Unparented** nós para ver todas as instâncias de série de tempo no ambiente.
 
-      ![Tutorial-dez][10]
+     ![Lista de instâncias unparented no painel de hierarquia física][10]
 
-  1. Neste tutorial, vamos analisar os dados enviados durante o último dia. Para tal, clique em **vezes rápidas** e selecione o **últimas 24 horas** opção.
+  1. Neste tutorial, vamos analisar os dados que lhe foi enviados ao longo do dia anterior. Selecione **vezes rápidas**e, em seguida, selecione **últimas 24 horas**.
 
-      ![Tutorial-11][11]
+     ![Na caixa de lista pendente de horas rápidas, selecione últimas 24 horas][11]
 
-  1. Selecione **Sensor_0** e escolha **Mostrar valor de média** para visualizar os dados que está a ser enviados a partir desta instância de série de tempo.
+  1. Selecione **Sensor_0**e, em seguida, selecione **Mostrar valor de média** para visualizar os dados que está a ser enviados a partir desta instância do Time Series Insights.
 
-      ![Tutorial-doze][12]
+     ![Selecione o valor de média de mostrar para Sensor_0][12]
 
-  1. Da mesma forma, pode desenhar dados provenientes de outras instâncias de série de tempo para executar a análise básica.
+  1. Da mesma forma, pode desenhar dados provenientes de outras instâncias do Time Series Insights para efetuar a análise básica.
 
-      ![treze para o tutorial][13]
+     ![Um desenho de dados do Time Series Insights][13]
 
-## <a name="define-a-type-and-hierarchy"></a>Definir um tipo e a hierarquia
+## <a name="define-a-type-and-hierarchy"></a>Definir um tipo e a hierarquia 
 
-Nesta secção, irá criar um tipo, a hierarquia e associá-las com as instâncias de série de tempo. Leia mais sobre [modelos de série de tempo](./time-series-insights-update-tsm.md).
+Nesta secção, criar um tipo e a hierarquia e, em seguida, associar o tipo e a hierarquia com as instâncias do Time Series Insights. Pode ler mais sobre [modelos de série de tempo](./time-series-insights-update-tsm.md).
 
-  1. No explorer, clique nas **modelo** separador na barra da aplicação.
+  1. No explorer, selecione o **modelo** separador.
 
-      ![Tutorial-quatorze][14]
+     ![O separador de modelo no menu do explorer][14]
 
-  1. Na secção de tipos, clique em **+ adicionar**. Isso permitirá que criar um novo tipo de modelo de série de tempo.
+  1. Na **tipos** secção, selecione **Add** para criar um novo tipo de modelo de série de tempo.
 
-      ![Tutorial-quinze][15]
+     ![Botão Adicionar na página de tipos][15]
 
-  1. No editor de tipo, introduza um **Name**, **Descrição**e criar variáveis para **média**, **Min**, e **Max** os valores, conforme mostrado abaixo. Clique em **criar** para guardar o tipo.
+  1. No editor de tipo, introduza os valores para **Name** e **Descrição**. Criar variáveis para **médio**, **Mín**, e **Max** os valores, conforme mostrado nas imagens seguintes. Selecione **criar** para guardar o tipo.
 
-      ![Tutorial-16][16]
+     ![A adicionar um tipo de painel e no botão Criar][16]
 
-      ![Tutorial-seventeen][17]
+     ![Os tipos de exemplo Windmill][17]
 
-  1. Na **hierarquias** secção, clique em **+ adicionar**. Isso permitirá que criar uma nova hierarquia de modelo de série de tempo.
+  1. Na **hierarquias** secção, selecione **Add** para criar uma nova hierarquia de modelo de série de tempo.
 
-     ![Tutorial-dezoito][18]
+     ![Botão Adicionar na página de hierarquias][18]
 
-  1. No editor de hierarquia, introduza um **nome** e adicionar níveis de hierarquia, conforme mostrado abaixo. Clique em **criar** para guardar a hierarquia.
+  1. No editor de hierarquia, introduza um valor para **nome** e adicionar níveis de hierarquia. Selecione **criar** para guardar a hierarquia.
 
-     ![Tutorial-dezenove][19]
+     ![Adicionar uma hierarquia de painel e no botão Criar][19]
 
-     ![Tutorial-vinte][20]
+     ![A caixa de hierarquia física][20]
 
-  1. Na **instâncias** secção, selecione uma instância e clique em **editar**. Isso permitirá que associe um tipo e a hierarquia com esta instância.
+  1. Na **instâncias** secção, selecione uma instância e, em seguida, selecione **editar** para associar um tipo e a hierarquia com esta instância.
 
-     ![Tutorial-vinte-um][21]
+     ![Lista de instâncias][21]
 
-  1. No editor de instância, escolha o tipo e a hierarquia definidas nos passos 3, 5 acima, conforme mostrado.
+  1. No editor de instância, selecione o tipo e a hierarquia que definiu nos passos 3 e 5.
 
-     ![Tutorial-vinte-dois][22]
+     ![A edição de um painel de instância][22]
 
-  1. Em alternativa, para fazer isso para todas as instâncias de uma só vez, pode editar o `instances.json` ficheiro transferido anteriormente. Neste ficheiro, substitua todo **typeId** e **hierarchyId** campos com o ID de obteve dos passos 3, 5 acima.
+  1. Em alternativa, para selecionar o tipo e a hierarquia para todas as instâncias de uma só vez, pode editar a *instances.json* ficheiro transferido anteriormente. Neste ficheiro, substitua todo **typeId** e **hierarchyId** campos com o ID de obteve nos passos 3 e 5.
 
-  1. Na **instâncias** secção, clique em **carregar JSON** e carregar o editado `instances.json` ficheiro, conforme mostrado abaixo.
+  1. Na **instâncias** secção, selecione **carregar JSON** e carregar o editado *instances.json* ficheiro.
 
-     ![Tutorial-vinte-três][23]
+     ![O botão carregar JSON][23]
 
-  1. Navegue para o **Analytics** separador e atualize o browser. Agora, deve ver todas as instâncias associadas com o tipo e a hierarquia definido acima.
+  1. Selecione o **Analytics** separador e atualize o browser. Todas as instâncias associadas com o tipo e a hierarquia que definiu devem aparecer.
 
-     ![Tutorial-vinte e quatro][24]
+     ![Um desenho de dados do Time Series Insights][24]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:  
 
-* Crie um ambiente de TSI (pré-visualização).
-* Ligar o ambiente do TSI (pré-visualização) para um Hub de eventos.
-* Execute uma simulação de farm do vento para transmitir dados para o ambiente do TSI (pré-visualização).
-* Execute análise básica nos dados.
-* Definir um tipo de modelo de série de tempo, a hierarquia e associá-lo a suas instâncias.
+* Crie um ambiente de pré-visualização do Time Series Insights.
+* Ligar o ambiente de pré-visualização do Time Series Insights para um hub de eventos.
+* Execute uma simulação de farm do vento para transmitir dados para o ambiente de pré-visualização do Time Series Insights.
+* Execute uma análise básica dos dados.
+* Definir um tipo de modelo de série de tempo e a hierarquia e associá-las com suas instâncias.
 
-Agora que sabe como criar seu próprio ambiente de atualização TSI, saiba mais sobre os conceitos fundamentais do TSI.
+Agora que sabe como criar seu próprio ambiente de atualização do Time Series Insights, saiba mais sobre os conceitos fundamentais do Time Series Insights.
 
-Leia sobre a configuração de armazenamento do TSI:
+Leia sobre a configuração de armazenamento do Time Series Insights:
 
 > [!div class="nextstepaction"]
-> [O armazenamento do Azure TSI (pré-visualização) e de entrada](./time-series-insights-update-storage-ingress.md)
+> [Armazenamento de pré-visualização do Time Series Insights do Azure e de entrada](./time-series-insights-update-storage-ingress.md)
 
 Saiba mais sobre os modelos de série de tempo:
 
 > [!div class="nextstepaction"]
-> [Modelação de dados TSI (pré-visualização) do Azure](./time-series-insights-update-tsm.md)
+> [Modelação de dados do Time Series Insights pré-visualização do Azure](./time-series-insights-update-tsm.md)
 
 <!-- Images -->
 [1]: media/v2-update-provision/tutorial-one.png

@@ -1,21 +1,22 @@
 ---
-title: 'Início Rápido: reconhecer voz no C# numa aplicação UWP com o SDK de Serviço de Voz'
+title: 'Início rápido: Reconhecer a conversão de voz, C# (UWP) - serviços de voz'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a reconhecer voz numa aplicação UWP com o SDK de Serviço de Voz
+description: Neste artigo, vai criar um C# aplicação plataforma Universal do Windows (UWP) com o SDK de voz dos serviços cognitivos. Converta voz em texto em tempo real, a partir do microfone do seu dispositivo. A aplicação baseia-se com o pacote de NuGet do SDK de voz e o Microsoft Visual Studio 2017.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 7b132ea9fea7591d32b693ef9c95acf7626c8fff
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 55988ef65e223c76a485c3cbec13626abf68d3b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218904"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104634"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Início Rápido: reconhecer voz numa aplicação UWP com o SDK de Voz
 
@@ -34,7 +35,7 @@ Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia 
 
 1. Inicie o Visual Studio 2017.
 
-1. Certifique-se de que a carga de trabalho de **desenvolvimento da Plataforma Universal do Windows** está disponível. Escolha **Ferramentas** > **Obter Ferramentas e Funcionalidades** na barra de menus do Visual Studio para abrir o instalador do Visual Studio. Se esta carga de trabalho já estiver ativada, feche a caixa de diálogo. 
+1. Certifique-se de que a carga de trabalho de **desenvolvimento da Plataforma Universal do Windows** está disponível. Escolha **Ferramentas** > **Obter Ferramentas e Funcionalidades** na barra de menus do Visual Studio para abrir o instalador do Visual Studio. Se esta carga de trabalho já estiver ativada, feche a caixa de diálogo.
 
     ![Captura de ecrã do instalador do Visual Studio, com o separador Cargas de Trabalho realçado](media/sdk/vs-enable-uwp-workload.png)
 
@@ -115,7 +116,7 @@ Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia 
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Procure este exemplo na pasta `quickstart/csharp-uwp`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Reconhecer intenções de voz com o SDK de Voz para C#](how-to-recognize-intents-from-speech-csharp.md)

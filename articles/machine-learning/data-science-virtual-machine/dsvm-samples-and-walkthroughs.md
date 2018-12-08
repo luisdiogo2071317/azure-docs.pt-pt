@@ -1,11 +1,12 @@
 ---
 title: Exemplos e orientações passo a passo para dados de máquinas virtuais de ciência - Azure | Documentos da Microsoft
-description: Exemplos e orientações passo a passo para máquinas de virtuais de ciência de dados.
+description: Saiba mais sobre os exemplos e orientações passo a passo que lhe explicam como realizar tarefas comuns e cenários com a máquina de Virtual de ciência de dados.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: 74d5893a377fb67dbec7b185525e74ac248deede
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 64be6af340aa02c6c0b094013d2cbd286286aca7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902761"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101998"
 ---
 # <a name="samples-on-data-science-virtual-machines"></a>Exemplos de máquinas de virtuais de ciência de dados
 

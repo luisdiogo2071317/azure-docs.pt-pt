@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 5: relações principais/subordinadas – entidade hierárquica do LUIS para dados adquiridos contextualmente'
+title: Entidade hierárquica
 titleSuffix: Azure Cognitive Services
 description: Localize fragmentos de dados relacionados com base no contexto. Por exemplo, as localizações de origem e destino para uma mudança física de um edifício e escritório para outros estão relacionadas.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 36751f533b59e0ff140f5ad03e7f1fc0fa9cad41
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a79c0091220e2980101471abaaa0aaf4c0a898ca
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000570"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104412"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: extrair dados relacionados contextualmente
 Neste tutorial, localize fragmentos de dados relacionados com base no contexto. Por exemplo, as localizações de origem e destino para uma mudança física de um edifício e escritório para outros estão relacionadas. Para gerar uma ordem de trabalho, ambos os fragmentos de dados podem ser necessários e estão relacionados entre si.  
@@ -32,7 +33,6 @@ A entidade hierárquica é uma boa opção para este tipo de dados porque os doi
 
 **Neste tutorial, ficará a saber como:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Utilizar a aplicação de tutorial existente
 > * Adicionar intenções 
@@ -90,7 +90,7 @@ O LUIS tem de compreender o que é uma localização ao etiquetar a origem e o d
 
 Considere a seguinte expressão:
 
-```JSON
+```json
 mv Jill Jones from a-2349 to b-1298
 ```
 
@@ -100,19 +100,19 @@ Se estiver presente apenas um elemento subordinado (origem ou destino) de uma en
 
 1. Na expressão `Displace 425-555-0000 away from g-2323 toward hh-2345`, selecione a palavra `g-2323`. É apresentado um menu pendente com uma caixa de texto na parte superior. Introduza o nome da entidade `Locations` na caixa de texto e selecione **Create new entity** (Criar nova entidade) no menu pendente. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Captura de ecrã da criação da nova entidade na página de intenções")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![Captura de ecrã da criação de nova entidade na página intenção](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "captura de ecrã da criação de nova entidade na página de intenção")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
 2. Na janela de pop-up, selecione o tipo de entidade **Hierarchical** (Hierárquica) com `Origin` e `Destination` como as entidades subordinadas. Selecione **Done** (Concluído).
 
-    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Captura de ecrã da caixa de diálogo de pop-up de criação de entidade para a nova entidade de Localização")
+    ![Captura de ecrã da caixa de diálogo de pop-up de criação de entidade para a nova entidade de localização](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "captura de ecrã da caixa de diálogo de pop-up de criação de entidade para a nova entidade de localização")
 
 3. O identificador para `g-2323` está assinalado como `Locations` porque o LUIS não sabe se o termo corresponde à origem ou ao destino, ou a nenhum dos dois. Selecione `g-2323`, selecione **Locations** e, em seguida, siga o menu à direita e selecione `Origin`.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Captura de ecrã da caixa de diálogo de pop-up de etiquetagem da entidade para alterar o subordinado da entidade Localizações")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![Captura de ecrã da caixa de diálogo pop-up de etiquetagem de entidade para alterar o filho de entidade de localizações](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "captura de ecrã da caixa de diálogo pop-up de etiquetagem de entidade para alterar o filho de entidade de localizações")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
 5. Etiquete as outras localizações em todas as expressões ao selecionar o edifício e o escritório na expressão, selecione Localizações e siga o menu à direita para selecionar `Origin` ou `Destination`. Quando todas as localizações estiverem etiquetadas, as expressões na **Vista de Tokens** começa a parecer um padrão. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Captura de ecrã da entidade Localizações etiquetada nas expressões")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![Em expressões com o nome de entidade de captura de ecrã de localizações](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "em expressões com o nome de entidade de captura de ecrã de localizações")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
 ## <a name="add-prebuilt-number-entity-to-app"></a>Adicionar a entidade de número pré-concebida à aplicação
 Adicione a entidade de número pré-concebida novamente à aplicação.
@@ -140,7 +140,7 @@ Adicione a entidade de número pré-concebida novamente à aplicação.
 
 2. Vá para o final do URL na barra de endereço e introduza `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. O último parâmetro querystring é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões identificadas, pelo que é um bom teste e deve devolver a intenção `MoveEmployee` com a entidade hierárquica extraída.
 
-    ```JSON
+    ```json
     {
       "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
       "topScoringIntent": {

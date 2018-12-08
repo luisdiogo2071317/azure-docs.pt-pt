@@ -1,21 +1,22 @@
 ---
-title: Compreender as suas chaves de LUIS
-titleSuffix: Azure Cognitive Services
-description: LUIS usa duas chaves, criação e o ponto final. A chave de criação é criada automaticamente quando criar a sua conta do LUIS. Quando estiver pronto para publicar a aplicação do LUIS, precisa para criar a chave de ponto de extremidade, atribuí-la à sua aplicação LUIS e utilizá-la com a consulta de ponto final.
+title: Chaves de subscrição
+titleSuffix: Language Understadning - Azure Cognitive Services
+description: LUIS usa duas chaves, a chave de criação de gratuita para criar o seu modelo e a chave de ponto final com tráfego limitado para consultar o ponto de final de previsão com expressões de utilizador.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f7c1753e71025d3ce39b1b6e3fb7362f2df212f5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 9b660743f335e1aa9ef7e7b569738d9ee3ca139d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637836"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104531"
 ---
 # <a name="keys-in-luis"></a>Chaves de LUIS
 LUIS usa duas chaves: [criação](#programmatic-key) e [endpoint](#endpoint-key). A chave de criação é criada automaticamente quando criar a sua conta do LUIS. Quando estiver pronto para publicar a aplicação do LUIS, precisa [criar a chave de ponto final](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [atribuí-la](luis-how-to-manage-keys.md#assign-endpoint-key) à sua aplicação LUIS, e [utilizá-la com a consulta de ponto final](#use-endpoint-key-in-query). 

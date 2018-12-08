@@ -1,6 +1,6 @@
 ---
-title: Como criar um grupo básico e adicionar membros com o Microsoft Azure Active Directory | Microsoft Docs
-description: Saiba como criar um grupo básico com o Microsoft Azure Active Directory.
+title: Criar um grupo básico e adicionar membros - Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como criar um grupo básico com o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,16 +11,15 @@ ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 36bd0ca06859c1952a75b1aa8397fba88dc22d40
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: be3271a1105e8222ae04e17140c6e925a1c612f9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574917"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105461"
 ---
-# <a name="how-to-create-a-basic-group-and-add-members-using-azure-active-directory"></a>Como: Criar um grupo básico e adicionar membros com o Microsoft Azure Active Directory
-
+# <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Criar um grupo básico e adicionar membros com o Azure Active Directory
 Pode criar um grupo básico através do portal do Microsoft Azure Active Directory (Microsoft Azure AD). Para os fins deste artigo, um grupo básico é adicionado a um único recurso pelo proprietário do recurso (administrador) e inclui membros específicos (funcionários) que precisam de aceder a esse recurso. Para cenários mais complexos, incluindo associações dinâmicas e criação de regras, veja [Documentação da gestão de utilizadores do Azure Active Directory](../users-groups-roles/index.yml).
 
 ## <a name="create-a-basic-group-and-add-members"></a>Criar um grupo básico e adicionar membros
@@ -72,7 +71,7 @@ Pode criar um grupo básico e adicionar os membros ao mesmo tempo.
 
     ![Página Descrição Geral do Grupo com o número de membros realçado](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que adicionou um grupo e, pelo menos, um utilizador, pode:
 
 - [Ver os seus grupos e membros](active-directory-groups-view-azure-portal.md)

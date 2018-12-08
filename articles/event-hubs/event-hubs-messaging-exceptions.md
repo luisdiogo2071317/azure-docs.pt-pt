@@ -1,6 +1,6 @@
 ---
-title: Exceções de mensagens dos Hubs de eventos do Azure | Documentos da Microsoft
-description: Lista de exceções e ações sugeridas de mensagens de Event Hubs do Azure.
+title: Mensagens exceções - Event Hubs do Azure | Documentos da Microsoft
+description: Este artigo fornece uma lista de exceções de mensagens de Hubs de eventos e ações sugeridas.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/03/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 4576aad82b8c581cbe1630b56a07fc469207ef5f
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 013386d86d29b75591a938b2805bde25ecf176d3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054747"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104480"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Exceções de mensagens dos Hubs de Eventos
 

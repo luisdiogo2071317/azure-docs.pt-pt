@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: reconhecer voz em Java (Windows ou Linux)'
+title: 'Início rápido: Reconhecer a conversão de voz, Java - serviços de voz'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer voz em Java (Windows ou Linux)
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 2b39084443690b99391268acb6352763657e2a3c
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 7d1f26a43866025c3b542fc10a3f316ad0d1dc37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218581"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103126"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Início Rápido: reconhecer voz em Java no Windows ou Linux com o SDK do Serviço de Voz
 
@@ -108,7 +108,7 @@ Os próximos 15 segundos de entrada de voz do microfone serão reconhecidos e re
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Procure este exemplo na pasta `quickstart/java-jre`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Reconhecer intenções de voz com o SDK de Voz para Java](how-to-recognize-intents-from-speech-java.md)

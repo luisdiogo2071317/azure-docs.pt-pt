@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: f7092a08e501ae61ef93be383290db575b5ad1f1
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: secdec18
+ms.openlocfilehash: 25a8057a1c547e29b209d87d9124a3e019957dd8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995566"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100859"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurar contas de armazenamento para o Cloudyn
 
@@ -35,18 +35,18 @@ Se não tiver um AWS bucket de serviço (S3) de armazenamento simples, precisa c
 
 A configurar o armazenamento do Azure para utilização por Cloudyn é simples. Recolher detalhes sobre a conta de armazenamento e copiá-los no portal do Cloudyn.
 
-1. Inicie sessão no portal do Azure em http://portal.azure.com.
+1. Inicie sessão no portal do Azure em https://portal.azure.com.
 2. Clique em **todos os serviços**, selecione **contas de armazenamento**, desloque-se para a conta de armazenamento que pretende utilizar e, em seguida, selecione a conta.
 3. Na sua página de conta de armazenamento em **configurações**, clique em **chaves de acesso**.
 4. Copiar seus **nome da conta de armazenamento** e **cadeia de ligação** em chave1.  
-![Chaves de acesso de armazenamento do Azure](./media/storage-accounts/azure-storage-access-keys.png)  
+![Copie a cadeia de ligação e o nome de conta de armazenamento](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Abra o portal da Cloudyn a partir do portal do Azure ou navegue para https://azure.cloudyn.com e inicie sessão.
 6. Clique no símbolo de engrenagem e, em seguida, selecione **gestão de armazenamento de relatórios**.
 7. Clique em **adicionar novo +** e certifique-se de que o Microsoft Azure está selecionada. Cole o seu nome de conta de armazenamento do Azure no **nome** área. Colar seu **cadeia de ligação** na área correspondente. Introduza um nome de contentor e, em seguida, clique em **guardar**.  
-![Armazenamento de Cloudyn configurado para o Azure](./media/storage-accounts/azure-cloudyn-storage.png)
+![Cole o nome e a ligação de cadeias de caracteres no adicionar uma nova caixa de armazenamento de relatório de conta de armazenamento do Azure](./media/storage-accounts/azure-cloudyn-storage.png)
 
   A nova entrada de armazenamento do Azure do relatório é apresentada na lista conta de armazenamento.  
-    ![Novo armazenamento de relatório do Azure na lista](./media/storage-accounts/azure-storage-entry.png)
+    ![Nova entrada de armazenamento do Azure do relatório na lista](./media/storage-accounts/azure-storage-entry.png)
 
 
 Agora pode salvar relatórios para o armazenamento do Azure. Em qualquer relatório, clique em **ações** e, em seguida, selecione **agendar relatório**. Nome do relatório e adicione o seu próprio URL ou utilize o URL criado automaticamente. Selecione **guardar no armazenamento** e, em seguida, selecione a conta de armazenamento. Introduza um prefixo que é anexado ao nome do ficheiro de relatório. Selecione o formato de ficheiro CSV ou JSON e, em seguida, guarde o relatório.
@@ -67,7 +67,7 @@ Quando cria uma nova política, fornecer as permissões exatas necessárias para
 4. Clique nas **JSON** separador.
 5. A seguinte política permite-lhe guardar um relatório para um registo de S3. Copie e cole o seguinte exemplo de política para o **JSON** separador. Substitua &lt;bucketname&gt; com o nome do registo.
 
-  ```
+  ```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -86,7 +86,7 @@ Quando cria uma nova política, fornecer as permissões exatas necessárias para
 ```
 
 6. Clique em **rever política**.  
-    ![Rever política](./media/storage-accounts/aws-policy.png)  
+    ![Política de JSON do AWS, mostrando as informações de exemplo](./media/storage-accounts/aws-policy.png)  
 7. Na página de política de revisão, escreva um nome para a sua política. Por exemplo, _CloudynSaveReport2S3_.
 8. Clique em **criar política**.
 
@@ -102,7 +102,7 @@ Para anexar a nova política, abra a consola do AWS e editar o utilizador ou fun
   1. Clique no nome de função do Cloudyn.
   2. Sobre o **permissões** separador, clique em **anexar política**.
   3. Procure a política que criou e selecioná-lo, em seguida, clique em **anexar política**.
-    ![AWS - anexar política para uma função](./media/storage-accounts/aws-attach-policy-role.png)
+    ![Política de exemplo ligada à sua função do Cloudyn](./media/storage-accounts/aws-attach-policy-role.png)
 
 **Para os utilizadores:**
 
@@ -111,7 +111,7 @@ Para anexar a nova política, abra a consola do AWS e editar o utilizador ou fun
 3. Na **conceder permissão** secção, selecione **anexar as políticas existentes diretamente**.
 4. Procure a política que criou e selecioná-lo, em seguida, clique em **seguinte: revisão**.
 5. Sobre as permissões de adicionar a página de nome de função, clique em **adicionar permissões**.  
-    ![AWS - anexar política para um utilizador](./media/storage-accounts/aws-attach-policy-user.png)
+    ![Política de exemplo ligada ao seu utilizador do Cloudyn](./media/storage-accounts/aws-attach-policy-user.png)
 
 
 ### <a name="optional-set-permission-with-bucket-policy"></a>Opcional: Definir a permissão com a política de registo
@@ -152,11 +152,11 @@ Também pode definir a permissão para criar relatórios no seu registo de S3 ut
 2. Clique no símbolo de engrenagem e, em seguida, selecione **gestão de armazenamento de relatórios**.
 3. Clique em **adicionar novo +** e certifique-se de que o AWS está selecionado.
 4. Selecione um registo de conta e de armazenamento. O nome do registo de armazenamento de AWS é automaticamente preenchido-in.  
-    ![Adicionar armazenamento de relatório para o registo AWS](./media/storage-accounts/aws-cloudyn-storage.png)  
+    ![Informações de exemplo no adicionar uma nova caixa de armazenamento de relatório](./media/storage-accounts/aws-cloudyn-storage.png)  
 5. Clique em **salvar** e, em seguida, clique em **Ok**.
 
     A nova entrada do armazenamento de relatório do AWS é apresentada na lista conta de armazenamento.  
-    ![Novo armazenamento de relatório AWS na lista](./media/storage-accounts/aws-storage-entry.png)
+    ![AWS novo relatório show de entrada de armazenamento na lista de conta de armazenamento](./media/storage-accounts/aws-storage-entry.png)
 
 
 Agora pode salvar relatórios para o armazenamento do Azure. Em qualquer relatório, clique em **ações** e, em seguida, selecione **agendar relatório**. Nome do relatório e adicione o seu próprio URL ou utilize o URL criado automaticamente. Selecione **guardar no armazenamento** e, em seguida, selecione a conta de armazenamento. Introduza um prefixo que é anexado ao nome do ficheiro de relatório. Selecione o formato de ficheiro CSV ou JSON e, em seguida, guarde o relatório.

@@ -1,6 +1,6 @@
 ---
 title: Identificar cenários e planeje seu processo de análise - Azure | Documentos da Microsoft
-description: Plano para análise avançada por uma série de perguntas importantes a considerar.
+description: Identificar cenários e planear para processamento de dados de análise avançada por uma série de perguntas importantes a considerar.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b61f6c12aaa94fc61063e8d3bd7e339f1548781c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: feea90b20bac1bce9924731119fab6e3fab04450
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446429"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105909"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Como identificar cenários e planear o processamento de dados de análises avançadas
 Quais recursos planeja incluir ao configurar um ambiente para fazer a análise avançada de processamento num conjunto de dados? Este artigo sugere uma série de perguntas para solicitar que o ajudam a identificar as tarefas e os recursos relevantes o seu cenário. A ordem dos passos de alto nível para Análise Preditiva é descrita na [o que é o Team Data Science Process (TDSP)?](overview.md). Cada uma dessas etapas exige recursos específicos para as tarefas relevantes para o seu cenário específico. Principais perguntas para identificar o seu cenário preocupação logística de dados, características, a qualidade dos conjuntos de dados e as ferramentas e linguagens de que preferir efetuar a análise.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 383b73d335c8993aa99109c7430d2292a3bfea4a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c451482f0aa9c2e6c0a15ab048885920889a2708
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836445"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106401"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de monitorização de VMware (pré-visualização) no Log Analytics
 
@@ -42,7 +42,7 @@ Utilize as seguintes informações para instalar e configurar a solução.
 vSphere anfitrião ESXi 5.5, 6.0 e 6.5
 
 #### <a name="prepare-a-linux-server"></a>Preparar um servidor do Linux
-Crie um sistema de operativo Linux VM receba todos os dados do syslog dos anfitriões ESXi. O [agente Linux do Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md) é o ponto de coleção para todos os dados de syslog do anfitrião ESXi. Pode usar vários anfitriões ESXi para reencaminhar os registos para um único servidor do Linux, como no exemplo seguinte.
+Crie um sistema de operativo Linux VM receba todos os dados do syslog dos anfitriões ESXi. O [agente Linux do Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md) é o ponto de coleção para todos os dados de syslog do anfitrião ESXi. Pode usar vários anfitriões ESXi para reencaminhar os registos para um único servidor do Linux, como no exemplo seguinte.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -90,7 +90,7 @@ A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre
 
 A tabela seguinte mostra exemplos de campos de dados recolhidos pela solução de monitorização de VMware:
 
-| Nome do campo | descrição |
+| nome do campo | descrição |
 | --- | --- |
 | Device_s |Dispositivos de armazenamento do VMware |
 | ESXIFailure_s |tipos de falha |

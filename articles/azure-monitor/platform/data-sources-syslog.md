@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 292def9303cf74142a55e1101fe6371476f9f09d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c5fe310e4ba491180b9905ee7e4c80cf814eb9ef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845217"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106299"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Origens de dados do syslog no Log Analytics
 Syslog é um protocolo de registo de eventos que é comum para Linux.  Aplicativos enviará as mensagens que podem ser armazenadas no computador local ou entregues a um recoletor de Syslog.  Quando é instalado o agente do OMS para Linux, este configura o daemon de Syslog local para encaminhar mensagens para o agente.  O agente, em seguida, envia a mensagem para o Log Analytics, onde é criado um registo de correspondente no repositório do OMS.  
@@ -45,7 +45,7 @@ Pode adicionar um novo recurso, escrevendo em seu nome e clicar **+**.  Para cad
 Por predefinição, todas as alterações de configuração são automaticamente enviados por push para todos os agentes.  Se quiser configurar o Syslog manualmente em cada agente do Linux, em seguida, desmarque a caixa *aplicar configuração abaixo aos meus computadores Linux*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configurar o Syslog no agente do Linux
-Quando o [agente do OMS está instalado num cliente Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md), ele instala um ficheiro de configuração do syslog de predefinição que define o recurso e a gravidade das mensagens que são recolhidos.  Pode modificar esse arquivo para alterar a configuração.  O ficheiro de configuração é diferente consoante o daemon de Syslog que tem instalado o cliente.
+Quando o [agente do OMS está instalado num cliente Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), ele instala um ficheiro de configuração do syslog de predefinição que define o recurso e a gravidade das mensagens que são recolhidos.  Pode modificar esse arquivo para alterar a configuração.  O ficheiro de configuração é diferente consoante o daemon de Syslog que tem instalado o cliente.
 
 > [!NOTE]
 > Se editar a configuração do syslog, tem de reiniciar o syslog daemon para que as alterações entrem em vigor.
@@ -208,5 +208,5 @@ A tabela seguinte fornece exemplos diferentes de consultas de registo que obter 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
-* Uso [campos personalizados](../../log-analytics/log-analytics-custom-fields.md) para analisar dados de registos de syslog em campos individuais.
-* [Configurar os agentes do Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) para recolher outros tipos de dados.
+* Uso [campos personalizados](../../azure-monitor/platform/custom-fields.md) para analisar dados de registos de syslog em campos individuais.
+* [Configurar os agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) para recolher outros tipos de dados.

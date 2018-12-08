@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 06fa9b9191104db3b141b6268a90a7c8f206280e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957932"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106078"
 ---
-# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Monitorizar alterações de máquina virtual com o Azure Event Grid e o Logic Apps
+# <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Tutorial: Monitorizar as alterações de máquina virtual com o Azure Event Grid e Logic Apps
 
 Pode iniciar um [fluxo de trabalho de aplicação lógica](../logic-apps/logic-apps-overview.md) automatizado quando ocorrerem eventos específicos em recursos do Azure ou recursos de terceiros. Estes recursos podem publicar esses eventos numa [grelha de eventos do Azure](../event-grid/overview.md). Por sua vez, a grelha de eventos envia esses eventos aos subscritores que têm filas, webhooks ou [hubs de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) como pontos finais. Como subscritor, a aplicação lógica pode aguardar esses eventos na grelha de eventos antes de executar fluxos de trabalho automatizados para efetuar tarefas, sem ter de escrever qualquer código.
 
@@ -244,6 +244,6 @@ Este tutorial utiliza recursos e realiza ações que incorrem em custos na sua s
 
 * Para eliminar permanentemente a sua aplicação lógica, no menu da mesma, selecione **Descrição geral**. Na barra de ferramentas, escolha **Eliminar**. Confirme que pretende eliminar a sua aplicação lógica e escolha **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Criar e encaminhar eventos personalizados com o Event Grid](../event-grid/custom-event-quickstart.md)

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7b9bc52e07bccf931593cd2dbddd68e973d1b26c
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.openlocfilehash: 7ce66d3f6117a5e395920dc2232efb0e43f4cd18
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394362"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106452"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>Início Rápido: Consultar dados no Azure Data Explorer
 
@@ -134,7 +134,7 @@ Agora que viu como funcionam as consultas básicas, vamos ver como pode usar a g
 
 1. Execute a consulta seguinte.
 
-    ```Kutso
+    ```Kusto
     StormEvents
     | sort by StartTime desc
     | where DamageProperty > 5000
@@ -186,7 +186,7 @@ O Data Explorer está atualmente em pré-visualização e agradecemos comentári
 
 Não criou recursos neste início rápido, mas se quiser remover um ou ambos os clusters da aplicação, clique com o botão direito do rato no cluster e selecione **Remover ligação**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Escrever consultas do Azure Data Explorer](write-queries.md)

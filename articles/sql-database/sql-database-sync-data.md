@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 78984cf9f73fd0cdd6e28e20e1d54d5b1198b7be
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 6963bb44e6377bcfbb2cb647f1508f075b4268be
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687491"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101853"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL
 
@@ -69,7 +69,7 @@ Sincronização de dados não é a solução preferencial para os seguintes cen�
 
 ## <a name="how-does-data-sync-work"></a>Como funciona a sincronização de dados? 
 
--   **O controle de alterações de dados:** sincronização de dados controla as alterações usando inserir, atualizar e eliminar acionadores. As alterações são gravadas numa tabela do lado da base de dados do utilizador.
+-   **O controle de alterações de dados:** sincronização de dados controla as alterações usando inserir, atualizar e eliminar acionadores. As alterações são gravadas numa tabela do lado da base de dados do utilizador. Tenha em atenção que inserção em massa não é disparado acionadores por predefinição. Não se não for especificado FIRE_TRIGGERS, executar nenhuma acionador insert. Adicione a opção de FIRE_TRIGGERS para que sincronização de dados possa acompanhar as inserções. 
 
 -   **Sincronização de dados:** sincronização de dados foi criada num modelo de Hub- and -Spoke. O Hub sincroniza com cada membro individualmente. Alterações do Hub de são transferidas para o membro e, em seguida, as alterações a partir do membro são carregadas para o Hub.
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: 427eb8abdede8c821d214d9f6a64fc6a122699de
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: f2bbcf0218291f91d3ee5b25e89a5f580e0c1c86
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002016"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105738"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -95,7 +95,7 @@ Durante a criação de subscrição de evento, se estiver a ver uma mensagem de 
 
 ### <a name="event-delivery-security"></a>Segurança de entrega de eventos
 
-Pode proteger o seu ponto final do webhook ao adicionar parâmetros de consulta para o URL do webhook durante a criação de uma subscrição de evento. Definir um destes parâmetros de consulta para ser um segredo como um [token de acesso](https://en.wikipedia.org/wiki/Access_token). O webhook pode utilizar para reconhecer que o evento é proveniente de Event Grid com permissões válidas. Grelha de eventos irá incluir esses parâmetros de consulta em cada entrega de eventos para o webhook.
+Pode proteger o seu ponto final do webhook ao adicionar parâmetros de consulta para o URL do webhook durante a criação de uma subscrição de evento. Definir um destes parâmetros de consulta para ser um segredo como um [token de acesso](https://en.wikipedia.org/wiki/Access_token). O webhook pode utilizar o segredo para reconhecer que o evento é proveniente de Event Grid com permissões válidas. Grelha de eventos irá incluir esses parâmetros de consulta em cada entrega de eventos para o webhook.
 
 Ao editar a subscrição de evento, os parâmetros de consulta não são apresentados ou retornados, a menos que o [– incluir-full--url de ponto final](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parâmetro é utilizado no Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 

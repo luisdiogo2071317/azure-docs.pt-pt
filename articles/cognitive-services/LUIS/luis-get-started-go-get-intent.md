@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: intenção de get - Go'
+title: Get intenção, Go
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com o Go, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
+description: Neste guia de introdução do Go, utilize uma aplicação do LUIS pública disponível para determinar a intenção de um utilizador de texto de conversação.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 7edaf384e7255708845a0112b0bd5ab27b9c3ed4
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 9768e7945a94c5b28a1f28ea0264108cd47865d6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013838"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104718"
 ---
 # <a name="quickstart-get-intent-using-go"></a>Guia de Início Rápido: Obter a intenção com Go
 

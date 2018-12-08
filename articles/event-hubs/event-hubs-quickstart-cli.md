@@ -1,5 +1,5 @@
 ---
-title: Início Rápido do Azure - Criar um hub de eventos com a CLI do Azure | Microsoft Docs
+title: Criar um hub de eventos com a CLI do Azure - Event Hubs do Azure | Documentos da Microsoft
 description: Este início rápido descreve como criar um hub de eventos com a CLI do Azure e, em seguida, enviar e receber eventos com Java.
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -7,15 +7,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 70aae0b9bcff25f079ea5ba77ed59221ad5ef11f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a26084480f8ca24f2b66375e863dd2231fff6b00
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972359"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103511"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Início Rápido: Criar um hub de eventos com a CLI do Azure
 

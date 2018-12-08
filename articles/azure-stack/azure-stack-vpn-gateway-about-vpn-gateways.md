@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 86fcec0321e8f1b92fdc554532cb8f949b1b1569
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496204"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081394"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Sobre o gateway VPN para o Azure Stack
 
@@ -108,9 +108,9 @@ A tabela seguinte mostra os tipos de gateways e o débito agregado estimado pelo
 
 |   | Débito do Gateway de VPN *(1)* | Gateway de VPN máximo de túneis IPsec *(2)* |
 |-------|-------|-------|
-|**SKU básico** ***(3)***    | 100 Mbps  | 10    |
-|**Standard SKU**       | 100 Mbps  | 10    |
-|**SKU de elevado desempenho** | 200 Mbps    | 5 |
+|**SKU básico** ***(3)***    | 100 Mbps  | 20    |
+|**Standard SKU**       | 100 Mbps  | 20    |
+|**SKU de elevado desempenho** | 200 Mbps    | 10    |
 
 **Notas de tabela:**
 

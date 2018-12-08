@@ -1,5 +1,6 @@
 ---
-title: Migrar para o serviço Azure Machine Learning
+title: Migrar da bancada de trabalho
+titleSuffix: Azure Machine Learning service
 description: Saiba como atualizar ou migrar para a versão final do serviço Azure Machine Learning a partir de uma versão anterior.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,14 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 8517b469e622068b37bb0fde34f5cfcd8703c7ee
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: cc60fd6a9d5f154d26fc9c495f190296453a0db0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877275"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106656"
 ---
-# <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migrar para a versão mais recente do serviço Azure Machine Learning 
+# <a name="migrate-from-workbench-to-the-latest-version-of-azure-machine-learning-service"></a>Migrar da bancada de trabalho para a versão mais recente do serviço Azure Machine Learning 
 
 **Se tiver instalado a aplicação Workbench e/ou ter experimentação e contas de pré-visualização de gestão de modelo, utilize este artigo para migrar para a versão mais recente.**  Se não tiver pré-visualização Workbench instalado, ou uma experimentação e/ou conta de gestão de modelos, não precisa de migrar nada.
 
@@ -75,11 +76,10 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 Para migrar os serviços da web, volte a implementar seus modelos com o novo SDK ou a CLI para os novos destinos de implementação. Não é necessário para alterar o seu ficheiro de classificação original, ficheiros de dependências de ficheiro de modelo, o ficheiro de ambiente e arquivos de esquema. 
 
-Na versão mais recente, os modelos são implementados como serviços da web para [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) ou [Azure Kubernetes Service](how-to-deploy-to-aks.md) clusters (AKS). 
+Na versão mais recente, os modelos são implementados como serviços da web para clusters do Azure Container Instances (ACI) ou Azure Kubernetes Service (AKS). 
 
 Saiba mais nestes artigos:
-+ [Implementar no ACI](how-to-deploy-to-aci.md)
-+ [Implementar no AKS](how-to-deploy-to-aks.md)
++ [Como implementar e, em que](how-to-deploy-and-where.md)
 + [Tutorial: Implementar modelos com o serviço Azure Machine Learning](tutorial-deploy-models-with-aml.md)
 
 Quando [suporte para as extremidades CLI anteriores](overview-what-happened-to-workbench.md#timeline), não será capaz de gerir os serviços da web que originalmente implementado com a sua conta de gestão de modelos. No entanto, esses serviços web vão continuar a funcionar para, desde que o Azure Container Service (ACS) ainda é suportado.

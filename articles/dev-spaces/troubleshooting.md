@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: 531b431a0753e34592e88211d8a58328fe8a4e45
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d3fbc8e5b6595b52fe5ab9e766a108d271f2f448
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014553"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104599"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -75,6 +75,7 @@ No Visual Studio:
 
     ![Caixa de diálogo Opções de captura de ecrã de ferramentas](media/common/VerbositySetting.PNG)
     
+### <a name="multi-stage-dockerfiles"></a>Vários estágios Dockerfiles:
 Poderá ver este erro quando tentar utilizar um Dockerfile vários estágio. A saída detalhada terá o seguinte aspeto:
 
 ```cmd
@@ -91,6 +92,21 @@ Service cannot be started.
 ```
 
 Isso é porque nós do AKS executados uma versão mais antiga do Docker não suporta vários estágios baseia-se. Terá de reescrever seu Dockerfile para evitar compilações de vários estágios.
+
+### <a name="re-running-a-service-after-controller-re-creation"></a>Voltar a executar um serviço após a criação de reavaliação de controlador
+Poderá ver este erro quando tentar voltar a executar um serviço, depois de ter removido e recriado, em seguida, o controlador de espaços de desenvolvimento do Azure associado a este cluster. A saída detalhada terá o seguinte aspeto:
+
+```cmd
+Installing Helm chart...
+Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+```
+
+Isto acontece porque a remover o controlador de espaços de desenvolvimento não remove serviços anteriormente instalados por esse controlador. Recriar o controlador e, em seguida, tentar executar os serviços usando o novo controlador falhar porque os serviços antigos ainda estão no local.
+
+Para resolver isso, utilize o `kubectl delete` comando para manualmente remover os serviços antigos do seu cluster, e execute novamente a espaços de desenvolvimento para instalar os novos serviços.
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Resolução de nomes DNS falha por um URL público associado a um serviço de espaços de desenvolvimento
 
@@ -195,6 +211,15 @@ Não tem a extensão do VS Code para espaços de desenvolvimento do Azure instal
 
 ### <a name="try"></a>Experimente:
 Instalar o [extensão do VS Code para espaços de desenvolvimento do Azure](get-started-netcore.md).
+
+## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Depuração de erro "valor inválido 'cwd' ' / src'. O sistema não é possível localizar o ficheiro especificado." ou "Iniciar: programa '/ src / [caminho para o binário do projeto]' não existe"
+Executar o depurador do VS Code reporta o erro `Invalid 'cwd' value '/src'. The system cannot find the file specified.` e/ou `launch: program '/src/[path to project executable]' does not exist`
+
+### <a name="reason"></a>Razão
+Por predefinição, utiliza a extensão do VS Code `src` como o diretório de trabalho para o projeto no contentor. Se atualizou seu `Dockerfile` para especificar um diretório de trabalho diferentes, pode ver este erro.
+
+### <a name="try"></a>Experimente:
+Atualização do `launch.json` de ficheiros sob o `.vscode` subdiretório da pasta do projeto. Alterar o `configurations->cwd` diretiva para apontar para o mesmo diretório que o `WORKDIR` definidos no seu projeto `Dockerfile`. Também poderá ter de atualizar o `configurations->program` diretiva também.
 
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>Não foi possível encontrar o nome do tipo ou espaço de nomes "MyLibrary."
 

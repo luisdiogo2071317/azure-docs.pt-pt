@@ -1,5 +1,6 @@
 ---
-title: Utilizar o Visual Studio Code para preparar e implementar modelos com o serviço Azure Machine Learning
+title: Utilizar o Visual Studio Code para preparar e implementar modelos
+titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre o Azure Machine Learning para Visual Studio Code e como começar a machine learning e modelos no serviço Azure Machine Learning com o Visual Studio Code de aprendizagem profunda de treinamento e de implantação.
 services: machine-learning
 ms.service: machine-learning
@@ -8,13 +9,13 @@ ms.topic: conceptual
 ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: e1ea0b867738f72d9ff4baff25b630887b9232c9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: 62c3dd051f9f4c06d8d5b5cd08422b34cf565f2f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016441"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100672"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Utilizar o Visual Studio Code para preparar e implementar modelos de machine learning
 

@@ -1,21 +1,22 @@
 ---
-title: Referência de datetimeV2 de entidades de LUIS pré-criados - Azure | Documentos da Microsoft
+title: Entidades previamente concebidas DatetimeV2
 titleSuffix: Azure
 description: Este artigo tem datetimeV2 informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: bd28981ae0c5b4d6ccff3168f92f0f99be768b10
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: f59c429906d6cee2b9f4aff6e16ba23e8d28c97b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335781"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105857"
 ---
 # <a name="datetimev2-entity"></a>Entidade DatetimeV2
 
@@ -27,7 +28,7 @@ DatetimeV2 é gerido a partir da [reconhecedores texto](https://github.com/Micro
 ## <a name="example-json"></a>JSON de exemplo 
 O exemplo seguinte resposta JSON tem um `datetimeV2` entidade com um subtipo de `datetime`. Para obter exemplos de outros tipos de entidades de datetimeV2, consulte [subtipos dos datetimeV2](#subtypes-of-datetimev2)</a>.
 
-```JSON
+```json
 "entities": [
   {
     "entity": "8am on may 2nd 2017",
@@ -103,7 +104,7 @@ Por exemplo, dada a expressão "2nd de Maio":
 O exemplo seguinte mostra a resolução da entidade "2nd de Maio". Esta resolução parte do princípio de que a data de hoje é uma data entre 2 de Maio de 2017 e 1 de Maio de 2018.
 Campos com `X` no `timex` campo são partes da data que não estão especificados explicitamente na expressão.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "may 2nd",
@@ -132,7 +133,7 @@ Campos com `X` no `timex` campo são partes da data que não estão especificado
 
 O `datetimeV2` entidade extrai os intervalos de data e hora. O `start` e `end` fields, especifique o início e no fim do intervalo. Para a expressão "2nd de Maio para 5 de Maio", LUIS fornece **daterange** valores para o ano atual e o ano seguinte. Na `timex` campo, o `XXXX` valores indicam a ambiguidade do ano. `P3D` indica o período de tempo é longo de três dias.
 
-```JSON
+```json
 "entities": [
     {
       "entity": "may 2nd to may 5th",
@@ -163,7 +164,7 @@ O `datetimeV2` entidade extrai os intervalos de data e hora. O `start` e `end` f
 
 O exemplo seguinte mostra como utiliza o LUIS **datetimeV2** para resolver a expressão "Terça-feira à quinta-feira". Neste exemplo, a data atual for 19 de Junho. LUIS inclui **daterange** valores para os dois intervalos de datas que são precedidas e siga a data atual.
 
-```JSON
+```json
   "entities": [
     {
       "entity": "tuesday to thursday",
@@ -196,7 +197,7 @@ A matriz de valores tem dois elementos de tempo se o tempo ou intervalo de tempo
 
 O exemplo seguinte mostra como utiliza o LUIS **datetimeV2** para resolver a expressão que tem um intervalo de tempo.
 
-```
+```json
   "entities": [
     {
       "entity": "6pm to 7pm",

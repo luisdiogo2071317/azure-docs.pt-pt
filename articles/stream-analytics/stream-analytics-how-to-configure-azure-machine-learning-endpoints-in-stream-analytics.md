@@ -4,17 +4,16 @@ description: Este artigo descreve como utilizar funções definidas pelo utiliza
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 024d7094a9baa90eebd57b4c76db367f81bd0400
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 12/07/2018
+ms.openlocfilehash: cea810a5e57f4b10c170038108226c4e0f1320bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700872"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104943"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integração de aprendizagem do Stream Analytics do computador
 Stream Analytics suporta funções definidas pelo utilizador que chamam pontos finais do Azure Machine Learning. Suporte da REST API para esta funcionalidade está detalhado na [biblioteca de API de REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação com êxito desta capacidade no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
@@ -51,7 +50,7 @@ Por exemplo, o código de exemplo seguinte cria uma UDF escalar chamado *newudf*
 
 Corpo do pedido de exemplo:  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -67,7 +66,7 @@ Corpo do pedido de exemplo:
             }
         }
     }
-````
+```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Chamar o ponto final de RetrieveDefaultDefinition para predefinição UDF
 Assim que o esqueleto UDF for criado é necessária a definição completa do UDF. O ponto de extremidade RetreiveDefaultDefinition ajuda a obter a definição padrão para uma função escalar, que está vinculada a um ponto de final do Azure Machine Learning. O payload abaixo exige que obter a definição de UDF padrão para uma função escalar, que está vinculada a um ponto de final do Azure Machine Learning. Ele não especificar o ponto final real, como já foi fornecido durante o pedido PUT. Stream Analytics chama o ponto final fornecido no pedido, se fornecida explicitamente. Caso contrário, ele usa um originalmente referenciado. Aqui, a leva UDF uma única cadeia de parâmetro (uma frase) e devolve o resultado de um único do tipo de cadeia que indica que a etiqueta "sentiment" para a essa frase.
@@ -78,7 +77,7 @@ POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
 
 Corpo do pedido de exemplo:  
 
-````
+```json
     {
         "bindingType": "Microsoft.MachineLearning/WebService",
         "bindingRetrievalProperties": {
@@ -86,11 +85,11 @@ Corpo do pedido de exemplo:
             "udfType": "Scalar"
         }
     }
-````
+```
 
 Um exemplo de saída isso seria procure algo, conforme mostrado abaixo.  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -126,7 +125,7 @@ Um exemplo de saída isso seria procure algo, conforme mostrado abaixo.
             }
         }
     }
-````
+```
 
 ## <a name="patch-udf-with-the-response"></a>Patch UDF com a resposta
 Agora a UDF deve ser corrigida com a resposta anterior, conforme mostrado abaixo.
@@ -137,7 +136,7 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 
 Corpo do pedido (saída de RetrieveDefaultDefinition):
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -173,12 +172,12 @@ Corpo do pedido (saída de RetrieveDefaultDefinition):
             }
         }
     }
-````
+```
 
 ## <a name="implement-stream-analytics-transformation-to-call-the-udf"></a>Implementar a transformação do Stream Analytics para chamar a UDF
 Agora, consultar a UDF (aqui com o nome scoreTweet) para todos os eventos de entrada e escrever uma resposta para esse evento para uma saída.  
 
-````
+```json
     {
         "name": "transformation",
         "properties": {
@@ -186,7 +185,7 @@ Agora, consultar a UDF (aqui com o nome scoreTweet) para todos os eventos de ent
             "query": "select *,scoreTweet(Tweet) TweetSentiment into blobOutput from blobInput"
         }
     }
-````
+```
 
 
 ## <a name="get-help"></a>Obter ajuda

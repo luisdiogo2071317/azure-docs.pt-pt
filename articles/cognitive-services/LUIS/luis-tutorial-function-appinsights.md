@@ -1,23 +1,24 @@
 ---
-title: Dados de informações da aplicação do LUIS com node. js
+title: O Application Insights, node. js
 titleSuffix: Azure Cognitive Services
 description: Crie um bot integrado com um aplicativo de LUIS e Application Insights com o node. js.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6199e4a681f7f58ea0cf57b575afb2a63d160eee
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4461ac71ba5f9ab5901c5d7b72c15c0c165621e3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321959"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103970"
 ---
-# <a name="add-luis-results-to-application-insights"></a>Adicionar o LUIS resultados para o Application Insights
+# <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Adicionar o LUIS resultados para o Application Insights e as funções do Azure
 Este tutorial adiciona informações de solicitação e resposta de LUIS para [Application Insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, pode consultá-lo com o idioma de Kusto ou o Power BI para analisar, Agregar, o relatório de em objetivos e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS.
 
 O bot baseia-se com o Bot Framework 3.x e bot de aplicação Web do Azure.
@@ -58,7 +59,7 @@ Para capturar o LUIS solicitação e resposta, o bot de aplicação web tem o **
 
 3. Na consola, introduza o seguinte comando para instalar os pacotes de caráter de sublinhado e o Application Insights:
 
-    ```
+    ```console
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
@@ -66,7 +67,7 @@ Para capturar o LUIS solicitação e resposta, o bot de aplicação web tem o **
 
     Aguarde que os pacotes serem instalados:
 
-    ```
+    ```console
     luisbot@1.0.0 D:\home\site\wwwroot
     `-- applicationinsights@1.0.1 
       +-- diagnostic-channel@0.2.0 
@@ -121,7 +122,7 @@ Abrir o Application Insights para ver as entradas de LUIS.
 
 3. Selecione a entrada superior. Uma nova janela apresenta os dados mais detalhados, incluindo os dados personalizados para a consulta de LUIS na extremidade direita. Os dados incluem a intenção de principal e sua pontuação.
 
-    ![Detalhes da dependência](./media/luis-tutorial-appinsights/app-insights-detail.png)
+    ![Detalhes de dependência](./media/luis-tutorial-appinsights/app-insights-detail.png)
 
     Quando tiver terminado, selecione a parte superior direita **X** para regressar à lista de itens de dependência. 
 
@@ -142,7 +143,7 @@ O Application Insights dá-lhe o poder para consultar os dados com o [Kusto](htt
 
 3. Para extrair a intenção de principal, a pontuação e a expressão, adicione o seguinte logo acima da última linha na janela de consulta:
 
-    ```SQL
+    ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_intent_intent)
     | extend score = todouble(customDimensions.LUIS_intent_score)
     | extend utterance = tostring(customDimensions.LUIS_text)

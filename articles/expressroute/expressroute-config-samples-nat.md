@@ -1,41 +1,36 @@
 ---
-title: Exemplos de configuração de router de cliente do ExpressRoute | Microsoft Docs
-description: Esta página fornece exemplos de configuração de router para os routers Cisco e Juniper.
-documentationcenter: na
+title: Exemplos de configuração do roteador - NAT - Azure ExpressRoute | Documentos da Microsoft
+description: Esta página fornece exemplos de configuração do roteador para os routers Cisco e Juniper.
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: d6ea716f-d5ee-4a61-92b0-640d6e7d6974
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 9764a03b0f3a3f70e59097359d5a714da821d3b1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23850687"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105993"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Exemplos de configuração de router para configurar e gerir o NAT
-Esta página fornece exemplos de configuração de NAT para ASA da Cisco e Juniper SRX routers da série. Estes são se destina a ser amostras para obter orientações sobre apenas e não pode ser utilizados tal como está. Pode trabalhar com o fornecedor de pensar em configurações adequadas para a sua rede. 
+
+Esta página fornece exemplos de configuração de NAT para Cisco ASA e os routers da série de Juniper SRX ao trabalhar com o ExpressRoute. Estes destinam-se para ser amostras para obter orientações apenas e não pode ser usados como está. Pode trabalhar com o fornecedor para propor as configurações apropriadas para a sua rede.
 
 > [!IMPORTANT]
-> Os exemplos nesta página são se destina a ser puramente para obter orientações. Tem de trabalhar com a equipa de vendas / técnica do fornecedor e a sua equipa de rede para detetar um com configurações adequadas para satisfazer as necessidades. Microsoft não irá suportar problemas relacionados com configurações listadas nesta página. Tem de contactar o fornecedor do dispositivo para problemas de suporte.
+> Exemplos nesta página se destinam a ser puramente para obter orientações. Deve trabalhar com equipes de técnicos e de vendas do seu fornecedor e seu funcionamento em rede propor configurações adequadas às suas necessidades. A Microsoft irá suporta problemas relacionados com as configurações listadas nesta página. Tem de contactar o seu fornecedor de dispositivo para problemas de suporte.
 > 
 > 
 
-* Exemplos de configuração de router abaixo aplicam-se para peerings público do Azure e a Microsoft. Não é necessário configurar NAT para peering privado do Azure. Reveja [ExpressRoute peerings](expressroute-circuit-peerings.md) e [requisitos do NAT do ExpressRoute](expressroute-nat.md) para obter mais detalhes.
+* Exemplos de configuração de router abaixo aplicam-se para peerings público do Azure e a Microsoft. Não é necessário configurar NAT para peering privado do Azure. Revisão [peerings do ExpressRoute](expressroute-circuit-peerings.md) e [requisitos do NAT do ExpressRoute](expressroute-nat.md) para obter mais detalhes.
 
-* TEM de utilizar conjuntos separados de IP do NAT para a conectividade à internet e ExpressRoute. Utilizar o mesmo conjunto de IP do NAT através da internet e ExpressRoute resultará em Encaminhamento assimétrico e a perda de conectividade.
+* TEM de utilizar conjuntos separados de IP do NAT para a conectividade à internet e ExpressRoute. Usando o mesmo conjunto de IP do NAT na internet e do ExpressRoute resultará no encaminhamento assimétrico e a perda de conectividade.
 
 
-## <a name="cisco-asa-firewalls"></a>Firewalls do Cisco ASA
-### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Configuração de TERESA para tráfego de rede de cliente para a Microsoft
+## <a name="cisco-asa-firewalls"></a>Firewalls Cisco ASA
+### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Configuração de PAT para tráfego de rede cliente para a Microsoft
     object network MSFT-PAT
       range <SNAT-START-IP> <SNAT-END-IP>
 
@@ -55,7 +50,7 @@ Esta página fornece exemplos de configuração de NAT para ASA da Cisco e Junip
 
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
-### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Configuração de TERESA para o tráfego da Microsoft para a rede de cliente
+### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Configuração de PAT para o tráfego da Microsoft, a rede de cliente
 
 **Interfaces e direção:**
 
@@ -74,7 +69,7 @@ Servidor de destino:
     object network Customer-Network
         network-object <IP> <Subnet-Mask>
 
-Objeto de grupo para endereços IP do cliente
+Objeto de grupo para endereços IP de cliente
 
     object-group network MSFT-Network-1
         network-object <MSFT-IP> <Subnet-Mask>
@@ -88,7 +83,7 @@ Comandos NAT:
 
 
 ## <a name="juniper-srx-series-routers"></a>Routers de série do Juniper SRX
-### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Criar a interfaces Ethernet redundantes para o cluster
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Criar interfaces de Ethernet redundantes para o cluster
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -121,11 +116,11 @@ Comandos NAT:
 
 
 ### <a name="2-create-two-security-zones"></a>2. Criar duas zonas de segurança
-* Zona de confiança para a rede interna e zona de Untrust externas com acesso Routers de limite de rede
-* Atribuir interfaces adequadas para as zonas
+* Zona de confiança para a rede interna e zona de Untrust para rede externa com acesso à Routers de limite
+* Atribuir as interfaces apropriadas para as zonas
 * Permitir que os serviços nas interfaces
 
-    segurança {zonas {confiança de zona de segurança {anfitriões de entrada-tráfego {-serviços do sistema {ping;                   } protocolos {bgp;                   interfaces de}} {reth0.100;               }} Untrust de zona de segurança {anfitriões de entrada-tráfego {-serviços do sistema {ping;                   } protocolos {bgp;                   interfaces de}} {reth1.100;               }           }       }   }
+    segurança {zonas {zona de segurança confiança {anfitrião de entrada-tráfego {-serviços do sistema {ping;                   } protocolos {bgp;                   interfaces de}} {reth0.100;               }} Untrust de zona de segurança {anfitrião de entrada-tráfego {-serviços do sistema {ping;                   } protocolos {bgp;                   interfaces de}} {reth1.100;               }           }       }   }
 
 
 ### <a name="3-create-security-policies-between-zones"></a>3. Criar políticas de segurança entre zonas
@@ -160,8 +155,8 @@ Comandos NAT:
 
 
 ### <a name="4-configure-nat-policies"></a>4. Configurar políticas NAT
-* Crie dois conjuntos de NAT. Um será utilizado para tráfego NAT de saída para a Microsoft e outro da Microsoft ao cliente.
-* Criar regras de NAT o respetivo tráfego
+* Crie dois conjuntos NAT. Um será utilizado para tráfego NAT de saída para a Microsoft e outro da Microsoft para o cliente.
+* Criar regras de NAT o respectivo tráfego
   
        security {
            nat {
@@ -219,7 +214,7 @@ Comandos NAT:
        }
 
 ### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configurar o BGP para anunciar prefixos seletivos em cada direção
-Veja exemplos [amostras de configuração de encaminhamento ](expressroute-config-samples-routing.md) página.
+Veja as amostras no [exemplos de configuração do encaminhamento ](expressroute-config-samples-routing.md) página.
 
 ### <a name="6-create-policies"></a>6. Criar políticas
     routing-options {
@@ -316,6 +311,6 @@ Veja exemplos [amostras de configuração de encaminhamento ](expressroute-confi
         }
     }
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Veja [FAQ do ExpressRoute](expressroute-faqs.md) para obter mais detalhes.
 

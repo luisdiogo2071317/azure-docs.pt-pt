@@ -1,5 +1,6 @@
 ---
-title: Otimizar hiperparâmetros para o modelo com o Azure Machine Learning
+title: Otimizar hiperparâmetros para o modelo
+titleSuffix: Azure Machine Learning service
 description: Otimize eficientemente hiperparâmetros para o modelo de aprendizagem profunda de aprendizagem automática / máquina com o serviço Azure Machine Learning. Aprenderá como definir o espaço de pesquisa de parâmetro, especifique uma métrica primária para otimizar e a terminar no início mau desempenho é executado.
 ms.author: swatig
 author: swatig007
@@ -9,14 +10,15 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: b722af6fd5dd29a5b7cef8581d27d421825fb323
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: da809aaaa1dd46c1232d0b032136833caaf0d2d0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868162"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100740"
 ---
-# <a name="tune-hyperparameters-for-your-model"></a>Otimizar hiperparâmetros para o modelo
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Otimizar hiperparâmetros para o modelo com o serviço Azure Machine Learning
 
 Otimize eficientemente hiperparâmetros para o modelo com o serviço Azure Machine Learning.  A otimização de hiper-parâmetros inclui os seguintes passos:
 

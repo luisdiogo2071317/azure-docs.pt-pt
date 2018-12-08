@@ -1,29 +1,23 @@
 ---
-title: Configurar o Monitor de desempenho de rede dos circuitos do ExpressRoute do Azure | Documentos da Microsoft
+title: Configurar o Monitor de desempenho de rede dos circuitos do ExpressRoute - Azure | Documentos da Microsoft
 description: Configure monitorização (NPM) para circuitos do ExpressRoute do Azure de rede com base na cloud. Isto inclui a monitorização ao longo do peering privado do ExpressRoute e peering da Microsoft.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 93bafb739c35b81796186dc845f7933a82e1675b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: e72c2ceaedd23f4e3ee2006930302321498eb736
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968123"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104735"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para o ExpressRoute
 
-Monitor de desempenho de rede (NPM) é uma solução que monitora a conectividade entre implementações de nuvem do Azure e localizações no local (das filiais, etc.) de monitorização de rede com base na cloud. NPM faz parte do Log Analytics. NPM oferece uma extensão para o ExpressRoute permite-lhe monitorizar o desempenho da rede sobre circuitos do ExpressRoute que estão configurados para utilizar o peering privado ou peering da Microsoft. Quando configurar NPM para ExpressRoute, pode detetar problemas de rede para identificar e eliminar. Este serviço também está disponível para a Cloud do Azure Government.
+Este artigo ajuda-o a configurar uma extensão de Monitor de desempenho de rede para monitorizar o ExpressRoute. Monitor de desempenho de rede (NPM) é uma solução que monitora a conectividade entre implementações de nuvem do Azure e localizações no local (das filiais, etc.) de monitorização de rede com base na cloud. NPM faz parte do Log Analytics. NPM oferece uma extensão para o ExpressRoute permite-lhe monitorizar o desempenho da rede sobre circuitos do ExpressRoute que estão configurados para utilizar o peering privado ou peering da Microsoft. Quando configurar NPM para ExpressRoute, pode detetar problemas de rede para identificar e eliminar. Este serviço também está disponível para a Cloud do Azure Government.
 
 Pode:
 

@@ -1,5 +1,6 @@
 ---
-title: Transformar dados com o Azure Machine Learning dados de preparação do SDK - Python
+title: Transformar e de preparação de dados com o SDK de Python de preparação de dados
+titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre a transformar e limpeza de dados com o SDK do Azure Machine Learning Data Prep. Utilize métodos de transformação para adicionar colunas, filtrar indesejadas linhas ou colunas e impute valores em falta.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,14 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: 988301f24f710a3e29fad1254d405501166e8a4e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: c734605cd67fcd2490aef0ddc6732dad112424b7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309798"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101794"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformar dados com o SDK de preparação de dados do Azure Machine Learning
 
@@ -216,16 +218,16 @@ builder.preview(skip=30)
 
 ||DATA|date_timerange|
 |-----|-----|-----|
-|30|11/1/2015 22 minutos e 54|1 de Janeiro de 2015 10 PM - 12 AM|
-|31|11/1/2015 23 minutos e 54|1 de Janeiro de 2015 10 PM - 12 AM|
-|32|11/1/2015 23:59|1 de Janeiro de 2015 10 PM - 12 AM|
-|33|11/2/2015 0:54|1 de Fevereiro de 2015 12AM -2AM|
-|34|11/2/2015 1:00|1 de Fevereiro de 2015 12AM -2AM|
-|35|11/2/2015 1 minuto e 54|1 de Fevereiro de 2015 12AM -2AM|
-|36|11/2/2015 2 minutos e 54|1 de Fevereiro de 2015 2AM -4AM|
-|37|11/2/2015 3 minutos e 54|1 de Fevereiro de 2015 2AM -4AM|
-|38|11/2/2015 4:00|1 de Fevereiro de 2015 4 AM - 6 da Manhã|
-|39|11/2/2015 4 minutos e 54|1 de Fevereiro de 2015 4 AM - 6 da Manhã|
+|30|1/1/2015 22 minutos e 54|1 de Janeiro de 2015 10 PM - 12 AM|
+|31|1/1/2015 23 minutos e 54|1 de Janeiro de 2015 10 PM - 12 AM|
+|32|1/1/2015 23:59|1 de Janeiro de 2015 10 PM - 12 AM|
+|33|1/2/2015 0:54|1 de Fevereiro de 2015 12AM -2AM|
+|34|1/2/2015 1:00|1 de Fevereiro de 2015 12AM -2AM|
+|35|1/2/2015 1 minuto e 54|1 de Fevereiro de 2015 12AM -2AM|
+|36|1/2/2015 2 minutos e 54|1 de Fevereiro de 2015 2AM -4AM|
+|37|1/2/2015 3 minutos e 54|1 de Fevereiro de 2015 2AM -4AM|
+|38|1/2/2015 4:00|1 de Fevereiro de 2015 4 AM - 6 da Manhã|
+|39|1/2/2015 4 minutos e 54|1 de Fevereiro de 2015 4 AM - 6 da Manhã|
 
 Aqui vê um problema com o programa gerado. Com base apenas num dos exemplos fornecidos acima, o programa de derivar optou por analisar a data como "Dia/mês/ano", que é que não o que deseja nesse caso. Para corrigir este problema, indique outro exemplo usando o `add_example()` funcionar no `builder` variável.
 
@@ -349,7 +351,7 @@ dataflow.head(5)
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Store_and_fwd_flag|RateCodeID|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|0|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|
+|0|Nenhuma|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhuma|
 |1|2013-08-01 08:14:37|2013-08-01 09:09:06|N|1|0|0|0|0|1|,00|0|0|21.25|
 |2|2013-08-01 09:00 13:|2013-08-01 38: UTC+11:00|N|1|0|0|0|0|2|,00|0|0|75|
 |3|2013-08-01 09:00 48:|2013-08-01 09:00 49:|N|5|0|0|0|0|1|,00|0|1|2.1|
@@ -370,7 +372,7 @@ dataflow.head(5)
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|0|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|
+|0|Nenhuma|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhuma|
 |1|2013-08-01 08:14:37|2013-08-01 09:09:06|0|0|0|0|1|,00|0|0|21.25|
 |2|2013-08-01 09:00 13:|2013-08-01 38: UTC+11:00|0|0|0|0|2|,00|0|0|75|
 |3|2013-08-01 09:00 48:|2013-08-01 09:00 49:|0|0|0|0|1|,00|0|1|2.1|
@@ -387,7 +389,7 @@ dataflow.head(5)
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
-|0|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|
+|0|Nenhuma|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhuma|
 |1|2013-08-01 08:14:37|2013-08-01 09:09:06|1|,00|0|0|21.25|
 |2|2013-08-01 09:00 13:|2013-08-01 38: UTC+11:00|2|,00|0|0|75|
 |3|2013-08-01 09:00 48:|2013-08-01 09:00 49:|1|,00|0|1|2.1|

@@ -1,23 +1,24 @@
 ---
-title: Fluxos de trabalho para a configuração de um circuito do ExpressRoute do Azure | Documentos da Microsoft
-description: Esta página explica como os fluxos de trabalho para configurar o circuito do ExpressRoute e de peerings
+title: 'Circuito fluxos de trabalho de configuração - ExpressRoute: Azure | Documentos da Microsoft'
+description: Esta página mostra os fluxos de trabalho para configurar o circuito do ExpressRoute e de peerings
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 765050c9c21c7ba752535fc391cc9bb7d8ac4083
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.custom: seodec18
+ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301043"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101692"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho do ExpressRoute para o aprovisionamento e estados dos circuitos
 Esta página explica o serviço de aprovisionamento e encaminhamento de fluxos de trabalho de configuração num alto nível.
 
-![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
+![fluxo de trabalho do circuito](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
 A figura a seguir e correspondentes passos mostram as tarefas que tem de seguir para ter um circuito ExpressRoute aprovisionado ponto-a-ponto. 
 
@@ -35,7 +36,7 @@ A figura a seguir e correspondentes passos mostram as tarefas que tem de seguir 
      > 
      > 
      
-     ![](./media/expressroute-workflows/routing-workflow.png)
+     ![fluxos de trabalho de encaminhamento](./media/expressroute-workflows/routing-workflow.png)
 5. Ligar redes virtuais para circuitos do ExpressRoute - pode ligar redes virtuais para o seu circuito do ExpressRoute. Siga as instruções [para ligar VNets](expressroute-howto-linkvnet-arm.md) para o seu circuito. Nestas VNets podem ser na mesma subscrição do Azure como o circuito do ExpressRoute, ou pode ser numa subscrição diferente.
 
 ## <a name="expressroute-circuit-provisioning-states"></a>Circuito do ExpressRoute a aprovisionar Estados

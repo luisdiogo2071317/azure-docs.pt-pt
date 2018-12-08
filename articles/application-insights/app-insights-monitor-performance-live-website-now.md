@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0618a580c6bdcef8f28a439cd79e67d863e58b9e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: abc3d5832cd85cb3297077f2d661ec8fe32fde9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995234"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105296"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicações Web no tempo de execução com o Application Insights
 
@@ -119,6 +119,7 @@ Se pretender voltar a publicar sem adicionar o Application Insights ao código, 
   * No Gestor de IIS, selecione o conjunto de aplicações, abra **Definições Avançadas**, e, em **Modelo de Processos** tenha em atenção a identidade.
   * No painel de controlo de gestão do Computador, adicione esta identidade ao grupo de Utilizadores do Monitor de Desempenho.
 * Se tiver MMA/SCOM (Systems Center Operations Manager) instalado no servidor, algumas versões podem entrar em conflito. Desinstale o SCOM e o Monitor de Estado, e reinstale as versões mais recentes.
+* Logs de Monitor de estado podem ser encontrados nesta localização por predefinição: "C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
 * Veja a [Resolução de Problemas][qna].
 
 ## <a name="system-requirements"></a>Requisitos de Sistema
@@ -217,9 +218,12 @@ Não recolhe telemetria por si só. Só configura as aplicações Web e define a
 
 Quando seleciona uma aplicação Web para o Monitor de Estado instrumentar:
 
-* Transfere e coloca os assemblagens do Application Insights e o ficheiro .config na pasta de binários da aplicação Web.
-* Modifica `web.config` para adicionar o módulo de controlo HTTP do Application Insights.
+* Transfere e coloca os assemblagens do Application Insights e o ficheiro Applicationinsights config na pasta de binários da aplicação web.
 * Permite a criação de perfis CLR para recolher chamadas de dependência.
+
+### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Qual versão do SDK do Application Insights instalar o Monitor de estado?
+
+A partir de agora, o Monitor de estado só pode instalar as versões do Application Insights SDK 2.3 ou 2.4.
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Preciso de executar o Monitor de Estado sempre que atualizar a aplicação?
 

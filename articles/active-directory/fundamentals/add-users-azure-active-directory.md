@@ -1,6 +1,6 @@
 ---
-title: Como adicionar ou eliminar utilizadores no Azure Active Directory | Documentos da Microsoft
-description: Saiba como adicionar novos utilizadores ou eliminar os utilizadores existentes com o Azure Active Directory.
+title: Adicionar ou eliminar utilizadores - Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como adicionar novos utilizadores ou eliminar os utilizadores existentes com o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 782363144a6b1dd87aff515c38588b6ce70b61bd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: dd4a9132d5f04870239be3127f723afb60b3ecef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295109"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104684"
 ---
-# <a name="how-to-add-or-delete-users-using-azure-active-directory"></a>Como: Adicionar ou eliminar os utilizadores que utilizam o Azure Active Directory
-Adicionar novos utilizadores ou eliminar os utilizadores existentes no seu inquilino do Azure Active Directory (Azure AD), com o Azure AD.
+# <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou eliminar os utilizadores que utilizam o Azure Active Directory
+Adicionar novos utilizadores ou eliminar os utilizadores existentes do seu inquilino do Azure Active Directory (Azure AD).
 
 ## <a name="add-a-new-user"></a>Adicionar um novo utilizador
-Pode criar um novo utilizador com o Azure Active Directory.
+Pode criar um novo utilizador com o portal do Azure Active Directory.
 
 ### <a name="to-add-a-new-user"></a>Para adicionar um novo utilizador
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) como um Administrador Global ou administrador de utilizadores do diretório.
@@ -58,10 +58,10 @@ Pode criar um novo utilizador com o Azure Active Directory.
 Se tiver um ambiente com o Azure Active Directory (cloud) e o Windows Server Active Directory (no local), pode adicionar novos utilizadores ao sincronizar os dados da conta de utilizador existente. Para obter mais informações sobre ambientes híbridos e utilizadores, consulte [integrar seus diretórios no local com o Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="delete-a-user"></a>Eliminar um utilizador
-Pode eliminar um utilizador existente com o Azure Active Directory.
+Pode eliminar um utilizador existente através do portal do Azure Active Directory.
 
 ### <a name="to-delete-a-user"></a>Para eliminar um utilizador
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
 2. Selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, procure e selecione o utilizador que pretende eliminar do seu inquilino do Azure AD. Por exemplo, _Mary Parker_.
 

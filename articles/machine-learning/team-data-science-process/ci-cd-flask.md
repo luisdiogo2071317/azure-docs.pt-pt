@@ -1,5 +1,5 @@
 ---
-title: 'DevOps para aplicações de Inteligência Artificial (IA): a criar o pipeline de integração contínua no Azure utilizando a aplicação do Docker, Kubernetes e Python Flask'
+title: Criar um pipeline do Azure para o machine learning a integração contínua
 description: 'DevOps para aplicações de Inteligência Artificial (IA): a criar o pipeline de integração contínua no Azure utilizando o Docker e Kubernetes'
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
-ms.custom: (previous author=jainr, ms.author=jainr)
-ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, "(previous author=jainr, ms.author=jainr)"
+ms.openlocfilehash: 84d0c42b132016bbb350636cc00651a13bf93616
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496751"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102305"
 ---
-# <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps para aplicações de Inteligência Artificial (IA): a criar o pipeline de integração contínua no Azure utilizando o Docker e Kubernetes
+# <a name="creating-continous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Criar o pipeline de integração contínua no Azure utilizando a aplicação do Python Flask, Kubernetes e Docker
 Para uma aplicação de IA, há frequentemente dois fluxos de trabalho, criação de modelos de machine learning e os desenvolvedores de aplicativos criando o aplicativo e expô-lo para os utilizadores finais consumam os cientistas de dados. Neste artigo, demonstraremos como implementar uma integração contínua (CI) / pipeline de entrega contínua (CD) para uma aplicação de IA. Aplicação de IA é uma combinação de código da aplicação incorporada com um modelo de pré-preparadas com machine learning (ML). Neste artigo, estamos buscando um modelo pretrained de uma conta de armazenamento de Blobs do Azure privado, pode ser uma conta AWS S3 também. Utilizamos uma aplicação de web do flask python simples para o artigo.
 
 > [!NOTE]

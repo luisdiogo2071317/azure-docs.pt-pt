@@ -1,19 +1,19 @@
 ---
-title: 'Configurar ligações VPN Site a Site e ExpressRoute que podem coexistir: PowerShell: Azure | Documentos da Microsoft'
-description: Este artigo explica como configurar o ExpressRoute e uma ligação de VPN de Site a Site que pode coexistir para o modelo do Resource Manager com o PowerShell
+title: 'Configurar ligações de VPN de Site a Site e ExpressRoute - coexistir: PowerShell: Azure | Documentos da Microsoft'
+description: Configure o ExpressRoute e uma ligação de VPN de Site a Site que pode coexistir para o modelo do Resource Manager com o PowerShell.
 services: expressroute
 author: charwen
-manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 1aeb5ca447a3058962483b640f742e4a7ec4a414
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243816"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104038"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar ligações coexistentes ExpressRoute e de Site a Site com o PowerShell
 > [!div class="op_single_selector"]
@@ -21,6 +21,9 @@ ms.locfileid: "51243816"
 > * [PowerShell – Clássica](expressroute-howto-coexist-classic.md)
 > 
 > 
+
+
+Este artigo ajuda-o a configurar ligações VPN Site a Site e ExpressRoute que coexistem. A capacidade de configurar o ExpressRoute e a Rede de VPNs tem várias vantagens. Pode configurar VPN de Site a Site como um caminho de ativação pós-falha seguro para o ExpressRoute ou utilizar VPNs de Site a Site para ligar a sites que não estão ligados através do ExpressRoute. Abordaremos os passos para configurar ambos os cenários neste artigo. Este artigo aplica-se ao modelo de implementação clássica e do Resource Manager.
 
 A configuração de ligações de Rede de VPNs e ExpressRoute coexistentes tem várias vantagens:
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: cdd01953e4053eec6e8b0cb57c7a68bb2ae01673
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d2e76bde90c0bf2d411697998fe140eb1b706b9b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957488"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106469"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados de análise de registo
 Este documento destina-se para fornecer informações específicas para o Log Analytics, que é um recurso do Azure Monitor, para complementar as informações sobre [Centro de fidedignidade do Azure](../../security/security-microsoft-trust-center.md).  
@@ -181,7 +181,7 @@ O período de retenção de dados recolhidos, armazenados na base de dados depen
 Para acessar sua área de trabalho do Log Analytics, iniciar sessão no portal do Azure com a conta organizacional ou a conta Microsoft que configurou anteriormente. Todo o tráfego entre o portal e serviço do Log Analytics é enviado através de um canal seguro de HTTPS. Quando utilizar o portal, um ID de sessão é gerado no cliente de utilizador (navegador da web) e os dados são armazenados num cache local até que a sessão é terminada. Quando terminado, a cache é eliminada. Cookies de lado do cliente, que não contêm informações de identificação pessoal, não são automaticamente removidos. Cookies de sessão são marcados HTTPOnly e estão protegidos. Após um período de inatividade pré-determinado, foi terminada a sessão do portal do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba como recolher dados com o Log Analytics para o seguinte de VMs do Azure a [início rápido de VM do Azure](../../log-analytics/log-analytics-quick-collect-azurevm.md).  
+* Saiba como recolher dados com o Log Analytics para o seguinte de VMs do Azure a [início rápido de VM do Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-*  Se estiver à procura para recolher dados de computadores físicos ou virtuais Windows ou Linux no seu ambiente, consulte a [início rápido para computadores Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) ou [computadores de início rápido para Windows](../../azure-monitor/learn/quick-collect-windows-computer.md)
+*  Se estiver à procura para recolher dados de computadores físicos ou virtuais Windows ou Linux no seu ambiente, consulte a [início rápido para computadores Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) ou [computadores de início rápido para Windows](../../azure-monitor/learn/quick-collect-windows-computer.md)
 

@@ -1,21 +1,22 @@
 ---
-title: Guia de migração de APIS do v1 para v2
+title: v1 para a migração de API v2
 titleSuffix: Azure Cognitive Services
-description: Saiba como a migração para a API mais recente definido.
+description: Saiba como migrar para o conjunto de API mais recente.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 7514390593b4afca4793923089516f3393db0428
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646580"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105840"
 ---
 # <a name="api-v2-migration-guide"></a>Guia de migração do API v2
 A versão 1 [ponto final](https://aka.ms/v1-endpoint-api-docs) e [criação](https://aka.ms/v1-authoring-api-docs) APIs vão ser preteridas. Utilize este guia para compreender como migrar para a versão 2 [ponto final](https://aka.ms/luis-endpoint-apis) e [criação](https://aka.ms/luis-authoring-apis) APIs. 
@@ -43,7 +44,7 @@ O ponto final de API tem novos parâmetros de cadeia de consulta, bem como uma r
 
 
 resposta de êxito de ponto final V1:
-```JSON
+```json
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
     {
@@ -54,7 +55,7 @@ resposta de êxito de ponto final V1:
 ```
 
 resposta de êxito de ponto final v2:
-```JSON
+```json
 {
   "query": "forward to frank 30 dollars through HSBC",
   "topScoringIntent": {

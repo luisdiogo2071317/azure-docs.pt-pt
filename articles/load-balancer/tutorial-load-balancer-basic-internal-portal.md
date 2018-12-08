@@ -4,11 +4,7 @@ description: Este tutorial mostra-lhe como criar um balanceador de carga básico
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -17,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9ccbbb107dfd8fde237cdfdd4b0c3fcc080fd70e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 404b667de32e16dc43fa1359a297078ac07b5cfe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839250"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106384"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Balanceamento interno de carga de tráfego com um balanceador de carga básico no portal do Azure
 
@@ -62,9 +58,6 @@ Primeiro, crie uma rede virtual (VNet). Crie a VNet, duas VMs a utilizar para o 
    - **Detalhes de instância** > **opções de disponibilidade**: 
      1. Lista pendente e selecione **conjunto de disponibilidade**. 
      2. Selecione **criar novo**, tipo *MyAvailabilitySet*e selecione **OK**.
-   - **Conta de administrador** > **nome de utilizador**: tipo *azureuser*.
-   - **Conta de administrador** > **palavra-passe**: tipo *Azure1234567*. 
-     Volte a escrever a palavra-passe no **Confirmar palavra-passe** campo.
    
 1. Selecione o **Networking** separador ou selecione **próximo: discos**, em seguida, **seguinte: redes**. 
    
@@ -212,7 +205,7 @@ Em primeiro lugar, ligue-se a todas as três VMs com RDP (Remote Desktop).
    
 1. No ecrã de segurança do Windows, selecione **mais escolhas** e, em seguida **utilizar uma conta diferente**. 
    
-   Introduza o nome de utilizador *azureuser* e a palavra-passe *Azure1234567*e selecione **OK**.
+   Introduza o nome de utilizador e palavra-passe e, em seguida, selecione **OK**.
    
 1. Responder **Sim** para qualquer linha de comandos do certificado. 
    

@@ -4,17 +4,17 @@ description: Este artigo descreve como utilizar o Visual Studio para monitorizar
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/10/2018
-ms.openlocfilehash: 9cc65fc5119bedc816f825b7aae6120f4bca3b12
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: e673d4f1c2d58a61c541cca4f8448dffc003f9fa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057407"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101022"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Monitorizar e gerir tarefas do Stream Analytics com o Visual Studio
 
@@ -31,14 +31,14 @@ O **resumo da tarefa** e **as métricas de tarefa** dar um instantâneo rápido 
 
 Pode fechar o **resumo da tarefa** e clique nas **as métricas de tarefa** separador para ver um gráfico com métricas importantes. Verificação e desmarque tipos de métricas para adicionar e removê-los do gráfico.
 
-![Métricas do Stream Analytics](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-metrics.png)
+![Stream métricas de análise no Visual Studio](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-metrics.png)
 
 
 ## <a name="error-monitoring"></a>Monitoramento de erros
 
 Também pode monitorizar erros ao clicar no **erros** separador.
 
-![Erros do Stream Analytics](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
+![Stream erros de análise no Visual Studio](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
 
 
 ## <a name="get-support"></a>Obter suporte

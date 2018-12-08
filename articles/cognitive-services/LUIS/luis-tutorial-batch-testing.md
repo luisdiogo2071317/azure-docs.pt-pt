@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 2: Teste de Batch com o conjunto de expressões de 1000 '
+title: Teste de batch
 titleSuffix: Azure Cognitive Services
 description: Este tutorial demonstra como usar o teste de batch para localizar problemas de predição de expressão na sua aplicação e corrigi-los.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162546"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106044"
 ---
 # <a name="tutorial-2-batch-test-data-sets"></a>Tutorial 2: Conjuntos de dados de teste de Batch
 
@@ -35,7 +36,7 @@ Ao utilizar uma aplicação que não seja neste tutorial, fazer *não* usar as e
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Utilizar o tutorial de aplicação existente
+> * Utilizar a aplicação de tutorial existente
 > * Crie um ficheiro de teste do batch 
 > * Executar um teste de batch
 > * Rever os resultados de teste
@@ -46,15 +47,15 @@ Ao utilizar uma aplicação que não seja neste tutorial, fazer *não* usar as e
 
 ## <a name="use-existing-app"></a>Utilizar a aplicação existente
 
-Continuar com a aplicação criada no tutorial última, com o nome **RecursosHumanos**. 
+Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
 
-Se não tiver a aplicação de RecursosHumanos no tutorial anterior, utilize os seguintes passos:
+Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
 
-1.  Transfira e guarde [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
 
 2. Importe o JSON para uma nova aplicação.
 
-3. Do **Manage** na secção a **versões** separador, clonar a versão e nomeie- `batchtest`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter quaisquer carateres que não são válidos num URL. 
+3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `batchtest`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL. 
 
 4. Prepare a aplicação.
 

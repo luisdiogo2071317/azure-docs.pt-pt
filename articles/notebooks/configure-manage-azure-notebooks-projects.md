@@ -1,5 +1,5 @@
 ---
-title: Configurar e gerir projetos de bloco de notas do Azure | Documentos da Microsoft
+title: Configurar e gerir projetos de bloco de notas do Azure
 description: Como gerir metadados de projeto, arquivos de projeto, passos de configuração e de ambiente do projeto através da IU de blocos de notas do Azure e o acesso direto de terminal.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 0e24d06cfeefd8315e21a45b833e6bf0e5f9dfd9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d948be88fd75202dea010520d3531f151d6934b0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856334"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104089"
 ---
 # <a name="manage-and-configure-projects"></a>Gerir e configurar projetos
 

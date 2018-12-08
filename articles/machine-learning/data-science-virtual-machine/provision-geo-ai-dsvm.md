@@ -1,11 +1,12 @@
 ---
 title: Aprovisionar uma máquina de Virtual de Inteligência Artificial Georreplicação no Azure – Azure | Documentos da Microsoft
-description: Como aprovisionar uma máquina de Virtual de IA geográfica no Azure.
+description: Saiba como criar e configurar a máquina de Virtual de ciência de dados de IA geográfica. Máquina de Virtual de ciência de dados de IA geográfica fornece as ferramentas para criar soluções de IA e ML com dados geográficos.
 keywords: IA, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise Geoespacial, aprendizagem aprofundada
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239802"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103953"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de Inteligência Artificial Georreplicação no Azure 
 

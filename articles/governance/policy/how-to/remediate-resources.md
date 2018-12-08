@@ -4,25 +4,25 @@ description: Nesta explicação de procedimento orienta-o através de remediaç�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/25/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5b503c1a96d0c0a5ce3d14e98622040116873045
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 62b59fa5a7955d9cab41591606c595adae41ba9f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724660"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103851"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não compatíveis com o Azure Policy
 
-Recursos que são incompatíveis para um **deployIfNotExists** política pode ser colocada num Estado de conformidade por meio **remediação**. Remediação é conseguida ao instruindo a política para executar o **deployIfNotExists** efeito de política atribuída em seus recursos existentes. Nesta explicação de procedimento descreve os passos necessários para foi realizado.
+Recursos que são incompatíveis para um **deployIfNotExists** política pode ser colocada num Estado de conformidade por meio **remediação**. Remediação é conseguida ao instruindo a política para executar o **deployIfNotExists** efeito de política atribuída em seus recursos existentes. Este artigo mostra as etapas necessárias para compreender e realizar a remediação com a política.
 
 ## <a name="how-remediation-security-works"></a>Como funciona a segurança de remediação
 
 Se política de executa o modelo **deployIfNotExists** definição de política, ele faz assim, usando um [identidade gerida](../../../active-directory/managed-identities-azure-resources/overview.md).
-Política cria uma identidade gerida para cada atribuição para, mas tem de fornecer detalhes sobre quais funções para conceder a identidade gerida. Se a identidade gerida está em falta funções, é apresentado durante a atribuição de política ou uma iniciativa que contém a política. Quando utilizar o portal, política automaticamente concederá a identidade gerida as funções listadas assim que a atribuição é iniciada.
+Política cria uma identidade gerida para cada atribuição, mas tem de ter detalhes sobre quais funções para conceder a identidade gerida. Se a identidade gerida está em falta funções, este erro é apresentado durante a atribuição de política ou uma iniciativa. Quando utilizar o portal, política automaticamente concederá a identidade gerida as funções listadas assim que a atribuição é iniciada.
 
 ![Identidade gerida - função em falta](../media/remediate-resources/missing-role.png)
 
@@ -31,8 +31,7 @@ Política cria uma identidade gerida para cada atribuição para, mas tem de for
 
 ## <a name="configure-policy-definition"></a>Configurar a definição de política
 
-A primeira etapa é definir as funções que **deployIfNotExists** precisa na definição de política para implementar o conteúdo do seu modelo incluído com êxito. Sob o **detalhes** propriedade, adicionar um **roleDefinitionIds** propriedade. Esta é uma matriz de cadeias de caracteres que correspondam a funções no seu ambiente.
-Para obter um exemplo completo, consulte a [deployIfNotExists exemplo](../concepts/effects.md#deployifnotexists-example).
+A primeira etapa é definir as funções que **deployIfNotExists** precisa na definição de política para implementar o conteúdo do seu modelo incluído com êxito. Sob o **detalhes** propriedade, adicionar um **roleDefinitionIds** propriedade. Esta propriedade é uma matriz de cadeias de caracteres que correspondam a funções no seu ambiente. Para obter um exemplo completo, consulte a [deployIfNotExists exemplo](../concepts/effects.md#deployifnotexists-example).
 
 ```json
 "details": {
@@ -56,7 +55,7 @@ Get-AzureRmRoleDefinition -Name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>Configurar manualmente a identidade gerida
 
-Ao criar uma atribuição através do portal, política gera a identidade gerida tanto ele concede as funções definidas na **roleDefinitionIds**. Nas seguintes condições, passos para criar a identidade gerida e atribua-lhe permissões devem ser executados manualmente:
+Ao criar uma atribuição através do portal, política gera a identidade gerida tanto ele concede as funções definidas na **roleDefinitionIds**. Nas seguintes condições, passos para criar a identidade gerida e atribua-lhe permissões devem ser feitos manualmente:
 
 - Ao utilizar o SDK (por exemplo, o Azure PowerShell)
 - Quando um recurso fora do âmbito de atribuição é modificado pelo modelo
@@ -125,11 +124,11 @@ Para adicionar uma função a identidade gerida da atribuição, siga estes pass
 
 1. Clique nas **controlo de acesso (IAM)** ligar na página de recursos e clique em **+ adicionar atribuição de função** na parte superior da página de controle de acesso.
 
-1. Selecione a função adequada que corresponda a um **roleDefinitionIds** da definição de política. Deixe **atribuir acesso a** predefinido de 'Utilizador do Azure AD, grupo ou aplicação'. Na **selecione** caixa, cole ou escreva a parte do ID do recurso de atribuição localizado anteriormente. Uma vez concluída a pesquisa, clique com o objeto com o mesmo nome para selecionar o id e clique em **guardar**.
+1. Selecione a função adequada que corresponda a um **roleDefinitionIds** da definição de política. Deixe **atribuir acesso a** predefinido de 'Utilizador do Azure AD, grupo ou aplicação'. Na **selecione** caixa, cole ou escreva a parte do ID do recurso de atribuição localizado anteriormente. Uma vez concluída a pesquisa, clique com o objeto com o mesmo nome para selecionar o ID e clique em **guardar**.
 
 ## <a name="create-a-remediation-task"></a>Criar uma tarefa de remediação
 
-Durante a avaliação, a atribuição de política com **deployIfNotExists** efeito determina se existem recursos incompatíveis. Quando são encontrados recursos não compatíveis, os detalhes fornecidos no **remediação** página. Juntamente com a lista de políticas que tenham recursos em não conformidade é a opção para acionar uma **tarefas de remediação**. Este é o que cria uma implementação a partir da **deployIfNotExists** modelo.
+Durante a avaliação, a atribuição de política com **deployIfNotExists** efeito determina se existem recursos incompatíveis. Quando são encontrados recursos não compatíveis, os detalhes fornecidos no **remediação** página. Juntamente com a lista de políticas que tenham recursos em não conformidade é a opção para acionar uma **tarefas de remediação**. Esta opção é o que cria uma implementação a partir da **deployIfNotExists** modelo.
 
 Para criar uma **tarefas de remediação**, siga estes passos:
 
@@ -146,21 +145,21 @@ Para criar uma **tarefas de remediação**, siga estes passos:
    > [!NOTE]
    > Uma forma alternativa para abrir o **tarefas de remediação** página é a localização e clique na política da **conformidade** página, em seguida, clique no **criar tarefa de remediação** botão.
 
-1. Na **nova tarefa de remediação** página, filtrar os recursos necessários para remediar utilizando o **âmbito** reticências e escolha os recursos subordinados de quais a política foi atribuída (incluindo para baixo para o recurso individual objetos). Além disso, utilizar o **localizações** pendente para filtrar ainda mais os recursos. Apenas os recursos listados na tabela serão remediados.
+1. Na **nova tarefa de remediação** página, filtrar os recursos necessários para remediar utilizando o **âmbito** reticências e escolha os recursos subordinados de onde a política é atribuída (incluindo para baixo para o recurso individual objetos). Além disso, utilizar o **localizações** pendente para filtrar ainda mais os recursos. Apenas os recursos listados na tabela serão remediados.
 
    ![Remediar - selecionar recursos](../media/remediate-resources/select-resources.png)
 
-1. Iniciar a tarefa de atualização de uma vez que os recursos foram filtrados, clicando em **Remedeie**. A página de política de conformidade será aberta para o **tarefas de atualização** separador para mostrar o estado do progresso de tarefas.
+1. Iniciar a tarefa de remediação assim que os recursos foram filtrados clicando **Remedeie**. A página de política de conformidade será aberta para o **tarefas de atualização** separador para mostrar o estado do progresso de tarefas.
 
    ![Remediar – progresso da tarefa](../media/remediate-resources/task-progress.png)
 
-1. Clique nas **tarefas de remediação** da página de conformidade da política para obter detalhes sobre o progresso. A filtragem utilizado para a tarefa são mostradas juntamente com uma lista dos recursos a ser corrigida.
+1. Clique nas **tarefas de remediação** da página de conformidade da política para obter detalhes sobre o progresso. A filtragem utilizado para a tarefa é apresentada juntamente com uma lista dos recursos a ser corrigida.
 
-1. Partir do **tarefa remedation** página, clique com o botão direito num recurso para ver a implementação da tarefa de atualização ou o recurso. No final da linha, clique em **eventos relacionados com** para ver os detalhes, como uma mensagem de erro.
+1. Partir do **tarefas de remediação** página, clique com o botão direito num recurso para ver a implementação da tarefa de atualização ou o recurso. No final da linha, clique em **eventos relacionados com** para ver os detalhes, como uma mensagem de erro.
 
    ![Remediar - menu de contexto de tarefa de recursos](../media/remediate-resources/resource-task-context-menu.png)
 
-Recursos implementados através de um **tarefas de remediação** será adicionado à **recursos implementados** separador na página de conformidade de política após um curto atraso.
+Recursos implementados através de um **tarefas de remediação** são adicionados à **recursos implementados** separador na página de conformidade de política.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

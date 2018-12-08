@@ -1,6 +1,6 @@
 ---
-title: Como repor a palavra-passe de um utilizador no Azure Active Directory | Documentos da Microsoft
-description: Saiba como repor a palavra-passe de um utilizador com o Azure Active Directory.
+title: Repor palavra-passe de um utilizador - Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como repor a palavra-passe de um utilizador com o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,19 +12,22 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 3803808ab589c3d880111421f650141f0d829f0b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c8dd387104d52075425d881363dbcbaac700461a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736102"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103375"
 ---
-# <a name="how-to-reset-a-users-password-using-azure-active-directory"></a>Como: repor a palavra-passe de um utilizador com o Azure Active Directory
-Pode redefinir a senha de um usuário se a palavra-passe é esquecida, se o utilizador obtém impedido de aceder um dispositivo ou se o usuário nunca recebeu uma palavra-passe.
+# <a name="reset-a-users-password-using-azure-active-directory"></a>Repor palavra-passe de um utilizador com o Azure Active Directory
+Como administrador, pode redefinir a senha de um usuário, se a palavra-passe é esquecida, se o utilizador obtém impedido de aceder um dispositivo ou se o usuário nunca recebeu uma palavra-passe.
 
 >[!Note]
 >A menos que o inquilino do Azure AD é o diretório raiz de um utilizador, não será possível repor a palavra-passe. Isso significa que se o utilizador está a iniciar sessão na sua organização através de uma conta de outra organização, uma conta Microsoft ou uma conta do Google, não será possível repor a palavra-passe.<br><br>Se o utilizador tem uma origem de autoridade de como o Windows Server Active Directory, só poderá repor a palavra-passe, se ativou a repetição de escrita de palavra-passe.<br><br>Se o utilizador tem uma origem de autoridade como externo do Azure AD, não será possível repor a palavra-passe. Apenas o utilizador ou um administrador no Azure AD externo, pode repor a palavra-passe.
+
+>[!Note]
+>Se não seja um administrador e, em vez disso, estiver à procura para obter instruções sobre como repor a sua própria palavra-passe profissional ou escolar, veja [repor a palavra-passe profissional ou escolar](../user-help/active-directory-passwords-update-your-own-password.md).
 
 ## <a name="to-reset-a-password"></a>Repor uma palavra-passe
 

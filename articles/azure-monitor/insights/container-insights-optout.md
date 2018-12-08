@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2018
+ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 1df4e345645fb216f1656b2bbe87396cf0719d1c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 57b13f5ae37fa4d8d5dbbdc00b9fedbb0f1c9163
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994987"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101857"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers-preview"></a>Como parar a monitorização do Azure Kubernetes Service (AKS) com o Azure Monitor para contentores (pré-visualização)
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Como parar a monitorização do Azure Kubernetes Service (AKS) com o Azure Monitor para contentores
 
-Se, depois de ativar a monitorização do seu cluster do AKS, decida que já não pretende monitorizá-lo, pode *para anular*.  Este artigo mostra como efetuar este procedimento utilizando a CLI do Azure ou com modelos do Azure Resource Manager fornecidos.  
+Depois de ativar a monitorização do seu cluster do AKS, pode parar a monitorização do cluster, se decidir que já não pretende monitorizá-lo. Este artigo mostra como efetuar este procedimento utilizando a CLI do Azure ou com modelos do Azure Resource Manager fornecidos.  
 
 
 ## <a name="azure-cli"></a>CLI do Azure

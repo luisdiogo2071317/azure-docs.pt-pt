@@ -1,5 +1,5 @@
 ---
-title: Tutorial - criar e executar um bloco de notas do Jupyter no Azure | Documentos da Microsoft
+title: Tutorial - criar e executar um bloco de notas do Jupyter no Azure
 description: Como criar uma execução de um bloco de notas do Jupyter em blocos de notas do Azure que demonstra o processo de regressão linear em ciência de dados.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a73a3e89c2f1c2b852193ae916d73675b5b0fbcd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856346"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106684"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um bloco de notas do Jupyter com Python
 
@@ -54,7 +54,12 @@ O modelo de regressão linear que criar no bloco de notas desenha dados a partir
 ### <a name="upload-the-data-file"></a>Carregue o ficheiro de dados
 
 1. No seu dashboard do projeto em blocos de notas do Azure, selecione **carregue** > **de URL**
-1. No pop-up, introduza o URL `https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv` no **URL do ficheiro** e *cricket_chirps.csv* no **nome de ficheiro**, em seguida, selecione **feito**.
+1. No pop-up, introduza o seguinte URL na **URL de ficheiro** e *cricket_chirps.csv* na **nome de ficheiro**, em seguida, selecione **feito**.
+
+    ```url
+    https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
+    ```
+
 1. O *cricket_chirps.csv* ficheiro deverá agora aparecer na lista de ficheiros do seu projeto:
 
     ![Recentemente criado o ficheiro CSV Mostrar na lista de ficheiros de projeto](media/tutorial/csv-file-in-project.png)
@@ -87,7 +92,7 @@ O modelo de regressão linear que criar no bloco de notas desenha dados a partir
 
 1. Selecione **Guardar ficheiro** para guardar o ficheiro e voltar ao dashboard do projeto.
 
-## <a name="install-python-packages-at-the-project-level"></a>Instalar pacotes de Python em nível de projeto
+## <a name="install-project-level-packages"></a>Instalar pacotes de nível de projeto
 
 Dentro de um bloco de notas, pode sempre utilizar comandos como `!pip install` numa célula de código para instalar pacotes necessários. No entanto, esses comandos são executados sempre que executar células de código ao bloco de notas e pode levar um tempo considerável. Por esse motivo, em vez disso, pode instalar pacotes ao projeto nível utilizando um `requirements.txt` ficheiro.
 
@@ -113,7 +118,7 @@ Dentro de um bloco de notas, pode sempre utilizar comandos como `!pip install` n
 
 Com este passo de configuração no local, qualquer bloco de notas que é executar o projeto será executado num ambiente em que esses pacotes são instalados.
 
-## <a name="create-the-notebook-file-and-start-jupyter"></a>Criar o ficheiro do bloco de notas e iniciar o Jupyter
+## <a name="create-and-run-a-notebook"></a>Criar e executar um bloco de notas
 
 Com o ficheiro de dados pronto e o conjunto de ambiente de projeto, pode criar e abrir o bloco de notas.
 
@@ -125,7 +130,7 @@ Com o ficheiro de dados pronto e o conjunto de ambiente de projeto, pode criar e
 
     [![](media/tutorial/tutorial-new-notebook.png "Vista inicial de um novo bloco de notas em blocos de notas do Azure")](media/tutorial/tutorial-new-notebook.png#lightbox)
 
-## <a name="a-brief-tour-of-the-notebook-interface"></a>Uma breve apresentação da interface do bloco de notas
+## <a name="tour-the-notebook-interface"></a>Realizar uma visita guiada da interface do bloco de notas
 
 Com o bloco de notas em execução, pode adicionar código células de Markdown, execute essas células e gerir a operação do bloco de notas. Em primeiro lugar, no entanto, vale a pena levando alguns minutos para se familiarizar com a interface. Para a documentação completa, selecione o **ajudar** > **ajuda do bloco de notas** comando de menu.
 
@@ -404,7 +409,7 @@ Também pode utilizar o **arquivo** > **fazer uma cópia** comando em qualquer a
 
 Quando tiver terminado com um bloco de notas, utilizar o **arquivo** > **fechar e parar** comando, que fecha o bloco de notas e encerra o kernel de execução-lo. Blocos de notas do Azure, em seguida, fecha-se o separador do browser automaticamente.
 
-## <a name="debugging-code-in-a-notebook-using-visual-studio-code"></a>Depurar o código num bloco de notas com o Visual Studio Code
+## <a name="debug-notebooks-using-visual-studio-code"></a>Depurar os blocos de notas com o Visual Studio Code
 
 Se as células de código em seu bloco de anotações não se comportam como esperado, pode ter bugs de código ou outros defeitos. No entanto, além de usar `print` instruções para mostrar o valor das variáveis, um bloco de notas do Jupyter não oferece qualquer facilidade de depuração.
 

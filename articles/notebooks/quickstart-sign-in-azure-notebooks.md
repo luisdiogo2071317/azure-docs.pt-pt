@@ -1,5 +1,5 @@
 ---
-title: Entrar para blocos de notas do Azure | Documentos da Microsoft
+title: Entrar para blocos de notas do Azure
 description: Iniciar sessão em blocos de notas do Azure e defina um ID de utilizador, o que lhe dá a capacidade de acessar projetos guardados e partilhar os blocos de notas com outras pessoas rapidamente.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 44513a63f3bc13592a5c7de2595149956597251c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f595fbb6571c3deaaa0644ba9d62f598181592e3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856298"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106316"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Início rápido: Iniciar sessão e defina um ID de utilizador
 
@@ -54,9 +54,9 @@ Embora possa exibir sempre o blocos de notas do Azure sem iniciar sessão, tem d
 
 ## <a name="sign-out"></a>Terminar sessão
 
-1. Para terminar sessão, selecione o seu nome de utilizador no canto superior direito da página, em seguida, selecione **terminar sessão**:
+Para terminar sessão, selecione o seu nome de utilizador no canto superior direito da página, em seguida, selecione **terminar sessão**:
 
-    ![Localização do comando de fim de sessão em blocos de notas do Azure](media/accounts/sign-out-command.png)
+![Localização do comando de fim de sessão em blocos de notas do Azure](media/accounts/sign-out-command.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

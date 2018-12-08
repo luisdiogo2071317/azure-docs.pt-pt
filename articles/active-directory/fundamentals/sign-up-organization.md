@@ -1,6 +1,6 @@
 ---
-title: Como se inscrever no Azure Active Directory como uma organização | Documentos da Microsoft
-description: Saiba como inscrever-se sua organização utilizar o Azure e Azure Active Directory.
+title: Inscreva-se a sua organização para utilizar o Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como inscrever-se sua organização utilizar o Azure e Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: ccff64b88787291832b9d2ed84eb81919152d887
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 53536604ed2f371d1ae7e63b286b17501b260c8c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364776"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100723"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-as-an-organization"></a>Como: inscrever-se no Azure Active Directory como uma organização
+# <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Inscreva-se a sua organização para utilizar o Azure Active Directory
 Inscreva-se para o Azure Active Directory (Azure AD) uma nova subscrição do Microsoft Azure através de um:
 
 - **Conta Microsoft.** Utilize a sua conta Microsoft pessoal, para obter acesso ao Azure e todos os produtos Microsoft orientados ao consumidor e serviços em nuvem, como Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE ou do Office 365. Inscrever-se uma caixa de correio do Outlook.com automaticamente cria uma conta Microsoft. Para obter mais informações, consulte [descrição geral da conta da Microsoft](https://account.microsoft.com/account).

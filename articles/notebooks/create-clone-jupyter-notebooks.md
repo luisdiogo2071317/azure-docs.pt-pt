@@ -1,5 +1,5 @@
 ---
-title: Como criar e clonar os blocos de notas do Jupyter no Azure | Documentos da Microsoft
+title: Criar e clonar os blocos de notas do Jupyter no Azure
 description: Projetos de blocos de notas do Azure gerir uma coleção de blocos de notas e arquivos relacionados, o que pode criar um novo ou clonar a partir de outra origem.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 36de7ce0cbbc1c3a2c12682b6882dc4d5491eb10
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c4325f0c9de0d945d1612a3ab4171a2bfe1be25b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856234"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106520"
 ---
 # <a name="create-and-clone-projects"></a>Criar e clonar projetos
 
@@ -49,7 +49,7 @@ O que pode fazer no dashboard depende se iniciou sessão com a conta que possui 
 
 Quando utiliza a **partilha** de comandos e selecione o **incorporação** separador, pode copiar o código HTML ou Markdown que cria um distintivo "Bloco de notas de lançamento":
 
-    ![Launch notebook badge ](https://notebooks.azure.com/launch.png)
+![Inicie o destaque do bloco de notas ](https://notebooks.azure.com/launch.png)
 
 Se não tiver um projeto de blocos de notas do Azure, pode criar uma ligação que clona do GitHub diretamente com os modelos seguintes, substituindo o nome de utilizador apropriado e nomes de repositório:
 

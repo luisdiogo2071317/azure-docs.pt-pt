@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: eamono
-ms.openlocfilehash: a4356f38df017901ab219318463538003d3a979e
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
-ms.translationtype: HT
+ms.openlocfilehash: 9da40508c6f8fec1122ab116786ed726b576a639
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919179"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106707"
 ---
-# <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrar a Automatização do Azure com a Event Grid e o Microsoft Teams
+# <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Tutorial: Integrar a automatização do Azure com o Event Grid e o Microsoft Teams
 
 Neste tutorial, ficará a saber como:
 
@@ -117,7 +117,7 @@ Para concluir este tutorial, é necessária uma [conta de Automatização do Azu
 
     ![Notificação do Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, configurou a integração entre o Event Grid e a Automatização. Aprendeu a:
 

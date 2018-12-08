@@ -1,6 +1,6 @@
 ---
-title: Da Equipe líder da equipe de dados ciência processo tarefas - Azure | Documentos da Microsoft
-description: Uma descrição de tarefas para um líder de equipe num projeto de equipe de ciência de dados.
+title: Tarefas para a equipe líder da equipe de processo de ciência de dados equipe - Azure
+description: Uma descrição das tarefas que uma equipe líder num projeto de equipe de ciência de dados deve concluir para a equipa de ciência de dados.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2004396266d4bde9f3be540408524b668bbb863d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: 68fd0abf314eb4fde5ff335acc161d82ad78cd0c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443854"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106639"
 ---
-# <a name="team-lead-tasks"></a>Tarefas de líder de equipe
+# <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Tarefas para a equipe de liderar em à equipa de processo de ciência de dados de equipa
 
 Este tópico de contornos as tarefas que é um líder de equipe espera-se de executar para a equipa de ciência de dados. O objetivo é estabelecer o ambiente de equipa de colaboração que padroniza sobre o [Team Data Science Process](overview.md) (TDSP). TDSP é uma metodologia de ciência de dados ágil e iterativa para fornecer soluções de Análise Preditiva e aplicações inteligentes com eficiência. Foi concebido para ajudar a melhorar a colaboração e a aprendizagem de equipe. O processo é um distillation das melhores práticas e estruturas da Microsoft, bem como da indústria, necessários para a implementação bem-sucedida de iniciativas de ciência de dados para ajudar as empresas totalmente perceber os benefícios de seus programas de análise. Para uma descrição das funções pessoal e das respetivas tarefas associadas que são processadas por uma equipa de ciência de dados padronizar este processo, consulte [Team Data Science Process funções e tarefas](roles-tasks.md).
 

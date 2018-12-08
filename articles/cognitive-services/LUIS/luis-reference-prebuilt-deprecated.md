@@ -1,21 +1,22 @@
 ---
-title: LUIS pré-criados preteridas a referência de entidades - Azure | Documentos da Microsoft
+title: Entidades pré-concebidas preteridas
 titleSuffix: Azure
 description: Este artigo contém informações de entidade pré-criados preterido na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 5f722e9eae45f2df86b8c0831ffd33ad3edd8e5b
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 2fcd5a784801c3591d76b4c4569a7dda9472686e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334113"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103987"
 ---
 # <a name="deprecated-entities"></a>Entidades preteridas
 As seguintes entidades pré-criados foram preteridas e não não possível adicionar novas aplicações de LUIS.
@@ -44,7 +45,7 @@ Entidade pré-criados   |   Expressão de exemplo   |   JSON
 #### <a name="encyclopedia-subtypes"></a>Subtipos enciclopédia
 Entidade incorporada da enciclopédia inclui mais de 100 tipos de secundárias na seguinte tabela: Além disso, as entidades de enciclopédia são, muitas vezes, mapeiam para vários tipos. Por exemplo, a consulta Ronald Reagan resulta em: 
 
-```JSON
+```json
 {
       "entity": "ronald reagan",
       "type": "builtin.encyclopedia.people.person"

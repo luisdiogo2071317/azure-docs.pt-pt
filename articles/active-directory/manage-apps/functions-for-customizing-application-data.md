@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: e5db47cabddb2898667ff9d6cdac41cf3b953099
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843585"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105160"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -79,7 +79,7 @@ Se um dos valores de origem é um atributo com múltiplos valor, em seguida, cad
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
 | **separator** |Necessário |Cadeia |Cadeia utilizada para separar os valores de origem quando eles são concatenados numa cadeia de caracteres. Pode ser "" se nenhum separador é necessário. |
-| * * source1... sourceN * * |Variável-número de vezes, necessário |Cadeia |Cadeia de valores a ser unidas. |
+| **... source1 sourceN** |Variável-número de vezes, necessário |Cadeia |Cadeia de valores a ser unidas. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -141,6 +141,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
   * Se **origem** tem um valor, utiliza **regexPattern** e **regexGroupName** para extrair o valor de substituição da propriedade com o **replacementPropertyName** . Valor de substituição é retornado como o resultado
 
 **Parâmetros:**<br> 
+
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
 | **Origem** |Necessário |Cadeia |Normalmente, o nome do atributo de objeto de origem. |
@@ -166,7 +167,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 
 | Nome | Obrigatório / repetidos | Tipo | Notas |
 | --- | --- | --- | --- |
-| * * uniqueValueRule1... uniqueValueRuleN * * |Pelo menos 2 são vinculados a necessário, não superior |Cadeia | Lista de regras de geração de valor único para avaliar |
+| **... uniqueValueRule1 uniqueValueRuleN** |Pelo menos 2 são vinculados a necessário, não superior |Cadeia | Lista de regras de geração de valor único para avaliar |
 
 
 - - -

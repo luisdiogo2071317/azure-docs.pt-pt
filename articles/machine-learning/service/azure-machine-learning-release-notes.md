@@ -1,6 +1,7 @@
 ---
-title: O que há de novo no Azure Machine Learning
-description: Este documento fornece detalhes sobre as atualizações para o Azure Machine Learning.
+title: Novidades
+titleSuffix: Azure Machine Learning service
+description: Saiba mais sobre as atualizações mais recentes para o serviço Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,84 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 10/24/2018
-ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: ea9f8e07b627b7f3554e390063d61ef984f30dad
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291345"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105143"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning. 
+
+## <a name="2018-12-04-general-availability"></a>2018-12-04: disponibilidade geral
+
+O serviço do Azure Machine Learning está agora em disponibilidade geral.
+
+### <a name="azure-machine-learning-compute"></a>Computação do Azure Machine Learning
+Com esta versão, estamos a anunciar uma nova experiência de computação gerida através de [computação do Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute). Este computação pode ser utilizada para inferência de treinamento e Batch, é a computação de único - para várias - node e faz a gestão de cluster e da tarefa de agendamento para o utilizador. Ele é dimensionado automaticamente por predefinição, possui suporte para recursos de CPU e GPU e também permite o uso de VMs de baixa prioridade de custo reduzido. Ele substitui a computação de IA do Batch para o Azure Machine Learning.
+  
+Computação do Azure Machine Learning podem ser criado em Python, através do portal do Azure ou a CLI. Tem de ser criado na região da sua área de trabalho e não pode ser ligado a outra área de trabalho. Este computação utiliza um contentor de Docker para sua execução e suas dependências para replicar o ambiente mesmo em todos os nós de pacotes.
+
+> [!Warning]
+> Recomendamos que crie uma nova área de trabalho para utilizar a computação do Azure Machine Learning. Há uma chance remota que os utilizadores a tentar criar a computação do Azure Machine Learning a partir de uma área de trabalho existente poderão ver um erro. Computação existente na sua área de trabalho deve continuar a trabalhar afetada.
+
+### <a name="azure-machine-learning-sdk-for-python-v102"></a>Azure Machine Learning SDK for Python v1.0.2
+
++ **Alterações recentes**
+  + Com esta versão, estamos a remover suporte para criar uma VM do Azure Machine Learning. Ainda pode anexar uma VM de nuvem existente ou remoto no servidor local. 
+  + Estamos também a remover o suporte para BatchAI, todos os quais devem ser suportados por meio de computação do Azure Machine Learning agora.
+
++ **Novo**
+  + Para pipelines de aprendizagem:
+    + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py)
+    + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
+    + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
+
+
++ **Atualizado**
+  + Para pipelines de aprendizagem:
+    + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) agora aceita runconfig
+    + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) agora copia de e para uma origem de dados SQL
+    + Agendar funcionalidades no SDK para criar e atualizar agendas para a execução de pipelines publicados
+
+<!--+ **Bugs fixed**-->
+
+### <a name="azure-machine-learning-data-prep-sdk-v052"></a>SDK v0.5.2 de preparação de dados do Azure Machine Learning
+
++ **Alterações recentes** 
+  * `SummaryFunction.N` nome foi mudado para `SummaryFunction.Count`.
+  
++ **Correções de erros**
+  * Utilize mais recente AML executar Token quando leitura e gravação para arquivos de dados em execuções remotas. Anteriormente, se o Token AML de executar é atualizado no Python, o tempo de execução de preparação de dados não será atualizado com o Token AML de executar atualizado.
+  * Mensagens de erro mais claras adicionais
+  * to_spark_dataframe() já não irá falhar quando são Spark utiliza Kryo serialização
+  * Inspetor de contagem de valores agora pode mostrar mais de 1000 valores exclusivos
+  * Divisão aleatória já não falha se o fluxo de dados original não tiver um nome  
+
+### <a name="docs-and-notebooks"></a>Documentos e blocos de notas
++ Pipelines de ML
+  + Exemplos de transferência de blocos de notas novo e atualizados para começar a trabalhar com pipelines, controlo de âmbito do batch e estilo: https://aka.ms/aml-pipeline-notebooks
+  + Saiba como [criar seu primeiro pipeline](how-to-create-your-first-pipeline.md)
+  + Saiba como [predições de batch com pipelines de execução](how-to-run-batch-predictions.md)
++ Computação do Machine Learning do Azure
+  + [Exemplo blocos de notas] (https://aka.ms/aml-notebooks) são atualizadas para utilizar esta nova computação gerida.
+  + [Saiba mais sobre este computação](how-to-set-up-training-targets.md#amlcompute)
+
+### <a name="azure-portal-new-features"></a>Portal do Azure: novos recursos
++ Criar e gerir [computação do Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) tipos no portal.
++ Monitorizar a utilização de quota e [quota de pedido](how-to-manage-quotas.md) para computação do Azure Machine Learning.
++ Ver o estado do cluster de computação do Azure Machine Learning em tempo real.
++ Foi adicionado suporte de rede virtual para a criação de computação do Azure Machine Learning e o Azure Kubernetes Service.
++ Execute novamente os seus pipelines publicados com parâmetros existentes.
++ Novos [automatizada de gráficos do machine learning](how-to-track-experiments.md#auto) para modelos de classificação (comparação de precisão, ganhos, calibração, gráfico de importância da funcionalidade com explainability de modelo) e modelos de regressão (residuals e gráfico de importância da funcionalidade com modelo explainability). 
++ Pipelines podem ser visualizados no portal do Azure
+
+
+
 
 ## <a name="2018-11-20"></a>2018-11-20
 

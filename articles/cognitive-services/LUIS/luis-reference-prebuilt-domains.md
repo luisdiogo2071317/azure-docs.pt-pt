@@ -1,21 +1,22 @@
 ---
-title: Referência de domínio pré-criado - Azure | Documentos da Microsoft
+title: Referência de domínio pré-concebida
 titleSuffix: Azure
 description: Referência para os domínios criados previamente, que são coleções pré-criados de objetivos e entidades do Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: a47fb82b1e6d42bdebff8cc4f3cb4c3c87025831
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335628"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106248"
 ---
 # <a name="prebuilt-domain-reference"></a>Referência de domínio pré-concebida
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.
@@ -266,18 +267,19 @@ When is Captain Omar showing?
 O domínio de música fornece intenções e entidades relacionadas com a reprodução de música num player de música.
 
 ### <a name="examples"></a>Exemplos
-```
-play Beethoven
-Increase track volume
-Skip to the next song
-```
+
+|Exemplos|
+|--|
+|reproduzir Sinfonia n|
+|aumentar o volume de faixa|
+|Avance para a próximo música|
 
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |
 | ---------------- |-----------------------|----|
 | DecreaseVolume | Diminua o volume do dispositivo.|diminuir o volume de faixa<br/>volume baixo|
 | IncreaseVolume | Aumente o volume do dispositivo.|aumentar o volume de faixa<br/>volume de cópia de segurança|
-| Sem volume |Mudo a reprodução de música.|Música Mute (mudo)<br/>Colocar a faixa em Desativar som<br/>Música Mute (mudo) |
+| Desativar som |Mudo a reprodução de música.|Música Mute (mudo)<br/>Colocar a faixa em Desativar som<br/>Música Mute (mudo) |
 | Colocar em pausa | Colocar em pausa a reprodução de música.|Colocar em pausa<br/>Música de colocar em pausa<br/>Roteiro de colocar em pausa|
 | PlayMusic | Reproduza música num dispositivo.|reproduzir Kevin Durant<br/>reproduzir o paraíso por Coldplay<br/>reproduzir Hello da Adele|
 | Repetir |Repita a reprodução de música.|Repita a música<br/>Reproduzir o ganho de faixa<br/>Repita a música|
@@ -285,7 +287,7 @@ Skip to the next song
 | SkipBack | Ignore, com versões anteriores, uma faixa.|Avance para a próximo música<br/>Reprodução da música seguinte|
 | SkipForward |Passar por um Roteiro.|Reprodução da música anterior<br/>Voltar para a faixa anterior |
 | Parar | Pare uma ação de reprodução de música. |Pare reprodução este álbum.|
-| Ativar som | Ativar o som um dispositivo de reprodução de música.| Ativar o som.|
+| Ativar o som | Ativar o som um dispositivo de reprodução de música.| Ativar o som.|
 
 ### <a name="entities"></a>Entidades
 | Nome da entidade | Descrição | Exemplos |
@@ -297,11 +299,12 @@ Skip to the next song
 O domínio de nota fornece intenções e entidades relacionadas com a criação, edição e encontrar notas.
 
 ### <a name="examples"></a>Exemplos
-```
-Add to my groceries note lettuce tomato bread coffee
-Check off bananas from my grocery list
-Remove all items from my vacation list
-```
+
+|Exemplos|
+|--|
+|Adicionar ao meu groceries nota lettuce grelhado pão café|
+|Verifique bananas de acessar a minha lista de|
+|Remover todos os itens da minha lista de férias|
 
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |
@@ -322,7 +325,7 @@ Remove all items from my vacation list
 | AppName | O nome da aplicação de anotações.|Wunderlist<br/>OneNote|
 | ContactName | O nome de um contacto numa nota.|Camila<br/>Jim<br/>Chris|
 | Origem de dados | Localização das notas.|OneDrive<br/>Google docs<br/>meu computador|
-| Tipo de dados | O tipo de ficheiro ou documento, normalmente associados à programas de software específico.|Slides<br/>Folha de cálculo<br/>Folha de Cálculo|
+| Tipo de dados | O tipo de ficheiro ou documento, normalmente associados à programas de software específico.|Slides<br/>Folha de cálculo<br/>Folha de cálculo|
 | Texto | O texto de uma nota ou lembrete.|Esticar antes de movimentação<br/>amanhã longo prazo.|
 | Cargo | Título de uma nota.|groceries<br/>pessoas para chamar<br/>tarefas pendentes|
 
@@ -330,11 +333,13 @@ Remove all items from my vacation list
 O domínio de OnDevice fornece intenções e entidades relacionadas para controlar o dispositivo.
 
 ### <a name="examples"></a>Exemplos
-```
-Close video player
-Cancel playback
-Can you make the screen brighter?
-```
+
+|Exemplos|
+|--|
+|Feche o leitor de vídeo|
+|Cancelar a reprodução|
+|Pode fazer com que a tela recém-exibidas?|
+
 
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |
@@ -381,11 +386,13 @@ Can you make the screen brighter?
 O domínio de lugares fornece objetivos para processar consultas relacionadas com de locais como as empresas, instituição, restaurantes, espaços públicos e endereços.
 
 ### <a name="examples"></a>Exemplos
-```
-Save this location to my favorites
-How far away is Holiday Inn?
-At what time does Safeway close?
-```
+
+|Exemplos|
+|--|
+|Guardar esta localização nos meus Favoritos|
+|Distância é feriado Scritpt?|
+|A que hora Safeway fechar?|
+
 
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |
@@ -432,7 +439,7 @@ restart|
 | DestinationAddress| Uma localização de destino ou endereço.|Da Palo Alto<br/>300 112th Ave SE<br/>Seattle|
 | DestinationPlaceName| O nome de um destino que é uma empresa, restaurante, attraction público ou instituição.|Central park<br/>Safeway<br/>Walmart|
 | DestinationPlaceType | O tipo de um destino que é um comercial, restaurante, attraction público ou instituição. |Restaurante<br/>Opera<br/>cinema|
-| Distância | A distância para um local.|15 quilómetros<br/>5 quilómetros<br/>10 quilómetros de distância|
+| distância | A distância para um local.|15 quilómetros<br/>5 quilómetros<br/>10 quilómetros de distância|
 | MealType | Tipo de refeição como café da manhã ou almoço. |Café da manhã<br/>Jantar<br/>Almoço<br/>Supper|
 | OpenStatus | Indica se um lugar é aberto ou fechado.|Aberto<br/>Fechado<br/>abrir|
 | PlaceName | O nome de um local.|Fábrica de bolos|
@@ -450,11 +457,13 @@ restart|
 O domínio de lembrete fornece intenções e entidades para criar, editar e encontrar lembretes.
 
 ### <a name="examples"></a>Exemplos
-```
-Change my interview to 9 am tomorrow
-Remind me to buy milk on my way back home
-Can you check if I have a reminder about Christine's birthday?
-```
+
+|Exemplos|
+|--|
+|Alterar a minha entrevista para 9h amanhã|
+|Lembrar-me comprar milk no meu caminho de volta a home page|
+|Pode verificar se tenho um lembrete sobre aniversário de Christine?|
+
 
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |
@@ -473,11 +482,12 @@ Can you check if I have a reminder about Christine's birthday?
 O domínio de RestaurantReservation fornece intenções e entidades relacionadas com a gestão de reservas do restaurante.
 
 ### <a name="examples"></a>Exemplos
-```
-Reserve at Zucca for two for tonight
-Book a table at BJ's for tomorrow
-Table for 3 in Palo Alto at 7
-```
+
+|Exemplos|
+|--|
+|Reservar em Zucca para dois para tonight|
+|Livro uma tabela do BJ para amanhã|
+|Tabela para 3 da Palo Alto em 7|
 
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |
@@ -502,18 +512,19 @@ Table for 3 in Palo Alto at 7
 O domínio de táxis fornece intenções e entidades para criar e gerir reservas de táxis.
 
 ### <a name="examples"></a>Exemplos
-```
-Get me a cab at 3 pm
-How much longer do I have to wait for my taxi?
-Cancel my Uber
-```
+
+|Exemplos|
+|--|
+|Obtenha-me um cab às 15:00|
+|Quanto mais é necessário aguardar a minha táxis?|
+|Cancelar o meu Uber|
 
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |
 | ---------------- |-----------------------|----|
 | Livro | Chame um táxi. |Obtenha-me um cab<br/>Encontrar um táxi<br/>Reservar-me um uber x|
 | Cancelar | Cancele uma ação de reserva um táxi.|Cancelar o meu táxis<br/>Cancelar o meu Uber|
-| Registar | Controle uma rota de táxis.|Quanto mais é necessário aguardar a minha táxis?<br/>Onde posso encontrar minha Uber?|
+| Roteiro | Controle uma rota de táxis.|Quanto mais é necessário aguardar a minha táxis?<br/>Onde posso encontrar minha Uber?|
 
 ### <a name="entities"></a>Entidades
 | Nome da entidade | Descrição | Exemplos |
@@ -531,11 +542,13 @@ Cancel my Uber
 O domínio de Translate fornece intenções e entidades relacionadas com a tradução de texto para um idioma de destino.
 
 ### <a name="examples"></a>Exemplos
-```
-Translate to French
-Translate hello to German
-Translate this sentence to English
-```
+
+|Exemplos|
+|--|
+|Traduzir para francês|
+|Traduzir o hello para o alemão|
+|Traduza esta frase para inglês|
+
 
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |
@@ -554,11 +567,12 @@ Translate this sentence to English
 O domínio de TV fornece intenções e entidades para controlar TVs.
 
 ### <a name="examples"></a>Exemplos
-```
-Switch channel to BBC
-Show TV guide
-Watch National Geographic
-```
+
+|Exemplos|
+|--|
+|Canal de comutador para a BBC|
+|Guia de TV show|
+|Assista a National geográfica|
 
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |
@@ -576,11 +590,13 @@ Watch National Geographic
 O domínio de utilitários fornece objetivos para tarefas comuns para várias tarefas, como saudações, cancelamento, confirmação, ajuda, repetição, navegação, iniciar e parar.
 
 ### <a name="examples"></a>Exemplos
-```
-Go back to Twitter
-Please help
-Repeat last question please
-```
+
+|Exemplos|
+|--|
+|Voltar ao Twitter|
+|Ajude|
+|Repita a última pergunta.|
+
 
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |
@@ -589,7 +605,7 @@ Repeat last question please
 | Confirmar | Certifique-se uma ação.|Sim AH confirmo<br/>Bom, que eu estou confirmar<br/>OK. eu estou confirmar|
 | FinishTask | Conclua uma tarefa iniciado do utilizador.|Terminei<br/>Terminei<br/>Isso é feito|
 | GoBack | Volte uma etapa ou regressar ao passo anterior.|Voltar ao Twitter<br/>Volte uma etapa<br/>Retroceder|
-| Ajuda | Pedido para obter ajuda.|Ajude<br/>abrir a ajuda<br/>ajuda|
+| Ajuda | Pedido para obter ajuda.|Ajude<br/>abrir a ajuda<br/>Obter ajuda|
 | Repetir | Repetir uma ação.|Repita a última pergunta.<br/>Repita os últimos música|
 | ShowNext | Mostra o item seguinte de uma série. |Mostrar a próxima Sílaba<br/>Vá para a página seguinte|
 | ShowPrevious | Mostra o item anterior de uma série.|Mostrar anterior|
@@ -600,11 +616,13 @@ Repeat last question please
 O domínio de Meteorologia fornece intenções e entidades para obter relatórios meteorológicos e previsões.
 
 ### <a name="examples"></a>Exemplos
-```
-weather in London in september
-What?s the 10 day forecast?
-What's the average temperature in India in september?
-```
+
+|Exemplos|
+|--|
+|informações sobre o clima em Londres em Setembro|
+|O que? s o 10 dias previsão?|
+|O que é a temperatura média na Índia em Setembro?|
+
 
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |
@@ -621,11 +639,12 @@ What's the average temperature in India in september?
 O domínio da Web fornece um objetivo para navegar para um Web site.
 
 ### <a name="examples"></a>Exemplos
-```
-Navigate to facebook.com
-Go to www.twitter.com
-Navigate to www.bing.com
-```
+
+|Exemplos|
+|--|
+|Navegue para facebook.com|
+|Vá para www.twitter.com|
+|Navegue para www.bing.com|
 
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |

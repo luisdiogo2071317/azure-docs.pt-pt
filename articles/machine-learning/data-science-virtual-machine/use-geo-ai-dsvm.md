@@ -1,11 +1,12 @@
 ---
-title: Utilizar a Georreplicação Artificial Intelligence dados ciência máquina - Azure | Microsoft Docs
-description: Como utilizar uma máquina de Virtual AI Georreplicação no Azure.
-keywords: ligação avançada learning AI, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise Geoespacial
+title: Utilizar a máquina de Virtual de ciência dados do Geo Inteligência Artificial – Azure | Documentos da Microsoft
+description: Saiba como utilizar a máquina de Virtual de ciência de dados de IA geográfica para analisar dados e criar modelos com base em dados geoespaciais.
+keywords: IA, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise Geoespacial, aprendizagem aprofundada
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,43 +16,43 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: f346b086a0269f247d64edf9346b01849ba3d0ee
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fd0b58d85631c437a71ad86b23e4d3a99965b331
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408042"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101020"
 ---
-# <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Utilizar a máquina de Virtual ciência de dados do Georreplicação Artificial Intelligence
+# <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Utilizar a máquina de Virtual de ciência de dados de Inteligência Artificial de Geo
 
-Utilize a VM de ciência de dados de AI Georreplicação para obter dados para análise, execute dados wrangling e criar modelos para aplicações de AI que consumam informações geoespacial. Depois de ter aprovisionado a VM de ciência de dados de AI Georreplicação e com sessão iniciada no ArcGIS Pro com a sua conta ArcGIS, pode começar a interagir com o ambiente de trabalho ArcGIS e ArcGis online. Também pode aceder ArcGIS de interfaces de Python e uma ponte de idioma de R pré-configurados na VM de ciência de dados de Georreplicação. Para criar aplicações de AI avançadas, combiná-la com a máquina de aprendizagem e a profundidade de aprendizagem estruturas e outro software de ciência de dados disponível na VM de ciência de dados.  
+Utilize a VM de ciência de dados de IA geográfica para obter dados para análise, executar a preparação de dados e criar modelos para aplicações de IA que consomem a informação geoespacial. Depois de ter aprovisionado sua VM de ciência de dados de IA geográfica e tem sessão iniciada no ArcGIS Pro, com a sua conta do ArcGIS, pode começar a interagir com o ambiente de trabalho do ArcGIS e o ArcGis online. Também pode acessar o ArcGIS de interfaces de Python e uma ponte de linguagem R previamente configurado na VM de ciência de dados Geoespaciais. Para criar aplicações de IA avançadas, combiná-la com a aprendizagem automática e aprendizagem profunda estruturas e outro software de ciência de dados disponível na VM de ciência de dados.  
 
 
 ## <a name="configuration-details"></a>Detalhes de configuração
 
-Biblioteca Python, [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), que é utilizado para a interface com ArcGIS está instalado no ambiente de conda raiz global da VM de ciência de dados que se encontra em ```c:\anaconda```. 
+A biblioteca de Python [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), que é utilizado para a interface com o ArcGIS está instalado no ambiente de conda de raiz global da VM de ciência de dados que se encontra em ```c:\anaconda```. 
 
-- Se estiver a executar o Python numa linha de comandos, execute ```activate``` ativar para o ambiente de Python conda raiz. 
-- Se estiver a utilizar um bloco de notas do IDE ou Jupyter, pode selecionar o ambiente ou kernel para garantir que estão no ambiente conda correto. 
+- Se estiver a executar o Python numa linha de comandos, execute ```activate``` para ativar no ambiente de Python de conda raiz. 
+- Se estiver a utilizar um IDE ou Jupyter notebook, pode selecionar o ambiente ou kernel para se certificar de que no ambiente de conda correto. 
 
-A bridge de R ao ArcGIS é instalado como uma biblioteca de R com o nome [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) no R Microsoft principal instância autónoma do servidor, localizada em ```C:\Program Files\Microsoft\ML Server\R_SERVER```. Visual Studio, RStudio e Jupyter já são previamente configurada para utilizar este ambiente de R e terão acesso ao ```arcgisbinding``` biblioteca R. 
-
-
-## <a name="geo-ai-data-science-vm-samples"></a>Exemplos de VM de ciência de dados de AI Georreplicação
-
-Para além de ML e avançada learning com base em framework amostras da VM de ciência de dados base, um conjunto de exemplos geoespacial também é fornecido como parte da VM de ciência de dados de AI Georreplicação. Estes exemplos podem ajudar a iniciar o desenvolvimento de aplicações de AI utilizando Geoespacial dados e o software de ArcGIS. 
+A ponte de R para ArcGIS é instalada como uma biblioteca de R com o nome [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) do Microsoft R principal instância autónoma do servidor localizada em ```C:\Program Files\Microsoft\ML Server\R_SERVER```. Visual Studio, o RStudio e Jupyter já está pré-configurado para utilizar este ambiente de R e têm acesso ao ```arcgisbinding``` biblioteca de R. 
 
 
-1. [Obter indicado Geoespacial Analytics com o Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): um exemplo de lançamento que mostra como trabalhar com dados Geoespacial através da interface do Python para ArcGIS fornecida pelo [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) biblioteca. Também mostra como pode combinar tradicional de machine learning com dados geoespacial e visualizar os resultados num mapa no ArcGIS. 
+## <a name="geo-ai-data-science-vm-samples"></a>Exemplos de VM de ciência de dados de IA geográfica
 
-2. [Obter indicado Geoespacial Analytics com R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): um exemplo de lançamento que mostra como trabalhar com dados Geoespacial através da interface de R para ArcGIS fornecida pelo [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) biblioteca. 
+Além do ML e exemplos com base na estrutura da VM de ciência de dados base de aprendizagem profunda, um conjunto de exemplos de geoespacial também é fornecido como parte da VM de ciência de dados de IA geográfica. Estes exemplos podem ajudar a promover seu desenvolvimento de aplicações de IA com dados Geoespaciais e o software de ArcGIS. 
 
-3. [Telefone de nível de pixel utilizar a classificação](https://github.com/Azure/pixel_level_land_classification): um tutorial que ilustra como criar um modelo de rede neuronal profundo que aceita uma imagem com vista aérea como entrada e devolve uma etiqueta de telefone-abrange. Exemplos de etiquetas de telefone-abrange são "forested" ou "nível máximo." O modelo devolve essa uma etiqueta para cada pixel na imagem. O modelo é criado através open source da Microsoft [cognitivos Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) learning profunda framework. O exemplo mostra também como aumentar horizontalmente a formação em [do Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) e consumir serão as predições modelo no software ArcGIS Pro. 
+
+1. [Introdução declarado com análise Geoespacial com o Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): um introdutórios, que mostra como trabalhar com dados Geoespaciais através da interface de Python para o ArcGIS fornecida pela [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) biblioteca. Ela também mostra como pode combinar a aprendizagem automática tradicional com dados geoespaciais e visualizar o resultado num mapa na ArcGIS. 
+
+2. [Introdução declarado com análise Geoespacial com R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): um introdutórios que mostra como trabalhar com dados Geoespaciais através da interface de R para ArcGIS fornecida pela [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) biblioteca. 
+
+3. [Nível de pixel terra utilizar a classificação](https://github.com/Azure/pixel_level_land_classification): um tutorial que ilustra como criar um modelo de rede neural profunda que aceita uma imagem aéreas como entrada e retorna uma etiqueta de capa da terra. Estes são exemplos de etiquetas de capa ' s land "forested" ou "água." O modelo devolve tal uma etiqueta para cada pixel na imagem. O modelo é criado usando o código aberto da Microsoft [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) framework de aprendizagem profunda. O exemplo também mostra como ampliar o treinamento sobre [do Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) e consumir as previsões do modelo no software ArcGIS Pro. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Estão disponíveis exemplos adicionais que utilizam a VM de ciência de dados:
+Exemplos adicionais que utilizam a VM de ciência de dados estão disponíveis aqui:
 
 * [Amostras](dsvm-samples-and-walkthroughs.md)
 

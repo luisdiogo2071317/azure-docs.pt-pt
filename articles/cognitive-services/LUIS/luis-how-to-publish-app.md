@@ -1,21 +1,22 @@
 ---
-title: Publique a sua aplicação LUIS para o ponto final de predição
+title: Publicar aplicação
 titleSuffix: Azure Cognitive Services
 description: Quando terminar de criar e testar a sua aplicação LUIS Active Directory, torná-lo disponível para a aplicação de cliente, publicá-la para o ponto final.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6eb48fd0f3290fbc3a249bc3880c809ace9f9ddb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: fe8806b4cc84bb9a15ce5620366fee23bba328c4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886499"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106435"
 ---
 # <a name="publish-your-trained-app"></a>Publique a sua aplicação preparada
 

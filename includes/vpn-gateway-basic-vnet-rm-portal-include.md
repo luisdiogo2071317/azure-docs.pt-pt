@@ -5,39 +5,45 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: aa2e11246502175364121ca701113c36906a5e91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: 835f23f98ebe56e0b19081f07dc3302ef93b27b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197006"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53109239"
 ---
-Para criar uma VNet no modelo de implementação do Gestor de Recursos com o Portal do Azure, siga os passos abaixo. As capturas de ecrã são disponibilizadas como exemplos. Não se esqueça de substituir os valores pelos seus. Para obter mais informações sobre como trabalhar com redes virtuais, veja [Descrição Geral da Virtual Network](../articles/virtual-network/virtual-networks-overview.md).
+Pode criar uma VNet com o modelo de implementação do Resource Manager e o portal do Azure ao seguir estes passos. Para obter mais informações sobre as redes virtuais, consulte [descrição geral da rede Virtual](../articles/virtual-network/virtual-networks-overview.md).
 
 >[!NOTE]
->Para esta VNet ligar a uma localização no local, terá de se coordenar com o administrador da rede no local para extrair um intervalo de endereços IP que possa utilizar especificamente para esta rede virtual. Se existir um intervalo de endereços duplicados em ambos os lados da ligação VPN, o tráfego não será encaminhado da forma esperada. Além disso, se pretender ligar esta VNet a outra VNet, o espaço de endereços não pode sobrepor-se a outra VNet. Tenha o cuidado de planear a configuração da rede em conformidade.
+>Para a VNet para ligar a uma localização no local, Coordene com o seu administrador de rede no local para extrair um intervalo de endereços IP que possa utilizar especificamente para esta rede virtual. Se existir um intervalo de endereços duplicados em ambos os lados da ligação VPN, o tráfego será encaminhado de modo inesperado. Além disso, se pretender ligar esta VNet a outra VNet, o espaço de endereços não pode sobrepor-se a outra VNet. Planear a configuração de rede em conformidade.
 >
 >
 
-1. Num browser, navegue para o [Portal do Azure](http://portal.azure.com) e, se necessário, inicie sessão com a sua conta do Azure.
-2. Clique em **+**. No campo **Procurar no Marketplace**, escreva “Rede Virtual”. Localize a **Rede Virtual** na lista devolvida e clique para abrir a página **Rede Virtual**.
+1. Inicie sessão para o [portal do Azure](http://portal.azure.com) e selecione **criar um recurso**. O **New** é aberta a página.
 
-  ![Localizar página de recursos da Rede Virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Localizar página de recursos da Rede Virtual")
-3. Perto da parte inferior do painel Virtual Network, na página **Selecionar um modelo de implementação**, selecione **Resource Manager** e clique em **Criar**.
+2. Na **pesquisar no marketplace** , insira *rede virtual* e selecione **rede Virtual** da lista devolvida. O **rede Virtual** é aberta a página.
 
-  ![Selecionar o Resource Manager](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png "Selecionar o Resource Manager")
-4. Na página **Criar rede virtual**, configure as definições da VNet. Depois de preencher os campos, o sinal de exclamação vermelho muda para uma marca de verificação verde se os caracteres introduzidos nos campos forem válidos. Poderá haver valores preenchidos automaticamente. Se for esse o caso, substitua-os pelos seus próprios valores. A página **Criar rede virtual** é semelhante ao exemplo seguinte:
+   ![Localizar página de recursos da Rede Virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal700.png "Localizar página de recursos da Rede Virtual")
 
-  ![Página Criar rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet.png "Página Criar rede virtual")
-5. **Nome**: Introduza o nome da rede virtual.
-6. **Espaço de endereços**: introduza o espaço de endereços. Se tiver vários espaços de endereços para adicionar, adicione o primeiro. Pode adicionar os outros mais tarde, depois de criar a VNet.
-7. **Subscrição**: verifique se a Subscrição listada é a correta. Pode utilizar o menu pendente para mudar de subscrição.
-8. **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo ao escrever o nome do mesmo. Se estiver a criar um novo grupo, dê-lhe um nome de acordo com os valores de configuração planeados. Para obter mais informações sobre os grupos de recursos, veja [Descrição Geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-9. **Localização**: selecione a localização da VNet. A localização determina onde é que os recursos que implementar nesta VNet vão residir.
-10. **Sub-rede**: adicione o nome e o intervalo de endereços da sub-rede. Pode adicionais outras sub-redes mais tarde, depois de criar a VNet.
-11. Selecione **Afixar ao dashboard** se pretender conseguir localizar mais facilmente as suas VNet no dashboard e clique em **Criar**.
+3. Do **selecionar um modelo de implementação** lista junto à parte inferior da página, selecione **Gestor de recursos**e, em seguida, selecione **criar**. O **criar rede virtual** é aberta a página.
 
-  ![Afixar ao dashboard](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png "afixar ao dashboard")
+   ![Página Criar rede virtual](./media/vpn-gateway-basic-vnet-rm-portal-include/vnet.png "Página Criar rede virtual")
+
+4. Na página **Criar rede virtual**, configure as definições da VNet. Depois de preencher os campos, o ponto de exclamação vermelho se torna uma marca de verificação verde quando os caracteres que insira no campo são validados. Alguns valores estão autofilled, que pode ser substituído pelos seus próprios valores:
+
+   - **Nome**: Introduza o nome da rede virtual.
+
+   - **Espaço de endereços**: introduza o espaço de endereços. Se tiver vários espaços de endereços para adicionar, introduza o seu primeiro espaço de endereço aqui. Pode adicionar espaços de endereços adicionais mais tarde, depois de criar a VNet.
+
+   - **Subscrição**: Verifique se a subscrição listada é a correta. Pode utilizar o menu pendente para mudar de subscrição.
+
+   - **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo ao introduzir um nome para o novo grupo de recursos. Se estiver a criar um novo grupo, dê um nome de acordo com os valores de configuração planeados. Para mais informações sobre grupos de recursos, veja [Descrição Geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
+
+   - **Localização**: selecione a localização da VNet. A localização determina onde os recursos que implementar nesta vnet vão viver.
+
+   - **Sub-rede**: adicione a sub-rede **Name** e a sub-rede **intervalo de endereços**. Pode adicionar sub-redes adicionais mais tarde, depois de criar a VNet. 
+     
+5. Selecione **Criar**.

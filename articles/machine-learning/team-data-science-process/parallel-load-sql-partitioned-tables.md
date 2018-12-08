@@ -1,6 +1,6 @@
 ---
-title: Compilar e otimizar tabelas para a importação de dados rápido paralela num SQL Server numa VM do Azure | Documentos da Microsoft
-description: Importação de Dados em Massa e em Paralelo com Tabelas de Partição de SQL
+title: Importação de dados em massa paralela usando tabelas de partição do SQL numa VM do Azure
+description: Crie tabelas particionadas para a importação em massa rápida paralela de dados para uma base de dados do SQL Server.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: f437de3043cbd3d689f85dc3524b419b1633553f
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
+ms.openlocfilehash: 5645799b0f1be1c2c6117a314920ee996880cb37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446471"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101212"
 ---
-# <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importação de Dados em Massa e em Paralelo com Tabelas de Partição de SQL
+# <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Compilar e otimizar tabelas para a importação de dados rápido paralela num SQL Server numa VM do Azure
 
 Este artigo descreve como criar tabelas particionadas para a importação em massa rápida paralela de dados para uma base de dados do SQL Server. Para grandes volumes de dados carregamento/transferência de um banco de dados do SQL, importar dados para a BD SQL e consultas subsequentes pode ser melhorado usando *vistas e tabelas Particionadas*. 
 

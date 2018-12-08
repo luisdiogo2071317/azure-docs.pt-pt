@@ -1,21 +1,22 @@
 ---
-title: Entidades previamente concebidas LUIS idade referência - Azure | Documentos da Microsoft
+title: Entidade pré-criados de idade
 titleSuffix: Azure
 description: Este artigo contém idade informações da entidade pré-criados na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 63ff00c29548af2f26a2b7b5e5ac68b5397671ec
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2965f9fcedba55536ef25469975679bffe27b4e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441830"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102661"
 ---
 # <a name="age-entity"></a>Entidade de idade
 A entidade de idade pré-criados captura o valor de idade tanto numericamente e em termos de dias, semanas, meses e anos. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém a idade para os objetivos do aplicativo. Entidade de idade é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
@@ -26,7 +27,7 @@ Idade é gerenciada a partir da [reconhecedores texto](https://github.com/Micros
 ## <a name="resolution-for-prebuilt-age-entity"></a>Resolução de entidades de idade pré-criados
 O exemplo seguinte mostra a resolução do **builtin.age** entidade.
 
-```JSON
+```json
 {
   "query": "A 90 day old utilities bill is quite late.",
   "topScoringIntent": {

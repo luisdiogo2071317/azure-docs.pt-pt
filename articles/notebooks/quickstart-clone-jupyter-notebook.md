@@ -1,5 +1,5 @@
 ---
-title: Clonar um bloco de notas Jupyter do GitHub com blocos de notas do Azure | Documentos da Microsoft
+title: Clonar um bloco de notas Jupyter do GitHub com blocos de notas do Azure
 description: Clonar um bloco de notas do Jupyter partir de um repositório do GitHub e executá-lo na sua conta de blocos de notas do Azure rapidamente.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ace53fcb2c24e26aa6f33dbc0300915a45dc6a91
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e30057f773afe6ec625b811c6ca1447c519ceda7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856537"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106333"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Início rápido: Clonar um bloco de notas
 
@@ -26,7 +26,7 @@ Muitos programadores e os cientistas de dados armazenam seus blocos de notas na 
 
 A clonagem, cria uma cópia de um bloco de notas do GitHub na sua conta de blocos de notas do Azure em vez disso. Este clone é independente do seu repositório original; as alterações são armazenadas na sua conta de blocos de notas do Azure apenas e não afetam o original. Como seu clone é na cloud, pode partilhar o projeto com outros funcionários que não precisam fazer quaisquer cópias locais ou até mesmo ter Jupyter instalado em seus próprios computadores. Também pode clonar um bloco de notas simplesmente como um ponto de partida para um projeto de seu próprio ou para obter ficheiros de dados.
 
-## <a name="clone-the-azure-cognitive-services-notebooks"></a>Clonar os blocos de notas de serviços cognitivos do Azure
+## <a name="clone-azure-cognitive-services-notebooks"></a>Clonar blocos de notas de serviços cognitivos do Azure
 
 1. Aceda a [blocos de notas do Azure](https://notebooks.azure.com) e iniciar sessão. (Para obter detalhes, consulte [início rápido - início de sessão para blocos de notas do Azure](quickstart-sign-in-azure-notebooks.md)).
 

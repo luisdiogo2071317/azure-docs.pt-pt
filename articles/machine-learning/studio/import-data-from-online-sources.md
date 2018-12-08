@@ -5,7 +5,7 @@ keywords: Importar dados, formato de dados, os tipos de dados, origens de dados,
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 89e2414b32dfb3cc6773d09dcdc3e711e56492ef
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 26d232567d9689ff8400726427d6dc582343a35f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315035"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103324"
 ---
-# <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importar dados para o Azure Machine Learning Studio provenientes de várias origens de dados online com o módulo Importar Dados
+# <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Importar dados para o Azure Machine Learning Studio a partir de origens de dados online 
 Este artigo descreve o suporte para importação de dados online de várias origens e as informações necessárias para mover de experimentações de dados a partir destas origens no Azure Machine Learning Studio.
 
 > [!NOTE]

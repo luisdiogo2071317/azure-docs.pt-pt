@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial de classificação de imagem: implementar modelos com o serviço Azure Machine Learning'
+title: 'Tutorial de classificação de imagem: implementar modelos'
+titleSuffix: Azure Machine Learning service
 description: Este tutorial mostra como utilizar o serviço do Azure Machine Learning para implementar um modelo de classificação de imagens com scikit-learn num bloco de notas Jupyter em Python.  Este tutorial é a segunda parte de uma série composta por duas partes.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: tutorial
-ms.custom: seodec12
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 6e56fe88eec70af313d0b0dd8cf0aaf27b054121
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: fe8fed71711e10af94ff41d1bb4ca4b0c1952374
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011543"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101186"
 ---
 # <a name="tutorial-part-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Tutorial (parte 2): implementar um modelo de classificação de imagem na instância de contentor do Azure (ACI)
 
@@ -32,7 +33,7 @@ Nesta parte do tutorial, vai utilizar o serviço Azure Machine Learning para:
 > * Implementar o modelo no ACI
 > * Testar o modelo implementado
 
-O ACI não é ideal para implementações de produção, mas é muito bom para testar e compreender o fluxo de trabalho. Relativamente a implementação de produção dimensionáveis, considere utilizar o [Azure Kubernetes Service](how-to-deploy-to-aks.md).
+O ACI não é ideal para implementações de produção, mas é muito bom para testar e compreender o fluxo de trabalho. Dimensionável para implementações de produção, considere utilizar o Azure Kubernetes Service. Para obter mais informações, consulte a [como implementar e, em que](how-to-deploy-and-where.md) documento.
 
 ## <a name="get-the-notebook"></a>Obter o bloco de notas
 

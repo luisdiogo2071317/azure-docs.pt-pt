@@ -1,10 +1,10 @@
 ---
 title: Galeria de IA personalizados os módulos do Azure - Azure Machine Learning Studio | Documentos da Microsoft
-description: Descubra os módulos de aprendizagem automática personalizada na Galeria de IA do Azure.
+description: Descubra os módulos de aprendizagem automática personalizada na Galeria de IA do Azure. Módulos personalizados expandem as capacidades do Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.openlocfilehash: a504bcfbbcd70c1d6fc8402d4c232e7e8a5476b0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b51af78625d869fb168dce7c7bd7ed57e159cbda
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313746"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104779"
 ---
 # <a name="machine-learning-studio-discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>O Machine Learning Studio: Detetar módulos de aprendizagem automática personalizada na Galeria de IA do Azure
 
