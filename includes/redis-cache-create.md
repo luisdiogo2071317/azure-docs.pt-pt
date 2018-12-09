@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: a00c1f916d7e8753830bf87bef6897766acbc276
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0f1decae5fb3ec4a07f01c5bff7475f3d73a3cbb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018383"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111780"
 ---
 1. Para criar uma cache, primeiro, inicie sessão no [portal do Azure](https://portal.azure.com). Em seguida, selecione **criar um recurso** > **bases de dados** > **a Cache de Redis do Azure**.
 
@@ -24,10 +24,10 @@ ms.locfileid: "53018383"
     | Definição      | Valor sugerido  | Descrição |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome DNS** | Nome globalmente exclusivo | O nome da cache. Tem de ser uma cadeia entre 1 e 63 carateres e conter apenas números, letras e o caráter `-`. O nome da cache não pode começar nem terminar com o caráter `-` e os carateres `-` consecutivos não são válidos.  | 
-    | **Subscrição** | A sua subscrição | A subscrição sob a qual esta nova Cache de Azure do Azure para a instância de Redis é criado. | 
+    | **Subscrição** | A sua subscrição | A subscrição sob a qual esta nova Cache do Azure para a instância de Redis é criado. | 
     | **Grupo de recursos** |  *TestResources* | Nome do grupo de recursos novo no qual a cache será criada. Ao colocar todos os recursos de uma aplicação num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos elimina todos os recursos associados à aplicação. | 
     | **Localização** | EUA Leste | Selecione uma [região](https://azure.microsoft.com/regions/) próxima de outros serviços que irão utilizar a cache. |
-    | **[Escalão de preço](https://azure.microsoft.com/pricing/details/cache/)** |  C0 básico (Cache de 250 MB) |  O escalão de preço determina o tamanho, o desempenho e as funcionalidades que estão disponíveis para a cache. Para obter mais informações, consulte [Cache do Azure do Azure para descrição geral do Redis](../articles/azure-cache-for-redis/cache-overview.md). |
+    | **[Escalão de preço](https://azure.microsoft.com/pricing/details/cache/)** |  C0 básico (Cache de 250 MB) |  O escalão de preço determina o tamanho, o desempenho e as funcionalidades que estão disponíveis para a cache. Para obter mais informações, consulte [Cache do Azure para a descrição geral do Redis](../articles/azure-cache-for-redis/cache-overview.md). |
     | **Afixar ao dashboard** |  Selecionado | Afixe a nova cache ao seu dashboard para que esta seja fácil de localizar. |
 
     ![Criar cache](media/redis-cache-create/redis-cache-cache-create.png) 

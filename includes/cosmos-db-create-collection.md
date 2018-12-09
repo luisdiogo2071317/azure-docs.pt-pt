@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: cf77eaa07d45222cecf0450fb33fe62e556bcd9e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: e287741fd6643c2eba192a9e29f46219faf520ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38729002"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111700"
 ---
 Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar uma base de dados e uma coleção. 
 
@@ -21,16 +21,16 @@ Agora, pode utilizar a ferramenta Data Explorer no portal do Azure para criar um
     
     A área **Adicionar Coleção** é apresentada na extremidade direita, pelo que poderá ter de se deslocar para a direita para vê-la.
 
-    ![O painel Data Explorer no portal do Azure, Adicionar Coleção](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+    ![O portal do Azure Data Explorer, no painel Adicionar coleção](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
 
 2. Na página **Adicionar coleção**, introduza as definições para a nova coleção.
 
     Definição|Valor sugerido|Descrição
     ---|---|---
-    Id da base de dados|Tarefas|Designe a nova base de dados como *Tarefas*. Os nomes das bases de dados devem conter de 1 a 255 carateres e não podem conter /, \\, #, ?, ou um espaço à direita.
+    Id da base de dados|Tarefas|Designe a nova base de dados como *Tarefas*. Nomes de base de dados tem de conter entre 1 e 255 carateres e não podem conter `/, \\, #, ?`, ou um espaço à direita.
     ID da coleção|Itens|Denomine a nova coleção como *Itens*. Os IDs das coleções têm os mesmos requisitos em termos de carateres do que os nomes das bases de dados.
-    Capacidade de armazenamento| Fixa (10 GB)|Deixe o valor predefinido de **Fixa (10 GB)**. Este valor é a capacidade de armazenamento da base de dados.
-    Débito|400 RU|Altere o débito para 400 unidades de pedido por segundo (RU/s). A capacidade de armazenamento tem de ser definida como **Fixo (10 GB)**, para definir o débito para 400 RU/s. Se pretender reduzir a latência, pode aumentar o débito mais tarde. 
+    Chave de partição| <Your partition key>| Introduza uma chave de partição como */userid*.
+    Débito|400 RU|Altere o débito para 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde. 
     
     Além das definições anteriores, pode adicionar opcionalmente **Chaves exclusivas** para a coleção. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política de chaves exclusivas durante a criação de uma coleção, está a assegurar a exclusividade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
     
