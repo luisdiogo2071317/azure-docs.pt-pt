@@ -1,5 +1,5 @@
 ---
-title: Tarefas do processo de ciência de dados de equipa para um colaborador individual - Azure | Documentos da Microsoft
+title: Tarefas para um colaborador individual no Team Data Science Process
 description: Uma descrição de tarefas para um colaborador individual num projeto de equipe de ciência de dados.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: d8e51dcf8434508664801f53391592aab34d7e4a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 6684cc9a0166df9c6d230f6b2a8c05acec5f91b3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447066"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136766"
 ---
-# <a name="individual-contributor-tasks"></a>Tarefas individuais do contribuinte
+# <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tarefas para um colaborador individual no Team Data Science Process
 
 Este tópico de contornos as tarefas que é um colaborador individual esperado concluir a sua equipa de ciência de dados. O objetivo é estabelecer o ambiente de equipa de colaboração que padroniza sobre o [Team Data Science Process](overview.md) (TDSP). Para uma descrição das funções pessoal e das respetivas tarefas associadas que são processadas por uma equipa de ciência de dados padronizar este processo, consulte [Team Data Science Process funções e tarefas](roles-tasks.md).
 

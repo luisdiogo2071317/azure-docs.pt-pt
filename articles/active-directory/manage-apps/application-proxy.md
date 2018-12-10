@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aabbcb45edf087b4a7d6268dcca90b21afa16f7c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: ec5c75b5de912988efeb5167107f6d0dfe07da2e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998115"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139964"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Como fornecer acesso remoto seguro a aplicações no local
 
@@ -88,8 +88,8 @@ Antes de configurar o Proxy de aplicações, certifique-se de que tem um suporta
 
 Introdução ao Proxy de aplicações em duas etapas:
 
-1. [Ativar o Proxy da aplicação e configurar o conector](application-proxy-enable.md).    
-2. [Publicar aplicações](application-proxy-publish-azure-portal.md) -utilize o Assistente de forma rápido e fácil para obter as aplicações no local publicado e está acessível remotamente.
+1. [Ativar o Proxy da aplicação e configurar o conector](application-proxy-add-on-premises-application.md).    
+2. [Publicar aplicações](application-proxy-add-on-premises-application.md) -utilize o Assistente de forma rápido e fácil para obter as aplicações no local publicado e está acessível remotamente.
 
 ## <a name="whats-next"></a>Passos seguintes?
 Depois de publicar seu primeiro aplicativo, há muito mais que pode fazer com o Proxy de aplicações:

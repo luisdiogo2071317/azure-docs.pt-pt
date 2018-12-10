@@ -1,5 +1,6 @@
 ---
-title: Descrição geral das portas de elevada disponibilidade no Azure | Documentos da Microsoft
+title: Descrição geral das portas de elevada disponibilidade no Azure
+titlesuffix: Azure Load Balancer
 description: Saiba mais sobre num Balanceador de carga interno de balanceamento de carga de portas de elevada disponibilidade.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/07/2018
 ms.author: kumud
-ms.openlocfilehash: 744cd933e901b930aa0394b36e9770bab6de38df
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: e37b127b112768cd09989e1a4b5edf99ca101983
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740336"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141871"
 ---
 # <a name="high-availability-ports-overview"></a>Descrição geral das portas de elevada disponibilidade
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 776a0e79a1098f46a04c846a8814d48c9fead5e3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5f2f086dbe5056ee3d83be2d8725f49fd502d1b2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999618"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139234"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
@@ -290,9 +290,9 @@ Cada tipo de recurso devolve as propriedades diferentes para a função de refer
 
 ### <a name="remarks"></a>Observações
 
-A função de referência pode obter o estado de tempo de execução de um recurso anteriormente implementado ou um recurso implementado no modelo atual. Este artigo mostra exemplos para ambos os cenários. Ao fazer referência um recurso no modelo atual, forneça apenas o nome de recurso como um parâmetro. Ao fazer referência um recurso anteriormente implementado, forneça o ID de recurso e uma versão de API para o recurso. É possível determinar as versões de API válidas para o seu recurso no [referência de modelo](/azure/templates/).
+A função de referência obtém o estado de tempo de execução de um recurso anteriormente implementado ou um recurso implementado no modelo atual. Este artigo mostra exemplos para ambos os cenários. Ao fazer referência um recurso no modelo atual, forneça apenas o nome de recurso como um parâmetro. Ao fazer referência um recurso anteriormente implementado, forneça o ID de recurso e uma versão de API para o recurso. É possível determinar as versões de API válidas para o seu recurso no [referência de modelo](/azure/templates/).
 
-A função de referência é derivada de seu valor de um Estado de tempo de execução e, portanto, não pode ser utilizada na secção de variáveis. Pode ser utilizado na secção de saídas de um modelo ou [modelo ligado](resource-group-linked-templates.md#link-or-nest-a-template). Não é possível utilizar a secção de saídas de um [modelo aninhado](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver os valores para um recurso implementado num modelo aninhado, converta seu modelo aninhado para um modelo ligado. 
+A função de referência pode ser apenas as propriedades de uma definição do recurso e na secção de saídas de um modelo ou a implementação.
 
 Ao utilizar a função de referência, é implicitamente declarar que um recurso depende outro recurso, se o recurso referenciado está aprovisionado no mesmo modelo e consultar o recurso pelo respetivo nome (ID de recurso não). Não precisa de utilizar também a propriedade dependsOn. A função não é avaliada até que o recurso referenciado seja concluída a implementação.
 

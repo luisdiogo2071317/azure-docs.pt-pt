@@ -1,6 +1,6 @@
 ---
-title: Guia de programação dos Event Hubs do Azure | Microsoft Docs
-description: Escreva código para os Hubs de eventos do Azure com o SDK de .NET do Azure.
+title: Guia de programação - Event Hubs do Azure | Documentos da Microsoft
+description: Este artigo fornece informações sobre como escrever um código, para os Hubs de eventos do Azure com o SDK de .NET do Azure.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cd97aed36e9fd82df0d37913d5ea9e57c875a673
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011458"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138080"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guia de programação do Event Hubs do Azure
 Este artigo aborda alguns cenários comuns em escrever código usando o Event Hubs do Azure. Parte do princípio de que possui compreensão preliminar dos Event Hubs. Para obter uma descrição geral conceptual dos Event Hubs, consulte [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md).
@@ -76,7 +76,7 @@ Ao enviar dados de eventos, pode especificar um valor que é protegido por hash 
 
 ### <a name="availability-considerations"></a>Considerações de disponibilidade
 
-A utilização de uma chave de partição é opcional e deve considerar cuidadosamente se deve ou não utilizar um. Em muitos casos, utilizar uma chave de partição é uma boa opção se a ordenação de eventos é importante. Quando utiliza uma chave de partição, estas partições necessitam de disponibilidade num único nó e as falhas podem ocorrer ao longo do tempo; Por exemplo, quando computação reinício de nós e patch. Assim, se definir um ID de partição e nessa partição fica indisponível por algum motivo, uma tentativa de acessar os dados nessa partição irá falhar. Se a elevada disponibilidade é o mais importante, não especifique uma chave de partição; Nesse caso os eventos são enviados para as partições com o modelo de round robin descrito anteriormente. Neste cenário, está fazendo uma opção explícita entre a disponibilidade (ID de partição) e consistência (afixação de eventos para um ID de partição).
+A utilização de uma chave de partição é opcional e deve considerar cuidadosamente se deve ou não utilizar um. Se não especificar uma chave de partição ao publicar um evento, é utilizada uma atribuição round robin. Em muitos casos, utilizar uma chave de partição é uma boa opção se a ordenação de eventos é importante. Quando utiliza uma chave de partição, estas partições necessitam de disponibilidade num único nó e as falhas podem ocorrer ao longo do tempo; Por exemplo, quando computação reinício de nós e patch. Assim, se definir um ID de partição e nessa partição fica indisponível por algum motivo, uma tentativa de acessar os dados nessa partição irá falhar. Se a elevada disponibilidade é o mais importante, não especifique uma chave de partição; Nesse caso os eventos são enviados para as partições com o modelo de round robin descrito anteriormente. Neste cenário, está fazendo uma opção explícita entre a disponibilidade (ID de partição) e consistência (afixação de eventos para um ID de partição).
 
 Outra consideração é o tratamento de atrasos no processamento de eventos. Em alguns casos, talvez seja melhor remover dados e volte a tentar vez de tentar manter-se com o processamento, o que pode provocar potencialmente mais atrasos de processamento a jusante. Por exemplo, com uma cotação da bolsa é melhor esperar para dados atualizados completos, mas num cenário VOIP preferiria ter os dados rapidamente, ou o chat ao vivo, mesmo que não seja concluída.
 

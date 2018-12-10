@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: fe564e9809a3621ca04e4dad75488fb255f7dc0e
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5e18a4690eacaaeaa4422379fc8a4e3d2a02e717
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682950"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134170"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -40,7 +40,7 @@ Aqui estão algumas das coisas que pode fazer com os registos de diagnóstico:
 
 * Guarde-as para um [ **conta de armazenamento** ](monitoring-archive-diagnostic-logs.md) para inspeção de auditoria ou manual. Pode especificar o tempo (em dias) de retenção usando **definições de diagnóstico de recursos**.
 * [Stream-lhes **os Hubs de eventos** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, como o Power BI.
-* Analisá-los com [do Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md)
+* Analisá-los com [do Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md), onde os dados são gravados imediatamente ao Log Analytics sem a necessidade de primeiro escrever os dados para o armazenamento.  
 
 Pode utilizar uma conta de armazenamento ou o espaço de nomes de Hubs de eventos que não esteja na mesma subscrição que emite os registos. O utilizador que configura a definição tem de ter o acesso RBAC adequado para ambas as subscrições.
 
@@ -63,7 +63,7 @@ Registos de diagnóstico de recursos são configurados com definições de diagn
     - Se as políticas de retenção são definidas, mas armazenamento de registos numa conta de armazenamento está desativado (por exemplo, se apenas as opções de Hubs de eventos ou o Log Analytics estão selecionadas), as políticas de retenção não têm efeito.
     - Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além de retenção de política são eliminadas. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento.
 
-Estas definições são facilmente configuradas através das definições de diagnóstico no portal, através do Azure PowerShell e comandos da CLI ou o [API de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/).
+Estas definições são facilmente configuradas a partir das definições de diagnóstico no portal, com o Azure PowerShell e CLI de comandos ou utilizando o [API de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.

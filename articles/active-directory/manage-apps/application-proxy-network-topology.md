@@ -15,12 +15,12 @@ ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2321ccf115e3b517bdc593c0c428c61d5dd90968
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 976118514dbcb4cee9675ae357d857e7b90e8c0c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367094"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140484"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerações de topologia de rede ao utilizar o Proxy de aplicações do Azure Active Directory
 
@@ -40,7 +40,7 @@ Quando um aplicativo é publicado através do Proxy de aplicações do Azure AD,
 
 Quando se inscreve para um inquilino do Azure AD, a região do seu inquilino é determinada pelo país que especificar. Quando ativar o Proxy de aplicações, as instâncias do serviço de Proxy de aplicações para o seu inquilino são escolhidas ou criadas na mesma região que o inquilino do Azure AD ou a região mais próxima a ele.
 
-Por exemplo, se a região do seu inquilino do Azure AD é a União Europeia (UE), todos os seus conectores de Proxy da aplicação utilizam instâncias de serviço nos datacenters do Azure na UE. Quando o acesso de utilizadores a aplicações publicadas, o tráfego passa pelas instâncias do serviço de Proxy de aplicações nesta localização.
+Por exemplo, se o país ou região do seu inquilino do Azure AD é o Reino Unido, todos os seus conectores de Proxy da aplicação utilizam instâncias de serviço nos centros de dados da UE. Quando o acesso de utilizadores a aplicações publicadas, o tráfego passa pelas instâncias do serviço de Proxy de aplicações nesta localização.
 
 ## <a name="considerations-for-reducing-latency"></a>Considerações para reduzir a latência
 
@@ -85,9 +85,9 @@ Coloca o conector perto do aplicativo de destino na rede de cliente. Esta config
 
 Se o conector tem de uma linha Visual para o controlador de domínio, este padrão é vantajoso. A maioria dos nossos clientes usa esse padrão, pois funciona bem para a maioria dos cenários. Este padrão também pode ser combinado com o padrão de 2 para otimizar o tráfego entre o serviço e o conector.
 
-### <a name="pattern-2-take-advantage-of-expressroute-with-public-peering"></a>Padrão de 2: Tirar partido do ExpressRoute com peering público
+### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>Padrão de 2: Tirar partido do ExpressRoute com peering da Microsoft
 
-Se tiver configurado com peering público do ExpressRoute, pode utilizar a ligação de ExpressRoute mais rápida para o tráfego entre o Proxy de aplicações e o conector. O conector é ainda na sua rede, próximo a aplicação.
+Se tiver o ExpressRoute configurados com peering da Microsoft, pode utilizar a ligação de ExpressRoute mais rápida para o tráfego entre o Proxy de aplicações e o conector. O conector é ainda na sua rede, próximo a aplicação.
 
 ### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>Padrão de 3: Tirar partido do ExpressRoute com peering privado
 
@@ -137,13 +137,13 @@ Novamente, o padrão comum é otimizar o salto 3, onde colocar o conector de per
 
 ### <a name="use-case-3"></a>Caso de utilização 3
 
-**Cenário:** a aplicação estiver numa rede de uma organização nos E.U.A. ExpressRoute com peering público existe entre o Azure e da rede empresarial.
+**Cenário:** a aplicação estiver numa rede de uma organização nos E.U.A. ExpressRoute com peering da Microsoft existe entre o Azure e da rede empresarial.
 
 **Recomendação:** siga os padrões de 1 e 2, explicado na seção anterior.
 
 Em primeiro lugar, coloca o conector mais próximo possível para a aplicação. Em seguida, o sistema utilizará automaticamente o ExpressRoute para o salto 2. 
 
-Se a ligação do ExpressRoute estiver a utilizar um peering público, o tráfego entre o proxy e o conector flui através dessa ligação. Salto 2 otimizou latência.
+Se a ligação do ExpressRoute estiver a utilizar o peering da Microsoft, o tráfego entre o proxy e o conector flui através dessa ligação. Salto 2 otimizou latência.
 
 ![Diagrama que mostra o ExpressRoute entre o proxy e o conector](./media/application-proxy-network-topology/application-proxy-pattern3.png)
 
@@ -173,7 +173,7 @@ Também pode considerar usando uma outra variante nessa situação. Se a maioria
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Ativar o Proxy de aplicações](application-proxy-enable.md)
+- [Ativar o Proxy de aplicações](application-proxy-add-on-premises-application.md)
 - [Ativar o início de sessão único](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Ativar o acesso condicional](application-proxy-integrate-with-sharepoint-server.md)
 - [Resolver problemas que possa ter com o Proxy de aplicações](application-proxy-troubleshoot.md)

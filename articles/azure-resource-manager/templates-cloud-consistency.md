@@ -1,6 +1,6 @@
 ---
-title: Modelos do Azure Resource Manager para manter a consistência na cloud | Documentos da Microsoft
-description: Desenvolva modelos Azure Resource Manager para manter a consistência na cloud. Criar um novo ou atualizar os modelos existentes para o Azure Stack.
+title: Modelos de reutilização entre nuvens - Azure Resource Manager
+description: Desenvolva modelos Azure Resource Manager que funcionam de forma consistente para ambientes de cloud diferentes. Criar um novo ou atualizar os modelos existentes para o Azure Stack.
 services: azure-resource-manager
 documentationcenter: na
 author: marcvaneijk
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/09/2018
 ms.author: mavane
-ms.openlocfilehash: fc1ca468545dc3a715fb11dbec459e14e60ade5b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: 28542bb66fe1e523201967a9dd67fd7e41fed7a0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017778"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135632"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desenvolver modelos Azure Resource Manager para consistência de cloud
 

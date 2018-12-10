@@ -1,6 +1,6 @@
 ---
-title: Processar dados de Blobs do Azure com a análise avançada | Documentos da Microsoft
-description: Processar dados no armazenamento de Blobs do Azure.
+title: Processar dados de Blobs do Azure com a análise avançada - Team Data Science Process
+description: Explorar dados e gerar recursos a partir dos dados armazenados no armazenamento de Blobs do Azure através de análises avançadas.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ef5a3decec3ddd87bb73d513981bdfe081fadf74
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 36e3512caa8922f8bc1a65f13ea41d6873b51e5e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442391"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140547"
 ---
 # <a name="heading"></a>Processar dados de Blobs do Azure com a análise avançada
 Este documento aborda a explorar dados e as funcionalidades da geração de dados armazenados no armazenamento de Blobs do Azure. 

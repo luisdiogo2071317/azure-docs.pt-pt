@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: bb04f1965764413c474c2e0d057d77d5d30edd07
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b8c69ebec2258581954e26dc6181d5f4b57f461c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623116"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137706"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalhar com aplicações com suporte para afirmações no Proxy de aplicações
 [Aplicações com suporte para afirmações](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) efetuar um redirecionamento para o serviço STS (Security Token). O STS solicita credenciais do usuário em troca de um token e, em seguida, redireciona o utilizador para a aplicação. Existem algumas formas de ativar o Proxy de aplicações para trabalhar com esses redirecionamentos. Utilize este artigo para configurar a sua implementação para aplicações com suporte para afirmações. 
@@ -29,7 +29,7 @@ Certifique-se de que o STS que a aplicação com suporte para afirmações redir
 
 ## <a name="publish-your-application"></a>Publicar a aplicação
 
-1. Publicar a sua aplicação, de acordo com as instruções descritas [publicar aplicações com o Proxy de aplicações](application-proxy-publish-azure-portal.md).
+1. Publicar a sua aplicação, de acordo com as instruções descritas [publicar aplicações com o Proxy de aplicações](application-proxy-add-on-premises-application.md).
 2. Navegue para a página de aplicativo no portal e selecione **início de sessão único**.
 3. Se escolheu **do Azure Active Directory** como sua **método de pré-autenticação**, selecione **do Azure AD início de sessão único desativado** como sua **interno Método de autenticação**. Se escolheu **pass-through** como sua **método de pré-autenticação**, não precisa alterar nada.
 

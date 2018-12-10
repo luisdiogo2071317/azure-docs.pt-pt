@@ -1,6 +1,6 @@
 ---
-title: Execução de projetos de ciência de dados - Azure Machine Learning | Documentos da Microsoft
-description: Como um cientista de dados poderá acompanhar o progresso de um projeto de ciência de dados.
+title: Rastreamento do progresso de projetos de ciência de dados - Team Data Science Process
+description: Como gestores de grupo de ciência de dados, da equipe de concessão e oportunidades potenciais do projeto, pode acompanhar o progresso de um projeto de ciência de dados.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 202ac89b8a281012dbcf5f4c4df11e97ba2c8c65
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a9616a4f80a3105118b82ce3f4106a65fdd9ddfe
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441473"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134308"
 ---
-# <a name="track-progress-of-data-science-projects"></a>Controlar o progresso dos projetos de ciência de dados
+# <a name="tracking-the-progress-of-data-science-projects"></a>Rastreamento do progresso de projetos de ciência de dados
 
 Gestores de grupo de ciência de dados, a líderes de equipe e a necessidade de oportunidades potenciais de projeto para controlar o progresso de seus projetos, o qual trabalho tiver sido realizado nos mesmos e por quem e permanece nas listas de tarefas. 
 

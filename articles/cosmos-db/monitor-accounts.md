@@ -1,22 +1,22 @@
 ---
-title: Monitorizar pedidos do Azure Cosmos DB e armazenamento | Documentos da Microsoft
+title: Monitorizar as métricas de desempenho e armazenamento no Azure Cosmos DB
 description: Saiba como monitorizar a sua conta do Azure Cosmos DB para métricas de desempenho, tais como pedidos e erros de servidor e a métrica de utilização, como o consumo de armazenamento.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 1f4bf4ba660e83be9879c56d04b27c932d563e17
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: fe527e6e9933d25d7f1a16561ce4822d7b9a33ab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354072"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135887"
 ---
-# <a name="monitor-azure-cosmos-db"></a>Monitorizar o Azure Cosmos DB
+# <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Monitorizar as métricas de desempenho e armazenamento no Azure Cosmos DB
+
 Pode monitorizar as suas contas do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/). Para cada conta do Azure Cosmos DB, um conjunto completo de métricas está disponível para monitorizar o débito, armazenamento, disponibilidade, latência e consistência.
 
 As métricas podem ser examinadas na página de conta, a nova página de métricas, ou no Azure Monitor.

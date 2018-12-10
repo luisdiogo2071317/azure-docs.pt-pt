@@ -1,6 +1,6 @@
 ---
-title: Da Equipe líder do projeto dados ciência processo tarefas - Azure | Documentos da Microsoft
-description: Uma descrição de tarefas para um líder de projeto num projeto de equipe de ciência de dados.
+title: Tarefas para o projeto levam no Team Data Science Process
+description: Espera-se uma descrição das tarefas que levam de um projeto num projeto de equipe de ciência de dados.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 0b5129c4642a0c4381591f751bc4d5a51990b256
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442902"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135169"
 ---
-# <a name="project-lead-tasks"></a>Tarefas de líder do projeto
+# <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Tarefas para o projeto levam no Team Data Science Process
 
 Este tutorial descreve as tarefas que um líder de projeto é esperado concluir para sua equipe de projeto. O objetivo é estabelecer o ambiente de equipa de colaboração que padroniza sobre o [Team Data Science Process](overview.md) (TDSP). O TDSP é uma estrutura desenvolvida pela Microsoft que fornece uma sequência estruturada de atividades para executar soluções de Análise Preditiva com base na cloud de forma eficiente. Para uma descrição das funções pessoal e das respetivas tarefas associadas que são processadas por uma equipa de ciência de dados padronizar este processo, consulte [Team Data Science Process funções e tarefas](roles-tasks.md).
 
@@ -27,7 +27,8 @@ R **líder de projeto** gerencia as atividades diárias de cientistas de dados i
 
 Este tópico inclui atualmente tarefas 1,2 e 6, este fluxo de trabalho para oportunidades potenciais do projeto.
 
->[AZURE.NOTE] Descrevemos os passos necessários para configurar um ambiente de equipe do TDSP para um projeto de DevOps do Azure a utilizar nas seguintes instruções. Especificamos como realizar estas tarefas com o Azure DevOps, uma vez que é saber como implementamos TDSP na Microsoft. Se outra plataforma de alojamento de código é utilizada para o seu grupo, as tarefas que devem ser concluídas pelo líder da Equipe geralmente não são alterados. Mas a forma de concluir estas tarefas vai ser diferente.
+> [!NOTE]
+> Descrevemos os passos necessários para configurar um ambiente de equipe do TDSP para um projeto de DevOps do Azure a utilizar nas seguintes instruções. Especificamos como realizar estas tarefas com o Azure DevOps, uma vez que é saber como implementamos TDSP na Microsoft. Se outra plataforma de alojamento de código é utilizada para o seu grupo, as tarefas que devem ser concluídas pelo líder da Equipe geralmente não são alterados. Mas a forma de concluir estas tarefas vai ser diferente.
 
 
 ## <a name="repositories-and-directories"></a>Repositórios e diretórios
@@ -195,7 +196,8 @@ Agora preciso de enviar por push o conteúdo **_DSProject1_** para _R5_ reposit�
     
 - Consolide a alteração e push. 
 
->[AZURE.NOTE] Se esta for a primeira vez que se comprometer com um repositório de Git, terá de configurar parâmetros globais *user.name* e *user.email* antes de executar o `git commit` comando. Execute os dois comandos seguintes:
+> [!NOTE]
+> Se esta for a primeira vez que se comprometer com um repositório de Git, terá de configurar parâmetros globais *user.name* e *user.email* antes de executar o `git commit` comando. Execute os dois comandos seguintes:
         
     git config --global user.name <your name>
     git config --global user.email <your email address>

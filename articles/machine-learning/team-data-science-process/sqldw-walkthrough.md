@@ -1,6 +1,6 @@
 ---
-title: 'O processo de ciência de dados de equipa em ação: utilizar o SQL Data Warehouse | Documentos da Microsoft'
-description: Processo de análise avançada e a tecnologia em ação
+title: Criar e implementar um modelo com o SQL Data Warehouse - Team Data Science Process
+description: Criar e implementar um modelo de machine learning com o SQL Data Warehouse com um conjunto de dados publicamente disponível.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 87c3b0b597a401041b8bf1b6f3997431d8816e92
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ed3731db88d7f829634a03c55e5ec033c03e4b0f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445717"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139135"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Data Warehouse
 Neste tutorial, iremos guiá-lo através da criação e implementação de um modelo de aprendizagem automática com o SQL Data Warehouse (SQL DW) para um conjunto de dados publicamente disponível – a [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados. O modelo de classificação binária construído prevê se ou não uma dica é pago por uma viagem e modelos de classificação multiclasses e regressão também são discutidos que prever a distribuição para os valores de sugestão pagos.
@@ -117,7 +117,7 @@ Abra uma consola de comandos do Windows PowerShell. Execute o PowerShell seguint
 
 Após a execução bem-sucedida, o seu atual diretório de trabalho muda para *- DestDir*. Deve ser capaz de ver a tela, conforme mostrado abaixo:
 
-![][19]
+![Alterações do diretório de trabalho atual][19]
 
 No seu *- DestDir*, execute o seguinte script do PowerShell no modo de administrador:
 
@@ -321,7 +321,7 @@ Terá de decidir o que significam, se tiver ficheiros de origem e de destino dup
 > 
 > 
 
-![#21 de desenho][21]
+![Saída do AzCopy][21]
 
 Pode utilizar os seus dados. Se os dados estão na sua máquina no local em seu aplicativo da vida real, pode utilizar o AzCopy para carregar dados no local para o seu armazenamento de Blobs do Azure privado. Só precisa de alterar o **origem** localização, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, no comando do AzCopy do ficheiro de script do PowerShell para o diretório de local que contém os seus dados.
 
@@ -334,7 +334,7 @@ Este script do Powershell também se conecta as informações do armazém de dad
 
 Após uma execução concluída com êxito, verá o ecrã, conforme mostrado abaixo:
 
-![][20]
+![Saída de uma execução de script com êxito][20]
 
 ## <a name="dbexplore"></a>Exploração de dados e de engenharia de funcionalidades no Azure SQL Data Warehouse
 Nesta secção, executamos de geração de exploração e a funcionalidade de dados executando consultas SQL diretamente com o Azure SQL DW **ferramentas de dados do Visual Studio**. Todas as consultas SQL utilizadas nesta secção podem ser encontradas no exemplo de script com o nome *SQLDW_Explorations.sql*. Este ficheiro já foi transferido para o diretório no local pelo script do PowerShell. Também pode obtê-lo a partir [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Mas o ficheiro no GitHub, não tem as informações do armazém de dados do Azure SQL ligadas.
@@ -571,16 +571,16 @@ Se já tiver configurado uma área de trabalho do AzureML, pode carregar o exemp
 
 1. Inicie sessão na sua área de trabalho do AzureML, clique em "Studio" na parte superior e clique em "PORTÁTEIS", no lado esquerdo da página da web.
    
-    ![#22 de desenho][22]
+    ![Clique em Studio, em seguida, blocos de notas][22]
 2. Clique em "Novo" no canto inferior esquerdo da página da web e selecione "Python 2". Em seguida, forneça um nome para o bloco de notas e clique na marca de verificação para criar o novo em branco IPython Notebook.
    
-    ![#23 de desenho][23]
+    ![Clique em novo, em seguida, selecione o Python 2][23]
 3. Clique no símbolo de "Jupyter" no canto superior esquerdo do novo IPython Notebook.
    
-    ![#24 de desenho][24]
+    ![Clique o símbolo de Jupyter][24]
 4. Arraste e largue o exemplo IPython Notebook para o **árvore** página do seu serviço AzureML IPython Notebook e clique em **carregar**. Em seguida, o exemplo que ipython Notebook será carregado para o serviço AzureML IPython Notebook.
    
-    ![#25 de desenho][25]
+    ![Clique em carregar][25]
 
 Para executar o exemplo IPython Notebook ou o Python ficheiro de script, o Python seguintes pacotes são necessários. Se estiver a utilizar o serviço AzureML IPython Notebook, esses pacotes foram previamente instalados.
 
@@ -684,7 +684,7 @@ Em seguida, observe o desenho de caixa para a distância de viagem visualizar o 
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![Desenhar #1][1]
+![Saída de plotagem de caixa][1]
 
 ### <a name="visualization-distribution-plot-example"></a>Visualização: Exemplo de plotagem de distribuição
 Desenhos que visualizar a distribuição e um histograma para as distâncias de amostragem de viagem.
@@ -695,7 +695,7 @@ Desenhos que visualizar a distribuição e um histograma para as distâncias de 
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![Desenhar #2][2]
+![Saída de plotagem de distribuição][2]
 
 ### <a name="visualization-bar-and-line-plots"></a>Barras de visualização: E gráficos de linhas
 Neste exemplo, a distância de viagem para cinco contentores de discretização e visualizar os resultados de discretização.
@@ -709,26 +709,26 @@ Podemos pode representar a distribuição de bin acima numa barra ou linha de pl
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![#3 de desenho][3]
+![Saída de desenho da barra][3]
 
 e
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![Desenhar #4][4]
+![Saída de desenho de linha][4]
 
 ### <a name="visualization-scatterplot-examples"></a>Visualização: Exemplos de gráfico de dispersão
 Vamos mostrar gráfico de dispersão entre **viagem\_tempo\_no\_segundos** e **viagem\_distância** para ver se há qualquer correlação
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![Desenhar #6][6]
+![Saída de gráfico de dispersão de relação entre a hora e a distância][6]
 
 Da mesma forma podemos verificar a relação entre **taxa\_código** e **viagem\_distância**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![Desenhar #8][8]
+![Saída de gráfico de dispersão de relação entre o código e a distância][8]
 
 ### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>Exploração de dados em amostras de dados através de consultas SQL no IPython notebook
 Nesta secção, vamos explorar dados as distribuições que utilizem dados amostrados que são persistidos na nova tabela que criámos acima. Tenha em atenção que podem ser executadas explorations semelhante usando as tabelas originais.

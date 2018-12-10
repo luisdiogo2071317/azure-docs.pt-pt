@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5e24ec6124b6a5f7dea66e33018dffc753966075
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955265"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141973"
 ---
 # <a name="dtu-based-service-tiers"></a>Escalões de serviço baseado em DTU
 
@@ -31,6 +31,7 @@ Escalões de serviço baseado em DTU são diferenciadas por uma variedade de tam
 ## <a name="compare-the-dtu-based-service-tiers"></a>Compare os escalões de serviço baseado em DTU
 
 Escolher uma camada de serviço depende principalmente continuidade do negócio, armazenamento e requisitos de desempenho.
+
 ||Básica|Standard|Premium|
 | :-- | --: |--:| --:| --:|
 |Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção||

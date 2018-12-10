@@ -1,6 +1,6 @@
 ---
-title: Utilize o codificador Standard nos serviços de multimédia do Azure para codificar vídeos usando uma escada gerado automaticamente a velocidade de transmissão | Documentos da Microsoft
-description: Este tópico mostra como utilizar o codificador Standard nos serviços de multimédia para codificar uma entrada de vídeo com uma escala de bits de velocidade de transmissão gerado automaticamente, com base na resolução de entrada e de velocidade de transmissão. A resolução de entrada e a velocidade de transmissão nunca serão excedidas. Por exemplo, se a entrada é 720p em 3 Mbps, a saída irá permanecer 720p na melhor e será iniciado às tarifas inferiores a 3 Mbps.
+title: Codificar vídeos com o codificador Standard nos serviços de multimédia - Azure | Documentos da Microsoft
+description: Este tópico mostra como utilizar o codificador Standard nos serviços de multimédia para codificar uma entrada de vídeo com uma escala de bits de velocidade de transmissão gerado automaticamente, com base na resolução de entrada e de velocidade de transmissão.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: ec1b4b88e5b9639c3ee9debbd8ac7d48544344dc
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.custom: seodec18
+ms.openlocfilehash: 976e1ea013c6a30615bdc742ed79e76ec35258a1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378963"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132811"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Codificar com uma escada gerado automaticamente a velocidade de transmissão
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: cead67bf18dcd0ea7b5c1479588083884dab475f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 68ca8593dea93faf076ffb5d99ec7bcad210a810
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632964"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141837"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode usá-lo para ver os servidores, como considerá-los – sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -125,8 +125,8 @@ A seção a seguir lista os sistemas operativos suportados para o agente de depe
 
 | Ficheiro | SO | Versão | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="connected-sources"></a>Origens ligadas
 Mapa de serviço obtém seus dados do agente do Microsoft Dependency. O agente de dependência depende do agente do Log Analytics para as suas ligações para o Log Analytics. Isso significa que um servidor têm de ter o agente do Log Analytics instalada e configurada com o agente de dependência.  A tabela seguinte descreve as origens ligadas que suporte a solução mapa de serviço.
@@ -135,7 +135,7 @@ Mapa de serviço obtém seus dados do agente do Microsoft Dependency. O agente d
 |:--|:--|:--|
 | Agentes do Windows | Sim | Mapa de serviço analisa e recolhe dados a partir de computadores Windows. <br><br>Para além da [agente do Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md), agentes do Windows exigem o agente do Microsoft Dependency. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
 | Agentes do Linux | Sim | Mapa de serviço analisa e recolhe dados de computadores Linux. <br><br>Para além da [agente do Log Analytics para Linux](../../azure-monitor/platform/log-analytics-agent.md), o agente do Microsoft Dependency necessitam de agentes do Linux. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
-| Grupo de gestão do System Center Operations Manager | Sim | Mapa de serviço analisa e recolhe dados de agentes do Windows e Linux no conectado [grupo de gestão do System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md). <br><br>É preciso uma ligação direta do computador do agente do System Center Operations Manager ao Log Analytics. |
+| Grupo de gestão do System Center Operations Manager | Sim | Mapa de serviço analisa e recolhe dados de agentes do Windows e Linux no conectado [grupo de gestão do System Center Operations Manager](../../azure-monitor/platform/om-agents.md). <br><br>É preciso uma ligação direta do computador do agente do System Center Operations Manager ao Log Analytics. |
 | Conta de armazenamento do Azure | Não | Mapa de serviço recolhe dados a partir de computadores de agente, portanto, não há nenhum dado com ele para coletar do armazenamento do Azure. |
 
 No Windows, o Microsoft Monitoring Agent (MMA) é utilizada pelo System Center Operations Manager e do Log Analytics para recolher e enviar dados de monitorização. (Este agente é chamado do agente do System Center Operations Manager, o agente do Log Analytics, o MMA ou o agente direto, dependendo do contexto.) System Center Operations Manager e do Log Analytics oferecem versões de outra fora da caixa do MMA. Estas versões podem reportar ao System Center Operations Manager, ao Log Analytics ou a ambos.  
@@ -156,7 +156,7 @@ Se for um cliente do System Center Operations Manager com um grupo de gestão li
 Se seus computadores Windows ou Linux não podem ligar-se diretamente ao serviço, tem de configurar o agente do Log Analytics para se ligar à área de trabalho do Log Analytics a utilizar o gateway. Para obter mais informações sobre como implementar e configurar o gateway do Log Analytics, consulte [ligar computadores sem acesso à Internet através do gateway do Log Analytics](../../azure-monitor/platform/gateway.md).  
 
 ### <a name="management-packs"></a>Pacotes de gestão
-Quando o mapa de serviço é ativado numa área de trabalho do Log Analytics, um pacote de gestão de 300 KB é encaminhado para todos os servidores do Windows na área de trabalho. Se estiver a utilizar agentes do System Center Operations Manager num [grupo de gestão ligado](../../log-analytics/log-analytics-om-agents.md), o pacote de gestão do mapa de serviço é implementado a partir do System Center Operations Manager. 
+Quando o mapa de serviço é ativado numa área de trabalho do Log Analytics, um pacote de gestão de 300 KB é encaminhado para todos os servidores do Windows na área de trabalho. Se estiver a utilizar agentes do System Center Operations Manager num [grupo de gestão ligado](../../azure-monitor/platform/om-agents.md), o pacote de gestão do mapa de serviço é implementado a partir do System Center Operations Manager. 
 
 O pacote de gestão é designado Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Ele é escrito para %Programfiles%\Microsoft Monitoring Agent\Agent\Health serviço State\Management Packs\. A origem de dados que utiliza o pacote de gestão é % Program files%\Microsoft monitorização Agent\Agent\Health serviço State\Resources\<AutoGeneratedID > \ Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 

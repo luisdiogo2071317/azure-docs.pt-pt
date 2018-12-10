@@ -1,5 +1,5 @@
 ---
-title: Planejamento de projeto do processo de ciência de dados de equipa - Azure | Documentos da Microsoft
+title: Planejamento do projeto do processo de ciência de dados de equipa
 description: Os modelos do Microsoft Project e o Excel que o ajudam a planearem e gerir projetos de ciência de dados.
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 702ea6152ce5bf90d1d1f61b566e91d1859e672b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 3675d3cd8959d78270a491aeb443cb8e458d2472
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443105"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137916"
 ---
 # <a name="team-data-science-process-project-planning"></a>Planejamento do projeto do processo de ciência de dados de equipa
 

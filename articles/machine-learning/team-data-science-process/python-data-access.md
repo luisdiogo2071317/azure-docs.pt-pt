@@ -1,5 +1,5 @@
 ---
-title: Aceder a conjuntos de dados com a biblioteca de cliente Python do Machine Learning | Documentos da Microsoft
+title: Conjuntos de dados de acesso com a biblioteca de cliente Python - Team Data Science Process
 description: Instalar e utilizar a biblioteca de cliente Python para aceder e gerir dados do Azure Machine Learning com segurança a partir de um ambiente local do Python.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: e81efb0a7977bbd50c63834f676b7cc75201dc68
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680690"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140035"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Utilizar a biblioteca de clientes de Python do Azure Machine Learning para aceder a conjuntos de dados com Python
 A pré-visualização da biblioteca de clientes do Microsoft Azure Machine Learning Python pode permitir o acesso seguro aos conjuntos de dados do Azure Machine Learning de um ambiente de Python local e permite a criação e gestão de conjuntos de dados numa área de trabalho.
@@ -92,10 +92,10 @@ Tokens de autorização são geridos na **TOKENS de autorização** página sob 
     ![Conjuntos de dados][datasets]
 4. Selecione o fragmento de código a partir da janela que aparece e copie-o para a área de transferência.
    
-    ![Código de acesso][dataset-access-code]
+    ![Botão de código de acesso de dados gerar][dataset-access-code]
 5. Cole o código no bloco de notas da sua aplicação Python local.
    
-    ![Bloco de notas][ipython-dataset]
+    ![Cole o código no bloco de notas][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Conjuntos de dados intermediários do acesso de experimentações de Machine Learning
 Após a execução uma experimentação no Machine Learning Studio, é possível acessar os conjuntos de dados intermediários de nós de saída de módulos. Conjuntos de dados intermediários são dados que foi criados e utilizados para obter os passos intermédios quando uma ferramenta de modelo tiver sido executada.
@@ -133,10 +133,10 @@ Os passos seguintes mostram um exemplo que cria uma experimentação, executa-o 
     ![Menu de Contexto][experiment]
 8. Selecione o fragmento de código e copiá-lo para a área de transferência a partir da janela que aparece.
    
-    ![Código de acesso][intermediate-dataset-access-code]
+    ![Gerar código de acesso a partir do menu de contexto][intermediate-dataset-access-code]
 9. Cole o código no seu bloco de notas.
    
-    ![Bloco de notas][ipython-intermediate-dataset]
+    ![Cole o código no bloco de notas][ipython-intermediate-dataset]
 10. É possível visualizar os dados usando matplotlib. Isto é apresentado num histograma da coluna de idade:
     
     ![Histograma][ipython-histogram]

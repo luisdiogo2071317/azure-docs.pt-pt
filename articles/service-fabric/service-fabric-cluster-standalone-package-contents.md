@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: afb6c8345cd71e7d39b7f3a0b2307c99cf31b449
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a34ad340463faf0cdccdb7fa8b87283de60b4cc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253343"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141616"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Conteúdo do pacote autónomo do Service Fabric para o Windows Server
 Na [transferido](https://go.microsoft.com/fwlink/?LinkId=730690) pacote autónomo do Service Fabric, encontrará os seguintes ficheiros:
@@ -40,6 +40,7 @@ Na [transferido](https://go.microsoft.com/fwlink/?LinkId=730690) pacote autónom
 | Tools\ServiceFabricUpdateService.zip |Uma ferramenta usada para ativar a atualização do código de automática para clusters que não têm acesso à internet. Podem encontrar mais detalhes [aqui](service-fabric-cluster-upgrade-windows-server.md)|
 
 **Modelos** 
+
 | **Nome de ficheiro** | **Breve descrição** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |Um ficheiro de exemplo de configuração do cluster contém as definições para um desprotegido, três nós, única máquina (ou máquina virtual) cluster de desenvolvimento, incluindo as informações para cada nó no cluster. |

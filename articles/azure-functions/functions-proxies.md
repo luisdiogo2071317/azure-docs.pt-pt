@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 2aa8036149f4056f2d197f0712b86104f5cf2215
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095050"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139525"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com os Proxies de funções do Azure
 
@@ -149,7 +149,7 @@ Cada proxy tem um nome amigável, como *proxy1* no exemplo anterior. O objeto de
 > [!NOTE] 
 > O *rota* propriedade nos Proxies de funções do Azure não cumpra o *routePrefix* propriedade da configuração do anfitrião de aplicação de funções. Se quiser incluir um prefixo, como `/api`, tem de ser incluído nos *rota* propriedade.
 
-### <a name="disableProxies"></a>Desativar os proxies individuais
+### <a name="disableProxies"></a> Desativar os proxies individuais
 
 Pode desativar os proxies individuais, adicionando `"disabled": true` para o proxy no `proxies.json` ficheiro. Isso fará com que quaisquer pedidos a matchCondidtion de reunião devolver 404.
 ```json
@@ -166,6 +166,22 @@ Pode desativar os proxies individuais, adicionando `"disabled": true` para o pro
     }
 }
 ```
+
+### <a name="applicationSettings"></a> Definições da aplicação
+
+O comportamento de proxy pode ser controlado por várias configurações de aplicação. Todos estão descritas no [referência das definições de aplicação de funções](./functions-app-settings.md)
+
+* [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azurefunctionproxydisablelocalcall)
+* [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azurefunctionproxybackendurldecodeslashes)
+
+### <a name="reservedChars"></a> Carateres reservados (cadeia de caracteres de formatação)
+
+Ler todas as cadeias de caracteres sem interpretação, com exceção das chaves e barras de proxies
+
+|Caráter|Caráter de escape|Exemplo|
+|-|-|-|
+|{ou}|{{ou}}|`{{ example }}` --> `{ example }`
+|/|///| `example.com///text.html` --> `example.com/text.html`
 
 ### <a name="requestOverrides"></a>Definir um objeto de requestOverrides
 
