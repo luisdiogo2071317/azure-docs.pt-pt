@@ -1,18 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 452032e21a649fe4d34616225bd168d441ac0267
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 6fa6a0f5a46d8e9a47a0750a66e9ca007864d40a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218645"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092636"
 documentType: LandingData
-title: Documentação do Serviço de Voz
+title: Documentação dos Serviços de Voz
 metadata:
-  title: Documentação do Serviço de Voz - Tutoriais, Inícios Rápidos, Referência da API - Serviços Cognitivos | Microsoft Docs
-  meta.description: >
-    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
-
-    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
+  title: Documentação dos Serviços de Voz - Tutoriais, inícios rápidos, referência da API
+  titleSuffix: Azure Cognitive Services
+  description: Os Serviços de Voz permitem aos programadores adicionar com facilidade poderosas funcionalidades compatíveis com voz às aplicações. Os exemplos incluem o controlo e diálogo por comando de voz, conversações de discurso natural, transcrição e ditado de voz e tradução de voz.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,10 +20,11 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: nitinme
+  ms.date: 12/06/2018
+  ms.author: erhopf
+  ms.custom: seodec18
 abstract:
-  description: Saiba como utilizar o Serviço de Voz e o SDK de Voz para adicionar funcionalidades preparadas para voz às suas aplicações. Pode utilizar o SDK de Voz para adicionar funcionalidades de <i>conversão de voz em texto</i> (reconhecimento de voz/SR), <i>intenção</i>, <i>tradução</i> e <i>conversão de texto em voz</i> (TTS) às suas aplicações. O Serviço de Voz também tem uma API REST que funciona com qualquer linguagem de programação que possa fazer pedidos HTTP.
+  description: Saiba como utilizar os Serviços de Voz e o SDK de Voz para adicionar funcionalidades compatíveis com voz às suas aplicações. Pode utilizar o SDK de Voz para adicionar funcionalidades de <i>conversão de voz em texto</i> (reconhecimento de voz/SR), <i>intenção</i>, <i>tradução</i> e <i>conversão de texto em voz</i> (TTS) às suas aplicações. O Serviço de Voz também tem uma API REST que funciona com qualquer linguagem de programação que possa fazer pedidos HTTP.
 sections:
 - items:
   - type: list
@@ -34,15 +33,15 @@ sections:
     columns: 3
     items:
     - href: /azure/cognitive-services/speech-service/overview
-      html: <p>Saiba mais sobre o Serviço de Voz do Azure.</p>
+      html: <p>Saiba mais sobre os Serviços de Voz do Azure.</p>
       image:
         src: ../media/index/i_overview.svg
       title: O que é o Serviço de Voz?
     - href: /azure/cognitive-services/speech-service/get-started
-      html: <p>Saiba como se inscrever gratuitamente no Serviço de Voz.</p>
+      html: <p>Inscreva-se gratuitamente.</p>
       image:
         src: ../media/index/i_get-started.svg
-      title: Inscrever-se no Serviço de Voz
+      title: Inscrever-se nos Serviços de Voz
     - href: /azure/cognitive-services/speech-service/speech-devices-sdk
       html: <p>Saiba mais sobre a referência de hardware preparada para a voz.</p>
       image:
