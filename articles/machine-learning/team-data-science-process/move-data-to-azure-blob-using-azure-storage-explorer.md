@@ -1,5 +1,5 @@
 ---
-title: Mover dados para e do armazenamento de Blobs com o Explorador de armazenamento do Azure | Documentos da Microsoft
+title: Mover dados de armazenamento de Blobs com o Explorador de armazenamento do Azure – Team Data Science Process
 description: Mover dados de e para o Armazenamento de Blobs do Azure com o Explorador do Armazenamento do Azure
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 7d4fc17c466f9f7187ca28c847631254d6600ead
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 99c9a86d130989e8c62a948e440b35c928b42299
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447007"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134103"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Mover dados para e do armazenamento de Blobs do Azure com o Explorador de armazenamento do Azure
 Explorador de armazenamento do Azure é uma ferramenta gratuita da Microsoft que lhe permite trabalhar com dados de armazenamento do Azure no Windows, macOS e Linux. Este tópico descreve como usá-lo para carregar e transferir dados do armazenamento de Blobs do Azure. A ferramenta pode ser transferida a partir [Explorador de armazenamento do Microsoft Azure](http://storageexplorer.com/).
@@ -45,8 +45,8 @@ Os seguintes passos de documentos como carregar/transferir dados com o Explorado
 
 1. Inicie o Explorador de armazenamento do Microsoft Azure.
 2. Para abrir o **iniciar sessão na sua conta...**  assistente, selecione **definições de conta do Azure** ícone, em seguida, **adicionar uma conta** e introduza as credenciais. ![Adicionar uma conta de armazenamento do Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
-3. Para abrir o **ligar ao armazenamento do Azure** assistente, selecione a **ligar ao armazenamento do Azure** ícone. ![Ligar ao armazenamento do Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
-4. Introduza a chave de acesso da conta de armazenamento do Azure **ligar ao armazenamento do Azure** assistente e, em seguida **próxima**. ![Ligar ao armazenamento do Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
+3. Para abrir o **ligar ao armazenamento do Azure** assistente, selecione a **ligar ao armazenamento do Azure** ícone. ![Clique em "Ligar ao armazenamento do Azure"](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
+4. Introduza a chave de acesso da conta de armazenamento do Azure **ligar ao armazenamento do Azure** assistente e, em seguida **próxima**. ![Introduza a chave de acesso da conta de armazenamento do Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
 5. Introduza o nome da conta de armazenamento na **nome da conta** caixa e, em seguida, selecione **próxima**. ![Anexar armazenamento externo](./media/move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
 6. Agora deverá ser listada a conta de armazenamento adicionada. Para criar um contentor de BLOBs numa conta de armazenamento, clique com botão direito a **contentores de BLOBs** nó nessa conta, selecione **criar contentor de BLOBs**e introduza um nome.
 7. Para carregar dados para um contentor, selecione o contentor de destino e clique nas **carregue** botão.![ Contas de armazenamento](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)

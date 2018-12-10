@@ -1,5 +1,5 @@
 ---
-title: Operacionalizar modelos de aprendizagem automática criados com o Spark | Documentos da Microsoft
+title: Operacionalizar modelos de aprendizagem de máquina criados com o Spark - Team Data Science Process
 description: Como carregar e classificar modelos de aprendizagem armazenados no armazenamento de Blobs do Azure (WASB) com o Python.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 6ffe1dd960b6fd09539d093d8a632efc99452c00
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 543ae7cecf9edcb5997a0bae66e0722d258a4523
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442510"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135310"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalizar modelos de aprendizagem automática criados com o Spark
 

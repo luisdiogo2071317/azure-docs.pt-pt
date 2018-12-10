@@ -15,12 +15,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 638ae4c779af3bebb68622ccee6932618d42e4f0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 8c876f220cde99bbeb3b5d9f8f8878acb5584802
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057217"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140052"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações de caráter universal no proxy de aplicações do Azure Active Directory 
 
@@ -49,7 +49,7 @@ Por exemplo: `http(s)://*.adventure-works.com`. Enquanto os URLs internos e exte
 
 Se tiver aplicações adicionais com diferentes definições de configuração, tem de publicar essas exceções como aplicações separadas para substituir as configurações padrão para o caráter universal. Aplicativos sem um caráter universal sempre têm precedência sobre aplicações de caráter universal. Da perspectiva do configuração, são aplicativos "apenas" regulares.
 
-Criar uma aplicação de caráter universal baseia-se no mesmo [fluxo de publicação de aplicativo](application-proxy-publish-azure-portal.md) que está disponível para todas as outras aplicações. A única diferença é que inclua um caráter universal nos URLs e, potencialmente, a configuração de SSO.
+Criar uma aplicação de caráter universal baseia-se no mesmo [fluxo de publicação de aplicativo](application-proxy-add-on-premises-application.md) que está disponível para todas as outras aplicações. A única diferença é que inclua um caráter universal nos URLs e, potencialmente, a configuração de SSO.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -137,7 +137,7 @@ Todos os aplicativos de três:
 - Ter as mesmas propriedades
 
 
-Pode publicar a aplicação de caráter universal com os passos descritos em [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md). Este cenário pressupõe:
+Pode publicar a aplicação de caráter universal com os passos descritos em [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md). Este cenário pressupõe:
 
 - Um inquilino com o seguinte ID: `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -145,7 +145,7 @@ Pode publicar a aplicação de caráter universal com os passos descritos em [pu
 
 - R **CNAME** entrada que aponta `*.adventure-works.com` para `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` foi criado.
 
-A seguir a [documentado passos](application-proxy-publish-azure-portal.md), criar uma nova aplicação de proxy de aplicação no seu inquilino. Neste exemplo, o caráter universal é nos campos a seguir:
+A seguir a [documentado passos](application-proxy-add-on-premises-application.md), criar uma nova aplicação de proxy de aplicação no seu inquilino. Neste exemplo, o caráter universal é nos campos a seguir:
 
 - URL interno:
 
@@ -184,7 +184,7 @@ Neste cenário, precisa além do mais três aplicações de gerais outro aplicat
 
 Tem de certificar-se de que os registos CNAME existem qual aponta `finance.adventure-works.com` para o aplicativo ponto final específico, especificado na página de Proxy de aplicações para a aplicação. Para este cenário `finance.adventure-works.com` aponta para `https://finance-awcycles.msappproxy.net/`. 
 
-A seguir a [documentado passos](application-proxy-publish-azure-portal.md), este cenário requer as seguintes definições:
+A seguir a [documentado passos](application-proxy-add-on-premises-application.md), este cenário requer as seguintes definições:
 
 
 - Na **URL interno**, defina **Finanças** em vez de um caráter universal. 
@@ -215,6 +215,6 @@ Para obter mais informações sobre:
 
 - **Domínios personalizados**, consulte [trabalhar com domínios personalizados no Proxy de aplicações do Azure AD](application-proxy-configure-custom-domain.md).
 
-- **Publicação de aplicações**, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md)
+- **Publicação de aplicações**, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md)
 
 

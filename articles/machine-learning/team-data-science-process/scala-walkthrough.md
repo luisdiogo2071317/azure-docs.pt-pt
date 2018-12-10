@@ -1,5 +1,5 @@
 ---
-title: Ciência de dados com o Scala e Spark no Azure | Documentos da Microsoft
+title: Ciência de dados com o Scala e Spark no Azure - Team Data Science Process
 description: Como utilizar o Scala para tarefas de aprendizado de máquina supervisionados com os Spark dimensionáveis MLlib e Spark ML pacotes num cluster do Azure HDInsight Spark.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ad97543ee6bc40bdee5b0ffc7ec92f061b16dae4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: bf4e65b95211fc03ea4a319fd4e503396b893522
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839539"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135152"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Utilizar o Scala e o Spark para Ciência de Dados no Azure
 Este artigo mostra-lhe como utilizar o Scala para tarefas de aprendizado de máquina supervisionados com os Spark dimensionáveis MLlib e Spark ML pacotes num cluster do Azure HDInsight Spark. Ele explica as tarefas que constituem a [processo de ciência de dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestão de dados e exploração, visualização, engenharia de funcionalidades, modelação e consumo do modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e aumentou a gradação árvores (GBTs), além de dois supervisionado tarefas de machine learning:

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 40af55e48e0097f1ad6cb52a76b78fab40c2074c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1bba25d0b7fd6bbe4efeb9c2164fc663b22bed11
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447185"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139372"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQs de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -31,7 +31,7 @@ Obtenha respostas às perguntas mais frequentes sobre os conjuntos de dimensiona
 
 **P.** Quantas VMs posso ter num conjunto de dimensionamento?
 
-**R.** Os conjuntos de dimensionamento podem ter entre zero e mil VMs com base nas imagens da plataforma ou entre zero e 300 VMs com base em imagens personalizadas.
+**R.** Um conjunto de dimensionamento pode ter as VMs de 0 a 1000 com base nas imagens da plataforma ou VMs de 0 e 600 com base em imagens personalizadas.
 
 **P.** Os conjuntos de dimensionamento suportam discos de dados?
 

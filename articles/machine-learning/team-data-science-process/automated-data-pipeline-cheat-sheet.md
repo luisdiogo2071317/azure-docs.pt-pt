@@ -1,5 +1,5 @@
 ---
-title: O Azure Machine Learning automatizada de folha de referência rápida de pipeline de dados | Documentos da Microsoft
+title: O Azure Machine Learning dados pipeline cábula - Team Data Science Process
 description: Uma folha de referência rápida imprimível que mostra-lhe como configurar um pipeline de dados automatizada para o seu serviço web do Azure Machine Learning, se os seus dados estão no local, streaming, no Azure ou num serviço cloud de terceiros.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tdsp
-ms.custom: (previous author=garyericson, ms.author=garye)
-ms.openlocfilehash: 07f7334a98c1220d051ed1be9d04e4e4e86d4dcc
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
+ms.openlocfilehash: 627729ef4f2b6a8df96d9e3b794a1ba24143b4d7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444440"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132674"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Referência rápida para um pipeline de dados automático para predições do Azure Machine Learning
 O **automatizada de folha de referência rápida de pipeline de dados do Microsoft Azure Machine Learning** ajuda a navegar pela tecnologia pode utilizar para colocar os seus dados para o Machine Learning web service, onde podem ser classificado pela sua análise preditiva modelo.

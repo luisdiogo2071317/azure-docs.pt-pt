@@ -1,6 +1,6 @@
 ---
-title: Código de ciência de dados de teste no Azure com o UCI rendimento para adultos predição conjunto de dados - processo de ciência de dados de equipa e os serviços do Azure DevOps
-description: Código de ciência de dados de teste com dados de predição de rendimento para adultos UCI
+title: Testar o código de ciência de dados com os serviços de DevOps do Azure - Team Data Science Process
+description: Código de ciência de dados de teste no Azure com o conjunto de dados da predição de rendimento para adultos UCI com o processo de ciência de dados de equipa e os serviços do Azure DevOps
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: tdsp
-ms.custom: (previous author=weig, ms.author=weig)
-ms.openlocfilehash: d04f50bc3de34c28c10be7ba429f85a99096de47
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
+ms.openlocfilehash: d8c3bafaa42e68eb7f6b5212c055793a1f2b1137
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443955"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134544"
 ---
-# <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Código de ciência de dados de teste com o conjunto de dados de predição de rendimento para adultos UCI
+# <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Código de ciência de dados de teste no Azure com o processo de ciência de dados de equipa e os serviços do Azure DevOps
 Este artigo fornece diretrizes preliminares para testar o código num fluxo de trabalho de ciência de dados. Esses testes fornece os cientistas de dados uma forma sistemática e eficiente para verificar a qualidade e o resultado esperado do seu código. Um Team Data Science Process (TDSP), usamos [projeto que usa o conjunto de dados de rendimento para adultos de UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos anteriormente para mostrar como teste de código pode ser feito. 
 
 ## <a name="introduction-on-code-testing"></a>Introdução no código de teste

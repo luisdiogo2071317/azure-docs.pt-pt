@@ -1,21 +1,21 @@
 ---
-title: Configurar o alcance Global do ExpressRoute do Azure | Documentos da Microsoft
+title: 'Configurar o alcance Global - ExpressRoute: Azure | Documentos da Microsoft'
 description: Este artigo ajuda-o a ligar os circuitos do ExpressRoute em conjunto para garantir uma privada, de rede entre as redes no local e ativar o alcance Global.
-documentationcenter: na
 services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mialdrid
-ms.openlocfilehash: 67fbf9dc430d615efe3ef894add1a26bbce792bc
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: dca2001fda7658b422bbceb14612dec1f7be6cd2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237983"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140902"
 ---
-# <a name="configure-expressroute-global-reach-preview"></a>Configurar o alcance Global do ExpressRoute (pré-visualização)
+# <a name="configure-expressroute-global-reach-preview"></a>Configurar o ExpressRoute alcance Global (pré-visualização)
 Este artigo ajuda-o a configurar o ExpressRoute alcance Global com o PowerShell. Para obter mais informações, consulte [alcance Global do ExpressRouteRoute](expressroute-global-reach.md).
  
 ## <a name="before-you-begin"></a>Antes de começar

@@ -1,19 +1,18 @@
 ---
-title: O Azure Cosmos DB como um arquivo de chave-valor – descrição geral de custo
-description: Saiba mais sobre o baixo custo de utilização do Azure Cosmos DB como um arquivo de chave-valor.
-keywords: arquivo de chave-valor
-services: cosmos-db
+title: Custos da unidade de pedido para o Azure Cosmos DB como um arquivo de chave-valor
+description: Saiba mais sobre os custos da unidade de pedido do Azure Cosmos DB para escrita simple e operações de leitura, quando é utilizado como um arquivo de chave/valor.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 7331db23757ab4eaae054c7fe640952fe22a7917
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 3ab066cc3d2b06dc12c2399d718aeec6aac03b25
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840881"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134187"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>O Azure Cosmos DB como um arquivo de chave-valor – descrição geral de custo
 
@@ -36,9 +35,9 @@ A tabela seguinte mostra que o número de RUs necessários para efetuar a leitur
 
 ## <a name="cost-of-reads-and-writes"></a>Custo de leituras e gravações
 
-Se aprovisionar 1.000 RU/seg, este quantidades m 3.6 RU/hora e irá custar US $0,08 durante a hora (nos EUA e Europa). Para um documento de 1 KB de tamanho, isso significa que pode consumir 3.6-m leituras ou escritas 0,72-m (3.6 m RU / 5) usando o débito aprovisionado. Normalizados para milhões de leituras e gravações, o custo seria US $0.022 /m leituras (US $0,08 / 3.6) e escritas de US $0.111/ m (US $0,08 / 0,72). O custo por milhões se torna um mínimo de conforme mostrado na tabela abaixo.
+Se aprovisionar 1.000 RU/seg, este quantidades 3.6-m RU/hora e irá custar US $0,08 durante a hora (nos EUA e Europa). Para um documento de 1 KB de tamanho, isso significa que pode consumir 3.6-m leituras ou escritas 0,72-m (3.6-m RU / 5) usando o débito aprovisionado. Normalizados para milhões de leituras e gravações, o custo seria US $0.022 /m leituras (US $0,08 / 3.6) e escritas de US $0.111/ m (US $0,08 / 0,72). O custo por milhões se torna um mínimo de conforme mostrado na tabela abaixo.
 
-|Tamanho do item|Leitura de 1-m|Escrita de 1-m|
+|Tamanho do item|Leitura de 1-m|1 milhão de escrita|
 |-------------|-------|--------|
 |1 KB|$0.022|$0.111|
 |100 KB|$0.222|$1.111|

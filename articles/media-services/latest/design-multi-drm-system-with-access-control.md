@@ -1,6 +1,6 @@
 ---
-title: Criação de um sistema de proteção de conteúdo multi-DRM com controle de cccess usando os serviços de multimédia do Azure | Documentos da Microsoft
-description: Saiba mais sobre como licenciar o Microsoft Smooth Streaming cliente portar Kit.
+title: Criação de um sistema de proteção de conteúdo multi-DRM com controlo de iniciativas - serviços de multimédia do Azure | Documentos da Microsoft
+description: Saiba mais sobre licenciamento Microsoft Smooth Streaming cliente portar Kit.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: willzhan
-ms.openlocfilehash: d65007ed2a0ce5a827eadca31dd9df8704e2c905
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.custom: seodec18
+ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958198"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136278"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo multi-DRM com controlo de acesso 
 
@@ -401,15 +402,15 @@ As capturas de ecrã seguintes mostram as páginas de início de início de sess
 
 **Conta de domínio de inquilino de personalizado do Azure AD**: A página personalizada início de sessão do Azure AD personalizado de domínio de inquilino.
 
-![Conta de domínio de inquilino personalizado do Azure AD](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
+![Conta de domínio de inquilino personalizado do Azure AD um](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
 **Conta de domínio da Microsoft com smart card**: A página de início de sessão personalizada através do Microsoft empresarial IT com a autenticação de dois fatores.
 
-![Conta de domínio de inquilino personalizado do Azure AD](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
+![Conta de domínio do inquilino personalizado do Azure AD dois](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
 **Conta Microsoft**: A página de início de sessão da conta Microsoft para os consumidores.
 
-![Conta de domínio de inquilino personalizado do Azure AD](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
+![Conta de domínio de inquilino três personalizado do Azure AD](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
 ### <a name="use-encrypted-media-extensions-for-playready"></a>Utilizar extensões multimédia encriptadas para PlayReady
 Num navegador moderno com o Encrypted Media Extensions (EME) para o suporte do PlayReady, como o Internet Explorer 11 no Windows 8.1 ou posterior e o browser Microsoft Edge no Windows 10, o PlayReady está o DRM subjacente para EME.

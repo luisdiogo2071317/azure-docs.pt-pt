@@ -1,5 +1,5 @@
 ---
-title: Criar grupo de espaço de nomes e os consumidores de Event Hubs do Azure através de um modelo | Documentos da Microsoft
+title: Criar um hub de eventos com o grupo de consumidores - Event Hubs do Azure | Documentos da Microsoft
 description: Criar um espaço de nomes de Hubs de eventos com um hub de eventos e um grupo de consumidores através de modelos do Azure Resource Manager
 services: event-hubs
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: fefaadcbe88a79f260e8061ce0b380f3e18f688c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: db5bb30c4049eca699f8adb45a923915033b4216
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103018"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134459"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>Início rápido: Criar um hub de eventos com o modelo Azure Resource Manager
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).

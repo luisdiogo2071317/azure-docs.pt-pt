@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: af43b1dd0a6ccb60ba6911bce8dd540aed5c0db4
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: bd3c0d2dffb2f3ed4569d115c21524377074bed3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356913"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136635"
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Como abrir as portas de firewall necessárias para uma aplicação de Proxy de aplicações
 
-Para ver uma lista completa das portas necessárias e a função de cada porta, consulte a secção pré-requisitos do [documentação de Proxy de aplicações](application-proxy-enable.md). tenha em atenção que o Proxy de aplicações utiliza apenas a portas de saída.
+Para ver uma lista completa das portas necessárias e a função de cada porta, consulte a secção pré-requisitos do [documentação de Proxy de aplicações](application-proxy-add-on-premises-application.md). tenha em atenção que o Proxy de aplicações utiliza apenas a portas de saída.
 
 Também pode verificar se tem todas as portas necessárias abrir abrindo o [ferramenta de teste de portas de conector](https://aadap-portcheck.connectorporttest.msappproxy.net/) da sua rede no local. Mais marcas de verificação verde significa maior resiliência. 
 

@@ -1,5 +1,6 @@
 ---
-title: Configurar seu automatizada experimentação do machine learning - Azure Machine Learning
+title: Configurar automatizada experimentações de machine learning
+titleSuffix: Azure Machine Learning service
 description: Aprendizagem automática escolhe um algoritmo para e gera um modelo pronto para implantação. Saiba as opções que pode utilizar para configurar automatizada experimentações de machine learning.
 author: nacharya1
 ms.author: nilesha
@@ -9,14 +10,15 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: b2be09d69013cc8361f92cb0b6e3aa5fef3bcc02
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: e1dd0cf995d7d9c263e49735decc5573107b1add
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000306"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140171"
 ---
-# <a name="configure-your-automated-machine-learning-experiment"></a>Configurar seu automatizada experimentação do machine learning
+# <a name="configure-automated-machine-learning-experiments"></a>Configurar automatizada experimentações de machine learning
 
 Aprendizagem automática escolhe um algoritmo e hiperparâmetros para e gera um modelo pronto para implantação. Existem várias opções que pode utilizar para configurar automatizada experimentações de machine learning. Neste guia, saiba como definir várias definições de configuração.
 
@@ -214,7 +216,7 @@ Propriedade |  Descrição | Valor Predefinido
 `iterations` |Número máximo de iterações. Cada iteração é igual a uma tarefa de preparação que resulta num pipeline. Os pipelines são o pré-processamento de dados e o modelo. Para obter um modelo de alta qualidade, utilize 250 ou mais    | 100
 `max_concurrent_iterations`|    Número máximo de iterações para executar em paralelo. Esta definição funciona apenas para computação remota.|   1
 `max_cores_per_iteration`   | Indica o número de núcleos no destino de computação seriam usados para preparar um único pipeline. Se o algoritmo pode tirar partido de vários núcleos, isso aumenta o desempenho numa máquina com vários núcleo. Pode configurá-lo como -1 para utilizar todos os núcleos disponíveis na máquina.|  1
-`Iteration_timeout_minutes` |   Limita a quantidade de tempo (minutos), que demora de uma iteração específica. Se uma iteração exceder o período especificado, obtém cancelada iteração. Se não for definida, em seguida, a iteração continua a ser executado até ser concluído. |   Nenhuma
+`iteration_timeout_minutes` |   Limita a quantidade de tempo (minutos), que demora de uma iteração específica. Se uma iteração exceder o período especificado, obtém cancelada iteração. Se não for definida, em seguida, a iteração continua a ser executado até ser concluído. |   Nenhuma
 `n_cross_validations`   |Número de divisões de validação cruzada| Nenhuma
 `validation_size`   |Tamanho da validação definida como percentagem de todos os exemplo de treinamento.|  Nenhuma
 `preprocess` | Verdadeiro/Falso <br/>Experimente verdadeiro ativa para realizar o processamento prévio de entrada. Segue-se um subconjunto de pré-processamento<li>Dados em falta: Imputes a dados-numérico, com média, texto com a maioria dos ocorrência em falta </li><li>Valores categóricos: Se for de tipo de dados numéricos e de número exclusivo de valores é menos de 5 por cento, converte num-hot codificação </li><li>Etc. para verificação da lista completa [o repositório do GitHub](https://aka.ms/aml-notebooks)</li><br/>Nota: se os dados estão dispersos não é possível utilizar pré-processar = true |  Falso | 

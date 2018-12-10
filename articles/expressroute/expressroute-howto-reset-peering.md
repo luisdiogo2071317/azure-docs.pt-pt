@@ -1,20 +1,21 @@
 ---
-title: Repor peerings do ExpressRoute do Azure | Documentos da Microsoft
-description: Como desactivar e activar peerings de um circuito do ExpressRoute.
+title: 'Repor o peering de circuito - ExpressRoute: Azure | Documentos da Microsoft'
+description: Como desactivar e activar peerings de circuito do ExpressRoute.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: 1bb2bb61ccd06d5774b811203e86d609a01250a4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: ad050e11c98139af00ad752f8960d55a58ca2f34
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415819"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132596"
 ---
-# <a name="reset-expressroute-peerings"></a>Repor peerings do ExpressRoute
+# <a name="reset-expressroute-circuit-peerings"></a>Repor peerings de circuito do ExpressRoute
 
 Este artigo descreve como desactivar e activar peerings de circuito do ExpressRoute com o PowerShell. Quando desativa um peering, a sessão de BGP sobre a ligação primária e a ligação secundária do seu circuito do ExpressRoute será encerrada. Perderá conectividade através deste peering para a Microsoft. Quando ativa um peering, irá ser recuperada a sessão de BGP sobre a ligação primária e a ligação secundária do seu circuito do ExpressRoute. Irá recuperar a conectividade através deste peering para a Microsoft. Pode ativar e desativar o Peering da Microsoft e o Peering privado do Azure num circuito do ExpressRoute independentemente. Quando o primeiro de configurar os peerings no seu circuito do ExpressRoute, os peerings estão ativados por predefinição.
 

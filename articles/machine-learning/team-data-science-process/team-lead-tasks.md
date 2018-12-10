@@ -1,5 +1,5 @@
 ---
-title: Tarefas para a equipe líder da equipe de processo de ciência de dados equipe - Azure
+title: Tarefas para a equipe de liderar em à equipa de processo de ciência de dados de equipa
 description: Uma descrição das tarefas que uma equipe líder num projeto de equipe de ciência de dados deve concluir para a equipa de ciência de dados.
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=deguhath, ms.author=deguhath)"
-ms.openlocfilehash: 68fd0abf314eb4fde5ff335acc161d82ad78cd0c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: faf0e06a0649c31cec840a5043a11af601ba5c47
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106639"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139644"
 ---
 # <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Tarefas para a equipe de liderar em à equipa de processo de ciência de dados de equipa
 

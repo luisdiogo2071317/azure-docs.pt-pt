@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: borisb
-ms.openlocfilehash: 4ccfc7d185281f4c3a76e211aecff0f60298c92a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 20fe724d32e31e1bacbad024cc934f89af12f112
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446488"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139933"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização do Red Hat a pedido Red Hat Enterprise para VMs do Linux no Azure
  [Infraestrutura de atualização do Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que os fornecedores de cloud, como o Azure, para espelhar o conteúdo do repositório alojado no Red Hat, criar repositórios personalizados com específica do Azure, conteúdo e disponibilizá-lo para VMs do utilizador final.
@@ -35,15 +35,16 @@ Imagens de pay as you go (PAYG) da Red Hat Enterprise Linux (RHEL) vêm pré-con
 
 * Acesso para o RHUI alojado no Azure está incluído no preço de imagem RHEL PAYG. Se cancelar o registro de uma VM do RHEL PAYG a partir do RHUI alojado no Azure que não converter a máquina virtual num tipo bring-your-own-license (BYOL) da VM. Se se registra a mesma VM com outra origem de atualizações, pode incorrer _indireta_ duas vezes encargos. Será cobrado pela primeira vez para a taxa de software RHEL do Azure. Será cobrado na segunda vez para subscrições do Red Hat que foram adquiridas anteriormente. Se tiver consistentemente de utilizar uma infraestrutura de atualização que não seja RHUI alojado no Azure, considere criar e implementar as suas próprias imagens (tipo de BYOL). Este processo é descrito em [criar e carregar uma máquina de virtual baseada em Red Hat para o Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-* Duas classes de imagens RHEL PAYG no Azure (de RHEL for SAP HANA) e de RHEL for SAP Business Applications estão ligados a canais RHUI dedicados que permanecem na versão secundária de RHEL específica conforme necessário para a certificação da SAP. 
+* Duas classes de imagens RHEL PAYG no Azure (de RHEL for SAP HANA) e de RHEL for SAP Business Applications estão ligados a canais RHUI dedicados que permanecem na versão secundária de RHEL específica conforme necessário para a certificação da SAP.
 
 * O acesso a RHUI alojado no Azure é limitado para as VMs dentro de [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Se estiver a utilização do proxy todo o tráfego de VM por meio de uma infraestrutura de rede no local, poderá ter de configurar rotas definidas pelo utilizador para as VMs de PAYG RHEL acessar o RHUI do Azure.
 
 ### <a name="the-ips-for-the-rhui-content-delivery-servers"></a>Os IPs para os servidores de entrega de conteúdos do RHUI
 
-RHUI está disponível em todas as regiões onde as imagens de sob demanda do RHEL estão disponíveis. Inclui todas as regiões públicas listadas atualmente o [dashboard de estado do Azure](https://azure.microsoft.com/status/) página, do Azure US Government e regiões do Microsoft Azure Alemanha. 
+RHUI está disponível em todas as regiões onde as imagens de sob demanda do RHEL estão disponíveis. Inclui todas as regiões públicas listadas atualmente o [dashboard de estado do Azure](https://azure.microsoft.com/status/) página, do Azure US Government e regiões do Microsoft Azure Alemanha.
 
-Se estiver a utilizar uma configuração de rede para restringir mais o acesso de VMs do RHEL PAYG, certifique-se de que os seguintes IPs são permitidos para `yum update` trabalhar consoante o ambiente em que está: 
+Se estiver a utilizar uma configuração de rede para restringir mais o acesso de VMs do RHEL PAYG, certifique-se de que os seguintes IPs são permitidos para `yum update` trabalhar consoante o ambiente em que está:
+
 
 ```
 # Azure Global
@@ -65,11 +66,11 @@ Se estiver a utilizar uma configuração de rede para restringir mais o acesso d
 
 Em Setembro de 2016, Implementámos uma RHUI atualizados do Azure. Em Abril de 2017, vamos encerrar o antigo RHUI do Azure. Se usa as imagens RHEL PAYG (ou respetivos instantâneos) de Setembro de 2016 ou posterior, está a ligar automaticamente para o novo RHUI do Azure. Se, no entanto, tiver instantâneos mais antigos nas suas VMs, terá de atualizar manualmente a configuração para aceder a RHUI de Azure conforme descrito na seção a seguir.
 
-Os novos servidores do RHUI do Azure são implementados com [Gestor de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/). No Gestor de tráfego, um único ponto final (rhui 1.microsoft.com) pode ser utilizado por qualquer VM, independentemente da região. 
+Os novos servidores do RHUI do Azure são implementados com [Gestor de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/). No Gestor de tráfego, um único ponto final (rhui 1.microsoft.com) pode ser utilizado por qualquer VM, independentemente da região.
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Atualizar o certificado de cliente do RHUI expirado numa VM
 
-Se estiver a utilizar uma imagem de RHEL VM mais antiga, por exemplo, RHEL 7.4 (imagem URN: `RedHat:RHEL:7.4:7.4.2018010506`), terá problemas de conectividade para RHUI devido a um certificado de cliente SSL expirado agora (em 21 de Novembro de 2018). Para superar esse problema, atualize o pacote de cliente do RHUI na VM com o seguinte comando 
+Se estiver a utilizar uma imagem de RHEL VM mais antiga, por exemplo, RHEL 7.4 (imagem URN: `RedHat:RHEL:7.4:7.4.2018010506`), terá problemas de conectividade para RHUI devido a um certificado de cliente SSL expirado agora (em 21 de Novembro de 2018). Para superar esse problema, atualize o pacote de cliente do RHUI na VM com o seguinte comando
 
 ```bash
 sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-azure-rhel7
@@ -87,7 +88,7 @@ Se tiver problemas a ligar ao Azure RHUI da sua VM do Azure RHEL PAYG, siga este
     b. Se ele aponta para uma localização com o seguinte padrão, `mirrorlist.*cds[1-4].cloudapp.net`, é necessária uma atualização de configuração. Estiver a utilizar o antigo instantâneo VM e terá de atualizá-lo para apontar para o novo RHUI do Azure.
 
 1. Acesso a RHUI alojado no Azure está limitado a VMs dentro de [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
- 
+
 1. Se estiver a utilizar a nova configuração, ter verificado que a VM liga-se de que o intervalo de IP do Azure e ainda não é possível ligar ao Azure RHUI, o ficheiro de um incidente de suporte com a Microsoft ou do Red Hat.
 
 ### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Procedimento de atualização manual para utilizar os servidores do RHUI do Azure
@@ -96,7 +97,7 @@ Este procedimento é fornecido apenas para referência. Imagens RHEL PAYG já te
 1. Transferir a assinatura de chave pública através de curl.
 
    ```bash
-   curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
+   curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc
    ```
 
 1. Verificar a validade da chave transferida.
@@ -137,20 +138,20 @@ Este procedimento é fornecido apenas para referência. Imagens RHEL PAYG já te
    ```
 
 1. Transferir, certifique-se e instalar um cliente do Gestor de pacote de RPM (RPM).
-    
+
     >[!NOTE]
     >Alterar a versões de pacotes. Se se conectar manualmente à RHUI do Azure, pode encontrar a versão mais recente do pacote de cliente para cada família RHEL ao aprovisionar a imagem mais recente a partir da galeria.
-  
-   a. Transferir. 
-   
+
+   a. Transferir.
+
     - Para RHEL 6:
         ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.2-74.noarch.rpm 
+        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.2-74.noarch.rpm
         ```
-    
+
     - Para RHEL 7:
         ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.2-74.noarch.rpm  
+        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.2-74.noarch.rpm
         ```
 
    b. Certifique-se.
@@ -178,4 +179,5 @@ Este procedimento é fornecido apenas para referência. Imagens RHEL PAYG já te
 1. Depois de concluir, certifique-se de que podem aceder ao Azure RHUI da VM.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para criar uma VM do Red Hat Enterprise Linux a partir de uma imagem de PAYG do Azure Marketplace e utilizar RHUI alojado no Azure, vá para o [do Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). 
+Para criar uma VM do Red Hat Enterprise Linux a partir de uma imagem de PAYG do Azure Marketplace e utilizar RHUI alojado no Azure, vá para o [do Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
+

@@ -1,6 +1,6 @@
 ---
-title: Explorar os dados no armazenamento de Blobs do Azure com o pandas | Documentos da Microsoft
-description: Como explorar os dados armazenados no contentor de Blobs do Azure com o pandas.
+title: Explorar os dados no armazenamento de Blobs do Azure com o pandas - Team Data Science Process
+description: Como explorar os dados armazenados no contentor de Blobs do Azure com o pacote do Python pandas.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 12e277168d27786581d14adc4c32b94d0979df6d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 43dcb5d207b754938469abca9353b83687797335
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441593"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141395"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorar os dados no armazenamento de Blobs do Azure com o pandas
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: cc60fd6a9d5f154d26fc9c495f190296453a0db0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 22e7e513c7ec015b070ae37c1dbdd168404ee768
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106656"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140756"
 ---
 # <a name="migrate-from-workbench-to-the-latest-version-of-azure-machine-learning-service"></a>Migrar da bancada de trabalho para a versão mais recente do serviço Azure Machine Learning 
 
@@ -108,7 +108,7 @@ az ml history download
 <a name="dataprep"></a>
 
 ## <a name="data-preparation-files"></a>Ficheiros de preparação de dados
-Ficheiros de preparação de dados não são portáteis sem a Bancada de trabalho. Mas, ainda pode preparar qualquer conjunto de dados de tamanho para modelar a utilizar o novo SDK do Azure Machine Learning Data Prep ou utilizar o Azure Databricks para grandes conjuntos de dados.  [Saiba como obter a SDK de preparação de dados](how-to-data-prep.md). 
+Ficheiros de preparação de dados não são portáteis sem a Bancada de trabalho. Mas, ainda pode preparar qualquer conjunto de dados de tamanho para modelar a utilizar o novo SDK do Azure Machine Learning Data Prep ou utilizar o Azure Databricks para grandes conjuntos de dados. [Saiba como obter a SDK de preparação de dados](https://aka.ms/data-prep-sdk).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

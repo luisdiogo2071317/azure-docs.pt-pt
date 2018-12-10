@@ -1,5 +1,5 @@
 ---
-title: Do Azure Machine Learning API de deteção de anomalias | Documentos da Microsoft
+title: Do Azure Machine Learning API - processo de ciência de dados de equipa de deteção de anomalias
 description: API de deteção de anomalias é um exemplo criado com o Microsoft Azure Machine Learning que Deteta anomalias nos dados de séries de tempo com valores numéricos que são espaçados uniformemente no tempo.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
-ms.custom: (previous author=alokkirpal, ms.author=alok)
-ms.openlocfilehash: 485cf6af9f019bc43ee862627db8549240690247
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
+ms.openlocfilehash: de625e7cc394d1b292f9876a1b4cdd3fb0daeaa8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443938"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134799"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Do Machine Learning API de deteção de anomalias
 ## <a name="overview"></a>Descrição geral
@@ -37,9 +37,9 @@ A oferta de deteção de anomalias vem com ferramentas úteis para começar.
 > [!NOTE]
 > Tente **solução IT Anomaly Insights** com tecnologia [esta API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
 > 
-> Para obter esta solução de ponta a ponta implementada na sua subscrição do Azure <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **comece aqui >**</a>
-> 
->
+<!-- This Solution is no longer available
+> To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
+--> 
 
 ## <a name="api-deployment"></a>Implementação de API
 Para utilizar a API, tem de implementá-la à sua subscrição do Azure onde será alojado como um serviço web do Azure Machine Learning.  Pode fazê-lo a partir da [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Isto irá implementar dois serviços de Web do AzureML (e os recursos relacionados) à sua subscrição do Azure - um para deteção de anomalias com deteção de sazonalidade e outro sem deteção de sazonalidade.  Depois de concluída a implementação, será capaz de gerir as suas APIs do [serviços da web AzureML](https://services.azureml.net/webservices/) página.  Nesta página, será possível localizar as localizações de ponto final, chaves de API, bem como código de exemplo para chamar a API.  Estão disponíveis instruções mais detalhadas [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).

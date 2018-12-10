@@ -1,5 +1,5 @@
 ---
-title: O que é o Processo de Ciência de Dados de Equipa? | Microsoft Docs
+title: O que é o Processo de Ciência de Dados de Equipa?
 description: Fornece uma metodologia de ciência de dados para fornecer soluções de Análise Preditiva e aplicações inteligentes.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 44da452b0ec07eaa1b1446de5dab5bedaac3bc30
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 4dbcc3cb655220db66a5f49712f1fd5f87109e61
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446845"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141327"
 ---
 # <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipa?
 

@@ -1,5 +1,5 @@
 ---
-title: Tarefas do Gestor de grupo de processo de ciência de dados de equipa - Azure | Documentos da Microsoft
+title: Tarefas do Gestor de grupo do Team Data Science Process
 description: Uma descrição de tarefas de um Gestor de grupo num projeto de equipe de ciência de dados.
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ee10f17f76f7c3745cb32223c58b0d2d12f7d6b6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: d44b13bb087f171c3f0474cde73167481221274f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446352"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136587"
 ---
-# <a name="group-manager-tasks"></a>Tarefas do Gestor de grupo
+# <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Tarefas do gerente de grupo num projeto de equipe de ciência de dados
 
 Este contornos de tópico as tarefas que é esperado que um gerente de grupo são concluídas para hist / sua organização de ciência de dados. O objetivo é estabelecer o ambiente de colaboração de grupo que padroniza sobre o [Team Data Science Process](overview.md) (TDSP). Para uma descrição das funções pessoal e das respetivas tarefas associadas que são processadas por uma equipa de ciência de dados padronizar este processo, consulte [Team Data Science Process funções e tarefas](roles-tasks.md).
 

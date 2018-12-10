@@ -1,18 +1,18 @@
 ---
-title: 'Encriptação de base de dados em repouso: Azure Cosmos DB'
-description: Saiba como o Azure Cosmos DB fornece encriptação de padrão de todos os dados.
-services: cosmos-db
+title: Encriptação em repouso no Azure Cosmos DB
+description: Saiba como o Azure Cosmos DB fornece encriptação de dados em repouso e como ele é implementado.
 author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2017
-ms.author: rafats
-ms.openlocfilehash: c58d294707d347ce979af80f63e1edb7be1c1a40
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: 8138a7dcae427d5f5f622170a7825306a7bf8dae
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835514"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140324"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Encriptação de base de dados do Azure Cosmos DB em repouso
 

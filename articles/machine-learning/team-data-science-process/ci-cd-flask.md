@@ -1,5 +1,5 @@
 ---
-title: Criar um pipeline do Azure para o machine learning a integração contínua
+title: Crie a integração contínua pipeline do Azure - Team Data Science Process
 description: 'DevOps para aplicações de Inteligência Artificial (IA): a criar o pipeline de integração contínua no Azure utilizando o Docker e Kubernetes'
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
-ms.custom: seodec18, "(previous author=jainr, ms.author=jainr)"
-ms.openlocfilehash: 84d0c42b132016bbb350636cc00651a13bf93616
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
+ms.openlocfilehash: a3c570d3d22742afcbba86f35a9dd1f6a85c0b8f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102305"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134289"
 ---
 # <a name="creating-continous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>Criar o pipeline de integração contínua no Azure utilizando a aplicação do Python Flask, Kubernetes e Docker
 Para uma aplicação de IA, há frequentemente dois fluxos de trabalho, criação de modelos de machine learning e os desenvolvedores de aplicativos criando o aplicativo e expô-lo para os utilizadores finais consumam os cientistas de dados. Neste artigo, demonstraremos como implementar uma integração contínua (CI) / pipeline de entrega contínua (CD) para uma aplicação de IA. Aplicação de IA é uma combinação de código da aplicação incorporada com um modelo de pré-preparadas com machine learning (ML). Neste artigo, estamos buscando um modelo pretrained de uma conta de armazenamento de Blobs do Azure privado, pode ser uma conta AWS S3 também. Utilizamos uma aplicação de web do flask python simples para o artigo.

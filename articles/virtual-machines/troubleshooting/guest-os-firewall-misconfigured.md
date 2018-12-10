@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ad659cfcf1bfdad440968da5568b993724a5f351
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319548"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137842"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Firewall do SO de convidado VM do Azure está configurado incorretamente
 
@@ -33,7 +33,7 @@ Este artigo apresenta como corrigir operativo firewall de sistema numa VM do Azu
 
 ## <a name="cause"></a>Causa
 
-Uma configuração incorreta do firewall de sistema do convidado pode bloquear alguns ou todos os tipos de tráfego de rede para a VM. 
+Uma configuração incorreta do firewall de sistema do convidado pode bloquear alguns ou todos os tipos de tráfego de rede para a VM.
 
 ## <a name="solution"></a>Solução
 
@@ -43,11 +43,11 @@ Para resolver este problema, utilize a consola de série ou [Repare a VM offline
 
 ## <a name="online-mitigations"></a>Atenuações online
 
-Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). Se a consola de série não estiver ativada na VM, aceda à secção "Reparar a VM Offline" do artigo do Azure seguinte:
+Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Se a consola de série não estiver ativada na VM, aceda à secção "Reparar a VM Offline" do artigo do Azure seguinte:
 
  [Ocorreu um erro interno ao tentar ligar a uma VM do Azure através do ambiente de trabalho remoto](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
 
-As seguintes regras podem ser editadas para optar por ativar o acesso à VM (através de RDP) ou para fornecer uma experiência de resolução de problemas mais fácil: 
+As seguintes regras podem ser editadas para optar por ativar o acesso à VM (através de RDP) ou para fornecer uma experiência de resolução de problemas mais fácil:
 
 *   Ambiente de trabalho remoto (TCP-In): Esta é a regra padrão que fornece acesso primária para a VM ao permitir que o RDP no Azure.
 
@@ -55,7 +55,7 @@ As seguintes regras podem ser editadas para optar por ativar o acesso à VM (atr
 
 *   Ficheiros e partilha de impressoras (SMB-In): esta regra permite o acesso à partilha de rede como uma opção de resolução de problemas.
 
-*   Ficheiros e partilha de impressoras (solicitação de eco - ICMPv4-In): esta regra permite-lhe enviar um ping a VM. 
+*   Ficheiros e partilha de impressoras (solicitação de eco - ICMPv4-In): esta regra permite-lhe enviar um ping a VM.
 
 Caso o acesso de consola de série, pode consultar o estado atual da regra de firewall.
 
@@ -83,7 +83,7 @@ Caso o acesso de consola de série, pode consultar o estado atual da regra de fi
     netsh advfirewall firewall set rule name="<RULE NAME>" new enable=yes
     ```
 
-*   Para resolução de problemas, pode desativar os perfis de firewall: 
+*   Para resolução de problemas, pode desativar os perfis de firewall:
 
     ```cmd
     netsh advfirewall set allprofiles state off

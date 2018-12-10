@@ -5,18 +5,20 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: f4e067bc1d9a6d738a1289216acc0571661959ea
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 03a60940b4889671149c49becb0f823da89781ff
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110061"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135564"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Melhores práticas para dimensionamento e custos de cargas de trabalho migradas para o Azure
 
-Como planeja e design para a migração, concentrando-se nos custos garante o sucesso de longo prazo da sua migração do Azure. Durante um projeto de migração, é fundamental que todas as equipes (Finanças, gestão, as equipas de aplicações etc) compreender os custos associados. Antes da migração, estimar sua migração gastos, com uma linha de base para mensais, trimestrais, e destinos de orçamento anual é essencial para o sucesso. Após a migração, deve otimizar os custos, monitorizar continuamente a cargas de trabalho e planear os padrões de utilização futura. Os recursos migrados podem começam como um tipo de carga de trabalho, mas desenvolver dentro de outro tipo ao longo do tempo, com base na utilização, os custos e das demandas dos negócios.
+Como planeja e design para a migração, concentrando-se nos custos garante o sucesso de longo prazo da sua migração do Azure. Durante um projeto de migração, é fundamental que todas as equipes (Finanças, gestão, as equipas de aplicações etc) compreender os custos associados.
+- Antes da migração, estimar sua migração gastos, com uma linha de base para mensais, trimestrais, e destinos de orçamento anual é essencial para o sucesso.
+- Após a migração, deve otimizar os custos, monitorizar continuamente a cargas de trabalho e planear os padrões de utilização futura. Os recursos migrados podem começam como um tipo de carga de trabalho, mas desenvolver dentro de outro tipo ao longo do tempo, com base na utilização, os custos e das demandas dos negócios.
 
 Este artigo descreve as melhores práticas para o orçamento e dimensionamento antes e após a migração.  
 

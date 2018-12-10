@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: dce9c26d9f836a2238642521be4d88ba089058d7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8b410cc85584f45d4a3e9d7bce180a2c6aa46114
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445963"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134977"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de Proxy de aplicações do Azure AD
 
@@ -47,7 +47,7 @@ O windows server tem de ter o TLS 1.2, ativado antes de instalar o conector do P
 2. Reinicie o servidor
 
 
-Para obter mais informações sobre os requisitos de rede para o servidor do conector, consulte [introdução ao Proxy da aplicação e instalar um conector](application-proxy-enable.md).
+Para obter mais informações sobre os requisitos de rede para o servidor do conector, consulte [introdução ao Proxy da aplicação e instalar um conector](application-proxy-add-on-premises-application.md).
 
 ## <a name="maintenance"></a>Manutenção
 Os conectores e o serviço de cuidam de todas as tarefas de elevada disponibilidade. Eles podem ser adicionados ou removidos dinamicamente. Sempre que uma nova solicitação chegar é encaminhado para um dos conectores que está atualmente disponível. Se um conector temporariamente não estiver disponível, ele não responde a este tráfego.
@@ -64,7 +64,7 @@ Não tem de eliminar manualmente os conectores que não são utilizados. Quando 
 
 ## <a name="automatic-updates"></a>Atualizações automáticas
 
-O Azure AD fornece as atualizações automáticas para todos os conectores que implementar. Desde que o serviço Atualizador do conector de Proxy de aplicação está em execução, os conectores atualizar automaticamente. Se não vir o serviço Atualizador do conector no seu servidor, terá [reinstalar o conector](application-proxy-enable.md) para obter todas as atualizações. 
+O Azure AD fornece as atualizações automáticas para todos os conectores que implementar. Desde que o serviço Atualizador do conector de Proxy de aplicação está em execução, os conectores atualizar automaticamente. Se não vir o serviço Atualizador do conector no seu servidor, terá [reinstalar o conector](application-proxy-add-on-premises-application.md) para obter todas as atualizações. 
 
 Se não quiser aguardar que uma atualização automática para o conector, pode efetuar uma atualização manual. Vá para o [página de transferência de conector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) no servidor onde o conector está localizado e selecione **transferir**. Este processo inicia-se uma atualização para o conector local. 
 
@@ -136,7 +136,7 @@ Conectores também podem ser associados a domínios ou florestas que tenham uma 
 
 Normalmente, a implementação do conector é simples e não requer nenhuma configuração especial. No entanto, existem algumas condições exclusivas que devem ser consideradas:
 
-* Tem das organizações que limitam o tráfego de saída [abrir as portas necessárias](application-proxy-enable.md#open-your-ports).
+* Tem das organizações que limitam o tráfego de saída [abrir as portas necessárias](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 * Poderão ser necessário máquinas compatíveis com FIPS para alterar suas configurações para permitir que os processos de conector gerar e armazenar um certificado.
 * As organizações que bloquear o seu ambiente com base nos processos que emitem os pedidos de rede tem de certificar-se de que ambos os serviços de conector estão ativados para aceder a todas as portas necessárias e IPs.
 * Em alguns casos, os proxies de encaminhamento de saída podem interromper a autenticação de certificado bidirecional e fazer com que a comunicação efetuar a ativação.

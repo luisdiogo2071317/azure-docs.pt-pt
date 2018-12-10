@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2f726c9c70e6e46ad2e82e9d6f15dae2c9d3d008
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4d957c26bd4e4ae278c0909c9df1476b02954b86
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724694"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138012"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Aplicações web do Azure em direto de perfil com o Application Insights
 
-Profiler trabalha atualmente para aplicações de web ASP.NET e ASP.NET Core em execução em aplicações Web. Basic camada de serviço ou superior é obrigatório para utilizar o Profiler.
+Profiler trabalha atualmente para aplicações de web ASP.NET e ASP.NET Core em execução em aplicações Web. Basic camada de serviço ou superior é obrigatório para utilizar o Profiler. Ativar Profiler no Linux atualmente só é possível por meio [esse método](app-insights-profiler-aspnetcore-linux.md).
 
 ## <a id="installation"></a> Ative Profiler para as suas aplicações Web
 Para ativar o Profiler para uma aplicação web, siga as instruções abaixo. Se estiver a executar um tipo diferente de serviço do Azure, aqui estão as instruções de ativação do Profiler em outras plataformas suportadas:
@@ -29,11 +29,10 @@ Para ativar o Profiler para uma aplicação web, siga as instruções abaixo. Se
 * [Aplicações do Service Fabric](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas Virtuais](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-
 Application Insights Profiler previamente é instalado como parte do tempo de execução dos serviços de aplicações, mas terá de ativá-la para get perfis para as suas aplicações Web do Azure. Assim que tiver implementado uma aplicação Web, mesmo se o ter incluído o SDK do App Insights no código-fonte, siga os passos abaixo para ativar o gerador de perfis.
 
 1. Vá para o **dos serviços de aplicações** painel no portal do Azure.
-1. Navegue para **definições > monitorização** painel.
+1. Navegue para **definições > Application Insights** painel.
 
    ![Ativar o App Insights no portal dos serviços de aplicações](./media/app-insights-profiler/AppInsights-AppServices.png)
 

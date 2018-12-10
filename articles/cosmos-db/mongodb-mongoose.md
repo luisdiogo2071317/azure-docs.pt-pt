@@ -1,22 +1,22 @@
 ---
-title: Com a arquitetura Mongoose com o Azure Cosmos DB
-description: Saiba como ligar uma aplicação Mongoose Node.js ao Azure Cosmos DB
-services: cosmos-db
-author: slyons
+title: Ligar uma aplicação Mongoose node. js ao Azure Cosmos DB
+description: Saiba como utilizar a arquitetura Mongoose para armazenar e gerir dados no Azure Cosmos DB.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 01/08/2018
-ms.author: sclyon
-ms.openlocfilehash: 6f84dfac7b556e59ec3ad76ff7d2c6e5f5105293
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: ec47c265c3d6f826bc1b7e7d8038e284c6981b7a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101437"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134935"
 ---
-# <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB: utilizar a arquitetura Mongoose com o Azure Cosmos DB
+# <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ligar uma aplicação Mongoose node. js ao Azure Cosmos DB
 
 Este tutorial demonstra como utilizar a [Arquitetura Mongoose](https://mongoosejs.com/) ao armazenar dados no Azure Cosmos DB. Nestas instruções, utilizamos a API MongoDB para o Azure Cosmos DB. Para os que não estão familiarizados com o Mongoose, o Mongoose é uma arquitetura de modelação de objetos para o MongoDB em Node.js e fornece uma solução simples com base no esquema para modelar os dados da aplicação.
 

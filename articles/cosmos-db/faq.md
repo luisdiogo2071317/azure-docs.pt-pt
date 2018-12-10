@@ -1,23 +1,22 @@
 ---
-title: O Azure Cosmos DB, perguntas mais frequentes
+title: Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 description: Obtenha respostas para perguntas mais frequentes sobre o Azure Cosmos DB, um serviço de base de dados com múltiplos modelos distribuída globalmente. Saiba mais sobre a capacidade, níveis de desempenho e dimensionamento.
 keywords: Perguntas de base de dados, perguntas mais frequentes perguntas, documentdb, azure, do Microsoft azure
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: e4ed9ee34260dfffc0034fb7524a037e957fab3f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: fc5b397f64bead38e630cb994d1d325a85b11cda
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851184"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139661"
 ---
-# <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
-
-## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Azure do Cosmos DB
+# <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 
 ### <a name="what-happened-to-the-documentdb-api"></a>O que aconteceu com a API do DocumentDB?
 
@@ -78,7 +77,7 @@ Também pode utilizar o [emulador do Azure Cosmos DB](local-emulator.md) para de
 Para fazer uma pergunta técnica, pode publicar para um destes dois pergunta e responder a fóruns:
 
 * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Estouro de pilha é melhor para questões de programação. Certifique-se de que é a sua pergunta [no tópico](https://stackoverflow.com/help/on-topic) e [fornecer tantos detalhes quanto possível, fazer a pergunta clara e answerable](https://stackoverflow.com/help/how-to-ask).
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Estouro de pilha é melhor para questões de programação. Certifique-se de que é a sua pergunta [no tópico](https://stackoverflow.com/help/on-topic) e [fornecer tantos detalhes quanto possível, fazer a pergunta clara e answerable](https://stackoverflow.com/help/how-to-ask).
 
 Para pedir novas funcionalidades, crie um novo pedido no [uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
@@ -125,10 +124,6 @@ Quando define uma região, lembre-se de que o Azure Cosmos DB respeita clouds so
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>É possível alternar de débito de nível de contêiner de aprovisionamento para o aprovisionamento de débito de nível de base de dados? Ou vice versa
 
 Contentor e o aprovisionamento de débito de nível de base de dados são ofertas distintas e alterar entre qualquer um destes requerer a migrar dados de origem para destino. Que significa que precisa criar uma nova base de dados ou uma nova coleção e, em seguida, migrar dados, utilizando [biblioteca de executor em massa](bulk-executor-overview.md) ou [do Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
-
-### <a name="how-do-i-create-fixed-collection-with-partition-key"></a>Como posso criar coleção fixa com chave de partição
-
-Atualmente pode criar coleção com um débito de chave de partição utilizando a [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) método do .net SDK ou utilizando o [CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Atualmente não é suportada a criação de uma coleção fixa através do portal do Azure.
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>O Azure cosmos DB suporta análise de série de tempo?
 
@@ -304,7 +299,7 @@ Pode partilhar os seus comentários em qualquer uma das seguintes formas:
 
 * [Voz do utilizador](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Estouro de pilha é melhor para questões de programação. Certifique-se de que é a sua pergunta [no tópico](https://stackoverflow.com/help/on-topic) e [fornecer tantos detalhes quanto possível, fazer a pergunta clara e answerable](https://stackoverflow.com/help/how-to-ask).
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Estouro de pilha é melhor para questões de programação. Certifique-se de que é a sua pergunta [no tópico](https://stackoverflow.com/help/on-topic) e [fornecer tantos detalhes quanto possível, fazer a pergunta clara e answerable](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>O que é a cadeia de ligação que preciso para utilizar para ligar para a API de tabela?
 
@@ -525,7 +520,7 @@ O Azure Cosmos DB é um sistema com base no SLA que fornece a latência, débito
 
 ### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>No c# / desenvolvimento do .NET, devo utilizar o pacote de Microsoft.Azure.Graphs ou Gremlin.NET?
 
-API de Gremlin do Azure Cosmos DB tira partido os controladores de código-fonte aberto como os conectores principais para o serviço. Para que a opção recomendada é usar [drivers que são suportados pela Apache Tinkerpop](http://tinkerpop.apache.org/).
+API de Gremlin do Azure Cosmos DB tira partido os controladores de código-fonte aberto como os conectores principais para o serviço. Para que a opção recomendada é usar [drivers que são suportados pela Apache Tinkerpop](https://tinkerpop.apache.org/).
 
 ### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>Como os RU/s são cobrados quando a execução de consultas numa base de dados?
 
@@ -539,7 +534,7 @@ O Azure Cosmos DB faz uso de [criação de partições horizontais](partition-da
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Como posso proteger contra ataques de injeção usando drivers de Gremlin?
 
-Controladores de Tinkerpop Gremlin mais nativos que a opção fornecer um dicionário de parâmetros para a execução da consulta. Este é um exemplo de como fazê-lo na [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) e, na [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Controladores de Tinkerpop Gremlin mais nativos que a opção fornecer um dicionário de parâmetros para a execução da consulta. Este é um exemplo de como fazê-lo na [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) e, na [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Por que eu ganho o "erro de compilação de consulta do Gremlin: não é possível localizar qualquer método" erro?
 

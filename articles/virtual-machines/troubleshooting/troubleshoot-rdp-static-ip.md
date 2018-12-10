@@ -13,21 +13,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: c219b2fb58d46d9280ef5c022140e0499e3ac54c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 81a3064290e0aa720a4fe6b0fa0d8eb13cfe6903
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51347716"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141803"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Não é possível o ambiente de trabalho remoto para máquinas de virtuais do Azure por causa de IP estático
 
 Este artigo descreve um problema em que não é possível o ambiente de trabalho remoto para máquinas de virtuais de Windows do Azure (VMs) depois de um IP estático está configurado na VM.
 
-> [!NOTE] 
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica. 
+> [!NOTE]
+> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager, que recomendamos que utilize para novas implementações em vez do modelo de implementação clássica.
 
-## <a name="symptoms"></a>Sintomas 
+## <a name="symptoms"></a>Sintomas
 
 Quando efetuar uma ligação RDP a uma VM no Azure, recebe a seguinte mensagem de erro:
 
@@ -47,7 +47,7 @@ Quando dá entrada a captura de ecrã do [diagnósticos de arranque](../troubles
 
 A VM tem um endereço IP estático, que é definido na interface de rede no Windows. Este endereço IP é diferente do endereço que é definido no portal do Azure.
 
-## <a name="solution"></a>Solução 
+## <a name="solution"></a>Solução
 
 Antes de seguir estes passos, tire um instantâneo do disco do SO da VM afetado como uma cópia de segurança. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
@@ -55,7 +55,7 @@ Para resolver este problema, utilize o controlo Serial para ativar o DHCP ou [in
 
 ### <a name="use-serial-control"></a>Utilizar o controlo de série
 
-1. Ligar à [consola de série e Abrir instância CMD](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. Ligar à [consola de série e Abrir instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Se a consola de série não estiver ativada na sua VM, consulte [interface de rede de reposição](reset-network-interface.md).
 2. Verifique se o DHCP está desabilitado na interface de rede:
 
@@ -63,7 +63,7 @@ Para resolver este problema, utilize o controlo Serial para ativar o DHCP ou [in
 3. Se o DHCP estiver desabilitado, reverta a configuração da sua interface de rede para utilizar DHCP:
 
         netsh interface ip set address name="<NIC Name>" source=dhc
-        
+
     Por exemplo, se a interface interwork nomes "Ethernet 2", execute o seguinte comando:
 
         netsh interface ip set address name="Ethernet 2" source=dhc

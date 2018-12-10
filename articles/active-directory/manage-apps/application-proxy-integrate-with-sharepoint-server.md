@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 89852e90daa548dc82455cb6317d367b7423ba65
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0f1b46176ba440a11d1584846019859c63d2f263
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425213"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135785"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Ativar o acesso remoto ao SharePoint com o Proxy de aplicações do Azure AD
 
@@ -163,7 +163,7 @@ Para configurar o KCD, repita os passos seguintes para cada computador do conect
 
 Agora que ativou o SharePoint para Kerberos e KCD configurado, está pronto para publicar o farm do SharePoint para acesso remoto através do Proxy de aplicações do Azure AD.
 
-1. Publica o seu site do SharePoint com as seguintes definições. Para obter instruções passo a passo, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md). 
+1. Publica o seu site do SharePoint com as seguintes definições. Para obter instruções passo a passo, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md). 
    - **URL interno**: o URL do site do SharePoint internamente, tal como **https://SharePoint/**. Neste exemplo, certifique-se de usar **https**
    - **Método de pré-autenticação**: o Azure Active Directory
    - **Traduzir URL nos cabeçalhos**: não

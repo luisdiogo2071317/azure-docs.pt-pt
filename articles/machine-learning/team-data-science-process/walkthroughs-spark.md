@@ -1,5 +1,5 @@
 ---
-title: Orientações passo a passo HDInsight Spark com PySpark e Scala no Azure | Documentos da Microsoft
+title: Análise no HDInsight Spark com PySpark, Scala - processo de ciência de dados de equipa
 description: Exemplos do processo de ciência de dados de equipa que orientam através da utilização de PySpark e Scala do Azure HDInsight Spark para realizar a Análise Preditiva.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 8b7089a034b352366ee6a67e8da3d85c61e9039b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: f96e273e27e8d9d6a40370c4ed2161c4a828c5c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846271"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135904"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Instruções de ciência de dados HDInsight Spark com PySpark e Scala no Azure
 

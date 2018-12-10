@@ -1,5 +1,5 @@
 ---
-title: Modelagem estágio do ciclo de vida do processo de ciência de dados de equipa - Azure | Documentos da Microsoft
+title: Modelagem estágio do ciclo de vida do processo de ciência de dados de equipa
 description: As metas, tarefas e resultados finais para a fase de modelagem dos seus projetos de ciência de dados
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b486083e4dc76f6d9ebc5e24e7d52b5ef3b99f3a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: dac686878ff128e3d556c0dbd7e9a2d51ac1756d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442418"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139961"
 ---
-# <a name="modeling"></a>Modelação
+# <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modelagem estágio do ciclo de vida do processo de ciência de dados de equipa
 
 Este artigo descreve os objetivos, tarefas e resultados associados a fase de modelagem de Team Data Science Process (TDSP). Este processo fornece um ciclo de vida recomendado que pode utilizar para estruturar os seus projetos de ciência de dados. O ciclo de vida destaca as fases principais projetos normalmente executadas, muitas vezes iterativamente:
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 85e6dc8d72588ff64c0119a6c1944755ce5686f4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 87e57a1ee417a4cc69308e8af80dd9b781d60aaf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720937"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139270"
 ---
 <a name="azure-resource-manager-test-drive"></a>Versão de teste de Gestor de recursos do Azure
 =================================
@@ -177,7 +177,7 @@ Pode utilizar este parâmetro para identificar exclusivamente a sessão de teste
 
 Alguns recursos do Azure, como contas de armazenamento ou nomes DNS, exige nomes exclusivos.
 
-Isso significa que sempre que o Test Drive implanta o modelo do Resource Manager, ele cria um **novo grupo de recursos com um nome exclusivo** para todos os seus\' recursos **.** Portanto, é necessário para utilizar o [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) função concatenada com seus nomes de variáveis no grupo de recursos IDs para gerar valores exclusivos aleatórios:
+Isso significa que sempre que o Test Drive implanta o modelo do Resource Manager, ele cria um **novo grupo de recursos com um nome exclusivo** para todos os seus\' recursos. Portanto, é necessário para utilizar o [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) função concatenada com seus nomes de variáveis no grupo de recursos IDs para gerar valores exclusivos aleatórios:
 
       "variables": {
       ...

@@ -1,5 +1,5 @@
 ---
-title: Limites de pedido do Azure Resource Manager | Documentos da Microsoft
+title: Limites de pedido e limitação - Azure Resource Manager
 description: Descreve como utilizar a limitação com pedidos do Azure Resource Manager, quando atingiu os limites de subscrição.
 services: azure-resource-manager
 documentationcenter: na
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: fdc98c6d88b18f770d1869acbea5998ad4571287
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981818"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136894"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitar pedidos do Resource Manager
 Para cada subscrição do Azure e o inquilino, o Resource Manager permite até 12 000 pedidos por hora de leitura e pedidos por hora de escrita de 1200. Estes limites estão no âmbito do ID de principal fazer os pedidos e o ID de subscrição ou ID de inquilino Se os pedidos provenientes de mais do que um ID de principal, o seu limite através da subscrição ou de inquilino for superior a 12 000 e 1200 por hora.

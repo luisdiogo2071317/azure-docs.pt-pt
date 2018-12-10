@@ -1,5 +1,5 @@
 ---
-title: Identificar cenários de análises avançadas para o Azure Machine Learning | Documentos da Microsoft
+title: Identificar cenários do Azure Machine Learning - Team Data Science Process
 description: Selecione os cenários adequados para fazer avançadas de Análise Preditiva com o processo de ciência de dados de equipa.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 16d8457e5605ce0e3c10ed95296b5a883a4c602c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 88c3be12647bd73296c214390d3d2fb1fe79ccb4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444839"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138896"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Cenários de análises avançadas no Azure Machine Learning
 Este artigo descreve a variedade de origens de dados de exemplo e cenários de destino que podem ser processados pela [Team Data Science Process (TDSP)](overview.md). O TDSP fornece uma abordagem sistemática para as equipas colaborarem na criação de aplicações inteligentes. Os cenários apresentados aqui ilustram as opções disponíveis no fluxo de trabalho de processamento de dados que dependem as características dos dados, localizações de origem e repositórios de destino no Azure.

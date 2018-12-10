@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 69802c6c4246b91f62a0e49ec0c34bdd3a1bec8b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c94c88aa088745a2ed421bff43c8d87382564a43
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958426"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141480"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com o controlo de acesso através dos serviços de multimédia do Azure
 
@@ -372,7 +372,7 @@ Existem dois tipos de chaves de segurança:
 
 > [!NOTE]
 > Se usar o .NET Framework / c# como sua plataforma de desenvolvimento, X509 certificado utilizado para uma chave assimétrica segurança tem de ter um comprimento de chave de, pelo menos, 2048. Este é um requisito da classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey no .NET Framework. Caso contrário, é gerada a seguinte exceção:
-
+> 
 > IDX10630: 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' para a assinatura não pode ser menor que "2048" bits.
 
 ## <a name="the-completed-system-and-test"></a>O sistema concluído e o teste

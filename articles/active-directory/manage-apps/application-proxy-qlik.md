@@ -13,12 +13,12 @@ ms.date: 09/06/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 55e262e1855eb6ab50c2d32e7e8cd4bb9175a593
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d382a71de34e6c1527d810b0576e518b9101cf7d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962559"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132759"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy de aplicações e Qlik Sense 
 O Azure Active Directory para o Proxy de aplicações e Qlik Sense estabeleceram uma parceria em conjunto para garantir que facilmente pode utilizar o Proxy de aplicações para fornecer acesso remoto para a sua implementação Qlik Sense.  
@@ -27,13 +27,13 @@ O Azure Active Directory para o Proxy de aplicações e Qlik Sense estabeleceram
 O resto deste cenário pressupõe que feito o seguinte:
  
 - Configurado [Qlik Sense](https://community.qlik.com/docs/DOC-19822). 
-- [Instalar um conector de Proxy de aplicações](application-proxy-enable.md#install-and-register-a-connector) 
+- [Instalar um conector de Proxy de aplicações](application-proxy-add-on-premises-application.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Publique as suas aplicações no Azure 
 Para publicar QlikSense, terá de publicar as duas aplicações no Azure.  
 
 ### <a name="application-1"></a>Aplicação #1: 
-Siga estes passos para publicar a aplicação. Para um mais detalhadas passo a passo dos passos 1 a 8, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md). 
+Siga estes passos para publicar a aplicação. Para um mais detalhadas passo a passo dos passos 1 a 8, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md). 
 
 
 1. Inicie sessão no portal do Azure como um administrador global. 
@@ -63,6 +63,6 @@ Para obter mais informações sobre a publicação Qlik Sense proxy de aplicaç�
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Publicar aplicações com o Proxy de aplicações](application-proxy-publish-azure-portal.md)
+- [Publicar aplicações com o Proxy de aplicações](application-proxy-add-on-premises-application.md)
 - [Trabalhar com conetores da Proxy da aplicação](application-proxy-connector-groups.md)
 

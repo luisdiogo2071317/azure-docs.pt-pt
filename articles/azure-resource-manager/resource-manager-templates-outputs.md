@@ -1,6 +1,6 @@
 ---
-title: Produz o modelo Azure Resource Manager | Microsoft Docs
-description: Descreve como definir saídas para um modelos Azure Resource Manager utilizando a sintaxe declarativa de JSON.
+title: Saídas do modelo Azure Resource Manager | Documentos da Microsoft
+description: Descreve como definir as saídas de um modelos Azure Resource Manager usando sintaxe declarativa do JSON.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: e3c5a581b02f1dd7b7415ebd93de0e425ac2f8ae
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85aab429fd59afd36cd026e6d8aef2b7e6f6e122
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358370"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140460"
 ---
-# <a name="outputs-section-in-azure-resource-manager-templates"></a>Secção saídas modelos Azure Resource Manager
-Na secção saídas, especifique os valores que são devolvidos por implementação. Por exemplo, pode devolver o URI para aceder a um recurso implementado.
+# <a name="outputs-section-in-azure-resource-manager-templates"></a>Secção de saídas em modelos do Azure Resource Manager
+Na secção de saídas, especifique os valores que são devolvidos da implementação. Por exemplo, pode devolver o URI para aceder a um recurso implementado.
 
 ## <a name="define-and-use-output-values"></a>Definir e utilizar valores de saída
 
@@ -36,7 +36,7 @@ O exemplo seguinte mostra como devolver o ID de recurso para um endereço IP pú
 }
 ```
 
-Após a implementação, pode obter o valor com script. Para o PowerShell, utilize:
+Após a implementação, pode recuperar o valor com o script. Para o PowerShell, utilize:
 
 ```powershell
 (Get-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
@@ -48,9 +48,11 @@ Para a CLI do Azure, utilize:
 az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
 ```
 
-Pode obter o valor de saída a partir de um modelo ligado utilizando a [referência](resource-group-template-functions-resource.md#reference) função. Para obter um valor de saída a partir de um modelo ligado, obter o valor da propriedade com sintaxe como: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+Pode obter o valor de saída a partir de um modelo ligado utilizando a [referência](resource-group-template-functions-resource.md#reference) função. Para obter um valor de saída a partir de um modelo ligado, obter o valor da propriedade com a sintaxe, como: `"[reference('deploymentName').outputs.propertyName.value]"`.
 
-Por exemplo, pode definir o endereço IP num Balanceador de carga por obter um valor a partir de um modelo ligado.
+Ao obter uma propriedade de saída a partir de um modelo ligado, o nome da propriedade não pode incluir um traço.
+
+Por exemplo, pode definir o endereço IP num Balanceador de carga ao obter um valor a partir de um modelo ligado.
 
 ```json
 "publicIPAddress": {
@@ -58,7 +60,7 @@ Por exemplo, pode definir o endereço IP num Balanceador de carga por obter um v
 }
 ```
 
-Não é possível utilizar o `reference` função na secção saídas um [modelo aninhado](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver os valores para um recurso implementado num modelo aninhado, converta o modelo aninhado num modelo ligado.
+Não é possível utilizar o `reference` função na secção de saídas de um [modelo aninhado](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver os valores para um recurso implementado num modelo aninhado, converta seu modelo aninhado para um modelo ligado.
 
 ## <a name="available-properties"></a>Propriedades disponíveis
 
@@ -76,12 +78,12 @@ O exemplo seguinte mostra a estrutura de uma definição de saída:
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
 | outputName |Sim |Nome do valor de saída. Tem de ser um identificador de JavaScript válido. |
-| tipo |Sim |Tipo de valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. |
-| valor |Sim |Expressão de linguagem do modelo que é avaliada e devolvido como valor de saída. |
+| tipo |Sim |Tipo do valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. |
+| valor |Sim |Expressão de linguagem de modelo que é avaliada e devolvida como valor de saída. |
 
 ## <a name="recommendations"></a>Recomendações
 
-Se utilizar um modelo para criar os endereços IP públicos, inclua uma secção de saídas devolve detalhes do endereço IP e o nome de domínio completamente qualificado (FQDN). Pode utilizar valores de saída para obter detalhes sobre o público endereços IP e FQDNs facilmente após a implementação.
+Se utilizar um modelo para criar os endereços IP públicos, inclua uma secção de saídas que devolve detalhes do endereço IP e o nome de domínio completamente qualificado (FQDN). Pode utilizar valores de saída facilmente obter detalhes sobre os endereços IP públicos e FQDNs após a implementação.
 
 ```json
 "outputs": {
@@ -101,13 +103,13 @@ Se utilizar um modelo para criar os endereços IP públicos, inclua uma secção
 
 |Modelo  |Descrição  |
 |---------|---------|
-|[Variáveis de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Cria complexas variáveis e produz esses valores. Não implementa todos os recursos. |
-|[Endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Cria um endereço IP público e produz o ID de recurso. |
-|[Balanceador de carga](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Ligações para o modelo anterior. Utiliza o ID de recurso na saída ao criar o Balanceador de carga. |
+|[Copie as variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Cria variáveis complexo e produz esses valores. Não implemente todos os recursos. |
+|[Endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Cria um endereço IP público e devolve o ID de recurso. |
+|[Balanceador de carga](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Ligações para o modelo anterior. Utiliza o ID de recurso na saída, ao criar o Balanceador de carga. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
-* Para obter detalhes sobre as funções que pode utilizar a partir de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
-* Combinar vários modelos durante a implementação, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Terá de utilizar os recursos que existe dentro de um grupo de recursos diferente. Este cenário é comum quando trabalhar com as contas de armazenamento e as redes virtuais que são partilhadas em vários grupos de recursos. Para obter mais informações, consulte o [resourceId função](resource-group-template-functions-resource.md#resourceid).
+* Para obter detalhes sobre as funções que pode utilizar a partir de dentro de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
+* Para combinar vários modelos durante a implementação, consulte [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
+* Poderá ter de utilizar recursos que existem dentro de um grupo de recursos diferente. Este cenário é comum ao trabalhar com redes virtuais que são partilhadas entre vários grupos de recursos ou contas de armazenamento. Para obter mais informações, consulte a [resourceId função](resource-group-template-functions-resource.md#resourceid).

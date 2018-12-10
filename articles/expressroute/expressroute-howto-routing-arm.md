@@ -1,19 +1,19 @@
 ---
-title: 'Como configurar o encaminhamento de circuito (peering) para o ExpressRoute: Resource Manager: PowerShell: Azure | Documentos da Microsoft'
+title: 'Configurar o peering para um circuito - ExpressRoute: PowerShell: Azure | Documentos da Microsoft'
 description: Este artigo explica-lhe os passos para criar e aprovisionar o peering privado, público e da Microsoft de um circuito ExpressRoute. Este artigo também mostra como verificar o estado, atualizar ou eliminar peerings no seu circuito.
-documentationcenter: na
 services: expressroute
 author: jaredr80
 ms.service: expressroute
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: jaredro
-ms.openlocfilehash: 63c88838d943be028aa655863b96b68f6b5b1321
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: b8e9aadc63af563c47d42ed52445afbc270d98ec
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261762"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141548"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Criar e modificar um peering de um circuito do ExpressRoute com o PowerShell
 

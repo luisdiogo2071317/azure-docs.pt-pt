@@ -1,5 +1,5 @@
 ---
-title: Manutenção preditiva no espaço aéreo com o Azure - guia técnico da solução Cortana Intelligence | Documentos da Microsoft
+title: Guia para manutenção preditiva para aeronáutica - Team Data Science Process
 description: Um guia técnico para o modelo de solução com o Microsoft Cortana Intelligence para manutenção preditiva no espaço aéreo, utilitários e transportes.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: d5f6934385d616390baf336404ddd79d4bc2a490
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
+ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965441"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140188"
 ---
-# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia técnico para o modelo de solução do Cortana Intelligence para manutenção preditiva no espaço aéreo e outros negócios
+# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico para o modelo de solução do Cortana Intelligence para manutenção preditiva no espaço aéreo
 
 >[!Important]
 Este artigo foi preterido. A discussão sobre a manutenção preditiva no espaço aéreo é ainda relevantes, mas para obter informações atuais, veja [descrição geral da solução para profissionais de negócios](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).

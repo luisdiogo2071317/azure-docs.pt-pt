@@ -1,5 +1,5 @@
 ---
-title: Orientações passo a passo do processo de ciência de dados de equipa em execução no Azure | Documentos da Microsoft
+title: Orientações passo a passo do processo de ciência de dados de equipa em execução no Azure
 description: Como combinar as ferramentas de nuvem e no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 13279771306fabd497acdf0d019a8cce2f70a93f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5a5a63bfdc9019afe292dd7623051123c3eb2dbf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844114"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132691"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Orientações passo a passo do processo de ciência de dados de equipa em execução
 

@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: f48bab5cec1e8c3836ab5044fbff1a843ede249b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3f4e7a911e98ea09376b4b6ac56e9441fe98e426
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978387"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135197"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MySQL com a CLI do Azure
 
@@ -71,9 +71,10 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 O `az mysql server restore` comando requer os seguintes parâmetros:
-| Definição | Valor sugerido | Descrição  |
+
+| Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  O grupo de recursos em que o servidor de origem existe.  |
+| resource-group |  myResourceGroup |  O grupo de recursos em que o servidor de origem existe.  |
 | nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selecione um ponto anterior no tempo para restaurar para. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato de data e hora ISO8601. Por exemplo, pode utilizar o seu fuso horário local, como `2018-03-13T05:59:00-08:00`. Também pode utilizar o formato UTC Zulu, por exemplo, `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID do servidor de origem do qual pretende restaurar. |
@@ -108,13 +109,14 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 ```
 
 O `az mysql server georestore` requies os seguintes parâmetros de comando:
-| Definição | Valor sugerido | Descrição  |
+
+| Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |resource-group| myResourceGroup | O nome do grupo de recursos, o novo servidor irá pertencer a.|
 |nome | mydemoserver-georestored | O nome do novo servidor. |
 |source-server | mydemoserver | O nome do servidor existente, cujas cópias de segurança com redundância geográfica são utilizadas. |
 |localização | eualeste | A localização do novo servidor. |
-|nome do SKU| GP_Gen4_8 | Este parâmetro define o escalão de preço, a geração de computação e o número de vCores do novo servidor. GP_Gen4_8 mapeia para fins gerais, servidor de Gen 4 com 8 vCores.|
+|sku-name| GP_Gen4_8 | Este parâmetro define o escalão de preço, a geração de computação e o número de vCores do novo servidor. GP_Gen4_8 mapeia para fins gerais, servidor de Gen 4 com 8 vCores.|
 
 
 >[!Important]

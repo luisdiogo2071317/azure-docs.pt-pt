@@ -1,6 +1,6 @@
 ---
-title: Criar tabelas do Hive e carregar dados do armazenamento de Blobs do Azure | Documentos da Microsoft
-description: Criar tabelas do Hive e carregar dados no blob para tabelas do hive
+title: Criar tabelas do Hive e carregar dados do armazenamento de BLOBs - Team Data Science Process
+description: Utilize consultas do Hive para criar tabelas do Hive e carregar dados do armazenamento de Blobs do Azure. Particionar tabelas do Hive e utilizar o otimizada linhas em colunas (ORC) formatação para melhorar o desempenho de consulta.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 42911c347cd055f37f7fe8f31b6d22cc18a78662
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5d88974fd1fb3d8784416ad3895fe139a3275e01
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442885"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134952"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do armazenamento de Blobs do Azure
 
@@ -65,14 +65,14 @@ Existem três formas de submeter consultas do Hive da linha de comandos do Hadoo
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Submeta consultas do Hive diretamente no Hadoop linha de comandos.
 Pode executar o comando como `hive -e "<your hive query>;` para submeter consultas do Hive simples diretamente no Hadoop linha de comandos. Eis um exemplo, em que a caixa vermelha descreve o comando que envia a consulta do Hive e a caixa verde descreve o resultado da consulta do Hive.
 
-![Criar área de trabalho](./media/move-hive-tables/run-hive-queries-1.png)
+![Comando para submeter a consulta do Hive com o resultado da consulta do Hive](./media/move-hive-tables/run-hive-queries-1.png)
 
 #### <a name="submit-hive-queries-in-hql-files"></a>Submeter consultas do Hive em arquivos de .hql
 Quando a consulta do Hive é mais complicada e tem várias linhas, edição de consultas na linha de comandos ou a consola de comandos do ramo de registo não é prático. Uma alternativa é usar um editor de texto no nó principal do cluster do Hadoop para guardar as consultas do Hive num arquivo de .hql num diretório local do nó principal. Em seguida, a consulta do Hive no ficheiro .hql pode ser submetida ao utilizar o `-f` argumento da seguinte forma:
 
     hive -f "<path to the .hql file>"
 
-![Criar área de trabalho](./media/move-hive-tables/run-hive-queries-3.png)
+![Consulta do Hive num arquivo de .hql](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Suprimir a impressão de ecrã de estado de progresso de consultas do Hive**
 
@@ -84,7 +84,7 @@ Por predefinição, depois de consulta do Hive é submetida na linha de comandos
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Submeta consultas do Hive na consola de comandos do Hive.
 Pode introduzir também primeiro a consola de comandos do Hive ao executar o comando `hive` na linha de comandos do Hadoop e, em seguida, submeter consultas do Hive na consola de comandos do Hive. Eis um exemplo. Neste exemplo, as duas caixas vermelhas realçam os comandos utilizados para introduza a consola de comandos do Hive e a consulta do Hive submetido na consola de comandos do Hive, respectivamente. Na caixa verde destaca o resultado da consulta do Hive.
 
-![Criar área de trabalho](./media/move-hive-tables/run-hive-queries-2.png)
+![Abra a consola de comandos do Hive e introduza o comando, ver o resultado da consulta do Hive](./media/move-hive-tables/run-hive-queries-2.png)
 
 Os exemplos anteriores de saída diretamente os resultados da consulta do Hive no ecrã. Também pode escrever a saída num ficheiro local no nó principal ou para um blob do Azure. Em seguida, pode utilizar outras ferramentas para analisar mais aprofundadamente o resultado das consultas do Hive.
 
@@ -95,7 +95,7 @@ Para a saída de resultados da consulta do Hive para um diretório local no nó 
 
 No exemplo a seguir, o resultado da consulta do Hive é escrito num arquivo `hivequeryoutput.txt` no diretório `C:\apps\temp`.
 
-![Criar área de trabalho](./media/move-hive-tables/output-hive-results-1.png)
+![Saída da consulta do Hive](./media/move-hive-tables/output-hive-results-1.png)
 
 **Resultados de consulta do Hive de saída para um blob do Azure**
 
@@ -105,11 +105,11 @@ Também pode emitir os resultados da consulta do Hive para um blob do Azure, den
 
 No exemplo a seguir, o resultado da consulta do Hive é escrito para um diretório de blob `queryoutputdir` dentro do contentor predefinido do cluster de Hadoop. Aqui, só tem de fornecer o nome do diretório, sem o nome do blob. É gerado um erro se fornecer nomes de diretório e BLOBs, tal como `wasb:///queryoutputdir/queryoutput.txt`.
 
-![Criar área de trabalho](./media/move-hive-tables/output-hive-results-2.png)
+![Saída da consulta do Hive](./media/move-hive-tables/output-hive-results-2.png)
 
 Se abrir o contentor predefinido do cluster de Hadoop com o Explorador de armazenamento do Azure, pode ver o resultado da consulta do Hive, conforme mostrado na figura a seguir. Pode aplicar o filtro (realçado por caixa vermelha) para obter apenas o blob com letras especificadas de nomes.
 
-![Criar área de trabalho](./media/move-hive-tables/output-hive-results-3.png)
+![Explorador de armazenamento do Azure que mostra a saída da consulta do Hive](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Submeter consultas do Hive com o Editor do Hive
 Também pode utilizar a consola de consulta (Editor do Hive) ao introduzir um URL do formulário *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* num navegador da web. Tem de ser conectado a ver esta consola e então, precisa que as credenciais de cluster do Hadoop.

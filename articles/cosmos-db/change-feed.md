@@ -2,16 +2,17 @@
 title: Trabalhar com a alteração de suporte de feed no Azure Cosmos DB
 description: Utilize o suporte de feed de alterações do Azure Cosmos DB para controlar as alterações em documentos e executar o processamento baseado em evento, como acionadores e manter atualizados os sistemas de caches e análise.
 author: rafats
+ms.author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.author: rafats
-ms.openlocfilehash: dfb0048b29c5d63a2eee4c239e17ef222aad331e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837465"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133762"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Alterar feed no Azure Cosmos DB
 
@@ -82,7 +83,7 @@ Por exemplo, com o feed de alterações pode efetuar as seguintes tarefas com ef
 
 Seguem-se alguns dos cenários, que pode facilmente implementar com o feed de alterações:
 
-* Dentro de sua [sem servidor](http://azure.com/serverless) web ou de aplicações móveis, pode controlar eventos, como todas as alterações para o perfil do seu cliente, as preferências ou a respetiva localização e disparar certas ações, por exemplo, enviar notificações push para os dispositivos usando [as funções do Azure](#azure-functions). 
+* Dentro de sua [sem servidor](https://azure.microsoft.com/en-us/solutions/serverless/) web ou de aplicações móveis, pode controlar eventos, como todas as alterações para o perfil do seu cliente, as preferências ou a respetiva localização e disparar certas ações, por exemplo, enviar notificações push para os dispositivos usando [as funções do Azure](change-feed-functions.md).
 
 * Se estiver a utilizar o Azure Cosmos DB para criar um jogo, pode, por exemplo, utilize alterar feed para implementar as classificações em tempo real com base em classificações de jogos concluídos.
 

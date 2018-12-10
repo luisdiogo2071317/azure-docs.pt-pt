@@ -1,22 +1,18 @@
 ---
-title: Dimensionamento do Azure Cosmos DB e testes de desempenho | Documentos da Microsoft
-description: Saiba como o dimensionamento e desempenho de teste com o Azure Cosmos DB
-keywords: Testes de desempenho
-services: cosmos-db
+title: Desempenho e dimensionamento testes com o Azure Cosmos DB
+description: Saiba como dimensionar e teste com o Azure Cosmos DB de desempenho. Em seguida, pode avaliar a funcionalidade do Azure Cosmos DB para cenários de aplicações de alto desempenho.
 author: SnehaGunda
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/29/2017
+ms.date: 12/07/2017
 ms.author: sngun
-ms.openlocfilehash: 09ed72c73acf16f944c3b1101aff5ea04acb624d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: 776956624dc1da12427d6e4f79ea5e59788f2459
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308176"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135360"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Desempenho e dimensionamento testes com o Azure Cosmos DB
 

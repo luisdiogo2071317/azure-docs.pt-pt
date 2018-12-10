@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: aebb042c065652bef568f6bc1be2ee8bfde43988
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e2e78eae924cf079ccc03d3f907cd64194b98921
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622638"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139030"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicações em redes separadas e localizações através de grupos de conectores
 
@@ -32,7 +32,7 @@ Todas as aplicações são atribuídas a um grupo de conectores. Se não criar g
 >Se tiver uma grande implantação de Proxy de aplicações, não atribua todas as aplicações para o grupo do conector de predefinição. Dessa forma, os novos conectores não recebam qualquer tráfego em direto até que a atribuição a um grupo do conector do Active Directory. Esta configuração também permite-lhe colocar conectores num modo inativo por movê-los de volta para o grupo predefinido, para que pode executar a manutenção sem afetar os seus utilizadores.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para os conectores de grupo, terá de certificar-se de que [instalados vários conectores](application-proxy-enable.md). Quando instala um novo conector, é automaticamente associado a **predefinido** grupo do conector.
+Para os conectores de grupo, terá de certificar-se de que [instalados vários conectores](application-proxy-add-on-premises-application.md). Quando instala um novo conector, é automaticamente associado a **predefinido** grupo do conector.
 
 ## <a name="create-connector-groups"></a>Criar grupos de conectores
 Utilize estes passos para criar grupos de conectores tantas quanto quiser. 

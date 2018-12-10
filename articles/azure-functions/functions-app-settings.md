@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: e346aed2efaab6afcd24e622f577708221b47cb1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e8d880534a39651024b60ef10a9fbadb9e109a4e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965859"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138250"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
@@ -172,6 +172,48 @@ Permite que a aplicação de funções para execução a partir de um ficheiro d
 |WEB SITE\_EXECUTE\_FROM\_PACOTE|1|
 
 Os valores válidos são de qualquer um URL que é resolvido para a localização de um ficheiro de pacote de implementação, ou `1`. Quando definido como `1`, o pacote tem de constar da `d:\home\data\SitePackages` pasta. Ao utilizar a implementação de zip com esta definição, o pacote é automaticamente carregado para esta localização. Em pré-visualização, esta definição foi chamada `WEBSITE_RUN_FROM_ZIP`. Para obter mais informações, consulte [executar as suas funções a partir de um ficheiro de pacote](run-functions-from-deployment-package.md).
+
+## <a name="azurefunctionproxydisablelocalcall"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+
+Por predefinição, os proxies de funções utilizará um atalho para enviar as chamadas de API a partir de proxies diretamente para as funções na mesma Function App, em vez de criar um novo pedido HTTP. Esta definição permite-lhe desativar esse comportamento.
+
+|Chave|Valor|Descrição|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Chamadas com um url de back-end que aponta para uma função na função local já não serão enviadas diretamente para a função e, em vez disso, serão direcionadas para o front-end HTTP para a aplicação de funções|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este é o valor predefinido. Chamadas com um url de back-end que aponta para uma função no local a aplicação de função será reencaminhada diretamente para essa função|
+
+
+## <a name="azurefunctionproxybackendurldecodeslashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
+Esta definição controla se o % 2F é descodificado como barras nos parâmetros de rota, quando eles são inseridos no URL de back-end. 
+
+|Chave|Valor|Descrição|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Parâmetros de rota com barras codificadas terão-los a descodificar. `example.com/api%2ftest` irá tornar-se `example.com/api/test`|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Este é o comportamento padrão. Rota de todos os parâmetros serão transmitidos inalterado|
+
+### <a name="example"></a>Exemplo
+
+Eis um exemplo de proxies na aplicação de função em myfunction.com o URL
+
+```JSON
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "root": {
+            "matchCondition": {
+                "route": "/{*all}"
+            },
+            "backendUri": "example.com/{all}"
+        }
+    }
+}
+```
+|Descodificação de URL|Input|Saída|
+|-|-|-|
+|true|MyFunction.com/test%2fapi|example.com/test/API
+|false|MyFunction.com/test%2fapi|example.com/test%2fapi|
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

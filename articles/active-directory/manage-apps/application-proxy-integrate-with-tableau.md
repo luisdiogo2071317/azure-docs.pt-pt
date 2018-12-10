@@ -12,12 +12,12 @@ ms.date: 08/20/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: a68b0465acdb416cd953e22d7f024eb399c94493
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 0ad58d4759d8532ab947043c20cc1060782c6d78
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061047"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138675"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Proxy de aplicações do Azure Active Directory e o Tableau 
 
@@ -29,7 +29,7 @@ O cenário neste artigo parte do princípio de que tem:
 
 - [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#azure) configurado. 
 
-- Uma [conector de Proxy de aplicações](application-proxy-enable.md) instalado. 
+- Uma [conector de Proxy de aplicações](application-proxy-add-on-premises-application.md) instalado. 
 
  
 ## <a name="enabling-application-proxy-for-tableau"></a>Ativar o Proxy da aplicação para Tableau 
@@ -43,7 +43,7 @@ Para publicar o Tableau, terá de publicar uma aplicação no Portal do Azure.
 
 Para:
 
-- Obter instruções de etapas detalhadas 1-8, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md). 
+- Obter instruções de etapas detalhadas 1-8, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md). 
 - Obter informações sobre como localizar valores de Tableau para os campos de Proxy de aplicações, consulte a documentação de Tableau.  
 
 **Para publicar a aplicação**: 

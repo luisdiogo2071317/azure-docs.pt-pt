@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 647ff43d0b1e0dc52ccecd2dad709af969c61c15
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7657ac2e2d5a169607c73b8934328ce41ecea78e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840678"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141939"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Mover aplicações do AD FS para o Azure AD 
 
@@ -82,7 +82,7 @@ As aplicações federadas incluem aplicações das categorias apresentadas a seg
 
 ### <a name="non-federated-apps"></a>Aplicações não federadas
 Pode utilizar o Proxy de Aplicações do Azure AD e as capacidades relacionadas para integrar as aplicações não federadas no Azure AD. As aplicações não federadas incluem:
-- Aplicações que utilizam o Windows Integrated Authentication diretamente com o Active Directory. Pode integrar estas aplicações no Azure AD com o [Proxy de Aplicações do Azure AD](application-proxy-publish-azure-portal.md).
+- Aplicações que utilizam o Windows Integrated Authentication diretamente com o Active Directory. Pode integrar estas aplicações no Azure AD com o [Proxy de Aplicações do Azure AD](application-proxy-add-on-premises-application.md).
 - Aplicações que se integram no seu fornecedor de início de sessão único através de um agente e que utilizam cabeçalhos para autorização. As aplicações no local que utilizam um agente instalado para início de sessão e a autorização baseada em cabeçalhos podem ser configuradas para o início de sessão baseado no Azure AD através do Proxy de Aplicações do Azure AD com o [PingAccess for Azure AD](https://blogs.technet.microsoft.com/enterprisemobility/2017/06/15/ping-access-for-azure-ad-is-now-generally-available-ga/).
 
 ## <a name="translating-on-premises-federated-apps-to-azure-ad"></a>Traduzir aplicações federadas no local para o Azure AD 

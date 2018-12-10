@@ -8,12 +8,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: c1c550e6b99b9933b66c85e1de7e0a5cc2eb711d
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 637c1b77a4ced9c8f7542548a56d8e3b0315d075
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564848"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136312"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Como criar e gerir ler réplicas na base de dados do Azure para MySQL com a CLI do Azure
 
@@ -36,6 +36,7 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 ```
 
 O `az mysql server replica create` comando requer os seguintes parâmetros:
+
 | Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos em que o servidor de réplica será criado para.  |
@@ -57,6 +58,7 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 ```
 
 O `az mysql server replica stop` comando requer os seguintes parâmetros:
+
 | Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos onde existe o servidor de réplica.  |
@@ -90,6 +92,7 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 ```
 
 O `az mysql server replica list` comando requer os seguintes parâmetros:
+
 | Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos em que o servidor de réplica será criado para.  |

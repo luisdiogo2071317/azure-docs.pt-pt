@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: dc89eadfc0038d74ced431693c321944a7ee3a12
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a524c773b0f4f6d3dc14830d4c3200512f8b287c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834371"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140919"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VMS do Azure para o Azure
 
@@ -184,15 +184,15 @@ Para replicação do Site Recovery para o trabalho, a conectividade de saída pa
 
 
  - **Resolução**
-  1.    Agente do serviço de mobilidade Deteta as definições de proxy do IE no Windows e /etc/environment no Linux.
-  2.  Se preferir definir proxy apenas para o serviço de mobilidade de ASR, em seguida, pode fornecer os detalhes do proxy no ProxyInfo.conf localizado em:</br>
-      - ``/usr/local/InMage/config/`` no ***Linux***
-      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` no ***Windows***
-  3.    O ProxyInfo.conf deve ter as definições de proxy no seguinte formato INI. </br>
+   1.   Agente do serviço de mobilidade Deteta as definições de proxy do IE no Windows e /etc/environment no Linux.
+   2.  Se preferir definir proxy apenas para o serviço de mobilidade de ASR, em seguida, pode fornecer os detalhes do proxy no ProxyInfo.conf localizado em:</br>
+       - ``/usr/local/InMage/config/`` no ***Linux***
+       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` no ***Windows***
+   3.   O ProxyInfo.conf deve ter as definições de proxy no seguinte formato INI. </br>
                    *[proxy]*</br>
                    *Endereço =http://1.2.3.4*</br>
                    *Porta = 567*</br>
-  4. Agente do serviço de mobilidade de ASR só suporta ***proxies utenticados***.
+   4. Agente do serviço de mobilidade de ASR só suporta ***proxies utenticados***.
 
 ### <a name="fix-the-problem"></a>Corrigir o problema
 A lista aprovada [os URLs necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou o [necessário intervalos de IP](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga os passos no [documento de orientação para funcionamento em rede](site-recovery-azure-to-azure-networking-guidance.md).

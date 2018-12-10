@@ -5,33 +5,33 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 201f6f463736674cee3f94cc0d0177a8ddb181a1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6238d3d7a64816df01be69458d784114368d9e17
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110106"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141344"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Melhores práticas para proteger e gerenciar as cargas de trabalho migradas para o Azure
 
-Como planear e conceber para a migração, além de pensar sobre a migração em si, precisa planejar para o modelo de segurança e gestão no Azure após a migração. Este artigo descreve o planeamento e práticas recomendadas para proteger a sua implementação do Azure após a migração e para as tarefas em curso manter a sua implementação em execução em qualquer nível ideal. 
+Como planear e conceber para a migração, além de pensar sobre a migração em si, precisa considerar o seu modelo de segurança e gestão no Azure após a migração. Este artigo descreve o planeamento e práticas recomendadas para proteger a sua implementação do Azure após a migração e para as tarefas em curso manter a sua implementação em execução num nível de ideal. 
 
 > [!IMPORTANT]
 > As melhores práticas e opiniões descritos neste artigo baseiam-se na plataforma do Azure e funcionalidades disponíveis no momento da escrita de serviço. Funcionalidades e capacidades mudam ao longo do tempo.
 
 ## <a name="secure-migrated-workloads"></a>Proteger cargas de trabalho migradas
 
-Após a migração, a tarefa mais importante é proteger cargas de trabalho migradas de ameaças internas e externas. Práticas recomendadas incluem:
+Após a migração, a tarefa mais importante é proteger cargas de trabalho migradas de ameaças internas e externas. Essas práticas recomendadas ajudá-lo a fazer isso:
 
-- Trabalhar com o Centro de segurança do Azure: Saiba como trabalhar com a monitorização, avaliações e as recomendações fornecidas pelo centro de segurança do Azure
-- **Criptografar seus dados**: conheça práticas recomendadas para encriptar os dados no Azure.
-- **Configurar o antimalware**: Proteja as suas VMs contra malware e ataques maliciosos.
-- **Proteger aplicações web**: manter informações confidenciais seguras em migrados de aplicações web.
-- **Consultar subscrições**: Certifique-se de que pode aceder às suas subscrições do Azure e os recursos após a migração.
-- **Trabalhar com registos**: rever a sua a auditoria do Azure e os registos de segurança em intervalos regulares.
-- **Funcionalidades de segurança avançadas**: compreender e avaliar a outros recursos de segurança que o Azure oferece.
+- [Trabalhar com o Centro de segurança do Azure](#best-practice-follow-azure-security-center-recommendations): Saiba como trabalhar com a monitorização, avaliações e as recomendações fornecidas pelo centro de segurança do Azure
+- [Criptografar seus dados](#best-practice-encrypt-data): conheça práticas recomendadas para encriptar os dados no Azure.
+- [Configurar o antimalware](#best-practice-protect-vms-with-antimalware): Proteja as suas VMs contra malware e ataques maliciosos.
+- [Proteger aplicações web](#best-practice-secure-web-apps): manter informações confidenciais seguras em migrados de aplicações web.
+- [Consultar subscrições](#best-practice-review-subscriptions-and-resource-permissions): Certifique-se de que pode aceder às suas subscrições do Azure e os recursos após a migração.
+- [Trabalhar com registos](#best-practice-review-audit-and-security-logs): rever a sua a auditoria do Azure e os registos de segurança em intervalos regulares.
+- [Reveja a outros recursos de segurança](#best-practice-evaluate-other-security-features): compreender e avaliar as funcionalidades de segurança avançada que o Azure oferece.
 
 ## <a name="best-practice-follow-azure-security-center-recommendations"></a>Melhor prática: recomendações do Centro de segurança do Azure siga
 
@@ -47,15 +47,14 @@ Além de avaliações e recomendações, o Centro de segurança oferece uma sér
 - **Acesso de apenas no Time (JIT)**: reduzir sua rede superfície de ataque com acesso de tempo, controlado just-in para as portas de gestão em VMs do Azure.
     - Facto da porta de VM RDP 3389 aberta na internet expõe as VMs para atividades contínuas de má de ator. Endereços IP do Azure são bem conhecidos e hackers os sonda continuamente para ataques em abrir 3389 portas. 
     - Just-in da segurança de rede utiliza grupos (NSGs) e a entrada de regras desse limite a quantidade de tempo que uma porta específica está aberta.
-    - Com apenas no momento em que ativado. Centro de segurança verifica se um utilizador tem permissões de acesso de escrita do acesso baseado em funções (RBAC) do controle para uma VM. Além disso, especifica regras para como os utilizadores podem ligar a VMs. Se as permissões estão OK, um pedido de acesso é aprovado e Centro de segurança configura NSGs para permitir o tráfego de entrada para portas selecionadas para a quantidade de tempo que especificar. NSGs são volte ao estado anterior dos quando o período expira.
-- **Controlos de aplicação adaptável**: mantenha o software e o software maligno desativar VMs por controle que aplicações são executadas nos mesmos.
-    - com a lista de permissões de aplicação dinâmica.
+    - Com apenas no momento em que ativado, o Centro de segurança verifica se um utilizador tem permissões de acesso de escrita do acesso baseado em funções (RBAC) do controle para uma VM. Além disso, especifica regras para como os utilizadores podem ligar a VMs. Se as permissões estão OK, um pedido de acesso é aprovado e Centro de segurança configura NSGs para permitir o tráfego de entrada para portas selecionadas para a quantidade de tempo que especificar. NSGs são volte ao estado anterior dos quando o período expira.
+- **Controlos de aplicação adaptável**: continuar a software e malware desligar as VMs ao controlar quais aplicativos são executados nos mesmos utilizar listas de permissões de aplicação dinâmica.
     - Controlos de aplicação adaptável permitem-lhe a lista de permissões de aplicações e impedem que usuários não autorizados ou administradores instalar aplicações de software não aprovadas ou aprovação nas suas VMs.
     - Pode bloquear ou alerta tenta executar aplicações maliciosas, evitar aplicativos indesejados ou maliciosos e garantir a conformidade com a política de segurança de aplicações da sua organização.
 - **Monitorização da integridade de ficheiros**: Certifique-se a integridade dos ficheiros em execução em VMs.
     - Não precisa de instalar o software para fazer com que os problemas VM.  Alterar um arquivo de sistema também pode causar degradação de falha ou o desempenho da VM.  Monitorização examina os arquivos de sistema e as definições de registo de alterações e notifica se algo é atualizado de integridade de ficheiros.
     - Recomenda do Centro de segurança que os ficheiros deve monitorizar.
-Saiba mais sobre a melhor prática: • gerir máquinas virtuais acesso através do just in • de tempo de aplicações adaptativos controles no • de centro de segurança do Azure, monitorização da integridade de ficheiros no Centro de segurança do Azure
+
 
 **Saiba mais:**
 
@@ -173,7 +172,7 @@ Como migrar as cargas de trabalho e execute-os no Azure, a equipe com acesso de 
 
 O Azure Active Directory (AD) fornece os registos de atividades que aparecem no Azure Monitor. Os registos de capturam as operações executadas em inquilinos do Azure, onde ocorreram e quem realizou-los. 
 
-- Registos de auditoria mostram o histórico de tarefas no inquilino. Mostrar quem levadas a cabo as tarefas de registos de atividades de inícios de sessão. 
+- Registos de auditoria mostram o histórico de tarefas no inquilino. Mostrar quem levadas a cabo as tarefas de registos de atividades de início de sessão. 
 - Acesso a relatórios de segurança depende da sua licença do Azure AD. No gratuito e básico, obter uma lista de utilizadores de risco e inícios de sessão. Nas edições Premium 1 e Premium 2 obter subjacente informações do evento.
 - Pode encaminhar os registos de atividades para um número de pontos finais para retenção a longo prazo e informações de dados.
 - Torna-se de uma prática comum para rever os registos ou integrar as ferramentas de gestão (SIEM) de segurança informações e eventos, para rever automaticamente anomalias.  Se não estiver a utilizar o Premium 1 ou 2, terá de fazer um grau de análise, mesmo ou utilizar o seu sistema SIEM.  A análise inclui à procura de inícios de sessão de risco e eventos e outros padrões de ataque do utilizador.
@@ -202,15 +201,15 @@ O Azure fornece uma série de outros recursos de segurança que fornecem opçõe
 
 Nesta secção vamos recomendar algumas das melhores práticas para gestão do Azure, incluindo:
 
-- **Gerir recursos**: melhores práticas para grupos de recursos do Azure e recursos, incluindo inteligentes de nomenclatura, impedir a eliminação acidental, gestão de permissões de recursos e a identificação de recursos em vigor.
-- **Utilize planos gráficos**: Obtenha uma visão geral sobre como utilizar planos gráficos para criar e gerir os seus ambientes de implantação.
-- **Rever arquiteturas**: arquiteturas do Azure para aprender de à medida que cria as suas implementações de pós-migração de exemplo de revisão.
-- **Configurar grupos de gestão**: Se tiver várias subscrições, pode reuni-los em grupos de gestão e aplicar definições de governação a esses grupos.
-- **Configurar políticas de acesso**: aplicar políticas de conformidade aos recursos do Azure.
-- **Implementar uma estratégia BCDR**: juntar uma estratégia de recuperação (BCDR) de negócios após desastre e continuidade, para manter os dados seguros, de seu ambiente resiliente e de recursos de segurança e de execução quando ocorrem falhas.
-- **Gerir VMs**: grupo de VMs em grupos de disponibilidade para elevada disponibilidade e resiliência. Utilize discos geridos para facilidade de gerenciamento de disco e o armazenamento VM.
-- **Monitorizar a utilização de recursos**: Ativar o registo de diagnóstico de recursos do Azure, criar alertas e playbooks para resolução de problemas proativa e utilizar o dashboard do Azure para uma vista unificada do seu estado de funcionamento da implementação e o estado.
-- **Gerir atualizações e suporte**: compreender o seu plano de suporte do Azure e como implementá-lo, obtenha as práticas recomendadas para manter as VMs atualizadas e put processos corretos para o gerenciamento de alterações.
+- [Gerir recursos](#best-practice-name-resource-groups): melhores práticas para grupos de recursos do Azure e recursos, incluindo inteligentes de nomenclatura, impedir a eliminação acidental, gestão de permissões de recursos e a identificação de recursos em vigor.
+- [Utilize planos gráficos](#best-practice-implement-blueprints): Obtenha uma visão geral sobre como utilizar planos gráficos para criar e gerir os seus ambientes de implantação.
+- [Rever arquiteturas](#best-practice-review-azure-reference-architectures): arquiteturas do Azure para aprender de à medida que cria as suas implementações de pós-migração de exemplo de revisão.
+- [Configurar grupos de gestão](#best-practice-manage-resources-with-management-groups): Se tiver várias subscrições, pode reuni-los em grupos de gestão e aplicar definições de governação a esses grupos.
+- [Configurar políticas de acesso](#best-practice-deploy-azure-policy): aplicar políticas de conformidade aos recursos do Azure.
+- [Implementar uma estratégia BCDR](#best-practice-implement-a-bcdr-strategy): juntar uma estratégia de recuperação (BCDR) de negócios após desastre e continuidade, para manter os dados seguros, de seu ambiente resiliente e de recursos de segurança e de execução quando ocorrem falhas.
+- [Gerir VMs](#best-practice-use-managed-disks-and-availability-sets): grupo de VMs em grupos de disponibilidade para elevada disponibilidade e resiliência. Utilize discos geridos para facilidade de gerenciamento de disco e o armazenamento VM.
+- [Monitorizar a utilização de recursos](#best-practice-monitor-resource-usage-and-performance): Ativar o registo de diagnóstico de recursos do Azure, criar alertas e playbooks para resolução de problemas proativa e utilizar o dashboard do Azure para uma vista unificada do seu estado de funcionamento da implementação e o estado.
+- [Gerir atualizações e suporte](#best-practice-manage-updates): compreender o seu plano de suporte do Azure e como implementá-lo, obtenha as práticas recomendadas para manter as VMs atualizadas e put processos corretos para o gerenciamento de alterações.
 
 
 ## <a name="best-practice-name-resource-groups"></a>Melhor prática: nome de grupos de recursos
@@ -225,7 +224,7 @@ Garantir que seus grupos de recursos têm nomes significativos que os administra
 
 **Saiba mais:**
 
-[Saiba mais sobre](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) convenções de nomenclatura
+- [Saiba mais sobre](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) convenções de nomenclatura
 
 ## <a name="best-practice-implement-delete-locks-for-resource-groups"></a>Recomendado: implemente eliminar bloqueios para grupos de recursos
 
@@ -283,16 +282,16 @@ Tal como esquema permite que arquitetos e engenheiros criar esboços parâmetros
 - [Leitura](https://docs.microsoft.com/azure/governance/blueprints/overview) sobre esquemas.
 - [Revisão](https://azure.microsoft.com/blog/customizing-azure-blueprints-to-accelerate-ai-in-healthcare/) um exemplo de esquema utilizado para acelerar a ia nos cuidados de saúde.
 
-## <a name="best-practice---review-azure-reference-architectures"></a>Melhor prática - arquiteturas de referência do Azure de revisão
+## <a name="best-practice-review-azure-reference-architectures"></a>Melhor prática: arquiteturas de referência do Azure de revisão
 
 A criação de segura e escalonável e gerenciáveis cargas de trabalho no Azure podem ser assustador.  Com alterações contínuas, ele pode ser difícil manter-se diferentes funcionalidades para um ambiente ideal. Ter uma referência para aprender com pode ser útil ao projetar e migrar cargas de trabalho.  Azure e Azure parceiros criaram várias arquiteturas de referência de exemplo para vários tipos de ambientes. Estas amostras foram concebidas para fornecer idéias que pode aprender e ampliar. 
 
 Arquiteturas de referência são dispostas por cenário. Contêm Recomendamos práticas e recomendações sobre gerenciamento, disponibilidade, escalabilidade e segurança.
-
+O ambiente de serviço de aplicações do Azure fornece um ambiente totalmente isolado e dedicado para executar o serviço de aplicações, aplicações, incluindo o Windows e aplicações web do Linux, contentores Docker, aplicações móveis e as funções. Serviço de aplicações adiciona o poder do Azure à sua aplicação, com segurança, balanceamento de carga, dimensionamento automático e gestão automatizada. Também pode tirar partido das respetivas capacidades de DevOps, como a implementação contínua a partir do Azure DevOps e GitHub, gestão de pacotes, ambientes de domínio personalizado e certificados SSL de teste. Serviço de aplicações é útil para aplicações que necessitam de isolamento e um acesso de rede e os que utilizam elevadas quantidades de memória e outros recursos que precisam de dimensionar.
 **Saiba mais:**
 
-[Saiba mais sobre](https://docs.microsoft.com/azure/architecture/reference-architectures/) arquiteturas de referência do Azure.
-[Revisão](https://docs.microsoft.com/azure/architecture/example-scenario/) cenários de exemplo do Azure.
+- [Saiba mais sobre](https://docs.microsoft.com/azure/architecture/reference-architectures/) arquiteturas de referência do Azure.
+- [Revisão](https://docs.microsoft.com/azure/architecture/example-scenario/) cenários de exemplo do Azure.
 
 ## <a name="best-practice-manage-resources-with-management-groups"></a>Melhor prática: gerir os recursos com grupos de gestão
 
@@ -332,62 +331,50 @@ O Azure Policy é um serviço do Azure que utiliza para criar, atribuir e gerir 
 
 ## <a name="best-practice-implement-a-bcdr-strategy"></a>Recomendado: implemente uma estratégia BCDR
 
-Planear a continuidade do negócio e recuperação após desastre (BCDR), é um exercício crítico que têm de ser concluído durante o planejamento para a migração para o Azure. Em termos legais, o seu contrato inclui uma cláusula de "força maior" Desculpe obrigações devido a uma força maior, como furacões ou sismos. No entanto, tem também obrigações em torno de uma capacidade para se certificar de que os serviços irão continuar a executar e recuperar quando necessário, assim que desastre strike. Sua capacidade de fazer isso pode criar ou estragar o futuro da sua empresa.
+Planear a continuidade do negócio e recuperação após desastre (BCDR), é um exercício crítico que devem ser concluídas durante o planejamento para a migração para o Azure. Em termos legais, o seu contrato inclui uma cláusula de "força maior" Desculpe obrigações devido a uma força maior, como furacões ou sismos. No entanto, tem também obrigações em torno de uma capacidade para se certificar de que os serviços irão continuar a executar e recuperar quando necessário, assim que desastre strike. Sua capacidade de fazer isso pode criar ou estragar o futuro da sua empresa.
 
+De forma ampla, tem de considerar sua estratégia BCDR:
+- **Cópia de segurança de dados**: como manter os dados protegidos para que pode recuperá-la facilmente se ocorrerem falhas.
+- **Recuperação após desastre**: como manter as suas aplicações resilientes e disponíveis se ocorrerem falhas. 
 
-A plataforma do Azure fornece uma série de recursos de resiliência:
+### <a name="azure-resiliency-features"></a>Funcionalidades de resiliência do Azure
+A plataforma do Azure fornece uma série de recursos de resiliência.
 
 - **Emparelhamento de região**: Azure pares de regiões para fornecer proteção regional dentro dos limites de residência de dados. Azure assegura um isolamento físico entre pares de região, dá prioridade a recuperação de uma região do par em caso de uma falha abrangente, implementa atualizações de sistema separadamente em cada região e permite funcionalidades, tais como o armazenamento com redundância geográfica do Azure para replicar no pares regionais.
 - **As zonas de disponibilidade**: zonas de disponibilidade proteção contra falhas de todo o datacenter do Azure através do estabelecimento de zonas separadas físicas com uma região do Azure. Cada zona tem uma fonte de alimentação distintas, a infraestrutura de rede e o mecanismo de resfriamento.
 - **Conjuntos de disponibilidade**: conjuntos de disponibilidade se proteger contra falhas dentro de um datacenter. Agrupar VMs em conjuntos de disponibilidade para mantê-los altamente disponíveis. Dentro de cada conjunto de disponibilidade, o Azure implementa vários domínios de falha desse grupo em conjunto de hardware com uma fonte de energia comum e o comutador de rede e domínios de atualização que agrupar hardware subjacente que pode entrar em manutenção ou ser reiniciado, paralelos ao mesmo tempo. Por exemplo, quando uma carga de trabalho é distribuída em VMs do Azure, pode colocar duas ou mais VMs para cada camada de aplicação num conjunto. Por exemplo, pode colocar as VMs de front-end num conjunto e VMs de camada de dados em outro. Uma vez que apenas um domínio de atualização é cada reiniciado de cada vez num conjunto, e o Azure garante que as VMs num conjunto são distribuídas por domínios de falha, certifique-se de que nem todas as VMs num conjunto de falhará ao mesmo tempo.
 
+### <a name="set-up-bcdr"></a>Configurar a BCDR
 
-Ao migrar para o Azure, é importante compreender que embora a plataforma do Azure oferece estas capacidades incorporadas e outros serviços BCDR, precisa para estruturar a implementação do Azure para tirar partido de resiliência do Azure, elevada disponibilidade, após desastre Serviços de cópia de segurança e recuperação e funcionalidades.
-- Suas soluções BCDR dependem os objetivos da empresa e serão ser influenciadas pela implementação do Azure. Infraestrutura como serviço (IaaS) e plataforma como um implementações de serviço (PaaS) apresentam desafios diferentes para BCDR.
+Ao migrar para o Azure, é importante compreender que embora a plataforma do Azure oferece estas capacidades de resiliência incorporadas, precisa para estruturar a implementação do Azure para tirar partido das funcionalidades do Azure e serviços que fornecem elevada disponibilidade, recuperação após desastre e cópia de segurança.
+
+- Sua solução BCDR depende os objetivos da empresa e influenciado por sua estratégia de implementação do Azure. Infraestrutura como serviço (IaaS) e plataforma como um implementações de serviço (PaaS) apresentam desafios diferentes para BCDR.
 - Uma vez no local, suas soluções BCDR devem ser testadas regularmente para verificar que a sua estratégia de permanece utilizável.
 
 
-## <a name="best-practice-back-up-your-deployment"></a>Melhor prática: cópia de segurança a implementação
+## <a name="best-practice-back-up-your-data"></a>Melhor prática: cópia de segurança seus dados
 
-Na maioria dos casos, uma carga de trabalho no local foi descontinuada após a migração, e sua estratégia de no local para fazer backup de dados tem de ser estendida ou substituída. Se migrar todo o seu datacenter para o Azure, terá de criar e implementar uma solução de cópia de segurança completa através de tecnologias do Azure ou de terceiros de soluções integradas. A sua solução de cópia de segurança selecionada será diferente, dependendo da sua implementação do Azure. 
+Na maioria dos casos, uma carga de trabalho no local foi descontinuada após a migração, e sua estratégia de no local para fazer backup de dados tem de ser estendida ou substituída. Se migrar todo o seu datacenter para o Azure, terá de criar e implementar uma solução de cópia de segurança completa através de tecnologias do Azure ou de terceiros de soluções integradas. 
 
 
 ### <a name="back-up-an-iaas-deployment"></a>Fazer cópias de segurança de uma implementação de IaaS
 
-
-Para cargas de trabalho em execução em VMs de IaaS do Azure deve considerar a utilização as seguintes soluções de cópia de segurança:
+Para cargas de trabalho em execução em VMs de IaaS do Azure, considere estas soluções de cópia de segurança:
 
 - **O Azure Backup**: fornece cópias de segurança consistentes com aplicações para Windows Azure e VMs do Linux.
 - **Instantâneos de armazenamento**: tirar instantâneos do armazenamento de Blobs.
 
 #### <a name="azure-backup"></a>Azure Backup
 
-
 Faz de cópia de segurança do Azure Backup cria pontos de recuperação de dados que estão armazenados no armazenamento do Azure. O Azure Backup pode criar cópias de segurança discos de VM do Azure e ficheiros do Azure (pré-visualização). Os ficheiros do Azure oferecem partilhas de ficheiros na cloud que são acessíveis através de SMB.
    
 Pode utilizar o Azure Backup para fazer uma cópia de segurança de VMs de duas formas.
 
-- **Cópia de segurança direta das definições de VM**:
-    - O Azure Backup está integrado em Opções de VM no portal do Azure.
-    - Pode criar cópias de segurança da VM, uma vez por dia e restaurar o disco da VM. 
-    - O Azure Backup tira instantâneos de dados com suporte para aplicações (VSS).
-    - Nenhum agente está instalado na VM.
-- **Cópia de segurança direta num cofre dos serviços de recuperação**:
-    - Implementar um cofre dos serviços de recuperação de cópia de segurança do Azure e selecione as VMs para cópia de segurança.
-    - Este método fornece uma localização única para controlar e gerir cópias de segurança e a cópia de segurança adicional e opções de restauro. 
-    - O Azure Backup instala o agente dos serviços de recuperação do Azure (MARS) da Microsoft na VM.
-    - Cópia de segurança é até três vezes por dia.
-    - Cópia de segurança está no nível de ficheiro ou pasta e não com suporte para a aplicação. Linux não é suportado.
-- **Servidor de cópia de segurança do Azure: Proteger a VM para o Azure Backup Server**:
-   - O servidor de cópia de segurança do Azure é fornecido gratuitamente com o Azure Backup.
-   - A VM é uma cópia de segurança para o armazenamento de cópia de segurança local do Azure.
-   - , Em seguida, fazer uma cópia de segurança do servidor de cópia de segurança do Azure para o Azure num cofre dos serviços de recuperação.
-   - Cópia de segurança reconheça a aplicação, com uma granularidade completa através de cópia de segurança com frequência e retenção
-   - Pode criar cópias de segurança ao nível da aplicação. Por exemplo, ao fazer backup do SQL Server ou SharePoint.
+- **Cópia de segurança direta das definições de VM**: pode fazer backup de VMs com cópia de segurança do Azure diretamente a partir das opções de VM no portal do Azure. Pode criar cópias de segurança da VM uma vez e o dia e restaurar o disco da VM, conforme necessário. O Azure Backup tira instantâneos de dados com suporte para aplicações (VSS), nenhum agente é instalado na VM.
+- **Cópia de segurança direta num cofre dos serviços de recuperação**: pode fazer backup de suas VMs do IaaS ao implementar um cofre dos serviços de recuperação de cópia de segurança do Azure. Isto fornece uma localização única para controlar e gerir cópias de segurança e fornece opções de cópia de segurança e restauro granulares. Cópia de segurança é até três vezes por dia, ao nível do ficheiro/pasta. Ela não conhece a aplicação e o Linux não é suportado. Tem de instalação do agente dos serviços de recuperação do Azure (MARS) da Microsoft em cada VM que pretende criar cópias de segurança.
+- **Servidor de cópia de segurança do Azure: Proteger a VM ao Azure Backup Server**: servidor de cópia de segurança do Azure é fornecido gratuitamente com o Azure Backup. A VM é uma cópia de segurança para o armazenamento local do servidor de cópia de segurança do Azure. , Em seguida, fazer uma cópia de segurança do servidor de cópia de segurança do Azure para o Azure num cofre. Cópia de segurança reconheça a aplicação, com uma granularidade completa através de cópia de segurança com frequência e retenção. Pode criar cópias de segurança ao nível da aplicação. Por exemplo, ao fazer backup do SQL Server ou SharePoint.
 
-O Azure Backup atribui automaticamente e gere o armazenamento através de um modelo de pay as you go para o armazenamento que consumir.
-- Armazenamento pode ser atribuído como LRS ou GRS.
-- Cópia de segurança do Azure encripta dados em trânsito com AES 256 e envia-os através de HTTPS para o Azure. Cópia de segurança de dados Inativos no Azure são encriptados utilizando [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)e os dados de transmissão e o armazenamento.
+Para segurança, cópia de segurança do Azure encripta dados em trânsito com AES 256 e envia-os através de HTTPS para o Azure. Cópia de segurança de dados Inativos no Azure são encriptados utilizando [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)e os dados de transmissão e o armazenamento.
 
 
 ![O Azure Backup](./media/migrate-best-practices-security-management/iaas-backup.png)
@@ -409,9 +396,9 @@ VMs do Azure são armazenadas como blobs de páginas no armazenamento do Azure.
 
 **Saiba mais:**
 
-- [Saiba mais sobre] (https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction Armazenamento de Blobs do azure.
+- [Saiba mais sobre](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) armazenamento de Blobs do Azure.
 - [Saiba como](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots) criar um instantâneo de blob.
-- Consultar um cenário de exemplo] (https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup/) para cópia de segurança de armazenamento de Blobs.
+- [Reveja um cenário de exemplo](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) para cópia de segurança de armazenamento de Blobs.
 - [Leia sobre](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) eliminação de forma recuperável.
 - [Revisão](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o que fazer se ocorrer uma falha de armazenamento do Azure?
 
@@ -453,7 +440,7 @@ Uma vez que as funções do Azure funciona mais ou menos como código, deve cri�
 
 - [Proteção de dados](https://docs.microsoft.com/azure/devops/articles/team-services-security-whitepaper?view=vsts) para DevOps do Azure.
 
-## <a name="best-practice-set-up-a-disaster-recovery-strategy"></a>Melhor prática: configurar uma estratégia de recuperação após desastre
+## <a name="best-practice-set-up-disaster-recovery"></a>Melhor prática: configurar a recuperação após desastre 
 
 Além de proteger dados, o planejamento de BCDR deve considerar como manter as aplicações e cargas de trabalho disponíveis em caso de desastre. 
 
@@ -553,7 +540,7 @@ Se a infraestrutura de computação no Azure falhar, uma aplicação de função
 - [Saiba mais sobre](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution) recuperação após desastre e distribuição geográfica para as funções do Azure duráveis.
 
 
-### <a name="best-practice-use-managed-disks-and-availability-sets"></a>Melhor prática: utilizar managed disks e conjuntos de disponibilidade
+## <a name="best-practice-use-managed-disks-and-availability-sets"></a>Melhor prática: utilizar managed disks e conjuntos de disponibilidade
 
 Para agrupar VMs e para isolar as VMs num conjunto a partir de outros recursos, o Azure utiliza conjuntos de disponibilidade. As VMs num conjunto de disponibilidade são distribuídas por vários domínios de falha com subsistemas separados, para proteger contra falhas locais e também são distribuídas em vários domínios de atualização para que nem todas as VMs num conjunto de reinício ao mesmo tempo.
 
@@ -662,7 +649,7 @@ Em algum momento precisará de colaborar com a sua equipa de suporte técnico ou
 - [Obtenha uma visão geral](https://azure.microsoft.com/support/options/) planos de suporte do Azure.
 - [Saiba mais sobre](https://azure.microsoft.com/support/legal/sla/) (SLAs) de contratos de nível de serviço.
 
-## <a name="best-practice---manage-updates"></a>Melhor prática - gerir atualizações
+## <a name="best-practice-manage-updates"></a>Melhor prática: Gerir atualizações
 
 Manter as VMs do Azure atualizada com o sistema operativo mais recente e atualizações de software é um fardo em massa. A capacidade de todas as VMs, para que eles precisam de atualizações e para emitir automaticamente essas atualizações é extremamente valiosa de superfície.
 

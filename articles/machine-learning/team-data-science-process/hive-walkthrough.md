@@ -1,5 +1,5 @@
 ---
-title: Explorar os dados num cluster do Hadoop e crie modelos no Azure Machine Learning | Documentos da Microsoft
+title: Explorar os dados num cluster do Hadoop - Team Data Science Process
 description: Usando o processo de ciência de dados de equipa para um cenário ponto-a-ponto, empregando um cluster de Hadoop do HDInsight para criar e implementar um modelo.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 1b494f78998a03d39b18d4f9bba80642c04c483e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: e6adbe5a0e5ce88db12637889e201b5a15a0556f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444210"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139627"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O processo de ciência de dados de equipa em ação: utilização do Azure HDInsight Hadoop clusters
 Nestas instruções, utilizamos o [Team Data Science Process (TDSP)](overview.md) num cenário ponto-a-ponto. Utilizamos uma [cluster do Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e os dados de engenharia da funcionalidade de publicamente disponíveis [NYC táxis viagens](http://www.andresmh.com/nyctaxitrips/) conjunto de dados e dimensionar os dados. Para lidar com classificação binária e várias classes e tarefas de previsão de regressão, desenvolvemos os modelos de dados com o Azure Machine Learning. 
@@ -416,7 +416,7 @@ A partir da linha de comandos do diretório de ramo de registo, execute o seguin
 > 
 > 
 
-Ao explorar um conjunto de dados, com frequência que queremos examinar o número de ocorrências de co dos grupos de valores. Esta seção fornece um exemplo de como fazê-lo para cabs e drivers.
+Ao explorar um conjunto de dados, com frequência que queremos examinar o número de ocorrências conjunta de grupos de valores. Esta seção fornece um exemplo de como fazê-lo para cabs e drivers.
 
 O **amostra\_hive\_viagem\_contagem\_por\_medallion\_license.hql** ficheiro grupos do conjunto de dados europeia **medallion** e **hack_license**e retorna as contagens de cada combinação. Eis o seu conteúdo:
 
@@ -765,7 +765,7 @@ Agora, pode avançar para a criação de modelo e implementação de modelo na [
 
   O diagrama seguinte mostra nossos experimentação para prever se ou não uma dica foi paga por uma viagem de determinado:
 
-  ![Diagrama de experimentação](./media/hive-walkthrough/QGxRz5A.png)
+  ![Diagrama da experimentação para prever se tip foi pago](./media/hive-walkthrough/QGxRz5A.png)
 
   b. Nesta experimentação, nossa distribuições de etiqueta de destino foram aproximadamente 1:1.
 
@@ -785,7 +785,7 @@ Agora, pode avançar para a criação de modelo e implementação de modelo na [
 
   O diagrama seguinte mostra a experimentação para prever no qual bin uma dica é provável que enquadram-se. Os contentores são: classe 0: tip = US $0, 1 de classe: Sugestão > US $0 e sugestão < = US $5, 2 de classe: Sugestão > US $5 e sugestão < = US $10, 3 de classe: Sugestão > US $10 e sugestão < = us $20 e 4 de classe: Sugestão > us $20.
 
-  ![Diagrama de experimentação](./media/hive-walkthrough/5ztv0n0.png)
+  ![Diagrama da experimentação para prever bin sugestão](./media/hive-walkthrough/5ztv0n0.png)
 
   Agora vamos mostrar como a distribuição de classe do teste real se parece. Classe 0 e 1 de classe são predominantes e outras classes são raras.
 
@@ -805,7 +805,7 @@ Agora, pode avançar para a criação de modelo e implementação de modelo na [
 
   O diagrama seguinte mostra a experimentação para prever a quantidade de dica de determinado:
 
-  ![Diagrama de experimentação](./media/hive-walkthrough/11TZWgV.png)
+  ![Diagrama da experimentação para prever a quantidade de sugestão](./media/hive-walkthrough/11TZWgV.png)
 
   b. Para problemas de regressão, medimos os precisões de predição ao observar o erro ao quadrado em predições e o coeficiente de determinação:
 

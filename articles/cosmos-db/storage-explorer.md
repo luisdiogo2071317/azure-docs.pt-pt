@@ -1,26 +1,21 @@
 ---
-title: Gerir o Azure Cosmos DB no Explorador de Armazenamento do Azure
-description: Saiba como gerir o Azure Cosmos DB no Explorador de Armazenamento do Azure.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
-services: cosmos-db
+title: Gerir recursos do Azure Cosmos DB com o Explorador de armazenamento do Azure
+description: Saiba como ligar ao Azure Cosmos DB e gerir os respetivos recursos através do Explorador de armazenamento do Azure.
 author: Jejiang
-manager: kfile
-editor: ''
 tags: Azure Cosmos DB
 ms.service: cosmos-db
-ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 12/07/2018
 ms.author: jejiang
-ms.openlocfilehash: 4a50809c48ba03b7a12689d905e704d3f820ca8a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162471"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138131"
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gerir o Azure Cosmos DB no Explorador de Armazenamento do Azure
+# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Gerir recursos do Azure Cosmos DB com o Explorador de armazenamento do Azure
 
 A utilização do Azure Cosmos DB no Explorador de Armazenamento do Azure permite aos utilizadores gerir as entidades do Azure Cosmos DB, manipular dados, atualizar os procedimentos e acionadores armazenados, bem como outras entidades do Azure, como blobs e filas de Armazenamento. Agora, pode utilizar a mesma ferramenta para gerir as diferentes entidades do Azure num único local. Neste momento, o Explorador de Armazenamento do Azure suporta contas do SQL, MongoDB, Graph e de Tabela.
 
@@ -242,8 +237,8 @@ Se não conseguir encontrar nenhum certificado autoassinado com os passos acima,
 
 Se não conseguir obter as suas subscrições depois de iniciar sessão com êxito:
 
-- Certifique-se de que a conta tem acesso às subscrições ao iniciar sessão no [Portal do Azure](http://portal.azure.com/)
-- Certifique-se de que tem sessão iniciada no ambiente correto ([Azure](http://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Alemanha](https://portal.microsoftazure.de/), [Azure US Government](http://portal.azure.us/) ou Ambiente Personalizado/Azure Stack)
+- Certifique-se de que a conta tem acesso às subscrições ao iniciar sessão no [Portal do Azure](https://portal.azure.com/)
+- Certifique-se de que tem sessão iniciada no ambiente correto ([Azure](https://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Alemanha](https://portal.microsoftazure.de/), [Azure US Government](https://portal.azure.us/) ou Ambiente Personalizado/Azure Stack)
 - Se estiver por trás de um proxy, certifique-se de que configurou o proxy do Explorador de Armazenamento corretamente
 - Tente remover e adicionar novamente a conta
 - Tente eliminar os seguintes ficheiros do diretório raiz (como: C:\Users\ContosoUser) e, em seguida, adicionar novamente a conta:

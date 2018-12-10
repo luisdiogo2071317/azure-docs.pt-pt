@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2af5ed294c4a53e38690991f1f65b3f7d2f46c73
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c26f9c319a8260f4c19933d640310923b9c36db7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356950"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134833"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível aceder a esta aplicação empresarial" quando utilizar uma aplicação de Proxy de aplicações
 
@@ -62,7 +62,7 @@ Um erro de gateway inválido indica que o conector não consegue aceder à aplic
 
 Se vir um erro proibido, o utilizador não foi atribuído à aplicação. Este erro pode ser no Azure Active Directory ou na aplicação de back-end.
 
-Para saber como atribuir utilizadores a aplicação no Azure, veja a [documentação de configuração](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal#add-a-test-user).
+Para saber como atribuir utilizadores a aplicação no Azure, veja a [documentação de configuração](https://docs.microsoft.com/azure/active-directory/application-proxy-add-on-premises-application#add-a-test-user).
 
 Se confirmar que é atribuída ao utilizador para a aplicação no Azure, verifique a configuração de utilizador da aplicação de back-end. Se estiver a utilizar autenticação de Windows de integrado/delegação restrita de Kerberos, consulte a página de resolução de problemas de KCD de mensagens em fila para obter diretrizes.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 57929b23e437e17ceb90196e3cfa59c16d518f5a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af738b655b4070da1cfe7555daff82c0e40ff91c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527442"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138590"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure destinos de escalabilidade e desempenho de ficheiros
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Este artigo aborda os destinos de escalabilidade e desempenho para ficheiros do Azure e Azure File Sync.
@@ -46,6 +46,7 @@ Para o Azure File Sync, o desempenho é essencial em duas fases:
 2. **Sincronização em curso**: depois dos dados inicialmente são implantados em partilhas de ficheiros do Azure, Azure File Sync mantém vários pontos de extremidade em sincronia.
 
 Para ajudar a planear a implementação para cada uma das etapas, abaixo estão os resultados observados durante os testes internos num sistema com uma configuração
+
 | Configuração do sistema |  |
 |-|-|
 | CPU | 64 núcleos virtuais com a cache de MiB L3 64 |

@@ -1,6 +1,6 @@
 ---
-title: Dashboard do Power BI por Estado de funcionamento do veículo e orientar hábitos - Azure | Documentos da Microsoft
-description: Utilize as capacidades do Cortana Intelligence para obter informações em tempo real e preditivo sobre o estado de funcionamento do veículo e orientar hábitos.
+title: Dashboard do Power BI por Estado de funcionamento do veículo e orientar hábitos - Team Data Science Process
+description: Desenvolver um dashboard do Power BI para obter em tempo real, previsão e informações sobre o estado de funcionamento do veículo em lote e hábitos de condução.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b4d36b7d68bad658200024a2fe31a876d411536c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a964820979f24af1fee2be65461302be73b9e77b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444654"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135122"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instruções de configuração do veículo telemetria Analytics solução modelo Power BI dashboard
 
@@ -26,8 +26,8 @@ Para rever a descrição do resumo desta solução, consulte [playbook de soluç
 Para explorar ainda mais esta solução, consulte [playbook de solução de análise de telemetria Vehicle: aprofunde-se na solução](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Implementar o [análise Telemétrica de veículos](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) solução. 
-* [Instalar o Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331).
+* Implementar o [análise Telemétrica de veículos](https://gallery.cortanaintelligence.com/Solutions/5bdb23f3abb448268b7402ab8907cc90) solução. 
+* [Instalar o Power BI Desktop](https://aka.ms/pbidesktopstore).
 * Obter um [subscrição do Azure](https://azure.microsoft.com/pricing/free-trial/). Se não tiver uma subscrição do Azure, comece com a subscrição gratuita do Azure.
 * Abra uma conta do Power BI.
 
@@ -345,7 +345,7 @@ Criado com êxito o dashboard em tempo real. À medida que continua a executar C
 
 ### <a name="configure-power-bi-reports"></a>Configurar relatórios do Power BI
 
-1. Abra o arquivo de designer **ConnectedCarsPbiReport.pbix** ao utilizar o Power BI Desktop. Se ainda não tiver, instale o Power BI Desktop a partir da [instalação do Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331) Web site.
+1. Abra o arquivo de designer **ConnectedCarsPbiReport.pbix** ao utilizar o Power BI Desktop. Se ainda não tiver, instale o Power BI Desktop a partir da [instalação do Power BI Desktop](https://aka.ms/pbidesktopstore) Web site.
 
 1. Selecione **editar consultas**.
 

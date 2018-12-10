@@ -1,6 +1,6 @@
 ---
-title: Dimensionar o suporte de dados reservados unidades - Azure | Documentos da Microsoft
-description: Este tópico é uma visão geral do dimensionamento processamento de multimédia com os serviços de multimédia do Azure.
+title: Utilizar a CLI para criar filtros com os serviços de multimédia do Azure | Documentos da Microsoft
+description: Este tópico mostra como utilizar a CLI para criar filtros com serviços de multimédia.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: 9099429097efb17629e88318430f004f0f763cc5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: a16024ad5d8b9d2355b579b9b508ef0de91f2ccd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336959"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133864"
 ---
 # <a name="creating-filters-with-cli"></a>Criar filtros com o CLI 
 

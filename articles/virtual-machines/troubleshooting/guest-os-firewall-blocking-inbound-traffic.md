@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 3ddd2f122de832654be295c5978a88bec702558c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 19ba7013b461917c4aea8ae96f689d7e39859652
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319436"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134442"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Firewall de SO de convidado de VM do Azure está a bloquear o tráfego de entrada
 
@@ -31,17 +31,17 @@ Não é possível utilizar uma ligação RDP para ligar a uma máquina virtual d
 
 ## <a name="cause"></a>Causa
 
-### <a name="cause-1"></a>Causa 1 
+### <a name="cause-1"></a>Causa 1
 
 A regra RDP não está configurada para permitir o tráfego RDP.
 
-### <a name="cause-2"></a>Causa 2 
+### <a name="cause-2"></a>Causa 2
 
 Os perfis de firewall de sistema de convidado são configurados para bloquear todas as ligações de entrada, incluindo o tráfego RDP.
 
 ![Definição de firewall](./media/guest-os-firewall-blocking-inbound-traffic/firewall-advanced-setting.png)
 
-## <a name="solution"></a>Solução 
+## <a name="solution"></a>Solução
 
 Antes de seguir estes passos, tire um instantâneo do disco de sistema da VM afetado como uma cópia de segurança. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
@@ -49,7 +49,7 @@ Para corrigir o problema, utilize um dos métodos na [como utilizar ferramentas 
 
 ### <a name="online-troubleshooting"></a>Resolução de problemas online
 
-Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). Se a consola de série não estiver ativada na VM, aceda a "[reparar a Offline VM](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
+Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Se a consola de série não estiver ativada na VM, aceda a "[reparar a Offline VM](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
 
 #### <a name="mitigation-1"></a>Atenuação 1
 
@@ -80,7 +80,7 @@ Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell
     ```cmd
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
     ```
-    
+
     Caso contrário, para abrir a ambiente de trabalho remoto (TCP-In) regra específica, execute o seguinte comando:
 
     ```cmd
@@ -94,7 +94,7 @@ Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell
     ```
 
     Depois de concluir a resolução de problemas e a definição da firewall corretamente, volte a ativar a firewall.
-    
+
     > [!Note]
     > Não tem de reiniciar a VM para aplicar estas alterações.
 
@@ -128,11 +128,11 @@ Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell
     ```
 
     > [!Note]
-    > Não tem de reiniciar a VM para aplicar as alterações. 
+    > Não tem de reiniciar a VM para aplicar as alterações.
 
 4.  Tente aceder novamente à sua VM através de RDP.
 
-### <a name="offline-mitigations"></a>Atenuações offline 
+### <a name="offline-mitigations"></a>Atenuações offline
 
 1.  [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
 
@@ -159,7 +159,7 @@ Ver [como para ativar / desativar uma Firewall de regra num documento de SO con
     robocopy f:\windows\system32\config f:\windows\system32\config.BACK /MT
 
     REM Mount the hive
-    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM 
+    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
 
     REM Delete the keys to block all inbound connection scenario
     REG DELETE "HKLM\BROKENSYSTEM\ControlSet001\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile" /v DoNotAllowExceptions

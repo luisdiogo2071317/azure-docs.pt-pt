@@ -1,5 +1,5 @@
 ---
-title: Guia de IA do Azure para soluções de manutenção preditiva | Documentos da Microsoft
+title: Guia de IA do Azure para soluções de manutenção preditiva - Team Data Science Process
 description: Uma descrição abrangente de ciência de dados que capacita a soluções de manutenção preditiva em várias indústrias verticais.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
-ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: 1538357a744e4a2c885b6552ca94efc6642d2880
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
+ms.openlocfilehash: 8d2a16047a741daf484d6ccdc48453d49355d443
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444924"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135694"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -289,11 +289,11 @@ Técnicas de classificação de Roc podem ser utilizadas em soluções de PdM pa
 #### <a name="label-construction-for-multi-class-classification"></a>Construção de etiqueta de classificação de Roc
 A questão aqui é: "o que é a probabilidade de que um recurso irá falhar nos próximos _nZ_ unidades de tempo em que _n_ é o número de períodos?" Para responder a essa pergunta, da etiqueta nZ registos antes da falha de um recurso com os registos de tempo (3Z, 2Z, Z). Etiqueta, todos os outros registos como "normal" (etiqueta = 0). Nesse método, a variável de destino mantém _categóricos_ valores. (Consulte a figura 5).
 
-![Figura 5. Etiquetas de classificação multiclasses para predição de falha de tempo](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) figura 5. Etiquetas para classificação de Roc para predição de falha de tempo
+![Figura 5. Etiquetas de predição de hora de falha para classificação multiclasses](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) figura 5. Etiquetas para classificação de Roc para predição de falha de tempo
 
 A questão aqui é: "o que é a probabilidade de que o elemento falhará no prazo de X unidades de tempo devido a causa de raiz/problema _P<sub>eu</sub>_?" em que _eu_ é o número de causas possíveis. Para responder a essa pergunta, registos de etiqueta X antes da falha de um ativo como "prestes a falhar devido a causa raiz _P<sub>eu</sub>_" (etiqueta = _P<sub>eu</sub>_). Todos os outros registos como sendo "normal" da etiqueta (etiqueta = 0). Nesse método além disso, as etiquetas são categóricos (consulte figura 6).
 
-![Figura 6. Etiquetas de classificação multiclasses para predição de causa raiz](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) figura 6. Etiquetas para classificação de Roc para predição de causa raiz
+![Figura 6. Etiquetas de predição para classificação de várias classes de causa raiz](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) figura 6. Etiquetas para classificação de Roc para predição de causa raiz
 
 O modelo atribui uma probabilidade de falha devido a cada _P<sub>eu</sub>_  , bem como a probabilidade de não falha. Estas probabilidades podem ser ordenadas por magnitude para permitir que a previsão dos problemas que é mais provável que ocorram no futuro.
 

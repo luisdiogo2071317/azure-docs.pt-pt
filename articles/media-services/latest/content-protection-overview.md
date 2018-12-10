@@ -1,5 +1,5 @@
 ---
-title: Proteger o seu conteúdo com os serviços de multimédia do Azure | Documentos da Microsoft
+title: Proteger o seu conteúdo com os serviços de suporte de dados - Azure | Documentos da Microsoft
 description: Este artigo lhe dar uma visão geral da proteção de conteúdo com os Media Services.
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 1c7454aead07c728d55ff2c309cca83a792aac88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: cb7e867ea4304cf8b8741eac183e60d325c752c7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238354"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141854"
 ---
 # <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo
 

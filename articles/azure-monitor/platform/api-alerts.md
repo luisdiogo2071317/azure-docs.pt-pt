@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 63346068529591d4d396b0590db96a73782181e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0176cc5688f7210d5e444b094b360bb1e7df1e7c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838859"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136431"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta no Log Analytics com a REST API
 A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
@@ -140,7 +140,7 @@ Uma agenda deve ter apenas uma ação do alerta.  Ações de alerta tem uma ou m
 | Gravidade |Etiqueta utilizada para classificar o alerta quando acionado.| É necessário para cada alerta, antes ou depois de eles são estendidos para o Azure. |
 | Suprimir |Opção para parar as notificações de alerta. | Opcional para cada alerta, antes ou depois de eles são estendidos para o Azure. |
 | Grupos de Ação |IDs de ActionGroup do Azure em que são especificadas as ações necessárias, como - emails, SMSs, chamadas de voz, Webhooks, Runbooks de automatização, conectores de ITSM, etc.| Necessário depois de alertas são expandidos para o Azure|
-| Personalizar ações|Modificar a saída padrão para selecionadas ações de ActionGroup| Opcional para cada alerta, pode ser utilizado depois de alertas são expandidos para o Azure. |
+| Personalizar Ações|Modificar a saída padrão para selecionadas ações de ActionGroup| Opcional para cada alerta, pode ser utilizado depois de alertas são expandidos para o Azure. |
 | EmailNotification |Envie um e-mail para vários destinatários. | Não obrigatório, se os alertas são expandidos para o Azure|
 | Remediação |Inicie um runbook na automatização do Azure para tentar corrigir o problema identificado. |Não obrigatório, se os alertas são expandidos para o Azure|
 | Ações de Webhook | Enviar dados de alertas, para o serviço desejado como JSON |Não obrigatório, se os alertas são expandidos para o Azure|
@@ -188,8 +188,8 @@ O log Analytics permite-lhe classificar os alertas em categorias, para permitir 
 
 |Nível de gravidade do log Analytics  |Nível de gravidade de alertas do Azure  |
 |---------|---------|
-|Crítico |Gravidade 0|
-|Aviso |Gravidade 1|
+|crítico |Gravidade 0|
+|aviso |Gravidade 1|
 |Informativa | Gravidade 2|
 
 Segue-se uma resposta de exemplo para uma ação com apenas um limiar e a gravidade. 
@@ -281,7 +281,7 @@ Utilize o método Put com um ID de ação existente para modificar um grupo de a
     $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']} }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-#### <a name="customize-actions"></a>Personalizar ações
+#### <a name="customize-actions"></a>Personalizar Ações
 Por ações predefinidas, siga o modelo padrão e o formato para as notificações. No entanto, o utilizador pode personalizar algumas ações, mesmo que eles são controlados por grupos de ação. Atualmente, a personalização é possível para o assunto do E-Mail e Webhook Payload.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Personalizar o assunto do E-Mail para o grupo de ação
@@ -447,11 +447,12 @@ Segue-se um exemplo completo para criar um novo alerta de e-mail.  Esta ação c
     $scheduleId     = "MySchedule"
     $thresholdId    = "MyThreshold"
     $actionId       = "MyEmailAction"
-
+    
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
-
-    $emailJson = "{'properties': {"Name": 'MyEmailAction', 'Versão':"1', 'gravidade":"Aviso","Type": 'Limiar de alerta',' ': {'Operador':"gt","Value": 10},"EmailNotification": {"Destinatários": ['recipient1@contoso.com','recipient2@contoso.com'],"Assunto":" Este é o assunto ", 'Anexo': 'None'}}" armclient colocar /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/ ações / $actionId /? api-version = 2015-03-20 $emailJson
+    
+    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
+    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
 #### <a name="webhook-actions"></a>Ações de Webhook
 Ações de Webhook iniciar um processo chamando uma URL e, opcionalmente, fornecendo um payload de envio.  Eles são semelhantes às ações de remediação, exceto que eles se destinam-se a webhooks que pode invocar processos que não seja runbooks de automatização do Azure.  Eles fornecem também a opção adicional de fornecer um payload possível entregar o processo remoto.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: fbfe7255f2b848187c74fd832f349186eef5eaef
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 724b1a2562e4723bd02c97cdecb0ef7dbd8ed177
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287579"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139066"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligados e aninhados modelos durante a implantação de recursos do Azure
 
@@ -169,7 +169,9 @@ Também pode utilizar [deployment()](resource-group-template-functions-deploymen
 
 ## <a name="get-values-from-linked-template"></a>Obter valores do modelo ligado
 
-Para obter um valor de saída a partir de um modelo ligado, obter o valor da propriedade com a sintaxe, como: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+Para obter um valor de saída a partir de um modelo ligado, obter o valor da propriedade com a sintaxe, como: `"[reference('deploymentName').outputs.propertyName.value]"`.
+
+Ao obter uma propriedade de saída a partir de um modelo ligado, o nome da propriedade não pode incluir um traço.
 
 Os exemplos seguintes demonstram como fazer referência um modelo ligado e obter um valor de saída. O modelo ligado devolve uma mensagem simple.
 

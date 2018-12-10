@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 8cdb5b89bf43d3265f3f9c73d29708f11e17b21c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6ae7cff42a9b744409fa454199155796c8c06713
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624034"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138971"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Palavra-passe vaulting para início de sessão único com o Proxy de aplicações
 
@@ -26,7 +26,7 @@ Proxy de aplicação do Active Directory do Azure ajuda-o a melhorar a produtivi
 
 Proxy de aplicações suporta vários [único início de sessão em modos](what-is-single-sign-on.md#choosing-a-single-sign-on-method). Com base em palavra-passe de início de sessão foi concebido para aplicações que utilizam uma combinação de nome de utilizador/palavra-passe para autenticação. Quando configura com base em palavra-passe de início de sessão para a sua aplicação, os utilizadores têm de iniciar sessão uma vez a aplicação de no local. Depois disso, o Azure Active Directory armazena as informações de início de sessão e disponibiliza-lo automaticamente para a aplicação quando os utilizadores aceder remotamente. 
 
-Já deve ter publicado e testou seu aplicativo com o Proxy de aplicações. Se não for, siga os passos em [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md) , em seguida, volte aqui. 
+Já deve ter publicado e testou seu aplicativo com o Proxy de aplicações. Se não for, siga os passos em [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md) , em seguida, volte aqui. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Configurar a palavra-passe vaulting para a sua aplicação
 

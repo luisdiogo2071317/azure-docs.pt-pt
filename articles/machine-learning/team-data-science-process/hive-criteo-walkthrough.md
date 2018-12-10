@@ -1,5 +1,5 @@
 ---
-title: O processo de ciência de dados de equipa em ação – usando um Cluster de Hadoop do HDInsight do Azure num conjunto de dados de 1 TB | Documentos da Microsoft
+title: Utilizar o Cluster de Hadoop do HDInsight do Azure num conjunto de dados de 1 TB - Team Data Science Process
 description: Usando o processo de ciência de dados de equipa para um cenário de ponto-a-ponto empregando um cluster de Hadoop do HDInsight para criar e implementar um modelo com um conjunto de dados publicamente disponível grande do (1 TB)
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3aef1b85a462eea74fbe977e9a48054f11acf47a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447049"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135819"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O processo de ciência de dados de equipa em ação – usando um Cluster de Hadoop do HDInsight do Azure num conjunto de dados de 1 TB
 
@@ -478,7 +478,7 @@ Pode haver milhões de valores exclusivos para algumas funcionalidades categóri
 ##### <a name="building-counting-transforms"></a>Criando transformações de contagem
 Para criar recursos de contagem, utilize o **criar contagem transformar** módulo que está disponível no Azure Machine Learning. O módulo tem esta aparência:
 
-![Criar o módulo de contagem de transformar](./media/hive-criteo-walkthrough/e0eqKtZ.png)
+![Criar propriedades do módulo de contagem de transformar](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![criar contagem transformar módulo](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT] 

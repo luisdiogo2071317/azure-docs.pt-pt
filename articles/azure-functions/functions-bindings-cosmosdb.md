@@ -2,21 +2,20 @@
 title: Azure Cosmos DB enlaces para as funções 1.x
 description: Compreenda como utilizar o Azure Cosmos DB acionadores e enlaces nas funções do Azure.
 services: functions
-documentationcenter: na
 author: craigshoemaker
+ms.author: cshoe
 manager: jeconnoc
 keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: azure-functions; cosmos-db
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: cshoe
-ms.openlocfilehash: 43020784e57f1555de1ddedab8fe7a657ecf09f3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 2a501129720447462d1e6e961597b51fa683dc1e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001697"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136210"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB enlaces das funções do Azure 1.x
 
@@ -895,7 +894,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 Esta secção contém os exemplos seguintes:
 
-* [Acionador de fila, procura de ID de JSON](#queue-trigger-look-up-id-from-string-javascript)
+* [Acionador de fila, procura de ID de JSON](#queue-trigger-look-up-id-from-json-javascript)
 * [Acionador HTTP, procura de ID da cadeia de consulta](#http-trigger-look-up-id-from-query-string-javascript)
 * [Acionador HTTP, procura de ID de dados da rota](#http-trigger-look-up-id-from-route-data-javascript)
 * [Acionador da fila, obter vários documentos, usando SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1177,7 +1176,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 No C# e F# funções, quando a função é encerrado com êxito, todas as alterações efetuadas ao documento de entrada por meio de entrada nomeada parâmetros são mantidos automaticamente. 
 
-Nas funções de JavaScript, as atualizações não são feitas automaticamente ao sair de função. Em alternativa, utilize `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para disponibilizar as atualizações. Consulte a [exemplo de JavaScript](#input---javascript-example).
+Nas funções de JavaScript, as atualizações não são feitas automaticamente ao sair de função. Em alternativa, utilize `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para disponibilizar as atualizações. Consulte a [exemplo de JavaScript](#input---javascript-examples).
 
 ## <a name="output"></a>Saída
 
@@ -1571,7 +1570,7 @@ Construtor do atributo pega o nome de base de dados e o nome da coleção. Para 
     }
 ```
 
-Para obter um exemplo completo, consulte [saída - exemplo do c#](#output---c-example).
+Para obter um exemplo completo, consulte [saída - exemplo do c#](#output---c-examples).
 
 ## <a name="output---configuration"></a>Saída - configuração
 

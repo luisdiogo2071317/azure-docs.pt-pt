@@ -1,5 +1,5 @@
 ---
-title: Mover dados para e do armazenamento de Blobs do Azure com o AzCopy | Documentos da Microsoft
+title: Mover dados de armazenamento de Blobs com o AzCopy - Team Data Science Process
 description: Mover dados de e para o Armazenamento de Blobs do Azure com AzCopy
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 9e8b852b9f13e8f41daff27e305bc9c0cda78cb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 6a204c68a05cec827fa8e432889cc60296132d4e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443003"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140585"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Mover dados para e do armazenamento de Blobs do Azure com o AzCopy
 O AzCopy é um utilitário de linha de comandos concebido para carregar, transferir e copiar dados de e para o blob, ficheiro e armazenamento de tabelas do Microsoft Azure.

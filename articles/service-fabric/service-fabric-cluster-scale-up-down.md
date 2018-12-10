@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: 0d809f9a1b3abbb284c3f7e0c27eb9c236692a3f
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 85a1e874ad80d0a3251c93c9c1199f56ab045527
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386470"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140576"
 ---
 # <a name="read-before-you-scale"></a>Leia antes de aumentar
 Dimensionar recursos de computação para a origem a carga de trabalho de aplicação requer um planejamento intencional, quase sempre irá demorar mais de uma hora para concluir para um ambiente de produção e exige que compreender a sua carga de trabalho e o contexto de negócios; na verdade se nunca tiver feito essa atividade antes, recomenda-se começar por ler e entender [considerações de planeamento de capacidade do cluster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity), antes de continuar o restante deste documento. Esta recomendação é evitar problemas de LiveSite indesejados, e também é recomendável que testar com êxito as operações que decidir executar em relação a um ambiente de não produção. Em qualquer altura, pode [comunicar problemas de produção ou pedido de suporte pago para o Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure). Para os engenheiros alocados para executar estas operações que possuem o contexto apropriado, este artigo descreverá as operações de dimensionamento, mas tem de decidir e compreender as operações são adequadas para seu caso de utilização; Por exemplo, quais recursos para dimensionamento (CPU, armazenamento, memória), que direção de dimensionamento (vertical ou horizontalmente) e quais operações a serem executadas (modelo do Resource a implementação, do Portal, o PowerShell/CLI).
@@ -103,10 +103,10 @@ Os nós listados no Service Fabric Explorer são um reflexo do que os serviços 
 
 Para certificar-se de que um nó é removido quando uma VM é removida, tem duas opções:
 
-1) Escolha um nível de durabilidade de Gold ou Silver para os tipos de nó do cluster, o que lhe dá a integração de infraestrutura. Que, em seguida, removerá automaticamente os nós do nosso estado de serviços (FM) do sistema quando reduzir verticalmente.
+1. Escolha um nível de durabilidade de Gold ou Silver para os tipos de nó do cluster, o que lhe dá a integração de infraestrutura. Que, em seguida, removerá automaticamente os nós do nosso estado de serviços (FM) do sistema quando reduzir verticalmente.
 Consulte [os detalhes sobre os níveis de durabilidade aqui](service-fabric-cluster-capacity.md)
 
-2) Assim que a instância VM foi reduzida, precisa chamar o [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate).
+2. Assim que a instância VM foi reduzida, precisa chamar o [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate).
 
 > [!NOTE]
 > Clusters do Service Fabric necessitam de um determinado número de nós para ficar operacional em todo o tempo para manter a disponibilidade e preservar o estado - referido como "manter o quórum." Assim, é normalmente não seguro para encerrar todas as máquinas no cluster, a menos que o utilizador tiver sido executado pela primeira vez um [cópia de segurança completa do seu estado](service-fabric-reliable-services-backup-restore.md).

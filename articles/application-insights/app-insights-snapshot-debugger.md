@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 12/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 11e9099ba9008ead6583eaf30292cdec63475f02
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a92b54a80de645dda8ea0cc0259bd07f72330204
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994263"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136720"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Instantâneos de depuração com exceções em aplicações .NET
 
@@ -68,7 +68,7 @@ São suportados os seguintes ambientes:
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>1.00:00:00</ProblemCounterResetInterval>
         <!-- The maximum number of snapshots allowed in ten minutes.The default value is 1. -->
-        <SnapshotsPerTenMinutesLimit>1</SnapshotsPerTenMinutesLimit>
+        <SnapshotsPerTenMinutesLimit>3</SnapshotsPerTenMinutesLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>30</SnapshotsPerDayLimit>
         <!-- Whether or not to collect snapshot in low IO priority thread. The default value is true. -->
@@ -455,7 +455,7 @@ Em alternativa, se estiver a utilizar appSettings com uma aplicação .NET Core:
 Quando um instantâneo é criado, a exceção throwing é marcada com um ID de instantâneo. Esse ID de instantâneo é incluído como uma propriedade personalizada quando a telemetria de exceção é reportada para o Application Insights. Usando **pesquisa** no Application Insights, pode encontrar toda a telemetria com o `ai.snapshot.id` propriedade personalizada.
 
 1. Navegue para o recurso do Application Insights no portal do Azure.
-2. Clique em **pesquisa**.
+2. Clique em **Procurar**.
 3. Tipo de `ai.snapshot.id` na caixa de texto de pesquisa e prima Enter.
 
 ![Procure telemetria com um ID de instantâneo no portal](./media/app-insights-snapshot-debugger/search-snapshot-portal.png)

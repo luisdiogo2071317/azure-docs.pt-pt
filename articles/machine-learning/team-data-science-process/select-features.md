@@ -1,5 +1,5 @@
 ---
-title: Seleção do processo de ciência de dados de equipa | Documentos da Microsoft
+title: Seleção de funcionalidades no Team Data Science Process
 description: Explique a finalidade da seleção de funcionalidades e fornece exemplos da sua função no processo de aprimoramento de dados do machine learning.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b439f7245dd09a2f8a7ffe5f3b3c5396786220af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: de8070906f7b2470378fb631f2e94a96b4a2960d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442383"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138658"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Seleção de características no Team Data Science Process (TDSP)
 Este artigo explica os efeitos da seleção de funcionalidades e fornece exemplos de seu papel no processo de aprimoramento de dados do machine learning. Esses exemplos são obtidos a partir do Azure Machine Learning Studio. 
@@ -42,21 +42,21 @@ Entre outros, uma categoria amplamente aplicada dos métodos de seleção de fun
 
 No Azure Machine Learning Studio, há módulos fornecidos para a seleção de funcionalidades. Conforme mostrado na figura a seguir, estes módulos incluem [seleção de funcionalidades com base no filtro] [ filter-based-feature-selection] e [análise de discriminador Linear Fisher] [ fisher-linear-discriminant-analysis].
 
-![Exemplo de seleção de funcionalidade](./media/select-features/feature-Selection.png)
+![Módulos de seleção de recursos](./media/select-features/feature-Selection.png)
 
 Considere, por exemplo, o uso do [seleção de funcionalidades com base no filtro] [ filter-based-feature-selection] módulo. Para sua comodidade, continue a utilizar o exemplo de extração de texto. Partem do princípio de que deseja criar um modelo de regressão, depois de um conjunto de 256 recursos forem criadas com o [funcionalidade hash] [ feature-hashing] módulo e de que a variável de resposta é o "Col1" que contém as classificações de revisão do livro entre 1 e 5. Ao definir "Método de classificação de recursos" para ser "Pearson correlação", "coluna de destino" para ser "Col1" e o "número de recursos desejados" como 50. Em seguida, o módulo [seleção de funcionalidades com base no filtro] [ filter-based-feature-selection] produz um conjunto de dados que contêm 50 recursos em conjunto com o atributo de destino "Col1". A figura seguinte mostra o fluxo desta experiência e os parâmetros de entrada:
 
-![Exemplo de seleção de funcionalidade](./media/select-features/feature-Selection1.png)
+![Filtrar propriedades do módulo de seleção de funcionalidades com base em](./media/select-features/feature-Selection1.png)
 
 A figura seguinte mostra os conjuntos de dados resultantes:
 
-![Exemplo de seleção de funcionalidade](./media/select-features/feature-Selection2.png)
+![Conjunto de dados resultante para o módulo de filtro com base a seleção de funcionalidades](./media/select-features/feature-Selection2.png)
 
 Cada funcionalidade é classificada com base na correlação Pearson entre ele e o atributo de destino "Col1". Os recursos com pontuações principais são mantidos.
 
 As pontuações correspondentes dos recursos selecionados são mostradas na figura a seguir:
 
-![Exemplo de seleção de funcionalidade](./media/select-features/feature-Selection3.png)
+![Notas de módulo de filtro com base a seleção de funcionalidades](./media/select-features/feature-Selection3.png)
 
 Ao aplicar isso [seleção de funcionalidades com base no filtro] [ filter-based-feature-selection] módulo, 50 de 256 funcionalidades estão selecionadas porque têm as funcionalidades mais correlacionadas com a variável de destino "Col1", com base no método de classificação "Correlação Pearson".
 

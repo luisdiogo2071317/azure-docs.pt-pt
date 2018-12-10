@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 6cc4c0b01511309766e48c3d671ee897e5d6f326
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e0e41714f6979a9cd699df70498b9c89a44d5ee1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669118"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138961"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador de Wirecast para enviar um fluxo em direto com velocidade de transmissão única
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ Embora o canal está a iniciar, pode [configurar o codificador](media-services-c
 >
 >
 
-## <a name="a-idconfigurewirecastrtmp-aconfigure-the-telestream-wirecast-encoder"></a>< um id = "configure_wirecast_rtmp" /a > configurar o codificador Telestream Wirecast
+## <a name="a-idconfigurewirecastrtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configurar o codificador Telestream Wirecast
 Neste tutorial, são utilizadas as seguintes definições de saída. O resto desta secção descreve os passos de configuração mais detalhadamente.
 
 **Vídeo**:

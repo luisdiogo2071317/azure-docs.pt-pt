@@ -1,21 +1,20 @@
 ---
-title: Registo de diagnóstico do Azure Cosmos DB
-description: Utilize este tutorial para ajudá-lo com o Azure Cosmos DB registo.
-services: cosmos-db
+title: Registo de diagnósticos no Azure Cosmos DB
+description: Saiba mais sobre as diferentes formas de registar e monitorizar dados armazenados no Azure Cosmos DB.
 author: SnehaGunda
-tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/07/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: e8548497666e7dc49a8ada6bdf686647e427d0d0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: c8d40587ec6feee9b1ae16e383341fc0f2d1ffb6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850470"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137899"
 ---
-# <a name="azure-cosmos-db-diagnostic-logging"></a>Registo de diagnóstico do Azure Cosmos DB
+# <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registo de diagnósticos no Azure Cosmos DB 
 
 Depois de começar a utilizar um ou mais bases de dados do Azure Cosmos DB, pode querer monitorizar como e quando as suas bases de dados são acedidos. Este artigo fornece uma descrição geral dos registos que estão disponíveis na plataforma do Azure. Saiba como ativar o registo de diagnóstico para efeitos de enviar registos para de monitorização [armazenamento do Azure](https://azure.microsoft.com/services/storage/), como transmitir registos para [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/)e como exportar registos para [Azure Log Analytics ](https://azure.microsoft.com/services/log-analytics/).
 
@@ -44,7 +43,7 @@ O registo de atividades é diferente de registos de diagnóstico. O registo de a
 
 Registos de Atividades (operações do painel de controle) podem ser mais avançados por natureza e podem incluir o endereço de e-mail completo do chamador, endereço IP do chamador, nome do recurso, nome da operação, TenantId e muito mais. O registo de atividades contém vários [categorias](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) de dados. Para todos os detalhes sobre esquemas uma destas categorias, consulte [esquema de eventos de registo de atividades do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). No entanto, os registos de diagnóstico pode ser restritivos por natureza, os dados pessoais é, muitas vezes, removidos destes registos. Poderá ter o endereço IP do chamador, mas o último octant é removido.
 
-### <a name="azure-metrics"></a>Métricas do Azure
+### <a name="azure-metrics"></a>Métrica do Azure
 
 [Métricas do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) tem o tipo mais importante de dados de telemetria do Azure (também denominado _contadores de desempenho_) que é emitida por recursos mais do Azure. Métricas permitem-lhe ver informações sobre o débito, armazenamento, consistência, disponibilidade e a latência dos seus recursos do Azure Cosmos DB. Para obter mais informações, consulte [monitorização e depuração com métricas na Azure Cosmos DB](use-metrics.md).
 
@@ -80,7 +79,7 @@ Para ativar o registo de diagnóstico no portal do Azure, siga os passos abaixo:
 
     * **Arquivo para uma conta de armazenamento**: para utilizar esta opção, precisa de uma conta de armazenamento existente para ligar a. Para criar uma nova conta de armazenamento no portal, veja [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md) e siga as instruções para criar um Azure Resource Manager, conta para fins gerais. Em seguida, regresse a esta página no portal para selecionar a sua conta de armazenamento. Poderá demorar alguns minutos para as contas de armazenamento recentemente criada aparece no menu pendente.
     * **Stream para um hub de eventos**: para utilizar esta opção, terá dos Hubs de eventos espaço de nomes e o evento hub existente para ligar a. Para criar um espaço de nomes de Hubs de eventos, consulte [para criar um espaço de nomes de Hubs de eventos e um hub de eventos com o portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, regresse a esta página no portal para selecionar o nome de espaço de nomes e a política de Hubs de eventos.
-    * **Enviar para o Log Analytics**: para utilizar esta opção, utilize uma área de trabalho existente ou crie uma nova área de trabalho do Log Analytics ao seguir os passos para [criar uma nova área de trabalho](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre como ver os registos no Log Analytics, consulte [vista de registos no Log Analytics](#view-in-loganalytics).
+    * **Enviar para o Log Analytics**: para utilizar esta opção, utilize uma área de trabalho existente ou crie uma nova área de trabalho do Log Analytics ao seguir os passos para [criar uma nova área de trabalho](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre como ver os registos no Log Analytics, consulte [vista de registos no Log Analytics](#view-in-loganalytics).
     * **Inicie sessão DataPlaneRequests**: selecione esta opção para registar pedidos de back-end do Azure Cosmos DB distribuída plataforma subjacente para contas SQL, de gráficos, MongoDB, Cassandra e API de tabela. Se estiver arquivando para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são eliminados automaticamente após o período de retenção expira.
     * **Inicie sessão MongoRequests**: selecione esta opção para registar pedidos iniciada pelo utilizador a partir do Azure Cosmos DB front-end para satisfazer as necessidades contas da API do MongoDB. Se estiver arquivando para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são eliminados automaticamente após o período de retenção expira.
     * **Pedidos de métrica**: selecione esta opção para armazenar dados verbosos no [métricas do Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Se estiver arquivando para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos são eliminados automaticamente após o período de retenção expira.

@@ -7,19 +7,19 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 3142cabf28dd60fa49bed4cc153eaba096a2782e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1493eb6978b00771aa8ed4d8cfc28c37a9dde5b6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109940"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139752"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Melhores práticas para configurar as redes para cargas de trabalho migradas para o Azure
 
-Como planear e conceber para a migração, além de pensar sobre a migração em si, uma das etapas mais importantes é o design e a implementação da rede do Azure. Este artigo descreve as informações de planeamento e as melhores práticas de rede ao migrar para implementações de IaaS e PaaS no Azure.
+Como planear e conceber para a migração, além da migração em si, uma das etapas mais importantes é o design e a implementação da rede do Azure. Este artigo descreve as melhores práticas para funcionamento em rede ao migrar para implementações de IaaS e PaaS no Azure.
 
 > [!IMPORTANT]
-> As melhores práticas e opiniões descritos neste artigo baseiam-se na plataforma do Azure e funcionalidades disponíveis no momento da escrita de serviço. Funcionalidades e capacidades mudam ao longo do tempo. Nem todas as recomendações podem ser aplicáveis para a sua implementação, por isso, selecione aqueles que funcionam para o seu ambiente.
+> As melhores práticas e opiniões descritos neste artigo baseiam-se na plataforma do Azure e funcionalidades disponíveis no momento da escrita de serviço. Funcionalidades e capacidades mudam ao longo do tempo. Nem todas as recomendações podem ser aplicáveis para a sua implementação, por isso, selecione aqueles que funcionam para si.
 
 
 ## <a name="design-virtual-networks"></a>Design de redes virtuais

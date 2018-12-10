@@ -1,6 +1,6 @@
 ---
-title: Estágio de compreensão de negócios do ciclo de vida do processo de ciência de dados de equipa - Azure | Documentos da Microsoft
-description: As metas, tarefas e resultados finais para a fase de compreensão de negócios dos seus projetos de ciência de dados
+title: Noções sobre empresas no processo de ciência de dados de equipa
+description: Os objetivos, tarefas e resultados finais para a fase de compreensão de negócios dos seus projetos de ciência de dados no processo de ciência de dados de equipa.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3d2a6bf5a7e4766ca6205c413dd27fa9a69c16b7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: f45d8a83c323689272313314d0f9ac9b79edecd7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446726"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141667"
 ---
-# <a name="business-understanding"></a>Noções sobre empresas
+# <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>A fase de compreensão de negócios do ciclo de vida do processo de ciência de dados de equipa
 
 Este artigo descreve os objetivos, tarefas e resultados associados a fase de compreensão de negócios do Team Data Science Process (TDSP). Este processo fornece um ciclo de vida recomendado que pode utilizar para estruturar os seus projetos de ciência de dados. O ciclo de vida destaca as fases principais projetos normalmente executadas, muitas vezes iterativamente:
 
@@ -92,5 +92,3 @@ Seguem-se ligações para cada etapa do ciclo de vida do TDSP:
    5. [Aceitação do cliente](lifecycle-acceptance.md)
 
 Fornecemos orientações passo a passo de completa-a-ponto, que demonstram todas as etapas do processo para cenários específicos. O [instruções passo a passo do exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com links e descrições em miniatura. A instruções passo a passo mostram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
-
-Para obter exemplos de como executar os passos no TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com o Azure Machine Learning](https://aka.ms/datascienceprocess).

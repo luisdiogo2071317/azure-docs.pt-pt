@@ -1,5 +1,5 @@
 ---
-title: Funções de processo de ciência de dados e tarefas - Azure | Documentos da Microsoft
+title: Tarefas e funções do Team Data Science Process
 description: Uma descrição do componentes-chave, funções de equipe e tarefas associadas para um projeto de equipe de ciência de dados.
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3529160ccfd0a11d3d2077245c1160941027ff88
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 77cd2d2e2304d3091de4d73487243f2bad47269f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442103"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133456"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Tarefas e funções do Team Data Science Process
 

@@ -1,25 +1,19 @@
 ---
-title: Requisitos do QoS para o ExpressRoute | Microsoft Docs
-description: Esta página fornece os requisitos detalhados para configurar e gerir o QoS para circuitos do ExpressRoute.
-documentationcenter: na
+title: 'Requisitos do QoS - ExpressRoute: Azure | Documentos da Microsoft'
+description: Esta página fornece os requisitos detalhados para configurar e gerir o QoS. Skype para serviços de negócios/voz são discutidos.
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: db1c1447-0283-4a09-907b-ae481adc40c7
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: c097a9ccba91f59b323215d42d37e6d85e0981ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: cb9acb5434fad6cd7898be14404c5ed4125ab96a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22709917"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141174"
 ---
 # <a name="expressroute-qos-requirements"></a>Requisitos do QoS do ExpressRoute
 O Skype para Empresas tem várias cargas de trabalho que exigem um tratamento do QoS diferenciado. Se planear consumir serviços de voz através do ExpressRoute, deve cumprir os requisitos descritos abaixo.
@@ -45,7 +39,7 @@ A tabela seguinte fornece uma lista de marcações DSCP utilizadas pelo Skype pa
 * Deve configurar e suportar várias filas do QoS na rede. Voz tem de ser uma classe autónoma e receber o tratamento EF especificado no RFC 3246. 
 * Pode decidir o mecanismo de colocação em fila, a política de deteção de congestionamento e a alocação de largura de banda por classe de tráfego. No entanto, a marcação DSCP para cargas de trabalho do Skype para Empresas tem de ser preservada. Se estiver a utilizar marcações DSCP não listadas acima, por exemplo, AF31 (26), terá de reescrever este valor DSCP para 0 antes de enviar o pacote à Microsoft. A Microsoft só envia pacotes marcados com o valor DSCP mostrado na tabela acima. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Veja os requisitos para [Encaminhamento](expressroute-routing.md) e [NAT](expressroute-nat.md).
 * Consulte as ligações seguintes para configurar a ligação do ExpressRoute.
   

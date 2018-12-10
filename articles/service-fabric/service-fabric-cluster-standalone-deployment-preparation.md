@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9918c4b022fc2aca4bfc1ddba5649d7f0efe1256
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259093"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138794"
 ---
 <a id="preparemachines"></a>
 
@@ -83,6 +83,7 @@ Para criar um cluster autónomo tem de criar autónomo cluster ClusterConfig.jso
 Para obter detalhes sobre as secções neste ficheiro, consulte [definições de configuração para cluster autónomo do Windows](service-fabric-cluster-manifest.md).
 
 Abra um dos ficheiros ClusterConfig.json do pacote que transferiu e modifique as seguintes definições:
+
 | **Definição de configuração** | **Descrição** |
 | --- | --- |
 | **NodeTypes** |Tipos de nó permitem-lhe separar os nós do cluster em vários grupos. Um cluster tem de ter, pelo menos, um NodeType. Todos os nós de um grupo têm as seguintes características comuns: <br> **Nome** -este é o nome do tipo de nó. <br>**Portas de pontos finais** - estes são denominados vários pontos de extremidade (portas) que estão associados este tipo de nó. Pode utilizar qualquer número de porta que deseja, desde que eles não entram em conflito com qualquer coisa nesse manifesto e já não está a ser utilizada por qualquer outro aplicativo em execução na máquina/VM. <br> **As propriedades de colocação** -descrevem estas propriedades para este tipo de nó que usa como restrições de posicionamento para os serviços do sistema ou os seus serviços. Essas propriedades são pares de chave/valor definido pelo utilizador que fornecem dados extras de metadados de um nó específico. Exemplos de propriedades de nó seria se o nó tem um disco rígido ou a placa gráfica, o número de spindles no seu disco rígido, núcleos e outras propriedades físicas. <br> **As capacidades** -as capacidades de nós definem o nome e a quantidade de um recurso específico que um determinado nó tem disponível para consumo. Por exemplo, um nó pode definir que ele tem capacidade para uma métrica chamada "MemoryInMb" e que tem a 2048 MB disponível por predefinição. Estas capacidades são utilizadas no tempo de execução para garantir que os serviços que necessitem de quantidades específicas de recursos são colocados em nós que que os recursos disponíveis nos valores necessários.<br>**IsPrimary** – se tiver mais do que um NodeType definido Certifique-se de que apenas um está definido como principal com o valor *true*, que é onde o sistema dos serviços de execução. Todos os outros tipos de nó devem ser definidos como o valor *FALSO* |
@@ -97,20 +98,20 @@ Depois que a configuração do cluster tem tido todas as definições configurad
 Quando um administrador de cluster configura um cluster autónomo do Service Fabric, o ambiente tem de ser configurado com os seguintes critérios: <br>
 1. O utilizador criar o cluster deve ter privilégios de segurança de nível de administrador para todas as máquinas que estão listadas como nós no ficheiro de configuração de cluster.
 2. Máquina a partir do qual o cluster for criado, bem como cada máquina do nó de cluster tem de:
-* SDK do Service Fabric ter desinstalado
-* Ter desinstalado de runtime do Service Fabric 
-* Ativou o serviço de Firewall do Windows (mpssvc)
-* Ativou o serviço de registo remoto (registo remoto)
-* Ter o ficheiro que partilha (SMB) ativado
-* Ter as portas necessárias abertas, com base nas portas de configuração de cluster
-* Ter as portas necessárias abertas para o serviço SMB do Windows e de registo remoto: 135, 137, 138, 139 e 445
-* Tem conectividade de rede entre si
+   * SDK do Service Fabric ter desinstalado
+   * Ter desinstalado de runtime do Service Fabric 
+   * Ativou o serviço de Firewall do Windows (mpssvc)
+   * Ativou o serviço de registo remoto (registo remoto)
+   * Ter o ficheiro que partilha (SMB) ativado
+   * Ter as portas necessárias abertas, com base nas portas de configuração de cluster
+   * Ter as portas necessárias abertas para o serviço SMB do Windows e de registo remoto: 135, 137, 138, 139 e 445
+   * Tem conectividade de rede entre si
 3. Nenhuma das máquinas de nó de cluster deve ser um controlador de domínio.
 4. Se o cluster ser implementado um cluster seguro, valide a pré-requisitos estão colocar e estão configurados corretamente em relação a configuração de segurança necessária.
 5. Se as máquinas de cluster não estiverem acessível pela internet, defina o seguinte na configuração do cluster:
-* Desativar a telemetria: sob *propriedades* definir *"ativar telemetria": Falso*
-* Desativar baixar versão de recursos de infraestrutura & notificações que a versão atual do cluster está próximo do fim do suporte automático: sob *propriedades* definir *"fabricClusterAutoupgradeEnabled": Falso*
-* Em alternativa, se o acesso à internet de rede está limitado a domínios listados em branco, os domínios abaixo são necessários para a atualização automática: go.microsoft.com download.microsoft.com
+   * Desativar a telemetria: sob *propriedades* definir *"ativar telemetria": Falso*
+   * Desativar baixar versão de recursos de infraestrutura & notificações que a versão atual do cluster está próximo do fim do suporte automático: sob *propriedades* definir *"fabricClusterAutoupgradeEnabled": Falso*
+   * Em alternativa, se o acesso à internet de rede está limitado a domínios listados em branco, os domínios abaixo são necessários para a atualização automática: go.microsoft.com download.microsoft.com
 
 6. Definir exclusões do antivírus do Service Fabric apropriadas:
 

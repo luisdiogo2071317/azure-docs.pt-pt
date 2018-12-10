@@ -1,6 +1,6 @@
 ---
-title: O processo de ciência de dados de equipa para cientistas de dados | Documentos da Microsoft
-description: Fornece orientações para compreender uma carga de trabalho de análise com o processo de ciência de dados de equipa e o Azure Machine Learning.
+title: Processo de ciência de dados de equipa para cientistas de dados
+description: Orientações sobre um conjunto de objetivos que são normalmente utilizadas para implementar as soluções de ciência de dados abrangente com tecnologias do Azure com o processo de ciência de dados de equipa e o Azure Machine Learning.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ddf73f15dc7c269ba3bf9a2912c3713fd4e847f2
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 3fba0af6eb9e5ffe78a1709c656197981e6335e8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497575"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134646"
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>Processo de ciência de dados de equipa para cientistas de dados
 

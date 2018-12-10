@@ -1,25 +1,18 @@
 ---
-title: Requisitos NAT dos circuitos do ExpressRoute | Microsoft Docs
+title: 'Requisitos do NAT para circuitos - ExpressRoute: Azure | Documentos da Microsoft'
 description: Esta página fornece os requisitos detalhados para configurar e gerir o NAT para circuitos do ExpressRoute.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: 867bf936-c851-485f-84c8-d8d6e33fee9f
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.topic: conceptual
+ms.date: 12/08/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2a9903b0e3c04a7098f7a8e529801483b10af142
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
-ms.translationtype: HT
+ms.openlocfilehash: 4febd1538e16b840bcd89116ac63531105222cce
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23409270"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134153"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos do NAT do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir os NATs. Alguns fornecedores de conectividade oferecem a configuração e a gestão do NAT como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece tal serviço. Se não for possível, terá de cumprir os requisitos descritos abaixo. 
@@ -67,7 +60,7 @@ Não existem restrições ao comprimento do prefixo do IP do NAT anunciado atrav
 > 
 > 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Veja os requisitos para [Encaminhamento](expressroute-routing.md) e [QoS](expressroute-qos.md).
 * Para obter informações sobre o fluxo de trabalho, veja [Circuito ExpressRoute aprovisiona fluxos de trabalho e estados de circuitos](expressroute-workflows.md).
 * Configurar a ligação do ExpressRoute.

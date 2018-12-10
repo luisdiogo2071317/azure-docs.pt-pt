@@ -1,5 +1,5 @@
 ---
-title: Instruções de ciência de dados do SQL Server com R, Python e T-SQL | Documentos da Microsoft
+title: Análise em SQL Server com o R, Python e T-SQL - processo de ciência de dados de equipa
 description: Exemplos que o orientam através da utilização de R, Python e T-SQL no SQL Server para fazer a Análise Preditiva.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 9c97d38bc278ff3632031138e2ac0326200f741f
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5efcf1221fe4bc0e02dd7a35e02ca8b274d5328f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442068"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136482"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Instruções de ciência de dados do SQL Server com R, Python e T-SQL
 

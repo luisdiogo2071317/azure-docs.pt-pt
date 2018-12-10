@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d098d38c39788dee7f4a3852d07a762b36fd9a4f
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9ee7f0b975dd2990281833726b4013c9726a2935
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333756"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134323"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Definir uma página inicial personalizada para aplicações publicadas com o Proxy de aplicações do Azure AD
 
@@ -142,4 +142,4 @@ Crie o URL da home page e atualizar a sua aplicação com esse valor. Continue a
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Ativar o acesso remoto ao SharePoint com o Proxy de aplicações do Azure AD](application-proxy-integrate-with-sharepoint-server.md)
-- [Ativar o Proxy de aplicações no portal do Azure](application-proxy-enable.md)
+- [Ativar o Proxy de aplicações no portal do Azure](application-proxy-add-on-premises-application.md)

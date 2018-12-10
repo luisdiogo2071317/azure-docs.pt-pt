@@ -1,5 +1,5 @@
 ---
-title: Instruções de captura de Hubs de eventos do Azure | Documentos da Microsoft
+title: Leitura capturados dados da aplicação do Python - Event Hubs do Azure | Documentos da Microsoft
 description: Exemplo que utiliza o SDK Python para demonstrar a utilização da funcionalidade de captura de Hubs de eventos.
 services: event-hubs
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 0733d26839cbb2dc40f4dd99b60d6a5628cc1f1a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 72efe156920bb78631ea71a0f47f7f5fe19c7e23
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727091"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133660"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Instruções de captura dos Hubs de eventos: Python
 

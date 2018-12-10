@@ -1,6 +1,6 @@
 ---
-title: Amostra dos dados nas tabelas do Hive do Azure HDInsight | Documentos da Microsoft
-description: Para baixo de amostragem de dados em tabelas do Hive do HDInsight do Azure (Hadopop)
+title: Dados de exemplo nas tabelas Hive do Azure HDInsight - Team Data Science Process
+description: Dimensionar os dados armazenados em tabelas de ramo de registo do Azure HDInsight com consultas do Hive para reduzir os dados para um tamanho mais gerenciável para análise.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: e344ccb02d4d4ac78f4311b1a23a936e6cff99e1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 6d833dc41677ddb027964ff535b27324e2b0c3da
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844894"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133082"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dados de exemplo em tabelas do Hive do HDInsight
 Este artigo descreve como dimensionar os dados armazenados em tabelas de ramo de registo do Azure HDInsight com consultas do Hive para reduzi-lo para um tamanho mais gerenciável para análise. Ele abrange três métodos de amostragem popularmente usado:
