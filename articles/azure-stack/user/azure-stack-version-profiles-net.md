@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 35329468ee01d5b70d654c1eb4a908db9d3fcb5d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: cfebbdb9b88a1de6a05f06e6ed72ebc9cddddcf6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184907"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074456"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Utilizar perfis de versão de API com .NET no Azure Stack
 
@@ -193,7 +193,9 @@ Pode utilizar os exemplos seguintes encontrados nos repositórios do GitHub, com
 
 1.  Clone o repositório utilizando o seguinte comando:
 
-    `git clone <https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject>`
+    ```shell
+    git clone https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm.git
+    ```
 
 2.  Criar um Azure principal de serviço e atribuir uma função aceda à subscrição. Para obter instruções sobre como criar um principal de serviço, consulte [Utilizar o Azure PowerShell para criar um principal de serviço com um certificado][].
 

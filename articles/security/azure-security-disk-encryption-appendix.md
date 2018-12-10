@@ -1,20 +1,22 @@
 ---
-title: Azure Disk Encryption para VMs de Linux IaaS e do Windows | Documentos da Microsoft
+title: Apêndice - Azure Disk Encryption para IaaS VMs | Documentos da Microsoft
 description: Este artigo é o anexo de Microsoft Azure disco encriptação para Windows e VMs de IaaS Linux.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 11/12/2018
-ms.openlocfilehash: e5c7d51428c66bf9e6c245f28fb13b8d4a316d18
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: d6e186f25cc69791d939d93d24a37cadb1113353
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614680"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105047"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apêndice para a encriptação de disco do Azure 
+
 Este artigo é um apêndice ao [do Azure Disk Encryption para IaaS VMs](azure-security-disk-encryption-overview.md). Certifique-se de que o Azure Disk Encryption para IaaS VMs artigos primeiro para compreender o contexto de leitura. Este artigo descreve como preparar VHDs previamente encriptados e outras tarefas.
 
 ## <a name="connect-to-your-subscription"></a>Estabelecer a ligação à subscrição
@@ -57,7 +59,7 @@ Antes de começar, reveja os [pré-requisitos](azure-security-disk-encryption-pr
 
 ### <a name="bkmk_ConnectCLI"></a> Ligar à sua subscrição com a CLI do Azure
 
-1. Inicie sessão no Azure com [início de sessão az](/cli/azure/authenticate-azure-cli#interactive-log-in). 
+1. Inicie sessão no Azure com [início de sessão az](/cli/azure/authenticate-azure-cli#sign-in-interactively). 
      
      ```azurecli
      az login
@@ -189,7 +191,7 @@ Para o Windows Server 2008 R2, utilize o seguinte comando:
 
     ServerManagerCmd -install BitLockers
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Preparar o volume do SO do BitLocker utilizando `bdehdcfg`
-Para compactar a partição do sistema operacional e preparar o computador para o BitLocker, execute o [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment#using-bitlocker-to-encrypt-volumescommand) se for necessário:
+Para compactar a partição do sistema operacional e preparar o computador para o BitLocker, execute o [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) se for necessário:
 
     bdehdcfg -target c: shrink -quiet 
 
@@ -295,23 +297,23 @@ Configure a encriptação durante a instalação de distribuição, efetuando os
 
 1. Selecione **configurar volumes criptografados** quando dividir os discos.
 
- ![Configuração do Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+ ![Ubuntu 16.04 configurar - configurar volumes encriptados](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2. Crie uma unidade de inicialização separado, que não tem de estar encriptada. Criptografe sua unidade de raiz.
 
- ![Configuração do Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+ ![Configuração do Ubuntu 16.04 - selecione os dispositivos para encriptar](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3. Forneça uma frase de acesso. Esta é a frase de acesso que carregou para o Cofre de chaves.
 
- ![Configuração do Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+ ![Ubuntu 16.04 configurar - fornecer a frase de acesso](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4. Conclua a criação de partições.
 
- ![Configuração do Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+ ![Ubuntu 16.04 configurar - concluir a criação de partições](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5. Quando iniciar a VM e são-lhe pedido para uma frase de acesso, utilize a frase de acesso que indicou no passo 3.
 
- ![Configuração do Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+ ![Ubuntu 16.04 configurar - forneça a frase de acesso no arranque](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
 6. Preparar a VM para carregando-a no Azure com [estas instruções](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Não execute o último passo (desaprovisionar a VM) ainda.
 
@@ -377,7 +379,7 @@ Configure a encriptação funcione com o Azure, efetuando os seguintes passos:
 
 7. Agora pode desaprovisionar a VM.
 
- ![Configuração do Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+ ![Configuração do Ubuntu 16.04 - update-initramfs](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 8. Continuar para o passo seguinte e carregar o seu VHD para o Azure.
 
@@ -385,11 +387,11 @@ Configure a encriptação funcione com o Azure, efetuando os seguintes passos:
 Para configurar a encriptação durante a instalação de distribuição, siga os passos abaixo:
 1. Quando a partição dos discos, selecione **criptografar o Volume grupo**e, em seguida, introduza uma palavra-passe. Esta é a palavra-passe que irá carregar para o seu Cofre de chaves.
 
- ![Configurar o openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
+ ![openSUSE 13.2 configuração - criptografar o Volume de grupo](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
 2. A VM com a sua palavra-passe de arranque.
 
- ![Configurar o openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
+ ![openSUSE 13.2 configurar - forneça a frase de acesso no arranque](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
 3. Preparar a VM para carregar para o Azure ao seguir as instruções em [preparar uma máquina virtual SLES ou openSUSE para o Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Não execute o último passo (desaprovisionar a VM) ainda.
 
@@ -453,19 +455,19 @@ para:
 Para configurar a encriptação durante a instalação de distribuição, siga os passos abaixo:
 1. Selecione **criptografar meus dados** quando dividir os discos.
 
- ![Configuração do centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
+ ![Configurar o centOS 7 - destino de instalação](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
 
 2. Certifique-se **Encrypt** está selecionada para a partição de raiz.
 
- ![Configuração do centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
+ ![Configurar o centOS 7 - selecione criptografar para a partição de raiz](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
 
 3. Forneça uma frase de acesso. Esta é a frase de acesso que deverá carregar para o seu Cofre de chaves.
 
- ![Configuração do centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
+ ![Configuração do centOS 7 - fornecer a frase de acesso](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
 
 4. Quando iniciar a VM e são-lhe pedido para uma frase de acesso, utilize a frase de acesso que indicou no passo 3.
 
- ![Configuração do centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
+ ![CentOS 7 configurar - introduza a frase de acesso na inicialização](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
 5. Preparar a VM para carregar para o Azure ao utilizar as instruções de "CentOS 7.0 +" na [preparar uma máquina de virtual baseada em CentOS para o Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Não execute o último passo (desaprovisionar a VM) ainda.
 
@@ -526,7 +528,7 @@ para
     ```    
 5. Executar o "/ usr/sbin/dracut - f - v" para atualizar o initrd.
 
-![Configuração do centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
+![Configuração de centOS 7 - executar /usr/sbin/dracut -f - v](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="bkmk_UploadVHD"></a> Carregar o VHD encriptado para uma conta de armazenamento do Azure
 Depois de é ativada a encriptação do BitLocker ou encriptação de DM-Crypt, o VHD encriptado local tem de ser carregado para a sua conta de armazenamento.
