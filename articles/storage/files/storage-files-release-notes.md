@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/4/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 45f77c3065feeb011a10bc345c22082b6a89529c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 4f4d30b483d0740261d85921d5dc66e053b5bcf0
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582824"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890964"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -25,7 +25,8 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 | Etapa | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
-| Versão de v4 | 4.0.1.0 | 13 de Novembro de 2018 | Suportado (versão recomendada) |
+| Rollup de - de atualização de Dezembro [KB4459988](https://support.microsoft.com/help/4459988)| 4.1.0.0 | 4 de Dezembro de 2018 | Suportado (versão recomendada) |
+| Versão de v4 | 4.0.1.0 | 13 de Novembro de 2018 | Suportadas |
 | Pacote cumulativo de atualizações de Setembro | 3.3.0.0 | 24 de setembro de 2018 | Suportadas |
 | Pacote cumulativo de atualizações de Agosto | 3.2.0.0 | 15 de agosto de 2018 | Suportadas |
 | Disponibilidade geral | 3.1.0.0 | 19 de Julho de 2018 | Suportadas |
@@ -42,6 +43,16 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-4100"></a>Versão do agente 4.1.0.0
+As notas de versão seguintes destinam-se a versão 4.1.0.0 do agente do Azure File Sync disponibilizada 4 de Dezembro de 2018. Estas notas são adicionais as notas de versão enumeradas para a versão 4.0.1.0.
+
+Lista dos problemas corrigidos nesta versão:  
+- Um erro de paragem 0x3B ou um erro de paragem 0x1E pode ocorrer quando é criado um instantâneo VSS.  
+- O servidor poderá deixar de responder devido a um vazamento de memória em camadas na cloud.  
+- Falha na instalação do agente com o seguinte erro: erro 1921. Não foi possível parar o serviço de "Agente de sincronização de armazenamento" (FileSyncSvc).  Certifique-se de que tem privilégios suficientes para parar serviços do sistema.  
+- O serviço de agente de sincronização de armazenamento (FileSyncSvc) pode falhar quando a utilização de memória é elevada.  
+- Melhorias de confiabilidade diversos para a cloud disposição em camadas e sincronização.
 
 ## <a name="agent-version-4010"></a>Versão do agente 4.0.1.0
 As notas de versão seguintes destinam-se a versão 4.0.1.0 do agente do Azure File Sync (disponibilizada a 13 de Novembro de 2018).
@@ -107,7 +118,7 @@ Os itens seguintes não são sincronizados, mas o restante sistema continua a fu
 ## <a name="agent-version-3300"></a>Versão do agente 3.3.0.0
 As notas de versão seguintes destinam-se a versão 3.3.0.0 do agente do Azure File Sync disponibilizada 24 de Setembro de 2018. Estas notas são adicionais as notas de versão enumeradas para a versão 3.1.0.0.
 
-Esta versão inclui a correção seguinte:
+Lista dos problemas corrigidos nesta versão:
 - Estado do servidor registado é "Aparece offline" após o agente é atualizado para a versão 3.1 ou 3.2 do Azure File Sync.
 - Serviço de agente de sincronização (FileSyncSvc) de armazenamento falha devido a ficheiros que tenham caminhos longos.
 - Falha de registo do servidor com o erro: não foi possível carregar o ficheiro ou a assemblagem Kailani.Afs.StorageSyncProtocol.V3.
