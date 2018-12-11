@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 8302a444f28e4fb330a1eedbac9a5da762979d6c
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681964"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870408"
 ---
 # <a name="translator-text-api-v30"></a>V3.0 de API de texto do tradutor
 
@@ -51,11 +51,21 @@ Para forçar o pedido deve ser processada por um Data Center específico, altere
 
 ## <a name="authentication"></a>Autenticação
 
-Subscrever a API de texto do Translator nos serviços cognitivos da Microsoft e utilizar a sua chave de subscrição (disponível no portal do Azure) para autenticar. 
+Subscrever a API de texto do Translator ou [dos serviços cognitivos tudo-em-um](https://azure.microsoft.com/pricing/details/cognitive-services/) nos serviços cognitivos da Microsoft e usar sua assinatura da chave (disponível no portal do Azure) para autenticar. 
 
-A forma mais simples é passar a chave secreta do Azure para o serviço de Microsoft Translator usando o cabeçalho do pedido `Ocp-Apim-Subscription-Key`.
+Existem três cabeçalhos que pode utilizar para autenticar a sua subscrição. Esta tabela fornece descreve a forma como cada um é utilizado:
 
-Uma alternativa é usar a chave secreta para obter um token de autorização do serviço de tokens de. Em seguida, passa o token de autorização para o serviço Microsoft Translator, com o `Authorization` cabeçalho do pedido. Para obter um token de autorização, fazer um `POST` pedido para o URL seguinte:
+|Cabeçalhos|Descrição|
+|:----|:----|
+|OCP-Apim-Subscription-Key|*Utilizar com a subscrição de serviços cognitivos, se estiver passando a chave secreta*.<br/>O valor é a chave secreta do Azure para a sua subscrição para a API de texto do Translator.|
+|Autorização|*Utilizar com subscrição dos serviços cognitivos, se estiver passando um token de autenticação.*<br/>O valor é o token de portador: `Bearer <token>`.|
+|OCP-Apim-subscrição-região|*Utilizar com a subscrição de tudo-em-um dos serviços cognitivos, se estiver passando uma chave secreta de tudo-em-um.*<br/>O valor é a região da subscrição tudo-em-um. Este valor é opcional quando não utilizar uma subscrição de tudo-em-um.|
+
+###  <a name="secret-key"></a>Chave secreta
+A primeira opção é autenticar com o `Ocp-Apim-Subscription-Key` cabeçalho. Basta adicionar o `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` cabeçalho para o seu pedido.
+
+### <a name="authorization-token"></a>Token de autorização
+Em alternativa, pode trocar a um token de acesso da chave secreta. Este token está incluído com cada solicitação como o `Authorization` cabeçalho. Para obter um token de autorização, fazer um `POST` pedido para o URL seguinte:
 
 | Ambiente     | URL do serviço de autenticação                                |
 |-----------------|-----------------------------------------------------------|
@@ -66,6 +76,7 @@ Seguem-se os pedidos de exemplo para obter um token dado uma chave secreta:
 ```
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
+
 // Pass secret key using query string parameter
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
@@ -78,20 +89,21 @@ Authorization: Bearer <Base64-access_token>
 
 Um token de autenticação é válido durante 10 minutos. O token deve ser reutilizado ao fazer várias chamadas para as APIs de Microsoft Translator. No entanto, se o seu programa faz solicitações para a API do Translator ao longo de um longo período de tempo, em seguida, seu programa tem de pedir um novo token de acesso em intervalos regulares (por exemplo, a cada 8 minutos).
 
-Para resumir, um pedido de cliente para a API do Translator irá incluir um cabeçalho de autorização obtido da tabela a seguir:
+### <a name="all-in-one-subscription"></a>Subscrição de tudo-em-um
 
-<table width="100%">
-  <th width="30%">Cabeçalhos</th>
-  <th>Descrição</th>
-  <tr>
-    <td>OCP-Apim-Subscription-Key</td>
-    <td>*Utilizar com a subscrição de serviços cognitivos, se estiver passando a chave secreta*.<br/>O valor é a chave secreta do Azure para a sua subscrição para a API de texto do Translator.</td>
-  </tr>
-  <tr>
-    <td>Autorização</td>
-    <td>*Utilizar com subscrição dos serviços cognitivos, se estiver passando um token de autenticação.*<br/>O valor é o token de portador: "portador <token>'.</td>
-  </tr>
-</table> 
+A última opção de autenticação é utilizar a subscrição do serviço cognitivo tudo-em-um. Isto permite-lhe utilizar uma única chave secreta para autenticar pedidos para vários serviços. 
+
+Quando utilizar uma chave secreta de tudo-em-um, tem de incluir dois cabeçalhos de autenticação com o seu pedido. A primeira passa a chave secreta, o segundo Especifica a região associada à sua subscrição. 
+* `Ocp-Api-Subscription-Key`
+* `Ocp-Apim-Subscription-Region`
+
+Se passar a chave secreta na cadeia de consulta com o parâmetro `Subscription-Key`, em seguida, tem de especificar a região com o parâmetro de consulta `Subscription-Region`.
+
+Se utilizar um token de portador, tem de obter o token do ponto de extremidade de região: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+
+Regiões disponíveis são `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, e `westus2`.
+
+Região é necessária para a subscrição da API de texto de tudo-em-um.
 
 ## <a name="errors"></a>Erros
 
