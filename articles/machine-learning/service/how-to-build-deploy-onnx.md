@@ -1,5 +1,6 @@
 ---
-title: ONNX e do Azure Machine Learning | Criar e implementar modelos
+title: Criar e implementar modelos ONNX a interoperáveis
+titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre ONNX e como utilizar o Azure Machine Learning para criar e implementar modelos ONNX
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e5c0e479d5564a48048b9fa9c67ad8870122601
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 5fc0e00d9c4404a1c6a757c354a9c7116dfeffa7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706063"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094020"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX e o Azure Machine Learning: crie e implemente modelos de IA interoperáveis
 
@@ -63,18 +65,18 @@ Pode encontrar a lista mais recente de arquiteturas suportadas e conversores no 
 
 ## <a name="deploy-onnx-models-in-azure"></a>Implementar modelos ONNX no Azure
 
-Com o serviço do Azure Machine Learning, pode implementar, gerir e monitorizar os seus modelos ONNX. Através da norma [fluxo de trabalho de implantação](concept-model-management-and-deployment.md) e o tempo de execução ONNX, pode criar um ponto final REST alojado na cloud. Ver um bloco de notas do Jupyter do exemplo completo no final deste artigo para experimentar por conta própria. 
+Com o serviço do Azure Machine Learning, pode implementar, gerir e monitorizar os seus modelos ONNX. Através da norma [fluxo de trabalho de implantação](concept-model-management-and-deployment.md) e tempo de execução ONNX, pode criar um ponto final REST alojado na cloud. Ver um bloco de notas do Jupyter do exemplo completo no final deste artigo para experimentar por conta própria. 
 
-### <a name="install-and-configure-the-onnx-runtime"></a>Instalar e configurar o tempo de execução ONNX
+### <a name="install-and-configure-onnx-runtime"></a>Instalar e configurar o tempo de execução ONNX
 
-O tempo de execução ONNX são um motor de inferência de tipos de alto desempenho para modelos ONNX. Ele vem com uma API de Python e fornece a aceleração de hardware na CPU e GPU. Atualmente ele oferece suporte a modelos ONNX 1.2 e é executado no Ubuntu 16.04 Linux. Ambos [CPU](https://pypi.org/project/onnxruntime) e [GPU](https://pypi.org/project/onnxruntime-gpu) pacotes estão disponíveis em [PyPi.org](https://pypi.org).
+Tempo de execução ONNX é um motor de inferência de tipos de alto desempenho do código-fonte aberto para modelos ONNX. Ele fornece a aceleração de hardware na CPU e GPU, com as APIs disponíveis para o Python, C#, e o tempo de execução do C. ONNX suporta ONNX 1.2 + modelos e é executada em Linux, Windows e Mac. Pacotes de Python estão disponíveis em [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), e [ C# pacote](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) no [Nuget.org](https://www.nuget.org). Ver mais informações sobre o projeto no [Github](https://github.com/Microsoft/onnxruntime). 
 
-Para instalar o tempo de execução ONNX, utilize:
+Para instalar o Runtime de ONNX para Python, utilize:
 ```python
 pip install onnxruntime
 ```
 
-Para chamar o tempo de execução ONNX no seu script de Python, utilize:
+Para chamar ONNX tempo de execução no seu script de Python, utilize:
 ```python
 import onnxruntime
 
@@ -94,7 +96,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-Para obter a referência de API completa, consulte a [documentos de referência de tempo de execução ONNX](https://aka.ms/onnxruntime-python).
+Para obter a referência de Python API completa, consulte a [documentos de referência de tempo de execução ONNX](https://aka.ms/onnxruntime-python).
 
 ### <a name="example-deployment-steps"></a>Passos de implementação de exemplo
 
@@ -183,24 +185,12 @@ Eis um exemplo para implementar um modelo ONNX:
     f.write(myenv.serialize_to_string())
    ```
 
-4. Implemente o seu modelo ONNX com o Azure Machine Learning para:
-   + Azure Container Instances (ACI): [saber como...](how-to-deploy-to-aci.md)
-
-   + Serviço Kubernetes do Azure (AKS): [saber como...](how-to-deploy-to-aks.md)
+4. Para implementar o seu modelo, consulte a [como implementar e, em que](how-to-deploy-and-where.md) documento.
 
 
 ## <a name="examples"></a>Exemplos
  
-Os blocos de notas seguintes demonstram como criar modelos ONNX e implementá-las com o Azure Machine Learning: 
-+ [onnx/onnx-modelzoo-aml-implementar-resnet50.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb)
-+ [onnx/onnx-convert-aml-implementar-tinyyolo.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb)
-+ [onnx/onnx-Train-pytorch-AML-Deploy-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb)
-
-Os blocos de notas seguintes demonstram como implementar modelos ONNX existentes com o Azure Machine Learning: 
-+ [onnx/onnx-inferência de tipos-mnist-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist-deploy.ipynb) 
-+ [onnx/onnx-inference-facial-Expression-Recognition-Deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-facial-expression-recognition-deploy.ipynb)
- 
-Obtenha estes blocos de notas:
+Ver [procedimentos-to-use-azureml/implementação/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) como blocos de notas que criar e implementarem modelos ONNX.
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
@@ -210,3 +200,8 @@ Saiba mais sobre ONNX ou contribuir para o projeto:
 + [Site de projeto ONNX](https://onnx.ai)
 
 + [Código ONNX no GitHub](https://github.com/onnx/onnx)
+
+Saiba mais sobre o tempo de execução ONNX ou contribuir para o projeto:
++ [Repositório do Github de tempo de execução ONNX](https://github.com/Microsoft/onnxruntime)
+
+
