@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/12/2018
+ms.date: 12/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 33fce88e7108ee45236e20b1f20dde56bb7446b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616389"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876154"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementar o Azure Blockchain Workbench
 
@@ -43,6 +43,9 @@ Segue-se um exemplo de implementação criado num **myblockchain** grupo de recu
 ![Exemplo de implementação](media/deploy/example-deployment.png)
 
 O custo de Blockchain Workbench é um agregado do custo dos serviços do Azure subjacentes. Informações sobre preços do serviços do Azure podem ser calculados utilizando a [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/).
+
+> [!IMPORTANT]
+> Se estiver a utilizar uma subscrição com limites de serviço baixa, como uma subscrição do escalão gratuito do Azure, a implementação poderá falhar devido a insuficiente quota de núcleos VM. Antes da implantação, verifique a sua quota com a documentação de orientação do [quotas de vCPU de máquina virtual](../../virtual-machines/windows/quotas.md) artigo. A seleção de VM padrão exige 6 núcleos VM. Como a alteração para um tamanho mais pequeno de VM *Standard DS1 v2* reduz o número de núcleos para 4.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -99,7 +102,7 @@ Depois dos passos de pré-requisitos foram concluídos, está pronto para implem
     |---------|--------------|
     | Monitorização | Escolha se pretende ativar o Azure Monitor para monitorizar a sua rede de blockchain |
     | Definições do Active Directory do Azure | Escolher **adicionar posteriormente**.</br>Nota: Se optar por [pré-configurar o Azure AD](#azure-ad-configuration) ou estiver a Reimplementar, optar por *adicionar agora*. |
-    | Seleção de VM | Escolha o tamanho da VM preferencial para a sua rede de blockchain. |
+    | Seleção de VM | Escolha o tamanho da VM preferencial para a sua rede de blockchain. Escolha um tamanho VM mais pequeno, tal como *Standard DS1 v2* se estiver a utilizar uma subscrição com limites de serviço baixa, como o escalão gratuito do Azure. |
 
     Para **utilizar existente**:
 

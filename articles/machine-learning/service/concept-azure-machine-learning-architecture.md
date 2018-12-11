@@ -1,5 +1,6 @@
 ---
-title: Como funciona o serviço Azure Machine Learning?
+title: Como funciona?
+titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre a arquitetura, terminologia e conceitos que constituem o serviço Azure Machine Learning. Também Saiba mais sobre o fluxo de trabalho geral de usar o serviço e os serviços do Azure que são utilizados pelo serviço Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -8,13 +9,14 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 10/24/2018
-ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: MT
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 4e006c3ac9684cc9e51e8b3505659864123758d7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706811"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098003"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o serviço Azure Machine Learning: conceitos e arquitetura
 
@@ -33,8 +35,6 @@ O fluxo de trabalho em geral, segue estas etapas:
 1. __Criar uma imagem__ e registe-na __registo de imagem__. 
 1. __Implementar a imagem__ como uma __serviço web__ no Azure.
 
-
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 > [!NOTE]
 > Embora este documento define os termos e conceitos utilizados pelo Azure Machine Learning, não definir termos e conceitos para a plataforma Azure. Para obter mais informações sobre a terminologia da plataforma do Azure, consulte a [Glossário do Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
@@ -65,7 +65,7 @@ Quando cria uma nova área de trabalho, este cria automaticamente vários recurs
 
 O diagrama seguinte é uma taxonomia da área de trabalho:
 
-[![Taxonomia da área de trabalho](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
+[![Taxonomia da área de trabalho](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="model"></a>Modelo
 
@@ -169,19 +169,23 @@ Um destino de computação é o recurso de computação utilizado para executar 
 | Destino de computação | Formação | Implementação |
 | ---- |:----:|:----:|
 | Seu computador local | ✓ | &nbsp; |
+| Computação do Azure Machine Learning | ✓ | &nbsp; |
 | Uma VM do Linux no Azure</br>(por exemplo, a Máquina Virtual de ciência de dados) | ✓ | &nbsp; |
-| Cluster do Azure Batch AI | ✓ | &nbsp; |
 | Azure Databricks | ✓ | &nbsp; | &nbsp; |
 | Azure Data Lake Analytics | ✓ | &nbsp; |
 | Apache Spark para HDInsight | ✓ | &nbsp; |
-| Instância de Contentor do Azure | ✓ | ✓ |
+| Instância de Contentor do Azure | &nbsp; | ✓ |
 | Serviço Kubernetes do Azure | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
 | Project Brainwave</br>(Matriz de porta de campos programáveis) | &nbsp; | ✓ |
 
 Destinos de computação são anexados a uma área de trabalho. Destinos que não seja o computador local são partilhados por utilizadores da área de trabalho de computação.
 
-A maioria de computação destinos podem ser criados diretamente através da área de trabalho ao utilizar o portal do Azure, o SDK do Azure Machine Learning ou a CLI do Azure. Se tiver de destinos de computação que foram criados por outro processo (por exemplo, o portal do Azure ou a CLI do Azure), pode adicionar (anexar)-os para a área de trabalho. Alguns de computação destinos devem ser criados fora da área de trabalho e, em seguida, anexados.
+### <a name="managed-and-unmanaged-compute-targets"></a>Destinos de computação geridos e não geridos
+
+**Gerido** computação destinos são criados e geridos pelo serviço Azure Machine Learning. Estes computação destinos estão otimizados para cargas de trabalho de ML. __Computação do Azure Machine Learning__ é o único destino de computação gerida neste momento (4 de Dezembro de 2018). Destinos de computação geridos adicionais podem ser adicionados no futuro. Instâncias de computação do ML podem ser criadas diretamente através da área de trabalho ao utilizar o portal do Azure, o SDK do Azure Machine Learning ou a CLI do Azure. Todos os outros destinos de computação tem de ser criados fora da área de trabalho e, em seguida, ligados ao mesmo.
+
+**Não gerido** computação destinos não são geridos pelo serviço Azure Machine Learning. Poderá ter de criá-los fora do Azure Machine Learning e, em seguida, anexe-os à área de trabalho antes do uso. Estes computação destinos podem exigem passos adicionais para manter ou melhorar o desempenho para cargas de trabalho de ML.
 
 Para obter informações sobre como selecionar um destino de computação para a formação, consulte a [selecionar e utilizar um destino de computação para preparar o seu modelo](how-to-set-up-training-targets.md) documento.
 
