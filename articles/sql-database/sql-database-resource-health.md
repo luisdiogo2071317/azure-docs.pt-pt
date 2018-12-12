@@ -3,7 +3,7 @@ title: Utilizar o Azure Resource Health para monitorizar o estado de funcionamen
 description: Utilize o Azure Resource Health para monitorizar o estado de funcionamento da base de dados SQL, ajuda a diagnosticar e obter suporte quando um problema do Azure afeta os seus recursos do SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 9cbe88a44ba598a22fab628ae01605ac9d63bece
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.date: 12/06/2018
+ms.openlocfilehash: dc20ffb0ce8add08a396a4c0ba5b496e80d04aa1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632633"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083891"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Utilizar o Resource Health para resolver problemas de conectividade para a base de dados do Azure SQL
 
@@ -41,7 +41,7 @@ Estado **disponível** significa que o estado de funcionamento do recurso não d
 
 ### <a name="degraded"></a>Degradado
 
-Estado **Degraded** significa que o estado de funcionamento do recurso detetou a maioria dos inícios de sessão com êxito, mas também algumas falhas. Esses são erros de início de sessão transitórias mais prováveis. Para reduzir o impacto dos problemas de ligação causados por erros de início de sessão transitório, implemente [lógica de repetição](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) em seu código.
+O estado **Degradado** significa que o Resource Health detetou maioritariamente inícios de sessão com êxito, mas também algumas falhas. Esses são erros de início de sessão transitórias mais prováveis. Para reduzir o impacto dos problemas de ligação causados por erros de início de sessão transitório, implemente [lógica de repetição](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) em seu código.
 
 ![Degradado](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
@@ -63,20 +63,20 @@ Pode acessar até 14 dias do histórico de estado de funcionamento na secção d
 
 ### <a name="downtime-reasons"></a>Motivos de tempo de inatividade
 
-Quando a base de dados SQL sofrer um período de indisponibilidade, a análise é executada para determinar um motivo. Se estiver disponível, é comunicado o motivo de tempo de inatividade na secção de histórico de estado de funcionamento do Estado de funcionamento do recurso. Motivos de tempo de inatividade são publicados normalmente de 30 minutos após um evento.
+Quando a base de dados SQL sofrer um período de indisponibilidade, a análise é executada para determinar um motivo. Se estiver disponível, é comunicado o motivo de tempo de inatividade na secção de histórico de estado de funcionamento do Estado de funcionamento do recurso. Geralmente, os motivos para os tempos de inatividade são publicados 30 minutos após os eventos.
 
 #### <a name="planned-maintenance"></a>Manutenção planeada
 
-A infraestrutura do Azure efetua periodicamente a manutenção planeada – atualização dos componentes de hardware ou software no Centro de dados. Enquanto a base de dados entra em manutenção, o SQL pode encerrar algumas ligações existentes e recusar novos. O início de sessão durante a manutenção planeada de falhas costumam ser transitórios e lógica de repetição ajuda a reduzir o impacto. Se continuar a ocorrer erros de início de sessão, contacte o suporte.
+A infraestrutura do Azure efetua periodicamente a manutenção planeada – atualização dos componentes de hardware ou software no Centro de dados. Enquanto a base de dados entra em manutenção, o SQL pode encerrar algumas ligações existentes e recusar novos. As falhas de início de sessão durante a manutenção planeada estão costumam ser transitórias e [lógica de repetição](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) ajuda a reduzir o impacto. Se continuar a ocorrer erros de início de sessão, contacte o suporte.
 
 #### <a name="reconfiguration"></a>Reconfiguração
 
-Reconfigurações são consideradas condições transitórias e espera-se de tempos em tempos. Esses eventos podem ser adicionados a falhas de software/hardware ou de balanceamento de carga. Qualquer aplicativo de produção do cliente que se liga a um serviço de base de dados em nuvem deve implementar uma lógica de repetição de ligação robusta com a lógica de backoff, ele poderia ajudar a reduzir tais situações e deve geralmente fazem os erros transparente para o utilizador final.
+Reconfigurações são consideradas condições transitórias e espera-se de tempos em tempos. Esses eventos podem ser adicionados a falhas de software/hardware ou de balanceamento de carga. Qualquer aplicativo de produção do cliente que se liga a uma base de dados na cloud deve implementar uma ligação robusta [lógica de repetição](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors), ele poderia ajudar a reduzir tais situações e deve geralmente fazem os erros transparente para o utilizador final.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [repetir a lógica para erros transitórios](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
-- [Resolução de problemas, diagnosticar e prevenir erros de ligação de SQL](./sql-database-connectivity-issues.md)
+- [Troubleshoot, diagnose, and prevent SQL connection errors](./sql-database-connectivity-issues.md) (Resolver problemas, diagnosticar e evitar erros de ligação do SQL)
 - Saiba mais sobre [configurar alertas de estado de funcionamento do recurso](/articles/service-health/resource-health-alert-arm-template-guide.md)
 - Obtenha uma visão geral de [Resource Health](/articles/service-health/resource-health-overview.md)
 - [FAQ do Estado de funcionamento do recurso](/articles/service-health/resource-health-faq.md)

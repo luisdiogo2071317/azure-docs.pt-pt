@@ -4,7 +4,7 @@ description: Utilize o PowerShell para criar vários modelos de Machine Learning
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: e1a6eb4f61869c3c6299011c46a5953f93cc7305
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: b6e54fb7fe852ca4e12dc9a9e0f63eac2382c5c8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316570"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093028"
 ---
-# <a name="azure-machine-learning-studio-use-powershell-to-create-many-models-and-web-service-endpoints-from-one-experiment"></a>O Azure Machine Learning Studio: Utilize o PowerShell para criar muitos modelos e web pontos finais de serviço a partir de uma experimentação
+# <a name="use-powershell-to-create-models-and-web-service-endpoints-from-one-experiment"></a>Utilizar o PowerShell para criar modelos e web pontos finais de serviço partir de uma experiência
 
 Este é um problema de aprendizado de máquina comum: pretende criar muitos modelos que tenham o mesmo fluxo de trabalho de treinamento e usam o mesmo algoritmo. Mas deseja que eles tenham conjuntos de dados de treinamento diferente como entrada. Este artigo mostra-lhe como fazê-lo em escala no Azure Machine Learning Studio usando apenas uma única experiência.
 

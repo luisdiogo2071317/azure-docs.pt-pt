@@ -11,7 +11,7 @@ ms.date: 10/23/2018
 ms.author: raynew
 ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
 ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/27/2018
 ms.locfileid: "52422801"
@@ -195,14 +195,14 @@ O serviço de cópia de segurança instala a extensão de cópia de segurança, 
 ## <a name="establish-network-connectivity"></a>Estabelecer conectividade de rede
 Para gerir os instantâneos VM, a extensão de cópia de segurança precisa de conectividade para os endereços IP públicos do Azure. Sem conectividade de internet adequada, tempo limite de pedidos de HTTP da máquina virtual e a operação de cópia de segurança falhará. Se a sua implementação tem restrições de acesso no local – através de um grupo de segurança de rede (NSG), por exemplo – escolha uma destas opções para fornecer um caminho claro para o tráfego de cópia de segurança:
 
-* [Intervalos de IP do datacenter do Azure de lista branca](https://www.microsoft.com/download/details.aspx?id=41653).
+* [Intervalos de IP do datacenter do Azure de lista aprovada](https://www.microsoft.com/download/details.aspx?id=41653).
 * Implemente um servidor de proxy HTTP para o encaminhamento de tráfego.
 
 Quando estiver a decidir qual a opção para utilizar, são os compromissos entre a capacidade de gerenciamento, um controle granular e custo.
 
 | Opção | Vantagens | Desvantagens |
 | --- | --- | --- |
-| Intervalos de IP da lista branca |Sem custos adicionais.<br><br>Para abrir o acesso num NSG, utilize o **Set-AzureNetworkSecurityRule** cmdlet. |Complexo de gerir o afetado como intervalos de IP mudam ao longo do tempo.<br><br>Fornece acesso a todo do Azure e não apenas armazenamento. |
+| Intervalos de IP da lista aprovada |Sem custos adicionais.<br><br>Para abrir o acesso num NSG, utilize o **Set-AzureNetworkSecurityRule** cmdlet. |Complexo de gerir o afetado como intervalos de IP mudam ao longo do tempo.<br><br>Fornece acesso a todo do Azure e não apenas armazenamento. |
 | Utilizar um proxy de HTTP |Um controle granular no proxy sobre o armazenamento é permitida a URLs.<br><br>Único ponto de acesso à internet para VMs.<br><br>Não sujeitas a alterações ao endereço IP do Azure. |Custos adicionais para executar uma VM com o software de proxy. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Intervalos de IP da lista de permissões do datacenter do Azure

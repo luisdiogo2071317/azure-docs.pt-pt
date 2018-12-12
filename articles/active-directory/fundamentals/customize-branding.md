@@ -1,6 +1,6 @@
 ---
-title: Como adicionar a identidade visual à sua página de início de sessão do Azure Active Directory | Documentos da Microsoft
-description: Saiba como adicionar a sua organização a imagem corporativa para a página de início de sessão no Azure Active Directory.
+title: Adicionar identidade visual à página da sua organização início de sessão - Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como adicionar a imagem corporativa da sua organização para a página de início de sessão no Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
-custom: it-pro
-ms.openlocfilehash: cdf1c8bfb8e623956d50975f36faafe10b534d06
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 0ce0d42e37bcc5c936798947bacf0232891c24ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367565"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090317"
 ---
-# <a name="how-to-add-branding-to-your-azure-active-directory-sign-in-page"></a>Como: Adicionar identidade visual à sua página de início de sessão do Azure Active Directory
+# <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página da sua organização do Azure Active Directory início de sessão
 Utilize o logótipo e esquemas de cores personalizada da sua organização para fornecer uma consistente aspeto e funcionalidade em suas páginas de início de sessão no Azure Active Directory (Azure AD). As páginas de início de sessão são apresentadas quando os utilizadores iniciam sessão em aplicações de baseada na web da sua organização, como o Office 365, que utiliza o Azure AD como fornecedor de identidade.
 
 >[!Note]
->Adicionar a imagem corporativa personalizada tem de utilizar o Azure Active Directory Premium 1, 2 de Premium ou básicas editions, ou ter uma licença do Office 365. Para obter mais informações sobre as edições e licenciamento, consulte [Inscreva-se para o Azure AD Premium](active-directory-get-started-premium.md).<br><br>As edições Premium e Básica do Azure AD estão disponíveis para clientes na China que utilizem a instância mundial do Azure Active Directory. As edições Basic e do Azure AD Premium não são atualmente suportadas no serviço do Azure operado pela 21Vianet na China. Para obter mais informações, fale conosco utilizando o [fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>Adicionar a imagem corporativa personalizada tem de utilizar o Azure Active Directory Premium 1, 2 de Premium ou básicas editions, ou ter uma licença do Office 365. Para obter mais informações sobre as edições e licenciamento, consulte [Inscreva-se para o Azure AD Premium](active-directory-get-started-premium.md).<br><br>As edições Premium e Básica do Azure AD estão disponíveis para clientes na China que utilizem a instância mundial do Azure Active Directory. As edições do Azure AD Premium e Básico não são atualmente suportadas pelo serviço do Azure operado pela 21Vianet na China. Para obter mais informações, contacte-nos através do [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizar a página de início de sessão do Azure AD
 Pode personalizar sua do Azure AD início de sessão páginas, que são apresentados quando os utilizadores iniciam sessão aplicações de inquilino específico da sua organização, tal como [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), ou quando passar uma variável de domínio, tal como [ *https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
@@ -34,7 +34,7 @@ A imagem corporativa personalizadas não aparece imediatamente quando os utiliza
 > Todos os elementos de identidade visual são opcionais. Por exemplo, se especificar um logótipo de faixa com nenhuma imagem de fundo, a página de início de sessão irá mostrar o logótipo com uma imagem de fundo predefinido do site de destino (por exemplo, o Office 365).<br><br>Além disso, imagem corporativa a página de início de sessão não passa para contas Microsoft pessoais. Se os usuários ou convidados empresariais iniciar sessão com uma conta Microsoft pessoal, a página de início de sessão não reflete a imagem corporativa da sua organização.
 
 ### <a name="to-customize-your-branding"></a>Para personalizar a imagem corporativa
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
 2. Selecione **do Azure Active Directory**e, em seguida, selecione **imagem corporativa da empresa**e, em seguida, selecione **configurar**.
 
@@ -92,7 +92,7 @@ A imagem corporativa personalizadas não aparece imediatamente quando os utiliza
 Depois de criar a imagem corporativa personalizada, pode voltar atrás e alterar o que quiser.
 
 ### <a name="to-edit-your-custom-branding"></a>Para editar a sua marca personalizada
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
 2. Selecione **do Azure Active Directory**e, em seguida, selecione **imagem corporativa da empresa**e, em seguida, selecione **configurar**.
 
@@ -109,7 +109,7 @@ Não é possível alterar o idioma de sua configuração original do seu idioma 
 
 ### <a name="to-add-a-language-specific-branding-configuration"></a>Para adicionar uma configuração de imagem corporativa específica do idioma
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
 2. Selecione **do Azure Active Directory**e, em seguida, selecione **imagem corporativa da empresa**e, em seguida, selecione **nova linguagem**.
 

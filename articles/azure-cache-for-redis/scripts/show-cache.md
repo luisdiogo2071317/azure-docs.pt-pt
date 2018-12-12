@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: wesmc
-ms.openlocfilehash: 94786a17589cdae93ffa498eaaeeb1c1a81ffaf4
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0dd32ae2b8f0fb91ca8d6391d5c3f3979d13b90f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020078"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085268"
 ---
 # <a name="get-details-of-an-azure-cache-for-redis"></a>Obter os detalhes de uma Cache do Azure para Redis
 
@@ -30,7 +30,7 @@ Neste cenário, irá aprender a obter os detalhes de um Cache do Azure para a in
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[main](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Azure Azure Cache for Redis")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Azure Cache for Redis")]
 
 ## <a name="script-explanation"></a>Explicação do script
 

@@ -1,21 +1,22 @@
 ---
-title: Utilizar o SDK de Voz para C# com LUIS
+title: Utilize a voz C# SDK
 titleSuffix: Azure Cognitive Services
 description: O Serviço de Voz permite-lhe utilizar um pedido simples para receber áudio e devolve objetos JSON de predição de LUIS. Neste artigo, vai transferir e utilizar um projeto C# no Visual Studio para verbalizar uma expressão para um microfone e receber informações de predição de LUIS. O projeto utiliza o pacote NuGet de Voz, já incluído como referência.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 92db504ebfd0f8ad0bef9282bafd62fa9780d5e2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139100"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099312"
 ---
 # <a name="integrate-speech-service"></a>Integrar o serviço de Voz
 O [serviço de Voz](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite-lhe utilizar um pedido simples para receber áudio e devolve objetos JSON de predição de LUIS. Neste artigo, vai transferir e utilizar um projeto C# no Visual Studio para verbalizar uma expressão para um microfone e receber informações de predição de LUIS. O projeto utiliza o pacote [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Voz, já incluído como referência. 
@@ -65,7 +66,7 @@ Este artigo utiliza o dispositivo de áudio do seu computador. Pode ser um heads
 
 O SDK de Voz já está incluído como referência. 
 
-[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Captura de ecrã do Visual Studio 2017 a mostrar o pacote Microsoft.CognitiveServices.Speech NuGet")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Pacote de Microsoft.CognitiveServices.Speech NuGet mostrando de captura de ecrã do Visual Studio 2017](./media/luis-tutorial-speech-to-intent/nuget-package.png "pacote de Microsoft.CognitiveServices.Speech NuGet mostrando de captura de ecrã do Visual Studio 2017")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Modificar o código C#
 Abrir o ficheiro `Program.cs` e alterar as variáveis seguintes:
@@ -94,7 +95,7 @@ Quando já não necessitar da aplicação LUIS HumanResources, elimine-a. Para o
 
 Não se esqueça de eliminar o diretório Exemplos de LUIS quando tiver concluído a utilização do código de exemplo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Integrar LUIS com um Bot](luis-csharp-tutorial-build-bot-framework-sample.md)

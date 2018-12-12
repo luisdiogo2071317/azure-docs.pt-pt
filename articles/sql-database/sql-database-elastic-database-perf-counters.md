@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/31/2018
-ms.openlocfilehash: d4ecfe700c90beb94455e3607cee4ea30227bd0e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f98c09a7e51fa729ef4a940e5f3c03de55d8dfd2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166241"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875285"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>Contadores de desempenho do gestor de mapas de partições horizontais
 Pode capturar o desempenho de um [Gestor de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md), especialmente quando se utilizam [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md). Contadores são criados com métodos da classe Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
@@ -31,7 +31,7 @@ Contadores são utilizados para controlar o desempenho das [encaminhamento depen
 * Para criar uma instância do contador de desempenho e atualizar os contadores, o utilizador tem de ser membro dos **administradores** ou **usuários de Monitor de desempenho** grupo. 
 
 ## <a name="create-performance-category-and-counters"></a>Criar categoria de desempenho e contadores
-Para criar os contadores, chamar o método de CreatePeformanceCategoryAndCounters do [ShardMapManagmentFactory classe](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Apenas um administrador pode executar o método: 
+Para criar os contadores, chamar o método de CreatePeformanceCategoryAndCounters do [ShardMapManagementFactory classe](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx). Apenas um administrador pode executar o método: 
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 

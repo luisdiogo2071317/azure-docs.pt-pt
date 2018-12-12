@@ -1,6 +1,6 @@
 ---
-title: Políticas incorporadas no Azure Active Directory B2C | Documentos da Microsoft
-description: Um tópico sobre a estrutura de política extensível do Azure Active Directory B2C e sobre como criar vários tipos de política.
+title: Fluxos de utilizador no Azure Active Directory B2C | Documentos da Microsoft
+description: Um tópico sobre a estrutura de política extensível do Azure Active Directory B2C e sobre como criar vários tipos de fluxo de utilizador.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4a0dfcbba1867d4792a0e4a383ee097df0ea410b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d4a93b04b8ad86a6a6d36a5bdaf3209b49e7a9dc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835816"
+ms.locfileid: "52877087"
 ---
 # <a name="azure-active-directory-b2c-user-flows"></a>Do Azure Active Directory B2C: Fluxos de utilizador
 

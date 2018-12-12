@@ -4,17 +4,17 @@ description: Este artigo descreve como utilizar o Azure Stream Analytics e o Azu
 services: stream-analytics
 author: dubansal
 ms.author: dubansal
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: df1010be8c9f41684af806885db7587bfcf1c540
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567048"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091225"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Deteção de anomalias no Azure Stream Analytics
 
@@ -95,7 +95,7 @@ O valor 3.25 mostrado no exemplo é apenas um ponto de partida sugerido. Ajustar
 
 Diagrammatically, os passos semelhante ao seguinte: 
 
-![Modelos de formação](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
+![Treinamento de modelos de Machine learning](media/stream-analytics-machine-learning-anomaly-detection/machine-learning-training-model.png)
 
 |**Modelo** | **Hora de início de treinamento** | **Hora de começar a utilizar a sua pontuação** |
 |---------|---------|---------|
@@ -145,15 +145,15 @@ Os seguintes pontos devem ser considerados ao utilizar este detetor de:
 
    Isso é mostrado nas figuras 1 e 2 abaixo uma alteração de limite superior (a mesma lógica aplica-se a uma alteração de limite inferior). Nas figuras, as formas de ondas são uma alteração de nível anómala. Linhas verticais de cor de laranja denotam os limites de salto e o tamanho de salto é o mesmo que a janela de deteção especificada no operador AnomalyDetection. As linhas verde indicam o tamanho da janela de treinamento. Na figura 1, o tamanho de salto é o mesmo que o tempo para que dura de anomalias. Na figura 2, o tamanho de salto é metade do tempo para o qual a anomalias tem uma duração. Em todos os casos, é detetada uma alteração ascendente porque o modelo utilizado para a classificação foi treinado em dados normais. Mas, com base em como funciona o detetor de alteração de nível de bidirecional, ele tem de excluir os valores normais da janela de treinamento utilizada para o modelo que pontua o retorno como normal. Na figura 1, treinamento do modelo de classificação inclui alguns eventos normais, para que não é possível detetar o retorno como normal. Mas, na figura 2, a formação inclui apenas a parte anómala, o que garante que o retorno normal é detetado. Algo menor do que metade também funciona pela mesma razão, ao passo que nada maior terminarão incluindo um pouco de eventos normais. 
 
-   ![AD com comprimento de anomalias igual de tamanho de janela](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
+   ![AD com comprimento de anomalias igual de tamanho de janela](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-anomaly-length.png)
 
-   ![AD com o tamanho da janela é igual a metade do comprimento de anomalias](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_half_anomaly_length.png)
+   ![AD com o tamanho da janela é igual a metade do comprimento de anomalias](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-half-anomaly-length.png)
 
 2. Em casos em que não é possível prever a duração da anomalia, este detetor opera na melhor esforço. No entanto, escolher que uma janela de tempo mais estreito limita os dados de treinamento, que seria aumentar a probabilidade de detecção de devolver ao normal. 
 
 3. No cenário seguinte, a anomalias de mais tempo não não detetada como a janela de treinamento já inclui uma anomalia do mesmo valor elevado. 
 
-   ![Anomalias com o mesmo tamanho](media/stream-analytics-machine-learning-anomaly-detection/anomalies_with_same_length.png)
+   ![Anomalias detetadas com o mesmo tamanho](media/stream-analytics-machine-learning-anomaly-detection/anomalies-with-same-length.png)
 
 ## <a name="example-query-to-detect-anomalies"></a>Consulta de exemplo para detetar anomalias 
 

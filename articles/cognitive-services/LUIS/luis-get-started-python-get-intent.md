@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: obter a intenção - Python'
+title: Obter a intenção, Python
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha a intenção e as entidades.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6121448906960ee3da41a16eac974f15ebdb46b5
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e4601b5b6156ace897df65cd42159a1193f8194a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015522"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100128"
 ---
 # <a name="quickstart-get-intent-using-python"></a>Guia de Início Rápido: Obter a intenção com Python
 Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha a intenção e as entidades.

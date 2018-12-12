@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: 734020f2e70d09b125867faafebf1e7f7332fec4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 4614a1417213ed8b4d57c3b7ab21ac7424d75949
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995561"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087938"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: criar e gerir dados exportados
 
@@ -50,11 +50,11 @@ Cost Management + Faturação &gt; Cost Management &gt; selecione um subscriçã
 
 Escreva um nome para a exportação e selecione a opção "Diariamente exportar dos custos de mês até à data". Clique em **Seguinte**.
 
-![Nova exportação: tipo de exportação](./media/tutorial-export-acm-data/basics_exports.png)
+![Novo de exportação de exemplo que mostra o tipo de exportação](./media/tutorial-export-acm-data/basics_exports.png)
 
 Especifique a subscrição para a sua conta de armazenamento do Azure, em seguida, selecione a sua conta de armazenamento.  Especifique o contentor de armazenamento e o caminho do diretório que pretende que o ficheiro de exportação para ir para.  Clique em **Seguinte**.
 
-![Nova exportação: armazenamento](./media/tutorial-export-acm-data/storage_exports.png)
+![Novo de exportação de exemplo que mostra os detalhes da conta de armazenamento](./media/tutorial-export-acm-data/storage_exports.png)
 
 Reveja os detalhes de exportação e clique em **criar**.
 
@@ -68,15 +68,15 @@ Pode verificar facilmente se os seus dados do Cost Management estão a ser recol
 
 Na lista de exportação, clique no nome da conta de armazenamento. Na página da conta de armazenamento, clique em Abrir no Explorador. Se vir uma caixa de confirmação, clique em **Sim** para abrir o ficheiro no Explorador de Armazenamento do Microsoft Azure.
 
-![Página da conta de armazenamento](./media/tutorial-export-acm-data/storage-account-page.png)
+![Página de conta de armazenamento que mostra informações de exemplo e a ligação para o abrir no Explorador](./media/tutorial-export-acm-data/storage-account-page.png)
 
 No Explorador de Armazenamento, navegue para o contentor que pretende abrir e selecione a pasta correspondente ao mês atual. É apresentada uma lista de ficheiros CSV. Selecione um e, em seguida, clique em **Abrir**.
 
-![Explorador de Armazenamento](./media/tutorial-export-acm-data/storage-explorer.png)
+![Informações de exemplo mostradas no Explorador de armazenamento](./media/tutorial-export-acm-data/storage-explorer.png)
 
 O ficheiro abre com o programa ou a aplicação que definiu para abrir as extensões de ficheiro CSV. Eis um exemplo do Excel.
 
-![Exemplo de dados de exportação](./media/tutorial-export-acm-data/example-export-data.png)
+![Exemplo exportados dados CSV mostrados no Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
 ## <a name="access-exported-data-from-other-systems"></a>Aceder aos dados exportados a partir de outros sistemas
 

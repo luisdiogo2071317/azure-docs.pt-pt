@@ -1,5 +1,5 @@
 ---
-title: Configurar dispositivos Azure IoT Edge para proxies de rede | Documentos da Microsoft
+title: Configurar dispositivos para os proxies de rede - Azure IoT Edge | Documentos da Microsoft
 description: Como configurar o tempo de execução do Azure IoT Edge e quaisquer módulos do IoT Edge de acesso à internet para comunicar através de um servidor proxy.
 author: kgremban
 manager: ''
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.custom: seodec18
+ms.openlocfilehash: a7d32c98b77568e02fa14b70e969eeb254989062
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913228"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100485"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurar um dispositivo IoT Edge para comunicar através de um servidor proxy
 
@@ -173,7 +174,7 @@ Para configurar o agente do Edge e os módulos de hub do Edge, selecione **confi
 
 Adicionar a **https_proxy** variável de ambiente para o agente do Edge e definições do módulo do Edge hub. Se tiver incluído os **UpstreamProtocol** variável de ambiente no arquivo config.yaml no seu dispositivo IoT Edge, adicioná-la para a definição de módulo de agente do Edge demasiado. 
 
-![Definir variáveis de ambiente](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
+![Variável de ambiente de https_proxy de conjunto](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
 Todos os outros módulos que adicionar a um manifesto de implantação seguem o mesmo padrão. Na página em que definir o nome do módulo e a imagem, há uma secção de variáveis de ambiente.
 

@@ -1,21 +1,22 @@
 ---
-title: Criar uma palavra de reativação personalizado
+title: Criar uma palavra de reativação personalizados - serviços de voz
 titleSuffix: Azure Cognitive Services
-description: Saiba como criar uma palavra de reativação personalizado para o SDK de dispositivos de voz.
+description: O dispositivo está sempre à escuta de uma palavra de reativação (ou expressão). Quando o usuário disser a palavra de reativação, o dispositivo envia áudio subsequente tudo para a cloud, até que o utilizador para a falar. Personalizar a sua palavra de reativação é uma forma eficaz para diferenciar o seu dispositivo e fortalecer a sua imagem corporativa.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 5f138aee9dfa91e285591e5d50c14465ad32b77d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: a9a316eccc0b5e237d5a48c833f53ea3d80aae1e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469083"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082939"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Criar uma palavra de reativação personalizado com o serviço de voz
 
@@ -50,18 +51,18 @@ Antes de poder utilizar uma palavra de reativação personalizado com o seu disp
 
 1. Vá para o [portal do serviço de voz personalizada](https://cris.ai/).
 
-1. Crie uma nova conta com o endereço de e-mail em que recebeu o convite para o Azure Active Directory. 
+1. Crie uma nova conta com o endereço de e-mail em que recebeu o convite para o Azure Active Directory.
 
     ![Criar uma conta nova](media/speech-devices-sdk/wake-word-1.png)
- 
+
 1. O **Word de reativação personalizado** página não está disponível ao público, portanto, não há nenhuma ligação direta que leva-o aí. A funcionalidade de voz personalizada requer um subscrições do Azure, mas não a funcionalidade do Word de reativação personalizado. Se tem o **subscrições não encontrado.** página de erro, apenas substitua a **"subscrições? errorMessage = não 20found de % de 20Subscriptions %"** com "**customkws**" no URL e pressionar ENTER. O URL deve ser um dos seguintes: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, consoante o local em que é a sua região.
 
     ![A página do Word de reativação personalizada está oculta](media/speech-devices-sdk/wake-word-4.png)
- 
+
 1. Escreva a palavra de reativação à sua escolha e, em seguida, selecione **submeter palavra**.
 
     ![Introduza a palavra de reativação](media/speech-devices-sdk/wake-word-5.png)
- 
+
 1. Poderá demorar alguns minutos para que os ficheiros sejam gerados. Deverá ver um círculo a girar na janela do browser. Após alguns momentos, uma barra de informações for apresentada, que lhe pede para transferir um ficheiro. zip.
 
     ![Receber o ficheiro. zip](media/speech-devices-sdk/wake-word-6.png)
@@ -76,4 +77,3 @@ Para começar, obtenha uma [conta gratuita do Azure](https://azure.microsoft.com
 
 > [!div class="nextstepaction"]
 > [Inscreva-se o SDK de dispositivos de voz](get-speech-devices-sdk.md)
-

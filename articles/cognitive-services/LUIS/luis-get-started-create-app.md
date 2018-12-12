@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 38dfa61a90605fb6dfa43e34df99400d67b27118
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 71f3084be697dd84f3f262d2a79cd04a0ba76d8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012152"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086815"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: utilizar a aplicação Home Automation pré-concebida
 
@@ -33,11 +33,11 @@ Pode criar e gerir as suas aplicações em **My Apps** (As Minhas Aplicações).
 
 2. Selecione **Create new app** (Criar nova aplicação).
 
-    [![](media/luis-quickstart-new-app/app-list.png "Captura de ecrã da lista de aplicações")](media/luis-quickstart-new-app/app-list.png)
+    [![Captura de ecrã da lista de aplicações](media/luis-quickstart-new-app/app-list.png "captura de ecrã da lista de aplicações")](media/luis-quickstart-new-app/app-list.png)
 
 3. Na caixa de diálogo, atribua o nome "Home Automation" à aplicação.
 
-    [![](media/luis-quickstart-new-app/create-new-app-dialog.png "Captura de ecrã da caixa de diálogo de pop-up Criar nova aplicação")](media/luis-quickstart-new-app/create-new-app-dialog.png)
+    [![Captura de ecrã de criar nova aplicação pop-up caixa de diálogo](media/luis-quickstart-new-app/create-new-app-dialog.png "captura de ecrã de criar nova aplicação diálogo pop-up")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
 4. Escolha a cultura da sua aplicação. Para esta aplicação Home Automation, selecione English (Inglês). Em seguida, selecione **Done** (Concluído). O LUIS cria a aplicação Home Automation. 
 
@@ -48,11 +48,11 @@ Pode criar e gerir as suas aplicações em **My Apps** (As Minhas Aplicações).
 
 Selecione **Prebuilt domains** (Domínios pré-concebidos) no painel de navegação do lado esquerdo. Em seguida, procure "Home". Selecione **Add domain** (Adicionar domínio).
 
-[![](media/luis-quickstart-new-app/home-automation.png "Captura de ecrã do domínio HomeAutomation no menu Prebuilt domains (Domínios pré-concebidos)")](media/luis-quickstart-new-app/home-automation.png)
+[![Domínio de captura de ecrã da home page automatização indicadas no menu de domínio pré-criado](media/luis-quickstart-new-app/home-automation.png "domínio de captura de ecrã da home page automatização indicadas no menu de domínio pré-criado")](media/luis-quickstart-new-app/home-automation.png)
 
 Quando o domínio for adicionado com êxito, a caixa Prebuilt domains (Domínios pré-concebidos) apresenta um botão **Remove domain** (Remover domínio).
 
-[![](media/luis-quickstart-new-app/remove-domain.png "Captura de ecrã do domínio HomeAutomation com o botão Remove (Remover)")](media/luis-quickstart-new-app/remove-domain.png)
+[![Domínio de captura de ecrã da home page automatização com o botão Remover](media/luis-quickstart-new-app/remove-domain.png "domínio de captura de ecrã da home page automatização com o botão Remover")](media/luis-quickstart-new-app/remove-domain.png)
 
 ## <a name="intents-and-entities"></a>Intenções e entidades
 
@@ -63,7 +63,7 @@ Selecione **Intents** (Intenções) no painel de navegação do lado esquerdo pa
 
 Selecione a intenção **HomeAutomation.TurnOff**. Pode ver que a intenção contém uma lista de expressões que têm etiquetas de entidades.
 
-[![](media/luis-quickstart-new-app/home-automation-turnon.png "Captura de ecrã da intenção HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
+[![Captura de ecrã de HomeAutomation.TurnOff intenção](media/luis-quickstart-new-app/home-automation-turnon.png "intenção de captura de ecrã de HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
 ## <a name="train-the-luis-app"></a>Preparar a aplicação LUIS
 
@@ -80,7 +80,7 @@ Verifique se a intenção com a melhor classificação corresponde à intenção
 
 Neste exemplo, "Turn off the lights" (Desligar as luzes) é identificado corretamente como a intenção com a melhor classificação de "HomeAutomation.TurnOff".
 
-[![](media/luis-quickstart-new-app/test.png "Captura de ecrã do painel Test (Testar) com expressão realçada")](media/luis-quickstart-new-app/test.png)
+[![Painel de captura de ecrã de teste com a expressão realçado](media/luis-quickstart-new-app/test.png "painel de captura de ecrã de teste com a expressão realçado")](media/luis-quickstart-new-app/test.png)
 
 
 Selecione **Test** (Testar) novamente para fechar o painel de teste. 
@@ -97,7 +97,7 @@ Selecione **Test** (Testar) novamente para fechar o painel de teste.
 
 2. Vá para o final do URL no endereço, introduza `turn off the living room light` e prima Enter. O browser apresenta a resposta JSON do ponto final de HTTP.
 
-    [![](media/luis-quickstart-new-app/turn-off-living-room.png "Captura de ecrã do browser com o resultado JSON a detetar a intenção TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    [![Captura de ecrã do browser com o resultado JSON Deteta a intenção TurnOff](media/luis-quickstart-new-app/turn-off-living-room.png "captura de ecrã do browser com o resultado JSON Deteta a intenção TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
     
 ## <a name="clean-up-resources"></a>Limpar recursos
 

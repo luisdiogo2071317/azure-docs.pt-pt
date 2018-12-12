@@ -10,12 +10,13 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 103da0c65bcf9b9bd24130082f844b9bd12a9a02
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.custom: seodec18
+ms.openlocfilehash: 6898b007287e4f4c87010649c6f0b66c03f7cf8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389722"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086271"
 ---
 # <a name="create-a-qna-maker-service"></a>Criar um serviço QnA Maker
 
@@ -27,7 +28,7 @@ Esta configuração implementa alguns recursos do Azure. Juntos, esses recursos 
 
 2.  Clique em **adicionar novo recurso**e escreva "qna maker" na pesquisa e selecione o recurso do QnA Maker
 
-    ![Criar um novo serviço QnA Maker](../media/qnamaker-how-to-setup-service/create-new-resource.png)
+    ![Criar um novo serviço QnA Maker - adicionar novo recurso](../media/qnamaker-how-to-setup-service/create-new-resource.png)
 
 3.  Clique em **criar** depois de ler os termos e condições.
 
@@ -35,7 +36,7 @@ Esta configuração implementa alguns recursos do Azure. Juntos, esses recursos 
 
 4. Na **QnA Maker**, selecione as camadas apropriadas e regiões.
 
-    ![Criar um novo serviço QnA Maker](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
+    ![Criar um novo serviço QnA Maker - regiões e escalão de preço](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
     * Preencher o **nome** com um nome exclusivo para identificar este serviço QnA Maker. Este nome também identifica o ponto de extremidade do QnA Maker para que as bases de dados de conhecimento será associados.
     * Escolha o **subscrição** em que o recurso do QnA Maker será implementado.
@@ -57,7 +58,7 @@ Esta configuração implementa alguns recursos do Azure. Juntos, esses recursos 
 
 6.  Depois de concluída a implementação, verá os seguintes recursos criados na sua subscrição.
 
-    ![Criar um novo serviço QnA Maker](../media/qnamaker-how-to-setup-service/resources-created.png)
+    ![Recurso criado um novo serviço QnA Maker](../media/qnamaker-how-to-setup-service/resources-created.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -3,7 +3,7 @@ title: Gerir a retenção de cópia de segurança de longa duração de SQL Data
 description: Saiba como armazenar cópias de segurança automáticas no armazenamento do SQL Azure e, em seguida, restaurá-las
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: b4736f47d066d1e2b8e5c7115cb14abeb1cc566a
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: MT
+ms.openlocfilehash: eab0c1339030ffeb14c4fe39a70178fdf5f13a22
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137230"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871103"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a retenção de cópia de segurança de longa duração de base de dados do Azure SQL
 

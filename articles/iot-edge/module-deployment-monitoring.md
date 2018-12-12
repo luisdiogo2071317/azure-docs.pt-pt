@@ -1,6 +1,6 @@
 ---
-title: Implementar módulos do Azure IoT Edge | Documentos da Microsoft
-description: Saiba mais sobre a forma como os módulos obterem implementados em dispositivos periféricos
+title: Implementação automática de grupos de dispositivos - Azure IoT Edge | Documentos da Microsoft
+description: Utilizar implementações automática no Azure IoT Edge para gerir grupos de dispositivos com base em etiquetas partilhadas
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cd077c1a552a14582fce48bbe60f56ef08e5a4d7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584847"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100111"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Compreender as implementações automáticas do IoT Edge para dispositivos individuais ou em escala
 
@@ -44,7 +45,7 @@ Apenas os dispositivos do IoT Edge podem ser configurados com uma implementaçã
 * Um sistema de gestão do contentor, como o Moby ou o Docker
 * Aprovisionamento do runtime do IoT Edge 
 
-### <a name="deployment-manifest"></a>Manifesto de implantação
+### <a name="deployment-manifest"></a>Manifesto de implementação
 
 Um manifesto de implantação é um documento JSON que descreve os módulos a ser configurado nos dispositivos visados do IoT Edge. Contém os metadados de configuração para todos os módulos, incluindo os módulos de sistema necessário (especificamente o agente do IoT Edge e hub do IoT Edge).  
 

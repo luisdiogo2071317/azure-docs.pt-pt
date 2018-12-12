@@ -5,7 +5,7 @@ keywords: introdução ao machine learning, modelação preditiva, o que é o ma
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309145"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091301"
 ---
-# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>O Azure Machine Learning Studio perguntas mais frequentes: faturação, capacidades, limitações e suporte
+# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>O Azure Machine Learning Studio FAQ: Faturação, capacidades, limitações e suporte
 Seguem-se algumas perguntas mais frequentes (FAQ) e as respostas correspondentes sobre o Azure Machine Learning, um serviço cloud para desenvolver modelos preditivos e operacionalizar soluções através de serviços Web. Estas FAQ respondem a perguntas sobre como utilizar o serviço, o que inclui o modelo de faturação, as capacidades, as limitações e o suporte.
 
 **Tem alguma pergunta que não encontre aqui?**
@@ -32,7 +32,7 @@ O Azure Machine Learning tem um fórum no MSDN, onde os membros da comunidade de
 ## <a name="general-questions"></a>Perguntas gerais
 **O que é o Machine Learning Studio?**
 
-O Machine Learning Studio é um ambiente de workbench a que pode aceder através de um browser. O Machine Learning Studio aloja uma palete de módulos numa interface de composição visual que o ajuda criar um fluxo de trabalho de ciência de dados completo sob a forma de uma experimentação.
+Machine Learning Studio é um ambiente de tela de arrastar e soltar que acessar usando um navegador da web. O Machine Learning Studio aloja uma palete de módulos numa interface de composição visual que o ajuda criar um fluxo de trabalho de ciência de dados completo sob a forma de uma experimentação.
 
 Para obter mais informações sobre o Machine Learning Studio, consulte [O que é o Machine Learning Studio?](what-is-ml-studio.md)
 

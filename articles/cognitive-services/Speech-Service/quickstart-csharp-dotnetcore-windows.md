@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: reconhecer voz em C# no .NET Core no Windows com o SDK de Serviço de Voz'
+title: 'Início rápido: Reconhecer a conversão de voz, .NET Core (Windows) - serviços de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a reconhecer voz em C# no .NET Core no Windows com o SDK de Serviço de Voz
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 891de4700470931d8eaec3e2a3bb7ca2110e48dd
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: e82e39eb3fc6c7ebaf4798ad10038bfd2fa9a41b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469140"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085489"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-by-using-the-speech-sdk"></a>Início Rápido: reconhecer voz em C# no .NET Core no Windows com o SDK de Voz
 
@@ -87,7 +87,7 @@ Depois de o pacote ser instalado, é apresentada uma mensagem de confirmação n
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Procure este exemplo na pasta `quickstart/csharp-dotnetcore-windows`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Reconhecer intenções de voz com o SDK de Voz para C#](how-to-recognize-intents-from-speech-csharp.md)

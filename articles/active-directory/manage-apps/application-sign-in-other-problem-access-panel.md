@@ -68,7 +68,7 @@ Para SSO de palavra-passe, os navegadores do usuário final podem ser:
 
 -   Internet Explorer 8, 9, 10, 11 – no Windows 7 ou posterior
 
--   Edge no Windows 10 Anniversary Edition ou posterior
+-   Microsoft Edge no Windows 10 Anniversary Edition ou posterior
 
 -   Cromado, No Windows 7 ou posterior e no MacOS X ou posterior
 
@@ -96,7 +96,7 @@ Também pode baixar a extensão para o Chrome e o limite de ligações diretas a
 
 -   [Extensão de painel de acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Extensão de painel de acesso do Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+-   [Extensão de painel de acesso do Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 ## <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o início de sessão único federado para uma aplicação da galeria do Azure AD
 

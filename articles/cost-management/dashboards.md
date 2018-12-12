@@ -1,21 +1,21 @@
 ---
 title: Veja métricas-chave com dashboards da Cloudyn no Azure | Documentos da Microsoft
-description: Este artigo descreve como visualizar métricas-chave com dashboards no Cloudyn.
+description: Este artigo descreve como pode ver as principais métricas com os dashboards no Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: a058757c3b4ae5087d89cdbdc1ede5fe780606ea
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: f232ee89993998eb25ecce73e9c2ac8e08f3198b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997070"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094118"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Chave de ver as métricas com os dashboards de custos
 
@@ -43,7 +43,7 @@ Para começar rapidamente com um dashboard personalizado, pode duplicar um já e
 Para criar um dashboard personalizado:
 
 1. Na home page, clique em **adicionar novo +**. É apresentada a página de meu painel.  
-    ![O meu dashboard](./media/dashboards/my-dashboard.png)
+    ![Minha página de dashboard onde adiciona novos relatórios](./media/dashboards/my-dashboard.png)
 2. Clique em **adicione o novo relatório**. É apresentada a caixa Adicionar relatório.
 3. Selecione o relatório que pretende adicionar para o widget de dashboard. O widget é adicionado ao dashboard.
 4. Repita os passos anteriores até está concluído, o dashboard.
@@ -63,7 +63,7 @@ Pode partilhar um dashboard personalizado com outras pessoas _pública_ ou _minh
 Para partilhar um dashboard personalizado para público:
 
 1. Num dashboard, clique em **definições do Dashboard**. É apresentada a caixa de definições do Dashboard.  
-    ![Opções de dashboard](./media/dashboards/dashboard-options.png)
+    ![definições do dashboard para um dashboard personalizado](./media/dashboards/dashboard-options.png)
 2. Na caixa de definições do Dashboard, clique no símbolo de seta e, em seguida, clique em **público**. É apresentada a caixa de diálogo de confirmação de Dashboard público.
 3. Clique em **Sim**. O dashboard está agora disponível para outros utilizadores.
 
@@ -116,13 +116,13 @@ Pode definir qualquer dashboard como padrão. Defini-la como o padrão faz parec
 -Ou-
 
 1. Clique em **definições do Dashboard** para ver a lista de dashboards disponíveis e selecione o dashboard que pretende definir como predefinição.  
-    ![Opções de dashboard](./media/dashboards/dashboard-options.png)
+    ![Opções de dashboard para um dashboard predefinido](./media/dashboards/dashboard-options.png)
 2. Clique em **predefinido** na linha do dashboard. É apresentada a caixa de confirmação de Dashboard predefinido.
 3. Clique em **Sim**. O dashboard é definido como predefinido.
 
 ## <a name="management-dashboard"></a>Dashboard de gestão
 A gestão (ou dashboard MSP para utilizadores MSP) dashboard inclui destaques dos tipos de relatório principal.  
-![Dashboard de gestão](./media/dashboards/management-dash.png)
+![Dashboard de gestão que mostra os vários relatórios](./media/dashboards/management-dash.png)
 
 ### <a name="cost-entity-summary-enterprise-only"></a>Resumo de entidade de custo (apenas para empresas)
 Este widget resume as entidades de custo gerenciado, incluindo o número de entidades e o número de contas.
@@ -158,7 +158,7 @@ Este widget apresenta os serviços de armazenamento utilizados pelos departament
 
 ## <a name="cost-controller-dashboard"></a>Dashboard do controlador de custos
 O dashboard do controlador de custos mostra destaques de alocação de custos predefinidas.  
-![Dashboard do controlador de custos](./media/dashboards/cost-controller-dashboard.png)
+![Dashboard do controlador que mostra os vários relatórios de custos](./media/dashboards/cost-controller-dashboard.png)
 
 ### <a name="cost-over-time"></a>Custo ao longo do tempo
 Este widget ajuda-o a detetar tendências de custo. Destaca o custo para o último dia, com base na tendência dos últimos 30 dias.
@@ -198,7 +198,7 @@ Este widget destaques gastar durante os últimos seis meses.
 ## <a name="asset-controller-dashboard"></a>Dashboard do controlador ativo
 
 Este dashboard mostra o número de instâncias, discos disponíveis e em utilização, distribuição de tipos de instância e informações de armazenamento a executar.  
-![Dashboard do controlador ativo](./media/dashboards/asset-controller-dashboard.png)
+![Dashboard do controlador ativo que mostra os vários relatórios](./media/dashboards/asset-controller-dashboard.png)
 
 ### <a name="compute-instances"></a>Instâncias de computação
 Este widget mostra o número de instâncias de base a tendência de utilização ao longo dos últimos 30 dias em execução.
@@ -227,7 +227,7 @@ Este widget destaca o número de instâncias de Amazon RDS com base na tendênci
 
 ## <a name="optimizer-dashboard"></a>Dashboard de otimizador
 Este dashboard apresenta recomendações downsizing, recursos não utilizados e economia potencial.  
-![Dashboard de otimizador](./media/dashboards/optimizer-dashboard.png)
+![Dashboard de otimizador que mostra os vários relatórios](./media/dashboards/optimizer-dashboard.png)
 
 ### <a name="ri-calculator"></a>Calculadora de RI
 Este widget mostra o número de recomendações de compra de RI e realça as poupanças anuais potenciais.
@@ -257,7 +257,7 @@ As recomendações de otimização baseiam-se nos dados de utilização e desemp
 
 ## <a name="s3-tracker-dashboard"></a>Dashboard de controlador de S3
 O dashboard do controlador de S3 ajuda a localizar, analisar e apresentar a sua utilização de armazenamento atual e tendências.  
-![Dashboard de controlador de S3](./media/dashboards/s3-tracker-dashboard.png)
+![Dashboard de controlador de S3 que mostra os vários relatórios](./media/dashboards/s3-tracker-dashboard.png)
 
 ### <a name="all-buckets"></a>Todos os registos
 Este widget destaca o tamanho total de todos os seus registos, em GB e o número total de objetos nos seus registos.
@@ -281,7 +281,7 @@ Este widget destaca o número de objetos por bucket no número real e a percenta
 
 ## <a name="cloud-comparison-dashboard"></a>Dashboard de comparação de cloud
 O dashboard de comparação na Cloud ajuda-o a comparar os custos de fornecedores de cloud diferentes com base nos preços, o tipo de CPU e o tamanho de RAM.  
-![Dashboard de comparação de cloud](./media/dashboards/cloud-comparison-dashboard.png)
+![Dashboard de comparação de cloud que mostra vários relatórios](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Custo no Azure por tipo de instância
 Este widget destaca os últimos 30 dias de utilização nas taxas de sob demanda. Ele compara o custo com os vs atuais do custo de Amazon EC2 o potencial de custos no Azure.

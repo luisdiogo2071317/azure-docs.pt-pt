@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 19d448634998f01505c0e274377e1aa8cd788728
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: caab6083bc12ffafe669c86bea4824ea0b31339a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993805"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079675"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>A monitorização dos dados recolhidos pelo Azure Monitor
 [O Azure Monitor](../../azure-monitor/overview.md) é um serviço que o ajuda a monitorizar as suas aplicações e os recursos que dependem. Central para esta função é um armazenamento de telemetria e outros dados de recursos monitorizados. Este artigo fornece uma descrição completa de como os dados são armazenados e usados pelo Azure Monitor.
@@ -138,7 +138,7 @@ Registos recolhidos pelo Monitor do Azure são armazenados no Log Analytics que 
 Log Analytics pode recolher dados de várias origens, tanto no Azure e de recursos no local. Origens de dados escritos para o Log Analytics incluem o seguinte:
 
 - [Registos de atividades](../../azure-monitor/platform/collect-activity-logs.md) dos recursos do Azure que incluem informações sobre a respetiva configuração e o estado de funcionamento e [registos de diagnóstico](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) que fornecem informações sobre o funcionamento deles.
-- Agentes nas [Windows](../../log-analytics/log-analytics-windows-agent.md) e [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) máquinas virtuais que enviar telemetria a partir do sistema operativo convidado e aplicativos para o Log Analytics de acordo com [origens de dados](../../azure-monitor/platform/agent-data-sources.md) que configurar.
+- Agentes nas [Windows](../../log-analytics/log-analytics-windows-agent.md) e [Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) máquinas virtuais que enviar telemetria a partir do sistema operativo convidado e aplicativos para o Log Analytics de acordo com [origens de dados](../../azure-monitor/platform/agent-data-sources.md) que configurar.
 - Aplicação dados recolhidos pelo [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Dados fornecem informações sobre uma determinada aplicação ou serviço a partir [soluções de monitorização](../insights/solutions.md) ou funcionalidades, como informações de contentor, informações de VM ou informações de grupo de recursos.
 - Dados de segurança recolhidos pelo [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/).

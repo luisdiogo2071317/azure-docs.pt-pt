@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial: Criar, publicar, responder a partir da base de dados de conhecimento no portal Criador de FAQ'
+title: Criar, publicar, responder a ferramenta QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Este tutorial baseado no portal explica programaticamente a criação e publicação de uma base de dados de conhecimento e a resposta a uma pergunta a partir da mesma.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 08f708f740b90f27af5443b46c5d03bef688bd45
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 71745ee73c71aba9c6c5cd5aea3972055fbec01d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221680"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087546"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Tutorial: Criar uma base de dados de conhecimento e responder a uma pergunta através do portal do Criador de FAQ
 
@@ -96,7 +97,7 @@ Selecione o botão **Publish** (Publicar) no menu superior. Assim que estiver na
 
 Após a publicação da BDC, o ponto final é apresentado
 
-![Publicar](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
+![Definições de ponto final da página de publicação](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
 ## <a name="use-curl-to-query-for-an-faq-answer"></a>Utilizar o Curl para consultar uma resposta de FAQ
 
@@ -198,7 +199,7 @@ Qualquer pergunta para a qual o Criador de FAQ não esteja confiante numa respos
     
     O Criador de FAQ devolveu a classificação 0, o que significa nenhuma confiança, mas também devolveu a resposta predefinida. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Veja [Origens de dados suportadas](../Concepts/data-sources-supported.md) para obter mais informações sobre os formatos de ficheiro suportados. 
 

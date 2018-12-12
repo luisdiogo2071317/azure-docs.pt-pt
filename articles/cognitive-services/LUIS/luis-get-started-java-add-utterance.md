@@ -1,21 +1,22 @@
 ---
-title: Guia de Início Rápido de Java – alterar o modelo e preparar a aplicação LUIS
-titleSuffix: Azure Cognitive Services
-description: Neste início rápido do Java, adicione expressões de exemplo a uma aplicação de Automatização de Casa e treine a aplicação. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
+title: Alterar, preparar a aplicação, o Java
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Neste início rápido do Java, adicione expressões de exemplo a uma aplicação de Automatização de Casa e treine a aplicação.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bfe4aae25a34799370e52c8677871a62935ab5c2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 206b345fedb033a6b98e350fec8c66a3496f5236
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419746"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080831"
 ---
 # <a name="quickstart-change-model-using-java"></a>Início rápido: Alterar o modelo com Java 
 
@@ -71,14 +72,14 @@ ms.locfileid: "50419746"
 
 Compilar AddUtterance com as dependências
 
-```CMD
+```console
 > javac -classpath gson-2.8.2.jar AddUtterances.java
 ```
 
 ## <a name="run-code"></a>Executar código
 Chamar `AddUtterance` sem argumentos adiciona as expressões do LUIS à aplicação, sem prepará-la.
 
-```CMD
+```console
 > java -classpath .;gson-2.8.2.jar AddUtterances
 ```
 
@@ -89,6 +90,6 @@ Esta linha de comandos apresenta os resultados da chamada à API de expressões 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando tiver terminado o início rápido, remova todos os ficheiros criados neste início rápido. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"] 
 > [Criar uma aplicação LUIS programaticamente](luis-tutorial-node-import-utterances-csv.md) 

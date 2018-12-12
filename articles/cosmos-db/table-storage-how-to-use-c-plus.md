@@ -9,12 +9,12 @@ ms.devlang: cpp
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: dff665a26efb00ed74ddfab4259c5c35ca1abb38
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9bfc6ed2c781ddc54815665c492e7f2413033ca0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880136"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087121"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Como utilizar o Armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos DB com C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "52880136"
 Este guia vai mostrar como realizar cenários comuns com a API de serviço de armazenamento de Tabelas do Azure ou de Tabela do Azure Cosmos DB. Os exemplos são escritos no C++ e utilizam a [Biblioteca de Cliente de Armazenamento do Microsoft Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Os cenários abrangidos incluem **criar e eliminar uma tabela** e **trabalhar com entidades de tabela**.
 
 > [!NOTE]
-> Este guia destina-se à Biblioteca de Clientes de Armazenamento do Microsoft Azure para C++ versão 1.0.0 e acima. A versão recomendada é Storage Client Library 2.2.0, que está disponível através de [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp/).
+> Este guia destina-se à Biblioteca de Clientes de Armazenamento do Microsoft Azure para C++ versão 1.0.0 e acima. A versão recomendada é Storage Client Library 2.2.0, que está disponível através de [NuGet](https://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp/).
 > 
 
 ## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
@@ -42,7 +42,7 @@ Neste guia, irá utilizar as funcionalidades de armazenamento que podem ser exec
 Para instalar a biblioteca de clientes de Armazenamento do Microsoft Azure para C++, pode utilizar os seguintes métodos:
 
 * **Linux:** siga as instruções fornecidas na [página de README da biblioteca de cliente Armazenamento do Microsoft Azure](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
-* **Windows:** No Visual Studio, clique em **Ferramentas > Gestor de Pacotes NuGet > Consola do Gestor de Pacotes**. Escreva o seguinte comando na [consola do Gestor de pacotes NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e prima Enter.  
+* **Windows:** No Visual Studio, clique em **Ferramentas > Gestor de Pacotes NuGet > Consola do Gestor de Pacotes**. Escreva o seguinte comando na [consola do Gestor de pacotes NuGet](/nuget/tools/package-manager-console) e prima Enter.  
   
      Pacote de instalação wastorage
 
@@ -478,5 +478,5 @@ Siga estas ligações para saber mais sobre o Armazenamento do Microsoft Azure e
 * [Introdução à API da Tabela](table-introduction.md)
 * O [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
 * [Listar Recursos do Armazenamento do Microsoft Azure em C++](../storage/common/storage-c-plus-plus-enumeration.md)
-* [Referência da Biblioteca de Cliente do Armazenamento para C++](http://azure.github.io/azure-storage-cpp)
+* [Referência da Biblioteca de Cliente do Armazenamento para C++](https://azure.github.io/azure-storage-cpp)
 * [Documentação do Armazenamento do Microsoft Azure](https://azure.microsoft.com/documentation/services/storage/)

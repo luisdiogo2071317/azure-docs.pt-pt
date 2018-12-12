@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: ab09eb939d760a0f06be758fdf83591565aaf7d0
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: MT
+ms.openlocfilehash: 34a80a180d4c08027e4c975d4f7955966eec7307
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219380"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086373"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Balanceador de carga
 
@@ -67,9 +67,9 @@ Versão "2018-07-01" de API permite uma definição de regra de saída estrutura
 
 Enquanto uma regra de saída pode ser utilizada com apenas um único endereço IP público, regras de saída aliviar a carga de configuração de dimensionamento de NAT de saída. Pode usar vários endereços IP para planear para cenários em grande escala e pode usar as regras de saída para mitigar [esgotamento de SNAT](load-balancer-outbound-connections.md#snatexhaust) propenso a padrões.  
 
-Cada endereço IP adicional fornecido por um front-end fornece 64.000 portas efêmeras para Balanceador de carga utilizar como portas SNAT. Enquanto o balanceamento de carga ou regras NAT de entrada tem um front-end único, a regra de saída se expande a noção de front-end e permite que vários front-ends por regra.  Com vários front-ends por regra, a quantidade de portas SNAT disponíveis é multiplicada com cada endereço IP público e cenários de grandes dimensões podem ser suportados.
+Cada endereço IP adicional fornecido por um front-end fornece 51,200 portas efêmeras para Balanceador de carga utilizar como portas SNAT. Enquanto o balanceamento de carga ou regras NAT de entrada tem um front-end único, a regra de saída se expande a noção de front-end e permite que vários front-ends por regra.  Com vários front-ends por regra, a quantidade de portas SNAT disponíveis é multiplicada com cada endereço IP público e cenários de grandes dimensões podem ser suportados.
 
-Além disso, pode utilizar um [prefixo do IP público](https://aka.ms/lbpublicipprefix) diretamente com uma regra de saída.  Utilizar um IP público de prefixo fornece para dimensionamento mais fácil e simplificada de criar uma lista de fluxos provenientes da implementação do Azure. Pode configurar uma configuração de IP de front-end dentro de um prefixo de endereço IP público de referenciar diretamente o recurso de Balanceador de carga.  Isso permite que o Balanceador de carga um controlo exclusivo sobre o prefixo do IP público e a regra de saída irá utilizar automaticamente a todos os endereços IP públicos contidos o prefixo do IP público para ligações de saída.  Cada um dos endereços IP dentro do intervalo do prefixo do IP público do fornecem 64.000 portas efêmeras por endereço IP para o Balanceador de carga utilizar como portas SNAT.   
+Além disso, pode utilizar um [prefixo do IP público](https://aka.ms/lbpublicipprefix) diretamente com uma regra de saída.  Utilizar um IP público de prefixo fornece para dimensionamento mais fácil e simplificada de criar uma lista de fluxos provenientes da implementação do Azure. Pode configurar uma configuração de IP de front-end dentro de um prefixo de endereço IP público de referenciar diretamente o recurso de Balanceador de carga.  Isso permite que o Balanceador de carga um controlo exclusivo sobre o prefixo do IP público e a regra de saída irá utilizar automaticamente a todos os endereços IP públicos contidos o prefixo do IP público para ligações de saída.  Cada um dos endereços IP dentro do intervalo do prefixo do IP público do fornecem 51,200 portas efêmeras por endereço IP para o Balanceador de carga utilizar como portas SNAT.   
 
 Não pode ter individuais recursos de endereço IP público criados a partir do prefixo do IP público ao utilizar esta opção, como a regra de saída tem de ter controlo total sobre o prefixo do IP público.  Se precisar de mais controle refinado, pode criar o recurso de endereço IP público individual a partir de prefixo IP público e atribuir vários endereços IP públicos individualmente para o front-end de uma regra de saída.
 
@@ -82,7 +82,7 @@ Utilize o parâmetro seguinte para alocar SNAT 10.000 portas por VM (configuraç
 
           "allocatedOutboundPorts": 10000
 
-Cada endereço IP público de front-ends todos de uma regra de saída contribui até 64.000 portas efêmeras para utilização como portas SNAT.  Balanceador de carga aloca SNAT portas em múltiplos de 8. Se fornecer um valor não divisível por 8, a operação de configuração é rejeitada.  Se tentar alocar o SNAT mais portas que estão disponíveis com base no número de endereços IP públicos, a operação de configuração é rejeitada.  Por exemplo, se alocar portas de 10 000 por VM e 7 VMs num back-end conjunto compartilhariam um endereço IP público único, a configuração é rejeitadas (7 x 10,0000 SNAT portas > 64.000 SNAT portas).  Pode adicionar endereços IP públicos mais para o front-end da regra de saída para ativar o cenário.
+Cada endereço IP público de front-ends todos de uma regra de saída contribui até 51,200 portas efêmeras para utilização como portas SNAT.  Balanceador de carga aloca SNAT portas em múltiplos de 8. Se fornecer um valor não divisível por 8, a operação de configuração é rejeitada.  Se tentar alocar o SNAT mais portas que estão disponíveis com base no número de endereços IP públicos, a operação de configuração é rejeitada.  Por exemplo, se alocar portas de 10 000 por VM e 7 VMs num back-end conjunto compartilhariam um endereço IP público único, a configuração é rejeitadas (7 x 10,0000 SNAT portas > 51,200 SNAT portas).  Pode adicionar endereços IP públicos mais para o front-end da regra de saída para ativar o cenário.
 
 Pode reverter para [a alocação de porta SNAT automática com base no tamanho do conjunto de back-end](load-balancer-outbound-connections.md#preallocatedports) especificando 0 para o número de portas.
 
@@ -160,7 +160,7 @@ Se não pretender para a regra de balanceamento de carga a utilizar para saída,
 
 Pode utilizar regras de saída para otimizar a [a alocação de porta SNAT automática com base no tamanho do conjunto de back-end](load-balancer-outbound-connections.md#preallocatedports).
 
-Por exemplo, se tiver duas máquinas virtuais a partilha de um único endereço IP público para o NAT de saída, pode querer aumentar o número de portas SNAT alocados das portas predefinidas 1024, se estiver tendo o esgotamento de SNAT. Cada endereço IP público pode contribuir com até 64.000 portas efêmeras.  Se configurar uma regra de saída com um único frontend de endereço IP público, pode distribuir um total de 64.000 SNAT portas para as VMs no conjunto de back-end.  Para duas VMs, um máximo de portas SNAT 32.000 pode ser alocado com uma regra de saída (2 x 32.000 = 64.000).
+Por exemplo, se tiver duas máquinas virtuais a partilha de um único endereço IP público para o NAT de saída, pode querer aumentar o número de portas SNAT alocados das portas predefinidas 1024, se estiver tendo o esgotamento de SNAT. Cada endereço IP público pode contribuir com até 51,200 portas efêmeras.  Se configurar uma regra de saída com um único frontend de endereço IP público, pode distribuir um total de portas SNAT 51,200 às VMs no conjunto de back-end.  Para duas VMs, um máximo de portas SNAT 25,600 pode ser alocado com uma regra de saída (2 x 25,600 = 51,200).
 
 Revisão [ligações de saída](load-balancer-outbound-connections.md) e os detalhes sobre como [SNAT](load-balancer-outbound-connections.md#snat) portas são alocadas e usadas.
 
@@ -202,7 +202,7 @@ Ao usar um Standard Balanceador de carga interno, NAT de saída não está dispo
 
 ## <a name="limitations"></a>Limitações
 
-- O número máximo de portas efêmeras utilizáveis por endereço IP de front-end é 64.000.
+- O número máximo de portas efêmeras utilizáveis por endereço IP de front-end é 51,200.
 - O intervalo do configurável saído tempo limite de inatividade é 4 para 66 minutos (240 para 4000 segundos).
 - Balanceador de carga não suporta o ICMP para NAT de saída.
 - Não é possível utilizar o portal para configurar ou ver regras de saída.  Utilize modelos, REST API, Az CLI 2.0 ou PowerShell.

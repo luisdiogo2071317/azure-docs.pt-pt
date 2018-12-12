@@ -1,21 +1,22 @@
 ---
-title: Guia de Início Rápido do Python – alterar o modelo e preparar a aplicação LUIS
-titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido do Python, adicione expressões de exemplo a uma aplicação de Automatização Doméstica e prepare a aplicação. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
+title: Alterar, preparar a aplicação, o Python
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Neste guia de início rápido do Python, adicione expressões de exemplo a uma aplicação de Automatização Doméstica e prepare a aplicação.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ff076954d51605935bb41488ec6a757c2f7806a1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e8ed2a44a72cbe6fd30d39856b436728623dce66
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040181"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087955"
 ---
 # <a name="quickstart-change-model-using-python"></a>Início rápido: Alterar o modelo com Python
 
@@ -46,7 +47,7 @@ Execute a aplicação a partir de uma linha de comandos com Python 3.6.
 
 Chamar add-utterance sem argumentos adiciona uma expressão à aplicação, sem prepará-la.
 
-```CMD
+```console
 > python add-utterances-3-6.py
 ```
 
@@ -83,7 +84,7 @@ Em seguida, é mostrado o resultado de um pedido para preparar com êxito:
 }
 ```
 
-```JSON
+```json
 Requested training status.
 [
    {
@@ -182,6 +183,6 @@ Requested training status.
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando tiver terminado o início rápido, remova todos os ficheiros criados neste início rápido. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"] 
 > [Criar uma aplicação LUIS programaticamente](luis-tutorial-node-import-utterances-csv.md)

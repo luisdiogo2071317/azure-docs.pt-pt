@@ -1,20 +1,20 @@
 ---
 title: Limpar a tarefa do Azure Stream Analytics
-description: Este artigo é um guia para saber como eliminar tarefas do Azure Stream Analytics.
+description: Este artigo mostra-lhe diferentes métodos para eliminar as tarefas de Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
-manager: kfile
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/22/2018
-ms.openlocfilehash: 580d05909ff3c94c982be5353b3b5e86a78fc43f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 85db38fef5e69c4de855f8cb6d54151496faebbe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969345"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090249"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>Limpar a tarefa do Azure Stream Analytics
 
@@ -31,7 +31,7 @@ Tarefas do Azure Stream Analytics podem ser facilmente eliminadas através do po
 
 3. Na página de tarefa do Stream Analytics, selecione **parar** para parar a tarefa. 
 
-   ![Parar tarefa](./media/stream-analytics-clean-up-your-job/stop-job.png)
+   ![Parar a tarefa do Azure Stream Analytics](./media/stream-analytics-clean-up-your-job/stop-stream-analytics-job.png)
 
 
 ## <a name="delete-a-job-in-azure-portal"></a>Eliminar uma tarefa no portal do Azure
@@ -42,7 +42,7 @@ Tarefas do Azure Stream Analytics podem ser facilmente eliminadas através do po
 
 3. Na página de tarefa do Stream Analytics, selecione **eliminar** para eliminar a tarefa. 
 
-   ![Eliminar Tarefa](./media/stream-analytics-clean-up-your-job/delete-job.png)
+   ![Eliminar tarefa do Azure Stream Analytics](./media/stream-analytics-clean-up-your-job/delete-stream-analytics-job.png)
 
 
 ## <a name="stop-or-delete-a-job-using-powershell"></a>Parar ou eliminar uma tarefa com o PowerShell

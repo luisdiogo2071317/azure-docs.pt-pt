@@ -8,17 +8,17 @@ ms.component: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 1c54eff207de61a02a1ef752da66bb3b4f6d1580
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 53ca762232db5e79acdacbb3d52ce05f88dc108b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850351"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080406"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte de gráficos do Gremlin do Azure Cosmos DB
-O Azure Cosmos DB suporta a linguagem transversal de gráficos do [Apache Tinkerpop](http://tinkerpop.apache.org), o [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma Gremlin API para criar entidades de gráficos e realizar operações de consulta de gráficos. Pode utilizar a linguagem Gremlin para criar entidades de gráfico (vértices e limites), modificar propriedades nessas entidades, efetuar consultas e transversais e eliminar entidades. 
+O Azure Cosmos DB suporta a linguagem transversal de gráficos do [Apache Tinkerpop](https://tinkerpop.apache.org), o [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma Gremlin API para criar entidades de gráficos e realizar operações de consulta de gráficos. Pode utilizar a linguagem Gremlin para criar entidades de gráfico (vértices e limites), modificar propriedades nessas entidades, efetuar consultas e transversais e eliminar entidades. 
 
-O Azure Cosmos DB oferece funcionalidades prontas para empresas para bases de dados de gráficos. Isto inclui distribuição global, dimensionamento independente de armazenamento e débito, latências de milissegundos de um dígito previsíveis, indexação automática, SLAs, disponibilidade de leitura para contas de bases de dados que abrangem duas ou mais regiões do Azure. Como o Azure Cosmos DB suporta o TinkerPop/Gremlin, pode migrar facilmente aplicações escritas com outra base de dados de gráficos sem ter de fazer alterações de código. Além disso, graças ao suporte do Gremlin, o Azure Cosmos DB está totalmente integrado com arquiteturas de análise ativadas para TinkerPop, como o [Apache Spark GraphX](http://spark.apache.org/graphx/). 
+O Azure Cosmos DB oferece funcionalidades prontas para empresas para bases de dados de gráficos. Isto inclui distribuição global, dimensionamento independente de armazenamento e débito, latências de milissegundos de um dígito previsíveis, indexação automática, SLAs, disponibilidade de leitura para contas de bases de dados que abrangem duas ou mais regiões do Azure. Como o Azure Cosmos DB suporta o TinkerPop/Gremlin, pode migrar facilmente aplicações escritas com outra base de dados de gráficos sem ter de fazer alterações de código. Além disso, graças ao suporte do Gremlin, o Azure Cosmos DB está totalmente integrado com arquiteturas de análise ativadas para TinkerPop, como o [Apache Spark GraphX](https://spark.apache.org/graphx/). 
 
 Neste artigo, apresentamos instruções rápidas do Gremlin e enumeramos as funcionalidades e passos do Gremlin que são suportados pela Gremlin API.
 
@@ -41,7 +41,7 @@ Representamos as relações entre estas entidades através das seguintes etiquet
 - RunsOS (Sistema Operativo): o portátil executa o SO Windows
 - Uses (Utilização): para representar que dispositivo uma pessoa utiliza. Por exemplo, a Robin utiliza um telemóvel Motorola com o número de série 77
 
-Vamos executar algumas operações em relação a este gráfico com a [Consola do Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console). Também pode efetuar estas operações com os controladores do Gremlin na plataforma que preferir (Java, Node.js, Python ou .NET).  Antes de vermos o que é suportado no Azure Cosmos DB, vamos ver alguns exemplos para se familiarizar com a sintaxe.
+Vamos executar algumas operações em relação a este gráfico com a [Consola do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console). Também pode efetuar estas operações com os controladores do Gremlin na plataforma que preferir (Java, Node.js, Python ou .NET).  Antes de vermos o que é suportado no Azure Cosmos DB, vamos ver alguns exemplos para se familiarizar com a sintaxe.
 
 Em primeiro lugar, vamos ver o CRUD. A seguinte instrução do Gremlin insere o vértice "Thomas" no gráfico:
 
@@ -151,46 +151,46 @@ Cada propriedade pode armazenar múltiplos valores numa matriz.
 | valor | O valor da propriedade
 
 ## <a name="gremlin-steps"></a>Passos do Gremlin
-Vamos observar os passos do Gremlin suportados pelo Azure Cosmos DB. Para obter referências completas do Gremlin, veja [Referências do TinkerPop](http://tinkerpop.apache.org/docs/current/reference).
+Vamos observar os passos do Gremlin suportados pelo Azure Cosmos DB. Para obter referências completas do Gremlin, veja [Referências do TinkerPop](https://tinkerpop.apache.org/docs/current/reference).
 
 | passo | Descrição | Documentação do TinkerPop 3.2 |
 | --- | --- | --- |
-| `addE` | Adiciona um limite entre dois vértices | [passo addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
-| `addV` | Adiciona um vértice ao gráfico | [passo addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
-| `and` | Garante que todas as transversais devolvem um valor | [passo and](http://tinkerpop.apache.org/docs/current/reference/#and-step) |
-| `as` | Um modulador de passos para atribuir uma variável ao resultado de um passo | [passo as](http://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | Um modulador de passos utilizado com `group` e `order` | [passo by](http://tinkerpop.apache.org/docs/current/reference/#by-step) |
-| `coalesce` | Devolve a primeira transversal que devolve um resultado | [passo coalesce](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | Devolve um valor constante. Utilizado com `coalesce`| [passo constant](http://tinkerpop.apache.org/docs/current/reference/#constant-step) |
-| `count` | Devolve a contagem da transversal | [passo count](http://tinkerpop.apache.org/docs/current/reference/#count-step) |
-| `dedup` | Devolve os valores com os duplicados removidos | [passo dedup](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
-| `drop` | Ignora os valores (vértice/limite) | [passo drop](http://tinkerpop.apache.org/docs/current/reference/#drop-step) |
-| `fold` | Age como uma barreira que calcula a agregação de resultados| [passo fold](http://tinkerpop.apache.org/docs/current/reference/#fold-step) |
-| `group` | Agrupa os valores com base nas etiquetas especificadas| [passo group](http://tinkerpop.apache.org/docs/current/reference/#group-step) |
-| `has` | Utilizado para filtrar propriedades, vértices e limites. Suporta variantes `hasLabel`, `hasId`, `hasNot` e `has`. | [passo has](http://tinkerpop.apache.org/docs/current/reference/#has-step) |
-| `inject` | Insere valores numa transmissão| [passo inject](http://tinkerpop.apache.org/docs/current/reference/#inject-step) |
-| `is` | Utilizado para efetuar um filtro com uma expressão booleana | [passo is](http://tinkerpop.apache.org/docs/current/reference/#is-step) |
-| `limit` | Utilizado para limitar o número de itens na transversal| [passo limit](http://tinkerpop.apache.org/docs/current/reference/#limit-step) |
-| `local` | Encapsula uma secção de uma transversal, da mesma forma que uma subconsulta | [passo local](http://tinkerpop.apache.org/docs/current/reference/#local-step) |
-| `not` | Utilizado para produzir a negação de um filtro | [passo not](http://tinkerpop.apache.org/docs/current/reference/#not-step) |
-| `optional` | Devolve o resultado da transversal especificada se gerar um resultado, caso contrário, devolve o elemento de chamada | [passo optional](http://tinkerpop.apache.org/docs/current/reference/#optional-step) |
-| `or` | Garante que pelo menos uma das transversais devolve um valor | [passo or](http://tinkerpop.apache.org/docs/current/reference/#or-step) |
-| `order` | Devolve resultados na sequência de ordenação especificada | [passo order](http://tinkerpop.apache.org/docs/current/reference/#order-step) |
-| `path` | Devolve o caminho completo da transversal | [passo path](http://tinkerpop.apache.org/docs/current/reference/#path-step) |
-| `project` | Projeta as propriedades como um Mapa | [passo project](http://tinkerpop.apache.org/docs/current/reference/#project-step) |
-| `properties` | Devolve as propriedades das etiquetas especificadas | [passo properties](http://tinkerpop.apache.org/docs/current/reference/#properties-step) |
-| `range` | Filtra o intervalo especificado de valores| [passo range](http://tinkerpop.apache.org/docs/current/reference/#range-step) |
-| `repeat` | Repete o passo o número de vezes especificado. Utilizado para criar ciclos | [passo repeat](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
-| `sample` | Utilizado para exemplificar resultados da transversal | [passo sample](http://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Utilizado para projetar resultados da transversal |  [passo select](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
-| `store` | Utilizado para agregações que não sejam de bloqueio da transversal | [passo store](http://tinkerpop.apache.org/docs/current/reference/#store-step) |
-| `tree` | Agrega caminhos de um vértice numa árvore | [passo tree](http://tinkerpop.apache.org/docs/current/reference/#tree-step) |
-| `unfold` | Mostra um iterador como um passo| [passo unfold](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
-| `union` | Intercala resultados de múltiplas transversais| [passo union](http://tinkerpop.apache.org/docs/current/reference/#union-step) |
-| `V` | Inclui os passos necessários para transversais entre vértices e limites `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` e `otherV` | [passos vertex](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
-| `where` | Utilizado para filtrar resultados da transversal. Suporta os operadores `eq`, `neq`, `lt`, `lte`, `gt`, `gte` e `between`  | [passo where](http://tinkerpop.apache.org/docs/current/reference/#where-step) |
+| `addE` | Adiciona um limite entre dois vértices | [passo addE](https://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
+| `addV` | Adiciona um vértice ao gráfico | [passo addV](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
+| `and` | Garante que todas as transversais devolvem um valor | [passo and](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
+| `as` | Um modulador de passos para atribuir uma variável ao resultado de um passo | [passo as](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
+| `by` | Um modulador de passos utilizado com `group` e `order` | [passo by](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `coalesce` | Devolve a primeira transversal que devolve um resultado | [passo coalesce](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
+| `constant` | Devolve um valor constante. Utilizado com `coalesce`| [passo constant](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `count` | Devolve a contagem da transversal | [passo count](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
+| `dedup` | Devolve os valores com os duplicados removidos | [passo dedup](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
+| `drop` | Ignora os valores (vértice/limite) | [passo drop](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `fold` | Age como uma barreira que calcula a agregação de resultados| [passo fold](https://tinkerpop.apache.org/docs/current/reference/#fold-step) |
+| `group` | Agrupa os valores com base nas etiquetas especificadas| [passo group](https://tinkerpop.apache.org/docs/current/reference/#group-step) |
+| `has` | Utilizado para filtrar propriedades, vértices e limites. Suporta variantes `hasLabel`, `hasId`, `hasNot` e `has`. | [passo has](https://tinkerpop.apache.org/docs/current/reference/#has-step) |
+| `inject` | Insere valores numa transmissão| [passo inject](https://tinkerpop.apache.org/docs/current/reference/#inject-step) |
+| `is` | Utilizado para efetuar um filtro com uma expressão booleana | [passo is](https://tinkerpop.apache.org/docs/current/reference/#is-step) |
+| `limit` | Utilizado para limitar o número de itens na transversal| [passo limit](https://tinkerpop.apache.org/docs/current/reference/#limit-step) |
+| `local` | Encapsula uma secção de uma transversal, da mesma forma que uma subconsulta | [passo local](https://tinkerpop.apache.org/docs/current/reference/#local-step) |
+| `not` | Utilizado para produzir a negação de um filtro | [passo not](https://tinkerpop.apache.org/docs/current/reference/#not-step) |
+| `optional` | Devolve o resultado da transversal especificada se gerar um resultado, caso contrário, devolve o elemento de chamada | [passo optional](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `or` | Garante que pelo menos uma das transversais devolve um valor | [passo or](https://tinkerpop.apache.org/docs/current/reference/#or-step) |
+| `order` | Devolve resultados na sequência de ordenação especificada | [passo order](https://tinkerpop.apache.org/docs/current/reference/#order-step) |
+| `path` | Devolve o caminho completo da transversal | [passo path](https://tinkerpop.apache.org/docs/current/reference/#path-step) |
+| `project` | Projeta as propriedades como um Mapa | [passo project](https://tinkerpop.apache.org/docs/current/reference/#project-step) |
+| `properties` | Devolve as propriedades das etiquetas especificadas | [passo properties](https://tinkerpop.apache.org/docs/current/reference/#properties-step) |
+| `range` | Filtra o intervalo especificado de valores| [passo range](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
+| `repeat` | Repete o passo o número de vezes especificado. Utilizado para criar ciclos | [passo repeat](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
+| `sample` | Utilizado para exemplificar resultados da transversal | [passo sample](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
+| `select` | Utilizado para projetar resultados da transversal |  [passo select](https://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `store` | Utilizado para agregações que não sejam de bloqueio da transversal | [passo store](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
+| `tree` | Agrega caminhos de um vértice numa árvore | [passo tree](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
+| `unfold` | Mostra um iterador como um passo| [passo unfold](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
+| `union` | Intercala resultados de múltiplas transversais| [passo union](https://tinkerpop.apache.org/docs/current/reference/#union-step) |
+| `V` | Inclui os passos necessários para transversais entre vértices e limites `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` e `otherV` | [passos vertex](https://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
+| `where` | Utilizado para filtrar resultados da transversal. Suporta os operadores `eq`, `neq`, `lt`, `lte`, `gt`, `gte` e `between`  | [passo where](https://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
-O motor otimizado para escrita fornecido pelo Azure Cosmos DB suporta a indexação automática de todas as propriedades nos vértices e limites por predefinição. Portanto, as consultas com filtros, as consultas de intervalo, a ordenação ou as agregações em qualquer propriedade são processadas no índice e fornecidas de forma eficiente. Para obter mais informações sobre como a indexação funciona no Azure Cosmos DB, veja a nossa documentação sobre [indexação sem esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+O motor otimizado para escrita fornecido pelo Azure Cosmos DB suporta a indexação automática de todas as propriedades nos vértices e limites por predefinição. Portanto, as consultas com filtros, as consultas de intervalo, a ordenação ou as agregações em qualquer propriedade são processadas no índice e fornecidas de forma eficiente. Para obter mais informações sobre como a indexação funciona no Azure Cosmos DB, veja a nossa documentação sobre [indexação sem esquema](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Comece a criar uma aplicação de gráficos [com os nossos SDKs](create-graph-dotnet.md) 

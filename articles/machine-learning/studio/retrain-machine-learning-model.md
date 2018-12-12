@@ -4,7 +4,7 @@ description: Saiba como voltar a preparar um modelo e atualizar o serviço Web p
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 1f2505eda232c518ccb24b32fad91fb36dd11b01
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 57e3a444c9de951fdd974d98679908eb5a744ad1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317930"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099822"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Voltar a preparar um modelo do Azure Machine Learning Studio
 Como parte do processo de operacionalização de modelos de machine learning no Azure Machine Learning, o seu modelo é preparado e guardado. , Em seguida, utilizá-lo para criar um serviço Web preditivo. O serviço Web, em seguida, pode ser consumido em web sites, dashboards e aplicações móveis. 

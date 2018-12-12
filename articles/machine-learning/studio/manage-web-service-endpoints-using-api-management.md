@@ -1,11 +1,11 @@
 ---
 title: Gerir os serviços da web de Machine Learning Studio com a gestão de API - Azure | Documentos da Microsoft
-description: Um guia que mostram como gerir os serviços de web do AzureML com a gestão de API.
+description: Um guia que mostram como gerir os serviços de web do AzureML com a gestão de API. Gerir os pontos finais de REST API com a definição de acesso de utilizador, a otimização do uso e a monitorização do dashboard.
 keywords: aprendizagem automática, gestão de api
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 76898d2b55d5187e12b91dbd6c9a85af6a274726
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308244"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091718"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gerir os serviços de web do Azure Machine Learning Studio com a gestão de API
 ## <a name="overview"></a>Descrição geral
@@ -248,7 +248,7 @@ Verá algo semelhante a
 
 ![saída de exemplo](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
 
-##### <a name="sample-code"></a>Código de Exemplo
+##### <a name="sample-code"></a>Código de exemplo
 Outra forma de testar seu RRS é a partir do código de cliente. Se clicar **solicitação/resposta** no dashboard e desloque-se para a parte inferior, verá o código de exemplo para C#, Python e R. Também poderá ver a sintaxe do pedido RRS, incluindo o pedido de URI, cabeçalhos e o corpo.
 
 Este guia mostra um exemplo de Python em funcionamento. Terá de modificá-lo com o **área de trabalho**, **service**, e **api_key** da sua experimentação.

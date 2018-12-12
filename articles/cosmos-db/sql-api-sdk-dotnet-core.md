@@ -1,10 +1,8 @@
 ---
-title: 'Azure Cosmos DB: API de núcleo de .NET de SQL, SDK e recursos | Documentos da Microsoft'
+title: 'Do Azure Cosmos DB: SQL .NET Core API, SDK e recursos'
 description: Saiba tudo sobre a API de núcleo de .NET de SQL e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -12,12 +10,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a0fb429c36005edca579cbdb7b379e6b04be60b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: bcd8fe040cb4d36bc98700816d6a7ebe711f13f5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840848"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093456"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB SDK para .NET Core para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -213,7 +211,7 @@ O SDK de pré-visualização do Azure Cosmos DB .NET Core tem paridade de funcio
 * [Particionados coleções](partition-data.md). 
 * [Contas de base de dados de várias regiões e georreplicação](distribute-data-globally.md).
 
-Se tiver questões relacionadas com este SDK, publicar no [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), ou enviar um problema no [repositório do github](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+Se tiver questões relacionadas com este SDK, publicar no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-documentdb), ou enviar um problema no [repositório do github](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
 ## <a name="release--retirement-dates"></a>Versão & retirada datas
 

@@ -1,11 +1,11 @@
 ---
-title: Consumir serviços web Machine Learning com um modelo de aplicação web - Azure Machine Learning Studio | Documentos da Microsoft
+title: Consumir o serviço web com o modelo de aplicação web - Azure Machine Learning Studio | Documentos da Microsoft
 description: Utilize um modelo de aplicação web no Azure Marketplace para consumir um serviço web preditivo no Azure Machine Learning.
 keywords: serviço Web, operacionalização, API de REST do machine learning
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 2c0bba4a442b73b82ebc271c3516f65954d6d8a4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 3eaf881ea1b8831891588310bfcec5e8fb146978
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311573"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078587"
 ---
 # <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Consumir um serviço web Azure Machine Learning utilizando um modelo de aplicação web
 

@@ -1,33 +1,23 @@
 ---
-title: Mover um peering público do Azure expressroute para o peering da Microsoft | Documentos da Microsoft
+title: Mover um peering público para a Microsoft - peering de ExpressRoute do Azure | Documentos da Microsoft
 description: Este artigo mostra-lhe os passos para mover o peering público para a Microsoft peering no ExpressRoute.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 579f8874459004ef6bfa0d0794ab09333e053acb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 6b2bce6b488698db0a72c9a17f67c2555c6afa5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966130"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100026"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Mover um peering público para o peering da Microsoft
 
-ExpressRoute suporta a utilização de peering da Microsoft com filtros de rota para serviços do Azure PaaS, como o armazenamento do Azure e a Base de Dados SQL do Azure. Agora, precisa apenas de um domínio de encaminhamento para aceder aos serviços do Microsoft PaaS e SaaS. Pode utilizar filtros de rota para seletivamente anunciar os prefixos do serviço PaaS para as regiões do Azure que pretende consumir.
-
-Este artigo ajuda-o a mover uma configuração do peering público para peering sem períodos de indisponibilidade da Microsoft. Para obter mais informações sobre domínios de encaminhamento e peerings, consulte [ExpressRoute circuitos e domínios de encaminhamento](expressroute-circuit-peerings.md).
-
+Este artigo ajuda-o a mover uma configuração do peering público para peering sem períodos de indisponibilidade da Microsoft. ExpressRoute suporta a utilização de peering da Microsoft com filtros de rota para serviços do Azure PaaS, como o armazenamento do Azure e a Base de Dados SQL do Azure. Agora, precisa apenas de um domínio de encaminhamento para aceder aos serviços do Microsoft PaaS e SaaS. Pode utilizar filtros de rota para seletivamente anunciar os prefixos do serviço PaaS para as regiões do Azure que pretende consumir. Para obter mais informações sobre domínios de encaminhamento e peerings, consulte [ExpressRoute circuitos e domínios de encaminhamento](expressroute-circuit-peerings.md).
 
 ## <a name="before"></a>Antes de começar
 

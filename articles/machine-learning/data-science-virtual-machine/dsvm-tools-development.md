@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: MT
+ms.openlocfilehash: ef9f1e0c043370bdfacf654cffb524b716a34446
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237882"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872340"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Ferramentas de desenvolvimento na máquina de Virtual de ciência de dados
 
@@ -32,7 +32,7 @@ A Máquina Virtual de ciência de dados (DSVM) fornece um ambiente produtivo par
 | O que é?   | IDE para fins gerais      |
 | Versões suportadas DSVM      | Windows      |
 | Utilizações típicas      | Desenvolvimento de software    |
-| Como é ele configurado / instalado no DSVM?      | Carga de trabalho de ciência de dados (ferramentas do Python e R), do Azure carga de trabalho (Hadoop, o Data Lake), node. js, ferramentas do SQL Server, [Visual Studio Tools para IA](https://github.com/Microsoft/vs-tools-for-ai)    |
+| Como é ele configurado / instalado no DSVM?      | Carga de trabalho de ciência de dados (ferramentas do Python e R), do Azure carga de trabalho (Hadoop, o Data Lake), node. js, ferramentas do SQL Server, [do Azure Machine Learning para Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
 | Como utilizar / executá-lo?      | Atalho de Desktop (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | Ferramentas relacionadas na DSVM      |     Juno de código, o r Studio, Visual Studio  |
 

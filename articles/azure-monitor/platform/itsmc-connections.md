@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: b6e59834d9a20a26be7c41d964556a45b0d2aab6
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: MT
+ms.openlocfilehash: a7b24ff3f51cdd66391f8dd7c73598530f767420
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642831"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865595"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar produtos/serviços de ITSM com o conector de gestão do serviço de TI
-Este artigo fornece informações sobre como configurar a conexão entre seus produtos/serviços ITSM e o conector de gestão de serviço de TI (ITSMC) no Log Analytics para gerenciar de forma centralizada seus itens de trabalho. Para obter mais informações sobre ITSMC, consulte [descrição geral](../../log-analytics/log-analytics-itsmc-overview.md).
+Este artigo fornece informações sobre como configurar a conexão entre seus produtos/serviços ITSM e o conector de gestão de serviço de TI (ITSMC) no Log Analytics para gerenciar de forma centralizada seus itens de trabalho. Para obter mais informações sobre ITSMC, consulte [descrição geral](../../azure-monitor/platform/itsmc-overview.md).
 
 Os seguintes produtos/serviços ITSM são suportados. Selecione o produto para ver informações detalhadas sobre como ligar o produto ao ITSMC.
 
@@ -43,7 +43,7 @@ As secções seguintes fornecem detalhes sobre como ligar o seu produto System C
 
 Certifique-se de que são cumpridos os seguintes pré-requisitos:
 
-- ITSMC instalado. Obter mais informações: [adicionar a solução de conector de gestão de serviço de TI](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado. Obter mais informações: [adicionar a solução de conector de gestão de serviço de TI](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - A aplicação Web do Service Manager (aplicação Web) é implementada e configurada. Informações sobre a aplicação Web estão [aqui](#create-and-deploy-service-manager-web-app-service).
 - Ligação híbrida criada e configurada. Obter mais informações: [configurar a ligação de híbrida](#configure-the-hybrid-connection).
 - Versões do Service Manager suportadas: 2012 R2 ou 2016.
@@ -72,7 +72,7 @@ Utilize o procedimento seguinte para ligar a sua instância de System Center Ser
 | **Nome da Ligação**   | Escreva um nome para a instância de System Center Service Manager que pretende ligar-se com ITSMC.  Utilizar este nome mais tarde quando configurar os itens de trabalho nesta instância / ver detalhadas do log analytics. |
 | **Tipo de parceiro**   | Selecione **System Center Service Manager**. |
 | **URL do servidor**   | Escreva o URL da aplicação Web do Service Manager. Obter mais informações sobre as aplicações Web do Service Manager estão [aqui](#create-and-deploy-service-manager-web-app-service).
-| **ID de cliente**   | Escreva o ID de cliente que gerou (usando o script automático) para autenticar a aplicação Web. Obter mais informações sobre o script automatizado são [aqui.](../../log-analytics/log-analytics-itsmc-service-manager-script.md)|
+| **ID de cliente**   | Escreva o ID de cliente que gerou (usando o script automático) para autenticar a aplicação Web. Obter mais informações sobre o script automatizado são [aqui.](../../azure-monitor/platform/itsmc-service-manager-script.md)|
 | **Segredo do cliente**   | Escreva o segredo de cliente gerado para este ID.   |
 | **Âmbito de sincronização de dados**   | Selecione os itens de trabalho do Service Manager que pretende sincronizar através do ITSMC.  Estes itens são importados para o Log Analytics de trabalho. **Opções:** incidentes, pedidos de alteração.|
 | **Sincronizar dados** | Escreva o número de dias decorridos que pretende que os dados do. **Limite máximo**: 120 dias. |
@@ -87,7 +87,7 @@ Utilize o procedimento seguinte para ligar a sua instância de System Center Ser
 - Pode criar incidentes de alertas do Log Analytics ou de registros de log ou de alertas do Azure nesta instância do Service Manager.
 
 
-Saiba mais: [itens de trabalho de ITSM criar de alertas do Azure](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Saiba mais: [itens de trabalho de ITSM criar de alertas do Azure](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Criar e implementar o serviço de aplicações web do Service Manager
 
@@ -95,11 +95,11 @@ Para ligar o Gestor de serviços no local com ITSMC no Azure, Microsoft criou um
 
 Para configurar a aplicação Web de ITSM para o Service Manager, faça o seguinte:
 
-- **Implementar a aplicação Web** – implementar a aplicação Web, defina as propriedades e autenticar com o Azure AD. Pode implementar a aplicação web ao utilizar o [automatizada de script](../../log-analytics/log-analytics-itsmc-service-manager-script.md) que a Microsoft forneceu.
+- **Implementar a aplicação Web** – implementar a aplicação Web, defina as propriedades e autenticar com o Azure AD. Pode implementar a aplicação web ao utilizar o [automatizada de script](../../azure-monitor/platform/itsmc-service-manager-script.md) que a Microsoft forneceu.
 - **Configurar a ligação híbrida** - [configurar esta ligação](#configure-the-hybrid-connection), manualmente.
 
 #### <a name="deploy-the-web-app"></a>Implementar a aplicação web
-Utilizar o automatizadas [script](../../log-analytics/log-analytics-itsmc-service-manager-script.md) para implementar a aplicação Web, defina as propriedades e autenticar com o Azure AD.
+Utilizar o automatizadas [script](../../azure-monitor/platform/itsmc-service-manager-script.md) para implementar a aplicação Web, defina as propriedades e autenticar com o Azure AD.
 
 Execute o script, fornecendo os seguintes detalhes necessários:
 
@@ -186,7 +186,7 @@ As secções seguintes fornecem detalhes sobre como ligar o seu produto do Servi
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Certifique-se de que são cumpridos os seguintes pré-requisitos:
-- ITSMC instalado. Obter mais informações: [adicionar a solução de conector de gestão de serviço de TI](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado. Obter mais informações: [adicionar a solução de conector de gestão de serviço de TI](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versões suportadas do ServiceNow: Kingston, Jacarta, Istambul, Helsínquia, Geneva.
 
 **Os administradores do ServiceNow necessário efetuar o seguinte na sua instância do ServiceNow**:
@@ -240,7 +240,7 @@ Utilize o procedimento seguinte para criar uma ligação do ServiceNow:
 
 - Pode criar incidentes de alertas do Log Analytics ou de registros de log ou de alertas do Azure nesta instância do ServiceNow.
 
-Saiba mais: [itens de trabalho de ITSM criar de alertas do Azure](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Saiba mais: [itens de trabalho de ITSM criar de alertas do Azure](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>Criar função de utilizador de integração na aplicação do ServiceNow
 
@@ -292,7 +292,7 @@ As secções seguintes fornecem detalhes sobre como ligar o seu produto Provance
 Certifique-se de que são cumpridos os seguintes pré-requisitos:
 
 
-- ITSMC instalado. Obter mais informações: [adicionar a solução de conector de gestão de serviço de TI](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado. Obter mais informações: [adicionar a solução de conector de gestão de serviço de TI](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Aplicação de provance deve ser registada no Azure AD – e ID de cliente é disponibilizado. Para obter informações detalhadas, consulte [como configurar a autenticação do Active Directory](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 - Função de utilizador: administrador.
@@ -334,7 +334,7 @@ Utilize o procedimento seguinte para criar uma ligação de Provance:
 
 - Pode criar incidentes de alertas do Log Analytics ou de registros de log ou de alertas do Azure nesta instância Provance.
 
-Saiba mais: [itens de trabalho de ITSM criar de alertas do Azure](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Saiba mais: [itens de trabalho de ITSM criar de alertas do Azure](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Ligar o Cherwell ao serviço de TI conector de gestão no Azure
 
@@ -344,7 +344,7 @@ As secções seguintes fornecem detalhes sobre como ligar o seu produto Cherwell
 
 Certifique-se de que são cumpridos os seguintes pré-requisitos:
 
-- ITSMC instalado. Obter mais informações: [adicionar a solução de conector de gestão de serviço de TI](../../log-analytics/log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado. Obter mais informações: [adicionar a solução de conector de gestão de serviço de TI](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - ID de cliente gerado. Obter mais informações: [gerar ID de cliente para o Cherwell](#generate-client-id-for-cherwell).
 - Função de utilizador: administrador.
 
@@ -386,7 +386,7 @@ Utilize o procedimento seguinte para criar uma ligação de Provance:
 
 - Pode criar incidentes de alertas do Log Analytics ou de registros de log ou de alertas do Azure nesta instância Cherwell.
 
-Saiba mais: [itens de trabalho de ITSM criar de alertas do Azure](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Saiba mais: [itens de trabalho de ITSM criar de alertas do Azure](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Gerar ID de cliente para o Cherwell
 
@@ -400,4 +400,4 @@ Para gerar o chave do ID de cliente para o Cherwell, utilize o seguinte procedim
 
 
 ## <a name="next-steps"></a>Passos Seguintes
- - [Criar itens de trabalho ITSM de alertas do Azure](../../log-analytics/log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+ - [Criar itens de trabalho ITSM de alertas do Azure](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

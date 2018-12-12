@@ -1,24 +1,24 @@
 ---
-title: FAQ de HSM de dedicado do Azure | Documentos da Microsoft
-description: HSM dedicada do Azure fornece recursos de armazenamento de chaves no Azure que cumpra FIPS 140-2 nível 3 certificação
+title: Perguntas mais frequentes sobre - HSM dedicada do Azure | Documentos da Microsoft
+description: Perguntas mais frequentes sobre que aborda tópicos diferentes no HSM dedicada do Azure
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
+ms.custom: mvc
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: concepts
-ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 3179fd3cf7a595b4491aec77e221aca3960c8ecb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 949281b1415e2098fb7bf0d3e9e9fbe0a5f5c835
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319450"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081001"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
@@ -28,7 +28,7 @@ Encontre respostas a perguntas comuns sobre o HSM dedicados do Microsoft Azure.
 
 ### <a name="q-what-is-a-hardware-security-module-hsm"></a>P: o que é um módulo de segurança de hardware (HSM)?
 
-Um módulo de segurança de Hardware (HSM) é um dispositivo de computação físico utilizado para salvaguardar e gerir chaves criptográficas. Chaves armazenadas em HSMs podem ser utilizadas para operações criptográficas. O material de chave com segurança permanece em módulos de hardware resistente a adulterações, adulterar-evidente. O HSM só permite autenticado e autorizado a aplicações para utilizar as chaves. O material de chave nunca deixa o limite de proteção do HSM.
+Um módulo de segurança de Hardware (HSM) é um dispositivo de computação físico utilizado para salvaguardar e gerir chaves criptográficas. Chaves armazenadas em HSMs podem ser utilizadas para operações criptográficas. O material de chave com segurança permanece em módulos de hardware resistente a adulterações, adulterar-evidente. O HSM só permite autenticado e autorizado a aplicações para utilizar as chaves. O material das chaves nunca sai do limite de proteção do HSM.
 
 ### <a name="q-what-is-azure-dedicated-hsm-offering"></a>P: o que é a oferta de HSM dedicados do Azure?
 
@@ -40,7 +40,7 @@ Microsoft associou-se a Gemalto para fornecer o serviço HSM de dedicada do Azur
 
 ### <a name="q-what-is-an-hsm-used-for"></a>P: para o que é utilizado um HSM?
 
-HSMs são utilizados para armazenar as chaves criptográficas que são utilizadas para a funcionalidade de criptografia, como o SSL (secure sockets layer), criptografia de dados, PKI (infra-estrutura de chave pública), DRM (gerenciamento de direitos digitais) e a assinatura de documentos.
+Os HSMs são utilizados para armazenar chaves criptográficas que, por sua vez, são utilizadas para proporcionar funcionalidades criptográficas, como SSL (Secure Sockets Layer), encriptação de dados, PKI (infraestrutura de chaves públicas), DRM (gestão de direitos digitais) e assinar documentos.
 
 ### <a name="q-how-does-dedicated-hsm-work"></a>P: como funciona o HSM dedicados?
 

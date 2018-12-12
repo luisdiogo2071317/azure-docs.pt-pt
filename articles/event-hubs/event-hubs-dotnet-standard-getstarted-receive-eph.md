@@ -1,6 +1,6 @@
 ---
-title: Receber eventos dos Hubs de eventos do Azure com a biblioteca de .NET Core | Documentos da Microsoft
-description: Começar a receber mensagens com o EventProcessorHost em .NET Core
+title: Receber eventos com .NET Core - Event Hubs do Azure | Documentos da Microsoft
+description: Este artigo fornece um passo a passo para criar uma aplicação .NET Core que recebe mensagens com o EventProcessorHost.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: fb99307182ba3ce8ba49a9ae09c12af173799c87
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 18b37fd7c85fced4cc57b57320daf195f6f33e3e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963356"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082386"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-core"></a>Começar a receber mensagens com o anfitrião do processador de eventos em .NET Core
 Os Event Hubs são um serviço que processa grandes quantidades de dados de eventos (telemetria) em aplicações e dispositivos ligados. Depois de recolher os dados para os Event Hubs, pode armazená-los utilizando um cluster de armazenamento ou transformá-los utilizando um fornecedor de análise em tempo real. Esta capacidade de processamento e recolha de eventos de grande escala é um componente importante das arquiteturas das aplicações modernas, incluindo a Internet das Coisas (IoT). Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).

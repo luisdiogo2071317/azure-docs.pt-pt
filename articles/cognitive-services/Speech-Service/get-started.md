@@ -1,7 +1,7 @@
 ---
-title: Experimente gratuitamente o serviço de voz
+title: Experimente gratuitamente os serviços de voz
 titleSuffix: Azure Cognitive Services
-description: Descubra como pode experimentar o serviço de voz, sem qualquer custo.
+description: Começar a utilizar com o serviço de voz é fácil e económica. Uma avaliação gratuita de 30 dias permite-lhe detetar o que o serviço pode fazer e decidir se é adequada para as necessidades da sua aplicação.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 4e29f2e77ad2b4e993fbe6a39b90325a0738f538
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 69e2c094e1fca57d0dddc662cc1dae6453897c38
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471395"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079114"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Voz gratuitamente
 
@@ -36,7 +37,7 @@ Para se inscrever numa avaliação gratuita de 30 dias:
 1. Selecione o **APIs de voz** separador.
 
    ![Separador de serviços de voz](media/index/try-speech-api-free-trial1.png)
-   
+
 1. Sob **serviços de voz**, selecione a **obter chave de API** botão.
 
    ![Chave de API](media/index/try-speech-api-free-trial2.png)

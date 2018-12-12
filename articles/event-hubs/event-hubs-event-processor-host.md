@@ -1,6 +1,6 @@
 ---
-title: O que é o anfitrião do processador de Azure Event Hubs de eventos e porquê utilizá-lo | Documentos da Microsoft
-description: Descrição geral e introdução ao anfitrião do processador de Azure Event Hubs de eventos
+title: Receber eventos com o anfitrião do processador de eventos - Event Hubs do Azure | Documentos da Microsoft
+description: Este artigo descreve o anfitrião do processador de eventos no Event Hubs do Azure, que simplifica o gerenciamento de ponto de verificação, locação e a ler eventos paralelo ização.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a28ae46a449d4aacf046636793585a84adc5ba83
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258957"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089638"
 ---
-# <a name="azure-event-hubs-event-processor-host-overview"></a>Descrição geral de anfitrião do processador de eventos de Hubs de eventos do Azure
+# <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Receber eventos dos Hubs de eventos do Azure com o anfitrião do processador de eventos
 
 Os Hubs de eventos do Azure é um serviço de ingestão de telemetria poderosa que pode ser utilizado para transmissão milhões de eventos um custo reduzido. Este artigo descreve como consumir eventos ingeridos com o *anfitrião do processador de eventos* (EPH); um agente de consumidor inteligente que simplifica a gestão dos pontos de verificação, leasing e os leitores dos eventos paralela.  
 
@@ -111,12 +112,12 @@ Propriedade de uma partição para uma instância EPH (ou um consumidor) é cont
 
 | **Nome do grupo de consumidores** | **ID de partição** | **Nome de anfitrião (proprietário)** | **Tempo de concessão (ou propriedade) adquirido** | **Desvio na partição (ponto de verificação)** |
 | --- | --- | --- | --- | --- |
-| $Default | 0 | Consumidor\_VM3 | 2018-04-15T01:23:45 | 156 |
-| $Default | 1 | Consumidor\_VM4 | 2018-04-15T01:22:13 | 734 |
-| $Default | 2 | Consumidor\_VM0 | 2018-04-15T01:22:56 | 122 |
+| $Predefinição | 0 | Consumidor\_VM3 | 2018-04-15T01:23:45 | 156 |
+| $Predefinição | 1 | Consumidor\_VM4 | 2018-04-15T01:22:13 | 734 |
+| $Predefinição | 2 | Consumidor\_VM0 | 2018-04-15T01:22:56 | 122 |
 | : |   |   |   |   |
 | : |   |   |   |   |
-| $Default | 15 | Consumidor\_VM3 | 2018-04-15T01:22:56 | 976 |
+| $Predefinição | 15 | Consumidor\_VM3 | 2018-04-15T01:22:56 | 976 |
 
 Aqui, cada anfitrião adquire a propriedade de uma partição para um determinado período de tempo (a duração da concessão). Se uma falha de anfitrião (VM encerra), em seguida, a concessão expira. Outros anfitriões tentarem obter a propriedade da partição e dos anfitriões for concluída com êxito. Este processo repõe a concessão na partição com um novo proprietário. Desta forma, apenas um único leitor ao mesmo tempo pode ler a partir de qualquer determinada partição dentro de um grupo de consumidores.
 

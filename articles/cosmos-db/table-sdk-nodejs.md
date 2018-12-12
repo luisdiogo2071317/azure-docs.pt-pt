@@ -1,10 +1,8 @@
 ---
-title: API de tabela do Azure Cosmos DB para node. js | Documentos da Microsoft
+title: API de tabela do Azure Cosmos DB para node. js
 description: Saiba tudo sobre a API tabela do Azure Cosmos DB incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão.
 services: cosmos-db
 author: yarong
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: nodejs
@@ -12,12 +10,12 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: ''
-ms.openlocfilehash: 4bdcb7c587ef05ced3c163136c52c81433a98cf4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 04e4337581337a467fc49927f0f353d42c7b801a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468709"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089672"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>API de tabela do Cosmos DB do Azure para node. js: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -31,7 +29,7 @@ ms.locfileid: "49468709"
 |   |   |
 |---|---|
 |**Transferência de SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**Documentação da API**|[Documentação de referência de API node. js](http://azure.github.io/azure-storage-node/)|
+|**Documentação da API**|[Documentação de referência de API node. js](https://azure.github.io/azure-storage-node/)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]

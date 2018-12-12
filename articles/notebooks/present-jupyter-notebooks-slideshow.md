@@ -1,5 +1,5 @@
 ---
-title: Apresentar um bloco de notas do Jupyter como uma apresentação de diapositivos no Azure | Documentos da Microsoft
+title: Apresentar um bloco de notas do Jupyter como uma apresentação de diapositivos no Azure
 description: Como configurar células para o modo de apresentação de slides num bloco de notas do Jupyter e, em seguida, apresentar a apresentação de slides usando a extensão de aumento.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 8eaa264cf679de7158a31805c406cb217e6a1fd2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d29aac52948cddf9d7e274d28735e2c12143b5ca
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856329"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081426"
 ---
 # <a name="run-a-notebook-slideshow"></a>Executar uma apresentação de slides do bloco de notas
 

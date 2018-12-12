@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: reconhecer voz em C++ no Linux com o SDK de Serviço de Voz'
+title: 'Início rápido: Reconhecer a conversão de voz, C++ (Linux) - serviços de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a reconhecer voz em C++ no Linux com o SDK de Serviço de Voz
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: bfb71c000eea56e705b33fb97827aead23de8cbb
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: e26190b46a79d581e5996e51bfd104f1d4beb6f6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219278"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094037"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Guia de Início Rápido: reconhecer voz em C++ no Linux com o SDK de Voz
 
@@ -132,7 +132,7 @@ Transfira e instale o SDK da seguinte forma:
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Procure este exemplo na pasta `quickstart/cpp-linux`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Reconhecer intenções de voz com o SDK de Voz para C++](how-to-recognize-intents-from-speech-cpp.md)

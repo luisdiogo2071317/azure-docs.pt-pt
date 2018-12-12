@@ -15,25 +15,25 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 76c2c7c7e99f10f48464d85030fea64bb7925cd7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 50dea9451205e565b954a35b3611a3e0302222d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845710"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088301"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de gestão de alerta no Log Analytics do Azure
 
 ![Ícone de gestão de alertas](media/alert-management-solution/icon.png)
 
-A solução de gestão de alertas ajuda a analisar todos os alertas no seu repositório do Log Analytics.  Estes alertas podem proveniente de uma variedade de origens, incluindo essas origens [criado pelo Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) ou [importados a partir do Nagios ou Zabbix](../../log-analytics/log-analytics-quick-collect-linux-computer.md). A solução importa também alertas a partir de qualquer [ligadas a grupos de gestão do System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md).
+A solução de gestão de alertas ajuda a analisar todos os alertas no seu repositório do Log Analytics.  Estes alertas podem proveniente de uma variedade de origens, incluindo essas origens [criado pelo Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) ou [importados a partir do Nagios ou Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). A solução importa também alertas a partir de qualquer [ligadas a grupos de gestão do System Center Operations Manager](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 A solução funciona com quaisquer registos no repositório do Log Analytics com o tipo de **alerta**, por isso, tem de efetuar qualquer configuração é necessária para recolher estes registos.
 
 - Para os alertas do Log Analytics, [criar regras de alerta](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para criar registos de alerta diretamente no repositório.
-- Para os alertas do Nagios e do Zabbix, [configurar esses servidores](../../log-analytics/log-analytics-quick-collect-linux-computer.md) para enviar alertas para o Log Analytics.
-- Para os alertas do System Center Operations Manager, [ligar o seu grupo de gestão do Operations Manager à sua área de trabalho do Log Analytics](../../log-analytics/log-analytics-om-agents.md).  Todos os alertas criados no System Center Operations Manager são importados para o Log Analytics.  
+- Para os alertas do Nagios e do Zabbix, [configurar esses servidores](../../azure-monitor/learn/quick-collect-linux-computer.md) para enviar alertas para o Log Analytics.
+- Para os alertas do System Center Operations Manager, [ligar o seu grupo de gestão do Operations Manager à sua área de trabalho do Log Analytics](../../azure-monitor/platform/om-agents.md).  Todos os alertas criados no System Center Operations Manager são importados para o Log Analytics.  
 
 ## <a name="configuration"></a>Configuração
 Adicionar a solução de gestão de alertas à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções](../../azure-monitor/insights/solutions.md). Não há nenhuma configuração adicional.
@@ -43,7 +43,7 @@ Se o grupo de gestão do System Center Operations Manager estiver ligado à sua 
 
 * Gestão de alertas do Microsoft System Center Advisor (Microsoft.IntelligencePacks.AlertManagement)
 
-Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../../log-analytics/log-analytics-om-agents.md).
+Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="data-collection"></a>Recolha de dados
 ### <a name="agents"></a>Agentes
@@ -52,8 +52,8 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | Origem Ligada | Suporte | Descrição |
 |:--- |:--- |:--- |
 | [Agentes do Windows](agent-windows.md) | Não |Agentes diretos do Windows não geram alertas.  Alertas do log Analytics podem ser criadas a partir de eventos e dados de desempenho recolhidos a partir de Windows agentes. |
-| [Agentes do Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Não |Agentes diretos do Linux não geram alertas.  Alertas do log Analytics podem ser criadas do eventos e dados de desempenho recolhidas pelos agentes do Linux.  Alertas do Nagios e do Zabbix são recolhidas a partir desses servidores que exigem o agente do Linux. |
-| [Grupo de gestão do System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md) |Sim |Alertas que são gerados em agentes do Operations Manager são entregues para o grupo de gestão e, depois, reencaminhadas para o Log Analytics.<br><br>Não é necessária uma conexão direta de agentes do Operations Manager ao Log Analytics. Dados de alertas são reencaminhados do grupo de gestão para o repositório do Log Analytics. |
+| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não |Agentes diretos do Linux não geram alertas.  Alertas do log Analytics podem ser criadas do eventos e dados de desempenho recolhidas pelos agentes do Linux.  Alertas do Nagios e do Zabbix são recolhidas a partir desses servidores que exigem o agente do Linux. |
+| [Grupo de gestão do System Center Operations Manager](../../azure-monitor/platform/om-agents.md) |Sim |Alertas que são gerados em agentes do Operations Manager são entregues para o grupo de gestão e, depois, reencaminhadas para o Log Analytics.<br><br>Não é necessária uma conexão direta de agentes do Operations Manager ao Log Analytics. Dados de alertas são reencaminhados do grupo de gestão para o repositório do Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Frequência da recolha

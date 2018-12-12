@@ -1,21 +1,22 @@
 ---
-title: Adicionar modelos padrão em vez de expressões com mais nas aplicações de LUIS
-titleSuffix: Azure Cognitive Services
+title: Melhorar a precisão do padrões
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Saiba como adicionar modelos padrão em aplicativos de compreensão de idiomas (LUIS) para melhorar a exatidão da previsão.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6c15fc256a330c7de154c551c1ef4c78913f470a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: MT
+ms.openlocfilehash: 20a486a048fe6287544a9fec35a95c88f6194a66
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885891"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093187"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar os padrões para melhorar a exatidão da previsão
 Depois de uma aplicação do LUIS recebe expressões de ponto de extremidade, utilize o [conceito](luis-concept-patterns.md) de padrões para melhorar a exatidão da previsão para expressões que revelam um padrão na ordem das palavras e a escolha do word. Padrões de utilização [entidades](luis-concept-entity-types.md) e as respetivas funções para extrair dados usando a sintaxe padrão específico. 
@@ -125,7 +126,7 @@ Pode criar um padrão a partir de uma expressão existente em qualquer uma de **
 
 1. Na linha da expressão selecionada, selecione as reticências (***...*** ) à direita da expressão e selecione **adicionar como padrão**.
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Captura de ecrã da tabela de expressões com padrão de adicionar realçada no menu de opções")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![Captura de ecrã da tabela de expressões com padrão de adicionar realçada no menu de opções](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "captura de ecrã da tabela de expressões com padrão de adicionar realçada no menu de opções")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
 2. Modificar o padrão de acordo com o [regras de sintaxe](luis-concept-patterns.md#pattern-syntax). Se a expressão que selecionou está etiquetado com entidades, essas entidades já estão no padrão com a sintaxe correta.
 

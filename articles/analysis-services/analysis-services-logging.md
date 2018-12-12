@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ba2d42f0f0908273065be268646a0fb7eb8b96e5
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a7098e5ee5f6a7f45507f93771409595f79debf5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001099"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083687"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar registo de diagnósticos
 
@@ -46,7 +46,7 @@ Selecionando **motor** regista todos [xEvents](https://docs.microsoft.com/sql/an
 |Descobrir     |   Detetar final      |
 |Notificação     |    Notificação     |
 |Sessão     |  Inicialização de sessão       |
-|Bloqueios    |  Impasse h, é só subir para o número        |
+|Bloqueios    |  Deadlock       |
 |Processamento de consultas     |   Início de consulta SE VertiPaq      |
 |Processamento de consultas     |   VertiPaq SE Query End      |
 |Processamento de consultas     |   Correspondência de Cache de consulta SE VertiPaq      |
@@ -82,7 +82,7 @@ A categoria de métricas, registos a mesma [métricas do servidor](analysis-serv
 
     * **Arquivo para uma conta de armazenamento**. Para utilizar esta opção, terá de uma conta de armazenamento existente para ligar a. Ver [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). Siga as instruções para criar um Gerenciador de recursos, conta para fins gerais, em seguida, selecione a sua conta de armazenamento por meio do retorno a esta página no portal. Pode demorar alguns minutos para as contas de armazenamento recentemente criada aparece no menu pendente.
     * **Stream para um hub de eventos**. Para utilizar esta opção, terá de um Hub de eventos espaço de nomes e o event hub para ligar a. Para obter mais informações, consulte [criar um espaço de nomes de Hubs de eventos e um hub de eventos com o portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, regresse a esta página no portal para selecionar o nome de espaço de nomes e a política do Hub de eventos.
-    * **Enviar para o Log Analytics**. Para utilizar esta opção, utilize uma área de trabalho existente ou crie uma nova área de trabalho do Log Analytics ao seguir os passos para [criar uma nova área de trabalho](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre a visualização dos registos no Log Analytics, consulte [vista de registos no Log Analytics](#view-logs-in-log-analytics) neste artigo.
+    * **Enviar para o Log Analytics**. Para utilizar esta opção, utilize uma área de trabalho existente ou crie uma nova área de trabalho do Log Analytics ao seguir os passos para [criar uma nova área de trabalho](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre a visualização dos registos no Log Analytics, consulte [vista de registos no Log Analytics](#view-logs-in-log-analytics) neste artigo.
 
     * **Motor**. Selecione esta opção para registar xEvents. Se estiver arquivando para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos estão autodeleted após o período de retenção expira.
     * **Serviço**. Selecione esta opção para registar eventos de nível de serviço. Se estiver a arquivamento para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos estão autodeleted após o período de retenção expira.

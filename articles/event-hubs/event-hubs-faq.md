@@ -1,20 +1,21 @@
 ---
-title: FAQ dos Hubs de eventos do Azure | Documentos da Microsoft
-description: Os Hubs de eventos do Azure perguntas mais frequentes (FAQ)
+title: Perguntas mais frequentes sobre - Event Hubs do Azure | Documentos da Microsoft
+description: Este artigo fornece uma lista de perguntas mais frequentes (FAQ) para os Hubs de eventos do Azure e suas respostas.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 10/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9bd1649c0ec89abf660865971314becb6580852f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 7308b122d878c225aa98a19a303bc9520f3201ef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300680"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088242"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas mais frequentes sobre os Hubs de eventos
 

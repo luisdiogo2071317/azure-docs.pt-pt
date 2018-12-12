@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: c9d36014bc364d8b016221e6b9ff380b0bd4b8ed
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18
+ms.openlocfilehash: 059e959aec34503f31cbf87266d0633865cbff46
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854172"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098751"
 ---
-# <a name="create-a-knowledge-base"></a>Criar uma base de dados de conhecimento
+# <a name="create-a-knowledge-base-in-qna-maker"></a>Criar uma base de dados de conhecimento no QnA Maker
 
 A ferramenta QnA Maker torna simples para adicionar as suas origens de dados existente durante a criação de uma base de dados de conhecimento. Pode criar uma nova base de dados de conhecimento do QnA Maker partir os seguintes tipos de documento:
 

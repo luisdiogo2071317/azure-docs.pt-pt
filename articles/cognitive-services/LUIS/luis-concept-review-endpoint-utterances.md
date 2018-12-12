@@ -1,23 +1,24 @@
 ---
-title: Expressões com ponto final de revisão para utilizar a aprendizagem ativa na compreensão de idiomas (LUIS)
-titleSuffix: Azure Cognitive Services
-description: Aprendizagem ativa é uma das três estratégias para melhorar a exatidão da previsão e o mais fácil de implementar. Com a aprendizagem ativa, seus discursos de ponto final de revisão para intenção correta e de entidade. LUIS escolhe expressões de ponto final é verificá-lo.
+title: Expressões com de utilizador de revisão
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Com a aprendizagem ativa, seus discursos de ponto final de revisão para intenção correta e de entidade. LUIS escolhe expressões de ponto final é verificá-lo.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/07/2018
 ms.author: diberry
-ms.openlocfilehash: 4ef6f5022b3c38eab2cda20123f179811f46390f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: MT
+ms.openlocfilehash: ca8a6b05722ac2edc91d7459c64c2bdb312a7016
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637243"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080967"
 ---
-# <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Ativar a aprendizagem ativa, revendo os discursos de ponto final
+# <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>Conceitos para ativar a aprendizagem ativa, revendo os discursos de ponto final
 Aprendizagem ativa é uma das três estratégias para melhorar a exatidão da previsão e o mais fácil de implementar. Com a aprendizagem ativa, seus discursos de ponto final de revisão para intenção correta e de entidade. LUIS escolhe expressões de ponto final é verificá-lo.
 
 ## <a name="what-is-active-learning"></a>O que é a aprendizagem ativa

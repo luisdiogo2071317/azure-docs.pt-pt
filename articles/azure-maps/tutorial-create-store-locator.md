@@ -109,7 +109,7 @@ Para criar o projeto, pode usar [Visual Studio](https://visualstudio.microsoft.c
 
 Para criar a interface do usuário, adicione código ao *Index*:
 
-1. Adicione o seguinte `meta` com as etiquetas para o `head` dos *Index*. As etiquetas definem o conjunto de caracteres (UTF-8), informar ao Internet Explorer e o Edge para utilizar as versões mais recentes do navegador e especificar uma janela viewport que funciona bem para layouts de capacidade de resposta.
+1. Adicione o seguinte `meta` com as etiquetas para o `head` dos *Index*. As etiquetas definem o conjunto de caracteres (UTF-8), informar ao Internet Explorer e o Microsoft Edge para utilizar as versões mais recentes do navegador e especificar uma janela viewport que funciona bem para layouts de capacidade de resposta.
 
     ```HTML
     <meta charset="utf-8" /> 

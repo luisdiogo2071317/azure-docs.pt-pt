@@ -1,5 +1,5 @@
 ---
-title: Arquivada para o que há de novo? no Azure Active Directory | Documentos da Microsoft
+title: Arquivada para o que há de novo? -O azure Active Directory | Documentos da Microsoft
 description: A que há de novo notas de versão na descrição geral secção deste conjunto de conteúdos contém seis meses da atividade. Depois de 6 meses, os itens são removidos do artigo principal e colocar neste artigo de arquivo.
 services: active-directory
 author: eross-msft
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 54e63cf90d72b64dbe00ab8b65179f015c23b646
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: MT
+ms.openlocfilehash: 2a2b0da34357572ab63ed9ac0d6d17766466ca8f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427612"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079845"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivada para o que há de novo? no Azure Active Directory
 
@@ -675,7 +675,7 @@ A extensão do browser as minhas aplicações agora está disponível por meio d
 - A capacidade de iniciar sessão diretamente no SSO de palavra-passe com base em aplicações a partir da página de início de sessão da aplicação
 - Iniciar qualquer aplicação a utilizar a funcionalidade de pesquisa rápida
 - Atalhos para aplicações recentemente utilizadas partir da extensão
-- A extensão está disponível para o Edge, Chrome e Firefox.
+- A extensão está disponível para o Microsoft Edge, Chrome e Firefox.
  
 Para obter mais informações, consulte [segura de aplicações minha extensão de início de sessão](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 

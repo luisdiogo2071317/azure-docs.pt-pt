@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9907983a901062e5adf622fc6620f5f8432f6a87
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: MT
+ms.openlocfilehash: 107e8c340412e0b90e367331c15fa550dac1e858
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642348"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078672"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>A extensão de VM do Log Analytics de resolução de problemas
 Este artigo disponibiliza ajuda a resolver problemas de erros que poderá deparar-se com a extensão de VM do Log Analytics para Windows e Linux máquinas de virtuais em execução no Microsoft Azure e sugere possíveis soluções para resolvê-los.
@@ -46,7 +46,7 @@ Se o *Microsoft Monitoring Agent* extensão de VM não está a instalar ou relat
 1. Verifique se o agente de VM do Azure está instalado e a funcionar corretamente ao utilizar os passos em [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
    * Também pode rever o ficheiro de registo do agente VM `C:\WindowsAzure\logs\WaAppAgent.log`
    * Se o registo não existir, o agente da VM não está instalado.
-   * [Instalar o agente da VM do Azure](../../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Instalar o agente da VM do Azure](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 2. Confirme que a tarefa de heartbeat de extensão do Microsoft Monitoring Agent está em execução com os seguintes passos:
    * Inicie sessão na máquina virtual
    * Abra o agendador de tarefas e localize o `update_azureoperationalinsight_agent_heartbeat` tarefas
@@ -66,7 +66,7 @@ Se o *agente do Log Analytics para Linux* extensão de VM não está a instalar 
 
 1. Se o estado da extensão *desconhecido* Verifique se o agente de VM do Azure está instalado e a funcionar corretamente ao rever o ficheiro de registo do agente VM `/var/log/waagent.log`
    * Se o registo não existir, o agente da VM não está instalado.
-   * [Instalar o agente da VM do Azure em VMs do Linux](../../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Instalar o agente da VM do Azure em VMs do Linux](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 2. Para outros Estados de mau estado de funcionamento, reveja o agente Log Analytics para ficheiros de registo de extensão de VM do Linux `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` e `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. Se o estado da extensão está em bom estado, mas não estão a ser carregados dados reveja o agente do Log Analytics para ficheiros de registo do Linux no `/var/opt/microsoft/omsagent/log/omsagent.log`
 

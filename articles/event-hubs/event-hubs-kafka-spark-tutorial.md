@@ -1,21 +1,21 @@
 ---
-title: Ligar a aplicação Apache Spark aos Hubs de Eventos do Azure com Kafka ativado | Microsoft Docs
-description: Utilize o Apache Spark com os Hubs de Eventos do Azure para Kafka.
+title: Ligar com o Apache Spark aplicação - Hubs de eventos do Azure | Documentos da Microsoft
+description: Este artigo fornece informações sobre como utilizar o Apache Spark com os Hubs de eventos do Azure para o Kafka.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: tutorial
-ms.custom: ''
-ms.date: 10/30/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: a2ab9a77728509b794c2f5b810fb939f6d1a16e3
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 93fdd85d1fd1b91e01d8f38b4890e1b588a5c704
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286780"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091242"
 ---
 # <a name="connect-your-apache-spark-application-with-kafka-enabled-azure-event-hubs"></a>Ligar a aplicação Apache Spark aos Hubs de Eventos do Azure com Kafka ativado
 Este tutorial mostra-lhe como ligar a sua aplicação Spark aos Hubs de Eventos com Kafka ativado, para transmissões em fluxo em tempo real. Esta integração ativa a transmitir em fluxo sem que seja necessário alterar os clientes de protocolo ou executar os seus próprios clusters do Kafka ou do Zookeeper. Este tutorial requer o Apache Spark v2.4+ e o Apache Kafka v2.0+.

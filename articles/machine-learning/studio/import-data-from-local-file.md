@@ -1,11 +1,11 @@
 ---
-title: Importar dados a partir de um ficheiro para o Azure Machine Learning Studio | Documentos da Microsoft
+title: Importar dados de ficheiro - Azure Machine Learning Studio | Documentos da Microsoft
 description: Saiba como carregar um ficheiro de dados de treinamento do disco rígido para o Azure Machine Learning Studio. Esta ação cria um módulo de conjunto de dados na área de trabalho.
 keywords: Importar dados, formato de dados, os tipos de dados, origens de dados, dados de treinamento
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 057142911d8179fac0ad3e47563a4f49a9ae8d60
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: MT
+ms.openlocfilehash: 77f08bd81b9b0cefc0bb956f38856bcb6d0ad572
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263864"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093391"
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>Importar dados de treinamento de um ficheiro no disco rígido para o Machine Learning Studio
 

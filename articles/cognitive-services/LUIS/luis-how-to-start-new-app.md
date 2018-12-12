@@ -1,21 +1,22 @@
 ---
-title: Criar uma nova aplicação com a compreensão de idiomas
-titleSuffix: Azure Cognitive Services
+title: Criar uma nova aplicação
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Criar e gerir as suas aplicações na página de Web de compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a4dbea40e59ef8fb3a89fefc24f43060c46a91eb
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: MT
+ms.openlocfilehash: 465763b9bd3f55976fe974ee798648a1a4eed77b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214210"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092760"
 ---
 # <a name="create-an-app"></a>Criar uma aplicação
 Existem duas formas para criar uma aplicação do LUIS. Pode criar uma aplicação LUIS no [LUIS](https://www.luis.ai) portal, ou por meio do LUIS criação [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -70,7 +71,7 @@ You can set the name (50 char max), version (10 char max), and description of an
 ## Export app
 1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row.
 
-    [![](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
+    [![Screenshot of pop-up dialog of per-app actions](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
 
 2. Select **Export app** from the menu. 
 

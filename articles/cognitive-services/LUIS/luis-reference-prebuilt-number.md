@@ -1,21 +1,22 @@
 ---
-title: Número de entidades previamente concebidas LUIS referência - Azure | Documentos da Microsoft
+title: Entidade pré-criados numérica
 titleSuffix: Azure
 description: Este artigo contém informações de entidade pré-criados numéricas na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: b3ac42f5ecd1dc14055b0767e057a1da093042f9
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: ead544400f97f9a49296cc43552bea3a6f3def98
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334572"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095324"
 ---
 # <a name="number-entity"></a>Entidade de número
 Existem várias formas em que os valores numéricos são utilizados para quantificar, express além de descrever partes de informações. Este artigo abrange apenas alguns dos exemplos possíveis. LUIS interpreta as variações em expressões de utilizador e devolve valores numéricos consistentes. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém um número para os objetivos do aplicativo. 
@@ -42,7 +43,7 @@ LUIS inclui o valor reconhecido de um **`builtin.number`** entidade no `resoluti
 ## <a name="resolution-for-prebuilt-number"></a>Resolução de número pré-criados
 O exemplo seguinte mostra uma resposta JSON do LUIS, que inclui a resolução do valor 24, para a expressão "duas dezenas".
 
-```JSON
+```json
 {
   "query": "order two dozen eggs",
   "topScoringIntent": {

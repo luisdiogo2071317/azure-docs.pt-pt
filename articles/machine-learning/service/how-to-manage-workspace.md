@@ -9,12 +9,13 @@ ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
-ms.openlocfilehash: 1565c54779278b440cfe631951e964921cc85720
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 647af189319a1fa7b80b10410ad96f3297c18192
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51709887"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083772"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Criar e gerir áreas de trabalho do serviço Azure Machine Learning
 
@@ -36,11 +37,11 @@ Para criar uma área de trabalho, precisa de uma subscrição do Azure. Se não 
 
 1. Nos resultados de filtro, selecione **área de trabalho do Machine Learning serviço** para apresentar uma lista as áreas de trabalho. 
 
-   ![Procure a área de trabalho do serviço Azure Machine Learning](media/how-to-manage-workspace/allservices-search.PNG)
+   ![Lista de áreas de trabalho do serviço Azure Machine Learning](media/how-to-manage-workspace/allservices-search.PNG)
 
 1. Consultar a lista de áreas de trabalho foi encontrado. Pode filtrar com base na subscrição, grupos de recursos e localizações.  
 
-   ![Lista de área de trabalho de serviço do Azure Machine Learning](media/how-to-manage-workspace/allservices_view_workspace.PNG)
+   ![Áreas de trabalho do Vista](media/how-to-manage-workspace/allservices_view_workspace.PNG)
 
 1. Selecione a área de trabalho que acabou de criar para apresentar as respetivas propriedades.
 
@@ -50,7 +51,7 @@ Para criar uma área de trabalho, precisa de uma subscrição do Azure. Se não 
 
 Utilize o botão de eliminação na parte superior da área de trabalho que pretende eliminar.
 
-  ![PNG](media/how-to-manage-workspace/delete-workspace.png)
+  ![Botão de eliminar](media/how-to-manage-workspace/delete-workspace.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos 

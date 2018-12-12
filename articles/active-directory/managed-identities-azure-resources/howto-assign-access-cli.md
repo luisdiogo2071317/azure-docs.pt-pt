@@ -1,6 +1,6 @@
 ---
-title: Como atribuir acesso MSI a um recurso do Azure, cli do Azure
-description: Instruções passo a passo instruções para atribuir um MSI num recurso, o acesso a outro recurso, com a CLI do Azure.
+title: Como atribuir acesso uma identidade gerida a um recurso do Azure com a CLI do Azure
+description: Instruções passo a passo instruções para atribuir uma identidade gerida num recurso, o acesso a outro recurso, com a CLI do Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -12,36 +12,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 12/06/2017
 ms.author: daveba
-ms.openlocfilehash: 2e3b85251b9dabd6efd23e5b41372703a237d227
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 25d92c6c8c03f277b4219cd7d2a83afbb81e2b10
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949082"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081375"
 ---
-# <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Atribuir um acesso de identidade de serviço gerida (MSI) a um recurso com a CLI do Azure
+# <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Atribuir um acesso de identidade gerida a um recurso com a CLI do Azure
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Assim que tiver configurado um recurso do Azure com um MSI, pode dar o acesso MSI para outro recurso, tal como qualquer entidade de segurança. Este exemplo mostra como conceder a uma máquina virtual do Azure ou o acesso MSI do conjunto de dimensionamento de máquina virtual para uma conta de armazenamento do Azure, cli do Azure.
+Assim que tiver configurado um recurso do Azure com uma identidade gerida, pode dar o acesso de identidade gerida para outro recurso, tal como qualquer entidade de segurança. Este exemplo mostra como conceder acesso de identidade gerida do conjunto de dimensionamento de máquina virtual ou máquina virtual do Azure para uma conta de armazenamento do Azure com a CLI do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
-Para executar os exemplos de script da CLI, tem três opções:
-
-- Uso [Azure Cloud Shell](../../cloud-shell/overview.md) do portal do Azure (consulte a secção seguinte).
-- Utilize o embedded Azure Cloud Shell através do "Experimente-lo" botão do, localizado no canto superior direito de cada bloco de código.
-- [Instalar a versão mais recente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) se preferir utilizar uma consola CLI local. 
+- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)**.
+- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para executar os exemplos de script da CLI, tem três opções:
+    - Uso [Azure Cloud Shell](../../cloud-shell/overview.md) do portal do Azure (consulte a secção seguinte).
+    - Utilize o embedded Azure Cloud Shell através do "Experimente-lo" botão do, localizado no canto superior direito de cada bloco de código.
+    - [Instalar a versão mais recente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) se preferir utilizar uma consola CLI local. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Utilizar o RBAC para atribuir o acesso MSI para outro recurso
+## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Utilizar o RBAC para atribuir um acesso de identidade gerida para outro recurso
 
-Depois de ativar a MSI num recurso do Azure, tal como um [máquina virtual do Azure](qs-configure-cli-windows-vm.md) ou [conjunto de dimensionamento de máquina virtual do Azure](qs-configure-cli-windows-vmss.md): 
+Depois de ativar a identidade gerida num recurso do Azure, tal como um [máquina virtual do Azure](qs-configure-cli-windows-vm.md) ou [conjunto de dimensionamento de máquina virtual do Azure](qs-configure-cli-windows-vmss.md): 
 
 1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [az login](/cli/azure/reference-index#az-login). Utilize uma conta que seja associada à subscrição do Azure sob a qual pretende implementar o conjunto de dimensionamento VM ou numa máquina virtual:
 
@@ -49,7 +48,7 @@ Depois de ativar a MSI num recurso do Azure, tal como um [máquina virtual do Az
    az login
    ```
 
-2. Neste exemplo, estamos oferecendo uma máquina virtual do Azure de acesso a uma conta de armazenamento. Primeiro, usamos [lista de recursos de az](/cli/azure/resource/#az-resource-list) para obter o principal de serviço para a máquina virtual com o nome "myVM":
+2. Neste exemplo, estamos oferecendo uma máquina virtual do Azure de acesso a uma conta de armazenamento. Primeiro, usamos [lista de recursos de az](/cli/azure/resource/#az-resource-list) para obter o principal de serviço para a máquina virtual com o nome myVM:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
@@ -66,20 +65,8 @@ Depois de ativar a MSI num recurso do Azure, tal como um [máquina virtual do Az
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct
    ```
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="next-steps"></a>Passos Seguintes
 
-Se o MSI para o recurso não aparecer na lista de identidades disponíveis, certifique-se de que o MSI foi ativado corretamente. No nosso caso, podemos voltar para a máquina virtual do Azure ou o conjunto de dimensionamento de máquina virtual a [portal do Azure](https://portal.azure.com) e:
-
-- Veja a página "Configuração" e certifique-se de MSI ativada = "Yes".
-- Veja a página de "Extensões" e certifique-se a extensão MSI implementada com êxito (**extensões** página não está disponível para um conjunto de dimensionamento de máquina virtual do Azure).
-
-Se uma for incorreta, terá de voltar a implementar o MSI no seu recurso, ou a falha de implementação de resolução de problemas.
-
-## <a name="related-content"></a>Conteúdo relacionado
-
-- Para uma descrição geral do MSI, consulte [descrição geral de identidade do serviço gerido](overview.md).
-- Para ativar o MSI numa máquina virtual do Azure, consulte [configurar uma Azure VM Managed Service Identity (MSI) com a CLI do Azure](qs-configure-cli-windows-vm.md).
-- Para ativar o MSI num conjunto de dimensionamento de máquina virtual do Azure, consulte [configurar um Azure Máquina Virtual dimensionamento definir Managed Service Identity (MSI) com o portal do Azure](qs-configure-portal-windows-vmss.md)
-
-Utilize a seguinte secção de comentários para fornecer comentários e ajude-na refinar e moldar o nosso conteúdo.
-
+- [Identidades geridas de descrição geral de recursos do Azure](overview.md)
+- Para ativar a identidade gerida numa máquina virtual do Azure, consulte [configurar geridos identidades para recursos do Azure na VM do Azure com a CLI do Azure](qs-configure-cli-windows-vm.md).
+- Para ativar a identidade gerida num conjunto de dimensionamento de máquina virtual do Azure, consulte [configurar geridos identidades para recursos do Azure num conjunto de dimensionamento da CLI do Azure](qs-configure-cli-windows-vmss.md).

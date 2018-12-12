@@ -9,16 +9,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 075f79707dda4683c288163ec7bfdbf9807e153f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b509c7eceb3c2e2fb2e53f20791976b0322ad744
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834881"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089739"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência no Azure Cosmos DB
 
-Bases de dados distribuídas que dependem de replicação para elevada disponibilidade, latência baixa ou ambos, tornam o compromisso fundamental entre a consistência de leitura versus disponibilidade, latência e débito. A maioria dos comercialmente disponíveis bases de dados distribuídas perguntar aos desenvolvedores escolher entre os dois modelos de consistência extreme: consistência forte e consistência eventual. O [transação atómica](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) ou o modelo de consistência forte é o padrão-ouro da programação de dados. Mas adiciona um preço acentuado de latência superior (em estado de repouso) e disponibilidade reduzida (durante falhas). Por outro lado, a consistência eventual oferece maior disponibilidade e um melhor desempenho, mas é difícil de se programar aplicativos. 
+Bases de dados distribuídas que dependem de replicação para elevada disponibilidade, latência baixa ou ambos, tornam o compromisso fundamental entre a consistência de leitura versus disponibilidade, latência e débito. A maioria dos comercialmente disponíveis bases de dados distribuídas perguntar aos desenvolvedores escolher entre os dois modelos de consistência extreme: consistência forte e consistência eventual. O [transação atómica](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) ou o modelo de consistência forte é o padrão-ouro da programação de dados. Mas adiciona um preço acentuado de latência superior (em estado de repouso) e disponibilidade reduzida (durante falhas). Por outro lado, a consistência eventual oferece maior disponibilidade e um melhor desempenho, mas é difícil de se programar aplicativos. 
 
 O Azure Cosmos DB se aproxima de consistência de dados como uma gama de opções em vez de dois extremos. Consistência forte e consistência eventual são das extremidades, mas há muitas escolhas de consistência ao longo do espetro. Os programadores podem utilizar estas opções para fazer escolhas precisas e granulares compromissos em relação a elevada disponibilidade ou desempenho. 
 
@@ -38,7 +38,7 @@ Pode configurar o nível predefinido de consistência na sua conta do Cosmos do 
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garantias de associadas com níveis de consistência
 
-Os SLAs abrangentes fornecidos pela garantia do Azure Cosmos DB que 100 por cento de pedidos de leitura cumprem a garantia de consistência para qualquer nível de consistência que escolher. Uma solicitação de leitura cumpre a SLA de consistência se todas as garantias de consistência associadas com o nível de consistência são cumpridas. As definições de precisas dos níveis de cinco consistência no Azure Cosmos DB ao utilizar o [linguagem de especificação TLA +](http://lamport.azurewebsites.net/tla/tla.html) são fornecidos na [do azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) repositório do GitHub. 
+Os SLAs abrangentes fornecidos pela garantia do Azure Cosmos DB que 100 por cento de pedidos de leitura cumprem a garantia de consistência para qualquer nível de consistência que escolher. Uma solicitação de leitura cumpre a SLA de consistência se todas as garantias de consistência associadas com o nível de consistência são cumpridas. As definições de precisas dos níveis de cinco consistência no Azure Cosmos DB ao utilizar o [linguagem de especificação TLA +](https://lamport.azurewebsites.net/tla/tla.html) são fornecidos na [do azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) repositório do GitHub. 
 
 A semântica dos níveis de cinco consistência é descrita aqui:
 
@@ -85,7 +85,7 @@ Para saber mais sobre os conceitos de consistência, leia os artigos seguintes:
 - [Replicados dados consistência explicado por meio de Beisebol (documento técnico) por Doug Tiago](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [Garantias de sessão para os dados replicados consistentes tem rigidez](https://dl.acm.org/citation.cfm?id=383631)
 - [Vantagens e desvantagens de consistência no moderno Design de sistemas de banco de dados distribuído: limite é apenas uma parte da história](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
-- [Probabilístico estagnação limitada (PBS) para práticos Quorums parciais](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+- [Probabilístico estagnação limitada (PBS) para práticos Quorums parciais](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Eventualmente consistente - Revisitada](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 
 ## <a name="next-steps"></a>Passos Seguintes

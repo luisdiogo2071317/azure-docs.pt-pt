@@ -167,7 +167,7 @@ As secções seguintes listam as considerações para diferentes tipos de aplica
 
 ### <a name="cloud-based-applications"></a>Aplicativos baseados na nuvem
 
-Se um aplicativo é adicionado à Galeria de aplicações do Azure AD, os utilizadores obtêm SSO através de dispositivos associados ao Azure AD. É necessária nenhuma configuração adicional. Os utilizadores get SSO em ambos, navegadores Edge e Chrome. Para o Chrome, o que necessita para implementar o [extensão de contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+Se um aplicativo é adicionado à Galeria de aplicações do Azure AD, os utilizadores obtêm SSO através de dispositivos associados ao Azure AD. É necessária nenhuma configuração adicional. Os utilizadores get SSO em ambos, navegadores Microsoft Edge e Chrome. Para o Chrome, o que necessita para implementar o [extensão de contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
 Todos os aplicativos do Win32 que:
 

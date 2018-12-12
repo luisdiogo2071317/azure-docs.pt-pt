@@ -1,21 +1,22 @@
 ---
-title: Comparação entre os serviços de mensagens do Azure
-description: Compara o Azure Event Grid, os Hubs de Eventos e o Service Bus Recomenda que serviço utilizar para diferentes cenários.
+title: Mensagens de comparação - Event Grid, os Hubs de eventos do Service Bus do Azure
+description: Descreve os três serviços do Azure mensagens - Azure Event Grid, Hubs de eventos e do Service Bus. Recomenda que serviço utilizar para diferentes cenários.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 07/05/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 7e78dd77d5bd3d9e5aee55aaeffa933a21c3b477
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852202"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084962"
 ---
-# <a name="choose-between-azure-services-that-deliver-messages"></a>Escolher entre os serviços do Azure que entregam mensagens
+# <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre serviços mensagens do Azure - Event Grid, Hubs de eventos e do Service Bus
 
 O Azure oferece três serviços que ajudam a entregar mensagens de eventos numa solução. Esses serviços são:
 

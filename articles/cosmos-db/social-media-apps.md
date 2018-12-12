@@ -1,21 +1,19 @@
 ---
-title: 'Padrão de design do Azure Cosmos DB: aplicações de redes sociais | Documentos da Microsoft'
+title: 'Padrão de design do Azure Cosmos DB: aplicações de redes sociais'
 description: Saiba mais sobre um padrão de design de redes sociais ao tirar partido da flexibilidade de armazenamento do Azure Cosmos DB e outros serviços do Azure.
 keywords: aplicações de redes sociais
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 6c2911ac65b95ea0a705944fdd8fb9288af28498
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165684"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083976"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socializar com o Azure Cosmos DB
 
@@ -49,14 +47,14 @@ Este artigo orienta-o para a modelação de dados de sua plataforma de redes soc
         "date":"2016-01-01",
         "body":"this is an awesome post stored on NoSQL",
         "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
+        "images":["https://myfirstimage.png","https://mysecondimage.png"],
         "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
         ],
         "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
 

@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 0cb82cfcecbb719b357cda46bf969acf6c6cefe7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 98828589832d69ada11205e471314a153a566766
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015301"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080270"
 ---
 # <a name="configure-containers"></a>Configurar contentores
 
@@ -84,7 +84,7 @@ O `Eula` definição indica que aceite a licença para o contentor. Tem de espec
 |--|------|-----------|-------------|
 |Sim| `Eula` | Cadeia | Aceitação da licença<br><br>Exemplo:<br>`Eula=accept` |
 
-Contentores de serviços cognitivos são licenciados sob o contrato que rege a utilização do Azure. Se não tiver um contrato existente que regem a utilização do Azure, concorda que seu contrato que rege a utilização do Azure é o Microsoft contrato de subscrição Online (o qual incorpora os termos dos Online Services). Para pré-visualizações, também concorda com os termos de utilização suplementares para pré-visualizações do Microsoft Azure. Ao utilizar o contentor concorda com estes termos.
+Contentores de serviços cognitivos são licenciados ao abrigo [seu contrato](https://go.microsoft.com/fwlink/?linkid=2018657) que regem a utilização do Azure. Se não tiver um contrato existente que regem a utilização do Azure, concorda que seu contrato que rege a utilização do Azure é o [contrato de subscrição Online da Microsoft](https://go.microsoft.com/fwlink/?linkid=2018755), que incorpora o [termos dos Online Services ](https://go.microsoft.com/fwlink/?linkid=2018760). Para pré-visualizações, também concorda com o [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Ao utilizar o contentor concorda com estes termos.
 
 ## <a name="fluentd-settings"></a>Definições de Fluentd
 

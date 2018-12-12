@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: d73c0cc6416145fa3764d2ef938d6de7a4195c1b
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.date: 12/6/2018
+ms.openlocfilehash: 89451122ff8cae33f1710fc1458fcd4277964e1f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982883"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090997"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações na base de dados do Azure para MySQL
 As secções seguintes descrevem a capacidade, suporte ao mecanismo de armazenamento, o suporte de privilégio, manipulação de dados de suporte de instrução e limites funcionais no serviço de base de dados. Consulte também [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicável para o motor de base de dados MySQL.
@@ -31,10 +31,12 @@ Seguem-se o número máximo de ligações por vCores e escalão de preço:
 |Fins Gerais| 8| 1250|
 |Fins Gerais| 16| 2500|
 |Fins Gerais| 32| 5000|
+|Fins Gerais| 64| 10000|
 |Memória Otimizada| 2| 600|
 |Memória Otimizada| 4| 1250|
 |Memória Otimizada| 8| 2500|
 |Memória Otimizada| 16| 5000|
+|Memória Otimizada| 32| 10000|
 
 Quando as ligações excederem o limite, poderá receber o erro seguinte:
 > Erro 1040 (08004): Demasiadas ligações

@@ -1,25 +1,19 @@
 ---
-title: Configurar BFD através do ExpressRoute | Documentos da Microsoft
-description: Este documento fornece instruções sobre como configurar BFD ao longo do peering privado de um circuito do ExpressRoute.
-documentationcenter: na
+title: Configurar BFD através do ExpressRoute - Azure | Documentos da Microsoft
+description: Este artigo fornece instruções sobre como configurar BFD (deteção de reencaminhamento de bidirecional) ao longo do peering privado de um circuito do ExpressRoute.
 services: expressroute
 author: rambk
-manager: tracsman
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
-ms.openlocfilehash: 6d941bf810a45e8808f83c4df701a856f664c7ef
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18
+ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631664"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083789"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurar BFD através do ExpressRoute
 

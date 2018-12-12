@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Azure dedicado HSM implementar HSMs numa rede virtual existente com a CLI | Documentos da Microsoft
-description: Tutorial que mostra como implementar um HSM dedicados, com a CLI
+title: Tutorial implementar numa rede virtual existente com a CLI do Azure - HSM dedicada do Azure | Documentos da Microsoft
+description: Tutorial que mostra como implementar um HSM dedicados, com a CLI numa rede virtual existente
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,19 +8,19 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: ca30dc9d86db8faabfdd3791b74b9f86c9480ea5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d8171a3c506ed53c986db6cddd959411f0a146aa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679652"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080321"
 ---
-# <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial – implementar HSMs numa rede virtual existente com a CLI
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial: Implementação de HSMs numa rede virtual existente com a CLI
 
 HSM dedicada do Azure fornece um dispositivo físico para a utilização de cliente único, com o controle administrativo completo e a responsabilidade de gestão completa. A utilização de dispositivos físicos cria a necessidade de Microsoft controlar a alocação de dispositivo para garantir a capacidade é gerenciada com eficiência. Como resultado, uma subscrição do Azure, o serviço HSM dedicado não normalmente serão visível para o aprovisionamento de recursos. Todos os clientes do Azure que necessitam de acesso para o serviço de HSM dedicados, primeiro tem de contactar o executivo da conta Microsoft para o registo de pedido para o serviço de HSM dedicados. Apenas uma vez que este processo seja concluído com êxito o aprovisionamento será possível. 
 
@@ -130,7 +130,7 @@ Depois de valores de parâmetro são definidos, os arquivos precisam ser carrega
 
 A shell de comandos tem uma opção de carregar/transferir na barra de ferramentas e deve selecionar esta opção para carregar os ficheiros de modelo e o parâmetro para a partilha de ficheiros:
 
-![Estado da subscrição](media/tutorial-deploy-hsm-cli/file-share.png)
+![partilha de ficheiros](media/tutorial-deploy-hsm-cli/file-share.png)
 
 Assim que os ficheiros são carregados, está pronto para criar recursos. Antes da criação de HSM novos recursos há alguns pré-requisitos recursos que deve certificar-se estão em vigor. Tem de ter uma rede virtual com intervalos de sub-rede para computação, HSMs e gateway. Os seguintes comandos servem como um exemplo do que seria criar uma rede virtual.
 
@@ -191,7 +191,7 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![Estado de aprovisionamento](media/tutorial-deploy-hsm-cli/progress-status2.png)
+![saída do aprovisionamento](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
 Agora também será capaz de ver os recursos com o [Explorador de recursos do Azure](https://resources.azure.com/).   Uma vez no explorer, expanda "subscrições" no lado esquerdo, expanda a sua subscrição específica do HSM dedicados, expanda "grupos de recursos", expanda o grupo de recursos que utilizou e por fim, selecione o item "recursos".
 

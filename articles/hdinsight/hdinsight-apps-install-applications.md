@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e1a6b453bb92ca57a1c9be9bff958ac0780ea12e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 47a634ca1c4e904cc1054db3a834483489ade0ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498033"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093561"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicações do Apache Hadoop de terceiros no Azure HDInsight
 
@@ -29,7 +29,7 @@ A lista seguinte mostra as aplicações publicadas:
 * **DATAIKU DDS no HDInsight** permite aos profissionais de dados para criar protótipos, criar e implementar serviços altamente específicos que transformam dados não processados em predições de negócio com impacto.
 * **Datameer** é uma plataforma escalonável self-service para preparar, explorar, e que regem os dados para análise acelera a transformar dados multisource complexos em informações valiosas de pronto a utilizar, fornecendo o insights rápidos e inteligentes num escala empresarial.
 * **H2O Artificial Intelligence para o HDInsight (Beta)** Sparkling Water da H2O oferece suporte aos seguintes algoritmos distribuídos: GLM, Bayes Ingênua, distribuídas Random floresta, máquina aumentam a gradação, redes Neurais profundas, K-means, o PCA, de aprendizagem profunda Modelos de classificação baixos generalizados, deteção de anomalias e Autoencoders.
-* **O Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) é um armazém de dados empresariais com tecnologia Apache Kylin e o Apache Hadoop; fornece subsecond consultar latência num conjunto de dados de grande escala e simplifica a análise de dados do os utilizadores empresariais e os analistas. 
+* **O Kyligence Enterprise**, com tecnologia Apache Kylin, traz informações instantâneas em grandes conjuntos de dados para analistas de dados e os utilizadores empresariais. Com tecnologia de aprendizagem de ponta e a funcionalidade de modelagem de dados inteligentes, bastante melhora a produtividade de análise de macrodados. 
 * **Preparação de dados de autoatendimento a Adaptive**
 * **Servidor de tarefas do Spark para o Executor do Spark de KNIME** servidor de tarefas do Spark para o Executor do Spark de KNIME é utilizada para ligar a plataforma de análise de KNIME a clusters do HDInsight.
 * **Starburst Presto** Presto é um rápidas e dimensionável distribuído motor de consulta SQL. Criado para a separação de armazenamento e computação, Presto é perfeito para consultar dados no armazenamento do Azure Data Lake, bases de dados do armazenamento de Blobs do Azure, SQL e NoSQL e outras origens de dados.

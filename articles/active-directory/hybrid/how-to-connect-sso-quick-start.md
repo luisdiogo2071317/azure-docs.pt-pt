@@ -194,13 +194,13 @@ Se tiver substituído o [AuthNegotiateDelegateWhitelist](https://www.chromium.or
 
 #### <a name="google-chrome-macos-only"></a>Google Chrome (apenas para macOS)
 
-Para o Google Chrome em Mac OS e outras plataformas não Windows, consulte [lista de políticas de projeto do The Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como a lista branca o URL do Azure AD para autenticação integrada.
+Para o Google Chrome em Mac OS e outras plataformas não Windows, consulte [lista de políticas de projeto do The Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como a lista aprovada o URL do Azure AD para autenticação integrada.
 
 A utilização de extensões de política de grupo do Active Directory de terceiros para implementar o URL de AD do Azure para Firefox e o Google Chrome nos utilizadores de Mac está fora do escopo deste artigo.
 
 #### <a name="known-browser-limitations"></a>Limitações conhecidas do browser
 
-SSO totalmente integrado não funciona no modo de navegação particular em navegadores Firefox e o Edge. Também não funciona no Internet Explorer se o browser está em execução no modo protegido avançado.
+SSO totalmente integrado não funciona no modo de navegação particular em navegadores Firefox e o Microsoft Edge. Também não funciona no Internet Explorer se o browser está em execução no modo protegido avançado.
 
 ## <a name="step-4-test-the-feature"></a>Passo 4: Testar a funcionalidade
 

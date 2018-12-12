@@ -1,10 +1,12 @@
 ---
-title: Aprovisionar uma máquina de Virtual de ciência de dados de CentOS do Linux no Azure | Documentos da Microsoft
+title: Criar uma máquina de Virtual de ciência de dados do Linux do CentOS
+titleSuffix: Azure
 description: Configurar e criar uma máquina de Virtual de ciência de dados do Linux no Azure para fazer a análise e machine learning.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -14,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: ca3a0e9a8c63ddc9a5c2ca34faffc683d0324321
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 253934d450619ca67e429fbf396a5fed5b71a267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262558"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081868"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de ciência de dados de CentOS do Linux no Azure
 
@@ -160,7 +162,7 @@ Para instalar bibliotecas adicionais do Python, tem de ser executado ```conda```
     sudo /anaconda/bin/conda install -n py35 <package> #conda for Python 3.5
 
 
-### <a name="jupyter-notebook"></a>O bloco de notas do Jupyter
+### <a name="jupyter-notebook"></a>Jupyter Notebook
 A distribuição de Anaconda também vem com um bloco de notas do Jupyter, um ambiente para partilhar código e análise. O bloco de notas do Jupyter é acedido através do JupyterHub. Iniciar sessão com o seu nome de utilizador local do Linux e a palavra-passe.
 
 O servidor de bloco de notas do Jupyter foi previamente configurado com o Python 2, 3 de Python e kernels do R. Há um ícone de área de trabalho com o nome "Bloco de notas Jupyter" para iniciar o browser para aceder ao servidor de bloco de notas. Se estiver na VM através do cliente de SSH ou X2Go, também pode visitar [ https://localhost:8000/ ](https://localhost:8000/) para aceder ao servidor de bloco de notas do Jupyter.

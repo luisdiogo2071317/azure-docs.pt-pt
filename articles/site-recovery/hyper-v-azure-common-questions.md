@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 5df508cfc30f5f3aa59519f7e29f2ad2747ea4cb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3e71c4e31c6d57cb54a654e0e1c28dcb0fa82cda
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844809"
+ms.locfileid: "52875336"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Hyper-V para recuperação após desastre do Azure
 
@@ -124,7 +124,7 @@ O site Recovery replica dados no local para o armazenamento do Azure através de
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>Pode replicar para o Azure com o ExpressRoute?
 
-Sim, o ExpressRoute pode ser utilizado para replicar VMs no Azure. O site Recovery replica dados para uma conta de armazenamento do Azure através de um ponto final público e tem de configurar [peering público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) para replicação do Site Recovery. Depois de VMs com a ativação pós-falha para uma rede virtual do Azure, pode acessá-los usando [peering privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Sim, o ExpressRoute pode ser utilizado para replicar VMs no Azure. O site Recovery replica dados para uma conta de armazenamento do Azure através de um ponto final público e tem de configurar [peering público](../expressroute/expressroute-circuit-peerings.md#publicpeering) para replicação do Site Recovery. Depois de VMs com a ativação pós-falha para uma rede virtual do Azure, pode acessá-los usando [peering privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Por que não é possível replicar através de VPN?

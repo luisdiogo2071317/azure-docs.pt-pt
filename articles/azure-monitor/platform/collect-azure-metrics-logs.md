@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e8b8dac6d877ab8ab4a0abcdd64ceae1aa48d3ad
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 33ceece70c920bcb8bfd49fcfc8ff544af592b6b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848549"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088209"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recolher registos de serviço do Azure e as métricas de utilização do Log Analytics
 
@@ -52,7 +52,7 @@ Existem quatro formas diferentes de recolha de registos e métricas para os serv
 | Procurar serviços         | Microsoft.Search/searchServices         | Diagnóstico | Diagnóstico | |
 | Espaço de nomes do Service Bus   | Microsoft.ServiceBus/namespaces         | Diagnóstico | Diagnóstico | [Análise do Service Bus (pré-visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Armazenamento     |             | [Análise do Service Fabric (pré-visualização)](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |
-| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnóstico | [Análise SQL do Azure (pré-visualização)](../../log-analytics/log-analytics-azure-sql.md) |
+| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnóstico | [Análise SQL do Azure (pré-visualização)](../../azure-monitor/insights/azure-sql.md) |
 | Armazenamento                 |                                         |             | Script      | [Análise de armazenamento do Azure (pré-visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extensão   | Extensão <br> Diagnóstico  | |
 | Conjuntos de dimensionamento de máquinas virtuais | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnóstico | |
@@ -61,7 +61,7 @@ Existem quatro formas diferentes de recolha de registos e métricas para os serv
 
 
 > [!NOTE]
-> Para monitorizar máquinas virtuais do Azure (Linux e Windows), recomendamos que instale o [extensão de VM do Log Analytics](../../log-analytics/log-analytics-quick-collect-azurevm.md). O agente fornece informações recolhidas a partir de suas máquinas virtuais. Também pode utilizar a extensão para conjuntos de dimensionamento de Máquina Virtual.
+> Para monitorizar máquinas virtuais do Azure (Linux e Windows), recomendamos que instale o [extensão de VM do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md). O agente fornece informações recolhidas a partir de suas máquinas virtuais. Também pode utilizar a extensão para conjuntos de dimensionamento de Máquina Virtual.
 >
 >
 
@@ -151,7 +151,7 @@ Saiba mais sobre o [conector do Application Insights](https://blogs.technet.micr
 
 ## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>Scripts para recolher e publicar dados no Log Analytics
 
-Para serviços do Azure que não fornecem uma forma direta de enviar os registos e métricas para o Log Analytics pode utilizar um script de automatização do Azure para recolher os registos e métricas. O script, em seguida, pode enviar os dados para o Log Analytics utilizando o [API do recoletor de dados](../../log-analytics/log-analytics-data-collector-api.md)
+Para serviços do Azure que não fornecem uma forma direta de enviar os registos e métricas para o Log Analytics pode utilizar um script de automatização do Azure para recolher os registos e métricas. O script, em seguida, pode enviar os dados para o Log Analytics utilizando o [API do recoletor de dados](../../azure-monitor/platform/data-collector-api.md)
 
 A galeria do modelo do Azure tem [exemplos de como utilizar a automatização do Azure](https://azure.microsoft.com/resources/templates/?term=OMS) para recolher dados de serviços e enviá-la para o Log Analytics.
 
