@@ -1,6 +1,6 @@
 ---
-title: Eventos de armazenamento de blobs do Azure Event Grid com o portal do Azure | Microsoft Docs
-description: Utilize o Azure Event Grid e o portal do Azure para criar a conta de armazenamento de Blobs e subscrever os respetivos eventos.
+title: Enviar eventos de armazenamento de BLOBs para o ponto final web - portal | Documentos da Microsoft
+description: Utilize o Azure Event Grid e o portal do Azure para criar a conta de armazenamento de Blobs e subscrever os respetivos eventos. Envie eventos para um Webhook.
 services: event-grid
 keywords: ''
 author: tfitzmac
@@ -8,14 +8,15 @@ ms.author: tomfitz
 ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 44e258069515ad6c409c193312f3a714a5096541
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 6fd48ecd6def6a4fcd56751b6a137f75b16896ef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404227"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086968"
 ---
-# <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Criar e encaminhar eventos de armazenamento de Blobs com o portal do Azure e o Event Grid
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início rápido: Eventos de armazenamento de BLOBs de rota ponto final da web com o portal do Azure
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, irá utilizar o portal do Azure para criar uma conta de armazenamento de Blobs, subscrever eventos nesse armazenamento de blobs e acionar um evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
@@ -135,7 +136,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 
 Selecione o grupo de recursos e selecione **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que sabe como criar tópicos personalizados e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

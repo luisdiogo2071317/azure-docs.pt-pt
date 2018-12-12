@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Converter voz, Python – serviço de voz'
+title: 'Início rápido: Converter voz, Python - serviços de voz'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá aprender como converter texto para voz com Python e a API de REST de voz. O texto de exemplo incluído neste guia está estruturado como Speech Synthesis Markup Language (SSML). Isto permite-lhe escolher a voz e o idioma da resposta de voz. A API REST também oferece suporte a texto sem formatação (ASCII ou UTF-8), no entanto, se não for fornecido texto sem formatação que será retornada a resposta em voz predefinido do serviço de voz e de idioma.
+description: Neste início rápido, irá aprender como converter texto para voz com Python e a API de REST de voz. O texto de exemplo incluído neste guia está estruturado como Speech Synthesis Markup Language (SSML). Isto permite-lhe escolher a voz e o idioma da resposta de voz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 38bcd67dfb6d9b1a1955658872fee7b8b7a14a0c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 7512c443c49f1518d6a6f7ace7e981d3508b1d7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447485"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090062"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Início rápido: Converta texto para voz com Python
 

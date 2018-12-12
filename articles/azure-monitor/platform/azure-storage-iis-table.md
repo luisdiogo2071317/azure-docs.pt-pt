@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: df5c52de14368896f77e48ebfd4ba7e4b4f38b67
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: bf02fb315162ffa183ed4137734ff8041ef75fe5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837684"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096631"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Utilizar o armazenamento de Blobs do Azure para armazenamento de tabelas IIS e o Azure para eventos com o Log Analytics
 
@@ -53,7 +53,7 @@ Para o Log Analytics recolher esses registos de diagnóstico do Azure, tem de se
 >
 >
 
-Para máquinas virtuais, tem a opção de instalar o [agente do Log Analytics](../../log-analytics/log-analytics-quick-collect-azurevm.md) à sua máquina virtual para ativar as informações adicionais. Além de ser capaz de analisar os registos do IIS e registos de eventos, pode executar análises adicionais, incluindo o controlo de alterações de configuração, avaliação de SQL e avaliação da atualização.
+Para máquinas virtuais, tem a opção de instalar o [agente do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md) à sua máquina virtual para ativar as informações adicionais. Além de ser capaz de analisar os registos do IIS e registos de eventos, pode executar análises adicionais, incluindo o controlo de alterações de configuração, avaliação de SQL e avaliação da atualização.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Ativar o diagnóstico do Azure numa máquina virtual para o registo de eventos e o IIS de recolha de registos
 Utilize o procedimento seguinte para ativar o diagnóstico do Azure numa máquina virtual para a recolha de registos de registo de eventos e o IIS através do portal do Microsoft Azure.
@@ -148,7 +148,7 @@ Em aproximadamente 30 minutos, é possível ver os dados da conta de armazenamen
 >
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>Ativar o diagnóstico do Azure numa máquina virtual para utilizar o PowerShell de recolha de registos de registo de eventos e o IIS
-Utilize os passos em [configurar o Log Analytics para o diagnóstico do Azure de índice](../../log-analytics/log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) para utilizar o PowerShell para ler a partir do diagnóstico do Azure que é escrito no armazenamento de tabelas.
+Utilize os passos em [configurar o Log Analytics para o diagnóstico do Azure de índice](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) para utilizar o PowerShell para ler a partir do diagnóstico do Azure que é escrito no armazenamento de tabelas.
 
 Com o Azure PowerShell pode especificar mais precisamente os eventos que são escritos no armazenamento do Azure.
 Para obter mais informações, consulte [ativar diagnósticos em máquinas de virtuais do Azure](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).

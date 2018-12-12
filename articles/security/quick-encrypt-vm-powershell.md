@@ -1,6 +1,6 @@
 ---
 title: Início Rápido – Encriptar uma VM IaaS do Windows com o Azure PowerShell | Microsoft Docs
-description: Neste início rápido, irá aprender a utilizar o Azure PowerShell para encriptar uma máquina virtual do Windows.
+description: Neste guia de introdução, saiba como utilizar o Azure PowerShell para encriptar uma VM de IaaS do Windows no Azure.
 services: security
 documentationcenter: na
 author: mestew
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 531da9af871595e6f8bf5d22832367bbfb301dab
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245876"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087869"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Início Rápido: Encriptar uma VM IaaS do Windows com o Azure PowerShell
 
-O Azure Disk Encryption ajuda-o a encriptar os seus discos de máquina virtual IaaS do Windows e do Linux. A solução está integrada com o Azure Key Vault para ajudar a controlar e gerir as chaves de encriptação do disco e os segredos. Ao utilizar a encriptação de Disco do Azure, pode certificar-se de que as suas VMs inativas são protegidas com a tecnologia de encriptação de norma do setor. Neste início rápido, irá criar uma VM do Windows Server 2016 e encriptar o disco do SO. 
+O Azure Disk Encryption ajuda-o a encriptar os seus discos de máquina virtual IaaS do Windows e do Linux. A solução está integrada com o Azure Key Vault para ajudar a controlar e gerir as chaves de encriptação do disco e os segredos. Ao utilizar a encriptação de Disco do Azure, pode certificar-se de que as suas VMs inativas são protegidas com a tecnologia de encriptação de norma do setor. Neste início rápido, irá criar uma VM do Windows Server 2016 e encriptar o disco do SO.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -152,7 +153,7 @@ Agora que já criou e configurou um cofre de chaves e uma VM, pode encriptar o d
       Remove-AzureRmResourceGroup -Name "MySecureRG"
       ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Avance para o artigo seguinte para saber mais sobre os pré-requisitos do Azure Disk Encryption para VMs de IaaS.
 
 > [!div class="nextstepaction"]

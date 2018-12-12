@@ -36,7 +36,7 @@ No mínimo, o painel de acesso requer um browser que suporte a JavaScript e CSS 
 
 Para SSO de palavra-passe, pode utilizar qualquer um dos seguintes browsers:
 
-- **Edge**: Windows 10 Anniversary Edition ou posterior. 
+- **Microsoft Edge**: Windows 10 Anniversary Edition ou posterior. 
 - **Chrome**: no Windows 7 ou posterior e no MacOS X ou posterior.
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
 
@@ -59,10 +59,10 @@ Para instalar a extensão de browser do painel de acesso, efetue o seguinte:
 
 7.  Entrar para o painel de acesso e a verificação para ver se é possível iniciar seus aplicativos de SSO baseado em palavra-passe.
 
-Também pode transferir a extensão para o Chrome e o Edge diretamente a partir de sites a seguir:
+Também pode transferir a extensão para o Chrome e o Microsoft Edge diretamente a partir de sites a seguir:
 
 - [Extensão do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Extensão do Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Extensão do Microsoft Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Utilize a extensão de início de sessão de seguro das minhas aplicações
 * Se estiver a utilizar um URL de aplicações My diferente de `https://myapps.microsoft.com`, configurar o URL predefinido ao fazer o seguinte:
@@ -93,7 +93,7 @@ Também pode transferir a extensão para o Chrome e o Edge diretamente a partir 
     4. Agora, pode navegar para o URL interna da empresa, mesmo durante o remoto
 
 > [!NOTE]
-> As opções anteriores estão disponíveis apenas para o Edge, Chrome e Firefox.
+> As opções anteriores estão disponíveis apenas para o Microsoft Edge, Chrome e Firefox.
 
 ## <a name="set-up-a-group-policy-for-internet-explorer"></a>Configurar uma política de grupo para o Internet Explorer
 
@@ -112,7 +112,7 @@ Para instruções passo a passo sobre como configurar a política de grupo e imp
 Para ter acesso a uma ferramenta de diagnóstico e informações sobre como configurar a extensão para o Internet Explorer, consulte [resolver problemas relacionados com a extensão do painel de acesso para o Internet Explorer](manage-access-panel-browser-extension.md).
 
 > [!NOTE]
-> Internet Explorer está no suporte limitado e deixará de receber atualizações de software novo. Edge é o navegador recomendado.
+> Internet Explorer está no suporte limitado e deixará de receber atualizações de software novo. Microsoft Edge é o navegador recomendado.
 
 ## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Se os passos anteriores não resolverem o problema
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Implementar tarefas ASA para dispositivos Azure IoT Edge | Microsoft Docs
+title: Tutorial de implementar uma tarefa do Azure Stream Analytics num dispositivo - Azure IoT Edge | Documentos da Microsoft
 description: Neste tutorial, vai implementar o Azure Stream Analytics como um módulo num dispositivo IoT Edge
 author: kgremban
 manager: philmea
@@ -7,14 +7,13 @@ ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 2188e21cfd29ac8ac2d44878819ee62a3e2d555e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: MT
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 926609e261c318f22e5c5d2091ea8fbf8f7315d7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566946"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081341"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Tutorial: Implementar o Azure Stream Analytics como um módulo do IoT Edge (pré-visualização)
 
@@ -34,7 +33,7 @@ Neste tutorial, ficará a saber como:
 > * Implemente a tarefa do Azure Stream Analytics num dispositivo IoT Edge a partir do portal do Azure.
 
 <center>
-![Tutorial com diagrama da arquitetura](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+![Diagrama - arquitetura do Tutorial, testar e implementar a tarefa ASA](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 >[!NOTE]
@@ -100,7 +99,7 @@ Ao utilizar os três elementos, entrada, saída e consulta, esta secção cria u
 
 1. Em **Topologia do Trabalho**, selecione **Entradas** e **Adicionar entrada de fluxo**.
 
-   ![Entrada do Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_input.png)
+   ![O Azure Stream Analytics Adicionar entrada](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
 1. Escolha **Hub do Edge**, na lista pendente.
 
@@ -110,7 +109,7 @@ Ao utilizar os três elementos, entrada, saída e consulta, esta secção cria u
 
 1. Em **Topologia do Trabalho**, abra **Saídas** e selecione **Adicionar**.
 
-   ![Saída do Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![O Azure Stream Analytics adicionar saída](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 1. Escolha **Hub do Edge**, na lista pendente.
 
@@ -207,7 +206,7 @@ Neste tutorial, vai implementar dois módulos. O primeiro é **tempSensor**, que
 
     Deverá ver o novo módulo do Stream Analytics em execução, juntamente com o módulo do agente do IoT Edge e o hub do IoT Edge.
 
-    ![Saída do módulo](./media/tutorial-deploy-stream-analytics/module_output2.png)
+    ![tempSensor e módulo ASA comunicada pelo dispositivo](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>Ver dados
 
@@ -229,7 +228,7 @@ Agora, pode aceder ao dispositivo IoT Edge para verificar a interação entre o 
 
 Deverá conseguir ver a temperatura da máquina a aumentar gradualmente até atingir 70 graus durante 30 segundos. Em seguida, o módulo do Stream Analytics aciona uma reposição e a temperatura da máquina baixa novamente para 21. 
 
-   ![Registo do Docker](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   ![Repor a saída do comando sobre os registos do módulo](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 

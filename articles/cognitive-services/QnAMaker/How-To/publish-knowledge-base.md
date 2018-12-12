@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: eceb0554d35935f1aee77c4c054cb7e65b327845
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 9c3d1009742f9ca0df6dc2f2d1a2d1904397275a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033420"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087853"
 ---
-# <a name="publish-a-knowledge-base"></a>Publicar uma base de dados de conhecimento
+# <a name="publish-a-knowledge-base-in-qna-maker"></a>Publicar uma base de dados de conhecimento do QnA Maker
 
 A publicação de sua base de dados de conhecimento é o último passo na criação de sua base de dados de conhecimento disponível como um ponto final de responder a pergunta. 
 
@@ -29,11 +30,11 @@ Quando publica uma base de dados de conhecimento, move o conteúdo de QnA da sua
 
 1. Quando tiver terminado com as alterações no seu artigo BDC, selecione **publicar** na barra de navegação superior. Pode publicar até ao número atribuído de bases de dados de conhecimento para o Azure Search. 
 
-    ![Publicar a base de dados de conhecimento](../media/qnamaker-how-to-publish-kb/publish.png)
+    ![Publicar base de dados de conhecimento](../media/qnamaker-how-to-publish-kb/publish.png)
 
 2. Selecione **publicar** novamente para ver os detalhes de ponto de extremidade que podem ser usados em seu código de aplicação ou bot.
 
-    ![Publicar a base de dados de conhecimento](../media/qnamaker-how-to-publish-kb/publish-success.png)
+    ![Base de dados de conhecimento foi publicado com êxito](../media/qnamaker-how-to-publish-kb/publish-success.png)
     
 ## <a name="next-steps"></a>Passos Seguintes
 

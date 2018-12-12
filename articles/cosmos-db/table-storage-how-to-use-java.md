@@ -9,12 +9,12 @@ ms.devlang: Java
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: d7be0ed8d59063f75b3d4fadbf69237bdb2d0d13
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e6bae31f0e3558f274ee638c380e69c15b7c3889
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863691"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079318"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -455,7 +455,7 @@ catch (Exception e)
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Consultar um subconjunto de propriedades de entidade
-Uma consulta a uma tabela pode obter apenas algumas propriedades de uma entidade. Esta técnica, denominada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, especialmente para entidades grandes. A consulta no seguinte código utiliza o método **select** para devolver apenas os endereços de e-mail das entidades na tabela. Os resultados são projetados numa coleção de propriedades **String** com a ajuda de um **EntityResolver**, que faz a conversão de tipo das entidades que o servidor devolveu. Pode saber mais sobre a projeção em [Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection] (Tabelas do Azure: Introdução a Upsert e à Projeção de Consultas). Tenha em atenção que a projeção não é suportada no emulador de armazenamento local, pelo que este código é executado apenas quando estiver a utilizar uma conta do serviço Tabela.
+Uma consulta a uma tabela pode obter apenas algumas propriedades de uma entidade. Esta técnica, denominada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, especialmente para entidades grandes. A consulta no seguinte código utiliza o método **select** para devolver apenas os endereços de e-mail das entidades na tabela. Os resultados são projetados numa coleção de propriedades **String** com a ajuda de um **EntityResolver**, que faz a conversão de tipo das entidades que o servidor devolveu. Pode saber mais sobre a projeção na [as tabelas do Azure: apresentação do Upsert e da projeção da consulta] [as tabelas do Azure: apresentação do Upsert e da projeção da consulta]. Tenha em atenção que a projeção não é suportada no emulador de armazenamento local, pelo que este código é executado apenas quando estiver a utilizar uma conta do serviço Tabela.
 
 ```java
 try
@@ -497,7 +497,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Inserir ou Substituir uma entidade
-Em muitos casos, poderá querer adicionar uma entidade a uma tabela sem saber se já existe nessa tabela. A operação de inserção ou substituição permite-lhe fazer um único pedido que vai inserir a entidade, se a mesma não existir, ou substituir a existente, caso exista. Continuando com os exemplos anteriores, o seguinte código insere ou substitui a entidade para "Walter Harp". Depois de criar uma entidade nova, este código chama o método **TableOperation.insertOrReplace**. Em seguida, chama **execute** no objeto **CloudTable** com a tabela e a operação de inserção ou substituição de tabela como os parâmetros. Para atualizar apenas uma parte de uma entidade, é possível, em alternativa, utilizar o método **TableOperation.insertOrMerge**. Tenha em atenção que a operação de inserção ou substituição não é suportada no emulador de armazenamento local, pelo que este código é executado apenas quando estiver a utilizar uma conta do serviço Tabela. Pode saber mais sobre as operações de inserção ou substituição e inserção ou intercalação em [Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection] (Tabelas do Azure: Introdução a Upsert e à Projeção de Consultas).
+Em muitos casos, poderá querer adicionar uma entidade a uma tabela sem saber se já existe nessa tabela. A operação de inserção ou substituição permite-lhe fazer um único pedido que vai inserir a entidade, se a mesma não existir, ou substituir a existente, caso exista. Continuando com os exemplos anteriores, o seguinte código insere ou substitui a entidade para "Walter Harp". Depois de criar uma entidade nova, este código chama o método **TableOperation.insertOrReplace**. Em seguida, chama **execute** no objeto **CloudTable** com a tabela e a operação de inserção ou substituição de tabela como os parâmetros. Para atualizar apenas uma parte de uma entidade, é possível, em alternativa, utilizar o método **TableOperation.insertOrMerge**. Tenha em atenção que a operação de inserção ou substituição não é suportada no emulador de armazenamento local, pelo que este código é executado apenas quando estiver a utilizar uma conta do serviço Tabela. Pode saber mais sobre inserir ou substituir e insert ou intercalação neste [as tabelas do Azure: apresentação do Upsert e da projeção da consulta] [as tabelas do Azure: apresentação do Upsert e da projeção da consulta].
 
 ```java
 try
@@ -598,14 +598,12 @@ catch (Exception e)
 * [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java)
 * [Azure Storage Client SDK Reference][Azure Storage Client SDK Reference] (Referência do SDK do Cliente do Armazenamento do Azure)
 * [Azure Storage REST API][Azure Storage REST API] (API REST do Armazenamento do Azure)
-* [Azure Storage Team Blog][Azure Storage Team Blog] (Blogue da Equipa do Armazenamento do Azure)
+* [Blogue da equipa de armazenamento do azure] [Blogue da equipa de armazenamento do azure]
 
 Para obter mais informações, visite [Azure para programadores Java](/java/azure).
 
-[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+[Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Azure Storage Client SDK Reference]: http://azure.github.io/azure-storage-java/ (Referência do SDK do Cliente do Armazenamento do Azure)
+[Azure Storage Client SDK Reference]: https://azure.github.io/azure-storage-java/ (Referência do SDK do Cliente do Armazenamento do Azure)
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

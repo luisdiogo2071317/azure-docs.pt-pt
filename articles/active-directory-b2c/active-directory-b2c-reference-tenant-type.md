@@ -45,7 +45,7 @@ Os dados residem nos Estados Unidos para os países/regiões seguintes:
 
 Os dados residem na Europa para os países/regiões seguintes:
 
-> Argélia, Áustria, Azerbaijão, Barém, Bielorrússia, Bélgica, Bulgária, Croácia, Chipre, República Checa, Dinamarca, Egipto, Estónia, Finlândia, França, Alemanha, Grécia, Hungria, Islândia, Irlanda, Israel, Itália, Jordan, Cazaquistão, Quénia, Kuwait, Lativa, Líbano, Listenstaine, Lituania, Luxemburgo, Macedónia FYRO, Malta, Montenegro, Marrocos, Países Baixos, Nigéria, Noruega, Omã, Paquistão, Polónia, Portugal, Catar, Roménia, Rússia, Arábia Saudita, Sérvia, Eslováquia, Eslovénia, África do Sul, Espanha, Suécia, Suíça, Tunísia, Turquia, Ucrânia, Reino Árabes Unidos e o Reino Unido.
+> Argélia, Áustria, Azerbaijão, Barém, Bielorrússia, Bélgica, Bulgária, Croácia, Chipre, República Checa, Dinamarca, Egipto, Estónia, Finlândia, França, Alemanha, Grécia, Hungria, Islândia, Irlanda, Israel, Itália, Jordan, Cazaquistão, Quénia, Kuwait, Lativa, Líbano, Listenstaine, Lituania, Luxemburgo, República da Macedónia FYRO, Malta, Montenegro, Marrocos, Países Baixos, Nigéria, Noruega, Omã, Paquistão, Polónia, Portugal, Catar, Roménia, Rússia, Arábia Saudita, Sérvia, Eslováquia, Eslovénia, África do Sul, Espanha, Suécia, Suíça, Tunísia, Turquia, Ucrânia, Reino Árabes Unidos e o Reino Unido.
 
 Os restantes países/regiões estão a ser adicionado à lista.  Por agora, pode continuar a utilizar do Azure AD B2C ao selecionar qualquer um dos países/regiões acima.
 

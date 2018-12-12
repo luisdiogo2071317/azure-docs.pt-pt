@@ -1,21 +1,22 @@
 ---
-title: Entidades previamente concebidas LUIS phone referência número - Azure | Documentos da Microsoft
+title: Entidades de pré-criados de número de telefone
 titleSuffix: Azure
 description: Este artigo contém informações de entidade pré-criados numéricas na compreensão de idiomas (LUIS) do telefone.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 9a8fcbaf946f936d7a6d6d883a0416fce9d0c158
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: MT
+ms.openlocfilehash: 3c2a873514c7355cdf7fa08372e1e17409021d56
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441721"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081069"
 ---
 # <a name="phonenumber-entity"></a>Entidade Phonenumber
 O `phonenumber` entidade extrai uma variedade de números de telefone, incluindo o indicativo de país. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo para a aplicação. O `phonenumber` entidade é suportada no `en-us` apenas a cultura. 
@@ -26,7 +27,7 @@ PhoneNumber é gerido a partir da [reconhecedores texto](https://github.com/Micr
 ## <a name="resolution-for-prebuilt-phonenumber-entity"></a>Resolução de entidade phonenumber pré-criados
 O exemplo seguinte mostra a resolução do **builtin.phonenumber** entidade.
 
-```JSON
+```json
 {
   "query": "my mobile is 00 44 161 1234567",
   "topScoringIntent": {

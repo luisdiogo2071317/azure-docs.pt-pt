@@ -1,7 +1,8 @@
 ---
-title: 'Tutorial 4: funções padrão para dados relacionados contextualmente'
+title: Funções padrão
 titleSuffix: Azure Cognitive Services
 description: Utilize um padrão para extrair dados de uma expressão de modelo bem formatada. A expressão de modelo utiliza uma entidade simples e funções para extrair dados relacionados, como a localização de origem e a localização de destino.
+ms.custom: seodec18
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427493"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094411"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: extrair padrões relacionados contextualmente
 
@@ -128,7 +129,7 @@ A identificação das entidades nestes passos poderá ser mais fácil se a entid
 
 2. Vá para o final do URL no endereço e introduza `Move Wayne Berry from Miami to Mount Vernon`. O último parâmetro querystring é `q`, a expressão **query**. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Newark to Columbus",
       "topScoringIntent": {
@@ -258,7 +259,7 @@ Tal como os nomes das pessoas, as cidades também são complicadas pois podem se
 
 2. Vá para o final do URL no endereço e introduza `Move wayne berry from miami to mount vernon`. O último parâmetro querystring é `q`, a expressão **query**. 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Miami to Mount Vernon",
       "topScoringIntent": {

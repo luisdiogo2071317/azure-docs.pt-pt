@@ -1,11 +1,12 @@
 ---
 title: Machine learning e os dados de ferramentas de ciência - Azure | Documentos da Microsoft
-description: Ferramentas de ciência de dados e aprendizagem de máquina
+description: Saiba mais sobre o machine learning, ferramentas e estruturas previamente instaladas na máquina de Virtual de ciência de dados.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9308c51c0ff5fc7278eab632f9d23f23cf016a2a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d8c607b5f1d338ca3a2bd3844b26ef51d801c720
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901673"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086075"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Ferramentas de ciência de dados e aprendizagem de máquina
 Máquinas de virtuais de ciência de dados do Azure tem um conjunto avançado de ferramentas e bibliotecas para machine learning (ML) disponível em linguagens populares, como Python, R e Julia. 

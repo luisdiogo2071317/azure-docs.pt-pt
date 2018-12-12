@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d834b7f43d961400e2d5080a46cf921d719f3393
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9f2ed9c9059fa76a55ebd26fa3175605e89a4cdd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684863"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090277"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Trabalhar com bases de dados do Cosmos do Azure, contentores e itens
 
@@ -53,7 +53,7 @@ Ao criar um contentor do Cosmos do Azure, configure o débito dos seguintes modo
 
 * **Débito aprovisionado partilhado** modo: Estes contentores partilham o débito aprovisionado com outros contentores no mesmo banco de dados (excluindo desses contentores que tenham sido configurados com um débito aprovisionado dedicado). Em outras palavras, o débito aprovisionado na base de dados é partilhado entre todos os contentores "partilhados". Para obter mais informações, consulte [como configurar o débito aprovisionado numa base de dados do Azure Cosmos](how-to-provision-database-throughput.md).
 
-Um Cosmos Azure contentor pode dimensionar de forma elástica, se cria contentores com um "partilhado" ou "dedicado" aprovisionados modos de débito, ou seja, pode ter armazenamento ilimitado e débito aprovisionado.  
+Um contentor do Cosmos do Azure pode dimensionar de forma elástica, se criar contentores com um "partilhado" ou "dedicado" aprovisionado modos de débito.
 
 Um contentor do Cosmos do Azure é um contentor de esquema desconhecido de itens. Itens dentro de um contêiner podem ter esquemas arbitrárias. Por exemplo, um item que representa uma pessoa, um item que representa um automóvel pode ser colocado no mesmo contentor. Por predefinição, todos os itens que adicionar a um contentor automaticamente eram indexados sem necessidade de qualquer índice explícita ou gestão de esquemas. Pode personalizar o comportamento de indexação ao configurar a política de indexação num contentor. 
 
@@ -105,7 +105,7 @@ Consoante a opção da API, um item do Cosmos do Azure pode representar qualquer
 
 | **Entidade de cosmos** | **API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- |
-|Item do Cosmos do Azure | Item | Linha | Documento | Nó ou de extremidade | Item |
+|Item do Cosmos do Azure | Item | linha | Documento | Nó ou de extremidade | Item |
 
 ### <a name="properties-of-an-item"></a>Propriedades de um item
 

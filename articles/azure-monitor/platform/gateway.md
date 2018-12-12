@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5e19c7c1ed15183fdb796a6fa4e537da946b40b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: MT
+ms.openlocfilehash: 5294d5919b6d4d80c61e183866409123a9edbb60
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642537"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082668"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Ligar computadores sem acesso à Internet através do gateway do Log Analytics
 Este documento descreve como configurar a comunicação com a automatização do Azure e ligadas do Log Analytics com o gateway do Log Analytics quando direto ou computadores monitorizados do Operations Manager não tem acesso à Internet.  O gateway do Log Analytics, que é um proxy de encaminhamento de HTTP que suporte a HTTP com o comando de ligação HTTP de túnel, pode recolher dados e enviá-lo para a automatização do Azure e o Log Analytics em seu nome.  
@@ -82,7 +82,7 @@ O gateway do Log Analytics está disponível nos seguintes idiomas:
 - Espanhol (internacional)
 
 ### <a name="supported-encryption-protocols"></a>Protocolos de encriptação suportados
-O gateway do Log Analytics só suporta Transport Layer Security (TLS) 1.0, 1.1 e 1.2.  Não suporta a Secure Sockets Layer (SSL).  Para garantir a segurança dos dados em trânsito para o Log Analytics, é altamente recomendável que para configurar o gateway a utilizar, pelo menos, Transport Layer Security (TLS) 1.2. As versões mais antigas do TLS/Secure Sockets Layer (SSL) foram encontradas vulneráveis e enquanto trabalham ainda atualmente para permitir a compatibilidade com versões anteriores, estão **não recomendada**.  Para obter mais informações, consulte [enviar dados de forma segura através de TLS 1.2](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+O gateway do Log Analytics só suporta Transport Layer Security (TLS) 1.0, 1.1 e 1.2.  Não suporta a Secure Sockets Layer (SSL).  Para garantir a segurança dos dados em trânsito para o Log Analytics, é altamente recomendável que para configurar o gateway a utilizar, pelo menos, Transport Layer Security (TLS) 1.2. As versões mais antigas do TLS/Secure Sockets Layer (SSL) foram encontradas vulneráveis e enquanto trabalham ainda atualmente para permitir a compatibilidade com versões anteriores, estão **não recomendada**.  Para obter mais informações, consulte [enviar dados de forma segura através de TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Número suportado de ligações de agente
 A tabela seguinte realça o número suportado de agentes ao comunicar com um servidor de gateway.  Esse suporte é baseado em agentes a carregar ~ 200KB de dados a cada 6 segundos. O volume de dados por agente testado é cerca de 2,7 GB por dia.
@@ -142,7 +142,7 @@ Para saber como projetar e implementar uma cluster de balanceamento de carga na 
 A seção a seguir inclui os passos sobre como configurar os agentes, um grupo de gestão do Operations Manager ou do Azure Automation Hybrid Runbook Workers do Log Analytics ligadas diretamente com o gateway do Log Analytics para comunicar com a automatização do Azure ou de registo Análise.  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>Configurar o agente do Log Analytics autónomo
-Para compreender os requisitos e passos sobre como instalar o agente Log Analytics em computadores Windows, ligando-se diretamente ao Log Analytics, veja [computadores Windows ligar ao Log Analytics](agent-windows.md) ou para Linux, consulte computadores [ Ligar computadores Linux ao Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md). No lugar de especificar um servidor proxy ao configurar o agente, é possível substituir esse valor com o endereço IP do servidor de gateway do Log Analytics e o respetivo número de porta.  Se tiver implementado por trás de um balanceador de carga de rede de vários servidores de gateway, a configuração de proxy de agente do Log Analytics é o endereço IP virtual do NLB.  
+Para compreender os requisitos e passos sobre como instalar o agente Log Analytics em computadores Windows, ligando-se diretamente ao Log Analytics, veja [computadores Windows ligar ao Log Analytics](agent-windows.md) ou para Linux, consulte computadores [ Ligar computadores Linux ao Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). No lugar de especificar um servidor proxy ao configurar o agente, é possível substituir esse valor com o endereço IP do servidor de gateway do Log Analytics e o respetivo número de porta.  Se tiver implementado por trás de um balanceador de carga de rede de vários servidores de gateway, a configuração de proxy de agente do Log Analytics é o endereço IP virtual do NLB.  
 
 Para informações relacionadas com o Runbook Worker do Automation híbrida, veja [implementar a função de trabalho de Runbook do híbrida](../../automation/automation-hybrid-runbook-worker.md).
 

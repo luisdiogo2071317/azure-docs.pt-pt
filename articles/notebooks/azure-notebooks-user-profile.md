@@ -1,6 +1,6 @@
 ---
-title: Perfil de usuário e ID para utilização com blocos de notas do Azure | Documentos da Microsoft
-description: Como criar e gerir o seu ID de perfil e um utilizador com blocos de notas do Azure
+title: Perfil de usuário e ID para utilização com blocos de notas do Azure
+description: Como criar e gerir o perfil de utilizador e o ID de utilizador com blocos de notas do Azure.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: e41b75eb361d8b693895ea9889ee8fc90a39d4bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b1010b5376a26a4d33c026be27ce363959954ca2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856660"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078876"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>O ID de utilizador e de perfil para blocos de notas do Azure
 
@@ -26,15 +26,13 @@ Dentro do espaço de poderoso e colaboração de blocos de notas do Azure, o seu
 
 [![](media/accounts/profile-page.png "Uma página de perfil de blocos de notas do Azure")](media/accounts/profile-page.png#lightbox)
 
-O ID de utilizador faz parte dos URLs de usar para compartilhar projetos e blocos de notas:
+O ID de utilizador faz parte dos URLs de usar para compartilhar projetos e blocos de notas. A lista seguinte descreve os diferentes padrões de URL:
 
-| do IdP | Destino de ligação |
-| --- | --- |
-| `https://notebooks.azure.com/<user_id>` | Sua página de perfil. |
-| `https://notebooks.azure.com/<user_id>/projects` | Seus projetos. Verá todos os projetos; outros utilizadores ver apenas os seus projetos públicos. |
-| `https://notebooks.azure.com/<user_id>/projects/<project_id>` | Arquivos de projeto. |
-| `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones` | Clones de um projetos específicos. |
-| `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb` | A pré-visualização do HTML de um ficheiro ou o bloco de notas específico. |
+- `https://notebooks.azure.com/<user_id>`: A sua página de perfil.
+- `https://notebooks.azure.com/<user_id>/projects`: Seus projetos. Verá todos os projetos; outros utilizadores ver apenas os seus projetos públicos.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Arquivos de projeto.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Clones de um projetos específicos.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: A pré-visualização do HTML de um ficheiro ou o bloco de notas específico.
 
 ## <a name="your-user-id"></a>O ID de utilizador
 
@@ -63,7 +61,7 @@ Para editar seu perfil, utilize o **editar informações de perfil** comando na 
 | --- | --- |
 | Fotografia de perfil | Uma imagem que é apresentada na página de perfil. |
 | Informações sobre a Conta | O nome a apresentar, o ID de utilizador e a conta de e-mail pública. A conta de e-mail aqui fornece uma média para contactá-lo de outros utilizadores e pode ser diferente do [conta](azure-notebooks-user-account.md) pode iniciar sessão em blocos de notas do Azure em si. |
-| Informações do perfil | Sua localização, empresa, cargo, site da web e uma breve descrição por conta própria. |
+| Informações do Perfil | Sua localização, empresa, cargo, site da web e uma breve descrição por conta própria. |
 | Perfis de redes sociais | O GItHub, Twitter e identificações no Facebook, caso queira partilhá-los. |
 | Definições de Privacidade | Fornece dois comandos:<ul><li>**Exportar o meu perfil**: cria e transfere um *. zip* ficheiro que contém todas as informações que guarda de blocos de notas do Azure no seu perfil, incluindo a sua fotografia, informações de perfil e registos de segurança.</li><li>**Eliminar a minha conta**: elimina permanentemente todas as suas informações pessoais armazenadas em blocos de notas do Azure.</li></ul> |
 | Ativar funcionalidades do Site | Permite-lhe controlar os aspectos do comportamento de blocos de notas do Azure:<ul><li>**Unificação de front-end para blocos de notas**: permite a inicialização mais rápida do bloco de notas e persistência melhor.</li><li>**Executar no JupyterLab por predefinição**: por predefinição, os blocos de notas do Azure fornece uma interface do usuário simples que é adequada para a maioria dos usuários. JupyterLab fornece uma interface mais rica, mais complicada, mas para usuários experientes.</li><li>**Web site de VNext**: permite que o layout de reestruturação web mostrado nesta documentação.</li></ul> |

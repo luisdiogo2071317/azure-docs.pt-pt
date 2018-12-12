@@ -1,6 +1,6 @@
 ---
-title: Integrar o Azure DevTest Labs no seu pipeline de integração e entrega contínua VSTS | Documentos da Microsoft
-description: Saiba como integrar o Azure DevTest Labs no seu pipeline de entrega e integração contínua do VSTS
+title: Integrar o Azure DevTest Labs no seu pipeline de integração e entrega contínua Pipelines do Azure | Documentos da Microsoft
+description: Saiba como integrar o Azure DevTest Labs no seu pipeline de entrega de integração Pipelines do Azure e
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b7ce07547eccd52a8b10d4cffecaf1456778da4a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301213"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082956"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integrar o Azure DevTest Labs no seu pipeline de entrega de integração do Azure DevOps e
 Pode utilizar o *do Azure DevTest Labs tarefas* extensão facilmente instalado em DevOps do Azure para integrar o seu pipeline de compilação e versão de CI/CD com o Azure DevTest Labs. A extensão instala três tarefas: 
@@ -138,7 +138,7 @@ A próxima fase da implementação é criar a VM para utilizar como a "imagem do
 1. No pipeline de versões, selecione **adicionar tarefas** e, em seguida, no **Deploy** separador, adicione uma *Azure PowerShell* tarefas. Configure a tarefa da seguinte forma:
 
    > [!NOTE]
-   > Para recolher os detalhes da VM de laboratórios Dev/Test, veja [Deploy: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) e execute o script.
+   > Para recolher os detalhes da VM de laboratórios Dev/Test, veja [Deploy: Azure PowerShell](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV3) e execute o script.
 
    a. Para **tipo de ligação do Azure**, selecione **do Azure Resource Manager**.
 

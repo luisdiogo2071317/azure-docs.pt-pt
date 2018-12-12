@@ -1,5 +1,5 @@
 ---
-title: Utilizar Python para enviar e receber mensagens dos Hubs de eventos do Azure | Documentos da Microsoft
+title: Utilizar Python para enviar e receber mensagens - Event Hubs do Azure | Documentos da Microsoft
 description: Saiba como enviar eventos para receber eventos de Internet e capturar a eventos de transmissão em fluxo através dos Hubs de eventos com o Python.
 keywords: ''
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: 9c9c1bd909222ebb3fed57fb31c4f19404382cd4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4a0e2cd7e0c768512e1aafc042fe55338fdc206e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52730294"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084979"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Como os Hubs de eventos do Azure através de uma aplicação Python
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para obter mais informações, consulte [introdução aos Hubs de eventos](event-hubs-what-is-event-hubs.md). 

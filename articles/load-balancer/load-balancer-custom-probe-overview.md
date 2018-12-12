@@ -1,5 +1,6 @@
 ---
-title: Utilizar sondas de estado de funcionamento do Balanceador de carga para proteger o seu serviço | Documentos da Microsoft
+title: Utilizar sondas de estado de funcionamento do Balanceador de carga para proteger o seu serviço
+titlesuffix: Azure Load Balancer
 description: Saiba como utilizar sondas de estado de funcionamento para monitorizar instâncias por trás do Balanceador de carga
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 58bc0c0669992b8b3884e24c39862f47412b9110
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 89ceb6134d19354831a76f814d2ee55053252f62
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584660"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083585"
 ---
 # <a name="load-balancer-health-probes"></a>As sondas de estado de funcionamento do Balanceador de carga
 

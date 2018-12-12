@@ -49,7 +49,7 @@ O portal MyApps requer um browser que suporte a JavaScript e CSS ativou a. Se es
 
 Verifique para se certificar de que está a cumprir os seguintes requisitos de browser:
 
-- **Edge**: Windows 10 Anniversary Edition ou posterior.
+- **Microsoft Edge**: Windows 10 Anniversary Edition ou posterior.
 - **Chrome**: no Windows 7 ou posterior e no Mac OS X ou posterior.
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
 - **Internet Explorer 11**: no Windows 7 ou posterior (suporte limitado).
@@ -90,7 +90,7 @@ Se tiver instalado a extensão e ainda está a ter problemas, experimente o segu
        As últimas três aplicações que já utilizou são apresentadas no **utilizados recentemente** lista de atalho.
 
 > [!NOTE]
-> Estas opções estão disponíveis apenas para o Edge, Chrome e Firefox.
+> Estas opções estão disponíveis apenas para o Microsoft Edge, Chrome e Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Como posso adicionar uma nova aplicação?
 

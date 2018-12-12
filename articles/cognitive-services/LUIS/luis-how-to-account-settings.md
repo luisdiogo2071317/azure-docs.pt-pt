@@ -1,21 +1,22 @@
 ---
-title: Gerir as definições de conta do LUIS | Documentos da Microsoft
+title: Gerir definições
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Utilize o site do LUIS para gerir as definições de conta.
-titleSuffix: Azure
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: bb41331228e700c55da21c627d617d16faa2dcb9
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: a6a92fa32d7877baa5132134bdce66ce04017a77
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335405"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092076"
 ---
 # <a name="manage-account-and-authoring-key"></a>Gerir conta e chave de criação
 As duas informações cruciais para uma conta de LUIS são a conta de utilizador e a chave de criação. Suas informações de início de sessão são gerenciadas ao [account.microsoft.com](https://account.microsoft.com). A chave de criação é gerenciada a partir da [LUIS](luis-reference-regions.md) site **definições** página. 

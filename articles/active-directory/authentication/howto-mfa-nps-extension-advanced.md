@@ -41,13 +41,13 @@ Para solucionar problemas de início de sessão alternativo IDs, utilize os pass
 
 Se precisar de monitorizar a disponibilidade de servidor, como se a balanceadores de carga verificar quais servidores estão a executar antes de enviar as cargas de trabalho, não quer estas verificações até ser bloqueado por pedidos de verificação. Em vez disso, crie uma lista de endereços IP que sabe que são utilizados pelas contas de serviço e desativar os requisitos de multi-factor Authentication para essa lista. 
 
-Para configurar uma lista branca de IP, aceda a `HKLM\SOFTWARE\Microsoft\AzureMfa` e configure o seguinte valor de registo: 
+Para configurar umalista aprovada de IP, aceda a `HKLM\SOFTWARE\Microsoft\AzureMfa` e configure o seguinte valor de registo: 
 
 | Nome | Tipo | Valor predefinido | Descrição |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | cadeia | Vazio | Forneça uma lista de ponto e vírgula separada de endereços IP. Inclua os endereços IP das máquinas onde os pedidos de serviço têm origem, como o servidor NAS/VPN. Intervalos de IP são sub-redes não são suportadas. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-Quando chegar uma solicitação de um endereço IP que existe na lista de permissões, verificação de dois passos é ignorada. A lista branca de IP é comparado com o endereço IP que é fornecido na *ratNASIPAddress* atributo do pedido RADIUS. Se um pedido RADIUS chega sem o atributo ratNASIPAddress, o aviso seguinte é registado: "Está a ser ignorada P_WHITE_LIST_WARNING::IP lista de permissões como IP de origem está em falta no pedido RADIUS no atributo NasIpAddress."
+Quando chegar uma solicitação de um endereço IP que existe na lista de permissões, verificação de dois passos é ignorada. A lista aprovada de IP é comparado com o endereço IP que é fornecido na *ratNASIPAddress* atributo do pedido RADIUS. Se um pedido RADIUS chega sem o atributo ratNASIPAddress, o aviso seguinte é registado: "Está a ser ignorada P_WHITE_LIST_WARNING::IP lista de permissões como IP de origem está em falta no pedido RADIUS no atributo NasIpAddress."
 
 ## <a name="next-steps"></a>Passos Seguintes
 

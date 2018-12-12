@@ -45,7 +45,7 @@ Para atualizar uma **CDN do Azure Standard da Verizon** perfil de, contacto [Sup
 - [Motor de regras](cdn-rules-engine.md): permite-lhe personalizar a forma como os pedidos de HTTP são processados.
 - Ferramentas de análise avançadas:
    - [Análise detalhada de HTTP](cdn-advanced-http-reports.md)
-   - [Análise de desempenho do Edge](cdn-edge-performance.md)
+   - [Análise de desempenho do Microsoft Edge](cdn-edge-performance.md)
    - [Análise em tempo real](cdn-real-time-alerts.md)
 
 

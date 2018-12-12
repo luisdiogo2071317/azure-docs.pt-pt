@@ -10,16 +10,22 @@ ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 12/05/2018
-ms.openlocfilehash: 01c3c580027fd682ccd7dc099def6dd6b2770d65
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: 9843a01ed3c96b362e17718e9035c378da6c3cf2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962533"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083398"
 ---
 # <a name="azure-time-series-insights-overview"></a>Descrição geral do Azure Time Series Insights
 
 O Azure Time Series Insights (TSI) é um ponto-a-ponto plataforma-como-serviço para ingerir, processar, armazenar e consultar dados de dimensionamento IoT contextualizados altamente otimizado de série de tempo, que é ideais para exploração de dados ad-hoc, bem como a análise operacional. O Azure TSI é uma oferta que satisfazem amplo precisa de implementações de IoT industriais de serviço exclusivamente extensível e personalizado.
+
+## <a name="video"></a>Vídeo
+
+Neste vídeo, fornecemos uma visão geral do Azure Time Series Insights (pré-visualização), uma plataforma de análise de IoT com base na cloud.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 
 ## <a name="defining-iot-data"></a>Definir os dados de IoT
 
@@ -46,7 +52,7 @@ Os clientes podem armazenar dados não processados num arquivo de esquema, dentr
 O TSI também oferece recursos de informações operacionais atualmente em pré-visualização. Em conjunto com a exploração interativa de dados e informações operacionais, o TSI permite aos clientes obter mais valor dos dados recolhidos a partir de recursos de IoT. Especificamente, a oferta de pré-visualização suporta as principais capacidades seguintes:
 
 * A dimensionável, desempenho e armazenamento de dados de série de tempo com otimização de custos que permite uma solução de IoT com base na cloud para o valor dos anos de tendência de dados de séries de tempo em segundos.
-* Suporte de modelo semântico para descrever o domínio e os metadados associados com os sinais derivados e não derivada de ativos e dispositivos.
+* Suporte de modelo semântico para descrever o domínio e os metadados associados aos sinais derivados e não derivados de ativos e dispositivos.
 * Experiência do usuário que combina informações de dados com base no ativo com análises de dados do ad-hoc poderosas, para impulsionar inteligência comercial e operacional
 * Integração com avançados de aprendizagem automática e ferramentas de análise, como o Azure Databricks, Apache Spark, Azure Machine Learning, blocos de notas do Jupyter, Power BI, etc., para ajudar os clientes a resolver desafios de dados de séries de tempo e impulsionar a eficiência operacional.
 

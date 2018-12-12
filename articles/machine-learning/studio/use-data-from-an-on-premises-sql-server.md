@@ -1,10 +1,10 @@
 ---
-title: No local do SQL Server com o Azure Machine Learning Studio | Documentos da Microsoft
+title: SQL Server - do Azure Machine Learning Studio no local | Documentos da Microsoft
 description: Utilize dados a partir de uma base de dados do SQL Server no local para realizar análises avançadas com o Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 059dd3d902409abfa80be2b7aac579a54de1868f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310961"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090675"
 ---
-# <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Fazer análises avançadas com o Azure Machine Learning ao utilizar dados de uma base de dados do SQL Server no local
+# <a name="perform-analytics-with-azure-machine-learning-using-an-on-premises-sql-server-database"></a>Efetuar análises com o Azure Machine Learning utilizando uma base de dados do SQL Server no local
 
 Muitas vezes, as empresas que funcionam com dados no local pretende tirar partido do dimensionamento e agilidade da cloud para as suas cargas de trabalho de aprendizagem. Mas não quer interromper os processos empresariais atuais e fluxos de trabalho ao mover seus dados no local para a cloud. O Azure Machine Learning suporta agora ler seus dados a partir de uma base de dados do SQL Server no local e, em seguida, treinamento e um modelo com esses dados de classificação. Já não terá de copiar e sincronizar os dados entre a cloud e o servidor no local manualmente. Em vez disso, o **importar dados** módulo no Azure Machine Learning Studio agora pode ler diretamente a partir do seu banco de dados do SQL Server no local para a preparação e classificação de tarefas.
 

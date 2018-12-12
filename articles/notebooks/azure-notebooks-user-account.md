@@ -1,5 +1,5 @@
 ---
-title: Inicie sessão em blocos de notas do Azure | Documentos da Microsoft
+title: Inicie sessão em blocos de notas do Azure
 description: Configure a sua conta de utilizador para blocos de notas do Azure utilizando uma conta Microsoft ou uma conta de trabalho/escola.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a4f672f1c89323ca8dff4cb34242dd74ad01c85a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f95edde6a501cf33c45daccc2dbd2605c077217d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856206"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092623"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Sua conta de utilizador para blocos de notas do Azure
 

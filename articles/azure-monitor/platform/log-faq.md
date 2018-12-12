@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0d96844d9e156c702a5a6273b5181db04e5a79c5
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: a27513f9ae3d2b4cfff77f4fd410fdc77e060feb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994706"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081681"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Log Analytics no Microsoft Azure. Se tiver perguntas adicionais sobre o Log Analytics, avance para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
@@ -218,7 +218,7 @@ R: precisa adicionar "etag" no corpo da API ou de propriedades do modelo do Azur
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>P. A quantidade de dados posso enviar através do agente para o Log Analytics? Existe uma quantidade máxima de dados por cliente?
 R. O plano gratuito define um limite diário de 500 MB por área de trabalho. Os planos standard e premium não têm limite na quantidade de dados que são carregados. Como um serviço cloud, do Log Analytics foi concebido para dimensionar automaticamente até o identificador do volume proveniente de um cliente – mesmo se for terabytes por dia.
 
-O agente Log Analytics foi concebido para garantir que ele ocupa pouco espaço. O volume de dados varia consoante as soluções que ativa. Pode encontrar informações detalhadas sobre o volume de dados e ver a divisão pela solução no [utilização](../../log-analytics/log-analytics-usage.md) página.
+O agente Log Analytics foi concebido para garantir que ele ocupa pouco espaço. O volume de dados varia consoante as soluções que ativa. Pode encontrar informações detalhadas sobre o volume de dados e ver a divisão pela solução no [utilização](../../azure-monitor/platform/data-usage.md) página.
 
 Para obter mais informações, leia um [blog clientes](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) que mostra os resultados depois de avaliar a utilização de recursos (requisitos de espaço) do agente do OMS.
 
@@ -234,7 +234,7 @@ R. A quantidade de dados enviados por agente depende de:
 * O número de registos e contadores de desempenho recolhidos
 * O volume de dados nos registos
 
-O escalão de preço gratuito é uma boa forma de carregar vários servidores e o volume de dados típico do medidor. Geral de utilização é apresentada no [utilização](../../log-analytics/log-analytics-usage.md) página.
+O escalão de preço gratuito é uma boa forma de carregar vários servidores e o volume de dados típico do medidor. Geral de utilização é apresentada no [utilização](../../azure-monitor/platform/data-usage.md) página.
 
 Para computadores que são capazes de executar o agente de WireData, utilize a seguinte consulta para ver a quantidade de dados está sendo enviada:
 

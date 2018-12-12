@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: df1fbcb09310985b7ca9d9fd2e7a987fc6e2b2dc
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457096"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082651"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia numa fábrica de dados do Azure
 
@@ -173,6 +173,7 @@ Detalhes de execução da atividade de cópia e características de desempenho t
 | DataRead | Tamanho dos dados de leitura de origem | Valor Int64 **bytes** |
 | DataWritten | Tamanho dos dados escrito para o sink | Valor Int64 **bytes** |
 | filesRead | Número de ficheiros que está a ser copiados quando se copiam dados a partir do armazenamento de ficheiros. | Valor Int64 (nenhuma unidade) |
+| fileScanned | Número de ficheiros que está a ser analisados a partir do armazenamento de ficheiros de origem. | Valor Int64 (nenhuma unidade) |
 | filesWritten | Número de ficheiros que está a ser copiado ao copiar dados para armazenamento de ficheiros. | Valor Int64 (nenhuma unidade) |
 | rowsCopied | Número de linhas a ser copiados (não aplicável para cópia binária). | Valor Int64 (nenhuma unidade) |
 | rowsSkipped | Número de linhas incompatíveis que está a ser ignorada. Pode ativar a funcionalidade por conjunto "enableSkipIncompatibleRow" como true. | Valor Int64 (nenhuma unidade) |

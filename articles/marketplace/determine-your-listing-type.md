@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261076"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081545"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a sua opção de publicação
 A opção de publicação que escolher para a oferta está relacionada diretamente para os requisitos de elegibilidade e os benefícios GTM do marketplace. Mais importante, a seleção da opção e o tipo de oferta de publicação no Portal de parceiros de nuvem define como os utilizadores irão interagir com a oferta do marketplace.
 
 Pode ativar as opções de publicação selecionando um tipo de oferta e, em seguida, criar uma oferta do marketplace no Portal de parceiros de nuvem. Para tal, terá de compreender os conceitos de marketplace chave seguintes: opções de publicação, oferecem tipos e configuração e chamadas de ação que irá controlam como e onde a sua oferta é apresentada nas lojas de marketplace.
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
+![](./media/marketplace-publishers-guide/storefronts_options_table.png)
 
 >[!Note]
 >A tabela acima descreve como sua solução ou serviço é mapeada para a loja, a opção de publicação e o tipo de oferta utilizado para apresentar a sua oferta no marketplace.

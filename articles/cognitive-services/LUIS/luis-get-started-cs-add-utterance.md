@@ -1,21 +1,22 @@
 ---
-title: Guia de Início Rápido do C# – alterar o modelo e preparar a aplicação LUIS
-titleSuffix: Azure Cognitive Services
-description: Neste início rápido do C#, adicione expressões de exemplo a uma aplicação de Automatização de Casa e treine a aplicação. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
+title: Alterar, preparar a aplicação,C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Neste início rápido do C#, adicione expressões de exemplo a uma aplicação de Automatização de Casa e treine a aplicação.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 82cc5d940a48cfca33a4ad9e160905df34f86454
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: 807e90216d8fff8453f7fa8596926483102fd258
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960469"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087818"
 ---
 # <a name="quickstart-change-model-using-c"></a>Início rápido: Alterar o modelo com C#
 
@@ -56,7 +57,7 @@ O projeto do Visual Studio precisa de **JsonFormatterPlus** e **CommandLineParse
 ### <a name="write-the-c-code"></a>Escrever o código C#
 O ficheiro **Program.cs** deve ser:
 
-```CSharp
+```C#
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -126,7 +127,7 @@ Compile código no Visual Studio.
 
 No diretório /bin/Debug do projeto, execute a aplicação a partir de uma linha de comandos. 
 
-```CMD
+```console
 ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
 ```
 

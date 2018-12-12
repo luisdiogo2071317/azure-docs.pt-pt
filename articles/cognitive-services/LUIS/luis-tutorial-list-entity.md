@@ -1,5 +1,5 @@
 ---
-title: Etiqueta entidades automaticamente com uma entidade de lista utilizando Nodejs | Documentos da Microsoft
+title: Entidades de correspondência de texto Extact
 description: Saiba como adicionar uma entidade de lista para o ajudar a variações de etiqueta de LUIS de uma palavra ou frase.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: cb8f2ef4afa83b8e4d258a4227795593242e84bd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036784"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082259"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Utilize uma entidade de lista para aumentar a deteção de entidade 
 Este tutorial demonstra o uso de um [listar entidade](luis-concept-entity-types.md) para aumentar a deteção de entidade. Não é necessário ser rotulada como são uma correspondência exata dos termos de entidades de lista.  
@@ -31,7 +31,7 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Mais recente [node. js](https://nodejs.org)
-> * [Aplicação do LUIS HomeAutomation](luis-get-started-create-app.md). Se não tiver a aplicação de home page de automatização criada, criar uma nova aplicação e adicionar o domínio pré-criado **HomeAutomation**. Formar e publicar a aplicação. 
+> * [Aplicação do LUIS HomeAutomation](luis-get-started-create-app.md). Se não tiver a aplicação de home page de automatização criada, criar uma nova aplicação e adicionar o domínio pré-criado **HomeAutomation**. Prepare e publique a aplicação. 
 > * [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key) (se a consultar o número de vezes), ID de aplicação, ID de versão, e [região](luis-reference-regions.md) para a aplicação do LUIS.
 
 > [!Tip]
@@ -81,15 +81,16 @@ Crie um ficheiro de node. js e copie o seguinte código para o mesmo. Altere os 
 
 Utilize o seguinte comando para instalar as dependências NPM e executar o código para criar a entidade de lista:
 
-```Javascript
+```console
 npm install && node add-entity-list.js
 ```
 
 O resultado da execução é o ID da entidade de lista:
 
-```Javascript
+```console
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
+
 ## <a name="train-the-model"></a>Dar formação sobre o modelo
 Preparar o LUIS para que a nova lista afetar os resultados da consulta. O treinamento é um processo de duas partes de treinamento, a, em seguida, verificar o estado se o treinamento é feito. Uma aplicação com o número de modelos pode demorar alguns momentos para preparar. O seguinte código prepara a aplicação, em seguida, aguarda até que o treinamento é efetuada com êxito. O código usa uma estratégia de espera e repetição para evitar o 429 "demasiados pedidos" erro. 
 
@@ -99,13 +100,13 @@ Crie um ficheiro de node. js e copie o seguinte código para o mesmo. Altere os 
 
 Utilize o seguinte comando para executar o código para preparar a aplicação:
 
-```Javascript
+```console
 node train.js
 ```
 
 O resultado da execução é o estado de cada iteração de treinamento dos modelos de LUIS. A execução seguinte necessários apenas uma verificação de treinamento:
 
-```Javascript
+```console
 1 trained = true
 [ { modelId: '2c549f95-867a-4189-9c35-44b95c78b70f',
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
@@ -130,13 +131,13 @@ Crie um ficheiro de node. js e copie o seguinte código para o mesmo. Altere os 
 
 Utilize o seguinte comando para executar o código para consultar a aplicação:
 
-```Javascript
+```console
 node publish.js
 ```
 
 O resultado seguinte inclui o url de ponto de extremidade para quaisquer consultas. Resultados JSON reais incluiria o appID real. 
 
-```JSON
+```json
 { 
   versionId: null,
   isStaging: false,
@@ -157,13 +158,13 @@ Crie um ficheiro de node. js e copie o seguinte código para o mesmo. Altere os 
 
 Utilize o seguinte comando para executar o código e a aplicação de consulta:
 
-```Javascript
+```console
 node train.js
 ```
 
 O resultado é que os resultados da consulta. Uma vez que o código adicionado a **verboso** par nome/valor para a cadeia de consulta, a saída inclui todas as intenções e suas classificações:
 
-```JSON
+```json
 {
   "query": "turn up the heat",
   "topScoringIntent": {

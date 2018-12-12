@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5d149f26ce953efef316e68fe75bc07d1e240ae2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: 86ad385488d9661abd52a2bd1a2d561956f0cbb3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970404"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082565"
 ---
-# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Exemplos de consulta SQl para consultar dados do Azure Cosmos Db
+# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Exemplos de consulta SQL para consultar dados do Azure Cosmos DB
 
 O Azure Cosmos DB suporta itens de consultas com o SQL (Structured Query Language) como uma linguagem de consulta JSON em contas da API de SQL. Ao conceber a linguagem de consulta para o Azure Cosmos DB, são considerados os seguintes dois objetivos:
 
@@ -2253,14 +2253,14 @@ O exemplo seguinte mostra como utilizar o queryDocuments na API do servidor de J
 ## <a id="References"></a>Referências
 
 1. [Introdução ao Azure Cosmos DB][introduction]
-2. [Especificação de Cosmos DB SQL do Azure](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+2. [Especificação de Cosmos DB SQL do Azure](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
 4. [Níveis de consistência do Azure Cosmos DB][consistency-levels]
-5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6. JSON [http://json.org/](http://json.org/)
-7. Especificação de JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Técnicas de avaliação de consulta para grandes bancos de dados [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+6. JSON [https://json.org/](https://json.org/)
+7. Especificação de JavaScript [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+8. LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
+9. Técnicas de avaliação de consulta para grandes bancos de dados [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
 10. Processamento de consultas no banco de dados relacional paralela sistemas, IEEE Computer sociedade Press, 1994
 11. Tan lu, Ooi, processamento de consultas no banco de dados relacional paralela sistemas, IEEE Computer sociedade Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: um não-para-idiomas estrangeiros para processamento de dados, SIGMOD 2008.

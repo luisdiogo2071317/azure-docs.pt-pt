@@ -1,6 +1,6 @@
 ---
-title: Como obter suporte do Azure Active Directory | Documentos da Microsoft
-description: Saiba como obter suporte para o Azure Active Directory.
+title: Encontrar ajuda e abra um pedido de suporte - Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como obter ajuda e abrir um pedido de suporte do Azure Active Directory.
 services: active-directory
 documentationcenter: na
 author: eross-msft
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: d7d499ed43ee2eab03e46e408104eca4af6a2945
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: d67b53d80b74d0a6ad3c4264a55a5e277acffd20
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729400"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083908"
 ---
-# <a name="how-to-get-support-for-azure-active-directory"></a>Como: obter suporte para o Azure Active Directory
+# <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Encontrar ajuda e abra um pedido de suporte do Azure Active Directory
 A Microsoft fornece técnico a nível global, pré-vendas, faturação e suporte de subscrição do Azure Active Directory (Azure AD). O suporte está disponível tanto online como por telefone do Microsoft Azure paga e subscrições de avaliação. O suporte por telefone e suporte de faturação online estão disponíveis em idiomas adicionais. 
 
 ## <a name="find-help-without-opening-a-support-ticket"></a>Obter ajuda sem abrir um pedido de suporte
@@ -89,6 +89,6 @@ Consulte a [contacte a Microsoft para obter suporte](https://portal.office.com/S
 
 ##  <a name="next-steps"></a>Passos Seguintes
 
-* [Comunidade tecnológica da Microsoft](https://techcommunity.microsoft.com/)
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/)
 
 * [Documentação técnica em docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/)

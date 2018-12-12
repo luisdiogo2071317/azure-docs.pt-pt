@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: 04f634406eacd05e772d2b672cdfb2af6fb42054
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f2e18f07748801e50db644588146e7867ba84095
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874486"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081511"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar uma aplicação Web Node.js com o JavaScript SDK para gerir os dados da API SQL do Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Antes de seguir as instruções deste artigo, certifique-se de que tem os seguin
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Node.js][Node.js] versão 6.10 ou superior.
-* [Express generator](http://www.expressjs.com/starter/generator.html) (pode instalar o Express através de `npm install express-generator -g`)
+* [Express generator](https://www.expressjs.com/starter/generator.html) (pode instalar o Express através de `npm install express-generator -g`)
 * Instale o [Git][Git] na estação de trabalho local.
 
 ## <a name="_Toc395637761"></a>Passo 1: criar uma conta do Azure Cosmos DB
@@ -60,7 +60,7 @@ Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta ou se e
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
 ## <a name="_Toc395783178"></a>Passo 2: criar uma nova aplicação do Node.js
-Agora, vamos aprender a criar um projeto básico Olá, Mundo Node.js com a arquitetura [Express](http://expressjs.com/).
+Agora, vamos aprender a criar um projeto básico Olá, Mundo Node.js com a arquitetura [Express](https://expressjs.com/).
 
 1. Abra o seu terminal favorito, como a linha de comandos Node.js.
 
@@ -483,7 +483,7 @@ Neste tutorial, aprendeu a criar uma aplicação Web Node.js com o JavaScript SD
 > [Criar aplicações móveis com o Xamarin e o Azure Cosmos DB](mobile-apps-with-xamarin.md)
 
 
-[Node.js]: http://nodejs.org/
-[Git]: http://git-scm.com/
+[Node.js]: https://nodejs.org/
+[Git]: https://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-todo-app
 

@@ -1,5 +1,6 @@
 ---
-title: Configurar destinos de computação de preparação de modelos com o serviço Azure Machine Learning | Documentos da Microsoft
+title: Criar e usar destinos de computação para a preparação de modelos
+titleSuffix: Azure Machine Learning service
 description: Saiba como selecionar e configurar os ambientes de treinamento (destinos de computação) usados para treinar seus modelos de machine learning. O serviço Azure Machine Learning permite-lhe facilmente ambientes de treinamento do comutador. Comece a formação localmente e, se precisar de aumentar horizontalmente, mude para um destino de computação com base na cloud.
 services: machine-learning
 author: heatherbshapiro
@@ -10,14 +11,15 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 07ea61ffe3ffc17cd255b826e3506ffe2b1ce9cd
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 1a6533c1ec25eb8500f67cb98494463d7daf752b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017727"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080100"
 ---
-# <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecione e utilize um destino de computação para preparar o seu modelo
+# <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação de preparação de modelos
 
 Com o serviço Azure Machine Learning, pode treinar o modelo em recursos de computação diferentes. Estes recursos, chamados de computação __destinos de computação__, pode ser local ou na cloud. Neste documento, aprenderá sobre os destinos de computação suportados e como utilizá-los.
 
@@ -249,16 +251,24 @@ Os passos seguintes utilizam o SDK para configurar uma Máquina Virtual de ciên
 1. Para anexar uma máquina virtual existente como um destino de computação, tem de fornecer o nome de domínio completamente qualificado, o nome de início de sessão e a palavra-passe para a máquina virtual.  No exemplo, substitua ```<fqdn>``` com o nome de domínio completamente qualificado público da VM ou o endereço IP público. Substitua ```<username>``` e ```<password>``` com o utilizador SSH e a palavra-passe para a VM:
 
     ```python
-    from azureml.core.compute import RemoteCompute
+    from azureml.core.compute import RemoteCompute, ComputeTarget
+    
+    # Create compute config.
+    attach_config = RemoteCompute.attach_configuration(address = "ipaddress",
+                                                       ssh_port=22,
+                                                       username='<username>',
+                                                       password="<password>")
+    # If using SSH instead of a password, use this:
+    #                                                  ssh_port=22,
+    #                                                   username='<username>',
+    #                                                   password=None,
+    #                                                   private_key_file="path-to-file",
+    #                                                   private_key_passphrase="passphrase")
 
-    dsvm_compute = RemoteCompute.attach(ws,
-                                    name="attach-dsvm",
-                                    username='<username>',
-                                    address="<fqdn>",
-                                    ssh_port=22,
-                                    password="<password>")
+    # Attach the compute
+    compute = ComputeTarget.attach(ws, "attach-dsvm", attach_config)
 
-    dsvm_compute.wait_for_completion(show_output=True)
+    compute.wait_for_completion(show_output=True)
 
 1. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
 
@@ -303,25 +313,15 @@ O Azure Databricks é um ambiente baseado em Apache Spark na cloud do Azure. Ele
 Para anexar o Azure Databricks, como um destino de computação, tem de utilizar o SDK do Azure Machine Learning e forneça as seguintes informações:
 
 * __Nome de computação__: O nome que pretende atribuir a este recurso de computação.
-* __ID de recurso__: O ID de recurso da área de trabalho do Azure Databricks. O texto seguinte é um exemplo de formato para este valor:
-
-    ```text
-    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
-    ```
-
-    > [!TIP]
-    > Para obter o ID de recurso, utilize o seguinte comando da CLI do Azure. Substitua `<databricks-ws>` com o nome da sua área de trabalho do Databricks:
-    > ```azurecli-interactive
-    > az resource list --name <databricks-ws> --query [].id
-    > ```
-
+* __Nome de área de trabalho do Databricks__: O nome da área de trabalho do Azure Databricks.
 * __Token de acesso__: O token de acesso utilizado para autenticar para o Azure Databricks. Para gerar um token de acesso, consulte a [autenticação](https://docs.azuredatabricks.net/api/latest/authentication.html) documento.
 
 O código a seguir demonstra como anexar o Azure Databricks, como um destino de computação:
 
 ```python
 databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
-databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_workspace_name = os.environ.get("AML_DATABRICKS_WORKSPACE", "<databricks_workspace_name>")
+databricks_resource_group = os.environ.get("AML_DATABRICKS_RESOURCE_GROUP", "<databricks_resource_group>")
 databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
 
 try:
@@ -330,13 +330,17 @@ try:
 except ComputeTargetException:
     print('compute not found')
     print('databricks_compute_name {}'.format(databricks_compute_name))
-    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_workspace_name {}'.format(databricks_workspace_name))
     print('databricks_access_token {}'.format(databricks_access_token))
-    databricks_compute = DatabricksCompute.attach(
-             workspace=ws,
-             name=databricks_compute_name,
-             resource_id=databricks_resource_id,
-             access_token=databricks_access_token
+
+    # Create attach config
+    attach_config = DatabricksCompute.attach_configuration(resource_group = databricks_resource_group,
+                                                           workspace_name = databricks_workspace_name,
+                                                           access_token = databricks_access_token)
+    databricks_compute = ComputeTarget.attach(
+             ws,
+             databricks_compute_name,
+             attach_config
          )
     
     databricks_compute.wait_for_completion(True)
@@ -354,23 +358,15 @@ O Azure Data Lake Analytics é uma plataforma de análise de macrodados na cloud
 Para anexar como um destino de computação do Data Lake Analytics, tem de utilizar o SDK do Azure Machine Learning e forneça as seguintes informações:
 
 * __Nome de computação__: O nome que pretende atribuir a este recurso de computação.
-* __ID de recurso__: O ID de recurso da conta do Data Lake Analytics. O texto seguinte é um exemplo de formato para este valor:
-
-    ```text
-    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
-    ```
-
-    > [!TIP]
-    > Para obter o ID de recurso, utilize o seguinte comando da CLI do Azure. Substitua `<datalakeanalytics>` com o nome do nome da sua conta do Data Lake Analytics:
-    > ```azurecli-interactive
-    > az resource list --name <datalakeanalytics> --query [].id
-    > ```
+* __Grupo de recursos__: O grupo de recursos que contém a conta do Data Lake Analytics.
+* __Nome da conta__: nome da conta do Data Lake Analytics.
 
 O código a seguir demonstra como anexar como um destino de computação do Data Lake Analytics:
 
 ```python
 adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
-adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+adla_resource_group = os.environ.get("AML_ADLA_RESOURCE_GROUP", "<adla_resource_group>")
+adla_account_name = os.environ.get("AML_ADLA_ACCOUNT_NAME", "<adla_account_name>")
 
 try:
     adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
@@ -378,11 +374,16 @@ try:
 except ComputeTargetException:
     print('compute not found')
     print('adla_compute_name {}'.format(adla_compute_name))
-    print('adla_resource_id {}'.format(adla_resource_id))
-    adla_compute = AdlaCompute.attach(
-             workspace=ws,
-             name=adla_compute_name,
-             resource_id=adla_resource_id
+    print('adla_resource_id {}'.format(adla_resource_group))
+    print('adla_account_name {}'.format(adla_account_name))
+    # create attach config
+    attach_config = AdlaCompute.attach_configuration(resource_group = adla_resource_group,
+                                                     account_name = adla_account_name)
+    # Attach ADLA
+    adla_compute = ComputeTarget.attach(
+             ws,
+             adla_compute_name,
+             attach_config
          )
     
     adla_compute.wait_for_completion(True)
@@ -410,14 +411,17 @@ Para configurar o HDInsight como um destino de computação, tem de fornecer o n
 > ![Captura de ecrã de descrição geral do cluster do HDInsight com a entrada de URL realçada](./media/how-to-set-up-training-targets/hdinsight-overview.png)
 
 ```python
-from azureml.core.compute import HDInsightCompute
+from azureml.core.compute import HDInsightCompute, ComputeTarget
 
 try:
     # Attaches a HDInsight cluster as a compute target.
-    HDInsightCompute.attach(ws,name = "myhdi",
-                            address = "<fqdn>",
-                            username = "<username>",
-                            password = "<password>")
+    attach_config = HDInsightCompute.attach_configuration(address = "fqdn-or-ipaddress",
+                                                          ssh_port = 22,
+                                                          username = "username",
+                                                          password = None, #if using ssh key
+                                                          private_key_file = "path-to-key-file",
+                                                          private_key_phrase = "key-phrase")
+    compute = ComputeTarget.attach(ws, "myhdi", attach_config)
 except UserErrorException as e:
     print("Caught = {}".format(e.message))
     print("Compute config already attached.")

@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4123f66c12898f8f8828494d59590992ac109e27
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c17d4d51327862872d240e07cb69d4ddf1f8672b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997654"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082148"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: Proteger artefactos em implementações de modelo do Azure Resource Manager
 
 Saiba como proteger os artefactos utilizados nos seus modelos do Azure Resource Manager com a conta de armazenamento do Azure com assinaturas de acesso partilhado (SAS). Artefatos de implementação são todos os ficheiros, além do ficheiro de modelo principal, que são necessárias para concluir uma implementação. Por exemplo, no [Tutorial: ficheiros BACPAC do SQL de importação com modelos Azure Resource Manager](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md), o modelo principal cria uma base de dados do SQL do Azure; ele também chama um ficheiro BACPAC para criar tabelas e inserir dados. Ficheiro BACPAC é um artefato. O artefacto é armazenado numa conta de armazenamento do Azure com o acesso público. Neste tutorial, vai utilizar SAS a conceder acesso limitado para o ficheiro BACPAC em sua própria conta de armazenamento do Azure. Para obter mais informações sobre SAS, consulte [Using partilhado assinaturas de acesso (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+
+Para saber como proteger o modelo ligado, veja [Tutorial: criar modelos do Azure Resource Manager ligados](./resource-manager-tutorial-create-linked-templates.md).
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -57,6 +59,8 @@ Nesta secção, prepare o ficheiro BACPAC para que o ficheiro está acessível e
 * Crie um contentor de Blob da conta de armazenamento.
 * Carregue o ficheiro BACPAC para o contentor.
 * Obter o token SAS do ficheiro BACPAC.
+
+Para automatizar estes passos com um script do PowerShell, consulte o script a partir [carregar o modelo ligado](./resource-manager-tutorial-create-linked-templates.md#upload-the-linked-template).
 
 ### <a name="download-the-bacpac-file"></a>Transfira o ficheiro BACPAC
 

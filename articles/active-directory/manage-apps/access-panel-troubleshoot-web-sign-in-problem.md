@@ -64,7 +64,7 @@ Para SSO de palavra-passe, os navegadores do usuário final podem ser:
 
 -   Internet Explorer 8, 9, 10, 11 – no Windows 7 ou posterior
 
--   Edge no Windows 10 Anniversary Edition ou posterior 
+-   Microsoft Edge no Windows 10 Anniversary Edition ou posterior 
 
 -   Cromado, No Windows 7 ou posterior e no MacOS X ou posterior
 

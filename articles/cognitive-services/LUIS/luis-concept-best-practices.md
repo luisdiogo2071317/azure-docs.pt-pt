@@ -1,21 +1,22 @@
 ---
-title: Melhores práticas para criar aplicações com os LUIS - compreensão de idiomas
-titleSuffix: Azure Cognitive Services
-description: Aprenda as práticas recomendadas do LUIS para obter os melhores resultados.
+title: Melhores práticas
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Aprenda as práticas recomendadas do LUIS para obter os melhores resultados de modelo da sua aplicação LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6b7b9c8a2a3e7da1628ef3e6f93a4b632ce38615
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e63d6ed584c0e8afc823bbcdc6e70ceabbf43db6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637785"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085285"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Melhores práticas para criar uma aplicação de compreensão de idiomas com os serviços cognitivos
 Utilize a processo de criação de aplicações para criar a sua aplicação LUIS. 
@@ -50,10 +51,10 @@ Se o vocabulário entre dois objetivos é o mesmo, combinar a intenção e utili
 
 Considere as expressões de exemplo seguinte:
 
-```
-Book a flight
-Book a hotel
-```
+|Expressões de exemplo|
+|--|
+|Programar um vôo|
+|Reservar um hotel|
 
 "Programar um vôo" e "Reservar quarto num hotel" utiliza o mesmo vocabulário de "livro um". Esta é a sobreposição de, pelo que deve ser o mesmo objetivo com as palavras diferentes de voo e hotel extraídos entidades. 
 

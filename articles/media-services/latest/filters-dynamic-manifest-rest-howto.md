@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: juliako
-ms.openlocfilehash: 6b0ef646ba9ea535038f181ebfff5bf7639afdf8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5cc670a94958b123ac71b49cbf25661d567e4629
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633627"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083416"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Criar filtros com o API de REST dos serviços de multimédia
 
@@ -32,7 +32,7 @@ Para concluir os passos descritos neste tópico, tem de:
 
 - Revisão [filtros e dos manifestos dinâmicos](filters-dynamic-manifest-overview.md).
 - [Criar uma conta de Media Services](create-account-cli-how-to.md). Lembre-se de que não se esqueça de que o nome do grupo de recursos e o nome da conta dos serviços de multimédia. 
-- [Configurar o Postman para chamadas de API de REST de serviços de multimédia do Azure](media-rest-apis-with-postman.md)/
+- [Configurar o Postman para chamar a API de REST de serviços de multimédia do Azure](media-rest-apis-with-postman.md).
 
 ## <a name="define-a-filter"></a>Definir um filtro  
 

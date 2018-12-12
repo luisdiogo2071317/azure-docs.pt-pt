@@ -1,5 +1,5 @@
 ---
-title: Exemplos de voz de registo para a criação de uma voz personalizada
+title: Exemplos de voz personalizada - serviços de voz de registos
 titleSuffix: Azure Cognitive Services
 description: Torne uma voz personalizada de qualidade de produção ao preparar um script robusto, contratação de talento de voz boa e gravar profissionalmente.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 07/5/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: b1b189db56eb3f70f23940a8612d310d2ba8566f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 6aaa638504dd441240879050531952b269d02d15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471191"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081086"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Exemplos de voz de registo para criar uma voz personalizada
 
@@ -50,7 +51,7 @@ Escolha o talento de voz cujo natural de voz, como. É possível criar vozes exc
 > [!TIP]
 > Em geral, evitar o uso de vozes reconhecíveis para criar uma voz personalizada, a menos que, certamente, seu objetivo é produzir uma voz de celebridade. Vozes de menos conhecidos são, normalmente, menos distração aos utilizadores.
 
-O único fator mais importante para a escolha de talentos de voz é a consistência. As gravações tudo soar pareçam feitas no mesmo dia na mesma sala. Pode abordar esse ideal através de práticas de gravação de bons e engenharia. 
+O único fator mais importante para a escolha de talentos de voz é a consistência. As gravações tudo soar pareçam feitas no mesmo dia na mesma sala. Pode abordar esse ideal através de práticas de gravação de bons e engenharia.
 
 Seu talento de voz é a outra metade da equação. Ele deve poder falar com taxa consistente, nível de volume, pitch e tom. Limpar diction é essencial. O talento também tem de ser capaz de controlar rigorosamente seu variação pitch emocional efeito e mannerisms de voz.
 
@@ -71,7 +72,7 @@ As expressões no seu script podem vir de qualquer lugar: fiction, não fiction,
 
 As expressões não precisam de ser provenientes da mesma origem ou o mesmo tipo de origem. Eles nem precisa ter algo a ver com uns dos outros. No entanto, se quiser utilizar definir frases (por exemplo, "iniciaram sessão com êxito") na sua aplicação de voz, certifique-se para incluí-los no seu script. Isso dará a voz personalizada uma chance maior de pronouncing essas frases bem. E se deve optar por utilizar uma gravação em vez de fala sintetizada, já terá-na voz do mesmo.
 
-Enquanto a consistência é fundamental na escolha de talentos de voz, a variedade é a marca de um script boa. O script deve incluir muitas diferentes palavras e frases com uma variedade de comprimentos de sentença, estruturas e reagem. Cada som no idioma deve ser representada várias vezes e em vários contextos (chamado *cobertura fonética*). 
+Enquanto a consistência é fundamental na escolha de talentos de voz, a variedade é a marca de um script boa. O script deve incluir muitas diferentes palavras e frases com uma variedade de comprimentos de sentença, estruturas e reagem. Cada som no idioma deve ser representada várias vezes e em vários contextos (chamado *cobertura fonética*).
 
 Além disso, o texto deve incorporar todas as formas que um determinado som podem ser representados por escrito e colocar cada som em diferentes locais nas frases. Frases declarativas e perguntas devem ser incluídas e ler com intonation apropriado.
 
@@ -188,9 +189,9 @@ Registe um bom cinco segundos, de silêncio antes da gravação de primeira para
 > [!TIP]
 > Tudo o que realmente precisa capturar é o talento de voz, para que possa tomar uma gravação (canal de único) monophonic de apenas linhas. No entanto, se gravar no alto, pode utilizar o segundo canal para registrar o chatter numa sala de controlo para capturar a discussão de linhas específicas ou demora. Remova este Roteiro da versão que é carregada para o portal de voz personalizada.
 
-Ouça com atenção, utilizar auscultadores, ao desempenho o talento de voz. Está à procura de diction boa mas natural, pronúncia correta e a falta de sons indesejados. Não hesite em fazer o seu talento para registrar novamente uma expressão que não cumpram estas normas. 
+Ouça com atenção, utilizar auscultadores, ao desempenho o talento de voz. Está à procura de diction boa mas natural, pronúncia correta e a falta de sons indesejados. Não hesite em fazer o seu talento para registrar novamente uma expressão que não cumpram estas normas.
 
-> [!TIP] 
+> [!TIP]
 > Se estiver a utilizar um grande número de expressões, uma única expressão pode não ter um impacto perceptível sobre a voz personalizada resultante. Poderá ser mais vantajoso simplesmente observar qualquer expressões com problemas, excluí-los a partir do seu conjunto de dados e veja como a voz personalizada acontece. Pode sempre voltar ao studio e registe os exemplos em falta mais tarde.
 
 Tenha em atenção o número ou tempo de código no script para cada ocorrência de pronunciação. Peça o engenheiro para marcar cada ocorrência de pronunciação em metadados a gravação ou folha de indicação também.

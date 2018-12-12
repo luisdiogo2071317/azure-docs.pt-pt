@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: d34671d4197735ea2c30aafc8fd01a5893427ff3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9e27df857d560abdf5b6a54272bb022b6ed466ee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226854"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079369"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Como atribuir utilizadores a aplicações
 
@@ -33,15 +33,15 @@ Para um utilizador aceder a uma aplicação, eles tem primeiro de atribuir a ele
 
 2.  Um administrador [atribui um grupo](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) que o utilizador é membro para o aplicativo, incluindo:
 
-  * Um grupo que foi sincronizado no local
+    * Um grupo que foi sincronizado no local
 
-  * Um grupo de segurança estático criado na cloud
+    * Um grupo de segurança estático criado na cloud
 
-  * R [grupo de segurança dinâmica](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) criados na cloud
+    * R [grupo de segurança dinâmica](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) criados na cloud
 
-  * Um grupo do Office 365 criado na cloud
+    * Um grupo do Office 365 criado na cloud
 
-  * O [todos os utilizadores](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups) grupo
+    * O [todos os utilizadores](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups) grupo
 
 3.  Um administrador ativa [acesso a aplicações Self-Service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) para permitir que um utilizador adicionar uma aplicação com o [painel de acesso de aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Adicionar aplicação** funcionalidade **sem a aprovação de negócios**
 
