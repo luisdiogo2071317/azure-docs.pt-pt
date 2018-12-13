@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 9fb25f21e9ff54baf0e297fad1601018af45e476
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497246"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876524"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -330,6 +330,21 @@ Conforme observado na seção anterior, o tempo de execução agrega dados sobre
 ## <a name="configure-sampling"></a>Configurar a amostragem
 
 O Application Insights tem um [amostragem](../application-insights/app-insights-sampling.md) recurso que pode protegê-lo de produzir muitos dados de telemetria em momentos de pico de carga. Quando a taxa de telemetria de entrada exceder um limiar especificado, o Application Insights começa a aleatoriamente ignorar alguns dos itens recebidos. A configuração padrão para o número máximo de itens por segundo é 5. Pode configurar amostragem em [Host. JSON](functions-host-json.md).  Segue-se um exemplo:
+
+### <a name="version-2x"></a>Versão 2.x 
+
+```json
+{
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond" : 5
+      }
+    }
+  }
+}
+```
 
 ### <a name="version-1x"></a>Versão 1.x 
 

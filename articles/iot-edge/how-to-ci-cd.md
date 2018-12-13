@@ -1,19 +1,20 @@
 ---
-title: Integração contínua do IoT Edge do Azure e a implementação contínua | Documentos da Microsoft
-description: Descrição geral da integração contínua e implementação contínua para o Azure IoT Edge
+title: Integração contínua e implementação contínua – Azure IoT Edge | Documentos da Microsoft
+description: Configurar a integração contínua e implementação contínua – Azure IoT Edge com o Azure DevOps, Pipelines do Azure
 author: shizn
-manager: ''
+manager: philmea
 ms.author: xshi
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16dac996f871241b8c9b5e4c1b797d07d79aeb79
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.custom: seodec18
+ms.openlocfilehash: 4db5fce89df0b5974261788608b785cf16917f1a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632567"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074803"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implementação contínua para o Azure IoT Edge
 
@@ -26,7 +27,7 @@ Neste artigo, ficará a saber como:
 
 Irá demorar 20 minutos para concluir os passos neste artigo.
 
-![CI e CD](./media/how-to-ci-cd/cd.png)
+![Diagrama - CI e CD ramos para desenvolvimento e produção](./media/how-to-ci-cd/cd.png)
 
 
 ## <a name="create-a-sample-azure-iot-edge-solution-using-visual-studio-code"></a>Criar uma solução do Azure IoT Edge de exemplo com o Visual Studio Code
@@ -35,7 +36,7 @@ Nesta secção, irá criar um exemplo do IoT Edge solução que contém testes d
 
 1. Na paleta de comandos do VS Code, escreva e execute o comando **do Azure IoT Edge: solução nova do IoT Edge**. Em seguida, selecione a pasta de área de trabalho, forneça o nome da solução (o nome predefinido é **EdgeSolution**) e criar um módulo de c# (**FilterModule**) como o primeiro módulo do utilizador nesta solução. Também tem de especificar o repositório de imagens do Docker para o seu primeiro módulo. O repositório de imagens padrão baseia-se um registo do Docker local (`localhost:5000/filtermodule`). Altere-o para o Azure Container Registry (`<your container registry address>/filtermodule`) ou o Hub do Docker para ainda mais a integração contínua.
 
-    ![Configurar o ACR](./media/how-to-ci-cd/acr.png)
+    ![Configurar o Azure Container Registry](./media/how-to-ci-cd/acr.png)
 
 2. Janela do VS Code carregará a sua área de trabalho de solução de IoT Edge. Além disso, pode, opcionalmente, escreva e execute **do Azure IoT Edge: módulo do IoT Edge/adicionar** para adicionar mais módulos. Há uma `modules` pasta, um `.vscode` pasta e um arquivo de manifesto do modelo de implementação na pasta raiz. Todos os códigos de módulo de utilizador será subpastas na pasta `modules`. O `deployment.template.json` é o modelo de manifesto de implantação. Alguns dos parâmetros existentes neste ficheiro vão ser analisado a partir do `module.json`, que existe na pasta de cada módulo.
 
@@ -52,19 +53,19 @@ Nesta secção, irá criar um pipeline de compilação que está configurado par
 
 1. Inicie sessão na sua organização de DevOps do Azure ( **https://dev.azure.com/{your organização} /**) e abra o projeto em que tiver selecionado na aplicação de exemplo.
 
-    ![Código de verificação](./media/how-to-ci-cd/init-project.png)
+    ![Código de verificação para os Pipelines do Azure](./media/how-to-ci-cd/init-project.png)
 
 1. No seus Pipelines do Azure, abra a **baseia-se** separador, escolha **+ novo pipeline**. Ou, se já tiver de criação de pipelines, escolha o **+ novo** botão. Em seguida, selecione **criar novo pipeline**.
 
-    ![Novo pipeline](./media/how-to-ci-cd/add-new-build.png)
+    ![Criar um novo pipeline de compilação](./media/how-to-ci-cd/add-new-build.png)
 
 1. Se lhe for pedido, selecione **Git de DevOps do Azure** o tipo de origem. Em seguida, selecione o projeto, o repositório e o ramo em que o seu código está localizado. Escolher **continuar**.
 
-    ![Selecione o git](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Selecione Azure repositórios Git](./media/how-to-ci-cd/select-vsts-git.png)
 
     Na **selecionar um modelo** janela, escolha **começar com um processo vazio**.
 
-    ![Selecione um modelo](./media/how-to-ci-cd/start-with-empty.png)
+    ![Começar com um processo vazio](./media/how-to-ci-cd/start-with-empty.png)
 
 1. No editor do pipeline, selecione o conjunto de agentes. 
     
@@ -72,27 +73,27 @@ Nesta secção, irá criar um pipeline de compilação que está configurado par
     * Se gostaria de criar os seus módulos na plataforma amd64 para contentores do Windows, escolha **Hosted VS2017** 
     * Se gostaria de criar os seus módulos na plataforma arm32v7 para contentores do Linux, tem de conjunto se o seu próprio agente de compilação clicando a **gerir** botão.
     
-    ![Configurar o agente de compilação](./media/how-to-ci-cd/configure-env.png)
+    ![Configurar o conjunto de agentes de compilação](./media/how-to-ci-cd/configure-env.png)
 
 1. Tarefa de agente, clique em "+" para adicionar três tarefas no pipeline de compilação. As duas primeiras são partir **do Azure IoT Edge**. E o terceiro é de **publicar artefactos de compilação**
     
-    ![Adicionar tarefas](./media/how-to-ci-cd/add-tasks.png)
+    ![Adicionar tarefas para o pipeline de compilação](./media/how-to-ci-cd/add-tasks.png)
 
 1. Na primeira **do Azure IoT Edge** de tarefas, atualize o **nome a apresentar** para **Azure IoT Edge - imagens de módulo de compilação**e, no **ação** pendente lista, selecione **criar imagens de módulo**. Na **. ficheiro Template JSON** controlo, selecione a **deployment.template.json** arquivo, que descreve a sua solução de IoT Edge. Em seguida, escolha **plataforma padrão**, certifique-se de selecionar a mesma plataforma como o seu dispositivo IoT Edge. Esta tarefa será criar todos os módulos na solução com a plataforma de destino especificado. E também gerar os **deployment.json** ficheiro, pode encontrar o caminho do ficheiro em variáveis de saída. Defina o alias para `edge` desta variável.
     
-    ![Criar e enviar por push](./media/how-to-ci-cd/build-and-push.png)
+    ![Configurar tarefas de imagens do módulo de compilação](./media/how-to-ci-cd/build-and-push.png)
 
 1. Na segunda **do Azure IoT Edge** de tarefas, atualize o **nome a apresentar** para **Azure IoT Edge - imagens de módulo de Push**e, no **ação** pendente lista, selecione **enviar imagens de módulo**. Escolha o tipo de registo de contentor, certifique-se de configurar e selecionar o mesmo registo no seu code(module.json). Na **. ficheiro Template JSON** controlo, selecione a **deployment.template.json** arquivo, que descreve a sua solução de IoT Edge. Em seguida, escolha **plataforma padrão**, certifique-se de selecionar a mesma plataforma para as imagens de módulo criados. Esta tarefa será enviar todas as imagens de módulo para o registo de contentor que selecionou. E também adicionar credenciais de registo de contentor no **deployment.json** ficheiro, pode encontrar o caminho do ficheiro em variáveis de saída. Defina o alias para `edge` desta variável. Se tiver vários registos de contentores para alojar as suas imagens de módulo, precisa duplicar esta tarefa, selecione o registo de contentor diferente e utilizar **ignorar módulos** nas definições avançadas para ignorar as imagens que não são para isso Registro específicos.
 
-    ![Push](./media/how-to-ci-cd/push.png)
+    ![Configurar tarefas de imagens do módulo de push](./media/how-to-ci-cd/push.png)
 
 1. Na **publicar artefactos de compilação** tarefa, tem de especificar o ficheiro de implementação gerado pela tarefa de compilação. Definir o **caminho para publicar** para `$(edge.DEPLOYMENT_FILE_PATH)`.
 
-    ![Publicar artefactos](./media/how-to-ci-cd/publish-build-artifacts.png)
+    ![Configurar tarefas de artefacto de publicar](./media/how-to-ci-cd/publish-build-artifacts.png)
 
 1. Abra o **Acionadores** separador e ativar o **integração contínua** acionador. Certifique-se de que o ramo que contém o código está incluído.
 
-    ![Configurar o acionador](./media/how-to-ci-cd/configure-trigger.png)
+    ![Ativar o acionador de integração contínua](./media/how-to-ci-cd/configure-trigger.png)
 
     Guarde o novo pipeline de compilação. Clique no botão **Guardar**.
 
@@ -106,11 +107,11 @@ Nesta secção, irá criar um pipeline de versão que está configurado para ser
 
     No **selecionar um modelo** janela, selecione **começar com uma tarefa está vazia.**
 
-    ![Começar com a tarefa está vazia](./media/how-to-ci-cd/start-with-empty-job.png)
+    ![Começar com uma tarefa vazia](./media/how-to-ci-cd/start-with-empty-job.png)
 
 2. Em seguida, o pipeline de lançamento deve inicializar com uma fase: **fase 1**. Mudar o nome da **fase 1** ao **controle de qualidade** e tratá-lo como um ambiente de teste. Num pipeline de implementação contínua típico, ela existe, normalmente, várias fases, pode criar mais com base nas suas práticas de DevOps.
 
-    ![Criar estágio](./media/how-to-ci-cd/QA-env.png)
+    ![Criar o estágio de ambiente de teste](./media/how-to-ci-cd/QA-env.png)
 
 3. A versão de uma ligação para os artefactos de compilação. Clique em **adicionar** na área de artefactos.
 
@@ -118,11 +119,11 @@ Nesta secção, irá criar um pipeline de versão que está configurado para ser
     
     Na **adicionar uma página de artefacto**, escolha o tipo de origem **criar**. Em seguida, selecione o projeto e o pipeline de compilação que criou. Em seguida, clique em **adicionar**.
 
-    ![Adicione um artefacto](./media/how-to-ci-cd/add-an-artifact.png)
+    ![Adicione um artefacto de compilação](./media/how-to-ci-cd/add-an-artifact.png)
 
     Abra o acionador de implementação contínua para que a nova versão será criada sempre que uma nova compilação está disponível.
 
-    ![Configurar o acionador](./media/how-to-ci-cd/add-a-trigger.png)
+    ![Configurar o acionador de implementação contínua](./media/how-to-ci-cd/add-a-trigger.png)
 
 4. Navegue para **estágio de controle de qualidade** e configurar as tarefas neste estágio.
 
@@ -172,7 +173,7 @@ Nesta secção, irá acionar uma compilação para tornar o pipeline de CI/CD tr
 
 2. Se o pipeline de compilação for concluído com êxito, irá acionar uma versão **controle de qualidade** estágio. Navegue para criar registos de pipeline e verá a seguinte captura de ecrã.
 
-    ![Os registos de compilação](./media/how-to-ci-cd/build-logs.png)
+    ![Criar registos](./media/how-to-ci-cd/build-logs.png)
 
 3. A implementação bem-sucedida **controle de qualidade** estágio dispararia uma notificação para o aprovador. Navegue para o pipeline de versões, pode ver a seguinte captura de ecrã. 
 

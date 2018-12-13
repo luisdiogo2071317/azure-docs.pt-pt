@@ -1,5 +1,6 @@
 ---
-title: Aceder a dados em arquivos de dados do serviço Azure Machine Learning
+title: Aceder a dados em arquivos de dados
+titleSuffix: Azure Machine Learning service
 description: Como utilizar arquivos de dados para o armazenamento de dados de acesso durante o treinamento com o serviço Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +11,14 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 50df0647372832647712d514dd9d4651d8d9cc2d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: bce6d636dd80820732d4911c1b24ef00118b594e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014059"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073471"
 ---
-# <a name="how-to-access-data-during-training"></a>Como acessar dados durante o treinamento
+# <a name="access-data-during-training-from-your-datastores"></a>Aceder a dados durante o treinamento de seus arquivos de dados
 Utilize um arquivo de dados para aceder e interagir com os seus dados em fluxos de trabalho do Azure Machine Learning.
 
 No serviço do Azure Machine Learning, o arquivo de dados é uma abstração sobre [armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction). O arquivo de dados pode fazer referência a um [BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) contentor ou [partilha de ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) como o armazenamento subjacente. 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: barbkess
-ms.openlocfilehash: c1e6c48ef262bf3cb71f7201ba2ff7e9105681dc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1876ff0cea2e46f8159b9ffb24de72a6272b3a79
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357176"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077088"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Como configurar a atribuição de aplicações self-service
 
@@ -57,7 +57,7 @@ Para ativar o acesso de aplicações self-service a uma aplicação, siga os pas
 
 5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+    * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
 6.  Selecione a aplicação que pretende ativar a gestão personalizada de acesso a partir da lista.
 
@@ -67,8 +67,8 @@ Para ativar o acesso de aplicações self-service a uma aplicação, siga os pas
 
 9.  Em seguida, para selecionar o grupo a que os utilizadores que pedem acesso a esta aplicação deve ser adicionado, clique o Seletor de junto à etiqueta **a que grupo devem os utilizadores atribuídos ser adicionados?** e selecione um grupo.
   
-  > [!NOTE]
-  > Grupos sincronizados no local não são suportados para ser utilizado para o grupo a que os utilizadores que pedem acesso a esta aplicação devem ser adicionados.
+    > [!NOTE]
+    > Grupos sincronizados no local não são suportados para ser utilizado para o grupo a que os utilizadores que pedem acesso a esta aplicação devem ser adicionados.
   
 10. **Opcional:** se quiser pedir uma aprovação de negócios antes dos utilizadores têm permissão para aceder, defina o **exigir a aprovação antes de conceder acesso a esta aplicação?** alternar para **Sim**.
 
@@ -76,10 +76,10 @@ Para ativar o acesso de aplicações self-service a uma aplicação, siga os pas
 
 12. **Opcional:** para especificar os aprovadores empresariais que têm permissão para aprovar o acesso a esta aplicação, clique o Seletor de junto a etiqueta **quem tem permissão para aprovar o acesso a esta aplicação?** para selecionar a pessoa até 10 aprovadores empresariais.
 
-   >[!NOTE]
-   >Grupos não são suportados.
-   >
-   >
+     > [!NOTE]
+     > Grupos não são suportados.
+     >
+     >
 
 13. **Opcional:** **para aplicações que expõem funções**, se pretender atribuir utilizadores aprovados self-service a uma função, clique no Seletor de junto a **a que função devem ser atribuídos os utilizadores desta aplicação?** para selecionar a função para que estes utilizadores devem ser atribuídos.
 

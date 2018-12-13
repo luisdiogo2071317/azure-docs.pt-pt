@@ -1,5 +1,6 @@
 ---
-title: Tutorial do modelo de regressão - preparar dados com o serviço Azure Machine Learning
+title: 'Tutorial de modelo de regressão: preparar dados'
+titleSuffix: Azure Machine Learning service
 description: Na primeira parte deste tutorial, irá aprender como de preparação de dados em Python para a modelação de regressão, utilizando o SDK do Azure ML.
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,13 @@ author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: 94e004c40177298f805336509d649065fc7dfdb7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 14be60977ef0be3e88a0cb01356446b59ca374e2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012373"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076445"
 ---
 # <a name="tutorial-part-1-prepare-data-for-regression-modeling"></a>Tutorial (parte 1): preparar dados para a modelação de regressão
 

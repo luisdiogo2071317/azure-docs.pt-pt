@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: API de .NET de Executor em massa, SDK e recursos | Documentos da Microsoft'
+title: 'Azure Cosmos DB: API de .NET de Executor em massa, SDK e recursos'
 description: Saiba tudo sobre a API de .NET de Executor em massa e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK de .NET de Executor de em massa Azure Cosmos DB.
 author: tknandu
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: ae9560296e37ff5492c07e69e6ba0eb5539915c8
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a0d2ab305f0ca819b8dba573a9570ff03682a947
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308500"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875013"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteca de .NET em massa Executor: transferir informações 
 

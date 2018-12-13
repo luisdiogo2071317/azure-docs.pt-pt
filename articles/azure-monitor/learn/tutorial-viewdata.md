@@ -14,12 +14,12 @@ ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: d81e2089fed1e855f419234967cec26a491a0f0e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: dac89bae7fa12075deeb3842ad74979f8b237946
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975791"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074666"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Ver ou analisar dados recolhidos com a pesquisa de registos do Log Analytics
 
@@ -29,7 +29,7 @@ No Log Analytics, pode tirar partido das pesquisas de registos ao criar consulta
 > * Fazer uma pesquisa simples de dados de eventos e utilizar funcionalidades para modificar e filtrar os resultados 
 > * Aprender a trabalhar com dados de desempenho
 
-Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente [ligada à área de trabalho do Log Analytics](../../log-analytics/log-analytics-quick-collect-azurevm.md).  
+Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente [ligada à área de trabalho do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
 A criação e edição de consultas, para além de trabalhar interativamente com os dados devolvidos, pode ser feita de duas formas.  Para consultas básicas, utilize a página Pesquisa de Registos no portal do Azure e, para consultas avançadas, pode utilizar o portal Análise Avançada. Para saber mais sobre a diferença na funcionalidade dos dois portais, veja [Portals for creating and editing log queries in Azure Log Analytics](../../azure-monitor/log-query/portals.md) (Portais para criar e editar consultas de registos no Azure Log Analytics).
 

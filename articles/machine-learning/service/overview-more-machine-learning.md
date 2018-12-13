@@ -1,5 +1,5 @@
 ---
-title: Comparar as opções de produtos de machine learning da Microsoft – Azure | Microsoft Docs
+title: Compare a opções de produto da Microsoft de aprendizagem automática
 description: Compare a variedade de produtos da Microsoft para criar, implementar e gerir modelos de machine learning. Decida quais os produtos a escolher para a sua solução.
 services: machine-learning
 ms.service: machine-learning
@@ -8,36 +8,36 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 09/24/2018
-ms.openlocfilehash: 182504373795b3cb0f2794acbed5e253ac6bc95c
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.date: 12/04/2018
+ms.openlocfilehash: a778a371e28b0406d43aa07bbc0c0c039654f7b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419564"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073776"
 ---
-# <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Quais são as opções de produtos de machine learning da Microsoft?
+# <a name="what-are-the-machine-learning-products-at-microsoft"></a>Quais são os produtos de aprendizagem da Microsoft?
 
 A Microsoft disponibiliza várias opções de produtos para criar, implementar e gerir os seus modelos de machine learning. Compare estes produtos e escolha aquilo de que precisa para desenvolver as suas soluções de machine learning com mais eficiência.
 
 | Produto de machine learning | O que é | O que permite fazer |
 |-|-|-|
-| Na cloud | | |
+| ***Na cloud*** | | |
 | [Serviço Azure Machine Learning](#azure-machine-learning-services) | Serviço cloud gerido para ML  | Preparar, implementar e gerir modelos no Azure com Python e a CLI |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Interface visual de arrastar e largar para ML | Criar, experimentar e implementar modelos através de algoritmos pré-configurados |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Arraste&ndash;e&ndash;interface visual do menu de ML | Criar, experimentar e implementar modelos através de algoritmos pré-configurados |
 | [Azure Databricks](#azure-databricks) | Plataforma de análise baseada no Spark | Criar e implementar modelos e fluxos de trabalho de dados |
 | [Serviços Cognitivos do Azure](#azure-cognitive-services) | Serviços do Azure com IA e modelos de ML pré-criados | Adicionar facilmente funcionalidades inteligentes às suas aplicações |
 | [Máquina Virtual de Ciência de Dados do Azure](#azure-data-science-virtual-machine) | Máquina virtual com ferramentas de ciência de dados pré-instaladas | Desenvolver soluções de ML num ambiente pré-configurado |
-| Local | | |
+| ***No local***<br>*(no local servidores também podem ser executados numa máquina virtual na cloud)* | | |
 | [Serviços de Machine Learning do SQL Server](#sql-server-machine-learning-services) | Motor de análise incorporado no SQL | Criar e implementar modelos no SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Servidor empresarial autónomo para análise preditiva | Criar e implementar modelos com R e Python |
-| Ferramentas de programação | | |
+| ***Ferramentas de programador*** | | |
 | [ML.NET](#mlnet) | SDK de ML de open source para várias plataformas | Criar soluções de ML para aplicações .NET |
 | [Windows ML](#windows-ml) | Plataforma de ML do Windows 10 | Avaliar os modelos preparados num dispositivo Windows 10 |
 
 ## <a name="azure-machine-learning-service"></a>Serviço Azure Machine Learning
 
-O [serviço Azure Machine Learning](overview-what-is-azure-ml.md) (pré-visualização) é um serviço cloud totalmente gerido utilizado para preparar, implementar e gerir modelos de ML em escala. Suporta totalmente tecnologias de open source, pelo que pode utilizar dezenas de milhares de pacotes Python de open source, como o TensorFlow, o PyTorch e o scikit-learn. Também estão disponíveis ferramentas avançadas, como o [Azure Notebooks](https://notebooks.azure.com/), o [Jupyter Notebook](http://jupyter.org) ou o [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) para facilitar a exploração e a transformação de dados, e em seguida, preparar e implementar modelos. O serviço Azure Machine Learning inclui funcionalidades que automatizam a otimização e a geração de modelos com facilidade, eficiência e precisão.
+[O serviço do Azure Machine Learning](overview-what-is-azure-ml.md) é um serviço totalmente gerido na cloud utilizado para preparar, implementar e gerir modelos de ML, à escala. Suporta totalmente tecnologias de open source, pelo que pode utilizar dezenas de milhares de pacotes Python de open source, como o TensorFlow, o PyTorch e o scikit-learn. Também estão disponíveis, como ferramentas de rich [blocos de notas do Azure](https://notebooks.azure.com/), [blocos de notas do Jupyter](http://jupyter.org), ou o [Azure Machine Learning para Visual Studio Code](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) extensão torna mais fácil explorar e transformar dados e, em seguida, preparar e implementar modelos. O serviço Azure Machine Learning inclui funcionalidades que automatizam a otimização e a geração de modelos com facilidade, eficiência e precisão.
 
 Utilize o serviço Azure Machine Learning para preparar, implementar e gerir modelos de ML com Python e a CLI à escala da cloud.
 
@@ -74,9 +74,10 @@ Utilize os Serviços Cognitivos para criar aplicações em vários dispositivos 
 ## <a name="azure-data-science-virtual-machine"></a>Máquina Virtual de Ciência de Dados do Azure
 
 A [Máquina Virtual de Ciência de Dados do Azure](../data-science-virtual-machine/overview.md) é uma máquina virtual personalizada na cloud do Microsoft Azure, concebida especificamente para fazer ciência de dados. Tem muitas ferramentas populares de ciência de dados e outras pré-instaladas e pré-configuradas para permitir a rápida criação de aplicações inteligentes para análises avançadas.
-A Máquina Virtual de Ciência de Dados está disponível nas versões para Windows e Linux Ubuntu (o serviço Azure Machine Learning não é suportado no Linux CentOS).
-Para obter informações de versões específicas e uma lista do que está incluído, veja [Introdução à Máquina Virtual de Ciência de Dados do Azure](../data-science-virtual-machine/overview.md).
+
 A Máquina Virtual de Ciência de Dados é suportada como um destino do serviço Azure Machine Learning.
+Está disponível nas versões para Windows e Linux Ubuntu (do Azure Machine Learning serviço não é suportado no Linux CentOS).
+Para obter informações de versões específicas e uma lista do que está incluído, veja [Introdução à Máquina Virtual de Ciência de Dados do Azure](../data-science-virtual-machine/overview.md).
 
 Utilize a VM de Ciência de Dados quando precisar de executar ou alojar as suas tarefas num único nó. Ou se tiver de aumentar verticalmente de forma remota o processamento numa máquina individual.
 
@@ -104,7 +105,7 @@ O [Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/) permite
 
 Utilize o Windows ML quando quiser usar modelos de machine learning preparados nas suas aplicações do Windows.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais sobre todos os produtos de programação com base em Inteligência Artificial (IA) disponíveis na Microsoft, veja [Microsoft AI platform](https://www.microsoft.com/ai) (Plataforma de IA da Microsoft)
 - Para saber como criar soluções de IA, veja [Microsoft AI School](https://aischool.microsoft.com/learning-paths)

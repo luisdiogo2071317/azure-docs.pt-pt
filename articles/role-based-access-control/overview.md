@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d9a28ea43e732c53afb75e96f20cb13b9bbb27a6
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632621"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867903"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>O que é o controlo de acesso baseado em funções (RBAC)?
 
@@ -57,7 +57,7 @@ R *entidade de segurança* é um objeto que representa um utilizador, o grupo, o
 - Utilizador – Um indivíduo que tem um perfil no Azure Active Directory. Também pode atribuir funções a utilizadores noutros inquilinos. Para obter informações sobre utilizadores noutras organizações, veja [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Grupo – Um conjunto de utilizadores criado no Azure Active Directory. Quando atribui uma função a um grupo, todos os utilizadores nesse grupo têm essa função. 
 - Principal de serviço – Uma identidade de segurança utilizada por aplicações ou serviços para aceder a recursos específicos do Azure. Pode considerá-lo como uma *identidade de utilizador* (nome de utilizador e palavra-passe ou certificado) para uma aplicação.
-- Identidade gerida - uma identidade no Azure Active Directory que é automaticamente geridos pelo Azure. Geralmente usa [geridos identidades](../active-directory/managed-identities-azure-resources/overview.md) durante o desenvolvimento de aplicações na cloud para gerir as credenciais para autenticar-se aos serviços do Azure.
+- Identidade gerida - uma identidade no Azure Active Directory automaticamente é gerido pelo Azure. Geralmente usa [geridos identidades](../active-directory/managed-identities-azure-resources/overview.md) durante o desenvolvimento de aplicações na cloud para gerir as credenciais para autenticar-se aos serviços do Azure.
 
 ### <a name="role-definition"></a>Definição de função
 

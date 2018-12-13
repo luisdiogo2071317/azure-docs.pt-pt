@@ -1,6 +1,6 @@
 ---
-title: Como adicionar ou atualizar as informações de perfil de um utilizador no Azure Active Directory | Documentos da Microsoft
-description: Saiba como adicionar informações a um perfil de usuário, incluindo uma imagem do perfil, informações específicas de tarefa e algumas definições no Azure Active Directory.
+title: Adicionar ou atualizar as informações de perfil do usuário - Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como adicionar informações a um perfil de utilizador no Azure Active Directory, incluindo os detalhes de uma imagem e a tarefa.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: d4e2ebd88430cab1fe0734e342b1c9ba4a29af1b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 0e03d882df61755faf283aa67427beeec17c8c05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728951"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094734"
 ---
-# <a name="how-to-add-or-update-a-users-profile-information-using-azure-active-directory"></a>Como: Adicionar ou atualizar as informações de perfil de um utilizador com o Azure Active Directory
+# <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Adicionar ou atualizar as informações de perfil de um utilizador com o Azure Active Directory
 Adicione informações de perfil do usuário, incluindo uma imagem do perfil, informações específicas de tarefa e algumas definições com o Azure Active Directory (Azure AD). Para obter mais informações sobre como adicionar novos utilizadores, consulte [como adicionar ou eliminar utilizadores no Azure Active Directory](add-users-azure-active-directory.md).
 
 ## <a name="add-or-change-profile-information"></a>Adicionar ou alterar as informações de perfil

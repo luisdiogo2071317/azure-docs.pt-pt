@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: b207af3bed40f6287f60b25638f3091fa187aa6f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 58a354950e303eda8158ca072870bfecbf33a89f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405077"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890216"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configurar e utilizar o Log Analytics com uma aplicação de SQL da base de dados SaaS multi-inquilino
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 
 * A aplicação de base de dados por inquilino Wingtip Tickets SaaS é implementada. Para implementar em menos de cinco minutos, veja [implementar e explorar a aplicação de base de dados por inquilino Wingtip Tickets SaaS](saas-dbpertenant-get-started-deploy.md).
-* O Azure PowerShell está instalado. Para obter mais informações, consulte [introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* O Azure PowerShell está instalado. Para obter mais informações, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 Consulte a [tutorial de monitorização e gestão de desempenho](saas-dbpertenant-performance-monitoring.md) para uma discussão sobre cenários SaaS e padrões e como elas afetam os requisitos numa solução de monitorização.
 
@@ -42,7 +42,7 @@ Para a base de dados SQL do Azure, os alertas e monitorização estão disponív
 
 Para cenários de volume elevado, pode utilizar o Log Analytics para monitorização e alertas. Log Analytics é um serviço do Azure separado que permite a análise sobre os registos de diagnóstico e telemetria recolhidos numa área de trabalho de potencialmente vários serviços. O log Analytics proporciona uma consulta incorporada, linguagem e dados de ferramentas de visualização que permitem a análise de dados operacionais. A solução de análise de SQL fornece várias predefinido conjunto elástico e da base de dados de monitorização e alerta consultas e vistas. O log Analytics também fornece um estruturador de vistas personalizado.
 
-Áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics. Soluções de análise e áreas de trabalho de análise do registo abra no portal do Azure. O portal do Azure é o mais recente ponto de acesso, mas pode ser o que há por trás de algumas áreas do portal do Operations Management Suite.
+As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics. Soluções de análise e áreas de trabalho de análise do registo abra no portal do Azure. O portal do Azure é o mais recente ponto de acesso, mas pode ser o que há por trás de algumas áreas do portal do Operations Management Suite.
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Criar dados de diagnóstico de desempenho mediante a simulação de uma carga de trabalho em seus inquilinos 
 
@@ -151,4 +151,4 @@ Experimente o [tutorial de análise de inquilinos](saas-dbpertenant-log-analytic
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Tutoriais adicionais que têm por base a implementação de base de dados por inquilino aplicação Wingtip Tickets SaaS inicial](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Log Analytics do Azure](../log-analytics/log-analytics-azure-sql.md)
+* [Log Analytics do Azure](../azure-monitor/insights/azure-sql.md)

@@ -3,19 +3,19 @@ title: Manipulação de erros de conectividade transitória da base de dados do 
 description: Saiba como lidar com erros de conectividade transitória da base de dados do Azure para MySQL.
 keywords: ligação ao MySQL, cadeia de ligação, problemas de conectividade, erro transitório, erro de ligação
 services: mysql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 1944b30e5c658f1df896050d0ff43f1058d5dd32
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 2d7b62d5f45f495d36b1ed103155f8f3178451e8
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51284990"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887819"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mysql"></a>Tratamento de erros de conectividade transitória da base de dados do Azure para MySQL
 
@@ -49,4 +49,4 @@ Certifique-se testar a lógica de repetição. Por exemplo, tente executar o seu
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Resolver problemas de ligação à base de dados do Azure para MySQL](howto-troubleshoot-common-connection-issues.md)
+* [Resolver problemas de ligação à Base de Dados do Azure para MySQL](howto-troubleshoot-common-connection-issues.md)

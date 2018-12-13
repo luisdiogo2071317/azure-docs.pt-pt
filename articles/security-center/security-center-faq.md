@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4db786723793ca309b8c0abe7c6ede848649576b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 956ffb298301aef914221a8d2e623b19191909c0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834609"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095368"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -201,7 +201,7 @@ Para desativar a recolha de dados [inicie sessão no portal do Azure](https://po
 Pode ativar a recolha de dados para a sua subscrição do Azure na política de segurança. Para ativar a recolha de dados. [Inicie sessão no portal do Azure](https://portal.azure.com), selecione **procure**, selecione **Centro de segurança**e selecione **política de segurança**. Selecione a subscrição que pretende ativar o aprovisionamento automático. Quando seleciona uma assinatura **política de segurança – recolha de dados** abre. Sob **aprovisionamento automático**, selecione **no**.
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>O que acontece quando a recolha de dados está ativada?
-Quando o aprovisionamento automático está ativado, o Centro de segurança Aprovisiona o Microsoft Monitoring Agent em todos os suportadas VMs do Azure e novas que são criadas. Aprovisionamento Automático é vivamente recomendado mas instalação manual de agente também está disponível. [Saiba como instalar a extensão do Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+Quando o aprovisionamento automático está ativado, o Centro de segurança Aprovisiona o Microsoft Monitoring Agent em todos os suportadas VMs do Azure e novas que são criadas. Aprovisionamento Automático é vivamente recomendado mas instalação manual de agente também está disponível. [Saiba como instalar a extensão do Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
 O agente permite que o evento de criação de processo 4688 e o *CommandLine* campo dentro 4688 de evento. Novos processos criados na VM são registados pelo registo de eventos e monitorizados pelos serviços de deteção do Centro de segurança. Para obter informações sobre os detalhes registados para cada novo processo, consulte [campos de descrição no 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). Além disso, o agente recolhe os 4688 eventos criados na VM e armazena-os na pesquisa.
 

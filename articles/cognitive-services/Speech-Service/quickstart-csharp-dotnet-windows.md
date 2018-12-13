@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Reconhecer e transcrever voz, .NET Framework (Windows) - Serviço de Voz'
+title: 'Início rápido: Reconhecer a conversão de voz, .NET Framework (Windows) - serviços de voz'
 titleSuffix: Azure Cognitive Services
 description: Utilize este guia para criar uma aplicação de consola de voz em texto com o .NET framework para Windows e o SDK de Voz. Quando terminar, pode utilizar o microfone do seu computador para converter voz em texto em tempo real.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 502f59c88808480f26e6ea5a6d2c5b362c78869b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 171d6c6a972d6fa3eb2e96ceacb75dd2fce1eb92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683505"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074900"
 ---
 # <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Início rápido: Reconhecer e transcrever voz com o SDK de Voz e o .NET Framework (Windows)
 

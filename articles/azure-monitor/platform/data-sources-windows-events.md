@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 4275b734a30310c896c397a5ef9cc1b218d89476
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: b2774b53956ad0ca6121189a494d6d4996d4e0c3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842548"
+ms.locfileid: "52870780"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Origens de dados de registo de eventos Windows no Log Analytics
 Registos de eventos do Windows são uma das mais comuns [origens de dados](agent-data-sources.md) para a recolha de dados através de agentes do Windows, uma vez que muitos aplicativos escrevem no registo de eventos do Windows.  Pode recolher eventos de registos standard como sistema e da aplicação, além de especificar quaisquer registos personalizados criados por aplicativos que tem de monitorizar.
@@ -77,5 +77,5 @@ A tabela seguinte fornece exemplos diferentes de pesquisas de registos que obter
 ## <a name="next-steps"></a>Passos Seguintes
 * Configurar o Log Analytics para recolher outros [origens de dados](agent-data-sources.md) para análise.
 * Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
-* Uso [campos personalizados](../../log-analytics/log-analytics-custom-fields.md) para analisar os registos de eventos em campos individuais.
+* Uso [campos personalizados](../../azure-monitor/platform/custom-fields.md) para analisar os registos de eventos em campos individuais.
 * Configurar [recolha de contadores de desempenho de](data-sources-performance-counters.md) dos seus agentes do Windows.

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c8edaba8de597e3e76e760e1f5109006338a663c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238825"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888465"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Estilos de mapa de suporte do Azure Maps
-Quatro estilos de mapa incorporados diferentes de suporte do Azure maps. Os estilos e suas descrições estão listados abaixo.
+Mapas do Azure suporta vários estilos de mapa incorporados diferentes, conforme descrito abaixo.
 
 ## <a name="road"></a>Estrada
 R **estrada** mapa é um mapa padrão que apresenta estradas, naturais e artificiais recursos, juntamente com as etiquetas para esses recursos.
@@ -49,6 +49,14 @@ Esse estilo de mapa é uma mistura de estradas e as etiquetas sobrepostas sobre 
 **Em tons de cinzento escuro** é uma versão escura do estilo de mapa da estrada.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
+
+**APIs aplicável:**
+* Controlo de mapas JS 
+
+## <a name="night"></a>noite
+**noite** é uma versão escura do estilo de mapa da estrada com estradas coloridas e símbolos.
+
+![noite](./media/supported-map-styles/night.PNG)
 
 **APIs aplicável:**
 * Controlo de mapas JS 
