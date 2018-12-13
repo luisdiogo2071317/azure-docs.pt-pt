@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 230318dc8e352a3adc970b13f20fa992954e3b15
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4817efcb5cfa5f8692f2b7e5c65d411bc0d21942
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091099"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317394"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Criar uma solução de IoT com o Stream Analytics
 
@@ -113,8 +113,8 @@ Para concluir esta solução, precisa de uma subscrição do Microsoft Azure. Se
 
 Certifique-se de que siga os passos na secção "Limpar a sua conta do Azure" no final deste artigo, para que pode fazer o melhor uso do seu crédito do Azure.
 
-## <a name="deploy-the-sample"></a>Implementar o exemplo 
-Existem vários recursos que podem ser facilmente implementados num grupo de recursos, juntamente com alguns cliques. A definição de solução está alojada no repositório do github na [ https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp ](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
+## <a name="deploy-the-sample"></a>Implementar o exemplo
+Existem vários recursos que podem ser facilmente implementados num grupo de recursos, juntamente com alguns cliques. A definição de solução está alojada no repositório do GitHub na [ https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp ](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
 ### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>Implementar o modelo de TollApp no portal do Azure
 1. Para implementar o ambiente de TollApp no Azure, utilize esta ligação para [implementar o modelo do Azure TollApp](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
@@ -123,11 +123,11 @@ Existem vários recursos que podem ser facilmente implementados num grupo de rec
 
 3. Escolha a subscrição na qual são faturados os vários recursos.
 
-4. Especifique um novo grupo de recursos, com um nome exclusivo, por exemplo `MyTollBooth`. 
+4. Especifique um novo grupo de recursos, com um nome exclusivo, por exemplo `MyTollBooth`.
 
 5. Selecione uma localização do Azure.
 
-6. Especifique um **intervalo** como um número de segundos. Este valor é utilizado no aplicativo da web de exemplo, para saber como frequentemente enviar dados para o Hub de eventos. 
+6. Especifique um **intervalo** como um número de segundos. Este valor é utilizado no aplicativo da web de exemplo, para saber como frequentemente enviar dados para o Hub de eventos.
 
 7. **Verificar** para aceitar os termos e condições.
 
@@ -149,7 +149,7 @@ Existem vários recursos que podem ser facilmente implementados num grupo de rec
    - Um Hub de eventos do Azure
    - Duas aplicações Web
 
-## <a name="examine-the-sample-tollapp-job"></a>Examine a tarefa de TollApp de exemplo 
+## <a name="examine-the-sample-tollapp-job"></a>Examine a tarefa de TollApp de exemplo
 1. A partir do grupo de recursos na secção anterior, selecione a tarefa de transmissão em fluxo do Stream Analytics começando com o nome **tollapp** (o nome contém caracteres aleatórios exclusividade).
 
 2. Sobre o **descrição geral** página da tarefa, tenha em atenção a **consulta** caixa para ver a sintaxe de consulta.
@@ -195,7 +195,7 @@ Siga estes passos para iniciar a tarefa de transmissão em fluxo:
 
 6. Selecione cada id para examinar o documento JSON. Observe que cada tollid, windowend tempo e a contagem de carros nessa janela.
 
-7. Após um três minutos adicionais, outro conjunto de quatro documentos que está disponível, um documento por tollid. 
+7. Após um três minutos adicionais, outro conjunto de quatro documentos que está disponível, um documento por tollid.
 
 
 ## <a name="report-total-time-for-each-car"></a>Tempo total do relatório para cada carro
@@ -229,9 +229,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 7. Sobre o **tarefa de início** painel, selecione **agora**.
 
 ### <a name="review-the-total-time-in-the-output"></a>Reveja o tempo total na saída
-Repita os passos na secção anterior para rever os dados de saída do CosmosDB provenientes da tarefa de transmissão em fluxo. Reveja os documentos JSON mais recente. 
+Repita os passos na secção anterior para rever os dados de saída do CosmosDB provenientes da tarefa de transmissão em fluxo. Reveja os documentos JSON mais recente.
 
-Por exemplo, este documento mostra um carro de exemplo com uma determinada placa, o tempo de entrytime e de saída e o campo de durationinminutes calculada DATEDIFF que mostra a duração de portagens incidir como dois minutos: 
+Por exemplo, este documento mostra um carro de exemplo com uma determinada placa, o tempo de entrytime e de saída e o campo de durationinminutes calculada DATEDIFF que mostra a duração de portagens incidir como dois minutos:
 ```JSON
 {
     "tollid": 4,
@@ -249,7 +249,7 @@ Por exemplo, este documento mostra um carro de exemplo com uma determinada placa
 ```
 
 ## <a name="report-vehicles-with-expired-registration"></a>Relatório de veículos com o registo de expirada
-O Azure Stream Analytics pode utilizar instantâneos estáticos de dados de referência para associar com fluxos de dados temporais. Para demonstrar esta funcionalidade, utilize a seguinte pergunta de exemplo. A entrada de registo é um ficheiro de json do blob estático que lista as Expirações de etiquetas de licença. Ao aderir ao sobre o que eu preciso licença, os dados de referência é comparada com cada veículo passar através da ligação. 
+O Azure Stream Analytics pode utilizar instantâneos estáticos de dados de referência para associar com fluxos de dados temporais. Para demonstrar esta funcionalidade, utilize a seguinte pergunta de exemplo. A entrada de registo é um ficheiro de json do blob estático que lista as Expirações de etiquetas de licença. Ao aderir ao sobre o que eu preciso licença, os dados de referência é comparada com cada veículo passar através da ligação.
 
 Se um veículo de comercial estiver registado com a empresa de ligação, pode passar por meio do pedágio sem ser parada para inspeção. Utilize a tabela de pesquisa de registo para identificar todos os veículos comerciais que já passaram da validade registos.
 
@@ -264,7 +264,7 @@ WHERE Registration.Expired = '1'
 
 1. Repita os passos na secção anterior para atualizar o TollApp sintaxe de consulta da tarefa de transmissão em fluxo.
 
-2. Repita os passos na secção anterior para rever os dados de saída do CosmosDB provenientes da tarefa de transmissão em fluxo. 
+2. Repita os passos na secção anterior para rever os dados de saída do CosmosDB provenientes da tarefa de transmissão em fluxo.
 
 Exemplo de saída:
 ```json
@@ -289,26 +289,26 @@ Para aumentar horizontalmente a consulta para partições, edite a sintaxe de co
 ```sql
 SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
 INTO CosmosDB
-FROM EntryStream 
-TIMESTAMP BY EntryTime 
+FROM EntryStream
+TIMESTAMP BY EntryTime
 PARTITION BY PartitionId
 GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 ```
 
 Para aumentar verticalmente a tarefa de transmissão em fluxo mais unidades de transmissão em fluxo:
 
-1. **Parar** a tarefa atual. 
+1. **Parar** a tarefa atual.
 
 2. Atualize a sintaxe de consulta no **< > consulta** de páginas e guardar as alterações.
 
 3. Sob o cabeçalho de configurar na tarefa de transmissão em fluxo, selecione **dimensionamento**.
-   
+
 4. Deslize o **unidades transmissão em fluxo** controlo de deslize de 1 a 6. Unidades de transmissão em fluxo, defina a quantidade de potência de computação que pode receber o trabalho. Selecione **Guardar**.
 
-5. **Iniciar** a tarefa de transmissão em fluxo para demonstrar o dimensionamento adicional. O Azure Stream Analytics distribui o trabalho mais recursos de computação e alcançar um débito melhor, o trabalho de criação de partições todos os recursos usando a coluna designada na cláusula PARTITION BY. 
+5. **Iniciar** a tarefa de transmissão em fluxo para demonstrar o dimensionamento adicional. O Azure Stream Analytics distribui o trabalho mais recursos de computação e alcançar um débito melhor, o trabalho de criação de partições todos os recursos usando a coluna designada na cláusula PARTITION BY.
 
 ## <a name="monitor-the-job"></a>Monitorizar a tarefa
-O **MONITOR** área contém estatísticas sobre a tarefa em execução. Configuração de iniciantes é necessária para utilizar a conta de armazenamento na mesma região (nome de ligação como o restante deste documento).   
+O **MONITOR** área contém estatísticas sobre a tarefa em execução. Configuração de iniciantes é necessária para utilizar a conta de armazenamento na mesma região (nome de ligação como o restante deste documento).
 
 ![Monitorização da tarefa de Stream Analytics do Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 

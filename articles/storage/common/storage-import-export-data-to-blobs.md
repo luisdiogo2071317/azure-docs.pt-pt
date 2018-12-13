@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 023df222ee2e9ca6af1398dd70767938e61c90b7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ea81cb52b8492e429903de15a9ff0156c91abae2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824115"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309591"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para importar dados para armazenamento de Blobs do Azure
 
@@ -30,7 +30,7 @@ Antes de criar uma tarefa de importação para transferir dados para o armazenam
 - Têm um número adequado de discos [tipos suportados](storage-import-export-requirements.md#supported-disks). 
 - Ter um sistema Windows em execução uma [versão do SO suportado](storage-import-export-requirements.md#supported-operating-systems). 
 - Ative o BitLocker no sistema Windows. Ver [como ativar o BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-- [Baixe o versão 1 do WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=42659) no sistema Windows. Deszipe o para a pasta predefinida `waimportexportv1`. Por exemplo, `C:\WaImportExportV1`.
+- [Baixe o versão 1 do WAImportExport](https://aka.ms/waiev1) no sistema Windows. Deszipe o para a pasta predefinida `waimportexportv1`. Por exemplo, `C:\WaImportExportV1`.
 - Ter uma conta de FedEx/DHL.  
     - A conta tem de ser válida, deve ter o saldo e tem de ter capacidades de envio de devolução.
     - Gere um número de controlo para a tarefa de exportação.
@@ -129,7 +129,7 @@ Execute os seguintes passos para criar uma tarefa de importação no portal do A
 
     ![Criar tarefa de importação - passo 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives"></a>Passo 3: Enviar as unidades 
+## <a name="step-3-ship-the-drives"></a>Passo 3: Envie os discos 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 

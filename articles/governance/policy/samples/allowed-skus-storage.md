@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Azure Policy – SKUs permitidos para contas de armazenamento e máquinas virtuais
+title: Exemplo - SKUs permitido para as contas de armazenamento e máquinas virtuais
 description: Este exemplo de política exige que as contas de armazenamento e as máquinas virtuais utilizem SKUs aprovados.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: af660d594e302ecc6b7b0d6c8c3386674b3f973d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 801f8464dc3733a1eb0574455b52865d2f79e8d6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982856"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313807"
 ---
 # <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>SKUs permitidos para contas de armazenamento e máquinas virtuais
 
@@ -73,6 +72,6 @@ az policy assignment delete --name <assignmentName>
 az policy set-definition delete --name "skus-for-multiple-types"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

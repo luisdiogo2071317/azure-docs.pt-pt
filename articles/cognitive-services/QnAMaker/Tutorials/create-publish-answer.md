@@ -11,14 +11,14 @@ ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 5ed5564692e65a36ed5178e21a2e7b56a718ffcc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: dd5bc95be3959e7af5911d8a765791718680581a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091997"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162941"
 ---
-# <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Utilizar C#, criar a base de dados de conhecimento e responder à pergunta
+# <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Utilizar o C#, dados de conhecimento base, em seguida, responder a pergunta
 
 Este tutorial orienta programaticamente a criação e publicação de uma base de dados de conhecimento (BDC) e a resposta a uma pergunta do cliente a partir da mesma. 
 
@@ -44,7 +44,7 @@ Este início rápido chama as API do Criador de FAQ:
 * Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para obter a sua chave, selecione **Chaves** em **Gestão de Recursos** no seu dashboard. 
 
 > [!NOTE] 
-> Os ficheiros de solução completos estão disponíveis a partir do repositório do Github [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
+> O ficheiro de solução concluída (s) está disponíveis a partir da [ **Azure-amostras/cognitivos-services-qnamaker-csharp** repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## <a name="create-a-knowledge-base-project"></a>Criar um projeto de base de dados de conhecimento
 

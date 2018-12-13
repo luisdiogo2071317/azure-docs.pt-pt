@@ -1,10 +1,10 @@
 ---
-title: Exemplo do Script da CLI do Azure - Criar uma aplicação Web e implementar código a partir de um repositório do Git local | Microsoft Docs
+title: Script da CLI do Azure de exemplo - criar aplicação e implementar código a partir do repositório de Git local | Documentos da Microsoft
 description: Exemplo do Script da CLI do Azure - Criar uma aplicação Web e implementar código a partir de um repositório do Git local
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: 048f98aa-f708-44cb-9b9e-953f67dc6da8
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 6a49fc60ad4dc2df57e1f371dcc78a6fadef8853
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 6689aeff0506b94b104c747d3787fa07f8d49c24
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972577"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315286"
 ---
-# <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Criar uma aplicação Web e implementar código a partir de um repositório do Git local
+# <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository-using-azure-cli"></a>Criar uma aplicação web e implementar código a partir de um repositório de Git local, com a CLI do Azure
 
 Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, implementa o seu código da aplicação Web num repositório do Git local.
 
@@ -52,7 +52,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) | Define as credenciais de implementação de nível de conta para o Serviço de Aplicações. |
 | [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) | Cria uma configuração de controlo de origem para um repositório de Git local. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

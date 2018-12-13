@@ -1,5 +1,5 @@
 ---
-title: Criar um Azure Blueprint com a API REST
+title: Criar um plano gráfico com a REST API
 description: Utilize o Azure Blueprints para criar, definir e implementar artefactos.
 services: blueprints
 author: DCtheGeek
@@ -8,13 +8,13 @@ ms.date: 11/07/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: b600eeff0482944a8b9b18ad39c23ee6ea4700ce
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 9e44a44b76e79375076f71cf808d6d30eebc5cdb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283551"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311427"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e Atribuir um Azure Blueprint com a API REST
 
@@ -408,7 +408,7 @@ Para remover o próprio esquema, utilize a seguinte operação da API REST:
   DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saber mais sobre o [ciclo de vida do esquema](./concepts/lifecycle.md)
 - Compreender como utilizar [parâmetros estáticos e dinâmicos](./concepts/parameters.md)

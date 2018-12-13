@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 5feedcd750841be159a7cf4a31f408aec2fffd38
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 214598291e69acfec2064738f798a48180ad05a6
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712981"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323000"
 ---
 # <a name="azure-security-white-papers"></a>Técnicos de segurança do Azure
 | | |
@@ -31,7 +31,7 @@ ms.locfileid: "51712981"
 |[Encriptação em repouso da dados do Azure](azure-security-encryption-atrest.md)|Foca-se em como os dados são protegidos em inatividade no Azure e os vários componentes que utilizar a implementação de proteção de dados. Analisa os prós e contras das abordagens de proteção de gestão de chaves diferentes.|
 |[Registo e auditoria do Azure](azure-log-audit.md)|Fornece uma introdução para gerar, recolher e analisar registos de segurança dos serviços alojados no Azure. Estes registos podem ajudá-lo a obter informações sobre segurança nas suas implementações do Azure. |
 |[Segurança de rede do Azure](abstract-azure-network-security.md)|Apresenta a vasta gama de controlos de rede, que pode configurar para melhorar a segurança das soluções que implementa no Azure. O foco é controlos de segurança de rede do lado do cliente.|
-|[As funções do Azure e de segurança da plataforma sem servidor](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Este white paper que pode ser baixado cobre os benefícios da computação sem servidor, ao mesmo tempo, considerações de segurança e atenuações no contexto do Azure. |
+|[As funções do Azure e de segurança da plataforma sem servidor](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-functions-serverless-platform-security/Microsoft%20Serverless%20Platform.pdf)|Este white paper que pode ser baixado cobre os benefícios da computação sem servidor, ao mesmo tempo, considerações de segurança e atenuações no contexto do Azure. |
 |[Segurança do contentor no Microsoft Azure](abstract-container-security-microsoft-azure.md)|Descreve os contentores, a implementação do contentor e gestão e serviços de plataforma nativa. Também descreve problemas de segurança de tempo de execução que possam surgir com o uso de contentores na plataforma do Azure. |
 |[Segurança operacional do Azure](abstract-azure-operational-security.md)|Fornece uma visão abrangente as tecnologias de segurança operacional do lado do cliente e os serviços disponíveis com o Azure.|
 |[Capacidades técnicas de segurança do Azure](azure-security-technical-capabilities.md)|Concentra-se sobre os recursos de segurança e a funcionalidade de armazenamento do Azure, base de dados do Azure SQL, o modelo de máquina virtual do Azure e as ferramentas e infraestrutura de suporte que gere tudo.|

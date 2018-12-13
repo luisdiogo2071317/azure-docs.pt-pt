@@ -1,6 +1,6 @@
 ---
-title: Definir funções do RBAC para acesso administrativo da Azure Search no portal | Microsoft Docs
-description: Função de controlo administrativo baseado no portal do Azure.
+title: Definir funções RBAC para acesso administrativo do Azure no portal - Azure Search
+description: Função de controlo administrativo baseado (RBAC) no portal do Azure para controlar e delegar tarefas administrativas para a gestão do Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,35 +8,36 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: 1a463c9eb52ffe2a667cdeace7478e67233a0806
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 38b8e8a0e413f367d34a4ccf5dbd87817891b8ea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792931"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313025"
 ---
-# <a name="set-rbac-roles-for-administrative-access"></a>Definir funções do RBAC para acesso administrativo
+# <a name="set-rbac-roles-for-administrative-access"></a>Definir funções RBAC para acesso administrativo
 
-O Azure oferece uma [modelo de autorização baseada em funções globais](../role-based-access-control/role-assignments-portal.md) para todos os serviços geridos através do portal ou APIs do Resource Manager. Funções de proprietário, leitor e contribuinte determinam o nível de *service administração* para utilizadores, grupos e atribuídos a cada direito de principais de segurança do Active Directory. 
+O Azure fornece um [modelo de autorização baseada em funções globais](../role-based-access-control/role-assignments-portal.md) para todos os serviços geridos através do portal ou as APIs do Resource Manager. Funções de proprietário, Contribuidor e leitor determinam o nível de *administração de serviços* para utilizadores, grupos e entidades de segurança atribuídas a cada função do Active Directory. 
 
 > [!Note]
-> Não há nenhum controlos de acesso baseado em funções para proteger as partes de um índice ou um subconjunto de documentos. Para acesso com base em identidades através de resultados da pesquisa, pode criar filtros de segurança para limitar os resultados pela identidade, remover documentos para o qual o requerente não deve ter acesso. Para obter mais informações, consulte [filtros de segurança](search-security-trimming-for-azure-search.md) e [seguro com o Active Directory](search-security-trimming-for-azure-search-with-aad.md).
+> Não há nenhum controle de acesso baseado em funções para proteger as partes de um índice ou um subconjunto de documentos. Para acesso com base na identidade os resultados de pesquisa, pode criar filtros de segurança para limitar os resultados pela identidade, a remoção de documentos para o qual o requerente não deve ter acesso. Para obter mais informações, consulte [filtros de segurança](search-security-trimming-for-azure-search.md) e [seguro com o Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
-## <a name="management-tasks-by-role"></a>Tarefas de gestão pela função
+## <a name="management-tasks-by-role"></a>Tarefas de gestão por função
 
-Para a Azure Search, as funções associadas com níveis de permissão que suportam as seguintes tarefas de gestão:
+Para o Azure Search, as funções estão associadas a níveis de permissão que suportam as seguintes tarefas de gestão:
 
 | Função | Tarefa |
 | --- | --- |
-| Proprietário |Criar ou eliminar o serviço ou de qualquer objeto no serviço, incluindo as chaves de api, índices, indexadores, origens de dados de indexador e agendas de indexador.<p>Ver o estado do serviço, incluindo contagens e tamanho de armazenamento.<p>Adicionar ou eliminar o membro da função (apenas um proprietário pode gerir a associação de função).<p>Os administradores da subscrição e proprietários de serviço tem associação automática na função de proprietários. |
-| Contribuinte |Mesmo nível de acesso como proprietário, menos a gestão de funções RBAC. Por exemplo, um contribuinte pode criar ou eliminar objetos, ou ver e voltar a gerar [chaves de api](search-security-api-keys.md), mas não é possível modificar as associações de função. |
-| [Função incorporada de contribuinte do serviço de pesquisa](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | Equivalentes à função de contribuinte. |
-| Leitor |Métricas e vista serviço essentials. Os membros desta função não é possível ver índice, indexador, origem de dados ou informações da chave.  |
+| Proprietário |Criar ou eliminar o serviço ou de qualquer objeto no serviço, incluindo as chaves de api, índices, indexadores, origens de dados de indexador e agendas de indexador.<p>Ver o estado do serviço, incluindo contagens e tamanho de armazenamento.<p>Adicionar ou eliminar a associação de função (apenas um proprietário pode gerir a associação de função).<p>Os administradores da subscrição e os proprietários de serviços têm associação automática na função proprietários. |
+| Contribuinte |Mesmo nível de acesso como proprietário, menos a gestão de funções do RBAC. Por exemplo, um Contribuidor pode criar ou eliminar objetos, ou ver e voltar a gerar [chaves de api](search-security-api-keys.md), mas não podem modificar associações das funções. |
+| [Função incorporada de Contribuidor do serviço de pesquisa](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | Equivalente à função de Contribuidor. |
+| Leitor |Essentials do serviço de exibição e as métricas. Os membros desta função não podem ver o índice, indexador, origem de dados ou informações da chave.  |
 
-Funções não conceda direitos de acesso ao ponto final do serviço. Pesquisa operações de serviço, tal como gestão de índice, população do índice e consultas em dados de pesquisa, são controladas através de chaves de api, funções não. Para obter mais informações, consulte [gerir chaves de api](search-security-api-keys.md).
+Funções não conceda direitos de acesso para o ponto final de serviço. Pesquisa operações de serviço, como gestão de índices, a população do índice e consultas em dados de pesquisa, são controladas através de chaves de api, funções de não. Para obter mais informações, consulte [gerir chaves de api](search-security-api-keys.md).
 
 ## <a name="see-also"></a>Consulte também
 
 + [Gerir com o PowerShell](search-manage-powershell.md) 
-+ [Desempenho e a Otimização da Azure Search](search-performance-optimization.md)
++ [Desempenho e otimização no Azure Search](search-performance-optimization.md)
 + [Introdução ao controlo de acesso baseado em funções no portal do Azure](../role-based-access-control/overview.md).

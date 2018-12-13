@@ -1,5 +1,5 @@
 ---
-title: Criar e executar pipelines de ML
+title: Criar, executar e monitorizar pipelines de ML
 titleSuffix: Azure Machine Learning service
 description: Criar e executar uma pipeline com o SDK do Azure Machine Learning de aprendizagem para Python.  Pipelines são utilizados para criar e gerir os fluxos de trabalho que fases de aprendizagem automática em conjunto inserir manualmente (ML), como a preparação de dados, preparação de modelos, implementação do modelo e inferência.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3038d8978ed3705e9e18be58080afd532b9d72d6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8478b6760921f4641cd214b1ff19cae9757b6d7e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100560"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269048"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de machine learning com o Azure Machine Learning SDK
 
@@ -26,10 +26,10 @@ Os pipelines que cria são visíveis para os membros do seu serviço Azure Machi
 
 Pipelines usar destinos de computação remoto para computação e o armazenamento dos dados intermediários e finais associados a esse pipeline.  Pipelines podem ler e suporte de dados de escrita de e para [armazenamento do Azure](https://docs.microsoft.com/azure/storage/) localizações.
 
+>[!Note]
+>Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
 * [Configurar o ambiente de desenvolvimento](how-to-configure-environment.md) para instalar o SDK do Azure Machine Learning.
 

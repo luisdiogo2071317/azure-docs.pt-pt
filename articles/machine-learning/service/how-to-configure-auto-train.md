@@ -1,5 +1,5 @@
 ---
-title: Configurar automatizada experimentações de machine learning
+title: Criar experimentações de ML automatizadas
 titleSuffix: Azure Machine Learning service
 description: Aprendizagem automática escolhe um algoritmo para e gera um modelo pronto para implantação. Saiba as opções que pode utilizar para configurar automatizada experimentações de machine learning.
 author: nacharya1
@@ -11,22 +11,22 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e1dd0cf995d7d9c263e49735decc5573107b1add
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f5237ab2b6970772e1f08264bb44223640c33a37
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140171"
+ms.locfileid: "53187267"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurar automatizada experimentações de machine learning
 
 Aprendizagem automática escolhe um algoritmo e hiperparâmetros para e gera um modelo pronto para implantação. Existem várias opções que pode utilizar para configurar automatizada experimentações de machine learning. Neste guia, saiba como definir várias definições de configuração.
 
-Para ver exemplos de um automatizada experimentações de machine learning, consulte [Tutorial: preparar um modelo de classificação automatizada de machine Learning](tutorial-auto-train-models.md) ou [formar modelos com aprendizagem automática na cloud](how-to-auto-train-remote.md).
+Para ver exemplos de um automatizada experimentações de machine learning, consulte [Tutorial: Preparar um modelo de classificação automatizada de machine Learning](tutorial-auto-train-models.md) ou [formar modelos com aprendizagem automática na cloud](how-to-auto-train-remote.md).
 
 Opções de configuração disponíveis no automatizada de machine learning:
 
-* Selecione o tipo de experimentação: classificação, regressão ou previsão
+* Selecione o tipo de experimentação: Classificação, regressão ou de previsão
 * Origem de dados, formatos e obtenção de dados
 * Escolher o destino de computação: local ou remoto
 * Aprendizagem automatizada as definições de experimentação
@@ -219,7 +219,7 @@ Propriedade |  Descrição | Valor Predefinido
 `iteration_timeout_minutes` |   Limita a quantidade de tempo (minutos), que demora de uma iteração específica. Se uma iteração exceder o período especificado, obtém cancelada iteração. Se não for definida, em seguida, a iteração continua a ser executado até ser concluído. |   Nenhuma
 `n_cross_validations`   |Número de divisões de validação cruzada| Nenhuma
 `validation_size`   |Tamanho da validação definida como percentagem de todos os exemplo de treinamento.|  Nenhuma
-`preprocess` | Verdadeiro/Falso <br/>Experimente verdadeiro ativa para realizar o processamento prévio de entrada. Segue-se um subconjunto de pré-processamento<li>Dados em falta: Imputes a dados-numérico, com média, texto com a maioria dos ocorrência em falta </li><li>Valores categóricos: Se for de tipo de dados numéricos e de número exclusivo de valores é menos de 5 por cento, converte num-hot codificação </li><li>Etc. para verificação da lista completa [o repositório do GitHub](https://aka.ms/aml-notebooks)</li><br/>Nota: se os dados estão dispersos não é possível utilizar pré-processar = true |  Falso | 
+`preprocess` | Verdadeiro/Falso <br/>Experimente verdadeiro ativa para realizar o processamento prévio de entrada. Segue-se um subconjunto de pré-processamento<li>Dados em falta: Imputes a dados-numérico, com média, texto com a maioria dos ocorrência em falta </li><li>Valores categóricos: Se o tipo de dados é numérico e o número de valores exclusivos é menos de 5 por cento, converte num-hot codificação </li><li>Etc. para verificação da lista completa [o repositório do GitHub](https://aka.ms/aml-notebooks)</li><br/>Nota: se os dados estão dispersos não é possível utilizar pré-processar = true |  Falso | 
 `blacklist_models`  | Automatizada experimentação do machine learning tem muitos algoritmos diferentes que tentar. Configure a excluir determinados algoritmos da experimentação. Útil se estiver ciente de que algorithm(s) não funcionam bem para o conjunto de dados. Excluir algoritmos pode lhe poupar recursos de computação e o tempo de treinamento.<br/>Valores permitidos para classificação<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valores permitidos para regressão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valores permitidos para previsão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   Nenhuma
 `whitelist_models`  | Automatizada experimentação do machine learning tem muitos algoritmos diferentes que tentar. Configure a incluir determinados algoritmos para a experimentação. Útil se estiver ciente de que algorithm(s) funcionam bem para o conjunto de dados. <br/>Valores permitidos para classificação<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valores permitidos para regressão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valores permitidos para previsão<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  Nenhuma
 `verbosity` |Controla o nível de registo com informações de que está a ser o mais verboso e crítico a ser menos. Nível de verbosidade leva os mesmos valores, conforme definido no pacote de registo de python. Valores permitidos são:<br/><li>logging.INFO</li><li>o registo. AVISO</li><li>o registo. ERRO</li><li>o registo. CRÍTICO</li>  | logging.INFO</li> 
@@ -244,8 +244,8 @@ Se usar `preprocess=True`, os seguintes passos de pré-processamento de dados s�
     *   De funcionalidades numéricas, impute valores em falta com a média dos valores na coluna.
     *   Para obter recursos categóricos, impute valores em falta com o valor mais frequente.
 1.  Gerar recursos adicionais
-    * Para as funcionalidades de DateTime: ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.
-    * Para as funcionalidades de texto: frequência de prazo com base em vectorizer de contagem de unigram, bi-grams e chamamos-gram, do word.
+    * Para as funcionalidades de DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.
+    * Para as funcionalidades de texto: Frequência de prazo com base em vectorizer de contagem de unigram, bi-grams e chamamos-gram, do word.
 1.  Transformações e codificações
     * Recursos de numérico com poucos valores exclusivos, transformados em funcionalidades categóricas.
     * Consoante a cardinalidade dos recursos categóricos, execute etiqueta codificação ou (hash) frequente de uma codificação.

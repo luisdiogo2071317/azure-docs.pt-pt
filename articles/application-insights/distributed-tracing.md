@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9594ccd0449cf68a63c770cfdee03f255aa2beae
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: aa163d215f4b9c396585dbba63883a3d1beff457
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638380"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164267"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é distribuída rastreio?
 
-O advento do modernas arquiteturas de nuvem e de microsserviços tem deu origem a simples, implementáveis independentemente serviços que podem ajudar a reduzir os custos, aumentar a disponibilidade e débito. Mas, embora estes movimentos tem feito serviços individuais mais fáceis de entender como um todo, que cometeu sistemas geral mais difícil de ponderar e depurar.
+O advento da nuvem moderna e [microsserviços](http://azure.com/microservices) arquiteturas tem deu origem a simples, implementáveis independentemente serviços que podem ajudar a reduzir os custos, aumentar a disponibilidade e débito. Mas, embora estes movimentos tem feito serviços individuais mais fáceis de entender como um todo, que cometeu sistemas geral mais difícil de ponderar e depurar.
 
 Nas arquiteturas monolíticas, obteve a usamos para a depuração com pilhas de chamadas. Pilhas de chamadas são ferramentas brilhante para mostrar o fluxo de execução (método A chamada B de método, que chama o método C), juntamente com os detalhes e parâmetros sobre cada uma dessas chamadas. Isso é ótimo para monolitos ou serviços em execução num único processo, mas como vamos depurar quando a chamada é através de um limite de processo, não simplesmente uma referência na pilha local? 
 

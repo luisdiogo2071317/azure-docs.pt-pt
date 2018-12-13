@@ -5,9 +5,8 @@ keywords: exemplos machine learning, experimentação de exemplo, machine learni
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6b2a07b105252ca1fb5eb37c2571601c3eb74179
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306685"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276439"
 ---
-# <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Criar experimentações do machine learning a partir de exemplos de trabalho na Galeria de AI do Azure
+# <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Criar experimentações do Azure Machine Learning Studio a partir de exemplos de trabalho na Galeria de IA do Azure
 
 Saiba como iniciar experimentações de exemplo a partir da [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/), em vez de criar experimentações de machine learning do zero. Pode utilizar os exemplos para criar a sua própria solução de machine learning.
 
@@ -32,7 +31,7 @@ A galeria apresenta exemplos de experimentações da equipa do Microsoft Azure M
 
 Para saber como utilizar a galeria, veja o vídeo de 3 minutos [Copy other people's work to do data science (Copiar o trabalho de outras pessoas para efetuar ciência de dados)](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) da série [Data Science for Beginners (Ciência de Dados para Principiantes)](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>Encontrar uma experimentação para copiar na Galeria de IA do Azure
 Para ver as experimentações que estão disponíveis, aceda à [Galeria](https://gallery.cortanaintelligence.com/) e clique em **Experimentações** na parte superior da página.
@@ -46,7 +45,7 @@ Para procurar todas as experimentações:
 1. Clique em **Procurar tudo** na parte superior da página.
 2. No lado esquerdo, em **Refinar por** na secção **Categorias**, selecione **Experimentação** para ver todas as experimentações na Galeria.
 3. Pode encontrar experimentações que cumprem os requisitos de duas formas diferentes:
-   * **Selecione filtros no lado esquerdo.** Por exemplo, para procurar experimentações que utilizem um algoritmo de deteção de anomalias baseado em PCA: em **Categorias**, clique em **Experimentação**. Em seguida, em **Algoritmos Utilizados**, clique em **Mostrar tudo** e, na caixa de diálogo, escolha **Deteção de Anomalias Baseada em PCA**. Poderá ter de deslocar para baixo para vê-la.<br></br>
+   * **Selecione filtros no lado esquerdo.** Por exemplo procurar experimentações que utilizam um algoritmo de deteção de anomalias baseado em PCA: Sob **categorias** clique em **experimentação**. Em seguida, em **Algoritmos Utilizados**, clique em **Mostrar tudo** e, na caixa de diálogo, escolha **Deteção de Anomalias Baseada em PCA**. Poderá ter de deslocar para baixo para vê-la.<br></br>
      ![Selecionar filtros](./media/sample-experiments/choose-an-algorithm.png)
    * **Utilize a caixa de pesquisa.** Por exemplo, para procurar experimentações que tenham feito parte da Microsoft e estejam relacionadas com o reconhecimento de dígitos que utilizam um algoritmo da máquina de vetor com suporte de classe dois, introduza "reconhecimento de dígitos" na caixa de pesquisa. Em seguida, selecione os filtros **Experimentação**, **Apenas conteúdos da Microsoft** e **Máquina de Vetor com Suporte de Classe Dois**:<br></br>
      ![Utilizar a caixa de pesquisa](./media/sample-experiments/search-for-experiments.png)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Pesquisa de Notícias do Bing, C#'
+title: Ligar à API com serviços ligados no Visual Studio de pesquisa de notícias do Bing eC#
 titleSuffix: Azure Cognitive Services
 description: Ligue à Pesquisa de Notícias do Bing a partir de uma aplicação Web ASP.NET Core.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-news-search
 ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: f1f5c590216975ce6b0813da6d9d98279d591454
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 6d08250c060184ceb49e5ab263e229ddaa08b6ec
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804349"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257765"
 ---
-# <a name="tutorial-connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>Tutorial: ligar à API de Pesquisa de Notícias do Bing com Serviços Ligados do Visual Studio
+# <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Tutorial: Ligar à API com serviços ligados no Visual Studio de pesquisa de notícias do Bing eC#
 
 Ao utilizar a Pesquisa de Notícias do Bing, pode ativar aplicações e serviços para tirar partido do poder de um motor de busca sem anúncios e direcionado para a Web. A Pesquisa de Notícias do Bing é um dos serviços de pesquisa disponíveis com os Serviços Cognitivos.
 
@@ -266,6 +266,6 @@ Quando o grupo de recursos já não for necessário, pode eliminá-lo. Esta aç�
 2. Selecione **Eliminar grupo de recursos**.
 3. Na caixa **Escreva o Nome do Grupo de Recursos**, introduza o nome do grupo de recursos e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre a API de Pesquisa de Notícias do Bing, veja [O que é a Pesquisa de Notícias do Bing?](index.yml).

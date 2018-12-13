@@ -1,9 +1,9 @@
 ---
-title: Exemplo de Script do PowerShell do Azure - restaurar uma aplicação web a partir de uma cópia de segurança noutra subscrição | Documentos da Microsoft
+title: Exemplo de Script do PowerShell do Azure - restaurar cópia de segurança de aplicação para outra subscrição | Documentos da Microsoft
 description: Exemplo de Script do PowerShell do Azure - restaurar uma aplicação web a partir de uma cópia de segurança noutra subscrição
 services: app-service\web
 documentationcenter: ''
-author: cephalin
+author: msangapu
 manager: jpconnoc
 editor: ''
 tags: azure-service-management
@@ -13,16 +13,16 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 ms.date: 11/21/2018
-ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 7ed593e408b57246ef155ff8e36f054aacb2e063
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 6e06ddf5f8cc814fe2fa5fa48105cf6bf976d63c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292177"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53307857"
 ---
-# <a name="restore-a-web-app-from-a-backup-in-another-subscription"></a>Restaurar uma aplicação web a partir de uma cópia de segurança noutra subscrição
+# <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>Restaurar uma aplicação web a partir de uma cópia de segurança noutra subscrição com o PowerShell
 
 Este script de exemplo obtém uma cópia de segurança concluída anteriormente a partir de uma aplicação web existente e restaurá-lo para uma aplicação web noutra subscrição. 
 

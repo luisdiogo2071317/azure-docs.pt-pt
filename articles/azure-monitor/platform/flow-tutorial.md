@@ -11,13 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 63f9417a65fbe3141907dc7d7d64da06eec7e93f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 441064d6cbb5b3b2fae77caef3125c8db3467553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882846"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187454"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de Log Analytics com o conector para o Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) permite-lhe criar fluxos de trabalho automatizados através de centenas de ações para uma variedade de serviços. Saída de uma ação pode ser utilizada como entrada para outro, permitindo que crie a integração entre diferentes serviços.  O conector Azure Log Analytics para o Microsoft Flow permite-lhe criar fluxos de trabalho que incluem dados obtidos através de pesquisas de registos no Log Analytics.
@@ -43,7 +42,7 @@ O tutorial neste artigo mostra-lhe como criar um fluxo que envia automaticamente
 2. Procure **do Log Analytics**.
 3. Clique em **Log Analytics do Azure – executar a consulta e visualizar os resultados**.<br><br>![Execute a janela de consulta do log Analytics](media/flow-tutorial/flow02.png)
 
-## <a name="step-4-configure-the-log-analytics-action"></a>Passo 4: Configurar a ação do Log Analytics
+## <a name="step-4-configure-the-log-analytics-action"></a>Passo 4: Configure a ação do Log Analytics
 
 1. Especifique os detalhes para a área de trabalho incluindo o ID de subscrição, grupo de recursos e o nome de área de trabalho.
 2. Adicione a seguinte consulta do Log Analytics para o **consulta** janela.  Isso é apenas uma consulta de exemplo e pode substituir com qualquer outro que retorna dados.

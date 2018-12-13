@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 5f74ee390ac327a9e697d3dc67da4ea604b64d69
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e4d96fa558e1122ef9e0fe0b265166757c45e678
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686897"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321055"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de programadores de Java de funções do Azure
 
@@ -105,7 +105,9 @@ Aqui está o correspondente gerado `function.json` pelo [azure-funções--Plug-i
 
 ## <a name="jdk-runtime-availability-and-support"></a>Disponibilidade de tempo de execução do JDK e suporte 
 
-Transferir e utilizar o [Azul Zulu para o Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDKs partir [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) para o local de desenvolvimento de aplicações de funções do Java. JDKs estão disponíveis para Windows, Linux e macOS. [Suporte do Azure](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) está disponível com um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
+Transferir e utilizar o [Azul Zulu Enterprise para o Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDKs partir [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) para o local de desenvolvimento de aplicações de funções do Java. As funções do Azure utiliza o tempo de execução do Azul Java 8 JDK quando implementar as suas aplicações de função para a cloud.
+
+[Suporte do Azure](https://azure.microsoft.com/en-us/support/) problemas com o JDKs e a função de aplicações está disponível com um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
 
 ## <a name="third-party-libraries"></a>Bibliotecas de terceiros 
 
@@ -361,11 +363,11 @@ Tem de ter ativado o sistema de ficheiros de registo no Portal do Azure ou na CL
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 
-Em funções, [as definições da aplicação](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings), por exemplo, a ligação de serviço são expostos cadeias de caracteres, como variáveis de ambiente durante a execução. Pode acessar essas configurações usando, `System.getenv("AzureWebJobsStorage")`
+Em funções, [as definições da aplicação](https://docs.microsoft.com/azure/azure-functions/functions-app-settings), por exemplo, a ligação de serviço são expostos cadeias de caracteres, como variáveis de ambiente durante a execução. Pode acessar essas configurações usando, `System.getenv("AzureWebJobsStorage")`
 
 Exemplo:
 
-Adicione [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings) com testAppSettingValue testAppSetting e o valor de nome
+Adicione [AppSetting](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) com testAppSettingValue testAppSetting e o valor de nome
 
 ```java
 

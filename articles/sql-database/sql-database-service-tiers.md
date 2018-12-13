@@ -11,19 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 102a00ac79c91ac4d571c0254570f14e8f2af46f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d801ed309b0d79dd6655c7dd59ebd17bd37de222
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239088"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164403"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Base de dados do SQL do Azure modelos de compra
 
 Base de dados SQL do Azure permite-lhe comprar facilmente o motor de base de dados de PaaS totalmente gerido que se adeque às suas necessidades de desempenho e custo. Consoante o modelo de implementação de base de dados do Azure SQL, pode selecionar o modelo de compra que atende às suas necessidades:
+- [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) (recomendado) que permite-lhe escolher a quantidade exata de capacidade de armazenamento e computação de que precisa para a sua carga de trabalho.
+- [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) onde pode escolher agrupados com balanceamento de cargas de trabalho comuns de pacotes de computação e armazenamento.
 
-- [Servidores lógicos](sql-database-logical-servers.md) no [base de dados do Azure SQL](sql-database-technical-overview.md) oferece dois modelos de compras para computação, armazenamento e recursos de e/s: um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e um [baseado em vCore modelo de compra](sql-database-service-tiers-vcore.md). Dentro desse modelo de compra, pode escolher [bases de dados únicas](sql-database-single-databases-manage.md) ou [conjuntos elásticos](sql-database-elastic-pool.md).
+Diferentes modelos de compras estão disponíveis em modelos de implementação de base de dados do Azure SQL:
+- [Servidores lógicos](sql-database-logical-servers.md) no [base de dados do Azure SQL](sql-database-technical-overview.md) oferecer ambos [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [o modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md). Dentro desse modelo de compra, pode escolher [bases de dados únicas](sql-database-single-databases-manage.md) ou [conjuntos elásticos](sql-database-elastic-pool.md).
 - [Instâncias geridas](sql-database-managed-instance.md) na oferta de base de dados do Azure SQL única a [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -51,7 +54,7 @@ O modelo de compra baseado em vCore permite que escolha os recursos de computaç
 
 > [!IMPORTANT]
 > Computação, IOs, dados e armazenamento de registo é cobrada por base de dados ou conjunto elástico. Armazenamento de cópias de segurança é cobrado por cada base de dados. Para obter detalhes de encargos de instância gerida, consulte [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md).
-> **Limitações de região:** o modelo de compra baseado em vCore ainda não está disponível nas seguintes regiões: Europa Ocidental, Centro de França, sul do Reino Unido, oeste do Reino Unido e Sudeste da Austrália.
+> **Limitações de região:** O modelo de compra baseado em vCore ainda não está disponível nas seguintes regiões: Europa Ocidental, sul do França Central, do Reino Unido, oeste do Reino Unido e Sudeste da Austrália.
 
 Se a sua base de dados ou conjunto elástico consome mais de 300 conversão de DTU para vCore pode reduzir o custo. Pode converter a utilizar a API de escolha ou no portal do Azure, sem períodos de indisponibilidade. No entanto, a conversão não é necessária. Se o modelo de compra DTU cumpre os requisitos de negócios e desempenho, deve continuar a utilizá-lo. Se optar por converter o modelo de DTU para o modelo de vCore, selecione o tamanho de computação com a seguinte regra geral: cada 100 DTUS no escalão Standard requer, pelo menos, 1 vCore na camada de fins gerais; cada 125 DTU no escalão Premium requer, pelo menos, 1 vCore na camada de negócio críticos.
 

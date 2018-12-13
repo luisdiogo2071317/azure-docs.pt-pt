@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5be556ca13b9e4f681239998205aac073cc0fb99
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7d593a992d0ff189d23185b3422dee86a55308d1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974760"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309455"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de Windows IoT Core à sua aplicação do Azure IoT Central
 
@@ -57,9 +57,9 @@ Na aplicação do Azure IoT Central, adicionar um dispositivo real a partir da *
 
 ### <a name="what-youll-need"></a>O que necessita
 
-Para configurar um dispositivo físico do Windows 10 IoT Core, precisará primeiro ter um dispositivo com Windows 10 IoT Core. Saiba como configurar um dispositivo Windows 10 IoT Core [aqui](https://docs.microsoft.com/en-us/windows/iot-core/tutorials/quickstarter/devicesetup).
+Para configurar um dispositivo físico do Windows 10 IoT Core, precisará primeiro ter um dispositivo com Windows 10 IoT Core. Saiba como configurar um dispositivo Windows 10 IoT Core [aqui](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
-Também terá uma aplicação de cliente que possa comunicar com o Azure IoT Central. Pode criar a sua aplicação personalizada com o SDK do Azure e implementá-la para o seu dispositivo com o Visual Studio ou pode transferir uma [exemplo precompilados](https://developer.microsoft.com/en-us/windows/iot/samples) e simplesmente implementar e executá-la no dispositivo. 
+Também terá uma aplicação de cliente que possa comunicar com o Azure IoT Central. Pode criar a sua aplicação personalizada com o SDK do Azure e implementá-la para o seu dispositivo com o Visual Studio ou pode transferir uma [exemplo precompilados](https://developer.microsoft.com/windows/iot/samples) e simplesmente implementar e executá-la no dispositivo. 
 
 ### <a name="deploying-the-sample-client-application"></a>Implementar a aplicação de cliente de exemplo
 

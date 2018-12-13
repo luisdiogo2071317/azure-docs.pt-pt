@@ -11,19 +11,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 775c7800c2ea9abe4b960a2e82cebb85e3c74d3b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0ed5d68905353cc0b99a8ce5e1d1b6bfde9d1b87
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098777"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166052"
 ---
-# <a name="dimension-entity"></a>Entidade de dimensão
+# <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Dimensão Entidade criados previamente para uma aplicação LUIS
 A entidade de dimensão pré-criados detecta vários tipos de dimensões, independentemente da cultura de aplicação do LUIS. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém as dimensões para os objetivos do aplicativo. Entidade de dimensão é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-dimension"></a>Tipos de dimensão
 
-Dimensão é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) repositório do Github
+Dimensão é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) repositório do GitHub
 
 
 ## <a name="resolution-for-dimension-entity"></a>Resolução de entidades de dimensão

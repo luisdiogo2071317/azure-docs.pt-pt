@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 22b2faa91be9b4a2504bff542deb559d33b9fa4f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0e58fb35fa29cde16b1ccf50dc20dacc693a4757
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101046"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141769"
 ---
-# <a name="quickstart-get-intent-using-c"></a>Guia de Início Rápido: Obter a intenção com C#
+# <a name="quickstart-get-intent-using-c"></a>Início rápido: Obter a intenção de utilizarC#
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -47,11 +47,11 @@ Utilize a linguagem C# para consultar o ponto final de predição [API](https://
 
 1. Crie uma nova aplicação de consola no Visual Studio. 
 
-    ![Acesso ao menu de definições de utilizador do LUIS](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ![Criar uma nova aplicação de consola no Visual Studio](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
 
 2. No projeto do Visual Studio, no Explorador de Soluções, selecione **Adicionar referência** e, em seguida, selecione **System.Web** no separador Assemblagens.
 
-    ![Acesso ao menu de definições de utilizador do LUIS](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+    ![selecione Adicionar referência, em seguida, selecione System. Web a partir do separador Assemblies](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
 
 3. Substitua Program.cs pelo seguinte código:
     

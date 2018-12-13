@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: c7e14e2c2d6d38055304610c805a6bede10a6828
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: dea32146c1e00869de43b50823e81853e6543411
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679295"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259431"
 ---
 # <a name="translator-speech-api"></a>API de Voz do Microsoft Translator
 
@@ -34,9 +34,9 @@ Para aceder à API de texto do Translator terá [Inscreva-se para o Microsoft Az
 
 Utilize a chave de subscrição para autenticar. A API de voz do Translator suporta dois modos de autenticação:
 
-* **Com um token de acesso:** em seu aplicativo, obter um token de acesso a partir do serviço de token. Utilize a chave de subscrição de API de voz do Translator para obter um token de acesso do serviço de autenticação de serviços cognitivos do Azure. O token de acesso é válido durante 10 minutos. Obter um novo token de acesso a cada 10 minutos e continuar a utilizar o mesmo acesso o token para pedidos repetidos esses 10 minutos.
+* **Usando um token de acesso:** Em seu aplicativo, obter um token de acesso do serviço de token. Utilize a chave de subscrição de API de voz do Translator para obter um token de acesso do serviço de autenticação de serviços cognitivos do Azure. O token de acesso é válido durante 10 minutos. Obter um novo token de acesso a cada 10 minutos e continuar a utilizar o mesmo acesso o token para pedidos repetidos esses 10 minutos.
 
-* **Diretamente a utilizar uma chave de subscrição:** no seu aplicativo, passar a chave de subscrição como um valor na `Ocp-Apim-Subscription-Key` cabeçalho.
+* **Utilizar diretamente uma chave de subscrição:** Em seu aplicativo, passar a chave de subscrição como um valor na `Ocp-Apim-Subscription-Key` cabeçalho.
 
 Trate a chave de subscrição e o token de acesso como segredos que devem ser ocultados da vista.
 
@@ -49,7 +49,7 @@ Trate a chave de subscrição e o token de acesso como segredos que devem ser oc
 ## <a name="5-process-the-results"></a>5. Processar os resultados
 **Processe os resultados transmitidos em fluxo a resposta do serviço.** O formato dos resultados parciais, resultados finais e texto para discurso segmentos de áudio são descritas na documentação do `/speech/translate` operação abaixo.
 
-Exemplos de código demonstrar o uso da API de voz do Translator estão disponíveis a partir da [site do Microsoft Translator Github](https://github.com/MicrosoftTranslator).
+Exemplos de código demonstrar o uso da API de voz do Translator estão disponíveis a partir da [site do Microsoft Translator GitHub](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Notas de implementação
 
@@ -99,9 +99,9 @@ Um resultado de reconhecimento de voz final é gerado no final de uma expressão
 * `id`: Identificador atribuído para o resultado do reconhecimento de cadeias de caracteres.
 * `recognition`: Texto reconhecido no idioma de origem. O texto pode ser uma cadeia vazia no caso de um reconhecimento FALSO.
 * `translation`: Texto reconhecido traduzidos no idioma de destino.
-* `audioTimeOffset`: Desvio hora de início do reconhecimento em tiques (1 escala = 100 nanossegundos). O deslocamento é relativo ao início da transmissão em fluxo.
+* `audioTimeOffset`: Compensação de tempo de início do reconhecimento em tiques (1 escala = 100 nanossegundos). O deslocamento é relativo ao início da transmissão em fluxo.
 * `audioTimeSize`: Duração em tiques (100 nanossegundos) desse reconhecimento.
-* `audioStreamPosition`: Deslocamento de byte do início do reconhecimento. O deslocamento é relativo ao início da transmissão em fluxo.
+* `audioStreamPosition`: Deslocamento de byte de início do reconhecimento. O deslocamento é relativo ao início da transmissão em fluxo.
 * `audioSizeBytes`: Tamanho em bytes desse reconhecimento.
 
 Tenha em atenção que posicionamento desse reconhecimento no fluxo de áudio não está incluído nos resultados por predefinição. O `TimingInfo` funcionalidade tem de ser selecionada pelo cliente (consulte `features` parâmetro).
@@ -130,9 +130,9 @@ Um resultado parcial é transmitido a partir do serviço para o cliente usando u
 * `id`: Identificador atribuído para o resultado do reconhecimento de cadeias de caracteres.
 * `recognition`: Texto reconhecido no idioma de origem.
 * `translation`: Texto reconhecido traduzidos no idioma de destino.
-* `audioTimeOffset`: Desvio hora de início do reconhecimento em tiques (1 escala = 100 nanossegundos). O deslocamento é relativo ao início da transmissão em fluxo.
+* `audioTimeOffset`: Compensação de tempo de início do reconhecimento em tiques (1 escala = 100 nanossegundos). O deslocamento é relativo ao início da transmissão em fluxo.
 * `audioTimeSize`: Duração em tiques (100 nanossegundos) desse reconhecimento.
-* `audioStreamPosition`: Deslocamento de byte do início do reconhecimento. O deslocamento é relativo ao início da transmissão em fluxo.
+* `audioStreamPosition`: Deslocamento de byte de início do reconhecimento. O deslocamento é relativo ao início da transmissão em fluxo.
 * `audioSizeBytes`: Tamanho em bytes desse reconhecimento.
 
 Tenha em atenção que posicionamento desse reconhecimento no fluxo de áudio não está incluído nos resultados por predefinição. A funcionalidade de TimingInfo tem de ser selecionada pelo cliente (consulte o parâmetro de recursos).
@@ -172,9 +172,9 @@ Quando uma aplicação de cliente foi concluída a transmissão em fluxo de áud
 |para|(vazio)|Especifica o idioma para traduzir texto transcrito em. O valor é um dos identificadores de idiomas do `text` âmbito na resposta da API de idiomas.|consulta|cadeia|
 |elástica|(vazio)   |Conjunto de funcionalidades selecionadas pelo cliente separados por vírgulas. As funcionalidades disponíveis incluem:<ul><li>`TextToSpeech`: Especifica que o serviço tem de devolver o áudio traduzido da sentença traduzida final.</li><li>`Partial`: Especifica que o serviço tem de devolver resultados de reconhecimento de nível intermediário, enquanto o áudio é transmissão em fluxo para o serviço.</li><li>`TimingInfo`: Especifica que o serviço tem de devolver informações de tempo associadas a cada reconhecimento.</li></ul>Por exemplo, um cliente deve especificar `features=partial,texttospeech` para receber os resultados parciais e voz, mas não existem informações de tempo. Tenha em atenção que os resultados finais são sempre transmitidos ao cliente.|consulta|cadeia|
 |Voz|(vazio)|Identifica quais voz para utilizar a opção pela composição de texto para discurso do texto traduzido. O valor é um dos identificadores de voz do âmbito tts na resposta da API de idiomas. Se uma voz não for especificada que o sistema será automaticamente escolha um quando a funcionalidade de texto para voz está ativada.|consulta|cadeia|
-|Formato|(vazio)|Especifica o formato do fluxo de áudio texto para discurso retornado pelo serviço. As opções disponíveis são:<ul><li>`audio/wav`: Transmissão de áudio a forma de onda. Cliente deve utilizar o cabeçalho WAV para interpretar corretamente o formato de áudio. Áudio WAV para a voz é de 16 bits, canal único PCM com uma taxa de amostragem de 24kHz ou 16kHz.</li><li>`audio/mp3`: Transmissão de áudio MP3.</li></ul>A predefinição é `audio/wav`.|consulta|cadeia|
+|Formato|(vazio)|Especifica o formato do fluxo de áudio texto para discurso retornado pelo serviço. As opções disponíveis são:<ul><li>`audio/wav`: Transmissão de áudio de forma de onda. Cliente deve utilizar o cabeçalho WAV para interpretar corretamente o formato de áudio. Áudio WAV para a voz é de 16 bits, canal único PCM com uma taxa de amostragem de 24kHz ou 16kHz.</li><li>`audio/mp3`: Transmissão de áudio MP3.</li></ul>A predefinição é `audio/wav`.|consulta|cadeia|
 |ProfanityAction    |(vazio)    |Especifica a forma como o serviço deve processar profanities reconhecidos na conversão de voz. Ações válidas são:<ul><li>`NoAction`: Profanities são deixados como está.</li><li>`Marked`: Profanities são substituídos por um marcador. Consulte `ProfanityMarker` parâmetro.</li><li>`Deleted`: Profanities são eliminados. Por exemplo, se a palavra `"jackass"` é tratado como uma linguagem inapropriada, a frase `"He is a jackass."` irá tornar-se `"He is a .".`</li></ul>A predefinição é marcada.|consulta|cadeia|
-|ProfanityMarker|(vazio)    |Especifica como detetados profanities são processadas quando `ProfanityAction` está definido como `Marked`. As opções válidas são:<ul><li>`Asterisk`: Profanities são substituídos pela cadeia de caracteres `***`. Por exemplo, se a palavra `"jackass"` é tratado como uma linguagem inapropriada, a frase `"He is a jackass."` irá tornar-se `"He is a ***.".`</li><li>`Tag`: Linguagem inapropriada são rodeado por uma linguagem inapropriada XML tag. Por exemplo, se a palavra `"jackass"` é tratado como uma linguagem inapropriada, a frase `"He is a jackass."` irá tornar-se `"He is a <profanity>jackass</profanity>."`.</li></ul>A predefinição é `Asterisk`.|consulta|cadeia|
+|ProfanityMarker|(vazio)    |Especifica como detetados profanities são processadas quando `ProfanityAction` está definido como `Marked`. As opções válidas são:<ul><li>`Asterisk`: Profanities são substituídos pela cadeia de caracteres `***`. Por exemplo, se a palavra `"jackass"` é tratado como uma linguagem inapropriada, a frase `"He is a jackass."` irá tornar-se `"He is a ***.".`</li><li>`Tag`: Linguagem inapropriada são rodeado por uma marca XML de palavras ofensivas. Por exemplo, se a palavra `"jackass"` é tratado como uma linguagem inapropriada, a frase `"He is a jackass."` irá tornar-se `"He is a <profanity>jackass</profanity>."`.</li></ul>A predefinição é `Asterisk`.|consulta|cadeia|
 |Autorização|(vazio)  |Especifica o valor do token de portador do cliente. Utilize o prefixo `Bearer` seguido o valor da `access_token` valor devolvido pelo serviço de token de autenticação.|cabeçalho   |cadeia|
 |OCP-Apim-Subscription-Key|(vazio)|Necessário se o `Authorization` cabeçalho não for especificado.|cabeçalho|cadeia|
 |access_token|(vazio)   |Forma alternativa de passar um token de acesso OAuth válido. O token de portador, normalmente, é fornecido com o cabeçalho `Authorization`. Algumas bibliotecas de websocket não permitem que o código de cliente definir cabeçalhos. Nesse caso, o cliente pode utilizar o `access_token` parâmetro para passar um token válido de consulta. Ao utilizar um token de acesso para se autenticar, se `Authorization` cabeçalho não for definido, em seguida, `access_token` tem de ser definido. Se o cabeçalho e o parâmetro de consulta são definidos, o parâmetro de consulta é ignorado. Os clientes só devem utilizar um método para transmitir o token.|consulta|cadeia|

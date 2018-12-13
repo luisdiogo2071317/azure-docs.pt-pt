@@ -1,5 +1,6 @@
 ---
-title: Como utilizar a extensão da CLI do Azure Machine Learning
+title: Extensão da CLI de aprendizagem automática
+titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre a extensão da CLI do Azure Machine Learning para a CLI do Azure. A CLI do Azure é um utilitário de linha de comandos para várias plataformas que lhe permite trabalhar com os recursos na cloud do Azure. A extensão de Machine Learning permite-lhe trabalhar com o serviço do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
-ms.openlocfilehash: 3ab348ce3a6d45c2ac4d2d14978781e57a8b5d17
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: e16506773e38f1732a55161cdd58ffb7523602d4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872861"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277289"
 ---
-# <a name="use-the-azure-machine-learning-cli-extension"></a>Utilizar a extensão da CLI do Azure Machine Learning
+# <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Utilizar a extensão da CLI para o serviço Azure Machine Learning
 
 A CLI do Azure Machine Learning é uma extensão para o [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), uma interface de linha de comandos para várias plataformas para a plataforma Azure. Esta extensão fornece comandos para trabalhar com o serviço Azure Machine Learning na linha de comando. Permite-lhe criar scripts que automatizam o fluxos de trabalho da aprendizagem automática. Por exemplo, pode criar scripts que executem as seguintes ações:
 
@@ -40,10 +42,10 @@ A CLI não é uma substituição para o SDK do Azure Machine Learning. É uma fe
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
-> [!NOTE]
-> Para utilizar a CLI, tem de ter uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
+* Para utilizar a CLI, tem de ter uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
+
+* O [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 ## <a name="install-the-extension"></a>Instalar a extensão
 

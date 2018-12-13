@@ -1,5 +1,5 @@
 ---
-title: Ligar com segurança a recursos de back-end, a partir de um ambiente de serviço de aplicações
+title: Ligue em segurança a back-end recursos de ambiente de serviço de aplicações - Azure
 description: Saiba mais sobre como ligar de forma segura a recursos de back-end de um ambiente de serviço de aplicações.
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: 4fccfbb4cbc1b0db0c032d95ad66b497520aa619
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: aea51234d26e5dbaef836419c2a13a12f8083e6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960945"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315864"
 ---
-# <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Ligar com segurança a recursos de back-end, a partir de um ambiente de serviço de aplicações
+# <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Ligue em segurança a back-end recursos a partir de um ambiente de serviço de aplicações
 ## <a name="overview"></a>Descrição geral
 Uma vez que um ambiente de serviço de aplicações é sempre criado em **ambos** uma rede virtual do Azure Resource Manager, **ou** um modelo de implementação clássica [rede virtual] [ virtualnetwork], ligações de saída a partir de um ambiente de serviço de aplicações para outros recursos de back-end podem fluir exclusivamente através da rede virtual.  Com uma alteração recente feita em Junho de 2016, os ASEs também podem ser implementados em redes virtuais que utilizam intervalos de endereços públicos ou espaços de endereços de RFC1918 (ou seja, endereços privados).  
 

@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: a47fb82b1e6d42bdebff8cc4f3cb4c3c87025831
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106248"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140970"
 ---
-# <a name="prebuilt-domain-reference"></a>Referência de domínio pré-concebida
+# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio pré-criado para a sua aplicação LUIS
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.
 
 [Domínios personalizados](luis-how-to-start-new-app.md), por outro lado, começar com nenhum intenções e modelos. Pode adicionar qualquer intenções de domínio pré-criado e entidades para um modelo personalizado.
@@ -242,11 +242,12 @@ O domínio de HomeAutomation fornece intenções e entidades relacionadas para c
 O domínio de MovieTickets fornece intenções e entidades relacionadas com pedidos de reserva para filmes numa linha de cinema.
 
 ### <a name="examples"></a>Exemplos
-```
-Book me two tickets for Captain Omar and the two Musketeers
-Cancel tickets
-When is Captain Omar showing?
-```
+
+|Exemplos|
+|--|
+|Reservar me dois pedidos de suporte para Captain Omar e os dois Musketeers|
+|Cancelar pedidos de suporte|
+|Quando está a mostrar Captain Omar?|
 
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |

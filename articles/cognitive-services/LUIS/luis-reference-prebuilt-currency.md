@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 432ee8a7dda75b01015795034ee7f55fe0840775
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c87bfddb611e3e232d4a43f45ae60412566b98fc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102724"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161768"
 ---
-# <a name="currency-entity"></a>Entidade de moeda
+# <a name="currency-prebuilt-entity-for-a-luis-app"></a>Moeda entidade criados previamente para uma aplicação LUIS
 A entidade de moeda pré-criados Deteta a moeda de diferentes denominations e países, independentemente da cultura de aplicação do LUIS. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém a moeda a dos objetivos do aplicativo. Entidade de moeda é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-currency"></a>Tipos de moeda
-Moeda é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) repositório do Github
+Moeda é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) repositório do GitHub
 
 ## <a name="resolution-for-currency-entity"></a>Resolução de entidades de moeda
 O exemplo seguinte mostra a resolução do **builtin.currency** entidade.

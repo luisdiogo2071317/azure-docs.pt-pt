@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: f7dbc124781992ada9c3538cf415b836d8764064
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: f17998957db6fca5b109b5a05aa624e238af8dca
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810825"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257544"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Criar e configurar clusters do Azure Kubernetes Service no Azure com o Ansible
 O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para gerir o Azure Kubernetes Service (AKS). Este artigo mostra-lhe como utilizar o Ansible para criar e configurar um cluster do Azure Kubernetes Service.
@@ -79,7 +79,7 @@ Para criar o cluster do AKS com o Ansible, guarde o manual de procedimentos de e
 
 A saída do comando **ansible-playbook* parece semelhante ao seguinte, que mostra que o cluster do AKS foi criado com êxito:
 
-  ```bash
+  ```Output
   PLAY [Create AKS] ****************************************************************************************
 
   TASK [Gathering Facts] ********************************************************************************************
@@ -140,7 +140,7 @@ Para dimensionar o cluster do Azure Kubernetes Service com o Ansible, guarde o m
 
 O resultado seguinte mostra que o cluster do AKS foi criado com êxito:
 
-  ```bash
+  ```Output
   PLAY [Scale AKS cluster] ***************************************************************
 
   TASK [Gathering Facts] ******************************************************************
@@ -178,7 +178,7 @@ Para eliminar o cluster do Azure Kubernetes Service com o Ansible, guarde o manu
   ```
 
 O resultado seguinte mostra que o cluster do AKS foi eliminado com êxito:
-  ```bash
+  ```Output
 PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
 
 TASK [Gathering Facts] ********************************************************************
@@ -190,6 +190,6 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=1    unreachable=0    failed=0
   ```
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"] 
-> [Tutorial: Dimensionar uma aplicação no Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)
+> [Tutorial: Dimensionar a aplicação no Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

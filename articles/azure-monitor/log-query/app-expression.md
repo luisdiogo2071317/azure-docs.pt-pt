@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 84d1a08cd8ec4aafcc382ca74987bc5486f673d7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: e83ba321a98e40f07ff82e68c7961c2a6a49076d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883078"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191840"
 ---
 # <a name="app-expression-in-log-analytics-query"></a>expressão de App() na consulta do Log Analytics
 
@@ -34,7 +33,7 @@ O `app` expressão é utilizada numa consulta do Log Analytics para recuperar da
 
 ## <a name="arguments"></a>Argumentos
 
-- *Identificador*: identifica a aplicação utilizando um dos formatos da tabela abaixo.
+- *Identificador*: Identifica a aplicação com um dos formatos na tabela abaixo.
 
 | Identificador | Descrição | Exemplo
 |:---|:---|:---|

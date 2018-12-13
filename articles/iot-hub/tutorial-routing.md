@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cf8c82f597cd659911cd66b0b7db8139e8d9d1a5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 6f1cd08e3c786a1d163a22b5da5150fde5f45b95
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416890"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135343"
 ---
-# <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o encaminhamento de mensagens com o Hub IoT
+# <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o encaminhamento de mensagens com o IoT Hub
 
 O [encaminhamento de mensagens](iot-hub-devguide-messages-d2c.md) permite enviar dados de telemetria dos dispositivos IoT para pontos finais compatíveis com Hubs de Eventos incorporados ou pontos finais personalizados, tais como o armazenamento de blobs, a Fila do Service Bus, o Tópico do Service Bus e os Hubs de Eventos. Ao configurar o encaminhamento de mensagens, pode criar [consultas de encaminhamento](iot-hub-devguide-routing-query-syntax.md) para personalizar o encaminhamento que corresponde a uma determinada condição. Uma vez configurado, os dados de entrada são automaticamente encaminhados para os pontos finais pelo Hub IoT. 
 
@@ -56,6 +56,10 @@ As secções seguintes descrevem como efetuar estes passos obrigatórios. Siga a
 1. Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
 
 2. Crie um hub IoT na camada S1. Adicione um grupo de consumidores ao hub IoT. O grupo de consumidores é utilizado pelo Azure Stream Analytics durante a obtenção dos dados.
+
+   > [!NOTE]
+   > Tem de utilizar um hub Iot num escalão pago para concluir este tutorial. O escalão gratuito permite-lhe apenas configurar um ponto final e requer vários pontos de extremidade.
+   > 
 
 3. Crie uma conta de armazenamento standard V1 com replicação Standard_LRS.
 
@@ -302,15 +306,15 @@ Os dados são escritos no blob de armazenamento no formato Avro.
 
 9. Agora, preencha o resto das informações da consulta de encaminhamento. Esta consulta especifica os critérios para enviar mensagens para o contentor de armazenamento que acabou de adicionar como ponto final. Preencha os campos no ecrã. 
 
-   **Nome**: introduza um nome para a consulta de encaminhamento. Este tutorial utiliza **StorageRoute**.
+   **Nome**: Introduza um nome para a consulta de encaminhamento. Este tutorial utiliza **StorageRoute**.
 
-   **Ponto final**: mostra o ponto final que acabou de configurar. 
+   **Ponto final**: Isso mostra o ponto final que acabou de configurar. 
    
-   **Origem de dados**: selecione **Mensagens de Telemetria do Dispositivo** na lista pendente.
+   **Origem de dados**: Selecione **mensagens de telemetria do dispositivo** na lista pendente.
 
-   **Ativar rota**: confirme que esta opção está ativada.
+   **Ativar a rota**: Certifique-se de que esta opção estiver ativada.
    
-   **Consulta de encaminhamento**: introduza `level="storage"` como a cadeia de consulta. 
+   **Consulta de encaminhamento**: Introduza `level="storage"` como a cadeia de consulta. 
 
    ![Captura de ecrã que mostra a criação de uma consulta de encaminhamento para a conta de armazenamento.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
@@ -330,23 +334,23 @@ Agora configure o encaminhamento para a fila do Service Bus. Vá para o painel E
 
 4. Preencha os campos:
 
-   **Nome do Ponto Final**: introduza um nome para o ponto final. Este tutorial utiliza **CriticalQueue**.
+   **Nome do ponto final**: Introduza um nome para o ponto final. Este tutorial utiliza **CriticalQueue**.
    
-   **Espaço de Nomes do Service Bus**: clique neste campo para ver a lista pendente; selecione o espaço de nomes do service bus que configurou nos passos de preparação. Este tutorial utiliza **ContosoSBNamespace**.
+   **Espaço de nomes do barramento de serviço**: Clique neste campo para revelar a lista suspensa; Selecione o espaço de nomes de barramento do serviço que configurar os passos de preparação. Este tutorial utiliza **ContosoSBNamespace**.
 
-   **Fila do Service Bus**: clique neste campo para ver a lista pendente; selecione a fila do Service Bus na lista pendente. Este tutorial utiliza **contososbqueue**.
+   **Fila do Service Bus**: Clique neste campo para revelar a lista suspensa; Selecione a fila do Service Bus na lista pendente. Este tutorial utiliza **contososbqueue**.
 
 5. Clique em **Criar** para adicionar o ponto final da fila do Service Bus. Volta ao painel **Adicionar uma rota**. 
 
 6.  Agora, preencha o resto das informações da consulta de encaminhamento. Esta consulta especifica os critérios para enviar mensagens para a fila do Service Bus que acabou de adicionar como ponto final. Preencha os campos no ecrã. 
 
-   **Nome**: introduza um nome para a consulta de encaminhamento. Este tutorial utiliza **SBQueueRoute**. 
+   **Nome**: Introduza um nome para a consulta de encaminhamento. Este tutorial utiliza **SBQueueRoute**. 
 
-   **Ponto final**: mostra o ponto final que acabou de configurar.
+   **Ponto final**: Isso mostra o ponto final que acabou de configurar.
 
-   **Origem de dados**: selecione **Mensagens de Telemetria do Dispositivo** na lista pendente.
+   **Origem de dados**: Selecione **mensagens de telemetria do dispositivo** na lista pendente.
 
-   **Consulta de encaminhamento**: introduza `level="critical"` como a cadeia de consulta. 
+   **Consulta de encaminhamento**: Introduza `level="critical"` como a cadeia de consulta. 
 
    ![Captura de ecrã que mostra a criação de uma consulta de encaminhamento para a fila do Service Bus.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
@@ -366,15 +370,15 @@ A fila do Service Bus serve para receber mensagens designadas como críticas. Co
 
 1. No [portal do Azure](https://portal.azure.com), clique em **+ Criar um recurso**. Introduza **aplicação lógica** na caixa de pesquisa e clique em Enter. Nos resultados da pesquisa apresentados, selecione a Aplicação Lógica e clique em **Criar** para avançar para o painel **Criar aplicação lógica**. Preencha os campos. 
 
-   **Nome**: este campo é o nome da aplicação lógica. Este tutorial utiliza **ContosoLogicApp**. 
+   **Nome**: Este campo é o nome da aplicação lógica. Este tutorial utiliza **ContosoLogicApp**. 
 
-   **Subscrição**: selecione a sua subscrição do Azure.
+   **Subscrição**: Selecione a sua subscrição do Azure.
 
-   **Grupo de recursos**: clique em **Utilizar existentes** e selecione o grupo de recursos. Este tutorial utiliza **ContosoResources**. 
+   **Grupo de recursos**: Clique em **utilizar existente** e selecione o grupo de recursos. Este tutorial utiliza **ContosoResources**. 
 
-   **Localização**: utilize a sua localização. Este tutorial utiliza **West US**. 
+   **Localização**: Utilize a sua localização. Este tutorial utiliza **West US**. 
 
-   **Log Analytics**: este botão de alternar deve estar desativado. 
+   **Log Analytics**: Esta alternância deverá desativá-la. 
 
    ![Captura de ecrã que mostra o ecrã Criar Aplicação Lógica.](./media/tutorial-routing/create-logic-app.png)
 
@@ -424,11 +428,11 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
 2. Introduza as seguintes informações para a tarefa.
 
-   **Nome da tarefa**: o nome da tarefa. O nome tem de ser globalmente exclusivo. Este tutorial utiliza **contosoJob**.
+   **Nome da tarefa**: O nome da tarefa. O nome tem de ser globalmente exclusivo. Este tutorial utiliza **contosoJob**.
 
-   **Grupo de recursos**: utilize o mesmo grupo de recursos utilizado pelo hub IoT. Este tutorial utiliza **ContosoResources**. 
+   **Grupo de recursos**: Utilize o mesmo grupo de recursos utilizado pelo IoT hub. Este tutorial utiliza **ContosoResources**. 
 
-   **Localização**: utilize a mesma localização que utilizou no script de configuração. Este tutorial utiliza **West US**. 
+   **Localização**: Utilize a mesma localização que utilizou no script de configuração. Este tutorial utiliza **West US**. 
 
    ![Captura de ecrã que mostra como criar a tarefa do Stream Analytics.](./media/tutorial-routing/stream-analytics-create-job.png)
 
@@ -440,17 +444,17 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
 5. No painel **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. No ecrã apresentado, preencha os campos seguintes:
 
-   **Alias de entrada**: este tutorial utiliza **contosoinputs**.
+   **O alias de entrada**: Este tutorial utiliza **contosoinputs**.
 
-   **Subscrição**: selecione a sua subscrição.
+   **Subscrição**: Selecione a sua subscrição.
 
-   **Hub IoT**: selecione o Hub IoT. Este tutorial utiliza **ContosoTestHub**.
+   **IoT Hub**: Selecione o Hub IoT. Este tutorial utiliza **ContosoTestHub**.
 
-   **Ponto final**: selecione **Mensagens**. (Se selecionar Monitorização de Operações, poderá obter os dados de telemetria sobre o hub IoT, em vez dos dados que está a enviar.) 
+   **Ponto final**: Selecione **mensagens**. (Se selecionar Monitorização de Operações, poderá obter os dados de telemetria sobre o hub IoT, em vez dos dados que está a enviar.) 
 
-   **Nome da política de acesso partilhado**: selecione **iothubowner**. O portal preenche a Chave da Política de Acesso Partilhado por si.
+   **Nome da política de acesso partilhado**: Selecione **iothubowner**. O portal preenche a Chave da Política de Acesso Partilhado por si.
 
-   **Grupo de consumidores**: selecione o grupo de consumidores que criou anteriormente. Este tutorial utiliza **contosoconsumers**.
+   **Grupo de consumidores**: Selecione o grupo de consumidores que criou anteriormente. Este tutorial utiliza **contosoconsumers**.
    
    Para o resto dos campos, aceite as predefinições. 
 
@@ -464,11 +468,11 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
 2. No painel **Saídas**, clique em **Adicionar** e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
 
-   **Alias de saída**: o alias exclusivo da saída. Este tutorial utiliza **contosooutputs**. 
+   **Alias de saída**: O alias exclusivo para a saída. Este tutorial utiliza **contosooutputs**. 
 
-   **Nome do conjunto de dados**: nome do conjunto de dados a ser utilizado no Power BI. Este tutorial utiliza **contosodataset**. 
+   **Nome do conjunto de dados**: Nome do conjunto de dados a ser utilizado no Power BI. Este tutorial utiliza **contosodataset**. 
 
-   **Nome da tabela**: nome da tabela a ser utilizada no Power BI. Este tutorial utiliza **contosotable**.
+   **Nome da tabela**: Nome da tabela a ser utilizado no Power BI. Este tutorial utiliza **contosotable**.
 
    Aceite as predefinições no resto dos campos.
 
@@ -607,7 +611,7 @@ Para remover o grupo de recursos, utilize o comando [Remove-AzureRmResourceGroup
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a utilizar o encaminhamento de mensagens para encaminhar mensagens do Hub IoT para diferentes destinos ao realizar as seguintes tarefas.  
 

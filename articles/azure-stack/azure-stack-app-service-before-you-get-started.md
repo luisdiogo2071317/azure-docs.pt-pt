@@ -12,18 +12,18 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615879"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275674"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicações no Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Antes de implementar o serviço de aplicações do Azure no Azure Stack, tem de concluir os passos de pré-requisitos neste artigo.
 
@@ -152,6 +152,12 @@ O certificado para a identidade tem de conter um assunto que corresponde ao form
 | Formato | Exemplo |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
+
+
+### <a name="validate-certificates"></a>Validar certificados
+Antes de implementar o fornecedor de recursos do serviço de aplicações, deve [validar os certificados para ser utilizado](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) utilizando a ferramenta do Verificador de preparação do Azure Stack disponível a partir do [galeria do PowerShell](https://aka.ms/AzsReadinessChecker). A ferramenta de verificação da preparação do Azure Stack valida que os certificados PKI gerados são adequados para implementação de serviços de aplicações. 
+
+Como melhor prática, ao trabalhar com todas as informações necessárias [certificados PKI de pilha do Azure](azure-stack-pki-certs.md), deve planear a deixe tempo suficiente para testar e volte a emitir certificados, se necessário. 
 
 ## <a name="virtual-network"></a>Rede virtual
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239054"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311002"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na Cloud pública do Azure
 ##  <a name="introduction"></a>Introdução
@@ -149,9 +149,7 @@ Plataforma de computação do Azure baseia-se a virtualização de computadores,
 
 Cada nó também tem um especial raiz VM, o que é executado o sistema operativo anfitrião. Um limite crítico é o isolamento da VM a partir das máquinas virtuais convidadas e das máquinas virtuais convidadas umas das outras, gerenciadas pelo hipervisor e o sistema operacional raiz raiz. O emparelhamento de hipervisor/sistema operacional raiz tira partido de décadas da Microsoft de experiência de segurança do sistema operativo e aprendido mais recentemente com Hyper-V da Microsoft, para oferecer forte isolamento de máquinas virtuais convidadas.
 
-A plataforma Azure utiliza um ambiente virtualizado. Instâncias de utilizador funcionam como máquinas virtuais autónomas que não têm acesso a um servidor de anfitrião físico, e este isolamento é aplicado ao utilizar os níveis de privilégio de (anel-0/em anel-3) de processador físico.
-
-O Ring 0 é mais privilegiado e o 3 é o menos. O SO convidado é executado num Ring 1 com menos privilégios e aplicativos executados no anel 3 com menos privilégios. Esta virtualização dos recursos físicos conduz a uma separação clara entre o SO convidado e o hipervisor, resultando na separação de segurança adicional entre os dois.
+A plataforma Azure utiliza um ambiente virtualizado. Instâncias de utilizador funcionam como máquinas virtuais autónomas que não têm acesso a um servidor de anfitrião físico.
 
 O hipervisor do Azure funciona como um kernel micro e passa todos os pedidos de acesso de hardware das máquinas de virtuais de convidado para o anfitrião para processamento através de uma interface de memória partilhada denominada VMBus. Isto impede os utilizadores de obterem acesso de leitura/escrita/execução não processado ao sistema e atenua o risco de partilha de recursos do sistema.
 
@@ -187,9 +185,9 @@ Por predefinição, todo o tráfego é bloqueado quando é criada uma máquina v
 
 Existem duas categorias de regras que são programadas:
 
--   **Regras de configuração ou a infraestrutura do computador:** por predefinição, todas as comunicações é bloqueada. Existem exceções para permitir que uma máquina virtual para enviar e receber tráfego DHCP e DNS. Máquinas virtuais também podem enviar tráfego para a internet "pública" e enviar o tráfego para outras máquinas virtuais na mesma rede Virtual do Azure e o servidor de ativação do SO. Lista as máquinas virtuais de destinos de saída permitidos não inclui sub-redes de router do Azure, a gestão do Azure e outras propriedades da Microsoft.
+-   **Regras de configuração ou a infraestrutura de máquina:** Por predefinição, todas as comunicações é bloqueada. Existem exceções para permitir que uma máquina virtual para enviar e receber tráfego DHCP e DNS. Máquinas virtuais também podem enviar tráfego para a internet "pública" e enviar o tráfego para outras máquinas virtuais na mesma rede Virtual do Azure e o servidor de ativação do SO. Lista as máquinas virtuais de destinos de saída permitidos não inclui sub-redes de router do Azure, a gestão do Azure e outras propriedades da Microsoft.
 
--   **Ficheiro de configuração de função:** Isto define a entrada acesso listas de controle (ACLs) com base no modelo de serviço do inquilino.
+-   **Ficheiro de configuração de função:** Isso define a entrada acesso listas de controle (ACLs) com base no modelo de serviço do inquilino.
 
 ### <a name="vlan-isolation"></a>Isolamento de VLAN
 Existem três VLANs em cada cluster:
@@ -295,7 +293,7 @@ A Base de Dados SQL é um serviço de bases de dados relacionais na cloud da Mic
 
 [Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) base de dados é um serviço de base de dados relacional com base na cloud, criado sobre as tecnologias do SQL Server. Ele fornece um serviço de base de dados de elevada disponibilidade, dimensionáveis e de multilocação hospedado pela Microsoft na cloud.
 
-Da perspectiva do aplicativo do SQL Azure fornece a seguinte hierarquia: cada nível tem um-para-muitos contenção de níveis abaixo.
+De um aplicativo ponto de vista de SQL Azure fornece a seguinte hierarquia: Cada nível tem um-para-muitos contenção de níveis abaixo.
 
 ![Modelo de aplicativo do SQL Azure](./media/azure-isolation/azure-isolation-fig10.png)
 
@@ -344,7 +342,7 @@ Implementação do Azure tem várias camadas de isolamento de rede. O diagrama s
 
 ![Isolamento de rede](./media/azure-isolation/azure-isolation-fig13.png)
 
-**Isolamento de tráfego:** uma [rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) é o limite de isolamento de tráfego na plataforma do Azure. Máquinas virtuais (VMs) numa rede virtual não consegue comunicar diretamente para as VMs numa rede virtual diferente, mesmo se ambas as redes virtuais são criadas ao mesmo cliente. Isolamento é uma propriedade crítica que garante a VMs de cliente e comunicação são mantidos privada numa rede virtual.
+**Isolamento de tráfego:** R [rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) é o limite de isolamento de tráfego na plataforma do Azure. Máquinas virtuais (VMs) numa rede virtual não consegue comunicar diretamente para as VMs numa rede virtual diferente, mesmo se ambas as redes virtuais são criadas ao mesmo cliente. Isolamento é uma propriedade crítica que garante a VMs de cliente e comunicação são mantidos privada numa rede virtual.
 
 [Sub-rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#subnets) oferece uma camada adicional de isolamento com na rede virtual com base no intervalo de IP. Endereços IP na rede virtual, pode dividir uma rede virtual em várias sub-redes para a organização e segurança. As VMs e as instâncias de função de PaaS implementadas em sub-redes (nas mesmas ou em diferentes) dentro de uma VNet podem comunicar entre si sem qualquer configuração adicional. Também pode configurar [grupo de segurança de rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview#network-security-groups-nsg) para permitir ou negar o tráfego de rede para uma instância de VM com base em regras configuradas na lista de controlo de acesso (ACL) de NSG. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede.
 

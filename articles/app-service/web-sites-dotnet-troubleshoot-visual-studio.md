@@ -1,5 +1,5 @@
 ---
-title: Resolver problemas de uma aplicação web no serviço de aplicações do Azure com o Visual Studio
+title: Resolver problemas de uma aplicação web com o Visual Studio – serviço de aplicações do Azure
 description: Saiba como resolver problemas de uma aplicação web do Azure ao utilizar a depuração remota, rastreamento e ferramentas de registo que são incorporadas no Visual Studio 2013.
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: eafb4e82a319a0fdbe954757158a09aba83e9be0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 689ff528f18a810c35031dd60a65470d4351b9a7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972291"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278530"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Resolver problemas de uma aplicação web no serviço de aplicações do Azure com o Visual Studio
 ## <a name="overview"></a>Descrição geral
@@ -71,7 +72,7 @@ O Visual Studio fornece acesso a um subconjunto das funções de gestão de apli
 
     Neste tutorial, vai utilizar o registo e as listas pendentes de rastreamento. Também vai utilizar a depuração remota, mas usará um método diferente para ativá-la.
 
-    Para obter informações sobre as caixas de definições de aplicações e as cadeias de ligação nesta janela, consulte [aplicações Web do Azure: como cadeias de caracteres para a aplicação e de trabalho de cadeias de caracteres de conexão](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+    Para obter informações sobre as caixas de definições de aplicações e as cadeias de ligação nesta janela, consulte [aplicações Web do Azure: Como cadeias de caracteres do aplicativo e a ligação de seqüências de caracteres de trabalho](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
     Se quiser executar uma tarefa de gestão de aplicações web que não pode ser feita nessa janela, clique em **abra no Portal de gestão** para abrir uma janela do browser para o portal do Azure.
 
@@ -655,7 +656,7 @@ Não há nenhum introduções completas e atualizadas para rastreamento do ASP.N
   Velha, mas ainda um bom recurso para uma introdução básica para o assunto.
 * [Ouvintes de rastreamento](https://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
   Informações sobre ouvintes de rastreamento, mas não mencionar a [WebPageTraceListener](https://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx).
-* [Passo a passo: Integrar o rastreamento do ASP.NET com o rastreamento de System. Diagnostics](https://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
+* [Passo a passo: Integração de rastreamento do ASP.NET com o rastreamento de System. Diagnostics](https://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
   Este artigo também é antigo, mas inclui algumas informações adicionais que não abrange o artigo introdutório.
 * [Rastreio em modos de exibição do ASP.NET MVC Razor](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Além de rastreamento em modos de exibição do Razor, a mensagem também explica como criar um filtro de erro para iniciar a sessão de todas as exceções sem tratamento num aplicativo MVC. Para obter informações sobre como registrar exceções, tudo sem tratamento num aplicativo Web Forms, consulte o exemplo de global. asax na [um exemplo completo para manipuladores de erro](https://msdn.microsoft.com/library/bb397417.aspx) no MSDN. No MVC ou Web Forms, se quiser registrar determinadas exceções, mas permitir que a estrutura padrão manipulação vigor para os mesmos, pode ser capturado e gerar novamente como no exemplo seguinte:

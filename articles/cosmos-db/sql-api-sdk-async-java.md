@@ -1,5 +1,5 @@
 ---
-title: 'Do Azure Cosmos DB: SQL Async Java API, SDK e recursos'
+title: 'o Azure Cosmos DB: SQL Async Java API, SDK e recursos'
 description: Saiba tudo sobre o SQL Async Java API e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK de Java do Azure Cosmos DB SQL Async.
 services: cosmos-db
 author: SnehaGunda
@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: moderakh
-ms.openlocfilehash: fadefe09f9f744fabe0f0f3f3cb519b3abb50b41
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 635eb1d373867d238c570c805943df4fe29da1b3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098888"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253617"
 ---
-# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK para a API de SQL: notas de versão e recursos
+# <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -43,9 +43,9 @@ O SDK de Java de Async de API de SQL é diferente do SDK de Java API do SQL ao f
 
 <tr><td>**Introdução**</td><td>[Introdução ao SDK de Java assíncrono](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)</td></tr>
 
-<tr><td>**Exemplo de código**</td><td>[Github](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
+<tr><td>**Exemplo de código**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)</td></tr>
 
-<tr><td>**Sugestões de desempenho**</td><td>[Leiame do Github](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
+<tr><td>**Sugestões de desempenho**</td><td>[Leiame do GitHub](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
 
 <tr><td>**Mínimo de runtime suportada**</td><td>[JDK 8](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
@@ -63,7 +63,7 @@ O SDK de Java de Async de API de SQL é diferente do SDK de Java API do SQL ao f
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Foi corrigido um erro NPE no caminho de repetição de escrita.
 * Foi corrigido um erro NPE na gestão de ponto final.
-* Atualizado vulneráveis dependências ([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Atualizado vulneráveis dependências ([GitHub #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
 * Foi adicionado suporte para o registo de rede Netty para resolução de problemas.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
@@ -72,16 +72,16 @@ O SDK de Java de Async de API de SQL é diferente do SDK de Java API do SQL ao f
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Foi adicionado suporte para o Proxy.
 * Foi adicionado suporte para autorização de token de recurso.
-* Foi corrigido um erro no processamento de chaves de partição de grandes dimensões ([github #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
+* Foi corrigido um erro no processamento de chaves de partição de grandes dimensões ([GitHub #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
 * Melhorada a documentação.
 * SDK reestruturado em módulos mais granulares.
 
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
-* Foi corrigido um erro para localidades inglês ([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* Foi corrigido um erro para localidades inglês ([GitHub #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
 * Métodos de helper adicionado no recurso de conflito.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
-* Substituído org.json dependência por jackson devido a motivos de desempenho e de licenciamento ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Substituído org.json dependência por jackson devido a motivos de desempenho e de licenciamento ([GitHub #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
 * Classe OfferV2 preterido foi removido.
 * Método do acessador foi adicionado à classe de oferta para o conteúdo de débito.
 * Qualquer método no documento/recurso retornando tipos org.json alterados para devolver uma jackson tipo de objeto.
@@ -94,18 +94,18 @@ O SDK de Java de Async de API de SQL é diferente do SDK de Java API do SQL ao f
 * Foi adicionado suporte para índice exclusivo da política.
 * Foi adicionado suporte para limitar o tamanho de token de continuação de resposta nas opções de feeds.
 * Foi adicionado suporte para a divisão de partição na consulta de partição cruzada.
-* Foi corrigido um erro na serialização do Json timestamp ([github #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
+* Foi corrigido um erro na serialização do Json timestamp ([GitHub #32](https://github.com/Azure/azure-cosmosdb-java/issues/32)).
 * Foi corrigido um erro na serialização de enumeração de Json.
-* Foi corrigido um erro no gerenciamento de documentos do tamanho de 2MB ([github #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
-* Dependência com.fasterxml.jackson.core:jackson-databind atualizado para 2.9.5 devido a um erro ([jackson databind: github #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
-* Dependência de rxjava-extras atualizado para 0.8.0.17 devido a um erro ([rxjava extras: github #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
+* Foi corrigido um erro no gerenciamento de documentos do tamanho de 2MB ([GitHub #33](https://github.com/Azure/azure-cosmosdb-java/issues/33)).
+* Dependência com.fasterxml.jackson.core:jackson-databind atualizado para 2.9.5 devido a um erro ([jackson databind: GitHub #1599](https://github.com/FasterXML/jackson-databind/issues/1599))
+* Dependência de rxjava-extras atualizado para 0.8.0.17 devido a um erro ([rxjava extras: GitHub #30](https://github.com/davidmoten/rxjava-extras/issues/30)).
 * A descrição de metadados no ficheiro pom atualizada para serem inline com o restante da documentação.
-* Melhoria da sintaxe ([github #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([github #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
+* Melhoria da sintaxe ([GitHub #41](https://github.com/Azure/azure-cosmosdb-java/issues/41)), ([GitHub #40](https://github.com/Azure/azure-cosmosdb-java/issues/40)).
 
 ### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
 * Foi adicionado suporte de back-pressão na consulta.
 * Foi adicionado suporte para o id de intervalo da chave de partição na consulta.
-* Correção para permitir que o token de continuação maior no cabeçalho do pedido (bugfix github #24).
+* Correção para permitir que o token de continuação maior no cabeçalho do pedido (bugfix GitHub #24).
 * Dependência netty atualizada para 4.1.22.Final para garantir que o JVM encerra o tempo limite após a conclusão do thread principal.
 * Corrigi para evitar a transmitir o token de sessão durante a leitura de recursos globais.
 * Adicionar mais exemplos.

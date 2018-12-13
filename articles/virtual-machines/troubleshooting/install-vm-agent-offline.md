@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3caa4f2dbe36f86c9b15a83303e90b16d06c56fd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419406"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192061"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Instalar o agente de Máquina Virtual do Azure no modo offline 
 
@@ -76,7 +76,7 @@ Utilize os seguintes passos para instalar o agente da VM no modo offline.
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
-        ![Exportar as subchaves de registo](./media/install-vm-agent-offline/backup-reg.png)
+          ![Exportar as subchaves de registo](./media/install-vm-agent-offline/backup-reg.png)
 
     2. Edite os ficheiros de registo. Em cada arquivo, altere o valor de entrada **SYSTEM** ao **BROKENSYSTEM** (conforme mostrado nas imagens seguintes) e guarde o ficheiro. Lembre-se a **ImagePath** do agente VM atual. Será necessário copiar a pasta correspondente para o disco do SO anexado. 
 

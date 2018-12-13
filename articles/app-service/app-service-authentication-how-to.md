@@ -1,5 +1,5 @@
 ---
-title: Advanced a utilização de autenticação e autorização no serviço de aplicações do Azure | Documentos da Microsoft
+title: Advanced a utilização de autenticação e autorização - serviço de aplicações do Azure | Documentos da Microsoft
 description: Mostra como personalizar a autenticação e autorização no serviço de aplicações e obter afirmações de utilizador e tokens diferentes.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 67d08379d98873fa88ef20b5cc8c87163c067e3a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685332"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310458"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilização avançada de autenticação e autorização no serviço de aplicações do Azure
 
@@ -179,11 +180,11 @@ A partir do código de cliente (por exemplo, uma aplicação móvel ou JavaScrip
 
 Quando o token de acesso do seu fornecedor expira, terá de autenticar o utilizador. Pode evitar a expiração do token, fazendo uma `GET` chamar para o `/.auth/refresh` ponto final do seu aplicativo. Quando chamado, o serviço de aplicações atualiza automaticamente os tokens de acesso no arquivo de tokens para o usuário autenticado. Pedidos subsequentes para tokens pelo seu código de aplicação obtém os tokens de atualização. No entanto, para a atualização de token funcionar, o arquivo de tokens tem de conter [tokens de atualização](https://auth0.com/learn/refresh-tokens/) para o seu fornecedor. A forma de obter tokens de atualização estão documentados pelo cada fornecedor, mas a lista seguinte é um breve resumo:
 
-- **Google**: acrescentar uma `access_type=offline` consultar o parâmetro de cadeia de caracteres para seu `/.auth/login/google` chamada à API. Se utilizar o SDK de aplicações móveis, pode adicionar o parâmetro para um da `LogicAsync` sobrecargas (consulte [Tokens de atualização do Google](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
-- **Facebook**: não fornece os tokens de atualização. Tokens de longa duração expirarem em 60 dias (consulte [expiração do Facebook e extensão de Tokens de acesso](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: os tokens de acesso não expiram (consulte [Twitter FAQ de OAuth](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
-- **Microsoft Account**: quando [configurar as definições de autenticação de conta Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md), selecione o `wl.offline_access` âmbito.
-- **O Azure Active Directory**: na [ https://resources.azure.com ](https://resources.azure.com), siga os passos abaixo:
+- **Google**: Acrescentar um `access_type=offline` consultar o parâmetro de cadeia de caracteres para seu `/.auth/login/google` chamada à API. Se utilizar o SDK de aplicações móveis, pode adicionar o parâmetro para um da `LogicAsync` sobrecargas (consulte [Tokens de atualização do Google](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
+- **Facebook**: Não fornece tokens de atualização. Tokens de longa duração expirarem em 60 dias (consulte [expiração do Facebook e extensão de Tokens de acesso](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
+- **Twitter**: Tokens de acesso não expiram (consulte [FAQ de OAuth do Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Conta Microsoft**: Quando [configurar definições de autenticação de conta do Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md), selecione o `wl.offline_access` âmbito.
+- **O Azure Active Directory**: Na [ https://resources.azure.com ](https://resources.azure.com), siga os passos abaixo:
     1. Na parte superior da página, selecione **leitura/escrita**.
     1. No navegador à esquerda, navegue até **subscrições** > **_\<subscrição\_nome_**   >  **resourceGroups** > _**\<recursos\_grupo\_nome >**_   >  **provedores** > **Microsoft. Web** > **sites** > _**\<aplicação \_name >**_ > **config** > **authsettings**. 
     1. Clique em **Editar**.
@@ -243,4 +244,4 @@ Clique em **edite**, modifique a seguinte propriedade e, em seguida, clique em *
 
 > [!div class="nextstepaction"]
 > [Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto (Windows)](app-service-web-tutorial-auth-aad.md)
-> [Tutorial: autenticar e autorizar utilizadores ponto-a-ponto (Linux)](containers/tutorial-auth-aad.md)
+> [Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto (Linux)](containers/tutorial-auth-aad.md)

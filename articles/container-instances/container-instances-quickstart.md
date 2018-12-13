@@ -1,23 +1,23 @@
 ---
-title: Início Rápido - executar uma aplicação no Azure Container Instances
-description: Neste início rápido, vai utilizar a CLI do Azure para implementar uma aplicação que está a ser executada num contentor de Docker para Azure Container Instances
+title: Início rápido - executar uma aplicação no Azure Container Instances - CLI
+description: Neste início rápido, vai utilizar a CLI do Azure para implementar uma aplicação de contentor do Docker para executar num contentor isolado no Azure Container Instances
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7db3d9a076fe9ff5b8bbf970705b82a3f0d5ce54
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855668"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189613"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Início Rápido: executar uma aplicação no Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Início rápido: Execute uma aplicação de contentor no Azure Container Instances com a CLI do Azure
 
-Utilize o Azure Container Instances para executar contentores de Docker no Azure com simplicidade e celeridade. Não necessita de implementar máquinas virtuais nem de utilizar uma plataforma de orquestração de contentores completa, como o Kubernetes. Neste início rápido, vai utilizar o portal do Azure para criar um contentor no Azure e disponibilizar a sua aplicação na Internet com um nome de domínio completamente qualificado (FQDN). Alguns segundos depois de executar um comando de implementação única, pode navegar para a aplicação em execução:
+Utilize o Azure Container Instances para executar contentores de Docker no Azure com simplicidade e celeridade. Não precisa de implementar máquinas virtuais nem de utilizar uma plataforma de orquestração de contentores completa, como o Kubernetes. Neste início rápido, vai utilizar a CLI do Azure para criar um contentor no Azure e disponibilizar a sua aplicação com um nome de domínio completamente qualificado (FQDN). Alguns segundos depois de executar um comando de implementação única, pode navegar para a aplicação em execução:
 
 ![Aplicação implementada com o Azure Container Instances vista no browser][aci-app-browser]
 
@@ -138,7 +138,7 @@ Se tiver concluído a utilização do grupo de recursos *myResourceGroup* e de t
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, criou uma instância de contentor do Azure com uma imagem no registo do Hub de Docker público. Se deseja criar uma imagem do contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
 

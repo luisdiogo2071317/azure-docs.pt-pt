@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 2511a608a74a04314b5fd56a55f4ae93ca0e2978
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 48b0085e52c1752c0b5ecc89ce229a5a82f74345
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017479"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310441"
 ---
 # <a name="api-management-caching-policies"></a>Políticas de gestão de API de colocação em cache
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -80,7 +80,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Exemplo de uso de expressões de política  
- Este exemplo mostra como configurar a gestão de API colocação em cache duração da resposta que corresponda ao cache de resposta do serviço de back-end conforme especificado pelo serviço de segurança `Cache-Control` diretiva. Para uma demonstração de configurar e utilizar esta política, consulte [Cloud Cover episódio 177: mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 25:25.  
+ Este exemplo mostra como configurar a gestão de API colocação em cache duração da resposta que corresponda ao cache de resposta do serviço de back-end conforme especificado pelo serviço de segurança `Cache-Control` diretiva. Para uma demonstração de configurar e utilizar esta política, consulte [177 do Cloud Cover episódio: Mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 25:25.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
@@ -118,14 +118,14 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 | preferência de cache               | Escolha entre os seguintes valores do atributo:<br />- `internal` utilizar a cache de gestão de API interna,<br />- `external` Para utilizar a cache de externa, conforme descrito em [utilizar uma Cache do Azure externo para Redis na gestão de API do Azure](api-management-howto-cache-external.md),<br />- `prefer-external` Para utilizar a cache externo se configurado ou cache interna; caso contrário. | Não       | `prefer-external` |
 | Downstream tipo de colocação em cache        | Este atributo tem de ser definido para um dos seguintes valores.<br /><br /> -nenhum - não é permitida a colocação em cache downstream.<br />-privada - downstream colocação em cache privada é permitida.<br />-público - particular e compartilhado downstream colocação em cache é permitida.                                                                                                          | Não       | nenhum              |
 | revalide-obrigatória                | Se a colocação em cache downstream está ativada neste atributo transforma ou desativar o `must-revalidate` diretiva de controle de cache nas respostas do gateway.                                                                                                                                                                                                                      | Não       | true              |
-| variar pelo desenvolvedor              | Definido como `true` a respostas de cache por chave de desenvolvedor.                                                                                                                                                                                                                                                                                                         | Sim      |                   |
-| variar-por-developer-groups       | Definido como `true` a respostas de cache por função de utilizador.                                                                                                                                                                                                                                                                                                             | Sim      |                   |  
+| variar pelo desenvolvedor              | Defina como `true` a respostas de cache por [chave de subscrição](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions).                                                                                                                                                                                                                                                                                                         | Sim      |                   |
+| variar-por-developer-groups       | Defina como `true` a respostas de cache por [grupo de utilizadores](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Sim      |                   |  
 
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada  
--   **Âmbitos de política:** API, a operação, a produtos  
+-   **Âmbitos de política:** API, operação, o produto  
   
 ##  <a name="StoreToCache"></a> Store à cache  
  O `cache-store` política coloca em cache respostas de acordo com as definições de cache especificado. Esta política pode ser aplicada em casos em que o conteúdo de resposta permanece estático durante um período de tempo. Resposta de colocação em cache reduz a largura de banda e os requisitos de processamento imposta na back-end web server e reduz a latência percebida pelos consumidores de API.  
@@ -159,7 +159,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Exemplo de uso de expressões de política  
- Este exemplo mostra como configurar a gestão de API colocação em cache duração da resposta que corresponda ao cache de resposta do serviço de back-end conforme especificado pelo serviço de segurança `Cache-Control` diretiva. Para uma demonstração de configurar e utilizar esta política, consulte [Cloud Cover episódio 177: mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 25:25.  
+ Este exemplo mostra como configurar a gestão de API colocação em cache duração da resposta que corresponda ao cache de resposta do serviço de back-end conforme especificado pelo serviço de segurança `Cache-Control` diretiva. Para uma demonstração de configurar e utilizar esta política, consulte [177 do Cloud Cover episódio: Mais funcionalidades de gestão de API com Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avanço rápido para 25:25.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
@@ -197,7 +197,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** saída    
--   **Âmbitos de política:** API, a operação, a produtos  
+-   **Âmbitos de política:** API, operação, o produto  
   
 ##  <a name="GetFromCacheByKey"></a> Obter o valor da cache  
  Utilize o `cache-lookup-value` política para efetuar a pesquisa de cache por chave e retornam um valor em cache. A chave pode ter um valor de cadeia de caracteres arbitrária e é, geralmente, fornecida com uma expressão de política.  

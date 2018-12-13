@@ -1,6 +1,6 @@
 ---
-title: Indexação do armazenamento de tabelas do Azure com o Azure Search | Documentos da Microsoft
-description: Aprenda a indexar dados armazenados no armazenamento de tabelas do Azure com o Azure Search
+title: Indexar conteúdo do armazenamento de tabelas do Azure para pesquisa em texto completo - Azure Search
+description: Aprenda a indexar dados armazenados no armazenamento de tabelas do Azure com o Azure Search.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 738518f94869a55cf80db1c87b8c74b167f5cce1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 39455669dd739309ac0201de49b390c2390e0067
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406930"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317275"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Armazenamento de tabelas do índice do Azure com o Azure Search
 Este artigo mostra como utilizar o Azure Search para dados de índice armazenados no armazenamento de tabelas do Azure.
@@ -66,16 +67,16 @@ Para obter mais informações sobre a API para criar origem de dados, consulte [
 
 Pode fornecer as credenciais para a tabela de uma das seguintes formas: 
 
-- **Cadeia de ligação da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` pode obter a cadeia de ligação do portal do Azure ao aceder a **painel de conta de armazenamento** > **definições**  >  **Chaves** (para contas de armazenamento clássicas) ou **definições** > **chaves de acesso** (para o armazenamento do Azure Resource Manager contas).
-- **Conta de armazenamento partilhado a cadeia de ligação de assinatura de acesso**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` a assinatura de acesso partilhado deve ter a lista e permissões de leitura no contentores (tabelas neste caso) e objetos (linhas de tabela).
--  **Assinatura de acesso partilhado de tabela**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` a assinatura de acesso partilhado deve ter permissões de consulta (leitura) na tabela.
+- **Cadeia de ligação da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Pode obter a cadeia de ligação do portal do Azure ao aceder a **painel de conta de armazenamento** > **definições** > **chaves** (para a clássica contas de armazenamento) ou **configurações** > **chaves de acesso** (para contas de armazenamento do Azure Resource Manager).
+- **Conta de armazenamento partilhado a cadeia de ligação de assinatura de acesso**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` A assinatura de acesso partilhado deve ter a lista e permissões de leitura no contentores (tabelas neste caso) e objetos (linhas de tabela).
+-  **Assinatura de acesso partilhado de tabela**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` A assinatura de acesso partilhado deve ter permissões de consulta (ler) na tabela.
 
 Para obter mais informações sobre o armazenamento partilhado assinaturas de acesso, consulte [assinaturas de acesso partilhado do Using](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Se utilizar credenciais de assinatura de acesso partilhado, terá de atualizar as credenciais de origem de dados periodicamente com assinaturas renovadas para evitar que sua expiração. Se as credenciais de assinatura de acesso partilhado expirarem, o indexador irá falhar com uma mensagem de erro semelhante a "Credenciais fornecidas na cadeia de ligação são inválidas ou tem expirado."  
 
-### <a name="step-2-create-an-index"></a>Passo 2: criar um índice
+### <a name="step-2-create-an-index"></a>Passo 2: Criar um índice
 O índice Especifica os campos num documento, os atributos, e a experiência de outras construções que a pesquisa de forma.
 
 Para criar um índice:

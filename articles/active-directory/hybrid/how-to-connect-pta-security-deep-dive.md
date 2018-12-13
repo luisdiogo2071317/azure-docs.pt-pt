@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c0729fd4c6d5e387b38c310a708505c3395ea41f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7f4750dd527aa53624fa977115a120911511b7d5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284885"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185074"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>O Azure Active Directory pass-through Authentication detalhada da segurança
 
@@ -41,7 +41,7 @@ Estes são os aspectos de segurança chave desta funcionalidade:
 - Apenas portas não padrão (80 e 443) são utilizadas para comunicação de saída dos agentes de autenticação para o Azure AD. Não precisa de abrir portas na firewall. 
   - Porta 443 é utilizada para todas as comunicações de saída autenticada.
   - Porta 80 é utilizada apenas para baixar as listas de revogação de certificados (CRL) para garantir que nenhum dos certificados utilizados por esse recurso foram revogadas.
-  - Para obter a lista completa dos requisitos de rede, consulte [autenticação de pass-through do Azure Active Directory: Introdução](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
+  - Para obter a lista completa dos requisitos de rede, consulte [autenticação de pass-through do Azure Active Directory: Guia de introdução](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
 - Palavras-passe que os utilizadores de fornecer durante o início de sessão são encriptadas na cloud antes dos agentes de autenticação no local aceitá-los para a validação relativamente ao Active Directory.
 - O canal HTTPS entre o Azure AD e o agente de autenticação no local é protegido ao utilizar a autenticação mútua.
 - Protege as contas de utilizador ao trabalhar de forma totalmente integrada com [políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo multi-factor Authentication (MFA), [antigos de autenticação de bloqueio](../conditional-access/conditions.md) e por [ filtrar os ataques de palavra-passe de força bruta](../authentication/howto-password-smart-lockout.md).
@@ -49,11 +49,11 @@ Estes são os aspectos de segurança chave desta funcionalidade:
 ## <a name="components-involved"></a>Componentes envolvidos
 
 Para obter detalhes gerais sobre segurança de dados e serviço operacional, do Azure AD, consulte a [Centro de fidedignidade](https://azure.microsoft.com/support/trust-center/). Os seguintes componentes envolvidos ao utilizar a autenticação pass-through para o início de sessão do utilizador:
-- **O Azure AD STS**: um serviço de token sem monitoração de estado de segurança (STS), que processa pedidos de início de sessão e emite tokens de segurança para browsers dos utilizadores, os clientes ou serviços, conforme necessário.
-- **O Azure Service Bus**: fornece a capacidade de cloud a comunicação com mensagens empresariais e a comunicação de reencaminhamentos que lhe permite ligar soluções no local à cloud.
-- **Agente do Azure AD Connect autenticação**: um componente no local que escuta e responde a pedidos de validação da palavra-passe.
-- **Base de dados SQL do Azure**: contém informações sobre agentes de autenticação do seu inquilino, incluindo as chaves de encriptação e de metadados.
-- **Do Active Directory**: do Active Directory no local, onde são armazenadas as contas de utilizador e as palavras-passe.
+- **STS do Azure AD**: Um sem monitoração de estado de segurança token (STS serviço) que processa pedidos de início de sessão e emite tokens de segurança para browsers dos utilizadores, os clientes ou serviços, conforme necessário.
+- **O Azure Service Bus**: Fornece a capacidade de cloud a comunicação com mensagens empresariais e a comunicação de reencaminhamentos que lhe permite ligar soluções no local à cloud.
+- **O agente de autenticação do Azure AD Connect**: Um componente no local que escuta e responde a pedidos de validação da palavra-passe.
+- **Base de dados SQL do Azure**: Contém informações sobre agentes de autenticação do seu inquilino, incluindo as chaves de encriptação e de metadados.
+- **Do Active Directory**: No local do Active Directory, onde são armazenadas as contas de utilizador e as palavras-passe.
 
 ## <a name="installation-and-registration-of-the-authentication-agents"></a>Instalação e registo dos agentes de autenticação
 
@@ -97,8 +97,8 @@ Os agentes de autenticação utilize os seguintes passos para se registrar com o
 5. O Azure AD, em seguida, assina e envia um certificado de identidade digital para o agente de autenticação.
     - A AC de raiz no Azure AD é utilizado para assinar os certificados. 
 
-     >[!NOTE]
-     > É esta AC _não_ nas autoridades de certificação de raiz fidedigna Windows armazenar.
+      > [!NOTE]
+      > É esta AC _não_ nas autoridades de certificação de raiz fidedigna Windows armazenar.
     - A AC é utilizada apenas pela funcionalidade de autenticação pass-through. A AC é utilizada apenas para assinar os CSRs durante o registo do agente de autenticação.
     -  Nenhum dos outros serviços do Azure AD Utilize esta AC.
     - Assunto do certificado (nome distinto ou DN) está definido como sua ID do inquilino. Esse DN é um GUID que identifica exclusivamente o seu inquilino. Esse DN examina o certificado para utilização apenas com o seu inquilino.
@@ -208,10 +208,10 @@ A atualização automática de um agente de autenticação:
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais cenários são suportados e quais não são.
-- [Guia de introdução](how-to-connect-pta-quick-start.md): comece a utilizar na autenticação pass-through do Azure AD.
+- [Guia de introdução](how-to-connect-pta-quick-start.md): Começar a trabalhar na autenticação pass-through do Azure AD.
 - [Migrar do AD FS para autenticação pass-through](https://aka.ms/adfstoptadpdownload) -um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through.
-- [Bloqueio do smart](../authentication/howto-password-smart-lockout.md): configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
+- [Bloqueio do smart](../authentication/howto-password-smart-lockout.md): Configure a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
 - [Como funciona](how-to-connect-pta-how-it-works.md): Aprenda as noções básicas de como funciona a autenticação pass-through do Azure AD.
-- [Perguntas mais frequentes sobre](how-to-connect-pta-faq.md): encontre respostas para perguntas mais frequentes.
+- [Perguntas mais frequentes sobre](how-to-connect-pta-faq.md): Encontre respostas para perguntas mais frequentes.
 - [Resolver problemas de](tshoot-connect-pass-through-authentication.md): Saiba como resolver problemas comuns com a funcionalidade de autenticação pass-through.
-- [O Azure AD Seamless SSO](how-to-connect-sso.md): Saiba mais sobre esta funcionalidade complementar.
+- [SSO totalmente integrado do Azure AD](how-to-connect-sso.md): Saiba mais sobre esta funcionalidade complementar.

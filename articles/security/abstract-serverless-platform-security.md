@@ -1,31 +1,31 @@
 ---
-title: As funções do Azure do abstracto e segurança de plataforma sem servidor
-description: Abstrato para o documento técnico sem servidor de plataforma de segurança e as funções do Azure.
+title: As funções do Azure do abstrato e segurança da plataforma sem servidor
+description: Abstrato para o white paper as funções do Azure e de segurança da plataforma sem servidor.
 author: TomShinder
 ms.author: TomSh
 ms.date: 06/21/2018
 ms.topic: article
 ms.service: security
-ms.openlocfilehash: 8f5f600b0680b85d760e72b8e177ae247e41ac6b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 87010b3256fb8eef6871d76f80db2999760386b4
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133045"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320749"
 ---
-# <a name="azure-functions-and-serverless-platform-security"></a>As funções do Azure e segurança da plataforma sem servidor
+# <a name="azure-functions-and-serverless-platform-security"></a>As funções do Azure e de segurança da plataforma sem servidor
 ## <a name="abstract"></a>Abstrato
-A maioria das empresas tem uma quantidade significativa de recursos e tempo para gerir servidores, que adiciona o custo. Se as empresas podem utilizar menos recursos para gerir servidores, pode concentrar-se na criação de aplicações excelente.  
+A maioria das empresas precisa de uma quantidade significativa de recursos e tempo para gerir servidores, o que implica um custo. Se as empresas podem utilizar menos recursos para gerir servidores, que se possam concentrar na criação de excelentes aplicações.  
 
-A computação sem servidor ajuda-o a fazem isso mesmo, porque é gerida a infraestrutura de que precisa para executar e dimensionamento das suas aplicações. A computação sem servidor é a abstração dos servidores, da infraestrutura e dos sistemas operativos. Sem servidor informática é suscitada pelo departamento por reação para eventos e é acionado, que são todos os a decorrer no tempo-real — na nuvem. 
+Computação sem servidor ajuda-o a fazer exatamente isso, uma vez que a infraestrutura que necessita para executar e dimensionar as suas aplicações é gerida por si. A computação sem servidor é a abstração dos servidores, da infraestrutura e dos sistemas operativos. Informática sem servidor é orientada pela reação a eventos e acionadores, que são todos os que ocorrem em tempo quase real, na cloud. 
 
-Como um serviço completamente gerido, gestão de servidor e o planeamento de capacidade são invisíveis ao programador. A arquitetura sem servidor ajuda a desenvolver e implementar aplicações sem servidor utilizando as funções do Azure. É uma interface de linha de comandos (CLI) que oferece a estrutura e automatização para o ajudar a criar arquiteturas sofisticadas condicionada por eventos, sem servidor compostas por funções e os eventos. Uma função do Azure é uma unidade de implementação, como um microsserviço independente. É simplesmente código implementado na nuvem, que é mais frequentemente escrita para executar uma única tarefa.
+Como um serviço totalmente gerido, gestão de servidor e o planeamento de capacidade são invisíveis para o programador. O framework sem servidor ajuda a desenvolver e implementar aplicações sem servidor com as funções do Azure. É uma interface de linha de comandos (CLI) que oferece a estrutura e a Automação para ajudar a criar arquiteturas sofisticadas, orientadas por eventos, sem servidor, compostas por funções e eventos. Uma função do Azure é uma unidade independente de implantação, como um microsserviço. É simplesmente código, implementado na cloud, que é escrita com mais freqüência para realizar uma única tarefa.
 
-Apesar dos benefícios, segurança sem servidor tem as suas próprias fatores de risco para lidar com. A abordagem sem servidor não está a introduzir novos preocupações de segurança, mas necessita de ter uma abordagem para preocupações de segurança existente. Este documento técnico centra-se nestes é importante de segurança: 
-* Vantagens de uma plataforma de sem servidor
-* Problemas de segurança da informática sem servidor
-* Problemas de segurança críticas e mitigações no contexto do Azure
-* Proteger a plataforma de sem servidor da Microsoft
+Apesar dos benefícios, a segurança sem servidor tem seus próprios fatores de risco para lidar com. A abordagem sem servidor não apresenta novas preocupações com a segurança, mas é necessário ter uma abordagem para questões de segurança existente. Este white paper concentra-se estas questões de segurança: 
+* Benefícios de uma plataforma sem servidor
+* Problemas de segurança em computação sem servidor
+* Problemas de segurança críticas e atenuações no contexto do Azure
+* Proteger a plataforma sem servidor da Microsoft
 
-[Transferir o documento técnico](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)
+[Baixe o white paper](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-functions-serverless-platform-security/Microsoft%20Serverless%20Platform.pdf)
 

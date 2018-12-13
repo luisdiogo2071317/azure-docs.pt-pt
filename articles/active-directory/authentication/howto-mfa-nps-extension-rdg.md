@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 410e9df588ad4aba52d1d69349f5df67fa1826a3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 013b63d0eb2cc69893dcb4075c1ca26a31ef2474
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100944"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277986"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a sua infraestrutura de Gateway de ambiente de trabalho remoto usando a extensão de servidor de políticas de rede (NPS) e o Azure AD
 
@@ -24,6 +24,9 @@ Este artigo fornece detalhes para integrar a sua infraestrutura de Gateway de am
 A extensão de servidor de políticas de rede (NPS) para o Azure permite aos clientes salvaguardar a autenticação de cliente Remote Authentication Dial-In User Service (RADIUS) a utilizar o Azure do baseado na nuvem [multi-factor Authentication (MFA)](multi-factor-authentication.md). Esta solução fornece verificação de dois passos para adicionar uma segunda camada de segurança para inícios de sessão de utilizador e transações.
 
 Este artigo fornece instruções passo a passo para integrar a infraestrutura NPS com o MFA do Azure utilizando a extensão NPS para Azure. Isto permite que a verificação segura para os utilizadores que tentarem iniciar sessão para um Gateway de ambiente de trabalho remoto.
+
+> [!NOTE]
+> Este artigo não deve ser utilizado com implementações de servidor MFA apenas do MFA do Azure (com base na Cloud).
 
 A política de rede e serviços de acesso (NPS) dá às organizações a capacidade de fazer o seguinte:
 
@@ -68,10 +71,10 @@ Esta secção fornece detalhes sobre os pré-requisitos necessários antes de in
 
 ### <a name="remote-desktop-services-rds-infrastructure"></a>Infraestrutura remota de serviços de ambiente de trabalho (RDS)
 
-Tem de ter uma infraestrutura de serviços de ambiente de trabalho remoto (RDS) funcional no local. Se não o fizer, em seguida, pode criar rapidamente esta infraestrutura no Azure utilizando o modelo de início rápido seguinte: [implementação de criar coleção de sessões de ambiente de trabalho remoto](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment). 
+Tem de ter uma infraestrutura de serviços de ambiente de trabalho remoto (RDS) funcional no local. Se não o fizer, em seguida, pode criar rapidamente esta infraestrutura no Azure utilizando o modelo de início rápido seguinte: [Criar implementação de coleção de sessões de ambiente de trabalho remoto](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment). 
 
 Se quiser criar manualmente uma infraestrutura RDS no local rapidamente para fins de teste, siga os passos para implementar uma. 
-**Saiba mais**: [implementar RDS com o início rápido do Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) e [implementação da infraestrutura de RDS básica](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
+**Saiba mais**: [Implementar o RDS com o início rápido do Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) e [implementação da infraestrutura de RDS básica](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
 
 ### <a name="azure-mfa-license"></a>Licença do MFA do Azure
 
@@ -83,7 +86,7 @@ A extensão NPS requer o Windows Server 2008 R2 SP1 ou superior com o serviço d
 
 ### <a name="network-policy-and-access-services-nps-role"></a>Função de política de rede e serviços de acesso (NPS)
 
-O serviço de função NPS fornece o servidor RADIUS e o cliente, funcionalidades, bem como o serviço de estado de funcionamento de política de acesso de rede. Esta função tem de ser instalada em, pelo menos, dois computadores na sua infraestrutura: O Gateway de ambiente de trabalho remoto e outro servidor membro ou controlador de domínio. Por predefinição, a função já está presente no computador configurado como o Gateway de ambiente de trabalho remoto.  Tem também de instalar a função NPS em, pelo menos, noutro computador, tal como um controlador de domínio ou servidor membro.
+O serviço de função NPS fornece o servidor RADIUS e o cliente, funcionalidades, bem como o serviço de estado de funcionamento de política de acesso de rede. Esta função tem de estar instalada em, pelo menos, dois computadores na sua infraestrutura: O Gateway de ambiente de trabalho remoto e outro servidor membro ou controlador de domínio. Por predefinição, a função já está presente no computador configurado como o Gateway de ambiente de trabalho remoto.  Tem também de instalar a função NPS em, pelo menos, noutro computador, tal como um controlador de domínio ou servidor membro.
 
 Para obter informações sobre como instalar a função NPS do serviço do Windows Server 2012 ou anterior, consulte [instalar um servidor de políticas de estado de funcionamento de NAP](https://technet.microsoft.com/library/dd296890.aspx). Para obter uma descrição de melhores práticas para o NPS, incluindo a recomendação para instalar NPS num controlador de domínio, consulte [melhores práticas para NPS](https://technet.microsoft.com/library/cc771746).
 

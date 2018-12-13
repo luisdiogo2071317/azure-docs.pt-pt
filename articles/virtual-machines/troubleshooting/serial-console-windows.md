@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 6905db3c042693fabea368bfd57547914fa01206
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 535c65f58ac9a3f39faa347ca853bfa410b7f182
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141140"
+ms.locfileid: "53185340"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Consola de série de máquina virtual para Windows
 
@@ -124,15 +124,15 @@ Uma interrupção não maskable (NMI) foi concebida para criar um sinal de que o
 
 A consola de série pode ser utilizada para enviar um NMI para uma máquina virtual do Azure com o ícone de teclado na barra de comandos. Depois do NMI é enviado, a configuração de máquina virtual irá controlar como o sistema responde. Windows podem ser configurado para falhas e crie um arquivo de despejo de memória, ao receber um NMI.
 
+![Enviar NMI](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+
+Para obter informações sobre como configurar o Windows para criar um arquivo de despejo de pane ao receber um NMI, consulte [como gerar um arquivo de despejo de pane, utilizando um NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
+
 ### <a name="use-function-keys-in-serial-console"></a>Utilizar teclas de função na consola de série
 Teclas de função estão ativadas para utilização para a consola de série em VMs do Windows. A tecla F8 na lista pendente de consola de série fornece a conveniência da introdução facilmente o menu de definições avançadas de inicialização, mas a consola de série é compatível com todas as outras teclas de função. Poderá ter de premir **Fn** + **F1** (ou F2, F3, etc) no seu teclado dependendo do computador estiver a utilizar da consola de série.
 
 ### <a name="use-wsl-in-serial-console"></a>Utilizar WSL na consola de série
 O subsistema Windows para Linux (WSL) foi ativado para o Windows Server 2019 ou posterior, pelo que também é possível ativar WSL para uso dentro da consola de série, se estiver a executar o Windows Server 2019 ou posterior. Isso pode ser benéfico para os utilizadores que também tem uma familiaridade com os comandos de Linux. Para obter instruções ativar WSL para o Windows Server, consulte a [guia de instalação](https://docs.microsoft.com/windows/wsl/install-on-server).
-
-![Enviar NMI](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
-
-Para obter informações sobre como configurar o Windows para criar um arquivo de despejo de pane ao receber um NMI, consulte [como gerar um arquivo de despejo de pane, utilizando um NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
 ## <a name="disable-serial-console"></a>Desativar a consola de série
 Por predefinição, todas as subscrições têm acesso de consola de série ativado para todas as VMs. Pode desativar a consola de série ao nível da subscrição ou o nível VM.

@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: defe1a109381c7ee44c6fc5e5db4c6f6ecc5ac6f
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706845"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322146"
 ---
-# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Tutorial: Utilização do Azure Key Vault com uma aplicação web do Azure no .NET
+# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Tutorial: Utilizar o Azure Key Vault com uma aplicação web do Azure no .NET
 
 O Azure Key Vault ajuda a proteger segredos, como chaves de API e as cadeias de ligação de base de dados. Ele fornece acesso às suas aplicações, serviços e recursos de TI.
 
@@ -56,7 +56,7 @@ Antes de continuar, leia [conceitos básicos do Key Vault](key-vault-whatis.md#b
 
 O Azure Key Vault armazena com segurança as credenciais para que eles não estão no seu código. No entanto, tem de autenticar para o Azure Key Vault para recuperar as suas chaves. Para autenticar para o Key Vault, precisa de uma credencial. É um dilema bootstrap clássico. Identidade de serviço gerida (MSI) resolve este problema, fornecendo uma _inicializar identidade_ que simplifica o processo.
 
-Quando ativar o MSI para um serviço do Azure (por exemplo: máquinas virtuais, o serviço de aplicações ou funções), o Azure cria um [Principal de serviço](key-vault-whatis.md#basic-concepts). MSI faz isso para a instância do serviço no Azure Active Directory (Azure AD) e injeta as credenciais para o Principal de serviço nessa instância.
+Quando ativar o MSI para um serviço do Azure (por exemplo: Máquinas virtuais, o serviço de aplicações ou funções), o Azure cria um [Principal de serviço](key-vault-whatis.md#basic-concepts). MSI faz isso para a instância do serviço no Azure Active Directory (Azure AD) e injeta as credenciais para o Principal de serviço nessa instância.
 
 ![Diagrama MSI](media/MSI.png)
 
@@ -90,7 +90,7 @@ Para criar um cofre de chaves no seu grupo de recursos, forneça as seguintes in
 
 * Nome do Cofre de chaves: uma cadeia de caracteres de 3 a 24 carateres que pode conter apenas números, letras e hífenes (por exemplo: 0 a 9, a-z, A-Z e -)
 * Nome do grupo de recursos
-* Localização: **E.U.A. oeste**
+* Localização: **E.U.A. Oeste**
 
 Introduza o seguinte comando na CLI do Azure:
 
@@ -132,7 +132,7 @@ Siga este [tutorial](../app-service/app-service-web-get-started-dotnet.md) para 
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. Importe o seguinte código no ficheiro About.cshtml.cs:
 
-   ```
+   ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
     using Microsoft.Azure.Services.AppAuthentication;
@@ -140,7 +140,7 @@ Siga este [tutorial](../app-service/app-service-web-get-started-dotnet.md) para 
 
 4. O código na classe AboutModel deve assim:
 
-   ```
+   ```csharp
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
@@ -220,7 +220,7 @@ O Azure Key Vault oferece uma forma de armazenar em segurança as credenciais e 
 
 1. Anote o `PrincipalId` ao publicar a aplicação no Azure. A saída do comando no passo 1 deve estar no seguinte formato:
 
-   ```
+   ```json
    {
      "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",

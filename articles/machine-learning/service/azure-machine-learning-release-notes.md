@@ -1,5 +1,5 @@
 ---
-title: Novidades
+title: O que há de novo na versão?
 titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre as atualizações mais recentes para o serviço Azure Machine Learning.
 services: machine-learning
@@ -11,18 +11,18 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ea9f8e07b627b7f3554e390063d61ef984f30dad
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 73f4aeb77124c21a07771ab080b88a56231e50da
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105143"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185720"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning. 
 
-## <a name="2018-12-04-general-availability"></a>2018-12-04: disponibilidade geral
+## <a name="2018-12-04-general-availability"></a>12-04 de 2018: Disponibilidade Geral
 
 O serviço do Azure Machine Learning está agora em disponibilidade geral.
 
@@ -235,7 +235,7 @@ Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais 
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09 (atualização da pré-visualização pública)
 
-A nova e totalmente atualizada a versão do Azure Machine Learning: Saiba mais sobre esta versão: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
+Uma versão nova, totalmente atualizada do Azure Machine Learning: Leia mais sobre esta versão: https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
 ## <a name="older-notes-sept-2017---jun-2018"></a>Notas de mais antigas: Setembro de 2017 - Junho de 2018
 ### <a name="2018-05-sprint-5"></a>05 de 2018 (sprint 5)

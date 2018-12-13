@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: f2c9194b07774443a70eef8e879d895efeb338e9
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9d75195656581021253b5787a8bfd46639cc1754
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458196"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323137"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de alocação personalizado
 
@@ -27,8 +27,8 @@ Por exemplo, talvez deseja examinar o certificado de que um dispositivo está a 
 
 Este artigo demonstra uma política de alocação personalizado usando uma função do Azure, escrito em c#. Os hubs IoT do novo dois são criados que representa um *Contoso Torradeiras divisão* e uma *divisão de calor bombas Contoso*. Solicitando o aprovisionamento de dispositivos têm de ter um ID de registo com um dos seguintes sufixos sejam aceites para aprovisionamento:
 
-- **-contoso-tstrsd-007**: Contoso Torradeiras divisão
-- **-contoso-hpsd-088**: Contoso térmico Bombeia divisão
+- **-contoso-tstrsd-007**: Divisão de Torradeiras de contoso
+- **-contoso-hpsd-088**: Divisão de calor bombas de contoso
 
 Os dispositivos serão aprovisionados com base em um desses sufixos necessários no ID do registo. Estes dispositivos irão ser simulados com um exemplo de aprovisionamento incluído nos [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c). 
 
@@ -96,13 +96,13 @@ Nesta secção, irá criar um novo grupo de inscrição que utiliza a política 
 
 3. No **adicionar grupo de inscrição**, introduza as seguintes informações e clique nas **guardar** botão.
 
-    **Nome do grupo**: introduza **contoso-personalizada-alocado-dispositivos**.
+    **Nome do grupo**: Introduza **contoso-personalizada-alocado-dispositivos**.
 
-    **Tipo de atestado**: selecione **chave simétrica**.
+    **Tipo de atestado**: Selecione **chave simétrica**.
 
-    **Gerar chaves automaticamente**: esta caixa de verificação já deve ser verificada.
+    **Chaves de geração automática**: Esta caixa de verificação já deve ser verificada.
 
-    **Selecione como pretende atribuir dispositivos a hubs**: selecione **personalizado (utilize a função do Azure)**.
+    **Selecione como pretende atribuir dispositivos a hubs**: Selecione **personalizado (utilizar a função do Azure)**.
 
     ![Adicionar grupo de inscrição de alocação personalizado para o atestado de chave simétrico](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
@@ -113,9 +113,9 @@ Nesta secção, irá criar um novo grupo de inscrição que utiliza a política 
 
     **Subscrição**: Se tiver várias subscrições, escolha a subscrição onde criou os hubs IoT divisão.
 
-    **IoT hub**: selecione um dos hubs de divisão que criou.
+    **IoT hub**: Selecione um dos hubs de divisão que criou.
 
-    **Política de acesso**: escolha **iothubowner**.
+    **Política de acesso**: Escolher **iothubowner**.
 
     ![Ligar os divisão hubs IoT com o serviço de aprovisionamento](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
 
@@ -129,11 +129,11 @@ Nesta secção, irá criar um novo grupo de inscrição que utiliza a política 
 
 7. No **aplicação de funções** criar página que abre-se, introduza as seguintes definições para a nova função e clique em **criar**:
 
-    **Nome da aplicação**: introduza um nome de aplicação de funções exclusivo. **Contoso-função-aplicação-1098** é mostrado como um exemplo.
+    **Nome da aplicação**: Introduza um nome de aplicação de funções exclusivo. **Contoso-função-aplicação-1098** é mostrado como um exemplo.
 
-    **Grupo de recursos**: selecione **utilizar existente** e o **contoso-nos-resource-group** para manter todos os recursos criados neste artigo em conjunto.
+    **Grupo de recursos**: Selecione **utilizar existente** e o **contoso-nos-resource-group** para manter todos os recursos criados neste artigo em conjunto.
 
-    **O Application Insights**: para este exercício podem desativar esta definição.
+    **O Application Insights**: Para este exercício podem desativar esta definição.
 
     ![Criar a aplicação de funções](./media/how-to-use-custom-allocation-policies/function-app-create.png)
 
@@ -390,7 +390,7 @@ Esta secção é orientada em relação uma estação de trabalho baseados em Wi
 4. Execute o seguinte comando para compilar uma versão do SDK específica da plataforma de cliente de desenvolvimento. Será gerada uma solução do Visual Studio para o dispositivo simulado no diretório `cmake`. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Se `cmake` não encontrar o compilador de C++, poderá obter erros de compilação ao executar o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -398,7 +398,7 @@ Esta secção é orientada em relação uma estação de trabalho baseados em Wi
     Assim que a compilação for concluída com êxito, as últimas linhas de saída terão um aspeto semelhante ao seguinte:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -526,12 +526,12 @@ A tabela seguinte mostra cenários esperados e os códigos de erro de resultados
 
 | Cenário | Resultado de registo do serviço de aprovisionamento | Resultados do SDK de aprovisionamento |
 | -------- | --------------------------------------------- | ------------------------ |
-| O webhook devolve 200 OK com "iotHubHostName' definido como um nome de anfitrião válido do hub IoT | Resultado de estado: atribuído  | SDK devolve PROV_DEVICE_RESULT_OK juntamente com informações de hub |
-| O webhook devolve 200 OK com 'iotHubHostName' presente na resposta, mas definida como uma cadeia vazia nem nula | Resultado de estado: falhou<br><br> Código de erro: CustomAllocationIotHubNotSpecified (400208) | SDK devolve PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| O webhook devolve 401 não autorizado | Resultado de estado: falhou<br><br>Código de erro: CustomAllocationUnauthorizedAccess (400209) | SDK devolve PROV_DEVICE_RESULT_UNAUTHORIZED |
-| Uma inscrição Individual foi criada para desativar o dispositivo | Resultado de estado: desativado | SDK devolve PROV_DEVICE_RESULT_DISABLED |
-| O webhook retorna o código de erro > = 429 | Orquestração dos pontos de distribuição tentará novamente várias vezes. A política de repetição é atualmente:<br><br>&nbsp;&nbsp;-Número de tentativas: 10<br>&nbsp;&nbsp;-Intervalo de inicial: 1s<br>&nbsp;&nbsp;– Incrementar: 9s | SDK irá ignorar o erro e submeta outra mensagem de estado de get no tempo especificado |
-| O webhook devolve qualquer outro código de estado | Resultado de estado: falhou<br><br>Código de erro: CustomAllocationFailed (400207) | SDK devolve PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
+| O webhook devolve 200 OK com "iotHubHostName' definido como um nome de anfitrião válido do hub IoT | Estado do resultado: Atribuído  | SDK devolve PROV_DEVICE_RESULT_OK juntamente com informações de hub |
+| O webhook devolve 200 OK com 'iotHubHostName' presente na resposta, mas definida como uma cadeia vazia nem nula | Estado do resultado: Com Falhas<br><br> Código do erro: CustomAllocationIotHubNotSpecified (400208) | SDK devolve PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| O webhook devolve 401 não autorizado | Estado do resultado: Com Falhas<br><br>Código do erro: CustomAllocationUnauthorizedAccess (400209) | SDK devolve PROV_DEVICE_RESULT_UNAUTHORIZED |
+| Uma inscrição Individual foi criada para desativar o dispositivo | Estado do resultado: Desativado | SDK devolve PROV_DEVICE_RESULT_DISABLED |
+| O webhook retorna o código de erro > = 429 | Orquestração dos pontos de distribuição tentará novamente várias vezes. A política de repetição é atualmente:<br><br>&nbsp;&nbsp;-Número de tentativas: 10<br>&nbsp;&nbsp;-Intervalo de inicial: 1s<br>&nbsp;&nbsp;-Incremento: 9S | SDK irá ignorar o erro e submeta outra mensagem de estado de get no tempo especificado |
+| O webhook devolve qualquer outro código de estado | Estado do resultado: Com Falhas<br><br>Código do erro: CustomAllocationFailed (400207) | SDK devolve PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

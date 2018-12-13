@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 772807fc0a1378eea662a7c4a7e3c720d7092bef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7bd63dc991500f1d7f68169342b9612c1b303a07
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013019"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320663"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar as definições de multi-factor Authentication do Azure
 
@@ -87,8 +87,8 @@ Configurar o _alerta de fraude_ de recursos para que os usuários podem relatar 
 
 ### <a name="configuration-options"></a>Opções de configuração
 
-* **Bloquear utilizador quando é reportada fraude**: se um utilizador comunicar fraude, a conta está bloqueada durante 90 dias ou até que um administrador desbloqueia a respetiva conta. Um administrador pode rever os inícios de sessão utilizando o relatório de início de sessão e tomar as medidas adequadas para prevenir a fraude futura. Um administrador pode então [desbloquear](#unblock-a-user) a conta de utilizador.
-* **Código para reportar fraude durante a saudação inicial**: quando os utilizadores recebem uma chamada telefónica para efetuar a verificação de dois passos, normalmente prima **#** para confirmar o início de sessão. Para reportar fraude, o usuário insere um código antes de prima **#**. Esse código é **0** por predefinição, mas pode personalizá-lo.
+* **Bloquear utilizador quando é reportada fraude**: Se um utilizador comunicar fraude, a conta está bloqueada durante 90 dias ou até que um administrador desbloqueia a respetiva conta. Um administrador pode rever os inícios de sessão utilizando o relatório de início de sessão e tomar as medidas adequadas para prevenir a fraude futura. Um administrador pode então [desbloquear](#unblock-a-user) a conta de utilizador.
+* **Código para reportar fraude durante a saudação inicial**: Quando os utilizadores recebem uma chamada telefónica para efetuar a verificação de dois passos, o normalmente pressione **#** para confirmar o início de sessão. Para reportar fraude, o usuário insere um código antes de prima **#**. Esse código é **0** por predefinição, mas pode personalizá-lo.
 
    >[!NOTE]
    >As saudações de voz padrão da Microsoft instruir que os usuários pressionem **n º 0** para submeter um alerta de fraude. Se pretender utilizar um código que **0**, registe e carregue seus próprios saudações de voz personalizada com as instruções adequadas para os seus utilizadores.
@@ -257,12 +257,15 @@ Os utilizadores também podem criar palavras-passe de aplicação após o regist
 
 O _IPs fidedignos_ funcionalidade de multi-factor Authentication do Azure é utilizada pelos administradores de um inquilino gerido ou federado. A funcionalidade ignora a verificação de dois passos para os utilizadores que iniciem sessão a partir da intranet da empresa. A funcionalidade está disponível com a versão completa do multi-factor Authentication do Azure e não a versão gratuita para administradores. Para obter detalhes sobre como obter a versão completa do multi-factor Authentication, consulte [multi-factor Authentication](multi-factor-authentication.md).
 
+> [!NOTE]
+> Acesso condicional localizações com nome e a IPs só funcionam com endereços IPV4 fidedignos de MFA.
+
 Se sua organização implementa a extensão NPS para fornecer a MFA a observação de aplicações no local serão exibidas sempre o endereço IP de origem deve ser o servidor NPS fluxos por meio de tentar a autenticação.
 
 | Tipo de inquilino do Azure AD | Opções de funcionalidades de IPs fidedignas |
 |:--- |:--- |
-| Gerido |**Intervalo de endereços IP específico**: os administradores de especificar um intervalo de endereços IP que pode ignorar a verificação de dois passos para os utilizadores que iniciem sessão a partir da intranet da empresa.|
-| Federado |**Todos os utilizadores federados**: todos os utilizadores federados que iniciem sessão a partir de dentro da organização podem ignorar a verificação de dois passos. Os utilizadores ignorar a verificação através de uma afirmação que é emitida por serviços de Federação do Active Directory (AD FS).<br/>**Intervalo de endereços IP específico**: os administradores de especificar um intervalo de endereços IP que pode ignorar a verificação de dois passos para os utilizadores que iniciem sessão a partir da intranet da empresa. |
+| Gerido |**Intervalo de endereços IP específico**: Os administradores de especificar um intervalo de endereços IP que pode ignorar a verificação de dois passos para os utilizadores que iniciem sessão a partir da intranet da empresa.|
+| Federado |**Todos os utilizadores federados**: Todos os utilizadores federados que iniciem sessão a partir de dentro da organização podem ignorar a verificação de dois passos. Os utilizadores ignorar a verificação através de uma afirmação que é emitida por serviços de Federação do Active Directory (AD FS).<br/>**Intervalo de endereços IP específico**: Os administradores de especificar um intervalo de endereços IP que pode ignorar a verificação de dois passos para os utilizadores que iniciem sessão a partir da intranet da empresa. |
 
 Os IPs fidedignos ignorar funciona apenas a partir de dentro da intranet da empresa. Se selecionar a **todos os utilizadores federados** opção e um utilizador inicia sessão a partir fora da intranet da empresa, o utilizador tem a autenticação com a verificação de dois passos. O processo é o mesmo, mesmo que o usuário apresentaria uma afirmação de AD FS. 
 
@@ -293,11 +296,11 @@ Independentemente se estiver ativada a funcionalidade de IPs fidedignos, verific
 3. Selecione **IPs fidedignos de MFA configurar**.
 4. Na **definições do serviço** página, em **IPs fidedignos**, escolha a partir de qualquer uma das duas opções seguintes:
 
-   * **Para pedidos de utilizadores federados com origem na minha intranet**: Escolha esta opção, selecione a caixa de verificação. Todos os utilizadores federados que iniciar sessão a partir da rede empresarial ignorar a verificação de dois passos, utilizando uma afirmação que é emitida pelo AD FS. Certifique-se de que o AD FS tem uma regra para adicionar a afirmação de intranet para o tráfego apropriado. Se a regra de não existir, crie a seguinte regra no AD FS:
+   * **Para pedidos de utilizadores federados com origem na minha intranet**: Para escolher esta opção, selecione a caixa de verificação. Todos os utilizadores federados que iniciar sessão a partir da rede empresarial ignorar a verificação de dois passos, utilizando uma afirmação que é emitida pelo AD FS. Certifique-se de que o AD FS tem uma regra para adicionar a afirmação de intranet para o tráfego apropriado. Se a regra de não existir, crie a seguinte regra no AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **Para pedidos de um intervalo específico de IPs públicos**: Escolha esta opção, introduza os endereços IP na caixa de texto utilizando a notação CIDR.
+   * **Para pedidos de um intervalo específico de IPs públicos**: Ao escolher esta opção, introduza os endereços IP na caixa de texto utilizando a notação CIDR.
       * Para endereços IP que estão em xxx.xxx.xxx.1 o intervalo por meio de xxx.xxx.xxx.254, utilize a notação, como **xxx.xxx.xxx.0/24**.
       * Para um único endereço IP, utilize a notação, como **xxx.xxx.xxx.xxx/32**.
       * Introduza até 50 intervalos de endereços IP. Os utilizadores que iniciem sessão a partir destes endereços IP ignorar a verificação de dois passos.
@@ -312,11 +315,11 @@ Independentemente se estiver ativada a funcionalidade de IPs fidedignos, verific
 4. Em multi-factor Authentication, selecione **definições do serviço**.
 5. Sobre o **definições do serviço** página, em **IPs fidedignos**, escolha uma (ou ambas) as duas opções seguintes:
 
-   * **Para pedidos de utilizadores federados na minha intranet**: Escolha esta opção, selecione a caixa de verificação. Todos os utilizadores federados que iniciar sessão a partir da rede empresarial ignorar a verificação de dois passos, utilizando uma afirmação que é emitida pelo AD FS. Certifique-se de que o AD FS tem uma regra para adicionar a afirmação de intranet para o tráfego apropriado. Se a regra de não existir, crie a seguinte regra no AD FS:
+   * **Para pedidos de utilizadores federados na minha intranet**: Para escolher esta opção, selecione a caixa de verificação. Todos os utilizadores federados que iniciar sessão a partir da rede empresarial ignorar a verificação de dois passos, utilizando uma afirmação que é emitida pelo AD FS. Certifique-se de que o AD FS tem uma regra para adicionar a afirmação de intranet para o tráfego apropriado. Se a regra de não existir, crie a seguinte regra no AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **Para pedidos de uma sub-redes de endereço do intervalo IP especificado**: Escolha esta opção, introduza os endereços IP na caixa de texto utilizando a notação CIDR.
+   * **Para pedidos de uma sub-redes de endereço do intervalo IP especificado**: Ao escolher esta opção, introduza os endereços IP na caixa de texto utilizando a notação CIDR.
       * Para endereços IP que estão em xxx.xxx.xxx.1 o intervalo por meio de xxx.xxx.xxx.254, utilize a notação, como **xxx.xxx.xxx.0/24**.
       * Para um único endereço IP, utilize a notação, como **xxx.xxx.xxx.xxx/32**.
       * Introduza até 50 intervalos de endereços IP. Os utilizadores que iniciem sessão a partir destes endereços IP ignorar a verificação de dois passos.
@@ -385,6 +388,6 @@ A funcionalidade reduz o número de autenticações nas aplicações web, que no
 
 Depois de ativar a funcionalidade de multi-factor Authentication de lembrar, os usuários podem marcar um dispositivo como fidedigno quando iniciam sessão, selecionando **não perguntar novamente**.
 
-# <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-[Modifique a marca de página de início de sessão do Azure AD](..\fundamentals\customize-branding.md)
+[Modifique a marca de página de início de sessão do Azure AD](../fundamentals/customize-branding.md)

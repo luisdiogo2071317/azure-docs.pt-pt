@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect: alterar a conta de serviço do Azure AD Connect Sync | Documentos da Microsoft'
+title: 'Sincronização do Azure AD Connect:  Alterar a conta de serviço do Azure AD Connect Sync | Documentos da Microsoft'
 description: Este documento de tópico descreve a chave de encriptação e como abandoná-lo Depois da palavra-passe é alterada.
 services: active-directory
 keywords: Conta de serviço de sincronização do Azure AD, a palavra-passe
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a0cdaa54d0da58a02cbe9fcda36cbaff6b1fab4a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747257"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184904"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alterar a senha de conta de serviço de sincronização do Azure AD Connect
 Se alterar a senha de conta de serviço de sincronização do Azure AD Connect, o serviço de sincronização não será capaz de iniciar corretamente até ter abandonado a chave de encriptação e reinicializados a senha de conta de serviço de sincronização do Azure AD Connect. 
@@ -39,12 +39,12 @@ Em primeiro lugar, terá de alterar a palavra-passe sob o Gestor de controlo do 
 
 
 - Se tentar iniciar o serviço de sincronização no Gestor de controlo de serviço do Windows, receberá o erro "**Windows não conseguiu iniciar o serviço do Microsoft Azure AD Sync no computador Local**". **Erro 1069: O serviço não foram iniciados devido a uma falha de início de sessão.** "
-- No Visualizador de eventos do Windows, o registo de eventos do sistema contém um erro com **7038 de ID de evento** e a mensagem "**o serviço ADSync não foi possível iniciar sessão, tal como acontece com a palavra-passe atualmente configurada devido ao seguinte erro: O utilizador nome ou a palavra-passe está incorreta.** "
+- No Visualizador de eventos do Windows, o registo de eventos do sistema contém um erro com **evento ID 7038** e a mensagem "**o serviço ADSync não foi possível iniciar sessão, tal como acontece com a palavra-passe atualmente configurada devido ao erro seguinte: O nome de utilizador ou palavra-passe está incorreta.** "
 
 Em segundo lugar, em condições específicas, se a palavra-passe é atualizada, o serviço de sincronização pode já não obter a chave de encriptação por meio de DPAPI. Sem a chave de encriptação, o serviço de sincronização não é possível desencriptar as palavras-passe necessárias para sincronizar em locais AD e o Azure AD.
 Verá erros, tais como:
 
-- Em Gestor de controlo de serviço de Windows, se tentar iniciar o serviço de sincronização e ele não é possível obter a chave de encriptação, ele falha com o erro "**Windows não conseguiu iniciar a sincronização do Microsoft Azure AD no computador Local.** Para obter mais informações, consulte o registo de eventos do sistema. **Se se tratar de um serviço de terceiros, contacte o fornecedor de serviço e consulte o código de erro específico do serviço \*\*-21451857952**\*\*."
+- Em Gestor de controlo de serviço de Windows, se tentar iniciar o serviço de sincronização e ele não é possível obter a chave de encriptação, ele falha com o erro "<strong>Windows não conseguiu iniciar a sincronização do Microsoft Azure AD no computador Local. Para obter mais informações, consulte o registo de eventos do sistema. Se se tratar de um serviço de terceiros, contacte o fornecedor de serviço e consulte o código de erro específico do serviço-21451857952</strong>. "
 - No Visualizador de eventos do Windows, o log de eventos do aplicativo contém um erro com **evento ID 6028** e mensagem de erro *"**a chave de encriptação do servidor não pode ser acedida.**"*
 
 Para garantir que não recebem esses erros, siga os procedimentos [abandonar a chave de encriptação do Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) quando alterar a palavra-passe.
@@ -121,6 +121,6 @@ Agora que o serviço de sincronização tem acesso para a chave de encriptação
 ## <a name="next-steps"></a>Passos Seguintes
 **Tópicos de descrição geral**
 
-* [Sincronização do Azure AD Connect: entender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
 
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

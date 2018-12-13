@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 95ab686961687829526bb00ed87d43d08aeb7db8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1df3fcad8a30b0d79f40aecc353684b7356fe061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972274"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190021"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Resolver problemas relacionados com alterações no seu ambiente
 
@@ -117,7 +117,7 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\\*.txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"         |
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
-|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
+|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **TRUE** ou **False**.|
 
 ### <a name="add-a-linux-file"></a>Adicionar um ficheiro do Linux
 
@@ -135,7 +135,7 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 |Recursão     | Determina se recursão é utilizada ao procurar o item a controlar.        |
 |Utilizar o Sudo     | Esta definição determina se o sudo é utilizado ao verificar o item.         |
 |Ligações     | Esta definição determina como as ligações simbólicas são processadas ao atravessar diretórios.<br> **Ignorar** - ignora as ligações simbólicas e não inclui os ficheiros/diretórios referenciados<br>**Seguir** - segue as ligações simbólicas durante a recursão e também inclui os ficheiros/diretórios referenciados<br>**Gerir** - segue as ligações simbólicas e permite alterar o tratamento do conteúdo devolvido      |
-|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **Verdadeiro** ou **Falso**.|
+|Carregar conteúdo do ficheiro para todas as definições| Ativa ou desativa o carregamento de conteúdo do ficheiro em alterações registadas. Opções disponíveis: **TRUE** ou **False**.|
 
    > [!NOTE]
    > A opção “Gerir” ligações não é recomendada. A obtenção de conteúdo do ficheiro não é suportada.
@@ -193,7 +193,7 @@ Em **Lógica de alerta**, para **Limiar**, introduza **0**. Quando tiver termina
 
 ![Configurar lógica de sinal](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-Sob **grupos de ação**, selecione **criar nova**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Sob **grupos de ação**, selecione **criar nova**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/platform/action-groups.md).
 
 Sob **detalhes do alerta**, introduza um nome e descrição do alerta. Defina a **Gravidade** para **Informativa (Grav 2)**, **Aviso (Grav 1)** ou **Crítica (Grav 0)**.
 

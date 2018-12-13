@@ -1,5 +1,5 @@
 ---
-title: Monitorizar aplicações no serviço de aplicações do Azure | Documentos da Microsoft
+title: Monitorizar aplicações - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como monitorizar aplicações no serviço de aplicações do Azure com o portal do Azure.
 services: app-service
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 6334b4cc50bfa6dca709fdc9d65938f0fec3ad1c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 103b5c1d2bc70f187b6e65a9fa9d80a35ad8e0c1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956775"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321584"
 ---
-# <a name="how-to-monitor-apps-in-azure-app-service"></a>Como: monitorizar aplicações no serviço de aplicações do Azure
+# <a name="how-to-monitor-apps-in-azure-app-service"></a>Como: Aplicações de Monitorização do Serviço de Aplicações do Azure
 [Serviço de aplicações](https://go.microsoft.com/fwlink/?LinkId=529714) fornece a funcionalidade interna de monitorização no [portal do Azure](https://portal.azure.com).
 O portal do Azure inclui a possibilidade de revisar **quotas** e **métricas** para uma aplicação, bem como o plano do serviço de aplicações, configurar **alertas** e, até mesmo **dimensionamento**  automaticamente com base nessas métricas.
 
@@ -53,7 +54,7 @@ Se o aplicativo é hospedado num **básica**, **padrão** ou **Premium** planear
 
 A quota apenas aplicável para aplicações alojadas nos **básica**, **padrão**, e **Premium** planos é **sistema de ficheiros**.
 
-Obter mais informações sobre as quotas específicas, limites e recursos disponíveis para os SKUs de serviço de aplicação diferente podem ser encontradas aqui: [limites de serviço de subscrição do Azure](../azure-subscription-service-limits.md#app-service-limits)
+Obter mais informações sobre as quotas específicas, limites e recursos disponíveis para os SKUs de serviço de aplicação diferente podem ser encontradas aqui: [Limites do Serviço das Subscrições do Azure](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Imposição de quota
 Se um aplicativo exceder os **CPU (curto)**, **CPU (dia)**, ou **largura de banda** quota, em seguida, o aplicativo está parado até que repõe a quota. Durante este período, todos os pedidos recebidos resultam numa **HTTP 403**.
@@ -75,7 +76,7 @@ Para uma **aplicativo**, as métricas disponíveis são:
 * **Conjunto de trabalho de memória média**
   * A quantidade média de memória em MiBs utilizados pela aplicação.
 * **Tempo de CPU**
-  * A quantidade de CPU em segundos consumidos pela aplicação. Para obter mais informações sobre esta métrica, consulte: [percentagem de CPU do vs de tempo de CPU](#cpu-time-vs-cpu-percentage)
+  * A quantidade de CPU em segundos consumidos pela aplicação. Para obter mais informações sobre esta métrica, consulte: [Percentagem de CPU do vs de tempo de CPU](#cpu-time-vs-cpu-percentage)
 * **Dados em**
   * A quantidade de largura de banda de entrada consumida pela aplicação no MiBs.
 * **Saída de dados**
@@ -141,18 +142,18 @@ As métricas para uma aplicação e o plano do serviço de aplicações são reg
 Pode rever o estado dos diferentes **quotas** e **métricas** afetar um aplicativo no [portal do Azure](https://portal.azure.com).
 
 ![][quotas]
-**Quotas** pode ser encontrado em Definições >**Quotas**. A experiência do Usuário permite-lhe rever: (1) o nome de quotas, (2) o intervalo de reposição, (3) o limite atual e o valor (4) atual.
+**Quotas** pode ser encontrado em Definições >**Quotas**. A experiência do Usuário permite-lhe rever: (1) o nome de quotas, (2) o intervalo de reposição, (3) o limite atual e valor (4) atual.
 
 ![][metrics]
 **Métricas** podem ser acedidos diretamente a partir da página de recursos. Também pode personalizar o gráfico por: (1) **clique em** e selecione (2) **editar gráfico**.
 Aqui pode alterar (3) **intervalo de tempo**, (4) **tipo de gráfico**e (5) **métricas** para apresentar.  
 
-Pode saber mais sobre as métricas aqui: [monitorizar as métricas de serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Pode saber mais sobre métricas aqui: [Monitorizar as métricas de serviço](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Alertas e o dimensionamento automático
 As métricas para um plano de aplicação ou serviço de aplicações podem ser conectadas a alertas. Para saber mais sobre esse assunto, veja [receber notificações de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Aplicações de serviço de aplicações alojadas no básico, standard ou premium suporte de planos de serviço de aplicações **dimensionamento automático**. Dimensionamento automático permite-lhe configurar regras que monitoram as métricas de plano de serviço de aplicações. Regras podem aumentar ou diminuir a contagem de instâncias fornecem recursos adicionais, conforme necessário. As regras também podem ajudar a poupar dinheiro quando o aplicativo é provisionado excessiva. Pode saber mais sobre aqui a escala automática: [como dimensionar](../monitoring-and-diagnostics/insights-how-to-scale.md) e, aqui [melhores práticas para o dimensionamento automático do Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+Aplicações de serviço de aplicações alojadas no básico, standard ou premium suporte de planos de serviço de aplicações **dimensionamento automático**. Dimensionamento automático permite-lhe configurar regras que monitoram as métricas de plano de serviço de aplicações. Regras podem aumentar ou diminuir a contagem de instâncias fornecem recursos adicionais, conforme necessário. As regras também podem ajudar a poupar dinheiro quando o aplicativo é provisionado excessiva. Pode saber mais sobre aqui a escala automática: [Como dimensionar](../monitoring-and-diagnostics/insights-how-to-scale.md) e aqui [melhores práticas para o dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md)
 
 > [!NOTE]
 > Se pretender começar a utilizar o App Service do Azure antes de se inscrever numa conta do Azure, aceda a [Experimentar o App Service](https://azure.microsoft.com/try/app-service/), onde pode criar de imediato uma aplicação Web de arranque de curta duração no App Service. Sem cartões de crédito; sem compromissos.

@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Compilar imagens do contentor na cloud com o Azure Container Registry Tasks
+title: Tutorial - criar imagens de contentor na cloud - Azure Container Registry tarefas
 description: Neste tutorial, vai aprender a compilar uma imagem do contentor de Docker no Azure com o Azure Container Registry Tasks (ACR Tasks) e, em seguida, implementá-la no Azure Container Instances.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7ac4fb62c6832920634de96c3e5befb15ce3b3a4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: eafd6a75b4297056bcf4c5415f77179cefde6541
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854733"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256694"
 ---
-# <a name="tutorial-build-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Compilar imagens do contentor na cloud com o Azure Container Registry Tasks
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Criar e implementar imagens de contentor na cloud com tarefas de registo de contentor do Azure
 
 O **ACR Tasks** é um conjunto de funcionalidades no Azure Container Registry que fornece compilações de imagens do contentor de Docker simplificadas e eficientes no Azure. Neste artigo, vai aprender a utilizar a funcionalidade *tarefa rápida*  do ACR Tasks.
 
@@ -220,8 +220,8 @@ az keyvault secret set \
 
 Acabou de criar um Azure Key Vault e de armazenar dois segredos nele:
 
-* `$ACR_NAME-pull-usr`: o ID do principal de serviço, para utilização como o **nome de utilizador** do registo de contentor.
-* `$ACR_NAME-pull-pwd`: a palavra-passe do principal de serviço, para utilização como a **palavra-passe** do registo de contentor.
+* `$ACR_NAME-pull-usr`: O ID de principal de serviço, para utilização como o registo de contentor **nome de utilizador**.
+* `$ACR_NAME-pull-pwd`: A senha de principal de serviço, para utilização como o registo de contentor **palavra-passe**.
 
 Agora, pode referenciar estes segredos por nome quando você ou as suas aplicações e serviços solicitarem imagens do registo.
 
@@ -307,7 +307,7 @@ az group delete --resource-group $RES_GROUP
 az ad sp delete --id http://$ACR_NAME-pull
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que testou o ciclo interno com uma tarefa rápida, configure uma **tarefa de compilação** para acionar compilações de imagens do contentor quando consolida código de origem para um repositório de Git:
 

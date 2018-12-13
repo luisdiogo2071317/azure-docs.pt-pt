@@ -1,6 +1,6 @@
 ---
-title: Suporte de idiomas de Java para o serviço de aplicações do Azure no Linux | Documentos da Microsoft
-description: Guia do programador para implementar aplicações de Java com o serviço de aplicações do Azure no Linux.
+title: Guia de programação Java para o serviço de aplicações no Linux - Azure | Documentos da Microsoft
+description: Saiba como configurar as aplicações de Java em execução no serviço de aplicações do Azure no Linux.
 keywords: serviço de aplicações do Azure, aplicação web, linux, oss, java
 services: app-service
 author: rloutlaw
@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 12/10/2018
 ms.author: routlaw
-ms.openlocfilehash: cf3e5bf6752311881e1266d2fb49aa5b7108e68a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 75410b1338909f98a01b02c0ff86be9b81ab3faf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965569"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250926"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia de programação Java para o serviço de aplicações no Linux
 

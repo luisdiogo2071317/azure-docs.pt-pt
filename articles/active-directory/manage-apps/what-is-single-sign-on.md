@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: c21d78d1e0660b97c44130539ab3b5c71b8d6f6b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843041"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322709"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Início de sessão único para aplicações no Azure Active Directory
 Saiba como escolher o método mais apropriado único início de sessão quando configurar as aplicações no Azure Active Directory (Azure AD). 
@@ -61,14 +61,13 @@ Baseado em SAML início de sessão único é suportada para aplicações que uti
 
 - SAML 2.0
 - WS-Federation
-- OpenID connect
 
 Para configurar uma aplicação para baseado em SAML início de sessão único, consulte [baseado em SAML configurar início de sessão único](configure-single-sign-on-portal.md). Além disso, muitos aplicativos têm [específico do aplicativo tutoriais](../saas-apps/tutorial-list.md) que conduzi-lo a configurar baseado em SAML início de sessão único para aplicações específicas. 
 
 Para obter mais informações sobre como funciona o protocolo SAML, consulte [único início de sessão do protocolo SAML](../develop/single-sign-on-saml-protocol.md).
 
 ## <a name="password-based-sso"></a>SSO baseado em palavra-passe
-Com baseado em palavra-passe de início de sessão, a aplicação autentica-se para a aplicação com um nome de utilizador e palavra-passe. Os utilizadores finais, inicie sessão, o tempo de aplicativo a primeira acederem ao mesmo. Após o primeiro início de sessão, o Azure Active Directory fornece o nome de utilizador e palavra-passe para a aplicação. 
+Com baseado em palavra-passe de início de sessão, utilizadores finais iniciam sessão para a aplicação com um nome de utilizador e palavra-passe na primeira vez que acederem ao mesmo. Após o primeiro início de sessão, o Azure Active Directory fornece o nome de utilizador e palavra-passe para a aplicação. 
 
 Com base em palavra-passe de início de sessão único usa o processo de autenticação existentes fornecido pelo aplicativo. Quando ativa a palavra-passe início de sessão único para uma aplicação, o AD do Azure recolhe e armazena em segurança os nomes de utilizador e palavras-passe para a aplicação. As credenciais do usuário são armazenadas num estado encriptado no diretório. 
 
@@ -162,7 +161,7 @@ Utilize com base no cabeçalho início de sessão único quando:
 
 Para configurar a autenticação baseada em cabeçalho, consulte [autenticação baseada em cabeçalho para início de sessão único com o Proxy de aplicações](application-proxy-configure-single-sign-on-with-ping-access.md). 
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>O que é o PingAccess para Azure AD?
+### <a name="what-is-pingaccess-for-azure-ad"></a>O que é o PingAccess para o Azure AD?
 
 Usando o PingAccess para o Azure AD, os utilizadores podem acesso e o único início de sessão em aplicações que utilizam cabeçalhos para autenticação. Proxy de aplicações trata esses aplicativos, como qualquer outro, utilizar o Azure AD para autenticar o acesso e, em seguida, passar o tráfego através do serviço de conector. Após a ocorrência da autenticação, o serviço do PingAccess traduz-se o token de acesso do Azure AD para um formato de cabeçalho que é enviado para a aplicação.
 
@@ -178,6 +177,6 @@ Para obter mais informações, consulte [Edições do Azure Active Directory](..
 * [Tutoriais para integrar aplicações SaaS com o Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Tutorial para configurar o início de sessão único](configure-single-sign-on-portal.md)
 * [Introdução à gestão do acesso a aplicações](what-is-access-management.md)
-* Ligação de transferência: [plano de implantação de início de sessão único](https://aka.ms/SSODeploymentPlan).
+* Ligação de transferência: [Plano de implantação de início de sessão único](https://aka.ms/SSODeploymentPlan).
 
 

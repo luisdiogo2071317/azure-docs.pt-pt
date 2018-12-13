@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 4255b70746eb1d307617a66714301fa7f8609a77
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5726444033d8da14c213918f409ddf5875e026b9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634273"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322760"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Descrição geral do Azure agentes de monitorização 
 O Microsoft Azure fornece várias formas de recolher diferentes tipos de dados de máquinas virtuais com o Microsoft Windows e Linux alojados no Azure, o seu datacenter ou outros fornecedores de cloud. Os três tipos de agentes disponíveis para monitorizar uma VM são:
@@ -31,7 +30,7 @@ O Microsoft Azure fornece várias formas de recolher diferentes tipos de dados d
 Este artigo descreve as diferenças entre eles e seus recursos para poder determinar qual deles irá suportar o gerenciamento de serviços ou os requisitos de monitorização gerais.  
 
 ## <a name="azure-diagnostic-extension"></a>Extensão de diagnóstico do Azure
-O [extensão de diagnóstico do Azure](../../monitoring-and-diagnostics/azure-diagnostics.md) (geralmente conhecida como a extensão de diagnóstico do Windows Azure (WAD) ou o diagnóstico do Linux do Azure (LAD)), que é fornecido para Cloud Services do Azure, uma vez que tornou-se em disponibilidade geral em 2010, é um agente que oferece uma coleção simples de dados de diagnóstico de um recurso de computação do Azure, como uma VM e mantê-los ao armazenamento do Azure. Uma vez no armazenamento, que escolheu para ver uma das várias ferramentas disponíveis, como [Explorador de servidores no Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) e [Explorador de armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+O [extensão de diagnóstico do Azure](../../azure-monitor/platform/diagnostics-extension-overview.md) (geralmente conhecida como a extensão de diagnóstico do Windows Azure (WAD) ou o diagnóstico do Linux do Azure (LAD)), que é fornecido para Cloud Services do Azure, uma vez que tornou-se em disponibilidade geral em 2010, é um agente que oferece uma coleção simples de dados de diagnóstico de um recurso de computação do Azure, como uma VM e mantê-los ao armazenamento do Azure. Uma vez no armazenamento, que escolheu para ver uma das várias ferramentas disponíveis, como [Explorador de servidores no Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) e [Explorador de armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Pode optar por coletar:
 
@@ -46,7 +45,7 @@ O agente de diagnóstico do Azure deve ser utilizado quando pretender:
 
 * Arquivar registos e métricas para o armazenamento do Azure
 * Integre dados de monitorização com as ferramentas de terceiros. Essas ferramentas usam uma variedade de métodos, incluindo consultar reencaminhada para a conta de armazenamento [os Hubs de eventos](../../event-hubs/event-hubs-about.md), ou consultar com o [API de REST de monitorização do Azure](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
-* Carregar dados para o Azure Monitor para criar gráficos de métricas no portal do Azure ou crie quase em tempo real [alertas de métricas](../../monitoring-and-diagnostics/alert-metric-overview.md). 
+* Carregar dados para o Azure Monitor para criar gráficos de métricas no portal do Azure ou crie quase em tempo real [alertas de métricas](../../azure-monitor/platform/alerts-metric-overview.md). 
 * Os conjuntos de dimensionamento de máquinas virtuais do dimensionamento automático e os serviços de Cloud clássico com base em métricas de SO convidado.
 * Investigar problemas de arranque de VMS com [diagnóstico de arranque](../../virtual-machines/troubleshooting/boot-diagnostics.md).
 * Compreender o desempenho das suas aplicações e identifica proativamente os problemas que afetam-los com [Application Insights](../../azure-monitor/overview.md).

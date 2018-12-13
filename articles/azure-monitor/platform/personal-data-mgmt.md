@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: be14b560eb48adc2fcf0ad0a1cf7fe27792a402a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5b8db52623eead2800b0a5d8154a222573808750
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002599"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192435"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Documentação de orientação para os dados pessoais armazenados no Log Analytics e Application Insights
 
@@ -44,39 +43,39 @@ O log Analytics é um armazenamento flexível, que, ao mesmo tempo que prescreve
 
 ### <a name="log-data"></a>Dados de registo
 
-* *Endereços IP*: o Log Analytics recolhe uma grande variedade de informações de IP em muitas tabelas diferentes. Por exemplo, a seguinte consulta mostra todas as tabelas em que os endereços IPv4 tenham sido recolhidos nas últimas 24 horas:
+* *Endereços IP*: O log Analytics recolhe uma grande variedade de informações de IP em muitas tabelas diferentes. Por exemplo, a seguinte consulta mostra todas as tabelas em que os endereços IPv4 tenham sido recolhidos nas últimas 24 horas:
     ```
     search * 
     | where * matches regex @'\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b' //RegEx originally provided on https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp
     | summarize count() by $table
     ```
-* *IDs de utilizador*: o IDs de utilizador encontram-se numa grande variedade de soluções e tabelas. Pode procurar por um nome de utilizador específico em seu conjunto de dados completo com o comando de pesquisa:
+* *IDs de utilizador*: IDs de utilizador encontram-se numa grande variedade de soluções e tabelas. Pode procurar por um nome de utilizador específico em seu conjunto de dados completo com o comando de pesquisa:
     ```
     search "[username goes here]"
     ```
 Lembre-se de ter um aspeto não apenas para os nomes de utilizador legível por humanos, mas também GUIDs que diretamente podem ser rastreados volta a um utilizador específico!
-* *Identificações de dispositivo*: como, por vezes, são considerados "private" IDs de utilizador, identificações de dispositivo. Utilize a mesma abordagem, conforme listado acima para IDs de usuário, para identificar tabelas onde isso pode ser uma preocupação. 
-* *Dados personalizados*: o Log Analytics permite que a coleção numa variedade de métodos: registos personalizados e campos personalizados, o [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) , e dados personalizados recolhido como parte dos logs de eventos do sistema. Todos esses são suscetíveis a que contém dados privados e devem ser examinados para verificar a existem de dados.
-* *Dados capturados solução*: uma vez que o mecanismo de solução é aberta, recomendamos que reveja todas as tabelas geradas pelas soluções para garantir a conformidade.
+* *Identificações de dispositivo*: Como IDs de usuário, identificações de dispositivo, por vezes, são consideradas "private". Utilize a mesma abordagem, conforme listado acima para IDs de usuário, para identificar tabelas onde isso pode ser uma preocupação. 
+* *Dados personalizados*: O log Analytics permite que a coleção numa variedade de métodos: registos personalizados e campos personalizados, o [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) , e dados personalizados recolhido como parte dos logs de eventos do sistema. Todos esses são suscetíveis a que contém dados privados e devem ser examinados para verificar a existem de dados.
+* *Dados capturados solução*: Uma vez que o mecanismo de solução é aberta, recomendamos que reveja todas as tabelas geradas pelas soluções para garantir a conformidade.
 
 ### <a name="application-data"></a>Dados da aplicação
 
-* *Endereços IP*: enquanto o Application Insights irá, por predefinição, oculte todos os campos de endereço IP como "0.0.0.0", é um padrão bastante comum para substituir este valor com o IP de utilizador reais para manter informações de sessão. A consulta do Analytics abaixo pode ser usada para encontrar qualquer tabela que contém os valores na coluna do endereço IP diferente de "0.0.0.0" nas últimas 24 horas:
+* *Endereços IP*: Application Insights irá, por predefinição, oculte todos os campos de endereço IP como "0.0.0.0", mas é um padrão bastante comum para substituir este valor com o IP de utilizador reais para manter informações de sessão. A consulta do Analytics abaixo pode ser usada para encontrar qualquer tabela que contém os valores na coluna do endereço IP diferente de "0.0.0.0" nas últimas 24 horas:
     ```
     search client_IP != "0.0.0.0"
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* *IDs de utilizador*: por predefinição, o Application Insights irá utilizar IDs gerados aleatoriamente para utilizador e o controlo de sessão. No entanto, é comum ver estes campos substituídos para armazenar um ID mais relevante para a aplicação. Por exemplo: nomes de utilizador, GUIDs do AAD, etc. Estes IDs de muitas vezes, são consideradas como dentro do âmbito como os dados pessoais e, portanto, devem ser manipuladas adequadamente. A nossa recomendação é sempre tentar ofuscar ou tornar anónima a estas identificações. Os campos onde estes valores estão normalmente presentes incluem session_Id, user_Id, user_AuthenticatedId, user_AccountId, bem como a customDimensions.
-* *Dados personalizados*: Application Insights permite anexar um conjunto de dimensões personalizadas para qualquer tipo de dados. Essas dimensões podem ser *qualquer* dados. Utilize a seguinte consulta para identificar todas as dimensões personalizadas recolhidas ao longo das últimas 24 horas:
+* *IDs de utilizador*: Por predefinição, o Application Insights irá utilizar IDs gerados aleatoriamente para utilizador e o controlo de sessão. No entanto, é comum ver estes campos substituídos para armazenar um ID mais relevante para a aplicação. Por exemplo: nomes de utilizador, GUIDs do AAD, etc. Estes IDs de muitas vezes, são consideradas como dentro do âmbito como os dados pessoais e, portanto, devem ser manipuladas adequadamente. A nossa recomendação é sempre tentar ofuscar ou tornar anónima a estas identificações. Os campos onde estes valores estão normalmente presentes incluem session_Id, user_Id, user_AuthenticatedId, user_AccountId, bem como a customDimensions.
+* *Dados personalizados*: O Application Insights permite-lhe acrescentar um conjunto de dimensões personalizadas para qualquer tipo de dados. Essas dimensões podem ser *qualquer* dados. Utilize a seguinte consulta para identificar todas as dimensões personalizadas recolhidas ao longo das últimas 24 horas:
     ```
     search * 
     | where isnotempty(customDimensions)
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *Os dados na memória e em trânsito*: Application Insights irá controlar exceções, pedidos, chamadas de dependência e rastreios. Muitas vezes, podem ser recolhidos dados privados no código e no nível de chamada HTTP. Reveja as exceções, pedidos, dependências e rastreios tabelas para identificar os dados. Uso [inicializadores de telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) sempre que possível de ofuscar estes dados.
-* *Capturas de depurador de instantâneos*: A [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) recurso do Application Insights permite-lhe recolher instantâneos de depuração, sempre que uma exceção é capturada na instância de produção do seu aplicativo. Instantâneos irão expor o rastreio de pilha completa que leva às exceções, bem como os valores para variáveis locais em cada etapa na pilha. Infelizmente, esta funcionalidade não permite a eliminação seletiva de pontos de ajuste ou acesso programático aos dados dentro do instantâneo. Portanto, se a taxa de retenção de instantâneos padrão não satisfaz os requisitos de conformidade, a recomendação é desativar a funcionalidade.
+* *Os dados na memória e em trânsito*: O Application Insights irá controlar exceções, pedidos, chamadas de dependência e rastreios. Muitas vezes, podem ser recolhidos dados privados no código e no nível de chamada HTTP. Reveja as exceções, pedidos, dependências e rastreios tabelas para identificar os dados. Uso [inicializadores de telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) sempre que possível de ofuscar estes dados.
+* *Capturas de depurador de instantâneos*: O [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) recurso do Application Insights permite-lhe recolher instantâneos de depuração, sempre que uma exceção é capturada na instância de produção do seu aplicativo. Instantâneos irão expor o rastreio de pilha completa que leva às exceções, bem como os valores para variáveis locais em cada etapa na pilha. Infelizmente, esta funcionalidade não permite a eliminação seletiva de pontos de ajuste ou acesso programático aos dados dentro do instantâneo. Portanto, se a taxa de retenção de instantâneos padrão não satisfaz os requisitos de conformidade, a recomendação é desativar a funcionalidade.
 
 ## <a name="how-to-export-and-delete-private-data"></a>Como exportar e eliminar dados privados
 

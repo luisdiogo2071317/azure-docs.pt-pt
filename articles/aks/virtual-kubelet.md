@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: a2fed45e4ec51fac7d4d04e50616a7e3748d71c4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e5d415593a510acb81eac65242010d1841044857
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834405"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162652"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Utilizar o Virtual Kubelet com o serviço Kubernetes do Azure (AKS)
 
@@ -90,7 +90,7 @@ Estes argumentos estão disponíveis para o `aks install-connector` comando.
 | `--connector-name` | Nome do conector ACI.| Sim |
 | `--name` `-n` | Nome do cluster gerido. | Sim |
 | `--resource-group` `-g` | Nome do grupo de recursos. | Sim |
-| `--os-type` | Tipo de sistema operativo de instâncias de contentor. Valores permitidos: ambos, Linux, Windows. Predefinição: Linux. | Não |
+| `--os-type` | Tipo de sistema operativo de instâncias de contentor. Valores permitidos: Ambos os casos, Linux, Windows. Predefinição: Linux. | Não |
 | `--aci-resource-group` | O grupo de recursos no qual pretende criar os grupos de contentor do ACI. | Não |
 | `--location` `-l` | A localização para criar os grupos de contentor do ACI. | Não |
 | `--service-principal` | Principal de serviço utilizado para autenticação para APIs do Azure. | Não |
@@ -228,7 +228,7 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 Para possíveis problemas com o Virtual Kubelet, consulte a [conhecido sutilezas e soluções alternativas][vk-troubleshooting]. Reportar problemas com o Virtual Kubelet [abra um problema do GitHub][vk-issues].
 
-Saiba mais sobre o Virtual Kubelet, o [projeto Virtual Kubelet Github][vk-github].
+Saiba mais sobre o Virtual Kubelet, o [projeto Virtual Kubelet GitHub][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md

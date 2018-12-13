@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: 0e316bf06cc6e2915adca5e7961083e6668bbfc1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.date: 12/11/2018
+ms.openlocfilehash: 644a3a2fe6bce6ccc99b0c1c99ea07b129676653
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889128"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320851"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
-Pode criar uma base de dados do Azure para o servidor MySQL dos três diferentes escalões de preço: básico, fins gerais e com otimização de memória. Os escalões de preço são diferenciados pela quantidade de computação em vCores, que pode ser aprovisionado, memória por vCore e a tecnologia de armazenamento utilizada para armazenar os dados. Todos os recursos são aprovisionados ao nível do servidor MySQL. Um servidor pode ter uma ou mais bases de dados.
+Pode criar uma base de dados do Azure para o servidor MySQL dos três escalões de preço diferentes: Básico, fins gerais e com otimização de memória. Os escalões de preço são diferenciados pela quantidade de computação em vCores, que pode ser aprovisionado, memória por vCore e a tecnologia de armazenamento utilizada para armazenar os dados. Todos os recursos são aprovisionados ao nível do servidor MySQL. Um servidor pode ter uma ou mais bases de dados.
 
 |    | **Básica** | **Fins gerais** | **Com otimização de memória** |
 |:---|:----------|:--------------------|:---------------------|
@@ -42,6 +42,9 @@ Depois de criar um servidor, o número de vCores, geração de hardware e preço
 ## <a name="compute-generations-and-vcores"></a>Gerações de computação e vCores
 
 Computação foram fornecidos recursos como vCores, que representam a CPU lógica do hardware subjacente. Atualmente, pode escolher entre duas gerações de computação, geração 4 e 5 de fins. Geração 4 CPUs lógicas baseiam-se no Intel E5-2673 v3 processadores de 2,4 GHz (Haswell). Geração 5 CPUs lógicas baseiam-se no Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores. Gen 4 e 5 de fins estão disponíveis nas seguintes regiões (o "X" denota disponível).
+
+> [!IMPORTANT]
+> A partir de 12 de Dezembro de 2018, os novos clientes serão não conseguir aprovisionar servidores de geração 4 de computação no sul do Brasil, Canadá Central, leste do Canadá, Ásia Oriental, E.U.A. Leste 2, Índia Central, Índia Ocidental, oeste do Japão, e.u.a. Centro-Norte, E.U.A. oeste. Geração de computação 4 servidores serão migrados para a geração 5 a partir de 1 de Fevereiro de 2019 nestas regiões de computação foi criado anteriormente.
 
 | **Região do Azure** | **Geração 4** | **Geração 5** |
 |:---|:----------:|:--------------------:|

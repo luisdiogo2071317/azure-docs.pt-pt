@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas de sugestões de pesquisa cognitiva no Azure Search | Documentos da Microsoft
+title: Sugestões de resolução de problemas para pesquisa cognitiva - Azure Search
 description: Sugestões e resolução de problemas para a configuração cognitivos pesquisar pipelines do Azure Search.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3d0d468674a2284e9925c1410f2bb8bcbde8f73f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec2018
+ms.openlocfilehash: 5f21fe3c65e37d3fee4043526762a7fafdea5cc4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575319"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316299"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Sugestões de resolução de problemas para pesquisa cognitiva
 
@@ -23,7 +24,7 @@ Este artigo contém uma lista de dicas e truques para mantê-lo a mover de como 
 
 Se ainda não o tiver o feito, siga os passos a [Tutorial: Saiba como chamar a APIs de pesquisa cognitiva](cognitive-search-quickstart-blob.md) para prática na aplicação possível de pesquisa cognitiva a uma origem de dados de Blobs.
 
-## <a name="tip-1-start-with-a-small-dataset"></a>Sugestão 1: Iniciar com um pequeno conjunto de dados
+## <a name="tip-1-start-with-a-small-dataset"></a>Sugestão 1: Começar com um pequeno conjunto de dados
 É a melhor maneira de encontrar problemas rapidamente aumentar a velocidade a que pode corrigir os problemas. É a melhor maneira de reduzir o tempo de indexação, reduzindo o número de documentos ser indexados. 
 
 Comece por criar uma origem de dados com apenas alguns documentos/registos. Seu exemplo de documento deve ser uma boa representação a variedade de documentos que serão indexados. 
@@ -51,7 +52,7 @@ Nesse caso, pode querer saber o indexador para ignorar os erros. Faço isso conf
    }
 }
 ```
-## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Sugestão 4: Ver documentos plena nos bastidores 
+## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Sugestão 4: Observando a plena documentos nos bastidores 
 Documentos plena são estruturas temporárias criados durante a melhoria e, em seguida, eliminados quando o processamento estar concluído.
 
 Para capturar um instantâneo do documento melhorado criado durante a indexação, adicione um campo chamado ```enriched``` ao índice. O indexador captura automaticamente para o campo uma representação da cadeia de todos os melhoramentos desse documento.
@@ -79,11 +80,11 @@ Adicionar um ```enriched``` campo como parte da sua definição de índice para 
 }
 ```
 
-## <a name="tip-5-expected-content-fails-to-appear"></a>Sugestão 5: Esperada conteúda a falha aparecer
+## <a name="tip-5-expected-content-fails-to-appear"></a>Sugestão 5: Era esperado conteúda falha apareça
 
 Conteúdo em falta pode ser o resultado de documentos deixados durante a indexação. Os escalões gratuito e básicos têm limites baixas no tamanho do documento. Qualquer ficheiro que exceda o limite é removido durante a indexação. Pode verificar ignorados documentos no portal do Azure. No dashboard do serviço de pesquisa, faça duplo clique no mosaico de indexadores. Reveja a taxa de êxito documentos indexados. Se não for 100%, pode clicar a proporção para obter mais detalhes. 
 
-Se o problema está relacionado ao tamanho do ficheiro, poderá ver um erro como este: "O blob < nome de ficheiro >" tem o tamanho de bytes de < tamanho de ficheiro >, que excede o tamanho máximo para extração de documentos do escalão de serviço atual. " Para obter mais informações sobre os limites de indexador, consulte [limites de serviço](search-limits-quotas-capacity.md).
+Se o problema está relacionado ao tamanho do ficheiro, poderá ver um erro como este: "O blob < nome de ficheiro >" tem o tamanho de bytes de < tamanho de ficheiro >, que excede o tamanho máximo para extração de documentos do escalão de serviço atual." Para obter mais informações sobre os limites de indexador, consulte [limites de serviço](search-limits-quotas-capacity.md).
 
 Uma segunda razão para o conteúdo que não aparecem poderá ser erros de mapeamento de entrada/saída relacionados. Por exemplo, um nome de destino de saída é "Pessoas", mas o nome do campo de índice é minúsculas "pessoas". O sistema poderia retornar 201 mensagens de sucesso para todo o pipeline, para que acha que a indexação foi concluída com êxito, quando na verdade um campo estiver vazio. 
 
@@ -93,7 +94,7 @@ A análise de imagem é computacionalmente intensiva para casos simples, portant
 
 Tempo de execução máximo varia consoante o escalão: escalão de vários minutos no gratuito, indexação nos escalões de cobrar 24 horas. Se o processamento de mensagens em fila não conseguir concluir dentro de um período de 24 horas para processamento sob demanda, mude para uma agenda para fazer com que este pegar processamento onde parou. 
 
-Para indexadores agendadas, indexação CVS numa agenda em último documento bom conhecido. Ao utilizar uma agenda periódica, o indexador pode trabalhar ao percorrer a lista de pendências de imagem através de uma série de horas ou dias, até que todas as imagens não processadas são processadas. Para obter mais informações sobre a sintaxe de agenda, consulte [passo 3: criar um indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+Para indexadores agendadas, indexação CVS numa agenda em último documento bom conhecido. Ao utilizar uma agenda periódica, o indexador pode trabalhar ao percorrer a lista de pendências de imagem através de uma série de horas ou dias, até que todas as imagens não processadas são processadas. Para obter mais informações sobre a sintaxe de agenda, consulte [passo 3: Criar um indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
 
 Para baseado no portal de indexação (conforme descrito no guia de introdução), escolhendo o indexador "run once" opção limites de processamento para 1 hora (`"maxRunTime": "PT1H"`). Talvez queira estender a janela de processamento para algo mais.
 

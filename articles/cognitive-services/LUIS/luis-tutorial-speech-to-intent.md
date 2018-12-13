@@ -1,7 +1,7 @@
 ---
 title: Utilize a voz C# SDK
 titleSuffix: Azure Cognitive Services
-description: O Serviço de Voz permite-lhe utilizar um pedido simples para receber áudio e devolve objetos JSON de predição de LUIS. Neste artigo, vai transferir e utilizar um projeto C# no Visual Studio para verbalizar uma expressão para um microfone e receber informações de predição de LUIS. O projeto utiliza o pacote NuGet de Voz, já incluído como referência.
+description: O Serviço de Voz permite-lhe utilizar um pedido simples para receber áudio e devolve objetos JSON de predição de LUIS. Neste artigo, vai transferir e utilizar um projeto C# no Visual Studio para verbalizar uma expressão para um microfone e receber informações de predição de LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 92db504ebfd0f8ad0bef9282bafd62fa9780d5e2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099312"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162636"
 ---
 # <a name="integrate-speech-service"></a>Integrar o serviço de Voz
 O [serviço de Voz](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite-lhe utilizar um pedido simples para receber áudio e devolve objetos JSON de predição de LUIS. Neste artigo, vai transferir e utilizar um projeto C# no Visual Studio para verbalizar uma expressão para um microfone e receber informações de predição de LUIS. O projeto utiliza o pacote [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Voz, já incluído como referência. 
@@ -27,7 +27,7 @@ Para este artigo, necessita de uma conta gratuita do Web site [LUIS][LUIS] para 
 No portal do Azure, [crie](luis-how-to-azure-subscription.md#create-luis-endpoint-key) uma chave do **Language Understanding** (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importar a aplicação de Recursos Humanos LUIS
-As intenções e as expressões deste artigo são da aplicação de Recursos Humanos LUIS, disponível a partir do repositório do Github [Exemplos de LUIS](https://github.com/Microsoft/LUIS-Samples). Transfira o ficheiro [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), guarde-o com a extensão `.json` e [importe-o](luis-how-to-start-new-app.md#import-new-app) para LUIS. 
+Os objetivos e expressões com para este artigo são a partir da aplicação de recursos humanos LUIS disponível a partir da [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) repositório do GitHub. Transfira o ficheiro [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json), guarde-o com a extensão `.json` e [importe-o](luis-how-to-start-new-app.md#import-new-app) para LUIS. 
 
 Esta aplicação contém intenções, entidades e expressões relacionadas com o domínio dos Recursos Humanos. Entre as expressões de exemplo incluem-se:
 

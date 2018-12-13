@@ -1,5 +1,5 @@
 ---
-title: Pesquisa cognitiva do mapa enriquecida campos de entrada para campos de saída em índices de pesquisa do Azure | Documentos da Microsoft
+title: Pesquisa cognitiva do mapa enriquecida campos de entrada para campos de saída - Azure Search
 description: Extrair e enriquecer os campos de dados de origem para mapear para campos de saída num índice da Azure Search.
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 77e7a1cc725dc56ee20d3c1999cfb7cf0039d67f
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec2018
+ms.openlocfilehash: a662558deeeb09849a23a361aabea962eb633cd7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094478"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314674"
 ---
 # <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Como mapear campos plena para um índice pesquisável
 

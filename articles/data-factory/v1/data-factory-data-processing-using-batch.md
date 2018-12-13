@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a20ba54226e5cdcec242e29344110840615a0c95
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238527"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317530"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo com o Data Factory e o Batch
 > [!NOTE]
@@ -41,7 +41,7 @@ Com o serviço Batch, define os recursos de computação do Azure para executar 
 * [Noções básicas do Batch](../../batch/batch-technical-overview.md)
 * [Descrição geral da funcionalidade do Batch](../../batch/batch-api-basics.md)
 
-Opcionalmente, para saber mais sobre o Batch, veja [percurso de aprendizagem do Batch](https://azure.microsoft.com/documentation/learning-paths/batch/).
+Opcionalmente, para saber mais sobre o Batch, veja [documentatnion o Batch](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Porquê o Azure Data Factory?
 Data Factory é um serviço de integração de dados baseado na nuvem que orquestra e automatiza o movimento e a transformação de dados. Pode utilizar o Data Factory para criar pipelines de dados geridos que mover os dados no local e na cloud armazenamentos de dados para um arquivo de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Pode utilizar o Data Factory para processar/transformar dados com os serviços, como o Azure HDInsight e Azure Machine Learning. Também pode agendar pipelines de dados para executar de forma agendada (por exemplo, hora a hora, diariamente e semanalmente). Pode monitorizar e gerir pipelines de rapidamente identificar problemas e tomar medidas.
@@ -51,7 +51,7 @@ Data Factory é um serviço de integração de dados baseado na nuvem que orques
 * [Introdução ao Data Factory](data-factory-introduction.md)
 * [Crie seu primeiro pipeline de dados](data-factory-build-your-first-pipeline.md)   
 
-Opcionalmente, para saber mais sobre o Data Factory, veja [percurso de aprendizagem do Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
+Opcionalmente, para saber mais sobre o Data Factory, veja [a documentação do Data Factory](https://docs.microsoft.com/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory e o Batch em conjunto
 Fábrica de dados inclui atividades incorporadas. Por exemplo, a atividade de cópia é utilizada para copiar/mover dados de um arquivo de dados de origem para um arquivo de dados de destino. A atividade de Hive é utilizada para processar dados através de clusters do Hadoop (HDInsight) no Azure. Para obter uma lista de atividades de transformação suportados, consulte [atividades de transformação de dados](data-factory-data-transformation-activities.md).
@@ -84,7 +84,7 @@ A lista seguinte fornece os passos básicos do processo. A solução inclui cód
 ## <a name="implementation-of-the-sample-solution"></a>Implementação da solução de exemplo
 A solução de exemplo é intencionalmente simples. Foi concebido para lhe mostrar como utilizar o Data Factory e o Batch em conjunto para conjuntos de dados do processo. A solução conta o número de ocorrências do termo de pesquisa "Microsoft" nos ficheiros de entrada que estejam organizados numa série de tempo. Em seguida, gera a saída de contagem de ficheiros de saída.
 
-**Hora:** se estiver familiarizado com os fundamentos básicos do Azure, o Data Factory e o Batch e concluir os seguintes pré-requisitos, esta solução assume uma ou duas horas a concluir.
+**Hora:** Se estiver familiarizado com os fundamentos básicos do Azure, o Data Factory e o Batch e concluir os seguintes pré-requisitos, esta solução assume uma ou duas horas a concluir.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 #### <a name="azure-subscription"></a>Subscrição do Azure
@@ -155,7 +155,7 @@ Instale o Visual Studio 2012 ou posterior para criar a atividade de lote persona
 ### <a name="create-the-custom-activity"></a>Criar a atividade personalizada
 A atividade personalizada da fábrica de dados é o coração desta solução de exemplo. A solução de exemplo utiliza o Batch para executar a atividade personalizada. Para obter informações sobre como desenvolver atividades personalizadas e usá-los em pipelines da fábrica de dados, consulte [utilizar atividades personalizadas num pipeline de fábrica de dados](data-factory-use-custom-activities.md).
 
-Para criar uma atividade personalizada .NET, que podem ser usados num pipeline de fábrica de dados, vai criar um projeto de biblioteca de classes do .NET com uma classe que implementa a interface IDotNetActivity. Essa interface possui apenas um método: executar. Esta é a assinatura do método:
+Para criar uma atividade personalizada .NET, que podem ser usados num pipeline de fábrica de dados, vai criar um projeto de biblioteca de classes do .NET com uma classe que implementa a interface IDotNetActivity. Essa interface possui apenas um método: Execute. Esta é a assinatura do método:
 
 ```csharp
 public IDictionary<string, string> Execute(
@@ -932,9 +932,9 @@ Pode estender este exemplo para saber mais sobre as funcionalidades do Data Fact
 
 1. Adicionar às subpastas seguintes no `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07 2011-11-16-08 e 2015-11-16-09. Coloca ficheiros de entrada nessas pastas. Alterar a hora de fim para o pipeline partir `2015-11-16T05:00:00Z` para `2015-11-16T10:00:00Z`. Na **diagrama** ver, faça duplo clique em **InputDataset** e confirme que os setores de entrada estão prontos. Faça duplo clique em **OutputDataset** para ver o estado dos setores de saída. Caso se encontrem no **pronto** de estado, verifique a pasta de saída para os ficheiros de saída.
 
-1. Aumentar ou diminuir a **simultaneidade** definição para compreender como ele afeta o desempenho da sua solução, especialmente o processamento que ocorre no Batch. Para obter mais informações sobre o **simultaneidade** definição, consulte "passo 4: criar e executar o pipeline com uma atividade personalizada."
+1. Aumentar ou diminuir a **simultaneidade** definição para compreender como ele afeta o desempenho da sua solução, especialmente o processamento que ocorre no Batch. Para obter mais informações sobre o **simultaneidade** definição, consulte "passo 4: Criar e executar o pipeline com uma atividade personalizada."
 
-1. Criar um conjunto com superiores/inferiores **tarefas de máximo por VM**. Para utilizar o novo conjunto que criou, atualize o serviço de Batch ligado na solução de fábrica de dados. Para obter mais informações sobre o **tarefas de máximo por VM** definição, consulte "passo 4: criar e executar o pipeline com uma atividade personalizada."
+1. Criar um conjunto com superiores/inferiores **tarefas de máximo por VM**. Para utilizar o novo conjunto que criou, atualize o serviço de Batch ligado na solução de fábrica de dados. Para obter mais informações sobre o **tarefas de máximo por VM** definição, consulte "passo 4: Criar e executar o pipeline com uma atividade personalizada."
 
 1. Criar um conjunto do Batch com o **dimensionamento automático** funcionalidade. Dimensionar automaticamente nós de computação de um conjunto do Batch é o ajuste dinâmico do poder utilizado pela sua aplicação de processamento. 
 
@@ -956,7 +956,7 @@ Pode estender este exemplo para saber mais sobre as funcionalidades do Data Fact
 
 1. Na solução de exemplo, o **Execute** método invoca o **Calculate** método que processa um setor de dados de entrada para produzir um setor de dados de saída. Pode escrever seu próprio método para processar dados de entrada e substitua a **Calculate** chamada de método **Execute** método com uma chamada para seu método.
 
-### <a name="next-steps-consume-the-data"></a>Próximos passos: consumir os dados
+### <a name="next-steps-consume-the-data"></a>Passos seguintes: Consuma os dados
 Depois de processar dados, pode consumir ferramentas online, como o Power BI. Seguem-se ligações para ajudar a compreender o Power BI e como utilizá-la no Azure:
 
 * [Explore um conjunto de dados no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)

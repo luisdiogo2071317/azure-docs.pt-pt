@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
@@ -16,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 74791c3dce543ae9c0489a6c6124e4edba9204d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 12fb45b00848e5e34760ccb0691998c1f72237b8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096966"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269306"
 ---
-# <a name="discover-experiments-in-azure-ai-gallery"></a>Descubra as experimentações na Galeria de IA do Azure
+# <a name="discover-azure-machine-learning-studio-experiments-in-azure-ai-gallery"></a>Descubra o Azure Machine Learning Studio experimentações na Galeria de IA do Azure
 
 [Galeria de IA do Azure](http://gallery.cortanaintelligence.com) tem diversas [experimentações](https://gallery.cortanaintelligence.com/experiments) que tenha sido desenvolvido em [Azure Machine Learning Studio](https://studio.azureml.net). Intervalo de experimentações de experimentações de prova de conceito rápidos que demonstram uma máquina específica de aprendizagem técnica, para as soluções inteiramente desenvolvidas para problemas do complexos de machine learning.
 
 > [!NOTE]
-> Uma ***experimentar*** é uma tela no Machine Learning Studio, que pode utilizar para construir um modelo de Análise Preditiva. Criar o modelo ao ligar os dados com vários módulos analíticos. Pode experimentar idéias diferentes, realizar execuções de versão de avaliação e, eventualmente, implementar o seu modelo como um serviço web no Azure. Para obter um exemplo de como criar uma experiência básica, consulte [tutorial do Machine learning: crie a sua primeira experiência no Azure Machine Learning Studio](create-experiment.md). Para obter instruções mais abrangente de como criar uma solução de Análise Preditiva, veja [instruções: desenvolver uma solução de Análise Preditiva para a avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+> Uma ***experimentar*** é uma tela no Machine Learning Studio, que pode utilizar para construir um modelo de Análise Preditiva. Criar o modelo ao ligar os dados com vários módulos analíticos. Pode experimentar idéias diferentes, realizar execuções de versão de avaliação e, eventualmente, implementar o seu modelo como um serviço web no Azure. Para obter um exemplo de como criar uma experiência básica, consulte [tutorial do Machine learning: Criar a sua primeira experiência no Azure Machine Learning Studio](create-experiment.md). Para obter instruções mais abrangente de como criar uma solução de Análise Preditiva, consulte [passo a passo: Desenvolver uma solução de Análise Preditiva para a avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 >
 >
 
@@ -82,7 +81,7 @@ Quando iniciar sessão na galeria, se tornar um membro da Comunidade da galeria.
 3. Quando estiver pronto para publicar a sua experimentação na galeria, na lista de ações abaixo a tela da experimentação, selecione **publicar na galeria**.
 
     ![Selecione "Publicar Galeria"](./media/gallery-experiments/publish-experiment-to-gallery.png)
-4. Sobre o **experimentação Descrição** página, introduza um título e etiquetas. Torne o título e marcas descritivas. Realce as técnicas que utilizou ou que está a resolver o problema do mundo real. Um exemplo de um título descritivo experimentação é "classificação binária: análise de sentimentos do Twitter."
+4. Sobre o **experimentação Descrição** página, introduza um título e etiquetas. Torne o título e marcas descritivas. Realce as técnicas que utilizou ou que está a resolver o problema do mundo real. Um exemplo de um título descritivo experimentação é "classificação binária: Análise de sentimentos de twitter."
 
     ![Introduza o título e as etiquetas para publicação](./media/gallery-experiments/experiment-description.png)
 5. Na **resumo** , introduza um resumo da sua experimentação. Descreva resumidamente o problema que resolve a experimentação e, como o abordado.
@@ -189,4 +188,4 @@ Depois de introduzir uma etiqueta, introduza outra etiqueta, prima a tecla Tab.
 
 **[Vá para a Galeria](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+

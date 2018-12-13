@@ -1,5 +1,5 @@
 ---
-title: Ativar o registo de diagnóstico para aplicações web no App Service do Azure
+title: Ativar registo de diagnósticos para aplicações web - App Service do Azure
 description: Saiba como ativar o registo de diagnósticos e adicionar instrumentação à sua aplicação, bem como aceder às informações registadas pelo Azure.
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.custom: seodec18
+ms.openlocfilehash: 90f82dcdf60a3a7182f77b3fe028366e079bc2ec
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636973"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273804"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Ativar o registo de diagnóstico para aplicações web no App Service do Azure
 ## <a name="overview"></a>Descrição geral
@@ -63,6 +64,11 @@ Quando ativa **diagnóstico de aplicação**, também é escolher o **nível**. 
 
 Para **registo de aplicações**, pode ativar a opção de sistema de ficheiros temporariamente para fins de depuração. Esta opção se desligar automaticamente em 12 horas. Pode também ativar a opção de armazenamento de BLOBs para selecionar um contentor de BLOBs para escrever os registos.
 
+> [!NOTE]
+> Atualmente, apenas registos de aplicações de .NET podem ser escritos para o armazenamento de Blobs. Java, PHP, node. js, Python, registos de aplicações só podem ser armazenados no sistema de ficheiros (sem modificações no código para escrever registos no armazenamento externo).
+>
+>
+
 Para **registo de servidor Web**, pode selecionar **armazenamento** ou **sistema de ficheiros**. Selecionando **armazenamento** permite-lhe selecionar uma conta de armazenamento e, em seguida, um contentor de BLOBs que os registos são escritos. 
 
 Se armazenar os registos no sistema de ficheiros, os ficheiros podem ser acedidos por FTP ou transferiu como um arquivo Zip com a CLI do Azure.
@@ -85,7 +91,7 @@ Embora ambas as localizações de armazenamento fornecem as mesmas informações
 > Informações armazenadas na **armazenamento de BLOBs** só pode ser acedido através de um cliente de armazenamento ou um aplicativo que pode trabalhar diretamente com estes sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Explorador de armazenamento que podem ser utilizadas para explorar o armazenamento de BLOBs e o HDInsight pode aceder a dados armazenados no armazenamento de Blobs. Também pode escrever uma aplicação que acede ao armazenamento do Azure ao utilizar uma da [SDKs do Azure](https://azure.microsoft.com/downloads/).
 >
 
-## <a name="download"></a> Como: transferir registos
+## <a name="download"></a> Como: Registos de transferências
 Informações de diagnóstico armazenadas para o sistema de ficheiros de aplicação web podem ser acessadas diretamente com o FTP. Também pode ser transferido como um arquivo Zip com a CLI do Azure.
 
 Segue-se a estrutura de diretório que os registos são armazenados em:
@@ -114,7 +120,7 @@ Este comando guarda os registos da aplicação web com o nome webappname num fic
 >
 >
 
-## <a name="how-to-view-logs-in-application-insights"></a>Como: ver registos no Application Insights
+## <a name="how-to-view-logs-in-application-insights"></a>Como: Ver registos no Application Insights
 O Visual Studio Application Insights fornece ferramentas para filtragem e pesquisa de registos e para correlacionar os registos com pedidos e outros eventos.
 
 1. Adicione o Application Insights SDK ao seu projeto no Visual Studio.
@@ -126,7 +132,7 @@ O Visual Studio Application Insights fornece ferramentas para filtragem e pesqui
 
 [Saiba mais sobre o desempenho de controlo com o Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
-## <a name="streamlogs"></a> Como: Stream registos
+## <a name="streamlogs"></a> Como: Transmitir registos
 Ao desenvolver um aplicativo, geralmente é útil ver informações de registo em tempo quase real. Pode transmitir informações de registo para o seu ambiente de desenvolvimento com a CLI do Azure.
 
 > [!NOTE]
@@ -157,7 +163,7 @@ Para filtrar os tipos de registo específicos, como HTTP, utilize o **– caminh
 >
 >
 
-## <a name="understandlogs"></a> Como: compreender os registos de diagnóstico
+## <a name="understandlogs"></a> Como: Compreender os registos de diagnóstico
 ### <a name="application-diagnostics-logs"></a>Registos de diagnóstico de aplicações
 Diagnóstico de aplicação armazena informações num formato específico para aplicações de .NET, dependendo se armazena os registos para o armazenamento de BLOBs ou de sistema de ficheiros. 
 
