@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 17d663873639cc36e9727881d990a3f32697c798
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 676baa6947eaf8b3842b0100657f42a1e6438061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872157"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184887"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar os registos do Azure Monitor para VMs (pré-visualização)
 O Monitor para VMs do Azure recolhe métricas de desempenho e a ligação, o computador e o processamento de dados de inventário e informações de estado de funcionamento e encaminhá-la para o arquivo de dados do Log Analytics no Azure Monitor.  Estes dados estão disponíveis para [pesquisa](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics. Pode aplicar esses dados para cenários que incluem planos de migração, análise de capacidade, deteção e resolução de problemas de desempenho a pedido.
@@ -29,8 +28,8 @@ Um registo é gerado por hora para cada computador exclusivo e o processo, além
 
 Existem propriedades internamente geradas, pode usar para identificar processos exclusivos e computadores:
 
-- Computador: Utilizar *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador dentro de uma área de trabalho do Log Analytics.
-- Processo: Utilizar o *ResourceId* para identificar exclusivamente um processo numa área de trabalho do Log Analytics. *ResourceName_s* é exclusivo dentro do contexto da máquina em que o processo está em execução (MachineResourceName_s) 
+- Computador: Uso *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador dentro de uma área de trabalho do Log Analytics.
+- Processo: Uso *ResourceId* para identificar exclusivamente um processo numa área de trabalho do Log Analytics. *ResourceName_s* é exclusivo dentro do contexto da máquina em que o processo está em execução (MachineResourceName_s) 
 
 Uma vez que vários registos podem existir num processo especificado e o computador num intervalo de tempo especificado, as consultas podem devolver mais de um registo para o mesmo computador ou processo. Para incluir apenas o registo mais recente, adicione "| eliminação de duplicados ResourceId"para a consulta.
 

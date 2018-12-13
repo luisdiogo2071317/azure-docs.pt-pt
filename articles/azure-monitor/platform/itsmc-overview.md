@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: ''
-ms.openlocfilehash: 7227fd68f696e827a076005bcd116e222f23e9b0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: e910a953743e8b43f51add5a1e74b3d612b62ba8
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883277"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190072"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure para ferramentas ITSM com o conector de gestão do serviço de TI
 
@@ -162,7 +161,7 @@ Se estiver a utilizar a solução mapa de serviço, pode ver os itens de suporte
 
 ![Ecrã do log Analytics](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Obter mais informações: [mapa de serviço](../../azure-monitor/insights/service-map.md)
+Mais informações: [Mapa do Serviço](../../azure-monitor/insights/service-map.md)
 
 
 ## <a name="additional-information"></a>Informações adicionais
@@ -176,7 +175,7 @@ As seguintes informações mostram exemplos de dados coletados pela ITSMC:
 
 > Dependendo do tipo de item de trabalho importados para o Log Analytics, **ServiceDesk_CL** contém os seguintes campos:
 
-**Item de trabalho:** **incidentes**  
+**Item de trabalho:** **Incidentes**  
 ServiceDeskWorkItemType_s="Incident"
 
 **Campos**
@@ -203,7 +202,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Computador
 
 
-**Item de trabalho:** **pedidos de alteração**
+**Item de trabalho:** **Pedidos de alteração**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 

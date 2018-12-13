@@ -10,17 +10,15 @@ ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: bf02fb315162ffa183ed4137734ff8041ef75fe5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0bb464d1d49438213d2b9a4e937170a075a206f5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096631"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192407"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Utilizar o armazenamento de Blobs do Azure para armazenamento de tabelas IIS e o Azure para eventos com o Log Analytics
 
@@ -82,7 +80,7 @@ Com o diagnóstico do Azure ativado:
 * Registos de eventos do Windows não são transferidos por predefinição.
 
 ### <a name="to-enable-diagnostics"></a>Para ativar o diagnóstico
-Para ativar registos de eventos do Windows, ou para alterar o scheduledTransferPeriod, configure o diagnóstico do Azure com o ficheiro de configuração XML (diagnostics.wadcfg), conforme mostrado na [passo 4: criar o seu ficheiro de configuração de diagnósticos e instalar a extensão](../../cloud-services/cloud-services-dotnet-diagnostics.md)
+Para ativar registos de eventos do Windows, ou para alterar o scheduledTransferPeriod, configure o diagnóstico do Azure com o ficheiro de configuração XML (diagnostics.wadcfg), conforme mostrado na [passo 4: Crie o seu ficheiro de configuração de diagnósticos e instalar a extensão](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
 O ficheiro de configuração de exemplo seguintes recolhe registos do IIS e todos os eventos dos registos de aplicações e do sistema:
 

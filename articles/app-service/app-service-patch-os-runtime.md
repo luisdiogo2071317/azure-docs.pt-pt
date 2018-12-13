@@ -1,5 +1,5 @@
 ---
-title: SO e aplicação de patches de tempo de execução no serviço de aplicações do Azure | Documentos da Microsoft
+title: Sistema operacional e do runtime de aplicação de patches cadência - serviço de aplicações do Azure | Documentos da Microsoft
 description: Descreve como atualizações de serviço de aplicações do Azure o sistema operacional e tempos de execução e como pode obter anúncios de atualização.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 9855becd7c047788ed310dff4317a5df87cc9b61
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.custom: seodec18
+ms.openlocfilehash: a0fdab06606a88fafa803a9a112c05452578cfeb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047633"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252869"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>SO e aplicação de patches de tempo de execução no serviço de aplicações do Azure
 
@@ -100,5 +101,5 @@ A tabela seguinte mostra como as versões do Windows e do runtime de linguagem q
 
 ## <a name="more-resources"></a>Mais recursos
 
-[Centro de fidedignidade: segurança](https://www.microsoft.com/en-us/trustcenter/security)  
+[Centro de fidedignidade: Segurança](https://www.microsoft.com/en-us/trustcenter/security)  
 [64 bit ASP.NET Core no serviço de aplicações do Azure](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

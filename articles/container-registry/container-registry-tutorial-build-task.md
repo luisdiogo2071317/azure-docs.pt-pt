@@ -1,21 +1,21 @@
 ---
-title: Tutorial – Automatizar as compilações da imagem do contentor com o Azure Container Registry Tasks
-description: Neste tutorial, vai aprender a configurar uma tarefa para acionar automaticamente compilações da imagem do contentor na cloud quando consolida o código de origem para um repositório de Git.
+title: Tutorial - automatizar compilações de imagem de contentor - tarefas de registo de contentor do Azure
+description: Neste tutorial, saiba como configurar uma tarefa de registo de contentor do Azure para acionar automaticamente compilações de imagem de contentor na cloud ao consolidar o código-fonte para um repositório de Git.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 27dbee3b292a9139ce53ef7b09a4cceba56082e4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 2d3f4ca269e204a84a10d60aa953dc2f49195c7c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857232"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254671"
 ---
-# <a name="tutorial-automate-container-image-builds-with-azure-container-registry-tasks"></a>Tutorial :Automatizar as compilações da imagem do contentor com o Azure Container Registry Tasks
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatizar compilações de imagem de contentor na cloud ao consolidar o código-fonte
 
 Para além da [Compilação Rápida](container-registry-tutorial-quick-task.md), o ACR Build suporta as compilações automatizadas da imagem do contentor do Docker com a *tarefa de compilação*. Neste tutorial, vai utilizar a CLI do Azure para criar uma tarefa que aciona automaticamente compilações de imagens na cloud quando consolida código de origem para um repositório de Git.
 
@@ -41,7 +41,7 @@ Este tutorial parte do princípio de que já concluiu os passos no [tutorial ant
 
 ### <a name="container-registry"></a>Registo de contentor
 
-Para concluir este tutorial tem de ter um registo de contentor do Azure na sua subscrição do Azure. Se precisar de um registo, veja o [tutorial anterior](container-registry-tutorial-quick-task.md) ou [Início Rápido: Criar um registo de contentor com a CLI do Azure](container-registry-get-started-azure-cli.md).
+Para concluir este tutorial tem de ter um registo de contentor do Azure na sua subscrição do Azure. Se precisar de um registo, consulte a [tutorial anterior](container-registry-tutorial-quick-task.md), ou [início rápido: Criar um registo de contentor com a CLI do Azure](container-registry-get-started-azure-cli.md).
 
 ## <a name="overview-of-acr-tasks"></a>Descrição geral de ACR Tasks
 
@@ -312,7 +312,7 @@ da2       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T22:50:59
 da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59Z  00:00:57
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a utilizar uma tarefa para acionar automaticamente compilações da imagem do contentor no Azure quando consolida o código de origem para um repositório de Git. Avance para o tutorial seguinte para saber como criar tarefas que acionam compilações quando a imagem de base de uma imagem do contentor é atualizada.
 

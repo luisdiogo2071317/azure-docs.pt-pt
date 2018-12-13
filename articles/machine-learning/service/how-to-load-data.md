@@ -1,5 +1,6 @@
 ---
-title: Carregar dados com o Azure Machine Learning dados Prep SDK - Python
+title: 'Carga: o SDK de Python de preparação de dados'
+titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre a carregar dados com o SDK do Azure Machine Learning Data Prep. Pode carregar diferentes tipos de dados de entrada, especificar os tipos de ficheiro de dados e parâmetros ou utilizar a funcionalidade de leitura inteligente do SDK para detetar automaticamente o tipo de ficheiro.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,13 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: 4f4bb4d95548a8c6c373eaa32617245a7ee0910b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 9d3b72e62c778d02b25b082643e0de4c6cc09a60
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865680"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190769"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Carregar e ler dados com o Azure Machine Learning
 
@@ -128,9 +130,9 @@ dataflow.head(5)
 
 ||Column1|Column2|Column3|Column4|Column5|Column6|Column7|Column8|
 |------|------|------|-----|------|-----|-------|----|-----|
-|0|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|
-|1|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|
-|2|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|Nenhuma|
+|0|Nenhuma|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhuma|
+|1|Nenhuma|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhuma|
+|2|Nenhuma|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhuma|
 |3|classificação|Cargo|Studio|Mundial|Nacionais / %|Column1|Coletividade / %|Column2|Ano ^|
 |4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009 ^|5|
 

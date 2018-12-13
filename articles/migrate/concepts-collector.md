@@ -4,15 +4,15 @@ description: Fornece informações sobre a aplicação Recoletora no Azure Migra
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 5a542ae23bf500125fd08338b2efd30dd42d9a8d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840916"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255980"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora
 
@@ -32,13 +32,13 @@ A aplicação recoletora fica continuamente conectada ao projeto do Azure Migrat
 - Este modelo não depende das definições de estatísticas do vCenter Server para recolher dados de desempenho.
 - Pode parar contínua de criação de perfis em qualquer altura do Recoletor.
 
-**Resultados instantâneos:** com a aplicação de deteção contínua, uma vez que a deteção esteja concluída (demora duas horas, consoante o número de VMs), pode criar avaliações de imediato. Uma vez que a recolha de dados de desempenho é iniciado quando pode iniciar a deteção, se estiver à procura de instantâneos, selecione o critério de tamanho na avaliação como *como no local*. Para obter avaliações baseado no desempenho, é recomendado aguardar pelo menos um dia após iniciar deteção para obter recomendações de tamanho fiável.
+**Resultados instantâneos:** Com a aplicação de deteção contínua, uma vez que a deteção esteja concluída (demora duas horas, consoante o número de VMs), pode criar avaliações de imediato. Uma vez que a recolha de dados de desempenho é iniciado quando pode iniciar a deteção, se estiver à procura de instantâneos, selecione o critério de tamanho na avaliação como *como no local*. Para obter avaliações baseado no desempenho, é recomendado aguardar pelo menos um dia após iniciar deteção para obter recomendações de tamanho fiável.
 
 A aplicação só recolhe dados de desempenho continuamente, ele não detecta qualquer alteração de configuração no ambiente no local (ou seja, a adição de VM, eliminação, a adição de disco etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
 
-- Adição de itens (VMs, discos, núcleos, etc.): para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, iniciá-la novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
+- Adição de itens (VMs, discos, núcleos, etc.): Para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, inicie-o novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
 
-- Eliminação das VMs: devido à forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
+- Eliminação das VMs: A forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
 
 > [!NOTE]
 > A aplicação de deteção de uso individual foi agora preterida como esse método baseou-se no vCenter definições de estatísticas do servidor para a disponibilidade de ponto de dados de desempenho e coletados contadores de desempenho médio que resultou em insuficientemente dimensionamento de VMs para a migração para o Azure.
@@ -48,7 +48,7 @@ A aplicação só recolhe dados de desempenho continuamente, ele não detecta qu
 Implementar a aplicação Recoletora através de um modelo OVF:
 
 - Transfira o modelo OVF a partir de um projeto do Azure Migrate no portal do Azure. Importar o ficheiro transferido para o vCenter Server, para configurar a aplicação Recoletora VM.
-- Do OVF, VMware define uma VM com 4 núcleos, 8 GB de RAM e um disco de 80 GB. O sistema operacional é Windows Server 2012 R2 (64 bits).
+- Do OVF, VMware define uma VM com 8 núcleos, 16 GB de RAM e um disco de 80 GB. O sistema operacional é Windows Server 2016 (64 bits).
 - Ao executar o Recoletor, execute um número de verificações de pré-requisitos para se certificar de que o coletor pode ligar ao Azure Migrate.
 
 - [Saiba mais](tutorial-assessment-vmware.md#create-the-collector-vm) sobre como criar o Recoletor.
@@ -58,18 +58,22 @@ Implementar a aplicação Recoletora através de um modelo OVF:
 
 O Recoletor tem de passar algumas verificações de pré-requisitos para garantir que pode estabelecer ligação ao serviço Azure Migrate através da internet e detetados de carregamento de dados.
 
-- **Verifique a ligação de internet**: O Recoletor pode ligar à internet diretamente ou através de um proxy.
+- **Certifique-se na cloud do Azure**: O Recoletor precisa saber a cloud do Azure para o qual pretende migrar.
+    - Se estiver a planear migrar para a cloud do Azure Government, selecione Azure Government.
+    - Selecione Global do Azure se estiver a planear migrar para a cloud do Azure comercial.
+    - Com base na cloud especificada aqui, a aplicação irá enviar metadados detetados para os respetivos pontos finais.
+- **Verifique a ligação de internet**: O coletor pode ligar à internet diretamente ou através de um proxy.
     - A verificação de pré-requisitos verifica a conetividade à [URLs obrigatórios e opcionais](#connect-to-urls).
     - Se tiver uma ligação direta à internet, nenhuma ação específica é necessária, que não seja de certificar-se de que o coletor de contactar os URLs necessários.
     - Se estiver a ligar através de um proxy, tenha em atenção a [os requisitos abaixo](#connect-via-a-proxy).
 - **Certifique-se a sincronização de hora**: O Recoletor devem sincronizados com o servidor de horas da internet para garantir que os pedidos para o serviço são autenticados.
     - A portal.azure.com url deve ser acessível a partir do Recoletor para que o tempo pode ser validado.
     - Se a máquina não está sincronizada, terá de alterar a hora de relógio na VM do Recoletor de acordo com a hora atual. Para fazer isso abra uma linha de administrador na VM, execute **w32tm /tz** para verificar o fuso horário. Execute **w32tm /resync** para sincronizar a hora.
-- **Verificar a execução do serviço de recoletor**: serviço do Recoletor do Azure de Migrate deve estar em execução na VM do Recoletor.
+- **Verificar a execução do serviço de recoletor**:  O serviço do Recoletor do Azure Migrate deve ser executado na VM do Recoletor.
     - Este serviço é iniciado automaticamente quando a máquina é inicializada.
     - Se o serviço não está em execução, inicie-o do painel de controle.
     - O serviço do Recoletor liga-se ao vCenter Server, recolhe os dados de metadados e o desempenho da VM e envia-os para o serviço Azure Migrate.
-- **Verificar o VMware PowerCLI 6.5 instalado**: módulo o VMware PowerCLI 6.5 do PowerShell tem de estar instalado na VM do Recoletor, para que ele possa comunicar com o vCenter Server.
+- **Verificar o VMware PowerCLI 6.5 instalado**: O módulo do PowerShell do VMware PowerCLI 6.5 tem de ser instalado na VM do Recoletor, para que ele possa comunicar com o vCenter Server.
     - Se o coletor pode aceder aos URLs necessários para instalar o módulo, é instalar automaticamente durante a implementação do Recoletor.
     - Se o Recoletor não é possível instalar o módulo durante a implementação, deve [instalá-lo manualmente](#install-vwware-powercli-module-manually).
 - **Verifique a ligação ao vCenter Server**: O Recoletor tem de ser capaz de servidor vCenter e consulta por VMs, metadados e contadores de desempenho. [Verificar pré-requisitos](#connect-to-vcenter-server) para ligar.
@@ -107,7 +111,8 @@ A verificação de conectividade é validada ao ligar a uma lista de URLs.
 
 **URL** | **Detalhes**  | **Verificação de pré-requisitos**
 --- | --- | ---
-*.portal.azure.com | Verificações de conectividade com o serviço do Azure e a sincronização de hora. | Acesso a URL é necessário.<br/><br/> A verificação de pré-requisitos falha se nenhuma conectividade.
+*.portal.azure.com | Aplicável para o Azure Global. Verificações de conectividade com o serviço do Azure e a sincronização de hora. | Acesso a URL é necessário.<br/><br/> A verificação de pré-requisitos falha se nenhuma conectividade.
+*. portal.azure.us | Aplicável apenas para o Azure Government. Verificações de conectividade com o serviço do Azure e a sincronização de hora. | Acesso a URL é necessário.<br/><br/> A verificação de pré-requisitos falha se nenhuma conectividade.
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Utilizado para transferir o módulo do PowerShell vCenter PowerCLI. | Acesso a URLs opcionais.<br/><br/> Verificação de pré-requisitos não falhará.<br/><br/> Instalação do módulo automática na VM do Recoletor irá falhar. Terá de instalar manualmente o módulo.
 
 
