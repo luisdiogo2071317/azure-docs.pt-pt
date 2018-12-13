@@ -1,6 +1,6 @@
 ---
-title: Compreender os módulos do Azure IoT Edge | Documentos da Microsoft
-description: Saiba mais sobre os módulos do Azure IoT Edge e como estão configurados
+title: Saiba como módulos de executar a lógica nos seus dispositivos - Azure IoT Edge | Documentos da Microsoft
+description: Os módulos do Azure IoT Edge são unidades em contentores de lógica que podem ser implementados e geridos remotamente para que possam executar lógica de negócios do IoT Edge dispositivos
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3d76f5931e3636f19c2030c4090116a0791db819
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 90fb6eadb2edb92d4516d8565d8c2c2bd5120c05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567337"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094190"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Compreender os módulos do Azure IoT Edge
 
@@ -31,7 +32,7 @@ As imagens de existem na nuvem e podem ser atualizadas, alteradas e implementada
 
 Sempre que uma imagem do módulo é implementada num dispositivo e iniciada pelo runtime do IoT Edge, é criada uma nova instância desse módulo. Dois dispositivos em diferentes partes do mundo poderiam usar a mesma imagem do módulo; No entanto cada uma teria sua própria instância do módulo quando o módulo é iniciado no dispositivo. 
 
-![Imagens de módulo na cloud - instâncias de módulo em dispositivos](./media/iot-edge-modules/image_instance.png)
+![Diagrama - imagens de módulo na cloud, instâncias de módulo em dispositivos](./media/iot-edge-modules/image_instance.png)
 
 Na implementação, as imagens de módulos existam como imagens de contentor num repositório e instâncias de módulo são contentores em dispositivos. 
 
@@ -46,7 +47,7 @@ A identidade associada uma instância de módulo depende da identidade do dispos
 
 Sem dúvida, em cenários quando precisa implantar uma imagem de módulo várias vezes no mesmo dispositivo, pode implementar a mesma imagem várias vezes com nomes diferentes.
 
-![Identidades do módulo são exclusivas](./media/iot-edge-modules/identity.png)
+![Diagrama - identidades do módulo são exclusivas dentro de dispositivos e em todos os dispositivos](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>Duplos de módulo
 

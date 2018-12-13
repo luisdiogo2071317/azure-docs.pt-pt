@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de ramo de registo utilizando o Azure Data Factory | Microsoft Docs
-description: Saiba como copiar dados de ramo de registo para os arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory.
+title: Copiar dados de Hive com o Azure Data Factory | Documentos da Microsoft
+description: Saiba como copiar dados de Hive para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,55 +11,55 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 379cc5412d317680afa9b03f0eea60c7f1a3b60d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9402be4045b9b3113623cfe3e441c944f62296cc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051095"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079387"
 ---
-# <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados de ramo de registo utilizando o Azure Data Factory 
+# <a name="copy-data-from-hive-using-azure-data-factory"></a>Copiar dados de Hive com o Azure Data Factory 
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do Hive. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de Hive. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados de ramo de registo para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados de Hive para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
-O Azure Data Factory fornece um controlador incorporado para ativar a conetividade, pelo que não precisa de instalar manualmente o controlador de utilizar este conector.
+O Azure Data Factory fornece um driver incorporado para permitir a conectividade, portanto não precisa de instalar manualmente a qualquer driver utilizar este conector.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector do ramo de registo.
+As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do Hive.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço ligado do ramo de registo:
+As seguintes propriedades são suportadas para o serviço ligado do Hive:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida: **ramo de registo** | Sim |
-| anfitrião | Nome anfitrião ou endereço IP do servidor do Hive, separado por ';' para vários anfitriões (apenas quando serviceDiscoveryMode está activada).  | Sim |
-| porta | A porta TCP que o servidor de ramo de registo utiliza para escutar ligações de cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Sim |
-| Tipo | O tipo de servidor de ramo de registo. <br/>Valores permitidos são: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Não |
+| tipo | A propriedade de tipo deve ser definida como: **do Hive** | Sim |
+| anfitrião | Nome anfitrião ou endereço IP do servidor do Hive, separado por ";" para vários anfitriões (apenas quando serviceDiscoveryMode é ativado).  | Sim |
+| porta | A porta TCP que o servidor do Hive utiliza para escutar ligações de cliente. Se ligar ao Azure HDInsights, especifique a porta como 443. | Sim |
+| serverType | O tipo de servidor do Hive. <br/>Valores permitidos são: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Não |
 | thriftTransportProtocol | O protocolo de transporte para utilizar na camada de Thrift. <br/>Valores permitidos são: **binário**, **SASL**, **HTTP** | Não |
-| authenticationType | O método de autenticação utilizado para aceder ao servidor de ramo de registo. <br/>Valores permitidos são: **anónimo**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
-| serviceDiscoveryMode | Verdadeiro para indicar a utilizar o serviço de ZooKeeper false não.  | Não |
-| zooKeeperNameSpace | O espaço de nomes no ZooKeeper em que Server 2 ramo de registo são adicionados nós.  | Não |
-| useNativeQuery | Especifica se o controlador utiliza consultas de HiveQL nativas ou converte-os para um formato equivalente na HiveQL.  | Não |
-| o nome de utilizador | O nome de utilizador que utilizar para aceder ao servidor do Hive.  | Não |
-| palavra-passe | A palavra-passe correspondente ao utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Não |
-| httpPath | O URL parcial correspondente para o servidor de ramo de registo.  | Não |
-| enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é falso.  | Não |
-| trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna para verificar o servidor ao ligar através de SSL. Esta propriedade só pode ser definida quando a utilizar SSL no IR. personalizada alojada O valor predefinido é o ficheiro de cacerts.pem instalado com o IR.  | Não |
-| useSystemTrustStore | Especifica se deve utilizar um certificado de AC a partir do arquivo de confiança de sistema ou a partir de um ficheiro PEM especificado. O valor predefinido é falso.  | Não |
-| allowHostNameCNMismatch | Especifica se requer um nome de certificado SSL emitidos pela AC para corresponder ao nome do anfitrião do servidor ao ligar através de SSL. O valor predefinido é falso.  | Não |
-| allowSelfSignedServerCert | Especifica se pretende permitir que os certificados autoassinados do servidor. O valor predefinido é falso.  | Não |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+| authenticationType | O método de autenticação utilizado para aceder ao servidor do Hive. <br/>Valores permitidos são: **anónimo**, **nome de utilizador**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
+| serviceDiscoveryMode | TRUE para indicar a utilizar o serviço de ZooKeeper, false não.  | Não |
+| zooKeeperNameSpace | O espaço de nomes no qual 2 de servidor do Hive são adicionados nós do ZooKeeper.  | Não |
+| useNativeQuery | Especifica se o driver usa consultas nativas de HiveQL ou converte-os num formulário do equivalente no HiveQL.  | Não |
+| o nome de utilizador | O nome de utilizador que utiliza para aceder ao servidor do Hive.  | Não |
+| palavra-passe | A palavra-passe correspondente ao utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| httpPath | O URL de parcial correspondente para o servidor do Hive.  | Não |
+| enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é false.  | Não |
+| trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna para verificar o servidor ao ligar-se através de SSL. Esta propriedade só pode ser definida ao utilizar o SSL em Ir autoalojado. O valor predefinido é o arquivo de cacerts.pem instalado com o IR.  | Não |
+| useSystemTrustStore | Especifica se pretende utilizar um certificado de AC a partir da loja de confiança do sistema ou a partir de um ficheiro PEM especificado. O valor predefinido é false.  | Não |
+| allowHostNameCNMismatch | Especifica se exige um nome de certificado SSL emitidos pela AC para coincidir com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é false.  | Não |
+| allowSelfSignedServerCert | Especifica se pretende permitir que os certificados autoassinados do servidor. O valor predefinido é false.  | Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 **Exemplo:**
 
@@ -84,9 +84,14 @@ As seguintes propriedades são suportadas para o serviço ligado do ramo de regi
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta secção fornece uma lista de propriedades suportadas por conjunto de dados do Hive.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do Hive.
 
-Para copiar dados de ramo de registo, defina a propriedade de tipo do conjunto de dados para **HiveObject**. Não há nenhuma propriedade de tipo específicas adicional neste tipo de conjunto de dados.
+Para copiar dados de Hive, defina a propriedade de tipo de conjunto de dados para **HiveObject**. São suportadas as seguintes propriedades:
+
+| Propriedade | Descrição | Necessário |
+|:--- |:--- |:--- |
+| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **HiveObject** | Sim |
+| tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
 
@@ -98,23 +103,24 @@ Para copiar dados de ramo de registo, defina a propriedade de tipo do conjunto d
         "linkedServiceName": {
             "referenceName": "<Hive linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportado pela origem de ramo de registo.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas por origem do Hive.
 
 ### <a name="hivesource-as-source"></a>HiveSource como origem
 
-Para copiar dados de ramo de registo, defina o tipo de origem na atividade de cópia para **HiveSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados de Hive, definir o tipo de origem na atividade de cópia para **HiveSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **HiveSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Sim |
+| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **HiveSource** | Sim |
+| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
@@ -149,4 +155,4 @@ Para copiar dados de ramo de registo, defina o tipo de origem na atividade de c�
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

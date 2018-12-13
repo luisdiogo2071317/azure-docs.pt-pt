@@ -3,19 +3,19 @@ title: Ligar uma aplicação MongoDB ao Azure Cosmos DB com o node. js
 description: Saiba como ligar uma aplicação MongoDB Node.js existente ao Azure Cosmos DB
 services: cosmos-db
 author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc, devcenter
+ms.custom: quick start connect, mvc, devcenter, seodec2018
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
-ms.author: sngun
-ms.openlocfilehash: 6844fc2450154b7e71c74ad9728929c3dc9df2f9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 1a5d0c7c2e44d934658434b8ea0b048c238a9bef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844486"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097869"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: migrar uma aplicação Web MongoDB Node.js existente 
 
@@ -45,13 +45,13 @@ Se optar por instalar e usar a CLI localmente, este tópico requer a execução 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
-Além da CLI do Azure, precisa de ter o [Node.js](https://nodejs.org/) e o [Git](http://www.git-scm.com/downloads) instalados localmente para executar os comandos `npm` e `git`.
+Além da CLI do Azure, precisa de ter o [Node.js](https://nodejs.org/) e o [Git](https://www.git-scm.com/downloads) instalados localmente para executar os comandos `npm` e `git`.
 
 Deve ter conhecimento prático do Node.js. Este guia de introdução não foi concebido para o ajudar a desenvolver aplicações Node.js em geral.
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Execute os seguintes comandos para clonar o repositório de exemplo. Este repositório de exemplo contém a aplicação [MEAN.js](http://meanjs.org/) predefinida.
+Execute os seguintes comandos para clonar o repositório de exemplo. Este repositório de exemplo contém a aplicação [MEAN.js](https://meanjs.org/) predefinida.
 
 1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
 
@@ -180,7 +180,7 @@ module.exports = {
 
 ## <a name="retrieve-the-key"></a>Obter a chave
 
-Para ligar a uma base de dados do DB Cosmos Azure , precisará da chave da base de dados. Utilize o comando [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) para obter a chave primária.
+Para ligar a uma base de dados do DB Cosmos Azure , precisará da chave da base de dados. Utilize o comando [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) para obter a chave primária.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"

@@ -1,21 +1,22 @@
 ---
-title: Referência da API do SDK de voz
+title: Referência de API do SDK de voz - serviços de voz
 titleSuffix: Azure Cognitive Services
-description: Referências para o SDK de voz.
+description: A conversão de voz Software Development Kit (SDK) proporciona o acesso de aplicações para as funções do serviço de voz, tornando-o mais fácil de desenvolver software habilitado para fala. Atualmente, os SDKs fornecem acesso a conversão de voz em texto, tradução de voz e reconhecimento de intenção.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 0eae4cd9919e555453bfc6d44e2ddee51f30e809
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: c962fce8b8b05a977ac7d666a53b93aeda8c5357
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257372"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099858"
 ---
 # <a name="speech-sdk-api-reference"></a>Referência da API do SDK de voz
 

@@ -1,6 +1,6 @@
 ---
-title: O que é a classificação de segurança de Identidade no Azure AD? - pré-visualização | Microsoft Docs
-description: Saiba como pode utilizar a classificação de segurança de identidade para melhorar a postura de segurança do seu inquilino do Azure AD.
+title: O que é a pontuação de segura de identidade? -O azure Active Directory (pré-visualização pública) | Documentos da Microsoft
+description: Instruções sobre como pode utilizar a identidade seguro pontuação para melhorar a postura de segurança do seu inquilino do Azure AD.
 services: active-directory
 keywords: classificação de segurança de identidade, Azure AD, acesso seguro aos recursos da empresa
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a9bb22cae2e9fcd607a81d442f4fb51f12c43454
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.custom: it-pro
+ms.openlocfilehash: 5a133d0a38852ca3e95e3ae07716c4fbd3c87f5d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224142"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092089"
 ---
-# <a name="what-is-the-identity-secure-score-in-azure-ad---preview"></a>O que é a classificação de segurança de identidade no Azure AD? - pré-visualização
+# <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>O que é a pontuação de seguro de identidade no Azure Active Directory? (Pré-visualização pública)
 
 Qual é o nível de segurança do seu inquilino do Azure AD? Se não sabe responder a esta pergunta, leia este artigo para saber como a classificação de segurança de identidade ajuda a monitorizar e melhorar a sua postura de segurança de identidade. 
 
@@ -158,7 +159,7 @@ A [classificação de segurança do Office 365](https://docs.microsoft.com/offic
 A classificação de segurança de identidade representa a parte da identidade da classificação de segurança do Office 365. Isto significa que as recomendações para a classificação de segurança de identidade e a classificação de identidade no Office 365 são idênticas. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Caso pretenda ver um vídeo sobre a classificação de segurança do Office 365, clique [aqui](https://www.youtube.com/watch?v=jzfpDJ9Kg-A).
  

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer voz em JavaScript num browser com o SDK de Serviço de Voz'
+title: 'Início rápido: Reconhecer a conversão de voz, o Javascript (navegador) - serviços de voz'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer voz em JavaScript num browser com o SDK de Serviço de Voz
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 1e844f83c715dd8ac78a3340628988625e95a4ba
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: f8b6f4d39ce4dc65d691ec6a0e3d0734abb19734
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218445"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087920"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer voz em JavaScript num browser com o SDK de Serviço de Voz
 
@@ -106,7 +106,7 @@ Inicie a aplicação, abra o seu browser favorito, aponte-o para o URL público 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Procure este exemplo na pasta `quickstart/js-browser`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Obter os nossos exemplos](speech-sdk.md#get-the-samples)

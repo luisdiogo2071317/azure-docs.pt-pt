@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: a9078d2f8a738700a30d265d9cfa3cd77ad72f08
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: 4fdb7cf0007af5f92794ebe5f616c1c8a28af0e4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015454"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099669"
 ---
 # <a name="how-to-diagnose-and-troubleshoot"></a>Como diagnosticar e resolver problemas
 
@@ -91,13 +91,13 @@ Se o **Timestamp** propriedade não for especificada explicitamente, iremos tira
 
 1. Pode acessar um Time Series Insights S1 ou S2 ambiente
 
-   Modelos de série de tempo são suportados apenas num **PAYG** ambientes. Veja este artigo para obter mais informações sobre como acessar o seu ambiente de S1/S2 partir do Explorador de atualização de informações de série de tempo.
+   Modelos de série de tempo são suportados apenas num **PAYG** ambientes. Para obter mais informações sobre como acessar o seu ambiente de S1/S2 partir do Explorador de pré-visualização do Time Series Insights, veja [visualizar dados no explorer](./time-series-insights-update-explorer.md).
 
    ![access][5]
 
 1. Pode não ter permissões para ver e editar o modelo
 
-   Os utilizadores precisam de acesso de nível de "contribuinte" a editar e ver o seu modelo de série de tempo. Pode verificar os atuais níveis de acesso e conceder acesso adicional ao visitar a secção de políticas de acesso de dados no seu recurso do Time Series Insights no Portal do Azure.
+   Os utilizadores têm acesso de nível de "contribuinte" para editar e ver o seu modelo de série de tempo. Pode verificar os atuais níveis de acesso e conceder acesso adicional ao visitar a secção de políticas de acesso de dados no seu recurso do Time Series Insights no Portal do Azure.
 
 ## <a name="problem-all-my-instances-in-time-series-insights-preview-explorer-dont-have-a-parent"></a>Problema: Todas as minhas instâncias no Explorador do Time Series Insights (pré-visualização) não tem um elemento principal
 

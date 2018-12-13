@@ -1,6 +1,6 @@
 ---
-title: Como editar as suas informações de grupo com o Azure Active Directory | Documentos da Microsoft
-description: Saiba como editar as informações de um grupo com o Azure Active Directory.
+title: Editar as suas informações de grupo - Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como editar informações do seu grupo com o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: a02987fdce3a15cd5d416234e3717df6d33622ec
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: b857b0bd56b479d4301535a4e1f734d8002dcc8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731347"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099057"
 ---
-# <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>Como: editar as suas informações de grupo com o Azure Active Directory
+# <a name="edit-your-group-information-using-azure-active-directory"></a>Editar as suas informações de grupo com o Azure Active Directory
 
-Utilizar o Azure Active Directory, pode editar as definições de um grupo, incluindo a atualização do seu nome, a descrição ou o tipo de associação.
+Utilizar o Azure Active Directory (Azure AD), pode editar as definições de um grupo, incluindo a atualização do seu tipo de associação, nome ou descrição.
 
 ## <a name="to-edit-your-group-settings"></a>Para editar as definições de grupo
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com) com uma conta de Administrador Global do diretório.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta de Administrador global do diretório.
 
 2. Selecione **do Azure Active Directory**e, em seguida, selecione **grupos**.
 

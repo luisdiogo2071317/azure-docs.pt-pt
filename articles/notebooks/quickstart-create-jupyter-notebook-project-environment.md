@@ -1,5 +1,5 @@
 ---
-title: Criar um projeto de blocos de notas do Azure com um ambiente personalizado | Documentos da Microsoft
+title: Criar um projeto de blocos de notas do Azure com um ambiente personalizado
 description: Crie um novo projeto em blocos de notas do Azure que está configurado com um conjunto específico de pacotes instalados e scripts de inicialização.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 48579f797d0ff94a86fdbb25fa1fc814f63d7788
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9e5f4d6f2086048e428f313bc49cc6f599ee1bec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856603"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085336"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Início rápido: Criar um projeto com um ambiente personalizado
 

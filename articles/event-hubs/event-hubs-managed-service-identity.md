@@ -1,6 +1,6 @@
 ---
-title: Gerido identidades para recursos do Azure com a pré-visualização de Event Hubs do Azure | Documentos da Microsoft
-description: Utilizar identidades de gerido para recursos do Azure com os Hubs de eventos do Azure
+title: Gerido identidades para recursos do Azure - Event Hubs do Azure | Documentos da Microsoft
+description: Este artigo fornece informações sobre como utilizar identidades geridas para recursos do Azure com os Hubs de eventos do Azure
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d7ed4f0276e6220e6df528075e83cb9fabc6cc84
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011475"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087733"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Identidades geridas para recursos do Azure com os Hubs de eventos
 

@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: ea6bad6c6711240b8a5a0c57813a69b7c109c9c0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 9f36d6761e61f0de610cb3f612cd069092cdc242
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878319"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083704"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação de lado do servidor do Azure Cosmos DB: procedimentos armazenados, acionadores de base de dados e UDFs
 
-Saiba como a execução transacional, integrada à linguagem do Azure Cosmos DB do JavaScript permite aos desenvolvedores escreverem **procedimentos armazenados**, **acionadores**, e **funções definidas pelo utilizador (UDFs)**  nativamente num [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Integração de JavaScript permite-lhe escrever a lógica do programa que pode ser fornecida e executada diretamente dentro das partições de armazenamento de base de dados. 
+Saiba como a execução transacional, integrada à linguagem do Azure Cosmos DB do JavaScript permite aos desenvolvedores escreverem **procedimentos armazenados**, **acionadores**, e **funções definidas pelo utilizador (UDFs)**  nativamente num [ECMAScript 2015](https://www.ecma-international.org/ecma-262/6.0/) JavaScript. Integração de JavaScript permite-lhe escrever a lógica do programa que pode ser fornecida e executada diretamente dentro das partições de armazenamento de base de dados. 
 
 Neste artigo, aprenderá as respostas às seguintes perguntas:  
 
@@ -44,7 +44,7 @@ Essa abordagem de *"JavaScript como um dia modernos T-SQL"* isenta os desenvolve
 
 A criação e execução de acionadores de base de dados, procedimentos armazenados e operadores de consulta personalizada é suportada através da [portal do Azure](https://portal.azure.com), o [REST API](/rest/api/cosmos-db/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), e [SDKs cliente](sql-api-sdk-dotnet.md) em muitas plataformas, incluindo .NET, node. js e JavaScript.
 
-Este tutorial utiliza a [SDK de node. js com as perguntas e promessas](http://azure.github.io/azure-documentdb-node-q/) para ilustrar a sintaxe e o uso de procedimentos armazenados, acionadores e UDFs.   
+Este tutorial utiliza a [SDK de node. js com as perguntas e promessas](https://azure.github.io/azure-documentdb-node-q/) para ilustrar a sintaxe e o uso de procedimentos armazenados, acionadores e UDFs.   
 
 ## <a name="stored-procedures"></a>Procedimentos armazenados
 ### <a name="example-write-a-stored-procedure"></a>Exemplo: Escrever um procedimento armazenado
@@ -666,7 +666,7 @@ As seguintes descrições explicam cada consulta na tabela acima.
 
 
 ## <a name="runtime-support"></a>Suporte de tempo de execução
-O Azure Cosmos DB [API JavaScript do lado do servidor](https://azure.github.io/azure-cosmosdb-js-server/) fornece suporte para a maioria dos recursos de linguagem JavaScript importantes como padronizado pelo [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+O Azure Cosmos DB [API JavaScript do lado do servidor](https://azure.github.io/azure-cosmosdb-js-server/) fornece suporte para a maioria dos recursos de linguagem JavaScript importantes como padronizado pelo [ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Segurança
 JavaScript de procedimentos armazenados e acionadores ficam em área restrita, para que os efeitos de um script não escapem para o outro sem passar pelo isolamento de transação de instantâneo ao nível da base de dados. Os ambientes de tempo de execução são agrupados, mas limpos do contexto após cada execução. Por conseguinte, é garantido que estar seguro de quaisquer efeitos colaterais indesejados uns dos outros.
@@ -831,7 +831,7 @@ Podem também ser as seguintes referências e recursos úteis no seu caminho par
 
 * [Referência da API do Cosmos DB JavaScript do lado do servidor do Azure](https://azure.github.io/azure-cosmosdb-js-server/)
 * [Studio do DocumentDB](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
-* [Extensibilidade de base de dados seguras e portáteis](http://dl.acm.org/citation.cfm?id=276339) 
-* [Arquitetura de base de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
-* [Hospedar o Runtime do .NET no Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)
+* [JavaScript ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
+* [Extensibilidade de base de dados seguras e portáteis](https://dl.acm.org/citation.cfm?id=276339) 
+* [Arquitetura de base de dados orientada a serviços](https://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
+* [Hospedar o Runtime do .NET no Microsoft SQL server](https://dl.acm.org/citation.cfm?id=1007669)

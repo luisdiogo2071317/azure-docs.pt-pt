@@ -1,5 +1,6 @@
 ---
-title: Utilizar modelos de PyTorch com o Azure Machine Learning
+title: Utilizar modelos com PyTorch
+titleSuffix: Azure Machine Learning service
 description: Saiba como executar o nó único e distribuída formação de modelos de PyTorch com o avaliador de PyTorch
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +11,14 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: dcd7b58e2c1f4d6e556515ad7db778f2989588b9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a6401c6059d8f72f344021879828b01c9ce77169
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017428"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100570"
 ---
-# <a name="pytorch-models-with-azure-machine-learning-service"></a>Modelos de PyTorch com o serviço Azure Machine Learning
+# <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Utilizar modelos de PyTorch com o serviço Azure Machine Learning
 
 Para aprender de rede neurais profundas (DNN) com o PyTorch, o Azure Machine Learning fornece um personalizado `PyTorch` classe do `Estimator`. O Azure SDK `PyTorch` estimator permite-lhe submeter facilmente trabalhos de treinamento de PyTorch para execuções de nó único e distribuídos na computação do Azure.
 

@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: dc84014f3dce027c830f3f46b4aba16b775251d8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 1e35d650f6fc99bff5bf49e517e2b38fcdc58dde
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853154"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077006"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Início rápido: Criar um script de Python para detetar e quadro enfrenta numa imagem
 
@@ -28,14 +28,18 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 - Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave.
 - [Python 2.7+ ou 3.5+](https://www.python.org/downloads/)
 - Ferramenta [pip](https://pip.pypa.io/en/stable/installing/)
-- Face API do SDK de Python. Pode instalá-lo ao executar o seguinte comando:
-    ```bash
-    pip install cognitive_face
-    ```
+
+## <a name="get-the-face-sdk"></a>Obtenha o SDK de rostos
+
+Instale o SDK de Python de Face ao abrir a linha de comandos e executar o seguinte comando:
+
+```shell
+pip install cognitive_face
+```
 
 ## <a name="detect-faces-in-an-image"></a>Detetar rostos numa imagem
 
-Criar um novo script de Python, _FaceQuickstart.py_. Adicione o seguinte código. Esta é a principal funcionalidade de deteção de rostos. Terá de substituir `<Subscription Key>` com o valor da chave. Também poderá ter de alterar o valor de `BASE_URL` para utilizar o identificador de região corretos para a sua chave (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região). Chaves de subscrição de avaliação gratuita são geradas na **westus** região. Opcionalmente, defina `img_url` para o URL de qualquer imagem que pretende utilizar.
+Criar um novo script de Python com o nome _FaceQuickstart.py_ e adicione o seguinte código. Esta é a principal funcionalidade de deteção de rostos. Terá de substituir `<Subscription Key>` com o valor da chave. Também poderá ter de alterar o valor de `BASE_URL` para utilizar o identificador de região corretos para a sua chave (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região). Chaves de subscrição de avaliação gratuita são geradas na **westus** região. Opcionalmente, defina `img_url` para o URL de qualquer imagem que pretende utilizar.
 
 O script irá detetar rostos ao chamar o **cognitive_face.face.detect** método, que encapsula o [detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API e retorna uma lista de faces.
 

@@ -1,21 +1,22 @@
 ---
 title: Configurar contentores
-titlesuffix: Computer Vision - Cognitive Services - Azure
+titlesuffix: Computer Vision - Azure Cognitive Services
 description: Definições de configuração para contentores na visão do computador.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 865300f74a74b9768d2d5f5fd532ce9e851b7afb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964105"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077023"
 ---
 # <a name="configure-containers"></a>Configurar contentores
 
@@ -98,7 +99,7 @@ O `Eula` definição de configuração indica que aceite a licença para o conte
 > [!IMPORTANT]
 > O [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), e [ `Eula` ](#eula-configuration-setting) definições de configuração são utilizadas em conjunto, e tem de indicar valores válidos para todas as três -los; caso contrário, não inicia o contentor. Para obter mais informações sobre como utilizar estas definições de configuração para criar uma instância de um contentor, consulte [faturação](computer-vision-how-to-install-containers.md#billing).
 
-Contentores de serviços cognitivos são licenciados sob o contrato que rege a utilização do Azure. Se não tiver um contrato existente que regem a utilização do Azure, concorda que seu contrato que rege a utilização do Azure é o Microsoft contrato de subscrição Online (o qual incorpora os termos dos Online Services). Para pré-visualizações, também concorda com os termos de utilização suplementares para pré-visualizações do Microsoft Azure. Ao utilizar o contentor concorda com estes termos.
+Contentores de serviços cognitivos são licenciados ao abrigo [seu contrato](https://go.microsoft.com/fwlink/?linkid=2018657) que regem a utilização do Azure. Se não tiver um contrato existente que regem a utilização do Azure, concorda que seu contrato que rege a utilização do Azure é o [contrato de subscrição Online da Microsoft](https://go.microsoft.com/fwlink/?linkid=2018755), que incorpora o [termos dos Online Services ](https://go.microsoft.com/fwlink/?linkid=2018760). Para pré-visualizações, também concorda com o [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Ao utilizar o contentor concorda com estes termos.
 
 ## <a name="fluentd-configuration-settings"></a>Definições de configuração Fluentd
 

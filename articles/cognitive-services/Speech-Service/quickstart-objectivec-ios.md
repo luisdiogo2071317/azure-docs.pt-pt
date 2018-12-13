@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Reconhecer voz em Objective-C no iOS com o SDK do Serviço de Voz'
+title: 'Início rápido: Reconhecer a conversão de voz, Objective-C - serviços de voz'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer voz em Objective-C no iOS com o SDK do Serviço de Voz
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: chlandsi
-ms.openlocfilehash: 3f9b523c1efc22a94ef2a18367689c356c5be8f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: eaa44f942082c6bd062599dbdd0401fe4505daf4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971628"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090215"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Início Rápido: Reconhecer voz em Objective-C no iOS com o SDK do Serviço de Voz
 

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: ee88c8dca1521f4cdc2e3ea141d5c1d497061bb4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71b0739bacd8df586267b61a9135f448aa76479d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422359"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082242"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origens de dados para o conteúdo de QnA Maker
 
@@ -44,7 +44,7 @@ Este é o tipo mais comum da página de FAQ, em que as respostas siga imediatame
 
 Segue-se um exemplo de uma página de FAQ simples:
 
-![Página de perguntas frequentes simples](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![Exemplo de página de FAQ simples para uma base de dados de conhecimento](../media/qnamaker-concepts-datasources/plain-faq.png) 
 
  
 ### <a name="faq-pages-with-links"></a>Páginas de FAQ com links 
@@ -53,7 +53,7 @@ Este tipo de página de perguntas frequentes, as perguntas são agregadas em con
 
 Segue-se um exemplo de uma página de FAQ com ligações nas secções que se encontram na mesma página:
 
- ![Página de FAQ de ligação da secção](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![Exemplo de página de FAQ de ligação de seção para uma base de dados de conhecimento](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
 
 
 ### <a name="faq-pages-with-a-topics-homepage"></a>Páginas de FAQ com uma home page de tópicos
@@ -62,7 +62,7 @@ Esse tipo de FAQ tem uma home page com os tópicos em que cada tópico é um lin
 
 Segue-se um exemplo de uma página de perguntas frequentes sobre onde uma home page de tópicos com links para páginas diferentes secções FAQ. 
 
- ![Página de perguntas frequentes sobre a ligação avançada](../media/qnamaker-concepts-datasources/topics-faq.png) 
+ ![Exemplo de página de perguntas frequentes sobre a ligação avançada para uma base de dados de conhecimento](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
 ## <a name="pdf-doc-files"></a>PDF / arquivos do documento
@@ -77,7 +77,7 @@ Um manual é, normalmente, material de orientação que acompanha um produto. El
 
 Segue-se um exemplo de um manual com uma página de índice e conteúdo hierárquico
 
- ![Exemplo de manuais de produto](../media/qnamaker-concepts-datasources/product-manual.png) 
+ ![Exemplo de manuais de produto para uma base de dados de conhecimento](../media/qnamaker-concepts-datasources/product-manual.png) 
 
 > [!NOTE]
 > Extração funciona melhor em manuais que tenham uma tabela de conteúdos e/ou uma página de índice e uma estrutura clara com cabeçalhos hierárquicas.
@@ -106,7 +106,7 @@ Answer2
 
 Segue-se um exemplo de um documento do word QnA estruturado:
 
- ![Documento de QnA estruturado](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+ ![Exemplo de documento do QnA estruturado para uma base de dados de conhecimento](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
 
 ## <a name="structured-txt-tsv-and-xls-files"></a>Estruturados *TXT*, *TSV* e *XLS* ficheiros
 
@@ -121,7 +121,7 @@ Quaisquer colunas adicionais no arquivo de origem são ignoradas.
 
 Segue-se um exemplo de um QnA estruturado *. xls* arquivo, com conteúdo HTML:
 
- ![QnA estruturado do excel](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+ ![Exemplo de uma base de dados de conhecimento do excel QnA estruturado](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 ## <a name="structured-data-format-through-import"></a>Formato de dados estruturados através de importação
 

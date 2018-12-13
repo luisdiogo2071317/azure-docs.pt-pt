@@ -1,11 +1,12 @@
 ---
 title: Ferramentas de desenvolvimento de Máquina Virtual de ciência de dados - Azure | Documentos da Microsoft
-description: Ferramentas de desenvolvimento de Máquina Virtual de ciência do dados.
+description: Saiba mais sobre as ferramentas e ambientes de desenvolvimento integrado que vêm pré-instaladas na máquina de Virtual de ciência de dados.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: ef9f1e0c043370bdfacf654cffb524b716a34446
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: ee1e7003a9f1479db7311072e29132cf491cbc88
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872340"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073759"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Ferramentas de desenvolvimento na máquina de Virtual de ciência de dados
 

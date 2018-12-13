@@ -1,6 +1,6 @@
 ---
-title: Receber eventos dos Hubs de eventos do Azure com o Apache Storm | Documentos da Microsoft
-description: Começar a receber de Hubs de eventos com o Apache Storm
+title: Receber eventos com o Apache Storm - Event Hubs do Azure | Documentos da Microsoft
+description: Este artigo fornece informações sobre como receber eventos dos Event Hubs do Azure com o Apache Storm.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c70096796bb038c27d18bb3467d7c425dafd5c5b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 3c50916f648a2bce634f7aeb109147a873de1de6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054200"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094615"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Receber eventos dos Hubs de eventos com o Apache Storm
 
@@ -40,7 +41,7 @@ Este tutorial utiliza uma [Storm do HDInsight] [ HDInsight Storm] instalação, 
     ```
 4. No Eclipse, crie um novo projeto Maven (clique em **arquivo**, em seguida, **New**, em seguida, **projeto**).
    
-    ![][12]
+    ![Ficheiro -> novo -> projeto][12]
 5. Selecione **utilizar a localização de área de trabalho predefinida**, em seguida, clique em **seguinte**
 6. Selecione o **maven-mvn-quickstart** mvn, em seguida, clique em **seguinte**
 7. Inserir um **GroupId** e **ArtifactId**, em seguida, clique em **concluir**

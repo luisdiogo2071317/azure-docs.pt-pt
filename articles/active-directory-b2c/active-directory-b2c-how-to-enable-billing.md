@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 80ba42d7eab1726c7add6c4c9426b7dde3b55480
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1486e303e4e94ee6140bcd6ed4f52bc433b9aae6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445946"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100060"
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Ligar uma subscrição do Azure para um inquilino do Azure AD B2C
 
@@ -25,7 +25,7 @@ ms.locfileid: "37445946"
 Os custos de utilização para o Azure AD B2C são faturados a uma subscrição do Azure. Quando é criado um inquilino do Azure AD B2C, o administrador de inquilino tem de ligar explicitamente o inquilino do Azure AD B2C a uma subscrição do Azure. Este artigo mostra-lhe como.
 
 > [!NOTE]
-> Uma subscrição ligada a um inquilino do Azure AD B2C só pode ser utilizada para a faturação da utilização do Azure AD B2C. A subscrição não pode ser utilizada para adicionar outros serviços do Azure ou licenças do Office 365 *no inquilino do Azure AD B2C*.
+> Uma subscrição ligada a um inquilino do Azure AD B2C pode ser utilizada para a faturação de utilização do Azure AD B2C ou outros recursos do Azure, incluindo recursos adicionais do Azure AD B2C.  Ele não pode ser usado para adicionar outros serviços do Azure baseada na licença ou licenças do Office 365 no inquilino do Azure AD B2C.
 
  A ligação de subscrição é obtida através da criação de um Azure AD B2C "recurso" dentro da subscrição do Azure de destino. Azure AD B2C muitos "recursos" podem ser criados dentro de uma única subscrição do Azure, juntamente com outros recursos do Azure (para armazenamento de dados de exemplo, VMs, LogicApps). Pode ver todos os recursos dentro da subscrição ao aceder ao inquilino do Azure AD que a subscrição está associada à.
 
@@ -80,7 +80,7 @@ Pode usar este recurso para:
 
 ![Definições de recursos de B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 ### <a name="csp-subscriptions"></a>Subscrições de CSP
 

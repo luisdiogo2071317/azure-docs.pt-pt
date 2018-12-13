@@ -1,20 +1,20 @@
 ---
-title: Desenvolver e depurar c# módulos do Azure IoT Edge no Visual Studio 2017 | Documentos da Microsoft
+title: Desenvolver e depurar C# módulos no Visual Studio – Azure IoT Edge | Documentos da Microsoft
 description: Utilizar o Visual Studio 2017 para desenvolver e depurar o módulo de c# para o Azure IoT Edge
 services: iot-edge
-keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 091eb6af871cc53dff3459c55c668e8ffb227984
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 547989152320678ec195c4e8a93965cfbbd0f341
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567473"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097850"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Utilizar o Visual Studio 2017 para desenvolver e depurar c# módulos do Azure IoT Edge (pré-visualização)
 
@@ -53,7 +53,7 @@ Depois do Visual Studio 2017 está pronta, também terá de:
 
 1. Partir do **ferramentas** menu, escolha **extensões e atualizações**. Expanda **instalada > ferramentas** e pode encontrar **Azure IoT Edge** e **Cloud Explorer**.
 
-2. Tenha em atenção a versão instalada. Pode comparar essa versão com a versão mais recente no Visual Studio Marketplace ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools))
+2. Tenha em atenção a versão instalada. Pode comparar essa versão com a versão mais recente no Visual Studio Marketplace ([Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge))
 
 3. Se tiver uma versão mais antiga, Atualize as suas ferramentas no Visual Studio, conforme mostrado na seção a seguir.
 

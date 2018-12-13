@@ -5,7 +5,7 @@
 ## [O que é o Service Health?](service-health-overview.md)
 ## [O que é o Resource Health?](resource-health-overview.md)
 # Procedimento
-## [Configurar alertas para eventos de estado de funcionamento do serviço](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
+## [Configurar alertas para eventos de estado de funcionamento do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ### [Ver notificações do estado de funcionamento do serviço ao utilizar o portal do Azure](../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ## [Configurar notificações de estado de funcionamento do serviço através de um webhook](service-health-alert-webhook-guide.md)
 ### [Configurar com ServiceNow](service-health-alert-webhook-servicenow.md)
