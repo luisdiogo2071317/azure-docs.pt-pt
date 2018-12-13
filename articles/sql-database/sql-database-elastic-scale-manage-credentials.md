@@ -3,7 +3,7 @@ title: Gerir credenciais na biblioteca de cliente de base de dados elástica | D
 description: Como definir o nível certo de credenciais, o administrador para só de leitura, para aplicações de bases de dados elásticas
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 116afab3a4481511ed6e1e8420b4bfa783add3d7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8f5de47e9d9c8cc50f77ddadfe9d781ef4c3bc96
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161238"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863827"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciais utilizadas para acessar a biblioteca de cliente da base de dados elástica
 O [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-database-client-library.md) utiliza três tipos diferentes de credenciais para aceder a [Gestor de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md). Dependendo da necessidade, utilize a credencial com o nível mais baixo de acesso possíveis.

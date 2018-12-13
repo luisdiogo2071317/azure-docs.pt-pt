@@ -3,7 +3,7 @@ title: Testes de recuperação de desastres de base de dados SQL | Documentos da
 description: Aprenda a orientações e melhores práticas para utilizar a SQL Database do Azure para realizar testes de recuperação após desastre.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: c861163670b05b01c9c6d64b81f6e83c979a2af8
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
-ms.translationtype: MT
+ms.openlocfilehash: 4ed98d80f54ba781e7230a7081b85a4437d20242
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163040"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877018"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Efetuar teste de recuperação após desastre
 Recomenda-se que é executada periodicamente uma validação de preparação de aplicativos para o fluxo de trabalho de recuperação. A verificar o comportamento do aplicativo e as implicações de perda de dados e/ou a interrupção envolve a que a ativação pós-falha é uma boa prática de engenharia. Também é um requisito pela maioria dos padrões da indústria como parte da certificação de continuidade de negócio.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: MT
+ms.openlocfilehash: e273568a04ec2a3758684025acf8034b8e788627
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959992"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871358"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planear a sua implementação híbrida do Azure Active Directory
 
@@ -130,9 +130,9 @@ Pode configurar a associação do Azure AD híbrido para os seguintes cenários:
 
 Se o seu ambiente tem domínios geridos, oferece suporte a associação do híbrida do Azure AD:
 
-- Passar através da autenticação (PTA) com início de sessão único totalmente integrado (SSO) 
+- Pass-Through Authentication (PTA)
 
-- Sincronização de Hash de palavra-passe (PHS) com o simples início de sessão único (SSO) 
+- Sincronização de Hash de palavra-passe (PHS)
 
 A partir da versão 1.1.819.0, o Azure AD Connect fornece um assistente para configurar a associação do Azure AD híbrido. O assistente permite-lhe simplificar significativamente o processo de configuração. Para obter mais informações, consulte:
 

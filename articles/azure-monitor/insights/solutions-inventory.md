@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 38ed7a7fff08003563147d6b8eb9bbc33fb32bc9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 4e7bcfbbec7be7320328df9ed2fa34ba7f7dbfc6
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836156"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888397"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalhes de recolha de dados para soluções de gestão no Azure
 Este artigo inclui uma lista dos [soluções de gestão](solutions.md) disponíveis da Microsoft com links para sua documentação detalhada.  Também fornece informações no seu método e a frequência de recolha de dados para o Log Analytics.  Pode utilizar as informações neste artigo, para identificar as diferentes soluções disponíveis e para compreender os requisitos de fluxo e a ligação de dados para soluções de gestão diferentes. 
@@ -31,10 +31,10 @@ A tabela seguinte lista os [soluções de gestão](solutions.md) no Azure fornec
 Explicações das colunas são os seguintes:
 
 - **Agente de monitorização Microsoft** -agente usado no Windows e Linux para executar o pacote de gestão do SCOM e o gerenciamento de soluções do Azure. Nesta configuração, o agente está ligado diretamente ao Log Analytics sem a ser ligado a um grupo de gestão do Operations Manager. 
-- **Do Operations Manager** -agente idêntica, como o Microsoft monitoring agent. Nesta configuração, tem [ligado a um grupo de gestão do Operations Manager](../../log-analytics/log-analytics-om-agents.md) que esteja ligada ao Log Analytics. 
+- **Do Operations Manager** -agente idêntica, como o Microsoft monitoring agent. Nesta configuração, tem [ligado a um grupo de gestão do Operations Manager](../../azure-monitor/platform/om-agents.md) que esteja ligada ao Log Analytics. 
 -  **O armazenamento do Azure** -solução recolhe dados de uma conta de armazenamento do Azure. 
 - **Gestor de operações necessárias?** -Um grupo de gestão do Operations Manager ligado é obrigatório para a recolha de dados da solução de gestão. 
-- **Dados de agente do Operations Manager enviados por grupo de gestão** – se o agente está [ligadas a um grupo de gestão do SCOM](../../log-analytics/log-analytics-om-agents.md), em seguida, os dados são enviados para o Log Analytics do servidor de gestão. Neste caso, o agente não precisa se conectar diretamente ao Log Analytics. Se esta caixa não está selecionada, em seguida, dados são enviados do agente diretamente ao Log Analytics, mesmo que o agente está ligado a um grupo de gestão do SCOM. Terá de conseguir comunicar com o Log Analytics através do [gateway do Log Analytics](../../azure-monitor/platform/gateway.md).
+- **Dados de agente do Operations Manager enviados por grupo de gestão** – se o agente está [ligadas a um grupo de gestão do SCOM](../../azure-monitor/platform/om-agents.md), em seguida, os dados são enviados para o Log Analytics do servidor de gestão. Neste caso, o agente não precisa se conectar diretamente ao Log Analytics. Se esta caixa não está selecionada, em seguida, dados são enviados do agente diretamente ao Log Analytics, mesmo que o agente está ligado a um grupo de gestão do SCOM. Terá de conseguir comunicar com o Log Analytics através do [gateway do Log Analytics](../../azure-monitor/platform/gateway.md).
 - **Frequência de recolha** -Especifica a frequência que os dados são recolhidos pela solução de gestão. 
 
 
@@ -54,12 +54,12 @@ Explicações das colunas são os seguintes:
 | [Análise do Gateway de aplicação do Azure](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | na notificação |
 | **Solução de gestão** | **Plataforma** | **Agente de monitorização da Microsoft** | **Agente do Operations Manager** | **Armazenamento do Azure** | **Gestor de operações necessárias?** | **Dados de agente do Operations Manager enviados por grupo de gestão** | **Frequência de recolha** |
 | [Análise de grupo de segurança de rede do Azure (preterido)](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | na notificação |
-| [Análise SQL do Azure (pré-visualização)](../../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 minuto |
+| [Análise SQL do Azure (pré-visualização)](../../azure-monitor/insights/azure-sql.md) | Windows | | | | | | 1 minuto |
 | [Cópia de segurança](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | na notificação |
 | [Capacidade e desempenho (pré-visualização)](../../azure-monitor/insights/capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |na chegada |
 | [Monitorização de Alterações](../../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |hora a hora |
 | [Monitorização de Alterações](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |hora a hora |
-| [Contentores](../../log-analytics/log-analytics-containers.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 3 minutos |
+| [Contentores](../../azure-monitor/insights/containers.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 3 minutos |
 | [Análise do Cofre de Chaves](../../azure-monitor/insights/azure-key-vault.md) |Windows | | | | | |na notificação |
 | [Avaliação de Software Maligno](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |hora a hora |
 | [Monitor de Desempenho da Rede](../../azure-monitor/insights/network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | Os handshakes TCP em 5 segundos, dados enviados a cada 3 minutos |

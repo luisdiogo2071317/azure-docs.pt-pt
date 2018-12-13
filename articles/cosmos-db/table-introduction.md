@@ -1,21 +1,19 @@
 ---
-title: Introdução à API de Tabela do Azure Cosmos DB | Microsoft Docs
+title: Introdução à API de tabelas do Azure Cosmos DB
 description: Saiba como pode utilizar o Azure Cosmos DB para armazenar e consultar grandes volumes de dados de chaves-valores com baixa latência através da utilização das populares APIs OSS MongoDB.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 07c1edd53ff30cc3128443cb8984d1a5467c4395
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: 2647065d251caea571e2bfcd5703bbb3bec08345
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240060"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074312"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao Azure Cosmos DB: Table API
 
@@ -25,7 +23,7 @@ O [Azure Cosmos DB](introduction.md) disponibiliza a API de Tabelas às aplicaç
 * [Débito dedicado](partition-data.md) em todo o mundo.
 * Latências de milissegundos na ordem de um dígito no percentil 99.º.
 * Elevada disponibilidade garantida.
-* [Indexação secundária automática](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+* [Indexação secundária automática](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 As aplicações escritas para o armazenamento de Tabelas do Azure podem migrar para o Azure Cosmos BD com a API de Tabela sem alterações de código e tirar partido das funcionalidades premium. A API de Tabela tem SDKs do cliente disponíveis para .NET, Java, Python e Node.js.
 
@@ -51,7 +49,7 @@ Crie uma conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com)
 > Se tiver criado uma conta de API de Tabela durante a pré-visualização, crie uma [nova conta de API de Tabela](create-table-dotnet.md#create-a-database-account) para trabalhar com os SDKs de API de Tabela disponíveis geralmente.
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Eis alguns sítios por onde começar:
 * [Criar uma aplicação .NET com a API de Tabela](create-table-dotnet.md)

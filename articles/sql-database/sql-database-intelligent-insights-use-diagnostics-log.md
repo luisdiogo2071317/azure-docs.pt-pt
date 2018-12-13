@@ -12,16 +12,16 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: MT
+ms.openlocfilehash: 2809dd45042e41c8337ecddccc76ec4e16d7cb8b
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977102"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887700"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utilizar o registo de diagnóstico de desempenho do Intelligent Insights SQL Database do Azure
 
-Esta página fornece informações sobre como utilizar o log de diagnóstico de desempenho de base de dados do Azure SQL gerado pelo [informações inteligentes](sql-database-intelligent-insights.md), seu formato e os dados nele contidos para necessidades de seu desenvolvimento personalizado. Pode enviar este registo de diagnósticos para [do Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Event Hubs do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou uma solução de terceiros para DevOps personalizado de alertas e relatórios capacidades.
+Esta página fornece informações sobre como utilizar o log de diagnóstico de desempenho de base de dados do Azure SQL gerado pelo [informações inteligentes](sql-database-intelligent-insights.md), seu formato e os dados nele contidos para necessidades de seu desenvolvimento personalizado. Pode enviar este registo de diagnósticos para [do Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Event Hubs do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou uma solução de terceiros para DevOps personalizado de alertas e relatórios capacidades.
 
 ## <a name="log-header"></a>Cabeçalho de registo
 

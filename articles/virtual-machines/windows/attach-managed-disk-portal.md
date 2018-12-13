@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 854f457e6731f69c64bf2036840d9e1c18a1cbf2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093906"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075095"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Anexar um disco de dados geridos para uma VM do Windows com o portal do Azure
 
@@ -52,30 +52,6 @@ Este artigo mostra-lhe como anexar um novo disco de dados geridos para uma máqu
 8. Na **Formatar novo disco** janela, verifique as definições e, em seguida, selecione **iniciar**.
 9. É apresentado um aviso a informar de que os discos de formatação apague todos os dados. Selecione **OK**.
 10. Quando a formatação estiver concluída, selecione **OK**.
-
-## <a name="use-trim-with-standard-storage"></a>Utilizar TRIM com o armazenamento standard
-
-Se utilizar o armazenamento standard (HDD), deve ativar os **TRIM** comando. O **TRIM** comando descarta blocos não utilizados no disco, de modo a que é cobrado apenas pelo armazenamento que está realmente usando. Usando **TRIM**, podem poupar nos custos, se cria arquivos grandes e, em seguida, eliminá-los mais tarde. 
-
-Para verificar a **TRIM** definir, abra um prompt de comando na sua VM do Windows e introduza o seguinte comando:
-
-```
-fsutil behavior query DisableDeleteNotify
-```
-
-Se o comando devolve 0, **TRIM** está ativada corretamente. Caso contrário, se ela retornar 1, execute o seguinte comando para habilitar **TRIM**:
-
-```
-fsutil behavior set DisableDeleteNotify 0
-```
-
-Depois de eliminar dados do seu disco, é possível garantir a **TRIM** alinhadas corretamente através da execução de operações de desfragmentação com **TRIM**:
-
-```
-defrag.exe <volume:> -l
-```
-
-Também pode formatar o volume para garantir que todo o volume é ajustado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,24 +1,18 @@
 ---
-title: FAQ sobre DNS do Azure | Documentos da Microsoft
+title: FAQ sobre DNS do Azure
 description: Perguntas freqüentes sobre DNS do Azure
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-editor: ''
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 9/25/2018
+ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: daf65b00ffa753568ab99e64365cc0625792f593
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 663ba97ce96244aa890bef45d1229c12ca170802
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092683"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880153"
 ---
 # <a name="azure-dns-faq"></a>FAQ sobre DNS do Azure
 
@@ -26,7 +20,7 @@ ms.locfileid: "50092683"
 
 ### <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 
-O sistema de nomes de domínio (DNS) traduz ou resolvido, um nome do Web site ou serviço para o endereço IP. O DNS do Azure é um serviço de alojamento para domínios DNS. Ele fornece resolução de nomes através da infraestrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os registos DNS ao utilizar as mesmas credenciais, APIs, ferramentas e de faturação dos outros serviços do Azure.
+O sistema de nomes de domínio (DNS) traduz ou resolvido, um nome do Web site ou serviço para o endereço IP. O DNS do Azure é um serviço de alojamento para domínios DNS. Ele fornece resolução de nomes através da infraestrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure.
 
 Domínios DNS no DNS do Azure estão alojados na rede do Azure global de servidores de nomes DNS. Este sistema utiliza o funcionamento em rede Anycast, de modo a que cada consulta DNS for atendida pelo servidor DNS disponível mais próximo. O DNS do Azure fornece um desempenho rápido e de elevada disponibilidade para o seu domínio.
 
@@ -102,9 +96,9 @@ Sim. O DNS do Azure suporta o conjunto para conjuntos de registos TXT de codific
 
 Por exemplo, um usuário pode fornecer uma cadeia de caracteres como o valor para um registo TXT que tenha o expandida caráter \128 ASCII. Um exemplo é "abcd\128efgh." O DNS do Azure utiliza o valor de byte deste caráter, o que é 128, na representação interna. No momento da resolução de DNS, este valor de bytes é devolvido na resposta. Observe também que "abc" e "\097\098\099" são intercambiáveis como diz respeito a resolução. 
 
-Seguimos [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zona regras de escape de mestre de formato de ficheiro para registos TXT. Por exemplo, "\" agora escapes, na verdade, tudo por de RFC. Se especificar "A\B" como o valor de registo TXT, representado e resolvido como apenas "AB." Se realmente deseja o registo TXT ter "A\B" com uma resolução, terá de escape o "\" novamente. Por exemplo, especificar "A\\B". 
+Seguimos [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zona regras de escape de mestre de formato de ficheiro para registos TXT. Por exemplo, `\` agora escapes, na verdade, tudo por de RFC. Se especificar `A\B` como o valor de registo TXT, que tem representado e resolvido apenas como `AB`. Se realmente desejar, de facto, o registo TXT ter `A\B` resolução, terá de escape o `\` novamente. Por exemplo, especificar `A\\B`.
 
-Esse suporte atualmente não está disponível para registos TXT criados a partir do portal do Azure. 
+Esse suporte atualmente não está disponível para registos TXT criados a partir do portal do Azure.
 
 ## <a name="alias-records"></a>Registos de alias
 
@@ -119,6 +113,7 @@ Conjuntos de registos de alias são suportados para os seguintes tipos de regist
 - CNAME 
 
 ### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>Os recursos que são suportados como destinos para conjuntos de registos de alias?
+
 - **Ponto para um recurso IP público a partir de um conjunto de registos de A/AAAA de DNS.** Pode criar um conjunto de registos A/AAAA e torná-lo um conjunto de registos de alias para apontar para um recurso IP público.
 - **Ponto para um perfil do Gestor de tráfego a partir de um conjunto de registos DNS A/AAAA/CNAME.** Pode apontar para o CNAME de um perfil do Gestor de tráfego de um conjunto de registos CNAME no DNS. Um exemplo é contoso.trafficmanager.net. Agora, também pode apontar para um perfil de Gestor de tráfego que tem pontos finais externos a partir de um conjunto na sua zona DNS de registos A ou AAAA.
 - **Aponte para outro conjunto de registos de DNS na mesma zona.** Registos de alias podem fazer referência a outros conjuntos de registos do mesmo tipo. Por exemplo, pode ter um conjunto de registos CNAME do DNS que funciona como alias de outro conjunto de registos CNAME do mesmo tipo. Essa disposição é útil se desejar alguns conjuntos de registos para ser aliases e alguns não aliases.
@@ -197,49 +192,63 @@ Para configurar IDNs no DNS do Azure, converta o nome da zona ou o nome do conju
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 ### <a name="does-azure-dns-support-private-domains"></a>O DNS do Azure suporta domínios privados?
+
 Suporte para domínios privados é implementado através da funcionalidade zonas privadas. Esta funcionalidade está atualmente disponível em pré-visualização pública. Zonas privadas são geridas com as mesmas ferramentas como zonas de DNS do Azure para a internet. Eles são resolvíveis apenas a partir de dentro de suas redes virtuais especificados. Para obter mais informações, consulte a [descrição geral](private-dns-overview.md).
 
 Neste momento, as zonas privadas não são suportadas no portal do Azure. 
 
 Para obter informações sobre outras opções de DNS internas no Azure, consulte [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-### <a name="whats-the-difference-between-registration-virtual-network-and-resolution-virtual-network-in-the-context-of-private-zones"></a>O que é a diferença entre a rede virtual de registo e de rede virtual de resolução no contexto de zonas privadas? 
+### <a name="whats-the-difference-between-registration-virtual-network-and-resolution-virtual-network-in-the-context-of-private-zones"></a>O que é a diferença entre a rede virtual de registo e de rede virtual de resolução no contexto de zonas privadas?
+
 Pode ligar redes virtuais a uma zona DNS privada, como uma rede virtual de registo ou como uma rede virtual de resolução. Em ambos os casos, as máquinas virtuais na rede virtual resolver com êxito em relação a registos na zona privada. Com uma rede virtual de registo, os registos DNS são automaticamente registrados para a zona para as máquinas virtuais na rede virtual. Quando uma máquina virtual no registo de uma rede virtual é eliminada, o registo DNS correspondente da zona privada ligado é removido automaticamente. 
 
 ### <a name="will-azure-dns-private-zones-work-across-azure-regions"></a>As zonas privadas do DNS do Azure irá funcionar entre regiões do Azure?
+
 Sim. As zonas privadas é suportada para a resolução DNS entre redes virtuais em regiões do Azure. As zonas privadas do funciona até mesmo sem peering explicitamente as redes virtuais. Todas as redes virtuais têm de ser especificadas como redes virtuais de resolução para a zona privada. Clientes podem ter as redes virtuais para ser executado o peering para o tráfego TCP/HTTP para o fluxo de uma região para outra.
 
 ### <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>É a conectividade à Internet de redes virtuais necessárias para zonas privadas?
+
 Não. Zonas privadas trabalham em conjunto com redes virtuais. Os clientes usá-los para gerir domínios para máquinas virtuais ou outros recursos dentro e entre redes virtuais. Conectividade com a Internet não é necessária para resolução de nomes. 
 
-### <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>Da mesma zona privada pode ser utilizada para várias redes virtuais para a resolução? 
+### <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>Da mesma zona privada pode ser utilizada para várias redes virtuais para a resolução?
+
 Sim. Os clientes podem associar até 10 redes virtuais de resolução com uma única zona privada.
 
-### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Pode uma rede virtual que pertence a uma subscrição diferente ser adicionada como uma rede virtual de resolução para uma zona privada? 
+### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Pode uma rede virtual que pertence a uma subscrição diferente ser adicionada como uma rede virtual de resolução para uma zona privada?
+
 Sim. O utilizador tem de ter permissão de operação de escrita sobre as redes virtuais e a zona DNS privada. A permissão de escrita pode ser concedida a várias funções do RBAC. Por exemplo, a função RBAC de contribuinte de rede clássica tem permissões de escrita para redes virtuais. Para obter mais informações sobre funções RBAC, veja [controlo de acesso baseado em funções](../role-based-access-control/overview.md).
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Os registos DNS da máquina de virtual automaticamente registado numa zona privada sejam eliminados automaticamente quando as máquinas virtuais são eliminadas pelo cliente?
+
 Sim. Se eliminar uma máquina virtual dentro de uma rede virtual de registo, os registos DNS que foram registados para a zona são automaticamente eliminados. 
 
-### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>Um registo de máquina de virtual automaticamente registrados numa zona privada de uma rede virtual de registo pode ser eliminado manualmente? 
+### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>Um registo de máquina de virtual automaticamente registrados numa zona privada de uma rede virtual de registo pode ser eliminado manualmente?
+
 Não. Os registos DNS de máquina virtual que são automaticamente registrados numa zona privada de uma rede virtual de registo não estão visíveis ou editável pelos clientes. Pode substituir os registos DNS registados automaticamente com um registo DNS criado manualmente na zona. A seguinte pergunta e resposta abordar neste tópico.
 
-### <a name="what-happens-when-we-try-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>O que acontece quando tentamos criar manualmente um novo registo DNS para uma zona privada que tem o mesmo nome do anfitrião como uma máquina virtual existente automaticamente registrada numa rede virtual de registo? 
+### <a name="what-happens-when-we-try-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>O que acontece quando tentamos criar manualmente um novo registo DNS para uma zona privada que tem o mesmo nome do anfitrião como uma máquina virtual existente automaticamente registrada numa rede virtual de registo?
+
 Tente criar manualmente um novo registo DNS para uma zona privada que tem o mesmo nome do anfitrião como uma máquina de virtual existente, automaticamente registrada numa rede virtual de registo. Quando o fizer, o novo registo DNS substitui o registo de máquina de virtual registado automaticamente. Se tentar eliminar este registo DNS criado manualmente a partir da zona da novamente, a eliminação for concluída com êxito. O registo automático voltar a ocorrer, desde que a máquina virtual ainda existe e tem um IP privado ligados ao mesmo. O registo DNS seja recriado automaticamente na zona.
 
 ### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-will-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-too"></a>O que acontece quando podemos desassociar a uma rede virtual de registo de uma zona privada? Serão os registos de máquina de virtual registado automaticamente da rede virtual removidos da zona demasiado?
+
 Sim. Para desassociar a uma rede virtual de registo de uma zona privada, atualize a zona DNS para remover a rede virtual de registo associada. Nesse processo, os registos de máquina virtual que foram registados automaticamente são removidos da zona. 
 
 ### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-thats-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>O que acontece quando vamos eliminar um registo ou resolução da rede virtual que está ligada a uma zona privada? Temos de atualizar manualmente a zona privada ao desassociar a rede virtual como um registo ou rede virtual de resolução da zona?
+
 Sim. Quando elimina uma rede virtual de registo ou resolução sem desassociar primeiro de uma zona privada, a operação de eliminação for concluída com êxito. Mas a rede virtual não é automaticamente desassociada da sua zona privada, se aplicável. Deve desassociar manualmente a rede virtual a partir da zona privada. Por esse motivo, desassocie a rede virtual da sua zona privada antes de o eliminar.
 
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>Resolução de DNS ao utilizar a predefinição FQDN (internal.cloudapp.net) continuarão a funcionar mesmo quando uma zona privada (por exemplo, contoso. local) está ligada a uma rede virtual? 
+### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>Resolução de DNS ao utilizar a predefinição FQDN (internal.cloudapp.net) continuarão a funcionar mesmo quando uma zona privada (por exemplo, contoso. local) está ligada a uma rede virtual?
+
 Sim. As zonas privadas do não substitui as resoluções DNS padrão através da utilização da zona de internal.cloudapp.net fornecida pelo Azure. É oferecido como uma funcionalidade adicional ou um aprimoramento. Se se basear no internal.cloudapp.net fornecida pelo Azure ou em sua própria zona privada, utilize o FQDN da zona que pretende resolver contra. 
 
-### <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>Será alterado o sufixo DNS em máquinas virtuais numa rede virtual ligada para que a zona privada? 
+### <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>Será alterado o sufixo DNS em máquinas virtuais numa rede virtual ligada para que a zona privada?
+
 Não. O sufixo DNS nas máquinas virtuais na sua rede virtual ligado permanece como o sufixo predefinido de fornecida pelo Azure ("*. internal.cloudapp.net"). Pode alterar manualmente este sufixo DNS nas suas máquinas virtuais para que a zona privada. 
 
 ### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>Existem limitações para zonas privadas durante esta pré-visualização?
+
 Sim. Durante a pré-visualização pública, existem as seguintes limitações.
 * Uma rede virtual de registo por zona privada.
 * Até 10 redes virtuais de resolução por zona privada.
@@ -252,9 +261,11 @@ Sim. Durante a pré-visualização pública, existem as seguintes limitações.
 * Reencaminhamento condicional não é suportado, por exemplo, para habilitar a resolução entre redes do Azure e no local. Saiba como os clientes podem obter este cenário através de outros mecanismos. Consulte [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Existem quotas ou limites de zonas ou registos para zonas privadas?
+
 Não há nenhum limite no número de zonas permitidas por subscrição para zonas privadas. Não há nenhum limite no número de conjuntos de registos por zona para zonas privadas. Zonas públicas e privadas contam para os limites DNS globais. Para obter mais informações, consulte o [subscrição do Azure e limites do serviço](../azure-subscription-service-limits.md#dns-limits)
 
 ### <a name="is-there-portal-support-for-private-zones"></a>Existe suporte para zonas privadas do portal?
+
 Zonas privadas já criadas através de APIs, PowerShell, CLI e SDKs são visíveis no portal do Azure. Mas os clientes não é possível criar novas zonas privadas ou gerir as associações com as redes virtuais. Para as redes virtuais associadas como registo de redes virtuais, registados automaticamente registos VM não visíveis no portal. 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: MT
+ms.openlocfilehash: e639bd40c877aded1439fe999fcf3f7114b9a727
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976193"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890675"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Informações inteligentes com ia para monitorizar e resolver problemas de desempenho de base de dados
 
@@ -87,7 +87,7 @@ Solução de análise de SQL do Azure fornece a interface gráfica do usuário, 
 > Introdução rápida: A forma mais fácil deixar o zero com a utilização de informações inteligentes é usá-lo juntamente com a análise de SQL do Azure que irá fornecer uma interface gráfica do usuário para problemas de desempenho da base de dados. Adicionar solução de análise de SQL do Azure a partir do marketplace, criar uma área de trabalho dentro desta solução e, em seguida, para cada base de dados que pretende ativar informações inteligentes em configurar a transmissão em fluxo do registo de "SQLInsights" no painel de definições de diagnóstico de uma base de dados para o área de trabalho da análise de SQL do Azure.
 >
 
-Pré-requisito é ter adicionado ao dashboard do portal do Azure do marketplace a análise de SQL do Azure e para criar uma área de trabalho, consulte [configure a análise de SQL do Azure](../log-analytics/log-analytics-azure-sql.md#configuration)
+Pré-requisito é ter adicionado ao dashboard do portal do Azure do marketplace a análise de SQL do Azure e para criar uma área de trabalho, consulte [configure a análise de SQL do Azure](../azure-monitor/insights/azure-sql.md#configuration)
 
 Para utilizar informações inteligentes com a análise de SQL do Azure, configurar dados de registo de informações inteligentes para ser transmitido para a área de trabalho de análise de SQL do Azure que criou no passo anterior, consulte [métricas de base de dados do Azure SQL e o diagnóstico de registo](sql-database-metrics-diag-logging.md).
 
@@ -179,5 +179,5 @@ Se qualquer uma das exceções críticas monitorizadas cruzar os limiares absolu
 
 - Saiba como [resolver problemas de desempenho de base de dados SQL com informações inteligentes](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Utilize o [registo de diagnóstico de desempenho de base de dados de SQL Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Saiba como [monitorizar base de dados SQL com a análise de SQL](../log-analytics/log-analytics-azure-sql.md).
+- Saiba como [monitorizar base de dados SQL com a análise de SQL](../azure-monitor/insights/azure-sql.md).
 - Saiba como [recolher e consumir dados de registo dos seus recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

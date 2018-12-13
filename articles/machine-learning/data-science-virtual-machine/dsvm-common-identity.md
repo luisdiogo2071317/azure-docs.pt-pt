@@ -1,11 +1,12 @@
 ---
 title: Configurar uma identidade comum para os dados de Máquina Virtual de ciência - Azure | Documentos da Microsoft
-description: Configure uma identidade comum em ambientes de DSVM de uma equipa de empresariais.
+description: Saiba como criar contas de utilizador comuns que podem ser utilizadas em vários dados de máquinas virtuais de ciência. Pode utilizar o Azure Active Directory ou um Active Directory no local para autenticar os utilizadores para a máquina de Virtual de ciência de dados.
 keywords: IA, ferramentas de ciência de dados, a máquina de virtual de ciência de dados, a análise geoespacial, o processo de ciência de dados de equipa, aprendizagem aprofundada
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 25d40b6a72ab6da61feb1458f5930eb48ef1d900
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6be7c63d3879c7ed89cd97eaecd6d59b6b5aadd4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436306"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075476"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Configure uma identidade comum na máquina de Virtual de ciência de dados
 

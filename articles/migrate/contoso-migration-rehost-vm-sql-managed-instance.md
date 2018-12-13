@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: ae719e6daa3c07ffe298cfefcc5a0a2846a49032
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 35d2234ee52516c4ebf3e354e1ab6890144cdd5d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231826"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879473"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migração de Contoso: realojar a uma aplicação no local numa VM do Azure e a instância gerida do SQL da base de dados
 
@@ -186,14 +186,14 @@ Administradores de contoso, configure a rede virtual da seguinte forma:
     - **SQLMI-DS-EUS2** (10.235.0.0.25)
     - **SQLMI-SAW-EUS2** (10.235.0.128/29). Esta sub-rede é utilizada para anexar um diretório para a instância gerida.
 
-    ![Instância - gerida criar rede virtual](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
+      ![Instância - gerida criar rede virtual](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
 
 4. Depois da rede virtual e sub-redes são implementadas, eles emparelhamento de redes da seguinte forma:
 
     - Itens de mesmo nível **VNET-SQLMI-EUS2** com **VNET-HUB-EUS2** (rede virtual do concentrador nos e.u.a. Leste 2).
     - Itens de mesmo nível **VNET-SQLMI-EUS2** com **VNET-PROD-EUS2** (a rede de produção).
 
-    ![Peering de rede](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
+      ![Peering de rede](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
 
 5. Configuram as definições de DNS personalizadas. Pontos DNS para controladores de domínio do Azure da Contoso. O DNS do Azure é secundário. Os controladores de domínio do Azure de Contoso estão localizados da seguinte forma:
 
@@ -202,7 +202,7 @@ Administradores de contoso, configure a rede virtual da seguinte forma:
     - **CONTOSODC4** endereço: 10.245.42.5
     - O Resolvedor de DNS do Azure: 168.63.129.16
 
-     ![Servidores DNS da rede](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
+      ![Servidores DNS da rede](media/contoso-migration-rehost-vm-sql-managed-instance/mi-dns.png)
 
 *Precisa de mais ajuda?*
 
@@ -254,7 +254,7 @@ Agora, os administradores da Contoso podem aprovisionar uma instância gerida do
     - Um cluster virtual, no caso Contoso tem várias instâncias geridas.
     - Base de dados do SQL Server de instância gerida. 
 
-    ![Instância Gerida](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
+      ![Instância Gerida](media/contoso-migration-rehost-vm-sql-managed-instance/mi-resources.png)
 
 *Precisa de mais ajuda?*
 
@@ -615,7 +615,7 @@ Para saber mais sobre as práticas de segurança para VMs, veja [melhores práti
 
 Para a continuidade do negócio e recuperação após desastre (BCDR), a Contoso usa as seguintes ações:
 
-- Manter os dados seguros: Contoso cria cópias de segurança os dados nas VMs com o serviço de cópia de segurança do Azure. [Saiba mais] https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- Manter os dados seguros: Contoso cria cópias de segurança os dados nas VMs com o serviço de cópia de segurança do Azure. [Saiba mais](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - Manter as aplicações em funcionamento: Contoso replica as VMs no Azure da aplicação para uma região secundária com o Site Recovery. [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
 - Contoso lado aprende mais sobre a gestão de instância gerida de SQL, incluindo [cópias de segurança de base de dados](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
 

@@ -3,7 +3,7 @@ title: Criar e gerir conjuntos do Azure SQL da base de dados elásticos com o Tr
 description: Execute scripts em muitas bases de dados com o agente de tarefa elástica da base de dados com o Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: MT
+ms.openlocfilehash: ead7b92640262a1c386fc9b8c3def803d2525843
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056792"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868961"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utilizar o Transact-SQL (T-SQL) para criar e gerir conjuntos elásticos da base de dados
 
@@ -1216,14 +1216,14 @@ Mostra o histórico de execução de tarefas.
 |**job_execution_id**   |uniqueidentifier|  ID exclusivo de uma instância de uma execução de tarefa.
 |**job_name**   |nvarchar(128)  |Nome da tarefa.
 |**job_id** |uniqueidentifier|  ID exclusivo da tarefa.
-|**job_version**    |Int    |Versão da tarefa (atualizada automaticamente sempre que a tarefa é modificada).
-|**step_id**    |Int|   Identificador exclusivo (para esta tarefa) para o passo. NULO indica que esta é a execução de tarefa principal.
+|**job_version**    |int    |Versão da tarefa (atualizada automaticamente sempre que a tarefa é modificada).
+|**step_id**    |int|   Identificador exclusivo (para esta tarefa) para o passo. NULO indica que esta é a execução de tarefa principal.
 |**is_active**| bit |Indica se as informações estão ativos ou inativos. 1 indica tarefas ativas e 0 indica inativos.
 |**ciclo de vida**| nvarchar(50)|Valor que indica o estado da tarefa: "Criado", "Em curso", "Falha", "Com êxito", "Ignorada", 'SucceededWithSkipped'|
 |**create_time**|   datetime2(7)|   Data e hora que a criação da tarefa.
 |**start_time** |datetime2(7)|  Data e hora a tarefa iniciou a execução. NULO se a tarefa ainda não tiver sido executada.
 |**end_time**|  datetime2(7)    |Data e hora a tarefa foi concluída a execução. NULO se a tarefa ainda não tiver sido executada ou não tem ainda concluiu a execução.
-|**current_attempts**   |Int    |Número de vezes que a etapa foi repetida. Tarefa principal será 0, as execuções de tarefas de subordinado vão ser 1 ou superior com base na política de execução.
+|**current_attempts**   |int    |Número de vezes que a etapa foi repetida. Tarefa principal será 0, as execuções de tarefas de subordinado vão ser 1 ou superior com base na política de execução.
 |**current_attempt_start_time** |datetime2(7)|  Data e hora a tarefa iniciou a execução. NULO indica que esta é a execução de tarefa principal.
 |**last_message**   |nvarchar (Max)| Mensagem de histórico do trabalho ou passo. 
 |**target_type**|   nvarchar(128)   |Tipo de base de dados de destino ou uma coleção de bases de dados incluindo todas as bases de dados num servidor, todas as bases de dados num conjunto elástico ou uma base de dados. Valores válidos para target_type são 'SqlServer', "SqlElasticPool" ou "SqlDatabase". NULO indica que esta é a execução de tarefa principal.
@@ -1243,10 +1243,10 @@ Mostra todas as tarefas.
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Nome da tarefa.|
 |**job_id**|    uniqueidentifier    |ID exclusivo da tarefa.|
-|**job_version**    |Int    |Versão da tarefa (atualizada automaticamente sempre que a tarefa é modificada).|
+|**job_version**    |int    |Versão da tarefa (atualizada automaticamente sempre que a tarefa é modificada).|
 |**Descrição**    |nvarchar(512)| Descrição da tarefa. bits ativado indica se a tarefa está ativada ou desabilitada. 1 indica tarefas ativadas, e 0 trabalhos desativados.|
 |**schedule_interval_type** |nvarchar(50)   |Valor que indica quando a tarefa está a ser executado: 'Uma vez', 'Minutos', 'Horas', ' dias', 'Semanas', 'Meses'
-|**schedule_interval_count**|   Int|    Número de períodos de schedule_interval_type seja efetuada entre cada execução da tarefa.|
+|**schedule_interval_count**|   int|    Número de períodos de schedule_interval_type seja efetuada entre cada execução da tarefa.|
 |**schedule_start_time**    |datetime2(7)|  Data e hora que a tarefa foi a última execução iniciada.|
 |**schedule_end_time**| datetime2(7)|   Data e hora que a tarefa foi a última execução foi concluída.|
 
@@ -1261,7 +1261,7 @@ Mostra todas as versões de tarefa.
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Nome da tarefa.|
 |**job_id**|    uniqueidentifier    |ID exclusivo da tarefa.|
-|**job_version**    |Int    |Versão da tarefa (atualizada automaticamente sempre que a tarefa é modificada).|
+|**job_version**    |int    |Versão da tarefa (atualizada automaticamente sempre que a tarefa é modificada).|
 
 
 ### <a name="jobsteps-view"></a>ver primeiro
@@ -1274,8 +1274,8 @@ Mostra todos os passos na versão atual de cada tarefa.
 |------|------|-------|
 |**job_name**   |nvarchar(128)| Nome da tarefa.|
 |**job_id** |uniqueidentifier   |ID exclusivo da tarefa.|
-|**job_version**|   Int|    Versão da tarefa (atualizada automaticamente sempre que a tarefa é modificada).|
-|**step_id**    |Int    |Identificador exclusivo (para esta tarefa) para o passo.|
+|**job_version**|   int|    Versão da tarefa (atualizada automaticamente sempre que a tarefa é modificada).|
+|**step_id**    |int    |Identificador exclusivo (para esta tarefa) para o passo.|
 |**step_name**  |nvarchar(128)  |Nome exclusivo (para esta tarefa) para o passo.|
 |**command_type**   |nvarchar(50)   |Tipo de comando a executar o passo de tarefa. Para a v1, valor tem de ser igual ao e predefinido para 'TSql'.|
 |**command_source** |nvarchar(50)|  Localização do comando. Para a v1, "Inline" é o padrão e apenas aceite o valor.|
@@ -1283,11 +1283,11 @@ Mostra todos os passos na versão atual de cada tarefa.
 |**credential_name**|   nvarchar(128)   |Nome da credencial com âmbito de base de dados utilizado para a execução da tarefa.|
 |**target_group_name**| nvarchar(128)   |Nome do grupo de destino.|
 |**target_group_id**|   uniqueidentifier|   ID exclusivo do grupo de destino.|
-|**initial_retry_interval_seconds**|    Int |O atraso antes da primeira tentativa de repetição. Valor predefinido é 1.|
-|**maximum_retry_interval_seconds** |Int|   O atraso máximo entre tentativas de repetição. Se o atraso entre tentativas cresceriam maior do que este valor, ele está limitado a este valor em vez disso. Valor predefinido é 120.|
+|**initial_retry_interval_seconds**|    int |O atraso antes da primeira tentativa de repetição. Valor predefinido é 1.|
+|**maximum_retry_interval_seconds** |int|   O atraso máximo entre tentativas de repetição. Se o atraso entre tentativas cresceriam maior do que este valor, ele está limitado a este valor em vez disso. Valor predefinido é 120.|
 |**retry_interval_backoff_multiplier**  |real|  O multiplicador para aplicar o atraso de repetição se a execução de passo de tarefa de várias tentativas de ativação. Valor predefinido é 2.0.|
-|**retry_attempts** |Int|   O número de repetições tenta utilizar caso este passo falhe. Padrão de 10, que indica não tentativas de repetição.|
-|**step_timeout_seconds**   |Int|   A quantidade de tempo em minutos entre tentativas de repetição. A predefinição é 0, o que indica um intervalo de 0 minutos.|
+|**retry_attempts** |int|   O número de repetições tenta utilizar caso este passo falhe. Padrão de 10, que indica não tentativas de repetição.|
+|**step_timeout_seconds**   |int|   A quantidade de tempo em minutos entre tentativas de repetição. A predefinição é 0, o que indica um intervalo de 0 minutos.|
 |**output_type**    |nvarchar(11)|  Localização do comando. Na pré-visualização atual, "Inline" é o padrão e apenas aceite o valor.|
 |**output_credential_name**|    nvarchar(128)   |Definir o nome das credenciais para ser utilizado para ligar ao servidor de destino para armazenar os resultados.|
 |**output_subscription_id**|    uniqueidentifier|   ID exclusivo da subscrição de server\database o destino para os resultados definir entre a execução da consulta.|
@@ -1296,7 +1296,7 @@ Mostra todos os passos na versão atual de cada tarefa.
 |**output_database_name**   |nvarchar(128)| Nome da base de dados de destino para o conjunto de resultados.|
 |**output_schema_name** |nvarchar (Max)| Nome do esquema de destino. Assume a predefinição de dbo, se não for especificado.|
 |**output_table_name**| nvarchar (Max)|  Nome da tabela para armazenar os resultados definido nos resultados da consulta. Tabela será criada automaticamente com base no esquema de resultados definido se ainda não exista. Esquema tem de corresponder ao esquema do conjunto de resultados.|
-|**max_parallelism**|   Int|    O número máximo de bases de dados por conjunto elástico que o passo da tarefa será executado cada vez. A predefinição é nulo, significa que nenhum limite. |
+|**max_parallelism**|   int|    O número máximo de bases de dados por conjunto elástico que o passo da tarefa será executado cada vez. A predefinição é nulo, significa que nenhum limite. |
 
 
 ### <a name="jobstepversions-view"></a>Ver jobstep_versions
@@ -1326,7 +1326,7 @@ Mostra todos os membros de todos os grupos de destino.
 |-----|-----|-----|
 |**target_group_name**  |nvarchar (128|O nome do grupo de destino, uma coleção de bases de dados. |
 |**target_group_id**    |uniqueidentifier   |ID exclusivo do grupo de destino.|
-|**membership_type**    |Int|   Especifica se o membro do grupo de destino é incluído ou excluído no grupo de destino. Valores válidos para target_group_name são 'Include' ou "Excluir".|
+|**membership_type**    |int|   Especifica se o membro do grupo de destino é incluído ou excluído no grupo de destino. Valores válidos para target_group_name são 'Include' ou "Excluir".|
 |**target_type**    |nvarchar(128)| Tipo de base de dados de destino ou uma coleção de bases de dados incluindo todas as bases de dados num servidor, todas as bases de dados num conjunto elástico ou uma base de dados. Valores válidos para target_type são 'SqlServer', "SqlElasticPool", "SqlDatabase" ou 'SqlShardMap'.|
 |**target_id**  |uniqueidentifier|  ID exclusivo do membro do grupo de destino.|
 |**refresh_credential_name**    |nvarchar(128)  |Nome da base de dados no âmbito a credencial utilizada para ligar para o membro do grupo de destino.|

@@ -1,6 +1,6 @@
 ---
 title: Guia para o serviço Azure Machine Learning de resolução de problemas de implementação
-description: Saiba como a solução, resolver e solucionar problemas de erros de implementação comuns do Docker com o serviço Azure Machine Learning.
+description: Saiba como a solução, resolver e resolver problemas relacionados com os erros de implementação comuns do Docker com o AKS e ACI com o serviço Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: jmartens
-ms.date: 10/01/2018
-ms.openlocfilehash: a10b05e95fa719b80775191e48bd4117e3a785fd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: MT
+ms.date: 12/04/2018
+ms.openlocfilehash: ed6fed58aac236f143345a9504ece21aceae09d2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321687"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865374"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-deployments"></a>Resolver problemas de implementações de serviço do Azure Machine Learning
+# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Resolver problemas de implementações de AKS e ACI de serviço do Azure Machine Learning
 
-Neste artigo, aprenderá a contornar ou resolver os erros de implementação comuns do Docker com o serviço Azure Machine Learning.
+Neste artigo, aprenderá a contornar ou resolver os erros de implementação comuns do Docker com o Azure Container Instances (ACI) e o Azure Kubernetes Service (AKS) com o serviço Azure Machine Learning.
 
 Ao implementar um modelo no serviço Azure Machine Learning, o sistema executa um número de tarefas. Esta é uma sequência complexa de eventos e, às vezes, surgem problemas. As tarefas de implementação são:
 
@@ -117,7 +117,7 @@ print(ws.webservices()['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Depurar a imagem do Docker localmente
-Algumas vezes o registo do Docker não emitir informações suficientes sobre o que está errado. Pode ir além e puxar a imagem do Docker incorporada, iniciar um contentor local e depurar diretamente dentro do contentor do live interativamente. Para iniciar um contentor local, tem de ter um motor do Docker a executar localmente e que seria muito mais fácil se também tiver [cli do azure](/cli/azure/install-azure-cli?view=azure-cli-latest) instalado.
+Algumas vezes o registo do Docker não emitir informações suficientes sobre o que está errado. Pode ir além e puxar a imagem do Docker incorporada, iniciar um contentor local e depurar diretamente dentro do contentor do live interativamente. Para iniciar um contentor local, tem de ter um motor do Docker a executar localmente e que seria muito mais fácil se também tiver [cli do azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) instalado.
 
 Primeiro, precisamos saber a localização de imagem:
 

@@ -1,5 +1,5 @@
 ---
-title: Armazenar dados com o módulo SQL do Azure IoT Edge | Microsoft Docs
+title: Tutorial de armazenamento dados com o módulo SQL - Azure IoT Edge | Documentos da Microsoft
 description: Saiba como armazenar dados localmente no seu dispositivo IoT Edge com um módulo do SQL Server
 services: iot-edge
 author: kgremban
@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: b0d26704d287f2e02541cc667250af8e8005f864
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 996964dd7fe52073b19db1b252e511f242b5f955
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833998"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075052"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na periferia com bases de dados do SQL Server
 
@@ -251,7 +251,7 @@ Um [Manifesto de implementação](module-composition.md) declara os módulos que
    }
    ```
 
-   ![Adicionar um contentor do sql server](./media/tutorial-store-data-sql-server/view_json_sql.png)
+   ![Adicionar módulo do SQL server se manifeste](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
 5. Dependendo do tipo de contentores do Docker no seu dispositivo IoT Edge, atualize o **sql** parâmetros de módulo com o código a seguir:
    * Contentores do Windows:
@@ -416,7 +416,7 @@ A partir da ferramenta de comandos SQL, execute o seguinte comando para ver os d
    GO
    ```
 
-   ![Ver dados locais](./media/tutorial-store-data-sql-server/view-data.png)
+   ![Ver conteúdos da base de dados local](./media/tutorial-store-data-sql-server/view-data.png)
 
 
 

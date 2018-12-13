@@ -1,21 +1,20 @@
 ---
-title: 'Azure Cosmos DB: API de processador do Feed do .NET alteração, SDK e recursos | Documentos da Microsoft'
+title: 'Do Azure Cosmos DB: .NET alterar Feed processador API, SDK e recursos'
 description: Saiba tudo sobre a API de processador do Feed de alterações e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK do processador de .NET de Feed de alterações.
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ab4831a4a84e1f96624c5de1e53f9b8688a5c2cd
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632488"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871672"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alterações de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]

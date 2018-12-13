@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 15b7dce5af984e4eb719024368479df1b5c8320a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010965"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075357"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Débito de aprovisionar em contentores de Cosmos do Azure e bases de dados
 
@@ -21,7 +21,7 @@ O Azure Cosmos DB permite-lhe configurar o débito em duas granularidades - **co
 
 ## <a name="setting-throughput-on-a-container"></a>Débito de definição num contentor  
 
-O débito aprovisionado num contentor do Azure Cosmos é reservado exclusivamente para o contentor. O contentor recebe o débito aprovisionado o tempo todo. O débito aprovisionado num contentor com suporte financeiro suporte dos SLAs. Para configurar o débito num contentor, consulte [como aprovisionar o débito num contentor do Azure Cosmos](how-to-provision-container-throughput.md).
+O débito aprovisionado num contentor do Cosmos do Azure é reservado exclusivamente para o contentor. O contentor recebe o débito aprovisionado o tempo todo. O débito aprovisionado num contentor com suporte financeiro suporte dos SLAs. Para configurar o débito num contentor, consulte [como aprovisionar o débito num contentor do Azure Cosmos](how-to-provision-container-throughput.md).
 
 A definição de débito aprovisionado num contentor é a opção amplamente usada. Enquanto pode dimensionar o débito para um contentor ao aprovisionar qualquer quantidade de débito (RUs), não é possível especificar seletivamente a taxa de transferência para a partição ou partições lógicas. Quando a carga de trabalho em execução numa partição lógica consome mais do que o débito que foi alocado para a partição lógica específica, as operações irão obter taxa limitado. Quando ocorre a limitação de velocidade, pode aumentar o débito para o contêiner inteiro ou repita a operação. Para obter mais informações sobre a criação de partições, consulte [partições lógicas](partition-data.md).
 
@@ -55,7 +55,7 @@ Várias partições lógicas partilha o débito aprovisionado para um banco de d
 
 ## <a name="setting-throughput-on-a-database-and-a-container"></a>Definir débito de uma base de dados e um contentor
 
-Pode combinar os dois modelos, aprovisionamento de débito no banco de dados e o contentor é permitido. O exemplo seguinte mostra como aprovisionar o débito num banco de dados do Cosmos do Azure e um contentor:
+Pode combinar os dois modelos, aprovisionamento de débito no banco de dados e o contentor é permitido. O exemplo seguinte mostra como aprovisionar o débito numa base de dados do Cosmos do Azure e um contentor:
 
 * Pode criar uma base de dados do Cosmos do Azure com o nome 'Z' com o débito aprovisionado de RUs "K". 
 * Em seguida, cria cinco contentores com o nome A, B, C, D e E na base de dados.
@@ -67,7 +67,7 @@ Pode combinar os dois modelos, aprovisionamento de débito no banco de dados e o
 
 |**Quota**  |**Débito aprovisionado num banco de dados**  |**Débito aprovisionado num contentor**|
 |---------|---------|---------|
-|RUs mínimo |400 |400|
+|RUs mínimo |400 (após os primeiros quatro contentores, cada contentor adicional requer um mínimo de 100 RU/s.) |400|
 |RUs mínimas por contentor|100|400|
 |RUs mínimas necessária para consumir a 1 GB de armazenamento|40|40|
 |RUs máximos|Ilimitado, na base de dados|Ilimitado, no contentor|
