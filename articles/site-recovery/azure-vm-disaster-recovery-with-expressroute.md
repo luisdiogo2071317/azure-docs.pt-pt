@@ -93,7 +93,7 @@ Implementações em empresas têm normalmente cargas de trabalho de dividir em v
 - **VNet do hub**. Existe uma vNet do hub **vNet do Hub de origem**: 10.10.10.0/24.
     - Esta vNet do hub atua como o controlador de chamadas.
     - Todas as comunicações entre sub-redes percorrer este hub.
- - Hub vNet sub-redes * *. A vNet do hub tiver duas sub-redes:
+ - ****Hub vNet sub-redes**. A vNet do hub tiver duas sub-redes:
      - **Sub-rede da NVA**: 10.10.10.0/25. Esta sub-rede contém uma NVA (10.10.10.10).
      - **A sub-rede de gateway**: 10.10.10.128/25. Esta sub-rede contém um gateway do ExpressRoute ligado a uma ligação do ExpressRoute que encaminha para o site no local através de um domínio de encaminhamento de peering privado.
 - O Centro de dados no local tem uma ligação de circuito do ExpressRoute através de um limite de parceiro em RAE de Hong Kong.
