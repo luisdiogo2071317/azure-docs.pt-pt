@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 04/05/2018
+ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 379e5503900621381bbc27c6604cc8208cfdb80e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822760"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076462"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas de lote, alertas e registos para a avaliação de diagnóstico e monitorização
 
@@ -53,11 +53,17 @@ Para ver todas as métricas de conta do Batch:
 
 Para obter métricas programaticamente, utilize as APIs de Monitor do Azure. Por exemplo, veja [métricas de obter o Azure Monitor com o .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
+## <a name="batch-metric-reliability"></a>Fiabilidade de métrica de batch
+
+Métricas se destinam a ser utilizado para análise de tendências e dados. Entrega de métrica não é garantida e está sujeitas a entrega de fora de ordem, perda de dados e/ou duplicação. O uso de eventos únicos para funções de alerta ou acionador não é recomendado. Consulte a [alertas de métricas do Batch](#batch-metric-alerts) secção para obter mais detalhes sobre como definir limiares para alertas.
+
+Ainda podem ser agregar as métricas emitidas nos últimos 3 minutos. Durante este período de tempo, os valores de métrica podem ser inferior à real.
+
 ## <a name="batch-metric-alerts"></a>Alertas de métricas de batch
 
-Opcionalmente, configure quase em tempo real *alertas de métricas* que acionar quando o valor de uma métrica especificado ultrapassar um limiar que atribuir. Gera o alerta uma [notificação](../monitoring-and-diagnostics/insights-alerts-portal.md) escolha quando o alerta é "ativado" (quando o limiar é cruzado e for cumprida a condição do alerta), bem como quando ele foi "resolvido" (quando o limiar é cruzado novamente e a condição é nenhuma já é cumprida). 
+Opcionalmente, configure quase em tempo real *alertas de métricas* que acionar quando o valor de uma métrica especificado ultrapassar um limiar que atribuir. Gera o alerta uma [notificação](../monitoring-and-diagnostics/insights-alerts-portal.md) escolha quando o alerta é "ativado" (quando o limiar é cruzado e for cumprida a condição do alerta), bem como quando ele foi "resolvido" (quando o limiar é cruzado novamente e a condição é nenhuma já é cumprida). Alertas com base nos pontos de dados único não é recomendada, as métricas estão sujeitos a entrega de fora de ordem, perda de dados e/ou duplicação. Alertas devem tornar a utilização de limiares para em conta estas inconsistências.
 
-Por exemplo, pode querer configurar um alerta de métrica quando sua contagem de núcleos de prioridade baixa atingir um determinado nível, para que pode ajustar a composição de seus conjuntos.
+Por exemplo, pode querer configurar um alerta de métrica quando sua contagem de núcleos de prioridade baixa atingir um determinado nível, para que pode ajustar a composição de seus conjuntos. Recomenda-se para definir um período de 10 ou mais minutos em que os alertas acionam se o número de núcleos de média de baixa prioridade for inferior ao valor de limiar para o período de todo. Não é recomendado para alertar relativamente a um período de 1 a 5 minutos, ainda podem ser agregar as métricas.
 
 Para configurar um alerta de métrica no portal do:
 

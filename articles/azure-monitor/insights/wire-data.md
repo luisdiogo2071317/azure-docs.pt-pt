@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 0fe192918957b4af517c28cdb66420c009988e36
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 4f0eb0ce4b0a63005246424d241ada8ce4aed4a3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890789"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075816"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solução Wire Data 2.0 (Pré-visualização) no Log Analytics
 
@@ -60,7 +60,7 @@ O Wire Data obtém os dados através do Agente de Dependência da Microsoft. O a
 | **Origem ligada** | **Suportado** | **Descrição** |
 | --- | --- | --- |
 | Agentes do Windows | Sim | O Wire Data analisa e recolhe dados de computadores de agentes do Windows. <br><br> Para além da [agente do Log Analytics para Windows](../../azure-monitor/platform/agent-windows.md), agentes do Windows exigem o agente de dependência da Microsoft. Veja os [sistemas operativos suportados](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) para obter uma lista completa das versões do sistema operativo. |
-| Agentes do Linux | Sim | O Wire Data analisa e recolhe dados de computadores de agentes Linux.<br><br> Para além da [agente do Log Analytics para Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md), agentes do Linux exigem o agente de dependência da Microsoft. Veja os [sistemas operativos suportados](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Agentes do Linux | Sim | O Wire Data analisa e recolhe dados de computadores de agentes Linux.<br><br> Para além da [agente do Log Analytics para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), agentes do Linux exigem o agente de dependência da Microsoft. Veja os [sistemas operativos suportados](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) para obter uma lista completa das versões do sistema operativo. |
 | Grupo de gestão do System Center Operations Manager | Sim | O Wire Data analisa e recolhe dados dos agentes do Windows e Linux num [grupo de gestão do System Center Operations Manager](../../azure-monitor/platform/om-agents.md) ligado. <br><br> É preciso uma ligação direta do computador do agente do System Center Operations Manager ao Log Analytics. |
 | Conta de armazenamento do Azure | Não | O Wire Data recolhe dados dos computadores de agentes, pelo que não existem dados para o mesmo recolher do Armazenamento do Microsoft Azure. |
 
@@ -236,7 +236,7 @@ O Agente de Dependência é instalado em computadores Linux através do ficheiro
 
 Utilize os seguintes passos para instalar o Agente de Dependência em cada computador Linux:
 
-1. Instalar o agente de Log Analytics, seguindo os passos na [recolher dados de computadores Linux alojados no seu ambiente](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+1. Instalar o agente de Log Analytics, seguindo os passos na [recolher dados de computadores Linux alojados no seu ambiente](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Transfira o Agente de Dependência do Linux através da ligação da secção anterior e, em seguida, instale-o como raiz com o seguinte comando: sh InstallDependencyAgent-Linux64.bin
 3. Se o Agente de Dependência não conseguir iniciar, verifique os registos para obter informações de erro detalhadas. Para agentes do Linux, o diretório do registo é: /var/opt/microsoft/dependency-agent/log.
 

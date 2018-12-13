@@ -1,5 +1,6 @@
 ---
-title: Criar e executar pipelines de ML - serviço do Azure Machine Learning
+title: Criar e executar pipelines de ML
+titleSuffix: Azure Machine Learning service
 description: Criar e executar uma pipeline com o SDK do Azure Machine Learning de aprendizagem para Python.  Pipelines são utilizados para criar e gerir os fluxos de trabalho que fases de aprendizagem automática em conjunto inserir manualmente (ML), como a preparação de dados, preparação de modelos, implementação do modelo e inferência.
 services: machine-learning
 ms.service: machine-learning
@@ -9,17 +10,17 @@ ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: 0119e60a6493ed13b04b36fc5fccc7227503fe0a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 3038d8978ed3705e9e18be58080afd532b9d72d6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015080"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100560"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de machine learning com o Azure Machine Learning SDK
 
-Neste artigo, irá aprender a criar, publicar, executar e controlar um [pipeline de machine learning](concept-ml-pipelines.md) utilizando o [do Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Esses pipelines ajudam a criar e gerir os fluxos de trabalho que reunir várias fases de aprendizado de máquina. Cada fase de um pipeline, por exemplo, a preparação de dados e preparação de modelos, pode incluir um ou mais passos.
+Neste artigo, irá aprender a criar, publicar, executar e controlar um [pipeline de machine learning](concept-ml-pipelines.md) utilizando o [do Azure Machine Learning SDK](https://aka.ms/aml-sdk).  Esses pipelines ajudam a criar e gerir os fluxos de trabalho que reunir várias fases de aprendizado de máquina. Cada fase de um pipeline, por exemplo, a preparação de dados e preparação de modelos, pode incluir um ou mais passos.
 
 Os pipelines que cria são visíveis para os membros do seu serviço Azure Machine Learning [área de trabalho](how-to-manage-workspace.md). 
 

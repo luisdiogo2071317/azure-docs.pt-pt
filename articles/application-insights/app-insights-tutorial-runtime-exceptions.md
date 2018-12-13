@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 48e338a08330e0674cc4410adf135ec546a5e1c3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230602"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084018"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de runtime com o Azure Application Insights
 
@@ -75,20 +75,20 @@ O Application Insights recolhe as falhas ocorridas na sua aplicação e permite-
     ![Detalhes da exceção](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Identificar o código com falhas
-O Snapshot Debugger recolhe instantâneos das exceções mais frequentes na sua aplicação para o ajudar a diagnosticar a raiz do problema na produção.  Pode ver instantâneos de depuração no portal para visualizar a pilha de chamadas e inspecionar as variáveis em cada frame de pilha de chamadas. Em seguida, pode depurar o código fonte ao transferir o instantâneo e abri-lo no Visual Studio 2017.
+O Snapshot Debugger recolhe instantâneos das exceções mais frequentes na sua aplicação para o ajudar a diagnosticar a raiz do problema na produção.  Pode ver instantâneos de depuração no portal para visualizar a pilha de chamadas e inspecionar as variáveis em cada frame de pilha de chamadas. Depois disso, tem a opção para depurar o código-fonte ao transferir o instantâneo e abri-lo no Visual Studio 2017 Enterprise.
 
 1. Nas propriedades da exceção, clique em **Abrir instantâneo de depuração**.
 2. O painel **Depurar Instantâneo** é aberto com a pilha de chamadas relativas ao pedido.  Clique num dos métodos disponíveis para ver os valores de todas as variáveis locais no momento do pedido.  Tomando como ponto de partida o método principal neste exemplo, é possível ver variáveis locais que não têm qualquer valor.
 
     ![Depurar o instantâneo](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-4. A primeira chamada com valores válidos é **ValidZipCode** e podemos ver que foi fornecido um código postal com letras que não é possível converter num número inteiro.  Aparentemente, este é o erro no código que precisa de ser corrigido.
+3. A primeira chamada com valores válidos é **ValidZipCode** e podemos ver que foi fornecido um código postal com letras que não é possível converter num número inteiro.  Aparentemente, este é o erro no código que precisa de ser corrigido.
 
     ![Depurar o instantâneo](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-5. Para transferir este instantâneo para o Visual Studio, onde poderemos localizar o código real que precisa de ser corrigido, clique em **Transferir Instantâneo**.
-6. O instantâneo é carregado para o Visual Studio.
-7. Agora, pode executar uma sessão de depuração no Visual Studio que identifica rapidamente a linha de código responsável pela exceção.
+4. Em seguida, tem a opção para transferir este instantâneo para o Visual Studio onde poderemos localizar o código real que precisa de ser corrigido. Para tal, clique em **transferir instantâneo**.
+5. O instantâneo é carregado para o Visual Studio.
+6. Agora, pode executar uma sessão de depuração no Visual Studio Enterprise, que identifica rapidamente a linha de código que causou a exceção.
 
     ![Exceção no código](media/app-insights-tutorial-runtime-exceptions/exception-code.png)
 
@@ -111,7 +111,7 @@ Se ligar o Application Insights a um sistema de controlo, como o Azure DevOps ou
 
     ![Novo Item de Trabalho](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu a identificar exceções de runtime, avance para o próximo tutorial para saber como identificar e diagnosticar problemas de desempenho.
 
 > [!div class="nextstepaction"]

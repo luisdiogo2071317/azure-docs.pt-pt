@@ -1,21 +1,22 @@
 ---
-title: Dashboard de aplicações para aplicações de compreensão de idiomas
-titleSuffix: Azure Cognitive Services
+title: Dashboard de aplicação
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Saiba mais sobre o dashboard de aplicações, uma ferramenta de geração de relatórios visualizado que lhe permite monitorizar as suas aplicações rapidamente único.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 0daf25b3c7edc69ada57fb3ce2b8dbb7e50e5aed
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: fa5560c008270635d0d93b8004e017c810c9c27a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335015"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074423"
 ---
 # <a name="application-dashboard"></a>Dashboard de aplicações
 O dashboard de aplicações permite-lhe monitorizar a sua aplicação única rapidamente. O **Dashboard** apresenta quando abre uma aplicação ao clicar no nome de aplicação no **as minhas aplicações** página em seguida, selecione **Dashboard** do painel superior. 

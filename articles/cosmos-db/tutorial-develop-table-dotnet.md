@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 02c4ead0f41463a70cc7123427193f835d9cca94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: MT
+ms.openlocfilehash: c3749657ae432d8a6c85522b7dac31e31e39ea77
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877740"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075920"
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Desenvolver com a API de Tabelas em .NET
 
@@ -97,7 +97,7 @@ Agora, vamos clonar uma aplicação de Tabela a partir do GitHub, definir a cade
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. Isto permite à aplicação comunicar com a base de dados alojada. 
 
-1. No [portal do Azure](http://portal.azure.com/), clique em **Cadeia de ligação**. 
+1. No [portal do Azure](https://portal.azure.com/), clique em **Cadeia de ligação**. 
 
     Utilize os botões de cópia à direita do ecrã, para copiar a CADEIA DE LIGAÇÃO PRIMÁRIA.
 
@@ -180,7 +180,8 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 Este cliente é iniciado com os valores de configuração `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel` e `TablePreferredLocations`, se estiverem especificados nas definições da aplicação.
 
 ## <a name="create-a-table"></a>Criar uma tabela
-Em seguida, vai criar uma tabela com `CloudTable`. As tabelas do Azure Cosmos DB podem ser dimensionadas de forma independente em termos de armazenamento e débito e o serviço cria automaticamente as partições. O Azure Cosmos DB suporta tabelas de tamanho fixo e de tamanho ilimitado. Veja [Partitioning in Azure Cosmos DB](partition-data.md) (Criar partições no Azure Cosmos DB) para obter detalhes. 
+
+Em seguida, vai criar uma tabela com `CloudTable`. As tabelas do Azure Cosmos DB podem ser dimensionadas de forma independente em termos de armazenamento e débito e o serviço cria automaticamente as partições. 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");

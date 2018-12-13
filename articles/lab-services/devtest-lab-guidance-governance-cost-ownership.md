@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 9b83d6ac908be1e62e3c6c2025ae31aa374bdeea
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 47f3e8ab14ecd50e958c57ba4c8f9f098fd5bb7b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975078"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868366"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Governação da infraestrutura do Azure DevTest Labs - gerir o custo e a propriedade
 Custo e a propriedade são principais preocupações, considere a criação de seu desenvolvimento e teste de ambientes. Nesta secção, encontrará informações que ajuda a otimizar o custo e alinhar a propriedade em todo o ambiente.
@@ -40,7 +40,7 @@ Esta abordagem fornece várias vantagens:
  
 Apenas os subscritores ativos do Visual Studio (subscrições standard, subscrições anuais da cloud e subscrições mensais da cloud) podem utilizar recursos do Azure em execução dentro de uma empresa de subscrição de programador/teste. No entanto, os utilizadores finais podem aceder à aplicação para fornecer comentários ou executar testes de aceitação. A utilização de recursos nesta subscrição é restrita à programação e ao teste de aplicações e não é oferecida uma garantia de tempo de atividade.
 
-Se optar por utilizar a oferta de Dev/Test, tenha em atenção que este benefício é destinado para programar e testar as suas aplicações. Utilização na subscrição não implica um SLA com apoio financeiro, exceto para o uso do Visual Studio Team Services e HockeyApp.
+Se optar por utilizar a oferta de Dev/Test, tenha em atenção que este benefício é destinado para programar e testar as suas aplicações. Utilização na subscrição não implica um SLA com apoio financeiro, exceto para o uso de DevOps do Azure e HockeyApp.
 
 ## <a name="define-a-role-based-access-across-your-organization"></a>Definir um acesso baseado em funções na sua organização
 ### <a name="question"></a>Pergunta

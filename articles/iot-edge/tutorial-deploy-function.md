@@ -1,6 +1,6 @@
 ---
-title: Implementar as funções do Azure com o Azure IoT Edge | Microsoft Docs
-description: Neste tutorial, vai implementar uma função do Azure como módulo para um dispositivo Edge.
+title: Tutorial implementar uma função do Azure para um dispositivo - Azure IoT Edge | Documentos da Microsoft
+description: Neste tutorial, vai desenvolver do Azure funcionar como um módulo do IoT Edge, em seguida, implementá-la para um dispositivo de limite.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,13 +8,13 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: d0ae009db0d9470942a4ff5d7c09e2cdd7bcdd53
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165627"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081885"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implementar o Azure funciona como módulos do IoT Edge
 
@@ -27,7 +27,7 @@ Pode utilizar as Funções do Azure para implementar código que aplica a sua l�
 > * Ver dados filtrados.
 
 <center>
-![Tutorial com diagrama da arquitetura](./media/tutorial-deploy-function/FunctionsTutDiagram.png)
+![Diagrama - arquitetura do Tutorial, testar e implementar módulo de função](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
@@ -63,7 +63,7 @@ Pode utilizar qualquer registo compatível com o Docker para armazenar as imagen
 
 1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Contentores** > **Registo de Contentor**.
 
-    ![Criar um registo de contentores](./media/tutorial-deploy-function/create-container-registry.png)
+    ![Criar um registo de contentor no portal do Azure](./media/tutorial-deploy-function/create-container-registry.png)
 
 2. Indique os valores seguintes para criar o seu registo de contentor:
 

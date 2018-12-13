@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: eb7959b1a41c602ce4f34750802d962fe4ff84cf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b8a26164145360bdd46656a86817b8ec61bcb56c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839318"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081494"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Criar uma base de dados de gráficos com Python e o portal do Azure
 
@@ -42,7 +42,7 @@ O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distrib
 Além disso:
 * [Python](https://www.python.org/downloads/) versão 3.5 ou mais recente
 * [Gestor de pacotes pip](https://pip.pypa.io/en/stable/installing/)
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Controlador de Python para Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
@@ -101,7 +101,7 @@ Este passo é opcional. Se estiver interessado em aprender de que forma os recur
 
 Agora, regresse ao portal do Azure para obter as informações da ligação e copie-as para a aplicação. Estas definições permitem à aplicação comunicar com a base de dados alojada.
 
-1. No [portal do Azure](http://portal.azure.com/), clique em **Chaves**. 
+1. No [portal do Azure](https://portal.azure.com/), clique em **Chaves**. 
 
     Copie a primeira parte do valor do URI.
 

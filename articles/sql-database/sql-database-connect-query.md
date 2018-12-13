@@ -3,7 +3,7 @@ title: Inícios rápidos de Ligação e Consulta da Base de Dados SQL do Azure |
 description: Inícios rápidos da Base de Dados SQL do Azure que mostram como ligar e consultar uma base de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scenario
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 11/01/2018
-ms.openlocfilehash: 01f1ac19cbab5ec60034b75fb15ccdb45df8541e
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: ab1f96b2348c24a746aaa7bdd670f396884ee3f5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913313"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870202"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Inícios Rápidos: Ligação e Consulta da Base de Dados SQL do Azure
 
@@ -53,6 +53,6 @@ Recomendamos também que desative a TLS 1.1 e 1.0 no cliente, se tiver de estar 
 
 Os controladores que não são da Microsoft podem não utilizar o TLS por predefinição. Isto poderá ser um fator ao ligar à Base de Dados SQL do Azure. As aplicações com controladores incorporados podem não permitir que controle estas definições de ligação. Recomendamos que analise a segurança de tais aplicações e controladores antes de os utilizar em sistemas que interajam com dados confidenciais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter informações sobre a arquitetura de conectividade, veja [Arquitetura de Conectividade de Base de Dados SQL do Azure](sql-database-connectivity-architecture.md).

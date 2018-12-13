@@ -1,5 +1,5 @@
 ---
-title: Como integrar o Azure Monitor para contentores (pré-visualização) | Documentos da Microsoft
+title: Como integrar o Azure Monitor para contentores | Documentos da Microsoft
 description: Este artigo descreve como sua integração e configure o Azure Monitor para contentores, para que possa compreender o desempenho do seu contentor e quais problemas relacionados ao desempenho foram identificados.
 services: azure-monitor
 documentationcenter: ''
@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/05/2018
+ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 03fea6cf1276172893f18f1b09c8e3fdeec4ac4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 6f425fceb4bb4755b922cac427802a19436507d2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001143"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080880"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>Como integrar o Azure Monitor para contentores (pré-visualização) 
+# <a name="how-to-onboard-azure-monitor-for-containers"></a>Como integrar o Azure Monitor para contentores  
 Este artigo descreve como configurar o Azure Monitor para contentores para monitorizar o desempenho de cargas de trabalho que são implementadas nos ambientes do Kubernetes e alojada num [do Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
-Monitor do Azure para contentores pode ser ativado para novas implementações do AKS utilizando os seguintes métodos suportados:
+Monitor do Azure para contentores pode ser ativado para a nova ou suportada de um ou mais implementações existentes do AKS com os seguintes métodos:
 
-* Implementar um cluster de Kubernetes gerido no portal do Azure ou com a CLI do Azure
-* Criar um cluster de Kubernetes com [Terraform e AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
-
-Também pode ativar a monitorização para um ou mais AKS existente clusters a partir do portal do Azure ou com a CLI do Azure. 
+* Do Azure portal ou com a CLI do Azure
+* Usando [Terraform e AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 Antes de começar, certifique-se de que tem o seguinte:
@@ -41,7 +39,9 @@ Antes de começar, certifique-se de que tem o seguinte:
 
 ## <a name="components"></a>Componentes 
 
-Sua capacidade de monitorizar o desempenho se baseia num agente de Log Analytics em contentores de Linux, que recolhe dados de eventos de desempenho e de todos os nós do cluster. O agente automaticamente implementar e registar com a área de trabalho do Log Analytics especificada depois de ativar o Azure Monitor para contentores. A versão implementada é microsoft / oms:ciprod04202018 ou posterior e é representado por uma data no seguinte formato: *mmddyyyy*. 
+Sua capacidade de monitorizar o desempenho se baseia num agente de Log Analytics em contentores de Linux desenvolvido especificamente para o Azure Monitor para contentores. Este agente especializada recolhe dados de eventos de desempenho e de todos os nós do cluster e o agente automaticamente implementar e registar com a área de trabalho do Log Analytics especificada durante a implementação. A versão do agente é microsoft / oms:ciprod04202018 ou posterior e é representado por uma data no seguinte formato: *mmddyyyy*. 
+
+Quando for lançada uma nova versão do agente, é atualizada automaticamente nos seus clusters do Kubernetes geridos alojados no Azure Kubernetes Service (AKS). Para seguir as versões lançadas, consulte [anúncios de lançamentos de agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). 
 
 >[!NOTE] 
 >Se já tiver implementado um cluster do AKS, ativa a monitorização com o CLI do Azure ou um modelo Azure Resource Manager fornecido, conforme demonstrado neste artigo. Não é possível utilizar `kubectl` para atualizar, eliminar, implemente novamente ou implementar o agente. O modelo precisa ser implantado no mesmo grupo de recursos do cluster."
@@ -52,13 +52,20 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 ## <a name="enable-monitoring-for-a-new-cluster"></a>Ative a monitorização para um novo cluster
 Durante a implementação, pode ativar a monitorização de um novo cluster do AKS no portal do Azure, com a CLI do Azure ou com o Terraform.  Siga os passos no artigo guia de introdução [implementar um cluster do Azure Kubernetes Service (AKS)](../../aks/kubernetes-walkthrough-portal.md) se pretender ativar a partir do portal. Sobre o **monitorização** página, para o **Ativar monitorização** opção, selecione **Sim**e, em seguida, selecione uma área de trabalho do Log Analytics existente ou crie um novo. 
 
+### <a name="enable-using-azure-cli"></a>Ativar a CLI do Azure
 Para ativar a monitorização de um novo cluster do AKS criado com a CLI do Azure, siga o passo no artigo guia de introdução na seção [cluster do AKS criar](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
 >Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI localmente. Tem de executar a CLI do Azure versão 2.0.43 ou posterior. Para identificar a versão, execute `az --version`. Se precisar de instalar ou atualizar a CLI do Azure, veja [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
-Se estiver [implementar um cluster do AKS com o Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), também pode ativar Monitor do Azure para contentores, incluindo o argumento [ **addon_profile** ](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) e especificar **oms_agent**.  
+### <a name="enable-using-terraform"></a>Ativar com o Terraform
+Se estiver [implementar um novo cluster do AKS com o Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), especificar os argumentos necessários no perfil [para criar uma área de trabalho do Log Analytics](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) se optou por não especificar um já existente. 
+
+>[!NOTE]
+>Se optar por utilizar o Terraform, tem de executar o fornecedor de RM do Terraform do Azure versão 1.17.0 ou superior.
+
+Para adicionar o Azure Monitor para contentores para a área de trabalho, consulte [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) e conclua o perfil, incluindo o [ **addon_profile** ](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) e especifique **oms_agent**. 
 
 Depois de ativar a monitorização e todas as tarefas de configuração são concluídas com êxito, pode monitorizar o desempenho do seu cluster em qualquer uma das seguintes formas:
 
@@ -97,14 +104,28 @@ A saída terá a seguinte aparência:
 provisioningState       : Succeeded
 ```
 
+### <a name="enable-monitoring-using-terraform"></a>Ativar a monitorização com o Terraform
+1. Adicionar a **oms_agent** perfil de suplemento para o existente [azurerm_kubernetes_cluster recursos](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)
+
+   ```
+   addon_profile {
+    oms_agent {
+      enabled                    = true
+      log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+     }
+   }
+   ```
+
+2. Adicionar a [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) seguindo os passos na documentação do Terraform.
+
 ### <a name="enable-monitoring-from-azure-monitor"></a>Ativar a monitorização do Azure Monitor
 Para ativar a monitorização do seu cluster do AKS no portal do Azure do Azure Monitor, faça o seguinte:
 
 1. No portal do Azure, selecione **Monitor**. 
-2. Selecione **contentores (pré-visualização)** da lista.
-3. Sobre o **Monitor - contentores (pré-visualização)** página, selecione **clusters não monitorizados**.
+2. Selecione **contentores** da lista.
+3. Sobre o **Monitor - contentores** página, selecione **clusters não monitorizados**.
 4. Na lista de clusters não monitorizado, encontrar o contentor na lista e clique em **ativar**.   
-5. Na **inclusão de registos e de estado de funcionamento do contentor** página, se tiver um existentes do Log Analytics a área de trabalho na mesma subscrição que o cluster, selecione-o na lista pendente.  
+5. Sobre o **integração para o Azure Monitor para contentores** página, se tiver um existentes do Log Analytics área de trabalho na mesma subscrição que o cluster, selecione-o na lista pendente.  
     A lista preselects a área de trabalho predefinida e a localização que o contentor do AKS é implementado na subscrição. 
 
     ![Ativar a monitorização de informações de contentor do AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -125,8 +146,8 @@ Para ativar a monitorização do seu contentor do AKS no portal do Azure, efetue
     ![A ligação de serviços do Kubernetes](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. Na lista de contentores, selecione um contentor.
-5. Na página de descrição geral do contentor, selecione **monitorizar o estado de funcionamento do contentor**.  
-6. Na **inclusão de registos e de estado de funcionamento do contentor** página, se tiver um existentes do Log Analytics a área de trabalho na mesma subscrição que o cluster, selecione-o na lista pendente.  
+5. Na página de descrição geral do contentor, selecione **contentores de Monitor**.  
+6. Sobre o **integração para o Azure Monitor para contentores** página, se tiver um existentes do Log Analytics área de trabalho na mesma subscrição que o cluster, selecione-o na lista pendente.  
     A lista preselects a área de trabalho predefinida e a localização que o contentor do AKS é implementado na subscrição. 
 
     ![Ativar a monitorização de estado de funcionamento de contentor do AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)

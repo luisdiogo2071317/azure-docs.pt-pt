@@ -1,6 +1,6 @@
 ---
-title: Como atribuir acesso MSI a um recurso do Azure, com o portal do Azure
-description: Instruções passo a passo para atribuir um MSI num acesso a recursos para outro recurso, com o portal do Azure.
+title: Como atribuir acesso uma identidade gerida a um recurso do Azure no portal do Azure
+description: Instruções passo a passo para atribuir uma identidade gerida no acesso a recursos um ao outro recurso, com o portal do Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,61 +14,40 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: c2048583cde397ac3325fd149982b3a3db475566
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e50a7b0aa80bff36a67ea52514d6b85099bfdf8c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157284"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081443"
 ---
-# <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Atribuir um acesso de identidade do serviço gerido a um recurso com o portal do Azure
+# <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>Atribuir um acesso de identidade gerida a um recurso com o portal do Azure
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Depois de configurar um recurso do Azure com uma identidade de serviço gerida (MSI), pode dar o acesso MSI para outro recurso, tal como qualquer entidade de segurança. Este artigo mostra-lhe como conceder a uma máquina virtual do Azure ou o acesso MSI do conjunto de dimensionamento de máquina virtual para uma conta de armazenamento do Azure, com o portal do Azure.
+Depois de configurar um recurso do Azure com uma identidade gerida, pode dar o acesso de identidade gerida para outro recurso, tal como qualquer entidade de segurança. Este artigo mostra-lhe como conceder acesso de identidade gerida do conjunto de dimensionamento de máquina virtual ou máquina virtual do Azure para uma conta de armazenamento do Azure, com o portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+- Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)**.
+- Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
-## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Utilizar o RBAC para atribuir o acesso MSI para outro recurso
+## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Utilizar o RBAC para atribuir um acesso de identidade gerida para outro recurso
 
-Depois de ativar a MSI num recurso do Azure, tal como um [VM do Azure](qs-configure-portal-windows-vm.md) ou [VMSS do Azure](qs-configure-portal-windows-vmss.md):
+Depois de ativar a identidade gerida num recurso do Azure, tal como um [VM do Azure](qs-configure-portal-windows-vm.md) ou [VMSS do Azure](qs-configure-portal-windows-vmss.md):
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure na qual configurou o MSI.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure na qual configurou a identidade gerida.
 
-2. Navegue para o recurso pretendido no qual pretende modificar o controlo de acesso. Neste exemplo, estamos oferecendo uma máquina virtual do Azure e o dimensionamento de máquina virtual do Azure definir acesso a uma conta de armazenamento, para que, navegar para a conta de armazenamento.
+2. Navegue para o recurso pretendido no qual pretende modificar o controlo de acesso. Neste exemplo, estamos oferecendo um acesso de máquina virtual do Azure para uma conta de armazenamento, para que, navegar para a conta de armazenamento.
 
-3. Para uma máquina virtual do Azure, selecione o **controlo de acesso (IAM)** página do recurso e selecione **+ adicionar**. Em seguida, especifique a **função**, **atribuir acesso a Máquina Virtual**e especifique o correspondente **subscrição** e **grupo de recursos** onde reside o recurso. Na área de critérios de pesquisa, deverá ver o recurso. Selecione o recurso e selecione **guardar**. 
+3. Selecione o **controlo de acesso (IAM)** página do recurso e selecione **+ adicionar atribuição de função**. Em seguida, especifique a **função**, **atribuir acesso a**e especifique o correspondente **subscrição**. Na área de critérios de pesquisa, deverá ver o recurso. Selecione o recurso e selecione **guardar**. 
 
    ![Captura de ecrã de controlo (IAM) de acesso](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
-   Para obter um conjunto de dimensionamento de máquina virtual do Azure, selecione o **controlo de acesso (IAM)** página do recurso e selecione **+ adicionar**. Em seguida, especifique a **função**, **atribuir acesso a**. Na área de critérios de pesquisa, procure o conjunto de dimensionamento de máquina virtual. Selecione o recurso e selecione **guardar**.
-   
-   ![Captura de ecrã de controlo (IAM) de acesso](./media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
+     
+## <a name="next-steps"></a>Passos Seguintes
 
-4. É reencaminhado para o principal **controlo de acesso (IAM)** página, onde verá uma nova entrada para MSI o recurso.
-
-    Máquina virtual do Azure:
-
-   ![Captura de ecrã de controlo (IAM) de acesso](./media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
-
-    Conjunto de dimensionamento de máquina virtual do Azure:
-
-    ![Captura de ecrã de controlo (IAM) de acesso](./media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
-
-## <a name="troubleshooting"></a>Resolução de problemas
-
-Se o MSI para o recurso não aparecer na lista de identidades disponíveis, certifique-se de que o MSI foi ativado corretamente. No nosso caso, podemos voltar para a máquina virtual do Azure e verifique o seguinte:
-
-- Examinar os **Configuration** página e certifique-se de que o valor de **MSI ativada** é **Sim**.
-- Examinar os **extensões** página e certifique-se de que a extensão MSI implementada com êxito (**extensões** página não está disponível para um conjunto de dimensionamento de máquina virtual do Azure).
-
-Se uma for incorreta, poderá ter de voltar a implementar o MSI no seu recurso, ou a falha de implementação de resolução de problemas.
-
-## <a name="related-content"></a>Conteúdo relacionado
-
-- Para uma descrição geral do MSI, consulte [descrição geral de identidade do serviço gerido](overview.md).
-- Para ativar o MSI numa máquina virtual do Azure, consulte [configurar uma Azure VM Managed Service Identity (MSI) com o portal do Azure](qs-configure-portal-windows-vm.md).
-- Para ativar o MSI num conjunto de dimensionamento de máquina virtual do Azure, consulte [configurar um Azure Máquina Virtual dimensionamento definir Managed Service Identity (MSI) com o portal do Azure](qs-configure-portal-windows-vmss.md)
+- [Identidade gerida para descrição geral de recursos do Azure](overview.md)
+- Para ativar a identidade gerida numa máquina virtual do Azure, consulte [configurar geridos identidades para recursos do Azure numa VM com o portal do Azure](qs-configure-portal-windows-vm.md).
+- Para ativar a identidade gerida num conjunto de dimensionamento de máquina virtual do Azure, consulte [configurar geridos identidades para recursos do Azure num conjunto de dimensionamento no portal do Azure](qs-configure-portal-windows-vmss.md).
 
 

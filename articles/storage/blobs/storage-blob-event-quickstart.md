@@ -1,21 +1,22 @@
 ---
-title: Encaminhar eventos de armazenamento de Blobs do Azure para um ponto final da Web personalizado| Microsoft Docs
-description: Utilize a Azure Event Grid para subscrever a eventos de armazenamento de Blobs.
+title: Enviar eventos de armazenamento de Blobs do Azure para a web endpoint - CLI do Azure | Documentos da Microsoft
+description: Utilize a Azure Event Grid para subscrever a eventos de armazenamento de Blobs. Envie eventos para um Webhook. Manipular os eventos num aplicativo web.
 services: storage,event-grid
 author: cbrooksmsft
 ms.author: cbrooks
-ms.date: 08/23/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 78ee6f198bf4e16e3b2b0deb8fdb0b68c0fe9b73
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 2586b7f9c2a182ee065daab1d2a43eb5e0e2c99c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735097"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073725"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Encaminhar eventos de armazenamento de Blobs para um ponto final da Web personalizado com a CLI do Azure
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Início rápido: Encaminhar eventos de armazenamento para o ponto final da web com a CLI do Azure
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, a CLI do Azure é utilizada para subscrever a eventos de armazenamento de Blobs e acionar o evento para ver o resultado.
 
@@ -30,9 +31,9 @@ Quando concluir os passos descritos neste artigo, pode ver que os dados do event
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão mais recente da CLI do Azure (2.0.24 ou posterior). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a que está a executar a versão mais recente da CLI do Azure (2.0.24 ou posterior). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Se não estiver a utilizar o Cloud Shell, tem primeiro de iniciar sessão com o `az login`.
+Se não estiver a utilizar o Cloud Shell, primeiro tem de iniciar sessão com `az login`.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -156,7 +157,7 @@ Substitua `<resource_group_name>` pelo grupo de recursos que criou acima.
 az group delete --name <resource_group_name>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre os Eventos de armazenamento de Blobs o que o Event Grid pode ajudá-lo a fazer:
 

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 5823e6e3bf2614bf834a9ab64c3403829d58a779
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: MT
+ms.openlocfilehash: 1c6012503c5300d64d17a4b8efc262fa91355c88
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51715843"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890114"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Solução de estado de funcionamento de agente no Azure
 A solução de estado de funcionamento do agente no Azure ajuda-o a compreender, de todos os agentes que reportam diretamente para a área de trabalho do Log Analytics ou um grupo de gestão do System Center Operations Manager ligado ao Log Analytics, o que não respondem e submeter operacional dados.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de implementar esta solução, confirme que tem atualmente suportada [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) de relatórios para a área de trabalho do Log Analytics ou a um [grupo de gestão do Operations Manager](../../log-analytics/log-analytics-om-agents.md) integrado a área de trabalho.    
+Antes de implementar esta solução, confirme que tem atualmente suportada [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) de relatórios para a área de trabalho do Log Analytics ou a um [grupo de gestão do Operations Manager](../../azure-monitor/platform/om-agents.md) integrado a área de trabalho.    
 
 ## <a name="solution-components"></a>Componentes da solução
 Esta solução consiste nos recursos seguintes que são adicionados à sua área de trabalho e a agentes ligados diretamente ou a grupos de gestão ligados do Operations Manager.
@@ -36,7 +36,7 @@ Se o grupo de gestão do System Center Operations Manager estiver ligado a uma �
 * Pacote de Informações de Canal Direto de HealthAssessment do Microsoft System Center Advisor (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Pacote de Informações de Canal de Servidor de HealthAssessment do Microsoft System Center Advisor (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../../log-analytics/log-analytics-om-agents.md).
+Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="configuration"></a>Configuração
 Adicionar a solução de estado de funcionamento de agente à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções](solutions.md). Não há nenhuma configuração adicional.

@@ -1,6 +1,6 @@
 ---
-title: O que é a arquitetura do Azure Active Directory? | Microsoft Docs
-description: Saiba é que um inquilino do Azure Active Directory e como gerir o Azure através do Azure do Azure Active Directory.
+title: Descrição geral da arquitetura - Azure Active Directory | Documentos da Microsoft
+description: Saiba é que um inquilino do Azure Active Directory e como gerir o Azure com o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: 62ade1318b670b4eecf1be1a9255fe497d094a1a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733219"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076122"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>O que é a arquitetura do Azure Active Directory?
-O Azure Active Directory (Azure AD) permite-lhe gerir de forma segura o acesso dos seus utilizadores aos serviços e recursos do Azure. Incluído com o Azure AD está um conjunto completo de capacidades de gestão de identidades. Para obter informações sobre as funcionalidades do Azure AD, veja [What is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) (O que é o Azure Active Directory?)
+O Azure Active Directory (Azure AD) permite-lhe gerir de forma segura o acesso dos seus utilizadores aos serviços e recursos do Azure. Incluído com o Azure AD está um conjunto completo de capacidades de gestão de identidades. Para obter informações sobre as funcionalidades do Azure AD, veja [What is Azure Active Directory?](active-directory-whatis.md) (O que é o Azure Active Directory?)
 
-Com o Azure AD, pode criar e gerir utilizadores e grupos e ativar permissões para permitir e recusar o acesso a recursos empresariais. Para obter informações sobre a gestão de identidades, veja [The fundamentals of Azure identity management](https://docs.microsoft.com/azure/active-directory/fundamentals-identity) (Noções Básicas da gestão de identidades do Azure).
+Com o Azure AD, pode criar e gerir utilizadores e grupos e ativar permissões para permitir e recusar o acesso a recursos empresariais. Para obter informações sobre a gestão de identidades, veja [The fundamentals of Azure identity management](active-directory-whatis.md) (Noções Básicas da gestão de identidades do Azure).
 
 ## <a name="azure-ad-architecture"></a>Arquitetura do Azure AD
 A arquitetura geograficamente distribuída do Azure AD combina alargadas de monitorização, redirecionamento automatizado, ativação pós-falha e recursos de recuperação, o que fornecem toda a empresa de disponibilidade e desempenho aos clientes.
@@ -114,7 +114,7 @@ Se a qualquer serviço do Azure AD não está a funcionar conforme esperado, aç
 
 **Operações seguras**
 
-Utilizar controlos operacionais, como a autenticação multifator (MFA) para qualquer operação, bem como auditoria de todas as operações. Além disso, a utilizar um sistema de elevação just-in-time para conceder acesso temporário necessário qualquer operacional tarefas a pedido de forma contínua. Para obter mais informações, veja [A Cloud Fidedigna](https://azure.microsoft.com/support/trust-center).
+Utilizar controlos operacionais, como a autenticação multifator (MFA) para qualquer operação, bem como auditoria de todas as operações. Além disso, a utilizar um sistema de elevação just-in-time para conceder acesso temporário necessário qualquer operacional tarefas a pedido de forma contínua. Para obter mais informações, veja [A Cloud de Confiança](https://azure.microsoft.com/support/trust-center).
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Guia para programadores do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)

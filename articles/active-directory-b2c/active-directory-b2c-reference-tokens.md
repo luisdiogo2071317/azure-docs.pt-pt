@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 81927c4e69f36fbc4859ac2865bc15cbfacb17fb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d1c9101f10342f98803a4ace420abbed5d49ba23
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843874"
+ms.locfileid: "52880119"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Do Azure AD B2C: Referência de Token
 
@@ -89,7 +89,7 @@ Tenha em atenção que as afirmações nos tokens de ID não são devolvidas em 
 ### <a name="refresh-tokens"></a>Tokens de atualização
 Atualizar os tokens são tokens de segurança que seu aplicativo pode usar para adquirir novos tokens de ID e tokens num fluxo de OAuth 2.0 de acesso. Eles fornecem a aplicação com acesso de longo prazo para recursos em nome dos utilizadores sem a necessidade de interação com esses utilizadores.
 
-Para receber uma atualização de token numa resposta de token, a aplicação tem de solicitar o `offline_acesss` âmbito. Para saber mais sobre o `offline_access` escopo, consulte a [referência do protocolo do Azure AD B2C](active-directory-b2c-reference-protocols.md).
+Para receber uma atualização de token numa resposta de token, a aplicação tem de solicitar o `offline_access` âmbito. Para saber mais sobre o `offline_access` escopo, consulte a [referência do protocolo do Azure AD B2C](active-directory-b2c-reference-protocols.md).
 
 Tokens de atualização e sempre serão, completamente opaco para a sua aplicação. São emitidos pelo Azure AD e podem ser inspecionadas e interpretados apenas pelo Azure AD. Eles são vida longa, mas a aplicação não deve ser escrita com a expectativa de que um token de atualização duram um determinado período de tempo. Tokens de atualização podem ser invalidadas a qualquer momento para uma variedade de motivos. A única forma para a sua aplicação saber se um token de atualização é válido é tentar resgatá-lo ao fazer um pedido de token para o Azure AD.
 

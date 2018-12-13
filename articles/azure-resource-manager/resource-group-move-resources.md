@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 27b41655d9a6c9000d9bc3cf98bf3246bb108104
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: d16f05c208e737f7c0095fc95c4272fe216f7a34
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015556"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094938"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -215,6 +215,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Dashboards de portais
 * Power BI - tanto o Power BI Embedded e robustez com a coleção de área de trabalho de BI
 * IP público - veja [limitações de IP público](#pip-limitations)
+* O Cofre dos serviços de recuperação - têm de estar inscritos numa pré-visualização privada. Ver [limitações dos serviços de recuperação](#recovery-services-limitations).
 * A Cache do Azure para Redis - se a Cache do Azure para a instância de Redis está configurada com uma rede virtual, a instância não pode ser movida para uma subscrição diferente. Ver [limitações de redes virtuais](#virtual-networks-limitations).
 * Scheduler
 * Pesquisa
@@ -259,7 +260,6 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 * Microsoft Genomics
 * NetApp
 * IP público - veja [limitações de IP público](#pip-limitations)
-* Cofre de serviços de recuperação - também não mover os recursos de computação, rede e armazenamento associados ao Cofre de serviços de recuperação, consulte [limitações dos serviços de recuperação](#recovery-services-limitations).
 * SAP HANA no Azure
 * Segurança
 * Site Recovery
@@ -446,6 +446,8 @@ A operação pode ser executada durante vários minutos.
 
 ## <a name="recovery-services-limitations"></a>Limitações de serviços de recuperação
 
+Para mover um cofre dos serviços de recuperação, tem de se inscrever numa pré-visualização privada. Para experimentá-lo, escrever para AskAzureBackupTeam@microsoft.com.
+
 Movimentação não está ativada para os recursos de armazenamento, rede ou computação utilizados para configurar a recuperação após desastre com o Azure Site Recovery.
 
 Por exemplo, suponha que configurou a replicação de máquinas no local para uma conta de armazenamento (Storage1) e deseja que a máquina protegida para surgir após a ativação pós-falha para o Azure como uma máquina virtual (VM1) ligada a uma rede virtual (Network1). Não é possível mover qualquer um desses recursos do Azure - Storage1 VM1 e Network1 - entre grupos de recursos dentro da mesma subscrição ou em várias subscrições.
@@ -453,7 +455,10 @@ Por exemplo, suponha que configurou a replicação de máquinas no local para um
 Para mover uma VM inscrita no **cópia de segurança do Azure** entre grupos de recursos:
  1. Temporariamente parar cópia de segurança e manter os dados de cópia de segurança
  2. Mova a VM para o grupo de recursos de destino
- 3. Volte de a protegê-lo sob o mesmo/novo cofre, que os utilizadores podem restaurar a partir dos pontos de restauro disponíveis criados antes da operação de movimentação.
+ 3. Volte a protegê-lo sob o mesmo/novo cofre
+
+Os utilizadores podem restaurar a partir dos pontos de restauro disponíveis criados antes da operação de movimentação.
+
 Se o utilizador muda a VM de cópia de segurança em várias subscrições, passo 1 e o passo 2 continuam as mesmas. Passo 3, o utilizador tem de proteger a VM num novo cofre presente / criado na subscrição de destino. Cofre dos Recovery Services não suporta cópias de segurança entre subscrições.
 
 ## <a name="hdinsight-limitations"></a>Limitações do HDInsight

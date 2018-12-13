@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: reconhecer voz em C++ no Windows com o SDK de Serviço de Voz'
+title: 'Início rápido: Reconhecer a conversão de voz, C++ (Windows) - serviços de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a reconhecer voz em C++ no Ambiente de Trabalho do Windows com o SDK de Serviço de Voz
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 8947ba3f39cebf51e956db0d841e393963832bc4
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 454b84f4ba5e492f61daf67c980b204c82a2090d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218745"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075192"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início Rápido: reconhecer voz em C++ no Windows com o SDK de Voz
 
@@ -31,11 +31,11 @@ Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia 
 
 1. Inicie o Visual Studio 2017.
 
-1. Certifique-se de que a carga de trabalho de **Desenvolvimento de ambiente de trabalho com C++** está disponível. Escolha **Ferramentas** > **Obter Ferramentas e Funcionalidades** na barra de menus do Visual Studio para abrir o instalador do Visual Studio. Se esta carga de trabalho já estiver ativada, avance para o passo seguinte. 
+1. Certifique-se de que a carga de trabalho de **Desenvolvimento de ambiente de trabalho com C++** está disponível. Escolha **Ferramentas** > **Obter Ferramentas e Funcionalidades** na barra de menus do Visual Studio para abrir o instalador do Visual Studio. Se esta carga de trabalho já estiver ativada, avance para o passo seguinte.
 
     ![Captura de ecrã do separador Cargas de Trabalho do Visual Studio](media/sdk/vs-enable-cpp-workload.png)
 
-    Caso contrário, assinale a caixa junto a **Desenvolvimento de ambiente de trabalho com C++**. 
+    Caso contrário, assinale a caixa junto a **Desenvolvimento de ambiente de trabalho com C++**.
 
 1. Certifique-se de que o componente **Gestor de pacotes NuGet** está disponível. Mude para o separador **Componentes individuais** da caixa de diálogo do instalador do Visual Studio e selecione **Gestor de pacotes NuGet**, se não estiver já ativado.
 
@@ -97,7 +97,7 @@ Depois de o pacote ser instalado, é apresentada uma mensagem de confirmação n
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Procure este exemplo na pasta `quickstart/cpp-windows`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Reconhecer intenções de voz com o SDK de Voz para C++](how-to-recognize-intents-from-speech-cpp.md)

@@ -1,5 +1,5 @@
 ---
-title: Sobre o Direct do ExpressRoute do Azure | Documentos da Microsoft
+title: Sobre o ExpressRoute Direct – Azure | Documentos da Microsoft
 description: Esta página fornece uma visão geral do ExpressRoute Direct (pré-visualização)
 services: expressroute
 author: mialdrid
@@ -7,16 +7,17 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: mialdrid
-ms.openlocfilehash: 3b46f24edf10fee7001b35ffdd9fa218aa438e19
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 2310f007697cf1acbdbc907d4562853a2717eb5d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959686"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097129"
 ---
 # <a name="about-expressroute-direct-preview"></a>Sobre o ExpressRoute direcionar (pré-visualização)
 
-O ExpressRoute Direct oferece aos clientes a possibilidade de se ligarem diretamente à rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. ExpressRoute Direct fornece conectividade de 100-Gbps dupla, que suporta a conetividade de ativo/ativo em escala.
+ExpressRoute Direct dá-lhe a capacidade para ligar diretamente para a rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. ExpressRoute Direct fornece conectividade de 100-Gbps dupla, que suporta a conetividade de ativo/ativo em escala.
 
 Recursos-chave que ExpressRoute Direct fornece incluem, mas não estão limitados a:
 
