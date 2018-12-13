@@ -1,6 +1,6 @@
 ---
 title: Configurar alertas de métricas da base de dados do Azure para PostgreSQL no portal do Azure
-description: Este artigo descreve como configurar e alertas de métrica de acesso para a base de dados do Azure para PostgreSQL do portal do Azure.
+description: Este artigo descreve como configurar e alertas de métricas de acesso da base de dados do Azure para PostgreSQL no portal do Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,77 +9,77 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b4b15998276dd6c32e9c15622aa0251c6c066085
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b57827cb4e8c1105c88b6fab217e17d6cf4db056
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29690260"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271238"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Utilizar o portal do Azure para configurar alertas nas métricas da base de dados do Azure para PostgreSQL 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Utilizar o portal do Azure para configurar alertas em métricas da base de dados do Azure para PostgreSQL 
 
-Este artigo mostra como configurar a base de dados do Azure para alertas PostgreSQL no portal do Azure. Pode receber um alerta com base nas métricas para os serviços do Azure de monitorização.
+Este artigo mostra-lhe como configurar a base de dados do Azure para os alertas de PostgreSQL no portal do Azure. Pode receber um alerta com base nas métricas para os seus serviços do Azure de monitorização.
 
-Os acionadores de alerta quando o valor de uma métrica especificado atravesse um limiar que atribuir. Alerta acionadores, quando a condição é cumprida e, em seguida, posteriormente quando condição que é já não está a ser cumprido. 
+A alerta é acionada quando o valor de uma métrica especificado ultrapassar um limiar que atribui. Os acionadores alerta, quando a condição é a primeira cumpridos e, em seguida, em seguida quando condição que já não é a ser cumprida. 
 
-Pode configurar um alerta para executar as seguintes ações quando aciona:
+Pode configurar um alerta para fazer as seguintes ações quando é acionado:
 * Envie notificações por e-mail para o administrador de serviços e coadministradores.
-* envie correio eletrónico para e-mails adicionais que especificar.
+* Envie e-mail para e-mails adicionais que especificar.
 * Chame um webhook.
 
-Pode configurar e obter informações sobre regras de alertas com:
+Pode configurar e obter informações sobre regras de alerta com:
 * [Portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Interface de linha de comandos (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [API de REST de Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [Interface de linha de comandos (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
+* [API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta numa métrica do portal do Azure
-1. No [portal do Azure](https://portal.azure.com/), selecione a base de dados do Azure para o servidor de PostgreSQL que pretende monitorizar.
+1. Na [portal do Azure](https://portal.azure.com/), selecione a base de dados do Azure para o servidor PostgreSQL que pretende monitorizar.
 
-2. Sob o **monitorização** secção da barra lateral, selecione **regras de alerta** conforme mostrado:
+2. Sob o **monitorização** secção a barra lateral, selecione **regras de alerta** conforme mostrado:
 
-   ![Selecionar regras de alerta](./media/howto-alert-on-metric/1-alert-rules.png)
+   ![Selecione as regras de alerta](./media/howto-alert-on-metric/1-alert-rules.png)
 
-3. Selecione **Adicionar alerta métrica** (+ ícone). 
+3. Selecione **Adicionar alerta de métrica** (ícone +). 
 
-4. O **Adicionar regra** página abre-se conforme mostrado abaixo.  Preencha as informações necessárias:
+4. O **Adicionar regra** é aberta a página conforme mostrado abaixo.  Preencha as informações necessárias:
 
-   ![Adicionar métrico formulário de alerta](./media/howto-alert-on-metric/2-add-rule-form.png)
+   ![Adicionar formulário de alerta de métrica](./media/howto-alert-on-metric/2-add-rule-form.png)
 
    | Definição | Descrição  |
    |---------|---------|
-   | Nome | Forneça um nome para a regra de alerta. Este valor é enviado no e-mail de notificação de alertas. |
-   | Descrição | Forneça uma breve descrição da regra de alerta. Este valor é enviado no e-mail de notificação de alertas. |
-   | Alerta referente a | Escolha **métricas** para este tipo de alerta. |
-   | Subscrição | Este campo é pré-preenchida com a subscrição que aloja a base de dados do Azure para PostgreSQL. |
-   | Grupo de recursos | Este campo é pré-preenchida com o grupo de recursos da sua base de dados do Azure para PostgreSQL. |
-   | Recurso | Este campo é pré-preenchida com o nome da base de dados do Azure para PostgreSQL. |
-   | Métrica | Selecione a métrica que pretender emitir um alerta para. Por exemplo, **percentagem de armazenamento**. |
-   | Condição | Escolha a condição para a métrica a ser comparada ao. Por exemplo, **maior**. |
-   | Limiar | Valor de limiar a métrica, por exemplo 85 (percentagem). |
+   | Nome | Forneça um nome para a regra de alerta. Este valor é enviado o e-mail de notificação de alerta. |
+   | Descrição | Forneça uma breve descrição da regra de alerta. Este valor é enviado o e-mail de notificação de alerta. |
+   | Alerta referente a | Escolher **métricas** para esse tipo de alerta. |
+   | Subscrição | Este campo está pré-preenchido com a subscrição que aloja a base de dados do Azure para PostgreSQL. |
+   | Grupo de recursos | Este campo está pré-preenchido com o grupo de recursos da base de dados do Azure para PostgreSQL. |
+   | Recurso | Este campo está pré-preenchido com o nome da base de dados do Azure para PostgreSQL. |
+   | Métrica | Selecione a métrica que pretende emitir um alerta para. Por exemplo, **percentagem de armazenamento**. |
+   | Condição | Escolha a condição para a métrica a ser comparada ao. Por exemplo, **superior a**. |
+   | Limiar | Valor de limiar para métrica, por exemplo 85 (percentagem). |
    | Período | O período de tempo que a regra de métrica deve ser satisfeita antes dos acionadores de alerta. Por exemplo, **nos últimos 30 minutos**. |
 
-   Com base no exemplo, o alerta procura percentagem de armazenamento acima 85% durante um período de 30 minutos. Esse alerta é acionado quando a percentagem média de armazenamento já esteve acima 85% durante 30 minutos. Depois de ocorre o primeiro acionador, este é acionado novamente quando a percentagem média do armazenamento é inferior a 85% mais de 30 minutos.
+   Com base no exemplo, o alerta procura por percentagem de armazenamento superior a 85% durante um período de 30 minutos. Esse alerta for acionado quando a percentagem média de armazenamento foi superior a 85% durante 30 minutos. Depois de ocorre o primeiro acionador, novamente aciona quando a percentagem média de armazenamento é inferior a 85% mais de 30 minutos.
 
 5. Escolha o método de notificação que pretende para a regra de alerta. 
 
-   Verifique **proprietários, contribuintes e leitores de E-Mail** opção se pretender que os administradores da subscrição e coadministradores para serem enviadas por e-mail quando o alerta é acionado.
+   Verifique **proprietários, contribuidores e leitores do E-Mail** opção se pretender que os administradores de subscrição e os coadministradores para ser enviado por e-mail quando o alerta é acionado.
 
-   Se pretender que os e-mails adicionais para receber uma notificação quando o alerta é acionado, adicioná-los no **administrador adicionais email(s)** campo. Separe várias mensagens de correio eletrónico com ponto e vírgula -  *email@contoso.com;email2@contoso.com*
+   Se pretender que os e-mails adicionais para receber uma notificação quando o alerta é acionado, adicione-os na **adicionais do administrador email(s)** campo. Separe várias mensagens de correio eletrónico com ponto e vírgula -  *email@contoso.com;email2@contoso.com*
 
-   Opcionalmente, forneça um URI válido no **Webhook** campo se quiser chamou quando o alerta é acionado.
+   Opcionalmente, forneça um URI válido no **Webhook** campo se desejar que ele chamado quando o alerta é acionado.
 
 6. Selecione **OK** para criar o alerta.
 
-   Dentro de alguns minutos, o alerta está ativo e aciona conforme descrito anteriormente.
+   Em poucos minutos, o alerta está ativo e aciona conforme descrito anteriormente.
 
 ## <a name="manage-your-alerts"></a>Gerir os alertas
-Assim que tiver criado um alerta, pode selecioná-lo e executar as seguintes ações:
+Assim que tiver criado um alerta, pode selecioná-lo e fazer as seguintes ações:
 
-* Ver um gráfico que mostra o limiar de métrico e os valores reais do dia anterior relevantes para este alerta.
+* Ver um gráfico que mostra o limiar de métrica e os valores reais do dia anterior relevantes para este alerta.
 * **Editar** ou **eliminar** a regra de alerta.
-* **Desativar** ou **ativar** o alerta, se pretender temporariamente interromper ou retomar a receção de notificações.
+* **Desativar** ou **ativar** o alerta, se quiser temporariamente parar ou retomar a receção das notificações.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [configurar webhooks alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
-* Obter um [descrição geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o serviço está disponível e reativa.
+* Saiba mais sobre [configurar webhooks nos alertas](../azure-monitor/platform/alerts-webhooks.md).
+* Obter um [descrição geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o seu serviço está disponível e reativo.

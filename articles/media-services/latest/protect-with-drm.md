@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/16/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 2a8a00ab034016e7121e4601b3ff5a16d8c721ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 84bdc560a135f8f1eb7d6c86fe4f3749135ff7e1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395084"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139049"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Utilizar a encriptação dinâmica e o serviço de entrega de licenças do DRM
 
@@ -40,7 +41,7 @@ Este artigo baseia-se no exemplo [Encriptar com o DRM](https://github.com/Azure-
 
         A aplicação define uma restrição do tipo de token JWT na política.
 
-* Crie um StreamingLocator para o elemento especificado e com o nome da política de transmissão em fluxo especificado. Neste caso, é utilizada a política predefinida. Define duas chaves de conteúdo no StreamingLocator: AES-128 (envelope) e CENC (PlayReady e Widevine).  
+* Crie um StreamingLocator para o elemento especificado e com o nome da política de transmissão em fluxo especificado. Neste caso, é utilizada a política predefinida. Ele define duas chaves de conteúdo sobre o StreamingLocator: AES-128 (envelope) e CENC (PlayReady e Widevine).  
     
     Assim que o StreamingLocator está criado, o elemento de saída é publicado e disponibilizado aos clientes para reprodução.
 
@@ -51,14 +52,14 @@ Este artigo baseia-se no exemplo [Encriptar com o DRM](https://github.com/Azure-
 
     Pode abrir um browser e colar o URL resultante para iniciar a página de demonstração do Leitor de Multimédia do Azure com o URL e o token previamente preenchidos.  
 
-    ![proteger com drm](./media/protect-with-drm/playready_encrypted_url.png)
+    ![Proteger com o DRM](./media/protect-with-drm/playready_encrypted_url.png)
 
 > [!NOTE]
 > Pode encriptar cada elemento com vários tipos de encriptação (AES-128, PlayReady, Widevine, FairPlay). Veja [Protocolos de transmissão em fluxo e tipos de encriptação](content-protection-overview.md#streaming-protocols-and-encryption-types), para ver o que faz sentido combinar.
 
 O exemplo descrito neste artigo produz o seguinte resultado:
 
-![proteger com drm](./media/protect-with-drm/ams_player.png)
+![AMS com vídeo DRM protegido](./media/protect-with-drm/ams_player.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -116,7 +117,7 @@ Neste tutorial, vamos criar a entrada da tarefa, com base num ficheiro que é in
 
 A tarefa demora algum tempo a terminar, por isso irá querer receber uma notificação quando for concluída. O exemplo de código abaixo mostra como consultar o serviço para saber o estado da [Tarefa](https://docs.microsoft.com/rest/api/media/jobs). Utilizar uma consulta não é uma prática recomendada para produzir aplicações devido à potencial latência. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid. Veja [Route events to a custom web endpoint](job-state-events-cli-how-to.md) (Encaminhar eventos para um ponto final de Web personalizado).
 
-Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila**, **Em processamento**, **Concluída** (o estado final). Se a tarefa encontrar um erro, obterá um estado de **Erro**. Se a tarefa estiver prestes a ser cancelada, obterá **A cancelar** e **Cancelada** quando terminar.
+O **tarefa** normalmente atravessa os seguintes Estados: **Agendado**, **em fila**, **processamento**, **concluído** (o estado final). Se a tarefa encontrar um erro, obterá um estado de **Erro**. Se a tarefa estiver prestes a ser cancelada, obterá **A cancelar** e **Cancelada** quando terminar.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
@@ -174,6 +175,6 @@ Em geral, deve limpar tudo exceto os objetos que está a planear reutilizar (nor
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Veja como pode [proteger com AES-128](protect-with-aes128.md)

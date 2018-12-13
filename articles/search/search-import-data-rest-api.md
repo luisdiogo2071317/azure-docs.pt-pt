@@ -1,6 +1,6 @@
 ---
-title: Carregar dados (API REST - Azure Search) | Microsoft Docs
-description: Saiba como carregar dados para um índice na Pesquisa do Azure utilizando a API REST.
+title: Carregar dados em código usando o serviço de pesquisa REST API - Azure Search
+description: Saiba como carregar dados para um índice de texto completo pesquisável no Azure Search através de pedidos de HTTP e a API REST.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,12 +9,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
-ms.openlocfilehash: 53b20c9db7efe1f8876eec7c0167dc151aa38786
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: b3044ec3fb21e77c5174ebd5a6b2dabd2282240f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187985"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312862"
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Importar dados para a Pesquisa do Azure utilizando a API REST
 > [!div class="op_single_selector"]
@@ -172,5 +173,5 @@ Um código de estado de `503` será devolvido se nenhum dos itens no pedido for 
 
 Para obter mais informações sobre ações de documentos e as respostas de erros/com êxito, consulte o artigo [Adicionar, Atualizar ou Eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Para obter mais informações sobre outros códigos de estado HTTP que possam ser devolvidos em caso de falha, consulte [Códigos de estado HTTP (Pesquisa do Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Depois de preencher o seu índice da Azure Search, estará pronto para começar a emitir consultas para procurar documentos. Consulte o artigo [Consultar o Índice da Azure Search](search-query-overview.md) para obter detalhes.

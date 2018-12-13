@@ -1,6 +1,6 @@
 ---
-title: Tutorial de sinónimos C# tutorial no Azure Search | Microsoft Docs
-description: Neste tutorial, adicione a funcionalidade de sinónimos a um índice no Azure Search.
+title: Sinónimos C# tutorial - Azure Search
+description: Neste C# tutorial, saiba como adicionar a funcionalidade de sinónimos para um índice da Azure Search. Um mapa de sinónimos é uma lista de termos equivalentes. Campos com suporte para sinónimos expanda queries para incluir o termo fornecidos pelo usuário e todos os relacionados sinónimos.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990566"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309234"
 ---
-# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Tutorial: adicionar sinónimos ao Azure Search em C#
+# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Tutorial: Adicionar sinónimos para o Azure Search noC#
 
 Os sinónimos expandem uma consulta, ao efetuar a correspondência em termos considerados semanticamente equivalentes ao termo introduzido. Por exemplo, poderá pretender que a palavra "carro" corresponda nos documentos que contêm os termos "automóvel" ou "veículo". 
 
@@ -169,7 +170,7 @@ Pode encontrar o código de origem completo da aplicação de exemplo utilizado 
 
 A forma mais rápida de os limpar após o tutorial é eliminar o grupo de recursos que contém o serviço Azure Search. Pode eliminar o grupo de recursos agora para eliminar definitivamente tudo o que este contém. No portal, o nome do grupo de recursos está na página Descrição Geral do serviço Azure Search.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este tutorial demonstrou a [API REST de Sinónimos](https://aka.ms/rgm6rq) em código C# para criar e publicar regras de mapeamento e, em seguida, chamar o mapa de sinónimos numa consulta. Encontram-se mais informações na documentação de referência do [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 

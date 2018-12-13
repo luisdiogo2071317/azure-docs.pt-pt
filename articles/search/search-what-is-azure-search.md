@@ -1,6 +1,6 @@
 ---
-title: O que é o Azure Search | Microsoft Docs
-description: O Azure Search é um serviço de pesquisa na cloud alojada completamente gerido. Saiba mais nesta descrição geral da funcionalidade.
+title: O que é o serviço Azure Search - Azure Search
+description: O Azure Search é um serviço de pesquisa na cloud alojada completamente gerido. Reveja as descrições de recursos, um fluxo de trabalho de desenvolvimento, como o Azure Search se compara aos outros produtos de pesquisa e como começar.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: overview
 ms.date: 11/09/2018
 ms.author: heidist
-ms.openlocfilehash: 85a071017f4394f4ccde297fb229f7786d9249b3
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec2018
+ms.openlocfilehash: 81b9aef553b4cdc214fbcc681a2e5a91b833e6be
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285140"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313501"
 ---
 # <a name="what-is-azure-search"></a>O que é o Azure Search?
 O Azure Search é uma solução de pesquisa como serviço na cloud que oferece aos programadores APIs e ferramentas para apresentarem uma experiência de pesquisa avançada para os seus conteúdos privados e heterogéneos nas aplicações Web, móveis e empresariais. A execução da consulta é feita através de um índice definido pelo utilizador.
@@ -43,7 +44,7 @@ A funcionalidade é exposta através de uma simples [REST API](/rest/api/searchs
 | Infraestrutura | A **plataforma altamente disponível** garante uma experiência de serviço de pesquisa extremamente fiável. Quando dimensionado corretamente, o [Azure Search oferece um SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Completamente gerido e dimensionável** como uma solução de ponto-a-ponto, o Azure Search não necessita absolutamente de nenhuma gestão de infraestrutura. O seu serviço pode ser ajustado às suas necessidades ao dimensionar em duas dimensões para processar mais armazenamento de documentos, maiores cargas de consulta ou ambos.
 
 ## <a name="how-to-use-azure-search"></a>Como utilizar o Azure Search
-### <a name="step-1-provision-service"></a>Passo 1: Aprovisionar o serviço
+### <a name="step-1-provision-service"></a>Passo 1: Serviço de aprovisionamento
 Pode aprovisionar um serviço do Azure Search no [portal do Azure](https://portal.azure.com/) ou através da [API de Gestão de Recursos do Azure](/rest/api/searchmanagement/). Pode escolher ou o serviço gratuito partilhado com outros subscritores, ou uma [camada paga](https://azure.microsoft.com/pricing/details/search/) que dedica recursos utilizados apenas pelo seu serviço. Para os escalões pagos, pode dimensionar um serviço em duas dimensões: 
 
 - Adicionar Réplicas para fazer crescer a sua capacidade de processar cargas de consultas pesadas.   
@@ -51,7 +52,7 @@ Pode aprovisionar um serviço do Azure Search no [portal do Azure](https://porta
 
 Ao processar o armazenamento de documentos e débito de consultas em separado, pode calibrar os recursos com base nos requisitos de produção.
 
-### <a name="step-2-create-index"></a>Passo 2: Criar o índice
+### <a name="step-2-create-index"></a>Passo 2: Criar índice
 Antes de poder carregar conteúdo pesquisável, deve primeiro definir um índice do Azure Search. Um índice é como uma tabela de base de dados que contém os seus dados e pode aceitar consultas de pesquisa. Pode definir o esquema do índice para mapear e refletir a estrutura dos documentos que quer pesquisar, parecido aos campos numa base de dados.
 
 Um esquema pode ser criado no Portal do Azure, ou de forma programática com o [.NET SDK](search-howto-dotnet-sdk.md) ou [API REST](/rest/api/searchservice/).
@@ -73,7 +74,7 @@ Os clientes costumam perguntar como é que se compara o Azure Search a outras so
 | Em comparação com | Diferenças principais |
 |-------------|-----------------|
 |Bing | A [API de Pesquisa na Web do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) procura os índices em Bing.com para os termos correspondentes ao que enviar. Os índices são criados a partir de HTML, XML e outros conteúdos web em sites públicos. Criada com base nos mesmos fundamentos, a [Pesquisa Personalizada do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) oferece a mesma tecnologia crawler para tipos de conteúdo Web, no âmbito de sites individuais.<br/><br/>O Azure Search pesquisa por um índice que definir, preenchido com dados e documentos seus, normalmente de origens diversas. O Azure Search tem funcionalidades de crawler para algumas origens de dados através de [indexadores](search-indexer-overview.md), mas pode enviar qualquer documento JSON que esteja em conformidade com o seu esquema de índice num único recurso pesquisável consolidado. |
-|Pesquisa de base de dados | Muitas plataformas da base de dados incluem uma experiência de pesquisa incorporada. O SQL Server tem [pesquisa em texto completo](https://docs.microsoft.com/sql/relational-databases/search/full-text-search). O Cosmos DB e as tecnologias semelhantes têm índices consultáveis. Quando avaliar os produtos que combinam a pesquisa e o armazenamento, pode ser difícil determinar qual escolher. Muitas soluções utilizam ambos: DBMS para armazenamento e Azure Search para funcionalidades de pesquisa especializadas.<br/><br/>Em comparação com a pesquisa do DBMS, o Azure Search armazena conteúdo de origens heterogéneas e oferece texto especializado recursos de processamento como texto linguística com suporte para processamento (Lematização, Lematização, formas de palavras) em [56 idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support). Também suporta a correção automática de palavras com erros ortográficos, [sinónimos](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions), [controlos de classificação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [facetas](https://docs.microsoft.com/azure/search/search-filters-facets)e [atomização personalizada](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search). O [motor de pesquisa de texto completo](search-lucene-query-architecture.md) no Azure Search está incorporado no Apache Lucene, uma norma da indústria para a obtenção de informações. Apesar do Azure Search manter os dados sob a forma de um índice invertido, raramente é uma substituição de armazenamento de dados verdadeiro. Para obter mais informações, veja esta [mensagem no fórum](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data). <br/><br/>A utilização de recursos é outro ponto de flexão nesta categoria. A indexação e algumas operações de consulta, muitas vezes, são intensivas em termos de computação. O descarregamento da pesquisa do DBMS para uma solução dedicada na cloud preserva os recursos do sistema para o processamento de transações. Além disso, ao externalizar a pesquisa, pode facilmente ajustar o dimensionamento para corresponder ao volume de consultas.|
+|Pesquisa de base de dados | Muitas plataformas da base de dados incluem uma experiência de pesquisa incorporada. O SQL Server tem [pesquisa em texto completo](https://docs.microsoft.com/sql/relational-databases/search/full-text-search). O Cosmos DB e as tecnologias semelhantes têm índices consultáveis. Quando avaliar os produtos que combinam a pesquisa e o armazenamento, pode ser difícil determinar qual escolher. Muitas soluções utilizam ambas: DBMS para armazenamento e o Azure Search para as funcionalidades de pesquisa especializados.<br/><br/>Em comparação com a pesquisa do DBMS, o Azure Search armazena conteúdo de origens heterogéneas e oferece texto especializado recursos de processamento como texto linguística com suporte para processamento (Lematização, Lematização, formas de palavras) em [56 idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support). Também suporta a correção automática de palavras com erros ortográficos, [sinónimos](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions), [controlos de classificação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [facetas](https://docs.microsoft.com/azure/search/search-filters-facets)e [atomização personalizada](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search). O [motor de pesquisa de texto completo](search-lucene-query-architecture.md) no Azure Search está incorporado no Apache Lucene, uma norma da indústria para a obtenção de informações. Apesar do Azure Search manter os dados sob a forma de um índice invertido, raramente é uma substituição de armazenamento de dados verdadeiro. Para obter mais informações, veja esta [mensagem no fórum](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data). <br/><br/>A utilização de recursos é outro ponto de flexão nesta categoria. A indexação e algumas operações de consulta, muitas vezes, são intensivas em termos de computação. O descarregamento da pesquisa do DBMS para uma solução dedicada na cloud preserva os recursos do sistema para o processamento de transações. Além disso, ao externalizar a pesquisa, pode facilmente ajustar o dimensionamento para corresponder ao volume de consultas.|
 |Solução de pesquisa dedicada | Partindo do princípio de que escolheu a pesquisa dedicada com funcionalidade de espetro completo, a comparação categórica final será entre as soluções no local ou um serviço cloud. Muitas tecnologias de pesquisa oferecem controlo sobre os pipelines de indexação e consulta, acesso a uma sintaxe de consulta e filtragem mais rica, controlo sobre a classificação e relevância e funcionalidades para uma pesquisa inteligente e auto-direcionada. <br/><br/>Um serviço cloud é a escolha certa se quiser uma [solução imediata com o mínimo de custos gerais e de manutenção e com um dimensionamento ajustável](#cloud-service-advantage). <br/><br/>Dentro do paradigma da cloud, vários fornecedores oferecem funcionalidades de linha de base comparáveis, com pesquisa de texto inteiro, pesquisa geográfica e a capacidade de processar um determinado nível de ambiguidade nas entradas de pesquisa. Normalmente, é uma [funcionalidade especializada](#feature-drilldown) ou a facilidade e simplicidade geral das APIs, das ferramentas e a gestão que determinam qual a melhor opção. |
 
 Entre os fornecedores de cloud, o Azure Search é o mais forte para cargas de trabalho de pesquisa de texto inteiro em arquivos de conteúdos e bases de dados no Azure, para aplicações que dependam sobretudo na pesquisa para recuperação de informação e navegação em conteúdo. 
@@ -105,7 +106,7 @@ Os subscritores do Azure podem [aprovisionar um serviço no Escalão gratuito](s
 
 Se não for um subscritor, pode [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Recebe créditos por experimentar os serviços pagos do Azure. Depois de serem utilizados, pode manter a conta e utilizar os [serviços gratuitos do Azure](https://azure.microsoft.com/free/). O seu cartão de crédito não será cobrado, a menos que altere explicitamente as suas definições e peça para ser cobrado.
 
-Como alternativa, pode [ativar os benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): a sua subscrição do MSDN dá-lhe créditos todos os meses que pode utilizar em serviços pagos do Azure. 
+Em alternativa, pode [ativar os benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): A sua subscrição do MSDN dá-lhe créditos todos os meses que pode utilizar em serviços pagos do Azure. 
 
 ## <a name="how-to-get-started"></a>Como começar
 
@@ -116,7 +117,7 @@ Como alternativa, pode [ativar os benefícios de subscritor do MSDN](https://azu
 3. Avance com código com o .NET ou a API REST:
 
   + [Como utilizar o SDK .NET](search-howto-dotnet-sdk.md) demonstra o fluxo de trabalho principal no código gerido.  
-  + [Introdução à REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) mostra os mesmos passos com a API REST. Também pode utilizar este início rápido para chamar as APIs REST do Postman ou Fiddler: [Explorar APIs REST do Azure Search](search-fiddler.md).
+  + [Introdução à REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) mostra os mesmos passos com a API REST. Também pode utilizar este guia de introdução para chamar as APIs REST do Postman ou Fiddler: [Explorar o Azure Search REST APIs](search-fiddler.md).
 
 ## <a name="watch-this-video"></a>Assistir a este vídeo
 

@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 905970c3ab449f139710cf974111618f16da141a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 39a6ead041b1783a3effcb9659c59ea788cd2bf6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086645"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139508"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Apresenta uma lista de frase de utilização para o sinal de aumento de lista de palavras
 
@@ -38,11 +38,11 @@ Uma lista de frase adiciona ao vocabulário do domínio de aplicativo como um si
 
 4. LUIS pode propor valores relacionados para adicionar à sua lista de frase. Clique em **Recomendamos** para obter um grupo de valores propostos semanticamente relacionados com o added value(s). Pode clicar em qualquer um dos valores propostos ou clique em **adicionar todos os** para adicioná-los todos.
 
-    ![Lista de frase proposto valores](./media/luis-add-features/related-values.png)
+    ![Frase de valores de proposta de lista - Adicionar todos](./media/luis-add-features/related-values.png)
 
 5. Clique em **estes valores são intercambiáveis** se os valores de lista de frase adicionados são alternativas que podem ser utilizadas alternadamente.
 
-    ![Lista de frase proposto valores](./media/luis-add-features/interchangeable.png)
+    ![Frase de valores de proposta de lista - selecione a caixa de intercambiável ](./media/luis-add-features/interchangeable.png)
 
 6. Clique em **Guardar**. A lista de frase "Cidades" é adicionada para o **frase listas** página.
 

@@ -4,7 +4,7 @@ description: Exemplo do Script da CLI do Azure - Vincular um certificado SSL per
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 13651663c7934cf7e065eb1ee27d14a7b59fd1ff
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: bf9e0373e0e74b0d694e02c40857a5381a780a0e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983825"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186553"
 ---
-# <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>Vincular um certificado SSL personalizado a uma aplicação Web
+# <a name="bind-a-custom-ssl-certificate-to-a-web-app-using-cli"></a>Vincular um certificado SSL personalizado a uma aplicação web com a CLI
 
 Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, vincula o certificado SSL de um nome de domínio personalizado ao mesmo. Neste exemplo, precisa de:
 
@@ -55,7 +55,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | Carrega um certificado SSL para uma aplicação Web. |
 | [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | Vincular um certificado SSL carregado para uma aplicação Web. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

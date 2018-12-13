@@ -1,5 +1,5 @@
 ---
-title: Explorar as APIs REST no Fiddler ou no Postman (REST do Azure Search) | Microsoft Docs
+title: Explorar as APIs REST no Fiddler ou o Postman web HTTP ferramentas de teste - Azure Search
 description: Como utilizar o Fiddler ou o Postman para emitir pedidos HTTP e chamadas à API REST para o Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: eba41086da645c2ff5cee65f9395267227cb1c11
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: f73ec81686575efde70b7f90239299ec4deca00c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190190"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312991"
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Explorar as APIs REST do Azure Search com o Fiddler ou o Postman
 
@@ -65,7 +66,7 @@ A composição do cabeçalho do pedido inclui dois elementos, o tipo de conteúd
 
 ### <a name="fiddler"></a>Fiddler
 
-Formule um pedido parecido com a captura de ecrã seguinte. Escolha **PUT** como o verbo. O Fiddler adiciona `User-Agent=Fiddler`. Pode colar os dois cabeçalhos de pedido adicionais em novas linhas abaixo do mesmo. Inclua o tipo de conteúdo e a chave de api do seu serviço mediante a utilização da chave de acesso administrativa do mesmo.
+Formule um pedido parecido com a seguinte captura de ecrã. Escolha **PUT** como o verbo. O Fiddler adiciona `User-Agent=Fiddler`. Pode colar os dois cabeçalhos de pedido adicionais em novas linhas abaixo do mesmo. Inclua o tipo de conteúdo e a chave de api do seu serviço mediante a utilização da chave de acesso administrativa do mesmo.
 
 ![Cabeçalho de pedido do Fiddler][1]
 
@@ -74,7 +75,7 @@ Formule um pedido parecido com a captura de ecrã seguinte. Escolha **PUT** como
 
 ### <a name="postman"></a>Postman
 
-Formule um pedido parecido com a captura de ecrã seguinte. Escolha **PUT** como o verbo. 
+Formule um pedido parecido com a seguinte captura de ecrã. Escolha **PUT** como o verbo. 
 
 ![Cabeçalho de pedido do Postman][6]
 
@@ -110,13 +111,13 @@ Se obtiver HTTP 504, certifique-se de que o URL especifica HTTPS. Se vir HTTP 40
 
 ### <a name="fiddler"></a>Fiddler
 
-Copie a definição do índice para o corpo do pedido, de forma semelhante à da captura de ecrã, e clique em **Execute** (Executar), no canto superior direito, para enviar o pedido concluído.
+Copiar a definição de índice para o corpo do pedido, semelhante à seguinte captura de ecrã e, em seguida, clique em **Execute** no canto superior direito, para enviar o pedido concluído.
 
 ![Corpo de pedido do Fiddler][7]
 
 ### <a name="postman"></a>Postman
 
-Copie a definição do índice para o corpo do pedido, de forma semelhante à da captura de ecrã, e clique em **Send** (Enviar), no canto superior direito, para enviar o pedido concluído.
+Copiar a definição de índice para o corpo do pedido, semelhante à seguinte captura de ecrã e, em seguida, clique em **enviar** no canto superior direito, para enviar o pedido concluído.
 
 ![Corpo de pedido do Postman][8]
 
@@ -200,13 +201,13 @@ Se obtiver um 207, pelo menos um documento falhou ao carregar. Se obtiver um 404
 
 ### <a name="fiddler"></a>Fiddler
 
-Altere o verbo para **POST**. Altere o URL para incluir `/docs/index`. Copie os documentos para o corpo do pedido, semelhante à captura de ecrã seguinte e execute-o.
+Altere o verbo para **POST**. Altere o URL para incluir `/docs/index`. Copie os documentos para o corpo do pedido, semelhante à seguinte captura de ecrã e, em seguida, execute o pedido.
 
 ![Payload de pedido do Fiddler][9]
 
 ### <a name="postman"></a>Postman
 
-Altere o verbo para **POST**. Altere o URL para incluir `/docs/index`. Copie os documentos para o corpo do pedido, semelhante à captura de ecrã seguinte e execute-o.
+Altere o verbo para **POST**. Altere o URL para incluir `/docs/index`. Copie os documentos para o corpo do pedido, semelhante à seguinte captura de ecrã e, em seguida, execute o pedido.
 
 ![Payload de pedido do Postman][10]
 
@@ -217,7 +218,7 @@ Agora que um índice e os documentos foram carregados, pode consultar os mesmos.
 + Altere o ponto final para incluir parâmetros de consulta, incluindo cadeias de pesquisa. Um URL de consulta poderá ser parecido com `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
 + Mantenha os cabeçalhos de pedido como estão
 
-Esta consulta pesquisa o termo "motel" e devolve uma contagem dos documentos nos resultados da pesquisa. O pedido e a resposta devem ter um aspeto semelhantes ao da captura de ecrã seguinte do Postman depois de clicar em **Send**. O código de estado deve ser 200.
+Esta consulta pesquisa o termo "motel" e devolve uma contagem dos documentos nos resultados da pesquisa. O pedido e resposta devem ser semelhantes à seguinte captura de ecrã do Postman depois de clicar em **enviar**. O código de estado deve ser 200.
 
  ![Resposta de consulta do Postman][11]
 
@@ -249,7 +250,7 @@ Para obter mais informações sobre esta API, veja [Get Index Statistics (REST)]
 
 No Fiddler, clique no separador **Inspectors** (Inspetores), clique no separador **Headers** (Cabeçalhos) e selecione o formato JSON. Deve ver a contagem dos documentos e o tamanho de armazenamento (em KB).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Os clientes REST são indispensáveis para explorações improvisadas, mas agora que já sabe como é que as APIs REST funcionam, pode avançar com código. Para os passos seguintes, veja as ligações abaixo:
 

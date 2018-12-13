@@ -1,5 +1,5 @@
 ---
-title: 'Do Azure Cosmos DB: SQL .NET Core API, SDK e recursos'
+title: 'o Azure Cosmos DB: SQL .NET Core API, SDK e recursos'
 description: Saiba tudo sobre a API de núcleo de .NET de SQL e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do Azure Cosmos DB .NET Core SDK.
 services: cosmos-db
 author: rnagpal
@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bcd8fe040cb4d36bc98700816d6a7ebe711f13f5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4452484379b73b978cac7391bce5c71b0f6c32cd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093456"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257204"
 ---
-# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB SDK para .NET Core para a API de SQL: notas de versão e recursos
+# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -57,6 +57,16 @@ O SDK do Azure Cosmos DB .NET Core tem paridade de funcionalidades com a versão
 * Novo modelo de objeto, com métodos e de nível superior CosmosClient dividir por classes CosmosDatabases, CosmosContainers e CosmosItems relevantes. 
 * Suporte para fluxos. 
 * Atualizado CosmosResponseMessage de servidor para devolver o código de estado e apenas lançar a exceção quando nenhuma resposta é devolvida. 
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* Para obter um diagnóstico transporte direct/TCP, adicionado TransportException, um tipo de exceção do SDK. Quando presente nas mensagens de exceção, este tipo imprime informações adicionais de resolução de problemas de conectividade do cliente.
+
+* Foram adicionados novos constuctor sobrecarga que aceita um HttpMessageHandler, uma pilha de manipulador HTTP para utilizar para enviar pedidos do HttpClient (por exemplo, HttpClientHandler).
+
+* Corrigi erro em que o cabeçalho com valores nulos não foram a ser processado devidamente.
+
+* Melhorada a validação de cache de coleção.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
@@ -109,7 +119,7 @@ O SDK do Azure Cosmos DB .NET Core tem paridade de funcionalidades com a versão
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
-* Foi corrigido o erro que for atingido sob determinadas condições de corrida, que resulta num intermitente "Microsoft.Azure.Documents.NotFoundException: A sessão de leitura não está disponível para o token de sessão de entrada" erros ao utilizar o nível de consistência da sessão.
+* Foi corrigido o erro que for atingido sob determinadas condições de corrida, que resulta num intermitente "Microsoft.Azure.Documents.NotFoundException: A sessão de leitura não está disponível para o token de sessão de entrada"erros ao utilizar o nível de consistência da sessão.
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
@@ -182,7 +192,7 @@ O SDK do Azure Cosmos DB .NET Core tem paridade de funcionalidades com a versão
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
-* Correção para um problema que eventualmente cause uma exceção WebException: não foi possível resolver o nome remoto.
+* Correção para um problema que eventualmente cause uma exceção WebException: Não foi possível resolver o nome remoto.
 * Foi adicionado o suporte para a leitura diretamente de um documento com tipos adicionando novas sobrecargas para ReadDocumentAsync API.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
@@ -206,8 +216,8 @@ O SDK de núcleo de .NET do Azure Cosmos DB permite-lhe criar, rápida e, em vá
 O SDK de pré-visualização do Azure Cosmos DB .NET Core permite-lhe criar, rápida e, em várias plataformas [ASP.NET Core](https://www.asp.net/core) e [.NET Core](https://www.microsoft.com/net/core#windows) aplicações sejam executadas no Windows, Mac e Linux.
 
 O SDK de pré-visualização do Azure Cosmos DB .NET Core tem paridade de funcionalidades com a versão mais recente dos [SDK de .NET do Azure Cosmos DB](sql-api-sdk-dotnet.md) e suporta o seguinte:
-* Todos os [modos de ligação](performance-tips.md#networking): modo, o TCP direto e o HTTPs direto de Gateway. 
-* Todos os [níveis de consistência](consistency-levels.md): forte, sessão, estagnação limitada e Eventual.
+* Todos os [modos de ligação](performance-tips.md#networking): Modo de gateway, o TCP direto e o HTTPs direto. 
+* Todos os [níveis de consistência](consistency-levels.md): Forte, sessão, estagnação limitada e Eventual.
 * [Particionados coleções](partition-data.md). 
 * [Contas de base de dados de várias regiões e georreplicação](distribute-data-globally.md).
 
@@ -217,6 +227,7 @@ Se tiver questões relacionadas com este SDK, publicar no [Stack Overflow](https
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |07 de Dezembro de 2018 |--- |
 | [2.1.3](#2.1.3) |15 de outubro de 2018 |--- |
 | [2.1.2](#2.1.2) |04 de Outubro de 2018 |--- |
 | [2.1.1](#2.1.1) |27 de Setembro de 2018 |--- |

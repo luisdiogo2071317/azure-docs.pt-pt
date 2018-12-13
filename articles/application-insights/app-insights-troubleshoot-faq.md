@@ -12,21 +12,21 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0e934a629edc41ce09cad810b0d3b9b88e36c6d6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 815388db673673a3802f8e5e515b7e16cb180a29
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996526"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323359"
 ---
-# <a name="application-insights-frequently-asked-questions"></a>O Application Insights: Perguntas mais frequentes
+# <a name="application-insights-frequently-asked-questions"></a>O Application Insights: Perguntas Mais Frequentes
 
 ## <a name="configuration-problems"></a>Problemas de configuração
 *Estou a ter a definição de problemas na minha:*
 
 * [Aplicação .NET](app-insights-asp-net-troubleshoot-no-data.md)
 * [Monitorização de uma aplicação já em execução](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Diagnóstico do Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Aplicação Web Java](app-insights-java-troubleshoot.md)
 
 *Posso obter não existem dados de meu servidor*
@@ -102,7 +102,7 @@ Uma aplicação de ambiente de trabalho que pode utilizar no seu servidor web do
 A partir de aplicações do servidor web:
 
 * Pedidos HTTP
-* [Dependências](app-insights-asp-net-dependencies.md). Chamadas para: bases de dados do SQL; Chamadas HTTP para serviços externos; Azure Cosmos DB, tabela, armazenamento de BLOBs e filas. 
+* [Dependências](app-insights-asp-net-dependencies.md). Chamadas para: Bases de dados do SQL; Chamadas HTTP para serviços externos; Azure Cosmos DB, tabela, armazenamento de BLOBs e filas. 
 * [Exceções](app-insights-asp-net-exceptions.md) e rastreios de pilha.
 * [Contadores de desempenho](app-insights-performance-counters.md) - se de que utiliza [Monitor de estado](app-insights-monitor-performance-live-website-now.md), [monitorização do Azure](app-insights-azure-web-apps.md) ou o [escritor do Application Insights recolhidos](app-insights-java-collectd.md).
 * [Métricas e eventos personalizados](app-insights-api-custom-events-metrics.md) que o código.
@@ -118,7 +118,7 @@ Partir [páginas da web cliente](app-insights-javascript.md):
 
 De outras origens, se configurá-las:
 
-* [Diagnóstico do Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Contentores do docker](app-insights-docker.md)
 * [Importar tabelas para análise](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
@@ -137,8 +137,8 @@ Saiba mais para [ASP.NET](app-insights-api-filtering-sampling.md) ou [Java](app-
 
 Verificar o endereço IP (IPv4 ou IPv6) do cliente web usando [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
 
-* Telemetria do browser: obtemos o endereço IP do remetente.
-* Telemetria do servidor: módulo o Application Insights recolhe o endereço IP do cliente. Não são coletada se `X-Forwarded-For` está definido.
+* Telemetria do browser: Recolhemos o endereço IP do remetente.
+* Telemetria do servidor: O módulo do Application Insights recolhe o endereço IP do cliente. Não são coletada se `X-Forwarded-For` está definido.
 
 Pode configurar o `ClientIpHeaderTelemetryInitializer` para tirar o endereço IP a partir de um cabeçalho diferente. Em alguns sistemas, por exemplo, ele será movido por um proxy, CDN para ou Balanceador de carga `X-Originating-IP`. [Saiba mais](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 

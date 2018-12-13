@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 68c838481120dea7635ac5ea76859a8088d732fb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957355"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186502"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o mapa de serviço, pode ver os servidores da forma que considerá-los: como sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos, latência de ligação de entrada e saída e as portas em qualquer arquitetura ligado a TCP, sem qualquer configuração necessária que a instalação de um agente.
@@ -44,7 +43,7 @@ Enquanto as informações são confirmadas e a solução é implementada, pode a
 
 Mapa de serviço de acesso no portal do Azure da sua área de trabalho do Log Analytics e selecione a opção **soluções** no painel à esquerda.<br><br> ![Selecione a opção de soluções na área de trabalho](./media/service-map/select-solution-from-workspace.png).<br> Na lista de soluções, selecione **ServiceMap(workspaceName)** e, em que o clique de página de descrição geral do mapa de serviço solução no mosaico de resumo do mapa de serviço.<br><br> ![Mosaico de resumo de mapa de serviço](./media/service-map/service-map-summary-tile.png).
 
-## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de utilização: tornar seu departamento de TI processa com reconhecimento de dependência
+## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de utilização: Tornar seu departamento de TI processa com reconhecimento de dependência
 
 ### <a name="discovery"></a>Deteção
 Mapa de serviço cria automaticamente um mapa de referência comuns de dependências entre os servidores, processos e serviços de terceiros. Ele Deteta e mapeia todas as dependências TCP, identificação de ligações de surpresa, sistemas de terceiros remotos que confiar e dependências para áreas escuros tradicionais da sua rede, como o Active Directory. Mapa de serviço Deteta as ligações de rede com falha que sistemas geridos estão a tentar fazer, ajudando-o a identificar potenciais erro de configuração do servidor, indisponibilidade de serviço e problemas de rede.
@@ -286,8 +285,8 @@ Um registo é gerado por hora para cada computador exclusivo e o processo, além
 
 Existem propriedades internamente geradas, pode usar para identificar processos exclusivos e computadores:
 
-- Computador: Utilizar *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador dentro de uma área de trabalho do Log Analytics.
-- Processo: Utilizar o *ResourceId* para identificar exclusivamente um processo numa área de trabalho do Log Analytics. *ResourceName_s* é exclusivo dentro do contexto da máquina em que o processo está em execução (MachineResourceName_s) 
+- Computador: Uso *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador dentro de uma área de trabalho do Log Analytics.
+- Processo: Uso *ResourceId* para identificar exclusivamente um processo numa área de trabalho do Log Analytics. *ResourceName_s* é exclusivo dentro do contexto da máquina em que o processo está em execução (MachineResourceName_s) 
 
 Uma vez que vários registos podem existir num processo especificado e o computador num intervalo de tempo especificado, as consultas podem devolver mais de um registo para o mesmo computador ou processo. Para incluir apenas o registo mais recente, adicione "| eliminação de duplicados ResourceId"para a consulta.
 

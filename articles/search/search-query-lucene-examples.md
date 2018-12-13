@@ -1,5 +1,5 @@
 ---
-title: Exemplos de consulta Lucene para o Azure Search | Documentos da Microsoft
+title: Exemplos de consulta Lucene - Azure Search
 description: Sintaxe de consulta Lucene para a pesquisa difusa, pesquisa de proximidade, aumentos de termos, pesquisa de expressão regular e pesquisas com carateres universais num serviço Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: b5a3e2eac218ba2aa6958ffc56bd59f5b513cf48
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 0ce230bc6a926229ed383c828f83aafd60117471
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42060888"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317163"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Exemplos de consulta de sintaxe Lucene para a criação de consultas avançadas no Azure Search
 Ao construir consultas para o Azure Search, pode substituir a predefinição [analisador de consultas simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) com o abrangente [analisador de consultas do Lucene no Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para formular a consulta especializada e avançada definições. 
@@ -77,7 +78,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 Todos os exemplos neste artigo de especificar o **queryType = full** parâmetro, que indica que a sintaxe completa é processada pelo Parser de consulta Lucene de pesquisa. 
 
-## <a name="example-1-field-scoped-query"></a>Exemplo 1: Consulta de âmbito de campo
+## <a name="example-1-field-scoped-query"></a>Exemplo 1: Consulta com abrangência de campo
 
 Este primeiro exemplo não é específico do analisador, mas vamos levar com ele para apresentar o primeiro conceito de consulta fundamentais: contenção. Neste exemplo examina a execução da consulta e a resposta a apenas alguns campos específicos. É importante saber como estruturar uma resposta JSON legível quando sua ferramenta é o Explorador de pesquisa ou o Postman. 
 
@@ -93,7 +94,7 @@ A resposta para esta consulta deve ser semelhante à seguinte captura de ecrã.
 
 Poderá ter reparado a pontuação de pesquisa na resposta. Pontuações uniformes de 1 ocorrerem quando não existe nenhuma classificação, seja porque a pesquisa não era a pesquisa em texto completo ou porque não existem critérios foi aplicada. Para obter pesquisa nulo sem critérios, linhas voltar na ordem arbitrária. Quando inclui critérios reais, verá as pontuações evoluam em valores significativos de pesquisa.
 
-## <a name="example-2-intra-field-filtering"></a>Exemplo 2: Filtragem de campo flui
+## <a name="example-2-intra-field-filtering"></a>Exemplo 2: Filtragem em campo
 
 Sintaxe de Lucene completa oferece suporte a expressões num campo. Esta consulta pesquisa de títulos de negócios com o sênior do termo em-los, mas não júnior:
 
@@ -112,7 +113,7 @@ Certifique-se de que colocar várias cadeias de caracteres entre aspas, se prete
 
 O campo especificado no **fieldname:searchterm** tem de ser um campo pesquisável. Ver [criar índice (API do REST de serviço de pesquisa do Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados nas definições de campo.
 
-## <a name="example-3-fuzzy-search"></a>Exemplo 3: A pesquisa difusa
+## <a name="example-3-fuzzy-search"></a>Exemplo 3: pesquisa difusa
 
 Sintaxe de Lucene completa também suporta a pesquisa difusa, que correspondem à medida que têm uma construção semelhante. Para fazer uma pesquisa difusa, acrescente o til `~` símbolo no final de uma única palavra com um parâmetro opcional, um valor entre 0 e 2, que especifica a distância de edição. Por exemplo, `blue~` ou `blue~1` retornaria azul, blues e cola.
 
@@ -129,7 +130,7 @@ Por [documentação de Lucene](https://lucene.apache.org/core/4_10_2/queryparser
 > As consultas difusas não são [analisados](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). Tipos de consulta com os termos incompletos (consulta de prefixo, consulta de caráter universal, consultas de regex, consulta difusa) são adicionados diretamente à árvore de consulta, ignorando a fase de análise. A transformação de apenas executada nos termos de consulta incompleta é minúsculas.
 >
 
-## <a name="example-4-proximity-search"></a>Exemplo 4: Pesquisa de proximidade
+## <a name="example-4-proximity-search"></a>Exemplo 4: pesquisa de proximidade
 Pesquisas de proximidades são usadas para encontrar os termos que estejam perto uns dos outros num documento. Inserir um til "~" símbolo no final de uma frase seguido do número de palavras que criar o limite de proximidade. Por exemplo, "aeroporto de hotel" ~ 5 encontrará o hotel de termos e aeroporto dentro de 5 palavras da outra num documento.
 
 Nesta consulta, para as tarefas com o termo "analista sênior", onde ele é separado por mais do que uma palavra:
@@ -145,7 +146,7 @@ Experimente remover novamente as palavras entre o termo "analista sênior". Tenh
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~0
 ```
 
-## <a name="example-5-term-boosting"></a>Exemplo 5: Aumentos de termos
+## <a name="example-5-term-boosting"></a>Exemplo 5: prazo adaptativo
 Aumentos de termos refere-se a classificação de um documento superior se contiver o termo elevado, em relação ao documentos que contenham o termo. Para aumentar um termo, utilize o sinal de interpolação, "^", símbolo com um fator de aumento (um número) no final do período de vigência esteja a pesquisar. 
 
 Nesta "consulta antes", procure tarefas com o termo *analista de computador* e repare que não há resultados com ambas as palavras *computador* e *analista*, ainda  *computador* tarefas estão na parte superior dos resultados.
@@ -171,7 +172,7 @@ Considere corresponde a um perfil de classificação que aumenta num determinado
 Ao definir o nível de fatores, quanto maior for o fator de aumento, o mais relevante o termo serão relativas a outros termos de pesquisa. Por predefinição, o fator de aumento é 1. Embora o fator de boost tem de ser positivo, ele pode ser inferior a 1 (por exemplo, 0,2).
 
 
-## <a name="example-6-regex"></a>Exemplo 6: Regex
+## <a name="example-6-regex"></a>Exemplo 6: RegEx
 
 Uma pesquisa de expressão regular encontra uma correspondência com base no conteúdo entre barras "/", como documentado na [RegExp classe](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
@@ -187,7 +188,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 > As consultas de RegEx não são [analisados](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). A transformação de apenas executada nos termos de consulta incompleta é minúsculas.
 >
 
-## <a name="example-7-wildcard-search"></a>Exemplo 7: Pesquisa de curinga
+## <a name="example-7-wildcard-search"></a>Exemplo 7: pesquisa com carateres universais
 Pode usar sintaxe geralmente reconhecido para vários (\*) ou único pesquisas de com carateres universais do caractere (?). Tenha em atenção de que o analisador de consultas de Lucene suporta a utilização desses símbolos com um único termo e não uma frase.
 
 Nesta consulta, procure as tarefas que contêm o prefixo "programa", que inclui títulos de negócios com os termos de programação e o programador nela. Não é possível utilizar um * ou? símbolo de como o primeiro caráter de uma pesquisa.

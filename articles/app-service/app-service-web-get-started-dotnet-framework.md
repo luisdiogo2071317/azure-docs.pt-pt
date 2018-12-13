@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação Web ASP.NET Framework C# no Azure | Microsoft Docs
+title: Criar C# aplicação web do ASP.NET Framework - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como executar aplicações Web no serviço de aplicações do Azure com a implementação da aplicação Web ASP.NET C# predefinida.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: cce14d91509fe051beef87acdaeac9a92d998ef6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 5f32ed74086b26f91f3ab24cd619bb117d497012
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053783"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251271"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Criar uma aplicação Web ASP.NET Framework no Azure
 
@@ -166,7 +166,7 @@ Assista ao vídeo para ver este guia de introdução em ação e, em seguida, si
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [ASP.NET com Base de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md)

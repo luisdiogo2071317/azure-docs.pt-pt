@@ -1,5 +1,5 @@
 ---
-title: Configurar um ambiente de desenvolvimento
+title: Configurar o ambiente de desenvolvimento do Python
 titleSuffix: Azure Machine Learning service
 description: Saiba como configurar um ambiente de desenvolvimento ao trabalhar com o serviço Azure Machine Learning. Neste documento, saiba como utilizar ambientes de Conda, criar arquivos de configuração e configurar o Jupyter Notebooks, blocos de notas do Azure, IDEs, editores de código e a máquina de Virtual de ciência de dados.
 services: machine-learning
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6e2222d56ea37983b1efafedaac8e01058cb44fa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 59f847dc38cddfd9185cfd169cf1ef34c744f8f7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098054"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192639"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -25,11 +25,11 @@ Neste documento, saiba como configurar um ambiente de desenvolvimento para traba
 
 Este documento centra-se nos seguintes ambientes específicos e ferramentas:
 
-* [Blocos de notas do Azure](#aznotebooks): serviço de um Jupyter Notebooks alojado na cloud do Azure. É __a mais fácil__ forma de começar a utilizar, como já está instalado o SDK do Azure Machine Learning.
-* [A máquina de Virtual de ciência de dados](#dsvm): A __ambiente de desenvolvimento/experimentação pré-configurados__ na cloud do Azure ou seja __concebido para o trabalho de ciência de dados__ e podem ser implementados em qualquer uma Instâncias de VM apenas de CPU ou de GPU baseado em instâncias. Python 3, Conda, blocos de notas do Jupyter e o SDK do Azure Machine Learning já estão instalados. A VM é fornecido com popular ML / aprendizagem profunda estruturas, ferramentas e editores para desenvolver soluções de ML. É provavelmente __os mais completos__ ambiente de desenvolvimento para ML na plataforma do Azure.
+* [Blocos de notas do Azure](#aznotebooks): Um serviço de blocos de notas do Jupyter alojado na cloud do Azure. É __a mais fácil__ forma de começar a utilizar, como já está instalado o SDK do Azure Machine Learning.
+* [A máquina de Virtual de ciência de dados](#dsvm): R __ambiente de desenvolvimento/experimentação previamente configurada__ na cloud do Azure ou seja __concebido para o trabalho de ciência de dados__ e podem ser implementados em qualquer CPU só instâncias VM ou GPU com base em instâncias. Python 3, Conda, blocos de notas do Jupyter e o SDK do Azure Machine Learning já estão instalados. A VM é fornecido com popular ML / aprendizagem profunda estruturas, ferramentas e editores para desenvolver soluções de ML. É provavelmente __os mais completos__ ambiente de desenvolvimento para ML na plataforma do Azure.
 * [Blocos de notas do Jupyter](#jupyter): Se já estiver a utilizar blocos de notas do Jupyter, o SDK tem alguns sobrando que deve instalar.
-* [Visual Studio Code](#vscode): Se utilizar o Visual Studio Code, existem algumas extensões úteis que podem instalar.
-* [O Azure Databricks](#aml-databricks): uma plataforma de análise de dados populares baseada no Apache Spark. Saiba como obter o SDK do Azure Machine Learning no seu cluster, para que possa implementar modelos.
+* [Visual Studio Code](#vscode): Se usar o Visual Studio Code, existem algumas extensões úteis que podem instalar.
+* [O Azure Databricks](#aml-databricks): Uma plataforma de análise de dados populares baseada no Apache Spark. Saiba como obter o SDK do Azure Machine Learning no seu cluster, para que possa implementar modelos.
 
 Se já tiver um ambiente de Python 3 ou deseja apenas os passos básicos para instalar o SDK, consulte a [computador Local](#local) secção.
 
@@ -212,7 +212,7 @@ Para utilizar o Visual Studio Code para o desenvolvimento, utilize os seguintes 
 
 1. Para saber como utilizar o Visual Studio Code para o desenvolvimento de Python, veja a [introdução ao Python no VSCode](https://code.visualstudio.com/docs/python/python-tutorial) documento.
 
-1. Para selecionar o ambiente de Conda, abra o VS Code e, em seguida, utilize __Ctrl-Shift-P__ (Linux e Windows) ou __comando-Shift-P__ (Mac) para obter o __palete de comando__. Introduza __Python: selecione o interpretador__ e, em seguida, selecione o ambiente de conda.
+1. Para selecionar o ambiente de Conda, abra o VS Code e, em seguida, utilize __Ctrl-Shift-P__ (Linux e Windows) ou __comando-Shift-P__ (Mac) para obter o __palete de comando__. Introduza __Python: Selecione o interpretador__ e, em seguida, selecione o ambiente de conda.
 
 1. Para validar que pode utilizar o SDK, crie um novo ficheiro de Python (. PY) que contém o código a seguir. Em seguida, execute o ficheiro:
 

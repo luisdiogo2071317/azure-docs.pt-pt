@@ -1,5 +1,5 @@
 ---
-title: Criar, gerir e proteger chaves de api administrador e a consulta para o Azure Search | Documentos da Microsoft
+title: Criar, gerenciar e proteger a administração e a consulta as chaves de api - Azure Search
 description: as chaves de API controlam o acesso ao ponto final do serviço. As chaves administrativas concedem acesso de escrita. Chaves de consulta podem ser criadas para acesso só de leitura.
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 0a8975fad21645535a6e7407bcd2d59f537a9fff
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec2018
+ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727978"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316934"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Criar e gerir as chaves de api para um serviço Azure Search
 
@@ -67,7 +68,7 @@ Segurança de chave é garantida por meio de restringir o acesso com o portal ou
 
 + No dashboard do serviço, clique em **controlo de acesso (IAM)** e, em seguida, o **atribuições de funções** separador para ver as atribuições de funções para o seu serviço.
 
-Os membros das seguintes funções podem ver e voltar a gerar chaves: proprietário, contribuinte, [contribuidores do serviço de pesquisa](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
+Os membros das seguintes funções podem ver e voltar a gerar chaves: Proprietário, contribuinte, [contribuidores do serviço de pesquisa](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 
 > [!Note]
 > Para acesso com base na identidade os resultados de pesquisa, pode criar filtros de segurança para limitar os resultados pela identidade, a remoção de documentos para o qual o requerente não deve ter acesso. Para obter mais informações, consulte [filtros de segurança](search-security-trimming-for-azure-search.md) e [seguro com o Active Directory](search-security-trimming-for-azure-search-with-aad.md).

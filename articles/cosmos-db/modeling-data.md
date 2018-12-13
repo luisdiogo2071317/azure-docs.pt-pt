@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: 22a22789f7eed6402d7bf3abd3b356dbcb4caa37
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5b75f620194a58aa7801fe390148a327a319c4a3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134891"
+ms.locfileid: "53166647"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelação de dados de documento para bases de dados NoSQL
 
@@ -38,7 +38,7 @@ Antes de mergulhar demasiado muito além disso, informe-nos voltar alguns passos
 
 Ao trabalhar com bancos de dados relacionais, nós já foi ensinados há anos normalizar, normalizar, normalizar.
 
-Normalizar os dados normalmente envolve pegar uma entidade, como uma pessoa e dividi-lo para baixo para partes discretas de dados. No exemplo acima, uma pessoa pode ter vários registos de detalhes de contacto, bem como vários registos de endereço. Podemos até mesmo ir além e dividir detalhes de contacto extraindo mais comuns campos, como um tipo. Mesmo para o endereço, cada registo aqui tem um tipo como *home page* ou *comercial* 
+Normalizar os dados normalmente envolve pegar uma entidade, como uma pessoa e a segmentar a Modelagem em partes discretas de dados. No exemplo acima, uma pessoa pode ter vários registos de detalhes de contacto, bem como vários registos de endereço. Podemos até mesmo ir além e dividir detalhes de contacto extraindo mais comuns campos, como um tipo. Mesmo para o endereço, cada registo aqui tem um tipo como *home page* ou *comercial* 
 
 A servir de orientação no local quando normalizar dados é **Evite armazenar dados redundantes** em cada gravar e, em vez disso, consulte a dados. Neste exemplo, para ler uma pessoa, com todos os respetivos detalhes de contacto e os endereços, terá de utilizar associações para efetivamente Agregue os seus dados em tempo de execução.
 

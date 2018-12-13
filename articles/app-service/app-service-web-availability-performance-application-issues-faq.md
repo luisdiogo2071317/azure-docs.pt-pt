@@ -1,5 +1,5 @@
 ---
-title: FAQs de desempenho da aplicação para aplicações web do Azure | Documentos da Microsoft
+title: Desempenho do aplicativo FAQs - serviço de aplicações do Azure | Documentos da Microsoft
 description: Obtenha respostas às perguntas mais frequentes sobre a disponibilidade, desempenho e problemas de aplicativos na funcionalidade de aplicações Web do serviço de aplicações do Azure.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 00563b93a3601ba6299c479c49375fd252841f79
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec18
+ms.openlocfilehash: 62039d379861e9981eb1bf556a78e85fc64e2478
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748124"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255198"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>FAQs de desempenho da aplicação para aplicações Web no Azure
 
@@ -166,7 +167,7 @@ WebJobs foi concebido para processamento em segundo plano. Pode fazer muito mais
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>Aplicações de ASP.NET Core que estão alojadas no serviço de aplicações, às vezes, deixam de responder. Como corrigir este problema?
 
-Um problema conhecido com anterior [versão Kestrel](https://github.com/aspnet/KestrelHttpServer/issues/1182) pode fazer com que uma aplicação ASP.NET Core 1.0, que está alojada no serviço de aplicações intermitentemente deixe de responder. Também poderá ver esta mensagem: "a aplicação CGI especificada encontrou um erro e o servidor terminou o processo".
+Um problema conhecido com anterior [versão Kestrel](https://github.com/aspnet/KestrelHttpServer/issues/1182) pode fazer com que uma aplicação ASP.NET Core 1.0, que está alojada no serviço de aplicações intermitentemente deixe de responder. Também poderá ver esta mensagem: "A aplicação CGI especificada encontrou um erro e o servidor terminou o processo".
 
 Este problema é resolvido de Kestrel versão 1.0.2. Esta versão está incluída na atualização do ASP.NET Core 1.0.3. Para resolver este problema, certifique-se de que atualizar suas dependências de aplicação para utilizar o Kestrel 1.0.2. Em alternativa, pode utilizar uma das duas soluções que são descritas na mensagem de blogue [problemas de desempenho lento do ASP.NET Core 1.0 nas aplicações do serviço de aplicações web](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
 

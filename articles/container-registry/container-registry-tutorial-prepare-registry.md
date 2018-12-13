@@ -1,5 +1,5 @@
 ---
-title: Tutorial do Azure Container Registry - Preparar um registo de contentor do Azure georreplicado
+title: Tutorial - criar um registo georreplicado do Docker no Azure
 description: Criar um registo de contentor do Azure, configurar a georreplicação, preparar uma imagem do Docker e implementá-la para o registo. Parte um de uma série com três partes.
 services: container-registry
 author: dlepow
@@ -7,13 +7,13 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9d1371dc02f37889b15b3448d82c62d76472f847
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: db00672c7cbb39002c4a40eb7397af76e4c8189a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854308"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261318"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um registo de contentor georreplicado do Azure
 
@@ -49,8 +49,8 @@ Selecione **Criar um recurso** > **Contentores** > **Azure Container Registry**.
 
 Configure o seu novo registo com as seguintes definições:
 
-* **Nome do registo**: crie um nome de registo que seja globalmente exclusivo no Azure e contenha apenas 5-50 carateres alfanuméricos
-* **Grupo de Recursos**: **Criar novo** > `myResourceGroup`
+* **Nome do registo**: Crie um nome de registo que seja globalmente exclusivo no Azure e contém 5 a 50 carateres de alfanuméricos
+* **Grupo de recursos**: **Criar um novo** > `myResourceGroup`
 * **Localização**: `West US`
 * **Utilizador administrador**: `Enable` (necessário para a Aplicação Web para Contentores, para solicitar imagens)
 * **SKU**: `Premium` (necessário para a georreplicação)
@@ -224,7 +224,7 @@ a75caa09eb1f: Pushed
 v1: digest: sha256:0799014f91384bda5b87591170b1242bcd719f07a03d1f9a1ddbae72b3543970 size: 1792
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou um registo de contentor georreplicado privado, criou uma imagem de contentor e então enviou essa imagem para o seu registo.
 
