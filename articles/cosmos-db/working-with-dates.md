@@ -7,20 +7,20 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.openlocfilehash: 49196df580aec4975a74849e8f2b36c03f6750ad
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 48879eb3ae4fc3a54d50a4e896b4a1eb94acabf9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956113"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073810"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhar com datas no Azure Cosmos DB
-O Azure Cosmos DB oferece flexibilidade de esquema e indexação avançada através de um nativo [JSON](http://www.json.org) modelo de dados. Todos os recursos do Azure Cosmos DB incluindo bases de dados, contentores, documentos e procedimentos armazenados são modelados e armazenados como documentos JSON. Como um requisito para estar portátil, JSON (e o Azure Cosmos DB) suporta apenas um pequeno conjunto de tipos básicos: cadeia de caracteres, número, booleano, matriz, objeto e Null. No entanto, o JSON é flexível e permitir que desenvolvedores e estruturas representar os tipos mais complexos, usar esses primitivos e compor-los como objetos ou matrizes. 
+O Azure Cosmos DB oferece flexibilidade de esquema e indexação avançada através de um nativo [JSON](https://www.json.org) modelo de dados. Todos os recursos do Azure Cosmos DB incluindo bases de dados, contentores, documentos e procedimentos armazenados são modelados e armazenados como documentos JSON. Como um requisito para estar portátil, JSON (e o Azure Cosmos DB) suporta apenas um pequeno conjunto de tipos básicos: cadeia de caracteres, número, booleano, matriz, objeto e Null. No entanto, o JSON é flexível e permitir que desenvolvedores e estruturas representar os tipos mais complexos, usar esses primitivos e compor-los como objetos ou matrizes. 
 
 Além dos tipos básicos, vários aplicativos precisam da [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) tipo para representar datas e carimbos de data /. Este artigo descreve como os desenvolvedores podem armazenar, obter e consultar as datas no Azure Cosmos DB com o SDK .NET.
 
 ## <a name="storing-datetimes"></a>Armazenar DateTimes
-Por predefinição, o [SDK do Azure Cosmos DB](sql-api-sdk-dotnet.md) serializa os valores de DateTime [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) cadeias de caracteres. A maioria dos aplicativos pode usar a representação de cadeia de caracteres padrão para DateTime pelos seguintes motivos:
+Por predefinição, o [SDK do Azure Cosmos DB](sql-api-sdk-dotnet.md) serializa os valores de DateTime [ISO 8601](https://www.iso.org/iso/catalogue_detail?csnumber=40874) cadeias de caracteres. A maioria dos aplicativos pode usar a representação de cadeia de caracteres padrão para DateTime pelos seguintes motivos:
 
 * Cadeias de caracteres possam ser comparadas e a ordenação relativa dos valores DateTime é preservada quando eles são transformados em cadeias de caracteres. 
 * Essa abordagem não requer qualquer código personalizado ou atributos para a conversão de JSON.
