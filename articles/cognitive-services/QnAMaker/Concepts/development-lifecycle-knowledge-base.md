@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: ec5e9f92114e9bae1aaa840a1d02f5a42b2fd7bf
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18
+ms.openlocfilehash: 68fcc8b324bebfc7ca4fa94b2633b475137ea580
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857177"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075600"
 ---
-# <a name="knowledge-base-lifecycle"></a>Ciclo de vida de base de dados de conhecimento
+# <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida de base de dados de conhecimento no QnA Maker
 A ferramenta QnA Maker Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final. 
 
 ![Ciclo de criação](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
@@ -31,7 +32,7 @@ A base de dados de conhecimento está pronta para teste depois que ele é preenc
 Para grandes KBs, pode ser automatizado o teste por meio de generateAnswer APIs. 
 
 ## <a name="publish-the-knowledge-base"></a>Publicar a base de dados de conhecimento
-Depois de concluída a base de dados de conhecimento de teste, pode publicá-lo. Publicar pushes a versão mais recente da base de dados de conhecimento testada para uma pesquisa do Azure dedicado de índice que representa a **publicados** base de dados de conhecimento. Ele também cria um ponto final que pode ser chamado na sua aplicação ou bot de bate-papo.
+Depois de concluída a base de dados de conhecimento de teste, pode publicá-lo. Publicar pushes a versão mais recente da base de dados de conhecimento testada para uma pesquisa do Azure dedicado de índice que representa a **publicados** base de dados de conhecimento. Também cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 
 Dessa forma, qualquer alteração que está a ser feita para a versão de teste de base de dados de conhecimento não afetam a versão publicada que pode ser em direto num aplicativo de produção.
 

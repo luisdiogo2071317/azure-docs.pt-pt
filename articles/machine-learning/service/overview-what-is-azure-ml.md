@@ -1,6 +1,6 @@
 ---
 title: O que é o serviço Azure Machine Learning?
-description: Aprendizagem automática na cloud e o que pode utilizá-lo. Descrição geral do serviço do Azure Machine Learning--uma solução de ciência de dados ponto a ponto integrada para cientistas de dados profissionais desenvolver, experimentar e implementar aplicações de análise avançada à escala da cloud.
+description: Descrição geral do serviço do Azure Machine Learning--uma solução de ciência de dados ponto a ponto integrada para cientistas de dados profissionais desenvolver, experimentar e implementar aplicações de análise avançada à escala da cloud.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,12 +9,13 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: 3a99d807bb5c3337d251044312e06806b0fe4bbc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: c3c0697af739c151f9aa7cbaed65283a365be7a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955008"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077227"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
 
@@ -33,12 +34,12 @@ O serviço Azure Machine Learning fornece um ambiente baseado na cloud que pode 
 [ ![Fluxo de trabalho do serviço Azure Machine Learning](./media/overview-what-is-azure-ml/aml.png) ] (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 O serviço Azure Machine Learning suporta totalmente tecnologias de open source, pelo que pode utilizar dezenas de milhares de pacotes Python de open source com componentes de machine learning, como o TensorFlow e o scikit-learn.
-Suporte para ferramentas avançadas, como [blocos de notas do Jupyter](http://jupyter.org) ou o [do Azure Machine Learning para Visual Studio Code](http://aka.ms/VSToolsforAI) extensão, facilita a interativamente explorar dados, transformá-los e, em seguida, desenvolver e testar modelos.
+Suporte para ferramentas avançadas, como [blocos de notas do Jupyter](http://jupyter.org) ou o [do Azure Machine Learning para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extensão, facilita a interativamente explorar dados, transformá-los e, em seguida, desenvolver e testar modelos.
 O serviço Azure Machine Learning também inclui funcionalidades que [automatizam a otimização e a geração de modelos](tutorial-auto-train-models.md) para ajudá-lo a criar modelos com facilidade, eficiência e precisão.
 
 O serviço Azure Machine Learning permite-lhe começar a preparar o seu computador local e, em seguida, aumentar horizontalmente para a cloud. Em muitas disponíveis [destinos de computação](how-to-set-up-training-targets.md) , como a computação do Azure Machine Learning e [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)e com [avançada dos serviços de otimização de hiper-parâmetros](how-to-tune-hyperparameters.md), pode criar melhores modelos com mais rapidez, usando o poder da cloud.
 
-Quando tiver o modelo certo, pode implementá-lo facilmente num contentor, como o Docker. Isto significa que é simples implementar no [Azure Container Instances](how-to-deploy-to-aci.md) ou no [Azure Kubernetes Service](how-to-deploy-to-aks.md). Em alternativa, pode utilizar o contentor nas suas próprias implementações, no local ou na cloud.
+Quando tiver o modelo certo, pode implementá-lo facilmente num contentor, como o Docker. Isso significa que é simples de implementar no Azure Container Instances ou serviço Kubernetes do Azure ou pode utilizar o contentor em suas próprias implementações, no local ou na cloud. Para obter mais informações, consulte a [como implementar e, em que](how-to-deploy-and-where.md) documento.
 Pode gerir os modelos implementados e controlar várias execuções à medida que experimenta para encontrar a melhor solução.
 Depois de implementada, o seu modelo pode retornar previsões em [em tempo real](how-to-consume-web-service.md), ou [assincronamente](how-to-run-batch-predictions.md) em grandes quantidades de dados.
 
@@ -58,9 +59,9 @@ Pode escolher de entre vários componentes de machine learning disponíveis em p
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
 
-Depois de ter um modelo, usá-lo para criar um contentor (por exemplo, o Docker) que pode ser implementado localmente para fins de teste. Assim que o teste é realizado, o modelo pode ser implementado como um serviço da web de produção em qualquer um [Azure Container Instances](how-to-deploy-to-aci.md) ou [Azure Kubernetes Service](how-to-deploy-to-aks.md).
+Depois de ter um modelo, usá-lo para criar um contentor (por exemplo, o Docker) que pode ser implementado localmente para fins de teste. Assim que o teste é realizado, o modelo pode ser implementado como um serviço da web de produção no Azure Container Instances ou no serviço Kubernetes do Azure. Para obter mais informações, consulte a [como implementar e, em que](how-to-deploy-and-where.md) documento.
 
-Em seguida, pode gerir seus modelos implementados com o [do Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou o [portal do Azure](https://portal.azure.com/).
+Em seguida, pode gerir seus modelos implementados com o [do Azure Machine Learning SDK para Python](https://aka.ms/aml-sdk) ou o [portal do Azure](https://portal.azure.com/).
 Pode avaliar as métricas de modelo, reformular e voltar a implementar novas versões do modelo, ao mesmo tempo experimentações do modelo de controlo.
 
 Para começar a utilizar o serviço Azure Machine Learning, veja os [Passos seguintes](#next-steps) que estão abaixo.
