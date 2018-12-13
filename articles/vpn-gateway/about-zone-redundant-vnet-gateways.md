@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 27bac5265a5e884b808c4ccb58fda0b2fffeb774
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d3dda3bb5fd39b844f50044c1262008e3610e301
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975663"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871409"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Sobre os gateways de rede virtual com redundância de zona em zonas de disponibilidade do Azure
 
@@ -86,7 +86,7 @@ Sim, pode utilizar o portal do Azure para implementar os novos SKU. No entanto, 
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Que regiões estão disponíveis para mim utilizar os novos SKU?
 
-Os novos SKU estão disponíveis nas regiões do Azure que têm zonas de disponibilidade do Azure – centro dos E.U.A., Centro de França e Europa Ocidental. Daqui em diante, faremos os Gateways com redundância de zona disponíveis para em outras regiões públicas do Azure.
+Os novos SKU estão disponíveis nas regiões do Azure que têm zonas de disponibilidade do Azure – centro dos E.U.A., Centro de França, Europa do Norte, Europa Ocidental e regiões do Oeste dos E.U.A. 2. Daqui em diante, faremos gateways com redundância de zona disponíveis para em outras regiões públicas do Azure.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Posso alterar/migrar/atualização meus gateways de rede virtual existente para gateways com redundância de zona ou zonais?
 
@@ -98,4 +98,4 @@ Coexistência de gateways VPN e o Express Route na mesma rede virtual é suporta
 
 ## <a name="next-steps"></a>Próximos Passos
 
-[Criar um gateway de rede virtual com redundância de zona](create-zone-redundant-vnet-gateway.md)
+[Criar um gateway de rede virtual com redundância entre zonas](create-zone-redundant-vnet-gateway.md)

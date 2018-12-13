@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: 6055b70c7df2704a334b7f14c9365863ddafbd5a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164551"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52886346"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Manter os ficheiros no Azure Cloud Shell
 Cloud Shell utiliza o armazenamento de ficheiros do Azure para manter os ficheiros em sessões. No início inicial, o Cloud Shell pede-lhe para associar uma partilha de ficheiros novos ou existentes para manter os ficheiros em sessões.
@@ -35,11 +35,14 @@ A partilha de ficheiros também contém uma imagem de 5 GB, que é criada para s
 
 ## <a name="use-existing-resources"></a>Utilizar recursos existentes
 
-Ao utilizar a opção avançada, pode associar recursos existentes. Quando for apresentada a linha de comandos do programa de configuração da armazenamento, selecione **Mostrar definições avançadas** para ver opções adicionais. O filtro de opções de armazenamento preenchida para o armazenamento localmente redundante (LRS), armazenamento georredundante (GRS) e contas de armazenamento com redundância de zona (ZRS). Vá [aqui para saber mais](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option) sobre as opções de replicação para contas de armazenamento do Azure.
+Ao utilizar a opção avançada, pode associar recursos existentes. Quando selecionar uma região do Cloud Shell tem de selecionar uma conta de armazenamento de backup colocalizada na mesma região. Por exemplo, se a sua região atribuído é E.U.A. oeste, que tem de associar uma partilha de ficheiros que residem no Oeste dos E.U.A., também.
+
+Quando for apresentada a linha de comandos do programa de configuração da armazenamento, selecione **Mostrar definições avançadas** para ver opções adicionais. O filtro de opções de armazenamento preenchida para o armazenamento localmente redundante (LRS), armazenamento georredundante (GRS) e contas de armazenamento com redundância de zona (ZRS). 
+
+> [!NOTE]
+> Contas de armazenamento com o GRS ou ZRS são recomendadas para uma resiliência adicional de segurança de partilha de ficheiros. Que tipo de redundância depende de suas metas e a preferência de preço. [Saiba mais sobre as opções de replicação para contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
 
 ![A definição de grupo de recursos](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
-
-Quando selecionar uma região do Cloud Shell tem de selecionar para montar uma conta de armazenamento de backup também nessa região.
 
 ### <a name="supported-storage-regions"></a>Regiões de armazenamento suportadas
 Associados a contas têm de residir na mesma região que a máquina do Cloud Shell que está a montagem-los para o armazenamento do Azure. Para localizar a sua região atual pode executar `env` no Bash e localize a variável `ACC_LOCATION`. Partilhas de ficheiros recebem uma imagem de 5 GB criada por si manter sua `$Home` diretório.

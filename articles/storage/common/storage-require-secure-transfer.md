@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 201bf1e5d3580902934f139b70ca5363e7cc5930
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523020"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876507"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Requer transferência segura no armazenamento do Azure
 
 A opção "Transferência segura necessária" reforça a segurança da sua conta de armazenamento, permitindo apenas pedidos para a conta de ligações seguras. Por exemplo, quando estiver chamando as APIs REST para aceder à sua conta de armazenamento, tem de ligar através de HTTPS. "Transferência segura necessária" rejeita pedidos que utilizam HTTP.
 
-Quando utiliza o serviço de ficheiros do Azure, qualquer ligação sem encriptação falha quando a "Transferência segura necessária" está ativada. Isto inclui cenários que utilizam SMB 2.1, SMB 3.0 sem encriptação e algumas versões do cliente Linux SMB. 
+Quando utiliza o serviço de ficheiros do Azure, qualquer ligação sem encriptação falha quando a "Transferência segura necessária" está ativada. Isto inclui cenários que utilizam SMB 2.1, SMB 3.0 sem encriptação e algumas versões do cliente Linux SMB. 
 
-Por predefinição, a opção "Transferência segura necessária" está desativada.
+Por predefinição, a opção "Transferência segura necessária" está desativada quando cria uma conta de armazenamento com o SDK. E ele é habilitado por padrão, quando cria uma conta de armazenamento no Portal do Azure.
 
 > [!NOTE]
 > Porque o armazenamento do Azure não suporta o HTTPS para nomes de domínio personalizados, esta opção não é aplicada quando estiver a utilizar um nome de domínio personalizado. E contas de armazenamento clássicas não são suportadas.

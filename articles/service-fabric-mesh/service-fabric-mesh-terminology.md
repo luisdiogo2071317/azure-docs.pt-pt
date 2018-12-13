@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: rwike77
 ms.author: ryanwi
-ms.date: 07/12/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 925d97658a299bea983b16ae6b507159ef0e9e62
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fa2c34168423796a82f274db1b60b45ac10b5501
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979136"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888669"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia de malha do Service Fabric
 
@@ -32,7 +32,7 @@ O Azure Service Fabric Mesh é um serviço totalmente gerido que permite aos pro
 
 **Aplicação**: malha de recursos de infraestrutura de serviço de um aplicativo é a unidade de implementação, o controle de versão e o tempo de vida de um aplicativo de malha. O ciclo de vida de cada instância da aplicação pode ser gerido de forma independente.  As aplicações são compostas por um ou mais pacotes de código de serviço e as definições. Um aplicativo é definido usando o esquema do modelo de recursos do Azure (RM).  Os serviços são descritos como propriedades do recurso de aplicação num modelo RM.  Redes e volumes utilizados pela aplicação são referenciados pela aplicação.  Ao criar uma aplicação, a aplicação, serviço ou serviços, rede e volumes são modelados com o modelo de recursos do Service Fabric.
 
-**Serviço**: um serviço num aplicativo representa um microsserviço e executa uma função completa e autónoma. Cada serviço é composto por um ou mais, pacotes de código que descrevem tudo necessários para executar a imagem de contentor associada ao pacote de código.  O número de serviços num aplicativo pode ser dimensionado e reduzir verticalmente.
+**Serviço**: um serviço num aplicativo representa um microsserviço e executa uma função completa e autónoma. Cada serviço é composto por um ou mais, pacotes de código que descrevem tudo necessários para executar a imagem de contentor associada ao pacote de código.  O número de réplicas do serviço num aplicativo pode ser dimensionado de entrada e saída.
 
 **Pacote do código**: pacotes de código descrevem tudo necessários para executar a imagem de contentor associada ao pacote de código, incluindo o seguinte:
 
@@ -86,4 +86,4 @@ A tabela seguinte descreve os modelos de aplicação diferente e as ferramentas 
 
 Para saber mais sobre o Service Fabric Mesh, consulte [Descrição geral do Service Fabric Mesh](service-fabric-mesh-overview.md).
 
-Encontre respostas para [perguntas comuns](service-fabric-mesh-faq.md).
+Encontre respostas a [perguntas comuns](service-fabric-mesh-faq.md).

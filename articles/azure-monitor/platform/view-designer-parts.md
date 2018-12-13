@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 876cb037aab718a91f469f8862c501bb9a29e4d6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 8f2bf9707d28744707c39a507108120e948dde7f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846436"
+ms.locfileid: "52866683"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência a partes de visualização do estruturador de vistas no Log Analytics
 Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados da sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para as partes de visualização que estão disponíveis em suas vistas personalizadas.
@@ -324,7 +324,7 @@ O separador de nome e o valor é o delimitador de caráter a utilizar para anali
 Por exemplo, considere uma propriedade chamada *localização* que incluídos como valores *41 de criação de Redmond* e *12 de criação de Bellevue*. Pode especificar um travessão (-) para o separador de nome e valor e *criação de cidade* para o nome. Essa abordagem analisa cada valor em duas propriedades chamadas *Cidade* e *modulares*.
 
 ### <a name="click-through-navigation"></a>Navegação por clique
-Navegação por clique define que ação será direcionada quando clica num cabeçalho ou item de lista numa vista.  Optar por esta ação irá abrir uma consulta a [portal de pesquisa de registos](../../log-analytics/log-analytics-log-search-portals.md) ou iniciar outra vista.
+Navegação por clique define que ação será direcionada quando clica num cabeçalho ou item de lista numa vista.  Optar por esta ação irá abrir uma consulta a [portal de pesquisa de registos](../../azure-monitor/log-query/portals.md) ou iniciar outra vista.
 
 A tabela seguinte descreve as definições para a navegação por clique.
 

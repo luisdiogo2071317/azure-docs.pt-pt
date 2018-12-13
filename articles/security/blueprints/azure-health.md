@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: MT
+ms.openlocfilehash: ca844c89b657bc3286f3472af3acbf937ef1e20f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407559"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891066"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e o esquema de conformidade - HIPAA/HITRUST Health Data and AI
 
@@ -345,8 +345,8 @@ A solução suporta o Azure Event Grid, um único serviço para gerir o encaminh
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [O registo está ativado](/azure/machine-learning/studio/web-services-logging) serviços da web para o Machine Learning Studio.
-- usando [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Bancada de trabalho requer o desenvolvimento de experimentações, que fornece a capacidade de prever a um conjunto de solução. [Integrar o workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) podem ajudar a simplificar a gestão de experimentações.
+- [O registo está ativado](/azure/machine-learning/studio/web-services-logging) serviços da web para o Machine Learning Studio.
+- Usando [Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio) requer o desenvolvimento de experimentações que fornecem a capacidade de prever a um conjunto de solução.
 
 ## <a name="security"></a>SEGURANÇA
 

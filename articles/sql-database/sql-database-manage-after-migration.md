@@ -3,7 +3,7 @@ title: Gerir após a migração - base de dados SQL do Azure | Documentos da Mic
 description: Saiba como gerir a sua base de dados após a migração para a base de dados do Azure SQL.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e4f70521fbd081f7e26f56f4175656cca61887d1
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870983"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890709"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Novo DBA na cloud – gestão de base de dados na base de dados do Azure SQL
 
@@ -209,7 +209,7 @@ Este gráfico, também pode configurar alertas por recurso. Estes alertas permit
 
    ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-- **Análise SQL do Azure (pré-visualização) no Log Analytics**: [do Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md) permite-lhe recolher e visualizar as principais métricas de desempenho de SQL Azure do Azure, suporta até 150 000 bases de dados SQL e 5000 conjuntos elásticos SQL por área de trabalho. Pode usá-lo para monitorizar e receber notificações. Pode monitorizar métricas de conjunto elástico e de base de dados SQL em várias subscrições do Azure e conjuntos elásticos e pode ser utilizado para identificar problemas em cada camada de uma pilha de aplicação.
+- **Análise SQL do Azure (pré-visualização) no Log Analytics**: [do Azure Log Analytics](../azure-monitor/insights/azure-sql.md) permite-lhe recolher e visualizar as principais métricas de desempenho de SQL Azure do Azure, suporta até 150 000 bases de dados SQL e 5000 conjuntos elásticos SQL por área de trabalho. Pode usá-lo para monitorizar e receber notificações. Pode monitorizar métricas de conjunto elástico e de base de dados SQL em várias subscrições do Azure e conjuntos elásticos e pode ser utilizado para identificar problemas em cada camada de uma pilha de aplicação.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Eu estou observar problemas de desempenho: meu metodologia de resolução de problemas de base de dados SQL difere do SQL Server?
 Uma grande parte das técnicas de resolução de problemas que utilizaria para diagnosticar a consulta e problemas de desempenho da base de dados permanecem inalterados. Depois de todos os mesmo SQL Server engine capacita a cloud. No entanto, a plataforma - BD SQL do Azure foi criado em "inteligência". Ele pode ajudar a solucionar problemas e diagnosticar problemas de desempenho ainda mais facilmente. Pode também efetuar algumas destas ações corretivas em seu nome e, em alguns casos, proativamente corrigi-los - a automaticamente. 

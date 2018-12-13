@@ -3,7 +3,7 @@ title: Aumentar horizontalmente uma base de dados SQL do Azure | Documentos da M
 description: Como utilizar o ShardMapManager, biblioteca de clientes de bases de dados elásticas
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/16/2018
-ms.openlocfilehash: 71496a11deff5236161931d572e75d4a84b75c5f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 28387c1487c506173cba2eaaf3364dab36c7f70f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162071"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865857"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Aumentar horizontalmente de bases de dados com o Gestor de mapas de partições horizontais
 Para aumentar horizontalmente de bases de dados no SQL Azure, utilize um Gestor de mapas de partições horizontais. O Gestor de mapas de partições horizontais é uma base de dados especial que mantém informações de mapeamento global sobre todas as partições horizontais (bases de dados) num conjunto de partições horizontais. Os metadados permite que um aplicativo ligar à base de dados correta com base no valor do **chave de fragmentação**. Além disso, cada partição horizontal no conjunto contém mapas que monitorizam os dados de partição horizontal local (conhecido como **shardlets**). 
@@ -52,8 +52,8 @@ Dimensionamento elástico suporta os seguintes tipos como chaves de fragmentaç�
 | .NET | Java |
 | --- | --- |
 | inteiro |inteiro |
-| longitude |longitude |
-| GUID |UUID |
+| longa |longa |
+| GUID |uuid |
 | byte[]  |byte[] |
 | datetime | carimbo de data/hora |
 | Período de tempo | duração|

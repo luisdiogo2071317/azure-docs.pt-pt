@@ -1,21 +1,20 @@
 ---
-title: 'Azure Cosmos DB: SQL Async Java API, SDK e recursos | Documentos da Microsoft'
+title: 'Do Azure Cosmos DB: SQL Async Java API, SDK e recursos'
 description: Saiba tudo sobre o SQL Async Java API e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK de Java do Azure Cosmos DB SQL Async.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: moderakh
-ms.openlocfilehash: b5c393ada7ba0cfbce5e406046eb7285d5d07259
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 01d353d3f1b59fecbb1894d08c6404f441422593
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849348"
+ms.locfileid: "52872905"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]

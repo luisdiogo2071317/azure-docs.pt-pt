@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: danlep
-ms.openlocfilehash: a52dbdad3842760c447e22f4274ab944750840e7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b2ab2ad1c31337e006b613ad7f17b4ad22495893
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816791"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870425"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticar soluções de gestão do Batch com o Active Directory
 
@@ -28,7 +28,7 @@ Aplicativos que chamam o serviço de gestão do Azure Batch autenticar com o [do
 
 A biblioteca de gestão de lotes .NET expõe tipos para trabalhar com contas do Batch, chaves de conta, aplicativos e pacotes de aplicações. A biblioteca de gestão de lotes .NET é um cliente do fornecedor de recursos do Azure e é utilizada em conjunto com [do Azure Resource Manager] [ resman_overview] gerir estes recursos por meio de programação. O Azure AD é necessário para autenticar pedidos feitos por meio de qualquer cliente de fornecedor de recursos do Azure, incluindo a biblioteca de gestão de lotes .NET e [do Azure Resource Manager][resman_overview].
 
-Neste artigo, vamos explorar a utilizar o Azure AD para autenticar a partir de aplicações que utilizam a biblioteca de gestão de lotes .NET. Vamos mostrar como utilizar o Azure AD para autenticar um administrador da subscrição ou coadministrador, utilizando a autenticação integrada. Vamos utilizar o [AccountManagment] [ acct_mgmt_sample] projeto de exemplo disponível no GitHub, para percorrer a utilizar o Azure AD com a biblioteca de gestão de lotes .NET.
+Neste artigo, vamos explorar a utilizar o Azure AD para autenticar a partir de aplicações que utilizam a biblioteca de gestão de lotes .NET. Vamos mostrar como utilizar o Azure AD para autenticar um administrador da subscrição ou coadministrador, utilizando a autenticação integrada. Vamos utilizar o [AccountManagement] [ acct_mgmt_sample] projeto de exemplo disponível no GitHub, para percorrer a utilizar o Azure AD com a biblioteca de gestão de lotes .NET.
 
 Para saber mais sobre como utilizar a biblioteca de gestão de lotes .NET e o exemplo de AccountManagement, veja [contas do Batch de gerir e quotas com a biblioteca de cliente de gestão do Batch para .NET](batch-management-dotnet.md).
 

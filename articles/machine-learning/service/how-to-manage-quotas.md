@@ -1,6 +1,5 @@
 ---
-title: Gerir e solicitar quotas de recursos
-titleSuffix: Azure Machine Learning service
+title: Como gerir e quotas de pedido para o serviço Azure Machine Learning
 description: Este guia de procedimentos explica as quotas de vários recursos para o Azure Machine Learning e como visualizar e pedir mais quota.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,12 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
-ms.custom: seodec18
-ms.openlocfilehash: b868e20ebb1054864116957fd671a17e2d980c0a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.openlocfilehash: 516e8a9c73fdeacba38d9c81f5cb2d0b8db106c8
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083857"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867703"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gerir e solicitar as quotas para recursos do Azure
 
@@ -71,7 +69,7 @@ Recursos disponíveis:
 
 <sup>1</sup> a duração máxima refere-se até ao momento em que iniciar uma execução e quando ele for concluída. Execuções concluídas mantêm-se indefinidamente; dados de execuções não concluídas dentro da duração máxima não estão acessíveis.
 
-### <a name="container-instances"></a>Instâncias de contentor
+### <a name="container-instances"></a>Instâncias de contentores
 
 Também existe um limite no número de instâncias de contentor que pode acelerar num determinado período de tempo (hora a hora de âmbito) ou em sua assinatura inteira.
 

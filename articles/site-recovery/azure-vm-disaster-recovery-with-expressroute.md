@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 84c6477a1c9bc61b339e66d91cb7c1fbc8e90ea0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837006"
+ms.locfileid: "52875404"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o Azure ExpressRoute com recuperação após desastre para VMs do Azure
 
@@ -37,7 +37,7 @@ O ExpressRoute permite-lhe expandir redes no local para a cloud do Microsoft Azu
 Antes de começar, certifique-se de que compreende os seguintes conceitos:
 
 - ExpressRoute [circuitos](../expressroute/expressroute-circuit-peerings.md)
-- ExpressRoute [domínios de encaminhamento](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains)
+- ExpressRoute [domínios de encaminhamento](../expressroute/expressroute-circuit-peerings.md#routingdomains)
 - ExpressRoute [localizações](../expressroute/expressroute-locations.md).
 - VM do Azure [arquitetura da replicação](azure-to-azure-architecture.md)
 - Como [configurar a replicação](azure-to-azure-tutorial-enable-replication.md) para VMs do Azure.
@@ -136,7 +136,7 @@ No nosso exemplo, o seguinte deve acontecer quando ativar a replicação das VMs
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>Efetuar a ativação pós-falha de VMs do Azure quando utilizam o ExpressRoute
 
-Depois de failover VMs do Azure para a região do Azure com o Site Recovery de destino, pode acessá-los através do ExpressRoute [peering privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+Depois de failover VMs do Azure para a região do Azure com o Site Recovery de destino, pode acessá-los através do ExpressRoute [peering privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 - Terá de ligar o ExpressRoute para a vNet de destino com uma nova ligação. A ligação de ExpressRoute existente não é transferida automaticamente.
 - A maneira na qual configurou a ligação do ExpressRoute para a vNet de destino depende da sua topologia do ExpressRoute.

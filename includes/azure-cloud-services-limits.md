@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 2b6ba1dcddd435c42ad864b8e87175d0e98c9b3a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: eb1fe7f83ed83efe078be0aadf26cc7db6f498e2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279866"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52886388"
 ---
 | Recurso | Limite Predefinido | Limite Máximo |
 | --- | --- | --- |
@@ -17,6 +17,7 @@ ms.locfileid: "52279866"
 | [Pontos finais de entrada de instância](https://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint) por implementação |25 |25 |
 | [Pontos finais de entrada](https://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint) por implementação |25 |25 |
 | [Pontos finais internos](https://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint) por implementação |25 |25 |
+| [Hospedado certificados de serviço](../articles/cloud-services/cloud-services-certs-create.md#what-are-service-certificates) por implementação |199 |199 |
 
 <sup>1</sup>cada serviço em nuvem com as funções da Web/trabalho pode ter duas implementações, uma para produção e uma para teste. Observe também que este limite refere-se para o número de funções distintas (configuração) e não o número de instâncias por função (dimensionamento).
 

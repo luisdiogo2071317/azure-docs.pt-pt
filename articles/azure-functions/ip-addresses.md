@@ -56,7 +56,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
 > [!NOTE]
-> Quando uma aplicação de função que é executado no [plano de consumo](functions-scale.md#consumption-plan) é ajustada, pode ser atribuído um novo intervalo de endereços IP de saída. Quando em execução no plano de consumo, poderá ter lista branca integral do Datacenter.
+> Quando uma aplicação de função que é executado no [plano de consumo](functions-scale.md#consumption-plan) é ajustada, pode ser atribuído um novo intervalo de endereços IP de saída. Quando em execução no plano de consumo, poderá ter lista aprovada integral do Datacenter.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Endereços IP de saída do Centro de dados
 

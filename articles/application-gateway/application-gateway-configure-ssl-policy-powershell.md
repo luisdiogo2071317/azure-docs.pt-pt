@@ -1,29 +1,25 @@
 ---
 title: Configurar a política de SSL no Gateway de aplicação do Azure - PowerShell
-description: Esta página fornece instruções para configurar a política de SSL no Gateway de aplicação do Azure
-documentationcenter: na
+description: Este artigo fornece instruções para configurar a política de SSL no Gateway de aplicação do Azure
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/27/2018
+ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: 4c9ca5cee14603fb39115defc574aa7e956886ba
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7afa628ea455aa28f1717de8da66b631baeee4f1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30232141"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870458"
 ---
-# <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar as versões de política SSL e conjuntos no Gateway de aplicação de cifras
+# <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versões de política SSL e cipher suites no Gateway de aplicação
 
-Saiba como configurar as versões de política SSL e conjuntos no Gateway de aplicação de cifras. Pode selecionar um [lista das políticas predefinidas](#predefined-ssl-policies) que contêm diferentes configurações de versões de política SSL e ativado conjuntos de cifras. Também tem a capacidade de definir um [política personalizada do SSL](#configure-a-custom-ssl-policy) com base nos seus requisitos.
+Saiba como configurar versões de política SSL e cipher suites no Gateway de aplicação. É possível selecionar uma [lista de políticas predefinidas](#predefined-ssl-policies) que contêm configurações diferentes das versões de política SSL e ativado conjuntos de cifras. Também tem a capacidade de definir uma [política personalizada do SSL](#configure-a-custom-ssl-policy) com base nos seus requisitos.
 
-## <a name="get-available-ssl-options"></a>Obter as opções disponíveis do SSL
+## <a name="get-available-ssl-options"></a>Obter as opções de SSL disponíveis
 
 O `Get-AzureRMApplicationGatewayAvailableSslOptions` cmdlet fornece uma lista de políticas predefinidas disponíveis, conjuntos de cifras disponíveis e as versões de protocolo que podem ser configuradas. O exemplo seguinte mostra um exemplo da saída da execução do cmdlet.
 
@@ -73,11 +69,11 @@ AvailableProtocols:
     TLSv1_2
 ```
 
-## <a name="list-pre-defined-ssl-policies"></a>Listar políticas predefinido do SSL
+## <a name="list-pre-defined-ssl-policies"></a>Lista de políticas predefinidas de SSL
 
-Gateway de aplicação inclui três políticas predefinidas que podem ser utilizadas. O `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet obtém estas políticas. Cada política tem as versões de protocolo diferentes e conjuntos de cifras ativados. Estas políticas predefinidas podem ser utilizadas para configurar rapidamente uma política SSL no seu gateway de aplicação. Por predefinição **AppGwSslPolicy20150501** está selecionada se está definida qualquer política SSL específica.
+Gateway de aplicação vem com três políticas predefinidas que podem ser utilizadas. O `Get-AzureRmApplicationGatewaySslPredefinedPolicy` cmdlet obtém estas políticas. Cada política tem as versões de protocolo diferentes e conjuntos de cifras ativados. Estas políticas predefinidas podem ser utilizadas para configurar rapidamente uma política SSL no gateway de aplicação. Por predefinição **AppGwSslPolicy20150501** está selecionada não se estiver definida nenhuma política SSL específica.
 
-O seguinte resultado é um exemplo de execução `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
+O resultado seguinte é um exemplo de execução `Get-AzureRmApplicationGatewaySslPredefinedPolicy`.
 
 ```
 Name: AppGwSslPolicy20150501
@@ -110,16 +106,17 @@ CipherSuites:
 
 ## <a name="configure-a-custom-ssl-policy"></a>Configurar uma política personalizada do SSL
 
-Quando configurar uma política personalizada de SSL, transmita os seguintes parâmetros: PolicyType, MinProtocolVersion, CipherSuite e ApplicationGateway. Se tentar passar outros parâmetros, receberá um erro ao criar ou atualizar o Gateway de aplicação. 
+Ao configurar uma política SSL personalizada, passa os seguintes parâmetros: PolicyType, MinProtocolVersion, CipherSuite e gateway de aplicação. Se tentar passar outros parâmetros, obterá um erro quando criar ou atualizar o Gateway de aplicação. 
 
-O exemplo seguinte define uma política personalizada de SSL de um gateway de aplicação. Define a versão do protocolo mínimo `TLSv1_1` e permite que os conjuntos de cifras seguintes:
+O exemplo seguinte define uma política personalizada do SSL num gateway de aplicação. Ele define a versão do protocolo mínimo para `TLSv1_1` e permite que os conjuntos de cifras seguintes:
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
 > Conjunto de cifras, pelo menos, um na lista seguinte tem de ser selecionado quando configurar uma política personalizada do SSL. Gateway de aplicação utiliza conjuntos de cifras SHA256 de RSA para a gestão de back-end.
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 > * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 > * TLS_RSA_WITH_AES_128_GCM_SHA256
@@ -142,7 +139,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ## <a name="create-an-application-gateway-with-a-pre-defined-ssl-policy"></a>Criar um gateway de aplicação com uma política SSL predefinida
 
-Quando configurar uma política de SSL predefinidas, transmita os seguintes parâmetros: PolicyType, PolicyName e ApplicationGateway. Se tentar passar outros parâmetros, receberá um erro ao criar ou atualizar o Gateway de aplicação.
+Ao configurar uma política de SSL predefinidas, passa os seguintes parâmetros: PolicyType, PolicyName e gateway de aplicação. Se tentar passar outros parâmetros, obterá um erro quando criar ou atualizar o Gateway de aplicação.
 
 O exemplo seguinte cria um novo gateway de aplicação com uma política SSL predefinida.
 
@@ -197,11 +194,11 @@ $policy = New-AzureRmApplicationGatewaySslPolicy -PolicyType Predefined -PolicyN
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
 ```
 
-## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Atualize um gateway de aplicação existente com uma política SSL predefinida
+## <a name="update-an-existing-application-gateway-with-a-pre-defined-ssl-policy"></a>Atualizar um gateway de aplicação existente com uma política SSL predefinida
 
-Para definir uma política personalizada de SSL, transmita os seguintes parâmetros: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, e **ApplicationGateway**. Para definir uma política de SSL predefinidas, transmitir os seguintes parâmetros: **PolicyType**, **PolicyName**, e **ApplicationGateway**. Se tentar passar outros parâmetros, receberá um erro ao criar ou atualizar o Gateway de aplicação.
+Para definir uma política personalizada do SSL, passar os parâmetros seguintes: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, e **ApplicationGateway**. Para definir uma política de SSL predefinidas, passar os parâmetros seguintes: **PolicyType**, **PolicyName**, e **ApplicationGateway**. Se tentar passar outros parâmetros, obterá um erro quando criar ou atualizar o Gateway de aplicação.
 
-No exemplo seguinte, são exemplos de código para a política personalizada e política predefinida. Anule o comentário a política que pretende utilizar.
+No exemplo a seguir, há exemplos de código para a política personalizada e política predefinida. Anule os comentários a política que pretende utilizar.
 
 ```powershell
 # You have to change these parameters to match your environment.
@@ -225,4 +222,4 @@ $SetGW = Set-AzureRmApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Visite [descrição geral do redirecionamento de Gateway de aplicação](application-gateway-redirect-overview.md) para aprender a redirecionar o tráfego HTTP para um ponto final de HTTPS.
+Visite [descrição geral do redirecionamento de Gateway de aplicação](application-gateway-redirect-overview.md) para aprender a redirecionar o tráfego HTTP para um ponto final HTTPS.

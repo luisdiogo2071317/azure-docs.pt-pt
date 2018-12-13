@@ -11,12 +11,12 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: ce84d1ba16ec75525740a2b799fd78c35474cda9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ce434369ad7ede7f82f5af4395e096526759932a
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096642"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892499"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
@@ -40,7 +40,7 @@ Análise de SQL do Azure é uma cloud apenas a monitorização de solução supo
 | [Diagnóstico do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | **Sim** | Dados de registo e métricas do Azure são enviados para o Log Analytics diretamente pelo Azure. |
 | [Conta de armazenamento do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Não | O log Analytics não ler os dados de uma conta de armazenamento. |
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não | Agentes diretos do Windows não são usados pela solução. |
-| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não | Agentes diretos do Linux não são usados pela solução. |
+| [Agentes do Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Não | Agentes diretos do Linux não são usados pela solução. |
 | [Grupo de gestão do System Center Operations Manager](../platform/om-agents.md) | Não | Uma ligação direta do agente do Operations Manager ao Log Analytics não é utilizada pela solução. |
 
 ## <a name="configuration"></a>Configuração

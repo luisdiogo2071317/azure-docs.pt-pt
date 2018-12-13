@@ -65,7 +65,7 @@ O instalador é específica da arquitetura. Se clicar no link de download, apena
 
 
 A extensão do portal MyApps está atualmente disponível para:
-- **Edge**: Windows 10 Anniversary Edition ou posterior. 
+- **Microsoft Edge**: Windows 10 Anniversary Edition ou posterior. 
 - **Chrome**: no Windows 7 ou posterior e no MacOS X ou posterior.
 - **Firefox 26.0 ou posterior**: no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
 - **Internet Explorer 11**: no Windows 7 ou posterior (suporte limitado).
@@ -79,7 +79,7 @@ Iniciar sessão com base em palavra-passe de início de sessão único, tem de u
 - Pode usar URLs internos da empresa ao remoto através de [Proxy de aplicações](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
-> Recursos adicionais estão disponíveis apenas para o Edge, Chrome e Firefox.
+> Recursos adicionais estão disponíveis apenas para o Microsoft Edge, Chrome e Firefox.
 >
 Pode transferir a extensão diretamente a partir os seguintes sites:
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)

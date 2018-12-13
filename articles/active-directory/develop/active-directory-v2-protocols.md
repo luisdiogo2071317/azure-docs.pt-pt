@@ -17,19 +17,19 @@ ms.date: 12/01/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1eea38a5a360d8ab12aa4ff6dac7161828ec1c72
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2d0530e2d7b97c4b3fda84f796de1a0e2857e2ac
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52683001"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872004"
 ---
 # <a name="v20-protocols---oauth-20-and-openid-connect"></a>Ligar de protocolos - OAuth 2.0 e OpenID v2.0
 
 O ponto final v2.0 pode utilizar o Azure Active Directory (Azure AD) para identidade-como-serviço com protocolos padrão da indústria, OpenID Connect e OAuth 2.0. Embora o serviço seja compatível com os padrões, pode haver diferenças sutis entre quaisquer duas implementações desses protocolos. As informações aqui será útil se optar por escrever seu código com o envio e a processar os pedidos HTTP de diretamente ou usar uma biblioteca de código-fonte aberto de terceiros, em vez de usar um dos nossos [bibliotecas de código-fonte aberto](reference-v2-libraries.md).
 
 > [!NOTE]
-> Nem todos os cenários do Azure AD do Azure e as funcionalidades são compatíveis com o ponto final v2.0. Para determinar se deve utilizar o ponto final v2.0, leia sobre [v2.0 limitações](active-directory-v2-limitations.md).
+> Observe que todos os cenários e funcionalidades do Azure AD são compatíveis com o ponto final do v2.0. Para determinar se deve utilizar o ponto final v2.0, leia sobre [v2.0 limitações](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Noções básicas
 

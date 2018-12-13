@@ -1,25 +1,24 @@
 ---
-title: Gerir recursos do Azure Cosmos DB com a CLI do Azure | Documentos da Microsoft
+title: Gerir recursos do Azure Cosmos DB com a CLI do Azure
 description: Utilize a CLI do Azure para gerir a conta do Azure Cosmos DB, base de dados e contentores.
 services: cosmos-db
 author: markjbrown
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: 3446f4f71349d0b7290a2514edf46efb37203324
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d79cae16c109b407840b8565eb80fb87bbed6432
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019226"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877552"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-cli"></a>Gerir recursos do Azure Cosmos DB com a CLI do Azure
 
 O guia seguinte descreve os comandos para automatizar a gestão das contas do Azure Cosmos DB, bases de dados e contentores com a CLI do Azure. Ele também inclui comandos para dimensionar o débito de contentores. As páginas de referência para todos os comandos da CLI do Azure Cosmos DB encontram-se disponíveis em [Referência da CLI do Azure](https://docs.microsoft.com/cli/azure/cosmosdb). Também pode encontrar mais exemplos [amostras de CLI do Azure para o Azure Cosmos DB](cli-samples.md), incluindo como criar e gerir contas do Cosmos DB, bases de dados e contentores para o MongoDB, Gremlin, Cassandra e API de tabela.
 
-Este script CLI de exemplo cria uma conta API SQL do Azure Cosmos DB, a base de dados e o contentor.  
+Este script da CLI de exemplo cria uma conta, base de dados e contentor da API SQL do Azure Cosmos DB.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

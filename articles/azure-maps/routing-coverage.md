@@ -130,7 +130,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Liechtenstein                  |        ✓       |
 | Lituânia                      |        ✓       |
 | Luxemburgo                     |        ✓       |
-| Macedónia                      |        ✓       |
+| República da Macedónia                      |        ✓       |
 | Malta                          |        ✓       |
 | Moldova                        |        ✓       |
 | Mónaco                         |        ✓       |

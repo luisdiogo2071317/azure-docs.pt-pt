@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 022dd52e05b9227e3ce0920a083f75413a2eebc8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 29306fa508a2c0702e69f6b6ebcb7571041d57d6
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836921"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890267"
 ---
 # <a name="data-sources-in-log-analytics"></a>Origens de dados no Log Analytics
 Log Analytics recolhe dados a partir de origens ligadas e armazena-os em sua área de trabalho do Log Analytics.  Os dados que são recolhidos de cada um são definidos pelas origens de dados que configurou.  Dados do Log Analytics são armazenados como um conjunto de registos.  Cada origem de dados cria registos de um determinado tipo com cada tipo de ter seu próprio conjunto de propriedades.
@@ -59,7 +59,7 @@ Configurar origens de dados a partir da **dados** menu no Log Analytics **defini
 ## <a name="data-collection"></a>Recolha de dados
 Configurações de origem de dados são entregues aos agentes que estão ligadas diretamente ao Log Analytics dentro de alguns minutos.  Os dados especificados são recolhidos a partir do agente e fornecidos diretamente ao Log Analytics em intervalos específicos para cada origem de dados.  Consulte a documentação para cada origem de dados para estas especificações.
 
-Para agentes do System Center Operations Manager num grupo de gestão ligado, configurações de origem de dados são convertidas em pacotes de gestão e entregue ao grupo de gestão a cada 5 minutos por predefinição.  O agente baixa o pacote de gestão como qualquer outro e recolhe os dados especificados. Dependendo da origem de dados, os dados serão que seja enviado para um servidor de gestão que encaminha os dados para o Log Analytics ou o agente irá enviar os dados para o Log Analytics sem passar pelo servidor de gestão. Ver [detalhes de recolha de dados para soluções de gestão no Azure](../../azure-monitor/insights/solutions-inventory.md) para obter detalhes.  Pode ler sobre os detalhes da conexão do Operations Manager e o Log Analytics e modificar a frequência que a configuração seja entregue no [configurar a integração com o System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md).
+Para agentes do System Center Operations Manager num grupo de gestão ligado, configurações de origem de dados são convertidas em pacotes de gestão e entregue ao grupo de gestão a cada 5 minutos por predefinição.  O agente baixa o pacote de gestão como qualquer outro e recolhe os dados especificados. Dependendo da origem de dados, os dados serão que seja enviado para um servidor de gestão que encaminha os dados para o Log Analytics ou o agente irá enviar os dados para o Log Analytics sem passar pelo servidor de gestão. Ver [detalhes de recolha de dados para soluções de gestão no Azure](../../azure-monitor/insights/solutions-inventory.md) para obter detalhes.  Pode ler sobre os detalhes da conexão do Operations Manager e o Log Analytics e modificar a frequência que a configuração seja entregue no [configurar a integração com o System Center Operations Manager](../../azure-monitor/platform/om-agents.md).
 
 Se o agente não consegue ligar ao Log Analytics ou o Operations Manager, irá continuar a recolher dados que irá proporcionar quando estabelece uma ligação.  Dados podem ser perdidos se a quantidade de dados atinge o tamanho máximo da cache do cliente, ou se o agente não conseguir estabelecer uma ligação dentro de 24 horas.
 

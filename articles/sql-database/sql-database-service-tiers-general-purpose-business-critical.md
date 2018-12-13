@@ -11,15 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 15fd86a88c3025f81741d614b03d5c4c7c60262c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 11/30/2018
+ms.openlocfilehash: 7de4415dd332254c595b6687dfb9d8db01c42362
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351747"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871719"
 ---
-# <a name="general-purpose-and-business-critical-service-tiers"></a>Escalões de serviço crítico para a empresa e de finalidade gerais
+# <a name="azure-sql-database-service-tiers"></a>Escalões de serviço de base de dados SQL do Azure
+
+Base de dados SQL do Azure baseia-se na arquitetura de motor de base de dados do SQL Server que é ajustada para o ambiente de cloud para garantir a disponibilidade de 99,99% mesmo em caso de falhas de infraestrutura. Existem três modelos de arquiteturais que são utilizados na base de dados do Azure SQL:
+- [Fins gerais](sql-database-service-tier-general-purpose.md) concebido para a maioria das cargas de trabalho genéricas.
+- [Crítico para a empresa](sql-database-service-tier-business-critical.md) concebido para cargas de trabalho de baixa latência com uma das réplicas legível.
+- [Hiperescala](sql-database-service-tier-hyperscale.md) concebido para bases de dados muito grandes (até 100 TB) com várias réplicas legíveis.
 
 Este artigo aborda considerações de armazenamento e cópia de segurança para os escalões de serviço para fins gerais e crítico para a empresa no modelo de compra baseado em vCore.
 

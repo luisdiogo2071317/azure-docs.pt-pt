@@ -29,7 +29,7 @@ SKU de gateway VPN novo simplificam os conjuntos de funcionalidades oferecidos e
 
 | **SKU**| **Funcionalidades**|
 | ---    | ---         |
-|**Básico** (*)   | **VPN baseada em rota**: 10 túneis de S2S/ligações; sem autenticação RADIUS para P2S; sem IKEv2 para P2S<br>**VPN baseada em política**: (IKEv1): 1/ligação S2S túnel; nenhum P2S|
+|**Básico** (\*\*)   | **VPN baseada em rota**: 10 túneis de S2S/ligações; sem autenticação RADIUS para P2S; sem IKEv2 para P2S<br>**VPN baseada em política**: (IKEv1): 1/ligação S2S túnel; nenhum P2S|
 | **VpnGw1, VpnGw2, and VpnGw3** | **VPN baseada em rota**: até 30 túneis (*), P2S, BGP, ativo-ativo, IPsec/IKE política personalizada, coexistência ExpressRoute/VPN |
 |        |             |
 
@@ -44,7 +44,7 @@ Devido a diferenças na SLAs e conjuntos de recursos, é recomendável seguir os
 | **Carga de trabalho**                       | **SKU**               |
 | ---                                | ---                    |
 | **Produção, cargas de trabalho críticas** | VpnGw1, VpnGw2, VpnGw3 |
-| **Dev-test ou prova de conceito**   | Basic (*)                 |
+| **Dev-test ou prova de conceito**   | Basic (\*\*)                 |
 |                                    |                        |
 
 (\*\*) O SKU básico é considerado um SKU de legado e tem limitações de recursos. Certifique-se de que o recurso que precisa é suportado antes de utilizar o SKU básico.

@@ -1,21 +1,19 @@
 ---
-title: Saiba como definir o valor TTL para os documentos do Azure Cosmos DB criados através da API do MongoDB para removê-los automaticamente do sistema após um período de tempo.
-description: Documentação para a funcionalidade TTL do MongoDB por documento.
+title: Funcionalidades TTL de cada documento do MongoDB no Azure Cosmos DB
+description: Saiba como definir o valor TTL para os documentos do Azure Cosmos DB criados através da API do MongoDB para removê-los automaticamente do sistema após um período de tempo.
 services: cosmos-db
 author: orestis-ms
-manager: kfile
-editor: ''
+ms.author: orkostak
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 08/10/2018
-ms.author: orkostak
-ms.openlocfilehash: 8679da0dfe92b1d611fd0b61b9f7404256b2b688
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: 547ee489581b7e7e9203151fbfcdaad45dca8ea1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239870"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868766"
 ---
 # <a name="expire-data-in-azure-cosmos-db-mongodb-api"></a>Expirar dados na API do MongoDB do Azure Cosmos DB
 
@@ -78,6 +76,6 @@ A funcionalidade TTL por documento pode ser ativada através do separador "Funci
 
 ![Captura de ecrã da ativação da funcionalidade TTL por documento no Portal](./media/mongodb-ttl/mongodb_portal_ttl.png) 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Expirar automaticamente os dados em coleções do Azure Cosmos DB com TTL](../cosmos-db/time-to-live.md)
 * [Indexar na API do MongoDB do Azure Cosmos DB](../cosmos-db/mongodb-indexing.md)

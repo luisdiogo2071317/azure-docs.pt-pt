@@ -1,6 +1,6 @@
 ---
-title: Ativação da Captura de Hubs de Eventos do Azure no portal | Microsoft Docs
-description: Ative a funcionalidade de Captura de Hubs de Eventos no portal do Azure.
+title: Capturar eventos de transmissão em fluxo através do portal do Azure - Event Hubs do Azure | Documentos da Microsoft
+description: Este artigo descreve como ativar a captura de eventos de transmissão em fluxo através dos Hubs de eventos do Azure com o portal do Azure.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 01c7d9c848465177d5ff1ed7264743437e57d663
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7f57e75f90511ace45198d7516a5d2550123d9be
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014723"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075119"
 ---
-# <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Ativar a funcionalidade de Captura de Hubs de Eventos no portal do Azure
+# <a name="enable-capturing-of-events-streaming-through-azure-event-event-hubs"></a>Ativar a captura de eventos de transmissão em fluxo através do Event Hubs de eventos do Azure
 
 A [Captura de Hubs de Eventos][capture-overview] do Azure permite a transmissão automática de dados nos Hubs de Eventos para um [armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) ou [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) à sua escolha.
 

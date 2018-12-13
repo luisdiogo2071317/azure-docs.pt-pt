@@ -3,7 +3,7 @@ title: Cópia de segurança de bases de dados do SQL Server para o Azure | Docum
 description: Este tutorial explica como criar cópias de segurança do SQL Server para o Azure. O artigo também explica a recuperação do SQL Server.
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 6344d3c7d0c773fb6f210f907fbf055a03705236
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: MT
+ms.openlocfilehash: f6271e8de6be0bcfab7ade4c9e90a69482e7905e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723895"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878215"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer cópias de segurança de bases de dados do SQL Server para o Azure
 
@@ -128,7 +128,7 @@ As compensações entre as opções são a capacidade de gerenciamento, um contr
 
 | Opção | Vantagens | Desvantagens |
 | ------ | ---------- | ------------- |
-| Intervalos de IP da lista branca | Sem custos adicionais. <br/> Para obter acesso abrir num NSG, utilize o **Set-AzureNetworkSecurityRule** cmdlet. | Complexo de gerir porque os intervalos IP afetados alteram ao longo do tempo. <br/>Fornece acesso a todo do Azure, não apenas o armazenamento do Azure.|
+| Intervalos de IP da lista aprovada | Sem custos adicionais. <br/> Para obter acesso abrir num NSG, utilize o **Set-AzureNetworkSecurityRule** cmdlet. | Complexo de gerir porque os intervalos IP afetados alteram ao longo do tempo. <br/>Fornece acesso a todo do Azure, não apenas o armazenamento do Azure.|
 | Utilizar um proxy de HTTP   | Um controle granular no proxy sobre o armazenamento é permitida a URLs. <br/>Único ponto de acesso à internet para VMs. <br/> Não sujeitas a alterações ao endereço IP do Azure. | Custos adicionais para executar uma VM com o software de proxy. |
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Definir permissões para o Marketplace SQL VMs não

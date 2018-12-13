@@ -175,7 +175,7 @@ Microsoft atualmente não oferece suporte para idiomas da direita para a esquerd
 ### <a name="social-identity-provider-translations"></a>Traduções de fornecedor de identidade de redes sociais
 A Microsoft fornece o `ui_locales` parâmetro OIDC para inícios de sessão sociais. Mas alguns fornecedores de identidade de redes sociais, incluindo o Facebook e o Google, não respeitam-los. 
 ### <a name="browser-behavior"></a>Comportamento do navegador
-Chrome e Firefox que ambos do pedido para o seu idioma de conjunto. Se se trata de um idioma suportado, ele é exibido antes que a predefinição. Atualmente, o Edge não solicita um idioma e vai diretamente para o idioma predefinido.
+Chrome e Firefox que ambos do pedido para o seu idioma de conjunto. Se se trata de um idioma suportado, ele é exibido antes que a predefinição. Atualmente, o Microsoft Edge não solicita um idioma e vai diretamente para o idioma predefinido.
 
 ### <a name="supported-languages"></a>Linguagens suportadas
 

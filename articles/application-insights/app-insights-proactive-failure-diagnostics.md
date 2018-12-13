@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 776c923910866b3c65271a8acdc00edc6eb6df59
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 0895d31475de5d78c82f3bfedc0765e5a9549339
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723827"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877603"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Deteção inteligente – anomalias de falha
 [O Application Insights](app-insights-overview.md) notifica-o automaticamente em tempo quase real se a sua aplicação web sofrerem um aumento anormal na taxa de pedidos falhados. Detetar um aumento invulgar na taxa de pedidos HTTP ou chamadas de dependência são reportadas como falhado. Para pedidos, pedidos com falhas são geralmente aqueles com códigos de resposta de 400 ou superior. Para ajudar a fazer a triagem e diagnosticar o problema, uma análise das características da falhas e telemetrias relacionadas é fornecida na notificação. Também existem ligações para o portal do Application Insights para diagnósticos adicionais. A funcionalidade não precisa nenhuma configuração nem a configuração, como ele utiliza algoritmos de machine learning para prever a taxa de falhas normal.
@@ -146,7 +146,7 @@ Estas ferramentas de diagnóstico ajudá-lo inspecionar a telemetria da sua apli
 
 * [Explorador de métricas](app-insights-metrics-explorer.md)
 * [Explorador de pesquisa](app-insights-diagnostic-search.md)
-* [Análise - poderosa linguagem de consultas](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Análise - poderosa linguagem de consultas](../azure-monitor/log-query/get-started-portal.md)
 
 Deteções inteligentes são totalmente automáticas. Mas talvez deseje configurar alguns alertas mais?
 

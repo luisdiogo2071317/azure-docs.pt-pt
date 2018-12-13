@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: a28bf1dc23d678c710d7bd6b13f067427e76ef41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb4ef826ed29187209b28c349445ca0eb5ffe9bb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238404"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864909"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introdução Cofre de Chaves do Azure
 Este artigo ajuda-o a começar a utilizar o Azure Key Vault com o PowerShell e orienta-o ao longo das atividades seguintes:
@@ -222,14 +222,14 @@ Registar uma aplicação no Azure Active Directory:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, clique em **Registos de aplicações**. Se não vir registos de aplicações, clique em **mais serviços**.  
->[!NOTE]
-Tem de selecionar o mesmo diretório que contém a subscrição do Azure com a qual criou o seu cofre de chaves. 
+    > [!NOTE]
+    > Tem de selecionar o mesmo diretório que contém a subscrição do Azure com a qual criou o seu cofre de chaves. 
 3. Clique em **Novo registo de aplicação**.
 4. No painel **Criar**, indique um nome para a aplicação e selecione **APLICAÇÃO WEB E/OU API WEB** (a predefinição) e especifique o **URL DE INÍCIO DE SESSÃO** da sua aplicação Web. Se não tiver estas informações neste momento, pode inventá-las para este passo (por exemplo, pode indicar http://test1.contoso.com). Não interessa se estes sites existem. 
 
     ![Novo registo de aplicação](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    Confirme que escolhe **APLICAÇÃO WEB E/OU API WEB**; se não o tiver feito, não verá a opção **chaves** nas definições.
+    > [!WARNING]
+    > Confirme que escolhe **APLICAÇÃO WEB E/OU API WEB**; se não o tiver feito, não verá a opção **chaves** nas definições.
 
 5. Clique no botão **Criar**.
 6. Quando o registo de aplicação estiver concluído, verá a lista de aplicações registadas. Localize a aplicação que registou e clique no mesmo.

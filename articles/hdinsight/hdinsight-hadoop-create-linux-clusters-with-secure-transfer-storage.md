@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: 7ae8a79ac04e1d5263e084d6be4b27f303bd5848
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: MT
+ms.openlocfilehash: 07d6b07a583b8a8ce8b490333a87ff659f495e45
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006792"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866995"
 ---
-# <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Criar clusters Hadoop com contas de armazenamento de transferência segura no Azure HDInsight
+# <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Criar cluster do Apache Hadoop com transferência segura contas de armazenamento no Azure HDInsight
 
 A funcionalidade [Transferência segura necessária](../storage/common/storage-require-secure-transfer.md) melhora a segurança da sua conta da Armazenamento do Azure ao impor todos os pedidos à sua conta através de uma ligação segura. Esta funcionalidade e o esquema wasbs só são suportados pelo clusters do HDInsight versão 3.6 ou mais recente. 
 
@@ -66,10 +66,10 @@ Neste tutorial, aprendeu a criar um cluster do HDInsight e a ativar a transferê
 
 Saiba mais sobre como analisar os dados com o HDInsight, veja os seguintes artigos:
 
-* Para saber mais sobre como utilizar o Hive com o HDInsight, incluindo como executar consultas do Hive a partir do Visual Studio, consulte [Utilizar o Hive com o HDInsight][hdinsight-use-hive].
-* Para saber mais sobre o Pig, uma linguagem utilizada para transformar dados, consulte [Utilizar o Pig com o HDInsight][hdinsight-use-pig].
-* Para saber mais sobre o MapReduce, uma forma de escrever programas que processam dados no Hadoop, consulte [Utilizar o MapReduce com o HDInsight][hdinsight-use-mapreduce].
-* Para saber mais sobre como utilizar as Ferramentas do HDInsight para o Visual Studio para analisar dados no HDInsight, consulte [Começar a utilizar as ferramentas Hadoop do Visual Studio para o HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* Para obter mais informações sobre como utilizar [Apache Hive](https://hive.apache.org/) com o HDInsight, incluindo como executar consultas do Hive a partir do Visual Studio, consulte [utilizar o Apache Hive com HDInsight][hdinsight-use-hive].
+* Para saber mais sobre [Apache Pig](https://pig.apache.org/), uma linguagem utilizada para transformar dados, veja [utilizar o Apache Pig com o HDInsight][hdinsight-use-pig].
+* Para saber mais sobre [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html), uma forma de escrever programas que processam dados no Hadoop, consulte [utilizar o Apache Hadoop MapReduce com o HDInsight][hdinsight-use-mapreduce].
+* Para saber mais sobre como utilizar as ferramentas do HDInsight para Visual Studio para analisar dados no HDInsight, veja [começar a utilizar as ferramentas do Visual Studio Apache Hadoop para HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 Para saber mais sobre como o HDInsight armazena os dados ou como obter dados para o HDInsight, veja os seguintes artigos:
 
@@ -80,11 +80,11 @@ Para saber mais sobre como criar ou gerir um cluster do HDInsight, veja os segui
 
 * Para saber mais sobre a gestão do seu cluster do HDInsight baseado em Linux, consulte [Gerir clusters do HDInsight com o Ambari](hdinsight-hadoop-manage-ambari.md).
 * Para saber mais sobre as opções que pode selecionar ao criar um cluster do HDInsight, consulte [Criar HDInsight no Linux utilizando opções personalizadas](hdinsight-hadoop-provision-linux-clusters.md).
-* Se estiver familiarizado com o Linux e o Hadoop, mas pretender obter informações específicas sobre o Hadoop no HDInsight, consulte [Trabalhar com o HDInsight no Linux](hdinsight-hadoop-linux-information.md). Este artigo disponibiliza informações como:
+* Se estiver familiarizado com o Linux e Apache Hadoop, mas pretende obter informações específicas sobre o Hadoop no HDInsight, veja [trabalhar com o HDInsight no Linux](hdinsight-hadoop-linux-information.md). Este artigo disponibiliza informações como:
   
-  * URLs para serviços alojados no cluster, como Ambari e WebHCat
-  * A localização de ficheiros do Hadoop e exemplos no sistema de ficheiros local
-  * A utilização do Storage do Azure (WASB) em vez do HDFS como o arquivo de dados predefinido
+  * URLs para os serviços alojados no cluster, tal como [Apache Ambari](https://ambari.apache.org/) e [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)
+  * A localização dos [Apache Hadoop](https://hadoop.apache.org/) ficheiros e os exemplos no sistema de ficheiros local
+  * A utilização do armazenamento do Azure (WASB) em vez de [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) como os dados de predefinição armazenar
 
 [1]: ../HDInsight/hadoop/apache-hadoop-visual-studio-tools-get-started.md
 

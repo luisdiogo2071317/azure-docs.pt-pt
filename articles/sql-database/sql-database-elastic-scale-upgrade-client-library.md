@@ -3,7 +3,7 @@ title: Atualizar para a biblioteca de cliente mais recente do bases de dados el�
 description: Utilize o Nuget para a biblioteca de cliente de atualização de bases de dados elásticas.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 9fb29b18397be83f5dc56464b3366d91c47f43b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e54a2cf40bb03ef573348f276b4c24e20965009f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160796"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866149"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Atualizar uma aplicação para utilizar a biblioteca de cliente mais recente do bases de dados elásticas
 Novas versões do [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-database-client-library.md) estão disponíveis por meio de NuGetand interface do Gestor de NuGetPackage no Visual Studio. Atualizações contêm correções de erros e suportam para novos recursos da biblioteca de clientes.

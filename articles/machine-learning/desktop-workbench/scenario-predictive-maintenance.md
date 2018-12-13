@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c638ed9132612db7b82168d3a57057aba9b2d60
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996218"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870339"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Manutenção preditiva para cenários do mundo real
 
@@ -98,13 +98,13 @@ Os blocos de notas de exemplo são armazenados no diretório do código. Os bloc
 
 ## <a name="data-description"></a>Descrição de dados
 
-O [simulated dados](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) consiste em cinco ficheiros de valores separados por vírgulas (. csv). Utilize as seguintes ligações para obter descrições detalhadas sobre os conjuntos de dados.
+O [simulated dados](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide) inclui os seguintes [cinco separados por vírgulas (. csv) de ficheiros de valores](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data):
 
-* [Máquinas](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv): recursos que distinguem cada máquina, como idade e modelo.
-* [Erro](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv): O registo de erro contém erros de sem interrupções que forem lançados enquanto a máquina está ainda está operacional. Estes erros não são considerados falhas, ainda que possam estar a previsão de um evento de falha de futuras. Os valores de data e hora para os erros são arredondados para a hora mais próxima, uma vez que os dados de telemetria são recolhidos por hora.
-* [Manutenção](https://pdmmodelingguide.blob.core.windows.net/pdmdata/maint.csv): O registo de manutenção contém ambos os registros de manutenção agendada e não programado. Corresponde a manutenção agendada com a inspeção regular de componentes. Manutenção agendada pode surgir contra falhas mecânicas ou outra degradação do desempenho. Os valores de data e hora de manutenção são arredondados para a hora mais próxima, uma vez que os dados de telemetria são recolhidos por hora.
-* [Telemetria](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv): os dados de telemetria é composta por medidas de série de tempo de vários sensores dentro de cada máquina. Os dados são registados por uma média de valores de sensor ao longo de cada intervalo de uma hora.
-* [Falhas](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv): falhas correspondem a substituições de componente no registo de manutenção. Cada registro contém a ID da máquina, o tipo de componente e a data de substituição e a hora. Estes registos são utilizados para criar o machine learning etiquetas que o modelo está a tentar prever.
+* [Máquinas](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/machines.csv): recursos que distinguem cada máquina, como idade e modelo.
+* [Erros](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/errors.csv): O registo de erro contém erros de sem interrupções que forem lançados enquanto a máquina está ainda está operacional. Estes erros não são considerados falhas, ainda que possam estar a previsão de um evento de falha de futuras. Os valores de data e hora para os erros são arredondados para a hora mais próxima, uma vez que os dados de telemetria são recolhidos por hora.
+* [Manutenção](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/maint.csv): O registo de manutenção contém ambos os registros de manutenção agendada e não programado. Corresponde a manutenção agendada com a inspeção regular de componentes. Manutenção agendada pode surgir contra falhas mecânicas ou outra degradação do desempenho. Os valores de data e hora de manutenção são arredondados para a hora mais próxima, uma vez que os dados de telemetria são recolhidos por hora.
+* [Telemetria](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/telemetry.csv): os dados de telemetria é composta por medidas de série de tempo de vários sensores dentro de cada máquina. Os dados são registados por uma média de valores de sensor ao longo de cada intervalo de uma hora.
+* [Falhas](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/failures.csv): falhas correspondem a substituições de componente no registo de manutenção. Cada registro contém a ID da máquina, o tipo de componente e a data de substituição e a hora. Estes registos são utilizados para criar o machine learning etiquetas que o modelo está a tentar prever.
 
 Para transferir os conjuntos de dados não processados a partir do repositório do GitHub e criar os conjuntos de dados para esta análise PySpark, consulte a [ingestão de dados](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb) cenário de bloco de notas do Jupyter na pasta do código.
 

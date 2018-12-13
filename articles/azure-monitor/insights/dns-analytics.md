@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0ded8160478fba5f2b4d5d321685451701eb102a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: ef689aec58624495a61f5fde2a8050fb7400f56e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849076"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888856"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolher informações sobre a infraestrutura DNS com a solução de análise de DNS pré-visualização
 
@@ -46,7 +46,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | --- | --- | --- |
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Sim | A solução recolhe informações de DNS de agentes do Windows. |
 | [Agentes do Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Não | A solução não recolhe informações de DNS de agentes diretos do Linux. |
-| [Grupo de gestão do System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md) | Sim | A solução recolhe informações de DNS de agentes num grupo de gestão do Operations Manager ligado. Não é necessária uma ligação direta a partir do agente do Operations Manager ao Log Analytics. Os dados são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics. |
+| [Grupo de gestão do System Center Operations Manager](../../azure-monitor/platform/om-agents.md) | Sim | A solução recolhe informações de DNS de agentes num grupo de gestão do Operations Manager ligado. Não é necessária uma ligação direta a partir do agente do Operations Manager ao Log Analytics. Os dados são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics. |
 | [Conta de armazenamento do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Não | O armazenamento do Azure não é utilizado pela solução. |
 
 ### <a name="data-collection-details"></a>Detalhes de recolha de dados
@@ -57,7 +57,7 @@ A solução recolhe dados de relacionados a eventos DNS de inventário DNS e dos
 
 Utilize as seguintes informações para configurar a solução:
 
-- Tem de ter uma [Windows](../../azure-monitor/platform/agent-windows.md) ou [Operations Manager](../../log-analytics/log-analytics-om-agents.md) agente em cada servidor DNS que pretende monitorizar.
+- Tem de ter uma [Windows](../../azure-monitor/platform/agent-windows.md) ou [Operations Manager](../../azure-monitor/platform/om-agents.md) agente em cada servidor DNS que pretende monitorizar.
 - Pode adicionar a solução de análise de DNS para a área de trabalho do Log Analytics do [do Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Também pode utilizar o processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](../../azure-monitor/insights/solutions.md).
 
 A solução iniciar a recolha de dados sem a necessidade de configuração adicional. No entanto, pode utilizar a seguinte configuração para personalizar a recolha de dados.
@@ -85,7 +85,7 @@ Se o grupo de gestão do Operations Manager estiver ligado à sua área de traba
 - Pacote de informações de Recoletor de dados de DNS da Microsoft (Microsft.IntelligencePacks.Dns)
 - Configuração de análise DNS do Microsoft System Center Advisor (Microsoft.IntelligencePack.Dns.Configuration)
 
-Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../../log-analytics/log-analytics-om-agents.md).
+Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../../azure-monitor/platform/om-agents.md).
 
 ## <a name="use-the-dns-analytics-solution"></a>Utilizar a solução de análise de DNS
 
@@ -148,7 +148,7 @@ As informações de ajudam-o a identificar o:
 **Exemplo de consultas de análise DDI**. Contém uma lista das consultas de pesquisa mais comuns que obtêm dados de análise brutos diretamente.
 
 
-![Consultas de exemplo](./media/dns-analytics/queries.png)
+![Amostras de consultas](./media/dns-analytics/queries.png)
 
 Pode utilizar estas consultas como um ponto de partida para criar suas próprias consultas para relatórios personalizados. A ligação de consultas para a página de pesquisa de registos de análise de DNS em que os resultados são apresentados:
 

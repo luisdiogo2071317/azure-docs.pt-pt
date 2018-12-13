@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 997fdf2e9d5ead836d8e3db89a17aa0321889244
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a2ac309afc6b25f7fdb4667b767ead59cae3b696
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726872"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877325"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
 
@@ -211,7 +211,7 @@ server.on("listening", () => {
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Monitorizar a telemetria no portal](app-insights-dashboards.md)
-* [Escrever consultas de análise sobre a telemetria](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Escrever consultas de análise sobre a telemetria](../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->
 

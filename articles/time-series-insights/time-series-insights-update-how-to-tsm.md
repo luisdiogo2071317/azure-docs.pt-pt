@@ -8,19 +8,19 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.openlocfilehash: 926d1a35cb10d50ddeacbed5476e2dcf14d0999d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.date: 12/03/2018
+ms.openlocfilehash: dc6244b6e263d3fb963d40b2f0c626cdfa9ecff8
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856633"
+ms.locfileid: "52873466"
 ---
 # <a name="data-modeling-in-azure-time-series-insights"></a>Modelação de dados na Azure Time Series Insights
 
 Este documento descreve como trabalhar com **modelos de série de tempo** seguindo o Azure Time Series Insights (pré-visualização). Ele detalha os vários cenários de dados comuns.
 
-Leitura a [Azure TSI (pré-visualização) Explorer](./time-series-insights-update-explorer.md) artigo, para saber mais sobre como navegar na pré-visualização privada.
+Leitura a [explorer (pré-visualização) do Azure TSI](./time-series-insights-update-explorer.md) artigo, para saber mais sobre como navegar a atualização.
 
 ## <a name="types"></a>Tipos
 
@@ -130,9 +130,11 @@ Leitura a [Azure TSI (pré-visualização) Explorer](./time-series-insights-upda
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Leia [modelos de série de tempo](./time-series-insights-update-tsm.md) para obter mais informações sobre **modelos de série de tempo**.
+Leia sobre [modelação de dados](./time-series-insights-update-tsm.md) para obter mais informações sobre **modelos de série de tempo**.
 
-Ver o Azure TSI (pré-visualização) Explorer [artigo](./time-series-insights-update-explorer.md) para saber mais sobre a pré-visualização.
+Ver o Explorador de TSI do Azure (pré-visualização) [artigo](./time-series-insights-update-explorer.md) para saber mais sobre a pré-visualização.
+
+Saiba mais sobre formas JSON suportadas, leia [formas de JSON suportado](./time-series-insights-send-events.md#json).
 
 <!-- Images -->
 [1]: media/v2-update-how-to-tsm/portal_one.png

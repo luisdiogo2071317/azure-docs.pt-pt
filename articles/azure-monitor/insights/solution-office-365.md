@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 80a5b49d27ffc2b75cc9a1092a4d9f17e09bef24
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 1e819f819561c5fac722ca6954a10d80a482b5cd
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848872"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889366"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -41,7 +41,7 @@ A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do O
  
 
 ## <a name="management-packs"></a>Pacotes de gestão
-Esta solução não instala os pacotes de gestão no [ligadas a grupos de gestão](../../log-analytics/log-analytics-om-agents.md).
+Esta solução não instala os pacotes de gestão no [ligadas a grupos de gestão](../../azure-monitor/platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Instalar e configurar
 Comece por adicionar o [solução do Office 365 à sua subscrição](solutions.md#install-a-management-solution). Assim que for adicionado, tem de efetuar os passos de configuração nesta secção para fornecer acesso à sua subscrição do Office 365.

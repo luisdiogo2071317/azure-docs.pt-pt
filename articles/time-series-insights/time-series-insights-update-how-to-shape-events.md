@@ -8,22 +8,19 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.openlocfilehash: edc1dac05a8ab4281eee3ee0eb4c5e6b7571b404
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.date: 12/03/2018
+ms.openlocfilehash: 17528b148c04f48fa8222f64900bdf5c3b95ee25
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856435"
+ms.locfileid: "52873653"
 ---
 # <a name="shaping-events-with-azure-time-series-insights-preview"></a>Formatação de eventos com o Azure Time Series Insights (pré-visualização)
 
-Este artigo fornece orientações para formatação JSON, para maximizar a eficiência que sejam as consultas do Azure Time Series Insights (pré-visualização).
+Este artigo fornece orientações para a formatação do JSON, para maximizar a eficiência de suas consultas de pré-visualização do Azure Time Series Insights (TSI).
 
 ## <a name="best-practices"></a>Melhores práticas
-
-> [!NOTE]
-> Para o Azure TSI (pré-visualização), os limites de propriedade de 600 800 para S1/S2 não se aplicam.
 
 É importante pensar sobre como enviar eventos para o Azure TSI. Ou seja, deve sempre:
 
@@ -108,7 +105,7 @@ Instância de série de tempo (Nota: os **ID de série de tempo** é *deviceId*)
   },
 ```
 
-O TSI Ingressou na tabela (depois de mesclar) durante o tempo de consulta. A tabela inclui colunas adicionais, tais como o tipo. Este exemplo demonstra como pode modelar seus dados de telemetria:
+O TSI Ingressou na tabela (depois de mesclar) durante o tempo de consulta. A tabela inclui colunas adicionais, tais como o tipo. Este exemplo demonstra como é possível [forma](./time-series-insights-send-events.md#json) seus dados de telemetria:
 
 | deviceId  | Tipo | L1 | ERROS DE L2 | carimbo de data/hora | série. Taxa de fluxo ft3/s | série. Psi de petróleo pressão do motor |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -130,3 +127,5 @@ Tenha em atenção o seguinte no exemplo anterior:
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para colocar estas diretrizes em prática, consulte [sintaxe de consulta do Azure TSI](./time-series-insights-query-data-csharp.md) para saber mais sobre a sintaxe de consulta para a REST API de acesso os dados do TSI.
+
+Saiba mais sobre formas JSON suportadas, leia [formas de JSON suportado](./time-series-insights-send-events.md#json).

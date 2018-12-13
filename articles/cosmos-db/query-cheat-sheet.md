@@ -1,21 +1,19 @@
 ---
-title: Folhas de referência rápida de consulta do Azure Cosmos DB PDF | Documentos da Microsoft
+title: Folhas de referência rápida de consulta do Azure Cosmos DB PDF
 description: PDF imprimível documentos com dicas que ajuda a utilizar o SQL do Azure Cosmos DB, MongoDB, Graph e APIs de tabela para consultar os seus dados
 keywords: folha de referência rápida de SQL, pdf de folha de referência rápida de sql, dicas de consulta de sql
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: 7f429778429e2d98d5abd655ee4b9acdc1472ff2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230874"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878691"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Folhas de referência rápida de consulta do Azure Cosmos DB
 
@@ -36,7 +34,7 @@ Transfira o [dicas de consulta de tamanho A3 do Azure Cosmos DB](https://go.micr
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais ajuda a escrever consultas, consulte os artigos seguintes:
-* Para consultas de API de SQL, consulte [consultar com a API de SQL](tutorial-query-sql-api.md), [consultas SQL para o Azure Cosmos DB](sql-api-sql-query.md), e [referência de sintaxe SQL](sql-api-sql-query-reference.md)
+* Para consultas de API de SQL, consulte [consultar com a API de SQL](tutorial-query-sql-api.md), [consultas SQL para o Azure Cosmos DB](how-to-sql-query.md), e [referência de sintaxe SQL](sql-api-sql-query-reference.md)
 * Para consultas de MongoDB, consulte [consultar com a API do MongoDB](tutorial-query-mongodb.md) e [suporte de API do MongoDB para funcionalidades e sintaxe](mongodb-feature-support.md)
 * Para consultas de API do Gremlin, consulte [consultar a utilização da API Gremlin](tutorial-query-graph.md) e [suporte do graph do Azure Cosmos DB Gremlin](gremlin-support.md)
 * Para consultas de API de tabela, consulte [consultar com a API de tabela](tutorial-query-table.md)

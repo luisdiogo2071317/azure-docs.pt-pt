@@ -1,6 +1,6 @@
 ---
-title: Como se inscrever nas edições do Azure Active Directory Premium | Microsoft Docs
-description: Instruções passo a passo sobre como se inscrever nas edições do Azure Active Directory Premium.
+title: Inscreva-se edições premium - Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como inscrever-se para as edições do Azure Active Directory Premium.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.custom: it-pro
-ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 23778a56cfa6440442bd7aab67c5441094a633ae
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394702"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073997"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-premium"></a>Como: inscrever-se no Azure Active Directory Premium
-Pode comprar e associar o Azure Active Directory (Azure AD) Premium à sua subscrição do Azure. Se tiver de criar uma subscrição nova do Azure, também terá de ativar o plano de licenciamento e o acesso ao serviço Microsoft Azure AD.
+# <a name="sign-up-for-azure-active-directory-premium-editions"></a>Inscreva-se para as edições do Azure Active Directory Premium
+Pode comprar e associar as edições Premium do Azure Active Directory (Azure AD) com a sua subscrição do Azure. Se tiver de criar uma subscrição nova do Azure, também terá de ativar o plano de licenciamento e o acesso ao serviço Microsoft Azure AD.
 
 > [!NOTE]
 >As edições Premium e Básica do Azure AD estão disponíveis para clientes na China que utilizem a instância mundial do Azure Active Directory. As edições do Azure AD Premium e Básico não são atualmente suportadas pelo serviço do Azure operado pela 21Vianet na China. Para obter mais informações, contacte-nos através do [Fórum do Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
@@ -96,5 +96,5 @@ Depois de as suas licenças compradas serem aprovisionadas no diretório, recebe
 
 Normalmente, o processo de ativação demora apenas alguns minutos e, em seguida, pode utilizar o inquilino do Microsoft Azure AD. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Agora que tem o Azure AD Premium, pode [personalizar o seu domínio](add-custom-domain.md), adicionar a sua [imagem corporativa](customize-branding.md), [criar um inquilino](active-directory-access-create-new-tenant.md) e [adicionar grupos](active-directory-groups-create-azure-portal.md) e [utilizadores](add-users-azure-active-directory.md).

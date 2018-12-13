@@ -3,7 +3,7 @@ title: Conceber soluções de recuperação após desastre - base de dados SQL d
 description: Aprenda a conceber a sua solução de cloud para recuperação após desastre ao escolher o padrão de ativação pós-falha certo.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pools
+ms.subservice: elastic-poolss
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 08/27/2018
-ms.openlocfilehash: 9ed01103a83073d1bbb22f476a9115af816571aa
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
-ms.translationtype: MT
+ms.openlocfilehash: 8c5f6503375302852b9fd603accdffa431aab35f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166559"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877569"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação após desastre para aplicações que utilizam conjuntos elásticos da base de dados SQL
 Ao longo dos anos, que Ficamos cientes de que os serviços cloud não são à prova de falhas e catastróficas incidentes acontece. Base de dados SQL fornece diversos recursos para fornecer para a continuidade de negócio da sua aplicação quando ocorrem esses incidentes. [Conjuntos elásticos](sql-database-elastic-pool.md) e após desastre (DR) de capacidades de recuperação, o mesmo tipo de suporte de bases de dados individuais. Este artigo descreve várias estratégias de DR para conjuntos elásticos que tirar partido destas funcionalidades de continuidade de negócio de base de dados SQL.

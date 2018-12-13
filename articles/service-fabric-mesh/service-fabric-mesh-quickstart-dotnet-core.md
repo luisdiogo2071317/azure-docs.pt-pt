@@ -1,6 +1,6 @@
 ---
-title: Guia de Início Rápido – criar e implementar uma aplicação Web no Azure Service Fabric Mesh | Microsoft Docs
-description: Este guia de início rápido mostra-lhe como criar um site ASP.NET Core e publicá-lo no Azure Service Fabric Mesh.
+title: Início rápido - implementar uma aplicação web para o modo de malha do Azure Service Fabric | Documentos da Microsoft
+description: Este guia de introdução mostra-lhe como criar um Web site do ASP.NET Core e publicá-lo para o modo de malha do Azure Service Fabric com o Visual Studio.
 services: service-fabric-mesh
 documentationcenter: .net
 author: tylermsft
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7e324b80968017e0160f41b88fa1824669050ac9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 35ce19d796a9889d734bd5dde20a7c56485656f1
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407404"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888550"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Guia de Início Rápido: criar e implementar uma aplicação Web no Azure Service Fabric Mesh
 
@@ -88,7 +88,7 @@ Na caixa de diálogo de publicação, clique no botão **Publish** (Publicar) pa
 
 Quando publica no Azure pela primeira vez, a imagem do docker é enviada para o Azure Container Registry (ACR), o que demora algum tempo consoante o tamanho da imagem. As publicações subsequentes do mesmo projeto serão mais rápidas. Pode monitorizar o progresso da implementação ao selecionar **Service Fabric Tools** no menu pendente da janela **Output** (Saída) do Visual Studio. Depois de concluída a implementação, a saída **Service Fabric Tools** (Ferramentas do Service Fabric) irá apresentar o endereço IP e a porta da aplicação sob a forma de um URL.
 
-```json
+```
 Packaging Application...
 Building Images...
 Web1 -> C:\Code\ServiceFabricMesh1\Web1\bin\Any CPU\Release\netcoreapp2.0\Web1.dll
@@ -116,7 +116,7 @@ Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 
 Em alternativa, pode eliminar o grupo de recursos [do portal do Azure](https://portal.azure.com).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre como criar e implementar aplicações do Service Fabric Mesh, avance para o tutorial.
 > [!div class="nextstepaction"]

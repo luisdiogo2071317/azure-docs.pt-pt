@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 3796f5c8956b633a4789baaf31a439746dc96b96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: 10a33163b2bfe6a1c9c24b9de58f83813e7534a6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233767"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863929"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronização de conteúdo de uma pasta de cloud para o serviço de aplicações do Azure
 Este artigo mostra-lhe como sincronizar o conteúdo do seu [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) da Dropbox e OneDrive. 
@@ -61,7 +61,7 @@ Quando quiser sincronizar o conteúdo na sua pasta de cloud com o serviço de ap
 
 Para desativar a sincronização de conteúdo, navegue até à página da aplicação do serviço de aplicações na [portal do Azure](https://portal.azure.com).
 
-No menu à esquerda, clique em **Deployment Center** > **OneDrive** ou **Dropbox** > **desligar**.
+No menu à esquerda, clique em **Deployment Center** > **desligar**.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 

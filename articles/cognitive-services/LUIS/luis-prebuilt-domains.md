@@ -1,21 +1,22 @@
 ---
-title: Domínios pré-concebidos para compreensão de idiomas (LUIS)
+title: Domínios pré-concebidos para Understa de idioma
 titleSuffix: Azure Cognitive Services
 description: LUIS inclui um conjunto de domínios pré-concebidos para adicionar rapidamente os cenários de usuário comum e conversacionais.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: b1c7ced4a934ea5d094e0c54a295870986f09933
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 05c6981c4962827154764df0e874824e5398d96d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651895"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074405"
 ---
 # <a name="add-prebuilt-domains-for-common-usage-scenarios"></a>Adicionar domínios pré-concebidos para cenários de utilização comuns 
 
@@ -49,7 +50,7 @@ Teste a intenção de novo no ponto final adicionado por um valor para o **p** p
 
 LUIS retorna a intenção correta e o assunto da reunião:
 
-```JSON
+```json
 {
   "query": "Schedule a meeting with John Smith in Seattle next week",
   "topScoringIntent": {

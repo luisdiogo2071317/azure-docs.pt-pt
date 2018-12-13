@@ -14,18 +14,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: ambapat
-ms.openlocfilehash: 23f02f87b75cd41d1a56a388e4526be6d9a2e119
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 67f24bbccdd2dcf5cca09e09557d7ebebd0a5c2d
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682742"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891083"
 ---
 # <a name="secure-your-key-vault"></a>Proteger o seu cofre de chaves
 O Azure Key Vault é um serviço cloud que salvaguarda as chaves de encriptação e os segredos (tal como certificados, cadeias de ligação e palavras-passe). Uma vez que estes dados são confidenciais e críticos de negócios, deve proteger o acesso aos seus cofres de chaves, permitindo que apenas autorizado aplicativos e usuários. Este artigo fornece uma descrição geral do modelo de acesso do Cofre de chaves. Ele explica a autenticação e autorização e descreve como proteger o acesso.
 
 ## <a name="overview"></a>Descrição geral
-Controlar o acesso ao Cofre de chaves através de duas interfaces separadas: os *plano de gestão* e o *plano de dados*. Ambos os planos, um chamador (um utilizador ou uma aplicação) tem de ter autenticação e autorização para aceder a um cofre de chaves. A autenticação estabelece a identidade do chamador, ao passo que autorização determina as operações o chamador pode realizar.
+O controlo aos cofres de chaves é controlado através de duas interfaces separadas - o plano de gestão e o plano de dados. 
+**Plano de gestão** lida com a gerir o cofre, por exemplo, - criar um cofre, a atualizar um cofre, eliminar um cofre. 
+**Plano de dados** negociações com segredos dentro de um cofre, que está a criar, atualizar, eliminar e ler um segredo no interior do cofre. Para ambos os planos, autenticação e autorização adequadas são necessárias antes de um chamador (um utilizador ou uma aplicação) pode obter acesso ao Cofre de chaves. A autenticação estabelece a identidade do chamador, ao passo que autorização determina as operações que o chamador tem permissão para realizar.
+
+Tanto o plano de gestão, como o de dados, utilizam o Azure Active Directory na autenticação. Relativamente à autorização, o plano de gestão utiliza o controlo de acesso baseado em funções (RBAC) e o plano de dados utiliza a política de acesso ao cofre de chaves.
+
+Eis uma breve descrição geral dos tópicos abrangidos:
+
+[Autenticação com o Azure Active Directory](#authentication-using-azure-active-directory) - esta secção explica como um chamador se autentica com o Azure Active Directory para aceder a um cofre de chaves através dos planos de gestão e de dados. 
 
 Para a autenticação, ambos os planos utilizam o Azure Active Directory (Azure AD). Para autorização, o plano de gestão utiliza o controlo de acesso baseado em funções (RBAC), enquanto o plano de dados utiliza a política de acesso do Cofre de chaves.
 

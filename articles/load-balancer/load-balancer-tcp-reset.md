@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2018
+ms.date: 12/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9aa3811eb03d38a4c6ab8203512f3e6699098122
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: MT
+ms.openlocfilehash: 3cc4db387c33388d5692fa25ac26f2b6399cd185
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883640"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879847"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Balanceador de carga com a reposição TCP em inatividade (pré-visualização pública)
 
@@ -76,7 +76,17 @@ Este parâmetro é atualmente em vigor nas seguintes regiões.  Regiões não li
 | Região |
 |---|
 | Sudeste Asiático |
+| Sul do Brasil |
+| Canadá Central |
 | Europa Ocidental |
+| Índia Central |
+| Oeste da Índia |
+| Oeste do Japão |
+| Coreia do Sul Central |
+| Coreia do Sul |
+| Norte do Reino Unido |
+| Sul do Reino Unido 2 |
+| E.U.A Leste |
 | Este dos EUA 2 |
 | Norte dos EUA |
 | E.U.A. Oeste |

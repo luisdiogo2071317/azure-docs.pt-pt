@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: d9dfedd89e362f12f97d0106f3e56d465a89bb76
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 103f4b10d5fbb7fbcf9c3721a82fe4075abe0dc4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723860"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877620"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -34,7 +34,7 @@ Amostragem reduz os custos de tráfego e os dados e ajuda a evitar a limitação
 * Também pode definir manualmente de amostragem, no portal sobre a utilização e estimativa de custos de página; ou, no SDK do ASP.NET no arquivo. config, ou do SDK de Java no ficheiro applicationinsights. XML, também reduzir o tráfego de rede.
 * Se iniciar a sessão de eventos personalizados e pretender certificar-se de que um conjunto de eventos é mantido ou descartado em conjunto, certifique-se de que têm o mesmo valor de OperationId.
 * O divisor de amostragem *n* é comunicada em cada registo na propriedade `itemCount`, que na pesquisa aparece sob o nome amigável "contagem de pedidos" ou "contagem de eventos". Quando a amostragem não está em funcionamento, `itemCount==1`.
-* Se escrever consultas de análise, deve [levar em conta amostragem](../log-analytics/query-language/aggregations.md). Em particular, em vez de simplesmente contagem de registos, deve usar `summarize sum(itemCount)`.
+* Se escrever consultas de análise, deve [levar em conta amostragem](../azure-monitor/log-query/aggregations.md). Em particular, em vez de simplesmente contagem de registos, deve usar `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Tipos de amostragem
 Existem três métodos alternativos de amostragem:

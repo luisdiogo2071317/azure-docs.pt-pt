@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 18041c95405614768845399f92efac229db53b20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ff8f5c51f17375208fdb32e521bfc85ee3f0c77
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250735"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880221"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migração de Contoso: realojar a uma aplicação no local em VMs do Azure e o grupo de Disponibilidade AlwaysOn do SQL Server
 
@@ -186,11 +186,11 @@ Administradores de contoso como configurar o cluster da seguinte forma:
     - Eles colocam as máquinas na rede de produção de E.U.A. Leste 2 principal região (**VNET-PROD-EUS2**), na sub-rede da base de dados (**PROD-DB-EUS2**).
     - Eles criam um novo conjunto de disponibilidade: **SQLAOGAVSET**, com dois domínios de falha e cinco domínios de atualização.
 
-    ![VM DO SQL SERVER](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
+      ![VM do SQL](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
 
 4. Na **definições do SQL Server**, elas limitam a conectividade SQL para a rede virtual (privado), na porta 1433 predefinida. Para a autenticação que utilizam as mesmas credenciais que usam no local (**contosoadmin**).
 
-    ![VM DO SQL SERVER](media/contoso-migration-rehost-vm-sql-ag/sql-vm-db.png)
+    ![VM do SQL](media/contoso-migration-rehost-vm-sql-ag/sql-vm-db.png)
 
 **Precisa de mais ajuda?**
 
@@ -235,11 +235,11 @@ Antes de configurar o cluster, os administradores da Contoso tirar um instantân
 
 ![instantâneo](media/contoso-migration-rehost-vm-sql-ag/snapshot.png)
 
-2. Em seguida, executam um script que tem colocado em conjunto para criar o Cluster de ativação pós-falha do Windows.
+1. Em seguida, executam um script que tem colocado em conjunto para criar o Cluster de ativação pós-falha do Windows.
 
     ![Criar cluster](media/contoso-migration-rehost-vm-sql-ag/create-cluster1.png)
 
-3. Depois que tenha criado o cluster, eles Certifique-se de que as VMs aparecem como nós de cluster.
+2. Depois que tenha criado o cluster, eles Certifique-se de que as VMs aparecem como nós de cluster.
 
      ![Criar cluster](media/contoso-migration-rehost-vm-sql-ag/create-cluster2.png)
 
@@ -351,7 +351,7 @@ Os administradores da Contoso configurar estes da seguinte forma:
     - Utilizam uma conta para fins gerais, com o armazenamento standard e replicação LRS.
     - A conta tem de ser na mesma região que o cofre.
 
-    ![Armazenamento de recuperação de site](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
+      ![Armazenamento de recuperação de site](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
 
 3. Com a conta de armazenamento e de rede no local, agora, crie um cofre dos serviços de recuperação (**ContosoMigrationVault**) e colocá-la a **ContosoFailoverRG** grupo de recursos na região E.U.A. Leste 2 primária .
 
@@ -403,15 +403,15 @@ Após a ativação pós-falha, a Contoso quer ser capaz de ligar a VMs do Azure.
 
 1. Para ter acesso através da internet:
 
- - Ative o RDP na VM no local antes da ativação pós-falha
- - Certifique-se de que as regras TCP e UDP estão adicionadas para o **público** perfil.
- - Verifique se o RDP é permitido na **Firewall do Windows** > **aplicações permitidas** para todos os perfis.
+   - Ative o RDP na VM no local antes da ativação pós-falha
+   - Certifique-se de que as regras TCP e UDP estão adicionadas para o **público** perfil.
+   - Verifique se o RDP é permitido na **Firewall do Windows** > **aplicações permitidas** para todos os perfis.
  
 2. Para ter acesso através de VPN de site a site, eles:
 
- - Ative o RDP na máquina no local.
- - Permitir RDP no **Firewall do Windows** -> **aplicações e funcionalidades permitidas**, para **domínio e privadas** redes.
- - Definir política de SAN do sistema operacional na VM no local para **OnlineAll**.
+   - Ative o RDP na máquina no local.
+   - Permitir RDP no **Firewall do Windows** -> **aplicações e funcionalidades permitidas**, para **domínio e privadas** redes.
+   - Definir política de SAN do sistema operacional na VM no local para **OnlineAll**.
 
 Além disso, quando executam uma ativação pós-falha que precisam verificar o seguinte:
 

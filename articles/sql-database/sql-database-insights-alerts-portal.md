@@ -3,7 +3,7 @@ title: Utilizar o portal do Azure para criar alertas de base de dados SQL | Docu
 description: Utilize o portal do Azure para criar alertas de base de dados SQL, que podem acionar notificações ou automatização quando forem cumpridas condições que especificar.
 services: sql-database
 ms.service: sql-database
-ms.subservice: performance
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 11777013eca0ba3a759635ef99c2cfa04104e24b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: MT
+ms.openlocfilehash: 56beb9779b0dde7074a2f49fab156c8b6e6577b3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979000"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870185"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Utilizar o portal do Azure para criar alertas para o Azure SQL Database e o armazém de dados
 

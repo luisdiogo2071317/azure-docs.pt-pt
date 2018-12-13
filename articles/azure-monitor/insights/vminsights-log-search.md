@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: d12de42be9cf5d1a48288aabf21b25546e5b4bbc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 17d663873639cc36e9727881d990a3f32697c798
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833081"
+ms.locfileid: "52872157"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar os registos do Azure Monitor para VMs (pré-visualização)
 O Monitor para VMs do Azure recolhe métricas de desempenho e a ligação, o computador e o processamento de dados de inventário e informações de estado de funcionamento e encaminhá-la para o arquivo de dados do Log Analytics no Azure Monitor.  Estes dados estão disponíveis para [pesquisa](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics. Pode aplicar esses dados para cenários que incluem planos de migração, análise de capacidade, deteção e resolução de problemas de desempenho a pedido.
@@ -238,5 +238,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Se estiver familiarizado com a criação de consultas do Log Analytics, consulte [como utilizar a página do Log Analytics](../../log-analytics/query-language/get-started-analytics-portal.md) no portal do Azure para escrever consultas do Log Analytics.
-* Saiba mais sobre [escrever consultas de pesquisa](../../log-analytics/query-language/search-queries.md).
+* Se estiver familiarizado com a criação de consultas do Log Analytics, consulte [como utilizar a página do Log Analytics](../../azure-monitor/log-query/get-started-portal.md) no portal do Azure para escrever consultas do Log Analytics.
+* Saiba mais sobre [escrever consultas de pesquisa](../../azure-monitor/log-query/search-queries.md).

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2017
+ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 15b609bbf4ab048722f2512371eeffece92b3245
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 27057f16d10d0859a486551091e135bfb9160813
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138145"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890352"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização de pontos finais do Gestor de tráfego
 
@@ -41,7 +41,7 @@ Para configurar a monitorização do ponto final, tem de especificar as seguinte
 
 ## <a name="how-endpoint-monitoring-works"></a>Como funciona a monitorização do ponto final
 
-Se o protocolo de monitorização é definido como HTTP ou HTTPS, o agente do Gestor de tráfego de pesquisa faz um pedido GET para o ponto de extremidade usando o protocolo, porta e caminho relativo, tendo em conta. Se ele recebe de volta uma resposta 200 OK, ou qualquer uma das respostas configuradas no **esperado o código de \*estado** de intervalos de, em seguida, esse ponto final é considerado em bom estado de funcionamento. Se a resposta é um valor diferente, ou, se for recebida nenhuma resposta dentro do período de tempo limite especificado, em seguida, o Gestor de tráfego de pesquisa agente tenta novamente, de acordo com a definição de pela tolerar número de falhas (sem tenta restabelecer é feita se esta definição é 0). Se o número de falhas consecutivas é maior do que a definição de pela tolerar número de falhas, em seguida, esse ponto final está marcado como mau estado de funcionamento. 
+Se o protocolo de monitorização é definido como HTTP ou HTTPS, o agente do Gestor de tráfego de pesquisa faz um pedido GET para o ponto de extremidade usando o protocolo, porta e caminho relativo, tendo em conta. Se ele recebe de volta uma resposta 200 OK, ou qualquer uma das respostas configuradas no * * esperado o código de estado * * * de intervalos de, em seguida, esse ponto final é considerado em bom estado de funcionamento. Se a resposta é um valor diferente, ou, se for recebida nenhuma resposta dentro do período de tempo limite especificado, em seguida, o Gestor de tráfego de pesquisa agente tenta novamente, de acordo com a definição de pela tolerar número de falhas (sem tenta restabelecer é feita se esta definição é 0). Se o número de falhas consecutivas é maior do que a definição de pela tolerar número de falhas, em seguida, esse ponto final está marcado como mau estado de funcionamento. 
 
 Se o protocolo de monitorização é TCP, o agente de pesquisa do Gestor de tráfego inicia um pedido de ligação de TCP utilizando a porta especificada. Se o ponto final de responder ao pedido com uma resposta para estabelecer a ligação, essa verificação de estado de funcionamento está marcada como um êxito e o agente de pesquisa do Gestor de tráfego repõe a conexão TCP. Se a resposta é um valor diferente, ou se for recebida nenhuma resposta dentro do período de tempo limite especificado, o Gestor de tráfego de pesquisa agente tenta novamente, de acordo com a definição de pela tolerar número de falhas (sem tenta restabelecer é feita se esta definição é 0). Se o número de falhas consecutivas é maior do que a definição de pela tolerar número de falhas, em seguida, esse ponto final é marcado mau estado de funcionamento.
 

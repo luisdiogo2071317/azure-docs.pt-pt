@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: 078f6bcd7aa48f2a63118e6dfb625d9b2c69fbb3
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248028"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879393"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Suporte de plataformas de SDKs do IoT do Azure
 
@@ -20,7 +20,7 @@ O [do Azure IoT SDKs](iot-hub-devguide-sdks.md) são um conjunto de bibliotecas 
 
 A Microsoft suporta uma variedade de plataformas/sistemas operativos/estruturas e pode ser estendido com o SDK de C do Azure IoT. Algumas são suportadas oficialmente pela equipe, agrupada em camadas que representam o nível de suporte, os usuários podem esperar. *Plataformas suportadas totalmente* significa que a Microsoft:
 
-    * Cria e executa testes de ponto a ponto contra o mestre e as versões LTS suportado continuamente.
+    * Cria e executa testes de ponto a ponto contra o mestre e as versões LTS suportado continuamente.  Para fornecer a cobertura do teste nas diferentes versões, Testamos geralmente contra a versão mais recente do LTS e a versão mais popular.  Outras versões da plataforma mesmo poderão ser suportadas por meio de compatibilidade de versões da plataforma.
     * Fornece diretrizes sobre a instalação ou pacotes, se aplicável.
     * Totalmente compatível com as plataformas no GitHub.
 
@@ -31,7 +31,6 @@ Além disso, uma lista de parceiros tem portado nosso SDK de C para mais platafo
 * Windows CE 2013 (preterir em Outubro de 2018)
 * .NET standard 1.3 com .NET Core 2.1 e o .NET Framework 4.7
 * Xamarin iOS, Android, UWP
-* Android com o Java
 
 ## <a name="supported-platforms"></a>Plataformas suportadas
 
@@ -44,22 +43,22 @@ Existem várias plataformas suportadas.
 | Ubuntu 16.04 LTS    | X64  | GCC 5.4.0            | OpenSSL - 1.0.2g |
 | Ubuntu 18.04 LTS    | X64  | GCC 7.3              | WolfSSL – 1.13    |
 | Ubuntu 18.04 LTS    | X64  | Clang 6.0.X          | OpenSSL – 1.1.0g  |
-| OSX 10.13.4         | X64  | XCode 9.4.1          | OSX nativo        |
-| Windows Server 2016 | X64  | Visual Studio 14.0.X | SChannel          |
+| OSX 10.13.4         | x64  | XCode 9.4.1          | OSX nativo        |
+| Windows Server 2016 | x64  | Visual Studio 14.0.X | SChannel          |
 | Windows Server 2016 | x86  | Visual Studio 14.0.X | SChannel          |
-| Debian 9 Stretch    | X64  | GCC 7.3              | OpenSSL – 1.1.0f  |
+| Debian 9 Stretch    | x64  | GCC 7.3              | OpenSSL – 1.1.0f  |
 
 ### <a name="python-sdk"></a>SDK Python
 
 | SO                  | Arch | Compilador   | Biblioteca TLS |
 |---------------------|------|------------|-------------|
 | Windows Server 2016 | x86  | Python 2.7 | OpenSSL     |
-| Windows Server 2016 | X64  | Python 2.7 | OpenSSL     |
+| Windows Server 2016 | x64  | Python 2.7 | OpenSSL     |
 | Windows Server 2016 | x86  | Python 3.5 | OpenSSL     |
-| Windows Server 2016 | X64  | Python 3.5 | OpenSSL     |
+| Windows Server 2016 | x64  | Python 3.5 | OpenSSL     |
 | Ubuntu 18.04 LTS    | x86  | Python 2.7 | OpenSSL     |
 | Ubuntu 18.04 LTS    | x86  | Python 3.4 | OpenSSL     |
-| Alta de MacOS Sierra   | X64  | Python 2.7 | OpenSSL     |
+| Alta de MacOS Sierra   | x64  | Python 2.7 | OpenSSL     |
 
 ### <a name="net-sdk"></a>SDK .NET
 
@@ -83,6 +82,7 @@ Existem várias plataformas suportadas.
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
+| API do Android 28 | X64  | Java 8       |
 
 ## <a name="partner-supported-platforms"></a>Plataformas de parceiro suportado
 
