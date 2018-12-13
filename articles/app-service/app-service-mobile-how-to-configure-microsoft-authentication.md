@@ -1,5 +1,5 @@
 ---
-title: Como configurar a autenticação de Account Microsoft na sua aplicação de serviços de aplicações
+title: Configurar a autenticação de Account Microsoft - App Service do Azure
 description: Saiba como configurar a autenticação de Account Microsoft para a sua aplicação de serviços de aplicações.
 author: mattchenderson
 services: app-service
@@ -14,12 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: be204c8c20825aab75e19acd0157b427ef4a388c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: e3da856efd7d44f15f9de27c9e38375d40dc211d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968664"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251296"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Como configurar a sua aplicação de serviço de aplicações para utilizar o Microsoft Account login
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

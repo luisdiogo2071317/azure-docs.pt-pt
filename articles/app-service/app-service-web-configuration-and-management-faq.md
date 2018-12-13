@@ -1,5 +1,5 @@
 ---
-title: FAQs sobre a configuração para aplicações web do Azure | Documentos da Microsoft
+title: FAQs sobre a configuração - serviço de aplicações do Azure | Documentos da Microsoft
 description: Obtenha respostas às perguntas mais frequentes sobre problemas de configuração e gestão para a funcionalidade de aplicações Web do serviço de aplicações do Azure.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: b98b0ea68e91bad2a62f40d3dc611308f1bed2de
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c2758084331a487d65235b70bed803a74d0a34b5
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967747"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322538"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQs sobre a configuração e gestão de aplicações Web no Azure
 
@@ -138,7 +138,7 @@ Para rever a registos WebJob:
 6. Selecione o **saída de alternância** botão.
 7. Selecione o link de download.
 
-## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Estou a tentar utilizar ligações híbridas com o SQL Server. Por que razão vejo a mensagem "System.OverflowException: operação aritmética resultou num estouro"?
+## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Estou a tentar utilizar ligações híbridas com o SQL Server. Por que razão vejo a mensagem "System.OverflowException: Operação aritmética resultou num estouro"?
 
 Se utilizar ligações híbridas para aceder ao SQL Server, uma atualização do Microsoft .NET em 10 de Maio de 2016, pode fazer com que as ligações efetuar a ativação. Poderá ver esta mensagem:
 
@@ -296,7 +296,7 @@ Quando cria um novo Web site através da utilização de aplicações Web no Azu
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Por que o dimensionamento automático não está funcionando como esperado?
 
-Se o dimensionamento automático do Azure ainda não reduzido horizontalmente ou aumentar horizontalmente a instância da aplicação web conforme esperado, pode estar em execução num cenário em que podemos intencionalmente optar por não ser dimensionado para evitar um loop infinito devido a "em oscilação." Normalmente, isso acontece quando existem não é uma margem adequada entre os limiares de aumento horizontal e a redução horizontal. Para saber como evitar "em oscilação" e leia sobre outras práticas recomendadas de dimensionamento automático, veja [melhores práticas de dimensionamento automático](../monitoring-and-diagnostics/insights-autoscale-best-practices.md#autoscale-best-practices).
+Se o dimensionamento automático do Azure ainda não reduzido horizontalmente ou aumentar horizontalmente a instância da aplicação web conforme esperado, pode estar em execução num cenário em que podemos intencionalmente optar por não ser dimensionado para evitar um loop infinito devido a "em oscilação." Normalmente, isso acontece quando existem não é uma margem adequada entre os limiares de aumento horizontal e a redução horizontal. Para saber como evitar "em oscilação" e leia sobre outras práticas recomendadas de dimensionamento automático, veja [melhores práticas de dimensionamento automático](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>Por que motivo dimensionamento automático, às vezes, dimensionar apenas parcialmente?
 

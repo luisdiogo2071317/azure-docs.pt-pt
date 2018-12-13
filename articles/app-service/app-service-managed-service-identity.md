@@ -1,5 +1,5 @@
 ---
-title: Gerido identidades no serviço de aplicações e funções do Azure | Documentos da Microsoft
+title: Gerido descrição geral de identidades - serviço de aplicações do Azure | Documentos da Microsoft
 description: Guia de referência e a configuração conceitual para identidades geridas no App Service do Azure e as funções do Azure
 services: app-service
 author: mattchenderson
@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 033667500f627a090c6ba6d686224126d217b833
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 40ae45eb401aeb302b2474cd181d29c0ee26c611
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971407"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254365"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o serviço de aplicações e funções do Azure
 
@@ -158,7 +158,7 @@ Em que `<TENANTID>` e `<PRINCIPALID>` são substituídos por GUIDs. A propriedad
 ## <a name="adding-a-user-assigned-identity-preview"></a>Adicionar uma identidade de utilizador atribuída (pré-visualização)
 
 > [!NOTE] 
-> Identidiades atribuídas estão atualmente em pré-visualização. Nuvens de Sovreign ainda não são suportadas.
+> Identidiades atribuídas estão atualmente em pré-visualização. Clouds soberanas ainda não são suportadas.
 
 A criação de uma aplicação com uma identidade de utilizador atribuída requer que crie a identidade e, em seguida, adicione o seu identificador de recurso à sua configuração de aplicação.
 
@@ -299,7 +299,7 @@ Uma resposta 200 OK bem-sucedida inclui um corpo JSON com as seguintes proprieda
 > |access_token|O token de acesso solicitado. O serviço de web chamada pode utilizar este token para autenticar para o serviço web de recebimento.|
 > |expires_on|O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Este valor é utilizado para determinar o tempo de vida de tokens em cache.|
 > |Recurso|O URI de ID de aplicação do serviço web do recetor.|
-> |token_type|Indica o valor de tipo de token. O único tipo que o Azure AD suporta é portador. Para obter mais informações sobre os tokens de portador, consulte [o Framework de autorização de OAuth 2.0: utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
+> |token_type|Indica o valor de tipo de token. O único tipo que o Azure AD suporta é portador. Para obter mais informações sobre os tokens de portador, consulte [o Framework de autorização de OAuth 2.0: Utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
 Esta resposta é igual a [resposta para o pedido de token de acesso de serviço para serviço AAD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).

@@ -1,5 +1,5 @@
 ---
-title: Configurar o PHP em aplicações Web do serviço de aplicações do Azure
+title: Configurar o runtime PHP - serviço de aplicações do Azure
 description: Saiba como configurar a instalação do PHP predefinida ou adicionar uma instalação personalizada do PHP para aplicações Web no App Service do Azure.
 services: app-service
 documentationcenter: php
@@ -13,12 +13,13 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: f9e863146b78fa510ea6f5b6eb9b3aa0fc4ce926
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: d5ad7b392029ae33ee7666b80edfe5b4b7555b41
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965791"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273204"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurar o PHP em aplicações Web do serviço de aplicações do Azure
 
@@ -28,7 +29,7 @@ Este guia mostra-lhe como configurar o tempo de execução do PHP incorporado pa
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to-change-the-built-in-php-version"></a>Como: alterar a versão PHP incorporada
+## <a name="how-to-change-the-built-in-php-version"></a>Como: Alterar a versão PHP incorporada
 
 Por predefinição, 5.6 do PHP está instalado e imediatamente disponível para utilização quando criar uma aplicação web do serviço de aplicações. A melhor forma de ver as extensões ativadas, sua configuração padrão e a revisão da versão disponível é implantar um script que chama o [phpinfo()] função.
 
@@ -39,10 +40,10 @@ Versões do PHP 7.0 e PHP 7.2 também estão disponíveis, mas não ativado por 
 1. Navegue para a sua aplicação web no [portal do Azure](https://portal.azure.com) e clique nas **definições** botão.
 
     ![Definições da aplicação Web][settings-button]
-1. Do **definições** painel, selecione **configurações de aplicativo** e escolha a nova versão PHP.
+2. Do **definições** painel, selecione **configurações de aplicativo** e escolha a nova versão PHP.
 
     ![Definições da Aplicação][application-settings]
-1. Clique no **salvar** botão na parte superior a **definições da aplicação Web** painel.
+3. Clique no **salvar** botão na parte superior a **definições da aplicação Web** painel.
 
     ![Guardar definições de configuração][save-button]
 
@@ -78,7 +79,7 @@ Para utilizar a Interface de linha de comandos do Azure, terá [instalar a CLI d
 
         az webapp show --name {app-name} --resource-group {resource-group-name}
 
-## <a name="how-to-change-the-built-in-php-configurations"></a>Como: alterar as configurações internas do PHP
+## <a name="how-to-change-the-built-in-php-configurations"></a>Como: Alterar as configurações internas do PHP
 
 Para qualquer tempo de execução do PHP incorporado, pode alterar qualquer uma das opções de configuração ao seguir estes passos. (Para obter informações sobre as diretivas de PHP. ini, consulte [lista de diretivas de PHP. ini].)
 
@@ -144,7 +145,7 @@ Conforme observado na seção anterior, a melhor forma de ver a versão PHP pred
 
 As extensões de Zend também são suportadas ao utilizar um **PHP_ZENDEXTENSIONS** chave. Para ativar várias extensões, inclua uma lista separada por vírgulas de `.dll` ficheiros para o valor de definição de aplicação.
 
-## <a name="how-to-use-a-custom-php-runtime"></a>Como: utilizar um runtime PHP personalizado
+## <a name="how-to-use-a-custom-php-runtime"></a>Como: Utilizar um runtime PHP personalizado
 
 Em vez do runtime PHP predefinido, o App Service Web Apps pode utilizar um tempo de execução do PHP por si para executar scripts PHP. O tempo de execução que fornecer pode ser configurado por um `php.ini` arquivo que também fornecer. Para utilizar um runtime PHP personalizado com as aplicações Web, seguindo estes passos.
 

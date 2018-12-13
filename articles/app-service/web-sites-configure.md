@@ -1,5 +1,5 @@
 ---
-title: Configurar aplicações Web no Serviço de Aplicações do Azure
+title: Configurar aplicações web - App Service do Azure
 description: Como configurar uma aplicação web no serviço de aplicações do Azure
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 60675d7d40dbab863677ea120c25986cff61a308
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960146"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269435"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicações Web no Serviço de Aplicações do Azure
 
@@ -38,10 +39,10 @@ O **as definições da aplicação** painel tem as definições de agrupadas em 
 ### <a name="general-settings"></a>Definições gerais
 **Versões de estrutura**. Se a aplicação utilizar qualquer uma dessas estruturas, defina estas opções: 
 
-* **.NET framework**: definir a versão do .NET framework. 
-* **PHP**: definir a versão PHP, ou **OFF** para desativar o PHP. 
-* **Java**: selecione a versão de Java ou **OFF** para desativar a Java. Utilize o **contentor Web** opção de escolher entre as versões do Tomcat e Jetty.
-* **Python**: selecione a versão de Python, ou **OFF** para desativar o Python.
+* **.NET framework**: Defina a versão do .NET framework. 
+* **PHP**: Definir a versão PHP, ou **OFF** para desativar o PHP. 
+* **Java**: Selecione a versão de Java ou **OFF** para desativar a Java. Utilize o **contentor Web** opção de escolher entre as versões do Tomcat e Jetty.
+* **Python**: Selecione a versão de Python, ou **OFF** para desativar o Python.
 
 Por motivos técnicos, a ativar o Java para a sua aplicação desativa as opções de .NET, PHP e Python.
 
@@ -164,7 +165,7 @@ Para ver os seus blocos de implementação, clique em **todas as definições** 
 ### <a name="monitoring"></a>Monitorização
 No modo básico ou Standard, pode testar a disponibilidade de pontos de extremidade HTTP ou HTTPS, de até três localizações geograficamente distribuídos. Um teste de monitorização falha se o código de resposta HTTP é um erro (4xx ou 5xx) ou a resposta demora mais de 30 segundos. Um ponto final é considerado disponível se os testes de monitorização com êxito a partir de todas as localizações especificadas. 
 
-Para obter mais informações, consulte [como: monitorizar o estado do ponto final web].
+Para obter mais informações, consulte [como: Monitorizar o estado do ponto final web].
 
 > [!NOTE]
 > Se pretender começar a utilizar o App Service do Azure antes de se inscrever numa conta do Azure, aceda a [Experimentar o App Service], onde pode criar de imediato uma aplicação Web de arranque de curta duração no App Service. Sem cartões de crédito; sem compromissos.
@@ -184,7 +185,7 @@ Para obter mais informações, consulte [como: monitorizar o estado do ponto fin
 [Configurar um nome de domínio personalizado no Serviço de Aplicações do Azure]: ./app-service-web-tutorial-custom-domain.md
 [Implementar em ambientes de teste para aplicações Web no serviço de aplicações do Azure]: ./web-sites-staged-publishing.md
 [Ativar HTTPS para uma aplicação no serviço de aplicações do Azure]: ./app-service-web-tutorial-custom-ssl.md
-[Como: monitorizar o estado do ponto final web]: https://go.microsoft.com/fwLink/?LinkID=279906
+[Como: Monitorizar o estado do ponto final web]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Noções básicas sobre monitorização para aplicações Web no App Service do Azure]: ./web-sites-monitor.md
 [modo de pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Dimensionar uma aplicação web no serviço de aplicações do Azure]: ./web-sites-scale.md

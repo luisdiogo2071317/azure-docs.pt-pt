@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 1e52f199847b9e03eb31da71f1f0577df92d2b51
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 827d3ceac267c78be9740adba6c890460ca3f2e9
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230415"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162992"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Como utilizar o Armazenamento de filas do Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -47,7 +47,7 @@ pip install azure-storage-queue
 > 
 > 
 
-Para métodos de instalação alternativa, visite o [SDK de armazenamento do Azure para Python no Github](https://github.com/Azure/azure-storage-python/).
+Para métodos de instalação alternativa, visite o [SDK de armazenamento do Azure para Python no GitHub](https://github.com/Azure/azure-storage-python/).
 
 ## <a name="how-to-create-a-queue"></a>Como: Criar uma fila
 O **QueueService** objeto permite-lhe trabalhar com as filas. O código seguinte cria um **QueueService** objeto. Adicione o seguinte perto da parte superior de qualquer ficheiro de Python no qual pretende aceder programaticamente ao armazenamento do Azure:
@@ -64,7 +64,7 @@ queue_service = QueueService(account_name='myaccount', account_key='mykey')
 queue_service.create_queue('taskqueue')
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Como: Inserir uma mensagem numa fila
+## <a name="how-to-insert-a-message-into-a-queue"></a>Como: Introduzir uma mensagem numa fila
 Para introduzir uma mensagem numa fila, utilize o **colocar\_mensagem** método para criar uma nova mensagem e adicioná-lo para a fila.
 
 ```python
@@ -80,7 +80,7 @@ for message in messages:
     print(message.content)
 ```
 
-## <a name="how-to-dequeue-messages"></a>Como: Remover mensagens da fila
+## <a name="how-to-dequeue-messages"></a>Como: Remover da fila de mensagens
 O código remove a mensagem da fila em dois passos. Quando chama **Obtenha\_mensagens**, obterá a seguinte mensagem numa fila por predefinição. Uma mensagem devolvida por **Obtenha\_mensagens** torna-se invisível para qualquer outro código lendo as mensagens desta fila. Por predefinição, esta mensagem permanece invisível durante 30 segundos. Para concluir a remover a mensagem da fila, também tem de chamar **elimine\_mensagem**. Este processo de dois passos da remoção de uma mensagem garante que quando o seu código não consegue processar uma mensagem devido uma falha de hardware ou software, outra instância do seu código pode obter a mesma mensagem e tente novamente. A código chama **elimine\_mensagem** imediatamente após a mensagem foi processada.
 
 ```python

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: ae2697c96435ec18ae7645520d438c41837f036f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 9370cdfc75995f36101804d2a9f7dc9cf275243c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016866"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186315"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos serviços de multimédia do Azure
 Estas notas de versão para serviços de multimédia do Azure resumir as alterações de versões anteriores e problemas conhecidos.
@@ -86,7 +86,7 @@ A partir de 12 de Maio de 2018, os canais em direto será já não suporte o flu
     * Melhorias ao Decodificador H.264 utilizado do codificador Standard eliminam determinados artefatos raros. 
 
 #### <a name="media-analytics"></a>Análise de Multimédia
-Disponibilidade geral das Azure Media Redactor: este processador de multimédia realiza anonimização ao desfocar os rostos de indivíduos selecionados e é ideal para utilização em cenários de segurança e multimédia para notícias públicos. 
+Disponibilidade geral do Redator de multimédia do Azure: Este processador de multimédia realiza anonimização ao desfocar os rostos de indivíduos selecionados e é ideal para utilização em cenários de segurança e multimédia para notícias públicos. 
 
 Para uma descrição geral sobre este novo processador, consulte [nesta mensagem de blogue](https://azure.microsoft.com/blog/azure-media-redactor/). Para obter informações sobre a documentação e as definições, consulte [edite rostos com análise de multimédia do Azure](media-services-face-redaction.md).
 
@@ -145,7 +145,7 @@ A partir da versão mais recente do serviço, após a conclusão de uma tarefa d
 > 
 > 
 
-Para obter mais informações, consulte [este blog](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
+Para obter mais informações, veja [este blogue](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
 
 ### <a name="known-issues"></a>Problemas conhecidos
 Alguns clientes podem se deparou com um problema de repetições de etiqueta no manifesto de transmissão em fluxo uniforme. Para obter mais informações, consulte [esta secção](media-services-deliver-content-overview.md#known-issues).
@@ -184,20 +184,20 @@ A equipe do SDK do Azure publicada uma nova versão dos [Azure SDK para PHP](htt
 Para obter mais informações, consulte:
 
 * O seguinte procedimento [exemplos de código](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) ajudá-lo a começar rapidamente:
-  * **vodworkflow_aes.php**: ficheiro de PHP este mostra como utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave. Baseia-se no exemplo de .NET explicado [encriptação dinâmica de utilizar AES-128 e o serviço de entrega de chave](media-services-protect-with-aes128.md).
-  * **vodworkflow_aes.php**: ficheiro de PHP este mostra como utilizar a encriptação dinâmica do PlayReady e o serviço de entrega de licença. Baseia-se no exemplo de .NET explicado [utilização PlayReady e/ou Widevine encriptação comum dinâmica](media-services-protect-with-playready-widevine.md).
-  * **scale_encoding_units.php**: ficheiro de PHP este mostra como dimensionar as unidades de encoding reservadas.
+  * **vodworkflow_aes.php**: Este ficheiro PHP mostra como utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave. Baseia-se no exemplo de .NET explicado [encriptação dinâmica de utilizar AES-128 e o serviço de entrega de chave](media-services-protect-with-aes128.md).
+  * **vodworkflow_aes.php**: Este ficheiro PHP mostra como utilizar a encriptação dinâmica do PlayReady e o serviço de entrega de licença. Baseia-se no exemplo de .NET explicado [utilização PlayReady e/ou Widevine encriptação comum dinâmica](media-services-protect-with-playready-widevine.md).
+  * **scale_encoding_units.php**: Este ficheiro PHP mostra como dimensionar as unidades de encoding reservadas.
 
 ## <a id="nov_changes_15"></a>Versão de Novembro de 2015
- Serviços de multimédia oferecem agora o serviço de entrega de licença do Widevine na cloud. Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Além disso, veja [deste tutorial](media-services-protect-with-playready-widevine.md) e o [repositório do GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
+ Serviços de multimédia oferecem agora o serviço de entrega de licença do Widevine na cloud. Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Além disso, veja [deste tutorial](media-services-protect-with-playready-widevine.md) e o [repositório do GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
 
-Serviços de entrega de licença do Widevine fornecidos pelos serviços de multimédia estão em pré-visualização. Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+Serviços de entrega de licença do Widevine fornecidos pelos serviços de multimédia estão em pré-visualização. Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Versão de Outubro de 2015
-Serviços de multimédia está agora em direto nos seguintes datacenters: sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora, pode utilizar o portal do Azure para [criar contas de serviço de multimédia](media-services-portal-create-account.md) e realizar várias tarefas descritas no [página Web de documentação dos serviços de multimédia](https://azure.microsoft.com/documentation/services/media-services/). O Live Encoding não está ativado nestes centros de dados. Além disso, nem todos os tipos de unidades de codificação reservadas estão disponíveis nestes centros de dados.
+Serviços de multimédia está agora em direto nos centros de dados seguintes: Sul do Brasil, Índia Ocidental, Sul da Índia e Índia Central. Agora, pode utilizar o portal do Azure para [criar contas de serviço de multimédia](media-services-portal-create-account.md) e realizar várias tarefas descritas no [página Web de documentação dos serviços de multimédia](https://azure.microsoft.com/documentation/services/media-services/). O Live Encoding não está ativado nestes centros de dados. Além disso, nem todos os tipos de unidades de codificação reservadas estão disponíveis nestes centros de dados.
 
-* Sul do Brasil: Só Standard e Basic unidades de codificação reservadas estão disponíveis.
-* Índia Ocidental, Sul da Índia e Índia Central: básica de apenas a unidades de codificação reservadas estão disponível.
+* Sul do Brasil:                                          Apenas Standard e Basic unidades de codificação reservadas estão disponíveis.
+* Índia Ocidental, Sul da Índia e Índia Central:             Apenas o básicas unidades de encoding reservadas estão disponíveis.
 
 ## <a id="september_changes_15"></a>Versão de Setembro de 2015
 Serviços de multimédia oferece agora a capacidade de proteger o vídeo a pedido e transmissões em direto com tecnologia do Widevine modular DRM. Pode utilizar os seguintes parceiros de serviços de entrega para o ajudar a fornecer licenças do Widevine:
@@ -205,19 +205,19 @@ Serviços de multimédia oferece agora a capacidade de proteger o vídeo a pedid
 * [EZDRM](http://ezdrm.com/) 
 * [castLabs](http://castlabs.com/company/partners/azure/) 
 
-Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
 Pode utilizar o [SDK .NET dos Serviços de Multimédia](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar o AssetDeliveryConfiguration para utilizar o Widevine. 
-* Serviços de multimédia foi adicionado suporte para vídeos ProRes da Apple. Agora, pode carregar os ficheiros de vídeos de origem QuickTime que utilizam o Apple ProRes ou outros codecs. Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
-* Pode agora utilizar Media Encoder Standard para fazer a extração de arquivo subclipping e em direto. Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+* Serviços de multimédia foi adicionado suporte para vídeos ProRes da Apple. Agora, pode carregar os ficheiros de vídeos de origem QuickTime que utilizam o Apple ProRes ou outros codecs. Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+* Pode agora utilizar Media Encoder Standard para fazer a extração de arquivo subclipping e em direto. Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * Foram efetuadas as seguintes atualizações de filtragem: 
   
   * Agora, pode utilizar o formato de Apple HLS com um filtro de só de áudio. Pode utilizar esta atualização para remover um Roteiro de só de áudio, especificando (só de áudio = false) no URL.
   * Ao definir filtros para os seus ativos, agora pode combinar vários filtros (até três) numa única URL.
     
-    Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+    Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 * Serviços de multimédia suportam agora eu-quadros no HLS versão 4. Suporte de eu fotograma otimiza as operações de avanço rápido e retroceder. Por predefinição, todos os resultados da versão 4 de HLS incluem a lista de reprodução do eu-quadro (EXT-X-I-FRAME-STREAM-INF).
-Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## <a id="august_changes_15"></a>Versão de Agosto de 2015
 * O SDK dos serviços de suporte de dados para o lançamento de versão 0.8.0 de Java e novos exemplos estão agora disponíveis. Para obter mais informações, consulte:
@@ -265,7 +265,7 @@ Os seguintes novos recursos foram anunciados:
 * Foi adicionado suporte para idioma espanhol.
 * Foi adicionada uma nova configuração para o formato XML.
 
-Para obter mais informações, consulte [este blog](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Para obter mais informações, veja [este blogue](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 ### <a name="media-services-net-sdk-updates"></a>Atualizações do SDK .NET dos Media Services
 O SDK .NET dos Media Services agora é a versão 3.2.0.0. Foram efetuadas as seguintes atualizações:
@@ -374,8 +374,8 @@ Ao codificar um elemento, um elemento de saída é produzido quando a tarefa de 
 ## <a id="july_changes_14"></a>Versão de Julho de 2014
 As seguintes correções de bugs foram feitas para o empacotador de serviços de multimédia do Azure e o encriptador:
 
-* Quando um recurso de arquivo live é transmitido para HLS, áudio apenas reproduz: este problema foi corrigido, e agora podem reproduzir áudio e vídeo.
-* Quando um recurso é empacotado para encriptação de envelope HLS e AES de 128 bits, os fluxos em pacote não reproduzir em dispositivos Android: esse bug foi corrigido, e o fluxo em pacote reproduz em dispositivos Android que suportam HLS.
+* Quando um recurso de arquivo live é transmitido para HLS, áudio apenas reproduz: Este problema foi corrigido, e agora podem reproduzir áudio e vídeo.
+* Quando um recurso é empacotado para encriptação de envelope HLS e AES de 128 bits, os fluxos em pacote não reproduzir em dispositivos Android: Esse bug foi corrigido, e o fluxo em pacote reproduz em dispositivos Android que suportam HLS.
 
 ## <a id="may_changes_14"></a>Versão de Maio de 2014
 ### <a id="may_14_changes"></a>As atualizações dos serviços de suporte de dados gerais
@@ -476,7 +476,7 @@ As seguintes alterações são incluídas em Junho de 2013 da versões do SDK de
     * StorageAccount propriedade
     * Propriedade de StorageAccountName
   
-    Para obter mais informações, consulte [ativos de gerir os serviços de multimédia em várias contas de armazenamento](https://msdn.microsoft.com/library/azure/dn271889.aspx).
+      Para obter mais informações, consulte [ativos de gerir os serviços de multimédia em várias contas de armazenamento](https://msdn.microsoft.com/library/azure/dn271889.aspx).
 * APIs relacionadas a notificação. A partir da versão 2.2.0.0, pode ouvir para notificações de armazenamento de filas do Azure. Para obter mais informações, consulte [notificações da tarefa de lidar com os serviços de multimédia](https://msdn.microsoft.com/library/azure/dn261241.aspx).
   
     * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions property
@@ -494,17 +494,17 @@ As seguintes alterações são incluídas em Junho de 2013 da versões do SDK de
 
 Correções para problemas encontrados em Novembro de 2012 SDK:
 
-* IAsset.Locators.Count: Esta contagem é agora corretamente comunicada em novas interfaces de IAsset depois de todos os localizadores são eliminados.
+* IAsset.Locators.Count: Esta contagem agora é reportada corretamente no novas interfaces de IAsset depois de todos os localizadores são eliminados.
 * IAssetFile.ContentFileSize: Este valor está agora corretamente definido após um carregamento por IAssetFile.Upload(filepath).
 * IAssetFile.ContentFileSize: Esta propriedade agora pode ser definida quando cria um ficheiro de elemento. Ele foi anteriormente só de leitura.
 * IAssetFile.Upload(filepath): Um problema foi corrigido em que este método de carregamento síncronos estava gerando o erro seguinte quando vários ficheiros foram carregados para o elemento. O erro foi "Falha ao autenticar o pedido de servidor. Certifique-se de que o valor de cabeçalho de autorização está formado corretamente, incluindo a assinatura."
 * IAssetFile.UploadAsync: Um problema foi corrigido que limitou o simultâneo carregamento de ficheiros a cinco ficheiros.
 * IAssetFile.UploadProgressChanged: Este evento é agora fornecido pelo SDK.
-* IAssetFile.DownloadAsync (string, BlobTransferClient, ILocator, CancellationToken): Esta sobrecarga do método agora é fornecida.
+* IAssetFile.DownloadAsync (string, BlobTransferClient, ILocator, CancellationToken): Essa sobrecarga do método agora é fornecida.
 * IAssetFile.DownloadAsync: Um problema foi corrigido que limitou o download simultâneo de ficheiros a cinco ficheiros.
 * IAssetFile.Delete(): Um problema foi corrigido onde chamada delete pode gerar uma exceção se nenhum arquivo foi carregado para o IAssetFile.
-* Trabalhos: Um problema foi corrigido onde encadeamento um "MP4 a tarefa de fluxos suave" com uma "tarefa de proteção de PlayReady" ao utilizar um modelo de tarefa não tiver criado quaisquer tarefas de todo.
-* EncryptionUtils.GetCertificateFromStore(): Este método já não lança uma exceção de referência nula devido a uma falha em encontrar o certificado com base em problemas de configuração de certificado.
+* Tarefas: Um problema foi corrigido onde encadeamento um "MP4 a tarefa de fluxos suave" com uma "tarefa de proteção de PlayReady" ao utilizar um modelo de tarefa não tiver criado quaisquer tarefas de todo.
+* EncryptionUtils.GetCertificateFromStore(): Esse método já não lança uma exceção de referência nula devido a uma falha em encontrar o certificado com base em problemas de configuração de certificado.
 
 ## <a id="november_changes_12"></a>Versão de Novembro de 2012
 As alterações mencionadas nesta seção foram atualizações incluídas em Novembro de 2012 (versão 2.0.0.0) SDK. Estas alterações podem exigir qualquer código escrito para a pré-visualização de Junho de 2012 de versão do SDK para ser modificado ou reescrito.

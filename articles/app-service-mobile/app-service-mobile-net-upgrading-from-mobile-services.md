@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 4fd896e3b26ae66621ba49d1bb8a5d86c0dd63ee
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963271"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278623"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Atualizar o seu serviço móvel do Azure de .NET existente para o serviço de aplicações
 Serviço de aplicações móveis é uma nova forma de compilação de aplicações móveis com o Microsoft Azure. Para obter mais informações, consulte [O que são Aplicações Móveis?].
@@ -68,7 +68,7 @@ A primeira etapa na atualização é criar o recurso de aplicação móvel que i
 
 Em seguida, crie a segunda instância de aplicação ao seguir a [instruções de criação de back-end de .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Quando lhe for pedido para selecionar o plano do serviço de aplicações ou "plano de alojamento" Escolha o plano da sua aplicação migrada.
 
-Provavelmente irá querer utilizar o mesmo banco de dados e o Hub de notificação, tal como fez nos serviços móveis. Pode copiar esses valores, abrindo [portal do Azure] e, em seguida, navegar para o aplicativo original, clique em **definições** > **definições da aplicação**. Sob **cadeias de ligação**, cópia `MS_NotificationHubConnectionString` e `MS_TableConnectionString`. Navegue para o novo site de atualização e colá-los, substituindo quaisquer valores existentes. Repita este processo para quaisquer outras definições de aplicação necessidades da sua aplicação. Se não utilizar um serviço migrado, pode ler cadeias de ligação e as definições de aplicação da **configurar** separador da seção de serviços móveis a [portal clássico do Azure].
+Provavelmente irá querer utilizar o mesmo banco de dados e o Hub de notificação, tal como fez nos serviços móveis. Pode copiar esses valores, abrindo [portal do Azure] e, em seguida, navegar para o aplicativo original, clique em **definições** > **definições da aplicação**. Sob **cadeias de ligação**, cópia `MS_NotificationHubConnectionString` e `MS_TableConnectionString`. Navegue para o novo site de atualização e colá-los, substituindo quaisquer valores existentes. Repita este processo para quaisquer outras definições de aplicação necessidades da sua aplicação.
 
 Faça uma cópia do projeto ASP.NET para a sua aplicação e publicá-lo no seu novo site. Utilizar uma cópia da sua aplicação de cliente atualizada com o novo URL, valide que tudo funciona conforme esperado.
 
@@ -280,7 +280,6 @@ Quando tiver a nova versão de cliente pronta, faça um teste em relação a seu
 <!-- URLs. -->
 
 [Portal do Azure]: https://portal.azure.com/
-[Portal Clássico do Azure]: https://manage.windowsazure.com/
 [O que são Aplicações Móveis?]: app-service-mobile-value-prop.md
 [SDK do servidor de aplicações móveis]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md

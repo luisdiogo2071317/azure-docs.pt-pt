@@ -1,5 +1,5 @@
 ---
-title: Como configurar a autenticação do Twitter na sua aplicação de serviços de aplicações
+title: Configurar a autenticação do Twitter - serviço de aplicações do Azure
 description: Saiba como configurar a autenticação do Twitter na sua aplicação de serviços de aplicações.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 42d857fe712658ca3c17d824d061742cf7195e39
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 51a2ac93fd2d863855c820ba147418c5397c2a89
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967356"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260332"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Como configurar a sua aplicação de serviço de aplicações para utilizar o início de sessão do Twitter
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

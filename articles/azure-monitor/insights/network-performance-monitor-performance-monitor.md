@@ -10,19 +10,17 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: 0dc0df8c766fd1e44158ae79d81d5fd8cc0657f3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: de9e6d5c8c6b4dc9652ae64c9a4fd0e38d7a7b87
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847512"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184768"
 ---
-# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solução de Monitor de desempenho de rede: a monitorização de desempenho
+# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solução de Monitor de desempenho de rede: Monitorização de desempenho
 
 A capacidade de Monitor de desempenho no [Monitor de desempenho de rede](network-performance-monitor.md) ajuda a monitorizar a conectividade de rede em vários pontos na sua rede. Pode monitorizar implementações de nuvem e localizações no local, vários datacenters e filiais e aplicativos de várias camados de missão crítica ou microsserviços. Com o Monitor de desempenho, pode detectar problemas de rede antes dos usuários se queixam. As principais vantagens são que o utilizador pode: 
 

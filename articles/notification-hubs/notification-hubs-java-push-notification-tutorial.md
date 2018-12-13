@@ -14,30 +14,31 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: a7ced71f2d0a8c5d956bbdbcd8fcae485aee3fc6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3251e2ecc9171081c5128dd0782eecdf83064114
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241582"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312260"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Como utilizar os Hubs de notificação de Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Este tópico descreve os principais recursos do novo suporte total oficial Notification Hub SDK Java do Azure. Este projeto é um projeto de código-fonte aberto e pode ver todo o código SDK em [SDK Java]. 
+Este tópico descreve os principais recursos do novo suporte total oficial Notification Hub SDK Java do Azure.
+Este projeto é um projeto de código-fonte aberto e pode ver todo o código SDK em [SDK Java].
 
-Em geral, pode acessar todas as funcionalidades dos Hubs de notificação de um back-end Java/PHP/Python/Ruby com a interface REST do Hub de notificação, conforme descrito no tópico do MSDN [APIs de REST dos Hubs de notificação](https://msdn.microsoft.com/library/dn223264.aspx). Esse SDK de Java fornece um wrapper estreito em relação a essas interfaces REST em Java. 
+Em geral, pode acessar todas as funcionalidades dos Hubs de notificação de um back-end Java/PHP/Python/Ruby com a interface REST do Hub de notificação, conforme descrito no tópico do MSDN [APIs de REST dos Hubs de notificação](https://msdn.microsoft.com/library/dn223264.aspx). Esse SDK de Java fornece um wrapper estreito em relação a essas interfaces REST em Java.
 
 O SDK suporta atualmente:
 
-* CRUD nos Hubs de notificação 
+* CRUD nos Hubs de notificação
 * CRUD registarem
 * Gestão de instalação
 * Importar/Exportar registos
 * Envia regular
 * Envia agendada
 * Operações assíncronas via NIO de Java
-* Plataformas suportadas: (iOS) do APNS, GCM (Android), WNS (aplicativos da Windows Store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sem o Google services) 
+* Plataformas suportadas: (IOS) do APNS, GCM (Android), WNS (aplicativos da Windows Store), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sem o Google services)
 
 ## <a name="sdk-usage"></a>Utilização do SDK
 ### <a name="compile-and-build"></a>Compilação e compilação
@@ -85,7 +86,7 @@ Para criar:
 
     WindowsRegistration reg = new WindowsRegistration(new URI(CHANNELURI));
     reg.getTags().add("myTag");
-    reg.getTags().add("myOtherTag");    
+    reg.getTags().add("myOtherTag");
     hub.createRegistration(reg);
 
 **Crie registo de iOS:**
@@ -122,33 +123,34 @@ Remove duplicatas devido a todas as respostas perdidas se armazenar o ID de regi
 **Registos de consulta:**
 
 * **Obter registo único:**
-  
+
         hub.getRegistration(regid);
 
 * **Obter todos os registos de hub:**
-  
+
         hub.getRegistrations();
 
 * **Obter registros com marca:**
-  
+
         hub.getRegistrationsByTag("myTag");
 
 * **Obter registos de canal:**
-  
+
         hub.getRegistrationsByChannel("devicetoken");
 
 
 Todas as consultas de coleção suportam tokens $top e continuação.
 
 ### <a name="installation-api-usage"></a>Utilização da API de instalação
-API de instalação é um mecanismo alternativo para a gestão de registo. Em vez de manter vários registros, o que não são simples e podem ser feitos facilmente rostos ou de forma ineficiente, agora é possível usar um objeto de instalação única. Instalação contém tudo o que precisa: enviar por push o canal (token de dispositivo), etiquetas, modelos, blocos secundários (para o WNS e APNS). Não precisa chamar o serviço para obter o ID já - apenas gerar GUID ou qualquer outro identificador, mantê-la no dispositivo e enviar para o seu back-end, juntamente com o canal de push (token de dispositivo). Back-end, deve fazer apenas uma única chamada: CreateOrUpdateInstallation, é totalmente idempotentes, fique à vontade repetir se for necessário.
+API de instalação é um mecanismo alternativo para a gestão de registo. Em vez de manter vários registros, o que não são simples e podem ser feitos facilmente rostos ou de forma ineficiente, agora é possível usar um objeto de instalação única. Instalação contém tudo o que precisa: enviar por push o canal (token de dispositivo), etiquetas, modelos, blocos secundários (para o WNS e APNS). Não precisa chamar o serviço para obter o ID já - apenas gerar GUID ou qualquer outro identificador, mantê-la no dispositivo e enviar para o seu back-end, juntamente com o canal de push (token de dispositivo).
+Back-end, deve fazer apenas uma única chamada: CreateOrUpdateInstallation, é totalmente idempotentes, fique à vontade repetir se for necessário.
 
 Como exemplo para o Amazon Kindle Fire:
 
     Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
     hub.createOrUpdateInstallation(installation);
 
-Se quiser atualizá-lo: 
+Se quiser atualizá-lo:
 
     installation.addTag("foo");
     installation.addTemplate("template1", new InstallationTemplate("{\"data\":{\"key1\":\"$(value1)\"}}","tag-for-template1"));
@@ -186,7 +188,7 @@ O mesmo como envio regular mas com um parâmetro adicional - scheduledTime, que 
 **Agende uma notificação de nativa do Windows:**
 
     Calendar c = Calendar.getInstance();
-    c.add(Calendar.DATE, 1);    
+    c.add(Calendar.DATE, 1);
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.scheduleNotification(n, c.getTime());
 
@@ -216,34 +218,34 @@ Por vezes, é necessário para efetuar a operação em massa em relação a regi
         job = hub.getNotificationHubJob(job.getJobId());
         if(job.getJobStatus() == NotificationHubJobStatus.Completed)
             break;
-    }       
+    }
 
 **Obter todas as tarefas:**
 
     List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI com assinatura SAS:** este URL é o URL de algum ficheiro blob ou contentor de BLOBs e conjunto de parâmetros, como as permissões e a hora de expiração e assinatura de todas essas coisas efetuada através da chave SAS da conta. SDK de Java de armazenamento do Azure tem capacidades avançadas, incluindo a criação de tal espécie de URIs. Como alternativa simple pode dar uma olhada na classe de teste ImportExportE2E (a partir da localização de github) que tem a implementação básica e compact do algoritmo de assinatura.
+**URI com assinatura SAS:** Este URL é o URL de algum ficheiro blob ou contentor de BLOBs e conjunto de parâmetros, como as permissões e a hora de expiração e assinatura de todas essas coisas efetuada através da chave SAS da conta. SDK de Java de armazenamento do Azure tem capacidades avançadas, incluindo a criação de tal espécie de URIs. Como alternativa simple pode dar uma olhada na classe de teste ImportExportE2E (a partir da localização de GitHub) que tem a implementação básica e compact do algoritmo de assinatura.
 
 ### <a name="send-notifications"></a>Enviar notificações
 O objeto de notificação é simplesmente um corpo com cabeçalhos, alguns métodos de utilitário ajudam na criação de objetos de notificações nativos e do modelo.
 
 * **Windows Store e Windows Phone 8.1 (não Silverlight)**
-  
+
         String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
         Notification n = Notification.createWindowsNotification(toast);
         hub.sendNotification(n);
 * **iOS**
-  
+
         String alert = "{\"aps\":{\"alert\":\"Hello from Java!\"}}";
         Notification n = Notification.createAppleNotification(alert);
         hub.sendNotification(n);
 * **Android**
-  
+
         String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
         Notification n = Notification.createGcmNotification(message);
         hub.sendNotification(n);
 * **Windows Phone 8.0 e 8.1 Silverlight**
-  
+
         String toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
                     "<wp:Notification xmlns:wp=\"WPNotification\">" +
                        "<wp:Toast>" +
@@ -253,7 +255,7 @@ O objeto de notificação é simplesmente um corpo com cabeçalhos, alguns méto
         Notification n = Notification.createMpnsNotification(toast);
         hub.sendNotification(n);
 * **Kindle Fire**
-  
+
         String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
         Notification n = Notification.createAdmNotification(message);
         hub.sendNotification(n);
@@ -263,11 +265,11 @@ O objeto de notificação é simplesmente um corpo com cabeçalhos, alguns méto
         tags.add("boo");
         tags.add("foo");
         hub.sendNotification(n, tags);
-* **Enviar para expressão de etiqueta**       
-  
+* **Enviar para expressão de etiqueta**
+
         hub.sendNotification(n, "foo && ! bar");
 * **Enviar notificação de modelo**
-  
+
         Map<String, String> prop =  new HashMap<String, String>();
         prop.put("prop1", "v1");
         prop.put("prop2", "v2");
@@ -279,7 +281,7 @@ Execução do seu código Java agora deve produzir uma notificação que aparece
 ## <a name="next-steps"></a>Passos Seguintes
 Este tópico mostrou como criar um cliente de Java REST simple para os Hubs de notificação. A partir daqui, pode:
 
-* Transferir o completo [SDK Java], que contém todo o código do SDK. 
+* Transferir o completo [SDK Java], que contém todo o código do SDK.
 * Brincar com os exemplos:
   * [Introdução aos Hubs de notificação]
   * [Enviar notícias de última hora]

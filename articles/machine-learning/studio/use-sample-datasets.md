@@ -4,9 +4,8 @@ description: Descrições dos conjuntos de dados utilizadas em modelos de exempl
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 57d9e1c7b501b67a441dc3490356261fa29ebb7d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308839"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270489"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilizar os conjuntos de dados de exemplo no Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -34,7 +33,7 @@ O resto destes conjuntos de dados de exemplo estão disponíveis na sua área de
 Pode utilizar qualquer um destes conjuntos de dados na sua própria experiência ao arrastá-la à tela de experimentação.
 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <table>
 
@@ -48,7 +47,7 @@ Pode utilizar qualquer um destes conjuntos de dados na sua própria experiência
   <td>
 Um subconjunto de 1994 recenseamento banco de dados, usando os adultos de trabalhar mais de 16 com um índice de renda ajustada de > 100.
 <p></p>
-<b>Utilização:</b> classificar as pessoas que utilizam dados demográficos para prever se uma pessoa recebe mais de 50 mil por ano.
+<b>Utilização:</b> Classificar as pessoas que utilizam dados demográficos para prever se uma pessoa recebe mais de 50 mil por ano.
 <p></p>
 <b>Pesquisas relacionadas:</b> Kohavi, r, Becker, B., (1996). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
@@ -69,7 +68,7 @@ Informações sobre automóveis por marca e modelo, incluindo o preço, funciona
 <p></p>
 A classificação de risco está inicialmente associada a preço automática. Em seguida, ele será ajustado por risco real num processo conhecido para atuários como symboling. Um valor de +3 indica que o automática é arriscada e um valor de -3 que ele é provavelmente seguro.
 <p></p>
-<b>Utilização:</b> prever a classificação de risco por recursos, utilizar a classificação de regressão ou multivariate. 
+<b>Utilização:</b> Prever a classificação de risco por recursos, com a regressão ou classificação multivariate. 
 <p></p>
 <b>Pesquisas relacionadas:</b> Schlimmer, J.C. (1987). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
@@ -100,7 +99,7 @@ Um subconjunto dos dados da base de dados de Doador sangue do Centro de Hsin Chu
 <p></p>
 Dados de Doador incluem os meses desde a última doação) e frequência ou o número total de doações, tempo desde a última doação e a quantidade de sangue doou.
 <p></p>
-<b>Utilização:</b> o objetivo é prever por meio de classificação, se o doador doou sangue em Março de 2007, onde 1 indica um doador durante o período de destino e 0 um não-doador. 
+<b>Utilização:</b> O objetivo é prever por meio de classificação, se o doador doou sangue em Março de 2007, onde 1 indica um doador durante o período de destino e 0 um não-doador. 
 <p></p>
 <b>Pesquisas relacionadas:</b> Yeh I.C., (2008). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação
 <p></p>
@@ -113,7 +112,7 @@ Yeh, eu-Cheng, Yang, King-Jang e Ting, etiqueta-Ming de VPN, "descoberta de dado
   <td>
 Um dos três relacionados com o cancro conjuntos de dados fornecidos pelo Institute Oncology que aparece com frequência na literatura de aprendizado de máquina. Combina informações de diagnóstico com as funcionalidades de análise de laboratório de cerca de 300 exemplos de cicatrização.
 <p></p>
-<b>Utilização:</b> classificar o tipo de cancro, com base em 9 atributos, alguns dos quais estão lineares e alguns são categóricos. 
+<b>Utilização:</b> Classificar o tipo de cancro, com base em 9 atributos, alguns dos quais estão lineares e alguns são categóricos. 
 <p></p>
 <b>Pesquisas relacionadas:</b> O.L. Wohlberg, W.H., rua, W.N. e Mangasarian, (1995). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
@@ -166,7 +165,7 @@ Etiquetas do desafio de predição de relação de cliente do concurso KDD Cup 2
   <td>
 Um conjunto de perfis de energia simulado, com base em 12 criar diferentes formas. Os prédios são diferenciados por funcionalidades de oito. Isto inclui glazing área, a distribuição da área de glazing e orientação.
 <p></p>
-<b>Utilização:</b> utilizar regressão ou classificação para prever a eficiência de energia, com base, como uma das duas respostas reais com valores de classificação. Para a classificação de Roc, é arredondar a variável de resposta para o número inteiro mais próximo. 
+<b>Utilização:</b> Utilize regressão ou classificação para prever a classificação de eficiência energética com base em como uma das duas respostas reais com valores. Para a classificação de Roc, é arredondar a variável de resposta para o número inteiro mais próximo. 
 <p></p>
 <b>Pesquisas relacionadas:</b> Xifara, A. & Tsanas, A. (2012). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
@@ -181,7 +180,7 @@ O conjunto de dados abrange o período de tempo de Abril de Outubro de 2013. Ant
   <li>O conjunto de dados foi filtrado para abranger apenas os 70 aeroportos mais ocupados no território continental dos EUA</li>
   <li>Cancelado voos foram etiquetados como atrasado mais de 15 minutos</li>
   <li>Foram filtrados desviados voos</li>
-  <li>Foram selecionadas as seguintes colunas: ano, mês, DayofMonth, DayOfWeek, deteção de Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, cancelado</li>
+  <li>Foram selecionadas as seguintes colunas: Ano, mês, DayofMonth, DayOfWeek, deteção de Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, foi cancelada</li>
 </ul>
 </td>
 </tr>
@@ -191,9 +190,9 @@ O conjunto de dados abrange o período de tempo de Abril de Outubro de 2013. Ant
   <td>
 Registos de entradas de voo do avião e departures dentro dos Estados Unidos de Outubro de 2011.
 <p></p>
-<b>Utilização:</b> prever atrasos de voos. 
+<b>Utilização:</b> Prever a atrasos de voos. 
 <p></p>
-<b>Pesquisas relacionadas:</b> partir dos EUA dodep. of Transportation <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
+<b>Pesquisas relacionadas:</b> Dos E.U.A. dodep. of Transportation <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
   </td>
 </tr>
 
@@ -202,7 +201,7 @@ Registos de entradas de voo do avião e departures dentro dos Estados Unidos de 
   <td>
 Contém dados de informações sobre o clima, como índices de temperatura e humidade e velocidade do vento. Os dados está a ser utilizados de uma área de Nordeste de Portugal, combinado com os registos de floresta desencadeado.
 <p></p>
-<b>Utilização:</b> esta é uma tarefa difícil de regressão, em que o objetivo é prever a área burned de floresta desencadeado. 
+<b>Utilização:</b> Esta é uma tarefa de regressão difícil, em que o objetivo é prever a área burned de floresta desencadeado. 
 <p></p>
 <b>Pesquisas relacionadas:</b> Cortez, P. & Morais, A. (2008). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação
 <p></p>
@@ -222,7 +221,7 @@ O conjunto de dados classifica as pessoas, descritas por um conjunto de atributo
 <tr>
   <td>Títulos de filmes IMDB</td>
   <td>
-O conjunto de dados contém informações sobre filmes que foram avaliadas nos tweets do Twitter: IMDB ID de filme, o nome do filme, o gênero e o ano de produção. Há 17 mil filmes no conjunto de dados. O conjunto de dados foi introduzido no documento "S. Dooms, T. Alemanha Pessemier e Martens L. MovieTweetings: um conjunto de dados de classificação de filme recolhido do Twitter. Workshop sobre Crowdsourcing e a computação humana para os sistemas de Recomendador, CrowdRec na RecSys 2013."
+O conjunto de dados contém informações sobre filmes que foram avaliadas nos tweets do Twitter: ID de filme IMDB, o nome do filme, o gênero e o ano de produção. Há 17 mil filmes no conjunto de dados. O conjunto de dados foi introduzido no documento "S. Dooms, T. Alemanha Pessemier e Martens L. MovieTweetings: um conjunto de dados de classificação de filme recolhido do Twitter. Workshop sobre Crowdsourcing e a computação humana para os sistemas de Recomendador, CrowdRec na RecSys 2013."
   </td>
 </tr>
 
@@ -231,7 +230,7 @@ O conjunto de dados contém informações sobre filmes que foram avaliadas nos t
   <td>
 Isto é, talvez, a base de dados mais conhecido para ser encontrados na literatura de reconhecimento do padrão. O conjunto de dados é relativamente pequeno, que contêm 50 exemplos de medidas de petal de três variedades de íris.
 <p></p>
-<b>Utilização:</b> prever o tipo de íris de medidas.  
+<b>Utilização:</b> Prever o tipo de íris de medidas.  
 <p></p>
 <b>Pesquisas relacionadas:</b> Fisher, R.A. (1988). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
@@ -250,9 +249,9 @@ Este conjunto de dados é uma versão ligeiramente modificada do conjunto de dad
 <p></p>
 Os dados de lista de consumo de combustível para vários automóveis em quilómetros por litro. Também inclui informações como o número de cilindros, deslocamento do motor, potência, peso total e aceleração.
 <p></p>
-<b>Utilização:</b> prever a economia de combustível com base em atributos discretos de valor múltiplos três e cinco atributos contínuos. 
+<b>Utilização:</b> Prever a economia de combustível com base em atributos discretos de valor múltiplos três e cinco atributos contínuos. 
 <p></p>
-<b>Pesquisas relacionadas:</b> StatLib Carnegie Mellon University, (1993). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
+<b>Pesquisas relacionadas:</b> StatLib, Carnegie Mellon University, (1993). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
 
 <tr>
@@ -260,7 +259,7 @@ Os dados de lista de consumo de combustível para vários automóveis em quilóm
   <td>
 Um subconjunto de dados do Instituto nacional de Diabetes e da base de dados Digestive e Kidney doenças. O conjunto de dados foi filtrado concentrar-se em female pacientes de herança de indianos Pima. Os dados incluem dados médicos como glicose e níveis de insulin, bem como os fatores de estilo de vida.
 <p></p>
-<b>Utilização:</b> prever se o requerente tem diabetes (classificação binária). 
+<b>Utilização:</b> Preveja se o requerente tem diabetes (classificação binária). 
 <p></p>
 <b>Pesquisas relacionadas:</b> Sigillito, V. (1990). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml"</a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação </td>
 </tr>
@@ -270,7 +269,7 @@ Um subconjunto de dados do Instituto nacional de Diabetes e da base de dados Dig
   <td>
 Um conjunto de metadados sobre clientes, incluindo dados demográficos e preferências.
 <p></p>
-<b>Utilização:</b> utilizar este conjunto de dados, em combinação com os outros dois restaurante conjuntos de dados, para treinar e testar um sistema de recomendador. 
+<b>Utilização:</b> Utilize este conjunto de dados, em combinação com os outros dois restaurante conjuntos de dados, para treinar e testar um sistema de recomendador. 
 <p></p>
 <b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
   </td>
@@ -281,7 +280,7 @@ Um conjunto de metadados sobre clientes, incluindo dados demográficos e prefer�
   <td>
 Um conjunto de metadados sobre restaurantes e as respetivas funcionalidades, como o tipo de comida, estilo jantar e localização.
 <p></p>
-<b>Utilização:</b> utilizar este conjunto de dados, em combinação com os outros dois restaurante conjuntos de dados, para treinar e testar um sistema de recomendador. 
+<b>Utilização:</b> Utilize este conjunto de dados, em combinação com os outros dois restaurante conjuntos de dados, para treinar e testar um sistema de recomendador. 
 <p></p>
 <b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
   </td>
@@ -292,7 +291,7 @@ Um conjunto de metadados sobre restaurantes e as respetivas funcionalidades, com
   <td>
 Contém as classificações dadas por usuários para restaurantes numa escala de 0 a 2.
 <p></p>
-<b>Utilização:</b> utilizar este conjunto de dados, em combinação com os outros dois restaurante conjuntos de dados, para treinar e testar um sistema de recomendador. 
+<b>Utilização:</b> Utilize este conjunto de dados, em combinação com os outros dois restaurante conjuntos de dados, para treinar e testar um sistema de recomendador. 
 <p></p>
 <b>Pesquisas relacionadas:</b> Bache, K. e Lichman, M. (2013). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola e ciência da computação.
   </td>
@@ -303,7 +302,7 @@ Contém as classificações dadas por usuários para restaurantes numa escala de
   <td>
 Este conjunto de dados contém uma série de registos a partir do acinzentado recozimento versões de avaliação. Contém os atributos físicos (largura, espessura, tipos de tipo (coil, folha, etc.) de resultante aço.
 <p></p>
-<b>Utilização:</b> prever qualquer um dos dois atributos numéricos de classe; hardness ou força. Também pode analisar correlações entre atributos.
+<b>Utilização:</b> Prever a qualquer um dos dois atributos numéricos de classe; hardness ou força. Também pode analisar correlações entre atributos.
 <p></p>
 As notas de aço siga um conjunto padrão, definido pela SAE e outras organizações. Está procurando uma específicas de "nível" (a variável de classe) e quiser compreender os valores necessários. 
 <p></p>
@@ -322,13 +321,13 @@ O objetivo da simulação era melhorar a precisão de telescopes atmospheric de 
 <p></p>
 Os dados terem sido previamente processados para criar um cluster elongated com a longa eixo está orientado para o Centro de câmara. As características dessa elipse (muitas vezes chamado de parâmetros de Hillas) estão entre os parâmetros de imagem que podem ser utilizados para discrimination.
 <p></p>
-<b>Utilização:</b> prever se a imagem de um shower representa o ruído de sinal ou em segundo plano.
+<b>Utilização:</b> Prever se a imagem de um shower representa o ruído de sinal ou em segundo plano.
 <p></p>
-<b>Notas:</b> precisão de classificação simples não é significativo para estes dados, desde classificar um evento em segundo plano, como o sinal é pior do que classificar um evento de sinal como em segundo plano. Para comparação de classificadores diferentes, deve ser utilizado o gráfico ROC. A probabilidade de aceitação de um evento de plano de fundo como sinal tem de ser abaixo de um dos seguintes limiares: 0,01, 0,02, 0,05, 0,1 ou 0,2.
+<b>Notas:</b> Precisão de classificação simples não é significativo para estes dados, desde classificar um evento em segundo plano, como o sinal é pior do que classificar um evento de sinal como em segundo plano. Para comparação de classificadores diferentes, deve ser utilizado o gráfico ROC. A probabilidade de aceitação de um evento de plano de fundo como sinal tem de ser abaixo de um dos seguintes limiares: 0,01, 0,02, 0,05, 0,1 ou 0,2.
 <p></p>
 Além disso, tenha em atenção que o número de eventos de segundo plano (h, para hadronic showers) é subestimado. Medidas reais, a classe de h ou ruído representa a maioria dos eventos. 
 <p></p>
-<b>Pesquisas relacionadas:</b> Bock, R.K. (1995). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. AC, Irvine: Universidade da Califórnia, de informações sobre a escola </td>
+<b>Pesquisas relacionadas:</b> Bock, R.K. (1995). Repositório de aprendizagem UCI <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, AC: Universidade da Califórnia, de informações sobre a escola </td>
 </tr>
 
 <tr>
