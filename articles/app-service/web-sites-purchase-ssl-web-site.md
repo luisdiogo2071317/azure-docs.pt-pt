@@ -1,5 +1,5 @@
 ---
-title: Comprar e configurar um certificado SSL para o serviço de aplicações do Azure | Documentos da Microsoft
+title: Comprar e configurar um certificado SSL do Azure - serviço de aplicações | Documentos da Microsoft
 description: Saiba como comprar um certificado de serviço de aplicações e vinculá-lo à sua aplicação de serviço de aplicações
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 67d27587e8a5f85eb339efb83e661c061b621ed1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959840"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268721"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o serviço de aplicações do Azure
 
@@ -80,7 +81,7 @@ Assim que tiver selecionado o cofre, feche o **repositório do Key Vault** pági
 
 ## <a name="verify-domain-ownership"></a>Verificar a propriedade do domínio
 
-Da mesma **configuração do certificado** página que utilizou no último passo, clique em **passo 2: verificar**.
+Da mesma **configuração do certificado** página que utilizou no último passo, clique em **passo 2: Certifique-se de**.
 
 ![](./media/app-service-web-purchase-ssl-web-site/verify-domain.png)
 

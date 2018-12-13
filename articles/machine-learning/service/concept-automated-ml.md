@@ -1,7 +1,7 @@
 ---
-title: O que é o Machine Learning automatizada
+title: Seleção de algoritmo ML automatizado e Otimização
 titleSuffix: Azure Machine Learning service
-description: Saiba mais sobre como serviço Azure Machine Learning pode automaticamente escolher um algoritmo para e gerar um modelo com ele para poupar que tempo utilizando os parâmetros e os critérios fornecidos para selecionar o melhor algoritmo para o seu modelo.
+description: Saiba como serviço Azure Machine Learning pode automaticamente escolher um algoritmo para e gerar um modelo a partir do mesmo a economizar tempo, usando os parâmetros e os critérios fornecidos para selecionar o melhor algoritmo para o seu modelo.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8c1641c975ff235b581f784f0965caf203a9562f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 09d4ef0b6a3455728ddab0484db4c701c6764214
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142535"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270931"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é automatizado aprendizagem automática?
 

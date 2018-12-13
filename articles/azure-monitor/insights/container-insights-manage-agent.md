@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 03e67508aab57a825c851f2cb3d361c0aea63f72
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 566ab8d14ebce04a2cba208dd72efc3782d5ad41
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110029"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256303"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Como gerir o Azure Monitor para agente de contentores
 Monitor do Azure para contentores utiliza uma versão em contentores do agente do Log Analytics para Linux. Após a implementação inicial, existem tarefas opcionais que poderá ter de efetuar durante seu ciclo de vida ou de rotina. Este artigo descreve a sobre como atualizar o agente e desativar a recolha de variáveis de ambiente de um determinado contêiner manualmente. 
@@ -62,9 +62,9 @@ O estado deve assemelhar-se o exemplo seguinte, onde o valor para *omi* e *omsag
     docker-cimprov 1.0.0.31
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Como desativar a coleção de variáveis de ambiente num contêiner
-Monitor do Azure para contentores recolhe variáveis de ambiente de contentores em execução num pod e apresenta-os no painel de propriedades do contentor selecionado na **contentores** vista. Pode controlar esse comportamento ao desativar a coleção para um contentor específico durante a implementação do AKS cluster ou depois de definir a variável de ambiente *AZMON_COLLECT_ENV*. Esta funcionalidade está disponível a partir da versão de agente – ciprod11292018 e superior.  
+Monitor do Azure para contentores recolhe variáveis de ambiente de contentores em execução num pod e apresenta-os no painel de propriedades do contentor selecionado na **contentores** vista. Pode controlar esse comportamento ao desativar a coleção para um contentor específico durante a implementação do AKS cluster, ou depois de definir a variável de ambiente *AZMON_COLLECT_ENV*. Esta funcionalidade está disponível a partir da versão de agente – ciprod11292018 e superior.  
 
-Para desativar a coleção de variáveis de ambiente num contêiner de novo ou existente, defina a variável *AZMON_COLLECT_ENV* com um valor de *falso* ao seu ficheiro de configuração de yaml de implementação de Kubernetes.   
+Para desativar a coleção de variáveis de ambiente num contêiner de novo ou existente, defina a variável **AZMON_COLLECT_ENV** com um valor de **falso** no seu ficheiro de configuração de yaml de implementação de Kubernetes.   
 
 ```  
 - name: AZMON_COLLECT_ENV  

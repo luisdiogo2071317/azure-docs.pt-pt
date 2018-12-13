@@ -1,5 +1,5 @@
 ---
-title: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações | Microsoft Docs
+title: Proteger a ligação de base de dados SQL com a identidade gerida - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como tornar a conectividade da base de dados mais segura com uma identidade gerida e como aplicá-la a outros serviços do Azure.
 services: app-service\web
 documentationcenter: dotnet
@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ec68b75d77e345f430d29f9af10a90372592fbc0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b7d8a9b0ef48f7daed74fb15263e516d820a6a38
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963935"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259074"
 ---
-# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
+# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Ligação de base de dados do Azure SQL segura do serviço de aplicações com uma identidade gerida
 
-O [Serviço de Aplicações](app-service-web-overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática no Azure. Também oferece uma [identidade gerida](app-service-managed-service-identity.md) para a sua aplicação, que é uma solução chave na mão para proteger o acesso à [Base de Dados SQL do Azure](/azure/sql-database/) e a outros serviços do Azure. As identidades geridas no Serviço de Aplicações retiram a necessidade de ter segredos nas suas aplicações, como credenciais nas cadeias de ligação, o que as torna mais seguras. Neste tutorial, vai adicionar a identidade gerida à aplicação Web ASP.NET de exemplo que criou em [Tutorial: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Quando tiver terminado, a aplicação de exemplo irá ligar-se à Base de Dados SQL em segurança sem ser preciso o nome de utilizador e a palavras-passe.
+O [Serviço de Aplicações](app-service-web-overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática no Azure. Também oferece uma [identidade gerida](app-service-managed-service-identity.md) para a sua aplicação, que é uma solução chave na mão para proteger o acesso à [Base de Dados SQL do Azure](/azure/sql-database/) e a outros serviços do Azure. As identidades geridas no Serviço de Aplicações retiram a necessidade de ter segredos nas suas aplicações, como credenciais nas cadeias de ligação, o que as torna mais seguras. Neste tutorial, irá adicionar a identidade gerida para a aplicação web do ASP.NET de exemplo que criou na [Tutorial: Criar uma aplicação ASP.NET no Azure com a base de dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Quando tiver terminado, a aplicação de exemplo irá ligar-se à Base de Dados SQL em segurança sem ser preciso o nome de utilizador e a palavras-passe.
 
 > [!NOTE]
 > Este cenário é atualmente suportado pelo .NET Framework 4.6 e acima, mas não pelo [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows). O [.NET core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) suporta o cenário, mas ainda não está incluído nas imagens predefinidas no Serviço de Aplicações. 
@@ -44,7 +44,7 @@ O que aprende com o saiba como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo retoma onde o artigo [Tutorial: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md) ficou. Se ainda não o fez, siga este tutorial primeiro. Em alternativa, pode adaptar os passos para a sua própria aplicação ASP.NET com a Base de Dados SQL.
+Este artigo continua onde ficou [Tutorial: Criar uma aplicação ASP.NET no Azure com a base de dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Se ainda não o fez, siga este tutorial primeiro. Em alternativa, pode adaptar os passos para a sua própria aplicação ASP.NET com a Base de Dados SQL.
 
 <!-- ![app running in App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png) -->
 

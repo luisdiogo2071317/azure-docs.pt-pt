@@ -1,5 +1,5 @@
 ---
-title: 'O Azure AD Connect: Totalmente integrada Single Sign-On - como funciona | Documentos da Microsoft'
+title: 'Azure AD Connect: Totalmente integrado Single Sign-On - como funciona | Documentos da Microsoft'
 description: Este artigo descreve como funciona o recurso do Azure Active Directory totalmente integrada início de sessão único.
 services: active-directory
 keywords: o que é o Azure AD Connect, a instalação do Active Directory, necessário componentes para o Azure AD, SSO, Single Sign-on
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 236a9dac64fa98b9db68a610de097c1deba3e7ee
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 54b614e49bc7c03325ebeada60232fca861874e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970433"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193081"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Do Azure Active Directory totalmente integrada início de sessão único: análise detalhada bastante técnica
+# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>O Azure Active Directory totalmente integrada início de sessão único: Análise técnica aprofundada
 
 Este artigo fornece detalhes técnicos sobre como funciona o recurso do Azure Active Directory totalmente integrada início de sessão único (SSO totalmente integrado).
 
@@ -58,8 +58,8 @@ O fluxo de início de sessão num navegador da web é o seguinte:
 2. Se o utilizador não está já iniciou sessão, o utilizador é redirecionado para a página de início de sessão do Azure AD.
 3. O usuário digita no respetivo nome de utilizador para a página de início de sessão do Azure AD.
 
-  >[!NOTE]
-  >Para [determinados aplicativos](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), passos 2 e 3 são ignorados.
+   >[!NOTE]
+   >Para [determinados aplicativos](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), passos 2 e 3 são ignorados.
 
 4. Usando o JavaScript em segundo plano, o Azure AD desafios ao navegador, via uma resposta 401 não autorizado, para fornecer um tíquete Kerberos.
 5. O navegador, por sua vez, solicita um pedido de suporte do Active Directory para o `AZUREADSSOACC` conta de computador (que representa o Azure AD).
