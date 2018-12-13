@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 12/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: d16f05c208e737f7c0095fc95c4272fe216f7a34
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 36cdb8a84c7ec7e05917be1144ae008f90cad03a
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094938"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321140"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -35,7 +35,7 @@ Não é possível alterar a localização do recurso. Mover um recurso apenas mo
 
 ## <a name="checklist-before-moving-resources"></a>Lista de verificação antes de mover recursos
 
-Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao confirmar estas condições, pode evitar erros.
+Existem alguns passos importantes para o fazer antes de mover um recurso. Ao confirmar estas condições, pode evitar erros.
 
 1. As subscrições de origem e de destino tem de existir no mesmo [inquilino do Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md). Para verificar-se de que ambas as subscrições têm o mesmo ID de inquilino, utilize o Azure PowerShell ou a CLI do Azure.
 
@@ -58,7 +58,7 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
   * [Transferir a propriedade de uma subscrição do Azure para outra conta](../billing/billing-subscription-transfer.md)
   * [Como associar ou adicionar uma subscrição do Azure ao Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-1. A subscrição de destino tem de estar registada no fornecedor de recursos do recurso a ser movido. Se não, receberá um erro a indicar que o **subscrição não está registada para um tipo de recurso**. Poderá encontrar este problema ao mover um recurso para uma nova subscrição, mas em que esta nunca foi utilizada com esse tipo de recurso.
+1. A subscrição de destino tem de estar registada no fornecedor de recursos do recurso a ser movido. Se não, receberá um erro a indicar que o **subscrição não está registada para um tipo de recurso**. Pode ver este erro quando mover um recurso para uma nova subscrição, mas que nunca tiver sido utilizada a subscrição com esse tipo de recurso.
 
   Para o PowerShell, utilize os seguintes comandos para obter o estado do registo:
 
@@ -93,7 +93,7 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
 
 1. Antes de mover os recursos, verifique as quotas de subscrição para a subscrição que estiver a mover os recursos para. Se mover os recursos significa que a subscrição irá exceder os limites, terá de rever se podem pedir um aumento na quota. Para obter uma lista de limites e como pedir um aumento, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).
 
-1. Sempre que possível, quebra de grandes passa para operações de movimentação separado. Gestor de recursos falha imediatamente as tentativas de mover os recursos mais de 800 numa única operação. No entanto, o mover os recursos de menos de 800 também poderá falhar por tempo limite.
+1. Sempre que possível, quebra de grandes passa para operações de movimentação separado. Gestor de recursos devolve imediatamente um erro quando há mais de 800 recurso numa única operação. No entanto, o mover os recursos de menos de 800 também poderá falhar por tempo limite.
 
 1. O serviço tem de permitir a capacidade de mover recursos. Para determinar se a mudança será bem sucedido [validar o seu pedido de movimentação](#validate-move). Consulte as secções abaixo neste artigo, dos quais [serviços permitem mover recursos](#services-that-can-be-moved) e em que [serviços não permitem mover recursos](#services-that-cannot-be-moved).
 
@@ -130,7 +130,7 @@ Com um corpo de pedido:
 
 ```json
 {
- "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "resources": ["<resource-id-1>", "<resource-id-2>"],
  "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
 }
 ```
@@ -169,7 +169,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Analysis Services
 * Gestão de API
 * Aplicações de serviço de aplicações (aplicações web) – consulte [limitações do serviço de aplicações](#app-service-limitations)
-* Certificados de Serviço de Aplicações
+* Certificados de serviço de aplicações - veja [limitações de certificado do serviço de aplicações](#app-service-certificate-limitations)
 * Application Insights
 * Automatização
 * Azure Active Directory B2C
@@ -226,7 +226,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Não é possível mover o armazenamento - contas de armazenamento em regiões diferentes na mesma operação. Em vez disso, a utilizar operações separadas para cada região.
 * Armazenamento (clássica) – consulte [limitações da implementação clássica](#classic-deployment-limitations)
 * Estado do Stream Analytics - Analytics Stream tarefas não podem ser movidas quando em execução.
-* Servidor de base de dados SQL - base de dados e servidor têm de residir no mesmo grupo de recursos. Quando move um SQL server, todas as suas bases de dados também são movidas. Este comportamento aplica-se às bases de dados do Azure SQL Database e o Azure SQL Data Warehouse.
+* Servidor de base de dados SQL - base de dados e o servidor tem de estar no mesmo grupo de recursos. Quando move um SQL server, todas as suas bases de dados também são movidas. Este comportamento aplica-se às bases de dados do Azure SQL Database e o Azure SQL Data Warehouse.
 * Time Series Insights
 * Gestor de Tráfego
 * Máquinas virtuais - para VMs com discos geridos, consulte [limitações de máquinas virtuais](#virtual-machines-limitations)
@@ -312,15 +312,7 @@ Esse suporte significa que pode também mover:
 Aqui estão as restrições que ainda não são suportadas:
 
 * Máquinas virtuais com o certificado armazenadas no Key Vault pode ser movidas para um novo grupo de recursos na mesma subscrição, mas não em várias subscrições.
-* Máquinas de virtuais configuradas com o Azure Backup. Utilize a abaixo da solução para mover estas máquinas virtuais
-  * Localize a localização da sua máquina Virtual.
-  * Localize um grupo de recursos com o seguinte padrão de nomenclatura: `AzureBackupRG_<location of your VM>_1` AzureBackupRG_westus2_1 por exemplo,
-  * Se no portal do Azure, em seguida, verificação "Mostrar tipos ocultos"
-  * Se, no PowerShell, utilize o `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
-  * Se, na CLI, utilize o `az resource list -g AzureBackupRG_<location of your VM>_1`
-  * Agora, localize o recurso com o tipo `Microsoft.Compute/restorePointCollections` que tem o padrão de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`
-  * Eliminar este recurso
-  * Após a eliminação estiver concluída, poderá mover a Máquina Virtual
+* Se a máquina virtual está configurada para cópia de segurança, consulte [limitações dos serviços de recuperação](#recovery-services-limitations).
 * Não é possível mover a conjuntos de dimensionamento de máquina virtual com o Balanceador de carga de SKU Standard ou IP público de SKU Standard
 * Máquinas virtuais criadas a partir dos recursos de mercado com planos ligados não pode ser movidas entre grupos de recursos ou subscrições. Desaprovisionar a máquina virtual na subscrição atual e implemente novamente na subscrição nova.
 
@@ -334,19 +326,17 @@ Não é possível mover uma rede virtual para uma subscrição diferente se a re
 
 ## <a name="app-service-limitations"></a>Limitações do serviço de aplicações
 
-As limitações para mover os recursos de serviço de aplicações são diferentes com base no se estiver a mover os recursos numa subscrição ou para uma nova subscrição.
-
-As limitações descritas nestas secções aplicam-se para certificados carregados, não certificados de serviço de aplicações. Pode mover os certificados de serviço de aplicações para um novo grupo de recursos ou subscrição, sem limitações. Se tiver várias aplicações web que utilizam o mesmo certificado de serviço de aplicações, primeiro mover todas as aplicações web, em seguida, mova o certificado.
+As limitações para mover os recursos de serviço de aplicações são diferentes com base no se estiver a mover os recursos numa subscrição ou para uma nova subscrição. Se a sua aplicação web utiliza um certificado de serviço de aplicações, consulte o artigo [limitações de certificado do serviço de aplicações](#app-service-certificate-limitations)
 
 ### <a name="moving-within-the-same-subscription"></a>Mover dentro da mesma subscrição
 
-Ao mover uma aplicação Web _dentro da mesma subscrição_, não é possível mover os certificados SSL carregados. No entanto, pode mover uma aplicação Web para o novo grupo de recursos sem mover o seu certificado SSL carregado e funcionalidade SSL de seu aplicativo ainda funciona.
+Ao mover uma aplicação Web _dentro da mesma subscrição_, não é possível mover certificados SSL de terceiros. No entanto, pode mover uma aplicação Web para o novo grupo de recursos sem mover o seu certificado de terceiros, e a funcionalidade SSL de seu aplicativo ainda funciona.
 
 Se pretender mover o certificado SSL com a aplicação Web, siga estes passos:
 
-1. Elimine o certificado carregado a partir da aplicação Web.
+1. Eliminar o certificado de terceiros a partir da aplicação Web, mas mantenha uma cópia do seu certificado
 2. Mova a aplicação Web.
-3. Carregue o certificado para a aplicação Web movido.
+3. Carregue o certificado de terceiros para a aplicação Web movido.
 
 ### <a name="moving-across-subscriptions"></a>Mover entre subscrições
 
@@ -359,6 +349,10 @@ Ao mover uma aplicação Web _entre subscrições_, as seguintes limitações ap
     - Ambientes do App Service
 - Todos os recursos de serviço de aplicações no grupo de recursos tem de ser movidos em conjunto.
 - Recursos de serviço de aplicações só podem ser movidos do grupo de recursos em que foram originalmente criados. Se um recurso de serviço de aplicações não se encontra no respetivo grupo de recursos original, ele tem ser movido para o grupo de recursos original primeiro e, em seguida, podem ser movida entre subscrições.
+
+## <a name="app-service-certificate-limitations"></a>Limitações de certificado do serviço de aplicações
+
+Pode mover o seu certificado de serviço de aplicações para um novo grupo de recursos ou subscrição. Se o certificado de serviço de aplicações estiver vinculado a uma aplicação web, tem de seguir alguns passos antes de mover os recursos para uma nova subscrição. Elimine o enlace SSL e certificado privado da aplicação web antes de mover os recursos. O certificado de serviço de aplicações não precisa de ser eliminada, apenas o certificado privado na aplicação web.
 
 ## <a name="classic-deployment-limitations"></a>Limitações da implementação clássica
 
@@ -382,7 +376,7 @@ Para mover recursos clássicos para um novo grupo de recursos dentro da mesma su
 Quando mover recursos para uma nova subscrição, aplicam-se as seguintes restrições:
 
 * Todos os recursos clássicos na subscrição têm de ser movidos na mesma operação.
-* A subscrição de destino não pode conter quaisquer outros recursos clássicos.
+* A subscrição de destino não tem de ter outros recursos clássicos.
 * A mudança só pode ser pedida através da API REST separado para move clássico. Os comandos de movimentação do Gestor de recursos padrão não funcionam quando mover recursos clássicos para uma nova subscrição.
 
 Para mover recursos clássicos para uma nova subscrição, utilize as operações REST que são específicas para recursos clássicos. Para utilizar o REST, execute os seguintes passos:
@@ -448,18 +442,21 @@ A operação pode ser executada durante vários minutos.
 
 Para mover um cofre dos serviços de recuperação, tem de se inscrever numa pré-visualização privada. Para experimentá-lo, escrever para AskAzureBackupTeam@microsoft.com.
 
-Movimentação não está ativada para os recursos de armazenamento, rede ou computação utilizados para configurar a recuperação após desastre com o Azure Site Recovery.
+Atualmente, pode mover um cofre de serviços de recuperação por região, ao mesmo tempo. Não é possível mover a cofres de cópias de segurança de ficheiros do Azure, o Azure File Sync ou o SQL em máquinas virtuais IaaS. 
 
-Por exemplo, suponha que configurou a replicação de máquinas no local para uma conta de armazenamento (Storage1) e deseja que a máquina protegida para surgir após a ativação pós-falha para o Azure como uma máquina virtual (VM1) ligada a uma rede virtual (Network1). Não é possível mover qualquer um desses recursos do Azure - Storage1 VM1 e Network1 - entre grupos de recursos dentro da mesma subscrição ou em várias subscrições.
+Se uma máquina virtual não se Mexe com o cofre, mantenha-os pontos de recuperação de máquina virtual atual no cofre até expirarem. Se a máquina virtual movida com o cofre ou não, pode restaurar a máquina virtual a partir do histórico de cópia de segurança no cofre.
 
-Para mover uma VM inscrita no **cópia de segurança do Azure** entre grupos de recursos:
- 1. Temporariamente parar cópia de segurança e manter os dados de cópia de segurança
- 2. Mova a VM para o grupo de recursos de destino
- 3. Volte a protegê-lo sob o mesmo/novo cofre
+Cofre dos Recovery Services não suporta cópias de segurança entre subscrições. Se mover um cofre com dados de cópia de segurança de máquinas virtuais em várias subscrições, tem de mover as máquinas virtuais na mesma subscrição e utilize o mesmo grupo de recursos de destino para continuar a cópias de segurança.
 
-Os utilizadores podem restaurar a partir dos pontos de restauro disponíveis criados antes da operação de movimentação.
+Políticas de cópia de segurança definidas para o Cofre são mantidas depois de ser movida no cofre. Relatórios e monitorização tem de ser definidos novamente para o Cofre após a mudança.
 
-Se o utilizador muda a VM de cópia de segurança em várias subscrições, passo 1 e o passo 2 continuam as mesmas. Passo 3, o utilizador tem de proteger a VM num novo cofre presente / criado na subscrição de destino. Cofre dos Recovery Services não suporta cópias de segurança entre subscrições.
+Para mover uma máquina virtual para uma nova subscrição sem mover o Cofre dos serviços de recuperação:
+
+ 1. Parar temporariamente a cópia de segurança
+ 2. Mover as máquinas virtuais para a nova subscrição
+ 3. Volte a protegê-lo num novo cofre nessa subscrição
+
+Movimentação não está ativada para os recursos de armazenamento, rede ou computação utilizados para configurar a recuperação após desastre com o Azure Site Recovery. Por exemplo, suponha que configurou a replicação de máquinas no local para uma conta de armazenamento (Storage1) e deseja que a máquina protegida para surgir após a ativação pós-falha para o Azure como uma máquina virtual (VM1) ligada a uma rede virtual (Network1). Não é possível mover qualquer um desses recursos do Azure - Storage1 VM1 e Network1 - entre grupos de recursos dentro da mesma subscrição ou em várias subscrições.
 
 ## <a name="hdinsight-limitations"></a>Limitações do HDInsight
 
@@ -469,7 +466,7 @@ Ao migrar um cluster do HDInsight para uma nova subscrição, primeiro mova outr
 
 ## <a name="search-limitations"></a>Limitações de pesquisa
 
-Não é possível mover vários recursos de pesquisa colocados em regiões diferentes ao mesmo tempo.
+Não é possível mover vários recursos de pesquisa em regiões diferentes ao mesmo tempo.
 Nesse caso, terá de movê-los separadamente.
 
 ## <a name="lb-limitations"></a> Limitações de Balanceador de carga
@@ -484,7 +481,7 @@ Não é possível mover o IP público de SKU Standard.
 
 ## <a name="use-portal"></a>Utilizar o portal
 
-Para mover os recursos, selecione o grupo de recursos que contém os recursos e, em seguida, selecione o **mover** botão.
+Para mover os recursos, selecione o grupo de recursos com esses recursos e, em seguida, selecione o **mover** botão.
 
 ![mover recursos](./media/resource-group-move-resources/select-move.png)
 

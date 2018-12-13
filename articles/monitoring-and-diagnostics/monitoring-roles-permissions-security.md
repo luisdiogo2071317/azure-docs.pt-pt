@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 367ecd4534a2221e996e706f8b4426ea6f70f213
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d160eb377c3d4d73105cdb61b5722a147d22ed37
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680502"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321183"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Começar com as funções, permissões e segurança com o Azure Monitor
 Muitas equipes precisam estritamente regular o acesso aos dados e definições de monitorização. Por exemplo, se tiver os membros da Equipe que trabalham exclusivamente em monitorização (engenheiros de suporte, engenheiros de devops) ou se usar um provedor de serviço gerida, pode querer lhes conceder acesso a dados de monitorização apenas ao restringir a capacidade de criar, modificar, ou Elimine recursos. Este artigo mostra como aplicar uma função de monitorização incorporada RBAC a um utilizador no Azure ou criar sua própria função personalizada para um utilizador que tem permissões de monitorização limitadas rapidamente. Em seguida, ele aborda considerações de segurança dos seus recursos relacionados com o Azure Monitor e a forma como pode limitar o acesso aos dados que contêm.
 
 ## <a name="built-in-monitoring-roles"></a>Funções de monitorização incorporadas
-Funções incorporadas do Monitor do Azure foram concebidas para ajudar a limitar o acesso aos recursos numa subscrição, enquanto ainda permite que os responsáveis pela monitorização de infraestrutura para obter e configurar os dados que precisam. Monitor do Azure fornece duas funções de out-of-the-box: um leitor de monitorização e um Contribuidor de monitorização.
+Funções incorporadas do Monitor do Azure foram concebidas para ajudar a limitar o acesso aos recursos numa subscrição, enquanto ainda permite que os responsáveis pela monitorização de infraestrutura para obter e configurar os dados que precisam. Monitor do Azure fornece duas funções de out-of-the-box: Um leitor de monitorização e um Contribuidor de monitorização.
 
 ### <a name="monitoring-reader"></a>Leitor de Monitorização
 As pessoas atribuídas a função de leitor de monitorização podem ver todos os dados de monitorização numa subscrição, mas não é possível modificar qualquer recurso ou editar as definições relacionadas com a monitorização de recursos. Esta função é adequada para os utilizadores numa organização, tais como engenheiros de suporte ou operações que precisam de ser capaz de:
 
 * Ver dashboards de monitorização no portal e crie seus próprios dashboards de monitorização privados.
 * Ver as regras de alerta definidas no [alertas do Azure](monitoring-overview-alerts.md)
-* Consultas de métricas de utilização a [API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [cmdlets do PowerShell](insights-powershell-samples.md), ou [CLI de várias plataformas](insights-cli-samples.md).
+* Consultas de métricas de utilização a [API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [cmdlets do PowerShell](insights-powershell-samples.md), ou [CLI de várias plataformas](../azure-monitor/platform/cli-samples.md).
 * Consulte o registo de atividades com o portal, API de REST do Azure Monitor, cmdlets do PowerShell ou CLI de várias plataformas.
 * Ver os [das definições de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) para um recurso.
 * Ver os [perfil de registo](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) para uma subscrição.

@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 6c16cd95fce7d3f367f0ded73c3635d8cefea7a0
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0000e5d8bfa7da6ebe1b6702649e56262c9d9cab
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493992"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277374"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Gerir as réplicas que pertencem a partições de serviço.
@@ -30,9 +30,9 @@ Gerir as réplicas que pertencem a partições de serviço.
 | --- | --- |
 | implementado | Obtém os detalhes da réplica implementado num nó do Service Fabric. |
 | lista implementado | Obtém a lista de réplicas implementadas num nó do Service Fabric. |
-| estado de funcionamento | Obtém o estado de funcionamento de uma instância de serviço sem estado ou a réplica de serviço com estado do Service Fabric. |
+| saúde | Obtém o estado de funcionamento de uma instância de serviço sem estado ou a réplica de serviço com estado do Service Fabric. |
 | informações | Obtém as informações sobre uma réplica de uma partição do Service Fabric. |
-| lista | Obtém as informações acerca de réplicas de uma partição de serviço do Service Fabric. |
+| list | Obtém as informações acerca de réplicas de uma partição de serviço do Service Fabric. |
 | remover | Remove uma réplica de serviço em execução num nó. |
 | report-health | Envia um relatório de estado de funcionamento da réplica do Service Fabric. |
 | restart | Reinicia uma réplica de serviço de um serviço persistente em execução num nó. |
@@ -184,7 +184,7 @@ Esta API simula uma falha de réplica do Service Fabric ao remover uma réplica 
 ## <a name="sfctl-replica-report-health"></a>o sfctl réplica relatório de estado de funcionamento
 Envia um relatório de estado de funcionamento da réplica do Service Fabric.
 
-Estado de funcionamento de relatórios da réplica especificada do Service Fabric. O relatório tem de conter as informações sobre a origem do relatório de estado de funcionamento e em que é comunicado de propriedade. O relatório é enviado para um gateway do Service Fabric réplica, que encaminha para o arquivo de estado de funcionamento. O relatório pode ser aceites pelo gateway, mas rejeitado pelo arquivo de estado de funcionamento após a validação extra. Por exemplo, o arquivo de estado de funcionamento poderá rejeitar o relatório devido a um parâmetro inválido, como um número de sequência obsoletos. Para ver se o relatório foi aplicado no arquivo de estado de funcionamento, verifique que o relatório é apresentada na seção de eventos.
+Estado de funcionamento de relatórios da réplica especificada do Service Fabric. O relatório tem de conter as informações sobre a origem do relatório de estado de funcionamento e em que é comunicado de propriedade. O relatório é enviado para um gateway do Service Fabric réplica, que encaminha para o arquivo de estado de funcionamento. O relatório pode ser aceites pelo gateway, mas rejeitado pelo arquivo de estado de funcionamento após a validação extra. Por exemplo, o arquivo de estado de funcionamento poderá rejeitar o relatório devido a um parâmetro inválido, como um número de sequência obsoletos. Para ver se o relatório foi aplicado no arquivo de estado de funcionamento, execução obtenha o estado de funcionamento de réplica e verifique se o relatório aparece na secção HealthEvents.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -194,14 +194,14 @@ Estado de funcionamento de relatórios da réplica especificada do Service Fabri
 | -Estado de funcionamento [necessário] | Os valores possíveis incluem\: "Inválido", "Ok", "Aviso", "Error", "Desconhecido". |
 | – id de partição [necessário] | A identidade da partição. |
 | – id de réplica [necessário] | A identidade da partição. |
-| – id de origem [necessário] | O nome de origem que identifica o componente de cliente/watchdog/sistemas que geraram as informações de estado de funcionamento. |
+| – id de origem [necessário] | O nome de origem que identifica o componente de sistema/watchdog/cliente gerado as informações de estado de funcionamento. |
 | – Descrição | A descrição das informações de estado de funcionamento. <br><br> Ele representa o texto livre usado para adicionar informações legíveis humanas sobre o relatório. O comprimento máximo da cadeia para a descrição é 4096 carateres. Se a cadeia fornecida é mais longa, ele será automaticamente truncado. Quando truncados, os últimos carateres da descrição contêm um marcador "[truncado]" e o tamanho total da cadeia de caracteres é 4096 carateres. A presença do marcador indica aos utilizadores esse truncamento ocorreu. Observe que, quando truncados, a descrição tem menos de 4096 carateres a partir da cadeia original. |
 | – imediata | Um sinalizador que indica se o relatório deve ser enviado imediatamente. <br><br> Um relatório de estado de funcionamento é enviado para um aplicativo, que encaminha para o arquivo de estado de funcionamento de gateway do Service Fabric. Se Immediate estiver definido como true, o relatório será enviado imediatamente do Gateway de HTTP para o armazenamento de estado de funcionamento, independentemente das definições de cliente de recursos de infraestrutura que está a utilizar a aplicação de Gateway HTTP. Isto é útil para os relatórios críticos que devem ser enviados logo que possível. Dependendo do tempo e outras condições, enviar o relatório poderá ainda falhar, por exemplo, se o HTTP Gateway foi fechado ou a mensagem não aceder ao Gateway. Se Immediate estiver definido como false, o relatório é enviado com base nas definições de cliente do Estado de funcionamento do HTTP Gateway. Por conseguinte, irá ser loteado, de acordo com a configuração de HealthReportSendInterval. Esta é a definição recomendada porque permite que o cliente do Estado de funcionamento otimizar as mensagens para o arquivo de estado de funcionamento, bem como o processamento de relatórios de estado de funcionamento de relatórios de estado de funcionamento. Por predefinição, os relatórios não são enviados imediatamente. |
 | – remover quando expirou | Valor que indica se o relatório é removido do arquivo de estado de funcionamento, quando este expirar. <br><br> Se definido como true, o relatório for removido do arquivo de estado de funcionamento, depois de expirar. Se definido como false, o relatório é tratado como um erro quando a expirou. O valor desta propriedade é false por padrão. Quando os clientes reportem periodicamente, eles devem definir RemoveWhenExpired false (predefinição). Dessa forma, é o gerador de relatórios tem problemas (por exemplo, o deadlock) e não é possível reportar a entidade é avaliada em erro quando expira o relatório de estado de funcionamento. Este processo sinaliza a entidade como sendo num Estado de funcionamento de erro. |
 | – número de sequência | O número de sequência para este relatório de estado de funcionamento como uma cadeia numérica. <br><br> O número de sequência de relatório é utilizado pelo arquivo de estado de funcionamento para detetar relatórios obsoletos. Se não for especificado, um número de sequência é gerado automaticamente pelo cliente do Estado de funcionamento quando é adicionado um relatório. |
 | – tipo de serviço | O tipo de réplica de serviço (com ou sem estado) para o qual está a ser comunicado o estado de funcionamento. Seguem-se os valores possíveis\: "Sem monitoração de estado", "Com monitoração de estado".  Predefinido\: com monitoração de estado. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
-| – o valor de ttl | A duração para o qual este relatório de estado de funcionamento é válido. Este campo está a utilizar o formato de ISO8601 para especificar a duração. <br><br> Quando os clientes reportem periodicamente, eles devem enviar relatórios com freqüência mais alta do que o tempo de duração. Se os clientes comunicam na transição, eles podem definir o tempo de duração para infinito. Quando expira o TTL, o evento de estado de funcionamento que contém as informações de estado de funcionamento é seja removido do arquivo de estado de funcionamento, se RemoveWhenExpired for true, ou avaliadas no erro, se RemoveWhenExpired false. Se não for especificado, tempo de duração a predefinição é o valor de infinito. |
+| – o valor de ttl | A duração para o qual este relatório de estado de funcionamento é válido. Este campo utiliza o formato ISO8601 para especificar a duração. <br><br> Quando os clientes reportem periodicamente, eles devem enviar relatórios com freqüência mais alta do que o tempo de duração. Se os clientes comunicam na transição, eles podem definir o tempo de duração para infinito. Quando expira o TTL, o evento de estado de funcionamento que contém as informações de estado de funcionamento é seja removido do arquivo de estado de funcionamento, se RemoveWhenExpired for true, ou avaliadas no erro, se RemoveWhenExpired false. Se não for especificado, tempo de duração a predefinição é o valor de infinito. |
 
 ### <a name="global-arguments"></a>Argumentos global
 

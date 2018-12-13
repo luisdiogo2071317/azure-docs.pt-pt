@@ -1,5 +1,6 @@
 ---
-title: 'Guia de Início Rápido: Criar um balanceador de carga Básico público com o Portal do Azure | Microsoft Docs'
+title: 'Início rápido: Criar um balanceador de carga básico público com o portal do Azure'
+titlesuffix: Azure Load Balancer
 description: Este guia de início rápido mostra como criar um balanceador de carga Básico público com o portal do Azure.
 services: load-balancer
 documentationcenter: na
@@ -12,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 9cf1fcda8651cccb82b2de58487becf25541a6e2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: e7055e016abd06d20206d25cb1d7b9eac35142f0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098683"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260230"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Guia de Início Rápido: Criar um balanceador de carga Básico público com o portal do Azure
+# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Início rápido: Criar um balanceador de carga básico público com o portal do Azure
 
 Balanceamento de carga oferece um nível mais elevado de disponibilidade e dimensionamento ao propagar os pedidos recebidos por máquinas virtuais (VMs). Pode utilizar o portal do Azure para criar um balanceador de carga e balancear o tráfego entre VMs. Este guia de introdução mostra-lhe como criar e configurar um balanceador de carga, servidores de back-end e recursos de rede ao escalão de preço básico.
 
@@ -36,13 +37,13 @@ Primeiro, crie um balanceador de carga básico público com o portal. O nome e e
    
 1. Na **criar Balanceador de carga** painel, escreva ou selecione estes valores:
    
-   - **Nome**: tipo *MyLoadBalancer*.
-   - **Tipo**: selecione **pública**. 
-   - **SKU**: selecione **básica**.
-   - **Endereço IP público:** selecionar **criar novo**. 
-     - **Endereço IP público** campo: tipo *MyPublicIP*.
-     - **Configurar o endereço IP público** > **atribuição**: selecionar **dinâmica**.
-   - **ResourceGroup**: selecione **criar novo**, em seguida, introduza *MyResourceGroupLB*e selecione **OK**. 
+   - **Nome**: Tipo *MyLoadBalancer*.
+   - **Tipo de**: Selecione **público**. 
+   - **SKU**: Selecione **Básico**.
+   - **Endereço IP público:** Selecione **Criar novo**. 
+     - **Endereço IP público** campo: Tipo *MyPublicIP*.
+     - **Configurar o endereço IP público** > **atribuição**: Selecione **dinâmica**.
+   - **ResourceGroup**: Selecione **criar novo**, em seguida, introduza *MyResourceGroupLB*e selecione **OK**. 
    
 1. Selecione **Criar**.
    
@@ -58,9 +59,9 @@ Em seguida, crie uma rede virtual e duas máquinas virtuais para o conjunto de b
    
 1. Na **criar rede virtual** painel, escreva ou selecione estes valores:
    
-   - **Nome**: tipo *MyVnet*.
-   - **ResourceGroup**: lista pendente **selecionar existente** e selecione **MyResourceGroupLB**. 
-   - **Sub-rede** > **nome**: tipo *MyBackendSubnet*.
+   - **Nome**: Tipo *MyVnet*.
+   - **ResourceGroup**: Menu pendente **selecionar existente** e selecione **MyResourceGroupLB**. 
+   - **Sub-rede** > **nome**: Tipo *MyBackendSubnet*.
    
 1. Selecione **Criar**.
 
@@ -71,16 +72,16 @@ Em seguida, crie uma rede virtual e duas máquinas virtuais para o conjunto de b
 1. No lado do canto superior esquerdo do portal, selecione **criar um recurso** > **computação** > **Windows Server 2016 Datacenter**. 
    
 1. Na **criar uma máquina virtual**, escreva ou selecione os seguintes valores no **Noções básicas** separador:
-   - **Subscrição** > **grupo de recursos**: Drop baixo e selecione **MyResourceGroupLB**.
-   - **Detalhes de instância** > **nome da Máquina Virtual**: tipo *MyVM1*.
+   - **Subscrição** > **grupo de recursos**: Lista pendente e selecione **MyResourceGroupLB**.
+   - **Detalhes de instância** > **nome da Máquina Virtual**: Tipo *MyVM1*.
    - **Detalhes de instância** > **opções de disponibilidade**: 
      1. Lista pendente e selecione **conjunto de disponibilidade**. 
      2. Selecione **criar novo**, tipo *MyAvailabilitySet*e selecione **OK**.
   
-1. Selecione o **Networking** separador ou selecione **próximo: discos**, em seguida, **seguinte: redes**. 
+1. Selecione o **Networking** separador ou selecione **seguinte: Discos**, em seguida, **seguinte: Funcionamento em rede**. 
    
    Certifique-se de que estão selecionadas as seguintes:
-   - **Rede virtual**: **MyVnet**
+   - **Rede virtual**: **myVnet**
    - **Sub-rede**: **MyBackendSubnet**
    - **IP público**: **MyVM1-ip**
    
@@ -106,24 +107,24 @@ Nesta secção, vai criar segurança de rede regras de grupo (NSG) para as VMs, 
    
 1. Na **Adicionar regra de segurança de entrada** caixa de diálogo, para a regra HTTP, escreva ou selecione o seguinte:
    
-   - **Origem**: selecione **etiqueta de serviço**.  
-   - **Etiqueta de serviço de origem**: selecione **Internet**. 
-   - **Intervalos de portas de destino**: tipo *80*.
-   - **Protocolo**: selecione **TCP**. 
-   - **Ação**: selecione **permitir**.  
-   - **Prioridade**: tipo *100*. 
-   - **Nome**: tipo *MyHTTPRule*. 
-   - **Descrição**: tipo *permitir HTTP*. 
+   - **origem**: Selecione **etiqueta de serviço**.  
+   - **Etiqueta de serviço de origem**: Selecione **Internet**. 
+   - **Intervalos de portas de destino**: Tipo *80*.
+   - **Protocolo**: Selecione **TCP**. 
+   - **Ação**: Selecione **permitir**.  
+   - **Prioridade**: Tipo *100*. 
+   - **Nome**: Tipo *MyHTTPRule*. 
+   - **Descrição**: Tipo *permitir HTTP*. 
    
 1. Selecione **Adicionar**. 
    
    ![Criar uma regra NSG](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
    
 1. Repita os passos para a regra de RDP de entrada, com os seguintes valores diferentes:
-   - **Intervalos de portas de destino**: tipo *3389*.
-   - **Prioridade**: tipo *200*. 
-   - **Nome**: tipo *MyRDPRule*. 
-   - **Descrição**: tipo *permitir RDP*. 
+   - **Intervalos de portas de destino**: Tipo *3389*.
+   - **Prioridade**: Tipo *200*. 
+   - **Nome**: Tipo *MyRDPRule*. 
+   - **Descrição**: Tipo *permitir RDP*. 
 
 ## <a name="create-resources-for-the-load-balancer"></a>Criar recursos para o Balanceador de carga
 
@@ -141,9 +142,9 @@ Para distribuir o tráfego para as VMs, o Balanceador de carga utiliza um conjun
    
 1. Sobre o **adicionar um conjunto de back-end** página, escreva ou selecione os seguintes valores:
    
-   - **Nome**: tipo *MyBackEndPool*.
-   - **Associados**: remova baixo e selecione **conjunto de disponibilidade**.
-   - **Conjunto de disponibilidade**: selecione **MyAvailabilitySet**.
+   - **Nome**: Tipo *MyBackEndPool*.
+   - **Associados a**: Lista pendente e selecione **conjunto de disponibilidade**.
+   - **Conjunto de disponibilidade**: Selecione **MyAvailabilitySet**.
    
 1. Selecione **adicionar uma configuração de IP de rede de destino**. 
    1. Adicionar cada máquina virtual (**MyVM1** e **MyVM2**) que criou para o conjunto de back-end.
@@ -167,12 +168,12 @@ Para permitir que o Balanceador de carga monitorizar o estado da VM, pode utiliz
    
 1. Sobre o **adicionar uma sonda de estado de funcionamento** página, escreva ou selecione os seguintes valores:
    
-   - **Nome**: tipo *MyHealthProbe*.
-   - **Protocolo**: remova baixo e selecione **HTTP**. 
-   - **Porta**: tipo *80*. 
-   - **Caminho**: aceite */* para o URI predefinido. Pode substituir este valor com qualquer outro URI. 
-   - **Intervalo**: tipo *15*. O intervalo é o número de segundos entre tentativas da sonda.
-   - **Limiar de mau estado de funcionamento**: tipo *2*. Este valor é o número de falhas consecutivas da sonda que ocorrem antes de uma VM é considerada em mau estado de funcionamento.
+   - **Nome**: Tipo *MyHealthProbe*.
+   - **Protocolo**: Lista pendente e selecione **HTTP**. 
+   - **Porta**: Tipo *80*. 
+   - **Caminho**: Aceite */* para o URI predefinido. Pode substituir este valor com qualquer outro URI. 
+   - **Intervalo**: Tipo *15*. O intervalo é o número de segundos entre tentativas da sonda.
+   - **Limiar de mau estado de funcionamento**: Tipo *2*. Este valor é o número de falhas consecutivas da sonda que ocorrem antes de uma VM é considerada em mau estado de funcionamento.
    
 1. Selecione **OK**.
    
@@ -193,13 +194,13 @@ A regra de Balanceador de carga com o nome **MyLoadBalancerRule** escuta na port
    
 1. Sobre o **Adicionar regra de balanceamento de carga** página, escreva ou selecione os seguintes valores:
    
-   - **Nome**: tipo *MyLoadBalancerRule*.
-   - **Endereço IP de front-end:** tipo *LoadBalancerFrontend*.
-   - **Protocolo**: selecione **TCP**.
-   - **Porta**: tipo *80*.
-   - **Porta de back-end**: tipo *80*.
-   - **Conjunto back-end**: selecione **MyBackendPool**.
-   - **Sonda de estado de funcionamento**: selecione **MyHealthProbe**. 
+   - **Nome**: Tipo *MyLoadBalancerRule*.
+   - **Endereço IP de front-end:** Tipo *LoadBalancerFrontend*.
+   - **Protocolo**: Selecione **TCP**.
+   - **Porta**: Tipo *80*.
+   - **Porta de back-end**: Tipo *80*.
+   - **Conjunto back-end**: Selecione **MyBackendPool**.
+   - **Sonda de estado de funcionamento**: Selecione **MyHealthProbe**. 
    
 1. Selecione **OK**.
    

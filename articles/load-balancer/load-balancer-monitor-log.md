@@ -1,5 +1,6 @@
 ---
-title: Monitorizar operações, eventos e contadores para o Balanceador de carga básico público | Documentos da Microsoft
+title: Monitorar as operações, eventos e contadores para o Balanceador de carga básico público
+titlesuffix: Azure Load Balancer
 description: Saiba como ativar eventos de alerta e a sonda de registo de estado de funcionamento para o Balanceador de carga básico público
 services: load-balancer
 documentationcenter: na
@@ -7,27 +8,28 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: e8d38aaff2e7f20a3935608bcf4d610828d2b84f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00a5e888961a9712db0cd509a39fb0367895ac3f
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261507"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164131"
 ---
 # <a name="log-analytics-for-public-basic-load-balancer"></a>Análise de registos para o Balanceador de carga básico público
 
 >[!IMPORTANT] 
->O Balanceador de Carga do Azure suporta dois tipos diferentes: Básico e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre o Balanceador de carga Standard, veja [descrição geral do Balanceador de carga Standard](load-balancer-standard-overview.md) que expõe a telemetria por meio de métricas multidimensionais no Azure Monitor.
+>O Balanceador de carga do Azure suporta dois tipos diferentes: Basic e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre o Balanceador de carga Standard, veja [descrição geral do Balanceador de carga Standard](load-balancer-standard-overview.md) que expõe a telemetria por meio de métricas multidimensionais no Azure Monitor.
 
 Pode utilizar diferentes tipos de registos no Azure para gerir e resolver problemas de balanceadores de carga básico. Alguns destes registos podem ser acedidos através do portal. Todos os registos podem ser extraídos de armazenamento de Blobs do Azure e visualizados em diferentes ferramentas, como o Excel e o Power BI. Pode saber mais sobre os diferentes tipos de registos na lista abaixo.
 
-* **Registos de auditoria:** pode usar [registos de auditoria do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecido como registos operacionais) para ver todas as operações que está a ser submetidas para a sua subscrição ou subscrições do Azure e o respetivo estado. Registos de auditoria estão ativados por predefinição e podem ser visualizados no portal do Azure.
-* **Registos de eventos de alertas:** pode utilizar este registo para ver os alertas gerados pelo balanceador de carga. O estado para o Balanceador de carga é recolhido a cada cinco minutos. Este registo só é escrito se um evento de alerta de Balanceador de carga é gerado.
-* **Registos de sonda de estado de funcionamento:** pode utilizar este registo para ver problemas detetados pelo seu sonda de estado de funcionamento, como o número de instâncias no seu conjunto de back-end que não estão a receber pedidos do Balanceador de carga devido a falhas de sonda de estado de funcionamento. Este registo é escrito quando ocorre uma alteração no estado de sonda de estado de funcionamento.
+* **Registos de auditoria:** Pode usar [registos de auditoria do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecido como registos operacionais) para ver todas as operações que está a ser submetidas para a sua subscrição ou subscrições do Azure e o respetivo estado. Registos de auditoria estão ativados por predefinição e podem ser visualizados no portal do Azure.
+* **Registos de eventos do alerta:** Pode utilizar este registo para ver os alertas gerados pelo balanceador de carga. O estado para o Balanceador de carga é recolhido a cada cinco minutos. Este registo só é escrito se um evento de alerta de Balanceador de carga é gerado.
+* **Registos de sonda de estado de funcionamento:** Pode utilizar este registo para ver problemas detetados pelo seu sonda de estado de funcionamento, como o número de instâncias no seu conjunto de back-end que não estão a receber pedidos do Balanceador de carga devido a falhas de sonda de estado de funcionamento. Este registo é escrito quando ocorre uma alteração no estado de sonda de estado de funcionamento.
 
 > [!IMPORTANT]
 > Do log analytics atualmente balanceadores de carga funciona apenas para básico público. Registos apenas estão disponíveis para recursos implementados no modelo de implementação do Resource Manager. Não é possível utilizar registos para os recursos no modelo de implementação clássica. Para obter mais informações sobre os modelos de implementação, consulte [implementação do Gestor de recursos de compreensão e a implementação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -131,8 +133,8 @@ A saída JSON no campo de propriedades mostra as informações básicas para o e
 
 Pode ver e analisar dados de registo de auditoria utilizando qualquer um dos seguintes métodos:
 
-* **Ferramentas do Azure:** obter informações a partir de registos de auditoria através do Azure PowerShell, a Interface de linha de comandos (CLI do Azure), a API de REST do Azure ou o portal de pré-visualização do Azure. Instruções passo a passo para cada método são detalhadas no [auditar operações com o Resource Manager](../azure-resource-manager/resource-group-audit.md) artigo.
-* **Power BI:** se ainda não tiver um [Power BI](https://powerbi.microsoft.com/pricing) conta, pode experimentar gratuitamente. Utilizar o [pacote para o Power BI de conteúdos de registos de auditoria do Azure](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), pode analisar os seus dados com dashboards previamente configuradas ou pode personalizar vistas para atender às suas necessidades.
+* **Ferramentas do Azure:** Obter informações a partir de registos de auditoria através do Azure PowerShell, a Interface de linha de comandos (CLI do Azure), a API de REST do Azure ou o portal de pré-visualização do Azure. Instruções passo a passo para cada método são detalhadas no [auditar operações com o Resource Manager](../azure-resource-manager/resource-group-audit.md) artigo.
+* **Power BI:** Se ainda não tiver uma [Power BI](https://powerbi.microsoft.com/pricing) conta, pode experimentar gratuitamente. Utilizar o [pacote para o Power BI de conteúdos de registos de auditoria do Azure](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), pode analisar os seus dados com dashboards previamente configuradas ou pode personalizar vistas para atender às suas necessidades.
 
 ## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Ver e analisar a sonda de estado de funcionamento e o registo de eventos
 

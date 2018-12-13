@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 07bbb8e17a9f75bd878c384b5b8d90798d043814
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a81c97cf8883d2a3629d1eb1b9f6137609c6edda
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086232"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135105"
 ---
-# <a name="geographyv2-entity"></a>Entidade GeographyV2
+# <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>GeographyV2 entidade criados previamente para uma aplicação LUIS
 A entidade de geographyV2 pré-criados Deteta locais. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém GeographyV2 para os objetivos do aplicativo. Entidade de GeographyV2 é suportada em inglês [cultura](luis-reference-prebuilt-entities.md).
 
 ## <a name="subtypes"></a>Subtipos

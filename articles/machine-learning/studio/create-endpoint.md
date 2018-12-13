@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: ac4eb79d3b1505472113189a9e2b234212755244
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 58418357d6e96204485887cca5d7724c42183db7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077108"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275895"
 ---
-# <a name="creating-endpoints-for-deployed-web-services"></a>Criação de pontos de extremidade para serviços web implementados
+# <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Criação de pontos de extremidade dos serviços de web do Azure Machine Learning Studio implementados
 > [!NOTE]
 >  Este tópico descreve técnicas aplicáveis a uma **clássico** serviço Web do Machine Learning.
 > 
@@ -33,7 +32,7 @@ Ao criar serviços Web que venda para a frente aos seus clientes, terá de forne
 
 Para tal, o Azure Machine Learning Studio permite-lhe criar vários pontos de extremidade para um serviço Web implementado. Cada ponto de extremidade no serviço Web independente é resolvido, limitado e gerido. Cada ponto de extremidade é um URL exclusivo e uma chave de autorização que pode distribuir aos seus clientes.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="adding-endpoints-to-a-web-service"></a>Adicionar pontos finais para um serviço Web
 Existem duas formas de adicionar um ponto final a um serviço Web.

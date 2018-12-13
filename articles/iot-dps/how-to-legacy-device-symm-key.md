@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9553d1dd5dd8d8ff11ea480618b471b9898985e3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 60321b2463a535c3f7a0c73e0922010bd12a3e82
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456563"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323240"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Como aprovisionar dispositivos legados com chaves simétricas
 
@@ -35,7 +35,7 @@ Um ID de registo único será definido para cada dispositivo com base nas inform
 
 Um grupo de inscrição que utiliza [atestado de chave simétrico](concepts-symmetric-key-attestation.md) será criado com o serviço de aprovisionamento de dispositivos. O grupo de inscrição incluirá uma chave mestra de grupo. Essa chave mestra será utilizado para cada ID de registo único para produzir uma chave de dispositivo exclusivo para cada dispositivo de hash. O dispositivo irá utilizar essa chave derivada de dispositivo com o seu ID de registo único para atestar com o serviço de aprovisionamento de dispositivos e ser atribuídos a um hub IoT.
 
-O código de dispositivo demonstrado neste artigo seguirá o mesmo padrão como o [início rápido: aprovisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md). O código irá simular um dispositivo com uma amostra a partir da [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c). O dispositivo simulado será atestar com um grupo de inscrição em vez de uma inscrição individual, como demonstrado no guia de introdução.
+O código de dispositivo demonstrado neste artigo seguirá o mesmo padrão a [início rápido: Aprovisionar um dispositivo simulado com chaves simétricas](quick-create-simulated-device-symm-key.md). O código irá simular um dispositivo com uma amostra a partir da [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c). O dispositivo simulado será atestar com um grupo de inscrição em vez de uma inscrição individual, como demonstrado no guia de introdução.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -90,7 +90,7 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Esse dispositivo 
 4. Execute o seguinte comando para compilar uma versão do SDK específica da plataforma de cliente de desenvolvimento. Será gerada uma solução do Visual Studio para o dispositivo simulado no diretório `cmake`. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Se `cmake` não encontrar o compilador de C++, poderá obter erros de compilação ao executar o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -98,7 +98,7 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Esse dispositivo 
     Assim que a compilação for concluída com êxito, as últimas linhas de saída terão um aspeto semelhante ao seguinte:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -120,15 +120,15 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Esse dispositivo 
 
 3. No **adicionar grupo de inscrição**, introduza as seguintes informações e clique nas **guardar** botão.
 
-    - **Nome do grupo**: introduza **mylegacydevices**.
+    - **Nome do grupo**: Introduza **mylegacydevices**.
 
-    - **Tipo de atestado**: selecione **chave simétrica**.
+    - **Tipo de atestado**: Selecione **chave simétrica**.
 
-    - **Chaves de Geração Automática**: selecione esta caixa.
+    - **Chaves de geração automática**: Esta caixa de verificação.
 
-    - **Selecione como pretende atribuir dispositivos a hubs**: selecione **configuração estática** para poder atribuir a um concentrador específico.
+    - **Selecione como pretende atribuir dispositivos a hubs**: Selecione **configuração estática** para poder atribuir a um concentrador específico.
 
-    - **Selecione os hubs IoT deste grupo pode ser atribuído a**: selecione uma das suas hubs.
+    - **Selecione os hubs IoT deste grupo pode ser atribuído a**: Selecione um dos seus hubs.
 
     ![Adicionar grupo de inscrição para o atestado de chave simétrico](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deteção de Anomalias, Python'
+title: 'Tutorial: Deteção de anomalias, Python'
 titlesuffix: Azure Cognitive Services
 description: Explore um bloco de notas Python que utiliza a API de Deteção de Anomalias. Envie pontos de dados originais à API e obtenha o valor esperado e os pontos de anomalias.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 98f83fbc4db8685526833c3d4f1d15903419ad3f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: d1e9afc32625cdbf97f576ee091d7dc03271e2fc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887756"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164811"
 ---
-# <a name="tutorial-anomaly-detection-with-python-application"></a>Tutorial: Deteção de Anomalias com aplicação Python
+# <a name="tutorial-anomaly-detection-with-python-application"></a>Tutorial: Deteção de anomalias com a aplicação de Python
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
@@ -42,7 +42,7 @@ O tutorial mostra como utilizar a API de Deteção de Anomalias no Python e como
 
 ## <a name="running-the-tutorial"></a>Executar o tutorial
 
-Para utilizar este bloco de notas, precisa de uma chave de subscrição para a API de Deteção de Anomalias. Visite a página Subscrição para se inscrever. Na página “Iniciar sessão”, utilize a sua conta Microsoft para iniciar sessão, e poderá subscrever e obter as chaves. Depois de concluir o processo de inscrição, cole a chave na secção de variáveis do bloco de notas (reproduzida abaixo). Tanto a chave primária como a secundária funcionam. Certifique-se de que coloca a chave entre aspas para que seja considerada uma cadeia.
+Para utilizar este bloco de notas, precisa de uma chave de subscrição para a API de Deteção de Anomalias. Visite a página Subscrição para se inscrever. Na página “Iniciar sessão”, utilize a sua conta Microsoft para iniciar sessão, e poderá subscrever e obter as chaves. Depois de concluir o processo de inscrição, cole a chave na secção de variáveis do bloco de notas (reproduzida abaixo). Tanto a chave primária como a secundária funcionam. Certifique-se de que coloca a chave entre aspas para que seja considerada uma cadeia de carateres.
 
 ```Python
 
@@ -52,7 +52,7 @@ Para utilizar este bloco de notas, precisa de uma chave de subscrição para a A
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

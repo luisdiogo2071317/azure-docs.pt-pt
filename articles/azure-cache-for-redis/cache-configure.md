@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: d938b8a7551f77f00b7c18421f07972a508f21ef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c95c40404bb52f739c407eca3c0d48be5e0a86e6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020231"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262440"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar a Cache do Azure para Redis
 Este tópico descreve as configurações disponíveis para a sua Cache do Azure para instâncias de Redis. Este tópico também inclui a configuração de servidor da Redis predefinida, para a Cache do Azure para instâncias de Redis.
@@ -46,7 +46,7 @@ Pode ver e configurar as seguintes definições utilizando a **Menu de recursos*
 * [Definições](#settings)
     * [Chaves de acesso](#access-keys)
     * [Definições avançadas](#advanced-settings)
-    * [Cache do Azure para o Assistente de Redis](#redis-cache-advisor)
+    * [Cache do Azure para o Assistente de Redis](#azure-cache-for-redis-advisor)
     * [Dimensionamento](#scale)
     * [Tamanho do cluster redis](#cluster-size)
     * [Persistência de dados de Redis](#redis-data-persistence)
@@ -98,7 +98,7 @@ O **definições** secção permite-lhe aceder e configure as seguintes definiç
 
 * [Chaves de acesso](#access-keys)
 * [Definições avançadas](#advanced-settings)
-* [Cache do Azure para o Assistente de Redis](#redis-cache-advisor)
+* [Cache do Azure para o Assistente de Redis](#azure-cache-for-redis-advisor)
 * [Dimensionamento](#scale)
 * [Tamanho do cluster redis](#cluster-size)
 * [Persistência de dados de Redis](#redis-data-persistence)
@@ -480,7 +480,7 @@ Com segurança pode emitir comandos para a Cache do Azure para instâncias de Re
 
 > [!IMPORTANT]
 > - A consola de Redis não funciona com [VNET](cache-how-to-premium-vnet.md). Quando a sua cache faz parte de uma VNET, apenas os clientes na VNET podem aceder à cache. Porque a consola de Redis é executado no seu navegador local, o que está fora da VNET, não é possível ligar à cache.
-> - Nem todos os comandos da Redis são suportados na Cache do Azure para Redis. Para obter uma lista de comandos de Redis que estão desativados para a Cache do Azure para Redis, consulte o anterior [Redis comandos não suportados na Cache do Azure para Redis](#redis-commands-not-supported-in-azure-redis-cache) secção. Para obter mais informações sobre os comandos da Redis, consulte [ http://redis.io/commands ](http://redis.io/commands).
+> - Nem todos os comandos da Redis são suportados na Cache do Azure para Redis. Para obter uma lista de comandos de Redis que estão desativados para a Cache do Azure para Redis, consulte o anterior [Redis comandos não suportados na Cache do Azure para Redis](#redis-commands-not-supported-in-azure-cache-for-redis) secção. Para obter mais informações sobre os comandos da Redis, consulte [ http://redis.io/commands ](http://redis.io/commands).
 > 
 > 
 

@@ -1,5 +1,5 @@
 ---
-title: Guia de introdução - Criar um registo do Docker privado no Azure com o portal do Azure
+title: Início rápido - criar um registo privado do Docker no Azure - portal do Azure
 description: Aprenda rapidamente a criar um registo do contentor do Docker com o portal do Azure.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 1e039c465bf37e0ee5ca1db5837798680e27463d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 865c53fdda60f6a0384157ec68042b4b8b243a7a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278672"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255368"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Início Rápido: Criar um registo de contentores com o portal do Azure
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Início rápido: Criar um registo de contentor privado com o portal do Azure
 
 Um registo de contentor do Azure é um registo do Docker privado no Azure, onde pode armazenar e gerir as imagens privadas de contentor do Docker. Neste início rápido, vai criar um registo de contentor com o portal do Azure, enviar uma imagem de contentor para o registo e, por fim, implementar o contentor a partir do registo no Azure Container Instances (ACI).
 
@@ -138,7 +138,7 @@ Para limpar os recursos, navegue para o grupo de recursos **myResourceGroup** no
 
 ![Eliminar grupo de recursos no portal do Azure][qs-portal-08]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, criou um Azure Container Registry com a CLI do Azure e iniciou uma instância do mesmo através do Azure Container Instances. Avance para o tutorial do Azure Container Instances para ver mais detalhadamente o ACI.
 

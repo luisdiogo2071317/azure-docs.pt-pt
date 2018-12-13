@@ -10,17 +10,15 @@ ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 2aa2f4e55d375f6ed7960af8bbe327d45b5ea025
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: ec56e21a989fb0e8db7b8bafb1357c6ed64eae75
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871766"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192266"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Criar vistas personalizadas com o estruturador de vistas no Log Analytics
 Ao utilizar o estruturador de vistas no [do Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo apresenta uma visão geral do estruturador de vistas e procedimentos para criação e edição de exibições personalizadas.
@@ -72,9 +70,9 @@ Pode criar uma nova vista no estruturador de vistas, selecionando **estruturador
 Utilize o estruturador de vistas para criar novas vistas ou editar as já existentes. 
 
 Estruturador de vistas tem três painéis: 
-* **Design**: contém a vista personalizada que está a criar ou a editar. 
-* **Controles**: contém os mosaicos e partes que adicionar à **Design** painel. 
-* **Propriedades**: apresenta as propriedades dos mosaicos ou partes selecionados.
+* **Design**: Contém a vista personalizada que está a criar ou a editar. 
+* **Controles**: Contém os mosaicos e partes que adicionar à **Design** painel. 
+* **Propriedades**: Apresenta as propriedades dos mosaicos ou partes selecionados.
 
 ![Estruturador de Vista](media/view-designer/view-designer-screenshot.png)
 

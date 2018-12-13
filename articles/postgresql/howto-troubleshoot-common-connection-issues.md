@@ -10,12 +10,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 9dd2c5d619920e1205d9d3c64e463c15cf708b31
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 67383db4bd1d57d194e10de2dc1964532b3619a4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887846"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53160816"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>Resolver problemas de ligação à base de dados do Azure para PostgreSQL
 
@@ -49,9 +49,9 @@ Erros transitórios ocorrem quando é efetuada a manutenção, o sistema detetar
 
 Se a aplicação de forma permanente falhar ligar à base de dados do Azure para PostgreSQL, normalmente indica um problema com um dos seguintes:
 
-* Configuração da firewall: A base de dados do Azure para PostgreSQL a firewall de servidor ou do lado do cliente está a bloquear ligações.
-* Reconfiguração no lado do cliente de rede: foi adicionado um novo endereço IP ou um servidor proxy.
-* Erro de utilizador: por exemplo, pode ter escrito incorretamente parâmetros de ligação, como o nome do servidor na cadeia de ligação ou um em falta *@servername* sufixo no nome do utilizador.
+* Configuração de firewall do servidor: Certifique-se de que a base de dados do Azure para o firewall do servidor PostgreSQL está configurada para permitir ligações a partir do seu cliente, incluindo servidores proxy e gateways.
+* Configuração de firewall do cliente: A firewall no seu cliente tem de permitir ligações ao seu servidor de base de dados. Endereços IP e portas do servidor que não é possível para têm de ser permitidas, bem como nomes de aplicativo, como o PostgreSQL em alguns firewalls.
+* Erro de utilizador: Parâmetros de ligação, como o nome do servidor na cadeia de ligação ou um em falta pode ter escrito incorretamente *@servername* sufixo no nome do utilizador.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passos para resolver problemas de conectividade persistente
 

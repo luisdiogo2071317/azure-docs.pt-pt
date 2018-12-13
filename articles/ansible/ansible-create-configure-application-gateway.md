@@ -1,21 +1,21 @@
 ---
-title: Gerir o tráfego da Web com o Gateway de Aplicação do Azure através do Ansible (pré-visualização)
+title: Gerir o tráfego da web com o Gateway de aplicação do Azure com o Ansible
 description: Saiba como pode utilizar o Ansible para criar e configurar um Gateway de Aplicação do Azure para gerir o tráfego da Web
 ms.service: ansible
-keywords: ansible, azure, devops, bash, manual de procedimentos, gateway de aplicações do azure, balanceador de carga, tráfego da web
+keywords: devops do azure, do ansible, bash, playbook, gateway de aplicação, Balanceador de carga, o tráfego da web
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: e3c165c87d6c179141f2ddd44f00f0f62a84b285
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: af7f22ae5c289a01e6876d8ce586cb32383c8d3b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912871"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253372"
 ---
-# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible-preview"></a>Gerir o tráfego da Web com o Gateway de Aplicação do Azure através do Ansible (pré-visualização)
+# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>Gerir o tráfego da web com o Gateway de aplicação do Azure com o Ansible
 
 O [Gateway de Aplicação do Azure](https://docs.microsoft.com/azure/application-gateway/) é um balanceador de carga do tráfego da Web que lhe permite gerir o tráfego das suas aplicações Web.
 
@@ -34,7 +34,7 @@ Este tutorial mostrar-lhe como:
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> O Ansible 2.7 é necessário para executar os manuais de procedimentos de exemplo neste tutorial. Pode executar `sudo pip install ansible[azure]==2.7.0rc2` para instalar o Ansible 2.7 RC. Após o lançamento do Ansible 2.7, não terá de especificar a versão.
+> O Ansible 2.7 é necessário para executar os manuais de procedimentos de exemplo neste tutorial. 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -287,7 +287,7 @@ Guarde o manual de procedimentos como *rg_delete*.yml. Para executar o manual de
 ansible-playbook rg_delete.yml
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Ansible no Azure](https://docs.microsoft.com/azure/ansible/)

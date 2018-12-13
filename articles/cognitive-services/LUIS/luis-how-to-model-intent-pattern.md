@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 20a486a048fe6287544a9fec35a95c88f6194a66
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ae0fdb17680f415a1dacce1738fa53fcda943788
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093187"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135003"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar os padrões para melhorar a exatidão da previsão
 Depois de uma aplicação do LUIS recebe expressões de ponto de extremidade, utilize o [conceito](luis-concept-patterns.md) de padrões para melhorar a exatidão da previsão para expressões que revelam um padrão na ordem das palavras e a escolha do word. Padrões de utilização [entidades](luis-concept-entity-types.md) e as respetivas funções para extrair dados usando a sintaxe padrão específico. 
@@ -96,7 +96,7 @@ Para reatribuir a vários padrões para um objetivo diferente, selecione a caixa
 
 2. O **eliminar padrões** é apresentada a caixa de diálogo de confirmação. Selecione **Ok** para concluir a eliminação.
 
-    ![Captura de ecrã da eliminação de vários padrões](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![Captura de ecrã da caixa de vários padrões de confirmação de eliminação](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
 ## <a name="filter-pattern-list-by-entity"></a>Filtrar a lista padrão por entidade
 
@@ -117,7 +117,7 @@ Depois do filtro é aplicado, o nome de intenção é apresentada abaixo da barr
 ## <a name="remove-entity-or-intent-filter"></a>Remover entidade ou um filtro de intenção
 Quando a lista de padrão é filtrada, a entidade ou o nome de intenção é apresentada abaixo da barra de ferramentas. Para remover o filtro, selecione o nome.
 
-![Captura de ecrã dos padrões filtrados por entidade](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![Captura de ecrã da remoção de entidade do filtro](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 O filtro é removido e apresentam todos os padrões. 
 

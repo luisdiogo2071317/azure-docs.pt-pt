@@ -1,5 +1,5 @@
 ---
-title: Implementar a aplicação no serviço de aplicações do Azure com FTP/S | Documentos da Microsoft
+title: Implementar conteúdo com FTP/S - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como implementar a aplicação no serviço de aplicações do Azure através de FTP ou FTPS.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 1e3dbe04652be479a327ed9494299f89ef13492a
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: f48dc4d91fd5fafda88f518c27c79e151e5b1ebe
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679397"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260077"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementar a aplicação no serviço de aplicações do Azure com FTP/S
 
@@ -46,8 +47,8 @@ No dashboard do FTP, clique em **cópia** para copiar as credenciais de ponto fi
 ## <a name="deploy-files-to-azure"></a>Implementar os ficheiros para o Azure
 
 1. Partir do seu cliente FTP (por exemplo, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), ou [WinSCP](https://winscp.net/index.php)), utilize as informações de ligação que recolheu para ligar à sua aplicação.
-3. Copiar os ficheiros e a sua respetiva estrutura de diretório para o [ **/site/wwwroot** diretório](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) no Azure (ou o **/site/wwwroot/aplicação_dados/tarefas/** diretório para o WebJobs).
-4. Navegue para o URL da sua aplicação para verificar se que a aplicação está a funcionar corretamente. 
+2. Copiar os ficheiros e a sua respetiva estrutura de diretório para o [ **/site/wwwroot** diretório](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) no Azure (ou o **/site/wwwroot/aplicação_dados/tarefas/** diretório para o WebJobs).
+3. Navegue para o URL da sua aplicação para verificar se que a aplicação está a funcionar corretamente. 
 
 > [!NOTE] 
 > Ao contrário [Implantações com base no Git](app-service-deploy-local-git.md), implementação de FTP não suporta as automatizações de fluxos de implementação seguintes: 

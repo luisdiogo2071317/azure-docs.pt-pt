@@ -1,5 +1,5 @@
 ---
-title: Tutorial para adicionar a conclusão automática à caixa de pesquisa com o Azure Search | Microsoft Docs
+title: Tutorial para adicionar a conclusão automática para sua caixa de pesquisa - Azure Search
 description: Exemplos de como melhorar a experiência do utilizador final das suas aplicações centradas em dados com a conclusão automática e as APIs de sugestões do Azure Search.
 manager: pablocas
 author: mrcarter8
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: 10f86a482fbb35e7276f8f689a7eba184a7b624b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578179"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316187"
 ---
-# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Tutorial: Adicionar a conclusão automática à caixa de pesquisa com o Azure Search
+# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Tutorial: Adicionar preenchimento automático para sua caixa de pesquisa com o Azure Search
 
 Neste tutorial, irá aprender a utilizar [sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions), a [conclusão automática ](https://docs.microsoft.com/rest/api/searchservice/autocomplete) e [facetas](search-faceted-navigation.md) na [API REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/) e no [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) para criar uma caixa de pesquisa poderosa. As *sugestões* fornecem recomendações de resultados reais com base no que o utilizador escreveu até ao momento. A *conclusão automática*, [uma nova funcionalidade de pré-visualização](search-api-preview.md) do Azure Search, fornece termos a partir do índice para concluir o que o utilizador está a escrever atualmente. Vamos comparar várias técnicas para melhorar a produtividade dos utilizadores e encontrar rápida e facilmente aquilo que procuram ao colocar a riqueza da pesquisa diretamente no utilizador à medida que escreve.
 
@@ -126,7 +127,7 @@ Agora que revimos o código JavaScript do exemplo, vamos analisar o código do c
 
 1. Abra o ficheiro HomeController.cs no diretório Controllers. 
 
-1. A primeira coisa em que irá reparar é num método na parte superior da classe denominado InitSearch.  Esta ação cria um cliente de índice HTTP autenticado para o serviço do Azure Search.  Se quiser saber mais sobre como isto funciona, visite o seguinte tutorial: [Como utilizar o Azure Search a partir de uma Aplicação .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+1. A primeira coisa em que irá reparar é num método na parte superior da classe denominado InitSearch.  Esta ação cria um cliente de índice HTTP autenticado para o serviço do Azure Search.  Se gostaria de saber mais sobre como isto funciona, visite o tutorial seguinte: [Como utilizar o Azure Search a partir de uma Aplicação .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 1. Mova para a função Suggest.
 
@@ -209,7 +210,7 @@ Se comparar isto ao exemplo acima que chama o controlador Home, verá várias se
 
 Este tutorial demonstra os passos básicos para a criação de uma caixa de pesquisa que suporta conclusão automática e sugestões.  Viu como pode criar uma aplicação ASP.NET MVC e utilizar o SDK do .NET ou a API REST do Azure Search para obter sugestões.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Integre sugestões e conclusão automática na sua experiência de pesquisa.  Considere a forma como a utilização direta do SDK do .NET ou da API REST pode ajudar a levar o poder do Azure Search aos seus utilizadores à medida que escrevem para os tornar mais produtivos.
 

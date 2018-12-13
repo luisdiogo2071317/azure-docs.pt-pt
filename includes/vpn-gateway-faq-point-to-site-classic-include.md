@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b8a785293c4e555b547c4b002f5ef5906a7633c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: 0c0ad6ea5a687d066c78533b45a7f531561661bf
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30198184"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323845"
 ---
-Estas FAQ aplicam-se às ligações P2S com o modelo de implementação clássica.
+Nestas perguntas frequentes aplica-se às ligações de P2S que utilizam o modelo de implementação clássica.
 
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>Que sistemas operativos cliente posso utilizar com a ligação Ponto a Site?
 
@@ -29,38 +29,38 @@ São suportados os seguintes sistemas operativos cliente:
 * Windows Server 2012 R2 (apenas 64 bits)
 * Windows 10
 
-### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp"></a>Posso utilizar qualquer cliente VPN de software para a ligação Ponto a Site que suporte SSTP?
+### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>Pode utilizar qualquer cliente VPN de software que suporte SSTP para ligações ponto a Site?
 
-Não. O suporte está limitado apenas às versões do sistema operativo Windows indicadas acima.
+Não. O suporte está limitado apenas para as versões de sistema operativo do Windows listadas.
 
-### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quantos pontos finais de cliente VPN posso ter na minha configuração Ponto a Site?
+### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>Quantos pontos de extremidade de cliente VPN podem existir na minha configuração ponto a Site?
 
-Suportamos até 128 clientes VPN para conseguir ligar a uma rede virtual ao mesmo tempo.
+Até 128 VPN, os clientes podem ligar a uma rede virtual ao mesmo tempo.
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>Posso utilizar AC de raiz de PKI interna para a conetividade Ponto a Site?
 
-Sim. Anteriormente, só podiam ser utilizados os certificados de raiz autoassinados. Ainda pode carregar 20 certificados de raiz.
+Sim. Anteriormente, só podiam ser utilizados os certificados de raiz autoassinados. Ainda pode carregar até 20 certificados de raiz.
 
-### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>Posso atravessar proxies e firewalls com a capacidade Ponto a Site?
+### <a name="can-i-traverse-proxies-and-firewalls-by-using-point-to-site"></a>Posso atravessar proxies e firewalls com o ponto a Site?
 
-Sim. Utilizamos o SSTP (Secure Socket Tunneling Protocol) para atravessar as firewalls. Este túnel aparece como uma ligação HTTPs.
+Sim. Usamos o Secure Socket Tunneling Protocol (SSTP) para atravessar as firewalls. Este túnel aparece como uma ligação HTTPS.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Se reiniciar o computador cliente configurado para Ponto a Site, a VPN restabelece ligação automaticamente?
 
 Por predefinição, o computador cliente não restabelece a ligação VPN automaticamente.
 
-### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>A ligação Ponto a Site suporta o restabelecimento de ligação automático e DDNS nos clientes VPN?
+### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>Faz restabelecer a ligação automática de suporte ponto a Site e DDNS nos clientes VPN?
 
-Atualmente, o restabelecimento de ligação automático e DDNS não são suportados nas VPNs Ponto a Site.
+Não. Restabelecimento de ligação automático e DDNS não são atualmente suportados nas VPNs ponto a Site.
 
-### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>Posso ter configurações Site a Site e Ponto a Site coexistentes na mesma rede virtual?
+### <a name="can-i-have-site-to-site-and-point-to-site-configurations-for-the-same-virtual-network"></a>Posso ter configurações de ponto a Site para a mesma rede virtual e de Site a Site?
 
-Sim. Ambas as soluções funcionarão se tiver um tipo de VPN RouteBased para o gateway. No modelo de implementação clássica, precisa de um gateway dinâmico. Não suportamos a ligação Ponto a Site para gateways de VPN de encaminhamento estático ou gateways que utilizem o cmdlet `-VpnType PolicyBased`.
+Sim. Ambas as soluções funcionarão se tiver um tipo de RouteBased VPN para o seu gateway. No modelo de implementação clássica, precisa de um gateway dinâmico. Não temos suporte ponto a Site para gateways de VPN de encaminhamento estático ou gateways que utilizem o **- VpnType PolicyBased** cmdlet.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Posso configurar um cliente Ponto a Site para ligar a várias redes virtuais ao mesmo tempo?
 
-Sim, é possível. Mas as redes virtuais não podem ter prefixos IP sobrepostos e os espaços de endereços Ponto a Site não se podem sobrepor nas redes virtuais.
+Sim. No entanto, as redes virtuais não podem ter prefixos IP sobrepostos e os espaços de endereços de ponto a Site não pode sobrepor entre as redes virtuais.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Que débito posso esperar através das ligações Site a Site ou Ponto a Site?
 
-É difícil manter o débito exato dos túneis VPN. O IPsec e SSTP são protocolos VPN extremamente encriptados. O débito também é limitado pela latência e pela largura de banda entre o local e a Internet.
+É difícil manter o débito exato dos túneis VPN. O IPsec e SSTP são protocolos VPN extremamente encriptados. O débito também é limitado pela latência e largura de banda entre o local e na internet.

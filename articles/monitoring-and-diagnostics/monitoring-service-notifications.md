@@ -1,6 +1,6 @@
 ---
 title: Quais são as notificações de estado de funcionamento do serviço do Azure?
-description: Notificações do Estado de funcionamento do serviço permitem-lhe ver mensagens de estado de funcionamento de serviço publicadas pelo Microsoft Azure.
+description: Notificações de estado de funcionamento do serviço permitem-lhe ver mensagens de estado de funcionamento de serviço publicadas pelo Microsoft Azure.
 author: dkamstra
 services: monitoring
 ms.service: azure-monitor
@@ -8,106 +8,106 @@ ms.topic: conceptual
 ms.date: 4/12/2017
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: d6a87b17041c4ce6cf41da863354ef5a2a37141c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fbe5e6a34332326d5169497a016a03ef629dd00c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264447"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269027"
 ---
-# <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver as notificações de estado de funcionamento do serviço utilizando o portal do Azure
+# <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Ver notificações do Estado de funcionamento de serviço com o portal do Azure
 
-Notificações de estado de funcionamento de serviço são publicadas pelo Azure e contêm informações sobre os recursos na sua subscrição. Estas notificações são uma classe secundárias da atividade de registo de eventos e também podem ser encontradas no registo de atividade. Notificações do Estado de funcionamento do serviço podem ser informativa ou acionável, consoante a classe.
+Notificações de estado de funcionamento do serviço são publicadas pelo Azure e contêm informações sobre os recursos na sua subscrição. Estas notificações são uma classe secundárias da atividade de registo de eventos e também podem ser encontradas no registo de atividades. Notificações de estado de funcionamento do serviço podem ser informativa ou passíveis de ação, dependendo da classe.
 
-Existem várias classes de notificações do Estado de funcionamento do serviço:  
+Existem várias classes de notificações de estado de funcionamento do serviço:  
 
-- **Ação necessária:** Azure poderá reparar que algo invulgar se acontecer na sua conta e trabalhar para resolver isto. Azure envia uma notificação, ou com detalhes sobre as ações que precisa de tomar ou como contactar o suporte ou de engenharia do Azure.  
-- **Assistido recuperação:** tiver ocorrido um evento e engenheiros tem confirmado que ainda estão a experienciar impacto. Tem de engenharia do Azure trabalhar consigo diretamente para restaurar os serviços de estado de funcionamento completo.  
-- **Incidente:** um evento que afeta o serviço está atualmente a afetar um ou mais recursos na sua subscrição.  
-- **Manutenção:** uma atividade de manutenção planeada que poderá afetar um ou mais dos recursos na sua subscrição.  
-- **Informações:** otimizações potenciais que podem ajudar a melhorar a utilização de recursos. 
-- **Segurança:** urgentes relacionadas com segurança estão disponíveis informações sobre as soluções que são executadas no Azure.
+- **Ação necessária:** Azure, pode observar algo invulgar se acontecer na sua conta e trabalhar para resolver isto. O Azure envia uma notificação, seja com detalhes sobre as ações que precisa de efetuar ou como contactar o suporte ou de engenharia do Azure.  
+- **Recuperação assistida:** Ocorreu um evento e engenheiros tem confirmado que ainda estão a experienciar impacto. Tem de engenharia do Azure trabalhar consigo diretamente para restaurar os serviços de estado de funcionamento completo.  
+- **Incidente:** Um evento que afeta o serviço está atualmente a afetar uma ou mais dos recursos na sua subscrição.  
+- **Manutenção:** Uma atividade de manutenção planeada que pode afetar uma ou mais dos recursos na sua subscrição.  
+- **Informações:** Utilizam otimizações possíveis que podem ajudar a melhorar o seu recurso. 
+- **Segurança:** Urgentes informações relacionadas com segurança relativas à sua soluções executadas no Azure.
 
-Cada notificação de estado de funcionamento do serviço inclui detalhes sobre o âmbito e o impacto para os recursos. Detalhes incluem:
+Cada notificação de estado de funcionamento do serviço inclui detalhes sobre o âmbito e o impacto para os seus recursos. Os detalhes incluem:
 
 Nome da propriedade | Descrição
 -------- | -----------
 canais | Um dos seguintes valores: **Admin** ou **operação**.
-correlationId | Normalmente, um GUID no formato de cadeia. Os eventos que pertencem, normalmente, para a mesma ação de partilham o mesmo correlationId.
+correlationId | Normalmente, um GUID no formato de cadeia de caracteres. Eventos que pertençam à mesma ação normalmente compartilham a mesma correlationId.
 eventDataId | O identificador exclusivo de um evento.
 eventName | O título de um evento.
 nível | O nível de um evento
 resourceProviderName | O nome do fornecedor de recursos para o recurso afetado.
 resourceType| O tipo de recurso do recurso afetado.
-subStatus | Normalmente, o código de estado HTTP do resto correspondente chamar, mas também pode incluir outras cadeias que descrevem um subestado. Por exemplo: OK (código de estado de HTTP: 200), criado (código de estado HTTP: 201), aceite (código de estado de HTTP: 202), não conteúdo (código de estado de HTTP: 204), pedido incorreto (código de estado HTTP: 400), não encontrado (código de estado de HTTP: 404), conflito (código de estado HTTP: 409), interno do servidor Erro (código de estado HTTP: 500), serviço indisponível (código de estado HTTP: 503) e o tempo limite do Gateway (código de estado HTTP: 504).
-eventTimestamp | Timestamp quando o evento foi gerado pelo serviço do Azure de processamento do pedido correspondente ao evento.
-submissionTimestamp | Timestamp quando o evento ficou disponível para consulta.
+subStatus | Normalmente, o código de estado HTTP do resto correspondente chamar, mas também pode incluir outras cadeias de caracteres que descreve um subestado. Por exemplo: OK (código de estado HTTP: 200), criado (código de estado HTTP: 201), aceite (código de estado HTTP: 202), não existe conteúdo (código de estado HTTP: 204), pedido incorreto (código de estado HTTP: 400), não encontrado (código de estado HTTP: 404), conflito (código de estado HTTP: 409), erro de servidor interno (código de estado HTTP: 500), serviço indisponível (código de estado HTTP: 503) e o tempo limite do Gateway (código de estado HTTP: 504).
+eventTimestamp | Timestamp quando o evento foi gerado pelo serviço do Azure a processar o pedido correspondente ao evento.
+submissionTimestamp | Timestamp quando o evento se tornou disponível para consulta.
 subscriptionId | A subscrição do Azure em que este evento foi registado.
-status | Cadeia que descrevem o estado da operação. Alguns valores comuns são: **iniciado**, **em curso**, **com êxito**, **falha**, **Active Directory**, e **Resolvido**.
+status | A cadeia de caracteres que descreve o estado da operação. Alguns valores comuns são: **Iniciado**, **em curso**, **foi concluída com êxito**, **falha**, **Active**, e **resolvido**.
 operationName | O nome da operação.
 categoria | Esta propriedade é sempre **ServiceHealth**.
 resourceId | O ID de recurso do recurso afetado.
-Properties.title | O título localizado para esta comunicação. Inglês é o predefinido.
-Properties.Communication | Os detalhes localizados da comunicação com o markup HTML. Inglês é o predefinido.
-Properties.incidentType | Um dos seguintes valores: **ActionRequired**, **informações**, **incidente**, **manutenção**, ou **segurança**.
-Properties.trackingId | O incidente a que este evento está associado. Utilize esta opção para correlacionar os eventos relacionados com um incidente.
-Properties.impactedServices | Um blob JSON com caráter de escape que descreve os serviços e regiões afetadas pelo incidente. A propriedade inclui uma lista de serviços, cada um deles tem uma **ServiceName**e uma lista de regiões afetadas, cada um deles tem uma **RegionName**.
+Properties.title | O título localizado para esta comunicação. Inglês é o padrão.
+Properties.Communication | Os detalhes de localizada da comunicação com a marcação HTML. Inglês é o padrão.
+Properties.incidentType | Um dos seguintes valores: **Ação necessária**, **informações**, **incidente**, **manutenção**, ou **segurança**.
+Properties.trackingId | O incidente à qual este evento está associado. Utilize esta opção para correlacionar os eventos relacionados com a um incidente.
+Properties.impactedServices | Um blob JSON com caráter de escape que descreve os serviços e regiões afetados pelo incidente. A propriedade inclui uma lista de serviços, cada um com um **ServiceName**e uma lista de regiões afetados, cada um com um **RegionName**.
 Properties.defaultLanguageTitle | A comunicação em inglês.
-Properties.defaultLanguageContent | A comunicação em inglês como texto simples ou markup HTML.
-Properties.Stage | Os valores possíveis para **incidente**, e **segurança** são **Active Directory,** **resolvido** ou **RCA**. Para **ActionRequired** ou **informações** é o único valor **Active Directory.** Para **manutenção** são: **Active Directory**, **planeada**, **em curso**, **cancelado**, **Reagendada**, **resolvido**, ou **concluída**.
+Properties.defaultLanguageContent | A comunicação em inglês como marcação HTML ou texto sem formatação.
+Properties.Stage | Os possíveis valores para **incidente**, e **Security** são **Active Directory,** **resolvido** ou **RCA**. Para **ação necessária** ou **informações** é o único valor **Active Directory.** Para **manutenção** são: **Active Directory**, **planeadas**, **InProgress**, **cancelada**, **reagendada**, **resolvido**, ou **completo**.
 Properties.communicationId | A comunicação com o qual este evento está associado.
 
-### <a name="details-on-service-health-level-information"></a>Detalhes sobre informações de nível de estado de funcionamento do serviço
+### <a name="details-on-service-health-level-information"></a>Informações de nível de detalhes sobre o service health
   <ul>
-    <li><b>Ação necessária</b> (properties.incidentType = = ActionRequired) <dl>
-            <dt>Informativo</dt>
-            <dd>Administrador é necessária ação para evitar o impacto para os serviços existentes</dd>
+    <li><b>É necessária qualquer ação</b> (properties.incidentType = = ação necessária) <dl>
+            <dt>Informativa</dt>
+            <dd>Ação do administrador necessária para evitar o impacto para os serviços existentes</dd>
         </dl>
     </li>
     <li><b>Manutenção</b> (properties.incidentType = = manutenção) <dl>
-            <dt>aviso</dt>
+            <dt>Aviso</dt>
             <dd>manutenção de emergência<dd>
-            <dt>Informativo</dt>
+            <dt>Informativa</dt>
             <dd>manutenção planeada padrão</dd>
         </dl>
     </li>
     <li><b>Informações</b> (properties.incidentType = = informações) <dl>
-            <dt>Informativo</dt>
-            <dd>Poderá ser necessário administrador para evitar o impacto para os serviços existentes</dd>
+            <dt>Informativa</dt>
+            <dd>Administrador pode ser necessário para evitar o impacto para os serviços existentes</dd>
         </dl>
     </li>
     <li><b>Segurança</b> (properties.incidentType = = segurança) <dl>
             <dt>Erro</dt>
-            <dd>Problemas ampla aceder aos vários serviços em várias regiões têm maior impacto num conjunto amplo de clientes.</dd>
-            <dt>aviso</dt>
-            <dd>Problemas de acesso a serviços específicos e/ou em regiões específicas têm maior impacto num subconjunto de clientes.</dd>
-            <dt>Informativo</dt>
-            <dd>Problemas de causar impacto nas operações de gestão e a latência, a não afetar a disponibilidade do serviço.</dd>
+            <dd>Problemas de amplo acesso a vários serviços em várias regiões estão a afetar um vasto leque de clientes.</dd>
+            <dt>Aviso</dt>
+            <dd>Problemas de acesso a serviços específicos e/ou em regiões específicas estão a afetar um subconjunto de clientes.</dd>
+            <dt>Informativa</dt>
+            <dd>Problemas que afetem as operações de gestão e/ou latência, a não afetar a disponibilidade do serviço.</dd>
         </dl>
     </li>
     <li><b>Problemas de serviço</b> (properties.incidentType = = incidente) <dl>
             <dt>Erro</dt>
-            <dd>Problemas ampla aceder aos vários serviços em várias regiões têm maior impacto num conjunto amplo de clientes.</dd>
-            <dt>aviso</dt>
-            <dd>Problemas de acesso a serviços específicos e/ou em regiões específicas têm maior impacto num subconjunto de clientes.</dd>
-            <dt>Informativo</dt>
-            <dd>Problemas de causar impacto nas operações de gestão e a latência, a não afetar a disponibilidade do serviço.</dd>
+            <dd>Problemas de amplo acesso a vários serviços em várias regiões estão a afetar um vasto leque de clientes.</dd>
+            <dt>Aviso</dt>
+            <dd>Problemas de acesso a serviços específicos e/ou em regiões específicas estão a afetar um subconjunto de clientes.</dd>
+            <dt>Informativa</dt>
+            <dd>Problemas que afetem as operações de gestão e/ou latência, a não afetar a disponibilidade do serviço.</dd>
         </dl>
     </li>
   </ul>
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Ver as notificações de estado de funcionamento do serviço no portal do Azure
-1.  No [portal do Azure](https://portal.azure.com), selecione **Monitor**.
+1.  Na [portal do Azure](https://portal.azure.com), selecione **Monitor**.
 
-    ![Menu do portal captura de ecrã do Azure, com Monitor selecionado](./media/monitoring-service-notifications/home-monitor.png)
+    ![Menu do portal de captura de ecrã do Azure, com o Monitor selecionado](./media/monitoring-service-notifications/home-monitor.png)
 
-    Monitor do Azure reúne todas as suas monitorização definições e dados para uma vista consolidada. É aberto pela primeira vez para a secção **Registo de atividade**.
+    O Azure Monitor reúne todas as suas monitorização definições e dados numa vista consolidada. É aberto pela primeira vez para a secção **Registo de atividade**.
 
 3.  Selecione **alertas**.
 
-    ![Registo de captura de ecrã da atividade do Monitor, com os alertas selecionados](./media/monitoring-service-notifications/service-health-summary.png)
-4. Selecione **+ Adicionar alerta de registo de atividade**e configurar um alerta para garantir que são notificados para notificações de serviço futuras. Para obter mais informações, consulte [criam alertas de registo de atividade em notificações de serviço](monitoring-activity-log-alerts-on-service-notifications.md).
+    ![Registo de atividades de captura de ecrã do Monitor, com os alertas selecionados](./media/monitoring-service-notifications/service-health-summary.png)
+4. Selecione **+ Adicionar alerta de registo de atividade**e configurar um alerta para garantir que é notificado para notificações de serviço futuras. Para obter mais informações, consulte [criar alertas do registo de atividade nas notificações do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Receber [sempre que uma notificação de estado de funcionamento do serviço de notificações de alertas](monitoring-activity-log-alerts-on-service-notifications.md) é publicada.  
-Saiba mais sobre [alertas de registo de atividade](monitoring-activity-log-alerts.md).
+Receber [sempre que uma notificação de estado de funcionamento do serviço de notificações de alertas](../azure-monitor/platform/alerts-activity-log-service-notifications.md) é publicado.  
+Saiba mais sobre [alertas de registo de atividade](../azure-monitor/platform/activity-log-alerts.md).

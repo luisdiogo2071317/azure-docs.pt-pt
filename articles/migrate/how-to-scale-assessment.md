@@ -4,14 +4,14 @@ description: Descreve como avaliar um grande número de máquinas no local com o
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: b0965d50781ac3bb6c62338a2c6f17317306d249
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 809d892c6238441f5a0bd93382acd7a783a4f0e9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835544"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260723"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
 
@@ -19,18 +19,21 @@ O Azure Migrate tem um limite de 1500 máquinas por projeto, este artigo descrev
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **VMware**: as VMs que planeia migrar têm de ser geridas pelo vCenter Server versão 5.5, 6.0 ou 6.5. Além disso, terá uma versão em execução de anfitrião ESXi 5.0 ou posterior para implementar a VM do recoletor.
-- **a conta do vCenter**: precisa de uma conta só de leitura para aceder ao vCenter Server. O Azure Migrate utiliza esta conta para detetar as VMs no local.
-- **Permissões**: no vCenter Server, precisa de permissões para criar uma VM ao importar um ficheiro no formato de OVA.
-- **Definições das estatísticas**: Este requisito só é aplicável para o [modelo de deteção única](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods). Para o modelo de deteção única, as definições de estatísticas do vCenter Server devem ser definidas como nível 3 antes de iniciar a implementação. O nível de estatísticas é para ser definido como 3 para cada um dos intervalos de coleção de mês, semana e dia. Se o nível for inferior a 3 para qualquer um dos intervalos de coleção de três, a avaliação funcionará, mas não serão recolhidos os dados de desempenho para armazenamento e rede. As recomendações de tamanho, em seguida, irão basear-se em dados de desempenho de CPU e memória e dados de configuração de adaptadores de rede e disco.
+- **VMware**: As VMs que planeia migrar tem de ser geridas pelo vCenter Server versão 5.5, 6.0 ou 6.5. Além disso, terá uma versão em execução de anfitrião ESXi 5.0 ou posterior para implementar a VM do recoletor.
+- **a conta do vCenter**: Precisa de uma conta só de leitura para aceder ao vCenter Server. O Azure Migrate utiliza esta conta para detetar as VMs no local.
+- **Permissões**: No vCenter Server, precisa de permissões para criar uma VM ao importar um ficheiro no formato de OVA.
+- **Definições das estatísticas**: Este requisito só é aplicável para o [modelo de deteção única](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) que foi despromovido agora. Para o modelo de deteção única, as definições de estatísticas do vCenter Server devem ser definidas como nível 3 antes de iniciar a implementação. O nível de estatísticas é para ser definido como 3 para cada um dos intervalos de coleção de mês, semana e dia. Se o nível for inferior a 3 para qualquer um dos intervalos de coleção de três, a avaliação funcionará, mas não serão recolhidos os dados de desempenho para armazenamento e rede. As recomendações de tamanho, em seguida, irão basear-se em dados de desempenho de CPU e memória e dados de configuração de adaptadores de rede e disco.
+
+> [!NOTE]
+> A aplicação de deteção de uso individual foi agora preterida como esse método baseou-se no vCenter definições de estatísticas do servidor para a disponibilidade de ponto de dados de desempenho e coletados contadores de desempenho médio que resultou em insuficientemente dimensionamento de VMs para a migração para o Azure.
 
 ### <a name="set-up-permissions"></a>Configurar permissões
 
 O Azure Migrate necessita de acesso aos servidores VMware para detetar automaticamente as VMs para avaliação. A conta de VMware tem as seguintes permissões:
 
-- Tipo de utilizador: pelo menos um utilizador só de leitura
+- Tipo de utilizador: Pelo menos um utilizador só de leitura
 - Permissões: Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura
-- Detalhes: utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.
+- Detalhes: Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.
 - Para restringir o acesso, atribua a função Sem acesso com Propagar para o objeto subordinado aos objetos subordinados (anfitriões vSphere, arquivos de dados, VMs e redes).
 
 Se estiver a implementar num ambiente de inquilino, eis uma forma de configurar estas definições:
@@ -76,26 +79,26 @@ Dependendo do seu cenário, pode dividir suas descobertas conforme prescrito aba
 ### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>VCenter vários servidores com menos de 1500 VMs
 Se tiver vários servidores de vCenter no seu ambiente e o número total de máquinas virtuais é inferior a 1500, pode usar a seguinte abordagem com base no seu cenário:
 
-**Deteção contínua:** em caso de deteção contínua, uma aplicação pode ser ligada apenas um único projeto. Portanto, precisa implementar uma aplicação para cada um dos seus servidores vCenter e, em seguida, criar um projeto para cada aplicação e deteções de Acionador em conformidade.
+**Deteção contínua:** Em caso de deteção contínua, uma aplicação pode ser ligada apenas um único projeto. Portanto, precisa implementar uma aplicação para cada um dos seus servidores vCenter e, em seguida, criar um projeto para cada aplicação e deteções de Acionador em conformidade.
 
-**Deteção única (agora preterida):** pode utilizar um único recoletor e um projeto de migração única para detetar todas as máquinas virtuais em todos os servidores vCenter. Uma vez que o recoletor de uso individual de deteção Deteta um vCenter Server ao mesmo tempo, pode executar o recoletor mesmo em relação a todos o servidores vCenter, um após o outro e apontar o recoletor para o mesmo projeto de migração. Depois que todas as deteções forem concluídas, em seguida, pode criar avaliações para as máquinas.
+**Deteção única (agora preterida):** Pode utilizar um único recoletor e um projeto de migração única para detetar todas as máquinas virtuais em todos os servidores vCenter. Uma vez que o recoletor de uso individual de deteção Deteta um vCenter Server ao mesmo tempo, pode executar o recoletor mesmo em relação a todos o servidores vCenter, um após o outro e apontar o recoletor para o mesmo projeto de migração. Depois que todas as deteções forem concluídas, em seguida, pode criar avaliações para as máquinas.
 
 
 ### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>VCenter vários servidores com mais de 1500 VMs
 
 Se tiver vários servidores de vCenter com menos de 1500 máquinas de virtuais por servidor vCenter, mas mais de 1500 VMs em todos os servidores vCenter, terá de criar vários projetos de migração (um projeto de migração pode conter apenas 1500 VMs). Pode conseguir isto ao criar um projeto de migração por servidor vCenter e dividir as descobertas.
 
-**Deteção contínua:** tem de criar várias aplicações de recoletor (um para cada servidor do vCenter) e ligar cada dispositivo de uma deteção de projeto e acionador em conformidade.
+**Deteção contínua:** Terá de criar várias aplicações de recoletor (um para cada servidor do vCenter) e ligar cada dispositivo de uma deteção de projeto e acionador em conformidade.
 
-**Deteção única (agora preterida):** pode utilizar um único recoletor para detetar cada servidor vCenter (um após o outro). Se pretender que as deteções para iniciar ao mesmo tempo, também pode implementar várias aplicações e executar as descobertas em paralelo.
+**Deteção única (agora preterida):** Pode usar um único recoletor para detetar cada servidor vCenter (um após o outro). Se pretender que as deteções para iniciar ao mesmo tempo, também pode implementar várias aplicações e executar as descobertas em paralelo.
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Mais de 1500 máquinas num único servidor do vCenter
 
 Se tiver mais de 1500 máquinas de virtuais num único servidor do vCenter, terá de dividir a deteção em vários projetos de migração. Dividir deteções, pode tirar partido do campo de âmbito a aplicação e especifique o anfitrião, cluster, pasta ou centro de dados que pretende detetar. Por exemplo, se tiver duas pastas no vCenter Server, um com 1000 VMs (Pasta1) e outro com 800 VMs (Folder2), pode utilizar o campo de âmbito para dividir as deteções entre essas pastas.
 
-**Deteção contínua:** neste caso, terá de criar duas aplicações de recoletor, para o recoletor primeiro, especifique o âmbito como Pasta1 e ligá-la para o primeiro projeto de migração. É possível em paralelo começar a deteção do Folder2 com a aplicação recoletora segundo e ligá-lo para o segundo projeto de migração.
+**Deteção contínua:** Neste caso, terá de criar duas aplicações de recoletor, para o recoletor primeiro, especifique o âmbito como Pasta1 e ligá-la para o primeiro projeto de migração. É possível em paralelo começar a deteção do Folder2 com a aplicação recoletora segundo e ligá-lo para o segundo projeto de migração.
 
-**Deteção única (agora preterida):** pode utilizar o mesmo recoletor para acionar a ambas as descobertas. Na primeira deteção, pode especificar Pasta1 como o âmbito e apontá-lo para o primeiro projeto de migração, assim que a primeira deteção estiver concluída, pode utilizar o mesmo coletor, altero seu escopo para detalhes do projeto Folder2 e migração para o segundo projeto de migração e Faça a deteção de segundo.
+**Deteção única (agora preterida):** Pode utilizar o mesmo recoletor para acionar a ambas as descobertas. Na primeira deteção, pode especificar Pasta1 como o âmbito e apontá-lo para o primeiro projeto de migração, assim que a primeira deteção estiver concluída, pode utilizar o mesmo coletor, altero seu escopo para detalhes do projeto Folder2 e migração para o segundo projeto de migração e Faça a deteção de segundo.
 
 ### <a name="multi-tenant-environment"></a>Ambiente de multi-inquilino
 
@@ -131,13 +134,13 @@ Se tiver vários projetos, terá de transferir a aplicação recoletora apenas u
     > [!NOTE]
     > A aplicação de deteção de uso individual foi agora preterida como esse método baseou-se no vCenter definições de estatísticas do servidor para a disponibilidade de ponto de dados de desempenho e coletados contadores de desempenho médio que resultou em insuficientemente dimensionamento de VMs para a migração para o Azure.
 
-    **Resultados instantâneos:** com a aplicação da deteção contínua, assim que estiver a deteção concluir (demora duas horas, consoante o número de VMs), pode criar avaliações de imediato. Uma vez que a recolha de dados de desempenho é iniciado quando pode iniciar a deteção, se estiver à procura de instantâneos, selecione o critério de tamanho na avaliação como *como no local*. Para obter avaliações baseado no desempenho, é recomendado aguardar pelo menos um dia após iniciar deteção para obter recomendações de tamanho fiável.
+    **Resultados instantâneos:** Com a aplicação da deteção contínua, assim que estiver a deteção concluir (demora duas horas, consoante o número de VMs), pode criar avaliações de imediato. Uma vez que a recolha de dados de desempenho é iniciado quando pode iniciar a deteção, se estiver à procura de instantâneos, selecione o critério de tamanho na avaliação como *como no local*. Para obter avaliações baseado no desempenho, é recomendado aguardar pelo menos um dia após iniciar deteção para obter recomendações de tamanho fiável.
 
     Tenha em atenção que a aplicação recolhe apenas dados de desempenho continuamente, não deteta qualquer alteração de configuração no ambiente no local (ou seja, adição de VM, eliminação, adição de disco, etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
 
-    - Adição de itens (VMs, discos, núcleos, etc.): para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, iniciá-la novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
+    - Adição de itens (VMs, discos, núcleos, etc.): Para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, inicie-o novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
 
-    - Eliminação das VMs: devido à forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
+    - Eliminação das VMs: A forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
 
 3. Na **copiar as credenciais do projeto**, copie o ID e a chave para o projeto. Precisará destes dados quando configurar o recoletor.
 

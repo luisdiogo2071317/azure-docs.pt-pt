@@ -1,5 +1,5 @@
 ---
-title: Reconstruir um conteúdo do pesquisável como índice ou a atualização da Azure Search | Documentos da Microsoft
+title: Reconstruir um índice da Azure Search ou de atualização de conteúdo pesquisável - Azure Search
 description: Adicionar novos elementos, atualizar elementos existentes ou documentos ou eliminar documentos obsoletos numa recriação completa ou a indexação incremental parcial para atualizar o índice da Azure Search.
 services: search
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 374e7601169647f0eb7d3a214cf15567b7b11090
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: 9c9af69e45af6a70c5327393a1c10385ba2c2aed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641429"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316901"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Como reconstruir um índice da Azure Search
 
@@ -35,7 +36,7 @@ Tencione recompilações freqüentes e completas durante o desenvolvimento do Ac
 
 | Modificação | Recriação do Estado|
 |--------------|---------------|
-| Alterar um nome de campo, tipo de dados, ou seu [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) | Alterar uma definição de campo, normalmente, implica uma penalidade de reconstrução, com exceção estes [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index): recuperável, SearchAnalyzer, SynonymMaps. Pode adicionar os atributos recuperável, SearchAnalyzer e SynonymMaps para um campo existente sem ter de recriar o seu índice.|
+| Alterar um nome de campo, tipo de dados, ou seu [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index) | Alterar uma definição de campo, normalmente, implica uma penalidade de reconstrução, com exceção estes [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/create-index): Recuperável, SearchAnalyzer, SynonymMaps. Pode adicionar os atributos recuperável, SearchAnalyzer e SynonymMaps para um campo existente sem ter de recriar o seu índice.|
 | Adicionar um campo | Sem requisito rígido na reconstrução. Documentos indexados existentes tem um valor nulo para o novo campo. Numa futura reindex, os valores dos dados de origem substituem nulos adicionados pelo Azure Search. |
 | Eliminar um campo | Diretamente não é possível eliminar um campo de índice da Azure Search. Em vez disso, deve ter o seu aplicativo ignorar o campo "eliminado" para evitar usá-lo. Fisicamente, a definição de campo e o conteúdo mantêm o índice até da próxima vez que reconstrua o índice utilizando um esquema que omite o campo em questão.|
 

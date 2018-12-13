@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell'
+title: 'Tutorial: Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell'
 description: Neste tutorial, irá aprender a implementar e configurar o Azure Firewall com o portal do Azure.
 services: firewall
 author: vhorne
@@ -7,14 +7,14 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: d69bd055c95592961216f5da1efaedc4a642fd63
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 467e8242ffeec435976f3f8fa5740908ea93d262
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316404"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260910"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
+# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
 
 Quando se liga a sua rede no local a uma rede virtual do Azure para criar uma rede híbrida, a capacidade para controlar o acesso aos seus recursos de rede do Azure é uma parte importante de um plano de segurança geral.
 
@@ -24,7 +24,7 @@ Para este tutorial, crie três redes virtuais:
 
 - **VNet Hub** -a firewall está nesta rede virtual.
 - **VNet-and-Spoke** -a rede virtual do spoke representa a carga de trabalho localizada no Azure.
-- **VNet Onprem** -a rede virtual no local representa uma rede no local. Numa implementação real, pode ser ligada através de uma ligação VPN ou Express Route. Para simplificar, este tutorial utiliza uma ligação de gateway VPN e uma rede virtual do Azure-localizado é utilizada para representar uma rede no local.
+- **VNet Onprem** -a rede virtual no local representa uma rede no local. Numa implementação real, ele pode ser conectado por conexão de uma VPN ou de uma rota. Para simplificar, este tutorial utiliza uma ligação de gateway VPN e uma rede virtual do Azure-localizado é utilizada para representar uma rede no local.
 
 ![Firewall numa rede híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -310,6 +310,9 @@ Em seguida, crie duas rotas:
 - Uma rota da sub-rede de gateway do hub para a sub-rede spoke através do endereço IP da firewall
 - Uma rota predefinida da sub-rede spoke através do endereço IP da firewall
 
+>[!NOTE]
+>Firewall do Azure tem de ter conectividade à internet direta. Se tiver ativado o túnel forçado para o local através do ExpressRoute ou o Gateway de aplicação, terá de configurar 0.0.0.0/0 UDR com o **NextHopType** valor definido como **Internet**e, em seguida, atribua-o para  **AzureFirewallSubnet**.
+
 ```azurepowershell
 #Create a route table
 $routeTableHubSpoke = New-AzureRmRouteTable `
@@ -482,4 +485,4 @@ Pode manter os recursos da firewall para o próximo tutorial. Se já não precis
 Em seguida, pode monitorizar os registos do Azure Firewall.
 
 > [!div class="nextstepaction"]
-> [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)
+> [Tutorial: Monitorize registos de Firewall do Azure](./tutorial-diagnostics.md)

@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 12/03/2018
-ms.openlocfilehash: 2f4f5bf19815469f76c1ee18ff42177f77faec28
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/12/2018
+ms.openlocfilehash: 108d2ac83c0dc317dee2f8c66f95f01d3569a7c4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871120"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311665"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações na base de dados do Azure para PostgreSQL
 As secções seguintes descrevem a capacidade e limites funcionais no serviço de base de dados.
@@ -58,6 +58,9 @@ O sistema do Azure requer cinco ligações para monitorizar a base de dados do A
 - Quando utilizar a funcionalidade PITR, é criado o novo servidor com as mesmas configurações de escalão de preço que o servidor que baseia-se.
 - O novo servidor criado durante um restauro não tem as regras de firewall que existiam no servidor original. Regras de firewall tem de ser configurado separadamente para este servidor novo.
 - Não é suportado restaurar um servidor foi eliminado.
+
+### <a name="utf-8-characters-on-windows"></a>Carateres UTF-8 no Windows
+- Em alguns cenários, UTF-8 carateres não são suportados totalmente no código-fonte aberto PostgreSQL no Windows, o que afeta a base de dados do Azure para PostgreSQL. Veja o thread sobre [15476 de n. º de Bug no arquivo morto do postgresql](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) para obter mais informações.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Compreender [o que está disponível em cada escalão de preço](concepts-pricing-tiers.md)

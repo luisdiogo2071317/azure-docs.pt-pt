@@ -1,19 +1,20 @@
 ---
-title: Resolver problemas de erros usando os esquemas do Azure
+title: Resolver erros comuns
 description: Saiba como resolver problemas de criação e a atribuição de esquemas
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b910f90e70af4ce6d4243c06bfe5bd03d25d74d6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092939"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315533"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Resolver problemas de erros usando os esquemas do Azure
 
@@ -23,7 +24,7 @@ Poderão ocorrer erros quando criar ou a atribuição de esquemas. Este artigo d
 
 Muitos erros será o resultado da atribuição de um plano gráfico para um âmbito. Quando uma tarefa falha, o plano gráfico fornece detalhes sobre a falha na implementação. Estas informações indicam o problema para que pode ser corrigido e a seguinte implementação com êxito.
 
-1. Clique em **todos os serviços** e a procurar e selecionando **política** no painel esquerdo. Na página **Política**, clique em **Esquemas**.
+1. Clique em **Todos os serviços** e procure e selecione **Política**, no painel do lado esquerdo. Na página **Política**, clique em **Esquemas**.
 
 1. Selecione **esquemas atribuídos** partir da página à esquerda e utilize a caixa de pesquisa para filtrar a atribuição de esquema para encontrar a atribuição falhou. Também pode ordenar a tabela de atribuições pela **estado de aprovisionamento** coluna para ver as atribuições de falhas todas agrupados em conjunto.
 
@@ -33,7 +34,7 @@ Muitos erros será o resultado da atribuição de um plano gráfico para um âmb
 
 É comum para o erro causado por um artefato e não o plano gráfico como um todo. Se um artefato cria um cofre de chave e o Azure Policy impede a criação do Key Vault, a atribuição de inteira falhará.
 
-## <a name="general-errors"></a>Erros de geral
+## <a name="general-errors"></a>Erros gerais
 
 ### <a name="policy-violation"></a>Cenário: Violação de política
 

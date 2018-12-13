@@ -1,6 +1,6 @@
 ---
-title: Ligar a base de dados SQL do Azure para o Azure Search utilizando indexadores | Documentos da Microsoft
-description: Saiba como extrair dados de base de dados do Azure SQL para um índice da Azure Search utilizando indexadores.
+title: Ligar e indexar o Azure SQL Database conteúdo com indexadores - Azure Search
+description: Aprenda a pesquisar dados na base de dados do SQL Azure com indexadores para pesquisa em texto completo no Azure Search. Este artigo aborda as ligações, a configuração do indexador e ingestão de dados.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,14 +9,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245652"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313399"
 ---
-# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Ligar a base de dados SQL do Azure para o Azure Search utilizando indexadores
+# <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ligar a e indexar o conteúdo de indexadores do Azure Search a utilizar o Azure SQL Database
 
 Antes de pode consultar um [índice da Azure Search](search-what-is-an-index.md), deve preenchê-lo com os seus dados. Se os dados residem numa base de dados SQL do Azure, um **indexador de Azure Search para o Azure SQL Database** (ou **indexador de SQL do Azure** para abreviar) pode automatizar o processo de indexação, o que significa menos código para escrever e menos infraestrutura preocupar.
 
@@ -34,7 +35,7 @@ Uma **indexador** é um recurso que se liga uma única origem de dados com um í
 * Atualize um índice com as alterações na origem de dados com base numa agenda.
 * Execute a pedido para atualizar um índice, conforme necessário.
 
-Um indexador único só pode consumir uma tabela ou vista, mas pode criar vários indexadores, se deseja preencher vários índices de pesquisa. Para obter mais informações sobre conceitos, veja [operações do indexador: fluxo de trabalho típico](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
+Um indexador único só pode consumir uma tabela ou vista, mas pode criar vários indexadores, se deseja preencher vários índices de pesquisa. Para obter mais informações sobre conceitos, consulte [operações do indexador: Fluxo de trabalho típico](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
 
 Pode configurar e configurar um indexador de SQL do Azure com:
 
@@ -314,23 +315,23 @@ Estas definições são utilizadas no `parameters.configuration` objeto na defin
 
 ## <a name="faq"></a>FAQ
 
-**P: Posso utilizar o indexador de SQL do Azure com bases de dados SQL em execução em VMs de IaaS no Azure?**
+**P: Pode utilizar o indexador de SQL do Azure com bases de dados SQL em execução em VMs de IaaS no Azure?**
 
 Sim. No entanto, terá de permitir que o serviço de pesquisa ligar à base de dados. Para obter mais informações, consulte [configurar uma ligação a partir de um indexador de Azure Search para o SQL Server numa VM do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
-**P: Posso utilizar o indexador de SQL do Azure com bases de dados SQL em execução no local?**
+**P: Pode utilizar o indexador de SQL do Azure com bases de dados SQL em execução no local?**
 
 Não diretamente. Não é recomendável ou suportar uma conexão direta, como o fazer por isso exigiria a abertura de seus bancos de dados ao tráfego da Internet. Os clientes têm efetuada com êxito com este cenário através de tecnologias de ponte, como o Azure Data Factory. Para obter mais informações, consulte [enviar dados por Push para um índice da Azure Search utilizando o Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
-**P: Posso utilizar o indexador de SQL do Azure com bancos de dados diferentes do SQL Server em execução no IaaS no Azure?**
+**P: Pode utilizar o indexador de SQL do Azure com bancos de dados diferentes do SQL Server em execução no IaaS no Azure?**
 
 Não. Não é suportada neste cenário, porque ainda não Testamos o indexador com quaisquer bases de dados diferentes do SQL Server.  
 
-**P: Posso criar vários indexadores em execução com base numa agenda?**
+**P: Pode criar vários indexadores em execução com base numa agenda?**
 
 Sim. No entanto, apenas um indexador pode estar em execução num nó em simultâneo. Se precisar de vários indexadores em execução em simultâneo, considere aumentar verticalmente o seu serviço de pesquisa mais do que uma unidade de pesquisa.
 
-**P: o executar um efeito de indexador minha carga de trabalho de consulta?**
+**P: Executar um indexador afeta a minha carga de trabalho de consulta?**
 
 Sim. Indexador é executado em um de nós no seu serviço de pesquisa e recursos desse nó são partilhados entre a indexação e que serve o tráfego de consulta e de outros pedidos de API. Se executar cargas de trabalho intensivas de indexação e consulta e encontra uma alta taxa de 503 erros ou tempos de resposta de cada vez maior, considere [aumente verticalmente o seu serviço de pesquisa](search-capacity-planning.md).
 
@@ -338,7 +339,7 @@ Sim. Indexador é executado em um de nós no seu serviço de pesquisa e recursos
 
 Depende. Para indexação completo de uma tabela ou vista, pode utilizar uma réplica secundária. 
 
-Para a indexação incremental, suporta a Azure Search dois altera políticas de Deteção: SQL integrada alterar a marca de água está acompanhando e alta.
+Para a indexação incremental, o Azure Search suporta duas políticas de deteção de alteração: SQL integrado do controle de alterações e máximo.
 
 Em réplicas só de leitura, base de dados SQL não suporta o controlo de alterações integrado. Por conseguinte, tem de utilizar a política de máximo. 
 
@@ -348,7 +349,7 @@ Se tentar usar rowversion numa réplica só de leitura, verá o seguinte erro:
 
     "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
 
-**P: Posso utilizar uma coluna não rowversion alternativa, para controlo de alterações máximo?**
+**P: Pode utilizar uma coluna não rowversion alternativa, para controlo de alterações máximo?**
 
 Não é recomendado. Apenas **rowversion** permite a sincronização de dados fiável. No entanto, dependendo de sua lógica de aplicação, poderá ser seguro se:
 

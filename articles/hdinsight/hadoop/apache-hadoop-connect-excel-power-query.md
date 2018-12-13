@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: d852919b762dd7350b74372acbbbcaa31f0a8f90
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: ee46fd0b846bb2cf2ad3cd674417d598d0d08e2a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016679"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162907"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Ligar o Excel para Apache Hadoop com o Power Query
 Uma funcionalidade-chave da solução de grandes volumes de dados do Microsoft é a integração de componentes do Microsoft business intelligence (BI) com clusters do Apache Hadoop no HDInsight do Azure. Um exemplo principal é a capacidade de ligar o Excel à conta de armazenamento do Azure que contém os dados associados a seu cluster do Hadoop ao utilizar o Microsoft Power Query para o suplemento do Excel. Este artigo explica como configurar e utilizar o Power Query para consultar dados associados a um cluster de Hadoop gerido com o HDInsight.
@@ -52,7 +52,7 @@ O suplemento Power Query para Excel torna mais fácil importar dados do seu clus
    
         ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
-        **Nota:** se não vir o **Power Query** menu, aceda a **ficheiro** > **opções** > **Add-Ins**e selecione **COM Add-ins** na lista suspensa **gerir** caixa na parte inferior da página. Selecione o **vá...**  botão e certifique-se de que a caixa para o Power Query para o suplemento do Excel foi verificada.
+        **Nota:** Se não vir a **Power Query** menu, aceda à **ficheiro** > **opções** > **Add-Ins**e selecione  **COM Add-ins** na lista suspensa **gerir** caixa na parte inferior da página. Selecione o **vá...**  botão e certifique-se de que a caixa para o Power Query para o suplemento do Excel foi verificada.
        
         **Nota:** Power Query também permite que importe dados do HDFS clicando **de outras origens**.
 4. Para **nome da conta**, introduza o nome da conta de armazenamento de Blobs do Azure associado com o seu cluster e, em seguida, clique em **OK**. Esta conta pode ser o [predefinido a conta de armazenamento](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account) ou uma conta de armazenamento ligada.  O formato é *https://&lt;StorageAccountName >.blob.core.windows.net/*.

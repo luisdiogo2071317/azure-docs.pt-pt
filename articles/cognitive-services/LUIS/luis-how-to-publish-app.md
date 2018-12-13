@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fe8806b4cc84bb9a15ce5620366fee23bba328c4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 73788b05cad3abac19b1ef509f1250542d10dba2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106435"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136652"
 ---
 # <a name="publish-your-trained-app"></a>Publique a sua aplicação preparada
 
@@ -38,7 +38,7 @@ A aplicação for publicada para todas as regiões associadas com os recursos de
 
 Quando a aplicação é publicada com êxito, é apresentada uma notificação de êxito verde na parte superior do navegador. A barra de notificação verde também inclui uma ligação para os pontos de extremidade. 
 
-![Janela de pop-up de publicação](./media/luis-how-to-publish-app/publish-success.png)
+![A publicação de uma janela pop-up com a ligação ao ponto final](./media/luis-how-to-publish-app/publish-success.png)
 
 Se precisar do URL de ponto de extremidade, selecione a ligação. Também pode obter para os URLs de ponto de extremidade, selecionando **Manage** no menu superior, em seguida, selecione **chaves e os pontos finais** no menu à esquerda. 
 

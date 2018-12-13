@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 03a60940b4889671149c49becb0f823da89781ff
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9d1acabd07e7c01445c55a57be9b0c9a36140aa5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135564"
+ms.locfileid: "53163774"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Melhores práticas para dimensionamento e custos de cargas de trabalho migradas para o Azure
 
@@ -34,21 +34,21 @@ As práticas recomendadas nesta secção ajudá-lo a estimar os custos, efetuar 
 
 
 
-## <a name="best-practice-estimate-monthly-workload-costs"></a>Melhor prática: mensalmente estimar os custos de carga de trabalho
+## <a name="best-practice-estimate-monthly-workload-costs"></a>Prática recomendada: Mensalmente estimar os custos de carga de trabalho
  
 Para prever a fatura mensal para cargas de trabalho migradas, há uma série de ferramentas que pode utilizar.
 
-- **Calculadora de preços do Azure**: selecionar os produtos que pretende fazer uma estimativa, por exemplo VMs e armazenamento. Introduza os custos para a Calculadora de preços, para criar uma estimativa.
+- **Calculadora de preços do Azure**: Selecione os produtos que pretende fazer uma estimativa, por exemplo VMs e armazenamento. Introduza os custos para a Calculadora de preços, para criar uma estimativa.
 
  ![Calculadora de preços do Azure](./media/migrate-best-practices-costs/pricing.png) *Calculadora de preços do Azure*
 
-- **O Azure Migrate**: para estimar os custos, terá de rever e de conta para todos os recursos necessários para executar cargas de trabalho no Azure. Para obter estes dados, crie inventário dos seus recursos, incluindo servidores, VMs, bases de dados e armazenamento. Pode utilizar o Azure Migrate para recolher estas informações.
+- **Azure Migrate**: Para estimar os custos, terá de rever e de conta para todos os recursos necessários para executar cargas de trabalho no Azure. Para obter estes dados, crie inventário dos seus recursos, incluindo servidores, VMs, bases de dados e armazenamento. Pode utilizar o Azure Migrate para recolher estas informações.
 
  - O Azure Migrate Deteta e avalia seu ambiente no local para fornecer um inventário.
  - O Azure Migrate pode mapear e mostrar as dependências entre as VMs, para que tenha uma visão completa.
  - Uma avaliação do Azure Migrate contém o custo estimado.
-    - Os custos de computação: com o tamanho de VM do Azure recomendado quando criar uma avaliação, do Azure Migrate utiliza a API de faturação para calcular os custos VM mensais estimados. A estimativa considera o sistema operativo, do software assurance, instâncias reservadas, a VM de tempo de atividade, localização e as configurações de moeda. Agrega o custo em todas as VMs na avaliação e calcula um custo mensal total de computação.
-    - Custo de armazenamento: o Azure Migrate calcula os custos de armazenamento mensal total ao agregar os custos de armazenamento de todas as VMs nas avaliações. Pode calcular o custo de armazenamento mensal de uma máquina específica ao agregar o custo mensal de todos os discos ligados à mesma. 
+    - Os custos de computação: Com o tamanho de VM do Azure recomendado quando criar uma avaliação, do Azure Migrate utiliza a API de faturação para calcular os custos VM mensais estimados. A estimativa considera o sistema operativo, do software assurance, instâncias reservadas, a VM de tempo de atividade, localização e as configurações de moeda. Agrega o custo em todas as VMs na avaliação e calcula um custo mensal total de computação.
+    - Custo de armazenamento: O Azure Migrate calcula os custos de armazenamento mensal total ao agregar os custos de armazenamento de todas as VMs nas avaliações. Pode calcular o custo de armazenamento mensal de uma máquina específica ao agregar o custo mensal de todos os discos ligados à mesma. 
 
     ![O Azure Migrate](./media/migrate-best-practices-costs/assess.png) *avaliações do Azure Migrate*
 
@@ -58,7 +58,7 @@ Para prever a fatura mensal para cargas de trabalho migradas, há uma série de 
 - [Leia sobre](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation) avaliações do Azure Migrate.
 - [Saiba mais](https://docs.microsoft.com/azure/dms/dms-overview) sobre o serviço de migração de base de dados (DMS).
 
-## <a name="best-practice-right-size-vms"></a>Melhor prática: VMs de tamanho adequado
+## <a name="best-practice-right-size-vms"></a>Prática recomendada: Dimensionar VMs
 
 Pode escolher um número de opções ao implementar VMs do Azure para suportar cargas de trabalho. Cada tipo VM tem funcionalidades específicas e diferentes combinações de CPU, memória e discos. As VMs são agrupadas da seguinte forma.
 
@@ -80,7 +80,7 @@ Pode escolher um número de opções ao implementar VMs do Azure para suportar c
 - [Planear](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs) dimensionamento de VM.
 - [Revisão](https://docs.microsoft.com/azure/migrate/contoso-migration-assessment) uma avaliação de exemplo para a empresa fictícia de Contoso.
 
-## <a name="best-practice-select-the-right-storage"></a>Melhor prática: selecione o armazenamento correto
+## <a name="best-practice-select-the-right-storage"></a>Prática recomendada: Selecione o armazenamento correto
 
 Ajuste e a manutenção de armazenamento no local (SAN ou NAS) e as redes para suportá-los, podem ser dispendiosa e demorada. Dados de ficheiros (armazenamento) normalmente são migrados para a cloud para ajudar a aliviar operacionais e dores de cabeça de gestão. A Microsoft fornece várias opções para mover dados para o Azure, e precisa para tomar decisões sobre essas opções. Escolher o tipo de armazenamento correta para dados pode salvar sua organização vários milhares de dólares por mês. Algumas considerações:
 
@@ -96,7 +96,7 @@ O Azure fornece diferentes tipos de dados de armazenamento.
 --- | --- |  ---
 **Blobs** | Otimizado para armazenar grandes quantidades de objetos não estruturados, como texto ou dados binários<br/><br/> | Aceder aos dados a partir de qualquer lugar através de HTTP/HTTPS. | Uso para cenários de acesso aleatório e transmissão em fluxo. Por exemplo, para fornecer imagens e documentos diretamente a um browser, transmita em fluxo vídeo e áudio e armazenar dados de recuperação após desastre e cópia de segurança.
 **Ficheiros** | Partilhas de ficheiros acedidas através de SMB 3.0 geridas | Utilize quando a migração no local partilhas de ficheiros bem como para fornecer várias/ligações de acesso a dados de ficheiros.
-**Discos** | Com base em blobs de páginas.<br/><br/> O tipo (velocidade) de disco: Standard (HDD ou SSD) ou Premium (SSD).<br/><br/>Gestão de discos: não-gerenciado (Gerir as definições do disco e armazenamento) ou gerida (selecionar o tipo de disco e Azure gere o disco por si). | Utilize os discos Premium para as VMs. Utilize discos geridos para uma gestão simples e dimensionamento.
+**Discos** | Com base em blobs de páginas.<br/><br/> Tipo de disco (velocidade): Standard (HDD ou SSD) ou Premium (SSD).<br/><br/>Gestão de discos: Não-gerenciado (Gerir as definições do disco e armazenamento) ou gerida (selecionar o tipo de disco e Azure gere o disco por si). | Utilize os discos Premium para as VMs. Utilize discos geridos para uma gestão simples e dimensionamento.
 **filas** | Store e obter grandes quantidades de mensagens acedidas através de chamadas autenticadas (HTTP ou HTTPS) | Componentes de aplicação conecte-se a colocação em fila de mensagens assíncronas.
 **Tabelas** | Store tabelas. | Agora parte da API de tabela do Azure Cosmos DB.
 
@@ -129,7 +129,7 @@ Contas de armazenamento podem utilizar diferentes tipos de redundância para ele
 **Tipo** | **Detalhes** | **Utilização**
 --- | --- | ---
 **Armazenamento localmente redundante (LRS)** | Protege contra uma falha do local através da replicação de dentro de uma unidade de armazenamento única a um domínio de falha e o domínio de atualização. Mantém várias cópias dos seus dados num único datacenter. Fornece, pelo menos, 99,999999999% (11 9\'s) a durabilidade dos objetos ao longo de um determinado ano. | Considere se a aplicação armazena os dados que podem facilmente ser reconstruídos.
-**Armazenamento com redundância de zona (ZRS)** | Protege novamente uma falha do datacenter ao replicar em três clusters de armazenamento numa única região. Cada cluster de armazenamento é fisicamente separado e localizado na sua própria zona de disponibilidade. Fornece, pelo menos, 99.9999999999% (12 9\'s) a durabilidade dos objetos ao longo de um determinado ano ao manter várias cópias dos seus dados em vários datacenters ou regiões. | Considere se precisa de consistência, durabilidade e elevada disponibilidade. Não pode proteger contra um desastre regional quando várias zonas são permenently afetado.
+**Armazenamento com redundância de zona (ZRS)** | Protege novamente uma falha do datacenter ao replicar em três clusters de armazenamento numa única região. Cada cluster de armazenamento é fisicamente separado e localizado na sua própria zona de disponibilidade. Fornece, pelo menos, 99.9999999999% (12 9\'s) a durabilidade dos objetos ao longo de um determinado ano ao manter várias cópias dos seus dados em vários datacenters ou regiões. | Considere se precisa de consistência, durabilidade e elevada disponibilidade. Não pode proteger contra um desastre regional quando várias zonas de forma permanente afetadas.
 **Armazenamento geograficamente redundante (GRS)** | Protege contra uma falha de região inteira ao replicar dados para uma região secundária a centenas de quilómetros de distância da primária. Fornece, pelo menos, 99,99999999999999% (16 9\'s) a durabilidade dos objetos ao longo de um determinado ano. | Dados de réplica não estão disponíveis, a menos que a Microsoft inicie uma ativação pós-falha para a região secundária. Se ocorrer a ativação pós-falha, acesso de escrita e leitura está disponível.
 **Armazenamento geograficamente georredundante com acesso de leitura (RA-GRS)** | Semelhante ao GRS. Fornece, pelo menos, 99,99999999999999% (16 9\'s) a durabilidade dos objetos ao longo de um determinado ano | Fornece e 99,99% de disponibilidade de leitura ao permitir o acesso de leitura a partir da segunda região utilizada para o GRS.
 
@@ -144,7 +144,7 @@ Contas de armazenamento podem utilizar diferentes tipos de redundância para ele
 
 
 
-## <a name="best-practice-leverage-azure-hybrid-benefits"></a>Melhor prática: vantagens de tirar partido do Azure híbrido
+## <a name="best-practice-leverage-azure-hybrid-benefits"></a>Prática recomendada: Tirar partido dos benefícios híbridos do Azure
 
 Devido a anos de investimentos de software em sistemas, como o Windows Server e SQL Server, a Microsoft está numa posição única para oferecer aos clientes valor na cloud, com descontos substanciais que outros fornecedores de cloud não não necessariamente fornecem. 
 
@@ -157,7 +157,7 @@ Um portfólio de produtos no local/Azure Microsoft integrado gera vantagens comp
 - [Revisão](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) preços orientações para VMs do Azure do SQL Server.
 
 
-## <a name="best-practice-use-reserved-vm-instances"></a>Melhor prática: utilizar instâncias de VM reservadas
+## <a name="best-practice-use-reserved-vm-instances"></a>Prática recomendada: Utilizar instâncias de VM reservadas
 
 A maioria das plataformas de cloud são configuradas como pay as you go. Desvantagens de apresenta este modelo, uma vez que não saiba, necessariamente cargas de trabalho como dinâmicas será. Quando especificar intenções claras para cargas de trabalho, contribuir com o planejamento da infraestrutura.
 
@@ -177,7 +177,7 @@ Utilizar instâncias de VMS reservadas do Azure, paga previamente para um ou ins
 - [Obtenha preços orientações](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) para VMs do SQL Server do Azure.
 
 
-## <a name="best-practice-aggregate-cloud-spend-across-subscriptions"></a>Melhor prática: gastos com a cloud agregada entre subscrições
+## <a name="best-practice-aggregate-cloud-spend-across-subscriptions"></a>Prática recomendada: Gastos com a cloud agregada entre subscrições
 
 É inevitável que, eventualmente, terá mais do que uma subscrição do Azure. Por exemplo, poderá ter uma subscrição adicional para separar os limites de desenvolvimento e produção, ou poderá ter uma plataforma que requer uma subscrição separada para cada cliente. Ter a capacidade de relatórios em todas as subscrições numa única plataforma de dados de agregação é um recurso valioso.
 
@@ -197,7 +197,7 @@ Depois de uma migração bem-sucedida de cargas de trabalho e algumas semanas de
 
 Melhores práticas nesta secção incluem o uso do Azure Cost Management para o orçamento de custo e a análise, monitorização de recursos e implementar os orçamentos de grupo de recursos e otimizar a monitorização, armazenamento e as VMs.
 
-## <a name="best-practice-use-azure-cost-management"></a>Melhor prática: Utilize o Azure Cost Management
+## <a name="best-practice-use-azure-cost-management"></a>Prática recomendada: Utilizar a gestão de custos do Azure
 
 A Microsoft fornece o Azure Cost Management para ajudar a monitorizar os gastos, da seguinte forma:
 
@@ -210,21 +210,21 @@ A Microsoft fornece o Azure Cost Management para ajudar a monitorizar os gastos,
 Gestão de custos, pode:
 
 
-- **Criar um orçamento**: criar um orçamento para atribuir responsabilidades financeiros.
-    - Podem contribuir para os serviços de consumir ou subscrever um período específico (mensalmente, trimestralmente, anualmente) e ascope (grupos de subscrições/recursos). Por exemplo, pode criar um orçamento de subscrição do Azure durante um período de mensais, trimestrais, ou anual.
+- **Criar um orçamento**: Crie um orçamento para atribuir responsabilidades financeiros.
+    - Podem contribuir para os serviços de consumir ou subscrever para um período específico (mensalmente, trimestralmente, anualmente) e um âmbito (grupos de subscrições/recursos). Por exemplo, pode criar um orçamento de subscrição do Azure durante um período de mensais, trimestrais, ou anual.
     - Depois de criar um orçamento, ela é mostrada na análise de custos. Visualizar o seu orçamento em relação a gastos atual é uma das primeiras etapas necessárias ao analisar os custos e despesas.
     - Podem ser enviadas notificações por e-mail quando os limiares de orçamento são atingidos.
     - Pode exportar os dados de gestão de custos para o armazenamento do Azure, para análise.
 
     ![Orçamento de gestão de custo](./media/migrate-best-practices-costs/budget.png) *orçamento do Azure Cost Management*
 
-- **Fazer uma análise de custo**: obter uma análise de custo para explorar e analisar os seus custos organizacionais, para ajudar a compreender como são acumulados os custos e a identificar as tendências de gastos.
+- **Fazer uma análise de custo**: Obter uma análise de custo para explorar e analisar os seus custos organizacionais, para ajudar a compreender como são acumulados os custos e a identificar as tendências de gastos.
     - Análise de custos estão disponível para utilizadores EA.
     - Pode ver os dados de análise de custo para vários âmbitos, incluindo por departamento, conta, subscrição ou grupo de recursos.
     - Pode obter uma análise de custos mostra os custos totais para o mês atual e custos diários acumulados. 
 
     ![Análise de gestão de custos](./media/migrate-best-practices-costs/analysis.png) *análise do Azure Cost Management*
-- **Obtenha recomendações**: recomendações do Assistente de introdução que lhe mostram como pode otimizar e melhorar a eficiência.
+- **Obtenha recomendações**: Obtenha recomendações do assistente que lhe mostram como pode otimizar e melhorar a eficiência.
 
 
 **Saiba mais:**
@@ -235,9 +235,9 @@ Gestão de custos, pode:
 - [Obter um tutorial](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json) sobre como otimizar os custos de recomendações.
 - [Revisão](https://docs.microsoft.com/rest/api/consumption/budgets) o API de consumo do Azure.
 
-## <a name="best-practice-monitor-resource-utilization"></a>Melhor prática: monitorizar a utilização de recursos
+## <a name="best-practice-monitor-resource-utilization"></a>Prática recomendada: Utilização de recursos do monitor
 
-No Azure paga o que utilizar, quando quando recursos são consumidos e não paga quando não estiverem. Para as VMs, a faturação ocorre quando uma VM é alocada e não é cobrada depois de uma VM é desalocada. Com isso em mente deve monitorizar as VMs em utilização e certifique-se de dimensionamento de VM.
+No Azure paga o que utilizar, quando os recursos são consumidos e não paga quando não estiverem. Para as VMs, a faturação ocorre quando uma VM é alocada e não é cobrada depois de uma VM é desalocada. Com isso em mente deve monitorizar as VMs em utilização e certifique-se de dimensionamento de VM.
 
 - Avalie continuamente suas cargas de trabalho VM para determinar as linhas de base.
 - Por exemplo, se a sua carga de trabalho é utilizada intensamente segunda-feira a sexta-feira, 8 00 às 18:00, mas mal utilizada fora desse horário, poderia mudar a versão de VMs fora de pico. Isso pode significar a alteração de tamanhos de VM ou utilizar o dimensionamento de máquina virtual define como o dimensionamento automático VMs ou reduzir verticalmente.
@@ -251,7 +251,7 @@ No Azure paga o que utilizar, quando quando recursos são consumidos e não paga
 - [Saiba como [otimizar os custos de recomendações](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json), e [evitar custos inesperados](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
 - [Saiba mais sobre](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/) o Kit de ferramentas de otimização (ARO) de recursos do Azure
 
-## <a name="best-practice-implement-resource-group-budgets"></a>Melhor prática: implementar orçamentos de grupo de recursos
+## <a name="best-practice-implement-resource-group-budgets"></a>Prática recomendada: Implementar os orçamentos de grupo de recursos
 
 Muitas vezes, os grupos de recursos são usados para representar os limites de custo. Em conjunto com este padrão de utilização, a equipa do Azure continua a desenvolver novas e aprimoradas formas de controle e analise os recursos, gastos em níveis diferentes, incluindo a capacidade de criar orçamentos no grupo de recursos e recursos.  
 
@@ -264,7 +264,7 @@ Muitas vezes, os grupos de recursos são usados para representar os limites de c
 - [Siga um tutorial](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets?toc=/azure/billing/TOC.json) para criar e gerir um orçamento do Azure.
 
 
-## <a name="best-practice-optimize-azure-monitor-retention"></a>Melhor prática: otimizar a retenção de Azure Monitor
+## <a name="best-practice-optimize-azure-monitor-retention"></a>Prática recomendada: Otimizar a retenção de Azure Monitor
 
 À medida que move recursos para o Azure e ativar o registo de diagnóstico para eles, gerar uma grande quantidade de dados de registo. Normalmente, estes dados de registo são enviados para uma conta de armazenamento que está mapeada para uma área de trabalho do Log Analytics.
 
@@ -278,7 +278,7 @@ Muitas vezes, os grupos de recursos são usados para representar os limites de c
 
 - [Saiba mais sobre](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs) monitorizar a utilização e custos estimados.
  
-## <a name="best-practice-optimize-storage"></a>Melhor prática: otimizar o armazenamento
+## <a name="best-practice-optimize-storage"></a>Prática recomendada: Otimizar o armazenamento
 
 Se tiver seguido as práticas recomendadas para a seleção de armazenamento antes da migração, são provavelmente de obter alguns benefícios. No entanto, existem os custos de armazenamento provavelmente adicional que ainda pode otimizar. Ao longo do tempo blobs e ficheiros se tornam obsoletos. Dados podem não ser mais utilizados, mas os requisitos de regulamentação podem significar que precisa mantê-lo para um determinado período. Como tal, não poderá ter de armazená-los no armazenamento de elevado desempenho que utilizou para a migração original.
 
@@ -291,7 +291,7 @@ Identificar e mover dados obsoletos para áreas de armazenamento mais baratas, p
 - [Saiba mais](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) sobre escalões de acesso.
 - [Obtenha uma descrição geral](https://docs.microsoft.com/azure/azure-monitor/overview) do StorSimple, e [preços do StorSimple](https://azure.microsoft.com/pricing/details/storsimple/).
 
-## <a name="best-practice-automate-vm-optimization"></a>Melhor prática: automatizar a otimização de VM
+## <a name="best-practice-automate-vm-optimization"></a>Prática recomendada: Automatizar a otimização de VM
 
 O objetivo final de uma VM em execução na cloud é maximizar a CPU, memória e disco que utiliza. Se detetar VMs que não são otimizadas, ou ter frequentes períodos quando as VMs não são utilizadas, faz sentido para encerrá-las ou reduzir verticalmente o-los com os conjuntos de dimensionamento VM.
 
@@ -304,7 +304,7 @@ Pode otimizar a uma VM com a automatização do Azure, conjuntos de dimensioname
 - [Saiba como](https://docs.microsoft.com/azure/automation/automation-solution-vm-management) iniciar ou parar VMs fora das horas na automatização do Azure.
 - [Obter mais informações] [do Assistente do Azure](https://docs.microsoft.com/azure/advisor/advisor-overview)e o [Kit de ferramentas de otimização de recursos do Azure (ARO)](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/).
 
-## <a name="best-practices-use-logic-apps-and-runbooks-with-budgets-api"></a>Melhores práticas: utilização Logic Apps e runbooks com a API de orçamentos
+## <a name="best-practices-use-logic-apps-and-runbooks-with-budgets-api"></a>Melhores práticas: Utilize o Logic Apps e runbooks com orçamentos de API
 
 O Azure fornece uma API REST que tem acesso às suas informações de faturação do inquilino.
 
@@ -320,7 +320,7 @@ O Azure fornece uma API REST que tem acesso às suas informações de faturaçã
 - [Obtenha informações](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview) na utilização do Azure com a API de faturação.
 
 
-## <a name="best-practice-implement-serverless-technologies"></a>Melhor prática: implementar tecnologias sem servidor
+## <a name="best-practice-implement-serverless-technologies"></a>Prática recomendada: Implementar tecnologias sem servidor
 
 Cargas de trabalho VM, muitas vezes, são migradas "como está" para evitar o tempo de inatividade. Muitas vezes, as VMs podem alojar tarefas que são intermitentes, tendo um curto período de tempo para executar, ou em alternativa muitas horas. Por exemplo, as VMs que executam as tarefas agendadas, como Windows tarefas scheduler ou de scripts do PowerShell. No entanto, quando não estão a executar estas tarefas, estiver absorver VM e os custos de armazenamento de disco da mesma.
 

@@ -1,21 +1,22 @@
 ---
-title: Utilize a CLI do Azure para criar uma atribuição de política para identificar recursos incompatíveis no seu ambiente do Azure
-description: Utilize o PowerShell para criar uma atribuição de política do Azure para identificar recursos incompatíveis.
+title: Criar uma política para identificar recursos incompatíveis com a CLI do Azure
+description: Utilize a CLI do Azure para criar uma atribuição de política do Azure para identificar recursos incompatíveis.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-ms.custom: mvc
-ms.openlocfilehash: 343dee2e23567c2552fc5e7c0c0323227deb21de
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+manager: carmonm
+ms.custom: seodec18
+ms.openlocfilehash: 99e8b782f3f52ed89b5188de19d70cb276a0eb84
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078638"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315847"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Criar uma atribuição de política para identificar recursos incompatíveis no seu ambiente do Azure com a CLI do Azure
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Criar uma atribuição de política para identificar recursos incompatíveis com a CLI do Azure
 
 O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos.
 Este início rápido acompanha-o ao longo do processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos.

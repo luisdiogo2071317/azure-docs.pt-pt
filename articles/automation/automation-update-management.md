@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 504bb56a7cb3b9582d5c8d2ab1e770d55b8ca9e5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ccccad1cb510c4988092467c723e117a47456aaf
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961625"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277510"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -145,7 +145,7 @@ Heartbeat
 
 Num computador Windows, pode rever as seguintes informações para verificar a conectividade de agente com o Log Analytics:
 
-1. No painel de controlo, abra **Microsoft Monitoring Agent**. Sobre o **do Azure Log Analytics** separador, o agente apresenta a seguinte mensagem: **o Microsoft Monitoring Agent foi ligado com êxito para o Log Analytics**.
+1. No painel de controlo, abra **Microsoft Monitoring Agent**. Sobre o **do Azure Log Analytics** guia, o agente apresenta a seguinte mensagem: **O Microsoft Monitoring Agent foi ligado com êxito para o Log Analytics**.
 2. Abra o registo de eventos do Windows. Aceda a **aplicativo e o Gestor de registos de serviços** e procure o evento ID 3000 e 5002 de ID de evento da origem **conector do serviço**. Estes eventos indicam que o computador tiver registrado com a área de trabalho do Log Analytics e está a receber a configuração.
 
 Se o agente não consegue comunicar com o Log Analytics e o agente estiver configurado para comunicar com a internet através de um servidor de firewall ou proxy, confirme se o servidor de firewall ou proxy está configurado corretamente. Para saber como verificar se o servidor de firewall ou proxy está configurado corretamente, veja [configuração de rede para o agente do Windows](../azure-monitor/platform/agent-windows.md) ou [configuração de rede para o agente Linux](../log-analytics/log-analytics-agent-linux.md).
@@ -219,6 +219,21 @@ Para criar uma nova implementação de atualização, selecione **agendar a impl
 | Controlo de reinício| Determina como devem ser tratadas reinicializações. As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
 
 Também é possível criar implementações de atualizações por meio de programação. Para saber como criar uma implementação de atualização com a API REST, veja [as configurações de atualização de Software - criar](/rest/api/automation/softwareupdateconfigurations/create). Também existe um runbook de exemplo que pode ser utilizado para criar uma implementação de atualização semanal. Para saber mais sobre este runbook, consulte [criar uma implementação de atualização semanal para uma ou mais VMs num grupo de recursos](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+
+### <a name="multi-tenant"></a>Implementações de atualização entre inquilinos
+
+Se tiver máquinas noutro inquilino do Azure a comunicar com a gestão de atualizações que terá de aplicar o patch, terá de utilizar a solução abaixo para que eles agendada. Pode utilizar o [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) cmdlet com o comutador `-ForUpdate` para criar uma agenda e utilizar os [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+) cmdlet e passar o as máquinas no outro inquilino para o `-NonAzureComputer` parâmetro. O exemplo seguinte mostra um exemplo sobre como fazer isso:
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
 
 ## <a name="view-missing-updates"></a>Ver as atualizações em falta
 
@@ -310,7 +325,7 @@ Recomenda-se para utilizar os endereços listados quando definir exceções. Par
 
 Além dos detalhes que são fornecidos no portal do Azure, pode fazer pesquisas contra os registos. Nas páginas de solução, selecione **do Log Analytics**. O **pesquisa de registos** painel abre-se.
 
-Também pode saber como personalizar as consultas ou utilizá-los a partir de diferentes clientes e mais, visite a página: [documentação de procurar API do Log Analytics](
+Também pode saber como personalizar as consultas ou utilizá-los a partir de diferentes clientes e mais, visite a página:  [Documentação do log Analytics procurar API](
 https://dev.loganalytics.io/).
 
 ### <a name="sample-queries"></a>Amostras de consultas

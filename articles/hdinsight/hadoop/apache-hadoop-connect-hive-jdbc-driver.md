@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: 225cb3d2f78f41bdb17763d13644c1d95bc62710
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c565ccf7ac04e2a3ba86e2fa256a05a9649d2de4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014706"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166154"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulte o Apache Hive através do controlador JDBC no HDInsight
 
@@ -88,9 +88,9 @@ SQuirreL SQL é um cliente JDBC, que pode ser utilizado para executar remotament
 
 5. Na caixa de diálogo Adicionar controlador, adicione as seguintes informações:
 
-    * **Nome**: do Hive
+    * **Nome**: Hive
     * **URL de exemplo**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **Caminho da classe extra**: Utilize o botão Adicionar para adicionar todas ficheiros jar transferida anteriormente
+    * **Caminho de classe extra**: Utilize o botão Adicionar para adicionar todas ficheiros jar transferida anteriormente
     * **Nome de classe**: org.apache.hive.jdbc.HiveDriver
 
    ![adicionar a caixa de diálogo de driver](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
@@ -105,15 +105,15 @@ SQuirreL SQL é um cliente JDBC, que pode ser utilizado para executar remotament
 
     * **Nome**: Hive no HDInsight
 
-    * **Driver**: Utilize a lista pendente para selecionar o **Hive** driver
+    * **Controlador**: Utilize a lista pendente para selecionar o **Hive** driver
 
     * **URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
         Substitua **CLUSTERNAME** pelo nome do cluster do HDInsight.
 
-    * **Nome de utilizador**: O nome de conta de início de sessão do cluster para o seu cluster do HDInsight. A predefinição é `admin`.
+    * **Nome de utilizador**: O cluster início de sessão nome da conta para o seu cluster do HDInsight. A predefinição é `admin`.
 
-    * **Palavra-passe**: A palavra-passe para a conta de início de sessão do cluster.
+    * **palavra-passe**: A palavra-passe para a conta de início de sessão do cluster.
 
  ![adicionar a caixa de diálogo de alias](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
@@ -140,7 +140,7 @@ Um exemplo do uso de um cliente de Java a consulta do Hive no HDInsight está di
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Ocorreu erro inesperado ao tentar abrir uma ligação de SQL
 
-**Os sintomas**: ao ligar a um cluster do HDInsight versão 3.3 ou superior, poderá receber um erro que ocorreu um erro inesperado. O rastreio de pilha para este erro começa com as seguintes linhas:
+**Os sintomas**: Ao ligar a um cluster do HDInsight versão 3.3 ou superior, poderá receber um erro que ocorreu um erro inesperado. O rastreio de pilha para este erro começa com as seguintes linhas:
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -150,7 +150,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Causa**: Este erro é causado por um ficheiro de commons codec.jar versão mais antigo acompanha o SQuirreL.
 
-**Resolução**: para corrigir este erro, utilize os seguintes passos:
+**Resolução**: Para corrigir este erro, utilize os seguintes passos:
 
 1. Transfira o ficheiro jar do commons codec do seu cluster do HDInsight.
 

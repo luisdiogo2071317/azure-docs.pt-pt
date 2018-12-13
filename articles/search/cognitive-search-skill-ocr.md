@@ -1,6 +1,6 @@
 ---
-title: Habilidade de pesquisa cognitiva OCR (Azure Search) | Documentos da Microsoft
-description: Extrair texto de arquivos de imagem num pipeline de enriquecimento de Azure Search.
+title: Habilidade de pesquisa cognitiva OCR - Azure Search
+description: Extrair texto de arquivos de imagem usando o reconhecimento ótico de carateres (OCR) num pipeline de enriquecimento de Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 97d594a232c3576d0a0163b2d6847f06328bcd7b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: 097fd93955a4ca3fd96ae6452fa3b503b029ffc3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167516"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313229"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidade de cognitiva OCR
 
@@ -29,7 +30,12 @@ O **OCR** habilidade extrai o texto de arquivos de imagem. Formatos de ficheiro 
 + . GIF
 
 > [!NOTE]
-> A Pesquisa Cognitiva está em pré-visualização pública. Conjunto de capacidades execução e a extração de imagem e a normalização atualmente são oferecidos gratuitamente. Posteriormente, os preços para estas capacidades serão anunciado. 
+> A partir de 21 de Dezembro de 2018, poderá associar um recurso dos serviços cognitivos com um conjunto de capacidades do Azure Search. Isso permitirá que comecem a cobrança de consumo para a execução do conjunto de capacidades. Esta data, podemos também começar a cobrar extração de imagem como parte da fase de aberturas de documentos. Continuaremos a oferecer a extração de texto de documentos sem custos adicionais.
+>
+> A execução das habilidades internas será cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/) . Preços de extração de imagem são cobrados ao preço de pré-visualização e está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba mais [mais](cognitive-search-attach-cognitive-services.md).
+>
+>  A habilidade de OCR mapeia para a seguinte funcionalidade de serviços cognitivos: Quando textExtractionAlgorithm está definida para "manuscritas", o ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) funcionalidade é utilizada.
+>  Quando textExtractionAlgorithm está definida para "impressa", o ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) funcionalidade é utilizada para idiomas diferentes do inglês. Para inglês, a nova ["Reconhecer Text"](../cognitive-services/computer-vision/concept-recognizing-text.md) é utilizada a funcionalidade para texto impresso.
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidades
 

@@ -13,17 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 9918c4b022fc2aca4bfc1ddba5649d7f0efe1256
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0b6fae59fbe0fa86cb16b176eb1df47e031d04f1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138794"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317197"
 ---
-<a id="preparemachines"></a>
-
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planear e preparar a implementação de cluster autónomo do Service Fabric
-Execute os seguintes passos antes de criar o cluster.
+
+<a id="preparemachines"></a>Execute os seguintes passos antes de criar o cluster.
 
 ## <a name="plan-your-cluster-infrastructure"></a>Planear a sua infraestrutura de cluster
 Está prestes a criar um cluster do Service Fabric em máquinas é "proprietário", para que possa decidir quais são os tipos de falhas de que pretende que o cluster para sobreviver. Por exemplo, precisar de separar linhas de energia ou ligações à Internet fornecidas a essas máquinas? Além disso, considere a segurança física destas máquinas. Onde estão as máquinas localizadas e quem precisa de acesso a eles? Depois de tomar essas decisões, logicamente pode mapear as máquinas para vários domínios de falha (consulte a próxima etapa). A planeamento para clusters de produção da infraestrutura é mais envolvida, que, para clusters de teste.
@@ -109,8 +108,8 @@ Quando um administrador de cluster configura um cluster autónomo do Service Fab
 3. Nenhuma das máquinas de nó de cluster deve ser um controlador de domínio.
 4. Se o cluster ser implementado um cluster seguro, valide a pré-requisitos estão colocar e estão configurados corretamente em relação a configuração de segurança necessária.
 5. Se as máquinas de cluster não estiverem acessível pela internet, defina o seguinte na configuração do cluster:
-   * Desativar a telemetria: sob *propriedades* definir *"ativar telemetria": Falso*
-   * Desativar baixar versão de recursos de infraestrutura & notificações que a versão atual do cluster está próximo do fim do suporte automático: sob *propriedades* definir *"fabricClusterAutoupgradeEnabled": Falso*
+   * Desative a telemetria: Sob *propriedades* definir *"ativar telemetria": Falso*
+   * Desative automática baixar versão de recursos de infraestrutura & notificações que a versão atual do cluster está prestes a fim de suporte: Sob *propriedades* definir *"fabricClusterAutoupgradeEnabled": Falso*
    * Em alternativa, se o acesso à internet de rede está limitado a domínios listados em branco, os domínios abaixo são necessários para a atualização automática: go.microsoft.com download.microsoft.com
 
 6. Definir exclusões do antivírus do Service Fabric apropriadas:

@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 6b1eb36ae661d758f78f98de37f33c4b56741f89
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987265"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320783"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são as identidades geridas para os recursos do Azure?
 
@@ -34,7 +34,15 @@ A funcionalidade de identidades geridas para recursos do Azure é gratuita com o
 > [!NOTE]
 > Identidades geridas para recursos do Azure é o novo nome para o serviço anteriormente conhecido como Identidade de Serviço Gerida (MSI).
 
-## Como funciona a funcionalidade?<a name="how-does-it-work"></a>
+## <a name="terminology"></a>Terminologia
+
+Os termos seguintes são utilizados em toda as identidades geridas para o conjunto de documentação de recursos do Azure:
+
+- **Id de cliente** -um identificador exclusivo gerado pelo Azure AD que está associado a um aplicativo e o principal de serviço durante o aprovisionamento inicial.
+- **Id de principal** -id de objeto do objeto principal de serviço para a sua identidade gerida que é utilizado para conceder o acesso baseado em funções para um recurso do Azure.
+- **Serviço de metadados de instância do Azure (IMDS)** -um ponto final REST acessíveis a todas as VMs de IaaS criadas através do Azure Resource Manager. O ponto final está disponível num bem conhecido não encaminháveis internos endereço IP (169.254.169.254) que pode ser acedido apenas a partir de dentro da VM.
+
+## Como funciona as identidades geridas para recursos do Azure?<a name="how-does-it-work"></a>
 
 Existem dois tipos de identidades geridas:
 
@@ -126,7 +134,7 @@ Saiba como utilizar uma identidade gerida com outros serviços do Azure:
 
 As identidades geridas para recurso do Azure podem ser utilizadas para autenticação em serviços que suportem a autenticação do Azure AD. Para obter uma lista dos serviços do Azure que suportam a funcionalidade de identidades geridas para recursos do Azure, veja [Serviços que suportam as identidades geridas para recursos do Azure](services-support-msi.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Comece a utilizar a funcionalidade de identidades geridas para recursos do Azure com os inícios rápidos seguintes:
 

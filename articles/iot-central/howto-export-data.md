@@ -4,598 +4,135 @@ description: Como exportar dados a partir da sua aplicação do Azure IoT Centra
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 3231a956648b80d88059b7b0fc8f790e0e58be99
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cba0bad2e81ffddedfc4ca04e82e17e4286b389b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962797"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312124"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportar os dados no Azure IoT Central
 
 *Este tópico aplica-se aos administradores.*
 
-Este artigo descreve como utilizar a funcionalidade de exportação contínua de dados no Azure IoT Central para exportar periodicamente os dados à sua conta de armazenamento de Blobs do Azure. Pode exportar **medidas**, **dispositivos**, e **modelos de dispositivos** para ficheiros com o [Apache AVRO](https://avro.apache.org/docs/current/index.html) formato. Os dados exportados podem ser utilizados para análise de caminho típico, como modelos de formação no Azure Machine Learning ou análise de tendências de longo prazo no Microsoft Power BI.
+Este artigo descreve como utilizar a funcionalidade de exportação contínua de dados no Azure IoT Central para exportar os dados para os seus próprios **armazenamento de Blobs do Azure**, **Event Hubs do Azure**, e **doAzureServiceBus** instâncias. Pode exportar **medidas**, **dispositivos**, e **modelos de dispositivos** para o seu destino para caminho de acesso pouco frequente e análise de caminho típico. Pode exportar dados para o armazenamento de BLOBs para executar a análise de tendências de longo prazo no Microsoft Power BI ou exportar dados para os Hubs de eventos e o Service Bus para transformar e aumentar os seus dados em quase em tempo real com o Azure Logic Apps ou as funções do Azure.
 
 > [!Note]
 > Quando ativar a exportação contínua de dados, obtém apenas os dados a partir desse momento ou superior. Atualmente, não poderá obter dados para um tempo quando a exportação de dados contínua foi desativada. Para manter mais dados históricos, ative a exportação contínua de dados desde o início.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um aplicativo de pay as you go.
-- Um administrador na sua aplicação IoT Central que tem:
-    - uma conta do Azure na subscrição do Azure que pertença a sua aplicação do Centro de IoT
-    - permissões para criar um armazenamento de conta ou acederem a uma conta de armazenamento existentes nesta subscrição do Azure
+- Tem de ser um administrador na sua aplicação do Centro de IoT
 
-## <a name="types-of-data-to-export"></a>Tipos de dados para exportar
+## <a name="export-to-blob-storage"></a>Exportar para o armazenamento de BLOBs
 
-### <a name="measurements"></a>Medições
+Medidas, dispositivos e dados de modelos de dispositivos são exportados para a sua conta de armazenamento, uma vez por minuto, com cada ficheiro que contém o lote de alterações, uma vez que o último exportou o ficheiro. Os dados exportados estão sendo [Apache AVRO](https://avro.apache.org/docs/current/index.html) formato.
 
-As medidas que os dispositivos enviam são exportadas para a sua conta de armazenamento, uma vez por minuto. Os dados têm novas mensagens recebidas pelo centro de IoT de todos os dispositivos, durante esse período. Os ficheiros exportados do AVRO utilizam o mesmo formato que os ficheiros de mensagem exportados pelo [roteamento de mensagens do IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) para armazenamento de Blobs.
+Saiba mais sobre [exportar para o armazenamento de BLOBs](howto-export-data-blob-storage.md).
 
-> [!NOTE]
-> Os dispositivos que enviam as medidas são representados por identificações de dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exporte os instantâneos de dispositivo. Correlacionar cada registo de mensagens utilizando o **connectionDeviceId** que corresponda à **deviceId** ao registo do dispositivo.
+## <a name="export-to-event-hubs-and-service-bus"></a>Exportar para os Hubs de eventos e o Service Bus
 
-O exemplo seguinte mostra um registo num ficheiro AVRO descodificado:
+Medidas, dispositivos e dados de modelos de dispositivos são exportados para o seu hub de eventos ou fila do Service Bus ou tópico. Medidas exportado dados chegam em tempo quase real e contém a totalidade da mensagem de seus dispositivos enviados ao IoT Central, não apenas os valores de medidas de si. Dispositivos exportados dados chegam em lotes, uma vez por minuto e contém alterações para propriedades e configurações de todos os dispositivos e modelos de dispositivos exportado contém alterações para todos os modelos de dispositivos.
 
-```json
-{
-    "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
-    "Properties": {},
-    "SystemProperties": {
-        "connectionDeviceId": "<connectionDeviceId>",
-        "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "<generationId>",
-        "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
-    },
-    "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
-}
-```
 
-### <a name="devices"></a>Dispositivos
+Saiba mais sobre [exportar para os Hubs de eventos e o Service Bus](howto-export-data-event-hubs-service-bus.md).
 
-Quando a exportação contínua de dados pela primeira vez é ativada, um instantâneo único com todos os dispositivos é exportado. Cada dispositivo inclui:
-- `id` do dispositivo no Centro de IoT
-- `name` do dispositivo
-- `deviceId` de [serviço aprovisionamento de dispositivos](https://aka.ms/iotcentraldocsdps)
-- Informações de modelo do dispositivo
-- Valores de propriedade
-- Valores de definição
+## <a name="set-up-export-destination"></a>Configurar o destino de exportação
 
-Um novo instantâneo é escrito uma vez por minuto. O instantâneo inclui:
+Se não tiver um barramento / serviço de Hubs de eventos/armazenamento existente para exportar para, siga estes passos:
 
-- Novos dispositivos adicionados desde o último instantâneo.
-- Dispositivos com a propriedade alterada e definir valores desde o último instantâneo.
+### <a name="create-storage-account"></a>Criar conta de armazenamento
 
-> [!NOTE]
-> Dispositivos eliminados, uma vez que o último instantâneo não são exportadas. Atualmente, os instantâneos não tem indicadores para dispositivos eliminados.
->
-> O modelo de dispositivo que cada dispositivo pertence à é representado por um ID de modelo do dispositivo. Para obter o nome do modelo de dispositivo, exporte os instantâneos de modelo do dispositivo.
+1. Criar uma [nova conta de armazenamento no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Pode saber mais na [docs do armazenamento do Azure](https://aka.ms/blobdocscreatestorageaccount).
+2. Para o tipo de conta, escolha **fins gerais** ou **armazenamento de BLOBs**.
+3. Escolha uma subscrição. 
 
-Um registo no ficheiro AVRO descodificado pode ser semelhante a:
+    > [!Note] 
+    > Agora, pode exportar dados para outras subscrições que estão **não são as mesmas** que aquela para a sua aplicação pay as you go IoT Central. Irá ligar através de uma cadeia de ligação em vez disso.
 
-```json
-{
-    "id": "<id>",
-    "name": "Refrigerator 2",
-    "simulated": true,
-    "deviceId": "<deviceId>",
-    "deviceTemplate": {
-        "id": "<template id>",
-        "version": "1.0.0"
-    },
-    "properties": {
-        "cloud": {
-            "location": "New York",
-            "maintCon": true,
-            "tempThresh": 20
-        },
-        "device": {
-            "lastReboot": "2018-02-09T22:22:47.156Z"
-        }
-    },
-    "settings": {
-        "device": {
-            "fanSpeed": 0
-        }
-    }
-}
-```
+4. Crie um contentor na conta de armazenamento. Aceda à sua conta de armazenamento. Sob **serviço Blob**, selecione **procurar Blobs**. Selecione **+ contentor** na parte superior para criar um novo contentor.
 
-### <a name="device-templates"></a>Modelos de dispositivos
+### <a name="create-event-hubs-namespace"></a>Criar espaço de nomes de Hubs de eventos
 
-Quando a exportação contínua de dados pela primeira vez é ativada, um instantâneo único com todos os modelos de dispositivos é exportado. Cada modelo de dispositivo inclui:
-- `id` o modelo de dispositivo
-- `name` o modelo de dispositivo
-- `version` o modelo de dispositivo
-- Tipos de dados de medição e valores mínimos/máximos.
-- Tipos de dados de propriedade e os valores predefinidos.
-- Definir tipos de dados e valores predefinidos.
+1. Criar uma [novo espaço de nomes de Hubs de eventos no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.EventHub). Pode saber mais na [docs de Event Hubs do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+2. Escolha uma subscrição. 
 
-Um novo instantâneo é escrito uma vez por minuto. O instantâneo inclui:
+    > [!Note] 
+    > Agora, pode exportar dados para outras subscrições que estão **não são as mesmas** que aquela para a sua aplicação pay as you go IoT Central. Irá ligar através de uma cadeia de ligação em vez disso.
+3. Crie um hub de eventos no seu espaço de nomes de Hubs de eventos. Aceda ao seu espaço de nomes e selecione **+ Hub de eventos** na parte superior para criar uma instância do hub de eventos.
 
-- Novos modelos de dispositivo adicionados desde o último instantâneo.
-- Modelos de dispositivos com medidas alteradas, propriedade e definir as definições de desde o último instantâneo.
+### <a name="create-service-bus-namespace"></a>Criar espaço de nomes do Service Bus
 
-> [!NOTE]
-> Modelos de dispositivos eliminados desde o último instantâneo não são exportados. Atualmente, os instantâneos não tem indicadores para modelos de dispositivos eliminada.
+1. Criar uma [novo espaço de nomes do Service Bus no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . Pode saber mais na [docs do Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
+2. Escolha uma subscrição. 
 
-Um registo no ficheiro AVRO descodificado pode ter este aspeto:
+    > [!Note] 
+    > Agora, pode exportar dados para outras subscrições que estão **não são as mesmas** que aquela para a sua aplicação pay as you go IoT Central. Irá ligar através de uma cadeia de ligação em vez disso.
 
-```json
-{
-    "id": "<id>",
-    "name": "Refrigerated Vending Machine",
-    "version": "1.0.0",
-    "measurements": {
-        "telemetry": {
-            "humidity": {
-                "dataType": "double",
-                "name": "Humidity"
-            },
-            "magnetometerX": {
-                "dataType": "double",
-                "name": "Magnetometer X"
-            },
-            "magnetometerY": {
-                "dataType": "double",
-                "name": "Magnetometer Y"
-            },
-            "magnetometerZ": {
-                "dataType": "double",
-                "name": "Magnetometer Z"
-            }
-        },
-        "states": {
-            "connectivity": {
-                "dataType": "enum",
-                "name": "Connectivity"
-            }
-        },
-        "events": {
-            "opened": {
-                "name": "Door Opened",
-                "category": "informational"
-            }
-        }
-    },
-    "settings": {
-        "device": {
-            "fanSpeed": {
-                "dataType": "double",
-                "name": "Fan Speed",
-                "initialValue": 0
-            }
-        }
-    },
-    "properties": {
-        "cloud": {
-            "location": {
-                "dataType": "string",
-                "name": "Location",
-                "initialValue": "Seattle"
-            },
-            "maintCon": {
-                "dataType": "boolean",
-                "name": "Maintenance Contract",
-                "initialValue": true
-            },
-            "tempThresh": {
-                "dataType": "double",
-                "name": "Temperature Alert Threshold",
-                "initialValue": 30
-            }
-        },
-        "device": {
-            "lastReboot": {
-                "dataType": "dateTime",
-                "name": "Last Reboot"
-            }
-        }
-    }
-}
-```
+3. Aceda ao seu espaço de nomes do Service Bus e selecione **+ fila** ou **+ tópico** na parte superior para criar uma fila ou tópico para exportar para.
 
 ## <a name="set-up-continuous-data-export"></a>Configurar a exportação contínua de dados
 
-1. Se não tiver uma conta de armazenamento do Azure, [criar uma nova conta de armazenamento](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) no portal do Azure. Criar a conta de armazenamento **na subscrição do Azure que tenha a sua aplicação do Centro de IoT**.
-    - Para o tipo de conta, escolha **fins gerais** ou **armazenamento de BLOBs**.
-    - Selecione a subscrição que tem a sua aplicação IoT Central. Se não vir a subscrição, poderá ter de iniciar sessão para um diferente do Azure conta ou para pedir acesso à subscrição.
-    - Escolha um grupo de recursos existente ou crie um novo. Saiba mais sobre [como criar uma nova conta de armazenamento](https://aka.ms/blobdocscreatestorageaccount).
+Agora que tem um destino de armazenamento/Event Hubs/Service Bus para exportar dados, siga estes passos para configurar a exportação contínua de dados. 
 
-2. Crie um contentor na sua conta de armazenamento para exportar os dados de IoT Central. Aceda à sua conta de armazenamento. Sob **serviço Blob**, selecione **procurar Blobs**. Selecione **contentor** para criar um novo contentor.
+1. Inicie sessão na sua aplicação IoT Central.
 
-   ![Criar um contentor](media/howto-export-data/createcontainer.png)
+2. No menu à esquerda, clique em **a exportação contínua de dados**.
 
-3. Inicie sessão para a sua aplicação do Centro de IoT com a mesma conta do Azure.
+    > [!Note]
+    > Se não vir a exportação contínua de dados no menu à esquerda, não for um administrador na sua aplicação. Fale com o administrador para configurar a exportação de dados.
 
-4. Sob **Administration**, selecione **exportar dados**.
+    ![Criar novo cde Hub de eventos](media/howto-export-data/export_menu.PNG)
 
-5. Na **conta de armazenamento** na lista pendente caixa, selecione a sua conta de armazenamento. Na **contentor** na lista pendente caixa, selecione o seu contentor. Sob **dados para exportar**, especifique cada tipo de dados para exportar, definindo o tipo como **no**.
+3. Clique nas **+ novo** botão no canto superior direito. Escolha uma das **armazenamento de Blobs do Azure**, **Event Hubs do Azure**, ou **Azure Service Bus** como o destino da exportação. 
 
-6. Para ativar a exportação contínua de dados, defina **exportar dados** ao **no**. Selecione **Guardar**.
+    > [!NOTE] 
+    > O número máximo de exportações por aplicação é cinco. 
 
-  ![Configurar a exportação contínua de dados](media/howto-export-data/continuousdataexport.PNG)
+    ![Criar nova exportação contínua de dados](media/howto-export-data/export_new.PNG)
 
-7. Após alguns minutos, os seus dados é apresentado na sua conta de armazenamento. Navegue para a sua conta de armazenamento. Selecione **procurar blobs** > seu contentor. Verá três pastas para os dados de exportação. Os caminhos predefinidos para os ficheiros AVRO com os dados de exportação são:
-    - Mensagens de: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - Dispositivos: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - Modelos de dispositivos: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+4. Na caixa de lista pendente, selecione seu **espaço de nomes do Hubs de eventos/conta de armazenamento espaço de nomes/Service Bus**. Também pode escolher a última opção na lista que é **introduza uma cadeia de ligação**. 
 
-## <a name="read-exported-avro-files"></a>Leitura exportados ficheiros AVRO
+    > [!NOTE] 
+    > Apenas verá espaços de nomes do Hubs de eventos/contas de armazenamento espaços de nomes/Service Bus no **mesma subscrição que a sua aplicação do Centro de IoT**. Se pretender exportar para um destino fora desta subscrição, escolha **introduza uma cadeia de ligação** e veja o passo 5.
 
-AVRO é um formato binário, para que os ficheiros não não possível ler no respetivo estado não processado. Os ficheiros podem ser descodificados no formato JSON. Os exemplos seguintes mostram como analisar as medidas, dispositivos e os modelos de dispositivo ficheiros AVRO. Os exemplos correspondem aos exemplos descritos na secção anterior.
+    > [!NOTE] 
+    > Para exportar aplicações de avaliação, a única forma de configurar contínua de dados de 7 dias é por meio de uma cadeia de ligação. Isto acontece porque a 7 dias aplicações avaliação não tem uma subscrição do Azure associada.
 
-### <a name="read-avro-files-by-using-python"></a>Ler ficheiros AVRO com Python
+    ![Criar novo cde Hub de eventos](media/howto-export-data/export_create.PNG)
 
-#### <a name="install-pandas-and-the-pandavro-package"></a>Instalar o pacote de pandavro e o pandas
+5. (Opcional) Se escolheu **introduza uma cadeia de ligação**, aparece uma caixa de novo para que cole a cadeia de ligação. Para obter a cadeia de ligação para a sua:
+    - Conta de armazenamento, aceda à conta de armazenamento no Portal do Azure.
+        - Sob **configurações**, clique em **chaves de acesso**
+        - Copiar a cadeia de ligação chave1 ou a cadeia de ligação chave2
+    - Os Hubs de eventos ou do Service Bus, avance para o espaço de nomes no Portal do Azure.
+        - Sob **configurações**, clique em **políticas de acesso partilhado**
+        - Escolher a predefinição **RootManageSharedAccessKey** ou criar um novo
+        - Copie a cadeia de ligação primária ou secundária
+ 
+6. Na caixa de lista pendente, escolha um hub de eventos/contentores/fila ou tópico.
 
-```python
-pip install pandas
-pip install pandavro
-```
+7. Sob **dados para exportar**, especifique cada tipo de dados para exportar, definindo o tipo como **no**.
 
-#### <a name="parse-a-measurements-avro-file"></a>Analisar um arquivo AVRO medidas
+6. Para ativar a exportação contínua de dados, certifique-se **exportar dados** é **no**. Selecione **Guardar**.
 
-```python
-import json
-import pandavro as pdx
-import pandas as pd
+  ![Configurar a exportação contínua de dados](media/howto-export-data/export_list.PNG)
 
-def parse(filePath):
-    # Pandavro loads the AVRO file into a pandas DataFrame
-    # where each record is a single row.
-    measurements = pdx.from_avro(filePath)
-
-    # This example creates a new DataFrame and loads a series
-    # for each column that's mapped into a column in our new DataFrame.
-    transformed = pd.DataFrame()
-
-    # The SystemProperties column contains a dictionary
-    # with the device ID located under the connectionDeviceId key.
-    transformed["device_id"] = measurements["SystemProperties"].apply(lambda x: x["connectionDeviceId"])
-
-    # The Body column is a series of UTF-8 bytes that is stringified
-    # and parsed as JSON. This example pulls the humidity property
-    # from each column to get the humidity field.
-    transformed["humidity"] = measurements["Body"].apply(lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
-
-    # Finally, print the new DataFrame with our device IDs and humidities.
-    print(transformed)
-
-```
-
-#### <a name="parse-a-devices-avro-file"></a>Analisar um arquivo AVRO de dispositivos
-
-```python
-import json
-import pandavro as pdx
-import pandas as pd
-
-def parse(filePath):
-    # Pandavro loads the AVRO file into a pandas DataFrame
-    # where each record is a single row.
-    devices = pdx.from_avro(filePath)
-
-    # This example creates a new DataFrame and loads a series
-    # for each column that's mapped into a column in our new DataFrame.
-    transformed = pd.DataFrame()
-
-    # The device ID is available in the id column.
-    transformed["device_id"] = devices["deviceId"]
-
-    # The template ID and version are present in a dictionary under
-    # the deviceTemplate column.
-    transformed["template_id"] = devices["deviceTemplate"].apply(lambda x: x["id"])
-    transformed["template_version"] = devices["deviceTemplate"].apply(lambda x: x["version"])
-
-    # The fanSpeed setting value is located in a nested dictionary
-    # under the settings column.
-    transformed["fan_speed"] = devices["settings"].apply(lambda x: x["device"]["fanSpeed"])
-
-    # Finally, print the new DataFrame with our device and template
-    # information, along with the value of the fan speed.
-    print(transformed)
-
-```
-
-#### <a name="parse-a-device-templates-avro-file"></a>Analisar um arquivo AVRO de modelos de dispositivo
-
-```python
-import json
-import pandavro as pdx
-import pandas as pd
-
-def parse(filePath):
-    # Pandavro loads the AVRO file into a pandas DataFrame
-    # where each record is a single row.
-    templates = pdx.from_avro(filePath)
-
-    # This example creates a new DataFrame and loads a series
-    # for each column that's mapped into a column in our new DataFrame.
-    transformed = pd.DataFrame()
-
-    # The template and version are available in the id and version columns.
-    transformed["template_id"] = templates["id"]
-    transformed["template_version"] = templates["version"]
-
-    # The fanSpeed setting value is located in a nested dictionary
-    # under the settings column.
-    transformed["fan_speed"] = templates["settings"].apply(lambda x: x["device"]["fanSpeed"])
-
-    # Finally, print the new DataFrame with our device and template
-    # information, along with the value of the fan speed.
-    print(transformed)
-```
-
-### <a name="read-avro-files-by-using-c"></a>Ficheiros do AVRO de leitura com o c#
-
-#### <a name="install-the-microsofthadoopavro-package"></a>Instalar o pacote de Microsoft.Hadoop.Avro
-
-```csharp
-Install-Package Microsoft.Hadoop.Avro -Version 1.5.6
-```
-
-#### <a name="parse-a-measurements-avro-file"></a>Analisar um arquivo AVRO medidas
-
-```csharp
-using Microsoft.Hadoop.Avro;
-using Microsoft.Hadoop.Avro.Container;
-using Newtonsoft.Json;
-
-public static async Task Run(string filePath)
-{
-    using (var fileStream = File.OpenRead(filePath))
-    {
-        using (var reader = AvroContainer.CreateGenericReader(fileStream))
-        {
-            // For one AVRO container, where a container can contain multiple blocks,
-            // loop through each block in the container.
-            while (reader.MoveNext())
-            {
-                // Loop through the AVRO records in the block and extract the fields.
-                foreach (AvroRecord record in reader.Current.Objects)
-                {
-                    var systemProperties = record.GetField<IDictionary<string, object>>("SystemProperties");
-                    var deviceId = systemProperties["connectionDeviceId"] as string;
-                    Console.WriteLine("Device ID: {0}", deviceId);
-
-                    using (var stream = new MemoryStream(record.GetField<byte[]>("Body")))
-                    {
-                        using (var streamReader = new StreamReader(stream, Encoding.UTF8))
-                        {
-                            var body = JsonSerializer.Create().Deserialize(streamReader, typeof(IDictionary<string, dynamic>)) as IDictionary<string, dynamic>;
-                            var humidity = body["humidity"];
-                            Console.WriteLine("Humidity: {0}", humidity);
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-```
-
-#### <a name="parse-a-devices-avro-file"></a>Analisar um arquivo AVRO de dispositivos
-
-```csharp
-using Microsoft.Hadoop.Avro;
-using Microsoft.Hadoop.Avro.Container;
-
-public static async Task Run(string filePath)
-{
-    using (var fileStream = File.OpenRead(filePath))
-    {
-        using (var reader = AvroContainer.CreateGenericReader(fileStream))
-        {
-            // For one AVRO container, where a container can contain multiple blocks,
-            // loop through each block in the container.
-            while (reader.MoveNext())
-            {
-                // Loop through the AVRO records in the block and extract the fields.
-                foreach (AvroRecord record in reader.Current.Objects)
-                {
-                    // Get the field value directly. You can also yield return
-                    // records and make the function IEnumerable<AvroRecord>.
-                    var deviceId = record.GetField<string>("deviceId");
-
-                    // The device template information is stored in a sub-record
-                    // under the deviceTemplate field.
-                    var deviceTemplateRecord = record.GetField<AvroRecord>("deviceTemplate");
-                    var templateId = deviceTemplateRecord.GetField<string>("id");
-                    var templateVersion = deviceTemplateRecord.GetField<string>("version");
-
-                    // The settings and properties are nested two levels deep.
-                    // The first level indicates settings or properties.
-                    // The second level indicates the type of setting or property.
-                    var settingsRecord = record.GetField<AvroRecord>("settings");
-                    var deviceSettingsRecord = settingsRecord.GetField<IDictionary<string, dynamic>>("device");
-                    var fanSpeed = deviceSettingsRecord["fanSpeed"];
-                    
-                    Console.WriteLine(
-                        "Device ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
-                        deviceId,
-                        templateId,
-                        templateVersion,
-                        fanSpeed
-                    );
-                }
-            }
-        }
-    }
-}
-
-```
-
-#### <a name="parse-a-device-templates-avro-file"></a>Analisar um arquivo AVRO de modelos de dispositivo
-
-```csharp
-using Microsoft.Hadoop.Avro;
-using Microsoft.Hadoop.Avro.Container;
-
-public static async Task Run(string filePath)
-{
-    using (var fileStream = File.OpenRead(filePath))
-    {
-        using (var reader = AvroContainer.CreateGenericReader(fileStream))
-        {
-            // For one AVRO container, where a container can contain multiple blocks,
-            // loop through each block in the container.
-            while (reader.MoveNext())
-            {
-                // Loop through the AVRO records in the block and extract the fields.
-                foreach (AvroRecord record in reader.Current.Objects)
-                {
-                    // Get the field value directly. You can also yield return
-                    // records and make the function IEnumerable<AvroRecord>.
-                    var id = record.GetField<string>("id");
-                    var version = record.GetField<string>("version");
-
-                    // The settings and properties are nested two levels deep.
-                    // The first level indicates settings or properties.
-                    // The second level indicates the type of setting or property.
-                    var settingsRecord = record.GetField<AvroRecord>("settings");
-                    var deviceSettingsRecord = settingsRecord.GetField<IDictionary<string, dynamic>>("device");
-                    var fanSpeed = deviceSettingsRecord["fanSpeed"];
-                    
-                    Console.WriteLine(
-                        "ID: {1}, Version: {2}, Fan Speed: {3}",
-                        id,
-                        version,
-                        fanSpeed
-                    );
-                }
-            }
-        }
-    }
-}
-```
-
-### <a name="read-avro-files-by-using-javascript"></a>Ler ficheiros AVRO com Javascript
-
-#### <a name="install-the-avsc-package"></a>Instalar o pacote de avsc
-
-```javascript
-npm install avsc
-```
-
-#### <a name="parse-a-measurements-avro-file"></a>Analisar um arquivo AVRO medidas
-
-```javascript
-const avro = require('avsc');
-
-// Read the AVRO file. Parse the device ID and humidity from each record.
-async function parse(filePath) {
-    const records = await load(filePath);
-    for (const record of records) {
-        // Fetch the device ID from the system properties.
-        const deviceId = record.SystemProperties.connectionDeviceId;
-
-        // Convert the body from a buffer to a string and parse it.
-        const body = JSON.parse(record.Body.toString());
-
-        // Get the humidty property from the body.
-        const humidity = body.humidity;
-
-        // Log the retrieved device ID and humidity.
-        console.log(`Device ID: ${deviceId}`);
-        console.log(`Humidity: ${humidity}`);
-    }
-}
-
-function load(filePath) {
-    return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream.
-        // Collect the records into an array and return them at the end.
-        const records = [];
-        avro.createFileDecoder(filePath)
-            .on('data', record => { records.push(record); })
-            .on('end', () => resolve(records))
-            .on('error', reject);
-    });
-}
-```
-
-#### <a name="parse-a-devices-avro-file"></a>Analisar um arquivo AVRO de dispositivos
-
-```javascript
-const avro = require('avsc');
-
-// Read the AVRO file. Parse the device and template identification
-// information and the fanSpeed setting for each device record.
-async function parse(filePath) {
-    const records = await load(filePath);
-    for (const record of records) {
-        // Fetch the device ID from the deviceId property.
-        const deviceId = record.deviceId;
-
-        // Fetch the template ID and version from the deviceTemplate property.
-        const deviceTemplateId = record.deviceTemplate.id;
-        const deviceTemplateVersion = record.deviceTemplate.version;
-
-        // Get the fanSpeed from the nested device settings property.
-        const fanSpeed = record.settings.device.fanSpeed;
-
-        // Log the retrieved device ID and humidity.
-        console.log(`deviceID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
-    }
-}
-
-function load(filePath) {
-    return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream.
-        // Collect the records into an array and return them at the end.
-        const records = [];
-        avro.createFileDecoder(filePath)
-            .on('data', record => { records.push(record); })
-            .on('end', () => resolve(records))
-            .on('error', reject);
-    });
-}
-```
-
-#### <a name="parse-a-device-templates-avro-file"></a>Analisar um arquivo AVRO de modelos de dispositivo
-
-```javascript
-const avro = require('avsc');
-
-// Read the AVRO file. Parse the device and template identification
-// information and the fanSpeed setting for each device record.
-async function parse(filePath) {
-    const records = await load(filePath);
-    for (const record of records) {
-        // Fetch the template ID and version from the id and verison properties.
-        const templateId = record.id;
-        const templateVersion = record.version;
-
-        // Get the fanSpeed from the nested device settings property.
-        const fanSpeed = record.settings.device.fanSpeed;
-
-        // Log the retrieved device id and humidity.
-        console.log(`Template ID: ${templateId}, Template Version: ${templateVersion}, Fan Speed: ${fanSpeed}`);
-    }
-}
-
-function load(filePath) {
-    return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream.
-        // Collect the records into an array and return them at the end.
-        const records = [];
-        avro.createFileDecoder(filePath)
-            .on('data', record => { records.push(record); })
-            .on('end', () => resolve(records))
-            .on('error', reject);
-    });
-}
-```
+7. Após alguns minutos, os dados serão apresentados no seu destino escolhido.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Agora que sabe como exportar os seus dados, avance para o passo seguinte:
+
+> [!div class="nextstepaction"]
+> [Exportar dados para o armazenamento de Blobs do Azure](howto-export-data-blob-storage.md)
+
+> [!div class="nextstepaction"]
+> [Exportar dados para os Hubs de eventos do Azure e o Azure Service Bus](howto-export-data-event-hubs-service-bus.md)
 
 > [!div class="nextstepaction"]
 > [Como visualizar os seus dados no Power BI](howto-connect-powerbi.md)

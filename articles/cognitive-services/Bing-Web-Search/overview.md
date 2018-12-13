@@ -1,23 +1,24 @@
 ---
-title: O que é a Pesquisa na Web do Bing?
+title: O que é a API de pesquisa Web Bing?
 titleSuffix: Azure Cognitive Services
 description: A API de Pesquisa na Web do Bing é um serviço RESTful que fornece respostas instantâneas às consultas do utilizador. Os resultados da pesquisa são facilmente configurados para incluir páginas da web, imagens, vídeos, notícias, traduções e muito mais. Os resultados são fornecidos como JSON e têm base na relevância de pesquisa e nas suas subscrições de Pesquisa na Web do Bing.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: overview
 ms.date: 08/14/2018
-ms.author: erhopf
-ms.openlocfilehash: 8482afae2889ccf2153e1864e4a65b635b6ab4c7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.author: aahi
+ms.custom: seodec2018
+ms.openlocfilehash: b11e7117143dea6db71b1c60d89054477e94227d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125243"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255997"
 ---
-# <a name="what-is-bing-web-search"></a>O que é a Pesquisa na Web do Bing?
+# <a name="what-is-the-bing-web-search-api"></a>O que é a API de pesquisa Web Bing?
 
 A API de Pesquisa na Web do Bing é um serviço RESTful que fornece respostas instantâneas às consultas do utilizador. Os resultados da pesquisa são facilmente configurados para incluir páginas da web, imagens, vídeos, notícias, traduções e muito mais. Os resultados são fornecidos como JSON e têm base na relevância de pesquisa e nas suas subscrições de Pesquisa na Web do Bing.
 
@@ -45,7 +46,7 @@ A API de Pesquisa na Web do Bing é fácil de chamar a partir de qualquer lingua
 2. Envie um [pedido para a API de Pesquisa na Web do Bing](quickstarts/python.md).
 3. Analise a resposta JSON.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Utilize o nosso [guia de introdução do Python](quickstarts/python.md) para efetuar a primeira chamada à API de Pesquisa na Web do Bing.  
 * [Crie uma aplicação Web de página única](tutorial-bing-web-search-single-page-app.md).

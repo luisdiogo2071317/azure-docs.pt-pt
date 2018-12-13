@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585805"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326527"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes acerca dos discos de VM de IaaS do Azure e discos geridos e não geridos premium
 
@@ -86,8 +86,8 @@ Configurar uma conta de armazenamento privado para diagnósticos de VM.
 Gerida discos suporta três principais padrão funções:
 
 * Proprietário: Pode gerir tudo, incluindo o acesso
-* Contribuinte: Pode gerir tudo, exceto o acesso
-* Leitor: Podem ver tudo, mas não pode efetuar alterações
+* Contribuinte de: Pode gerir tudo, exceto o acesso
+* Leitor de: Pode ver tudo, mas não pode efetuar alterações
 
 **Existe uma forma que pode copiar ou exportar um disco gerido para uma conta de armazenamento privado?**
 
@@ -137,9 +137,9 @@ Não, quando é criado o novo disco é uma cópia autônoma completa desse blob 
 
 Para discos geridos não é possível mudar o nome-los. No entanto, pode mudar o nome de um disco não gerido, desde que não está atualmente ligado a um VHD ou VM.
 
-**Posso utilizar GBT criação de partições num disco do Azure?**
+**Posso utilizar o GPT criação de partições num disco do Azure?**
 
-A criação de partições de GBT pode ser usada apenas em discos de dados, não os discos de SO. Discos de SO tem de utilizar o estilo de partição MBR.
+A criação de partições de GPT pode ser usada apenas em discos de dados, não os discos de SO. Discos de SO tem de utilizar o estilo de partição MBR.
 
 ## <a name="standard-ssd-disks"></a>Discos SSD Standard
 
@@ -188,6 +188,10 @@ Não, os discos Standard SSDs só estão disponíveis como Managed Disks.
 Não, SSDs padrão não tem SLA de VM de instância única. Utilize discos de Premium SSD para VM SLA de instância única.
 
 ## <a name="migrate-to-managed-disks"></a>Migrar para o Managed Disks
+
+* * Existe qualquer impacto da migração sobre o desempenho de Managed Disks?
+
+A migração envolve a movimentação do disco de uma localização de armazenamento para outro. Isso é orquestrado por meio de cópia em segundo plano de dados que podem demorar várias horas a concluir, normalmente, menos de 24 horas, dependendo da quantidade de dados nos discos. Durante esse tempo seu aplicativo pode assistir superior do que a latência de leitura normal como algumas leituras podem obter redirecionadas para a localização original e podem demorar mais tempo a concluir. Não é afetado na latência de escrita durante este período.  
 
 **As alterações que são necessárias numa já existente do Azure Backup serviço antes/depois de migração de configuração para os Managed Disks?**
 
@@ -262,7 +266,7 @@ Sim
 
 Não. Mas se exportar um VHD para uma conta de armazenamento encriptado de um encriptados gerido disco ou instantâneo e, em seguida, é encriptada. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Os discos Premium: geridos e não geridos
+## <a name="premium-disks-managed-and-unmanaged"></a>Discos Premium: Geridos e não geridos
 
 **Se uma VM utiliza uma série de tamanho que suporte discos Premium SSD, por exemplo, um DSv2, posso anexar premium e os discos de dados padrão?** 
 
@@ -292,7 +296,7 @@ Local SSD é um armazenamento temporário que acompanha uma VM de discos geridos
 
 Não há nenhuma desvantagem para a utilização de cortar nos discos do Azure no premium o ou os discos standard.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>Novos tamanhos de disco: geridos e não geridos
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Novos tamanhos de disco: Geridos e não geridos
 
 **O que é o maior tamanho de disco gerido suportado para o sistema operativo e discos de dados?**
 
@@ -312,10 +316,10 @@ Não precisa de ferramentas do Azure existentes para criar, anexar ou redimensio
 
 |Ferramentas do Azure      | Versões suportadas                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Número de versão 4.1.0: versão de Junho de 2017 ou posterior|
-|CLI do Azure v1     | Número de versão 0.10.13: versão de Maio de 2017 ou posterior|
-|CLI do Azure v2     | Número da versão 2.0.12: versão de Julho de 2017 ou posterior|
-|AzCopy           | Número de versão 6.1.0: versão de Junho de 2017 ou posterior|
+|Azure PowerShell | Número de versão 4.1.0: Versão de Junho de 2017 ou posterior|
+|CLI do Azure v1     | Número de versão 0.10.13: Versão de Maio de 2017 ou posterior|
+|CLI do Azure v2     | Número da versão 2.0.12: Versão de Julho de 2017 ou posterior|
+|AzCopy           | Número de versão 6.1.0: Versão de Junho de 2017 ou posterior|
 
 **Tamanhos de disco do P4 e P6 há suporte para discos não geridos ou blobs de páginas?**
 
@@ -339,7 +343,7 @@ O maior tamanho de disco suportado pelo Azure Backup e o serviço Azure Site Rec
 
 **O que são VM recomendado tamanhos para tamanhos de discos grandes (> 4TiB) para discos Standard HDD e Standard SSD para alcançar otimizado de disco IOPS e largura de banda?**
 
-Para alcançar o débito de disco de tamanhos de disco grande padrão SSD e HDD padrão (> 4TB) para além dos 500 IOPS e 60 MiB/s, deve usar um dos seguintes tamanhos de VM para otimizar o desempenho: série B, série DSv2, série Dsv3, série ESv3, série Fs, Série Fsv2, série M, série GS, série NCv2, série NCv3 ou VMs da série Ls.
+Para alcançar o débito de disco de tamanhos de disco grande padrão SSD e HDD padrão (> 4TB) para além dos 500 IOPS e 60 MiB/s, deve usar um dos seguintes tamanhos de VM para otimizar o desempenho: Série B, série DSv2, série Dsv3, série ESv3, Fs-, Fsv2, série M, série GS, NCv2-séries, série NCv3 ou VMs da série Ls.
 
 **Que regiões são os tamanhos de disco gerido maiores do que 4 TiB suportados no?**
 

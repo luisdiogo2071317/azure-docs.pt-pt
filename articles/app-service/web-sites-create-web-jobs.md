@@ -1,5 +1,5 @@
 ---
-title: Executar tarefas em segundo plano com o WebJobs no serviço de aplicações do Azure
+title: Executar tarefas em segundo plano com o WebJobs - serviço de aplicações do Azure
 description: Saiba como utilizar o WebJobs para executar tarefas em segundo plano no serviço de aplicações do Azure web apps, aplicações API ou aplicações móveis.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
-ms.openlocfilehash: 901cf32557e0a437e938ceb50ecd500c69c8c3be
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.custom: seodec18
+ms.openlocfilehash: 1a43c6061c497c92123865e530208f2cbef09359
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364035"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269602"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com o WebJobs no serviço de aplicações do Azure
 
@@ -75,15 +76,15 @@ when making changes in one don't forget the other two.
 
     ![Página de WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Utilize o **WebJob adicionar** definições conforme especificado na tabela.
+3. Utilize o **adicionar WebJob** definições conforme especificado na tabela.
 
    ![Adicionar página de WebJob](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Definição      | Valor da amostra   | Descrição  |
+   | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
-   | **Nome** | myContinuousWebJob | Um nome que seja exclusivo dentro de uma aplicação de serviço de aplicações. Tem de começar com uma letra ou um número e não pode conter carateres especiais diferente de "-" e "_". |
-   | **Carregamento de ficheiros** | ConsoleApp.zip | R *. zip* ficheiro que contém o ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos de ficheiro executável ou script suportados estão listados na [tipos de ficheiro suportados](#acceptablefiles) secção. |
-   | **Tipo** | Contínuo | O [tipos de WebJob](#webjob-types) descritos anteriormente neste artigo. |
+   | **Nome** | myContinuousWebJob | Um nome que seja exclusivo dentro de uma aplicação de serviço de aplicações. Tem de começar com uma letra ou um número e não pode conter carateres especiais diferente de "-" e "_". |
+   | **Carregamento de ficheiros** | ConsoleApp.zip | R *. zip* ficheiro que contém o ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos de ficheiro executável ou script suportados estão listados na [tipos de ficheiro suportados](#acceptablefiles) secção. |
+   | **Tipo** | Contínuo | O [tipos de WebJob](#webjob-types) descritos anteriormente neste artigo. |
    | **Dimensionamento** | De ocorrências múltiplas | Disponível apenas para trabalhos Web contínuos. Determina se o programa ou script é executado em todas as instâncias ou apenas uma instância. A opção para executar em várias instâncias não se aplica a gratuito ou partilhado [escalões de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). | 
 
 4. Clique em **OK**.
@@ -113,16 +114,16 @@ when making changes in one don't forget the other two.
 
     ![Página de WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Utilize o **WebJob adicionar** definições conforme especificado na tabela.
+3. Utilize o **adicionar WebJob** definições conforme especificado na tabela.
 
    ![Adicionar página de WebJob](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Definição      | Valor da amostra   | Descrição  |
+   | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
-   | **Nome** | myTriggeredWebJob | Um nome que seja exclusivo dentro de uma aplicação de serviço de aplicações. Tem de começar com uma letra ou um número e não pode conter carateres especiais diferente de "-" e "_".|
-   | **Carregamento de ficheiros** | ConsoleApp.zip | R *. zip* ficheiro que contém o ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos de ficheiro executável ou script suportados estão listados na [tipos de ficheiro suportados](#acceptablefiles) secção. |
-   | **Tipo** | Acionado | O [tipos de WebJob](#webjob-types) descritos anteriormente neste artigo. |
-   | **Acionadores** | Manual | |
+   | **Nome** | myTriggeredWebJob | Um nome que seja exclusivo dentro de uma aplicação de serviço de aplicações. Tem de começar com uma letra ou um número e não pode conter carateres especiais diferente de "-" e "_".|
+   | **Carregamento de ficheiros** | ConsoleApp.zip | R *. zip* ficheiro que contém o ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos de ficheiro executável ou script suportados estão listados na [tipos de ficheiro suportados](#acceptablefiles) secção. |
+   | **Tipo** | Acionado | O [tipos de WebJob](#webjob-types) descritos anteriormente neste artigo. |
+   | **acionadores** | Manual | |
 
 4. Clique em **OK**.
 
@@ -151,17 +152,17 @@ when making changes in one don't forget the other two.
 
    ![Página de WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Utilize o **WebJob adicionar** definições conforme especificado na tabela.
+3. Utilize o **adicionar WebJob** definições conforme especificado na tabela.
 
    ![Adicionar página de WebJob](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Definição      | Valor da amostra   | Descrição  |
+   | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
-   | **Nome** | myScheduledWebJob | Um nome que seja exclusivo dentro de uma aplicação de serviço de aplicações. Tem de começar com uma letra ou um número e não pode conter carateres especiais diferente de "-" e "_". |
-   | **Carregamento de ficheiros** | ConsoleApp.zip | R *. zip* ficheiro que contém o ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos de ficheiro executável ou script suportados estão listados na [tipos de ficheiro suportados](#acceptablefiles) secção. |
-   | **Tipo** | Acionado | O [tipos de WebJob](#webjob-types) descritos anteriormente neste artigo. |
-   | **Acionadores** | Agendadas | Para o agendamento para trabalhar de forma fiável, ative a funcionalidade Always On. Always On está disponível apenas no básico, Standard e Premium de escalões de preço.|
-   | **Expressão CRON** | 0 0/20 * * * * | [Expressões CRON](#cron-expressions) são descritos na secção seguinte. |
+   | **Nome** | myScheduledWebJob | Um nome que seja exclusivo dentro de uma aplicação de serviço de aplicações. Tem de começar com uma letra ou um número e não pode conter carateres especiais diferente de "-" e "_". |
+   | **Carregamento de ficheiros** | ConsoleApp.zip | R *. zip* ficheiro que contém o ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos de ficheiro executável ou script suportados estão listados na [tipos de ficheiro suportados](#acceptablefiles) secção. |
+   | **Tipo** | Acionado | O [tipos de WebJob](#webjob-types) descritos anteriormente neste artigo. |
+   | **acionadores** | Agendadas | Para o agendamento para trabalhar de forma fiável, ative a funcionalidade Always On. Always On está disponível apenas no básico, Standard e Premium de escalões de preço.|
+   | **Expressão CRON** | 0 0/20 * * * * | [Expressões CRON](#cron-expressions) são descritos na secção seguinte. |
 
 4. Clique em **OK**.
 

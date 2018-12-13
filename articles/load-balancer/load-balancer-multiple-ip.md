@@ -1,5 +1,6 @@
 ---
-title: Várias configurações de IP no Azure de balanceamento de carga | Documentos da Microsoft
+title: Balanceamento de carga em várias configurações de IP no Azure
+titlesuffix: Azure Load Balancer
 description: Balanceamento de carga entre configurações de IP primárias e secundárias.
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0f092c471a7908eabe481adc8c722993818840b8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e6aff89fe45220e1642a91e6a2d31a9da422fdea
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219516"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163536"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP utilizando o portal do Azure
 
@@ -96,7 +98,7 @@ Crie o seu Balanceador de carga para a configuração:
 
 O Balanceador de carga começa a implementar. Implementação pode demorar alguns minutos a concluir com êxito. Após a implementação estiver concluída, o Balanceador de carga é apresentado como um recurso no seu grupo de recursos.
 
-### <a name="step-3-configure-the-front-end-ip-pool"></a>Passo 3: Configurar o conjunto IP Front-end
+### <a name="step-3-configure-the-front-end-ip-pool"></a>Passo 3: Configure o conjunto IP Front-end
 
 Para cada Web site (contoso.com e fabrikam.com), configure o conjunto IP Front-end num Balanceador de carga:
 
@@ -186,7 +188,7 @@ Para cada Web site (contoso.com e fabrikam.com), configure a regras de balanceam
 
 Depois das regras são configuradas, são apresentados em seu Balanceador de carga **regras de balanceamento de carga** definições.
 
-### <a name="step-7-configure-dns-records"></a>Passo 7: Configurar os registos DNS
+### <a name="step-7-configure-dns-records"></a>Passo 7: Configurar registos DNS
 
 Como o último passo, configure os registos de recursos DNS para apontar para os respectivos endereços IP Front-end para o Balanceador de carga. Pode alojar os seus domínios no DNS do Azure. Para obter mais informações sobre como utilizar o DNS do Azure com o Balanceador de carga, veja [utilizando o Azure DNS com outros serviços do Azure](../dns/dns-for-azure-services.md).
 

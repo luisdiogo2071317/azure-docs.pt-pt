@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 7fd3ace1acf8442b7df2af90f458e69daf0c270c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ad85cec20437907c4dffc624e5cbcb64fd447da7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966709"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313960"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar alertas de métricas para os registos no Azure Monitor  
 
 ## <a name="overview"></a>Descrição geral
-O Azure suporta Monitor [tipo de alerta de métrica](monitoring-near-real-time-metric-alerts.md) que tem vantagens sobre o [alertas clássicos](alert-metric-classic.md). As métricas estão disponíveis para [grande lista de serviços do Azure](monitoring-supported-metrics.md). Este artigo explica a utilização de um subconjunto (ou seja,) para o recurso - `Microsoft.OperationalInsights/workspaces`. 
+O Azure suporta Monitor [tipo de alerta de métrica](monitoring-near-real-time-metric-alerts.md) que tem vantagens sobre o [alertas clássicos](../azure-monitor/platform/alerts-classic-portal.md). As métricas estão disponíveis para [grande lista de serviços do Azure](monitoring-supported-metrics.md). Este artigo explica a utilização de um subconjunto (ou seja,) para o recurso - `Microsoft.OperationalInsights/workspaces`. 
 
 Pode utilizar alertas de métricas em populares registos do Log Analytics extraídos como métricas como parte das métricas de Logs, incluindo recursos no Azure ou no local. As soluções do Log Analytics suportadas estão listadas abaixo:
 - [Contadores de desempenho](../azure-monitor/platform/data-sources-performance-counters.md) para máquinas Windows e Linux
@@ -26,7 +26,7 @@ Pode utilizar alertas de métricas em populares registos do Log Analytics extra�
 - [Gestão de atualizações](../automation/automation-update-management.md) registos
 - [Dados de eventos](../azure-monitor/platform/data-sources-windows-events.md) registos
  
-Há muitos benefícios de utilização **alertas de métrica para os registos** através de consulta com base [alertas de registo](alert-log.md) no Azure; algumas delas estão listadas abaixo:
+Há muitos benefícios de utilização **alertas de métrica para os registos** através de consulta com base [alertas de registo](../azure-monitor/platform/alerts-log.md) no Azure; algumas delas estão listadas abaixo:
 - Alertas de métricas oferecem quase realtime capacidade de monitorização e alertas de métrica para dados de bifurcações de registos da origem de registo para garantir que o mesmo
 - Alertas de métricas têm monitorização de estado - notificar apenas uma vez quando o alerta é acionado e uma vez quando o alerta é resolvido; em vez de alertas de registo, que são sem monitoração de estado e manter trabalharem em cada intervalo, se for cumprida a condição de alerta
 - Alertas de métricas para o registo de fornecem várias dimensões, permitindo que a filtragem a valores específicos, como computadores, o tipo de SO, etc. mais simples; sem a necessidade de tentou dar seus consulta do analytics
@@ -40,15 +40,15 @@ Há muitos benefícios de utilização **alertas de métrica para os registos** 
 > [!NOTE]
 > Para ver métricas suportadas para a ser extraídos da área de trabalho do Log Analytics através de [Monitor do Azure - métricas](monitoring-metric-charts.md); uma métrica de alerta de registo tem de ser criado para a métrica disse. As dimensões escolhidas no alerta de métrica para os registos - apenas serão apresentados para exploração através do Azure Monitor - métricas.
 
-# <a name="creating-metric-alert-for-log-analytics"></a>Criar alerta de métrica para o Log Analytics
+## <a name="creating-metric-alert-for-log-analytics"></a>Criar alerta de métrica para o Log Analytics
 Dados métricos de logs populares é enviada por pipe antes de ela é processada no Log Analytics, no Azure Monitor - métricas. Isso permite que os utilizadores a alavancar as capacidades da plataforma métrica, bem como alerta de métrica - incluindo ter alertas com frequência de apenas 1 minuto. Abaixo encontram-se o meio de um alerta de métrica para os registos de composição.
 
 ## <a name="prerequisites-for-metric-alert-for-logs"></a>Pré-requisitos para o alerta de métrica para os registos
 Antes de métrica para os registos recolhidos sobre funciona de dados do Log Analytics, o seguinte tem de ser definido ativas e disponíveis:
-1. **Active Directory área de trabalho do Log Analytics**: uma área de trabalho do Log Analytics válida e ativa tem de estar presente. Para obter mais informações, consulte [criar uma área de trabalho do Log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
-2. **Agente for configurado para a área de trabalho do Log Analytics**: agente tem de ser configuradas para as VMs do Azure (e/ou) VMs no local enviar dados para a área de trabalho de análise do registo utilizada no passo anterior. Para obter mais informações, consulte [descrição geral do agente do Log Analytics -](../azure-monitor/platform/agents-overview.md).
-3. **Soluções de análise de registo suportada está instalada**: solução de análise de registo deve ser configurados e envio dados na área de trabalho do Log Analytics - suportado soluções são [contadores de desempenho para Windows e Linux](../azure-monitor/platform/data-sources-performance-counters.md), [Registos de heartbeat de agente de estado de funcionamento](../azure-monitor/insights/solution-agenthealth.md), [a gestão, de atualizações e [dados de eventos](../azure-monitor/platform/data-sources-windows-events.md).
-4. **Configurado para enviar registos de soluções de análise de registo**: solução de análise de registo deve ter dados/registos necessários correspondente para [métricas suportadas para áreas de trabalho do Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) ativada. Por exemplo, para *% de memória disponível* contador do mesmo tem de ser configurado na [contadores de desempenho](../azure-monitor/platform/data-sources-performance-counters.md) solução primeiro.
+1. **Área de trabalho do Active Directory do Log Analytics**: Tem de existir uma área de trabalho do Log Analytics válida e ativa. Para obter mais informações, consulte [criar uma área de trabalho do Log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
+2. **Agente for configurado para a área de trabalho do Log Analytics**: Agente tem de ser configuradas para as VMs do Azure (e/ou) VMs no local enviar dados para a área de trabalho de análise do registo utilizada no passo anterior. Para obter mais informações, consulte [descrição geral do agente do Log Analytics -](../azure-monitor/platform/agents-overview.md).
+3. **Soluções de análise de registos suportados é instalada**: Solução de análise de registo deve ser configurados e envio dados na área de trabalho do Log Analytics - suportado são de soluções [contadores de desempenho para Windows e Linux](../azure-monitor/platform/data-sources-performance-counters.md), [registos de Heartbeat de agente de estado de funcionamento](../azure-monitor/insights/solution-agenthealth.md) , [A gestão, de atualizações e [dados de eventos](../azure-monitor/platform/data-sources-windows-events.md).
+4. **Configurado para enviar registos de soluções de análise de registo**: Solução de análise de registo deve ter o correspondente de dados/registos necessários para [métricas suportadas para áreas de trabalho do Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) ativada. Por exemplo, para *% de memória disponível* contador do mesmo tem de ser configurado na [contadores de desempenho](../azure-monitor/platform/data-sources-performance-counters.md) solução primeiro.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configurar o alerta de métrica para os registos
  alertas de métricas podem ser criadas e geridos através do portal do Azure, modelos do Resource Manager, REST API, PowerShell e CLI do Azure. Como alertas de métrica para os registos, é uma variante de alertas de métricas - depois de terminar os pré-requisitos, o alerta de métrica para os registos pode ser criada para a área de trabalho do Log Analytics especificada. Todas as características e funcionalidades do [ alertas de métricas](monitoring-near-real-time-metric-alerts.md) serão aplicáveis a alertas de métricas para os registos, também, incluindo o esquema do payload, limites de quota aplicável e preços de faturação.
@@ -355,5 +355,5 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre o [ alertas de métricas](https://aka.ms/createmetricalert).
-* Saiba mais sobre [alertas de registo no Azure](monitor-alerts-unified-log.md).
+* Saiba mais sobre [alertas de registo no Azure](../azure-monitor/platform/alerts-unified-log.md).
 * Saiba mais sobre [alertas no Azure](monitoring-overview-alerts.md).

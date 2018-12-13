@@ -1,5 +1,5 @@
 ---
-title: Ver as reservas do Azure | Documentos da Microsoft
+title: Ver as reservas para recursos do Azure | Documentos da Microsoft
 description: Saiba como ver as reservas do Azure no portal do Azure.
 services: billing
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: cwatson
-ms.openlocfilehash: 4506d65d173ea483558a772d89fe7cbc8cd84944
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c7522076987aacacc6fde6a0c9d2fa867a3f14aa
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584592"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314045"
 ---
-# <a name="view-azure-reservations-in-the-azure-portal"></a>Ver as reservas de Azure no portal do Azure
+# <a name="view-reservations-for-azure-in-the-azure-portal"></a>Reservas de vista para o Azure no portal do Azure
 
-Dependendo do tipo de subscrição e permissões, existem duas formas para ver as reservas do Azure.
+Dependendo do tipo de subscrição e permissões, existem duas formas para ver as reservas para recursos do Azure.
 
 ## <a name="view-reservations-as-owner-or-reader"></a>Reservas de exibição como proprietário ou leitor
 
@@ -30,7 +30,7 @@ Por predefinição, quando adquire uma reserva, e o administrador de conta podem
  
 Para ver uma reserva como proprietário ou leitor,
 
-1. Inicie sessão no [portal do Azure]( http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Pesquisar nos **reservas**.
 
     ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-view-reservation/portal-reservation-search.png)
@@ -45,7 +45,7 @@ Se precisar de alterar o âmbito de uma reserva, dividir uma reserva ou alteraç
 
 Para exibir transações de reserva no portal do Azure,
 
-1. Inicie sessão no [portal do Azure]( http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Pesquisar nos **custo Management + faturação**.
 
     ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-view-reservation/portal-cm-billing-search.png)
@@ -66,7 +66,7 @@ Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 - [Efetue o pré-pagamento do Cosmos DB reservado capacidade](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md)
+- [Gerir reservas do Azure](billing-manage-reserved-vm-instance.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)
 - [Compreender a utilização de reserva para subscrições de CSP](https://docs.microsoft.com/partner-center/azure-reservations)

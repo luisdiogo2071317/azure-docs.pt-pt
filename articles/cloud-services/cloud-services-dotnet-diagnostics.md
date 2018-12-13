@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: f9f26f14944986bc673a3b7529adb055ad16d058
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6a22a3dabf1aa71e0d092c4145523da9b0121c8c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003066"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322214"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Ativar diagnósticos do Azure nos serviços Cloud do Azure
 Ver [descrição geral de diagnóstico do Azure](../azure-diagnostics.md) para um plano de fundo do diagnóstico do Azure.
@@ -39,7 +39,7 @@ Este artigo pressupõe que uma subscrição do Azure e estiver a utilizar o Visu
 6. Crie a sua solução para verificar se tem sem erros.
 
 ### <a name="step-2-instrument-your-code"></a>Passo 2: Instrumentar o seu código
-Substitua o conteúdo do WorkerRole.cs com o código a seguir. A classe SampleEventSourceWriter, herdada a partir do [EventSource classe][EventSource Class], implementa quatro métodos de registo: **SendEnums**, **MessageMethod** , **SetOther** e **HighFreq**. O primeiro parâmetro para o **WriteEvent** método define o ID para o respectivo evento. O método Run implementa um loop infinito que chama cada um dos métodos implementados no Registro em log os **SampleEventSourceWriter** classe cada 10 segundos.
+Substitua o conteúdo do WorkerRole.cs com o código a seguir. A classe SampleEventSourceWriter, herdada a partir do [EventSource classe][EventSource Class], implementa quatro métodos de registo: **SendEnums**, **MessageMethod**, **SetOther** e **HighFreq**. O primeiro parâmetro para o **WriteEvent** método define o ID para o respectivo evento. O método Run implementa um loop infinito que chama cada um dos métodos implementados no Registro em log os **SampleEventSourceWriter** classe cada 10 segundos.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -134,7 +134,7 @@ namespace WorkerRole1
 6. Modificar qualquer outro **configurações** conforme adequado e clique em **Publish**.
 7. Depois de concluída a implementação, certifique-se no portal do Azure que seu serviço cloud está numa **em execução** estado.
 
-### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Passo 4: Criar o seu ficheiro de configuração de diagnósticos e instalar a extensão
+### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Passo 4: Crie o seu ficheiro de configuração de diagnósticos e instalar a extensão
 1. Transferir a definição de esquema do ficheiro de configuração pública ao executar o seguinte comando do PowerShell:
 
     ```powershell
@@ -171,7 +171,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="step-5-install-diagnostics-on-your-worker-role"></a>Passo 5: Instalar o diagnóstico na sua função de trabalho
-Os cmdlets do PowerShell para o gerenciamento de diagnósticos numa função web ou de trabalho são: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
+Os cmdlets do PowerShell para o gerenciamento de diagnósticos numa função web ou de trabalho são: Conjunto AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension e Remove-AzureServiceDiagnosticsExtension.
 
 1. Abra o PowerShell do Azure.
 2. Executar o script para instalar o diagnóstico na sua função de trabalho (substitua *StorageAccountKey* com a chave de conta de armazenamento para a sua conta de armazenamento wadexample e *config_path* com o caminho para o  *WadExample.xml* ficheiros):
@@ -185,7 +185,7 @@ $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -Sto
 Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
 ```
 
-### <a name="step-6-look-at-your-telemetry-data"></a>Passo 6: Analisar os dados de telemetria
+### <a name="step-6-look-at-your-telemetry-data"></a>Passo 6: Examinar os dados de telemetria
 No Visual Studio **Explorador de servidores**, navegue para a conta de armazenamento wadexample. Depois do serviço em nuvem está em execução cerca de cinco (5) minutos, deverá ver as tabelas **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** e **WADSetOtherTable**. Clique duas vezes em uma das tabelas para ver a telemetria que tenha sido recolhida.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
@@ -197,7 +197,7 @@ O ficheiro de configuração de diagnósticos define os valores que são usados 
 Se tiver problemas, consulte [resolução de problemas do diagnóstico do Azure](../azure-diagnostics-troubleshooting.md) para obter ajuda com problemas comuns.
 
 ## <a name="next-steps"></a>Próximos Passos
-[Ver uma lista de relacionados artigos de diagnóstico de máquinas virtuais do Azure](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics) para alterar os dados que está a recolher, resolução de problemas ou Saiba mais sobre diagnósticos em geral.
+[Ver uma lista de relacionados artigos de diagnóstico de máquinas virtuais do Azure](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics) para alterar os dados que está a recolher, resolução de problemas ou Saiba mais sobre diagnósticos em geral.
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

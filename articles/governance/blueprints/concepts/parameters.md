@@ -1,5 +1,5 @@
 ---
-title: Criação de esquemas dinâmicas através de parâmetros em esquemas do Azure
+title: Utilizar parâmetros para a criação de esquemas dinâmicas
 description: Saiba mais sobre os parâmetros de estáticos e dinâmicos e como usá-los cria planos gráficos dinâmicos.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f6485b01c391ba336799ceb35ee67402b3603585
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 0eef85fe92682eb3a6fd1dbc036cf547b163db97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093756"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310322"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de esquemas dinâmicas através de parâmetros
 
@@ -51,13 +52,13 @@ Um valor de parâmetro definido na definição de um plano gráfico é chamado u
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Definir parâmetros estáticos no portal
 
-1. Clique em **todos os serviços** e a procurar e selecionando **política** no painel esquerdo. Na página **Política**, clique em **Esquemas**.
+1. Clique em **Todos os serviços** e procure e selecione **Política**, no painel do lado esquerdo. Na página **Política**, clique em **Esquemas**.
 
 1. Selecione **Definições do Esquema** na página à esquerda.
 
 1. Clique numa esquema existente e, em seguida, clique em **Editar esquema** ou clique em **+ criar esquema** e preencha as informações sobre o **Noções básicas** separador.
 
-1. Clique em **seguinte: artefactos** ou clique nas **artefactos** separador.
+1. Clique em **seguinte: Artefactos** ou clique nas **artefactos** separador.
 
 1. Artefatos adicionados ao esquema, que tem opções de parâmetro exibir **parâmetros de X de Y preenchidos** no **parâmetros** coluna. Clique na linha de artefacto para editar os parâmetros de artefacto.
 
@@ -168,7 +169,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico**. Este parâme
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Definir parâmetros dinâmicos no portal
 
-1. Clique em **todos os serviços** e a procurar e selecionando **política** no painel esquerdo. Na página **Política**, clique em **Esquemas**.
+1. Clique em **Todos os serviços** e procure e selecione **Política**, no painel do lado esquerdo. Na página **Política**, clique em **Esquemas**.
 
 1. Selecione **Definições do Esquema** na página à esquerda.
 

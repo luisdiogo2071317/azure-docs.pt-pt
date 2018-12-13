@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 6855521475e24b7243a391abdc6e6cf707991159
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457396"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320697"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como aprovisionar para arquitetura "multitenancy" 
 
 As políticas de alocação definidas pelo serviço de aprovisionamento suportam uma variedade de cenários de alocação. Dois cenários comuns são:
 
-* **Geolocalização / GeoLatency**: como um dispositivo se move entre localizações, a latência de rede é melhorada fazendo com que o dispositivo aprovisionado no hub IoT mais próximos de cada localização. Neste cenário, um grupo de hubs IoT, que abrangem em várias regiões, estão selecionados para inscrições. O **latência mais baixa** política de alocação está selecionada para essas inscrições. Esta política faz com que o serviço de aprovisionamento de dispositivos avaliar a latência de dispositivo e determinar o armário hub IoT para fora do grupo de IoT hubs. 
+* **Geolocalização / GeoLatency**: Como um dispositivo se move entre localizações, a latência de rede foi aprimorada fazendo com que o dispositivo aprovisionado no hub IoT mais próximos de cada localização. Neste cenário, um grupo de hubs IoT, que abrangem em várias regiões, estão selecionados para inscrições. O **latência mais baixa** política de alocação está selecionada para essas inscrições. Esta política faz com que o serviço de aprovisionamento de dispositivos avaliar a latência de dispositivo e determinar o armário hub IoT para fora do grupo de IoT hubs. 
 
-* **Vários inquilinos**: dispositivos utilizados dentro de uma solução de IoT poderão ter de ser atribuídos a um hub de IoT específico ou grupo de IoT hubs. A solução pode exigir que todos os dispositivos para um inquilino específico comunicar com um grupo específico de IoT hubs. Em alguns casos, um inquilino pode possuir os hubs IoT e exigir que os dispositivos a serem atribuídas aos seus hubs IoT.
+* **Vários inquilinos**: Dispositivos utilizados dentro de uma solução de IoT poderão ter de ser atribuídos a um hub de IoT específico ou grupo de IoT hubs. A solução pode exigir que todos os dispositivos para um inquilino específico comunicar com um grupo específico de IoT hubs. Em alguns casos, um inquilino pode possuir os hubs IoT e exigir que os dispositivos a serem atribuídas aos seus hubs IoT.
 
 É comum para combinar esses dois cenários. Por exemplo, uma solução de IoT multi-inquilino normalmente irá atribuir dispositivos de inquilino através de um grupo de hubs IoT que estão espalhados entre regiões. Estes dispositivos de inquilino podem ser atribuídos ao hub IoT nesse grupo, que tem a menor latência com base na localização geográfica.
 
@@ -92,13 +92,13 @@ Para simplificar, este artigo usa [atestado de chave simétrico](concepts-symmet
 
 3. No **adicionar grupo de inscrição**, introduza as seguintes informações e clique nas **guardar** botão.
 
-    **Nome do grupo**: introduza **contoso-nos-dispositivos**.
+    **Nome do grupo**: Introduza **contoso-nos-dispositivos**.
 
-    **Tipo de atestado**: selecione **chave simétrica**.
+    **Tipo de atestado**: Selecione **chave simétrica**.
 
-    **Gerar chaves automaticamente**: esta caixa de verificação já deve ser verificada.
+    **Chaves de geração automática**: Esta caixa de verificação já deve ser verificada.
 
-    **Selecione como pretende atribuir dispositivos a hubs**: selecione **latência mais baixa**.
+    **Selecione como pretende atribuir dispositivos a hubs**: Selecione **latência mais baixa**.
 
     ![Adicionar grupo de inscrição de multi-inquilino para o atestado de chave simétrico](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
@@ -107,9 +107,9 @@ Para simplificar, este artigo usa [atestado de chave simétrico](concepts-symmet
 
     **Subscrição**: Se tiver várias subscrições, escolha a subscrição onde criou os hubs IoT regionais.
 
-    **IoT hub**: selecione uma das hubs regionais, que criou.
+    **IoT hub**: Selecione um dos hubs regionais, que criou.
 
-    **Política de acesso**: escolha **iothubowner**.
+    **Política de acesso**: Escolher **iothubowner**.
 
     ![Ligar os hubs IoT regionais com o serviço de aprovisionamento](./media/how-to-provision-multitenant/link-regional-hubs.png)
 
@@ -130,11 +130,11 @@ Para fazer a limpeza, estas VMs será adicionado ao mesmo grupo de recursos que 
 
 1. No Azure Cloud Shell, execute o seguinte comando para criar uma **E.U.A. Leste** região VM depois de efetuar as seguintes alterações de parâmetro no comando:
 
-    **-nome**: introduza um nome exclusivo para a sua **E.U.A. Leste** dispositivo regional VM. 
+    **-nome**: Introduza um nome exclusivo para o seu **E.U.A. Leste** dispositivo regional VM. 
 
-    **nome de utilizador – administrador**: utilizar o seu próprio nome de utilizador de administrador.
+    **nome de utilizador – administrador**: Utilize o seu próprio nome de utilizador de administrador.
 
-    **palavra-passe de administrador –**: utilizar a sua própria palavra-passe de administrador.
+    **palavra-passe de administrador –**: Utilize a sua própria palavra-passe de administrador.
 
     ```azurecli-interactive
     az vm create \
@@ -151,11 +151,11 @@ Para fazer a limpeza, estas VMs será adicionado ao mesmo grupo de recursos que 
 
 1. No Azure Cloud Shell, execute o comando para criar uma **E.U.A. oeste** região VM depois de efetuar as seguintes alterações de parâmetro no comando:
 
-    **-nome**: introduza um nome exclusivo para a sua **E.U.A. oeste** dispositivo regional VM. 
+    **-nome**: Introduza um nome exclusivo para o seu **E.U.A. oeste** dispositivo regional VM. 
 
-    **nome de utilizador – administrador**: utilizar o seu próprio nome de utilizador de administrador.
+    **nome de utilizador – administrador**: Utilize o seu próprio nome de utilizador de administrador.
 
-    **palavra-passe de administrador –**: utilizar a sua própria palavra-passe de administrador.
+    **palavra-passe de administrador –**: Utilize a sua própria palavra-passe de administrador.
 
     ```azurecli-interactive
     az vm create \
@@ -220,7 +220,7 @@ Nesta secção, irá clone o SDK de C do Azure IoT em cada VM. O SDK contém um 
 1. Para ambas as VMs, execute o seguinte comando, que cria uma versão do SDK específica da sua plataforma de cliente de desenvolvimento. 
 
     ```bash
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
     Assim que a compilação for concluída com êxito, as últimas linhas de saída terão um aspeto semelhante ao seguinte:

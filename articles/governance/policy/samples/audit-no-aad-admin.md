@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Azure Policy – Auditar se não existir um administrador do Azure AD
+title: Exemplo - nenhum administrador do Azure AD de auditoria
 description: Esta política de exemplo faz uma auditoria quando não existe qualquer administrador do Azure Active Directory atribuído ao servidor SQL.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: f85653f57d5052c60ca2a6170370513c88c3b8cf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 4ca215fbb905eed22b1e1911d25a773e236fe4c2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965301"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311750"
 ---
 # <a name="audit-no-azure-active-directory-administrator"></a>Auditar se não existir um administrador do Azure Active Directory
 
@@ -69,6 +68,6 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

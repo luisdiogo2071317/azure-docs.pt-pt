@@ -1,5 +1,5 @@
 ---
-title: Implementação de Git Local no Serviço de Aplicações do Azure
+title: Implemente a partir do repositório de Git local - serviço de aplicações do Azure
 description: Saiba como ativar a implementação de Git local para o serviço de aplicações do Azure.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: a4c96ea75bae69fa5a1af13e4e8b908759817e95
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 242eb906c95b373b2edd538be5f06756cac1e8c9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959330"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256519"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementação de Git Local no Serviço de Aplicações do Azure
 
@@ -159,7 +160,7 @@ Seguem-se erros ou problemas comuns com o Git para publicar uma aplicação de s
 
 **Causa**: Este erro pode acontecer se a aplicação não estiver em execução.
 
-**Resolução**: iniciar a aplicação no portal do Azure. Implementação de Git não está disponível quando a aplicação Web está parada.
+**Resolução**: Inicie a aplicação no portal do Azure. Implementação de Git não está disponível quando a aplicação Web está parada.
 
 ---
 **Sintoma**: `Couldn't resolve host 'hostname'`
@@ -173,7 +174,7 @@ Seguem-se erros ou problemas comuns com o Git para publicar uma aplicação de s
 
 **Causa**: Este erro pode acontecer se não especificar um ramo durante `git push`, ou se não tiver definido a `push.default` valor em `.gitconfig`.
 
-**Resolução**: execute `git push` novamente, especificando o ramo principal. Por exemplo:
+**Resolução**: Executar `git push` novamente, especificando o ramo principal. Por exemplo:
 
 ```bash
 git push azure master
@@ -182,9 +183,9 @@ git push azure master
 ---
 **Sintoma**: `src refspec [branchname] does not match any.`
 
-**Causa**: Este erro pode acontecer se tentar push para um ramo que não seja o mestre no "azure" remoto.
+**Causa**: Este erro pode ocorrer se tentar push para um ramo que não seja o mestre no "azure" remoto.
 
-**Resolução**: execute `git push` novamente, especificando o ramo principal. Por exemplo:
+**Resolução**: Executar `git push` novamente, especificando o ramo principal. Por exemplo:
 
 ```bash
 git push azure master
@@ -193,9 +194,9 @@ git push azure master
 ---
 **Sintoma**: `RPC failed; result=22, HTTP code = 5xx.`
 
-**Causa**: Este erro pode acontecer se tentar enviar um repositório de git de grandes dimensões através de HTTPS.
+**Causa**: Este erro pode ocorrer se tentar enviar um repositório de git de grandes dimensões através de HTTPS.
 
-**Resolução**: alterar a configuração do git no computador local para tornar o postBuffer maiores
+**Resolução**: Alterar a configuração do git no computador local para tornar o postBuffer maiores
 
 ```bash
 git config --global http.postBuffer 524288000
@@ -206,7 +207,7 @@ git config --global http.postBuffer 524288000
 
 **Causa**: Este erro pode acontecer se implementar uma aplicação node. js com um _Package. JSON_ ficheiro que especifica os módulos necessários adicionais.
 
-**Resolução**: mensagens adicionais com "npm ERR!" deve ter sessão iniciada antes deste erro e pode fornecer contexto adicional sobre a falha. Os seguintes são conhecidos causas de erro e o correspondente 'npm ERR!" mensagem:
+**Resolução**: Mensagens adicionais com "npm ERR!" deve ter sessão iniciada antes deste erro e pode fornecer contexto adicional sobre a falha. Os seguintes são conhecidos causas de erro e o correspondente 'npm ERR!" mensagem:
 
 * **Ficheiro Package. JSON com formato incorreto**: npm ERR! Não foi possível ler as dependências.
 * **Módulo nativo que não tem uma distribuição binária para Windows**:
@@ -220,5 +221,5 @@ git config --global http.postBuffer 524288000
 
 * [Documentação de Kudu do projeto](https://github.com/projectkudu/kudu/wiki)
 * [Implementação contínua no serviço de aplicações do Azure](app-service-continuous-deployment.md)
-* [Exemplo: Criar a aplicação Web e implementar código a partir de um repositório de Git local (CLI do Azure)](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
-* [Exemplo: Criar a aplicação Web e implementar código a partir de um repositório de Git local (PowerShell)](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+* [Exemplo: Criar aplicação Web e implementar código a partir de um repositório de Git local (CLI do Azure)](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
+* [Exemplo: Criar aplicação Web e implementar código a partir de um repositório de Git local (PowerShell)](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

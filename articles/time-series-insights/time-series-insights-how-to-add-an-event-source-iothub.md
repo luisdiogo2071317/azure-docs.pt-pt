@@ -1,6 +1,6 @@
 ---
-title: Como adicionar uma origem de evento do IoT Hub para o Azure Time Series Insights | Documentos da Microsoft
-description: Este artigo descreve como adicionar uma origem de evento que está ligada a um IoT Hub para o seu ambiente do Time Series Insights
+title: O Azure Time Series Insights, adicionar um hub IoT - como adicionar uma origem de evento do hub IoT para o Azure Time Series Insights | Documentos da Microsoft
+description: Este artigo descreve como adicionar uma origem de evento que está ligada a um hub IoT para o seu ambiente do Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,101 +10,99 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.openlocfilehash: 3168fb6cf6e9b08fe4d2de921179129db241d153
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.custom: seodec18
+ms.openlocfilehash: 3e370bd4cebb84d7ee9f607fc6640218ee202bb9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847172"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321276"
 ---
-# <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Como adicionar uma origem de evento do IoT Hub ao ambiente do Time Series Insights
+# <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Adicionar uma origem de evento do hub IoT ao seu ambiente do Time Series Insights
 
-Este artigo descreve como utilizar o portal do Azure para adicionar uma origem de evento que lê dados a partir de um IoT Hub em seu ambiente do Azure Time Series Insights (TSI).
+Este artigo descreve como utilizar o portal do Azure para adicionar uma origem de evento que lê dados a partir do IoT Hub do Azure para o seu ambiente do Azure Time Series Insights.
 
 > [!NOTE]
-> Estas instruções aplicam-se para disponibilidade geral do TSI e ambientes de pré-visualização do TSI.
+> As instruções neste artigo aplicam-se para o Azure Time Series Insights GA e para ambientes de pré-visualização do Time Series Insights.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Crie um ambiente do TSI. Para obter mais informações, consulte [criar um ambiente do Azure TSI](time-series-insights-update-create-environment.md).
-* Criar um Hub IoT. Para obter mais informações sobre os Hubs IoT, veja [criar um IoT Hub com o portal do Azure](../iot-hub/iot-hub-create-through-portal.md).
-* O IoT Hub tem de ter os eventos de mensagem ativa a ser enviados na.
-* Crie um grupo de consumidores dedicado no IoT Hub para o ambiente do TSI para consumir de. Cada origem de evento do TSI precisa ter seu próprio grupo de consumidores dedicado que não é partilhado com quaisquer outros consumidores. Se vários leitores consumirem eventos a partir do mesmo grupo de consumidores, todos os leitores provável ver falhas. Para obter detalhes, consulte a [Guia do programador do IoT Hub](../iot-hub/iot-hub-devguide.md).
+* Criar uma [ambiente do Azure Time Series Insights](time-series-insights-update-create-environment.md).
+* Criar uma [hub IoT com o portal do Azure](../iot-hub/iot-hub-create-through-portal.md).
+* O hub IoT tem de ter os eventos de mensagem ativa a ser enviados na.
+* Crie um grupo de consumidores dedicado no hub IoT para o ambiente do Time Series Insights consumir de. Cada origem de eventos do Time Series Insights tem de ter seu próprio grupo de consumidores dedicado que não seja partilhado com qualquer outro tipo de consumidor. Se vários leitores consumirem eventos a partir do mesmo grupo de consumidores, todos os leitores provável ver falhas. Para obter detalhes, consulte a [Guia do programador do IoT Hub do Azure](../iot-hub/iot-hub-devguide.md).
 
-### <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao seu IoT Hub
+### <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao seu hub IoT
 
-Grupos de consumidores são utilizados por aplicações para extrair dados de Hubs IoT do Azure. Forneça um grupo de consumidores dedicado para utilização por este ambiente de TSI apenas, fiável, ler dados do seu IoT Hub.
+Aplicações utilizam grupos de consumidores para extrair os dados do IoT Hub do Azure. Forneça um grupo de consumidores dedicado que é utilizado apenas por este ambiente do Time Series Insights com fiabilidade ler dados do seu hub IoT.
 
-Para adicionar um novo grupo de consumidores ao seu IoT Hub, siga estes passos:
+Para adicionar um novo grupo de consumidores ao seu hub IoT:
 
-1. No portal do Azure, localize e abra o IoT Hub.
-1. Sob o **configurações** cabeçalho, selecione **pontos finais incorporados**.
+1. No portal do Azure, localize e abra o seu hub IoT.
 
-   ![IoT Hub, um][1]
+1. No menu, sob **configurações**, selecione **pontos finais incorporados**e, em seguida, selecione o **eventos** ponto final.
 
-1. Selecione o **eventos** ponto final e o **propriedades** é aberta a página.
+   ![Na página pontos finais de compilação, selecione o botão de eventos][1]
 
-1. Sob o **grupos de consumidores** cabeçalho, fornecer um novo nome exclusivo para o grupo de consumidores. Utilize este mesmo nome no ambiente do TSI ao criar uma nova origem de evento.
+1. Sob **grupos de consumidores**, introduza um nome exclusivo para o grupo de consumidores. Utilize este mesmo nome no seu ambiente do Time Series Insights quando cria uma nova origem de evento.
 
-1. Selecione **guardar** para guardar o novo grupo de consumidor.
+1. Selecione **Guardar**.
 
 ## <a name="add-a-new-event-source"></a>Adicionar uma nova origem de evento
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Localize o seu ambiente existente do TSI. Clique em **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do TSI.
+1. No menu do lado esquerdo, selecione **Todos os recursos**. Selecione o seu ambiente do Time Series Insights.
 
-1. Sob o **topologia do ambiente** , clique em **origens de eventos**.
+1. Sob **topologia do ambiente**, selecione **origens de eventos**e, em seguida, selecione **Add**.
 
-   ![Hub IoT dois][2]
+   ![Selecione as origens de eventos e, em seguida, selecione o botão Adicionar][2]
 
-1. Clique em **+ Adicionar**.
+1. Na **nova fonte de eventos** painel, para **nome da origem de evento**, introduza um nome exclusivo para este ambiente do Time Series Insights. Por exemplo, introduza **fluxo de eventos**.
 
-1. Fornecer uma **nome da origem de evento** exclusivo para este ambiente de TSI, tal como **fluxo de eventos**.
+1. Para **origem**, selecione **IoT Hub**.
 
-   ![Hub IoT três][3]
+1. Selecione um valor para **importar opção**:
 
-1. Selecione o **origem** como **IoT Hub**.
+   * Se já tiver um hub IoT das suas subscrições, selecione **utilize o IoT Hub a partir de subscrições disponíveis**. Esta opção é a abordagem mais fácil.
+   * Se o hub IoT é externo para as suas subscrições ou se pretender escolher opções avançadas, selecione **definições de fornecer o IoT Hub manualmente**.
 
-1. Selecione o adequado **importar opção**.
+   ![Selecione as opções no novo painel de origem do evento][3]
 
-   * Escolher **utilize o IoT Hub a partir de subscrições disponíveis** se já tiver um IoT Hub das suas subscrições. Esta é a abordagem mais fácil.
-   * Escolher **definições de fornecer o IoT Hub manualmente** quando o IoT Hub é externo para as suas subscrições ou pretender escolher opções avançadas.
+1. A tabela seguinte descreve as propriedades que são necessárias para o **utilize o IoT Hub a partir de subscrições disponíveis** opção:
 
-1. Se tiver selecionado o **utilize o IoT Hub a partir de subscrições disponíveis** opção, a tabela seguinte explica cada propriedade necessária:
-
-   ![Hub IoT quatro][4]
+   ![Novo painel de origem de evento - propriedades a definir no IoT Hub do uso da opção subscrições disponíveis][4]
 
    | Propriedade | Descrição |
    | --- | --- |
-   | ID da subscrição | Selecione a subscrição na qual este IoT Hub foi criado.
-   | Nome do IoT Hub | Selecione o nome do IoT Hub.
-   | Nome de política do IoT Hub | Selecione a política de acesso partilhado, o que pode ser encontrada no separador de definições do IoT Hub. Cada política de acesso partilhado tem um nome, as permissões que definir e chaves de acesso. A política de acesso partilhado para a origem do evento *tem* ter **serviço ligar** permissões.
-   | Chave de política do IoT Hub | A chave é pré-preenchida.
-   | Grupo de consumidores do IoT Hub | O grupo de consumidor ler eventos a partir do IoT Hub. É altamente recomendado para utilizar um grupo de consumidores dedicado para a origem do evento.
-   | Formato de serialização de eventos | JSON é a serialização só estão disponível neste momento. As mensagens de eventos tem de estar no seguinte formato, ou podem ser lidos sem dados. |
-   | Nome da propriedade Timestamp | Para determinar este valor, precisa entender o formato de mensagem dos dados da mensagem enviados para o IoT Hub. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de hora do evento. O valor diferencia maiúsculas de minúsculas. Quando deixado em branco, o **tempo de colocar em fila de eventos** dentro do evento, origem é utilizada como o carimbo de hora do evento. |
+   | ID da subscrição | Selecione a subscrição na qual o hub IoT foi criado.
+   | Nome do hub IoT | Selecione o nome do IoT hub.
+   | Nome de política do hub IoT | Selecione a política de acesso partilhado. Pode encontrar a política de acesso partilhado no separador de definições do hub IoT. Cada política de acesso partilhado tem um nome, as permissões que definir e chaves de acesso. A política de acesso partilhado para a origem do evento *tem* ter **serviço ligar** permissões.
+   | Chave de política do hub IoT | A chave é pré-preenchida.
+   | Grupo de consumidores do hub IoT | O grupo de consumidores lê eventos a partir do IoT hub. Recomendamos vivamente que utilize um grupo de consumidores dedicado para a origem do evento.
+   | Formato de serialização de eventos | Atualmente, o JSON é o formato de serialização só estão disponíveis. As mensagens de eventos tem de estar no seguinte formato ou dados não podem ser lidos. |
+   | Nome da propriedade Timestamp | Para determinar este valor, precisa entender o formato de mensagem dos dados da mensagem que são enviados para o hub IoT. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de hora do evento. O valor diferencia maiúsculas de minúsculas. Se deixado em branco, o **tempo de colocar em fila de eventos** de eventos de origem é utilizada como o carimbo de hora do evento. |
 
-1. Se tiver selecionado o **definições de fornecer o IoT Hub manualmente** opção, a tabela seguinte explica cada propriedade necessária:
+1. A tabela seguinte descreve as propriedades necessárias para o **definições de fornecer o IoT Hub manualmente**:
 
    | Propriedade | Descrição |
    | --- | --- |
-   | ID da subscrição | A subscrição na qual este IoT Hub foi criado.
-   | Grupo de recursos | O nome do grupo de recursos no qual este IoT Hub foi criado.
-   | Nome do IoT Hub | O nome do IoT Hub. Quando criou o seu IoT Hub, também lhe atribuiu um nome específico.
-   | Nome de política do IoT Hub | A política de acesso partilhado, que pode ser criada no separador de definições do IoT Hub. Cada política de acesso partilhado tem um nome, as permissões que definir e chaves de acesso. A política de acesso partilhado para a origem do evento *tem* ter **serviço ligar** permissões.
-   | Chave de política do IoT Hub | A chave de acesso partilhado utilizada para autenticar o acesso ao espaço de nomes do Service Bus. Escreva a chave primária ou secundária aqui.
-   | Grupo de consumidores do IoT Hub | O grupo de consumidor ler eventos a partir do IoT Hub. É altamente recomendado para utilizar um grupo de consumidores dedicado para a origem do evento.
-   | Formato de serialização de eventos | JSON é a serialização só estão disponível neste momento. As mensagens de eventos tem de estar no seguinte formato, ou podem ser lidos sem dados. |
-   | Nome da propriedade Timestamp | Para determinar este valor, precisa entender o formato de mensagem dos dados da mensagem enviados para o IoT Hub. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de hora do evento. O valor diferencia maiúsculas de minúsculas. Quando deixado em branco, o **tempo de colocar em fila de eventos** dentro do evento, origem é utilizada como o carimbo de hora do evento. |
+   | ID da subscrição | A subscrição na qual o hub IoT foi criado.
+   | Grupo de recursos | O nome do grupo de recursos no qual o hub IoT foi criado.
+   | Nome do hub IoT | o nome do IoT hub. Quando criou o seu hub IoT, que introduziu um nome para o hub IoT.
+   | Nome de política do hub IoT | A política de acesso partilhado. Pode criar a política de acesso partilhado no separador de definições do hub IoT. Cada política de acesso partilhado tem um nome, as permissões que definir e chaves de acesso. A política de acesso partilhado para a origem do evento *tem* ter **serviço ligar** permissões.
+   | Chave de política do hub IoT | A chave de acesso partilhado que é utilizada para autenticar o acesso ao espaço de nomes do Service bus do Azure. Introduza a chave primária ou secundária aqui.
+   | Grupo de consumidores do hub IoT | O grupo de consumidores lê eventos a partir do IoT hub. Recomendamos vivamente que utilize um grupo de consumidores dedicado para a origem do evento.
+   | Formato de serialização de eventos | Atualmente, o JSON é o formato de serialização só estão disponíveis. As mensagens de eventos tem de estar no seguinte formato ou dados não podem ser lidos. |
+   | Nome da propriedade Timestamp | Para determinar este valor, precisa entender o formato de mensagem dos dados da mensagem que são enviados para o hub IoT. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de hora do evento. O valor diferencia maiúsculas de minúsculas. Se deixado em branco, o **tempo de colocar em fila de eventos** de eventos de origem é utilizada como o carimbo de hora do evento. |
 
-1. Adicione o nome de grupo consumidor dedicado TSI adicionado ao seu IoT Hub.
+1. Adicione o nome de grupo consumidor dedicado Time Series Insights que adicionou ao seu hub IoT.
 
-1. Selecione **criar** para adicionar a nova origem de evento.
+1. Selecione **Criar**.
 
-   ![Hub IoT cinco][5]
+   ![O botão Criar][5]
 
-1. Depois de criar a origem de eventos, o Time Series Insights vai começar a transmitir dados para o seu ambiente automaticamente.
+1. Depois de criar a origem do evento, o Time Series Insights inicia automaticamente a transmissão em fluxo de dados ao seu ambiente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

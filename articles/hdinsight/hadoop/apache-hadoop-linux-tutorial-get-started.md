@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Introdução ao Apache Hadoop e Apache Hive no HDInsight do Azure com o modelo do Resource Manager '
+title: 'Início rápido: Criar clusters do Apache Hadoop com o Resource Manager e consultar dados com o Apache Hive - Azure HDInsight'
 description: Saiba como criar clusters do HDInsight e consultar dados com o Hive.
 keywords: guia de introdução do hadoop, hadoop linux, início rápido do hadoop, introdução do hive, início rápido do hive
 services: hdinsight
@@ -7,15 +7,15 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017,mvc
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.openlocfilehash: 7068dd62b8c445950fdfd18197e3f01e730506a3
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 3f5c842a4e902fe6d4aa9f87cb82252a78d0a1c3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014808"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166390"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Início rápido: Introdução ao Apache Hadoop e Apache Hive no HDInsight do Azure com o modelo do Resource Manager
 
@@ -92,13 +92,13 @@ Com as Ferramentas do HDInsight para o VSCode, pode submeter consultas do Hive i
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. Clique com o botão direito do rato no editor de scripts e, em seguida, selecione **HDInsight: Hive Interativo** para submeter a consulta. As ferramentas permitem-lhe também submeter um bloco de código em vez de todo o ficheiro de script através do menu de contexto. Logo depois, os resultados da consulta são apresentados num novo separador.
+4. O editor de scripts com o botão direito e, em seguida, selecione **HDInsight: Hive interativo** para submeter a consulta. As ferramentas permitem-lhe também submeter um bloco de código em vez de todo o ficheiro de script através do menu de contexto. Logo depois, os resultados da consulta são apresentados num novo separador.
 
    ![Resultado do Hive interativo](./media/apache-hadoop-linux-tutorial-get-started/interactive-hive-result.png)
 
-    - Painel **RESULTADOS**: pode guardar todo o resultado como ficheiro CSV, JSON ou Excel no caminho local ou apenas selecionar várias linhas.
+    - **RESULTADOS** painel: Pode guardar o resultado inteiro como ficheiro CSV, JSON ou o Excel para o caminho local ou, basta selecionar várias linhas.
 
-    - Painel **MENSAGENS**: quando seleciona o número da **Linha**, passa para a primeira linha do script em execução.
+    - **MENSAGENS** painel: Quando seleciona **linha** número, ele salta para a primeira linha do script em execução.
 
 A execução da consulta interativa demora muito menos tempo que [executar uma tarefa de lote do Hive](#submit-hive-batch-scripts).
 
@@ -113,7 +113,7 @@ A execução da consulta interativa demora muito menos tempo que [executar uma t
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. Clique com o botão direito do rato no editor de scripts e, em seguida, selecione **HDInsight: Lote do Hive** para submeter a tarefa do Hive. 
+4. O editor de scripts com o botão direito e, em seguida, selecione **HDInsight: Hive Batch** para submeter uma tarefa do Hive. 
 
 5. Selecione o cluster para o qual pretende submeter.  
 
@@ -251,7 +251,7 @@ Neste artigo, aprendeu a criar um cluster do HDInsight baseado em Linux com um m
 Se estiver pronto para começar a trabalhar com os seus próprios dados e precisar de saber mais sobre a forma como o HDInsight armazena os dados ou como carregar dados para o HDInsight, consulte os seguintes artigos:
 
 * Para obter informações sobre como o HDInsight utiliza o Armazenamento do Azure, consulte [Utilizar o Armazenamento do Azure com o HDInsight](../hdinsight-hadoop-use-blob-storage.md).
-* Para obter informações sobre como criar um cluster do HDInsight com o Armazenamento do Data Lake, veja [Início Rápido: Configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* Para obter informações sobre como criar um cluster do HDInsight com o armazenamento do Data Lake, veja [início rápido: Configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * Para obter informações sobre como carregar dados para o HDInsight, veja [Upload data to HDInsight](../hdinsight-upload-data.md) (Carregar dados para o HDInsight).
 
 Saiba mais sobre como analisar os dados com o HDInsight, veja os seguintes artigos:
@@ -275,5 +275,3 @@ Se gostaria de saber mais sobre como criar ou gerir um cluster do HDInsight, con
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-

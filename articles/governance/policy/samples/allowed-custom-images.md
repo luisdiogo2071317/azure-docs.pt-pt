@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Azure Policy – Imagens aprovadas da VM
+title: Exemplo - imagens de VM aprovados
 description: Esta política de exemplo requer que sejam implementadas apenas imagens personalizadas aprovadas no seu ambiente.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: d4216c785155ac5462dbcb1b48bf58e7bc718601
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: efec6c4e0a677681fd9f1132f4573d99b35236d4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965375"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312668"
 ---
 # <a name="approved-vm-images"></a>Imagens de VM aprovadas
 
@@ -220,12 +219,12 @@ Existem várias ferramentas que podem ser utilizadas para interagir com a API RE
 
 | Serviço | Grupo | Operação | Notas |
 |---|---|---|---|
-| Gestão de Recursos | Definições de Política | [Criar](/rest/api/resources/policydefinitions/createorupdate) | Cria uma nova definição do Azure Policy numa subscrição. Em alternativa: [Criar no grupo de gestão](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Gestão de Recursos | Definições de Política | [Criar](/rest/api/resources/policydefinitions/createorupdate) | Cria uma nova definição do Azure Policy numa subscrição. Alternativa: [Criar grupo de gestão](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Gestão de Recursos | Atribuições de Política | [Criar](/rest/api/resources/policyassignments/create) | Cria uma nova atribuição do Azure Policy. Neste exemplo, damos uma definição, mas também pode tomar iniciativa. |
 | Gestão de Recursos | Atribuições de Política | [Eliminar](/rest/api/resources/policyassignments/delete) | Remove uma atribuição do Azure Policy existente. |
-| Gestão de Recursos | Definições de Política | [Eliminar](/rest/api/resources/policydefinitions/delete) | Remove uma definição do Azure Policy existente. Em alternativa: [Eliminar no grupo de gestão](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| Gestão de Recursos | Definições de Política | [Eliminar](/rest/api/resources/policydefinitions/delete) | Remove uma definição do Azure Policy existente. Alternativa: [Eliminar grupo de gestão](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja os [exemplos do Azure Policy](index.md) adicionais
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md)

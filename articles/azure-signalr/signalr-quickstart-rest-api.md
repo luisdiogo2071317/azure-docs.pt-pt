@@ -1,27 +1,20 @@
 ---
-title: Início rápido - API REST do Azure SignalR Service | Microsoft Docs
+title: Início rápido - API de REST do serviço Azure SignalR
 description: Um início rápido para utilizar a API REST do Azure SignalR Service.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 36fb87d3255149c041c4288d13c54eaff8425e06
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.openlocfilehash: fdbdbe77c6541d62acef0d23d599d9687f5301b1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024361"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251866"
 ---
-# <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início rápido: Transmitir mensagens em tempo real a partir da aplicação de consola
+# <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início rápido: Transmissão de mensagens em tempo real da aplicação de consola
 
 O Azure SignalR Service apresenta a [API REST](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md) para suportar o servidor para cenários de comunicação de cliente, como a difusão. Pode escolher qualquer linguagem de programação que possa fazer a chamada à API REST. Pode publicar mensagens para todos os clientes ligados, um cliente específico por nome ou um grupo de clientes.
 
@@ -30,17 +23,15 @@ Neste início rápido, irá aprender a enviar mensagens a partir de uma aplicaç
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido pode ser executado no macOS, Windows ou Linux.
+
 * [SDK .NET Core](https://www.microsoft.com/net/download/core)
 * Um editor de texto ou editor de código da sua preferência.
 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em <https://portal.azure.com/> com a sua conta do Azure.
-
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
@@ -68,6 +59,7 @@ Também pode encontrar como gerar um token de acesso para autenticar com o Azure
 ### <a name="build-the-executable-file"></a>Criar o ficheiro executável
 
 Utilizamos o macOS osx.10.13-x64 como exemplo. Pode encontrar a [referência](https://docs.microsoft.com/dotnet/core/rid-catalog) sobre como criar noutras plataformas.
+
 ```bash
 cd AzureSignalR-samples/samples/Serverless/
 
@@ -108,7 +100,7 @@ Pode executar `dotnet user-secrets set Azure:SignalR:ConnectionString "<Connecti
 
 ## <a name="usage"></a>Utilização
 
-Depois de o servidor ser iniciado, utilize o comando para enviar mensagem
+Depois do servidor é iniciado, utilize o comando para enviar a mensagem:
 
 ```
 send user <User Id>
@@ -121,8 +113,11 @@ broadcast
 Pode iniciar vários clientes com nomes de cliente diferentes.
 
 ## <a name="usage"> </a> Integração com serviços de terceiros
+
 O serviço Azure SignalR permite que os serviços de terceiros sejam integrados no sistema.
-### <a name="usage"> </a> Definição das especificações técnicas
+
+### <a name="definition-of-technical-specifications"></a>Definição de especificações técnicas
+
 A tabela seguinte mostra todas as versões das APIs REST suportadas até à data. Também pode encontrar o ficheiro de definição para cada versão específica
 
 Versão | Estado da API | Porta | Específico
@@ -144,6 +139,7 @@ Enviar para alguns utilizadores | :heavy_check_mark: (Preterido) | `N / A`
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Difundir para todos
+
 Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
@@ -151,6 +147,7 @@ Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
 
 <a name="broadcast-group"> </a>
 ### <a name="broadcast-to-a-group"></a>Difundir para um grupo
+
 Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/group/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
@@ -158,6 +155,7 @@ Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
 
 <a name="send-user"> </a>
 ### <a name="sending-to-specific-users"></a>A enviar para utilizadores específicos
+
 Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/user/<user-id>` | `{"target": "<method-name>", "arguments": [...]}`
@@ -165,12 +163,14 @@ Versão | Método HTTP da API | URL do Pedido | Corpo do pedido
 
 <a name="add-user-to-group"> </a>
 ### <a name="adding-a-user-to-a-group"></a>A adicionar um utilizador a um grupo
+
 Versão | Método HTTP da API | URL do Pedido
 --- | --- | ---
 `1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 <a name="remove-user-from-group"> </a>
 ### <a name="removing-a-user-from-a-group"></a>A remover um utilizador de um grupo
+
 Versão | Método HTTP da API | URL do Pedido
 --- | --- | ---
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`

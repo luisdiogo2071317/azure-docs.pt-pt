@@ -2,28 +2,28 @@
 author: MightyPen
 ms.service: sql-database
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 12/06/2018
 ms.author: genemi
-ms.openlocfilehash: b78d52f23de8d02189f10b32d26e070fb6deea68
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: b3b7027e5ae252eb899d2a44d171ea9c9795ab54
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52339707"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53285912"
 ---
 <!-- sql-database-connect-query-prerequisites-server-connection-info-includes.md 
 
-## SQL server connection information
+## Get SQL server connection information
 -->
 
-Obtenha as informações de ligação necessárias para ligar à base de dados SQL do Azure. Irá precisar do nome de servidor totalmente qualificado, do nome de base de dados e das informações de início de sessão nos seguintes procedimentos.
+Obtenha as informações de ligação que tem de se ligar à base de dados SQL do Azure. Precisará do nome de servidor totalmente qualificado, nome de base de dados e informações de início de sessão para os próximos procedimentos.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Selecione **Bases de dados SQL** no menu do lado esquerdo e clique na sua base de dados na página **Bases de dados SQL**.
+1. Selecione **bases de dados SQL** no menu à esquerda, em seguida, selecione a base de dados sobre o **bases de dados SQL** página.
 
-1. Na página **Overview (Descrição geral)** da sua base de dados, reveja o nome de servidor totalmente qualificado, como mostrado na imagem seguinte. Pode pairar o rato sobre o **nome do servidor** para abrir o **clique para copiar** opção.  
+1. Sobre o **descrição geral** da base de dados, reveja o nome de servidor completamente qualificado junto a **nome do servidor**. Para copiar o nome do servidor, coloque o cursor sobre ela e selecione o **cópia** ícone.  
 
-   ![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
+![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
 
-1. Se se esqueceu das informações de início de sessão do seu servidor, pode clicar no **nome do servidor** para navegar para o **do SQL server** página e ver o **administrador do servidor** nome. Se necessário, selecione **Repor palavra-passe**.
+Se se esqueceu das suas informações de início de sessão, selecione o nome do servidor para abrir o **do SQL server** página. Aqui pode ver o **administrador do servidor** dê um nome e selecione **Repor palavra-passe** se necessário.

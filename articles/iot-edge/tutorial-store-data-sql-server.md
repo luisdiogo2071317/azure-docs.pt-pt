@@ -9,14 +9,14 @@ ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 996964dd7fe52073b19db1b252e511f242b5f955
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0193d79dec663b089184099c2a4d275c91380c8b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075052"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163417"
 ---
-# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Armazenar dados na periferia com bases de dados do SQL Server
+# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutorial: Store dados na periferia com bancos de dados do SQL Server
 
 Utilize o Azure IoT Edge e o SQL Server para armazenar e consultar dados na periferia. O Azure IoT Edge tem capacidades de armazenamento básico em cache as mensagens se um dispositivo ficar offline e, em seguida, reencaminhe-os quando a ligação for restabelecida. No entanto, pode querer capacidades de armazenamento mais avançadas, como a capacidade de consultar dados localmente. Ao incorporar bases de dados locais, os dispositivos IoT Edge podem efetuar uma computação mais complexa sem necessidade de manter uma ligação ao Hub IoT. Por exemplo, um sensor num computador carrega dados para a cloud uma vez por mês para relatórios e melhorando a um módulo de aprendizagem automática. No entanto, se um técnico de campo está a funcionar na máquina, podem aceder a alguns últimos dias de dados de sensor localmente.
 
@@ -87,7 +87,7 @@ Os passos seguintes mostram-lhe como criar uma função do IoT Edge com o Visual
 
 2. Abra a paleta de comandos do VS Code ao selecionar **Ver** > **Paleta de Comandos**.
 
-3. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
+3. Na paleta de comandos, escreva e execute o comando **Azure IoT Edge: Nova solução de IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
 
    | Campo | Valor |
    | ----- | ----- |
@@ -163,7 +163,7 @@ Os passos seguintes mostram-lhe como criar uma função do IoT Edge com o Visual
                        {
                            //Execute the command and log the # rows affected.
                            var rows = await cmd.ExecuteNonQueryAsync();
-                           log.Info($"{rows} rows were updated");
+                           logger.LogInformation($"{rows} rows were updated");
                        }
                    }
 
@@ -324,7 +324,7 @@ Quando indicar ao Visual Studio Code para criar a solução, este utiliza primei
 
 Pode definir módulos num dispositivo através do Hub IoT, mas também pode aceder o seu Hub IoT e dispositivos através do Visual Studio Code. Nesta secção, pode configurar o acesso ao Hub IoT e, em seguida, utilizar o VS Code para implementar a solução no seu dispositivo IoT Edge. 
 
-1. Na paleta de comandos do VS Code, selecione **Azure IoT Hub: Select IoT Hub**.
+1. Na paleta de comandos VS Code, selecione **IoT Hub do Azure: Selecione o IoT Hub**.
 
 2. Siga os avisos para iniciar sessão na conta do Azure. 
 

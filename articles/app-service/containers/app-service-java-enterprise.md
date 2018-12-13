@@ -1,5 +1,5 @@
 ---
-title: Suporte de Java Enterprise para o serviço de aplicações do Azure no Linux | Documentos da Microsoft
+title: Suporte da empresa de Java no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Guia do programador para implementar aplicações de Java Enterprise com Wildfly com o serviço de aplicações do Azure no Linux.
 keywords: serviço de aplicações do Azure, aplicação web, linux, oss, java, wildfly, enterprise
 services: app-service
@@ -12,12 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: b632ef49f49768c86b7a7ce2efc601f036532a29
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: e473326e9f337bfb2fd1202bc3b76e468dd6015e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017591"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315082"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guia de Java Enterprise para o serviço de aplicações no Linux
 
@@ -81,7 +82,7 @@ Para configurar Wildfly para uma ligação de origem de dados, siga o mesmo proc
 2. Siga o contorno de etapas em "Módulos e dependências" para criar e carregar o descritor de módulo XML, script da CLI de JBoss, script de inicialização e dependência. JAR do JDBC.
 
 
-Obter mais informações sobre como configurar Wildfly com [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) , [MySQL](https://dev.mysql.com/doc/connector-j/5.1/connector-j-usagenotes-jboss.html), e [base de dados SQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) está disponível. Pode utilizar estas instruções personalizadas, juntamente com a abordagem generalizada acima para adicionar definições de origem de dados ao seu servidor.
+Obter mais informações sobre como configurar Wildfly com [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) , [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), e [base de dados SQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) está disponível. Pode utilizar estas instruções personalizadas, juntamente com a abordagem generalizada acima para adicionar definições de origem de dados ao seu servidor.
 
 ## <a name="messaging-providers"></a>Fornecedores de mensagens
 

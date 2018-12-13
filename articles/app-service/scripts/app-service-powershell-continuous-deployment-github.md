@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script do Azure PowerShell – Criar uma aplicação Web com implementação contínua a partir do GitHub | Microsoft Docs
+title: Script do Azure PowerShell de exemplo - criar aplicação com a implementação contínua do GitHub | Documentos da Microsoft
 description: Exemplo do Script do Azure PowerShell – Criar uma aplicação Web com implementação contínua a partir do GitHub
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 337106de2fc22b38e9377a90470ffa3a8cd1e0de
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
-ms.translationtype: HT
+ms.openlocfilehash: 72e3c85142e0f9f88a9e895dde93ff43de3dd69c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324532"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312838"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>Criar uma aplicação Web com implementação contínua a partir do GitHub
 
@@ -55,7 +55,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Cria uma aplicação Web. |
 | [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modifica um recurso num grupo de recursos. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

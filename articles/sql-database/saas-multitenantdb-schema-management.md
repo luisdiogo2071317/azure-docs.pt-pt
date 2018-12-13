@@ -12,15 +12,15 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e7aeb273d4ae276d3460c3de1f404230276cffb7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 14183475fcca0e12c56f009f105e77aaf11b0c98
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056646"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315220"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gerir esquema numa aplicação SaaS que utiliza bases de dados SQL em partição horizontal multi-inquilinos
- 
+
 Este tutorial examina os desafios na manutenção de uma frota de bases de dados num Software como um aplicativo de serviço (SaaS). Soluções são demonstradas para fanning as alterações de esquema toda a frota de bases de dados.
 
 Como qualquer aplicativo, a aplicação Wingtip Tickets SaaS evoluirá ao longo do tempo e exigirão alterações no banco de dados. As alterações podem afetar os dados de esquema ou de referência ou aplicam-se tarefas de manutenção de base de dados. Com uma aplicação SaaS com uma base por padrão de inquilino, as alterações têm de ser coordenadas entre uma frota potencialmente massiva de bases de dados do inquilino. Além disso, tem de incorporar essas alterações no banco de dados, certifique-se de que estão incluídas nas novas bases de dados à medida que são criados do processo de aprovisionamento.
@@ -64,12 +64,12 @@ O modelo de base de dados em partição horizontal multi-inquilino utilizado nes
 ## <a name="elastic-jobs-limited-preview"></a>Pré-visualização limitada das Tarefas Elásticas
 
 Há uma nova versão das tarefas elásticas, que agora é uma funcionalidade integrada da base de dados do Azure SQL. Esta nova versão das Tarefas Elásticas está atualmente em pré-visualização limitada. O limitado atualmente pré-visualização suporta a utilização do PowerShell para criar um agente de tarefa e T-SQL para criar e gerir tarefas.
-> [!NOTE] 
+> [!NOTE]
 > Este tutorial utiliza funcionalidades do serviço de base de dados SQL que estão em pré-visualização limitada (tarefas de base de dados elástica). Se pretender realizar este tutorial, forneça o seu ID de subscrição para SaaSFeedback@microsoft.com com assunto = Elastic de tarefas de pré-visualização. Depois de receber a confirmação de que a sua subscrição foi ativada, transfira e instale os cmdlets de tarefas de pré-lançamento mais recente. Esta pré-visualização é limitada, portanto, entre em contato com SaaSFeedback@microsoft.com para questões relacionadas ou suporte.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obter o código de origem da aplicação de base de dados do Wingtip Tickets SaaS multi-inquilino e os scripts
 
-Os scripts de base de dados do Wingtip Tickets SaaS multi-inquilino e o código de origem da aplicação estão disponíveis no [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) repositório no Github. Consulte a [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts de Wingtip Tickets SaaS de desbloqueio. 
+Os scripts de base de dados do Wingtip Tickets SaaS multi-inquilino e o código de origem da aplicação estão disponíveis no [WingtipTicketsSaaS MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) repositório no GitHub. Consulte a [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts de Wingtip Tickets SaaS de desbloqueio.
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>Criar um agente de tarefa da base de dados e o novo agente de tarefa
 
@@ -84,9 +84,9 @@ O *Demo-SchemaManagement.ps1* chamadas de script a *Deploy-SchemaManagement.ps1*
 
 #### <a name="prepare"></a>Preparação
 
-Base de dados de cada inquilino inclui um conjunto de tipos de local no **VenueTypes** tabela. Cada tipo de local define o tipo de eventos que podem ser hospedados num local. Estes tipos de local correspondem às imagens em segundo plano que verá na aplicação de eventos do inquilino.  Neste exercício, vai implementar uma atualização para todas as bases de dados para adicionar dois tipos de local adicionais: *corrida de motos* e *natação*. 
+Base de dados de cada inquilino inclui um conjunto de tipos de local no **VenueTypes** tabela. Cada tipo de local define o tipo de eventos que podem ser hospedados num local. Estes tipos de local correspondem às imagens em segundo plano que verá na aplicação de eventos do inquilino.  Neste exercício, vai implementar uma atualização para todas as bases de dados para adicionar dois tipos de local adicionais: *Corrida de motos* e *natação*.
 
-Em primeiro lugar, reveja os tipos de local incluídos em cada base de dados do inquilino. Ligar a uma das bases de dados do inquilino no SQL Server Management Studio (SSMS) e inspecionar a tabela de VenueTypes.  Também pode consultar essa tabela no editor de consultas no portal do Azure, acedido a partir da página base de dados. 
+Em primeiro lugar, reveja os tipos de local incluídos em cada base de dados do inquilino. Ligar a uma das bases de dados do inquilino no SQL Server Management Studio (SSMS) e inspecionar a tabela de VenueTypes.  Também pode consultar essa tabela no editor de consultas no portal do Azure, acedido a partir da página base de dados.
 
 1. Abra o SSMS e ligue-se para o servidor de inquilino: *tenants1-dpt -&lt;utilizador&gt;. database.windows.net*
 1. Para confirmar que *corrida de motos* e *natação* **não estão** atualmente incluídos, navegue para o *contosoconcerthall* base de dados no *tenants1-dpt -&lt;usuário&gt;*  servidor e consulta o *VenueTypes* tabela.

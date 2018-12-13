@@ -1,5 +1,5 @@
 ---
-title: Indexadores na Azure Search | Microsoft Docs
+title: Pesquisa do Azure de indexadores para rastreamento de origens de dados durante a indexação-
 description: Pesquise a base de dados SQL do Azure, o Azure Cosmos DB ou o armazenamento do Azure para extrair dados pesquisáveis e preencher um índice do Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: 2164e0b7cc973969e39f5708bb6509c1ed5f636a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: b763da25fb5a707e6a0c0cee1aabbe3eda03ee4c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641140"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312379"
 ---
 # <a name="indexers-in-azure-search"></a>Indexadores na Pesquisa do Azure
 
@@ -52,18 +53,18 @@ Indexadores rastrear arquivos de dados no Azure.
 ## <a name="basic-configuration-steps"></a>Passos de configuração básica
 Os indexadores podem oferecer funcionalidades que são exclusivas da origem de dados. Relativamente a isto, alguns aspetos de configuração do indexador ou da origem de dados irão variar consoante o tipo de indexador. No entanto, todos os indexadores partilham da mesma composição e requisitos básicos. Os passos que são comuns a todos os indexadores são abordados abaixo.
 
-### <a name="step-1-create-a-data-source"></a>Passo 1: criar uma origem de dados
+### <a name="step-1-create-a-data-source"></a>Passo 1: Criar uma origem de dados
 Um indexador solicita dados de uma *origem de dados* que contém informações como uma cadeia de ligação e, possivelmente, credenciais. Chamar o [criar origem de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) REST API ou [classe de origem de dados](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) para criar o recurso.
 
 As origens de dados são configuradas e geridas independentemente dos indexadores que as utilizam, o que significa que uma origem de dados pode ser utilizada por vários indexadores para carregar mais de um índice de cada vez.
 
-### <a name="step-2-create-an-index"></a>Passo 2: criar um índice
+### <a name="step-2-create-an-index"></a>Passo 2: Criar um índice
 Um indexador irá automatizar algumas tarefas relacionadas com a ingestão de dados, mas geralmente a criação de um índice não é uma delas. Como pré-requisito, tem de ter um índice predefinido com campos que correspondam aos existentes na origem de dados externa. Para obter mais informações sobre a estruturação de um índice, consulte [criar um índice (API REST da Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) ou [indexar classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Para obter ajuda com associações de campo, veja [Mapeamentos de campo em indexadores do Azure Search](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Apesar de os indexadores não poderem gerar um índice para si, o assistente **Importar dados** do portal pode ser útil. Na maioria dos casos, o assistente pode inferir um esquema de índice a partir dos metadados existentes na origem, apresentando um esquema de índice preliminar que pode editar em linha enquanto o assistente está ativo. Assim que o índice é criado no serviço, as outras edições no portal são limitadas principalmente à adição de novos campos. Considere o assistente para criar, mas não para rever um índice. Para aprendizagem prática, siga os passos no [portal de instruções](search-get-started-portal.md).
 
-### <a name="step-3-create-and-schedule-the-indexer"></a>Passo 3: criar e agendar o indexador
+### <a name="step-3-create-and-schedule-the-indexer"></a>Passo 3: Criar e agendar o indexador
 A definição de indexador é uma construção que especifica o índice, a origem de dados e uma agenda. Um indexador pode fazer referência a uma origem de dados de outro serviço, desde que essa origem de dados seja da mesma subscrição. Para mais informações sobre a estruturação de um indexador, consulte o artigo [Create Indexer (Azure Search REST API) (Criar um indexador (API REST do Azure Search))](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
 ## <a name="next-steps"></a>Passos Seguintes

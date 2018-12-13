@@ -1,5 +1,5 @@
 ---
-title: Indexação de linguagem de transmissões de pesquisa do Azure | Documentos da Microsoft
+title: Consultas - Azure Search de pesquisa de vários idiomas de indexação para inglês
 description: O Azure Search suporta 56 idiomas, aproveitando os analisadores de idiomas da tecnologia de Lucene e processamento de linguagem Natural da Microsoft.
 author: yahnoosh
 manager: jlembicz
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 38f93f5415282d2f976d9f3acc2b0a7aeead6c3d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec2018
+ms.openlocfilehash: 3f88965e0d48a9ed3e9a91b4df42a79b83d2a79b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093359"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313331"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Criar um índice para documentos em vários idiomas no Azure Search
 > [!div class="op_single_selector"]

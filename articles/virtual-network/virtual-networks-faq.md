@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 49f7e0b19f454e37e70774f3a675bd5094687114
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 686985c705b4026ccc26238fc5919296c98d5cb7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967083"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277527"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -103,8 +103,8 @@ Não. Uma VNet está limitada a uma única região. Uma rede virtual, no entanto
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Pode ligar uma rede virtual a outra VNet no Azure?
 Sim. Pode ligar uma VNet para outra VNet através de um:
-- **Peering de rede virtual**: para obter detalhes, consulte [descrição geral do VNet peering](virtual-network-peering-overview.md)
-- **Um Gateway de VPN do Azure**: para obter detalhes, consulte [configurar uma ligação VNet a VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- **Peering de rede virtual**: Para obter detalhes, consulte [descrição geral do VNet peering](virtual-network-peering-overview.md)
+- **Um Gateway VPN do Azure**: Para obter detalhes, consulte [configurar uma ligação VNet a VNet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## <a name="name-resolution-dns"></a>Resolução de nomes (DNS)
 
@@ -137,12 +137,12 @@ Não. Não é possível especificar um sufixo DNS personalizado para as suas VNe
 Sim. Todas as interfaces de rede (NIC) ligadas a uma VM implementada através do modelo de implementação do Resource Manager tem de estar ligadas a uma VNet. As VMs implementadas por meio do modelo de implementação clássica, podem ser ligadas opcionalmente a uma VNet.
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Quais são os diferentes tipos de endereços IP que posso atribuir às VMs?
-* **Privada:** atribuídos a cada NIC dentro de cada VM. O endereço é atribuído através do método estático ou dinâmico. Endereços IP privados são atribuídos a partir do intervalo que especificou nas definições de sub-rede da VNet. Recursos implementados através do modelo de implementação clássica são atribuídos endereços IP privados, mesmo que eles não estiverem conectados a uma VNet. O comportamento do método de alocação é diferente dependendo de um recurso foi implementado com o Resource Manager ou o modelo de implementação clássica: 
+* **Privada:** Atribuído a cada NIC dentro de cada VM. O endereço é atribuído através do método estático ou dinâmico. Endereços IP privados são atribuídos a partir do intervalo que especificou nas definições de sub-rede da VNet. Recursos implementados através do modelo de implementação clássica são atribuídos endereços IP privados, mesmo que eles não estiverem conectados a uma VNet. O comportamento do método de alocação é diferente dependendo de um recurso foi implementado com o Resource Manager ou o modelo de implementação clássica: 
 
-  - **Gestor de recursos**: endereços IP privados atribuídos com o método dinâmico ou estático permanecerá atribuído a uma máquina virtual (Resource Manager) até que o recurso seja eliminado. A diferença é que selecionar o endereço a atribuir ao utilizar estático e escolhe o Azure ao utilizar dinâmico. 
-  - **Clássico**: endereços IP privados atribuídos com o método dinâmico podem ser alterados quando uma máquina virtual (clássico) VM é reiniciada após ter sido no estado parado (desalocada). Se precisa garantir que o endereço IP privado de um recurso implementado através do modelo de implementação clássica nunca mudará, atribua um endereço IP privado com o método estático.
+  - **Gestor de recursos**: Endereços IP privados atribuídos com o método dinâmico ou estático permanecerá atribuído a uma máquina virtual (Resource Manager) até que o recurso seja eliminado. A diferença é que selecionar o endereço a atribuir ao utilizar estático e escolhe o Azure ao utilizar dinâmico. 
+  - **Clássico**: Endereços IP privados atribuídos com o método dinâmico podem ser alterados quando uma máquina virtual (clássico) VM é reiniciada após ter sido no estado parado (desalocada). Se precisa garantir que o endereço IP privado de um recurso implementado através do modelo de implementação clássica nunca mudará, atribua um endereço IP privado com o método estático.
 
-* **Público:** opcionalmente atribuído a NICs ligadas a VMs implementadas através do modelo de implementação Azure Resource Manager. O endereço pode ser atribuído com o método de alocação estático ou dinâmico. Instâncias de função de todas as VMs e serviços Cloud implementadas através do modelo de implementação clássica existem no serviço cloud, que é atribuído um *dinâmica*, pública endereço IP virtual (VIP). Uma pública *estático* endereço IP, chamado um [endereço IP reservado](virtual-networks-reserved-public-ip.md), opcionalmente, pode ser atribuído como um VIP. Pode atribuir endereços IP públicos individuais instâncias de função VMs ou serviços Cloud implementados através do modelo de implementação clássica. Estes endereços são denominados [IP público de nível de instância (ILPIP](virtual-networks-instance-level-public-ip.md) endereços e pode ser atribuído dinamicamente.
+* **Público:** Opcionalmente, é atribuído a NIC anexada às VMs implementadas por meio do modelo de implementação Azure Resource Manager. O endereço pode ser atribuído com o método de alocação estático ou dinâmico. Instâncias de função de todas as VMs e serviços Cloud implementadas através do modelo de implementação clássica existem no serviço cloud, que é atribuído um *dinâmica*, pública endereço IP virtual (VIP). Uma pública *estático* endereço IP, chamado um [endereço IP reservado](virtual-networks-reserved-public-ip.md), opcionalmente, pode ser atribuído como um VIP. Pode atribuir endereços IP públicos individuais instâncias de função VMs ou serviços Cloud implementados através do modelo de implementação clássica. Estes endereços são denominados [IP público de nível de instância (ILPIP](virtual-networks-instance-level-public-ip.md) endereços e pode ser atribuído dinamicamente.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Pode reservar um endereço IP privado para uma VM que vou criar mais tarde?
 Não. Não é possível reservar um endereço IP privado. Se um endereço IP privado estiver disponível, é atribuído a uma instância de função de VM ou pelo servidor DHCP. A VM pode ou não ser aquele que pretende que o endereço IP privado atribuído a. No entanto, pode, alterar o endereço IP privado de uma VM já criado, para qualquer endereço IP privado disponível.
@@ -326,7 +326,7 @@ Para proteger serviços do Azure para várias sub-redes numa rede virtual ou em 
 Se pretender inspecionar ou filtrar o tráfego destinado a um serviço do Azure de uma rede virtual, pode implementar uma aplicação virtual de rede na rede virtual. Em seguida, pode aplicar pontos finais de serviço para a sub-rede em que a aplicação virtual de rede é implementado e segura de serviço do Azure de recursos apenas para esta sub-rede através de ACLs da VNet. Este cenário também pode ser útil se pretender restringir o acesso de serviço do Azure da sua rede virtual apenas para recursos específicos do Azure com a filtragem de aplicação virtual de rede. Para obter mais informações, veja [saída com aplicações de rede virtual](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="what-happens-when-you-access-an-azure-service-account-that-has-virtual-network-access-control-list-acl-enabled-from-outside-the-vnet"></a>O que acontece quando acessar uma conta de serviço do Azure com a rede virtual lista de controle acesso (ACL) ativada a partir de fora da VNet?
-É devolvido o erro de HTTP 404.
+É devolvido o erro HTTP 403 ou HTTP 404.
 
 ### <a name="are-subnets-of-a-virtual-network-created-in-different-regions-allowed-to-access-an-azure-service-account-in-another-region"></a>São as sub-redes de uma rede virtual criados em regiões diferentes, permitidas para aceder a uma conta de serviço do Azure noutra região? 
 Sim, para a maioria dos serviços do Azure, as redes virtuais criadas em regiões diferentes podem aceder a serviços do Azure noutra região através de pontos finais de serviço de VNet. Por exemplo, se uma conta do Azure Cosmos DB está na região E.U.A. oeste ou E.U.A. leste e redes virtuais estão em várias regiões, a rede virtual pode aceder ao Azure Cosmos DB. Armazenamento e SQL são exceções e são regionais por natureza e a rede virtual e o serviço do Azure, precisa de estar na mesma região.
@@ -366,7 +366,7 @@ Não existe nenhum limite no número total de pontos finais de serviço de VNet 
 |Storage do Azure| 100|
 |SQL do Azure| 128|
 |Azure SQL Data Warehouse|  128|
-|Cofre de chaves do Azure|    128|
+|Cofre de chaves do Azure|    127|
 |Azure Cosmos DB|   64|
 |Hub de Eventos do Azure|   128|
 |Service Bus do Azure| 128|

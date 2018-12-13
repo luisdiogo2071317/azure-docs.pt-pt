@@ -5,9 +5,8 @@ keywords: Importar dados, dados, origens de dados, dados de treinamento
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=deguhath, author=deguhath)
+ms.custom: previous-ms.author=deguhath, previous-author=deguhath
 ms.author: amlstudiodocs
-manager: jhubbard
 editor: cgronlun
 ms.assetid: 7da9dcec-5693-4bb6-8166-15904e7f75c3
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 098459c3c2c8402a4dbcefd88fd79d0883611053
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ea6e813d78cafa4e31ea37afa2675f30bccc5c4f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308042"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258084"
 ---
 # <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>Importar os seus dados para o Azure Machine Learning Studio a partir de outra experimentação
 

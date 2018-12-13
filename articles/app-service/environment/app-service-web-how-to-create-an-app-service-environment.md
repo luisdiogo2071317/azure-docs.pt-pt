@@ -1,5 +1,5 @@
 ---
-title: Como criar um serviço de aplicações v1 do ambiente
+title: Como criar um serviço de aplicações v1 do ambiente - Azure
 description: Descrição do fluxo de criação para um ambiente de serviço de aplicações v1
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 289ff76e533497a731a4fc51b3e54101a9d34a68
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 1cfe8dae750cb113dd5346bfba261099fd3b6044
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958371"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276745"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>Como criar um serviço de aplicações v1 do ambiente 
 
@@ -55,21 +56,21 @@ Para criar um ambiente de serviço de aplicações v1, pode pesquisar no Azure M
 4. Certifique as suas seleções de rede Virtual e localização. Pode optar por criar uma nova VNet ou selecionar uma VNet já existente. Se selecionar uma nova VNet, em seguida, pode especificar um nome e localização. A nova VNet terão o endereço intervalo 192.168.250.0/23 e uma sub-rede denominada **predefinição** que é definido como 192.168.250.0/24. Pode também simplesmente selecionar uma já existente clássica ou VNet do Resource Manager. A seleção do tipo de VIP determina se o seu ASE pode ser acedido diretamente da internet (externo) ou se este utilizar um balanceador de carga interno (ILB). Para saber mais sobre os mesmos, leia [com um balanceador de carga interno com um ambiente de serviço de aplicações][ILBASE]. Se selecionar um tipo de VIP externa, em seguida, pode selecionar quantos endereços IP externos o sistema é criado com finalidades IPSSL. Se selecionar interno, em seguida, tem de especificar o subdomínio que irá utilizar o seu ASE. Os ASEs podem ser implementados em redes virtuais que utilizam *ambos* intervalos de endereços públicos *ou* RFC1918 espaços de endereços (ou seja, endereços privados). Para utilizar uma rede virtual com um intervalo de endereços públicos, terá de criar a VNet antes do tempo. Ao selecionar uma VNet já existente terá de criar uma nova sub-rede durante a criação do ASE. **Não é possível utilizar uma sub-rede previamente criada no portal. Pode criar um ASE com uma sub-rede já existente se criar o seu ASE utilizando um modelo do resource manager.** Para criar um ASE a partir de uma utilização de modelo aqui, as informações [cria um ambiente de serviço de aplicações a partir de modelo] [ ILBAseTemplate] e, aqui, [cria um ambiente de serviço de aplicações ILB a partir de modelo] [ASEfromTemplate].
 
 ### <a name="details"></a>Detalhes
-Um ASE é criado com 2 Front Ends e 2 funções de trabalho. Front Ends atuam como pontos finais de HTTP/HTTPS e enviar o tráfego para os trabalhadores que são as funções que alojam as suas aplicações. Pode ajustar a quantidade após a criação do ASE e pode até mesmo configurar regras de dimensionamento automático destes agrupamentos de recursos. Para obter mais detalhes em torno de dimensionamento manual, gestão e monitorização de um ambiente de serviço de aplicação aceda aqui: [como configurar um ambiente de serviço de aplicações][ASEConfig] 
+Um ASE é criado com 2 Front Ends e 2 funções de trabalho. Front Ends atuam como pontos finais de HTTP/HTTPS e enviar o tráfego para os trabalhadores que são as funções que alojam as suas aplicações. Pode ajustar a quantidade após a criação do ASE e pode até mesmo configurar regras de dimensionamento automático destes agrupamentos de recursos. Para obter mais detalhes em torno de dimensionamento manual, gestão e monitorização de um ambiente de serviço de aplicação aceda aqui: [Como configurar um ambiente de serviço de aplicações][ASEConfig] 
 
 Apenas um ASE pode existir na sub-rede utilizada pelo ASE. A sub-rede não pode ser utilizada para tudo o que não seja o ASE
 
 ### <a name="after-app-service-environment-v1-creation"></a>Após a criação do ambiente de serviço de aplicações v1
 Após a criação do ASE, pode ajustar:
 
-* Quantidade de Front Ends (mínimo: 2)
-* Quantidade de trabalhadores (mínimo: 2)
+* Quantidade de Front Ends (mínima: 2)
+* Quantidade de trabalhadores (mínima: 2)
 * Quantidade de endereços IP disponíveis para IP SSL
 * Tamanhos de recurso utilizados pelo Front Ends ou trabalhos de computação (o tamanho mínimo de Front-End é P2)
 
-Existem mais detalhes em torno do manual de dimensionamento, gestão e monitorização dos ambientes de serviço de aplicação aqui: [como configurar um ambiente de serviço de aplicações][ASEConfig] 
+Existem mais detalhes em torno do manual de dimensionamento, gestão e monitorização dos ambientes de serviço de aplicação aqui: [Como configurar um ambiente de serviço de aplicações][ASEConfig] 
 
-Para obter informações sobre o dimensionamento automático é um guia aqui: [como configurar o dimensionamento automático para um ambiente de serviço de aplicações][ASEAutoscale]
+Para obter informações sobre o dimensionamento automático, há um guia aqui: [Como configurar o dimensionamento automático para um ambiente de serviço de aplicações][ASEAutoscale]
 
 Existem dependências adicionais que não estão disponíveis para personalização, como a base de dados e armazenamento. Estes são processados pelo Azure e são fornecidos com o sistema. O armazenamento do sistema suporta até 500 GB para todo o ambiente de serviço de aplicações e a base de dados é ajustado pelo Azure, conforme necessário, ao dimensionamento do sistema.
 

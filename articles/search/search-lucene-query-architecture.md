@@ -1,5 +1,5 @@
 ---
-title: Total de arquitetura (Lucene) do motor de pesquisa de texto no Azure Search | Documentos da Microsoft
+title: Arquitetura de motor (Lucene) de pesquisa de texto completo - Azure Search
 description: Explicação dos conceitos da obtenção de Lucene consulta processamento e o documento para pesquisa em texto completo, como relacionados para o Azure Search.
 manager: jlembicz
 author: yahnoosh
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.custom: seodec2018
+ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036875"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315815"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Completa como funciona a pesquisa de texto no Azure Search
 
@@ -95,7 +96,7 @@ O analisador de consultas restructures subconsultas num *árvore de consulta* (u
 
  ![Valor booleano de consulta searchmode qualquer][2]
 
-### <a name="supported-parsers-simple-and-full-lucene"></a>Suportado analisadores: simples e de Lucene completo 
+### <a name="supported-parsers-simple-and-full-lucene"></a>Analisadores suportados: Lucene completa e Simple 
 
  O Azure Search expõe duas linguagens de consulta diferentes `simple` (predefinição) e `full`. Ao definir o `queryType` parâmetro com o seu pedido de pesquisa, diz o analisador de consultas a linguagem de consulta optar para que ela Saiba como interpretar os operadores e sintaxe. O [linguagem de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) é intuitiva e robusta, muitas vezes, adequado interpretar a entrada do usuário como-sem processamento do lado do cliente. Ele oferece suporte a operadores de consulta familiares web dos motores de busca. O [linguagem de consulta Lucene completo](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que obtém ao definir `queryType=full`, estende o idioma de consulta simples padrão, adicionando suporte para obter mais operadores e tipos de consulta como caráter universal, difusa, regex e consultas no âmbito do campo. Por exemplo, uma expressão regular enviada na sintaxe de consulta simples poderia ser interpretada como uma cadeia de consulta e não uma expressão. O pedido de exemplo neste artigo utiliza a linguagem de consulta Lucene completa.
 
@@ -127,7 +128,7 @@ Uma árvore de consulta modificada para esta consulta seria o seguinte, em que u
 > Escolher `searchMode=any` ao longo do `searchMode=all` é uma decisão melhor chegaram ao executar consultas representativas. Os utilizadores que têm propensão incluir operadores (comum quando armazena de pesquisa de documento) pode encontrar os resultados mais intuitivo se `searchMode=all` informa construções de consulta booleano. Para obter mais informações sobre a interação entre `searchMode` e operadores, consulte [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search).
 
 <a name="stage2"></a>
-## <a name="stage-2-lexical-analysis"></a>Fase 2: Análise Lexical 
+## <a name="stage-2-lexical-analysis"></a>Fase 2: Análise lexical 
 
 Processo de analisadores lexicais *prazo consultas* e *frase consultas* depois da árvore de consulta está estruturada. Um analisador aceita as entradas de texto foi fornecidas pelo analisador, processa o texto e, em seguida, envia de volta com token termos sejam incorporados a árvore de consulta. 
 
@@ -314,7 +315,7 @@ Durante a execução da consulta, consultas individuais são executadas em rela�
 
 Em todo o para a consulta em questão, os documentos que correspondem ao são 1, 2, 3. 
 
-## <a name="stage-4-scoring"></a>Fase 4: classificação  
+## <a name="stage-4-scoring"></a>Fase 4: Classificação  
 
 Todos os documentos num conjunto de resultados de pesquisa é atribuído uma pontuação de relevância. A função a pontuação de relevância é a classificação mais elevada desses documentos que melhor responder a uma pergunta de utilizador, conforme expressa por consulta de pesquisa. A classificação é calculada com base nas propriedades de estatísticas de termos correspondentes. No núcleo da fórmula da classificação é [TF/IDF (frequência de documento de frequência inverso do termo)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). Em consultas que contém os termos de raros e comuns, TF/IDF promove resultados com o termo raro. Por exemplo, num índice hipotético com todos os artigos da Wikipedia, de documentos que correspondam a consulta *presidente*, documentos que corresponde aos *presidente* são considerados mais relevantes do que os documentos efetuar a correspondência em *o*.
 

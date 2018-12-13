@@ -11,12 +11,12 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 807fd49a54c82b0930134beb8413e14c1c28b278
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: HT
+ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115566"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164624"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do Batch para Node.js
 
@@ -35,7 +35,7 @@ O diagrama seguinte ilustra como podemos ampliar o script Python com o Azure Bat
 
 ![Cenário do Azure Batch](./media/batch-nodejs-get-started/BatchScenario.png)
 
-O cliente de Node.js implementa uma tarefa de lote com uma tarefa de preparação (explicada em detalhe mais à frente) e um conjunto de tarefas, dependendo do número de contentores na conta de armazenamento. Pode transferir os scripts no repositório do GitHub.
+O cliente de Node.js implementa uma tarefa de lote com uma tarefa de preparação (explicada em detalhe mais à frente) e um conjunto de tarefas, dependendo do número de contentores na conta de armazenamento. Pode transferir os scripts a partir do repositório do GitHub.
 
 * [Cliente Node.js](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
 * [Scripts de shell da tarefa de preparação](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
@@ -119,7 +119,7 @@ Veja a captura de ecrã:
 
 
 
-### <a name="step-4-create-an-azure-batch-pool"></a>Passo 4: Criar um conjunto do Azure Batch
+### <a name="step-4-create-an-azure-batch-pool"></a>Passo 4: Criar um conjunto do Batch do Azure
 Os conjuntos do Azure Batch consistem em várias VMs (também conhecidas como Nós do Batch). O serviço do Azure Batch implementa a tarefa nestes nós e gere-as. Pode definir os seguintes parâmetros de configuração para o conjunto.
 
 * Tipo de imagem das Máquinas Virtuais
@@ -279,14 +279,14 @@ Pode carregar o script numa conta de Armazenamento do Azure e gerar um URI de SA
 
 As tarefas de preparação são especificadas durante a submissão do trabalho do Azure Batch. Seguem-se todos os parâmetros de configuração da tarefa de preparação:
 
-* **ID**: um identificador exclusivo para a tarefa de preparação
-* **commandLine**: a linha de comandos para executar o executável da tarefa
-* **resourceFiles**: matriz de objetos que disponibiliza detalhes dos ficheiros que têm de ser transferidos para que esta tarefa seja executada.  Seguem-se as respetivas opções
-    - blobSource: o URI de SAS do ficheiro
-    - filePath: o caminho local para transferir e guardar o ficheiro
-    - fileMode: aplicável apenas a nós do Linux, o fileMode está no formato octal e tem o valor predefinido 0770
-* **waitForSuccess**: se definido como verdadeiro, a tarefa não é executada em falhas da tarefa de preparação
-* **runElevated**: defina como verdadeiro, se forem necessários privilégios elevados para executar a tarefa.
+* **ID**: Um identificador exclusivo para a preparação da tarefa
+* **Linha de comandos**: Linha de comandos para executar o executável da tarefa
+* **resourceFiles**: Matriz de objetos que disponibiliza detalhes dos ficheiros necessários para ser baixado para esta tarefa ser executado.  Seguem-se as respetivas opções
+    - blobSource: O URI de SAS do ficheiro
+    - caminho do ficheiro: Caminho local para transferir e guardar o ficheiro.
+    - fileMode: Apenas aplicável para nós do Linux, o fileMode está no formato octal e um valor predefinido 0770
+* **waitForSuccess**: Se definido como true, a tarefa não é executada em falhas de tarefas de preparação
+* **runElevated**: Defina como VERDADEIRO se forem necessários privilégios elevados para executar a tarefa.
 
 O fragmento de código seguinte mostra o exemplo de configuração de script de tarefa de preparação:
 
@@ -311,14 +311,14 @@ Se não for necessário instalar pré-requisitos para que as tarefas sejam execu
 ```
 
 
-### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Passo 5: Submeter tarefas do Azure Batch para trabalhos
+### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>Passo 5: Submeter tarefas do Azure Batch para uma tarefa
 
 Agora que o trabalho “process csv” está criado, vamos criar tarefas para o mesmo. Partindo do princípio de que temos quatro contentores, temos de criar quatro tarefas, uma para cada contentor.
 
 Se olharmos para o [script de Python](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py), este aceita dois parâmetros:
 
-* nome do contentor: o contentor do Armazenamento a partir do qual transferir ficheiros
-* padrão: um parâmetro opcional do padrão de nomenclatura do ficheiro
+* nome do contentor: O contentor de armazenamento para transferir os ficheiros a partir de
+* padrão: Um parâmetro opcional do padrão de nome de ficheiro
 
 Partindo do princípio de que temos quatro contentores "con1", "con2", "con3" e "con4", o código seguinte mostra a submissão relativa a tarefas para o trabalho do Azure Batch “process csv” que criámos anteriormente.
 
@@ -351,7 +351,7 @@ O código adiciona várias tarefas ao conjunto e cada uma das tarefas é executa
 
 O portal tem vistas detalhadas sobre as tarefas e os estados dos trabalhos. Também pode utilizar a lista para obter funções no SDK do Azure para Node. Estão disponíveis detalhes na [ligação](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) da documentação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja o artigo [Descrição geral das funcionalidades do Azure Batch](batch-api-basics.md), que recomendamos se não estiver familiarizado com o serviço.
 - Veja [Batch Node.js reference](/javascript/api/overview/azure/batch) (Referência de Node.js do Batch) para explorar a API do Batch.

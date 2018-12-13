@@ -1,7 +1,7 @@
 ---
 title: Obter a intenção, node. js
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com o Node.js, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública. No ponto final, o LUIS aplica o modelo da aplicação pública para analisar o significado do texto de linguagem natural e assim determinar a intenção geral e extrair os dados relevantes para o domínio de requerente da aplicação.
+description: Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com o Node.js, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: e173e8af525c1d4239720adc504f8e5bbf14c062
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 92e10b1f4ec8be1dc67ff449df32ef76e365b5f2
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090562"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162669"
 ---
-# <a name="quickstart-get-intent-using-nodejs"></a>Guia de Início Rápido: Obter a intenção com Node.js
+# <a name="quickstart-get-intent-using-nodejs"></a>Início rápido: Objetivo de GET com node. js
 
 Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha a intenção e as entidades.
 
@@ -34,7 +34,7 @@ Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha 
 
 
 > [!NOTE] 
-> A solução Node.js completa está disponível a partir do [**repositório do Github** LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
+> A solução completa do node. js está disponível a partir da [ **LUIS-Samples** repositório do GitHub](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
 
 ## <a name="get-luis-key"></a>Obter chave LUIS
 

@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 4b0491d59e4ac495750a338ad743aab69ff47a4e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cf283803dfa45c362330ccf73fc5eea198d3a5e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494248"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278649"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selecione, gerir e operar a clusters do Service Fabric.
@@ -30,7 +30,7 @@ Selecione, gerir e operar a clusters do Service Fabric.
 | --- | --- |
 | versões de código | Obtém uma lista de recursos de infraestrutura versões de código aprovisionadas num cluster do Service Fabric. |
 | versões de configuração | Obtém uma lista de recursos de infraestrutura versões de configuração que são aprovisionadas num cluster do Service Fabric. |
-| estado de funcionamento | Obtém o estado de funcionamento de um cluster do Service Fabric. |
+| saúde | Obtém o estado de funcionamento de um cluster do Service Fabric. |
 | Manifesto | Obter o manifesto de cluster do Service Fabric. |
 | Cancelar operação | Cancela uma operação de índice de falhas induzidas pelo utilizador. |
 | lista de operação | Obtém uma lista de operações de índice de falhas induzidas pelo utilizador filtradas pela entrada fornecida. |
@@ -140,9 +140,9 @@ Obter o manifesto de cluster do Service Fabric. O manifesto do cluster contém a
 ## <a name="sfctl-cluster-operation-cancel"></a>operação de cluster de sfctl-Cancelar
 Cancela uma operação de índice de falhas induzidas pelo utilizador.
 
-As seguintes APIs iniciar as operações de índice de falhas que poderão ser canceladas utilizando CancelOperation: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se forçar for false, em seguida, a operação especificada induzidas pelo usuário será corretamente parada e limpos.  Se forçar for VERDADEIRO, o comando será anulado, e algum Estado interno pode ser deixado para trás.  Especificação força como true deve ser usado com cuidado. Não é permitida a chamar esta API com força definido como true até que esta API já foi chamada no mesmo comando de teste com conjunto de força primeiro false ou, a menos que o comando de teste já tem um OperationState OperationState.RollingBack. 
+As seguintes APIs iniciar as operações de índice de falhas que poderão ser canceladas utilizando CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se forçar for false, em seguida, a operação especificada induzidas pelo usuário será corretamente parada e limpos.  Se forçar for VERDADEIRO, o comando será anulado, e algum Estado interno pode ser deixado para trás.  Especificação força como true deve ser usado com cuidado. Não é permitida a chamar esta API com força definido como true até que esta API já foi chamada no mesmo comando de teste com conjunto de força primeiro false ou, a menos que o comando de teste já tem um OperationState OperationState.RollingBack. 
 
- Esclarecimento\: OperationState.RollingBack significa que o sistema será/limpeza de sistema interno provocado por executar o comando de estado. Não irá restaurar dados se o comando de teste foi causar perda de dados.  Por exemplo, se chama StartDataLoss, em seguida, chama esta API, o sistema será apenas Limpar estado interno de executar o comando. Não irá restaurar dados a partição de destino, se o comando progrediu suficiente para causar perda de dados. 
+Esclarecimento\: OperationState.RollingBack significa que o sistema será/limpeza de sistema interno provocado por executar o comando de estado.  Não irá restaurar dados se o comando de teste foi causar perda de dados.  Por exemplo, se chama StartDataLoss, em seguida, chama esta API, o sistema será apenas Limpar estado interno de executar o comando. Não irá restaurar dados a partição de destino, se o comando progrediu suficiente para causar perda de dados. 
 
 > [!NOTE]
 > Se esta API é invocada com force = = true, interno de estado pode ser deixado para trás.
@@ -243,13 +243,13 @@ O relatório tem de conter as informações sobre a origem do relatório de esta
 | --- | --- |
 | – [necessária] de propriedade de estado de funcionamento | A propriedade das informações de estado de funcionamento. <br><br> Uma entidade pode ter relatórios de estado de funcionamento para diferentes propriedades. A propriedade é uma cadeia de caracteres e não uma enumeração fixa para permitir que a flexibilidade de gerador de relatórios categorizar a condição de estado que aciona o relatório. Por exemplo, um gerador de relatórios com SourceId "LocalWatchdog" pode monitorizar o estado do disco disponível num nó, para que ele pode informar a propriedade de "AvailableDisk" nesse nó. O mesmo gerador de relatórios pode monitorizar a conectividade de nó, para que ele pode reportar uma propriedade "Conectividade" no mesmo nó. No arquivo de estado de funcionamento, esses relatórios são tratados como eventos de estado de funcionamento separado para o nó especificado. Em conjunto com o SourceId, a propriedade identifica exclusivamente as informações de estado de funcionamento. |
 | -Estado de funcionamento [necessário] | Os valores possíveis incluem\: "Inválido", "Ok", "Aviso", "Error", "Desconhecido". |
-| – id de origem [necessário] | O nome de origem que identifica o componente de cliente/watchdog/sistemas que geraram as informações de estado de funcionamento. |
+| – id de origem [necessário] | O nome de origem que identifica o componente de sistema/watchdog/cliente gerado as informações de estado de funcionamento. |
 | – Descrição | A descrição das informações de estado de funcionamento. <br><br> Ele representa o texto livre usado para adicionar informações legíveis humanas sobre o relatório. O comprimento máximo da cadeia para a descrição é 4096 carateres. Se a cadeia fornecida é mais longa, ele será automaticamente truncado. Quando truncados, os últimos carateres da descrição contêm um marcador "[truncado]" e o tamanho total da cadeia de caracteres é 4096 carateres. A presença do marcador indica aos utilizadores esse truncamento ocorreu. Observe que, quando truncados, a descrição tem menos de 4096 carateres a partir da cadeia original. |
 | – imediata | Um sinalizador que indica se o relatório deve ser enviado imediatamente. <br><br> Um relatório de estado de funcionamento é enviado para um aplicativo, que encaminha para o arquivo de estado de funcionamento de gateway do Service Fabric. Se Immediate estiver definido como true, o relatório será enviado imediatamente do Gateway de HTTP para o armazenamento de estado de funcionamento, independentemente das definições de cliente de recursos de infraestrutura que está a utilizar a aplicação de Gateway HTTP. Isto é útil para os relatórios críticos que devem ser enviados logo que possível. Dependendo do tempo e outras condições, enviar o relatório poderá ainda falhar, por exemplo, se o HTTP Gateway foi fechado ou a mensagem não aceder ao Gateway. Se Immediate estiver definido como false, o relatório é enviado com base nas definições de cliente do Estado de funcionamento do HTTP Gateway. Por conseguinte, irá ser loteado, de acordo com a configuração de HealthReportSendInterval. Esta é a definição recomendada porque permite que o cliente do Estado de funcionamento otimizar as mensagens para o arquivo de estado de funcionamento, bem como o processamento de relatórios de estado de funcionamento de relatórios de estado de funcionamento. Por predefinição, os relatórios não são enviados imediatamente. |
 | – remover quando expirou | Valor que indica se o relatório é removido do arquivo de estado de funcionamento, quando este expirar. <br><br> Se definido como true, o relatório for removido do arquivo de estado de funcionamento, depois de expirar. Se definido como false, o relatório é tratado como um erro quando a expirou. O valor desta propriedade é false por padrão. Quando os clientes reportem periodicamente, eles devem definir RemoveWhenExpired false (predefinição). Dessa forma, é o gerador de relatórios tem problemas (por exemplo, o deadlock) e não é possível reportar a entidade é avaliada em erro quando expira o relatório de estado de funcionamento. Este processo sinaliza a entidade como sendo num Estado de funcionamento de erro. |
 | – número de sequência | O número de sequência para este relatório de estado de funcionamento como uma cadeia numérica. <br><br> O número de sequência de relatório é utilizado pelo arquivo de estado de funcionamento para detetar relatórios obsoletos. Se não for especificado, um número de sequência é gerado automaticamente pelo cliente do Estado de funcionamento quando é adicionado um relatório. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
-| – o valor de ttl | A duração para o qual este relatório de estado de funcionamento é válido. Este campo está a utilizar o formato de ISO8601 para especificar a duração. <br><br> Quando os clientes reportem periodicamente, eles devem enviar relatórios com freqüência mais alta do que o tempo de duração. Se os clientes comunicam na transição, eles podem definir o tempo de duração para infinito. Quando expira o TTL, o evento de estado de funcionamento que contém as informações de estado de funcionamento é seja removido do arquivo de estado de funcionamento, se RemoveWhenExpired for true, ou avaliadas no erro, se RemoveWhenExpired false. Se não for especificado, tempo de duração a predefinição é o valor de infinito. |
+| – o valor de ttl | A duração para o qual este relatório de estado de funcionamento é válido. Este campo utiliza o formato ISO8601 para especificar a duração. <br><br> Quando os clientes reportem periodicamente, eles devem enviar relatórios com freqüência mais alta do que o tempo de duração. Se os clientes comunicam na transição, eles podem definir o tempo de duração para infinito. Quando expira o TTL, o evento de estado de funcionamento que contém as informações de estado de funcionamento é seja removido do arquivo de estado de funcionamento, se RemoveWhenExpired for true, ou avaliadas no erro, se RemoveWhenExpired false. Se não for especificado, tempo de duração a predefinição é o valor de infinito. |
 
 ### <a name="global-arguments"></a>Argumentos global
 
@@ -264,7 +264,7 @@ O relatório tem de conter as informações sobre a origem do relatório de esta
 ## <a name="sfctl-cluster-select"></a>o sfctl cluster select
 Liga-se para um ponto de extremidade do cluster do Service Fabric.
 
-Se ligar ao cluster seguro, especifique um caminho absoluto para um certificado (. crt) e o ficheiro de chave (.key) ou um único ficheiro com os dois (. pem). Não especifique ambos. Opcionalmente, de se ligar a um cluster seguro, também especifica um caminho absoluto para um ficheiro de agrupamento de AC ou o diretório de certificados de AC fidedignos.
+Se ligar ao cluster seguro, especifique um caminho absoluto para um certificado (. crt) e o ficheiro de chave (.key) ou um único ficheiro com os dois (. pem). Não especifique ambos. Opcionalmente, se ligar a um cluster seguro, também de especificar um caminho absoluto para um ficheiro de agrupamento de AC ou o diretório de certificados de AC fidedignos. Se utilizar um diretório de certificados de AC, `c_rehash <directory>` fornecida pelo OpenSSL tem de ser executado pela primeira vez para computar os hashes de certificado e criar as ligações de symbolics apropriado.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -340,19 +340,19 @@ Valide os parâmetros de atualização fornecidos e começar a atualizar a vers�
 | --delta-health-evaluation | Permite a avaliação de integridade de delta, em vez de avaliação de estado de funcionamento absoluto após a conclusão de cada domínio de atualização. |
 | --delta-unhealthy-nodes | O máximo permitido a percentagem de nós degradação de estado de funcionamento permitida durante as atualizações de cluster.  Predefinido\: 10. <br><br> O delta é medido entre o estado de nós no início da atualização e o estado de nós no momento da avaliação do Estado de funcionamento. A verificação é executada após a conclusão de atualização cada domínio de atualização para se certificar de que o estado global do cluster está dentro dos limites tolerados. |
 | -Falha de ação | Os valores possíveis incluem\: 'inválido,""Reversão","Manual". |
-| -force-reinício | Força o reinício. |
-| --health-check-retry | Tempo limite de repetição de verificação de estado de funcionamento é medido em milissegundos. |
-| -verificação de estado de funcionamento-estável | Duração estável, medida em milissegundos de verificação de integridade. |
-| – espera de verificação de estado de funcionamento | Duração de espera do Estado de funcionamento é medido em milissegundos. |
-| --replica-set-check-timeout | Tempo limite de verificação medido em segundos de conjunto de réplicas de atualização. |
+| -force-reinício | Processos forçadamente são reiniciados durante a atualização, mesmo quando a versão de código não foi alterada. <br><br> A atualização só podem ser alterados ou dados de configuração. |
+| --health-check-retry | O período de tempo entre tentativas para realizar verificações de estado de funcionamento se o aplicativo ou o cluster não está em bom estado. |
+| -verificação de estado de funcionamento-estável | A quantidade de tempo que a aplicação ou o cluster deve permanecer em bom estado antes que a atualização prossiga para o domínio de atualização seguinte. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
+| – espera de verificação de estado de funcionamento | O período de tempo de espera após a conclusão de um domínio de atualização antes de iniciar o estado de funcionamento verifica o processo. |
+| --replica-set-check-timeout | A quantidade máxima de tempo para bloquear o processamento de um domínio de atualização e evitar a perda de disponibilidade quando surgem problemas inesperados. <br><br> Quando este tempo limite expira, o processamento de domínio de atualização irá continuar, independentemente de problemas de perda de disponibilidade. O tempo limite é reiniciado no início de cada domínio de atualização. Valores válidos são entre 0 e 42949672925, inclusive. |
 | – sem interrupção atualização-modo | Os valores possíveis incluem\: 'Inválido', 'UnmonitoredAuto', 'UnmonitoredManual', "Monitorizado".  Predefinido\: UnmonitoredAuto. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
 | – mau estado de funcionamento de aplicações | O máximo permitido porcentagem de aplicativos de mau estado de funcionamento antes de comunicar um erro. <br><br> Por exemplo, para permitir que 10% dos aplicativos problemático, este valor seria de 10. A percentagem representa a percentagem máxima de tolerado de aplicativos que podem ser mau estado de funcionamento antes do cluster será considerado como erro. Se a percentagem é respeitada, mas há pelo menos uma aplicação de mau estado de funcionamento, o estado de funcionamento é avaliado como aviso. Isso é calculado dividindo o número de aplicativos de mau estado de funcionamento e o número total de instâncias da aplicação no cluster, excluindo os aplicativos dos tipos de aplicativos que estão incluídos no ApplicationTypeHealthPolicyMap. A computação Arredonda por excesso para tolerar uma falha em pequenos números de aplicativos. |
 | – mau estado de funcionamento de nós | O máximo permitido de percentagem de nós de mau estado de funcionamento antes de comunicar um erro. <br><br> Por exemplo, para permitir que 10% de nós para ser mau estado de funcionamento, este valor seria de 10. A percentagem representa a percentagem de tolerado máxima de nós que podem ser mau estado de funcionamento antes do cluster será considerado como erro. Se a percentagem é respeitada, mas não existe, pelo menos, um nó de mau estado de funcionamento, o estado de funcionamento é avaliado como aviso. A percentagem é calculada dividindo o número de nós de mau estado de funcionamento e o número total de nós no cluster. A computação Arredonda por excesso para tolerar uma falha num pequeno número de nós. Em grandes clusters, alguns nós será sempre verticalmente ou horizontalmente para reparos, para que esta percentagem deve ser configurada para tolerar que. |
 | --upgrade-domain-delta-unhealthy-nodes | O máximo permitido percentagem de nós de domínio de atualização de degradação de estado de funcionamento permitida durante as atualizações de cluster.  Predefinido\: 15. <br><br> O delta é medido entre o estado de nós do domínio de atualização no início da atualização e o estado de nós do domínio de atualização no momento da avaliação do Estado de funcionamento. A verificação é executada após a conclusão de cada conclusão de atualização de domínio de atualização para todos os domínios de atualização para se certificar de que o estado de domínios de atualização é dentro dos limites tolerados. |
-| – atualização-domínio-tempo limite | Tempo limite do domínio de atualização é medido em milissegundos. |
-| – tempo limite da atualização | Tempo limite da atualização é medido em milissegundos. |
-| --warning-as-error | Avisos são tratados com a mesma gravidade como erros. |
+| – atualização-domínio-tempo limite | A quantidade de tempo de cada domínio de atualização tem de concluir antes de ser executada FailureAction. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
+| – tempo limite da atualização | A quantidade de tempo a atualização global tem de concluir antes de ser executada FailureAction. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
+| --warning-as-error | Indica se os avisos são tratados com a mesma gravidade como erros. |
 
 ### <a name="global-arguments"></a>Argumentos global
 
@@ -389,7 +389,7 @@ Migrar cluster código ou configuração de atualização para o domínio de atu
 ## <a name="sfctl-cluster-upgrade-rollback"></a>reversão de atualização do cluster sfctl
 Reverta a atualização de um cluster do Service Fabric.
 
-Reverter a atualização de código ou configuração de um cluster do Service Fabric.
+Reverta a atualização de código ou configuração de um cluster do Service Fabric.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -440,20 +440,20 @@ Atualize os parâmetros de atualização de uma atualização de cluster do Serv
 | --delta-health-evaluation | Permite a avaliação de integridade de delta, em vez de avaliação de estado de funcionamento absoluto após a conclusão de cada domínio de atualização. |
 | --delta-unhealthy-nodes | O máximo permitido a percentagem de nós degradação de estado de funcionamento permitida durante as atualizações de cluster.  Predefinido\: 10. <br><br> O delta é medido entre o estado de nós no início da atualização e o estado de nós no momento da avaliação do Estado de funcionamento. A verificação é executada após a conclusão de atualização cada domínio de atualização para se certificar de que o estado global do cluster está dentro dos limites tolerados. |
 | -Falha de ação | Os valores possíveis incluem\: 'inválido,""Reversão","Manual". |
-| -force-reinício | Força o reinício. |
-| --health-check-retry | Tempo limite de repetição de verificação de estado de funcionamento é medido em milissegundos. |
-| -verificação de estado de funcionamento-estável | Duração estável, medida em milissegundos de verificação de integridade. |
-| – espera de verificação de estado de funcionamento | Duração de espera do Estado de funcionamento é medido em milissegundos. |
-| --replica-set-check-timeout | Tempo limite de verificação medido em segundos de conjunto de réplicas de atualização. |
+| -force-reinício | Processos forçadamente são reiniciados durante a atualização, mesmo quando a versão de código não foi alterada. <br><br> A atualização só podem ser alterados ou dados de configuração. |
+| --health-check-retry | O período de tempo entre tentativas para realizar verificações de estado de funcionamento se o aplicativo ou o cluster não está em bom estado. |
+| -verificação de estado de funcionamento-estável | A quantidade de tempo que a aplicação ou o cluster deve permanecer em bom estado antes que a atualização prossiga para o domínio de atualização seguinte. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
+| – espera de verificação de estado de funcionamento | O período de tempo de espera após a conclusão de um domínio de atualização antes de iniciar o estado de funcionamento verifica o processo. |
+| --replica-set-check-timeout | A quantidade máxima de tempo para bloquear o processamento de um domínio de atualização e evitar a perda de disponibilidade quando surgem problemas inesperados. <br><br> Quando este tempo limite expira, o processamento de domínio de atualização irá continuar, independentemente de problemas de perda de disponibilidade. O tempo limite é reiniciado no início de cada domínio de atualização. Valores válidos são entre 0 e 42949672925, inclusive. |
 | – sem interrupção atualização-modo | Os valores possíveis incluem\: 'Inválido', 'UnmonitoredAuto', 'UnmonitoredManual', "Monitorizado".  Predefinido\: UnmonitoredAuto. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
 | – mau estado de funcionamento de aplicações | O máximo permitido porcentagem de aplicativos de mau estado de funcionamento antes de comunicar um erro. <br><br> Por exemplo, para permitir que 10% dos aplicativos problemático, este valor seria de 10. A percentagem representa a percentagem máxima de tolerado de aplicativos que podem ser mau estado de funcionamento antes do cluster será considerado como erro. Se a percentagem é respeitada, mas há pelo menos uma aplicação de mau estado de funcionamento, o estado de funcionamento é avaliado como aviso. Isso é calculado dividindo o número de aplicativos de mau estado de funcionamento e o número total de instâncias da aplicação no cluster, excluindo os aplicativos dos tipos de aplicativos que estão incluídos no ApplicationTypeHealthPolicyMap. A computação Arredonda por excesso para tolerar uma falha em pequenos números de aplicativos. |
 | – mau estado de funcionamento de nós | O máximo permitido de percentagem de nós de mau estado de funcionamento antes de comunicar um erro. <br><br> Por exemplo, para permitir que 10% de nós para ser mau estado de funcionamento, este valor seria de 10. A percentagem representa a percentagem de tolerado máxima de nós que podem ser mau estado de funcionamento antes do cluster será considerado como erro. Se a percentagem é respeitada, mas não existe, pelo menos, um nó de mau estado de funcionamento, o estado de funcionamento é avaliado como aviso. A percentagem é calculada dividindo o número de nós de mau estado de funcionamento e o número total de nós no cluster. A computação Arredonda por excesso para tolerar uma falha num pequeno número de nós. Em grandes clusters, alguns nós será sempre verticalmente ou horizontalmente para reparos, para que esta percentagem deve ser configurada para tolerar que. |
 | --upgrade-domain-delta-unhealthy-nodes | O máximo permitido percentagem de nós de domínio de atualização de degradação de estado de funcionamento permitida durante as atualizações de cluster.  Predefinido\: 15. <br><br> O delta é medido entre o estado de nós do domínio de atualização no início da atualização e o estado de nós do domínio de atualização no momento da avaliação do Estado de funcionamento. A verificação é executada após a conclusão de cada conclusão de atualização de domínio de atualização para todos os domínios de atualização para se certificar de que o estado de domínios de atualização é dentro dos limites tolerados. |
-| – atualização-domínio-tempo limite | Tempo limite do domínio de atualização é medido em milissegundos. |
+| – atualização-domínio-tempo limite | A quantidade de tempo de cada domínio de atualização tem de concluir antes de ser executada FailureAction. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
 | – tipo de atualização | Os valores possíveis incluem\: 'Inválido","Implementar", 'Rolling_ForceRestart'.  Predefinido\: sem interrupção. |
-| – tempo limite da atualização | Tempo limite da atualização é medido em milissegundos. |
-| --warning-as-error | Avisos são tratados com a mesma gravidade como erros. |
+| – tempo limite da atualização | A quantidade de tempo a atualização global tem de concluir antes de ser executada FailureAction. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
+| --warning-as-error | Indica se os avisos são tratados com a mesma gravidade como erros. |
 
 ### <a name="global-arguments"></a>Argumentos global
 
@@ -464,6 +464,7 @@ Atualize os parâmetros de atualização de uma atualização de cluster do Serv
 | --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
 | – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
 | -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Configuração](service-fabric-cli.md) a CLI do Service Fabric.

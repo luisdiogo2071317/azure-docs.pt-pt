@@ -1,6 +1,6 @@
 ---
-title: Indexar blobs JSON com o indexador de Blobs do Azure Search
-description: Indexar blobs JSON com o indexador de Blobs do Azure Search
+title: Blobs JSON de indexação do indexador de Blobs do Azure para pesquisa em texto completo - Azure Search
+description: Pesquise blobs JSON do Azure para o conteúdo de texto com o indexador Blob do Azure Search. Indexadores automatizam ingestão de dados para origens de dados selecionadas, como o armazenamento de Blobs do Azure.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec2018
+ms.openlocfilehash: 7eb215271a8d5d21403cc7c5a49028bb366e61fd
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711077"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312532"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexar blobs JSON com o indexador de Blobs do Azure Search
 Este artigo mostra-lhe como configurar um indexador de Blobs do Azure Search para extrair conteúdo estruturado de blobs JSON no armazenamento de Blobs do Azure.
@@ -30,7 +31,7 @@ Blobs JSON no armazenamento de Blobs do Azure são, normalmente, um único docum
 ## <a name="setting-up-json-indexing"></a>Configuração do JSON de indexação
 Indexar JSON blobs é semelhante a extração de documento regulares num fluxo de trabalho de três partes comuns a todos os indexadores na Azure Search.
 
-### <a name="step-1-create-a-data-source"></a>Passo 1: criar uma origem de dados
+### <a name="step-1-create-a-data-source"></a>Passo 1: Criar uma origem de dados
 
 A primeira etapa é fornecer informações de ligação de origem de dados o indexador. Os dados da origem de tipo, especificado aqui como `azureblob`, determina quais comportamentos de extração de dados são invocados o indexador. Para JSON a indexação de BLOBs, a definição de origem de dados é o mesmo para documentos JSON e matrizes. 
 

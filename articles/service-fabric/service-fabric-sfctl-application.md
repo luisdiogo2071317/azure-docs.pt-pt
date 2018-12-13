@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 40ec204f105b32c8b7d9e2dda6f6f3c3023b2d44
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0f608dc89d3a9bc8914fc9be142c442246ce13b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495463"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278547"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Criar, eliminar e gerir aplicações e tipos de aplicativos.
@@ -33,9 +33,9 @@ Criar, eliminar e gerir aplicações e tipos de aplicativos.
 | implementado | Obtém as informações sobre uma aplicação implementada num nó do Service Fabric. |
 | Estado de funcionamento implementado | Obtém as informações sobre o estado de funcionamento de um aplicativo implantado num nó do Service Fabric. |
 | lista implementado | Obtém a lista de aplicativos implantados num nó do Service Fabric. |
-| estado de funcionamento | Obtém o estado de funcionamento da aplicação do service fabric. |
+| saúde | Obtém o estado de funcionamento da aplicação do service fabric. |
 | informações | Obtém informações sobre uma aplicação do Service Fabric. |
-| lista | Obtém a lista de aplicativos criados no cluster do Service Fabric que correspondem aos filtros especificados. |
+| list | Obtém a lista de aplicativos criados no cluster do Service Fabric que correspondem aos filtros especificados. |
 | carregar | Obtém informações sobre uma aplicação do Service Fabric de carga. |
 | Manifesto | Obtém o manifesto que descreve um tipo de aplicação. |
 | Aprovisionar | Provisiona ou registros de tipo de aplicação do Service Fabric com o cluster utilizando o pacote. sfpkg no arquivo externo ou utilizando o pacote de aplicação no arquivo de imagem. |
@@ -332,13 +332,13 @@ Relatórios de estado de funcionamento da aplicação especificada do Service Fa
 | – id de aplicação [necessário] | A identidade da aplicação. <br><br> Isso normalmente é o nome completo do aplicativo sem que o "recursos de infraestrutura\:" esquema de URI. A partir da versão 6.0, são delimitados nomes hierárquicos com o '\~"caráter. Por exemplo, se o nome da aplicação é "recursos de infraestrutura\:/myapp/app1 ', a identidade da aplicação seria" myapp\~app1' no 6.0 + e "myapp/app1" nas versões anteriores. |
 | – [necessária] de propriedade de estado de funcionamento | A propriedade das informações de estado de funcionamento. <br><br> Uma entidade pode ter relatórios de estado de funcionamento para diferentes propriedades. A propriedade é uma cadeia de caracteres e não uma enumeração fixa para permitir que a flexibilidade de gerador de relatórios categorizar a condição de estado que aciona o relatório. Por exemplo, um gerador de relatórios com SourceId "LocalWatchdog" pode monitorizar o estado do disco disponível num nó, para que ele pode informar a propriedade de "AvailableDisk" nesse nó. O mesmo gerador de relatórios pode monitorizar a conectividade de nó, para que ele pode reportar uma propriedade "Conectividade" no mesmo nó. No arquivo de estado de funcionamento, esses relatórios são tratados como eventos de estado de funcionamento separado para o nó especificado. Em conjunto com o SourceId, a propriedade identifica exclusivamente as informações de estado de funcionamento. |
 | -Estado de funcionamento [necessário] | Os valores possíveis incluem\: "Inválido", "Ok", "Aviso", "Error", "Desconhecido". |
-| – id de origem [necessário] | O nome de origem que identifica o componente de cliente/watchdog/sistemas que geraram as informações de estado de funcionamento. |
+| – id de origem [necessário] | O nome de origem que identifica o componente de sistema/watchdog/cliente gerado as informações de estado de funcionamento. |
 | – Descrição | A descrição das informações de estado de funcionamento. <br><br> Ele representa o texto livre usado para adicionar informações legíveis humanas sobre o relatório. O comprimento máximo da cadeia para a descrição é 4096 carateres. Se a cadeia fornecida é mais longa, ele será automaticamente truncado. Quando truncados, os últimos carateres da descrição contêm um marcador "[truncado]" e o tamanho total da cadeia de caracteres é 4096 carateres. A presença do marcador indica aos utilizadores esse truncamento ocorreu. Observe que, quando truncados, a descrição tem menos de 4096 carateres a partir da cadeia original. |
 | – imediata | Um sinalizador que indica se o relatório deve ser enviado imediatamente. <br><br> Um relatório de estado de funcionamento é enviado para um aplicativo, que encaminha para o arquivo de estado de funcionamento de gateway do Service Fabric. Se Immediate estiver definido como true, o relatório será enviado imediatamente do Gateway de HTTP para o armazenamento de estado de funcionamento, independentemente das definições de cliente de recursos de infraestrutura que está a utilizar a aplicação de Gateway HTTP. Isto é útil para os relatórios críticos que devem ser enviados logo que possível. Dependendo do tempo e outras condições, enviar o relatório poderá ainda falhar, por exemplo, se o HTTP Gateway foi fechado ou a mensagem não aceder ao Gateway. Se Immediate estiver definido como false, o relatório é enviado com base nas definições de cliente do Estado de funcionamento do HTTP Gateway. Por conseguinte, irá ser loteado, de acordo com a configuração de HealthReportSendInterval. Esta é a definição recomendada porque permite que o cliente do Estado de funcionamento otimizar as mensagens para o arquivo de estado de funcionamento, bem como o processamento de relatórios de estado de funcionamento de relatórios de estado de funcionamento. Por predefinição, os relatórios não são enviados imediatamente. |
 | – remover quando expirou | Valor que indica se o relatório é removido do arquivo de estado de funcionamento, quando este expirar. <br><br> Se definido como true, o relatório for removido do arquivo de estado de funcionamento, depois de expirar. Se definido como false, o relatório é tratado como um erro quando a expirou. O valor desta propriedade é false por padrão. Quando os clientes reportem periodicamente, eles devem definir RemoveWhenExpired false (predefinição). Dessa forma, é o gerador de relatórios tem problemas (por exemplo, o deadlock) e não é possível reportar a entidade é avaliada em erro quando expira o relatório de estado de funcionamento. Este processo sinaliza a entidade como sendo num Estado de funcionamento de erro. |
 | – número de sequência | O número de sequência para este relatório de estado de funcionamento como uma cadeia numérica. <br><br> O número de sequência de relatório é utilizado pelo arquivo de estado de funcionamento para detetar relatórios obsoletos. Se não for especificado, um número de sequência é gerado automaticamente pelo cliente do Estado de funcionamento quando é adicionado um relatório. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
-| – o valor de ttl | A duração para o qual este relatório de estado de funcionamento é válido. Este campo está a utilizar o formato de ISO8601 para especificar a duração. <br><br> Quando os clientes reportem periodicamente, eles devem enviar relatórios com freqüência mais alta do que o tempo de duração. Se os clientes comunicam na transição, eles podem definir o tempo de duração para infinito. Quando expira o TTL, o evento de estado de funcionamento que contém as informações de estado de funcionamento é seja removido do arquivo de estado de funcionamento, se RemoveWhenExpired for true, ou avaliadas no erro, se RemoveWhenExpired false. Se não for especificado, tempo de duração a predefinição é o valor de infinito. |
+| – o valor de ttl | A duração para o qual este relatório de estado de funcionamento é válido. Este campo utiliza o formato ISO8601 para especificar a duração. <br><br> Quando os clientes reportem periodicamente, eles devem enviar relatórios com freqüência mais alta do que o tempo de duração. Se os clientes comunicam na transição, eles podem definir o tempo de duração para infinito. Quando expira o TTL, o evento de estado de funcionamento que contém as informações de estado de funcionamento é seja removido do arquivo de estado de funcionamento, se RemoveWhenExpired for true, ou avaliadas no erro, se RemoveWhenExpired false. Se não for especificado, tempo de duração a predefinição é o valor de infinito. |
 
 ### <a name="global-arguments"></a>Argumentos global
 
@@ -434,23 +434,23 @@ Valida os parâmetros de atualização de aplicativos fornecidos e começa a atu
 
 |Argumento|Descrição|
 | --- | --- |
-| – id de aplicação [necessário] | A identidade da aplicação. <br><br> Isso normalmente é o nome completo do aplicativo sem que o "recursos de infraestrutura\:" esquema de URI. A partir da versão 6.0, são delimitados nomes hierárquicos com o '\~"caráter. Por exemplo, se o nome da aplicação é "recursos de infraestrutura\:/myapp/app1 ', a identidade da aplicação seria" myapp\~app1' no 6.0 + e "myapp/app1" nas versões anteriores. |
-| – a versão de aplicação [necessária] | Versão da aplicação de destino. |
+| – id de aplicação [necessário] | A identidade da aplicação. <br><br> Isso normalmente é o nome completo do aplicativo sem que o "recursos de infraestrutura\:" esquema de URI. A partir da versão 6.0, são delimitados nomes hierárquicos com o "\~" caráter. Por exemplo, se o nome da aplicação é "recursos de infraestrutura\:app1/myapp /", a identidade da aplicação seria "myapp\~app1" em 6.0 + e "myapp/app1" nas versões anteriores. |
+| – a versão de aplicação [necessária] | O destino tipo versão da aplicação (encontrado no manifesto do aplicativo) para a atualização da aplicação. |
 | – parâmetros [necessários] | Uma lista JSON codificado do parâmetro de aplicação substitui a ser aplicado ao atualizar a aplicação. |
 | -predefinido-serviço de estado de funcionamento-política | JSON codificado especificação da política de estado de funcionamento usada por padrão para avaliar o estado de funcionamento de um tipo de serviço. |
 | -Falha de ação | A ação a executar quando uma atualização de monitorizada encontra monitorização violações de políticas de política ou o estado de funcionamento. |
 | -force-reinício | Reinicie forçadamente processos durante a atualização, mesmo quando a versão de código não foi alterada. |
-| --health-check-retry-timeout | A quantidade de tempo para repetir as avaliações de estado de funcionamento quando a aplicação ou o cluster está mau estado de funcionamento antes da ação de falha é executada. Medido em milissegundos.  Predefinido\: PT0H10M0S. |
-| --health-check-stable-duration | A quantidade de tempo que a aplicação ou o cluster deve permanecer em bom estado antes que a atualização prossiga para o domínio de atualização seguinte. Medido em milissegundos.  Predefinido\: PT0H2M0S. |
-| --health-check-wait-duration | A quantidade de tempo de espera após a conclusão de um domínio de atualização antes de aplicar políticas de estado de funcionamento. Medido em milissegundos.  Predefinido\: 0. |
+| --health-check-retry-timeout | O período de tempo entre tentativas para realizar verificações de estado de funcionamento se o aplicativo ou o cluster não está em bom estado.  Predefinido\: PT0H10M0S. |
+| --health-check-stable-duration | A quantidade de tempo que a aplicação ou o cluster deve permanecer em bom estado antes que a atualização prossiga para o domínio de atualização seguinte.  Predefinido\: PT0H2M0S. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
+| --health-check-wait-duration | O período de tempo de espera após a conclusão de um domínio de atualização antes de iniciar o estado de funcionamento verifica o processo.  Predefinido\: 0. |
 | --max-unhealthy-apps | O máximo permitido de percentagem de mau estado de funcionamento aplicações implementadas. Representada como um número entre 0 e 100. |
 | – modo | O modo utilizado para monitorizar o estado de funcionamento durante uma atualização sem interrupção.  Predefinido\: UnmonitoredAuto. |
 | --replica-set-check-timeout | A quantidade máxima de tempo para bloquear o processamento de um domínio de atualização e evitar a perda de disponibilidade quando surgem problemas inesperados. Medido em segundos. |
 | – política de estado de funcionamento de serviço | JSON codificado mapa com a política de estado de funcionamento do tipo de serviço por nome do tipo de serviço. O mapa está vazio ser predefinido. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
-| – atualização-domínio-tempo limite | A quantidade de tempo de cada domínio de atualização tem de concluir antes de ser executada FailureAction. Medido em milissegundos.  Predefinido\: P10675199DT02H48M05.4775807S. |
-| – tempo limite da atualização | A quantidade de tempo a atualização global tem de concluir antes de ser executada FailureAction. Medido em milissegundos.  Predefinido\: P10675199DT02H48M05.4775807S. |
-| --warning-as-error | Os avisos de avaliação de estado de funcionamento com a gravidade do mesmo como erros. |
+| – atualização-domínio-tempo limite | A quantidade de tempo de cada domínio de atualização tem de concluir antes de ser executada FailureAction.  Predefinido\: P10675199DT02H48M05.4775807S. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
+| – tempo limite da atualização | A quantidade de tempo a atualização global tem de concluir antes de ser executada FailureAction.  Predefinido\: P10675199DT02H48M05.4775807S. <br><br> Em primeiro lugar será interpretado como uma cadeia que representa uma duração ISO 8601. Se isso falhar, ela é interpretada como um número que representa o número total de milissegundos. |
+| --warning-as-error | Indica se os avisos são tratados com a mesma gravidade como erros. |
 
 ### <a name="global-arguments"></a>Argumentos global
 

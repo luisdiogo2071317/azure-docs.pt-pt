@@ -2,16 +2,16 @@
 title: Aplicações de composição do batch
 description: Aplicações pré-instaladas de processamento de Batch
 services: batch
-author: mscurrell
-ms.author: markscu
-ms.date: 08/02/2018
+author: laurenhughes
+ms.author: lahugh
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 28acd1b7275694d38a52f14d2b2c32b79cc8183e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 7cc19c8def9e162c752efab776d0b6f5118bfde2
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40034828"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320953"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Aplicações pré-instaladas nas imagens VM de composição
 
@@ -34,11 +34,11 @@ Algumas aplicações suportam apenas o Windows, mas a maioria, é suportada no W
 ## <a name="applications-on-windows-server-2016-rendering-nodes"></a>Aplicações em nós de composição do Windows Server 2016
 
 * Autodesk Maya I/O 2017 Atualização 5 (versão 17.4.5459)
-* Autodesk Maya e/s 2018 atualização 3 (versão 18.3.0.7040)  
-* Autodesk 3ds Max e/s de 2019 atualização 1 (versão 21.10.1314)
+* Autodesk Maya e/s 2018 atualização 4 (versão 18.4.0.7622)  
+* Autodesk 3ds Max e/s de 2019 atualização 1 (versão 21.2.0.2219)
 * Autodesk 3ds Max I/O 2018 Atualização 4 (versão 20.4.0.4254)
-* Autodesk Arnold for Maya (Arnold versão 5.0.1.1) MtoA-2.0.1.1-2017
-* Autodesk Arnold for Maya (Arnold versão 5.0.1.4) MtoA-2.0.2.3-2018
+* Autodesk Arnold para Maya 2017 (Arnold versão 5.2.0.1) MtoA-3.1.0.1-2017
+* Autodesk Arnold para Maya 2018 (Arnold versão 5.2.0.1) MtoA-3.1.0.1-2018
 * Autodesk Arnold para 3ds Max (Arnold versão 5.0.2.4)(version 1.2.926)
 * Chaos Group V-Ray for Maya (versão 3.52.03)
 * Chaos Group V-Ray for 3ds Max (versão 3.60.02)

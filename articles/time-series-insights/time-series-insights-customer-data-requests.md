@@ -1,6 +1,6 @@
 ---
-title: Dados do cliente solicitar recursos no Azure Time Series Insights
-description: Resumo das funcionalidades de pedido de dados do cliente.
+title: Dados de cliente do Azure Time Series Insights - dados do cliente do pedido de recursos do Azure Time Series Insights | Documentos da Microsoft
+description: Resumo das funcionalidades de pedido de dados de cliente do Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
 manager: cshankar
@@ -8,12 +8,13 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
-ms.openlocfilehash: 4696cdaf96a73c54334f553a0affe459e3476946
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: c749a61fa26b13ffe67c5913d1a11b6c1f0e186b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629740"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276065"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados do cliente
 

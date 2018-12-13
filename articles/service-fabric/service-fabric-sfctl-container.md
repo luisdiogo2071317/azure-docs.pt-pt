@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 27108d27ee27346e4cba44e6778faff56df70a36
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 455b2a70568566bff5b1ea4c185568a1758f7db3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495133"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274909"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Contentor de execução relacionados com os comandos num nó de cluster.
@@ -28,22 +28,22 @@ Contentor de execução relacionados com os comandos num nó de cluster.
 
 |Comando|Descrição|
 | --- | --- |
-| api de invocar | Invoca a REST API do contentor. |
-| registos | Ao obter registos de contentor. |
+| api de invocar | Invoca a API de contentor num contêiner implementado num nó do Service Fabric para o pacote de código específico. |
+| registos | Obtém os registos de contentor para contentor implementado num nó do Service Fabric para o pacote de código específico. |
 
 ## <a name="sfctl-container-invoke-api"></a>contentor de sfctl invocar-api
-Invoca a REST API do contentor.
+Invoca a API de contentor num contêiner implementado num nó do Service Fabric para o pacote de código específico.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| – id de aplicação [necessário] | Identidade da aplicação. |
-| – código-pacote--id de instância [necessário] | ID de instância de pacote do código, que pode ser obtido por "serviço código--lista de pacotes". |
-| -nome de pacote de código [necessário] | Nome do pacote de código. |
+| – id de aplicação [necessário] | A identidade da aplicação. <br><br> Isso normalmente é o nome completo do aplicativo sem que o "recursos de infraestrutura\:" esquema de URI. A partir da versão 6.0, são delimitados nomes hierárquicos com o "\~" caráter. Por exemplo, se o nome da aplicação é "recursos de infraestrutura\:app1/myapp /", a identidade da aplicação seria "myapp\~app1" em 6.0 + e "myapp/app1" nas versões anteriores. |
+| – código-pacote--id de instância [necessário] | ID identifica exclusivamente uma instância de pacote de código implementada num nó do service fabric. <br><br> Podem ser obtidos por "serviço código--lista de pacotes". |
+| -nome de pacote de código [necessário] | O nome do pacote de código especificado no manifesto de serviço registado como parte de um tipo de aplicação no cluster do Service Fabric. |
 | --api-uri-caminho do contentor [necessário] | Caminho de URI da API REST do contentor, utilize "{id}" em vez de nome/id de contentor. |
 | --nome do nó [necessário] | O nome do nó. |
-| -nome de manifesto de serviço [necessário] | Nome do manifesto do serviço. |
+| -nome de manifesto de serviço [necessário] | O nome de um manifesto de serviço registado como parte de um tipo de aplicação no cluster do Service Fabric. |
 | – contentores-api-corpo | Corpo do pedido HTTP para o contentor REST API. |
 | – contentores-api-tipo de conteúdo | Tipo de conteúdo para o contentor REST API, a predefinição é "application/json". |
 | – contentores-api-http-verbo | Verbo HTTP para o contentor REST API, o padrão é GET. |
@@ -60,18 +60,18 @@ Invoca a REST API do contentor.
 | -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-container-logs"></a>registos de contentor sfctl
-Ao obter registos de contentor.
+Obtém os registos de contentor para contentor implementado num nó do Service Fabric para o pacote de código específico.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| – id de aplicação [necessário] | Identidade da aplicação. |
+| – id de aplicação [necessário] | A identidade da aplicação. <br><br> Isso normalmente é o nome completo do aplicativo sem que o "recursos de infraestrutura\:" esquema de URI. A partir da versão 6.0, são delimitados nomes hierárquicos com o "\~" caráter. Por exemplo, se o nome da aplicação é "recursos de infraestrutura\:app1/myapp /", a identidade da aplicação seria "myapp\~app1" em 6.0 + e "myapp/app1" nas versões anteriores. |
 | – código-pacote--id de instância [necessário] | ID de instância de pacote do código, que pode ser obtido por "serviço código--lista de pacotes". |
-| -nome de pacote de código [necessário] | Nome do pacote de código. |
+| -nome de pacote de código [necessário] | O nome do pacote de código especificado no manifesto de serviço registado como parte de um tipo de aplicação no cluster do Service Fabric. |
 | --nome do nó [necessário] | O nome do nó. |
-| -nome de manifesto de serviço [necessário] | Nome do manifesto do serviço. |
-| – Cauda | Só devolva este número de linhas de registo do fim dos registos. Especifica como um número inteiro ou todas para todas as linhas de log de saída. Predefinições para "todos". |
+| -nome de manifesto de serviço [necessário] | O nome de um manifesto de serviço registado como parte de um tipo de aplicação no cluster do Service Fabric. |
+| – Cauda | Número de linhas para mostrar a partir do final dos registos. A predefinição é 100. 'tudo' para mostrar os registos completos. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos global

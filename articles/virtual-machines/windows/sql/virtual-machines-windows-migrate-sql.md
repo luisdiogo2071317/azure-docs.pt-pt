@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: jroth
-ms.openlocfilehash: 0677faa90c73ffe4c0c1c48600c2f1ef2d05eb50
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 298a8597ae111550dfbd44d1e7bd9efb212f08af
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628788"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323222"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrar uma base de dados do SQL Server para o SQL Server numa VM do Azure
 
@@ -36,7 +36,7 @@ Os métodos de migração primária são:
 * Desanexar e, em seguida, copie os ficheiros de dados e de registo para o armazenamento de Blobs do Azure e, em seguida, anexar ao SQL Server na VM do Azure a partir do URL
 * Converter máquina física no local para o Hyper-V VHD, carregar para o armazenamento de Blobs do Azure e, em seguida, implementar como nova VM com a carregar o VHD
 * Envie o disco rígido usando o serviço de importação/exportação do Windows
-* Se tiver uma implementação do AlwaysOn no local, utilize o [Assistente para adicionar Azure réplica](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) para criar uma réplica no Azure e, em seguida, a ativação pós-falha, os utilizadores a apontar para a instância de base de dados do Azure
+* Se tiver uma implementação de grupo de Disponibilidade AlwaysOn no local, utilize o [Assistente para adicionar Azure réplica](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) para criar uma réplica no Azure e, em seguida, a ativação pós-falha, os utilizadores a apontar para a instância de base de dados do Azure
 * Utilizar o SQL Server [replicação transacional](https://msdn.microsoft.com/library/ms151176.aspx) para configurar a instância de servidor SQL do Azure como um subscritor e, em seguida, desative a replicação, os utilizadores a apontar para a instância de base de dados do Azure
 
 > [!TIP]

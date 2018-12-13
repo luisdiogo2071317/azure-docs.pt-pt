@@ -1,6 +1,6 @@
 ---
-title: Predefinidas de extração de dados, a linguagem natural, a imagem, processamento de habilidades (Azure Search) | Documentos da Microsoft
-description: Extração de dados, linguagem natural, capacidades cognitivas de processamento de imagens adicionar semântica e a estrutura a conteúdos não processados num pipeline do Azure procurar.
+title: Extração de dados incorporada, linguagem natural, imagem processamento - Azure Search
+description: Extração de dados, linguagem natural, capacidades cognitivas de processamento de imagens adicionar semântica e a estrutura a conteúdos não processados num pipeline do Azure Search.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -9,19 +9,22 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: c342eca8f27db713e139c187147abddd80eb854e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: bc1353ffb4514622ce0ef6e5c3ced76adc7f999f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734539"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314793"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Competências predefinidas para melhoria do conteúdo (Azure Search)
 
 Neste artigo, ficará a conhecer as capacidades cognitivas fornecidas com o Azure Search. R *competências cognitivas* é uma operação que transforma o conteúdo de alguma forma. Muitas vezes, é um componente que extrai dados ou infere a estrutura e, portanto, aumenta a nossa compreensão dos dados de entrada. Quase sempre, a saída é baseado em texto. R *conjunto de capacidades* é o conjunto de habilidades que definem o pipeline de melhoria. 
 
 > [!NOTE]
-> A Pesquisa Cognitiva está em pré-visualização pública. Conjunto de capacidades execução e a extração de imagem e a normalização atualmente são oferecidos gratuitamente. Posteriormente, os preços para estas capacidades serão anunciado. 
+> A partir de 21 de Dezembro de 2018, poderá associar um recurso dos serviços cognitivos com um conjunto de capacidades do Azure Search. Isso permitirá que comecem a cobrança de consumo para a execução do conjunto de capacidades. Esta data, podemos também começar a cobrar extração de imagem como parte da fase de aberturas de documentos. Continuaremos a oferecer a extração de texto de documentos sem custos adicionais.
+>
+> A execução das habilidades internas será cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/) . Preços de extração de imagem são cobrados ao preço de pré-visualização e está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba mais [mais](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="predefined-skills"></a>Competências predefinidas
 
@@ -43,4 +46,4 @@ Várias habilidades são flexíveis o que consomem ou produzir. Em geral, a maio
 
 + [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
 + [Definição de interface de competências personalizada](cognitive-search-custom-skill-interface.md)
-+ [Tutorial: Enriquecida indexação com pesquisa cognitiva](cognitive-search-tutorial-blob.md)
++ [Tutorial: Indexação com pesquisa cognitiva enriquecida](cognitive-search-tutorial-blob.md)

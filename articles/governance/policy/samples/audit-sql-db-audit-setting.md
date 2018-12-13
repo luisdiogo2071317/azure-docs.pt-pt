@@ -1,5 +1,5 @@
 ---
-title: Exemplo de política do Azure – Auditar a definição de auditoria do nível do SQL Server
+title: Exemplo - BD do SQL de auditoria de nível de definição de auditoria
 description: Esta política de exemplo faz uma auditoria das definições de auditoria da base de dados SQL se essas definições não corresponderem a uma definição especificada.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 22755f2be4a335a8527fb4723aa329e3048b9f5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 24313c83809734367459937d2b02441896b6a5fb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970741"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315320"
 ---
 # <a name="audit-sql-db-level-audit-setting"></a>Auditar a definição de auditoria do nível de BD SQL
 
@@ -69,6 +68,6 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

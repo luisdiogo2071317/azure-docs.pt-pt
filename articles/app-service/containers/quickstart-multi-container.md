@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação com vários contentores (pré-visualização) na Aplicação Web para Contentores do Azure com uma configuração do Docker Compose
+title: Criar aplicação de vários contentor com o Docker Compose - serviço de aplicações do Azure
 description: Implemente a sua primeira aplicação com vários contentores na Aplicação Web para Contentores do Azure em minutos
 keywords: serviço de aplicações do azure, aplicação web, linux, docker, compor, vários contentores, vários contentores, aplicação web para contentores, vários contentores, contentor, kubernetes, wordpress, bd do azure para mysql, base de dados de produção com contentores
 services: app-service\web
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 1d54d914edb306b89dc6f2604aa5af3d17cb535d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 404be7a064e0e4b09178830b7802192e8775e121
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576787"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316585"
 ---
-# <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Criar uma aplicação com vários contentores (pré-visualização) ao utilizar a Aplicação Web para Contentores
+# <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Criar uma aplicação de vários contentores (pré-visualização) com uma configuração de Docker Compose
 
 A [Aplicação Web para Contentores](app-service-linux-intro.md) proporciona uma forma flexível de utilizar imagens do Docker. Este início rápido mostra como implementar uma aplicação com vários contentores na Aplicação Web para Contentores no [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) com uma configuração do Docker Compose. Para o Kubernetes e uma solução completa ponto a ponto com a BD do Azure para MySQL, siga o [tutorial de vários contentores](tutorial-multi-container-app.md).
 

@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: SDK de Pesquisa de Notícias do Bing, Java'
+title: 'Início rápido: Efetua uma pesquisa de notícias - SDK de pesquisa de notícias do Bing para Java'
 titleSuffix: Azure Cognitive Services
-description: Saiba como configurar a aplicação de consola do SDK de Pesquisa de Notícias do Bing.
+description: Utilize este guia de introdução para pesquisar notícias com o SDK de pesquisa de notícias do Bing para Java e processar a resposta.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: f01f31c5cfc30ac31ea41db2a8504454e1f05799
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 056d75a1039e805786b14aa19c896bda78d04150
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316876"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251594"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-java"></a>Início Rápido: SDK de Pesquisa de Notícias do Bing com Java
+# <a name="quickstart-bing-news-search-sdk-with-java"></a>Início rápido: Pesquisa de notícias do Bing SDK com Java
 
 O SDK de Pesquisa de Notícias do Bing disponibiliza a funcionalidade de API REST para consultas de notícias e análise de resultados.  Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
 

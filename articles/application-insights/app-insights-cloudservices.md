@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: b52604fa19a5598e8aff5b8a1ea25e7361add553
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 22dab5ecaba71093056e9bb2f6843c19896f845d
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997020"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323393"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para os Serviços Cloud do Azure
 As [aplicações de Serviço cloud do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorizadas pelo [Application Insights][start] quanto à disponibilidade, ao desempenho, às falhas e à utilização, ao combinar dados de SDKs do Application Insights com dados do [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dos seus Serviços Cloud. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -95,14 +95,14 @@ Se tiver optado por utilizar um recurso do Application Insights separado para ca
 
 Isto tem o efeito de inserir as chaves de instrumentação do Application Insights nos ficheiros com o nome `ServiceConfiguration.*.cscfg`. ([Código de exemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
 
-Se quiser variar o nível de informações de diagnóstico enviadas para o Application Insights, pode fazê-lo [ao editar os ficheiros `.cscfg` diretamente](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
+Se quiser variar o nível de informações de diagnóstico enviadas para o Application Insights, pode fazê-lo [ao editar os ficheiros `.cscfg` diretamente](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 ## <a name="sdk"></a>Instalar o SDK em cada projeto
 Esta opção acrescenta a capacidade de adicionar telemetria empresarial personalizada a qualquer função, para uma análise mais cuidada relativamente à utilização e ao desempenho da sua aplicação.
 
 No Visual Studio, configure o SDK do Application Insights para cada projeto de aplicação na cloud.
 
-1. **Funções da Web**: clique com o botão direito do rato e escolha **Configurar o Application Insights** ou **Adicionar > Telemetria do Application Insights**.
+1. **Funções da Web**: Com o botão direito no projeto e escolha **configurar o Application Insights** ou **adicionar > telemetria do Application Insights**.
 
 2. **Funções de trabalho**: 
  * Com o botão direito no projeto e selecione **gerir pacotes NuGet**.
@@ -162,7 +162,7 @@ Nas funções de trabalho, o módulo de pedidos recolhe automaticamente dados so
 
 Pode acompanhar as chamadas para as funções de trabalho da mesma forma que os pedidos HTTP para capturar o desempenho das mesmas. No Application Insights, o tipo de telemetria Pedido mede uma unidade de trabalho com nome do lado do servidor que pode ser temporizada e ter êxito ou falhar independentemente. Embora os pedidos HTTP possam ser capturados automaticamente pelo SDK, pode inserir o seu próprio código para acompanhar os pedidos para as funções de trabalho.
 
-Veja as duas funções de trabalho de exemplo instrumentadas para reportar pedidos, [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) e [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB).
+Veja as duas funções de trabalho de exemplo instrumentadas para reportar pedidos: [WorkerRoleA](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleA) e [WorkerRoleB](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/WorkerRoleB)
 
 ## <a name="exceptions"></a>Exceções
 Veja [Monitoring Exceptions in Application Insights](app-insights-asp-net-exceptions.md) (Monitorizar Exceções no Application Insights) para obter informações sobre como recolher exceções não processadas a partir de diferentes tipos de aplicações Web.
@@ -203,7 +203,7 @@ Quando pode ver o que originou um pedido falhado ou com latência elevada, está
 Eis como:
 
 * Defina o Id de correlação numa CallContext, conforme mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). Neste caso, estamos a utilizar o ID de Pedido como o Id de correlação
-* Adicione uma implementação de TelemetryInitializer personalizada para definir o Operation.Id como o correlationId definido acima. Está disponível um exemplo em [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
+* Adicione uma implementação de TelemetryInitializer personalizada para definir o Operation.Id como o correlationId definido acima. Há um exemplo aqui: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
 * Adicione o inicializador de telemetria personalizado. Poderia fazer isso no ficheiro applicationinsights. config ou no código como mostrado [aqui](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>Telemetria de cliente
@@ -230,7 +230,7 @@ Compilou para .NET 4.6? O 4.6 não é suportado automaticamente nas funções do
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Configure sending Azure Diagnostics to Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) (Configurar o envio de Diagnósticos do Azure para o Application Insights)
+* [Configure sending Azure Diagnostics to Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md) (Configurar o envio de Diagnósticos do Azure para o Application Insights)
 * [Automate creation of Application Insights resources](app-insights-powershell.md) (Automatizar a criação de recursos do Application Insights)
 * [Automatizar o Diagnóstico do Azure](app-insights-powershell-azure-diagnostics.md)
 * [Funções do Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)

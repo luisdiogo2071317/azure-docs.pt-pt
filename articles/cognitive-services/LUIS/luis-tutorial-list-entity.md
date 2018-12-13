@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: cb8f2ef4afa83b8e4d258a4227795593242e84bd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: be2c7aea356f6d7b73438499b7e4d680ed4bad7c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082259"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259244"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Utilize uma entidade de lista para aumentar a deteção de entidade 
 Este tutorial demonstra o uso de um [listar entidade](luis-concept-entity-types.md) para aumentar a deteção de entidade. Não é necessário ser rotulada como são uma correspondência exata dos termos de entidades de lista.  
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber como:
 > [!Tip]
 > Se ainda não tiver uma subscrição, pode se registrar para uma [conta gratuita](https://azure.microsoft.com/free/).
 
-Todo o código neste tutorial está disponível na [repositório do github de exemplos de LUIS](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
+Todo o código neste tutorial está disponível na [repositório do GitHub de exemplos de LUIS](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>Utilizar a aplicação HomeAutomation
 O HomeAutomation aplicação dá-controle de dispositivos, como as luzes, sistemas de entretenimento e ambiente controla como aquecer e refrigeração. Estes sistemas de ter vários nomes diferentes que podem incluir os nomes, nicknames, acrônimos e gíria do fabricante. 

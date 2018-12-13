@@ -1,5 +1,5 @@
 ---
-title: Compreender a retenção de dados no seu ambiente do Azure Time Series Insights | Documentos da Microsoft
+title: Retenção de dados do Azure Time Series Insights - compreender a retenção de dados no seu ambiente do Azure Time Series Insights | Documentos da Microsoft
 description: Este artigo descreve as duas definições que controlam a retenção de dados no seu ambiente do Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: e265a66b841530d1133d760ebdcdf56046d1aee1
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: c46e385caaa343fe9ba64e1aa4516f1335039cd3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364136"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272155"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Compreender a retenção de dados no Time Series Insights
 
@@ -47,7 +48,7 @@ Compare o comportamento de retenção de dados:
 - Os dados ingeridos mais antigos são removidos primeiro (abordagem FIFO).
 
 ### <a name="example-1"></a>Exemplo 1:
-Considere um ambiente de exemplo com o comportamento de retenção **Continue a entrada e remover dados antigos**: neste exemplo, **período de retenção de dados** está definido como 400 dias. **Capacidade** está definido como unidade de S1, que contém a 30 GB de capacidade total.   Vamos supor que dados de entrada acumulem a 500 MB por dia em média. Este ambiente pode manter apenas os 60 dias de dados tendo em conta a taxa de dados de entrada, uma vez que a capacidade máxima é atingida em 60 dias. Dados de entrada acumulem como: 500 MB cada dia x 60 dias = 30 GB. 
+Considere um ambiente de exemplo com o comportamento de retenção **Continue a entrada e remover dados antigos**: Neste exemplo, **período de retenção de dados** está definido como 400 dias. **Capacidade** está definido como unidade de S1, que contém a 30 GB de capacidade total.   Vamos supor que dados de entrada acumulem a 500 MB por dia em média. Este ambiente pode manter apenas os 60 dias de dados tendo em conta a taxa de dados de entrada, uma vez que a capacidade máxima é atingida em 60 dias. Acumulem os dados de entrada como: 500 MB cada dia x 60 dias = 30 GB. 
 
 Neste exemplo, no dia 61st, o ambiente mostra os dados mais recentes, mas remove os dados mais antigos, com mais de 60 dias. A remoção torna espaço para os novos dados de transmissão em fluxo, para que os novos dados poderão continuar a ser explorada. 
 

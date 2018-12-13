@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma aplicação Web de página única – API de Pesquisa de Imagens do Bing'
+title: 'Tutorial: Criar uma aplicação web de página única - API de pesquisa de imagens do Bing'
 titleSuffix: Azure cognitive services
 description: A API de Pesquisa de Imagens do Bing permite-lhe procurar na Web imagens relevantes e de alta qualidade. Utilize este tutorial para criar uma aplicação Web de página única que possa enviar consultas de pesquisa para a API e apresentar os resultados na página Web.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
-ms.openlocfilehash: e37cb9b9412d257ab238f23b90e4a1077070b2b6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: e2013b28e8c829d49efe662a9b0eba245c6d5fab
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297456"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253957"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de Pesquisa de Imagens do Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de pesquisa de imagens do Bing
 
 A API de Pesquisa de Imagens do Bing permite-lhe procurar na Web imagens relevantes e de alta qualidade. Utilize este tutorial para criar uma aplicação Web de página única que possa enviar consultas de pesquisa para a API e apresentar os resultados na página Web. Este tutorial é semelhante ao [tutorial correspondente](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) para Pesquisa na Web do Bing.
 
@@ -34,7 +34,7 @@ O código fonte completo para este tutorial está disponível no [GitHub](https:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A versão mais recente do [Node.js](https://nodejs.org/).
-* A arquitetura [Express.js](https://expressjs.com/) para Node.js. As instruções de instalação para o código fonte estão disponíveis no ficheiro readme de exemplo do gitHub.
+* A arquitetura [Express.js](https://expressjs.com/) para Node.js. Instruções de instalação para o código-fonte estão disponíveis no ficheiro Leia-me de exemplo do GitHub.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -402,7 +402,7 @@ Por fim, inicie o proxy do CORS com o comando seguinte:
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Extrair os detalhes da Imagem com a API de Pesquisa de Imagens do Bing](tutorial-image-post.md)

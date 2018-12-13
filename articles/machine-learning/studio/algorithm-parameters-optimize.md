@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
@@ -16,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: b0494a9da422b7c0effc14ff4188d3a5b20b8e9d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 57561c9841297b7ea2991bda1e94065a854597cd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081936"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269418"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Escolher parâmetros para otimizar os seus algoritmos no Azure Machine Learning Studio
 
 Este tópico descreve como escolher o certo hiper-parâmetros definido para um algoritmo no Azure Machine Learning. A maioria dos algoritmos de machine learning tem parâmetros para definir. Quando preparar um modelo, terá de fornecer valores para esses parâmetros. A eficácia do modelo preparado depende dos parâmetros de modelo que escolher. O processo de localizar o conjunto ótimo de parâmetros é conhecido como *seleção de modelos*.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Existem várias formas para modelar a seleção. No machine learning, a validação cruzada é um dos métodos mais amplamente utilizados para a seleção de modelo e é o mecanismo de seleção de modelo predefinido no Azure Machine Learning. Como o Azure Machine Learning suporta R e Python, sempre é possível implementar seus próprios mecanismos de seleção de modelo ao utilizar o R ou Python.
 
 Existem quatro passos no processo de encontrar o melhor conjunto de parâmetro:
 
-1. **Definir o espaço de parâmetro**: para o algoritmo, decida primeiro os valores de parâmetros exatos que queira considerar.
-2. **Definir as definições de validação cruzada**: decidir como escolher a subconjuntos de validação cruzada do conjunto de dados.
-3. **Definir a métrica**: decida que métrica a utilizar para determinar o melhor conjunto de parâmetros, como precisão, a média de raiz ao quadrado, erro, precisão, lembre-se ou pontuação de f.
-4. **Treinar, avaliar e comparar**: para cada combinação exclusiva de valores de parâmetros, a validação cruzada é transportada por e com base na métrica de erro que definir. Após a avaliação e comparação, pode escolher o modelo com melhor desempenho.
+1. **Definir o espaço de parâmetro**: Para o algoritmo, decida primeiro os valores de parâmetros exatos que queira considerar.
+2. **Definir as definições de validação cruzada**: Decida como escolher a subconjuntos de validação cruzada do conjunto de dados.
+3. **Definir a métrica**: Decida quais métrica a utilizar para determinar o melhor conjunto de parâmetros, como precisão, média de raiz ao quadrado, erro, precisão, lembre-se ou pontuação f.
+4. **Treinar, avaliar e comparar**: Para cada combinação exclusiva de valores de parâmetros, a validação cruzada é transportada por e com base na métrica de erro que definir. Após a avaliação e comparação, pode escolher o modelo com melhor desempenho.
 
 A imagem seguinte ilustra mostra como isso pode ser obtido no Azure Machine Learning.
 
 ![Encontrar o melhor conjunto de parâmetros](./media/algorithm-parameters-optimize/fig1.png)
 
 ## <a name="define-the-parameter-space"></a>Definir o espaço de parâmetro
-Pode definir o parâmetro definido para o passo de inicialização do modelo. O painel de parâmetro de todos os algoritmos de machine learning tem dois modos de instrutor: *único parâmetro* e *parâmetro intervalo*. Escolha o modo de intervalo de parâmetro. No modo de intervalo de parâmetro, pode introduzir vários valores para cada parâmetro. Pode introduzir valores separados por vírgulas na caixa de texto.
+Pode definir o parâmetro definido para o passo de inicialização do modelo. O painel de parâmetros de algoritmos de todos os machine learning tem dois modos de instrutor: *Único parâmetro* e *intervalo do parâmetro*. Escolha o modo de intervalo de parâmetro. No modo de intervalo de parâmetro, pode introduzir vários valores para cada parâmetro. Pode introduzir valores separados por vírgulas na caixa de texto.
 
 ![Árvore de decisões elevada de duas classes, o único parâmetro](./media/algorithm-parameters-optimize/fig2.png)
 

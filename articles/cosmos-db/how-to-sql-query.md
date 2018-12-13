@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 86ad385488d9661abd52a2bd1a2d561956f0cbb3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4f2a8431e353246b1f7304e7bfe30d13a7b4af4b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082565"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139304"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Exemplos de consulta SQL para consultar dados do Azure Cosmos DB
 
@@ -21,7 +21,7 @@ O Azure Cosmos DB suporta itens de consultas com o SQL (Structured Query Languag
 
 * O Azure Cosmos DB utiliza o modelo de programação do JavaScript como a base para a linguagem de consulta. A API de SQL está enraizada no sistema de tipos do JavaScript, avaliação de expressões e invocação de função. No folheio fornece um modelo de programação natural para as projeções relacionais, a navegação hierárquica entre itens JSON, associações automáticas, consultas espaciais e invocação de funções definidas pelo utilizador (UDFs) escritos inteiramente no JavaScript, entre outros recursos.
 
-Este artigo explica alguns exemplos de consultas SQL através da utilização de itens JSON simples. Para saber mais sobre a sintaxe de linguagem de SQL do Azure Cosmos DB, veja [referência de sintaxe SQL](sql-api-sql-query-reference.md) artigo.
+Este artigo explica alguns exemplos de consultas SQL através da utilização de itens JSON simples. Para saber mais sobre a sintaxe de linguagem de SQL do Azure Cosmos DB, veja [referência de sintaxe SQL](sql-api-query-reference.md) artigo.
 
 ## <a id="GettingStarted"></a>Começar a utilizar com os comandos SQL
 
@@ -86,7 +86,7 @@ Aqui está um segundo item com uma diferença sutil – `givenName` e `familyNam
 
 Agora vamos experimentar algumas consultas em relação a esses dados para compreender alguns dos principais aspectos da linguagem de consulta SQL do Azure Cosmos DB.
 
-**Consulta1**: por exemplo, a seguinte consulta devolve os itens em que o campo id corresponde `AndersenFamily`. Uma vez que é um `SELECT *`, o resultado da consulta é o item JSON completo, para saber mais sobre a sintaxe, consulte [instrução SELECT](sql-api-sql-query-reference.md#select-query):
+**Consulta1**: Por exemplo, a seguinte consulta devolve os itens em que o campo id corresponde `AndersenFamily`. Uma vez que é um `SELECT *`, o resultado da consulta é o item JSON completo, para saber mais sobre a sintaxe, consulte [instrução SELECT](sql-api-query-reference.md#select-query):
 
 ```sql
     SELECT *
@@ -116,7 +116,7 @@ Agora vamos experimentar algumas consultas em relação a esses dados para compr
     }]
 ```
 
-**Query2:** agora, considere o caso em que temos de reformatar a saída JSON numa forma diferente. Esta consulta projeta um novo objeto JSON com dois campos selecionados, o nome e a cidade, quando cidade do endereço tem o mesmo nome, como o estado. Neste caso, corresponde a "NY, NY".
+**Query2:** Agora, considere o caso em que temos de reformatar a saída JSON numa forma diferente. Esta consulta projeta um novo objeto JSON com dois campos selecionados, o nome e a cidade, quando cidade do endereço tem o mesmo nome, como o estado. Neste caso, corresponde a "NY, NY".
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -135,7 +135,7 @@ Agora vamos experimentar algumas consultas em relação a esses dados para compr
     }]
 ```
 
-**Query3**: esta consulta devolve todos os nomes de elementos subordinados na família cujo id corresponde aos `WakefieldFamily` ordenadas por cidade de residência.
+**Query3**: Esta consulta devolve todos os nomes de elementos subordinados na família cujo id corresponde aos `WakefieldFamily` ordenadas por cidade de residência.
 
 ```sql
     SELECT c.givenName
@@ -166,7 +166,7 @@ Seguem-se alguns aspectos da linguagem de consulta do Cosmos DB por meio de exem
 
 ## <a id="SelectClause"></a>Cláusula SELECT
 
-Cada consulta é composta por uma cláusula SELECT e FROM opcional e cláusulas WHERE por padrões ANSI SQL. Normalmente, para cada consulta, a origem na cláusula FROM é enumerada. Em seguida, o filtro na cláusula WHERE é aplicado na origem para obter um subconjunto de itens JSON. Por fim, a cláusula SELECT é utilizada para os valores JSON de pedidos na lista de seleção do projeto. Para saber mais sobre a sintaxe, consulte [sintaxe SELECIONE](sql-api-sql-query-reference.md#bk_select_query).
+Cada consulta é composta por uma cláusula SELECT e FROM opcional e cláusulas WHERE por padrões ANSI SQL. Normalmente, para cada consulta, a origem na cláusula FROM é enumerada. Em seguida, o filtro na cláusula WHERE é aplicado na origem para obter um subconjunto de itens JSON. Por fim, a cláusula SELECT é utilizada para os valores JSON de pedidos na lista de seleção do projeto. Para saber mais sobre a sintaxe, consulte [sintaxe SELECIONE](sql-api-query-reference.md#bk_select_query).
 
 O exemplo seguinte mostra uma consulta SELECT típica.
 
@@ -260,7 +260,7 @@ Vamos examinar a função de `$1` aqui. O `SELECT` cláusula tem de criar um obj
 
 ## <a id="FromClause"></a>Cláusula FROM
 
-A partir de < from_specification > cláusula é opcional, a menos que a origem é filtrada ou prevista mais tarde na consulta. Para saber mais sobre a sintaxe, consulte [desde sintaxe](sql-api-sql-query-reference.md#bk_from_clause). Uma consulta como `SELECT * FROM Families` indica que o contêiner de famílias inteiro é a origem durante o qual a enumeração. Um identificador especial raiz pode ser utilizado para representar o contentor em vez de utilizar o nome do contentor.
+A partir de < from_specification > cláusula é opcional, a menos que a origem é filtrada ou prevista mais tarde na consulta. Para saber mais sobre a sintaxe, consulte [desde sintaxe](sql-api-query-reference.md#bk_from_clause). Uma consulta como `SELECT * FROM Families` indica que o contêiner de famílias inteiro é a origem durante o qual a enumeração. Um identificador especial raiz pode ser utilizado para representar o contentor em vez de utilizar o nome do contentor.
 A lista seguinte contém as regras que são impostas por consulta:
 
 * O contentor pode ser um alias, como `SELECT f.id FROM Families AS f` ou simplesmente `SELECT f.id FROM Families f`. Aqui `f` é o equivalente de `Families`. `AS` é o identificador de uma palavra-chave opcional para o alias.  
@@ -313,7 +313,7 @@ A origem também pode ser reduzida a um subconjunto mais pequeno. Por exemplo, p
     ]
 ```
 
-Embora o exemplo acima usado uma matriz, como a fonte, um objeto também poderia ser usado como a origem, o que é o que é mostrado no exemplo seguinte: qualquer valor JSON válido (não indefinido) que pode ser encontrado na origem é contemplado para inclusão no resultado da consulta. Se não tem algumas famílias um `address.state` valor, que estão excluídos no resultado da consulta.
+Embora o exemplo acima usado uma matriz, como a fonte, um objeto também poderia ser utilizado como a origem, o que é o que é mostrado no exemplo a seguir: Qualquer valor JSON válido (não indefinido) que pode ser encontrado na origem é considerado para inclusão no resultado da consulta. Se não tem algumas famílias um `address.state` valor, que estão excluídos no resultado da consulta.
 
 **Consulta**
 
@@ -333,7 +333,7 @@ Embora o exemplo acima usado uma matriz, como a fonte, um objeto também poderia
 
 ## <a id="WhereClause"></a>Cláusula WHERE
 
-A cláusula WHERE (**`WHERE <filter_condition>`**) é opcional. Especifica as condições que os itens JSON fornecidos pela origem tem de cumprir para ser incluído como parte do resultado. Qualquer item JSON têm de avaliar as condições especificadas como "true" para ser considerado para o resultado. A cláusula WHERE é usada pela camada de índice para determinar o subconjunto mais pequeno absoluto de itens de origem que podem fazer parte do resultado. Para saber mais sobre a sintaxe, consulte [sintaxe de onde](sql-api-sql-query-reference.md#bk_where_clause).
+A cláusula WHERE (**`WHERE <filter_condition>`**) é opcional. Especifica as condições que os itens JSON fornecidos pela origem tem de cumprir para ser incluído como parte do resultado. Qualquer item JSON têm de avaliar as condições especificadas como "true" para ser considerado para o resultado. A cláusula WHERE é usada pela camada de índice para determinar o subconjunto mais pequeno absoluto de itens de origem que podem fazer parte do resultado. Para saber mais sobre a sintaxe, consulte [sintaxe de onde](sql-api-query-reference.md#bk_where_clause).
 
 A seguinte consulta solicita itens que contenham uma propriedade de nome cujo valor é `AndersenFamily`. Qualquer outro item que não tem uma propriedade de nome, ou onde o valor não corresponde ao `AndersenFamily` está excluído.
 
@@ -1627,7 +1627,7 @@ A figura a seguir mostra a arquitetura de oferecer suporte a consultas LINQ com 
 
 ### <a name="net-and-json-mapping"></a>.NET e o mapeamento de JSON
 
-O mapeamento entre objetos .NET e itens JSON é natural - cada campo de membro de dados é mapeado para um objeto JSON, onde o nome do campo é mapeado para a parte de "chave" do objeto e a parte de "value" é recursivamente mapeado para a parte do valor do objeto. Considere o seguinte exemplo: objeto de família o criado é mapeado para o item JSON, conforme mostrado abaixo. E vice-versa, o item JSON é mapeado para um objeto .NET.
+O mapeamento entre objetos .NET e itens JSON é natural - cada campo de membro de dados é mapeado para um objeto JSON, onde o nome do campo é mapeado para a parte de "chave" do objeto e a parte de "value" é recursivamente mapeado para a parte do valor do objeto. Considere o exemplo a seguir: O objeto de família criado é mapeado para o item JSON, conforme mostrado abaixo. E vice-versa, o item JSON é mapeado para um objeto .NET.
 
 **Classe c#**
 
@@ -1735,19 +1735,19 @@ Em primeiro lugar, para o sistema de tipo, damos suporte a todos os JSON tipos p
 
 Aqui está uma lista de operadores LINQ suportados no provedor de LINQ incluído com o SDK de .NET de SQL.
 
-* **Selecione**: projeções traduzir para SQL SELECT, incluindo a construção de objeto
-* **Onde**: filtros de traduzir para o SQL onde e oferecer suporte a tradução entre & &, | | e! para os operadores de SQL
-* **SelectMany**: permite que o desenrolamento de matrizes à cláusula SQL JOIN. Pode ser utilizado para expressões para filtrar os elementos de matriz de cadeia/aninhados
-* **OrderBy e OrderByDescending**: traduz-se por ordem ascendente/descendente
+* **Selecione**: Projeções traduzir para SQL SELECT, incluindo a construção de objeto
+* **Onde**: Filtros de traduzir para o SQL onde e oferecer suporte a tradução entre & &, | | e! para os operadores de SQL
+* **SelectMany**: Permite que o desenrolamento de matrizes à cláusula SQL JOIN. Pode ser utilizado para expressões para filtrar os elementos de matriz de cadeia/aninhados
+* **OrderBy e OrderByDescending**: Traduz-se por ordem ascendente/descendente
 * **Contagem**, **soma**, **Min**, **Max**, e **média** operadores de agregação e seus equivalentes de async **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, e **AverageAsync**.
-* **CompareTo**: se traduz em comparações de intervalo. Normalmente utilizado para cadeias de caracteres, uma vez que eles não são comparáveis em .NET
-* **Tirar**: traduz-se na parte superior de SQL para limitar os resultados de uma consulta
-* **Funções matemáticas**: oferece suporte à conversão de. Abs, funções Acos, Asin do NET, Atan, invisível, Cos, Exp, andar, Log, Log10, Pow, Round, início de sessão, Sin, Sqrt, Tan, Truncate para as funções internas de SQL equivalentes.
-* **As funções de cadeias de caracteres**: oferece suporte à conversão de. Concat, Contains, EndsWith do NET, IndexOf, contagem, ToLower, TrimStart, Replace, inverso, TrimEnd, StartsWith, SubString, ToUpper para as funções internas de SQL equivalentes.
-* **As funções de matriz**: oferece suporte à conversão de. Do NET Concat, Contains e contagem para as funções internas de SQL equivalentes.
-* **Funções de extensão Geoespaciais**: oferece suporte à conversão de métodos de stub distância, dentro, IsValid e IsValidDetailed para as funções internas de SQL equivalentes.
-* **Função definida pelo utilizador função extensão**: oferece suporte à conversão do método de stub UserDefinedFunctionProvider.Invoke para a função definida pelo utilizador correspondente.
-* **Diversos**: oferece suporte à conversão do coalesce e operadores condicionais. Pode traduzir contém a cadeia de caracteres contém, ARRAY_CONTAINS ou o IN SQL dependendo do contexto.
+* **CompareTo**: Se traduz em comparações de intervalo. Normalmente utilizado para cadeias de caracteres, uma vez que eles não são comparáveis em .NET
+* **Tirar**: Traduz-se na parte superior de SQL para limitar os resultados de uma consulta
+* **Funções matemáticas**: Oferece suporte à conversão de. Abs, funções Acos, Asin do NET, Atan, invisível, Cos, Exp, andar, Log, Log10, Pow, Round, início de sessão, Sin, Sqrt, Tan, Truncate para as funções internas de SQL equivalentes.
+* **As funções de cadeias de caracteres**: Oferece suporte à conversão de. Concat, Contains, EndsWith do NET, IndexOf, contagem, ToLower, TrimStart, Replace, inverso, TrimEnd, StartsWith, SubString, ToUpper para as funções internas de SQL equivalentes.
+* **As funções de matriz**: Oferece suporte à conversão de. Do NET Concat, Contains e contagem para as funções internas de SQL equivalentes.
+* **Funções Geoespaciais extensão**: Oferece suporte à conversão de métodos de stub distância, dentro, IsValid e IsValidDetailed para as funções internas de SQL equivalentes.
+* **Função definida pelo utilizador função extensão**: Oferece suporte à conversão do método de stub UserDefinedFunctionProvider.Invoke para a função definida pelo utilizador correspondente.
+* **Diversos**: Oferece suporte à conversão do coalesce e operadores condicionais. Pode traduzir contém a cadeia de caracteres contém, ARRAY_CONTAINS ou o IN SQL dependendo do contexto.
 
 ### <a name="sql-query-operators"></a>Operadores de consulta SQL
 
@@ -2117,7 +2117,7 @@ Para gerir a política de consistência de dados para consultas, utilize o `x-ms
 
 Se a política de indexação configurada no contentor não é possível suportar a consulta especificada, o servidor do Azure Cosmos DB devolve 400 "Solicitação incorreta". Esta mensagem de erro é devolvida nas consultas de intervalo com caminhos configurados para pesquisas de hash (igualdade) e para caminhos explicitamente excluídos da indexação. O `x-ms-documentdb-query-enable-scan` cabeçalho pode ser especificado para permitir que a consulta para realizar uma análise quando um índice não está disponível.
 
-Pode obter métricas detalhadas na execução da consulta, definindo `x-ms-documentdb-populatequerymetrics` cabeçalho para `True`. Para obter mais informações, consulte [métricas de consulta SQL para o Azure Cosmos DB](sql-api-sql-query-metrics.md).
+Pode obter métricas detalhadas na execução da consulta, definindo `x-ms-documentdb-populatequerymetrics` cabeçalho para `True`. Para obter mais informações, consulte [métricas de consulta SQL para o Azure Cosmos DB](sql-api-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>SDK DO C# (.NET)
 
@@ -2263,7 +2263,7 @@ O exemplo seguinte mostra como utilizar o queryDocuments na API do servidor de J
 9. Técnicas de avaliação de consulta para grandes bancos de dados [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
 10. Processamento de consultas no banco de dados relacional paralela sistemas, IEEE Computer sociedade Press, 1994
 11. Tan lu, Ooi, processamento de consultas no banco de dados relacional paralela sistemas, IEEE Computer sociedade Press, 1994.
-12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: um não-para-idiomas estrangeiros para processamento de dados, SIGMOD 2008.
+12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: PIg Latin: Um não-para-idiomas estrangeiros para processamento de dados, SIGMOD 2008.
 13. G. Graefe. A estrutura de Revezar para otimização de consultas. Dados de IEEE Eng. Bull., 18(3): 1995.
 
 [1]: ./media/how-to-sql-query/sql-query1.png

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: API para Cassandra com Python – Azure Cosmos DB | Microsoft Docs'
+title: 'Início rápido: Cassandra API com Python - Azure Cosmos DB'
 description: Este início rápido mostra como utilizar a API para Apache Cassandra do Azure Cosmos DB para criar uma aplicação de perfil com o Python.
 services: cosmos-db
 author: SnehaGunda
@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: f8a2b5711f4ee301d32a9d674bfa0ab1e47732f0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c9a0d6ce868fd7fcf14f4b4c1690c99b7f964f8a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078400"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253515"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Guia de introdução: Criar uma aplicação do Cassandra com o Python e o Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Início rápido: Criar uma aplicação do Cassandra com o Python e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -47,7 +47,7 @@ Antes de poder criar uma base de dados de documentos, tem de criar uma conta do 
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos clonar uma aplicação do Cassandra API a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente. 
+Agora, vamos clonar uma Cassandra aplicação API a partir do GitHub, definir a cadeia de ligação e executá-lo. Vai ver como é fácil trabalhar com dados programaticamente. 
 
 1. Abra uma linha de comandos. Crie uma nova pasta com o nome `git-samples`. Em seguida, feche a linha de comandos.
 

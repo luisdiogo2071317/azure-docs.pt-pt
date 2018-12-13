@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 1f5984f8f28832c33d3a5a844fde72e7286ad251
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6dc66e551c1bce94b473a356cf4648e5c2353a2b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433794"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271305"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Configurar alertas de estado de funcionamento do serviço com ServiceNow
 
@@ -154,15 +154,15 @@ Este artigo mostra-lhe como integrar alertas de estado de funcionamento do servi
 
 ## <a name="create-an-alert-using-servicenow-in-the-azure-portal"></a>Criar um alerta com ServiceNow no portal do Azure
 ### <a name="for-a-new-action-group"></a>Para um novo grupo de ação:
-1. Siga os passos 1 a 8 na [este artigo](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) para criar um alerta com um novo grupo de ação.
+1. Siga os passos 1 a 8 na [este artigo](../azure-monitor/platform/alerts-activity-log-service-notifications.md) para criar um alerta com um novo grupo de ação.
 
 1. Definir na lista de **ações**:
 
     a. **Tipo de ação:** *Webhook*
 
-    b. **Detalhes:** o ServiceNow **URL de integração** tinha guardado.
+    b. **Detalhes:** O ServiceNow **URL de integração** tinha guardado.
 
-    c. **Nome:** do Webhook nome, o alias ou o identificador.
+    c. **Nome:** Do Webhook nome, alias ou identificador.
 
 1. Selecione **guardar** quando terminar de criar o alerta.
 
@@ -177,14 +177,14 @@ Este artigo mostra-lhe como integrar alertas de estado de funcionamento do servi
 
     a. **Tipo de ação:** *Webhook*
 
-    b. **Detalhes:** o ServiceNow **URL de integração** tinha guardado.
+    b. **Detalhes:** O ServiceNow **URL de integração** tinha guardado.
 
-    c. **Nome:** do Webhook nome, o alias ou o identificador.
+    c. **Nome:** Do Webhook nome, alias ou identificador.
 
 1. Selecione **guardar** quando terminar de atualizar o grupo de ação.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Teste a sua integração de webhook através de um pedido POST de HTTP
-1. Crie o payload de estado de funcionamento do serviço que pretende enviar. Pode encontrar um payload de webhook do Estado de funcionamento do serviço do exemplo na [alertas de registo de Webhooks para atividades do Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Crie o payload de estado de funcionamento do serviço que pretende enviar. Pode encontrar um payload de webhook do Estado de funcionamento do serviço do exemplo na [alertas de registo de Webhooks para atividades do Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Crie um pedido POST de HTTP da seguinte forma:
 
@@ -201,6 +201,6 @@ Este artigo mostra-lhe como integrar alertas de estado de funcionamento do servi
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba como [configurar notificações de webhook para sistemas de gestão existentes do problema](service-health-alert-webhook-guide.md).
-- Reveja os [esquema de webhook de alerta de registo de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Reveja os [esquema de webhook de alerta de registo de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre [notificações de estado de funcionamento de serviço](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Saiba mais sobre [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).

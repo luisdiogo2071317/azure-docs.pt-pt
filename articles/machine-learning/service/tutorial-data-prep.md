@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de modelo de regressão: preparar dados'
+title: 'Tutorial do modelo de regressão: Preparar dados'
 titleSuffix: Azure Machine Learning service
 description: Na primeira parte deste tutorial, irá aprender como de preparação de dados em Python para a modelação de regressão, utilizando o SDK do Azure ML.
 services: machine-learning
@@ -11,14 +11,14 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 14be60977ef0be3e88a0cb01356446b59ca374e2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d20ff1fabfb73c899153cf42bb6f2d7a8f233e21
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076445"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314691"
 ---
-# <a name="tutorial-part-1-prepare-data-for-regression-modeling"></a>Tutorial (parte 1): preparar dados para a modelação de regressão
+# <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para a modelação de regressão
 
 Neste tutorial, irá aprender a preparação de dados para a modelação de regressão, utilizando o SDK do Azure Machine Learning Data Prep. Efetue várias transformações para filtrar e combinar os dois conjuntos de dados de táxis de NYC diferentes. O objetivo final deste conjunto de tutoriais é prever o custo de uma viagem de táxis ao preparar um modelo sobre os recursos de dados, incluindo recolha hora, dia da semana, o número de passageiros e coordenadas. Este tutorial é a primeira parte de uma série de tutoriais de duas partes.
 

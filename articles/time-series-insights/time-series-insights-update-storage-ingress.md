@@ -1,6 +1,6 @@
 ---
-title: Armazenamento de dados e de entrada no Azure Time Series Insights (pré-visualização) | Documentos da Microsoft
-description: Noções básicas sobre o armazenamento de dados e de entrada no Azure Time Series Insights (pré-visualização)
+title: Dados de pré-visualização do Time Series Insights do Azure - armazenamento de dados e de entrada na pré-visualização do Azure Time Series Insights | Documentos da Microsoft
+description: Noções básicas sobre o armazenamento de dados e de entrada na pré-visualização do Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -9,160 +9,162 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: e2440f6aa32710730e8b015bef1e7c583f7063e2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 9504e62ea99c835f43f0d86ec2cfa57a9afcb4e4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001868"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269996"
 ---
-# <a name="data-storage-and-ingress-in-the-azure-time-series-insights-preview"></a>Armazenamento de dados e de entrada no Azure Time Series Insights (pré-visualização)
+# <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e de entrada na pré-visualização do Azure Time Series Insights
 
-Este artigo descreve as alterações para armazenamento de dados e de entrada a partir da pré-visualização do Azure Time Series Insights (TSI). Ele aborda a estrutura de armazenamento subjacente, o formato de arquivo, e **ID de série de tempo** propriedade. Ele também aborda o processo de entrada subjacente, débito e as limitações.
+Este artigo descreve as alterações para o armazenamento de dados e de entrada de pré-visualização do Azure Time Series Insights. Ele aborda a estrutura de armazenamento subjacente, o formato de ficheiro e a propriedade de ID de série de tempo. Ele também discute o processo de entrada subjacente, débito e as limitações.
 
 ## <a name="data-storage"></a>Armazenamento de dados
 
-Ao criar uma pré-visualização do Azure TSI (**PAYG SKU**) ambiente, está a criar dois recursos:
+Quando cria um ambiente de SKU de pay as you go de pré-visualização do Time Series Insights, que está a criar dois recursos:
 
-* Um ambiente do Azure TSI.
+* Um ambiente do Time Series Insights.
 * Uma armazenamento do Azure para fins gerais V1 conta onde serão armazenados os dados.
 
-O TSI (pré-visualização) utiliza o armazenamento de Blobs do Azure com o tipo de ficheiro Parquet. O Azure TSI gerencia todas as operações de dados incluindo a criação de blobs, indexação e criação de partições de dados na conta de armazenamento do Azure. Nestes blobs são criados com uma conta de armazenamento do Azure.
+Pré-visualização do Time Series Insights utiliza o armazenamento de Blobs do Azure com o tipo de ficheiro Parquet. O Time Series Insights gerencia todas as operações de dados incluindo a criação de blobs, indexação e criação de partições de dados na conta de armazenamento do Azure. Criar nestes blobs, utilizando uma conta de armazenamento do Azure.
 
-Como qualquer outro blob de armazenamento do Azure, pode ler e escrever os blobs criados pelo Azure TSI para oferecer suporte a cenários de integração de diferentes.
+Como outros blobs de armazenamento do Azure, o Time Series Insights-criado blobs permitem-lhe ler e escrever nas mesmas para oferecer suporte a vários cenários de integração.
 
 > [!TIP]
-> Desempenho do TSI pode ser afetado negativamente por ler ou escrever para os blobs com demasiada frequência.
+> Desempenho do Time Series Insights pode ser afetado negativamente se ler ou escrever os blobs com demasiada frequência.
 
-Para uma descrição geral do armazenamento de Blobs do Azure, leia os [introdução de blobs de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
+Para uma descrição geral do armazenamento de Blobs do Azure, consulte [introdução de blobs de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
 
 Para mais informações sobre o tipo de ficheiro Parquet, consulte [tipos de ficheiro suportados no armazenamento do Azure](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#Parquet-format).
 
 ## <a name="parquet-file-format"></a>Formato de ficheiro parquet
 
-Parquet é orientado por colunas, dados, o formato de ficheiro que foi projetado para:
+Parquet é orientado por colunas, dados formato de ficheiro que foi projetado para:
 
 * Interoperabilidade
 * Eficiência de espaço
 * Eficiência de consulta
 
-O Azure TSI escolheu o Parquet, pois ele fornece a compressão de dados eficiente e esquemas de codificação com o avançado desempenho para processar dados complexos em massa.
+O Time Series Insights escolheu Parquet, porque fornece a compactação de dados eficiente e a codificação de esquemas, com desempenho que pode manipular dados complexos em massa.
 
-Para obter uma melhor compreensão sobre o formato de arquivo é tudo uma questão de Parquet, leia os [documentação oficial do Parquet](https://parquet.apache.org/documentation/latest/).
+Para uma melhor compreensão sobre o formato de ficheiro Parquet, consulte [Parquet documentação](https://parquet.apache.org/documentation/latest/).
 
 ## <a name="event-structure-in-parquet"></a>Estrutura de eventos no Parquet
 
-Duas cópias de blobs criados pelo Azure TSI serão armazenadas nos seguintes formatos:
+O Time Series Insights cria e armazena cópias de blobs nos dois formatos seguintes:
 
-1. O primeiro, uma cópia inicial, irá ser particionado por hora da chegada de:
+1. Hora da chegada particionada a cópia em primeiro lugar, inicial:
 
     * `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
     * Hora de criação de BLOBs para os blobs particionados por tempo de chegada.
 
-1. O segundo, uma cópia repartitioned, irá ser particionado por agrupamento dinâmico de **ID de série de tempo**:
+1. A cópia de segunda, repartitioned particionada um agrupamento dinâmico do ID de série de tempo:
 
     * `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
-    * Timestamp de mínima do evento num blob para blobs particionados por **ID de série de tempo**.
+    * Timestamp de mínima do evento num blob para blobs particionados por ID de série de tempo.
 
 > [!NOTE]
 > * `<YYYY>` é mapeado para uma representação do ano de 4 dígitos.
 > * `<MM>` é mapeado para uma representação do mês de 2 dígitos.
 > * `<YYYYMMDDHHMMSSfff>` mapeia para uma representação de timestamp com o ano de 4 dígitos (`YYYY`), 2 dígitos mês (`MM`), dígitos de 2 dias (`DD`), hora de 2 dígitos (`HH`), dígitos de 2 minutos (`MM`), segundo de 2 dígitos (`SS`) e 3 dígitos milissegundo (`fff`).
 
-Eventos do Azure TSI são mapeados para o conteúdo do ficheiro Parquet, da seguinte forma:
+Eventos do Time Series Insights são mapeados para o conteúdo do ficheiro Parquet, da seguinte forma:
 
 * Cada evento é mapeado para uma única linha.
-* Incorporado **Timestamp** coluna com um timestamp de evento. O **Timestamp** propriedade nunca é nula.  Assume como predefinição **hora de colocados em fila de origem do evento** se o **Timestamp** propriedade não for especificada na origem de evento.  **Timestamp** está em UTC.  
-* Todas as outras propriedades o mapa para colunas terminará com `_string` (cadeia), `_bool` (booleano), `_datetime` (datetime), e `_double` (double), dependendo do tipo de propriedade.
-* Que é a primeira versão do formato de arquivo e fazemos referência a ele como **V = 1**.  Se esse recurso se desenvolve o nome será incrementado em conformidade para **V = 2**, **V = 3**e assim por diante.
+* Incorporado **Timestamp** coluna com um timestamp de evento. A propriedade Timestamp nunca é nula. Assume como predefinição **hora de colocados em fila de origem do evento** se a propriedade Timestamp não for especificada de eventos de origem. É o carimbo de hora em UTC. 
+* Todas as outras propriedades que são mapeadas para colunas de terminar com `_string` (cadeia), `_bool` (booleano), `_datetime` (datetime), e `_double` (double), dependendo do tipo de propriedade.
+* Que é o esquema de mapeamento para a primeira versão do formato de arquivo, que denominamos **V = 1**. À medida que esta funcionalidade evolui, o nome será incrementado para **V = 2**, **V = 3**e assim por diante.
 
 ## <a name="partitions"></a>Partições
 
-Cada ambiente do Azure TSI (pré-visualização) tem de ter uma **ID de série de tempo** propriedade e um **Timestamp** propriedade, que identifica de forma. Sua **ID de série de tempo** age como uma partição lógica para os seus dados e fornece o ambiente do Azure TSI (pré-visualização) com um limite de natural para a distribuição de dados pelas partições físicas. Gestão de partição física é gerido pelo Azure TSI (pré-visualização) numa conta de armazenamento do Azure.
+Cada ambiente de pré-visualização do Time Series Insights tem de ter uma propriedade de ID de série de tempo e uma propriedade Timestamp que identificam exclusivamente. O ID de série de tempo age como uma partição lógica para os seus dados e fornece o ambiente de pré-visualização do Time Series Insights um limite de natural para a distribuição de dados pelas partições físicas. Gestão de partição física é gerido pelo pré-visualização do Time Series Insights numa conta de armazenamento do Azure.
 
-Azure TSI utiliza o particionamento dinâmico para otimizar o desempenho de consulta e de utilização de armazenamento ao remover e recriar as partições. O Azure TSI (pré-visualização) tenta de algoritmo de particionamento dinâmico para impedir que uma única partição física ter dados de várias partições distintas, lógicas. Em outras palavras, o algoritmo de criação de partições mantém todos os dados específicos para uma única **ID de série de tempo** exclusivamente presentes no ficheiros Parquet sem a ser intercalado com os outros **IDs de série de tempo**. O algoritmo de particionamento dinâmico também tenta preservar a ordem original dos eventos num único **ID de série de tempo**.
+O Time Series Insights utiliza o particionamento dinâmico para otimizar o desempenho de armazenamento e a consulta ao remover e voltar a criar partições. A pré-visualização de informações de série de tempo algoritmo de particionamento dinâmico tenta para impedir que uma única partição física ter dados para vários partições distintas, lógicas. Em outras palavras, o algoritmo de criação de partições mantém todos os dados específicos a um ID de série de tempo única, exclusivamente presente nos arquivos de Parquet sem a ser intercalado com outros IDs de série de tempo. O algoritmo de particionamento dinâmico também tenta preservar a ordem original dos eventos dentro de um único tempo série ID.
 
-Inicialmente, ao tempo de entrada, os dados são particionados pela **Timestamp** , para uma única partição lógica dentro de um intervalo de tempo especificado pode estar distribuída por várias partições físicas. Uma única partição física também pode conter muitos ou todos os lógicas partições.  Devido a limitações de tamanho do blob, mesmo com ideal de criação de partições de uma única partição lógica pode ocupar várias partições físicas.
+Inicialmente, ao tempo de entrada, dados são particionados pelo carimbo de hora para que uma única partição lógica dentro de um intervalo de tempo especificado possam ser distribuída em várias partições físicas. Uma única partição física também pode conter muitos ou todos os lógicas partições. Devido às limitações de tamanho do blob, mesmo com a criação de partições ideal, uma única partição lógica pode ocupar várias partições físicas.
 
 > [!NOTE]
-> O **Timestamp** valor é a mensagem **colocados em fila tempo** na origem de evento configurado por predefinição.  
+> Por predefinição, o valor de Timestamp é a mensagem *colocados em fila tempo* na origem de evento configurado. 
 
-Se estiver a carregar os dados históricos ou mensagens de lote, deve designar a **Timestamp** propriedade nos dados que mapeia para o adequado **Timestamp** valor que pretende armazenar com os seus dados.  O **Timestamp** propriedade diferencia maiúsculas de minúsculas. Para obter mais informações, leia os [artigo de modelo de série de tempo](./time-series-insights-update-tsm.md).
+Se estiver a carregar os dados históricos ou mensagens de lote, atribua o valor que pretende armazenar com os seus dados para a propriedade Timestamp, que mapeia para o período de tempo adequado. A propriedade Timestamp diferencia maiúsculas de minúsculas. Para obter mais informações, consulte [modelo de série de tempo](./time-series-insights-update-tsm.md).
 
 ## <a name="physical-partitions"></a>Partições físicas
 
-Uma partição física é um blob de blocos armazenado no armazenamento do Azure. O tamanho real dos blobs irá variar à medida que ele depende da taxa de push, no entanto, Contamos blobs para ser cerca de 20 a 50 MB de tamanho. Devido a essa expectativa, a equipe do TSI selecionado para ser o tamanho para otimizar o desempenho de consulta de 20 MB. Isso pode mudar ao longo do tempo com base no tamanho do ficheiro e a velocidade da entrada de dados.
+Uma partição física é um blob de blocos que é armazenado na conta de armazenamento. O tamanho real dos blobs pode variar porque o tamanho depende da taxa de push. No entanto, podemos esperar blobs para ser cerca de 20 MB para a 50 MB de tamanho. Essa expectativa levou a equipe do Time Series Insights para selecionar 20 MB como o tamanho para otimizar o desempenho de consulta. Este tamanho pode alterar ao longo do tempo, dependendo do tamanho do ficheiro e a velocidade da entrada de dados.
 
 > [!NOTE]
-> * BLOBs são redimensionados em 20MB.
+> * BLOBs são redimensionados em 20 MB.
 > * Blobs do Azure são ocasionalmente dividida novamente em partições para melhorar o desempenho ao que está a ser removido e recriado.
-> * Observe também que os mesmos dados TSI podem constar de vários blobs.
+> * Além disso, os mesmos dados de Time Series Insights podem estar presentes em duas ou mais blobs.
 
 ## <a name="logical-partitions"></a>Partições lógicas
 
-Uma partição lógica é uma partição dentro de uma partição física que armazena todos os dados associados a um valor de chave de partição única. O TSI (pré-visualização) será logicamente de partição cada blob com base em duas propriedades:
+Uma partição lógica é uma partição dentro de uma partição física que armazena todos os dados associados a um valor de chave de partição única. Pré-visualização do Time Series Insights partições, logicamente, cada blob com base em duas propriedades:
 
-1. **ID de série de tempo** -é a chave de partição para todos os dados TSI dentro do fluxo de eventos e o modelo.
-1. **Timestamp** - com base na entrada de inicial.
+* **ID de série de tempo**: A chave de partição para todos os dados de Time Series Insights dentro do fluxo de eventos e o modelo.
+* **Timestamp**: A hora com base na entrada de inicial.
 
-O Azure TSI (pré-visualização) fornece consultas de alto desempenho que se baseiam nessas duas propriedades. Essas duas propriedades também fornecem o método mais eficaz para fornecer dados TSI rapidamente.
+Pré-visualização do Time Series Insights fornece consultas de elevado desempenho que se baseiam nessas duas propriedades. Essas duas propriedades também fornecem o método mais eficaz para fornecer dados de Time Series Insights rapidamente.
 
-É importante selecionar apropriadas **ID de série de tempo**, como é uma propriedade imutável.  Ver [IDs de série de tempo escolher](./time-series-insights-update-how-to-id.md) para obter mais informações.
+É importante selecionar um ID de série de tempo adequado, porque se trata de uma propriedade imutável. Para obter mais informações, consulte [escolha IDs de série de tempo](./time-series-insights-update-how-to-id.md).
 
 ## <a name="your-azure-storage-account"></a>Sua conta de armazenamento do Azure
 
 ### <a name="storage"></a>Armazenamento
 
-Quando cria um TSI **PAYG** ambiente, criar dois recursos – o ambiente de TSI e uma conta de fins gerais de armazenamento do Azure da V1 onde serão armazenados os dados. Que escolhemos tornar a predefinição devido à sua interoperabilidade, preço e desempenho de armazenamento do Azure para fins gerais V1.  
+Quando cria um ambiente de pay as you go do Time Series Insights, crie dois recursos: um ambiente de Time Series Insights e uma conta de fins gerais de armazenamento do Azure da V1 onde serão armazenados os dados. Podemos optar por criar o recurso de padrão de armazenamento do Azure para fins gerais V1 devido à sua interoperabilidade, preço e desempenho. 
 
-O Azure TSI publicará até duas cópias de cada evento na sua conta de armazenamento do Azure. A cópia inicial é sempre preservada para garantir que pode consultar performantly com outros serviços. Portanto, Spark, Hadoop ou outras ferramentas familiares podem ser facilmente utilizadas no **IDs de série de tempo** sobre Parquet não processado de arquivos, uma vez que estes mecanismos de suportam básico ficheiros filtragem de nome. Blobs de agrupamento por ano e mês é útil para recolher a lista de BLOBs dentro do intervalo de tempo específico para uma tarefa personalizada.  
+O Time Series Insights publica até duas cópias de cada evento na sua conta de armazenamento do Azure. A cópia inicial sempre é preservada para que pode consultá-lo performantly com os outros serviços. Que pode facilmente utilizar Spark, Hadoop e outras ferramentas familiares em IDs de série de tempo com ficheiros Parquet não processados, porque estes mecanismos suportam a filtragem básica de nome de ficheiro. Blobs de agrupamento por ano e mês é uma forma útil de listar os blobs dentro de um intervalo de tempo específico para uma tarefa personalizada. 
 
-Além disso, o TSI irá criar novas partições os ficheiros Parquet para otimizar as APIs do Azure TSI, e também será possível guardar o ficheiro de repartitioned mais recentemente.
+Além disso, o Time Series Insights reparticiona os ficheiros Parquet para otimizar as APIs de informações de série de tempo. O ficheiro mais recentemente repartitioned também é guardado.
 
-Durante a pré-visualização pública, dados serão armazenados indefinidamente na sua conta de armazenamento do Azure.
+Durante a pré-visualização pública, os dados são armazenados indefinidamente na sua conta de armazenamento do Azure.
 
 ### <a name="writing-and-editing-time-series-insights-blobs"></a>Escrever e edição de blobs do Time Series Insights
 
-Para garantir o desempenho de consulta e a disponibilidade de dados, não edite ou elimine quaisquer blobs criados por TSI.
+Para garantir o desempenho de consulta e a disponibilidade de dados, não edite ou elimine quaisquer blobs criados por Time Series Insights.
 
-### <a name="accessing-and-exporting-data-from-time-series-insights-preview"></a>Aceder e exportar dados do Time Series Insights (pré-visualização)
+### <a name="accessing-and-exporting-data-from-time-series-insights-preview"></a>Aceder e exportar dados de pré-visualização do Time Series Insights
 
-Pode querer aceder a dados armazenados no Explorador de TSI do Azure (pré-visualização) para utilizar em conjunto com outros serviços. Por exemplo, pode querer utilizar os seus dados para relatórios no Power BI, para fazer o machine learning com o Azure Machine Learning Studio ou num aplicativo de bloco de notas Jupyter Notebooks, etc.
+Pode querer aceder a dados armazenados no Explorador do Time Series Insights pré-visualização para utilizar em conjunto com outros serviços. Por exemplo, pode querer utilizar os seus dados ao relatório no Power BI, para fazer o machine learning com o Azure Machine Learning Studio ou para usar num aplicativo de bloco de notas com blocos de notas do Jupyter.
 
-Existem três caminhos gerais para aceder aos seus dados:
+Pode aceder aos dados de três formas gerais:
 
-* O Explorador de TSI do Azure (pré-visualização).
-* As APIs do Azure TSI (pré-visualização).
+* No Explorador do Time Series Insights pré-visualização.
+* Das APIs de pré-visualização de informações de série de tempo.
 * Diretamente a partir de uma conta de armazenamento do Azure.
 
-### <a name="from-the-time-series-insights-preview-explorer"></a>No Explorador do Time Series Insights (pré-visualização)
+#### <a name="from-the-time-series-insights-preview-explorer"></a>No Explorador do Time Series Insights pré-visualização
 
-Pode exportar dados como um ficheiro CSV a partir do Explorador de TSI (pré-visualização). Leia mais sobre o [Explorador de TSI (pré-visualização)](./time-series-insights-update-explorer.md).
+Pode exportar dados como um ficheiro CSV a partir do Explorador de pré-visualização do Time Series Insights. Para obter mais informações, consulte [Explorador de pré-visualização do Time Series Insights](./time-series-insights-update-explorer.md).
 
-### <a name="from-the-time-series-insights-preview-apis"></a>Das APIs de Insights (pré-visualização) de série de tempo
+#### <a name="from-the-time-series-insights-preview-apis"></a>Das APIs de pré-visualização de informações de série de tempo
 
-O ponto final de API pode ser contatado pelo `/getRecorded`. Para saber mais sobre esta API, leia sobre [consultas de séries de tempo](./time-series-insights-update-tsq.md).
+O ponto final de API pode ser contatado pelo `/getRecorded`. Para saber mais sobre esta API, veja [consultas de séries de tempo](./time-series-insights-update-tsq.md).
 
-### <a name="from-an-azure-storage-account"></a>De uma conta de armazenamento do Azure
+#### <a name="from-an-azure-storage-account"></a>De uma conta de armazenamento do Azure
 
-1. Tem de ter acesso de leitura concedido a qualquer conta irá utilizar para aceder aos dados do TSI. Para saber mais sobre como conceder acesso de leitura ao armazenamento de Blobs do Azure, leia [gerir o acesso a recursos de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
+* Precisa de acesso de leitura para qualquer conta estiver a utilizar para aceder aos seus dados do Time Series Insights. Para obter mais informações, consulte [gerir o acesso aos recursos da conta de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
 
-1. Para obter mais informações sobre as formas diretas de ler dados a partir do armazenamento de Blobs do Azure, leia [mover dados para e do armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+* Para obter mais informações sobre formas diretas de ler dados a partir do armazenamento de Blobs do Azure, consulte [mover dados de e para sua conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-1. Exportar dados de uma conta de armazenamento do Azure:
+* Para exportar dados a partir de uma conta de armazenamento do Azure:
 
-    * Primeiro, certifique-se de que a sua conta tem os requisitos necessários cumpridos para exportar os dados. Leia [armazenamento importar e exportar requisitos](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements) para obter mais informações.
-    * Saiba mais sobre outras formas de exportar os dados da sua conta de armazenamento do Azure, visite a página [armazenamento importar e exportar dados de blobs](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs)
+    * Primeiro, certifique-se de que sua conta cumpre os requisitos necessários para exportação de dados. Para obter mais informações, consulte [armazenamento importar e exportar requisitos](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
+
+    * Para saber mais sobre outras formas de exportar os dados da sua conta de armazenamento do Azure, veja [importação e exportação de dados de blobs](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs).
 
 ### <a name="data-deletion"></a>Eliminação de dados
 
-Não elimine os blobs, uma vez que o Azure TSI (pré-visualização) mantém metadados sobre os blobs dentro de atualização do TSI.
+Não elimine os blobs, como pré-visualização do Time Series Insights mantém metadados sobre os blobs dentro da mesma.
 
 ## <a name="ingress"></a>Entrada
 
-### <a name="azure-time-series-insights-ingress-policies"></a>Políticas de entrada do Time Series Insights do Azure
+### <a name="time-series-insights-ingress-policies"></a>Políticas de entrada do Time Series Insights
 
-O Azure TSI (pré-visualização) suporta as mesmas origens de eventos e tipos de ficheiro que o sucede.
+Pré-visualização do Time Series Insights suporta as mesmas origens de eventos e tipos de ficheiro que suporta atualmente o Time Series Insights.
 
 Origens de eventos suportados incluem:
 
@@ -174,24 +176,24 @@ Origens de eventos suportados incluem:
 
 Tipos de ficheiro suportados incluem:
 
-* JSON: Para mais sobre as formas JSON suportadas podemos manipular, consulte a [como a forma JSON](./time-series-insights-send-events.md#json) documentação.
+* JSON: Para obter mais informações sobre as formas JSON suportadas, podemos manipular, consulte [como a forma JSON](./time-series-insights-send-events.md#json).
 
 ### <a name="data-availability"></a>Disponibilidade de dados
 
-Em pré-visualização pública, o Azure TSI (pré-visualização) indexa dados através de uma estratégia de otimização de tamanho do blob. Isso significa que os dados estarão disponíveis para consultar assim que ele é indexado (que se baseia-se à quantidade de dados está a chegar em e com que velocidade).
+Pré-visualização do Time Series Insights indexa dados através de uma estratégia de otimização de tamanho do blob. Dados ficam disponíveis para consulta depois é indexada, o que é baseada na quantidade de dados está a chegar em e com que velocidade.
 
 > [!IMPORTANT]
-> * GA TSI irá disponibilizar dados em 60 segundos-lo a atingir uma origem de evento.  
-> * Durante a pré-visualização, esperamos ver um período mais longo antes dos dados ficam disponíveis.  
->   * Se tiver qualquer uma latência significativa, entre em contato conosco.
+> * A versão de disponibilidade geral (GA) do Time Series Insights vai disponibilizar dados em 60 segundos de atingir uma origem de evento. 
+> * Durante a pré-visualização, espere um período mais longo antes dos dados ficam disponíveis. 
+> * Se tiver qualquer uma latência significativa, certifique-se de que contacte-nos.
 
 ### <a name="scale"></a>Escala
 
-Azure TSI (pré-visualização) oferece suporte a uma escala de entrada inicial de até 6 Mbps por ambiente. Suporte avançado de dimensionamento está em curso. Documentação será atualizada para refletir esses avanços.
+Pré-visualização do Time Series Insights suporta um dimensionamento de entrada inicial de até 6 megabits por segundo (Mbps) por ambiente. Suporte avançado de dimensionamento está em curso. Planeamos atualizar a nossa documentação para refletir esses avanços.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Leitura a [armazenamento do Azure TSI (pré-visualização) e de entrada](./time-series-insights-update-storage-ingress.md).
+Leitura a [armazenamento e de entrada de pré-visualização do Azure Time Series Insights](./time-series-insights-update-storage-ingress.md).
 
 Saiba mais sobre a nova [modelação de dados](./time-series-insights-update-tsm.md).
 

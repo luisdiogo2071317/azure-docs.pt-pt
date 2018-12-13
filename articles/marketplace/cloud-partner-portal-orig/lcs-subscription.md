@@ -14,15 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2d75a432e84c3490186da6f8342562fddcaa32e1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c0109839144775e9064db4f8396f19688fcc13e8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810211"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308639"
 ---
-<a name="lcs-subscription"></a>Subscrição de LCS
-================
+# <a name="lcs-subscription"></a>Subscrição de LCS
 
 Neste tutorial, ficará a saber como criar uma subscrição. Esta subscrição lhe dará um inquilino de teste Online da Microsoft e um projeto do Microsoft Dynamics Lifecycle Services onde pode implementar um ambiente. Também irá configurar utilizadores adicionais no seu inquilino do Microsoft Online e ganhe experiência com as seguintes capacidades de administração do serviço. Aqui estão as habilidades que aprenderá:
 
@@ -32,8 +31,7 @@ Neste tutorial, ficará a saber como criar uma subscrição. Esta subscrição l
 - Adicionar utilizadores adicionais para o Microsoft Azure Active Directory e o cliente.
 - Recursos de visualização no seu e-mail de subscrição.
 
-<a name="key-terms"></a>Termos-chave
-=========
+## <a name="key-terms"></a>Termos-chave
 
 **Inquilino do Microsoft Online Services** -um inquilino é o grupo de todas as subscrições e os utilizadores para a sua organização. O inquilino é criado ao mesmo tempo que o primeiro da subscrição do Microsoft Online Services.
 

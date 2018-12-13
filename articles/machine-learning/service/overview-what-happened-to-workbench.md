@@ -1,5 +1,5 @@
 ---
-title: O que aconteceu ao Azure Machine Learning Workbench?
+title: O que aconteceu ao Workbench?
 titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre o que aconteceu com a Bancada de trabalho de aplicação, o que mudou no serviço Azure Machine Learning e o que é a linha cronológica de suporte.
 services: machine-learning
@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2d97ee70c8456bb3b21a14b646756c8024eab018
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c9559e07cc70cbd7adafd75c23b9e67d45bee48a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090130"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184310"
 ---
 # <a name="what-is-happening-to-workbench-in-azure-machine-learning-service"></a>O que acontece à Bancada de trabalho no serviço Azure Machine Learning?
 
@@ -113,5 +113,5 @@ Os pacotes de domínios para [Imagem Digitalizada, Análise de Texto e Previsão
 Saiba mais sobre [a arquitetura mais recente do serviço Azure Machine Learning](concept-azure-machine-learning-architecture.md) e experimente um dos guias de início rápido ou tutoriais:
 
 * [O que é o serviço Azure Machine Learning?](overview-what-is-azure-ml.md)
-* [Guia de Início Rápido: criar uma área de trabalho com Python](quickstart-get-started.md)
-* [Tutorial: preparar um modelo](tutorial-train-models-with-aml.md)
+* [Início rápido: Criar uma área de trabalho com Python](quickstart-get-started.md)
+* [Tutorial: Preparar um modelo](tutorial-train-models-with-aml.md)

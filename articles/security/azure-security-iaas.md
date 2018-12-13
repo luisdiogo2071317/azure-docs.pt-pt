@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 6033a61351423e65490edfe0b0607f2395c80f86
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d4a2daf10fd864f13982f4d327868ad62d1309b3
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498352"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321465"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho de IaaS no Azure
 
@@ -38,21 +38,21 @@ As melhores práticas baseiam-se um consenso de opinião, e trabalhar com recurs
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Proteger VMs com o controlo de acesso e autenticação
 O primeiro passo para proteger as suas VMs é garantir que os utilizadores autorizados apenas pode configurar novas VMs e acesso de VMs.
 
-**Melhor prática**: o acesso à VM de controlo.   
-**Detalhe**: Utilize [políticas do Azure](../azure-policy/azure-policy-introduction.md) para estabelecer as convenções para recursos na sua organização e criar políticas personalizadas. Aplicar estas políticas para recursos, como [grupos de recursos](../azure-resource-manager/resource-group-overview.md). As VMs que pertencem a um grupo de recursos herdam suas diretivas.
+**Melhor prática**: Controlar o acesso VM.   
+**Detalhe**: Uso [políticas do Azure](../azure-policy/azure-policy-introduction.md) para estabelecer as convenções para recursos na sua organização e criar políticas personalizadas. Aplicar estas políticas para recursos, como [grupos de recursos](../azure-resource-manager/resource-group-overview.md). As VMs que pertencem a um grupo de recursos herdam suas diretivas.
 
 Se sua organização tiver várias subscrições, poderá ter uma forma de gerenciar com eficiência o acesso, políticas e conformidade para nessas subscrições. [Grupos de gestão do Azure](../azure-resource-manager/management-groups-overview.md) fornecer um nível de âmbito acima subscrições. Organizar subscrições para grupos de gestão (contentores) e aplicar suas condições de governação a esses grupos. Todas as subscrições dentro de um grupo de gestão herdam automaticamente as condições aplicadas ao grupo. Os grupos de gestão dão-lhe capacidades de gestão de nível empresarial em grande escala, independentemente do seu tipo de subscrição.
 
-**Melhor prática**: reduzir variabilidade na sua configuração e implementação de VMs.   
-**Detalhe**: Utilize [do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) modelos para reforçar suas opções de implantação e torná-lo mais fácil de compreender e as VMs no seu ambiente de inventário.
+**Melhor prática**: Reduza a variabilidade na sua configuração e implementação de VMs.   
+**Detalhe**: Uso [do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) modelos para reforçar suas opções de implantação e torná-lo mais fácil de compreender e as VMs no seu ambiente de inventário.
 
-**Melhor prática**: proteger o acesso privilegiado.   
+**Melhor prática**: Proteger o acesso privilegiado.   
 **Detalhe**: Utilize um [abordagem de privilégios mínimos](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) e funções do Azure incorporadas, para permitir que os utilizadores acessar e definir a segurança de VMs:
 
-- [Contribuinte de máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): pode gerir VMs, mas não a rede ou armazenamento conta virtual ao qual estão ligados.
-- [Contribuinte de Máquina Virtual clássica](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): pode gerir as VMs criadas com o modelo de implementação clássica, mas não a rede ou armazenamento conta virtual ao qual as VMs estão ligadas.
-- [Administrador de segurança](../role-based-access-control/built-in-roles.md#security-admin): no Centro de segurança apenas: pode ver as políticas de segurança, visualizar os Estados de segurança, editar as políticas de segurança, ver alertas e recomendações, dispensar alertas e recomendações.
-- [Utilizador de DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user): podem ver tudo e ligar, iniciar, reiniciar e encerrar VMs.
+- [Contribuinte de máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Pode gerir VMs, mas não a rede ou armazenamento conta virtual ao qual estão ligados.
+- [Contribuinte de Máquina Virtual clássica](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Pode gerir as VMs criadas com o modelo de implementação clássica, mas não a rede ou armazenamento conta virtual ao qual as VMs estão ligadas.
+- [Administrador de segurança](../role-based-access-control/built-in-roles.md#security-admin): No Centro de segurança apenas: Pode ver as políticas de segurança, visualizar os Estados de segurança, editar as políticas de segurança, ver alertas e recomendações, dispensar alertas e recomendações.
+- [Utilizador de DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user): Pode ver tudo e ligar, iniciar, reiniciar e encerrar VMs.
 
 Os administradores de subscrição e co-administradores, podem alterar esta definição, tornando-os administradores de todas as VMs numa subscrição. Certifique-se de que confia todos os seus administradores da subscrição e co-administradores para iniciar sessão qualquer uma das suas máquinas.
 
@@ -75,17 +75,17 @@ Antimalware da Microsoft inclui recursos como a proteção em tempo real, análi
 
 Pode integrar soluções de Antimalware da Microsoft e de parceiros com [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/) para facilitar a implantação e incorporada deteções (alertas e incidentes).
 
-**Melhor prática**: instalar uma solução de antimalware para proteger contra software maligno.   
-**Detalhe**: [instalar uma solução de parceiro da Microsoft ou o Antimalware da Microsoft](../security-center/security-center-install-endpoint-protection.md)
+**Melhor prática**: Instale uma solução de antimalware para proteger contra software maligno.   
+**Detalhe**: [Instalar uma solução de parceiro da Microsoft ou o Antimalware da Microsoft](../security-center/security-center-install-endpoint-protection.md)
 
-**Melhor prática**: integrar sua solução de antimalware no Centro de segurança para monitorizar o estado de sua proteção.   
-**Detalhe**: [gerir problemas de proteção de ponto final com o Centro de segurança](../security-center/security-center-partner-integration.md)
+**Melhor prática**: Integre a sua solução de antimalware no Centro de segurança para monitorizar o estado de sua proteção.   
+**Detalhe**: [Gerir problemas de proteção de ponto final com o Centro de segurança](../security-center/security-center-partner-integration.md)
 
 ## <a name="manage-your-vm-updates"></a>Gerir as atualizações VM
 VMs do Azure, como todas as VMs no local, se destinam a ser gerido pelo utilizador. Azure não enviar atualizações do Windows para eles. Tem de gerir as atualizações VM.
 
-**Melhor prática**: manter as suas VMs atuais.   
-**Detalhe**: Utilize o [gestão de atualizações](../automation/automation-update-management.md) solução na automatização do Azure para gerir atualizações do sistema operativo para os seus computadores Windows e Linux que estão implementadas no Azure, em ambientes no local ou em outra solução em nuvem fornecedores. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
+**Melhor prática**: Mantenha as suas VMs atuais.   
+**Detalhe**: Utilize o [gestão de atualizações](../automation/automation-update-management.md) solução na automatização do Azure para gerir atualizações do sistema para os seus computadores Windows e Linux que estão implementadas no Azure, a funcionar em ambientes no local ou em outros fornecedores de nuvem. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
 
 Computadores que são geridos pela gestão de atualizações utilizam as seguintes configurações para efetuar a avaliação e implementações de atualizações:
 
@@ -97,16 +97,16 @@ Computadores que são geridos pela gestão de atualizações utilizam as seguint
 Se utilizar o Windows Update, deixe a definição de atualização do Windows automática ativada.
 
 **Melhor prática**: Certifique-se na implementação que criou as imagens incluem a rodada mais recente de atualizações do Windows.   
-**Detalhe**: Procurar e instalar como uma primeira etapa de todas as implementações de atualizações de todos os Windows. Esta medida é especialmente importante a ser aplicada quando implantar imagens provenientes de ou sua própria biblioteca. Embora as imagens do Azure Marketplace são atualizadas automaticamente por predefinição, pode haver um tempo de latência (até algumas semanas) após o lançamento público.
+**Detalhe**: Procure e instale todas as atualizações do Windows como uma primeira etapa de cada implementação. Esta medida é especialmente importante a ser aplicada quando implantar imagens provenientes de ou sua própria biblioteca. Embora as imagens do Azure Marketplace são atualizadas automaticamente por predefinição, pode haver um tempo de latência (até algumas semanas) após o lançamento público.
 
-**Melhor prática**: periodicamente Reimplementar as VMs para forçar uma nova versão do sistema operacional.   
-**Detalhe**: definir a sua VM com um [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para que pode facilmente implementar novamente. Com um modelo dá-lhe uma VM segura e corrigida quando precisa dela.
+**Melhor prática**: Reimplemente periodicamente as suas VMs para forçar uma nova versão do sistema operacional.   
+**Detalhe**: Definir a sua VM com uma [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para que pode facilmente implementar novamente. Com um modelo dá-lhe uma VM segura e corrigida quando precisa dela.
 
-**Melhor prática**: instalar as atualizações de segurança mais recentes.   
-**Detalhe**: algumas das primeiras cargas de trabalho que os clientes mover para o Azure são laboratórios e sistemas de face externa. Se as VMs do Azure alojar aplicações ou serviços que precisam de estar acessíveis à internet, ser vigilante sobre a aplicação de patches. Aplicar o patch ponha o sistema operativo. Vulnerabilidades não corrigidas em aplicações de parceiros também podem levar a problemas que podem ser evitados se gerenciamento de patches boa estiver em vigor.
+**Melhor prática**: Instale as atualizações de segurança mais recentes.   
+**Detalhe**: Algumas das primeiras cargas de trabalho que os clientes mover para o Azure são laboratórios e sistemas de face externa. Se as VMs do Azure alojar aplicações ou serviços que precisam de estar acessíveis à internet, ser vigilante sobre a aplicação de patches. Aplicar o patch ponha o sistema operativo. Vulnerabilidades não corrigidas em aplicações de parceiros também podem levar a problemas que podem ser evitados se gerenciamento de patches boa estiver em vigor.
 
-**Melhor prática**: implementar e testar uma solução de cópia de segurança.   
-**Detalhe**: uma cópia de segurança deve ser Tratado da mesma forma que lidar com qualquer outra operação. Isso é verdadeiro de sistemas que fazem parte do seu ambiente de produção, alargando-se para a cloud.
+**Melhor prática**: Implementar e testar uma solução de cópia de segurança.   
+**Detalhe**: Uma cópia de segurança deve ser Tratado da mesma forma que lidar com qualquer outra operação. Isso é verdadeiro de sistemas que fazem parte do seu ambiente de produção, alargando-se para a cloud.
 
 Sistemas de teste e desenvolvimento tem de seguir as estratégias de cópia de segurança que fornecem capacidades de restauro que são semelhantes às que os utilizadores que cresceram acostumados a, com base nessa experiência com ambientes no local. Cargas de trabalho de produção movidas para o Azure, devem integrar com soluções de cópia de segurança existentes sempre que possível. Em alternativa, pode utilizar [cópia de segurança do Azure](../backup/backup-azure-vms-first-look-arm.md) para ajudar a solucionar seus requisitos de cópia de segurança.
 
@@ -137,8 +137,8 @@ Abuso de recursos pode ser um problema quando os processos VM consumam mais recu
 
 Recomendamos que utilize [do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) ganhar visibilidade sobre o estado de funcionamento do seu recurso. Funcionalidades de Monitor do Azure:
 
-- [Ficheiros de registo de diagnóstico de recursos](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): monitoriza os seus recursos VM e identifica potenciais problemas que possam comprometer o desempenho e disponibilidade.
-- [Extensão de diagnóstico do Azure](../monitoring-and-diagnostics/azure-diagnostics.md): fornece capacidades de monitorização e diagnóstico em VMs do Windows. Pode ativar estas capacidades, incluindo a extensão como parte da [modelo Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
+- [Ficheiros de registo de diagnóstico de recursos](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): Monitoriza os seus recursos VM e identifica potenciais problemas que possam comprometer o desempenho e disponibilidade.
+- [Extensão de diagnóstico do Azure](../azure-monitor/platform/diagnostics-extension-overview.md): Fornece capacidades de monitorização e diagnóstico em VMs do Windows. Pode ativar estas capacidades, incluindo a extensão como parte da [modelo Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 As organizações que não monitorizar o desempenho da VM não é possível determinar se são determinadas alterações nos padrões de desempenho normal ou anormal. Uma VM que está a consumir mais recursos do que o normal pode indicar um ataque de um recurso externo ou um processo comprometido em execução na VM.
 
@@ -149,17 +149,17 @@ Recomendamos que encripte os discos rígidos virtuais (VHDs) para ajudar a prote
 
 Seguem-se melhores práticas para utilizar o Azure Disk Encryption:
 
-**Melhor prática**: Ativar a encriptação em VMs.   
-**Detalhe**: Azure Disk Encryption gera e escreve as chaves de encriptação para o seu Cofre de chaves. A gestão de chaves de encriptação no seu Cofre de chaves requer autenticação do Azure AD. Crie uma aplicação do Azure AD para esta finalidade. Para fins de autenticação, pode utilizar a autenticação com base no segredo do cliente ou [autenticação de cliente baseada em certificado do Azure AD](../active-directory/active-directory-certificate-based-authentication-get-started.md).
+**Melhor prática**: Ative a encriptação em VMs.   
+**Detalhe**: O Azure Disk Encryption gera e escreve as chaves de encriptação para o seu Cofre de chaves. A gestão de chaves de encriptação no seu Cofre de chaves requer autenticação do Azure AD. Crie uma aplicação do Azure AD para esta finalidade. Para fins de autenticação, pode utilizar a autenticação com base no segredo do cliente ou [autenticação de cliente baseada em certificado do Azure AD](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
-**Melhor prática**: utilizar uma chave de encriptação de chaves (KEK) para uma camada adicional de segurança para as chaves de encriptação. Adicione um KEK ao seu Cofre de chaves.   
+**Melhor prática**: Utilize uma chave de encriptação de chaves (KEK) para uma camada adicional de segurança para as chaves de encriptação. Adicione um KEK ao seu Cofre de chaves.   
 **Detalhe**: Utilize o [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet para criar uma chave de encriptação de chave no Cofre de chaves. Também pode importar um KEK de seu módulo de segurança de hardware (HSM) de no local para a gestão de chaves. Para obter mais informações, consulte a [documentação do Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Quando é especificada uma chave de encriptação de chave, o Azure Disk Encryption utiliza essa chave para encapsular os segredos de encriptação antes de escrever para o Key Vault. Manter uma cópia de caução desta chave num local a gestão de chaves HSM oferece proteção adicional contra a eliminação acidental de chaves.
 
-**Melhor prática**: tirar um [instantâneo](../virtual-machines/windows/snapshot-copy-managed-disk.md) e/ou criar cópias de segurança antes dos discos são encriptados. As cópias de segurança fornecem uma opção de recuperação se acontecer de uma falha inesperada durante a encriptação.   
-**Detalhe**: as VMs com discos geridos requerem uma cópia de segurança antes de ocorre de encriptação. Depois de uma cópia de segurança é feita, pode utilizar o **Set-AzureRmVMDiskEncryptionExtension** cmdlet para encriptar discos geridos ao especificar a *- skipVmBackup* parâmetro. Para obter mais informações sobre como criar cópias de segurança e restaurar VMs encriptadas, consulte a [Azure Backup](../backup/backup-azure-vms-encryption.md) artigo.
+**Melhor prática**: Efetuar uma [instantâneo](../virtual-machines/windows/snapshot-copy-managed-disk.md) e/ou criar cópias de segurança antes dos discos são encriptados. As cópias de segurança fornecem uma opção de recuperação se acontecer de uma falha inesperada durante a encriptação.   
+**Detalhe**: As VMs com discos geridos requerem uma cópia de segurança antes de ocorre de encriptação. Depois de uma cópia de segurança é feita, pode utilizar o **Set-AzureRmVMDiskEncryptionExtension** cmdlet para encriptar discos geridos ao especificar a *- skipVmBackup* parâmetro. Para obter mais informações sobre como criar cópias de segurança e restaurar VMs encriptadas, consulte a [Azure Backup](../backup/backup-azure-vms-encryption.md) artigo.
 
-**Melhor prática**: para se certificar-se de que os segredos de encriptação, não ultrapassam limites regionais, Azure Disk Encryption tem do Cofre de chaves e as VMs localizadas na mesma região.   
-**Detalhe**: criar e utilizar um cofre de chaves que está na mesma região que a VM ser encriptada.
+**Melhor prática**: Para certificar-se de que os segredos de encriptação, não ultrapassam limites regionais, o Azure Disk Encryption tem o Cofre de chaves e as VMs localizadas na mesma região.   
+**Detalhe**: Criar e utilizar um cofre de chaves que está na mesma região que a VM ser encriptada.
 
 Quando aplica o Azure Disk Encryption, pode atender as necessidades de negócio seguintes:
 

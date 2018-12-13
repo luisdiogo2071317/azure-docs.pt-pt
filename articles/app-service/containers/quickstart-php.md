@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação Web PHP e implementar no Serviço de Aplicações no Linux | Microsoft Docs
+title: Criar aplicação web PHP no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Implemente em minutos a sua primeira aplicação PHP Hello World no Serviço de Aplicações no Linux.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 5fdf277eb8f99f2d52600140601b413b51bcdfd8
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 2c9586bb5abce66e4043e3df80b420174a582cbb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885910"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257408"
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Criar uma aplicação Web PHP no Serviço de Aplicações no Linux
 
@@ -66,7 +66,7 @@ Pode ver a mensagem **Olá, mundo!** da aplicação de exemplo apresentada na p�
 
 ![Aplicação de exemplo em execução localmente](media/quickstart-php/localhost-hello-world-in-browser.png)
 
-Na janela do terminal, prima **Ctrl+C** para sair do servidor Web.
+Na janela do terminal, prima **Ctrl+C** para desligar o servidor Web.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -166,7 +166,7 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [PHP com MySQL](tutorial-php-mysql-app.md)

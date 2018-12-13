@@ -1,5 +1,5 @@
 ---
-title: Introdução ao Azure WebJobs SDK
+title: Introdução ao SDK do WebJobs - Azure
 description: Introdução ao SDK do WebJobs para processamento condicionada por eventos em segundo plano. Saiba como aceder a dados nos serviços de terceiros e de serviços do Azure.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 95fd44d5865eb804cb91d7adc2cc17bb5f957b5c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140354"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275215"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano
 
@@ -63,9 +63,9 @@ Este artigo pressupõe que tenha [uma conta do Azure](https://azure.microsoft.co
 
 1. No Visual Studio, selecione **ficheiro > novo projeto**.
 
-1. Selecione **ambiente de trabalho clássico do Windows > aplicação da consola (.NET Framework)**.
+2. Selecione **ambiente de trabalho clássico do Windows > aplicação da consola (.NET Framework)**.
 
-1. Nomeie o projeto *WebJobsSDKSample*e, em seguida, selecione **OK**.
+3. Nomeie o projeto *WebJobsSDKSample*e, em seguida, selecione **OK**.
 
    ![Caixa de diálogo Novo Projeto](./media/webjobs-sdk-get-started/new-project.png)
 

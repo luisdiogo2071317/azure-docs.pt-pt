@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 8a6f0a69f0159a31d9fefcc54a104ebc1ed47ec4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f95d7851241dfd5b077c215e2df893c6ba8ef36c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100349"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139491"
 ---
 # <a name="create-entities-without-utterances"></a>Criar entidades sem expressões com
 
@@ -157,13 +157,13 @@ Para uma aplicação de recursos humanos, pode ter uma lista de todos os departa
 
 1. Se quiser que mais normalizados itens de lista, selecione **Recomendamos** para ver as opções da [dicionário semântico](luis-glossary.md#semantic-dictionary).
 
-    ![Captura de ecrã de adicionar a função de origem para a entidade de localização](./media/add-entities/hr-list-2.png)
+    ![Captura de ecrã da seleção de recursos recomendados para ver as opções](./media/add-entities/hr-list-2.png)
 
 
 1. Selecione um item da lista de recomendados para adicioná-la como um valor normalizado ou selecione **adicionar todos** para adicionar todos os itens. 
     Pode importar valores para uma entidade de lista existente com o seguinte formato JSON:
 
-    ```
+    ```JSON
     [
         {
             "canonicalForm": "Blue",

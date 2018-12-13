@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 411ffd9479c3f686495de21b60ef0a811915c260
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e81b87a6cbaddf61492fa1fc41e66950eb7ce1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834575"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191636"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remediar utilizadores sinalizados para risco no portal do Azure Active Directory
 
@@ -31,7 +31,7 @@ Se forem detetadas atividades invulgares que possam indicar acesso não autoriza
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Aceda ao relatório de utilizadores sinalizados para risco
 
-Pode rever os utilizadores sinalizados para risco através da [os utilizadores no relatório de risco](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) no portal do Azure. Se não tiver o Azure AD, pode inscrever-se gratuitamente em [ https://aka.ms/AccessAAD ](https://aka.ms/AccessAAD). 
+Pode rever os utilizadores sinalizados para risco através da [os utilizadores no relatório de risco](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) no portal do Azure. Se não tiver o Azure AD, pode inscrever-se gratuitamente em [ https://aka.ms/AccessAAD ](https://aka.ms/AccessAAD). 
 
 Dos utilizadores sinalizados no relatório de risco, pode efetuar as seguintes ações para cada utilizador:
 

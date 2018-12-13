@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 0176cc5688f7210d5e444b094b360bb1e7df1e7c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d4701143a24fdf89b1c61744a9661fffdbb61ed3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136431"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278054"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta no Log Analytics com a REST API
 A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
@@ -102,7 +100,7 @@ Todas as ações têm as propriedades na tabela seguinte.  Diferentes tipos de a
 ### <a name="retrieving-actions"></a>Obter ações
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../../azure-monitor/platform/alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Utilize o método Get para obter todas as ações para uma agenda.
 
@@ -125,7 +123,7 @@ O formato do pedido para criar uma nova ação varia consoante o tipo de ação,
 ### <a name="deleting-actions"></a>A eliminar ações
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../../azure-monitor/platform/alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Utilize o método Delete com o ID de ação para eliminar uma ação.
 
@@ -146,7 +144,7 @@ Uma agenda deve ter apenas uma ação do alerta.  Ações de alerta tem uma ou m
 | Ações de Webhook | Enviar dados de alertas, para o serviço desejado como JSON |Não obrigatório, se os alertas são expandidos para o Azure|
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../../monitoring-and-diagnostics/monitoring-alerts-extend.md).
+> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../../azure-monitor/platform/alerts-extend.md).
 
 #### <a name="thresholds"></a>Limiares
 Ação do alerta deve ter apenas um limiar.  Quando os resultados de uma procura guardada correspondem o limiar numa ação associada que a pesquisa, em seguida, todos os outros processos nessa ação são executados.  Uma ação também pode conter apenas um limiar para que possa ser utilizado com as ações de outros tipos que não contenham limiares.
@@ -249,7 +247,7 @@ Utilize o método Put com um ID de ação existente para modificar uma ação de
 #### <a name="action-groups"></a>Grupos de Ação
 Todos os alertas no Azure, utilize o grupo de ação como o mecanismo predefinido para a manipulação de ações. Com o grupo de ação, pode especificar as suas ações de uma vez e, em seguida, associar o grupo de ação para múltiplos alertas - em todo o Azure. Sem a necessidade, repetidamente declarar as mesmas ações repetidamente. Os grupos de ação suportam várias ações - incluindo e-mail, SMS, chamada de voz, a ligação ITSM, Runbook de automatização, Webhook URI e muito mais. 
 
-Para o utilizador que tiver expandido o seus alertas no Azure - uma agenda já deve ter os detalhes do grupo de ação transmitidos juntamente com o limiar, para poder criar um alerta. Detalhes de email, URLs de Webhook, detalhes de automatização de Runbook e outras ações, tem de ser definido no lado primeiro antes, criando um alerta, um grupo de ação é possível criar [grupo de ação do Azure Monitor](../../monitoring-and-diagnostics/monitoring-action-groups.md) no Portal ou de utilização [API de grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+Para o utilizador que tiver expandido o seus alertas no Azure - uma agenda já deve ter os detalhes do grupo de ação transmitidos juntamente com o limiar, para poder criar um alerta. Detalhes de email, URLs de Webhook, detalhes de automatização de Runbook e outras ações, tem de ser definido no lado primeiro antes, criando um alerta, um grupo de ação é possível criar [grupo de ação do Azure Monitor](../../azure-monitor/platform/action-groups.md) no Portal ou de utilização [API de grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Para Adicionar associação de grupo de ação para um alerta, especifique o ID de Gestor de recursos do Azure exclusivo do grupo de ação na definição de alerta. Uma ilustração de exemplo é fornecida abaixo:
 
@@ -285,7 +283,7 @@ Utilize o método Put com um ID de ação existente para modificar um grupo de a
 Por ações predefinidas, siga o modelo padrão e o formato para as notificações. No entanto, o utilizador pode personalizar algumas ações, mesmo que eles são controlados por grupos de ação. Atualmente, a personalização é possível para o assunto do E-Mail e Webhook Payload.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Personalizar o assunto do E-Mail para o grupo de ação
-Por predefinição, é o assunto do e-mail para alertas: notificação de alerta <AlertName> para <WorkspaceName>. Mas isso pode ser personalizado, para que possa palavras específicas ou etiquetas - para que possa facilmente empregar as regras de filtro na pasta a receber. Os detalhes de cabeçalho do e-mail de personalizar tem de enviar, juntamente com detalhes de ActionGroup, tal como no exemplo abaixo.
+Por predefinição, é o assunto do e-mail para alertas: A notificação de alerta <AlertName> para <WorkspaceName>. Mas isso pode ser personalizado, para que possa palavras específicas ou etiquetas - para que possa facilmente empregar as regras de filtro na pasta a receber. Os detalhes de cabeçalho do e-mail de personalizar tem de enviar, juntamente com detalhes de ActionGroup, tal como no exemplo abaixo.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {
@@ -317,7 +315,7 @@ Utilize o método Put com um ID de ação existente para modificar um grupo de a
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 ##### <a name="customize-webhook-payload-for-action-group"></a>Personalizar o Payload do Webook para o grupo de ação
-Por predefinição, o webhook enviado por meio do grupo de ação para o log analytics tem uma estrutura fixa. No entanto, um pode personalizar o payload JSON, utilizando variáveis específicas suportadas, para atender aos requisitos do ponto final do webhook. Para obter mais informações, consulte [ação do Webhook para regras de alerta de registo](../../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md). 
+Por predefinição, o webhook enviado por meio do grupo de ação para o log analytics tem uma estrutura fixa. No entanto, um pode personalizar o payload JSON, utilizando variáveis específicas suportadas, para atender aos requisitos do ponto final do webhook. Para obter mais informações, consulte [ação do Webhook para regras de alerta de registo](../../azure-monitor/platform/alerts-log-webhook.md). 
 
 Os detalhes do webhook de personalizar precisam de enviar, juntamente com detalhes de ActionGroup e serão aplicadas a todos os Webhook URI especificado no interior do grupo de ação; tal como no exemplo abaixo.
 
@@ -355,7 +353,7 @@ Utilize o método Put com um ID de ação existente para modificar um grupo de a
 Notificações por e-mail enviam um e-mail para um ou mais destinatários.  Eles incluem as propriedades na tabela seguinte.
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações como notificação por email agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../../azure-monitor/platform/alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações como notificação por email agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Propriedade | Descrição |
@@ -399,7 +397,7 @@ Utilize o método Put com um ID de ação existente para modificar uma ação de
 Remediações iniciar um runbook na automatização do Azure, que tenta corrigir o problema identificado por esse alerta.  Tem de criar um webhook para o runbook utilizado uma ação de remediação e, em seguida, especifique o URI na propriedade WebhookUri.  Ao criar esta ação através do portal do Azure, um novo webhook é criado automaticamente para o runbook.
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações como a remediação com runbook agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../../azure-monitor/platform/alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações como a remediação com runbook agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Remediações incluem as propriedades na tabela seguinte.
 
@@ -458,7 +456,7 @@ Segue-se um exemplo completo para criar um novo alerta de e-mail.  Esta ação c
 Ações de Webhook iniciar um processo chamando uma URL e, opcionalmente, fornecendo um payload de envio.  Eles são semelhantes às ações de remediação, exceto que eles se destinam-se a webhooks que pode invocar processos que não seja runbooks de automatização do Azure.  Eles fornecem também a opção adicional de fornecer um payload possível entregar o processo remoto.
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações como Webhook agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../../azure-monitor/platform/alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações como Webhook agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Ações de Webhook não têm um limite, mas em vez disso, devem ser adicionadas a uma agenda que tenha a ação do alerta com um limiar.  
@@ -512,5 +510,5 @@ Utilize o método Put com um ID de ação existente para modificar uma ação do
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Utilize o [API REST para realizar pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics.
-* Saiba mais sobre [alertas de registo nos alertas do azure](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
+* Saiba mais sobre [alertas de registo nos alertas do azure](../../azure-monitor/platform/alerts-unified-log.md)
 

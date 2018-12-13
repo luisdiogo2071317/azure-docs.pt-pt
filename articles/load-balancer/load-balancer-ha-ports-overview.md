@@ -11,24 +11,24 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/07/2018
+ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: e37b127b112768cd09989e1a4b5edf99ca101983
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f1d95534fb553c6a6d1be4d72a3251ad6a573f20
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141871"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317207"
 ---
 # <a name="high-availability-ports-overview"></a>Descrição geral das portas de elevada disponibilidade
 
 Balanceador de carga de Standard do Azure ajuda-o a fluxos TCP e UDP de balanceamento de carga em todas as portas em simultâneo quando estiver a utilizar um balanceador de carga interno. 
 
-Uma regra de portas de elevada disponibilidade (HA) é uma variante de uma regra de balanceamento de carga, configurada num interno Balanceador de carga Standard. Pode simplificar o uso de um balanceador de carga ao fornecer uma única regra balancear a carga todos os fluxos TCP e UDP que chegam em todas as portas de um balanceador de carga de padrão interno. A decisão de balanceamento de carga é feita por fluxo. Esta ação baseia-se a seguinte ligação de cinco cadeias de identificação: endereço IP, porta de origem, endereço IP de destino, porta de destino e protocolo de origem.
+Uma regra de balanceamento de carga do portas elevada disponibilidade (HA) é uma variante de uma regra, configurada num interno Balanceador de carga padrão de balanceamento de carga. Pode simplificar o uso de um balanceador de carga ao fornecer uma única regra balancear a carga todos os fluxos TCP e UDP que chegam em todas as portas de um balanceador de carga de padrão interno. A decisão de balanceamento de carga é feita por fluxo. Esta ação baseia-se a seguinte ligação de cinco cadeias de identificação: endereço IP, porta de origem, endereço IP de destino, porta de destino e protocolo de origem
 
-A funcionalidade de portas HA ajuda-o com cenários críticos, como elevada disponibilidade e dimensionamento para aplicações virtuais de rede (NVAs) dentro das redes virtuais. Também pode ajudar a funcionalidade quando tem de ser um grande número de portas com balanceamento de carga. 
+As regras de balanceamento de carga de portas HA ajudá-lo com cenários críticos, como elevada disponibilidade e dimensionamento para aplicações virtuais de rede (NVAs) dentro das redes virtuais. Também pode ajudar a funcionalidade quando tem de ser um grande número de portas com balanceamento de carga. 
 
-A funcionalidade de portas HA é configurada ao definir as portas de front-end e back-end como **0** e o protocolo para **todos os**. O recurso do Balanceador de carga interno distribui, em seguida, todos os fluxos do TCP e UDP, independentemente do número de porta.
+Regras de balanceamento de carga de portas HA é configurada ao definir as portas de front-end e back-end como **0** e o protocolo para **todos os**. O recurso do Balanceador de carga interno, em seguida, faz o balanceamento de todos os fluxos do TCP e UDP, independentemente do número de porta
 
 ## <a name="why-use-ha-ports"></a>Por que usar portas HA?
 
@@ -44,8 +44,9 @@ Para a NVA HA cenários, as portas HA oferecem as seguintes vantagens:
 - Fornecer *n*-cenários de Active Directory e ativa-passiva
 - Eliminar a necessidade de soluções complexas, como nós do ZooKeeper do Apache para monitorização de aplicações
 
-O diagrama seguinte apresenta uma implementação de rede virtual do hub-and-spoke. A imposição de túnel spokes seu tráfego de rede virtual do concentrador e através da NVA, antes de deixarem o espaço fidedigno. As NVAs estão por trás de um balanceador de carga interno padrão com uma configuração de portas HA. Todo o tráfego pode ser processado e encaminhado em conformidade.
+O diagrama seguinte apresenta uma implementação de rede virtual do hub-and-spoke. A imposição de túnel spokes seu tráfego de rede virtual do concentrador e através da NVA, antes de deixarem o espaço fidedigno. As NVAs estão por trás de um balanceador de carga interno padrão com uma configuração de portas HA. Todo o tráfego pode ser processado e encaminhado em conformidade. Quando configurado, como mostra o diagrama a seguir, um adicionalmente a regra de balanceamento de carga de portas HA fornece simetria de fluxo para o tráfego de entrada e saída.
 
+<a node="diagram"></a>
 ![Diagrama de rede virtual hub-and-spoke, com NVAs implementada no modo de HA](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
@@ -99,7 +100,7 @@ Pode configurar *um* recurso de Balanceador de carga Standard público para os r
 
 - A funcionalidade de portas HA não está disponível para IPv6.
 
-- Simetria de fluxo para cenários NVA é suportada com apenas um único NIC. Consulte a descrição e diagrama para [aplicações virtuais de rede](#nva). No entanto, se um destino NAT pode funcionar para o seu cenário, poderia usá-lo para se certificar de que o Balanceador de carga interno envia o tráfego de retorno para a mesma NVA.
+- Simetria de fluxo (principalmente para cenários NVA) é suportada com a instância de back-end e um único NIC (e única configuração de IP) apenas quando usado como mostra a [diagrama](#diagram) regras de balanceamento de carga de portas HA acima e utilização. Não é fornecido em qualquer outro cenário. Isso significa que dois ou mais recursos do Balanceador de carga e suas respectivas regras tomar decisões independentes e nunca são coordenadas. Consulte a descrição e diagrama para [aplicações virtuais de rede](#nva). Quando estiver usando um várias NICs ou sandwiching da NVA entre um balanceador de carga públicos e internos, simetria de fluxo não está disponível.  Poderá conseguir contornar esse problema origem NAT'ing a entrada de fluxo para o IP da aplicação para permitir respostas chegam na mesma NVA.  No entanto, recomendamos vivamente utilizar um único NIC e utilizar a arquitetura de referência mostrada os [diagrama](#diagram) acima.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

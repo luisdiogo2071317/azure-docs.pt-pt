@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/08/2018
 ms.author: magoedte
-ms.openlocfilehash: f5865cf72f413db49e70a08305de54aff955607b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a97a7be0eaa8438a4df27b610106ec6ab9f60d30
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075238"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184397"
 ---
 # <a name="azure-monitor-for-vms-preview-faq"></a>Monitor do Azure para VMs (pré-visualização) FAQ
 Este artigo responde a perguntas freqüentes sobre o Azure Monitor para as VMs. Se tiver perguntas adicionais sobre a solução, vá para o [fórum de discussão do Azure](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando perguntas são solicitadas com frequência, podemos adicioná-los para este artigo para que eles podem ser encontrados rápida e facilmente.
@@ -67,7 +66,7 @@ O Azure Monitor para a funcionalidade de mapa de VMs baseia-se no mapa de servi�
 * VMs monitorizadas estão agora no nó do grupo de cliente e de anel gráfico apresenta a taxa de máquinas de virtuais monitorizadas para não monitorizado. Também pode filtrar a lista de máquinas quando o grupo é expandido.
 * Máquinas de virtuais monitorizadas já se encontram em nós de grupo de porta de servidor e o gráfico em anel apresenta a proporção de computadores monitorados para não monitorizado. Também pode filtrar a lista de máquinas quando o grupo é expandido.
 * O estilo de mapa foi atualizado para ser mais consistente com o mapa da aplicação do Azure Application Insights.
-* Os painéis do lado foram atualizados, mas ainda não tiver o conjunto completo de integrações que eram suportadas no mapa de serviço: gestão de atualizações, controlo de alterações, segurança e serviço de atendimento. 
+* Os painéis do lado foram atualizados, mas ainda não tem o conjunto completo de integrações que eram suportadas no mapa de serviço: Gestão de atualizações, controlo de alterações, segurança e serviço de atendimento. 
 * A opção para escolher os grupos e as máquinas para mapear foi atualizada. Ele agora suporta subscrições, grupos de recursos, os conjuntos de dimensionamento de máquina virtual do Azure e serviços em nuvem.
 * Não é possível criar novos grupos de máquina de mapa de serviço no Azure Monitor para a funcionalidade de mapa de VMs. 
 

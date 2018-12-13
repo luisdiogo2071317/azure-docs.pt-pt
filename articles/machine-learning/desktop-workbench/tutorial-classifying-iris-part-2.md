@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/15/2018
+ms.date: 03/15/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6faabc3003048c93c08451c537496e762352b50b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 2e4ede4a699eaac1e5f8c632901239fb04ebcd30
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997328"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276762"
 ---
-# <a name="tutorial-2-classify-iris---build-a-model"></a>Tutorial: Classificar Íris, parte 2 – Criar um modelo
+# <a name="tutorial-2-classify-iris---build-a-model"></a>Tutorial 2: Classificar íris – criar um modelo
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -522,7 +522,7 @@ Também pode executar este script num cluster do HDInsight Spark. Saiba [como cr
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Nesta segunda parte da série de tutoriais composta por três partes, aprendeu a:
 > [!div class="checklist"]
 > * Abrir scripts e analisar o código no Workbench

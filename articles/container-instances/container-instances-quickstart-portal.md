@@ -1,21 +1,21 @@
 ---
-title: Início Rápido – Executar uma aplicação no Azure Container Instances
-description: Neste início rápido, vai utilizar o portal do Azure para implementar uma aplicação que está a ser executada num contentor de Docker para Azure Container Instances
+title: Início rápido - executar uma aplicação no Azure Container Instances - Portal
+description: Neste início rápido, vai utilizar o portal do Azure para implementar uma aplicação de contentor do Docker para executar num contentor isolado no Azure Container Instances
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857725"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190293"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Início Rápido: Executar uma aplicação no Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Início rápido: Execute uma aplicação de contentor no Azure Container Instances no portal do Azure
 
 Utilize o Azure Container Instances para executar contentores de Docker no Azure com simplicidade e celeridade. Não precisa de implementar máquinas virtuais nem de utilizar uma plataforma de orquestração de contentores completa, como o Kubernetes. Neste início rápido, vai utilizar o portal do Azure para criar um contentor no Azure e disponibilizar a sua aplicação com um nome de domínio completamente qualificado (FQDN). Depois de configurar algumas definições e implementar o contentor, pode navegar para a aplicação em execução:
 
@@ -37,7 +37,7 @@ Introduza os seguintes valores nas caixas de texto **Nome do contentor**, **Imag
 
 * Nome do contentor: `mycontainer`
 * Imagem de contentor: `microsoft/aci-helloworld`
-* Grupo de recursos: **Criar novo** > `myResourceGroup`
+* Grupo de recursos: **Criar um novo** > `myResourceGroup`
 
 ![Configurar definições básicas para uma nova instância do contentor no portal do Azure][aci-portal-03]
 
@@ -85,9 +85,9 @@ Selecione **Sim** quando caixa de diálogo de confirmação for apresentada.
 
 ![Eliminar confirmação da instância do contentor no portal do Azure][aci-portal-10]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, criou uma instância de contentor do Azure a partir de uma imagem no registo do Hub do Docker público. Se quiser criar uma imagem de contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
+Neste início rápido, criou uma instância de contentor do Azure a partir de uma imagem no registo do Hub do Docker público. Se deseja criar uma imagem do contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Tutorial do Azure Container Instances](./container-instances-tutorial-prepare-app.md)

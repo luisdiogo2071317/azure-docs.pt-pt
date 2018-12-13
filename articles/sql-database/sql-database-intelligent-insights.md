@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e639bd40c877aded1439fe999fcf3f7114b9a727
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890675"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278139"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Informações inteligentes com ia para monitorizar e resolver problemas de desempenho de base de dados
 
@@ -84,7 +84,7 @@ Para obter mais informações sobre como ativar o registo de informações intel
 Solução de análise de SQL do Azure fornece a interface gráfica do usuário, relatórios e alertas de recursos sobre o desempenho da base de dados, juntamente com o Intelligent Insights dados de registo de diagnóstico.
 
 > [!TIP]
-> Introdução rápida: A forma mais fácil deixar o zero com a utilização de informações inteligentes é usá-lo juntamente com a análise de SQL do Azure que irá fornecer uma interface gráfica do usuário para problemas de desempenho da base de dados. Adicionar solução de análise de SQL do Azure a partir do marketplace, criar uma área de trabalho dentro desta solução e, em seguida, para cada base de dados que pretende ativar informações inteligentes em configurar a transmissão em fluxo do registo de "SQLInsights" no painel de definições de diagnóstico de uma base de dados para o área de trabalho da análise de SQL do Azure.
+> Guia de introdução: É a maneira mais fácil de obter deslocar o com a utilização de informações inteligentes para utilizá-lo juntamente com a análise de SQL do Azure que irá fornecer uma interface gráfica do usuário para problemas de desempenho da base de dados. Adicionar solução de análise de SQL do Azure a partir do marketplace, criar uma área de trabalho dentro desta solução e, em seguida, para cada base de dados que pretende ativar informações inteligentes em configurar a transmissão em fluxo do registo de "SQLInsights" no painel de definições de diagnóstico de uma base de dados para o área de trabalho da análise de SQL do Azure.
 >
 
 Pré-requisito é ter adicionado ao dashboard do portal do Azure do marketplace a análise de SQL do Azure e para criar uma área de trabalho, consulte [configure a análise de SQL do Azure](../azure-monitor/insights/azure-sql.md#configuration)

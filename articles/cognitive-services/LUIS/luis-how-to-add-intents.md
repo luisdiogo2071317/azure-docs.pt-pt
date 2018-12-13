@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 20d076e256143683b52cfaa713e25e4d31f0f3d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3e6064b4c202c36e4b63d6e06edfbf3149f6665f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098700"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139876"
 ---
 # <a name="add-intents"></a>Adicionar intenções 
 
@@ -58,7 +58,7 @@ Expressões com de exemplo são exemplos de texto de perguntas de utilizador ou 
 
 Uma expressão numa intenção, pode ter uma discrepância de predição de intenção entre a intenção de selecionado e a pontuação de predição. LUIS indica essa discrepância com uma caixa vermelha à volta da **rotulado intenção** na linha da expressão de exemplo. 
 
-![Página de detalhes de captura de ecrã de objetivos, com a expressão realçado](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+![Página de detalhes de captura de ecrã de objetivos, com erros de discrepância de predição de expressão](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
 No painel de navegação superior, selecione **Train**. A discrepância de predição é agora já era.
 
@@ -107,7 +107,7 @@ As seguintes ações podem ser executadas numa expressão individual no menu de 
 
 * Editar: alterar o texto da expressão
 * Eliminação: remova a expressão a intenção. Se pretender continuar a expressão, um método melhor é para movê-lo para o **None** intenção. 
-* Adicionar um padrão: um padrão permite-lhe tirar uma expressão comum e marcar texto substituível e texto ignorable, reduzindo assim a necessidade de expressões com mais na intenção. 
+* Adicione um padrão: Um padrão permite-lhe tirar uma expressão comum e marcar texto substituível e texto ignorable, reduzindo assim a necessidade de expressões com mais na intenção. 
 
 O **rotulado intenção** coluna permite-lhe alterar o objetivo da expressão.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ded3c89774c39b5edee02b9e3c6807ce75ff16a4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 2f4bc578b567462c2591c28b270f863ba5756815
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566198"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193914"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e segurança do StorSimple
 
@@ -55,7 +55,7 @@ Apenas autorizados StorSimple, os dispositivos têm permissão para associar o s
 
 ![chave de registo do serviço](./media/storsimple-security/ServiceRegistrationKey.png)
 
-Para saber como obter uma chave de registo do serviço, aceda a [passo 2: obter a chave de registo do serviço](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
+Para saber como obter uma chave de registo do serviço, aceda a [passo 2: Obter a chave de registo do serviço](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 
 A chave de registo do serviço é uma chave de tempo que contenha mais de 100 carateres. Pode copiar a chave e guarde-o num ficheiro de texto numa localização segura para que pode usá-lo para autorizar dispositivos adicionais conforme necessário. Se a chave de registo do serviço for perdida, depois de registar o dispositivo primeiro, pode gerar uma nova chave do serviço StorSimple Device Manager. Isto não irá afetar o funcionamento dos dispositivos existentes.
 
@@ -210,10 +210,10 @@ StorSimple utiliza os seguintes algoritmos de encriptação para proteger os dad
 O Gestor de dispositivos StorSimple físicos e virtuais de série recolhe as informações pessoais nas seguintes instâncias principais:
 
 - Definições de utilizador em que o endereço de correio eletrónico de utilizadores estão configurados de alerta. Estas informações podem ser visualizadas e limpos pelo administrador. Isto aplica-se aos dispositivos da série StorSimple 8000 e as matrizes virtuais do StorSimple.
- * Para visualizar e limpar as definições para a série StorSimple 8000, siga os passos em [ver e gerir alertas do StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
- * Para visualizar e limpar as definições do StorSimple Virtual Array, siga os passos em [ver e gerir alertas do StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+  * Para visualizar e limpar as definições para a série StorSimple 8000, siga os passos em [ver e gerir alertas do StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
+  * Para visualizar e limpar as definições do StorSimple Virtual Array, siga os passos em [ver e gerir alertas do StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
 - Utilizadores que podem aceder os dados que residem nas partilhas de. Uma lista de utilizadores que podem aceder os dados de partilha é apresentada e pode ser visualizada. Esta lista também é eliminada quando as partilhas é eliminado. Isto aplica-se apenas para as matrizes virtuais do StorSimple.
- * Para ver a lista de utilizador que pode aceder ou eliminar uma partilha, siga os passos em [gerir partilhas na matriz Virtual StorSimple](storsimple-virtual-array-manage-shares.md)
+  * Para ver a lista de utilizador que pode aceder ou eliminar uma partilha, siga os passos em [gerir partilhas na matriz Virtual StorSimple](storsimple-virtual-array-manage-shares.md)
 
 Para obter mais informações, reveja a política de privacidade da Microsoft no [Centro de Fidedignidade](https://www.microsoft.com/trustcenter).
 
@@ -221,65 +221,65 @@ Para obter mais informações, reveja a política de privacidade da Microsoft no
 
 Seguem-se algumas perguntas e respostas sobre a segurança e o Microsoft Azure StorSimple.
 
-**P:** meu serviço for comprometido. O que deve ser meus passos seguintes?
+**P:** Meu serviço for comprometido. O que deve ser meus passos seguintes?
 
-**R:** imediatamente deve alterar a chave de encriptação de dados do serviço e as chaves de conta de armazenamento para a conta de armazenamento que está a ser utilizado para camadas de dados. Para obter instruções, aceda a:
+**R:** Imediatamente deve alterar a chave de encriptação de dados do serviço e as chaves de conta de armazenamento para a conta de armazenamento que está a ser utilizado para camadas de dados. Para obter instruções, aceda a:
 
 * [Alterar a chave de encriptação de dados do serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Rotação de chaves de contas de armazenamento](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
-**P:** tenho um novo dispositivo do StorSimple que pede para a chave de registo do serviço. Como recuperá-la?
+**P:** Tenho um novo dispositivo do StorSimple que pede para a chave de registo do serviço. Como recuperá-la?
 
-**R:** esta chave foi criada quando criou o serviço StorSimple Device Manager pela primeira vez. Quando utiliza o serviço StorSimple Device Manager para ligar ao dispositivo, pode utilizar a página de início rápido do serviço para ver ou regenerar a chave de registo do serviço. Gerar uma nova chave de registo do serviço não irá afetar os dispositivos registados existentes. Para obter instruções, aceda a:
+**R:** Esta chave foi criada quando criou o serviço StorSimple Device Manager pela primeira vez. Quando utiliza o serviço StorSimple Device Manager para ligar ao dispositivo, pode utilizar a página de início rápido do serviço para ver ou regenerar a chave de registo do serviço. Gerar uma nova chave de registo do serviço não irá afetar os dispositivos registados existentes. Para obter instruções, aceda a:
 
 * [Ver ou voltar a gerar a chave de registo do serviço](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
 
-**P:** perdi minha chave de encriptação de dados do serviço. O que posso fazer?
+**P:** Eu perdi minha chave de encriptação de dados do serviço. O que posso fazer?
 
-**R:** contacte o suporte da Microsoft. Pode iniciar sessão a uma sessão de suporte no seu dispositivo e o ajuda a obter a chave (desde que, pelo menos, um dispositivo está online). Imediatamente depois de obter a chave de encriptação de dados do serviço, deve alterar de modo a garantir que a nova chave só conhece. Para obter instruções, aceda a:
+**R:** Contacte o Suporte da Microsoft. Pode iniciar sessão a uma sessão de suporte no seu dispositivo e o ajuda a obter a chave (desde que, pelo menos, um dispositivo está online). Imediatamente depois de obter a chave de encriptação de dados do serviço, deve alterar de modo a garantir que a nova chave só conhece. Para obter instruções, aceda a:
 
 * [Alterar a chave de encriptação de dados do serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
-**P:** autorizado de um dispositivo para uma alteração de chaves de encriptação do serviço dados, mas não iniciou o processo de alteração de chaves. O que devo fazer?
+**P:**  Autorizado de um dispositivo para uma alteração de chaves de encriptação do serviço dados, mas não iniciou o processo de alteração de chaves. O que devo fazer?
 
-**R:** se o período de tempo limite expirou, terá de autorizar o dispositivo para que a alteração de chaves de encriptação do serviço dados e iniciar o processo novamente.
+**R:** Se o período de tempo limite expirou, terá de autorizar o dispositivo para que a alteração de chaves de encriptação do serviço dados e iniciar o processo novamente.
 
-**P:** alterei a chave de encriptação de dados do serviço, mas não foi possível atualizar os outros dispositivos dentro de 4 horas. É necessário que começar de novo?
+**P:**  Alterei a chave de encriptação de dados do serviço, mas não foi possível atualizar os outros dispositivos dentro de 4 horas. É necessário que começar de novo?
 
-**R:** o período de tempo de 4 horas é apenas para iniciar a alteração. Depois de iniciar o processo de atualização no dispositivo StorSimple autorizado, a autorização é válida até que todos os dispositivos sejam atualizados.
+**R:** O período de tempo de 4 horas é apenas para iniciar a alteração. Depois de iniciar o processo de atualização no dispositivo StorSimple autorizado, a autorização é válida até que todos os dispositivos sejam atualizados.
 
-**P:** StorSimple nosso administrador tiver saído da empresa. O que devo fazer?
+**P:** O administrador do StorSimple tiver saído da empresa. O que devo fazer?
 
-**R:** alterar e repor as palavras-passe que permitem o acesso ao dispositivo StorSimple e alterar a encriptação de dados do serviço de chave para garantir que as novas informações não são conhecidas não autorizado pessoal. Para obter instruções, aceda a:
+**R:** Alterar e repor as palavras-passe que permitem o acesso ao dispositivo StorSimple e alterar a chave de encriptação de dados do serviço para se certificar de que as novas informações não são conhecidas por pessoa não-autorizada. Para obter instruções, aceda a:
 
 * [Utilize o serviço StorSimple Device Manager para alterar as palavras-passe do storsimple](storsimple-8000-change-passwords.md)
 * [Alterar a chave de encriptação de dados do serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Configurar o CHAP para o dispositivo StorSimple](storsimple-8000-configure-chap.md)
 
-**P:** quero fornecer a palavra-passe do Snapshot Manager do StorSimple para um anfitrião que está a ligar ao dispositivo StorSimple, mas a palavra-passe não está disponível. O que posso fazer?
+**P:** Quero fornecer a palavra-passe do Snapshot Manager do StorSimple para um anfitrião que está a ligar ao dispositivo StorSimple, mas a palavra-passe não está disponível. O que posso fazer?
 
-**R:** se tenha esquecido a palavra-passe, deve criar um novo. Em seguida, certifique-se de que todos os utilizadores existentes de informar que a palavra-passe foi alterada e que eles devem atualizar seus clientes para utilizar a nova palavra-passe. Para obter instruções, aceda a:
+**R:** Se se tiver esquecido da palavra-passe, deve criar um novo. Em seguida, certifique-se de que todos os utilizadores existentes de informar que a palavra-passe foi alterada e que eles devem atualizar seus clientes para utilizar a nova palavra-passe. Para obter instruções, aceda a:
 
 * [Alterar a palavra-passe do Snapshot Manager do StorSimple](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)
 * [Autenticar um dispositivo](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
-**P:** foi alterado o certificado para acesso remoto para o Windows PowerShell para StorSimple no dispositivo. Como posso atualizar meus clientes de acesso remoto?
+**P:** O certificado para acesso remoto para o Windows PowerShell para StorSimple foi alterado no dispositivo. Como posso atualizar meus clientes de acesso remoto?
 
-**R:** pode transferir o novo certificado do serviço StorSimple Device Manager e, em seguida, forneça-o para ser instalado no arquivo de certificados, os clientes de acesso remoto. Para obter instruções, aceda a:
+**R:** Pode transferir o novo certificado do serviço StorSimple Device Manager e, em seguida, forneça-o para ser instalado no arquivo de certificados, os clientes de acesso remoto. Para obter instruções, aceda a:
 
 * [Cmdlet de importar certificado](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
-**P:** estão os meus dados protegidos se o serviço StorSimple Device Manager é comprometido?
+**P:** É meu if protegido de dados o StorSimple Device Manager serviço for comprometido?
 
-**R:** dados de configuração de serviço são sempre encriptados com a chave pública quando vê-la num navegador da web. Uma vez que o serviço não tem acesso à chave privada, o serviço não será capaz de ver todos os dados. Se o serviço StorSimple Device Manager for comprometido, não há nenhum impacto, pois não há nenhum chaves armazenadas no serviço StorSimple Device Manager.
+**R:** Dados de configuração de serviço são sempre encriptados com a chave pública quando vê-la num navegador da web. Uma vez que o serviço não tem acesso à chave privada, o serviço não será capaz de ver todos os dados. Se o serviço StorSimple Device Manager for comprometido, não há nenhum impacto, pois não há nenhum chaves armazenadas no serviço StorSimple Device Manager.
 
-**P:** se alguém obtiver acesso ao certificado de encriptação de dados, serão meus dados comprometidos?
+**P:** Se alguém obtiver acesso ao certificado de encriptação de dados, serão meus dados comprometidos?
 
 **R:** Microsoft Azure armazena a chave de encriptação de dados do cliente (ficheiro. pfx) num formato encriptado. Uma vez que o ficheiro. pfx é encriptado e o serviço de StorSimple não tem a chave de encriptação de dados do serviço para desencriptar o ficheiro. pfx, simplesmente obter acesso ao ficheiro. pfx não irá expor quaisquer segredos.
 
-**P:** o que acontece se uma entidade governamental pedirem à Microsoft os meus dados?
+**P:** O que acontece se uma entidade governamental pedirem à Microsoft os meus dados?
 
-**R:** porque todos os dados são encriptados no serviço e a chave privada é mantida com o dispositivo, a entidade governamental tem de pedir o cliente para os dados.
+**R:** Uma vez que todos os dados são encriptados no serviço e a chave privada é mantida com o dispositivo, a entidade governamental tem de pedir o cliente para os dados.
 
 
 

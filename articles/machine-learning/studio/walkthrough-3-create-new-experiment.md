@@ -1,12 +1,11 @@
 ---
 title: 'Passo 3: Criar uma nova experimentação de Machine Learning Studio - Azure | Documentos da Microsoft'
-description: 'Passo 3 da desenvolver uma solução preditiva passo a passo: criar uma nova experimentação de formação no Azure Machine Learning Studio.'
+description: 'Passo 3 da desenvolver uma solução preditiva passo a passo: Crie uma nova experimentação de formação no Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5f3f73e2c2cb281887e795d974403a17cffd5978
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317533"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260791"
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Passo 3 das instruções: Criar uma nova experimentação do Azure Machine Learning Studio
 Este é o terceiro passo de passo a passo, [desenvolver uma solução de Análise Preditiva no Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -56,7 +55,7 @@ Nestas instruções, a próxima etapa é criar uma experimentação no Machine L
     ![Adicionar o conjunto de dados para a experimentação][7]
 
 ## <a name="prepare-the-data"></a>Preparar os dados
-Pode ver as primeiras 100 linhas dos dados e algumas informações estatísticas para o conjunto de dados inteira: clique na porta de saída do conjunto de dados (o pequeno círculo na parte inferior) e selecione **Visualize**.  
+Pode ver as primeiras 100 linhas dos dados e algumas informações estatísticas para todo o conjunto de dados: Clique na porta de saída do conjunto de dados (o pequeno círculo na parte inferior) e selecione **Visualize**.  
 
 Uma vez que o ficheiro de dados não vinha com cabeçalhos de coluna, Studio forneceu cabeçalhos genéricos (Col1, Col2, *etc.*). Boa cabeçalhos não são essenciais para a criação de um modelo, mas eles tornam mais fácil trabalhar com os dados na experimentação. Além disso, quando está a publicar, eventualmente, esse modelo num serviço da web, os títulos ajudam a identificar as colunas para o utilizador do serviço.  
 
@@ -164,7 +163,7 @@ Nosso experimentação agora terá um aspeto semelhante ao seguinte:
 
 Para obter mais informações sobre como utilizar os R scripts no suas experimentações, consulte [expandir a sua experiência com R](extend-your-experiment-with-r.md).
 
-**Próxima: [Train e avaliar os modelos](walkthrough-4-train-and-evaluate-models.md)**
+**Seguinte: [Dar formação e avaliar os modelos](walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ./media/walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ./media/walkthrough-3-create-new-experiment/rename-experiment.png

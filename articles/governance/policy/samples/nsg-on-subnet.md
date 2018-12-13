@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Azure Policy – NSG x em cada sub-rede
+title: Exemplo - NSG x em cada sub-rede
 description: Esta polícia de exemplo requer a utilização de um grupo de segurança de rede específico em cada sub-rede virtual.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 24e8180d8040aa3cc15d9739bfb5283a1270514e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: c23cf378f32a7f1699e7b01990a8f5ab05b2d10e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980071"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313093"
 ---
 # <a name="nsg-x-on-every-subnet"></a>NSG x em cada sub-rede
 
@@ -69,6 +68,6 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Reveja mais exemplos nas [amostras do Azure Policy](index.md)
+- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

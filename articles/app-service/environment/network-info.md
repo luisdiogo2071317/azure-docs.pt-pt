@@ -1,5 +1,5 @@
 ---
-title: Considerações de redes com um ambiente de serviço de aplicações do Azure
+title: Considerações de redes com o ambiente de serviço de aplicações - Azure
 description: Explica o tráfego de rede do ASE e como definir os NSGs e as UDRs com o seu ASE
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: b39ff01fec9fa51f6e208728b5c8f78c68654484
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964888"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271016"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre o funcionamento em rede para um ambiente de serviço de aplicações #
 
@@ -26,8 +27,8 @@ ms.locfileid: "52964888"
 
  Azure [ambiente do serviço de aplicações] [ Intro] é uma implementação do serviço de aplicações do Azure numa sub-rede na rede virtual do Azure (VNet). Existem dois tipos de implementação para um ambiente de serviço de aplicações (ASE):
 
-- **ASE externo**: expõe as aplicações alojadas no ASE num endereço IP acessível pela internet. Para obter mais informações, consulte [criar um ASE externo][MakeExternalASE].
-- **O ASE de ILB**: expõe as aplicações alojadas no ASE num endereço IP na sua VNet. O ponto final interno é um balanceador de carga interno (ILB), que é o motivo pelo qual ele é chamado um ASE de ILB. Para obter mais informações, consulte [criar e utilizar um ASE de ILB][MakeILBASE].
+- **ASE externo**: Expõe as aplicações alojadas no ASE num endereço IP acessível pela internet. Para obter mais informações, consulte [criar um ASE externo][MakeExternalASE].
+- **O ASE DE ILB**: Expõe as aplicações alojadas no ASE num endereço IP na sua VNet. O ponto final interno é um balanceador de carga interno (ILB), que é o motivo pelo qual ele é chamado um ASE de ILB. Para obter mais informações, consulte [criar e utilizar um ASE de ILB][MakeILBASE].
 
 Existem duas versões do ambiente de serviço de aplicações: ASEv1 e ASEv2. Para obter informações sobre o ASEv1, veja [introdução ao ambiente de serviço de aplicações v1][ASEv1Intro]. ASEv1 pode ser implementado num clássico ou VNet do Resource Manager. ASEv2 só pode ser implementada numa VNet do Resource Manager.
 
@@ -74,9 +75,9 @@ O ASE de entrada de acesso são dependências:
 | Utilizar | De | Para |
 |-----|------|----|
 | Gestão | Endereços de gestão do serviço de aplicações | Sub-rede do ASE: 454, 455 |
-|  Comunicação interna do ASE | Sub-rede do ASE: todas as portas | Sub-rede do ASE: todas as portas
-|  Permitir que o Balanceador de carga do Azure de entrada | Balanceador de carga do Azure | Sub-rede do ASE: todas as portas
-|  Aplicação de endereços IP atribuída | Aplicação endereços atribuída | Sub-rede do ASE: todas as portas
+|  Comunicação interna do ASE | Sub-rede do ASE: Todas as portas | Sub-rede do ASE: Todas as portas
+|  Permitir que o Balanceador de carga do Azure de entrada | Balanceador de carga do Azure | Sub-rede do ASE: Todas as portas
+|  Aplicação de endereços IP atribuída | Aplicação endereços atribuída | Sub-rede do ASE: Todas as portas
 
 O tráfego de entrada de gestão fornece o comando e controlo do ASE, além de monitoramento do sistema. Os endereços de origem para este tráfego estão listados na [endereços de gestão do ASE] [ ASEManagement] documento. A configuração de segurança de rede tem de permitir o acesso de todos os IPs nas portas 454 e 455. Se bloquear o acesso a partir desses endereços, o seu ASE se tornará mau estado de funcionamento e, em seguida, torne-se suspensa.
 
@@ -136,10 +137,10 @@ As funções e Web tarefas dependem do site do SCM, mas são suportadas para uti
 
 Um ASE tem alguns endereços IP estar atento. São:
 
-- **Endereço IP de entrada público**: utilizado para o tráfego da aplicação num ASE externo e o tráfego de gestão no ASE externo e um ASE de ILB.
-- **IP público saído**: utilizado como o IP de "de" para as ligações de saída a partir do ASE que deixam a VNet, que não são encaminhadas para baixo de uma VPN.
-- **Endereço IP do ILB**: Se utilizar um ASE de ILB.
-- **Endereços SSL baseado em IP aplicação atribuída**: apenas possível com um ASE externo e quando o SSL baseado em IP está configurado.
+- **Endereço IP de entrada público**: Utilizado para tráfego de aplicações num ASE externo e o tráfego de gestão no ASE externo e um ASE de ILB.
+- **IP público saído**: Utilizado como o IP de "de" para as ligações de saída a partir do ASE que deixam a VNet, que não são encaminhadas para baixo de uma VPN.
+- **Endereço IP do ILB**: Se usar um ASE de ILB.
+- **Endereços SSL baseado em IP aplicação atribuída**: Apenas possível com um ASE externo e quando o SSL baseado em IP estiver configurado.
 
 Todos os, estes endereços IP são facilmente visíveis num ASEv2 no portal do Azure a partir da interface do Usuário do ASE. Se tiver um ASE de ILB, o IP para o ILB está listado.
 

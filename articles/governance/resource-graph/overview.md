@@ -8,13 +8,12 @@ ms.date: 10/22/2018
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: e78b525e1e08a05b8de6071f9ddba0dfb29ff672
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.openlocfilehash: ed64f6317fefb9e82dbe14e806499965d926d434
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087283"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316204"
 ---
 # <a name="what-is-azure-resource-graph"></a>O que é o Azure Resource Graph
 
@@ -51,7 +50,7 @@ Para utilizar o Resource Graph, tem de possuir os direitos adequados no [Control
 
 O Resource Graph suporta a CLI do Azure e o Azure PowerShell. A consulta está estruturada da mesma forma para os dois idiomas. Saiba como ativar o Resource Graph na [CLI do Azure](first-query-azurecli.md#add-the-resource-graph-extension) e no [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Executar a primeira consulta com a [CLI do Azure](first-query-azurecli.md)
 - Executar a primeira consulta com o [Azure PowerShell](first-query-powershell.md)

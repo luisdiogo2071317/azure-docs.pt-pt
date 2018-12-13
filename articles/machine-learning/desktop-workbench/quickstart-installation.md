@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 3/7/2018
+ms.date: 03/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: a45b8e1dd2f59bf1399c92e3ff1a3c66ca8956ed
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 21ab3448f080e7f4874464dbb4befc0cbed63282
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956885"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276507"
 ---
-# <a name="quickstart-install-and-get-started-with-azure-machine-learning-service"></a>Início Rápido: Instalar e começar a utilizar o serviço Azure Machine Learning
+# <a name="quickstart-install-and-get-started-with-azure-machine-learning-service"></a>Início rápido: Instalar e começar a utilizar com o serviço Azure Machine Learning
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -207,13 +207,13 @@ Pode utilizar o argumento --help para obter ajuda para os comandos na CLI do Azu
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Acabou de criar as contas do Azure Machine Learning necessárias e de instalar a aplicação Azure Machine Learning Workbench. Criou também um projeto, executou um script e explorou o histórico de execuções desse script.
 
 Para obter uma experiência mais aprofundada para este fluxo de trabalho, incluindo como implementar o seu modelo de Íris, siga o tutorial *Classificar Íris* completo. O tutorial contém os passos detalhados para [preparação de dados](../desktop-workbench/tutorial-classifying-iris-part-1.md), [experimentação](../desktop-workbench/tutorial-classifying-iris-part-2.md) e [gestão de modelos](../desktop-workbench/tutorial-classifying-iris-part-3.md). 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Classificar Íris (Parte 1)](../desktop-workbench/tutorial-classifying-iris-part-1.md)
+> [Tutorial: Classificar íris (parte 1)](../desktop-workbench/tutorial-classifying-iris-part-1.md)
 
 >[!NOTE]
 > Embora tenha criado a conta de gestão de modelos, o seu ambiente ainda não está configurado para implementar serviços Web. Saiba como configurar o [ambiente de implementação](../desktop-workbench/deployment-setup-configuration.md).

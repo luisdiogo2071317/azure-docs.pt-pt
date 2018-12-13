@@ -1,12 +1,11 @@
 ---
-title: Capacidade para tarefas de serviço de execução do batch - Azure Machine Learning Studio dedicado | Documentos da Microsoft
+title: O serviço do Azure Batch para trabalhos de Machine Learning Studio | Documentos da Microsoft
 description: Descrição geral dos serviços do Azure Batch para trabalhos de Machine Learning. Processamento de conjunto do batch permite-lhe criar conjuntos de onde pode submeter tarefas de lote.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: seodec18
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.service: machine-learning
 ms.component: studio
@@ -15,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 3a7adba53f271cd2f6bb2985d034821136d521b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 44b63a51049e663e55cc59a623837cf65cab9ccc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075419"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275198"
 ---
-# <a name="azure-batch-service-for-machine-learning-jobs"></a>Serviço do Azure Batch para trabalhos de Machine Learning
+# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Serviço do Azure Batch para tarefas do Azure Machine Learning Studio
 
 Processamento do Machine Learning Batch Pool fornece dimensionamento gerida pelo cliente para o serviço de execução de lote do Azure Machine Learning. O processamento de batch de clássico para aprendizagem ocorre num ambiente multi-inquilino, o que limita o número de tarefas simultâneas pode enviar e tarefas são colocados em fila numa base first-in-first-out. Essa incerteza significa que não é possível prever com precisão quando a tarefa será executada.
 

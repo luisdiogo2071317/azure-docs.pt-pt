@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: 7f1950afc8e84f0bfeba7d51aa68ee126db38e2e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d7a48dcb56d2bed0e84714087bb9fda3fae65fc1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075137"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273787"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Como consumir um serviço web do Azure Machine Learning Studio
 
@@ -33,7 +32,7 @@ Pode encontrar mais informações sobre como criar e implementar um serviço Web
 * Para obter detalhes sobre como implementar um serviço da Web, consulte [implementar um serviço Web do Machine Learning](publish-a-machine-learning-web-service.md).
 * Para obter mais informações sobre o Machine Learning em geral, visite o [Centro de documentação do Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>Descrição geral
 Com o serviço Web do Azure Machine Learning, uma aplicação externa comunica com um modelo de classificação de fluxo de trabalho de Machine Learning em tempo real. Uma chamada de serviço Web do Machine Learning devolve resultados de predição para uma aplicação externa. Para fazer uma chamada do serviço Web do Machine Learning, tem de transmitir uma chave de API que foi criada quando implementou uma predição. O serviço Web do Machine Learning é baseado em REST, uma opção de arquitetura popular para projetos de programação web.
@@ -102,13 +101,13 @@ Para ligar a um serviço Web do Machine Learning, o **Microsoft.AspNet.WebApi.Cl
 
 **Instalar Microsoft.AspNet.WebApi.Client NuGet no Visual Studio**
 
-1. Publicar o conjunto de dados de transferência de UCI: conjunto de dados de classe 2 para adultos serviço Web.
+1. Publicar o conjunto de dados de transferência de UCI: Conjunto de dados de classe de adulto 2 serviço Web.
 2. clique em **Ferramentas** > **Gestor de Pacotes NuGet** > **Consola de Gestor de Pacotes**.
 3. Escolher **Install-Package Microsoft.AspNet.WebApi.Client**.
 
 **Para executar o exemplo de código**
 
-1. Publicar "exemplo 1: Transferir o conjunto de dados de UCI: o conjunto de dados do adulto 2 classe" experimentação, parte da coleção de exemplo de Machine Learning.
+1. Publicar "exemplo 1: Transferir o conjunto de dados de UCI: Experimentação do conjunto de dados de classe adulto 2", parte da coleção de exemplo de Machine Learning.
 2. Atribua apiKey com a chave de um serviço Web. Ver **obter uma chave de autorização do Azure Machine Learning** acima.
 3. Atribua serviceUri com o URI do pedido.
 
@@ -204,7 +203,7 @@ Para ligar a um serviço Web do Machine Learning, utilize o **urllib2** bibliote
 
 **Para executar o exemplo de código**
 
-1. Implementar "exemplo 1: Transferir o conjunto de dados de UCI: o conjunto de dados do adulto 2 classe" experimentação, parte da coleção de exemplo de Machine Learning.
+1. Implementar "exemplo 1: Transferir o conjunto de dados de UCI: Experimentação do conjunto de dados de classe adulto 2", parte da coleção de exemplo de Machine Learning.
 2. Atribua apiKey com a chave de um serviço Web. Consulte a **obter uma chave de autorização do Azure Machine Learning** seção perto do início deste artigo.
 3. Atribua serviceUri com o URI do pedido.
 

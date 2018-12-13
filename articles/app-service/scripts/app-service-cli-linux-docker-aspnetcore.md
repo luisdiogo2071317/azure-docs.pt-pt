@@ -1,10 +1,10 @@
 ---
-title: Exemplo do Script da CLI do Azure - Criar uma aplicação Web do ASP.NET Core num contentor do Docker | Microsoft Docs
+title: CLI do Azure exemplo do Script - Criar aplicação ASP.NET Core a partir do Docker Hub | Documentos da Microsoft
 description: Exemplo do Script da CLI do Azure - Criar uma aplicação Web do ASP.NET Core num contentor do Docker
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 98b15b494905d93cf0d413b5fc89ad342e2fb196
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 20635e3dd83184b6e024c9e954f64f6d9a90ff09
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992614"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309317"
 ---
-# <a name="create-an-aspnet-core-web-app-in-a-docker-container"></a>Criar uma aplicação Web do Núcleo ASP.NET num contentor do Docker
+# <a name="create-an-aspnet-core-web-app-in-a-docker-container-using-azure-cli"></a>Criar uma aplicação web ASP.NET Core num contentor do Docker com a CLI do Azure
 
 Este script de exemplo cria um grupo de recursos, um plano do Serviço de Aplicações do Linux e uma aplicação Web. Em seguida, implementa uma aplicação ASP.NET Core com um Contentor do Docker.
 
@@ -50,7 +50,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação Web do Azure. |
 | [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) | Define o contentor do Docker da aplicação Web do Azure. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

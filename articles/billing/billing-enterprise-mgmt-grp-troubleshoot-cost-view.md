@@ -10,39 +10,39 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2017
+ms.date: 02/22/2017
 ms.author: cwatson
-ms.openlocfilehash: be74714667c2fed57a797a972ddcd7949cae5933
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 434f717d9590eff39df161a74931477bdf71bb67
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274675"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309571"
 ---
-# <a name="troubleshoot-enterprise-cost-views"></a>Resolver problemas de vistas de custos empresariais 
+# <a name="troubleshoot-enterprise-cost-views"></a>Resolver problemas de vistas de custos empresariais
 
-Dentro de inscrições de empresas, existem várias definições que podem fazer com que os utilizadores dentro da inscrição não conseguir ver os custos.  Estas definições são geridas pelo administrador de inscrição ou pelo parceiro, se a inscrição não está a ser adquirida diretamente com a Microsoft.  Este artigo ajuda-o a compreender quais são as definições e seu impacto a inscrição. Estas definições são independentes da [funções de RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
-
+Dentro de inscrições de empresas, há várias configurações que podem fazer com que os utilizadores dentro da inscrição para não ver os custos.  Estas definições são geridas pelo administrador de inscrição. Em alternativa, se a inscrição não é comprada diretamente através da Microsoft, as definições são geridas pelo parceiro.  Este artigo ajuda-o a compreender quais são as definições e seu impacto a inscrição. Estas definições são independentes das funções (RBAC) do controle de acesso baseado em funções do Azure.
 
 ## <a name="enabling-access-to-costs"></a>Ativar o acesso aos custos
 
-Está a vê uma mensagem não autorizado, ou *"as vistas de custo estão desativadas na sua inscrição".* Quando está à procura de informações de custo? ![não autorizado](media/billing-enterprise-mgmt-groups/unauthorized.png)
+Está a vê uma mensagem não autorizado, ou *"as vistas de custo estão desativadas na sua inscrição".* Quando está à procura de informações de custo?
+![Captura de ecrã que mostra "não autorizada" no campo de custo atual para a subscrição.](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
-Tal poderá dever-se um dos seguintes motivos:
+Pode ser para um dos seguintes motivos:
 
-1. Comprou o Azure através de um parceiro de enterprise e o parceiro ainda não lançadas preços ainda. Para disponibilizar os preços, contacte o seu parceiro para atualizar a definição dentro de [Enterprise portal](https://ea.azure.com).
-2. Em alternativa, se for um cliente com contrato EA direto, existem duas possibilidades:
-    * For um proprietário da conta e o administrador de inscrição desativou as "AO modo de exibição cobranças" definição.  
-    * É um administrador do departamento e o administrador de inscrição desativou as "DA vista cobranças" definição.
-    * Contacte o administrador de inscrição para obter acesso. O administrador de inscrição pode visitar o [Enterprise portal](https://ea.azure.com/manage/enrollment) e atualizar a definição, como visto aqui:
+1. Comprou o Azure através de um parceiro da empresa, e o parceiro não versão de preços ainda. Contacte o seu parceiro para atualizar os preços definição dentro de [Enterprise portal](https://ea.azure.com).
+2. Se for um cliente com contrato EA direto, existem duas possibilidades:
+    * For um proprietário da conta e o administrador de inscrição desativada a **cobranças de exibição AO** definição.  
+    * For um administrador do departamento e o administrador de inscrição desativada a **cobranças de vista DA** definição.
+    * Contacte o administrador de inscrição para obter acesso. O administrador de inscrição pode atualizar as definições no [Enterprise portal](https://ea.azure.com/manage/enrollment).
 
-![Definições do Portal Enterprise](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
+      ![Captura de ecrã que mostra as definições de Portal da empresa para cobranças de vista.](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
 
+## <a name="asset-is-unavailable"></a>Recurso não está disponível
 
-## <a name="asset-is-unavailable"></a>Recurso não está disponível? 
-Se estiver a receber uma mensagem de erro "este recurso está indisponível" quando tentar aceder a um grupo de gestão ou de subscrição, em seguida, não tem a função correta para ver este item.  
+Se obtiver uma mensagem de erro "este recurso está indisponível" quando tentar aceder a um grupo de gestão ou de subscrição, em seguida, não tem a função correta para ver este item.  
 
-![recurso não encontrado](media/billing-enterprise-mgmt-groups/asset-not-found.png)
+![Captura de ecrã que mostra a mensagem "o recurso não está disponível".](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
-Entre em contato com a administrar dos grupos de gestão ou de subscrição para obter acesso.  
-* Para subscrições, veja [controlo de acesso de controlo (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) documento para obter ajuda no qual a função é necessária.
+Peça ao seu administrador de grupo de gestão ou de subscrição do Azure para o acesso. Para obter mais informações, consulte [gerir o acesso com RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md).

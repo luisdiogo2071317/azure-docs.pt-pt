@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 9727a990548977e0b07710d879881669161c7a4c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8ef8f66a67ee93ea8c015c33e69b87e7c5d2a898
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015267"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259992"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Serializar dados no Apache Hadoop com o Microsoft Avro Library
 
 >[!NOTE]
->O SDK do Avro já não é suportado pela Microsoft. A biblioteca é suportada de Comunidade de código aberto. As origens para a biblioteca estão localizadas num [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
+>O SDK do Avro já não é suportado pela Microsoft. A biblioteca é suportada de Comunidade de código aberto. As origens para a biblioteca estão localizadas num [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro).
 
 Este tópico mostra como utilizar o [Microsoft Avro Library](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) para serializar objetos e outras estruturas de dados em fluxos para persistam na memória, uma base de dados ou um ficheiro. Ele também mostra como anular a serialização-los para recuperar os objetos originais.
 
@@ -53,7 +53,7 @@ Quando o esquema de dados é conhecido para o escritor e o leitor da transmissã
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 ou posterior)
 
 > [!Note]
-> A Microsoft Avro Library já não está disponível como um pacote NuGet. Se gostaria de utilizar o clone da biblioteca do Avro a [repositório do Microsoft.Hadoop.Avro Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) e compile o código no seu computador.
+> A Microsoft Avro Library já não está disponível como um pacote NuGet. Se gostaria de utilizar o clone da biblioteca do Avro a [repositório do Microsoft.Hadoop.Avro GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) e compile o código no seu computador.
 
 ## <a name="compile-schemas-using-avro-library"></a>Compilar esquemas com a biblioteca do Avro
 A Microsoft Avro Library contém um utilitário de geração de código que permite a criação de c# tipos automaticamente com base no esquema JSON definido anteriormente. O utilitário de geração de código não é distribuído como um executável binário, mas pode ser facilmente construído com o seguinte procedimento:
@@ -69,7 +69,7 @@ Para testar o utilitário, pode gerar classes c# a partir do ficheiro de esquema
 
     Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:
 
-Isso deve para produzir dois c# ficheiros no diretório atual: SensorData.cs e Location.cs.
+Isso deve para produzir dois C# ficheiros no diretório atual: SensorData.cs e Location.cs.
 
 Para compreender a lógica que está a utilizar o utilitário de geração de código ao converter o esquema JSON para tipos do c#, veja o ficheiro que generationverification.Feature localizado na C:\SDK\src\Microsoft.Hadoop.Avro.Tools\Doc.
 
@@ -347,7 +347,7 @@ O esquema neste exemplo é assumido sejam partilhados entre os leitores e gravad
     // Press any key to exit.
 
 
-## <a name="sample-3-serialization-using-object-container-files-and-serialization-with-reflection"></a>Exemplo 3: Serialização utilizar ficheiros de contentor de objeto e serialização com reflexão
+## <a name="sample-3-serialization-using-object-container-files-and-serialization-with-reflection"></a>Exemplo 3: Serialização de usar os arquivos de contentor de objeto e serialização com reflexão
 Este exemplo é semelhante para o cenário a <a href="#Scenario1"> primeiro exemplo</a>, em que o esquema implicitamente é especificado com reflexão. A diferença é que, aqui, o esquema não é assumido como conhecido para o leitor que anula a serialização. O **SensorData** objetos ser serializada e seu esquema implicitamente especificada estão armazenados num arquivo de contentor de objeto do Avro representado pela [ **AvroContainer** ](https://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) classe.
 
 Os dados são serializados neste exemplo, com [ **SequentialWriter<SensorData>**  ](https://msdn.microsoft.com/library/dn627340.aspx) e serialização anulada com [ **SequentialReader<SensorData>**  ](https://msdn.microsoft.com/library/dn627340.aspx). O resultado é comparado com as instâncias iniciais para se certificar de identidade.
@@ -587,7 +587,7 @@ Os dados no ficheiro de contentor de objeto são comprimidos via a predefiniçã
     // Press any key to exit.
 
 
-## <a name="sample-4-serialization-using-object-container-files-and-serialization-with-generic-record"></a>Exemplo 4: Serialização utilizar ficheiros de contentor de objeto e serialização com registo genérico
+## <a name="sample-4-serialization-using-object-container-files-and-serialization-with-generic-record"></a>Exemplo 4: Serialização de usar os arquivos de contentor de objeto e serialização com registo genérico
 Este exemplo é semelhante para o cenário a <a href="#Scenario2"> segundo exemplo</a>, em que o esquema é especificado explicitamente com JSON. A diferença é que, aqui, o esquema não é assumido como conhecido para o leitor que anula a serialização.
 
 O conjunto de dados de teste é recolhido para uma lista de [ **AvroRecord** ](https://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) objetos através de um esquema JSON explicitamente definido e, em seguida, armazenados num arquivo de contentor de objeto representado pelos [  **AvroContainer** ](https://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) classe. Este arquivo de contêiner cria um gravador que é utilizado para serializar os dados, descomprimidos, como um fluxo de memória que depois é salvo num arquivo. O [ **Codec.Null** ](https://msdn.microsoft.com/library/microsoft.hadoop.avro.container.codec.null.aspx) utilizado para criar o leitor de parâmetro especifica a que estes dados não sejam compactados.
@@ -849,7 +849,7 @@ Os dados, em seguida, são lidas a partir do ficheiro e desserializados numa col
 
 
 
-## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Exemplo 5: Serialização utilizar ficheiros de contentor de objeto com um codec de compressão personalizado
+## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Exemplo 5: Serialização com ficheiros de contentor de objeto com um codec de compressão personalizado
 O exemplo quinto mostra como utilizar um codec de compressão personalizadas para ficheiros do Avro objeto contentor. Um exemplo que contém o código para este exemplo pode ser transferido a partir da [exemplos de código do Azure](https://code.msdn.microsoft.com/Serialize-data-with-the-67159111) site.
 
 O [especificação do Avro](https://avro.apache.org/docs/current/spec.html#Required+Codecs) permite a utilização de um codec de compressão opcional (além **nulo** e **Deflate** predefinições). Neste exemplo não é implementar um novo codec como Snappy (mencionado como um codec opcional suportado no [especificação do Avro](https://avro.apache.org/docs/current/spec.html#snappy)). Ele mostra como usar o .NET Framework 4.5 de implementação do [ **Deflate** ] [ deflate-110] codec, que fornece um melhor algoritmo de compactação com base no [zlib ](https://zlib.net/) biblioteca de compressão que a versão do .NET Framework 4 padrão.
@@ -1345,7 +1345,7 @@ O [especificação do Avro](https://avro.apache.org/docs/current/spec.html#Requi
     // ----------------------------------------
     // Press any key to exit.
 
-## <a name="sample-6-using-avro-to-upload-data-for-the-microsoft-azure-hdinsight-service"></a>Exemplo 6: Utilização Avro para carregar dados para o serviço do Microsoft Azure HDInsight
+## <a name="sample-6-using-avro-to-upload-data-for-the-microsoft-azure-hdinsight-service"></a>Exemplo 6: Usando o Avro para carregar dados para o serviço do Microsoft Azure HDInsight
 O exemplo de sexto ilustra algumas técnicas de programação relacionadas com a interação com o serviço Azure HDInsight. Um exemplo que contém o código para este exemplo pode ser transferido a partir da [exemplos de código do Azure](https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3) site.
 
 O exemplo faz as seguintes tarefas:

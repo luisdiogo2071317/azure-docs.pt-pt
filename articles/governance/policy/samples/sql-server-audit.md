@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Azure Policy – Auditar as definições de auditoria do SQL Server
+title: Exemplo - definições de auditoria de auditoria SQL Server
 description: Esta política de exemplo audita as definições de auditoria do SQL Server.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 258d56f70349c99faf6053de46886b736ffb95cf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 7a9f5779b8a0c853d938734f82f3bd63e7f0a45b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949615"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53307874"
 ---
 # <a name="audit-sql-server-audit-settings"></a>Auditar as definições de auditoria do SQL Server
 
@@ -96,6 +95,6 @@ Execute o seguinte comando para remover a atribuição de política.
 az policy assignment delete --name "SQL Audit audit" --resource-group myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Reveja mais exemplos nas [amostras do Azure Policy](index.md)
+- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

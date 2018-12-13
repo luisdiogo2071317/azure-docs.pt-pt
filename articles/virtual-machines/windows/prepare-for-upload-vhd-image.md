@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/10/2018
 ms.author: genli
-ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6aa13096b61fc1bf44d370b3d7dcc01a0df74e8d
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258464"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321346"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD do Windows ou o VHDX para carregar para o Azure
 Antes de carregar um Windows máquinas virtuais (VM) no local para o Microsoft Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta **apenas as VMs de geração 1** que estejam no formato de ficheiro VHD e que tem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1,023 GB. Pode converter uma geração de VHD e um disco de expansão dinâmica com tamanho fixo do sistema de ficheiros de 1 VM a partir do VHDX. Mas não é possível alterar a geração de uma VM. Para obter mais informações, consulte [devo criar uma geração 1 ou 2 VM no Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -283,7 +283,7 @@ Certifique-se de que as seguintes definições estão configuradas corretamente 
     ```PowerShell
     winmgmt /verifyrepository
     ```
-    Se o repositório está danificado, veja [WMI: Corrupção de repositório, ou não](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
+    Se o repositório está corrompido, consulte o artigo [WMI: Existência de danos no repositório, ou não](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
 5. Certifique-se de que qualquer outro aplicativo não está a utilizar a porta 3389. Esta porta é utilizada para o serviço RDP no Azure. Pode executar **netstat - anob** para ver as portas em que são utilizadas na VM:
 
@@ -377,7 +377,7 @@ Para obter mais informações sobre como criar uma VM a partir de um disco espec
 - [Criar uma VM a partir de um disco especializado](create-vm-specialized.md)
 - [Criar uma VM a partir de um disco VHD especializado](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Se quiser criar uma imagem generalizada, terá de executar o sysprep. Para obter mais informações sobre o Sysprep, consulte [como utilizar Sysprep: uma introdução](https://technet.microsoft.com/library/bb457073.aspx). 
+Se quiser criar uma imagem generalizada, terá de executar o sysprep. Para obter mais informações sobre o Sysprep, consulte [como utilizar Sysprep: Uma introdução](https://technet.microsoft.com/library/bb457073.aspx). 
 
 Nem todas as funções ou a aplicação que é instalada num computador baseado em Windows oferece suporte a essa generalização. Portanto, antes de executar este procedimento, consulte o artigo seguinte para se certificar de que a função do computador é suportada pelo sysprep. Para obter mais informações, [suporte de Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -409,7 +409,7 @@ As seguintes definições não afetam a carregar o VHD. No entanto, recomendamos
 *  Depois da VM é criada no Azure, recomendamos que colocar o ficheiro de paginação no volume "Unidade Temporal" para melhorar o desempenho. Pode configurar isso da seguinte forma:
 
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile" -Type MultiString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
     ```
 Se houver qualquer disco de dados que esteja ligado à VM, letra da unidade do volume de unidade Temporal é, normalmente, "D." Essa designação poderia ser diferente, dependendo do número de unidades disponíveis e as definições que fizer.
 

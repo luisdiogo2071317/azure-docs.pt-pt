@@ -1,6 +1,6 @@
 ---
-title: Indexação do armazenamento de Blobs do Azure com o Azure Search
-description: Saiba como armazenamento de Blobs do Azure de índice e extrair texto de documentos com o Azure Search
+title: Indexar conteúdo de armazenamento de Blobs do Azure para pesquisa em texto completo - Azure Search
+description: Saiba como indexar o Blob Storage do Azure e extrair texto de documentos com o Azure Search.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: d2706d4b10303cb62066f0381f9a69b553c05cb4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: c73a802cd67c9ecb94482cfcd6aac51fc8bbc19e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406977"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317479"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexar documentos no armazenamento de Blobs do Azure com o Azure Search
 Este artigo mostra como utilizar o Azure Search para documentos de índice (como PDFs, documentos do Microsoft Office e diversos outros formatos comuns) armazenados no armazenamento de Blobs do Azure. Em primeiro lugar, ele explica as noções básicas de definir e configurar um indexador de Blobs. Em seguida, ele oferece uma discussão mais aprofundada dos comportamentos e cenários que tem probabilidade de encontrar.
@@ -38,7 +39,7 @@ Pode configurar um indexador do armazenamento de Blobs do Azure utilizando:
 
 Aqui, vamos demonstrar o fluxo com a API REST.
 
-### <a name="step-1-create-a-data-source"></a>Passo 1: criar uma origem de dados
+### <a name="step-1-create-a-data-source"></a>Passo 1: Criar uma origem de dados
 Uma origem de dados especifica os dados a indexar, as credenciais necessárias para aceder a dados e as políticas de forma eficiente identificar alterações nos dados (novas, modificadas ou eliminadas linhas). Uma origem de dados pode ser utilizada por vários indexadores no mesmo serviço de pesquisa.
 
 Para a indexação de BLOBs, a origem de dados tem de ter as seguintes propriedades necessárias:
@@ -69,15 +70,15 @@ Para saber mais sobre a API de origem de dados criar, ver [criar origem de dados
 Pode fornecer as credenciais para o contentor de BLOBs de uma das seguintes formas:
 
 - **Cadeia de ligação da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Pode obter a cadeia de ligação do portal do Azure ao navegar para o painel de conta de armazenamento > Definições > chaves (para contas de armazenamento clássico) ou definições > chaves (para contas de armazenamento do Azure Resource Manager) de acesso.
-- **Assinatura de acesso partilhado de conta de armazenamento** cadeia de ligação (SAS): `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` o SAS devem ter a lista e permissões de leitura no contentores e objetos (blobs neste caso).
--  **Assinatura de acesso partilhado do contentor**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` o SAS devem ter a lista e permissões de leitura no contentor.
+- **Assinatura de acesso partilhado de conta de armazenamento** cadeia de ligação (SAS): `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` A SAS devem ter a lista e permissões de leitura no contentores e objetos (blobs neste caso).
+-  **Assinatura de acesso partilhado do contentor**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` A SAS devem ter a lista e permissões de leitura no contentor.
 
 Para obter mais informações sobre o armazenamento partilhado assinaturas de acesso, consulte [utilizar assinaturas de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Se utilizar credenciais SAS, terá de atualizar as credenciais da origem de dados periodicamente com assinaturas renovadas para evitar que sua expiração. Se as credenciais SAS expirarem, o indexador irá falhar com uma mensagem de erro semelhante a `Credentials provided in the connection string are invalid or have expired.`.  
 
-### <a name="step-2-create-an-index"></a>Passo 2: criar um índice
+### <a name="step-2-create-an-index"></a>Passo 2: Criar um índice
 O índice Especifica os campos num documento, atributos, e a experiência de outras construções que a pesquisa de forma.
 
 Eis como criar um índice com um pesquisável `content` campo para armazenar os textos extraídos dos blobs:   
@@ -128,7 +129,7 @@ Consoante a [a configuração do indexador](#PartsOfBlobToIndex), o indexador bl
 * O conteúdo textual do documento é extraído para um campo de cadeia de caracteres chamado `content`.
 
 > [!NOTE]
-> O Azure Search limita quanto texto extrai consoante o escalão de preço: 32.000 caracteres gratuitamente tier, 64.000 para o básico e milhões de 4 para os escalões Standard, Standard S2 e Standard S3. Um aviso está incluído na resposta de estado de indexador para documentos truncados.  
+> O Azure Search limita a quantidade texto extrai consoante o escalão de preço: 32.000 caracteres gratuitamente da camada, 64.000 para o básico e milhões de 4 para os escalões Standard, Standard S2 e Standard S3. Um aviso está incluído na resposta de estado de indexador para documentos truncados.  
 
 * Propriedades de metadados especificado pelo utilizador presentes no blob, caso existam, foram extraídas literalmente.
 * Propriedades de metadados de BLOBs padrão são extraídas para os seguintes campos:
@@ -333,7 +334,7 @@ Indexar blobs, pode ser um processo demorado. Em casos em que tem milhões de bl
 
 Pode querer "montar" documentos de várias origens no seu índice. Por exemplo, pode querer mesclar o texto de blobs com outros metadados armazenados no Cosmos DB. Pode até mesmo usar push indexação API em conjunto com vários indexadores para criar documentos de pesquisa a partir de várias partes. 
 
-Para isso funcionar, todos os indexadores e outros componentes devem concordar quanto a chave do documento. Para instruções detalhadas, consulte este artigo externo: [combinar documentos com outros dados no Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Para isso funcionar, todos os indexadores e outros componentes devem concordar quanto a chave do documento. Para instruções detalhadas, consulte este artigo externo: [Combinar documentos com outros dados no Azure Search ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexação de sem formatação texto 
@@ -374,7 +375,7 @@ A tabela seguinte resume um processamento para cada formato de documento e descr
 | MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extrair texto, incluindo anexos |
 | ZIP (application/zip) |`metadata_content_type` |Extrair texto de todos os documentos no arquivo morto |
 | XML (application/xml) |`metadata_content_type`</br>`metadata_content_encoding`</br> |Marcação XML de faixa e extrair texto |
-| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extrair texto<br/>Nota: Se tiver de extrair vários campos de documentos de um blob JSON, veja [blobs JSON de indexação](search-howto-index-json-blobs.md) para obter detalhes |
+| JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extrair texto<br/>NOTA: Se precisar de extrair vários campos de documentos de um blob JSON, veja [blobs JSON de indexação](search-howto-index-json-blobs.md) para obter detalhes |
 | EML (mensagens/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extrair texto, incluindo anexos |
 | RTF (application/rtf) |`metadata_content_type`</br>`metadata_author`</br>`metadata_character_count`</br>`metadata_creation_date`</br>`metadata_page_count`</br>`metadata_word_count`</br> | Extrair texto|
 | Texto sem formatação (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | Extrair texto|

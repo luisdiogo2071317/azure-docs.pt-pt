@@ -1,5 +1,5 @@
 ---
-title: Ligações híbridas do serviço de aplicações do Azure | Documentos da Microsoft
+title: As ligações híbridas - serviço de aplicações do Azure | Documentos da Microsoft
 description: Como criar e utilizar as ligações híbridas para aceder a recursos em redes diferentes
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
-ms.openlocfilehash: cdfe1a35dbbf8fa048e0b0ca24f06bb0e73bde61
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 084d5e9453ea5a55bdeeff839e4c70890575c83d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968324"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258020"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Ligações híbridas do serviço de aplicações do Azure #
 
@@ -136,7 +137,7 @@ Quando iniciar a interface do Usuário de HCM, a primeira coisa que vê é uma t
 Para adicionar uma ou mais ligações híbridas ao seu HCM:
 
 1. Inicie a interface do Usuário de HCM.
-1. Selecione **configurar outra ligação híbrida**.
+2. Selecione **configurar outra ligação híbrida**.
 ![Captura de ecrã do configurar novas ligações híbridas][8]
 
 1. Inicie sessão com a sua conta do Azure.
@@ -197,7 +198,7 @@ O objeto JSON associado com uma ligação híbrida é semelhante a:
       }
     }
 
-Uma forma de utilizar esta informação é com armclient, que pode ser obtido a partir da [ARMClient] [ armclient] projetos do github. Eis um exemplo ao ligar uma ligação híbrida já existente na sua aplicação web. Crie um ficheiro JSON pelo esquema acima, como:
+Uma forma de utilizar esta informação é com armclient, que pode ser obtido a partir da [ARMClient] [ armclient] projetos do GitHub. Eis um exemplo ao ligar uma ligação híbrida já existente na sua aplicação web. Crie um ficheiro JSON pelo esquema acima, como:
 
     {
       "name": "relay-demo-hc",

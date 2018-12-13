@@ -3,8 +3,8 @@ title: Exemplo do Script da CLI do Azure – Ligar uma aplicação Web ao MongoD
 description: Exemplo do Script da CLI do Azure – Ligar uma aplicação Web ao MongoDB (Cosmos DB)
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: bbbdbc42-efb5-4b4f-8ba6-c03c9d16a7ea
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 4c85e375e1f7af4dab530c88226d76928651c2e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 922760d115fac4aaad69c4a3ec6ea1373bd66acf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956733"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193812"
 ---
-# <a name="connect-a-web-app-to-cosmos-db"></a>Ligar uma aplicação Web ao Cosmos DB
+# <a name="connect-a-web-app-to-cosmos-db-using-cli"></a>Ligar uma aplicação web ao Cosmos DB com a CLI
 
 Este script de exemplo cria uma conta do Azure Cosmos DB com a API do MongoDB e uma aplicação Web do Azure. Em seguida, liga a cadeia de ligação do MongoDB à aplicação Web através das definições da aplicação.
 
@@ -52,7 +52,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 | [`az cosmosdb list-connection-strings`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-connection-strings) | Lista cadeias de ligação para a conta do Cosmos DB especificada. |
 | [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Cria ou atualiza uma definição de aplicação para uma aplicação Web do Azure. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

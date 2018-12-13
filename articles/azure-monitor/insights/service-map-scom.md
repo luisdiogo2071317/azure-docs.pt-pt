@@ -8,18 +8,17 @@ manager: jwhit
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: b590a6ce6d92c78f2020d5ef7cffe6d7f277433c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828459"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187216"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integração de mapa de serviço com o System Center Operations Manager
   > [!NOTE]
@@ -92,17 +91,17 @@ Depois que estiver ligada a área de trabalho do Log Analytics, uma nova pasta, 
 ![O painel de monitorização do Operations Manager](media/service-map-scom/scom-monitoring.png)
 
 A pasta de mapa de serviço tem quatro nós:
-* **Alertas ativos**: apresenta uma lista de todos os alertas ativos sobre a comunicação entre o Operations Manager e o mapa de serviço.  Tenha em atenção que estes alertas não são do Log Analytics alerta a ser sincronizado com o Operations Manager. 
+* **Alertas ativos**: Apresenta uma lista de todos os alertas ativos sobre a comunicação entre o Operations Manager e o mapa de serviço.  Tenha em atenção que estes alertas não são do Log Analytics alerta a ser sincronizado com o Operations Manager. 
 
-* **Servidores**: apresenta uma lista de servidores monitorizados que estão configurados para sincronizar a partir do mapa de serviço.
+* **Servidores**: Apresenta uma lista de servidores monitorizados que estão configurados para sincronizar a partir do mapa de serviço.
 
     ![O painel de servidores de monitorização do Operations Manager](media/service-map-scom/scom-monitoring-servers.png)
 
-* **Vistas do grupo de dependência do Machine**: apresenta uma lista de todos os grupos de computadores que são sincronizados a partir de mapa de serviço. Pode clicar em qualquer grupo para ver o diagrama de aplicação distribuída.
+* **As vistas de dependência do grupo de máquina**: Apresenta uma lista de todos os grupos de computadores que são sincronizados a partir de mapa de serviço. Pode clicar em qualquer grupo para ver o diagrama de aplicação distribuída.
 
     ![O diagrama de aplicação distribuída do Operations Manager](media/service-map-scom/scom-group-dad.png)
 
-* **Modos de exibição de dependência de servidor**: apresenta uma lista de todos os servidores que são sincronizados a partir de mapa de serviço. Pode clicar em qualquer servidor para ver o diagrama de aplicação distribuída.
+* **Modos de exibição de dependência de servidor**: Apresenta uma lista de todos os servidores que são sincronizados a partir de mapa de serviço. Pode clicar em qualquer servidor para ver o diagrama de aplicação distribuída.
 
     ![O diagrama de aplicação distribuída do Operations Manager](media/service-map-scom/scom-dad.png)
 
@@ -122,9 +121,9 @@ Uma regra _Microsoft.SystemCenter.ServiceMapImport.Rule_, é criado para obter p
 ![A janela de propriedades substituições do Operations Manager](media/service-map-scom/scom-overrides.png)
 
 * **Ativado**: Ativar ou desativar as atualizações automáticas. 
-* **IntervalMinutes**: repor a hora entre as atualizações. O intervalo predefinido é de uma hora. Se pretender sincronizar os mapas de servidor com mais frequência, pode alterar o valor.
-* **TimeoutSeconds**: repor o período de tempo antes do pedido exceder o tempo limite. 
-* **TimeWindowMinutes**: repor a janela de tempo para consultar dados. A predefinição é uma janela de 60 minutos. O valor máximo permitido pelo mapa de serviço é 60 minutos.
+* **IntervalMinutes**: Repor o tempo entre as atualizações. O intervalo predefinido é de uma hora. Se pretender sincronizar os mapas de servidor com mais frequência, pode alterar o valor.
+* **TimeoutSeconds**: Repor o período de tempo antes do pedido exceder o tempo limite. 
+* **TimeWindowMinutes**: Repor a janela de tempo para consultar dados. A predefinição é uma janela de 60 minutos. O valor máximo permitido pelo mapa de serviço é 60 minutos.
 
 ## <a name="known-issues-and-limitations"></a>Problemas e limitações conhecidos
 

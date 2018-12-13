@@ -10,17 +10,15 @@ ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 8a1ee511848cf854374323b356492f374988d5d3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: af41e2af87afbbeb8629d07508d4e5244351a4df
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109967"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277357"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar a utilização de dados do Log Analytics
 
@@ -174,7 +172,7 @@ Esta secção descreve como criar um alerta se:
 - O volume de dados exceder uma determinada quantidade.
 - Se previr que o volume de dados vai exceder uma determinada quantidade.
 
-Os Alertas do Azure suportam [registar alertas](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md) que utilizam consultas de pesquisa. 
+Os Alertas do Azure suportam [registar alertas](../../azure-monitor/platform/alerts-unified-log.md) que utilizam consultas de pesquisa. 
 
 A consulta seguinte tem um resultado quando são recolhidos mais de 100 GB de dados nas últimas 24 horas:
 
@@ -186,7 +184,7 @@ A consulta seguinte utiliza uma fórmula simples para prever quando é que vão 
 
 Para alertar relativamente a volumes de dados diferentes, altere o 100 nas consultas para o número de GB para o qual quer receber o alerta.
 
-Utilize os passos descritos em [create a new log alert](../../monitoring-and-diagnostics/alert-metric.md) (criar um novo alerta de registo) para ser notificado de quando a recolha de dados for superior ao esperado.
+Utilize os passos descritos em [create a new log alert](../../azure-monitor/platform/alerts-metric.md) (criar um novo alerta de registo) para ser notificado de quando a recolha de dados for superior ao esperado.
 
 Quando criar o alerta para a primeira consulta – quando existem mais de 100 GB de dados em 24 horas –, defina:  
 
@@ -200,7 +198,7 @@ Quando criar o alerta para a primeira consulta – quando existem mais de 100 GB
    - O **nome** como *Volume de dados maior do que 100 GB em 24 horas*
    - A **gravidade** como *Aviso*
 
-Especifique um existente ou crie um novo [Grupo de Ação](../../monitoring-and-diagnostics/monitoring-action-groups.md), para que quando o alerta de registo corresponda aos critérios, seja notificado.
+Especifique um existente ou crie um novo [Grupo de Ação](../../azure-monitor/platform/action-groups.md), para que quando o alerta de registo corresponda aos critérios, seja notificado.
 
 Quando criar o alerta para a segunda consulta – quando se previr que vai haver mais de 100 GB de dados em 24 horas –, defina:
 
@@ -214,13 +212,13 @@ Quando criar o alerta para a segunda consulta – quando se previr que vai haver
    - O **nome** como *Previsto volume de dados maior do que 100 GB em 24 horas*
    - A **gravidade** como *Aviso*
 
-Especifique um existente ou crie um novo [Grupo de Ação](../../monitoring-and-diagnostics/monitoring-action-groups.md), para que quando o alerta de registo corresponda aos critérios, seja notificado.
+Especifique um existente ou crie um novo [Grupo de Ação](../../azure-monitor/platform/action-groups.md), para que quando o alerta de registo corresponda aos critérios, seja notificado.
 
 Quando receber um alerta, utilize os passos da secção seguinte para resolver o motivo pelo qual a utilização é superior ao esperado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Veja [Pesquisas de registos no Log Analytics](../log-query/log-query-overview.md) para aprender a utilizar a linguagem de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
-* Utilize os passos descritos em [create a new log alert](../../monitoring-and-diagnostics/alert-metric.md) (criar um novo alerta de registo) para ser notificado de quando um critério de pesquisa for cumprido.
+* Utilize os passos descritos em [create a new log alert](../../azure-monitor/platform/alerts-metric.md) (criar um novo alerta de registo) para ser notificado de quando um critério de pesquisa for cumprido.
 * Utilize a [segmentação de soluções](../insights/solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
 * Para configurar uma política de recolha de eventos de segurança eficaz, veja [Política de filtragem do Centro de Segurança do Azure](../../security-center/security-center-enable-data-collection.md).
 * Altere a [configuração do contador de desempenho](data-sources-performance-counters.md).

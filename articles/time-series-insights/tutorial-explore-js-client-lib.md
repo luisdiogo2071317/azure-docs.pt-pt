@@ -1,5 +1,5 @@
 ---
-title: Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
+title: Explore a biblioteca de cliente do Azure Time Series Insights JavaScript | Documentos da Microsoft
 description: Saiba mais sobre a biblioteca de cliente JavaScript do Azure Time Series Insights e o modelo de programação associado.
 author: ashannon7
 manager: cshankar
@@ -8,12 +8,13 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: 33dcf6f69d1287b4e040b3cccf4164667db2b75f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706998"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269979"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
 
@@ -82,7 +83,7 @@ Primeiro, vamos ver o código de origem HTML e JavaScript subjacente à página 
 
 3. Expanda o elemento `<div class="chartsWrapper">` e encontrará mais elementos `<div>` subordinados. Estes elementos são utilizados para posicionar cada exemplo de controlo do gráfico. Repare que existem vários pares de elementos `<div>`, um para cada exemplo de gráfico:
 
-   - O primeiro elemento (`class="rowOfCardsTitle"`) contém um título descritivo para resumir o que o gráfico ou gráficos ilustram. Por exemplo: "Gráficos de Linhas Estáticas com Legendas em Tamanho Completo."
+   - O primeiro elemento (`class="rowOfCardsTitle"`) contém um título descritivo para resumir o que o gráfico ou gráficos ilustram. Por exemplo: "Gráficos de linhas estáticas com legendas em tamanho normal."
    - O segundo elemento (`class="rowOfCards"`) é um elemento principal, que contém elementos `<div>` subordinados adicionais que posicionam o controlo ou controlos de gráfico reais numa linha.
 
    ![Elementos div do corpo](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
@@ -95,8 +96,8 @@ Primeiro, vamos ver o código de origem HTML e JavaScript subjacente à página 
 
 Embora não a analisaremos em detalhe, essencialmente a biblioteca do Cliente TSI **tsclient.js** fornece uma abstração para duas categorias importantes:
 
-- **Métodos de encapsulamento em wrapper para chamar as APIs de Consulta do TSI**: APIs REST que lhe permitem consultar os dados do TSI com recurso a expressões agregadas. Os métodos estão organizados no espaço de nomes `TsiClient.Server` da biblioteca.
-- **Métodos para criar e preencher vários tipos de controlos de gráficos** — métodos que são utilizados para compor os dados agregados do TSI numa página Web. Os métodos estão organizados no espaço de nomes `TsiClient.UX` da biblioteca.
+- **Métodos de invólucro para chamar as APIs de consulta do TSI**: APIs REST que permitem a consultar dados TSI utilizando expressões de agregação. Os métodos estão organizados no espaço de nomes `TsiClient.Server` da biblioteca.
+- **Métodos para criar e Popular os vários tipos de controles de criação de gráficos**: Métodos que são utilizados para processar os dados agregados do TSI numa página da web. Os métodos estão organizados no espaço de nomes `TsiClient.UX` da biblioteca.
 
 Os seguintes conceitos são universais e aplicam-se às APIs da biblioteca do Cliente TSI em geral.
 
@@ -235,15 +236,15 @@ Veja o código que está subjacente à secção do HTML que está abaixo do come
 
 1. Primeiro, é definida uma série de ações predefinidas. Cada ação contém uma matriz com um ou mais elementos. Cada elemento define um item de menu de contexto único:
 
-   - `barChartActions`: Esta ação define o menu de contexto do gráfico circular, que contém um elemento para definir um item individual:
-     - `name`: O texto que é utilizado para o item de menu: "Imprimir parâmetros para a consola."
-     - `action`: A ação que está associada ao item de menu. A ação é sempre uma função anónima que recebe três argumentos que se baseiam na expressão agregada que é utilizada para criar o gráfico. Neste caso, os argumentos são escritos na janela da consola do browser:
-       - `ae`: A matriz da expressão agregada.
+   - `barChartActions`: Esta ação define o menu de contexto para o gráfico de pizza, que contém um elemento para definir um único item:
+     - `name`: O texto que é utilizado para o item de menu: "Parâmetros para o console de impressão".
+     - `action`: A ação associada ao item de menu. A ação é sempre uma função anónima que recebe três argumentos que se baseiam na expressão agregada que é utilizada para criar o gráfico. Neste caso, os argumentos são escritos na janela da consola do browser:
+       - `ae`: A matriz de expressão de agregação.
        - `splitBy`: O valor de splitBy.
-       - `timestamp`: O carimbo de data/hora.
+       - `timestamp`: O carimbo de hora.
 
-   - `pieChartActions`: Esta ação define o menu de contexto para o gráfico de barras, que contém um elemento para definir um item individual. A forma e o esquema são iguais aos do elemento `barChartActions` acima, mas tenha em conta que a função `action` é significativamente diferente: instancia e compõe o gráfico de barras. Tenha também em atenção que utiliza o argumento `ae` para especificar a matriz de expressão agregada que é transmitida no runtime quando o item de menu abre. A função também define a propriedade `ae.contextMenu` com o menu de contexto `barChartActions`.
-   - `contextMenuActions`: Esta ação define o menu de contexto do gráfico de linhas, que contém três elementos para definir três itens de menu. A forma e o esquema de cada elemento são iguais aos dos anteriores elementos que foram descritos. Tal como o elemento `barChartActions`, o primeiro item escreve os três argumentos da função na janela da consola do browser. Semelhante ao elemento `pieChartActions`, os dois itens seguintes instanciam e compõem os gráficos circular e de barras, respetivamente. Também definem as respetivas propriedades `ae.contextMenu` com os menus de contexto `pieChartActions` e `barChartActions`, respetivamente.
+   - `pieChartActions`: Esta ação define o menu de contexto para o gráfico de barras, que contém um elemento para definir um único item. A forma e o esquema são iguais aos do elemento `barChartActions` acima, mas tenha em conta que a função `action` é significativamente diferente: instancia e compõe o gráfico de barras. Tenha também em atenção que utiliza o argumento `ae` para especificar a matriz de expressão agregada que é transmitida no runtime quando o item de menu abre. A função também define a propriedade `ae.contextMenu` com o menu de contexto `barChartActions`.
+   - `contextMenuActions`: Esta ação define o menu de contexto para o gráfico de linhas, que contém três elementos para definir três itens de menu. A forma e o esquema de cada elemento são iguais aos dos anteriores elementos que foram descritos. Tal como o elemento `barChartActions`, o primeiro item escreve os três argumentos da função na janela da consola do browser. Semelhante ao elemento `pieChartActions`, os dois itens seguintes instanciam e compõem os gráficos circular e de barras, respetivamente. Também definem as respetivas propriedades `ae.contextMenu` com os menus de contexto `pieChartActions` e `barChartActions`, respetivamente.
 
 2. Seguidamente, são extraídas duas expressões agregadas para a matriz de expressões agregadas `aes`, e especificam a matriz `contextMenuActions` para cada item. Estas expressões são utilizadas com o controlo de gráfico de linhas.
 
@@ -262,10 +263,10 @@ Os pincéis são utilizados para limitar um intervalo de tempo para definir aç�
 O código que é utilizado para ilustrar os pincéis é apresentado no exemplo anterior, "Gráfico de Linhas com Menu de Contexto para Criar Gráfico Circular/de Barras", que descreve [Menus de contexto pop-up](#popup-context-menus-section).
 
 1. As ações dos pincéis são semelhantes às dos menus de contexto, na medida em que definem uma série de ações personalizadas para o pincel. Cada ação contém uma matriz com um ou mais elementos. Cada elemento define um item de menu de contexto único:
-   - `name`: O texto que é utilizado para o item de menu: "Imprimir parâmetros para a consola."
-   - `action`: A ação que está associada ao item de menu, que é sempre uma função anónima que recebe dois argumentos. Neste caso, os argumentos são escritos na janela da consola do browser:
-      - `fromTime`: O carimbo de data/hora do campo "de" da seleção do pincel.
-      - `toTime`: O carimbo de data/hora do campo "a" da seleção do pincel.
+   - `name`: O texto que é utilizado para o item de menu: "Parâmetros para o console de impressão".
+   - `action`: A ação associada ao item de menu, que é sempre uma função anônima que aceita dois argumentos. Neste caso, os argumentos são escritos na janela da consola do browser:
+      - `fromTime`: Timestamp "de" da seleção de pincel.
+      - `toTime`: O "para" período de tempo da seleção de pincel.
 
 2. As ações do pincel são adicionadas como outra propriedade de opção do gráfico. Repare na propriedade `brushContextMenuActions: brushActions` que está a ser transmitida à chamada `linechart.Render`.
 

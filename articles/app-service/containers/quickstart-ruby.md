@@ -1,5 +1,5 @@
 ---
-title: Criar uma Aplicação Ruby on Rails e implementar no Serviço de Aplicações no Linux | Microsoft Docs
+title: Criar aplicação Ruby web no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como criar uma aplicação Ruby on Rails com o Serviço de Aplicações no Linux.
 keywords: serviço de aplicações do azure, linux, oss, ruby, rails
 services: app-service
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 04025998f78843b1cc69acd663681b9563a531bc
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 13686951324a10c1de621f0fe507be062c9d2095
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431232"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252478"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Criar uma aplicação Ruby on Rails com o Serviço de Aplicações no Linux
 
@@ -37,7 +37,7 @@ ms.locfileid: "47431232"
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Instalar Ruby 2.3 ou superior</a>
-* <a href="https://git-scm.com/" target="_blank">Instale o Git</a>
+* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -136,7 +136,7 @@ http://<app name>.azurewebsites.net
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Ruby no Rails com MySQL](tutorial-ruby-postgres-app.md)

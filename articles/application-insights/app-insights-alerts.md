@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ac91632656e83fc4262f28240525c8fb106b99ec
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 4400430e012dee7caceba62637db1bf626d02b61
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679137"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277348"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definir alertas no Application Insights
 [O Azure Application Insights] [ start] pode alertá-lo para as alterações nas métricas de desempenho ou a utilização na sua aplicação web. 
@@ -43,7 +43,7 @@ Abra o painel de regras de alerta e, em seguida, utilize o botão Adicionar.
 * Cuidado-se de que tenha em atenção as unidades em que lhe for pedido para introduzir o valor de limiar.
 * Se selecionar a caixa "Proprietários de E-Mail...", os alertas são enviados por e-mail para todos os utilizadores quem tem acesso a este grupo de recursos. Para expandir este conjunto de pessoas, adicioná-los para o [grupo de recursos ou subscrição](app-insights-resources-roles-access-control.md) (não o recurso).
 * Se especificar "E-mails adicionais", os alertas são enviados para esses indivíduos ou grupos (ou não tiver selecionado a caixa "... os proprietários de e-mail"). 
-* Definir um [webhook endereço](../monitoring-and-diagnostics/insights-webhooks-alerts.md) se tiver configurado uma aplicação web que responde a alertas. Ele é chamado quando o alerta está ativado e quando este estiver resolvido. (Mas observe que, neste momento, parâmetros de consulta não são submetidos como propriedades de webhook.)
+* Definir um [webhook endereço](../azure-monitor/platform/alerts-webhooks.md) se tiver configurado uma aplicação web que responde a alertas. Ele é chamado quando o alerta está ativado e quando este estiver resolvido. (Mas observe que, neste momento, parâmetros de consulta não são submetidos como propriedades de webhook.)
 * Pode desativar ou ativar o alerta: consulte os botões na parte superior do painel.
 
 *Não vejo no botão Adicionar alerta.* 
@@ -51,7 +51,7 @@ Abra o painel de regras de alerta e, em seguida, utilize o botão Adicionar.
 * Está a utilizar uma conta da organização? Pode definir alertas se tiver de proprietário ou Contribuidor aceder a este recurso de aplicação. Dar uma olhada no painel de controlo de acesso. [Saiba mais sobre o controlo de acesso][roles].
 
 > [!NOTE]
-> No painel de alertas, verá que já existe um conjunto de alerta cópia de segurança: [diagnósticos Proativos](app-insights-proactive-failure-diagnostics.md). O alerta automática monitoriza uma determinada métrica, pedido taxa de falhas. A menos que se optar por desativar o alerta proativo, não precisa definir sua própria alerta na taxa de falhas de pedido. 
+> No painel de alertas, verá que já existe um conjunto de alerta: [Diagnósticos proativos](app-insights-proactive-failure-diagnostics.md). O alerta automática monitoriza uma determinada métrica, pedido taxa de falhas. A menos que se optar por desativar o alerta proativo, não precisa definir sua própria alerta na taxa de falhas de pedido. 
 > 
 > 
 
@@ -93,7 +93,7 @@ Não se esqueça de que [diagnóstico de taxa de falha proativos](app-insights-p
 
 ## <a name="automation"></a>Automatização
 * [Utilize o PowerShell para automatizar a configuração de alertas](app-insights-powershell-alerts.md)
-* [Utilizar webhooks para automatizar a responder a alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Utilizar webhooks para automatizar a responder a alertas](../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="video"></a>Vídeo
 

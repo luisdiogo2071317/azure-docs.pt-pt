@@ -1,5 +1,5 @@
 ---
-title: Como funciona?
+title: 'ML na cloud: termos e arquitetura'
 titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre a arquitetura, terminologia e conceitos que constituem o serviço Azure Machine Learning. Também Saiba mais sobre o fluxo de trabalho geral de usar o serviço e os serviços do Azure que são utilizados pelo serviço Azure Machine Learning.
 services: machine-learning
@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4e006c3ac9684cc9e51e8b3505659864123758d7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3966d4b27f0e3d42f47d84fb5c9f5c8519a27b6c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098003"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184734"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o serviço Azure Machine Learning: conceitos e arquitetura
 
@@ -75,7 +75,7 @@ Um modelo é produzido por uma execução no Azure Machine Learning. Também pod
 
 Serviço do Azure Machine Learning é agnóstico quanto a estrutura. Pode utilizar qualquer estrutura de aprendizagem populares durante a criação de um modelo, como scikit-saiba, xgboost, PyTorch, TensorFlow, Chainer e CNTK.
 
-Para obter um exemplo de preparar um modelo, consulte a [início rápido: criar um área de trabalho do serviço de aprendizagem automática](quickstart-get-started.md) documento.
+Para obter um exemplo de preparar um modelo, consulte o [início rápido: Criar um área de trabalho do serviço de aprendizagem automática](quickstart-get-started.md) documento.
 
 ### <a name="model-registry"></a>Registo de modelo
 
@@ -99,8 +99,8 @@ Imagens fornecem uma forma de forma fiável implementar um modelo, juntamente co
 
 Existem dois tipos de imagens que podem ser criadas por Azure Machine Learning:
 
-* Imagem FPGA: utilizada na implementação a uma matriz de porta de campos programáveis na cloud do Azure.
-* Imagem do docker: utilizada na implementação para destinos que não seja FPGA de computação. Por exemplo, o Azure Container Instances e o Azure Kubernetes Service.
+* Imagem FPGA: Usado na implantação numa matriz de porta de campos programáveis na cloud do Azure.
+* Imagem do docker: Utilizado quando implementar para destinos que não seja FPGA de computação. Por exemplo, o Azure Container Instances e o Azure Kubernetes Service.
 
 Para obter um exemplo de criação de uma imagem, consulte a [implementar um modelo de classificação de imagem na instância de contentor do Azure](tutorial-deploy-models-with-aml.md) documento.
 
@@ -148,13 +148,13 @@ Uma execução é um registo que contém as seguintes informações:
 
 Uma execução é produzida quando submete um script para preparar um modelo. Uma execução pode ter zero ou mais execuções de subordinados. Para que a execução de nível superior poderá ter duas execuções de subordinados, cada um dos quais pode ter seus próprios subordinado é executado.
 
-Para um exemplo de visualização é executado produzido por preparar um modelo, consulte a [início rápido: introdução ao serviço Azure Machine Learning](quickstart-get-started.md) documento.
+Para um exemplo de visualização é executado produzido por preparar um modelo, consulte o [início rápido: Introdução ao serviço Azure Machine Learning](quickstart-get-started.md) documento.
 
 ## <a name="experiment"></a>Experimentação
 
 Uma experimentação é um agrupamento de várias execuções de um determinado script. Sempre pertence a uma área de trabalho. Quando submete uma execução, fornece um nome de experimentação. Informações para a execução são armazenadas desse experimento. Se submeter uma execução e especifique um nome de experimentação que não existe, é automaticamente criada uma nova experimentação com esse nome.
 
-Para obter um exemplo da utilização de uma experimentação, consulte a [início rápido: introdução ao serviço Azure Machine Learning](quickstart-get-started.md) documento.
+Para obter um exemplo da utilização de uma experimentação, consulte o [início rápido: Introdução ao serviço Azure Machine Learning](quickstart-get-started.md) documento.
 
 ## <a name="pipeline"></a>Pipeline
 
@@ -227,5 +227,5 @@ Atividades podem fornecer notificações através da SDK ou a IU da Web, pelo qu
 Utilize as seguintes ligações para começar a utilizar o Azure Machine Learning:
 
 * [O que é o serviço Azure Machine Learning?](overview-what-is-azure-ml.md)
-* [Guia de Início Rápido: criar uma área de trabalho com Python](quickstart-get-started.md)
-* [Tutorial: preparar um modelo](tutorial-train-models-with-aml.md)
+* [Início rápido: Criar uma área de trabalho com Python](quickstart-get-started.md)
+* [Tutorial: Preparar um modelo](tutorial-train-models-with-aml.md)

@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 0c929bb569fb96dfdaa53f47036cc8f16251ad1c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105245"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190650"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Data Science Máquina Virtual do Linux no Azure
 Estas instruções mostram como realizar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux. A Máquina Virtual de ciência de dados de Linux (DSVM) é uma imagem de máquina virtual disponível no Azure que está pré-instalado com uma coleção de ferramentas utilizadas para análise de dados e machine learning. Os componentes de software importantes estão descritos a [aprovisionar a máquina de Virtual de ciência de dados do Linux](linux-dsvm-intro.md) tópico. A imagem de VM torna mais fácil começar a fazer ciência de dados em minutos, sem ter de instalar e configurar cada uma das ferramentas individualmente. Pode facilmente aumentar verticalmente a VM, se necessário e pará-la quando não está em utilização. Portanto, este recurso é económico e flexível.
@@ -318,19 +318,19 @@ A distribuição de Anaconda na DSVM vem com um bloco de notas do Jupyter, um am
 
 > [!NOTE]
 > Utilizar o Gestor de pacotes do Python (através do `pip` comando) de um bloco de notas do Jupyter no kernel do atual, o comando seguinte pode ser utilizado na célula de código, por exemplo:
-```python
+  ```python
    import sys
    ! {sys.executable} -m pip install numpy -y
-```
+  ```
 >
 >
 
 > [!NOTE]
 > Para utilizar o instalador de Conda (via o `conda` comando) de um bloco de notas do Jupyter no kernel do atual, o comando seguinte pode ser utilizado na célula de código, por exemplo:
-```python
+  ```python
    import sys
    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-```
+  ```
 >
 >
 
@@ -346,7 +346,7 @@ Vários blocos de notas de exemplo já estão instalados na VM:
 >
 
 ## <a name="rattle"></a>Rattle
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (o R analítico ferramenta para saber mais facilmente) é uma ferramenta gráfica de R para extração de dados. Ele tem uma interface intuitiva que torna mais fácil carregar, explorar e transformar dados e criar e avaliar modelos.  O artigo [Rattle: GUI de mineração de dados de um para R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fornece um passo a passo que demonstra as funcionalidades do mesmo.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (o R analítico ferramenta para saber mais facilmente) é uma ferramenta gráfica de R para extração de dados. Ele tem uma interface intuitiva que torna mais fácil carregar, explorar e transformar dados e criar e avaliar modelos.  O artigo [Rattle: Uma GUI de mineração de dados para R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fornece um passo a passo que demonstra as funcionalidades do mesmo.
 
 Instalar e iniciar Rattle com os seguintes comandos:
 

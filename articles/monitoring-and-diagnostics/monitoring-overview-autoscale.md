@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: 8491f3f61746374b67e174ca5efff2fbf2fe5fbe
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 2583c64d8a60e31958d2aeb895bbce8fadcb5840
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281902"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323171"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Descrição geral do dimensionamento automático em máquinas virtuais do Microsoft Azure, serviços Cloud e aplicações Web
 Este artigo descreve o dimensionamento automático do Microsoft Azure é, seus benefícios e como começar a usá-lo.  
@@ -38,7 +38,7 @@ A explicação seguinte aplica-se às partes do diagrama anterior.
 
 ## <a name="resource-metrics"></a>Métricas de recurso
 Recursos emitem métricas, estas métricas são processadas mais tarde. As métricas são fornecidos através de métodos diferentes.
-Conjuntos de dimensionamento de máquina virtual utilizam dados de telemetria dos agentes de diagnóstico do Azure, ao passo que vem de telemetria para aplicações Web e serviços Cloud diretamente a partir de infraestrutura do Azure. Algumas estatísticas usadas incluem a utilização da CPU, utilização da memória, contagens de thread, comprimento da fila e utilização do disco. Para obter uma lista dos dados de telemetria que pode utilizar, consulte [métricas comuns do dimensionamento automático](insights-autoscale-common-metrics.md).
+Conjuntos de dimensionamento de máquina virtual utilizam dados de telemetria dos agentes de diagnóstico do Azure, ao passo que vem de telemetria para aplicações Web e serviços Cloud diretamente a partir de infraestrutura do Azure. Algumas estatísticas usadas incluem a utilização da CPU, utilização da memória, contagens de thread, comprimento da fila e utilização do disco. Para obter uma lista dos dados de telemetria que pode utilizar, consulte [métricas comuns do dimensionamento automático](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ## <a name="custom-metrics"></a>Métricas Personalizadas
 Também pode aproveitar suas próprias métricas personalizadas que podem ser emitindo a suas aplicações. Se tiver configurado as aplicações para enviar métricas para o Application Insights, pode aproveitar essas métricas para tomar decisões sobre o dimensionamento ou não.
@@ -83,7 +83,7 @@ A lista completa de campos configuráveis e descrições está disponível na [A
 
 Para obter exemplos de código, consulte
 
-* [Configuração avançada do dimensionamento automático com modelos do Resource Manager para conjuntos de dimensionamento de VM](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
+* [Configuração avançada do dimensionamento automático com modelos do Resource Manager para conjuntos de dimensionamento de VM](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md)  
 * [API de REST de dimensionamento automático](https://msdn.microsoft.com/library/dn931953.aspx)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>Dimensionamento vertical do vs horizontais
@@ -98,7 +98,7 @@ Pode configurar o dimensionamento automático através de
 
 * [Portal do Azure](monitoring-autoscale-get-started.md)
 * [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
-* [Interface de Linha de Comandos (CLI) de várias plataformas](insights-cli-samples.md#autoscale)
+* [Interface de Linha de Comandos (CLI) de várias plataformas](../azure-monitor/platform/cli-samples.md#autoscale)
 * [API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Serviços suportados do dimensionamento automático
@@ -106,17 +106,17 @@ Pode configurar o dimensionamento automático através de
 | --- | --- |
 | Aplicações Web |[Dimensionar aplicações Web](monitoring-autoscale-get-started.md) |
 | Serviços Cloud |[Dimensionamento automático um serviço em nuvem](../cloud-services/cloud-services-how-to-scale-portal.md) |
-| Máquinas virtuais: clássico |[Dimensionar conjuntos de disponibilidade de Máquina Virtual clássica](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Máquinas virtuais: Clássica |[Dimensionar conjuntos de disponibilidade de Máquina Virtual clássica](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Máquinas virtuais: Conjuntos de dimensionamento do Windows |[Conjuntos de dimensionamento de dimensionamento de máquinas virtuais no Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Máquinas virtuais: Conjuntos de dimensionamento do Linux |[Conjuntos de dimensionamento de dimensionamento de máquinas virtuais no Linux](../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Máquinas virtuais: Exemplo do Windows |[Configuração avançada do dimensionamento automático com modelos do Resource Manager para conjuntos de dimensionamento de VM](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| Máquinas virtuais: Exemplo do Windows |[Configuração avançada do dimensionamento automático com modelos do Resource Manager para conjuntos de dimensionamento de VM](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
 | Serviço da Gestão de API|[Dimensionar automaticamente uma instância de gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre dimensionamento automático, utilize as instruções do dimensionamento automático listadas anteriormente, ou consulte os seguintes recursos:
 
-* [Métricas comuns do Azure Monitor dimensionamento automático](insights-autoscale-common-metrics.md)
-* [Melhores práticas do dimensionamento automático do Azure Monitor](insights-autoscale-best-practices.md)
-* [Utilizar ações de dimensionamento automático para enviar o e-mail e webhook notificações de alerta](insights-autoscale-to-webhook-email.md)
+* [Métricas comuns do Azure Monitor dimensionamento automático](../azure-monitor/platform/autoscale-common-metrics.md)
+* [Melhores práticas do dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md)
+* [Utilizar ações de dimensionamento automático para enviar o e-mail e webhook notificações de alerta](../azure-monitor/platform/autoscale-webhook-email.md)
 * [API de REST de dimensionamento automático](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Resolução de problemas Autoscale de conjuntos de dimensionamento de Máquina Virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)

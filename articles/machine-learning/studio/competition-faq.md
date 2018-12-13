@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: c423438e5c8088dba5b9d71e8e50a2e9de1371c6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fe4da412aa779e9861446f8dcbb8a807c282c7c6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104970"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268908"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence Competitions FAQ (FAQ dos Concursos do Microsoft Cortana Intelligence)
 **O que é o Cortana Intelligence competições?**
@@ -70,7 +69,7 @@ A plataforma de competição atualmente não suporta a participação de equipe.
 
 Competições são livres para participar. No entanto, precisa de ter acesso a uma área de trabalho do Azure Machine Learning para participar. Pode criar uma área de trabalho gratuita, sem cartão de crédito, basta iniciar sessão com uma conta Microsoft válida ou uma conta do Office 365. Se já for um cliente do Azure ou do Cortana Intelligence Suite, pode criar e utilizar uma área de trabalho Standard na mesma subscrição do Azure. Se quiser comprar uma subscrição do Azure, vá para o [os preços do Azure](https://azure.microsoft.com/pricing) página. Tenha em atenção que as taxas padrão serão aplicada ao utilizar uma área de trabalho padrão para construir experimentações. Para obter mais informações, consulte [obter informações sobre preços do Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 **Quais são as pontuações públicas e privadas?**
 

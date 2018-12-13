@@ -1,5 +1,5 @@
 ---
-title: Chave a habilidade de pesquisa cognitiva de extração de frase (Azure Search) | Documentos da Microsoft
+title: Habilidade de pesquisa cognitiva de extração de expressões-chave - Azure Search
 description: Avalia a texto não estruturado e para cada registo, devolve uma lista de expressões-chave num pipeline de enriquecimento de Azure Search.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 694271115626c652523be34160ad6a07053f6387
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 570aa0c9946910f70fe80ed2f7ebc064431d9643
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735803"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314640"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Competências cognitivas de extração de expressões chave
 
@@ -24,7 +25,9 @@ O **extração de expressões chave** habilidade avalia o texto não estruturado
 Esta funcionalidade é útil se precisar de identificar rapidamente os principais pontos de conversa no registo. Por exemplo, texto de entrada especificado "alimentar foi delicious e havia maravilhoso equipe", o serviço devolve "food" e "funcionário maravilhoso".
 
 > [!NOTE]
-> A Pesquisa Cognitiva está em pré-visualização pública. Conjunto de capacidades execução e a extração de imagem e a normalização atualmente são oferecidos gratuitamente. Posteriormente, os preços para estas capacidades serão anunciado. 
+> A partir de 21 de Dezembro de 2018, poderá associar um recurso dos serviços cognitivos com um conjunto de capacidades do Azure Search. Isso permitirá que comecem a cobrança de consumo para a execução do conjunto de capacidades. Esta data, podemos também começar a cobrar extração de imagem como parte da fase de aberturas de documentos. Continuaremos a oferecer a extração de texto de documentos sem custos adicionais.
+>
+> A execução das habilidades internas será cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/) . Preços de extração de imagem são cobrados ao preço de pré-visualização e está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba mais [mais](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 

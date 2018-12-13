@@ -1,6 +1,6 @@
 ---
 title: Criar uma rede virtual - início rápido - CLI do Azure | Microsoft Docs
-description: Neste início rápido, vai aprender a criar uma rede virtual com o Portal do Azure. Uma rede virtual permite que os recursos do Azure, como as máquinas virtuais, comuniquem em privado entre si e com a Internet.
+description: Neste início rápido, vai aprender a criar uma rede virtual com a CLI do Azure. Uma rede virtual permite que os recursos do Azure, como as máquinas virtuais, comuniquem em privado entre si e com a internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -14,38 +14,37 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/09/2018
+ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2290d2975326c35ec4ec18a77a181a4ad0a205b2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 5219ba0885c15d68bd17f07fb8f1f41e856dad0c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962798"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321363"
 ---
-# <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Início Rápido: criar uma rede virtual com a CLI do Azure
+# <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Início rápido: Criar uma rede virtual com a CLI do Azure
 
-Uma rede virtual permite que os recursos do Azure, como as máquinas virtuais (VM), comuniquem em privado entre si e com a Internet. Neste início rápido, vai aprender a criar uma rede virtual. Depois de criar uma rede virtual, vai implementar duas VMs na rede virtual. Em seguida, vai ligar a uma VM a partir da Internet e comunicar em privado com a outra VM.
+Uma rede virtual permite que os recursos do Azure, como as máquinas virtuais (VMs), comuniquem em privado entre si e com a internet. Neste início rápido, vai aprender a criar uma rede virtual. Depois de criar uma rede virtual, vai implementar duas VMs na rede virtual. Em seguida, ligar às VMs a partir da internet e se comunicar em privado sobre a nova rede virtual.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este início rápido requer a execução da versão 2.0.28 ou posterior da CLI do Azure. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI do Azure localmente em vez disso, este início rápido requer a utilização da CLI do Azure versão 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Ver [instalar a CLI do Azure](/cli/azure/install-azure-cli) para instalação ou atualização de informações.
 
+## <a name="create-a-resource-group-and-a-virtual-network"></a>Criar um grupo de recursos e uma rede virtual
 
-## <a name="create-a-virtual-network"></a>Criar uma rede virtual
+Antes de poder criar uma rede virtual, tem de criar um grupo de recursos para alojar a rede virtual. Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). Este exemplo cria um grupo de recursos chamado *myResourceGroup* no *eastus* localização:
 
-Antes de criar uma rede virtual, tem de criar um grupo de recursos para conter a rede virtual. Crie um grupo de recursos com [az group create](/cli/azure/group#az_group_create). O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *eastus*:
-
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie uma rede virtual com [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). O exemplo seguinte cria uma rede virtual predefinida com o nome *myVirtualNetwork*, com uma sub-rede com o nome *predefinido*:
+Crie uma rede virtual com [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). Este exemplo cria uma rede de virtual predefinida com o nome *myVirtualNetwork* com uma sub-rede designada *padrão*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network vnet create \
   --name myVirtualNetwork \
   --resource-group myResourceGroup \
@@ -54,13 +53,13 @@ az network vnet create \
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
-Crie duas VMs na rede virtual:
+Crie duas VMs na rede virtual.
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). Se as chaves SSH ainda não existirem numa localização de chaves predefinida, o comando cria-as. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. A opção `--no-wait` cria a VM em segundo plano, para que possa prosseguir para o passo seguinte. O exemplo seguinte cria uma VM com o nome *myVm1*:
+Crie uma VM com [az vm create](/cli/azure/vm#az_vm_create). Se as chaves SSH ainda não existirem numa localização chave predefinida, o comando cria-los. Para utilizar um conjunto específico de chaves, utilize a opção `--ssh-key-value`. A opção `--no-wait` cria a VM em segundo plano, para que possa prosseguir para o passo seguinte. Este exemplo cria uma VM com o nome *myVm1*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVm1 \
@@ -71,7 +70,9 @@ az vm create \
 
 ### <a name="create-the-second-vm"></a>Criar a segunda VM
 
-```azurecli-interactive 
+Uma vez que utilizou o `--no-wait` opção no passo anterior, pode prosseguir e criar a segunda VM com o nome *myVm2*.
+
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVm2 \
@@ -79,12 +80,14 @@ az vm create \
   --generate-ssh-keys
 ```
 
-A criação da VM demora alguns minutos. Depois de a VM ser criada, a CLI do Azure devolve um resultado semelhante ao seguinte exemplo: 
+### <a name="azure-cli-output-message"></a>Mensagem de saída da CLI do Azure
 
-```azurecli 
+A criação das VMs demora alguns minutos. Depois do Azure cria as VMs, a CLI do Azure devolve resultados como este:
+
+```azurecli
 {
   "fqdns": "",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm1",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm2",
   "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
@@ -94,19 +97,19 @@ A criação da VM demora alguns minutos. Depois de a VM ser criada, a CLI do Azu
 }
 ```
 
-Anote o **publicIpAddress**. Este endereço é utilizado para ligar à VM a partir da Internet no próximo passo.
+Anote o **publicIpAddress**. Irá utilizar este endereço para ligar à VM a partir da internet no próximo passo.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
-Substitua `<publicIpAddress>` pelo endereço IP público da sua VM *myVm2* no comando seguinte e, em seguida, introduza o seguinte comando:
+Neste comando, substitua `<publicIpAddress>` com o endereço IP público do seu *myVm2* VM:
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
 ## <a name="communicate-between-vms"></a>Comunicar entre VMs
 
-Para confirmar a comunicação privada entre as VMs *myVm2* e *myVm1*, introduza o seguinte comando:
+Para confirmar a comunicação privada entre o *myVm2* e *myVm1* VMs, introduzir este comando:
 
 ```bash
 ping myVm1 -c 4
@@ -118,14 +121,14 @@ Saia da sessão SSH com a VM *myVm2*.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos e todos os recursos que contém:
+Quando já não for necessário, pode utilizar [eliminação do grupo de az](/cli/azure/group#az_group_delete) para remover o grupo de recursos e todos os recursos de que tem:
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, criou uma rede virtual predefinida e duas VMs. Ligou a uma VM a partir da Internet e comunicou em privado entre a VM e outra VM. Para saber mais sobre as definições de rede virtual, veja [Gerir uma rede virtual](manage-virtual-network.md). 
+Neste início rápido, criou uma rede virtual predefinida e duas VMs. Ligado a uma VM a partir da internet e comunicou em privado entre as duas VMs. Para saber mais sobre as definições de rede virtual, veja [Gerir uma rede virtual](manage-virtual-network.md).
 
-Por predefinição, o Azure permite a comunicação privada sem restrições entre máquinas virtuais, mas só permite ligações de ambiente de trabalho remoto de entrada a VMs do Windows a partir da Internet. Para saber como permitir ou restringir diferentes tipos de comunicação de rede de e para as VMs, veja [Filtrar tráfego de rede](tutorial-filter-network-traffic.md).
+O Azure permite a comunicação privada sem restrições entre VMs. Por predefinição, o Azure também permite apenas ligações de ambiente de trabalho remotas entrada às VMs do Windows da internet. Para saber mais sobre como configurar diferentes tipos de comunicações de rede VM, vá para o [filtrar o tráfego de rede](tutorial-filter-network-traffic.md) tutorial.

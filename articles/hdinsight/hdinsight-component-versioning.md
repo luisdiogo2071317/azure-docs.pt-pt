@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: b1a63862444969bbb7058841fb755e147dcf6909
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 878d9e635d82e52d8a47d47a135ba865f140c9e9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015845"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321891"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Apache Hadoop e versões disponíveis com o HDInsight?
 
@@ -28,7 +28,7 @@ O Azure HDInsight oferece suporte a várias versões de cluster de Hadoop que po
 
 As versões de componente associadas a versões de cluster do HDInsight estão listadas na tabela a seguir: 
 
-> [!NOTE]
+> [!NOTE]  
 > A versão predefinida para o serviço HDInsight podem ser alteradas sem aviso prévio. Se tiver uma dependência de versão, especifique a versão do HDInsight quando cria seus clusters com o SDK do .NET com o Azure PowerShell e CLI clássica do Azure.
 
 | Componente | HDInsight 4.0 (pré-visualização) | HDInsight 3.6 (predefinição) | HDInsight 3.5 | HDInsight 3.4 | 3.3 do HDInsight | 3.2 do HDInsight | 3.1 do HDInsight | HDInsight 3.0 |
@@ -60,9 +60,7 @@ As versões de componente associadas a versões de cluster do HDInsight estão l
 
 Versões de componente do ecossistema do Hadoop associadas a versões de cluster do HDInsight, podem alterar com as atualizações para o HDInsight. Para verificar os componentes do Hadoop e para verificar as versões que estão a ser utilizadas para um cluster, utilize a API de REST do Ambari. O **GetComponentInformation** comando obtém informações sobre os componentes de serviço. Para obter detalhes, consulte a [documentação do Apache Ambari][ambari-docs].
 
-Para os clusters do Windows, outra forma de verificar a versão do componente é iniciar sessão a um cluster, utilizando o ambiente de trabalho remoto e examinar o conteúdo do diretório C:\apps\dist\.
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux é o único sistema operativo utilizado no HDInsight versão 3.4 ou posterior. Para obter mais informações, consulte [reforma do Windows no HDInsight](#hdinsight-windows-retirement).
 
 ### <a name="release-notes"></a>Notas de versão
@@ -84,7 +82,7 @@ A tabela seguinte lista as versões do HDInsight que estão disponíveis no Port
 
 *&ast; Suporte de HDInsight 3.5 foi expandido apenas para tipos de cluster do Spark*
 
-> [!NOTE]
+> [!NOTE]  
 > Depois de suporte para uma versão tiver expirado, poderá não ser disponível através do portal do Microsoft Azure. No entanto, a versões de cluster continuam a estar disponíveis através da `Version` parâmetro no Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) comando e o SDK de .NET até a data de retirada de versão.
 >
 
@@ -104,7 +102,7 @@ A tabela seguinte lista as versões do HDInsight que são **não** disponível n
 | 2.1 do HDInsight |HDP 1.3 |Windows Server 2012 R2 |28 de Outubro de 2013 |12 de Maio de 2014 |31 de Maio de 2015 |Sim |Não |
 | HDInsight 1.6 |HDP 1.1 | |28 de Outubro de 2013 |26 de Abril de 2014 |31 de Maio de 2015 |Não |Não |
 
-> [!NOTE]
+> [!NOTE]  
 > Clusters de elevada disponibilidade com dois nós principais são implementadas por predefinição para o HDInsight versão 2.1 e posterior. Não estão disponíveis para os clusters do HDInsight versão 1.6.
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>Enterprise Security Package para HDInsight
@@ -194,11 +192,11 @@ A partir do HDInsight versão 3.4, a Microsoft lançou o HDInsight apenas no SO 
 O contrato de nível de serviço (SLA) é definido em termos de um _janela de suporte_. A janela de suporte é o período de tempo que uma versão de cluster do HDInsight é suportada pelo suporte ao cliente da Microsoft. Se a versão tem um _suportam a data de expiração_ que tiver passado, o cluster do HDInsight está fora da janela de suporte. Para obter mais informações sobre as versões suportadas, consulte a lista de [versões de cluster do HDInsight suportadas](hdinsight-migrate-from-windows-to-linux.md). A data de expiração de suporte para uma versão X (depois de uma versão mais recente de X + 1 estiver disponível) de HDInsight especificado é calculada como o posterior de:  
 
 * Fórmula 1: Adicione 180 dias para a data quando a versão do cluster do HDInsight X foi lançada.
-* Fórmula 2: Adicione 90 dias da data quando a versão do cluster do HDInsight X + 1 é disponibilizada no portal do Azure.
+* Fórmula 2: Adicione a 90 dias da data quando a versão do cluster do HDInsight X + 1 é disponibilizada no portal do Azure.
 
 O _data de retirada_ é a data após o qual não é possível criar a versão do cluster HDInsight. A partir de 31 de Julho de 2017, não pode redimensionar um cluster do HDInsight depois da data de extinção. 
 
-> [!NOTE]
+> [!NOTE]  
 > Executam clusters do HDInsight Windows (incluindo as versões 2.1, 3.0, 3.1, 3.2 e 3.3) na família de SO convidado do Azure versão 4, que utiliza a versão de 64 bits do Windows Server 2012 R2. Família de SO convidado do Azure versão 4 suporta as versões do .NET Framework 4.0, 4.5, 4.5.1 e 4.5.2.
 
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Hortonworks notas associadas com as versões do HDInsight
@@ -222,41 +220,36 @@ A secção fornece ligações para notas de versão das distribuições de Horto
 
 
 
-
-
-
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Configuração e a máquina virtual tamanhos de nó predefinidos para clusters
-As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os clusters do HDInsight.
+As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os clusters do HDInsight.  Este gráfico é necessário compreender os tamanhos VM para utilizar quando estiver a criar scripts do PowerShell ou da CLI do Azure para implementar clusters do HDInsight.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Se precisar de mais do que 32 nós de trabalho num cluster, tem de selecionar um tamanho de nó principal com, pelo menos, 8 núcleos e 14 GB de RAM.
-> 
-> 
 
 * Suporte todas as regiões, exceto no sul do Brasil e oeste do Japão:
 
-  | Tipo de cluster | Hadoop | HBase | Interactive Query | Storm | Spark | Servidor de ML |
+  | Tipo de cluster | Hadoop | HBase | Interactive Query | Storm | Spark  | Servidor de ML |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Cabeça: tamanho VM predefinido |D3 v2 |D3 v2 | D13, D14 |A4 v2 |D12 v2 |D12 v2 |
-  | HEAD: recomendado tamanhos de VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A4 v2, A8 v2, A2m v2 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
-  | Função de trabalho: tamanho VM predefinido |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows: D12 v2; Linux: D4 v2 |Windows: D12 v2; Linux: D4 v2 |
-  | Função de trabalho: recomendado tamanhos de VM |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |D3 v2, D4 v2, D12 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | Cabeça: tamanho VM predefinido |D3 v2 |D3 v2 | D13,<br/> D14 |A4 v2 |D12 v2 |D12 v2 |
+  | HEAD: recomendado tamanhos de VM |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |A4 v2,<br/> A8 v2,<br/> A2m v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |
+  | Função de trabalho: tamanho VM predefinido |D3 v2 |D3 v2  | D13,<br/> D14 |D3 v2 |D4 v2 | D4 v2 |
+  | Função de trabalho: recomendado tamanhos de VM |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
   | ZooKeeper: tamanho da VM predefinida | |A4 v2 | |A2 v2 | | |
-  | ZooKeeper: recomendado tamanhos de VM | |A4 v2, A8 v2, A2m v2 | | A2 v2, A4 v2, A8 v2 | | |
-  | Edge: tamanho da VM predefinida | | | | | |Windows: D12 v2; Linux: D4 v2 |
-  | Edge: tamanho VM de recomendado | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
+  | ZooKeeper: recomendado tamanhos de VM | |A4 v2,<br/> A8 v2,<br/> A2m v2 | | A2 v2,<br/> A4 v2,<br/> A8 v2 | | |
+  | Edge: tamanho da VM predefinida | | | | | |D4 v2 |
+  | Edge: tamanho VM de recomendado | | | | | |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
 * Sul do Brasil e oeste do Japão apenas (não existem tamanhos v2):
 
   | Tipo de cluster | Hadoop | HBase | Interactive Query |Storm | Spark | Serviços ML |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Cabeça: tamanho VM predefinido |D3 |D3  | D13, D14 |A3 |D12 |D12 |
-  | HEAD: recomendado tamanhos de VM |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
-  | Função de trabalho: tamanho VM predefinido |D3 |D3  | D13, D14 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Função de trabalho: recomendado tamanhos de VM |D3, D4, D12 |D3, D4, D12  | D13, D14 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | Cabeça: tamanho VM predefinido |D3 |D3  | D13,<br/> D14 |A3 |D12 |D12 |
+  | HEAD: recomendado tamanhos de VM |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
+  | Função de trabalho: tamanho VM predefinido |D3 |D3  | D13,<br/> D14 |D3 |D4 |D4 |
+  | Função de trabalho: recomendado tamanhos de VM |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
   | ZooKeeper: tamanho da VM predefinida | |A2 | | A2 | | |
-  | ZooKeeper: recomendado tamanhos de VM | |A2, A3, A4 | |A2, A3, A4 | | |
-  | Edge: tamanhos de VM predefinido | | | | | |Windows: D12; Linux: D4 |
-  | Edge: recomendado tamanhos de VM | | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
+  | ZooKeeper: recomendado tamanhos de VM | |A2,<br/> A3<br/> A4 | |A2,<br/> A3<br/> A4 | | |
+  | Edge: tamanhos de VM predefinido | | | | | |D4 |
+  | Edge: recomendado tamanhos de VM | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
 
 > [!NOTE]
 > - HEAD é conhecido como *Nimbus* tipo de cluster para o Storm.

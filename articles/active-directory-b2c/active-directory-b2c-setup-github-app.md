@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 426df541def0aa8d4d8b6a81a7364b32ee7f11dd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f3eb5cd62d24ea7251829aed8abba38415835023
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074717"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162822"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta do GitHub através do Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "53074717"
 > Esta funcionalidade está em pré-visualização.
 > 
 
-Para utilizar uma conta do Github como um fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação no seu inquilino que a representa. Se ainda não tiver uma conta do Github, pode obtê-la em [ https://www.github.com/ ](https://www.github.com/).
+Para utilizar uma conta do GitHub como um fornecedor de identidade no Azure Active Directory (Azure AD) B2C, terá de criar uma aplicação no seu inquilino que a representa. Se ainda não tiver uma conta do GitHub, pode obtê-la em [ https://www.github.com/ ](https://www.github.com/).
 
 ## <a name="create-a-github-oauth-application"></a>Criar uma aplicação de OAuth do GitHub
 
@@ -40,7 +40,7 @@ Para utilizar uma conta do Github como um fornecedor de identidade no Azure Acti
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
 4. Selecione **fornecedores de identidade**e, em seguida, selecione **Add**.
-5. Fornecer um **nome**. Por exemplo, introduza *Github*.
-6. Selecione **tipo de fornecedor de identidade**, selecione **Github (pré-visualização)** e clique em **OK**.
-7. Selecione **configurar este fornecedor de identidade** e introduza o Id de cliente que registou anteriormente como a **ID de cliente** e introduza o segredo do cliente que registou como o **segredo do cliente**da aplicação conta Github que criou anteriormente.
-8. Clique em **OK** e, em seguida, clique em **criar** para guardar a configuração de conta do Github.
+5. Fornecer um **nome**. Por exemplo, introduza *GitHub*.
+6. Selecione **tipo de fornecedor de identidade**, selecione **GitHub (pré-visualização)** e clique em **OK**.
+7. Selecione **configurar este fornecedor de identidade** e introduza o Id de cliente que registou anteriormente como a **ID de cliente** e introduza o segredo do cliente que registou como o **segredo do cliente**da aplicação conta GitHub que criou anteriormente.
+8. Clique em **OK** e, em seguida, clique em **criar** para guardar a configuração de conta do GitHub.

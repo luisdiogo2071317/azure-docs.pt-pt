@@ -1,5 +1,5 @@
 ---
-title: Comparação do Serviço de Aplicações do Azure, das Máquinas Virtuais, do Service Fabric e dos Serviços Cloud | Microsoft Docs
+title: Comparar o serviço de aplicações, VM, o Service Fabric e serviços Cloud - Azure | Documentos da Microsoft
 description: Saiba como escolher entre o Serviço de Aplicações do Azure, as Máquinas Virtuais, o Service Fabric e os Serviços Cloud para alojar aplicações Web.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 5f04279b63ee5133b9900c475537798f6fa16bff
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 2cf73607f0cb286f06a5aa043fd8b30816e6a80f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958717"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313620"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação do Serviço de Aplicações do Azure, das Máquinas Virtuais, do Service Fabric e dos Serviços Cloud
 
-O Azure oferece várias formas para alojar sites: [Serviço de Aplicações do Azure][Azure App Service], [Máquinas Virtuais][Virtual Machines], [Service Fabric][Service Fabric] e [Serviços Cloud][Cloud Services]. Este artigo ajuda-o a compreender as opções e a fazer a escolha certa para a sua aplicação Web.
+O Azure oferece várias formas para alojar sites: [Serviço de aplicações do Azure][Azure App Service], [máquinas virtuais][Virtual Machines], [do Service Fabric][Service Fabric], e [Serviços cloud][Cloud Services]. Este artigo ajuda-o a compreender as opções e a fazer a escolha certa para a sua aplicação Web.
 
 O Serviço de Aplicações do Azure é a melhor escolha para a maioria das aplicações Web. A implementação e a gestão estão integradas na plataforma, os sites podem ser dimensionados rapidamente para lidar com cargas elevadas de tráfego e o balanceamento de carga e o gestor de tráfego incorporados proporcionam elevada disponibilidade. Pode mover facilmente sites existentes para o Serviço de Aplicações do Azure com uma [ferramenta de migração online][migrate-tool], utilize uma aplicação de código aberto da Galeria de Aplicações Web ou crie um novo site com as ferramentas e a arquitetura da sua preferência. A funcionalidade [WebJobs][WebJobs] possibilita adicionar de forma fácil processamento de trabalhos em segundo plano à sua aplicação Web do Serviço de Aplicações.
 

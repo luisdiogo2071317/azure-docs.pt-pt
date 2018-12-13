@@ -1,7 +1,7 @@
 ---
-title: 'Guia de Início Rápido: Executar uma pesquisa de imagens com o C# – API de Pesquisa de Imagens do Bing'
+title: 'Início rápido: Procure imagens - API de REST de pesquisa de imagens do Bing eC#'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e ver um resultado de pesquisa a partir de uma resposta JSON. Esta simples aplicação C# envia uma consulta de pesquisa de imagens HTTP para a API e apresenta o URL da primeira imagem devolvida.
+description: Utilizar este início rápido para enviar pedidos de pesquisa de imagem para utilizar a API de REST de pesquisa de imagens do Bing C#e receber respostas JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 3819b476c5d3638f409b4195d6340920032d7b99
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 67dd91d7555ebd1e72cea168fc8b841bf4ed9175
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307496"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249520"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>Guia de Início Rápido: Enviar consultas de imagens com a API de Pesquisa de Imagens do Bing e o C#
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Início rápido: Pesquisa de imagens usando a API de REST de pesquisa de imagens do Bing eC#
 
 Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e ver um resultado de pesquisa a partir de uma resposta JSON. Esta simples aplicação C# envia uma consulta de pesquisa de imagens HTTP para a API e apresenta o URL da primeira imagem devolvida.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/15/2018
 ms.author: stbaron
-ms.openlocfilehash: 73e58653c249639d2c2317badcd9995658009b64
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 3abf0268a7a6f84e5c26efc5643d048216fc2215
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710992"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163043"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure
 Segue-se uma lista completa de todas as verificações executadas por meio do Estado de funcionamento do recurso por tipos de recursos.
@@ -144,4 +144,4 @@ Segue-se uma lista completa de todas as verificações executadas por meio do Es
 # <a name="next-steps"></a>Próximos Passos
 -  Ver [introdução ao dashboard do Azure Service Health](service-health-overview.md) e [introdução ao Azure Resource Health](resource-health-overview.md) para saber mais sobre eles. 
 -  [Perguntas mais frequentes sobre o Azure Resource Health](resource-health-faq.md)
-- Configure alertas para que seja notificado de problemas de estado de funcionamento. Para obter mais informações, consulte [configurar alertas para eventos de estado de funcionamento do serviço](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Configure alertas para que seja notificado de problemas de estado de funcionamento. Para obter mais informações, consulte [configurar alertas para eventos de estado de funcionamento do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

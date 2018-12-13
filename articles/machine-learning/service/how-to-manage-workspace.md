@@ -1,5 +1,6 @@
 ---
-title: Criar e gerir áreas de trabalho do serviço Azure Machine Learning
+title: Criar e gerir áreas de trabalho
+titleSuffix: Azure Machine Learning service
 description: Saiba como criar, ver e eliminar as áreas de trabalho do Azure Machine Learning serviço no portal do Azure.
 services: machine-learning
 ms.service: machine-learning
@@ -10,20 +11,20 @@ ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 647af189319a1fa7b80b10410ad96f3297c18192
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 73a47929fa26ae0729943e17d0f6c9a054f4f6bb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083772"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276711"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Criar e gerir áreas de trabalho do serviço Azure Machine Learning
 
 Neste artigo, vai criar, ver e eliminar [ **áreas de trabalho do serviço Azure Machine Learning** ](concept-azure-machine-learning-architecture.md#workspace) no portal do Azure para [serviço Azure Machine Learning](overview-what-is-azure-ml.md).  Também pode criar e eliminar as áreas de trabalho [com a CLI](reference-azure-machine-learning-cli.md) ou [com o código de Python](https://aka.ms/aml-sdk).
 
-Para criar uma área de trabalho, precisa de uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
-
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho 
+
+Para criar uma área de trabalho, precisa de uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -45,7 +46,7 @@ Para criar uma área de trabalho, precisa de uma subscrição do Azure. Se não 
 
 1. Selecione a área de trabalho que acabou de criar para apresentar as respetivas propriedades.
 
-   ![PNG](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
+   ![Propriedades da área de trabalho](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Eliminar uma área de trabalho
 
@@ -63,4 +64,4 @@ Utilize o botão de eliminação na parte superior da área de trabalho que pret
 Siga o tutorial completo para saber como utilizar uma área de trabalho para criar, preparar e implementar modelos com o serviço Azure Machine Learning.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Modelos de formação](tutorial-train-models-with-aml.md)
+> [Tutorial: Preparação de modelos](tutorial-train-models-with-aml.md)

@@ -1,21 +1,21 @@
 ---
-title: Início Rápido - executar uma aplicação no Azure Container Instances
-description: Neste início rápido, vai utilizar o Azure PowerShell para implementar uma aplicação que está a ser executada num contentor de Docker para Azure Container Instances
+title: Início rápido - executar uma aplicação no Azure Container Instances - PowerShell
+description: Neste início rápido, vai utilizar do Azure PowerShell para implementar uma aplicação de contentor do Docker no Azure Container Instances com o Azure PowerShell
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 33444e810a2deebee11e535c73ce3e249f42b340
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b17cca7f0c00aba260b97b29345ff33156a50138
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854648"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183952"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Início rápido: Executar uma aplicação no Azure Container Instances
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Início rápido: Execute uma aplicação de contentor no Azure Container Instances com o Azure PowerShell
 
 Utilize o Azure Container Instances para executar contentores de Docker no Azure com simplicidade e celeridade. Não necessita de implementar máquinas virtuais nem de utilizar uma plataforma de orquestração de contentores completa, como o Kubernetes. Neste início rápido, vai utilizar o portal do Azure para criar um contentor do Windows no Azure e disponibilizar a sua aplicação na Internet com um nome de domínio completamente qualificado (FQDN). Alguns segundos depois de executar um comando de implementação única, pode navegar para a aplicação em execução:
 
@@ -91,7 +91,7 @@ Quando já não precisar do contentor, pode removê-lo com o cmdlet [Remove-Azur
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, criou uma instância de contentor do Azure a partir de uma imagem no registo do Hub do Docker público. Se deseja criar uma imagem do contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
 

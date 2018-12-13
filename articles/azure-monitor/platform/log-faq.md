@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: a27513f9ae3d2b4cfff77f4fd410fdc77e060feb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 8d062108dbb27095e978b4973cb7bc5172a4d814
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081681"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186281"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Log Analytics no Microsoft Azure. Se tiver perguntas adicionais sobre o Log Analytics, avance para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
@@ -27,13 +26,13 @@ O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Log Analytics n
 
 ## <a name="new-logs-experience"></a>Nova experiência de registos
 
-### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>P: qual é a diferença entre a nova experiência de registos e Log Analytics?
+### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>P: O que é a diferença entre a nova experiência de registos e Log Analytics?
 
-R: eles são a mesma coisa. [O log Analytics está a ser integrado como uma funcionalidade no Azure Monitor](../../azure-monitor/azure-monitor-rebrand.md) para fornecer a experiência de monitorização de unificação de um mais. A nova experiência de registos no Azure Monitor é exatamente o mesmo que as consultas do Log Analytics que muitos clientes já têm usado.
+R: Eles são a mesma coisa. [O log Analytics está a ser integrado como uma funcionalidade no Azure Monitor](../../azure-monitor/azure-monitor-rebrand.md) para fornecer a experiência de monitorização de unificação de um mais. A nova experiência de registos no Azure Monitor é exatamente o mesmo que as consultas do Log Analytics que muitos clientes já têm usado.
 
 ### <a name="q-can-i-still-use-log-search"></a>P: Posso continuar a utilizar pesquisa de registos? 
 
-R: pesquisa de registos de atualmente, está ainda disponível no portal do OMS e no portal do Azure com o nome **registos (clássico)**. Portal do OMS será oficialmente retirado a 15 de Janeiro de 2019. A experiência de registos clássica no portal do Azure vai ser descontinuada gradualmente e substituído a nova experiência de registos. 
+R: Pesquisa de registos está atualmente ainda está disponível no portal do OMS e no portal do Azure com o nome **registos (clássico)**. Portal do OMS será oficialmente retirado a 15 de Janeiro de 2019. A experiência de registos clássica no portal do Azure vai ser descontinuada gradualmente e substituído a nova experiência de registos. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>P. Posso continuar a utilizar Portal de análise avançadas? 
 A nova experiência de registos no portal do Azure baseia-se no Portal da análise avançada, mas ele ainda pode ser acessado fora do portal do Azure. O mapa para extinguir este portal externo será anunciado em breve.
@@ -44,30 +43,30 @@ A nova experiência de registos no portal do Azure baseia-se no Portal da análi
 
 ### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>P. Como posso extrair campos personalizados na nova experiência de registos? 
 
-R: extração de campos personalizada de atualmente são suportados no clássica a experiência de registos. 
+R: Experiência de registos de campos personalizados extração são atualmente suportadas no clássica. 
 
 ### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>P. Onde posso encontrar a vista de lista nos Logs de novo? 
 
-R: vista de lista de não está disponível nos Logs de novo. Há uma seta à esquerda de cada registo na tabela de resultados. Clique nesta seta para abrir os detalhes de um registo específico. 
+R: Vista de lista não está disponível nos Logs de novo. Há uma seta à esquerda de cada registo na tabela de resultados. Clique nesta seta para abrir os detalhes de um registo específico. 
 
 ### <a name="q-after-running-a-query-a-list-of-suggested-filters-shows-up-but-it-doesnt-include-all-filters-how-can-i-see-the-rest"></a>P. Depois de executar uma consulta, uma lista dos filtros sugeridas é exibido, mas ele não inclui todos os filtros. Como posso ver o rest? 
 
-R: o que vê atualmente é uma pré-visualização da nova implementação de filtros. Agora isso se baseia seu resultado completo, em vez de estar limitado pelo limite de registo 10.000 da interface do Usuário. Isto é, atualmente, uma lista de filtros mais populares e os 10 valores mais comuns para cada filtro. 
+R: O que vê atualmente é uma pré-visualização da nova implementação de filtros. Agora isso se baseia seu resultado completo, em vez de estar limitado pelo limite de registo 10.000 da interface do Usuário. Isto é, atualmente, uma lista de filtros mais populares e os 10 valores mais comuns para cada filtro. 
 
-### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>P. Por que estou recebendo o erro: "Registar o fornecedor de recursos"Microsoft. insights' para esta subscrição para ativar esta consulta"nos registos, após a análise de sessão de VM? 
+### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>P. Por que estou a receber o erro: "Registar o fornecedor de recursos"Microsoft. insights' para esta subscrição para ativar esta consulta"nos registos, após a análise de sessão de VM? 
 
-R: por predefinição, muitos fornecedores de recursos são automaticamente registrados, no entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Esta ação configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Veja [Fornecedores e tipos de recursos](../../azure-resource-manager/resource-manager-supported-services.md#portal) para obter mais informações.
+R: Por padrão, muitos fornecedores de recursos são automaticamente registrados, no entanto, poderá ter de registar manualmente alguns fornecedores de recursos. Esta ação configura a sua subscrição para trabalhar com o fornecedor de recursos. O âmbito de registo é sempre a subscrição. Veja [Fornecedores e tipos de recursos](../../azure-resource-manager/resource-manager-supported-services.md#portal) para obter mais informações.
 
 ### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>P. Por que estou eu não estou a receber nenhuma mensagem de erro de acesso ao aceder a registos de uma página VM? 
 
-R: para ver os registos de VM, terá de ser concedida permissão de leitura para as áreas de trabalho que armazena os registos VM. Nestes casos, o administrador deve conceder-lhe com as permissões no Azure.
+R: Para ver os registos de VM, terá de ser concedida permissão de leitura para as áreas de trabalho que armazena os registos VM. Nestes casos, o administrador deve conceder-lhe com as permissões no Azure.
 
 ### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>P. Por isso que posso pode aceder à minha área de trabalho no portal do OMS, mas recebo a mensagem de erro "não têm acesso" no portal do Azure?  
 
-R: para aceder a uma área de trabalho no Azure, tem de ter permissões do Azure atribuídas. Existem alguns casos em que pode não ter permissões de acesso adequado. Nestes casos, o administrador deve conceder-lhe com permissões no Azure.See [portal do OMS para o Azure](/../../azure-monitor/platform/oms-portal-transition.md) para obter mais informações.
+R: Para aceder a uma área de trabalho no Azure, tem de ter permissões do Azure atribuídas. Existem alguns casos em que pode não ter permissões de acesso adequado. Nestes casos, o administrador deve conceder-lhe com permissões no Azure.See [portal do OMS para o Azure](/../../azure-monitor/platform/oms-portal-transition.md) para obter mais informações.
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>P. Por que não é possível não é possível ver entrada de estruturador de vistas nos registos? 
-R: estruturador de vistas de só está disponível nos registos para os utilizadores com permissões de Contribuidor ou superior.
+R: Estruturador de vistas só está disponível nos registos para os utilizadores com permissões de Contribuidor ou superior.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>P. Posso continuar a utilizar o portal do Analytics fora do Azure?
 R. Sim, a página de registos no Azure e o portal da análise avançada baseiam-se no mesmo código. O log Analytics está a ser integrado como uma funcionalidade no Azure Monitor para fornecer uma experiência de monitorização mais unificada. Pode continuar a aceder através do URL do portal da análise: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
@@ -78,20 +77,20 @@ R. Sim, a página de registos no Azure e o portal da análise avançada baseiam-
 
 ### <a name="q-how-can-i-see-my-views-and-solutions-in-azure-portal"></a>P. Como posso ver meu vistas e soluções no portal do Azure? 
 
-R: a lista de vistas e soluções instaladas estão disponíveis no portal do Azure. Clique em **Ver todos os serviços**. Na lista de recursos, selecione **Monitor**, em seguida, clique em **... Mais**. A última área de trabalho utilizada é selecionada, mas pode selecionar qualquer outra área de trabalho. 
+R: A lista de vistas e soluções instaladas estão disponíveis no portal do Azure. Clique em **Ver todos os serviços**. Na lista de recursos, selecione **Monitor**, em seguida, clique em **... Mais**. A última área de trabalho utilizada é selecionada, mas pode selecionar qualquer outra área de trabalho. 
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>P. Por que motivo não consigo criar áreas de trabalho na região e.u.a. centro-oeste? 
 
-R: esta região está no limite de capacidade temporário. O limite está previsto para ser resolvido no primeiro semestre de 2019.
+R: Esta região está no limite de capacidade temporário. O limite está previsto para ser resolvido no primeiro semestre de 2019.
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>P. O Log Analytics usa o mesmo agente como centro de segurança do Azure?
 
-R: no início de Junho de 2017, o Centro de segurança do Azure começou com o Microsoft Monitoring Agent para recolher e armazenar dados. Para obter mais informações, consulte [FAQ de migração de plataforma de centro de segurança do Azure](../../security-center/security-center-enable-data-collection.md).
+R: No início de Junho de 2017, o Centro de segurança do Azure começou com o Microsoft Monitoring Agent para recolher e armazenar dados. Para obter mais informações, consulte [FAQ de migração de plataforma de centro de segurança do Azure](../../security-center/security-center-enable-data-collection.md).
 
 ### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>P. Quais verificações são efetuadas pelo AD e soluções de avaliação do SQL?
 
-R: a consulta seguinte mostra uma descrição de todas as verificações executadas atualmente:
+R: A consulta seguinte mostra uma descrição de todas as verificações executadas atualmente:
 
 ```
 (Type=SQLAssessmentRecommendation OR Type=ADAssessmentRecommendation) | dedup RecommendationId | select FocusArea, ActionArea, Recommendation, Description | sort Type, FocusArea,ActionArea, Recommendation
@@ -101,17 +100,17 @@ Os resultados podem ser exportados para o Excel para examinar detalhadamente.
 
 ### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>P. Por que vejo algo diferente de OMS na consola do System Center Operations Manager?
 
-R: dependendo em quais Update Rollup do Operations Manager estiver a utilizar, poderá ver um nó para *System Center Advisor*, *das informações operacionais*, ou *do Log Analytics*.
+R: Consoante o Update Rollup do Operations Manager estiver a utilizar, pode ver um nó para *System Center Advisor*, *das informações operacionais*, ou *do Log Analytics*.
 
 A atualização de seqüência de caracteres de texto *OMS* está incluído num pacote de gestão, que tem de ser importado manualmente. Para ver o texto atual e a funcionalidade, siga as instruções do artigo mais recente do System Center Operations Manager Update Rollup KB e atualize a consola.
 
-### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>P: existe uma versão no local do Log Analytics?
+### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>P: Existe uma versão no local do Log Analytics?
 
-R: não. O log Analytics é um serviço de cloud escalável que processa e armazena grandes quantidades de dados. 
+R: Não. O log Analytics é um serviço de cloud escalável que processa e armazena grandes quantidades de dados. 
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>P. Como posso resolver problemas se o Log Analytics já não está a recolher dados?
 
-R: para uma subscrição e o espaço de trabalho criadas antes de 2 de Abril de 2018 no *gratuito* escalão de preço se mais de 500 MB de dados é enviada num dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que o Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.  
+R: Para uma subscrição e o espaço de trabalho criadas antes de 2 de Abril de 2018 no *gratuito* escalão de preço se mais de 500 MB de dados é enviada num dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que o Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.  
 
 O log Analytics cria um evento do tipo *Heartbeat* e pode ser utilizado para determinar se a recolha de dados será interrompido. 
 
@@ -134,7 +133,7 @@ O log Analytics utiliza hora UTC e cada dia começa à meia-noite UTC. Se a áre
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>P. Como posso ser notificado da quando parar a recolha de dados?
 
-R: Utilize os passos descritos em [criar um novo alerta de registo](../../monitoring-and-diagnostics/alert-metric.md) para ser notificado quando parar a recolha de dados.
+R: Utilize os passos descritos em [criar um novo alerta de registo](../../azure-monitor/platform/alerts-metric.md) para ser notificado quando parar a recolha de dados.
 
 Quando criar o alerta para quando para a recolha de dados, defina o:
 
@@ -148,7 +147,7 @@ Quando criar o alerta para quando para a recolha de dados, defina o:
    - **Nome** para *parada a recolha de dados*
    - A **gravidade** como *Aviso*
 
-Especifique um existente ou crie um novo [grupo de ação](../../monitoring-and-diagnostics/monitoring-action-groups.md) , de modo que quando o alerta de registo corresponde aos critérios, é notificado se tiver um heartbeat em falta para a mais de 15 minutos.
+Especifique um existente ou crie um novo [grupo de ação](../../azure-monitor/platform/action-groups.md) , de modo que quando o alerta de registo corresponde aos critérios, é notificado se tiver um heartbeat em falta para a mais de 15 minutos.
 
 ## <a name="configuration"></a>Configuração
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>P. Pode alterar o nome do contentor de blob/tabela usado para ler a partir do diagnóstico do Azure (WAD)?
@@ -175,16 +174,16 @@ Esta alteração também pode ser feita no portal do Azure.
 
 Não é possível mover dados de uma área de trabalho do Log Analytics para outro, ou alterar a região de dados do Log Analytics são armazenados no.
 
-### <a name="q-how-do-i-add-log-analytics-to-system-center-operations-manager"></a>P: como posso adicionar o Log Analytics para o System Center Operations Manager?
+### <a name="q-how-do-i-add-log-analytics-to-system-center-operations-manager"></a>P: Como posso adicionar o Log Analytics para o System Center Operations Manager?
 
-R: a atualização para o update rollup mais recente e importar pacotes de gestão permite-lhe ligar o Operations Manager ao Log Analytics.
+R:  A atualização para o update rollup mais recente e importar pacotes de gestão permite-lhe ligar o Operations Manager ao Log Analytics.
 
 >[!NOTE]
 >A ligação do Operations Manager ao Log Analytics está disponível apenas para o System Center Operations Manager 2012 SP1 e posterior.
 
-### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>P: como posso confirmar que um agente é capaz de comunicar com o Log Analytics?
+### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>P: Como posso confirmar que um agente é capaz de comunicar com o Log Analytics?
 
-R: para garantir que o agente consegue comunicar com o OMS, aceda a: painel de controlo, segurança e as definições, **Microsoft Monitoring Agent**.
+R: Para garantir que o agente consegue comunicar com o OMS, aceda a: Controlar o painel, segurança e as definições, **Microsoft Monitoring Agent**.
 
 Sob o **do Azure Log Analytics (OMS)** separador, procure uma marca de verificação verde. Um ícone de marca de verificação verde confirma que o agente é capaz de comunicar com o serviço do Azure.
 
@@ -192,19 +191,19 @@ Um ícone de aviso amarelo significa que o agente está a ter problemas de comun
 
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>P: Como faço para interromper um agente de comunicar com o Log Analytics?
 
-R: no System Center Operations Manager, remova o computador na lista de computadores geridos de OMS. Do Operations Manager atualiza a configuração do agente já não é o relatório para o Log Analytics. Para agentes ligados diretamente ao Log Analytics, pode impedi-los de comunicar através de: painel de controlo, segurança e as definições, **Microsoft Monitoring Agent**.
+R: No System Center Operations Manager, remova o computador da lista de computadores geridos de OMS. Do Operations Manager atualiza a configuração do agente já não é o relatório para o Log Analytics. Para agentes ligados diretamente ao Log Analytics, pode pará-los de comunicar através de: Controlar o painel, segurança e as definições, **Microsoft Monitoring Agent**.
 Sob **do Azure Log Analytics (OMS)**, remover todas as áreas de trabalho listadas.
 
-### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>P: por que eu ganho um erro ao tentar mover a minha área de trabalho de uma subscrição do Azure para outra?
+### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>P: Por que eu ganho um erro ao tentar mover a minha área de trabalho de uma subscrição do Azure para outra?
 
-R: para mover uma área de trabalho para uma subscrição diferente ou um grupo de recursos, tem primeiro de desassociar a conta de automatização na área de trabalho. A desassociar uma conta de automatização requer a remoção destas soluções se estiverem instalados na área de trabalho: gestão de atualizações, controlo de alterações ou iniciar/parar VMs fora do horário comercial são removidas. Depois destas soluções são removidas, desassociar a conta de automatização, selecionando **ligado áreas de trabalho** no painel da esquerda a automação de conta de recurso e clique em **desassociar área de trabalho** da faixa de opções.
+R: Para mover uma área de trabalho para uma subscrição diferente ou um grupo de recursos, tem primeiro de desassociar a conta de automatização na área de trabalho. A desassociar uma conta de automatização requer a remoção destas soluções se estiverem instalados na área de trabalho: Gestão de atualizações, controlo de alterações ou iniciar/parar VMs fora do horário comercial são removidas. Depois destas soluções são removidas, desassociar a conta de automatização, selecionando **ligado áreas de trabalho** no painel da esquerda a automação de conta de recurso e clique em **desassociar área de trabalho** da faixa de opções.
  > Removido de soluções precisam de ser reinstalados na área de trabalho e a ligação de automatização à área de trabalho tem de ser expressas novamente após a mudança.
 
 Certifique-se de que tem permissão em ambas as subscrições do Azure.
 
-### <a name="q-why-am-i-getting-an-error-when-i-try-to-update-a-savedsearch"></a>P: por que eu ganho um erro ao tentar atualizar um SavedSearch?
+### <a name="q-why-am-i-getting-an-error-when-i-try-to-update-a-savedsearch"></a>P: Por que eu ganho um erro ao tentar atualizar um SavedSearch?
 
-R: precisa adicionar "etag" no corpo da API ou de propriedades do modelo do Azure Resource Manager:
+R: Tem de adicionar "etag" no corpo da API ou de propriedades do modelo do Azure Resource Manager:
 ```
 "properties": {
    "etag": "*",

@@ -1,5 +1,5 @@
 ---
-title: Exemplos de consulta simples para o Azure Search | Documentos da Microsoft
+title: Exemplos de consulta simples - Azure Search
 description: Exemplos de consulta simples para pesquisa em texto completo, pesquisa de filtro, pesquisa geográfica, pesquisa por facetas e outras cadeias de caracteres de consulta, usadas para consultar um índice da Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 2d9e69a900f6665aa0ee3034cd6f9d7c394e8f0b
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.custom: seodec2018
+ms.openlocfilehash: 9697b88e23fea0cb06ab0c4a6197b5255e7076bf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42054989"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316272"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Exemplos de consulta de sintaxe simples para a criação de consultas na Azure Search
 
@@ -68,7 +69,7 @@ Opcionalmente, pode adicionar **`$count=true`** para o URL para devolver uma con
 
 Para consultas interativas, não é necessário especificar nada: a predefinição é simple. No código, se anteriormente invocado **queryType = full** para a sintaxe de consulta completa, foi possível repor a predefinição com **queryType = simples**.
 
-## <a name="example-1-field-scoped-query"></a>Exemplo 1: Consulta de âmbito de campo
+## <a name="example-1-field-scoped-query"></a>Exemplo 1: Consulta com abrangência de campo
 
 Este primeiro exemplo não é específico do analisador, mas vamos levar com ele para apresentar o primeiro conceito de consulta fundamentais: contenção. Neste exemplo examina a execução da consulta e a resposta a apenas alguns campos específicos. É importante saber como estruturar uma resposta JSON legível quando sua ferramenta é o Explorador de pesquisa ou o Postman. 
 
@@ -84,7 +85,7 @@ A resposta para esta consulta deve ser semelhante à seguinte captura de ecrã.
 
 Poderá ter reparado a pontuação de pesquisa na resposta. Pontuações uniformes de 1 ocorrerem quando não existe nenhuma classificação, seja porque a pesquisa não era a pesquisa em texto completo ou porque não existem critérios foi aplicada. Para obter pesquisa nulo sem critérios, linhas voltar na ordem arbitrária. Quando inclui critérios reais, verá as pontuações evoluam em valores significativos de pesquisa.
 
-## <a name="example-2-look-up-by-id"></a>Exemplo 2: Pesquisar por ID
+## <a name="example-2-look-up-by-id"></a>Exemplo 2: Procurar por ID
 
 Neste exemplo é um pouco atípica, mas ao avaliar os comportamentos de pesquisa, talvez queira inspecionar todo o conteúdo de um documento específico para compreender por que foram incluído ou excluído dos resultados. Para devolver um único documento em sua totalidade, utilize um [operação de pesquisa de](https://docs.microsoft.com/rest/api/searchservice/lookup-document) para passar no ID do documento.
 
@@ -243,7 +244,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ```
   ![todos os de modo de pesquisa](media/search-query-simple-examples/searchmodeall.png)
 
-## <a name="example-8-structuring-results"></a>Exemplo 8: Resultados de estruturação
+## <a name="example-8-structuring-results"></a>Exemplo 8: Estruturar resultados
 
 Resulta de vários controle de parâmetros que campos são na pesquisa, o número de documentos devolvidos em cada lote e a ordem de classificação. Neste exemplo resurfaces alguns dos exemplos anteriores, limitar os resultados a campos específicos utilizando o **$select** instrução e critérios de pesquisa textuais, 82 correspondências retornadas 
 

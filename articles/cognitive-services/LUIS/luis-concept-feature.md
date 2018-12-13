@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 57ad7d680d83e13d9aff1d55a52ab982c585df76
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080202"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271390"
 ---
-# <a name="phrase-list-features-in-luis"></a>Recursos de lista de frase do LUIS
+# <a name="phrase-list-features-in-your-luis-app"></a>Funcionalidades de lista de frase na sua aplicação LUIS
 
 No machine learning, um *funcionalidade* é uma distinção característica ou atributo de dados que observa o seu sistema. 
 
@@ -32,9 +32,17 @@ Uma lista de frase adiciona ao vocabulário do domínio de aplicativo como um si
 ## <a name="how-to-use-phrase-lists"></a>Como utilizar listas de frase
 A aplicação de recursos humanos [tutorial simples de entidade](luis-quickstart-primary-and-secondary-data.md), a aplicação utiliza uma **tarefa** lista de frase de tipos de tarefa como programador, roofer e secretário. Se um dos seguintes valores o rótulo como uma entidade aprendidas por máquina, LUIS aprende a reconhecer os outros. 
 
-Uma lista de expressão pode ser intercambiáveis ou não intercambiáveis. Uma *intercambiáveis* lista frase é para os valores que são sinónimos, e um *não intercambiáveis* lista de expressão se destina aos valores que não são sinónimos, mas ainda assim tem um sinal adicional na aplicação. 
+Uma lista de expressão pode ser intercambiáveis ou não intercambiáveis. Uma *intercambiáveis* lista frase é para os valores que são sinónimos, e um *não intercambiáveis* lista frase destina-se como lista de vocabulário específico de uma aplicação. À medida que cresce a lista de frase do vocabulário de aplicação, pode considerar alguns termos têm muitas formas (sinónimos). Divida estas-se em outra lista de frase é intercambiável. 
+
+|Tipo de lista|Objetivo|
+|--|--|
+|Intercambiáveis|Sinónimos ou palavras que, quando alterado para outra palavra na lista, têm o mesmo objetivo e extração de entidades.|
+|Não intercambiáveis|Vocabulário de aplicação, específico para a sua aplicação, mais, para que, geralmente, outro palavras nesse idioma.|
+
+Apresenta uma lista de expressão não só ajuda com a detecção de entidade, mas também classificação intenção onde não intercambiáveis faz sentido como adicionar fora de palavras de vocabulário que não são conhecidas no idioma inglês.
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
+
 ## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Apresenta uma lista de frase ajuda a identificar as entidades intercambiáveis simples
 Frase intercambiáveis listas são uma boa maneira de otimizar o desempenho da sua aplicação LUIS. Se a sua aplicação tiver problemas ao prever expressões com a intenção correta, ou no reconhecimento de entidades, pense se as expressões contenham palavras invulgares ou palavras que podem ser ambíguas em significado. Essas palavras são bons candidatos para incluir numa lista frase.
 

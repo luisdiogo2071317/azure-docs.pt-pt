@@ -1,5 +1,5 @@
 ---
-title: Executar a primeira consulta do Resource Graph com a CLI do Azure
+title: Executar a sua primeira consulta com a CLI do Azure
 description: Este artigo explica os passos para ativar a extensão do Resource Graph para a CLI do Azure e executar a sua primeira consulta.
 services: resource-graph
 author: DCtheGeek
@@ -7,14 +7,14 @@ ms.author: dacoulte
 ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a252dd6698a5e4f724fcbbf821b01f63ab4f529b
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 8f5d98ff591cb456cbbcb3d28a63f39ab3729152
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086816"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308520"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Executar a primeira consulta do Resource Graph com a CLI do Azure
 
@@ -94,7 +94,7 @@ az extension remove -n resource-graph
 > [!NOTE]
 > Este procedimento de remoção não elimina o ficheiro de extensão que transferiu anteriormente. Apenas o remove do ambiente da CLI do Azure em execução.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Obter mais informações sobre a [linguagem de consulta](./concepts/query-language.md)
 - Aprender a [explorar recursos](./concepts/explore-resources.md)

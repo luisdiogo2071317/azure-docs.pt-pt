@@ -1,21 +1,21 @@
 ---
-title: Tutorial do Azure Container Instances – Implementar a aplicação
-description: Tutorial do Azure Container Instances parte 3 de 3 – Implementar a aplicação
+title: Tutorial - implementar a aplicação de contentor no Azure Container Instances
+description: Tutorial do Azure Container Instances parte 3 de 3 - implementar a aplicação de contentor no Azure Container Instances
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9e8a72564151bea9194ef5180589fa8eae001df5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863725"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191113"
 ---
-# <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Tutorial: Implementar um contentor no Azure Container Instances
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implementar uma aplicação de contentor no Azure Container Instances
 
 Este é o último tutorial de uma série de três partes. Nas duas primeiras partes da série, [foi criada uma imagem de contentor](container-instances-tutorial-prepare-app.md) e [enviada para o Azure Container Registry](container-instances-tutorial-prepare-acr.md). Este artigo termina a série ao implementar o contentor no Azure Container Instances.
 

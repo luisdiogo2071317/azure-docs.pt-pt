@@ -3,8 +3,8 @@ title: Script da CLI do Azure de exemplo - ligar uma aplicação web a uma Cache
 description: Script da CLI do Azure de exemplo - ligar uma aplicação web a uma Cache do Azure para Redis
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: e909a86912c16cac8f9c92d1632ba2eb29ee1d30
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: aa15647c00525886bb3d480cac803f74d70031fa
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012101"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183263"
 ---
-# <a name="connect-a-web-app-to-an-azure-cache-for-redis"></a>Ligar uma aplicação web para uma Cache do Azure para Redis
+# <a name="connect-a-web-app-to-an-azure-cache-for-redis-using-cli"></a>Ligar uma aplicação web para uma Cache do Azure para utilizar a CLI de Redis
 
 Este script de exemplo cria uma Cache do Azure para Redis e uma aplicação web do Azure. Em seguida, liga a Cache do Azure para Redis à aplicação web com as definições da aplicação.
 

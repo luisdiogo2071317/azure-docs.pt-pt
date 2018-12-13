@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/04/2018
+ms.date: 12/10/2018
 ms.author: rolyon
-ms.openlocfilehash: 85f15c67207128914ef0d0d1051a54a33d757e72
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 448ef296af3ceaffffa1a4a69060916afd9abdc4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106282"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185686"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar com os termos de utilização.
@@ -130,7 +130,7 @@ Depois de finalizar o documento Termos de utilização, utilize o procedimento q
     >[!IMPORTANT]
     >Os controlos de política de acesso condicional (incluindo os Termos de utilização) não suportam a imposição em contas de serviço.  Recomendamos excluir todas as contas de serviço da política de acesso condicional.
 
-     As políticas de acesso condicional personalizadas permitem especificar Termos de utilização detalhados, ao ponto de individualizar uma aplicação da cloud ou um grupo de utilizadores em particular.  Para obter mais informações, consulte [início rápido: exigir termos de utilização para ser aceite antes de aceder a aplicações na cloud](../conditional-access/require-tou.md).
+     As políticas de acesso condicional personalizadas permitem especificar Termos de utilização detalhados, ao ponto de individualizar uma aplicação da cloud ou um grupo de utilizadores em particular.  Para obter mais informações, consulte [início rápido: Exigir a termos de utilização para ser aceite antes de aceder a aplicações na cloud](../conditional-access/require-tou.md).
 
 1. Clique em **Criar**.
 
@@ -227,7 +227,7 @@ Os utilizadores podem rever e ver os termos de utilização que aceitaram, utili
 
 1. Clique em **guardar** para guardar as alterações.
 
-    Depois de guardar as alterações, os utilizadores terão voltem os novos termos.
+    Depois de guardar as alterações, os utilizadores não terão voltem estas edições.
 
 ## <a name="add-a-terms-of-use-language"></a>Adicionar termos de linguagem de utilização
 O procedimento seguinte descreve como adicionar termos de linguagem de utilização.
@@ -334,46 +334,46 @@ Pode configurar uma política de acesso condicional para a aplicação de inscri
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-**P: Como posso ver se e quando um utilizador aceitou os Termos de utilização?**</br>
-R: em termos do painel de utilização, clique no número em **aceite**. Também pode ver ou procurar a atividade de aceitar no Azure AD registos de auditoria. Para obter mais informações, consulte [Ver relatório de quem tem aceitaram e recusaram](#view-who-has-accepted-and-declined) e [registos de auditoria de vista do Azure AD](#view-azure-ad-audit-logs).
+**P: Como posso ver se um utilizador aceitou os termos de utilização e quando?**</br>
+R: Em termos do painel de utilização, clique no número em **aceite**. Também pode ver ou procurar a atividade de aceitar no Azure AD registos de auditoria. Para obter mais informações, consulte [Ver relatório de quem tem aceitaram e recusaram](#view-who-has-accepted-and-declined) e [registos de auditoria de vista do Azure AD](#view-azure-ad-audit-logs).
 
-**P: Por quanto tempo as informações são armazenadas?**</br>
-R: o utilizador conta em termos de relatório de utilização e que aceite/recusado é armazenado durante o ciclo de vida dos termos de utilização. A auditoria do Azure AD, os registos são armazenados durante 30 dias.
+**P: O período de tempo são informações armazenadas?**</br>
+R: Conta de utilizador em termos de relatório de utilização e que aceite/recusado é armazenado durante o ciclo de vida dos termos de utilização. A auditoria do Azure AD, os registos são armazenados durante 30 dias.
 
-**P: por que vejo um número diferente de consentimentos em termos de relatório de utilização vs. o Azure AD, registos de auditoria?**</br>
-R: os termos de relatório de utilização são armazenados durante a vida útil do que termos de utilização, ao mesmo tempo a auditoria do Azure AD, os registos são armazenados durante 30 dias. Além disso, os termos de relatório de utilização só apresenta o estado de consentimento atual de utilizadores. Por exemplo, se um utilizador recusa e, em seguida, aceita, os termos de utilização relatório mostrará apenas esse utilizador aceite. Se precisar de ver o histórico, pode utilizar o Azure AD registos de auditoria.
+**P: Por que vejo um número diferente de consentimentos em termos de relatório de utilização vs. o Azure AD, registos de auditoria?**</br>
+R: Os termos de relatório de utilização são armazenados durante a vida útil do que termos de utilização, ao mesmo tempo a auditoria do Azure AD, os registos são armazenados durante 30 dias. Além disso, os termos de relatório de utilização só apresenta o estado de consentimento atual de utilizadores. Por exemplo, se um utilizador recusa e, em seguida, aceita, os termos de utilização relatório mostrará apenas esse utilizador aceite. Se precisar de ver o histórico, pode utilizar o Azure AD registos de auditoria.
 
-**P: se posso editar os detalhes para os termos de utilização, é necessário que os utilizadores aceitar novamente?**</br>
-R: Sim, se um administrador editar os detalhes para os termos de utilização, ele requer que os utilizadores voltem os novos termos.
+**P: Se eu editar os detalhes para os termos de utilização, é necessário que os utilizadores aceitar novamente?**</br>
+R: Não, se for um administrador editar os detalhes para os termos de utilização (nome, nome a apresentar, exigir que os utilizadores expandir ou adicionar um idioma), que não é necessário que os utilizadores voltem os novos termos.
 
-**P: posso atualizar uma existente termos de utilização documento?**</br>
-R: atualmente, não é possível atualizar uma existente termos de documento de utilização. Para alterar os termos de utilização de documento, terá de criar novos termos de instância de utilização.
+**P: Pode atualizar uma existente termos de utilização documento?**</br>
+R: Atualmente, não é possível atualizar uma existente termos de documento de utilização. Para alterar os termos de utilização de documento, terá de criar novos termos de instância de utilização.
 
-**P: se hiperlinks são em termos de utilizar o documentos PDF, os utilizadores finais será capazes de clicar nas mesmas?**</br>
-R: o PDF é processado por predefinição como um JPEG, pelo que não são clicáveis hiperlinks. Os utilizadores têm a opção de selecionar **com problemas em visualizar? Clique aqui**, que renderiza o PDF nativamente onde os hiperlinks são suportados.
+**P: Se forem hiperlinks em termos de utilizar o documentos PDF, serão os utilizadores finais poderão clicar nas mesmas?**</br>
+R: O PDF é composto por predefinição como um JPEG, para que não sejam clicáveis hiperlinks. Os utilizadores têm a opção de selecionar **com problemas em visualizar? Clique aqui**, que renderiza o PDF nativamente onde os hiperlinks são suportados.
 
-**P: Os Termos de utilização podem suportar vários idiomas?**</br>
-R: Sim. Atualmente, existem 108 idiomas diferentes, um administrador pode configurar para um único termos de utilização.
+**P: Termos de utilização podem suportar a vários idiomas?**</br>
+R: Sim. Atualmente, existem 108 idiomas diferentes, um administrador pode configurar para um único termos de utilização. Um administrador pode carregar vários documentos PDF e etiquetar os documentos com um idioma correspondente (até 108). Quando os utilizadores finais iniciam sessão, vamos examinar suas preferências de idioma do navegador e exibir o documento correspondente. Se não houver nenhuma correspondência, exibimos o documento predefinido, que é o primeiro documento que é carregado.
 
-**P: Quando é que os Termos de utilização são acionados?**</br>
-R: Os Termos de utilização são acionados durante a experiência de início de sessão.
+**P: Quando é que os termos de utilização são acionados?**</br>
+R: Os termos de utilização são acionados durante a experiência de início de sessão.
 
-**P: Para que aplicações posso orientar os Termos de utilização?**</br>
+**P: Que aplicações posso orientar os termos de utilização para?**</br>
 R: Pode criar uma política de acesso condicional nas aplicações empresariais que utilizam autenticação moderna.  Para obter mais informações, consulte [aplicações empresariais](./../manage-apps/view-applications-portal.md).
 
-**P: Posso adicionar vários Termos de utilização para um determinado utilizador ou aplicação?**</br>
-R: Sim, através da criação de várias políticas de acesso condicional orientadas para esses grupos ou aplicações. Se um utilizador for abrangido pelo âmbito de vários termos de utilização, eles aceitam uma termos de utilização de cada vez.
+**P: Pode adicionar vários termos de utilização para um determinado usuário ou a aplicação?**</br>
+R: Sim, através da criação de várias políticas de acesso condicional direcionado para esses grupos ou aplicações. Se um utilizador for abrangido pelo âmbito de vários termos de utilização, eles aceitam uma termos de utilização de cada vez.
  
-**P: O que acontece se um utilizador recusar os Termos de utilização?**</br>
-R: O acesso do utilizador à aplicação é bloqueado. O utilizador terá de iniciar sessão novamente e aceitar os termos para conseguir obter acesso.
+**P: O que acontece se um utilizador recusar os termos de utilização?**</br>
+R: O utilizador está bloqueado de aceder à aplicação. O utilizador terá de iniciar sessão novamente e aceitar os termos para conseguir obter acesso.
  
-**P: é possível unaccept termos de utilização que foram anteriormente aceites?**</br>
-R: pode [revisão ainda aceitado os termos de utilização](#how-users-can-review-their-terms-of-use), mas atualmente não há uma forma de unaccept.
+**P: É possível unaccept termos de utilização que foram anteriormente aceites?**</br>
+R: Pode [revisão ainda aceitado os termos de utilização](#how-users-can-review-their-terms-of-use), mas atualmente não há uma forma de unaccept.
 
-**P: o que acontece se também estou a utilizar o Intune termos e condições?**</br>
+**P: O que acontece se também estou a utilizar o Intune termos e condições?**</br>
 R: Se tiver configurado a ambos os termos de AD do Azure de utilização e [Intune termos e condições](/intune/terms-and-conditions-create), irá ser pedido ao utilizador para aceitar ambos. Para obter mais informações, consulte a [escolher o direito de termos de solução para a sua postagem do blog de organização](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Início rápido: Exigir termos de utilização para ser aceite antes de aceder a aplicações na cloud](../conditional-access/require-tou.md)
+- [Início rápido: Exigir a termos de utilização para ser aceite antes de aceder a aplicações na cloud](../conditional-access/require-tou.md)
 - [Melhores práticas para acesso condicional no Azure Active Directory](../conditional-access/best-practices.md)

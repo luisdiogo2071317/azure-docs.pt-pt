@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7137d43805065a8f29aa8fcf5307dd5b8947b345
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c45023a462a5c01dfde806d7abbb9714aaf09b85
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101352"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189477"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Controle experimentações e métricas de formação no Azure Machine Learning
 
@@ -381,7 +381,7 @@ Um desenho de calibragem é utilizado para apresentar a confiança de um modelo 
 
 Exemplo 1: Um modelo mais bem calibrated ![ mais bem calibrated modelo](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
 
-Exemplo 2: Um excesso confident modelo ![um modelo de confident excessiva](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+Exemplo 2: Um modelo de confident excessiva ![um modelo de confident excessiva](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
 
 ### <a name="regression"></a>Regressão
 Para cada modelo de regressão, será criado usando a automatizada capacidades de machine learning do Azure Machine Learning, pode ver os gráficos seguintes: 

@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 7f4e956601ee25549d0a0828c4c3dd0e8d6ff85b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f754242d0cf7ee30572b21a3f4daf6fd2c0f63ff
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840134"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275912"
 ---
 # <a name="validate-azure-stack-system-state"></a>Validar o estado do sistema do Azure Stack
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Como um operador do Azure Stack, é essencial ter a capacidade de saber o estado de funcionamento e o estado do seu sistema sob demanda. A ferramenta de validação do Azure Stack (**AzureStack teste**) é um cmdlet do PowerShell que lhe permite executar uma série de testes no seu sistema para identificar falhas, se estiver presente. Normalmente, será pedido para executar esta ferramenta do [ponto de final com privilégios (PEP)](azure-stack-privileged-endpoint.md) quando contactar o suporte de serviços ao cliente da Microsoft (CSS) com um problema. Com o estado de funcionamento de todo o sistema e informações de estado à mão, CSS pode recolher e analisar registos detalhados, concentrar-se na área em que ocorreu o erro e trabalhar para resolver o problema.
 
@@ -45,7 +45,7 @@ Conforme indicado anteriormente, a ferramenta de validação é executada atrav�
    Test-AzureStack
    ```
 
-   Consulte a [considerações sobre o parâmetro](azure-stack-diagnostic-test.md#parameter-considerations) e [utilize maiúsculas exemplos](azure-stack-diagnostic-test.md#use-cases) secções para obter mais informações.
+   Consulte a [considerações sobre o parâmetro](azure-stack-diagnostic-test.md#parameter-considerations) e [utilize maiúsculas exemplos](azure-stack-diagnostic-test.md#use-case-examples) secções para obter mais informações.
 
 3. Se qualquer um relatório de testes **FALHAR**, execute:
 
@@ -121,13 +121,13 @@ Os seguintes cenários de cloud são testados pela ferramenta de validação:
 
 - Testes de um inquilino que VM é implementada como parte de um o cenário de nuvem. Pode usar **DoNotDeployTenantVm** para desativar isso. 
 
-- Precisa fornecer o **ServiceAdminCredential** parâmetro para executar testes de cenário de nuvem, conforme descrito no [utilizar maiúsculas exemplos](azure-stack-diagnostic-test.md#use-cases) secção.
+- Precisa fornecer o **ServiceAdminCredential** parâmetro para executar testes de cenário de nuvem, conforme descrito no [utilizar maiúsculas exemplos](azure-stack-diagnostic-test.md#use-case-examples) secção.
 
-- **BackupSharePath** e **BackupShareCredential** são utilizados quando as definições de cópia de segurança de infra-estrutura de teste, como mostra a [utilizar maiúsculas exemplos](azure-stack-diagnostic-test.md#use-cases) secção.
+- **BackupSharePath** e **BackupShareCredential** são utilizados quando as definições de cópia de segurança de infra-estrutura de teste, como mostra a [utilizar maiúsculas exemplos](azure-stack-diagnostic-test.md#use-case-examples) secção.
 
 - A ferramenta de validação também suporta parâmetros comuns do PowerShell: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable e OutVariable. Para obter mais informações, consulte [sobre parâmetros comuns](http://go.microsoft.com/fwlink/?LinkID=113216).  
 
-## <a name="use-case-examples"></a>Exemplos de casos de utilização 
+## <a name="use-case-examples"></a>Exemplos de casos de utilização
 
 ### <a name="run-validation-without-cloud-scenarios"></a>Executar testes de validação sem cenários de nuvem
 

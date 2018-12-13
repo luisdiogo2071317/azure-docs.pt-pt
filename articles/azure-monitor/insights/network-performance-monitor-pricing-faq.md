@@ -9,19 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.component: ''
-ms.openlocfilehash: 9e9fdfce9dbb165227f88e9f72bc219dce8f3307
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a4e5440a9b8b6ce36d8472463b35201f39d3ac5a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428691"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192792"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Alterações de preços para o Monitor de desempenho de rede do Azure
 
@@ -39,8 +37,8 @@ As secções seguintes explicam as alterações de preços para os componentes N
 **Como foi a utilização do Monitor de desempenho cobrado no modelo antigo?**
 
 A faturação para o NPM foi com base na utilização e consumo dos dois componentes:
-* **Nós**: todas as transações sintéticas originadas e os nós de terminar. Nós também são conhecidos como agentes ou agentes de gestão da Microsoft.
-* **Dados**: os resultados dos vários testes de rede são armazenados no repositório do Log Analytics do Azure.
+* **Nós**: Todas as transações sintéticas originam e os nós de terminar. Nós também são conhecidos como agentes ou agentes de gestão da Microsoft.
+* **Dados**: Os resultados dos vários testes de rede são armazenados no repositório do Log Analytics do Azure.
 
 Sob o modelo antigo, a fatura foi calculada com base no número de nós e o volume de dados gerados. 
 
@@ -121,5 +119,5 @@ Consulte a [monitorização de ligação](https://azure.microsoft.com/pricing/de
 
 ## <a name="references"></a>Referências
 
-[FAQ de preços de análise de registo](https://azure.microsoft.com/pricing/details/log-analytics/): secção de FAQ a tem informações sobre o escalão gratuito, por nó e outros detalhes de preços.
+[Log Analytics FAQ sobre preços](https://azure.microsoft.com/pricing/details/log-analytics/): A secção de FAQ tem informações sobre o escalão gratuito, por nó de preços e outros detalhes de preços.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016705"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164652"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric perguntas mais frequentes
 
@@ -39,7 +39,7 @@ Sim.
 
 A principal tecnologia de clustering do Service Fabric pode ser usada para combinar máquinas em execução em qualquer lugar do mundo, desde que eles têm conectividade de rede entre si. No entanto, criar e executar o cluster podem ser complicados.
 
-Se estiver interessado neste cenário, é recomendável que entrar ou contacte através do [lista de problemas do Github de recursos de infraestrutura do serviço](https://github.com/azure/service-fabric-issues) ou através do seu representante de suporte para obter orientações adicionais. A equipe de recursos de infraestrutura do serviço está trabalhando para oferecer clareza adicional, orientações e recomendações para este cenário. 
+Se estiver interessado neste cenário, é recomendável que entrar ou contacte através do [lista de problemas do GitHub de recursos de infraestrutura do serviço](https://github.com/azure/service-fabric-issues) ou através do seu representante de suporte para obter orientações adicionais. A equipe de recursos de infraestrutura do serviço está trabalhando para oferecer clareza adicional, orientações e recomendações para este cenário. 
 
 Alguns aspetos a ter em conta: 
 

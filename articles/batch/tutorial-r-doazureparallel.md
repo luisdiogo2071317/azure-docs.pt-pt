@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: fb616dc95cc7dd7dbb25f2deb832b517d0747ae4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: HT
+ms.openlocfilehash: 305ea27e787196f648fcb4c536f33b12c924c015
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315455"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164700"
 ---
-# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: executar uma simulação paralela em R com o Azure Batch 
+# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Executar uma simulação paralela em R com o Azure Batch 
 
 Execute as suas cargas de trabalho paralelas em R em escala com [doAzureParallel](http://www.github.com/Azure/doAzureParallel), um pacote de R leve que lhe permite utilizar o Azure Batch diretamente na sua sessão de R. O pacote doAzureParallel foi criado com base no popular pacote de R [foreach](http://cran.r-project.org/web/packages/foreach/index.html). doAzureParallel obtém cada iteração do ciclo foreach e submete-a como tarefa do Azure Batch.
 
@@ -256,7 +256,7 @@ O trabalho é eliminado automaticamente depois de terminar. Quando o cluster dei
 stopCluster(cluster)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]

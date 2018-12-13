@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Executar as Funções do Azure com tarefas do Azure Stream Analytics | Microsoft Docs'
+title: 'Tutorial: Executar funções do Azure com tarefas do Azure Stream Analytics | Documentos da Microsoft'
 description: Neste tutorial, irá aprender a configurar Funções do Azure como um sink de saída para tarefas do Stream Analytics.
 services: stream-analytics
 author: jasonwhowell
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: b4f234099cb39e524beb2d2e5a5d138355d5cb80
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013715"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164165"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Executar Funções do Azure a partir de tarefas do Azure Stream Analytics 
 
@@ -207,6 +207,8 @@ Se ocorrer uma falha ao enviar eventos para as Funções do Azure, o Stream Anal
 ## <a name="known-issues"></a>Problemas conhecidos
 
 No portal do Azure, quando tenta repor o Tamanho Máx. de Lote/Contagem Máx. de Lotes para vazio (predefinição), o valor regressa ao valor introduzido anteriormente após guardar. Introduza manualmente os valores predefinidos para estes campos neste caso.
+
+A utilização de [encaminhamento Http](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) nas suas funções do Azure não é atualmente suportada pelo Stream Analytics.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 34011144d4f960413e78f13c999dfddf6d2660bf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: c4a289d1aeefc35f07e7598adf3780620b11f0da
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743290"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252206"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configurar a lista de palavras-passe banidas personalizado
 
@@ -36,7 +36,7 @@ Configurar a lista de palavras-passe banidas personalizado requer uma licença d
    * A lista de palavras-passe banidas personalizado pode conter até 1000 palavras.
    * A lista de palavras-passe banidas personalizado diferencia maiúsculas de minúsculas.
    * A lista de palavras-passe banidas personalizado considera a substituição de caracteres comuns.
-      * Exemplo: "o" e "0" ou "a" e "@"
+      * Exemplo: "o" e "0" ou "a" e "\@"
    * O comprimento da cadeia mínimo é de quatro caracteres e o máximo é de 16 carateres.
 1. Quando adicionar todas as cadeias de caracteres, clique em **guardar**.
 

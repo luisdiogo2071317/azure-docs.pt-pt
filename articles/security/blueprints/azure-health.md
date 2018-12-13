@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: ca844c89b657bc3286f3472af3acbf937ef1e20f
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891066"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315779"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e o esquema de conformidade - HIPAA/HITRUST Health Data and AI
 
@@ -61,7 +61,7 @@ A arquitetura básica é composta pelos seguintes componentes:
 
 -   **[Revisão do Estado de funcionamento.](https://aka.ms/healthreviewpaper)** A solução foi avaliada por Coalfire systems, Inc. A conformidade de estado de funcionamento (HIPAA e HITRUST) revisão e orientações para a implementação fornece um auditor\'revisão s da solução e considerações para transformar o plano gráfico para uma implementação de prontos para produção.
 
-# <a name="architectural-diagram"></a>Diagrama da arquitetura
+## <a name="architectural-diagram"></a>Diagrama da arquitetura
 
 
 ![](images/ra2.png)
@@ -76,20 +76,20 @@ O esquema define duas funções para os utilizadores administrativos (operadores
 
 O administrador do site é responsável pela subscrição do cliente do Azure. Controlar a implementação geral, mas não têm acesso a registos dos doentes.
 
--   Padrão de atribuições de funções: [proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
+-   Atribuições de função padrão: [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
--   Atribuições de função personalizada: n/d
+-   Atribuições de função personalizada: N/A
 
--   Âmbito: subscrição
+-   Âmbito: Subscrição
 
 ### <a name="database-analyst"></a>Analista de banco de dados
 
 O analista de banco de dados administra a instância do SQL Server e base de dados.
 Eles não têm acesso a registos dos doentes.
 
--   Atribuições de funções incorporadas: [contribuinte da BD SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [contribuinte do SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
+-   Atribuições de funções incorporadas: [Contribuinte da BD SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [contribuinte do SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
--   Atribuições de função personalizada: n/d
+-   Atribuições de função personalizada: N/A
 
 -   Âmbito: ResourceGroup
 
@@ -98,9 +98,9 @@ Eles não têm acesso a registos dos doentes.
 
 Cientista de dados opera o Azure Machine Learning Studio. Pode importar, exportar e gerir os dados e executar relatórios. Cientista de dados tem acesso aos dados dos pacientes, mas não tem privilégios administrativos.
 
--   Atribuições de funções incorporadas: [contribuinte de conta de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
+-   Atribuições de funções incorporadas: [Contribuidor de Conta de Armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
--   Atribuições de função personalizada: n/d
+-   Atribuições de função personalizada: N/A
 
 -   Âmbito: ResourceGroup
 
@@ -109,7 +109,7 @@ Cientista de dados opera o Azure Machine Learning Studio. Pode importar, exporta
 
 O CMIO faz a ponte entre a informática/tecnologia e profissionais de cuidados de saúde numa organização de saúde. As suas obrigações incluem a utilização da análise para determinar se os recursos estão a ser alocados adequadamente dentro da organização.
 
--   Atribuições de funções incorporadas: nenhum
+-   Atribuições de funções incorporadas: Nenhuma
 
 ### <a name="care-line-manager"></a>Gestor de linha de cuidados de saúde
 
@@ -117,9 +117,9 @@ O CMIO faz a ponte entre a informática/tecnologia e profissionais de cuidados d
 O Gestor de linha de cuidados de saúde está diretamente envolvido no cuidado dos doentes.
 Esta função exige monitorizar o estado de doentes individuais, bem como garantir que existe pessoal disponível para responder às necessidades específicas de prestação de cuidados de saúde dos seus doentes. O Gestor de linha de cuidados de saúde é responsável por adicionar e atualizar os registos dos pacientes.
 
--   Atribuições de funções incorporadas: nenhum
+-   Atribuições de funções incorporadas: Nenhuma
 
--   Atribuições de função personalizada: tem o privilégio para executar HealthcareDemo.ps1 fazer ambos os admissão do doente e proprietários.
+-   Atribuições de função personalizada: Tem o privilégio para executar HealthcareDemo.ps1 fazer ambos os admissão do doente e proprietários.
 
 -   Âmbito: ResourceGroup
 
@@ -128,11 +128,11 @@ Esta função exige monitorizar o estado de doentes individuais, bem como garant
 
 O auditor avalia a solução de conformidade. Eles não têm acesso direto à rede.
 
--   Atribuições de funções incorporadas: [leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
+-   Atribuições de funções incorporadas: [Leitor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
--   Atribuições de função personalizada: n/d
+-   Atribuições de função personalizada: N/A
 
--   Âmbito: subscrição
+-   Âmbito: Subscrição
 
 ## <a name="example-use-case"></a>Caso de utilização de exemplo
 
@@ -184,7 +184,7 @@ Como a pessoa diretamente responsável por gerenciar a admissão do doente e as 
 Han é um auditor de certificado que tenha a experiência de auditoria para ISO, SOC e HiTrust. Han foi contratado para rever a rede do Contosoclinc. Han pode rever o cliente responsabilidade matriz fornecida com a solução para garantir que o esquema e a solução de LOS podem ser usados para armazenam, processam e exibir os dados pessoais confidenciais.
 
 
-# <a name="design-configuration"></a>Configuração de design
+## <a name="design-configuration"></a>Configuração de design
 
 
 Esta seção detalha as configurações predefinidas e medidas de segurança incorporadas no esquema descrito para:
@@ -267,8 +267,8 @@ Além disso, a função do azure foi concebida para ler e proteger dados confide
 
 **2. Admissão dos doentes novo**
 
-Ao utilizar o script de demonstração. . \\HealthcareDemo.ps1 com o **BulkPatientadmission** mudar conforme descrito na **implementar e executar a demonstração** executa o pipeline de processamento seguintes: ![](images/securetransact.png) 
- **1. Função do Azure** acionada e a função de pedidos para um [token de portador](/rest/api/) do Azure Active directory.
+Ao utilizar o script de demonstração. . \\HealthcareDemo.ps1 com o **BulkPatientadmission** mudar conforme descrito na **implementar e executar a demonstração** executa o pipeline de processamento seguintes: ![](images/securetransact.png)
+**1. Função do Azure** acionada e a função de pedidos para um [token de portador](/rest/api/) do Azure Active directory.
 
 **2. Key Vault** pedida para um segredo associado ao token do pedido.
 

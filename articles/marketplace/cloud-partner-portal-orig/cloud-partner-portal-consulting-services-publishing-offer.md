@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7ea4a58f072071f60cf87d1e8817ae19658be5fb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037775"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310424"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure e uma oferta de serviço de consultoria do Dynamics 365
 
 <table> <tr> <td>Esta secção explica como publicar um serviço de consultoria da Microsoft de qualquer <a href="https://azuremarketplace.microsoft.com">do Azure Marketplace</a> ou o <a href="https://appsource.microsoft.com">Marketplace do AppSource</a>. Soluções com base no Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">do Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>, e <a href="https://powerapps.microsoft.com">PowerApps</a> são elegíveis para ser listado no AppSource. Outras ofertas com base em outro da Microsoft <a href="https://azure.microsoft.com/services">serviços do Azure</a> são elegíveis para uma listagem no Azure Marketplace. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
 
 
-# <a name="publishing-benefits"></a>Benefícios de publicação
+## <a name="publishing-benefits"></a>Benefícios de publicação
 
 A publicação de qualquer um dos marketplaces da Microsoft tem vantagens significativas:
 
@@ -36,13 +36,11 @@ A publicação de qualquer um dos marketplaces da Microsoft tem vantagens signif
 - Obtenha os seus serviços promovidos por equipes de campo e telesales da Microsoft.
 
 
-<a name="define-your-consulting-services-offer"></a>Definir a sua oferta de serviços de consultoria
--------------------------------------
+## <a name="define-your-consulting-services-offer"></a>Definir a sua oferta de serviços de consultoria
 
 Defina a sua oferta de serviço de consultoria em pacote. Concentre-se no escopo fixo, fixo duração, estimada, preço fixo (ou gratuitas) e orientada a pré-sales principalmente as ofertas para um único cliente. Selecione compromissos em pacote repetíveis que tenham sido populares e uma forma eficaz de dirigir novos negócios para.
 
-<a name="publish-a-consulting-service-offer"></a>Publicar uma oferta de serviço de consultoria
-----------------------------------
+## <a name="publish-a-consulting-service-offer"></a>Publicar uma oferta de serviço de consultoria
 
 As secções seguintes descrevem o processo de publicação de sua oferta de serviços de consultoria
 
@@ -62,7 +60,7 @@ Para criar uma nova oferta, conclua os seguintes passos:
 
 ### <a name="define-offer-settings"></a>Definir definições de oferta
 
-No ecrã da nova oferta, a primeira etapa é criar a identidade de oferta.  A identidade de oferta é composta por três partes: **ID da oferta**, **ID de publicador**, e **nome**.  Cada uma dessas partes são abordados nas seções a seguir.
+No ecrã da nova oferta, a primeira etapa é criar a identidade de oferta.  A identidade de oferta consiste em três partes: **ID da oferta**, **ID de publicador**, e **nome**.  Cada uma dessas partes são abordados nas seções a seguir.
 
 #### <a name="offer-id"></a>ID de Oferta
 
@@ -80,7 +78,7 @@ Este identificador está relacionado com a sua conta. Quando estiver conectado c
 
 Esta cadeia é o que será apresentado como o nome da oferta no AppSource ou no Azure Marketplace.
 
-**Importante:** introduza apenas o nome do serviço real aqui. Não inclua a duração e o tipo de serviço.
+**Importante:** Introduza apenas o nome do serviço real aqui. Não inclua a duração e o tipo de serviço.
 
 O exemplo seguinte pelo Edgewater Fullscope mostra como o nome da oferta é reunido. O nome da oferta é apresentado como:
 
@@ -95,17 +93,17 @@ O nome da oferta é composto por quatro partes:
 
 A lista seguinte fornece vários nomes de oferta bem com nome:
 
--   Princípios básicos para serviços profissionais: Resumo de 1 hora
+-   Fundamentos de serviços profissionais: Resumo de 1 hora
 -   Migração de plataforma: Resumo de 1 hora
 -   PowerApps e Microsoft Flow: Workshop de 1 dia
--   Serviços do Azure Machine Learning: prova de conceito de 3 semanas
+-   O Azure Machine Learning Services: Prova de conceito de 3 semanas
 -   Solução de revenda de módulo e clique em: Resumo de 1 hora
 -   Traga os seus dados: Workshop de semanas de 1
--   Análise de cloud: Workshop de 3 dias
--   Formação do Power BI: Workshop de 3 dias
--   Solução de gerenciamento de vendas: implementação de 1 semana
--   Início rápido CRM: Workshop de 1 dia
--   Dynamics 365 for Sales: avaliação de 2 dias
+-   Análise da cloud: Workshop de 3 dias
+-   Treinamento do Power BI: Workshop de 3 dias
+-   Solução de gerenciamento de vendas: Implementação de 1 semana
+-   Guia de introdução do CRM: Workshop de 1 dia
+-   Dynamics 365 para vendas: Avaliação de 2 dias
 
 Depois de concluir o **oferecer definições** guia, pode salvar sua submissão. O nome de oferta agora vai aparecer acima do editor e pode encontrá-lo em todas as ofertas.
 
@@ -131,28 +129,28 @@ O resumo de oferta é uma breve descrição da sua oferta que aparece imediatame
 
 *Exemplo 1*
 
--   **Nome da oferta:** Analytics na Cloud: Workshop de 3 dias
--   **Resumo da oferta:** descrição geral do Microsoft Azure e o Power BI, avaliação do ambiente atual e a Minibarra de prova de conceito.
+-   **Nome da oferta:** Análise da cloud: Workshop de 3 dias
+-   **Resumo da oferta:** Descrição geral do Microsoft Azure e o Power BI, avaliação do ambiente atual e a Minibarra de prova de conceito.
 
 *Exemplo 2*
 
--   **Nome da oferta:** industriais do Azure IoT: 30 dias prova de conceito
--   **Resumo da oferta:** criar um piloto de industrial produtos ligados para ligar em segurança o equipamento no campo para uma solução de IoT Hub do Azure com os dashboards, relatórios e notificações.
+-   **Nome da oferta:** O Azure IoT industrial: 30 dias prova de conceito
+-   **Resumo da oferta:** Crie um piloto de industrial produtos ligados para ligar em segurança o equipamento no campo para uma solução de IoT Hub do Azure com os dashboards, relatórios e notificações.
 
 *Exemplo 3*
 
--   **Nome da oferta:** serviços profissionais: Resumo de 1 hora
--   **Resumo da oferta:** descrição geral e demonstração de pré-configurado, expandido do Dynamics 365 para o fornecimento da solução de operações avançada de gerenciamento de projetos, faturação e recursos de serviços profissionais.
+-   **Nome da oferta:** Serviços profissionais: Resumo de 1 hora
+-   **Resumo da oferta:** Descrição geral e demonstração de pré-configuração de expandida do Dynamics 365 para fornecer gestão avançada de projetos, faturação e recursos para profissionais de serviços de solução de operações.
 
 *Exemplo 4*
 
 -   **Nome da oferta:** Power BI no seu mundo: Workshop de 4 horas
--   **Resumo da oferta:** começar a trabalhar com o seu primeiro dashboard e Aprenda as melhores práticas. Para estudantes até 12, realizada no local.
+-   **Resumo da oferta:** Começar a trabalhar com o seu primeiro dashboard e Aprenda as melhores práticas. Para estudantes até 12, realizada no local.
 
 *Exemplo 5*
 
--   **Nome da oferta:** Dynamics e projetos: avaliação de 3 dias
--   **Resumo da oferta:** requisitos de recolha e de avaliação de solução ERP concebida para empresas de serviços profissionais e controlada por projeto as empresas.
+-   **Nome da oferta:** Dynamics e projetos: Avaliação de 3 dias
+-   **Resumo da oferta:** Requisitos de recolha e de avaliação de solução ERP concebida para empresas de serviços profissionais e controlada por projeto as empresas.
 
 ##### <a name="offer-description"></a>Descrição da oferta
 
@@ -168,9 +166,9 @@ Manter a sua oferta descrição breve e respeitar o limite de carateres que os u
 
 O exemplo seguinte mostra uma descrição da oferta bem formada e seu nome relacionado e o resumo:
 
-**Nome da oferta:** Analytics na Cloud: Workshop de 3 dias
+**Nome da oferta:** Análise da cloud: Workshop de 3 dias
 
-**Resumo da oferta:** descrição geral do Microsoft Azure e o Power BI, avaliação do ambiente atual e a Minibarra de prova de conceito.
+**Resumo da oferta:** Descrição geral do Microsoft Azure e o Power BI, avaliação do ambiente atual e a Minibarra de prova de conceito.
 
 **Descrição da oferta:** Este workshop de 3 dias é para os líderes técnicos e comerciais e é mantido no local na instalação do cliente.
 
@@ -236,11 +234,11 @@ A Microsoft está se concentrar exclusivamente em escopo fixo, duração foi cor
 
 Os seguintes cinco tipos de ofertas estão incluídos:
 
--   **Avaliação:** uma edição de avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa do custo e temporização das atualizações.
--   **Resumo:** uma introdução a uma solução ou um serviço de consultoria para desenhar o interesse dos clientes através de estruturas, demonstrações e exemplos de clientes. Informes tem de ser realizado de local.
--   **Implementação:** uma instalação completa, que resulta numa solução totalmente funcional. Para este projeto-piloto, a Microsoft recomenda a limitar a soluções que podem ser implementados numa semana ou menos.
--   **Prova de conceito:** uma implementação de âmbito limitado para determinar se uma solução atenderá aos requisitos de um cliente.
--   **Workshop:** um compromisso interativo conduzidas no local de um cliente que pode incluir sessões de treinamento, informes, avaliações ou demonstrações criadas no ambiente ou de dados do cliente.
+-   **Avaliação:** Uma edição de avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa do custo e temporização das atualizações.
+-   **Resumo:** Uma introdução a uma solução ou um serviço de consultoria para desenhar o interesse dos clientes através de estruturas, demonstrações e exemplos de clientes. Informes tem de ser realizado de local.
+-   **Implementação:** Uma instalação completa, que resulta numa solução totalmente funcional. Para este projeto-piloto, a Microsoft recomenda a limitar a soluções que podem ser implementados numa semana ou menos.
+-   **Prova de conceito:** Uma implementação de âmbito limitado para determinar se uma solução atenderá aos requisitos de um cliente.
+-   **Workshop:** Um compromisso interativo conduzidas no local de um cliente que pode incluir sessões de treinamento, informes, avaliações ou demonstrações criadas no ambiente ou de dados do cliente.
 
 **Disponibilidade de país/região**
 

@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/6/2017
+ms.date: 12/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84068376f35bc4df6672cffcc0ac3438b12edbb5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d912f559af98045aaef8fe6fcaa1d83ab5f96bd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979680"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269367"
 ---
 # <a name="model-management-setup"></a>Configuração de gestão de modelo
 
@@ -68,7 +68,7 @@ pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="configuring-docker-on-linux"></a>Configurar Docker no Linux
-Para configurar o Docker no Linux para utilização por utilizadores não raiz, siga as instruções aqui: [os passos de pós-instalação para Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
+Para configurar o Docker no Linux para utilização por utilizadores não raiz, siga as instruções aqui: [Passos de pós-instalação para Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
 
 >[!NOTE]
 > Numa DSVM do Linux, pode executar o script abaixo para configurar corretamente o Docker. **Lembre-se de terminar sessão e voltar a iniciar sessão depois de executar o script.**
@@ -85,7 +85,7 @@ Para começar, terá de configurar o ambiente de implantação. Configuração d
 
 Quando concluir a configuração do ambiente:
 - Lhe for pedido para iniciar sessão no Azure. Para iniciar sessão, utilize um browser para abrir a página https://aka.ms/devicelogin e introduza o código fornecido para autenticar.
-- Durante o processo de autenticação, lhe for pedido para uma conta autenticar com o. Importante:-Selecione uma conta que tenha uma subscrição do Azure válida e permissões suficientes para criar recursos na conta. Quando o início de sessão estiver concluído, as informações de subscrição são apresentadas e lhe for perguntado se desejar continuar com a conta selecionada.
+- Durante o processo de autenticação, lhe for pedido para uma conta autenticar com o. Importante: Selecione uma conta que tenha uma subscrição do Azure válida e permissões suficientes para criar recursos na conta. Quando o início de sessão estiver concluído, as informações de subscrição são apresentadas e lhe for perguntado se desejar continuar com a conta selecionada.
 
 ### <a name="environment-setup"></a>Configuração do ambiente
 Para iniciar o processo de configuração, terá de registar os fornecedores de ambiente alguns ao introduzir os seguintes comandos:

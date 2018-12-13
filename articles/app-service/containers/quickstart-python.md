@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação Web Python no Serviço de Aplicações do Azure no Linux | Microsoft Docs
+title: Criar aplicação web Python no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Implemente em minutos a sua primeira aplicação Hello World Python no Serviço de Aplicações do Azure no Linux.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 5f9d694d47c0bd0765af7871d7e535a4174c30ff
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: d9d6f3549ec5db914536400fac53de60f2ad4a94
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404734"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261855"
 ---
 # <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Criar uma aplicação Web Python no Serviço de Aplicações do Azure no Linux (Pré-visualização)
 
@@ -37,7 +37,7 @@ Pode seguir os passos deste artigo num computador Mac, Windows ou Linux.
 Para concluir este guia de início rápido:
 
 * <a href="https://www.python.org/downloads/" target="_blank">Instale o Python 3.7</a>
-* <a href="https://git-scm.com/" target="_blank">Instale o Git</a>
+* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -73,7 +73,7 @@ Pode ver a mensagem **Olá, mundo!** da aplicação de exemplo apresentada na p�
 
 ![Aplicação de exemplo em execução localmente](media/quickstart-python/hello-world-in-browser.png)
 
-Na janela do terminal, prima **Ctrl+C** para sair do servidor Web.
+Na janela do terminal, prima **Ctrl+C** para desligar o servidor Web.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -170,7 +170,7 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 A imagem do Python incorporada no Serviço de Aplicações do Linux encontra-se em pré-visualização, sendo que pode personalizar o comando que serve para iniciar a sua aplicação. Em alternativa, também pode criar aplicações Python de produção com um contentor personalizado.
 

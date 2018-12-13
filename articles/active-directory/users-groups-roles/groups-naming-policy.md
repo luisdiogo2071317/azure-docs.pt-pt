@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 12/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 3368133dec82d946318a755dc98b068a048b9e83
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243134"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275113"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Impor uma política de nomes para grupos do Office 365 no Azure Active Directory (pré-visualização)
 
@@ -58,6 +58,7 @@ Recomendamos que utilize atributos que têm valores preenchidos para todos os ut
 Uma lista de palavra bloqueada é uma lista separada por vírgulas das expressões bloqueio em nomes de grupo e aliases. Não existem pesquisas de subcadeia são executadas. Uma correspondência exata entre o nome do grupo e um ou mais das palavras bloqueadas personalizadas é necessário para acionar uma falha. Não é efetuada a pesquisa de subcadeia, para que os utilizadores podem utilizar palavras comuns, como "Classe", mesmo que 'lass' é uma palavra bloqueada.
 
 Regras da lista de palavra bloqueada:
+
 - Palavras bloqueadas não são maiúsculas de minúsculas.
 - Quando um utilizador introduzir uma palavra bloqueada como parte de um nome de grupo, verão uma mensagem de erro com a palavra bloqueada.
 - Não existem não existem restrições de carateres no palavras bloqueadas.
@@ -120,7 +121,7 @@ Se lhe for pedido para aceder a um repositório não fidedigno, escreva **Y**. P
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Defina a política de nomes e palavras bloqueadas personalizadas
 
-1. Defina os prefixos e sufixos de nomes de grupo no Azure AD PowerShell.
+1. Defina os prefixos e sufixos de nomes de grupo no Azure AD PowerShell. Para a funcionalidade funcione corretamente, [GroupName] têm de ser incluído na definição.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -166,6 +167,27 @@ $Settings["CustomBlockedWordsList"] = $BadWords
 $Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ````
+
+## <a name="remove-the-naming-policy"></a>Remover a política de nomes
+
+1. Vazio os prefixos de nome de grupo e sufixos no Azure AD PowerShell.
+  
+  ````
+  $Setting["PrefixSuffixNamingRequirement"] =""
+  ````
+  
+2. Vazio as palavras bloqueadas personalizadas. 
+  
+  ````
+  $Setting["CustomBlockedWordsList"]=""
+  ````
+  
+3. Guarde as definições.
+  
+  ````
+  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+  ````
+
 
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>Nomenclatura de política de experiências em aplicações do Office 365
 

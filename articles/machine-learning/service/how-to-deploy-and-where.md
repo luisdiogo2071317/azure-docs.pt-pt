@@ -1,7 +1,7 @@
 ---
-title: Onde implementar os modelos
+title: Implementar modelos como serviços da web
 titleSuffix: Azure Machine Learning service
-description: Saiba mais sobre as diferentes formas que pode implementar os seus modelos na produção com o serviço Azure Machine Learning.
+description: 'Saiba como e onde implementar os seus modelos de serviço do Azure Machine Learning, incluindo: Matrizes de porta do Container Instances, serviço Kubernetes do Azure, Azure IoT Edge e campos programáveis do Azure.'
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 53f3c61a98bc08b453ae894abaa512b94044bcf7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e7840bb3ac6449009b843bb74cc19b960b492205
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100706"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310152"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -30,6 +30,8 @@ Pode implementar modelos para os seguintes destinos de computação:
 | [Serviço Kubernetes do Azure (AKS)](#aks) | Serviço Web | Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
 | [Azure IoT Edge](#iotedge) | Módulo de IoT | Implemente modelos em dispositivos IoT. Inferência acontece no dispositivo. |
 | [Matriz de porta de campos programáveis (FPGA)](#fpga) | Serviço Web | Latência ultrabaixa para inferência em tempo real. |
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,9 +55,9 @@ O processo de implantação de um modelo é semelhante para todos os destinos de
 
     * Quando **implementar como um serviço web**, existem três opções de implementação:
 
-        * [implementar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): ao utilizar este método, não terá de registar o modelo ou criar a imagem. No entanto não é possível controlar o nome do modelo ou imagem, ou etiquetas e descrições associados.
-        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): ao utilizar este método, não é necessário criar uma imagem. Mas não tem controlo sobre o nome da imagem que é criado.
-        * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-): registe o modelo e criar uma imagem antes de utilizar este método.
+        * [Implementar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-): Ao utilizar este método, não é necessário registar o modelo ou criar a imagem. No entanto não é possível controlar o nome do modelo ou imagem, ou etiquetas e descrições associados.
+        * [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-): Ao utilizar este método, não é necessário criar uma imagem. Mas não tem controlo sobre o nome da imagem que é criado.
+        * [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-): Registe o modelo e criar uma imagem antes de utilizar este método.
 
         Os exemplos nesta documentam utilização `deploy_from_image`.
 
@@ -78,7 +80,7 @@ model = Model.register(model_path = "model.pkl",
 > [!NOTE]
 > Embora o exemplo mostra a utilizar um modelo armazenado como um ficheiro pickle, também pode modelos ONNX a utilizados. Para obter mais informações sobre como utilizar modelos ONNX, consulte a [ONNX e o Azure Machine Learning](how-to-build-deploy-onnx.md) documento.
 
-Para obter mais informações, consulte a documentação de referência para o [classe de modelo](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+Para obter mais informações, consulte a documentação de referência para o [classe de modelo](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
 ## <a id="configureimage"></a> Criar uma configuração de imagem
 
@@ -102,9 +104,9 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
 
 Esta configuração utiliza um `score.py` ficheiro passar pedidos para o modelo. Este ficheiro contém duas funções:
 
-* `init()`:, Normalmente, esta função carrega o modelo de um objeto global. Esta função só é executada uma vez, quando o contentor do Docker é iniciado. 
+* `init()`: Normalmente, esta função carrega o modelo de um objeto global. Esta função só é executada uma vez, quando o contentor do Docker é iniciado. 
 
-* `run(input_data)`: Esta função utiliza o modelo para prever um valor com base nos dados de entrada. Regra geral, as entradas e as saídas da execução utilizam JSON para a serialização e a desserialização, mas são suportados outros formatos.
+* `run(input_data)`: Essa função usa o modelo para prever um valor com base nos dados de entrada. Regra geral, as entradas e as saídas da execução utilizam JSON para a serialização e a desserialização, mas são suportados outros formatos.
 
 Para obter um exemplo `score.py` de ficheiros, consulte a [tutorial de classificação de imagem](tutorial-deploy-models-with-aml.md#make-script). Para obter um exemplo que utiliza um modelo ONNX, consulte a [ONNX e o Azure Machine Learning](how-to-build-deploy-onnx.md) documento.
 
@@ -125,11 +127,9 @@ image = ContainerImage.create(name = "myimage",
                               )
 ```
 
-**Estimativa de tempo**: aproximadamente 3 minutos.
+**Estimativa de tempo**: Aproximadamente 3 minutos.
 
 As imagens são automaticamente com a versão ao registar várias imagens com o mesmo nome. Por exemplo, a primeira imagem registado como `myimage` é atribuído um ID de `myimage:1`. Da próxima vez que Registre-se uma imagem como `myimage`, o ID da nova imagem é `myimage:2`.
-
-Criação de imagens demora cerca de 5 minutos.
 
 Para obter mais informações, consulte a documentação de referência [ContainerImage classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
@@ -147,7 +147,7 @@ Quando chegar à implementação, o processo é ligeiramente diferente consoante
 Utilização do Azure Container Instances para implementar os seus modelos como um serviço da web se um ou mais das seguintes condições for verdadeiro:
 
 - Precisa implementar e validar o seu modelo rapidamente. Conclusão da implementação do ACI em menos de 5 minutos.
-- Está a testar um modelo que está em desenvolvimento. ACI permite-lhe implementar 20 grupos de contentores por subscrição. Para obter mais informações, consulte a [Quotas e disponibilidade das regiões do Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) documento.
+- Está a testar um modelo que está em desenvolvimento. Para ver a disponibilidade de região e quota para o ACI, consulte a [Quotas e disponibilidade das regiões do Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) documento.
 
 Para implementar no Azure Container Instances, utilize os seguintes passos:
 
@@ -159,7 +159,7 @@ Para implementar no Azure Container Instances, utilize os seguintes passos:
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3Deploy)]
 
-    **Estimativa de tempo**: aproximadamente 3 minutos.
+    **Estimativa de tempo**: Aproximadamente 3 minutos.
 
     > [!TIP]
     > Se houver erros durante a implementação, utilize `service.get_logs()` para ver os registos de serviço do AKS. As informações com sessão iniciada podem indicar a causa do erro.
@@ -204,7 +204,7 @@ Para implementar no serviço Kubernetes do Azure, utilize os seguintes passos:
     print(aks_target.provisioning_errors)
     ```
 
-    **Estimativa de tempo**: cerca de 20 minutos.
+    **Estimativa de tempo**: Cerca de 20 minutos.
 
     > [!TIP]
     > Se já tiver um cluster do AKS na sua subscrição do Azure e é a versão 1.11. *, pode usá-lo para implementar a imagem. O código a seguir demonstra como anexar um cluster existente para a área de trabalho:

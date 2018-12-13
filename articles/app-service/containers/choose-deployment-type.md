@@ -1,11 +1,11 @@
 ---
-title: Serviço de aplicações do Azure no Linux de implementação - imagem personalizada, com vários contentores ou imagem de plataforma incorporada?  | Microsoft Docs
+title: Implementar imagem personalizada, com vários contentores, incorporada ou imagem - serviço de aplicações do Azure | Documentos da Microsoft
 description: Como decidir entre a implementação do contentor de Docker personalizada, com vários contentores e uma estrutura de aplicação incorporada para o serviço de aplicações no Linux
 keywords: serviço de aplicações do Azure, aplicação web, linux, oss
 services: app-service
 documentationCenter: ''
 authors: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -15,32 +15,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
-ms.openlocfilehash: c619ae164f8f8b6e94d9061c4346de58bd6cb795
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.custom: seodec18
+ms.openlocfilehash: d53fc8b3971a1003b4f5d9b9e52f86ee73829cc2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319443"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315822"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Imagem personalizada, com vários contentores ou imagem de plataforma incorporada?
 
 [Serviço de aplicações no Linux](app-service-linux-intro.md) oferece três caminhos diferentes para apresentar a sua aplicação publicada na web:
 
-- **Implantação de imagem personalizada**: "Colocar" a sua aplicação numa imagem do Docker que contém todos os seus ficheiros e dependências num pacote de prontos para executar.
-- **Implementação de vários contentor**: "Colocar" a sua aplicação em vários contentores com um Docker Compose ou um ficheiro de configuração do Kubernetes. Para obter mais informações, consulte [aplicação de vários contentor](#multi-container-apps-supportability).
-- **Implementação de aplicações com uma imagem de plataforma interna**: as nossas imagens de plataforma interna contêm runtimes de aplicação web comuns e dependências, como Node e PHP. Utilizar qualquer um da [métodos de implantação do App Service do Azure](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para implementar a sua aplicação para o armazenamento da sua aplicação web e, em seguida, utilizar uma imagem de plataforma interna para executá-lo.
+- **Implantação de imagem personalizada**: "Colocar" a aplicação numa imagem do Docker que contém todos os seus ficheiros e dependências num pacote de prontos para executar.
+- **Implementação de vários contentor**: "Colocar" seu aplicativo em vários contentores com um Docker Compose ou um ficheiro de configuração do Kubernetes. Para obter mais informações, consulte [aplicação de vários contentor](#multi-container-apps-supportability).
+- **Implementação de aplicações com uma imagem de plataforma interna**: As nossas imagens de plataforma interna contenham runtimes de aplicação web comuns e dependências, como Node e PHP. Utilizar qualquer um da [métodos de implantação do App Service do Azure](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para implementar a sua aplicação para o armazenamento da sua aplicação web e, em seguida, utilizar uma imagem de plataforma interna para executá-lo.
 
 ## <a name="which-method-is-right-for-your-app"></a>Que método é adequado para a sua aplicação? 
 
 Fatores principais a serem considerados são:
 
-- **Disponibilidade do Docker no seu fluxo de trabalho de desenvolvimento**: desenvolvimento de imagem personalizado requer um conhecimento básico do fluxo de trabalho de desenvolvimento do Docker. Implementação de uma imagem personalizada para uma aplicação web precisa de publicação da sua imagem personalizada para um anfitrião de repositório, como o Docker Hub. Se estiver familiarizado com o Docker e pode adicionar tarefas de Docker para seu fluxo de trabalho de compilação, ou se já está a publicar a aplicação como uma imagem do Docker, uma imagem personalizada é quase certamente a melhor opção.
-- **Arquitetura com várias camada**: implementar vários contentores como uma camada de aplicativo web e uma camada de API para separar recursos através de vários contentores. 
-- **Desempenho do aplicativo**: aumentar o desempenho da sua aplicação de vários contentor usando uma camada de cache, como o Redis. Selecione vários contentores para atingir esse objetivo.
-- **Requisitos do runtime exclusivo**: as imagens de plataforma interna foram concebidas para satisfazer as necessidades da maioria das aplicações web, mas estão limitadas na sua capacidade de personalização. A aplicação pode ter dependências exclusivas ou outros requisitos de tempo de execução que excedem o que são capazes de imagens incorporadas.
-- **Criar requisitos**: com [implementação contínua](../app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), pode obter a aplicação em execução no Azure diretamente a partir do código-fonte. Nenhum processo de compilação ou de publicação externo é necessário. No entanto, existe um limite para a capacidade de personalização e a disponibilidade de ferramentas de compilação dentro do [Kudu](https://github.com/projectkudu/kudu/wiki) motor de implementação. A aplicação pode ser excedida capacidades do Kudu conforme ela cresce em suas dependências ou requisitos para a lógica de compilação personalizados.
-- **Requisitos de leitura/escrita de disco**: todas as aplicações web são alocadas um volume de armazenamento para o conteúdo da web. Este volume, apoiada pelo armazenamento do Azure, está montado para `/home` no sistema de ficheiros da aplicação. Ao contrário dos arquivos do sistema de ficheiros de contentor, ficheiros do volume de conteúdo estão acessíveis em todas as instâncias de dimensionamento de uma aplicação e modificações serão mantidos entre reinícios da aplicação. No entanto, a latência de disco do volume de conteúdo é maior e mais variável que a latência do sistema de ficheiros de contentor local e o acesso pode ser afetado por atualizações de plataforma, período de indisponibilidade não planeado e problemas de conectividade de rede. Aplicações que necessitam de acesso só de leitura pesado para ficheiros de conteúdo podem se beneficiar da implantação de imagem personalizada, que coloca os ficheiros no sistema de ficheiros de imagem a, em vez de no volume de conteúdo.
-- **Criar a utilização de recursos**: quando uma aplicação é implementada a partir da origem, os scripts de implementação executam pelo uso de Kudu os mesmo plano do serviço de aplicações de computação e armazenamento de recursos como o aplicativo em execução. Implementações de aplicações grande podem consumir mais recursos ou o tempo que o desejado. Em particular, muitos fluxos de trabalho de implantação geram atividade de disco intensivo sobre o volume de conteúdo de aplicação, que não está otimizada para essa atividade. Uma imagem personalizada fornece todos os ficheiros e dependências da sua aplicação para o Azure num único pacote sem ser necessário para as transferências de ficheiros adicionais ou ações de implementação.
+- **Disponibilidade do Docker no seu fluxo de trabalho de desenvolvimento**: Desenvolvimento de imagem personalizada requer um conhecimento básico do fluxo de trabalho de desenvolvimento do Docker. Implementação de uma imagem personalizada para uma aplicação web precisa de publicação da sua imagem personalizada para um anfitrião de repositório, como o Docker Hub. Se estiver familiarizado com o Docker e pode adicionar tarefas de Docker para seu fluxo de trabalho de compilação, ou se já está a publicar a aplicação como uma imagem do Docker, uma imagem personalizada é quase certamente a melhor opção.
+- **Arquitetura com várias camada**: Implemente vários contentores como uma camada de aplicativo web e uma camada de API para separar recursos através de vários contentores. 
+- **Desempenho do aplicativo**: Aumente o desempenho da sua aplicação de vários contentor usando uma camada de cache, como o Redis. Selecione vários contentores para atingir esse objetivo.
+- **Requisitos do runtime exclusivo**: As imagens de plataforma interna foram concebidas para satisfazer as necessidades da maioria das aplicações web, mas estão limitadas na sua capacidade de personalização. A aplicação pode ter dependências exclusivas ou outros requisitos de tempo de execução que excedem o que são capazes de imagens incorporadas.
+- **Criar requisitos**: Com o [implementação contínua](../app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), pode obter a aplicação em execução no Azure diretamente a partir do código-fonte. Nenhum processo de compilação ou de publicação externo é necessário. No entanto, existe um limite para a capacidade de personalização e a disponibilidade de ferramentas de compilação dentro do [Kudu](https://github.com/projectkudu/kudu/wiki) motor de implementação. A aplicação pode ser excedida capacidades do Kudu conforme ela cresce em suas dependências ou requisitos para a lógica de compilação personalizados.
+- **Requisitos de leitura/escrita de disco**: Todas as aplicações web são alocadas um volume de armazenamento para o conteúdo da web. Este volume, apoiada pelo armazenamento do Azure, está montado para `/home` no sistema de ficheiros da aplicação. Ao contrário dos arquivos do sistema de ficheiros de contentor, ficheiros do volume de conteúdo estão acessíveis em todas as instâncias de dimensionamento de uma aplicação e modificações serão mantidos entre reinícios da aplicação. No entanto, a latência de disco do volume de conteúdo é maior e mais variável que a latência do sistema de ficheiros de contentor local e o acesso pode ser afetado por atualizações de plataforma, período de indisponibilidade não planeado e problemas de conectividade de rede. Aplicações que necessitam de acesso só de leitura pesado para ficheiros de conteúdo podem se beneficiar da implantação de imagem personalizada, que coloca os ficheiros no sistema de ficheiros de imagem a, em vez de no volume de conteúdo.
+- **Criar a utilização de recursos**: Quando uma aplicação é implementada a partir da origem, os scripts de implantação executam através da utilização de Kudu os mesmo plano do serviço de aplicações de computação e armazenamento de recursos como o aplicativo em execução. Implementações de aplicações grande podem consumir mais recursos ou o tempo que o desejado. Em particular, muitos fluxos de trabalho de implantação geram atividade de disco intensivo sobre o volume de conteúdo de aplicação, que não está otimizada para essa atividade. Uma imagem personalizada fornece todos os ficheiros e dependências da sua aplicação para o Azure num único pacote sem ser necessário para as transferências de ficheiros adicionais ou ações de implementação.
 - **Precisa de uma rápida iteração**: Dockerizing uma aplicação requer passos de compilação adicional. Para que as alterações entrem em vigor, tem de enviar sua nova imagem para um repositório com cada atualização. Estas atualizações são obtidas para o ambiente do Azure. Se um dos contentores incorporados atende às necessidades da sua aplicação, a implementação a partir de origem pode oferecer um fluxo de trabalho de desenvolvimento mais rápido.
 
 ## <a name="multi-container-apps-supportability"></a>Capacidade de suporte de aplicações de vários contentores

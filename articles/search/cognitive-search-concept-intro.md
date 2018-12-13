@@ -1,6 +1,6 @@
 ---
-title: Pesquisa cognitiva para extração de dados, processamento de linguagem natural AI no Azure Search | Documentos da Microsoft
-description: Extração de conteúdo, (NLP) de processamento de linguagem natural e processamento de imagens para criar conteúdo pesquisável no Azure Search, indexação com capacidades cognitivas e algoritmos de IA
+title: Pesquisa cognitiva para extração de dados, processamento de linguagem natural IA - Azure Search
+description: Extração de conteúdo, a linguagem natural (NLP) de processamento e o processamento de imagens para criar conteúdo pesquisável no Azure Search, indexação com capacidades cognitivas e algoritmos de IA.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 5d7f275be1f04658f9901aba9faca83375a9bbf5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec2018
+ms.openlocfilehash: 62d2e7af40d6abf6f316789051dfe78f73208eb3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956198"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315614"
 ---
-# <a name="what-is-cognitive-search"></a>O que é a pesquisa cognitiva?
+# <a name="what-is-cognitive-search-in-azure-search"></a>O que é "pesquisa cognitiva" no Azure Search?
 
 Pesquisa cognitiva cria pesquisáveis informações fora de conteúdo não pesquisável anexando algoritmos de ia para um pipeline de indexação. Integração de IA é através de *capacidades cognitivas*, aprimorando documentos de origem caminho para um índice de pesquisa. 
 
@@ -31,7 +32,9 @@ As capacidades cognitivas no Azure Search baseiam-se os mesmos algoritmos de IA 
 Linguagem natural e processamento de imagens é aplicada durante a fase de ingestão de dados, com resultados se tornar parte de composição de um documento num índice pesquisável no Azure Search. Os dados são originados como um conjunto de dados do Azure e, em seguida, enviados por meio de um pipeline de indexação com o que ocorrer [habilidades internas](cognitive-search-predefined-skills.md) que precisa. A arquitetura é extensível, de modo a se as habilidades internas não forem suficientes, pode criar e anexar [competências personalizadas](cognitive-search-create-custom-skill-example.md) para integrar o processamento personalizado. Exemplos podem ser um classificador de módulo ou o documento de entidade personalizada destinado um domínio específico, como Finanças, publicações científicas ou medicina.
 
 > [!NOTE]
-> A Pesquisa Cognitiva está em pré-visualização pública. A execução de conjuntos de capacidades e a normalização e extração de imagens estão atualmente disponíveis gratuitamente. Posteriormente, anunciaremos os preços destas funcionalidades. 
+> A partir de 21 de Dezembro de 2018, poderá associar um recurso dos serviços cognitivos com um conjunto de capacidades do Azure Search. Isso permitirá que comecem a cobrança de consumo para a execução do conjunto de capacidades. Esta data, podemos também começar a cobrar extração de imagem como parte da fase de aberturas de documentos. Continuaremos a oferecer a extração de texto de documentos sem custos adicionais.
+>
+> A execução das habilidades internas será cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/) . Preços de extração de imagem são cobrados ao preço de pré-visualização e está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba mais [mais](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="components-of-cognitive-search"></a>Componentes de pesquisa cognitiva
 
@@ -88,7 +91,7 @@ Os índices são gerados a partir de um esquema de índice que define os campos,
 
 ## <a name="where-do-i-start"></a>Por onde devo começar?
 
-**Passo 1: Criar um serviço de pesquisa numa região, fornecendo as APIs** 
+**Passo 1: Criar um serviço de pesquisa numa região fornecendo as APIs** 
 
 + EUA Centro-Oeste
 + EUA Centro-Sul

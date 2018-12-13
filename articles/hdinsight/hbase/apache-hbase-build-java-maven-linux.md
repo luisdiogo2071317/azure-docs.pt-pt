@@ -1,20 +1,20 @@
 ---
-title: Cliente de Java HBase - Azure HDInsight
+title: Criar o cliente de Java HBase utilizando o Apache Maven - Azure HDInsight
 description: Saiba como utilizar o Apache Maven para criar uma aplicação baseada em Java Apache HBase, em seguida, implementá-la no HBase no HDInsight do Azure.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: 721e37349b406705a2cdfb52c64b5796cb590d78
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: dbcb031b49c529bc2b2524cd0984bbef1945d485
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445656"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164063"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Criar aplicações de Java para o Apache HBase
 
@@ -56,7 +56,7 @@ Os passos neste documentam uso [Apache Maven](https://maven.apache.org/) para cr
 
     Este comando cria um diretório com o mesmo nome que o **artifactID** parâmetro (**hbaseapp** neste exemplo.) Esse diretório contém os seguintes itens:
 
-   * **pom**: O modelo de objeto de projeto ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contém os detalhes de configuração e informações usados para compilar o projeto.
+   * **pom. XML**:  O modelo de objeto de projeto ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contém os detalhes de configuração e informações usados para compilar o projeto.
    * **SRC**: O diretório que contém o **main/java/com/microsoft/exemplos** directory, onde criar a aplicação.
 
 3. Eliminar o `src/test/java/com/microsoft/examples/apptest.java` ficheiro. Não é utilizado neste exemplo.

@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 57a9f0516175b459723a3dcdb2e3766f0fa039c1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: a8ac3899b6ae80668c4472f24b508ba6ba7e2644
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495429"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275317"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consultar e enviar comandos para o serviço de Gestor de reparação.
@@ -30,7 +30,7 @@ Consultar e enviar comandos para o serviço de Gestor de reparação.
 | --- | --- |
 | aprovar-force | Força a aprovação da tarefa de reparação de determinado. |
 | delete | Elimina uma tarefa de reparação concluída. |
-| lista | Obtém uma lista de tarefas de reparo correspondência os filtros de determinado. |
+| list | Obtém uma lista de tarefas de reparo correspondência os filtros de determinado. |
 
 ## <a name="sfctl-rpm-approve-force"></a>o sfctl rpm aprovar força
 Força a aprovação da tarefa de reparação de determinado.

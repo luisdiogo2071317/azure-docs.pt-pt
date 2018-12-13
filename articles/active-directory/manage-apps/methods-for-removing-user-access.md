@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: barbkess
-ms.openlocfilehash: 6acc9a8b9cd7b6ef1218b1e8cae2e6a9af92f9d8
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 9eb8b6e6af6fb2912789b66ed622fd47d2cb8b8b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393699"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311886"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um utilizador a uma aplicação
 
@@ -70,5 +70,6 @@ Para **desativar todas as operações de consentimento de utilizador futuras no 
 6.  Definir o **os utilizadores podem permitir que as aplicações aos dados da empresa em nome deles** alternar para **não** e clique no botão guardar.
 
 
-# <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos Seguintes
+
 [Gerir o acesso a aplicações](what-is-access-management.md)

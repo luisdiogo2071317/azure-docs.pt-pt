@@ -13,14 +13,14 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/31/2018
-ms.openlocfilehash: 71a23e982f1e4ae5609d4f9a160cd1861e043ea1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00fe4e109df2ac8954e657a1a567842ec5eb7d37
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251820"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317462"
 ---
-# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro SQL para aplicações de cliente da base de dados SQL: erros de ligação e outros problemas de base de dados
+# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro SQL para aplicações de cliente da base de dados SQL: Erros de ligação de base de dados e outros problemas
 
 Este artigo apresenta uma lista de códigos de erro SQL para aplicações de cliente de base de dados SQL, incluindo erros de ligação de base de dados, os erros transitórios (também chamados de falhas transitórias), erros de governação de recursos, problemas de cópia do banco de dados, conjunto elástico e outros erros. A maioria das categorias são específicas para a base de dados do Azure SQL e não se aplicam ao Microsoft SQL Server. Consulte também [mensagens de erro do sistema](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
@@ -35,9 +35,9 @@ A infraestrutura do Azure tem a capacidade de reconfigurar os servidores dinamic
 Erros de falhas transitórias normalmente manifestam como uma das seguintes mensagens de erro de seus programas do cliente:
 
 * Base de dados &lt;db_name&gt; no servidor &lt;Azure_instance&gt; não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte técnico e forneça o ID de rastreio de sessão de &lt;session_id&gt;
-* Base de dados &lt;db_name&gt; no servidor &lt;Azure_instance&gt; não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte técnico e forneça o ID de rastreio de sessão de &lt;session_id&gt;. (Microsoft SQL Server, Error: 40613)
+* Base de dados &lt;db_name&gt; no servidor &lt;Azure_instance&gt; não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte técnico e forneça o ID de rastreio de sessão de &lt;session_id&gt;. (Microsoft SQL Server, erro: 40613)
 * Uma ligação existente foi forçado a fechar pelo anfitrião remoto.
-* System.Data.Entity.Core.EntityCommandExecutionException: Ocorreu um erro ao executar a definição de comando. Veja a exceção interna para obter detalhes. ---> System.Data.SqlClient.SqlException: Ocorreu um erro de nível de transporte ao receber os resultados do servidor. (fornecedor: fornecedor de sessão, erro: 19 - ligação física não é utilizável)
+* System.Data.Entity.Core.EntityCommandExecutionException: Ocorreu um erro ao executar a definição de comando. Veja a exceção interna para obter detalhes. ---> System.Data.SqlClient.SqlException: Ocorreu um erro de nível de transporte ao receber os resultados do servidor. (fornecedor: Fornecedor de sessão, erro: 19 - ligação física não é utilizável)
 * Uma tentativa de ligação para uma base de dados secundário falhou porque a base de dados está no processo de reconfiguração, é ocupado aplicar novas páginas no meio de uma transação ativa na base de dados primária. 
 
 Para obter exemplos de código da lógica de repetição, consulte:
@@ -90,12 +90,12 @@ Os seguintes erros são causados por uso excessivo de recursos durante o trabalh
 
 Tópicos relacionados:
 
-* Informações mais detalhadas estão disponíveis aqui: [limites de recursos do Azure SQL Database](sql-database-service-tiers-dtu.md).
+* Informações mais detalhadas estão disponíveis aqui: [Limites de recursos de base de dados SQL do Azure](sql-database-service-tiers-dtu.md).
 
 | Código de erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
-| 10928 |20 |ID do recurso: %d. O limite de %s para a base de dados é %d e foi atingido. Para mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |ID do recurso: %d. A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Para mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, volte a tentar novamente mais tarde.<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |ID do recurso: %d. O limite de %s para a base de dados é %d e foi atingido. Para obter mais informações, consulte [limites de recursos de base de dados SQL para bases de dados únicos e em pool](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |ID do recurso: %d. A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Para obter mais informações, consulte [limites de recursos de base de dados SQL para bases de dados únicos e em pool](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server). Caso contrário, volte a tentar novamente mais tarde.<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |A base de dados atingiu a quota de tamanho. Particione ou elimine dados, remova índices ou consulte a documentação para encontrar possíveis resoluções. |
 | 40549 |16 |A sessão foi terminada porque tem uma transação de longa execução. Tente encurtar a transação. |
 | 40550 |16 |A sessão foi terminada porque obteve muito muitos bloqueios. Tente ler ou modificar algumas linhas numa única transação. |
@@ -109,7 +109,7 @@ Para criar e utilizar os conjuntos elásticos relacionados com os seguintes erro
 | Código de erro | Gravidade | Descrição | Ação corretiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |O conjunto elástico atingiu o limite de armazenamento. A utilização do armazenamento para o conjunto elástico não pode exceder (%d) MBs. A tentar gravar dados num banco de dados quando for atingido o limite de armazenamento do conjunto elástico. |Considere aumentar as DTUs de e/ou adicionar armazenamento para o conjunto elástico se possível para aumentar o limite de armazenamento, reduzir o armazenamento utilizado pelas bases de dados individuais dentro do conjunto elástico ou remover bases de dados do conjunto elástico. |
-| 10929 | 16 |A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Ver [ http://go.microsoft.com/fwlink/?LinkId=267637 ](https://go.microsoft.com/fwlink/?LinkId=267637) para obter assistência. Caso contrário, volte a tentar novamente mais tarde. DTU / mínimo de vCore por base de dados; DTU / máximo de vCore por base de dados. O número total de trabalhadores simultâneos (pedidos) em todas as bases de dados do conjunto elástico tentou exceder o limite do conjunto. |Considere aumentar o DTUs ou vCores do conjunto elástico se possível, para aumentar o limite de trabalho ou remover bases de dados do conjunto elástico. |
+| 10929 | 16 |A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Ver [limites de recursos de base de dados SQL para bases de dados únicos e em pool](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server) para obter assistência. Caso contrário, volte a tentar novamente mais tarde. DTU / mínimo de vCore por base de dados; DTU / máximo de vCore por base de dados. O número total de trabalhadores simultâneos (pedidos) em todas as bases de dados do conjunto elástico tentou exceder o limite do conjunto. |Considere aumentar o DTUs ou vCores do conjunto elástico se possível, para aumentar o limite de trabalho ou remover bases de dados do conjunto elástico. |
 | 40844 | 16 |Base de dados "%ls" no servidor "%ls" é uma base de dados de edição de "%ls" num conjunto elástico e não pode ter uma relação de cópia contínua.  |N/A |
 | 40857 | 16 |Conjunto elástico não encontrado para o servidor: '%ls', nome do conjunto elástico: "%ls". Conjunto elástico especificado não existe no servidor especificado. | Forneça um nome de conjunto elástico válido. |
 | 40858 | 16 |Conjunto elástico "%ls" já existe no servidor: "%ls". Conjunto elástico especificado já existe no servidor lógico especificado. | Forneça o nome do novo conjunto elástico. |
@@ -144,7 +144,7 @@ Os seguintes erros se encontra em qualquer categorias anteriores.
 | 15006 |16 |(AdministratorLogin) não é um nome válido porque contém carateres inválidos. |
 | 18452 |14 |O início de sessão falhou. O início de sessão é proveniente de um domínio não fidedigno e não pode ser utilizado com o Windows authentication.%.&#x2a;ls (inícios de sessão do Windows não são suportados nesta versão do SQL Server.) |
 | 18456 |14 |Falha de início de sessão do utilizador "%. &#x2a;ls'.%. &#x2a;ls %. &#x2a;ls (o início de sessão falhou para o utilizador "%.&#x2a; ls".) |
-| 18470 |14 |Falha de início de sessão para o utilizador '%.&#x2a;ls'. Razão: A conta é disabled.%.&#x2a;ls |
+| 18470 |14 |Falha de início de sessão para o utilizador '%.&#x2a;ls'. Razão: A conta é disabled.%. &#x2a;ls |
 | 40014 |16 |Não não possível utilizar várias bases de dados na mesma transação. |
 | 40054 |16 |Tabelas sem um índice em cluster não são suportadas nesta versão do SQL Server. Criar um índice em cluster e tente novamente. |
 | 40133 |15 |Esta operação não é suportada nesta versão do SQL Server. |

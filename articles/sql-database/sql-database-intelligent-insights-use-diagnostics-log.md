@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: 2809dd45042e41c8337ecddccc76ec4e16d7cb8b
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: a0eac4344f1294ad2eddd4e05520c1f030a0c4d7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887700"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278224"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utilizar o registo de diagnóstico de desempenho do Intelligent Insights SQL Database do Azure
 
@@ -100,7 +100,7 @@ O impacto (impacto) propriedade descreve quanto um comportamento detetado contri
 
 ### <a name="impacted-queries"></a>Consultas afetadas
 
-A secção seguinte do registo de informações inteligentes fornece informações sobre consultas específicas que foram afetados por problemas de desempenho detetados. Estas informações são divulgadas como uma matriz de objetos incorporados na propriedade impact_s. A propriedade impacto é composta por entidades e as métricas. Entidades fazer referência a uma consulta específica (tipo: consulta). O hash de consulta exclusivas é divulgado sob a propriedade value (valor). Além disso, cada uma das consultas divulgadas é seguida por uma métrica e um valor que indica um problema de desempenho detetados.
+A secção seguinte do registo de informações inteligentes fornece informações sobre consultas específicas que foram afetados por problemas de desempenho detetados. Estas informações são divulgadas como uma matriz de objetos incorporados na propriedade impact_s. A propriedade impacto é composta por entidades e as métricas. Entidades fazer referência a uma consulta específica (tipo: Consulta). O hash de consulta exclusivas é divulgado sob a propriedade value (valor). Além disso, cada uma das consultas divulgadas é seguida por uma métrica e um valor que indica um problema de desempenho detetados.
 
 No exemplo seguinte do registo, a consulta com o hash 0x9102EXZ4 foi detetada a ter uma maior duração de execução (métrica: DurationIncreaseSeconds). O valor de 110 segundos indica que esta consulta específica demorou 110 segundos já está a executar. Uma vez que várias consultas podem ser excluídas, esta secção de registo específico pode incluir várias entradas de consulta.
 

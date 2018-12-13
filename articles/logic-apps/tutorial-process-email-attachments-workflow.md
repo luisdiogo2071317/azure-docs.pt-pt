@@ -1,25 +1,25 @@
 ---
-title: Criar fluxos de trabalho que processam e-mails e anexos - Azure Logic Apps | Microsoft Docs
-description: Este tutorial mostra como criar fluxos de trabalho automatizados para que possa processar e-mails e anexos com o Azure Logic Apps, o Armazenamento do Azure e as Funções do Azure
+title: Tutorial - automatizar o processamento de mensagens de e-mail e anexos - Azure Logic Apps | Documentos da Microsoft
+description: Tutorial - criar fluxos de trabalho automatizados que processam e-mails e anexos com o Azure Logic Apps, o armazenamento do Azure e as funções do Azure
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.reviewer: klam, LADocs
-ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231973"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140511"
 ---
-# <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Processar e-mails e anexos com o Azure Logic Apps
+# <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Automatizar a manipulação de e-mails e anexos com o Azure Logic Apps
 
-O Azure Logic Apps ajuda-o a automatizar fluxos de trabalho e a integrar dados nos serviços do Azure, nos serviços Microsoft, noutras aplicações de software como serviço (Saas) e em sistemas no local. Este tutorial mostra como pode criar uma [aplicação lógica](../logic-apps/logic-apps-overview.md) que processa e-mails recebidos e anexos. Esta aplicação lógica processa esses conteúdos, guarda-os no armazenamento do Azure e envia notificações para revê-los. 
+O Azure Logic Apps ajuda-o a automatizar fluxos de trabalho e a integrar dados nos serviços do Azure, nos serviços Microsoft, noutras aplicações de software como serviço (Saas) e em sistemas no local. Este tutorial mostra como pode criar uma [aplicação lógica](../logic-apps/logic-apps-overview.md) que processa e-mails recebidos e anexos. Esta aplicação lógica analisa o conteúdo de e-mail, guarda-os no armazenamento do Azure e envia notificações para revê-los. 
 
 Neste tutorial, ficará a saber como:
 
@@ -68,7 +68,7 @@ Pode guardar os e-mails e anexos recebidos como blobs num [contentor de armazena
    | **Performance** (Desempenho) | Standard | Esta definição especifica os tipos de dados suportados e os suportes de dados para armazenar dados. Veja [Tipos de contas de armazenamento](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Secure transfer required** (Transferência segura necessária) | Desativado | Esta definição especifica a segurança necessária para pedidos provenientes de ligações. Veja [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (Transferência segura necessária). | 
    | **Subscrição** | <*your-Azure-subscription-name*> | O nome para a subscrição do Azure | 
-   | **Grupo de recursos** | LA-Tutorial-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) utilizado para organizar e gerir os recursos relacionados. <p>**Nota:** os grupos de recursos existem dentro de regiões específicas. Embora os itens neste tutorial possam não estar disponíveis em todas as regiões, tente utilizar a mesma região sempre que possível. | 
+   | **Grupo de recursos** | LA-Tutorial-RG | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) utilizado para organizar e gerir os recursos relacionados. <p>**Nota:** Um grupo de recursos existe dentro de uma região específica. Embora os itens neste tutorial possam não estar disponíveis em todas as regiões, tente utilizar a mesma região sempre que possível. | 
    | **Configurar redes virtuais** | Desativado | Neste tutorial, mantenha a definição **Desativado**. | 
    |||| 
 
@@ -144,7 +144,7 @@ Agora, utilize o fragmento de código fornecido nestes passos para criar uma fun
    | **Grupo de Recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que utilizou anteriormente | 
    | **Plano de Alojamento** | Plano de Consumo | Esta definição determina como alocar e dimensionar os recursos, como o poder de computação, para executar a aplicação de funções. Veja [Hosting plans comparison](../azure-functions/functions-scale.md) (Comparação dos planos de alojamento). | 
    | **Localização** | EUA Oeste | A mesma região que utilizou anteriormente | 
-   | **Armazenamento** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para a sua aplicação de funções. Utilize apenas letras minúsculas e números. <p>**Nota:** esta conta de armazenamento contém as suas aplicações de funções e é diferente da conta de armazenamento criada anteriormente para os anexos de e-mails. | 
+   | **Armazenamento** | cleantextfunctionstorageacct | Crie uma conta de armazenamento para a sua aplicação de funções. Utilize apenas letras minúsculas e números. <p>**Nota:** Esta conta de armazenamento contém as suas aplicações function App e é diferente da sua conta de armazenamento criado anteriormente para anexos de e-mail. | 
    | **Application Insights** | Desativado | Ativa a monitorização de aplicações com o [Application Insights](../application-insights/app-insights-overview.md); contudo, neste tutorial, escolha a definição **Desativado**. | 
    |||| 
 
@@ -246,11 +246,11 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
 
 ## <a name="monitor-incoming-email"></a>Monitorizar os e-mails recebidos
 
-1. No estruturador da caixa de pesquisa, introduza "quando é recebido um e-mail novo" como o filtro. Selecione o acionador para o seu fornecedor de e-mail: **Quando é recebido um e-mail novo - <*fornecedor de e-mail*>**
+1. No estruturador da caixa de pesquisa, introduza "quando é recebido um e-mail novo" como o filtro. Selecione este acionador para o seu fornecedor de e-mail: **Quando um novo e-mail chega - <*fornecedor_de_e Mail*>**
 
    Por exemplo:
 
-   ![Selecione este acionador para o fornecedor de e-mail: "When a new email arrives"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
+   ![Selecione este acionador para o fornecedor de e-mail: "Quando a new email arrives"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
    * Relativamente a contas escolares ou profissionais do Azure, selecione Office 365 Outlook (Outlook do Office 365). 
    * Quanto a contas Microsoft pessoais, selecione Outlook.com. 
@@ -274,7 +274,7 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
 
       | Definição | Valor | Descrição | 
       | ------- | ----- | ----------- | 
-      | **Tem Anexo** | Sim | Obter apenas os e-mails com anexos. <p>**Nota:** o acionador não remove e-mails da sua conta; verifica apenas as mensagens novas e só processa os e-mails que correspondam ao filtro do assunto. | 
+      | **Tem Anexo** | Sim | Obter apenas os e-mails com anexos. <p>**Nota:** O acionador não remove e-mails da sua conta, a verificação apenas as mensagens novas e só processa os e-mails que correspondam ao filtro do assunto. | 
       | **Incluir Anexos** | Sim | Obter os anexos como entrada para o seu fluxo de trabalho em vez de verificar apenas os anexos. | 
       | **Filtro de Assunto** | ```Business Analyst 2 #423501``` | O texto a localizar no assunto do e-mail | 
       |  |  |  | 
@@ -313,7 +313,7 @@ Agora, adicione uma condição que seleciona apenas os e-mails que têm anexos.
 
    2. Na caixa do meio, mantenha o operador **é igual a**.
 
-   3. Na caixa direita, introduza **Verdadeiro** como o valor a comparar com o valor da propriedade **Tem anexo** do acionador.
+   3. Na caixa da direita, introduza **true** como o valor a comparar com o **anexo tem** valor da propriedade do acionador.
 
       ![Criar condição](./media/tutorial-process-email-attachments-workflow/finished-condition.png)
 
@@ -328,7 +328,7 @@ Agora, adicione uma condição que seleciona apenas os e-mails que têm anexos.
          "and": [ {
             "equals": [
                "@triggerBody()?['HasAttachment']",
-                 "True"
+                 "true"
             ]
          } ]
       },
@@ -377,15 +377,15 @@ Este passo adiciona a função do Azure criada anteriormente à sua aplicação 
 
    ![Dentro de "Se verdadeiro", adicionar ação](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-2. Na caixa de pesquisa, encontre "funções do azure" e selecione a ação: **Escolher uma função do Azure - Funções do Azure**
+2. Na caixa de pesquisa, localize "azure functions" e selecione a ação: **Escolha uma função do Azure - as funções do Azure**
 
    ![Selecionar a ação “Escolher uma função do Azure”](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Selecione a aplicação de função criada anteriormente, **CleanTextFunctionApp**
+3. Selecione a sua aplicação de função criada anteriormente: **CleanTextFunctionApp**
 
    ![Selecionar a aplicação de funções do Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
-4. Agora, selecione a função **RemoveHTMLFunction**
+4. Agora, selecione a função: **RemoveHTMLFunction**
 
    ![Selecionar a função do Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
@@ -419,7 +419,7 @@ Em seguida, adicione uma ação que cria um blob no contentor de armazenamento p
 
 1. No bloco **Se verdadeiro** e na sua função do Azure, escolha **Adicionar uma ação**. 
 
-2. Na caixa de pesquisa, introduza "criar blob" como o filtro e selecione esta ação: **Criar blob - Armazenamento de Blobs do Azure**
+2. Na caixa de pesquisa, introduza "criar blob" como o filtro e selecione a ação: **Criar blob - Blob Storage do Azure**
 
    ![Adicionar ação para criar blob para o corpo do e-mail](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-email-body.png)
 
@@ -518,7 +518,7 @@ Em seguida, adicione a ação que guarda cada anexo como um blob no seu contento
 
    ![Adicionar ação ao ciclo](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
 
-2. Na caixa de pesquisa, introduza "criar blob" como o filtro e, em seguida, selecione esta ação: **Criar blob - Armazenamento de Blobs do Azure**
+2. Na caixa de pesquisa, introduza "criar blob" como o filtro e, em seguida, selecione a ação: **Criar blob - Blob Storage do Azure**
 
    ![Adicionar ação para criar blob](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
@@ -572,7 +572,7 @@ Em seguida, adicione uma ação para que a sua aplicação lógica envia um e-ma
 
 ## <a name="send-email-notifications"></a>Enviar notificações por e-mail
 
-1. No ramo **Se verdadeiro**, no ciclo **For each email attachment**, escolha **Add an action**. 
+1. Na **se for verdadeiro** ramo no **para cada anexo de e-mail** loop, escolha **adicionar uma ação**. 
 
    ![Adicionar ação no ciclo "for each"](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
 
@@ -672,7 +672,7 @@ Quando já não for necessário, elimine o grupo de recursos que contém a aplic
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou uma aplicação lógica que processa e armazena anexos de e-mail através da integração de serviços do Azure, como o Armazenamento do Azure e as Funções do Azure. Agora, saiba mais sobre outros conectores que pode utilizar para criar aplicações lógicas.
 

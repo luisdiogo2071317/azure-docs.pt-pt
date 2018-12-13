@@ -10,20 +10,20 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345208"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256405"
 ---
-# <a name="translator-speech-api-languages"></a>API de voz de tradutor: idiomas
+# <a name="translator-speech-api-languages"></a>API de voz de tradutor: Linguagens
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Voz do Translator continuamente expande a lista de idiomas suportados pelo seus serviços. Utilize esta API para descobrir o conjunto de idiomas atualmente disponíveis para utilização com o serviço de voz do Translator.
 
-Exemplos de código a fim de demonstrar o uso da API para obter os idiomas disponíveis estão disponíveis a partir da [site do Microsoft Translator Github](https://github.com/MicrosoftTranslator).
+Exemplos de código a fim de demonstrar o uso da API para obter os idiomas disponíveis estão disponíveis a partir da [site do Microsoft Translator GitHub](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Notas de implementação
 
@@ -33,9 +33,9 @@ Uma grande variedade de idiomas está disponível para transcrição de voz, Tra
 
 Um cliente utiliza o `scope` parâmetro para definir quais conjuntos de idiomas está interessada na consulta.
 
-* **Conversão de voz para texto:** utilizar o parâmetro de consulta `scope=speech` para obter o conjunto de idiomas disponíveis para a transcrição de voz em texto.
-* **Tradução de texto:** utilizar o parâmetro de consulta `scope=text` para obter o conjunto de idiomas disponíveis para traduzir texto transcrito.
-* **Voz:** utilizar o parâmetro de consulta `scope=tts` para recuperar o conjunto de idiomas e vozes disponíveis para sintetizar o texto traduzido novamente em voz.
+* **Conversão de voz para texto:** Utilize o parâmetro de consulta `scope=speech` para obter o conjunto de idiomas disponíveis para a transcrição de voz em texto.
+* **Tradução de texto:** Utilize o parâmetro de consulta `scope=text` para obter o conjunto de idiomas disponíveis para traduzir texto transcrito.
+* **Voz:**  Utilize o parâmetro de consulta `scope=tts` para recuperar o conjunto de idiomas e vozes disponíveis para sintetizar o texto traduzido novamente em voz.
 
 Um cliente pode obter vários conjuntos em simultâneo ao especificar uma lista separada por vírgulas de opções. Por exemplo, `scope=speech,text,tts`.
 
@@ -64,7 +64,7 @@ Segue-se o valor fornecido com cada propriedade.
 O valor associado a propriedade de voz em texto, `speech`, é um dicionário de valor (chave) pares. Cada chave identifica um idioma suportado para conversão de voz em texto. A chave é o identificador de que o cliente passa para a API. O valor associado à chave é um objeto com as seguintes propriedades:
 
 * `name`: Nome a apresentar da linguagem.
-* `language`: Etiqueta de idioma escrito associado de idioma. Veja "Texto transation" abaixo.
+* `language`: Etiqueta de idioma do idioma escrito associada. Veja "Texto transation" abaixo.
 Um exemplo é:
 
 ```
@@ -97,9 +97,9 @@ Um exemplo é:
 O valor associado a propriedade de texto para voz, tts, também é um dicionário em que cada chave identifica uma voz suportada. Atributos de um objeto de voz são:
 
 * `displayName`: Nome a apresentar para a voz.
-* `gender`: Género de voz (male ou female).
+* `gender`: Sexo de voz (male ou female).
 * `locale`: Etiqueta de idioma de voz com subtag do idioma primário e subtag de região.
-* `language`: Etiqueta de idioma escrito associado de idioma.
+* `language`: Etiqueta de idioma do idioma escrito associada.
 * `languageName`: Nome a apresentar da linguagem.
 * `regionName`: Nome a apresentar da região para este idioma.
 

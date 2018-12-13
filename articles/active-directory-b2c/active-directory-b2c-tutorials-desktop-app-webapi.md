@@ -10,14 +10,14 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: b8cdf6cb07215f4c1e2a472f60513aff765dcfb5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: HT
+ms.openlocfilehash: 1ce74afd8ee2266439a591730686b4f5277e1b03
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603199"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322010"
 ---
-# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web Node.js a partir de uma aplicação de ambiente de trabalho com o Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API da web de node. js a partir de uma aplicação de ambiente de trabalho com o Azure Active Directory B2C
 
 Este tutorial mostra-lhe como chamar um recurso de API Web Node.js protegida do Azure Active Directory (Azure AD) B2C a partir de uma aplicação de ambiente de trabalho do Windows Presentation Foundation (WPF).
 
@@ -125,7 +125,7 @@ O exemplo de API Web Node.js utiliza a biblioteca Passport.js para ativar o Azur
 
 ### <a name="configure-the-web-api"></a>Configurar a API Web
 
-1. Abra o ficheiro `index.html` no exemplo de API Web Node.js.
+1. Abra o ficheiro `index.js` no exemplo de API Web Node.js.
 2. Configure o exemplo com as informações de registo de inquilino do Azure AD B2C. Altere as seguintes linhas de código:
 
 ```nodejs

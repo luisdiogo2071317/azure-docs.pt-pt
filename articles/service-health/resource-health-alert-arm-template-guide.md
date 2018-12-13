@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/4/2018
 ms.author: shtabriz
-ms.openlocfilehash: ac1b9dbbb5739dd015c0bda5f1ea82fe26bb0c70
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dcc978c8e169cca2e2cd91a63ef1814a8c3bd87c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625951"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184105"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas de estado de funcionamento de recursos com modelos do Resource Manager
 
@@ -32,7 +32,7 @@ O Azure mantém de estado de funcionamento do recurso informado sobre o estado d
 Para seguir as instruções nesta página, terá de configurar algumas coisas antecipadamente:
 
 1. Tem de instalar o [módulo do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (`AzureRm`)
-2. Precisa [criar ou reutilizar um grupo de ação](../monitoring-and-diagnostics/monitoring-action-groups.md) configurado para notificá-lo
+2. Precisa [criar ou reutilizar um grupo de ação](../azure-monitor/platform/action-groups.md) configurado para notificá-lo
 
 ## <a name="instructions"></a>Instruções
 1. Com o PowerShell, inicie sessão no Azure com a sua conta e selecione a subscrição que pretende interagir com
@@ -233,7 +233,7 @@ Se pretender ser notificado para todas as quatro fases de eventos de estado de f
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>Ajustar os alertas de estado de funcionamento do recurso para evitar eventos "Desconhecidos"
 
-Estado de funcionamento de recursos do Azure pode denunciar para o estado de funcionamento dos seus recursos mais recentes ao monitorizar constantemente com os concorrentes de teste. Os Estados de estado de funcionamento comunicadas relevantes são: "Disponível", "Indisponível" e "Degraded". No entanto, em situações em que o executor e o recurso do Azure são incapazes de comunicar, um Estado de funcionamento "Desconhecido" é reportado para o recurso e que é considerado um evento de estado de funcionamento "Ativos".
+Estado de funcionamento de recursos do Azure pode denunciar para o estado de funcionamento dos seus recursos mais recentes ao monitorizar constantemente com os concorrentes de teste. Os Estados de estado de funcionamento comunicadas relevantes são: "Disponível", "Indisponível" e "Degradado". No entanto, em situações em que o executor e o recurso do Azure são incapazes de comunicar, um Estado de funcionamento "Desconhecido" é reportado para o recurso e que é considerado um evento de estado de funcionamento "Ativos".
 
 No entanto, quando um recurso de relatórios "Desconhecido", é provável que o respetivo estado de funcionamento não foi alterado desde o último relatório preciso. Se quiser eliminar alertas nos eventos "Desconhecidos", é possível especificar essa lógica no modelo:
 
@@ -435,4 +435,4 @@ Saiba mais sobre o estado de funcionamento do recurso:
 -  [Os tipos de recursos e verificações do estado de funcionamento disponíveis através do Azure Resource Health](resource-health-checks-resource-types.md)
 
 Crie alertas de estado de funcionamento do serviço:
--  [Configurar alertas para o estado de funcionamento do serviço](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) 
+-  [Configurar alertas para o estado de funcionamento do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

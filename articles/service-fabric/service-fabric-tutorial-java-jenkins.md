@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124985"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162227"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para ativar o CI/CD para uma aplicação Java no Service Fabric
 
-Este tutorial é a quinta parte de uma série. Mostra como utilizar o Jenkins para implementar atualizações na sua aplicação. Neste tutorial, o plug-in Jenkins do Service Fabric é utilizado em combinação com um repositório do Github que aloja a aplicação de Voto para implementar a aplicação num cluster.
+Este tutorial é a quinta parte de uma série. Mostra como utilizar o Jenkins para implementar atualizações na sua aplicação. Neste tutorial, o plug-in do Jenkins do Service Fabric é utilizado em combinação com um repositório do GitHub que aloja a aplicação de voto para implementar a aplicação num cluster.
 
 Na quinta parte da série, ficará a saber como:
 > [!div class="checklist"]
@@ -84,7 +84,7 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Criar e configurar uma tarefa do Jenkins
 
-1. Em primeiro lugar, se não tiver um repositório que possa utilizar para alojar o projeto de Voto no Github, crie um. O repositório é denominado **dev_test** no restante tutorial.
+1. Em primeiro lugar, se não tiver um repositório que pode utilizar para alojar o projeto de voto no GitHub, crie uma. O repositório é denominado **dev_test** no restante tutorial.
 
 1. Crie um **novo item** no dashboard do Jenkins em ``http://<HOST-IP>:8080``.
 
@@ -181,7 +181,7 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
     </CodePackage>
     ```
 
-1. Para inicializar uma tarefa do Jenkins que efetua uma atualização da aplicação, emita as novas alterações para o seu repositório do Github.
+1. Para inicializar uma tarefa do Jenkins que efetua uma atualização da aplicação, emita as novas alterações para o seu repositório do GitHub.
 
 1. No Service Fabric Explorer, clique no menu pendente **Aplicações**. Para ver o estado da atualização, clique no separador **Atualizações em Curso**.
 

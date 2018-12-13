@@ -14,12 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 6435c866f6cdf5abea3862a718579f3a6e4d7378
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.custom: seodec18
+ms.openlocfilehash: 50e5dfa21cf7a8f7203e7d96640e3cf5215130a6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493069"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191466"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Soluções da Oracle e a respetiva implementação no Microsoft Azure
 Este artigo aborda as informações necessárias para implementar várias soluções de Oracle no Microsoft Azure com êxito. Estas soluções são baseadas em imagens de Máquina Virtual publicadas da Oracle no Azure Marketplace. Para obter uma lista de imagens atualmente disponíveis, execute o seguinte comando:
@@ -57,7 +58,7 @@ Oracle suporta edições de Oracle DB 12.1 Standard e Enterprise em execução n
 Discos ligados contam com o serviço de armazenamento de Blobs do Azure. Cada disco standard é capaz de um máximo teórico de aproximadamente 500 operações de entrada/saída por segundo (IOPS). A nossa oferta de disco premium é preferencial para cargas de trabalho de base de dados de elevado desempenho e pode alcançar até 5000 IOps por disco. Enquanto pode usar um único disco se de que atenda às suas necessidades de desempenho – pode melhorar o desempenho de IOPS eficaz se usar vários discos ligados, atravessando-os dados de base de dados e, em seguida, utilizar a gestão de armazenamento automática da Oracle (ASM). Ver [descrição geral de armazenamento automática do Oracle](http://www.oracle.com/technetwork/database/index-100339.html) para obter mais informações específicas do Oracle ASM. Para obter um exemplo de como instalar e configurar o Oracle ASM numa VM Linux do Azure - pode experimentar o [instalar e configurar o Oracle automatizada gestão de armazenamento](configure-oracle-asm.md) tutorial.
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Cluster de aplicativo Real do Oracle (Oracle RAC)
-Oracle RAC foi concebida para reduzir a falha de um único nó numa configuração de cluster de vários nós no local. Ele conta com duas tecnologias no local que não são nativas para ambientes de cloud pública de hiper escala: multicast de rede e disco partilhado. Se a sua solução de base de dados requer RAC Oracle no Azure, terá de 3º software de terceiros para permitir que essas tecnologias.  R **Microsoft Azure Certified** oferta chamada [FlashGrid nó para Oracle RAC](https://azuremarketplace.microsoft.com/marketplace/apps/flashgrid-inc.flashgrid-racnode?tab=Overview) está disponível no Azure Marketplace, publicado pela FlashGrid Inc. Para obter mais informações sobre esta solução e como ele funciona no Azure, consulte a [página de solução de FlashGrid](https://www.flashgrid.io/oracle-rac-in-azure/).
+Oracle RAC foi concebida para reduzir a falha de um único nó numa configuração de cluster de vários nós no local. Ele conta com duas tecnologias no local que não são nativas para ambientes de cloud pública de hiper escala: multicast de rede e disco partilhado. Se a sua solução de base de dados requer RAC Oracle no Azure, terá de 3º software de terceiros para permitir que essas tecnologias. Para obter mais informações sobre Oracle RAC, consulte a [página de solução de FlashGrid](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Considerações de recuperação após desastre e de disponibilidade elevada
 Quando utilizar bases de dados Oracle no Azure, são responsáveis por implementar uma solução de recuperação de desastre e de disponibilidade elevada para evitar qualquer período de inatividade. 

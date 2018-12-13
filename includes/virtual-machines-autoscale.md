@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7bafc30bbf8661f7054e49c36af420507f37c989
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227052"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326468"
 ---
-Pode facilmente [Dimensionar automaticamente](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) seu [máquinas virtuais (VMs)](../articles/virtual-machines/windows/overview.md) quando utiliza [conjuntos de dimensionamento de máquinas virtuais](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e o [funcionalidade de dimensionamento automático do Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). As suas VMs tem de ser membros de um conjunto de dimensionamento para ser dimensionada automaticamente. Este artigo fornece informações que permitem-lhe compreender melhor como dimensionar as suas VMs verticalmente e horizontalmente usando métodos automática e manuais.
+Pode facilmente [Dimensionar automaticamente](../articles/azure-monitor/platform/autoscale-best-practices.md) seu [máquinas virtuais (VMs)](../articles/virtual-machines/windows/overview.md) quando utiliza [conjuntos de dimensionamento de máquinas virtuais](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e o [funcionalidade de dimensionamento automático do Azure Monitor](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). As suas VMs tem de ser membros de um conjunto de dimensionamento para ser dimensionada automaticamente. Este artigo fornece informações que permitem-lhe compreender melhor como dimensionar as suas VMs verticalmente e horizontalmente usando métodos automática e manuais.
 
 ## <a name="horizontal-or-vertical-scaling"></a>Dimensionamento horizontal ou vertical
 
@@ -35,7 +35,7 @@ Pode ativar o dimensionamento automático ao criar o conjunto de dimensionamento
  
 ### <a name="metrics"></a>Métricas
 
-A funcionalidade de dimensionamento automático do Azure Monitor permite-lhe aumentar o número de VMs em execução cópia de segurança ou para baixo com base na [métricas](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Por predefinição, as VMs fornecem métricas básicas de ao nível do anfitrião para a utilização da CPU, rede e disco. Ao configurar a recolha de dados de diagnóstico com a extensão de diagnóstico, contadores de desempenho do sistema operacional convidado adicionais ficam disponíveis para o disco, da CPU e memória.
+A funcionalidade de dimensionamento automático do Azure Monitor permite-lhe aumentar o número de VMs em execução cópia de segurança ou para baixo com base na [métricas](../articles/azure-monitor/platform/autoscale-common-metrics.md). Por predefinição, as VMs fornecem métricas básicas de ao nível do anfitrião para a utilização da CPU, rede e disco. Ao configurar a recolha de dados de diagnóstico com a extensão de diagnóstico, contadores de desempenho do sistema operacional convidado adicionais ficam disponíveis para o disco, da CPU e memória.
 
 ![Critérios de métrica](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
@@ -49,7 +49,7 @@ Se a sua aplicação precisa para dimensionar com base nas métricas que não es
  
 ### <a name="notifications"></a>Notificações
 
-Pode [configurar acionadores](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) para que são chamados de web específica URLs ou mensagens de correio eletrónico são enviadas com base nas regras de dimensionamento automático que criar. Os Webhooks permitem-lhe encaminhar as notificações de alertas do Azure para outros sistemas para notificações de pós-processamento ou personalizados.
+Pode [configurar acionadores](../articles/azure-monitor/platform/autoscale-webhook-email.md) para que são chamados de web específica URLs ou mensagens de correio eletrónico são enviadas com base nas regras de dimensionamento automático que criar. Os Webhooks permitem-lhe encaminhar as notificações de alertas do Azure para outros sistemas para notificações de pós-processamento ou personalizados.
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>Dimensionar manualmente as VMs num conjunto de dimensionamento
 

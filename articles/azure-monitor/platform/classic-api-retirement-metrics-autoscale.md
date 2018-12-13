@@ -7,13 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 450eac3613df18997c5b0f9189555555da20cfcf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 1ea8fddf2b4e75abba38f011a271aada848a8cb5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585550"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192197"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor extinção do modelo de implementação clássica APIs para métricas e dimensionamento automático
 
@@ -76,9 +75,9 @@ Não haverá qualquer impacto direto para seus serviços do Azure ou as cargas d
 
 Todas as chamadas para clássica que APIs listadas anteriormente falharão e devolver mensagens de erro semelhante dos seguintes:
 
-Do dimensionamento automático: *esta API foi preterido. Utilizar o portal do Azure, modelos de SDK do Monitor do Azure, PowerShell, CLI ou do Resource Manager para gerir definições de dimensionamento automático*.  
+Do dimensionamento automático: *Esta API foi preterida. Utilizar o portal do Azure, modelos de SDK do Monitor do Azure, PowerShell, CLI ou do Resource Manager para gerir definições de dimensionamento automático*.  
 
-Para métricas: *esta API foi preterido. Utilize o portal do Azure, SDK do Azure Monitor, PowerShell, CLI para consultar métricas*.
+Para métricas: *Esta API foi preterida. Utilize o portal do Azure, SDK do Azure Monitor, PowerShell, CLI para consultar métricas*.
 
 ## <a name="email-notifications"></a>Notificações por e-mail
 

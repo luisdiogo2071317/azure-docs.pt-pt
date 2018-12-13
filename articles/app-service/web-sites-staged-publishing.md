@@ -1,5 +1,5 @@
 ---
-title: Configurar ambientes de teste para aplicações web no App Service do Azure | Documentos da Microsoft
+title: Configurar ambientes de teste para aplicações web - App Service do Azure | Documentos da Microsoft
 description: Saiba como utilizar a publicação faseada para web apps no App Service do Azure.
 services: app-service
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: c6e28554f86a6a7de5d50027ceb552e15856bc96
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 17bc8fe2e5ccd9888777e11f3ca98e6afefb56b7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970863"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277391"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no serviço de aplicações do Azure
 <a name="Overview"></a>
@@ -124,8 +125,8 @@ Quando utiliza a **troca com pré-visualização** opção (consulte [trocar as 
 - Mantém o bloco de destino inalterado para que a carga de trabalho existente em que a ranhura (por exemplo, produção) não é afetada.
 - Aplica-se os elementos de configuração da ranhura de destino para a ranhura de origem, incluindo as cadeias de caracteres de conexão específica do bloco e as definições da aplicação.
 - Reinicia os processos de trabalho na ranhura de origem com estes elementos de configuração mencionados anteriormente.
-- Quando concluir a troca: move a ranhura de origem do pre-warmed-up para o bloco de destino. A ranhura de destino é movida para a ranhura de origem como numa troca manual.
-- Quando cancelar a troca: volta a aplicar os elementos de configuração da ranhura de origem para a ranhura de origem.
+- Quando concluir a troca: Move a ranhura de origem do pre-warmed-up para o bloco de destino. A ranhura de destino é movida para a ranhura de origem como numa troca manual.
+- Quando cancelar a troca: Volta a aplicar os elementos de configuração da ranhura de origem para a ranhura de origem.
 
 Pode visualizar exatamente como a aplicação se irá comportar com a configuração da ranhura de destino. Depois de concluir a validação, concluir a troca num passo separado. Este passo tem a vantagem adicional de que a ranhura de origem já está preparada com a configuração pretendida e os clientes não experienciar qualquer período de inatividade.  
 

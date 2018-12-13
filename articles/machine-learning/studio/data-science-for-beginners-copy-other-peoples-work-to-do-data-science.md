@@ -1,13 +1,12 @@
 ---
 title: Copiar dos outros dados ciência exemplos – Azure Machine Learning Studio | Documentos da Microsoft
-description: 'Segredos comerciais da ciência de dados: obter outros o possam fazer seu trabalho por. Obtenha exemplos do machine learning a partir da Galeria de IA do Azure.'
+description: 'Segredos comerciais da ciência de dados: Obtenha outras pessoas para fazer seu trabalho para. Obtenha exemplos do machine learning a partir da Galeria de IA do Azure.'
 keywords: Exemplos de ciência de dados, exemplo de aprendizado de máquina, algoritmo de clustering de exemplo do algoritmo de clustering
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: c033cc42fd9f57c18242c6e7a6b301238592c0fe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: acd0899396ac5a47dade5fac16e451b2029ec0c2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075018"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260383"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiar o trabalho de outras pessoas para fazer ciência de dados
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Ciência de dados para a série de iniciantes
@@ -42,10 +41,10 @@ Para obter o máximo proveito da série, assista a todos eles. [Aceda à lista d
 ## <a name="other-videos-in-this-series"></a>Outros vídeos desta série
 *Ciência de dados para principiantes* é uma introdução rápida à ciência dos dados em cinco vídeos curtos.
 
-* Vídeo 1: [respostas de ciência de dados de questões do 5](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 seg)*
-* Vídeo 2: [são os seus dados prontos para ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 seg)*
-* Vídeo 3: [faça uma pergunta que pode ser respondidas com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 seg)*
-* Vídeo 4: [prever uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 seg)*
+* Vídeo 1: [Respostas de ciência de dados de questões do 5](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 seg)*
+* Vídeo 2: [Seus dados está pronto para ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 seg)*
+* Vídeo 3: [Faça uma pergunta que pode ser respondidas com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 seg)*
+* Vídeo 4: [Prever uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 seg)*
 * Vídeo 5: Copiar o trabalho de outras pessoas para fazer ciência de dados
 
 ## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Transcrição: Copiar o trabalho de outras pessoas para fazer ciência de dados

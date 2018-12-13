@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c1db8c99b1bd3f9bbb768572ca1f5f7a4e1e0de4
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639965"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183476"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurar a VM alojado no Azure
 
@@ -28,14 +28,14 @@ Este artigo explica como dimensionar, atualizar e generalizar uma máquina virtu
 
 ## <a name="sizing-the-vhds"></a>Os VHDs de dimensionamento
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Se tiver selecionado uma das VMs pré-configuradas com um sistema operativo (e, opcionalmente, mais serviços), então já ter escolhido um tamanho de VM do Azure standard, conforme descrito em [separador de SKUs de Máquina Virtual](./cpp-skus-tab.md).  Esta é a abordagem recomendada.  No entanto, se estiver a instalar um sistema operacional manualmente, tem tamanho do VHD principal na imagem de VM:
+<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Se tiver selecionado uma das VMs pré-configuradas com um sistema operativo (e, opcionalmente, mais serviços), então já ter escolhido um tamanho de VM do Azure standard, conforme descrito em [separador de SKUs de Máquina Virtual](./cpp-skus-tab.md).  A partir da sua solução de um sistema operacional previamente configurado é a abordagem recomendada.  No entanto, se estiver a instalar um sistema operacional manualmente, tem tamanho do VHD principal na imagem de VM:
 
 - Para Windows, o sistema operativo VHD deverá ser criado como um 127-128 GB VHD de formato fixo. 
 - Para o Linux, este VHD deverá ser criado como um 30 a 50 GB VHD de formato fixo.
 
 Se o tamanho físico for inferior a 127 128 GB, o VHD deverá ser disperso. As imagens do Windows e o SQL Server bases, fornecidas já cumprem estes requisitos, portanto, não altere o formato ou o tamanho do VHD obtido. 
 
-Discos de dados podem ter até 1 TB. Ao decidir o tamanho do disco, lembre-se de que os clientes não podem redimensionar os VHDs de uma imagem no momento da implantação. Os VHDs de discos de dados devem ser criados como VHDs de formato fixo. Também deverá ser dispersos. Discos de dados inicialmente podem estar vazio ou conter dados.
+Discos de dados podem ter até 1 TB. Quando decidir sobre seu tamanho, lembre-se de que os clientes não podem redimensionar os VHDs de uma imagem no momento da implantação. Os VHDs de discos de dados devem ser criados como VHDs de formato fixo. Também deverá ser dispersos. Discos de dados inicialmente podem estar vazio ou conter dados.
 
 
 ## <a name="install-the-most-current-updates"></a>Instalar as atualizações mais recentes
@@ -49,7 +49,7 @@ Para as distribuições de Linux, atualizações normalmente são transferidas e
 
 ## <a name="perform-additional-security-checks"></a>Executar verificações de segurança adicionais
 
-Deve manter um elevado nível de segurança para as imagens de solução no Azure Marketplace.  O artigo seguinte disponibiliza uma lista de verificação das configurações de segurança e os procedimentos para ajudá-lo neste objetivo: [recomendações de segurança para o Azure Marketplace imagens](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Algumas destas recomendações são específicas para imagens baseadas em Linux, mas aplicam-se a qualquer imagem de VM. 
+Deve manter um elevado nível de segurança para as imagens de solução no Azure Marketplace.  O artigo seguinte disponibiliza uma lista de verificação das configurações de segurança e os procedimentos para ajudá-lo neste objetivo: [Recomendações de segurança para imagens do Azure Marketplace](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Algumas destas recomendações são específicas para imagens baseadas em Linux, mas aplicam-se a qualquer imagem de VM. 
 
 
 ## <a name="perform-custom-configuration-and-scheduled-tasks"></a>Executar a configuração personalizada e tarefas agendadas
@@ -95,8 +95,8 @@ Seguir o processo de dois passos generalizar uma VM do Linux e reimplementá-la 
 
 Criação de cópias de VM, muitas vezes, é útil para cópia de segurança, teste, personalizada para a ativação pós-falha ou balanceamento de carga, por oferecer configurações diferentes de uma solução e assim por diante. Para obter informações sobre como duplicar e transferir um VHD principal, para tornar um clone não gerido, consulte:
 
-- VM do Linux: [transferir um VHD do Linux do Azure](../../../virtual-machines/linux/download-vhd.md)
-- VM do Windows: [transferir um VHD do Windows do Azure](../../../virtual-machines/windows/download-vhd.md)
+- VM do Linux: [Transferir um VHD do Linux do Azure](../../../virtual-machines/linux/download-vhd.md)
+- VM do Windows: [Transferir um VHD do Windows do Azure](../../../virtual-machines/windows/download-vhd.md)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

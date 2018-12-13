@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 37d57b0dc381f0ed2edf1f3debb76e5b54eae157
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b0e0f26abbf8eb5cbf1cf9ba2014204d773ae15d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093833"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187318"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para tarefas do Azure Stream Analytics
  
@@ -38,34 +38,34 @@ As seguintes alterações principais foram introduzidas no nível de compatibili
 
 * **Formato XML do barramento de serviço**  
 
-  * **versões anteriores:** Azure Stream Analytics utilizadas DataContractSerializer, para que o conteúdo da mensagem incluído marcas XML. Por exemplo:
+  * **Versões anteriores:** O Azure Stream Analytics utilizadas DataContractSerializer, para que o conteúdo da mensagem incluído marcas XML. Por exemplo:
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId": "1", "temperatura": 64\}\u0001 
+    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId": "1", "temperatura": 64\}\u0001 
 
-  * **versão atual:** o conteúdo da mensagem contém o fluxo diretamente com nenhuma etiquetas adicionais. Por exemplo:
+  * **versão atual:** O conteúdo da mensagem contém o fluxo diretamente com nenhuma etiquetas adicionais. Por exemplo:
   
-   {"SensorId": "1", "temperatura": 64} 
+    {"SensorId": "1", "temperatura": 64} 
  
 * **Sensibilidade persistente para nomes de campo**  
 
-  * **versões anteriores:** nomes de campos foram alterados em minúsculas quando processadas pelo motor de Azure Stream Analytics. 
+  * **Versões anteriores:** Os nomes de campo foram alterados em minúsculas quando processadas pelo motor de Azure Stream Analytics. 
 
   * **versão atual:** sensibilidade é mantida para nomes de campo quando eles são processados pelo motor de Azure Stream Analytics. 
 
-  > [!NOTE] 
-  > Sensibilidade mantendo ainda não está disponível para tarefas de análise de Stream alojadas utilizando o ambiente do Edge. Como resultado, todos os nomes de campo são convertidos em minúsculas, se o seu trabalho está alojado no Edge. 
+    > [!NOTE] 
+    > Sensibilidade mantendo ainda não está disponível para tarefas de análise de Stream alojadas utilizando o ambiente do Edge. Como resultado, todos os nomes de campo são convertidos em minúsculas, se o seu trabalho está alojado no Edge. 
 
 * **FloatNaNDeserializationDisabled**  
 
-  * **versões anteriores:** comando CREATE TABLE não filtrar eventos com NaN (não numérico. Por exemplo, infinito, - Infinity) numa coluna de número de vírgula FLUTUANTE escreva por estarem fora do intervalo documentado para esses números.
+  * **Versões anteriores:** Comando CREATE TABLE não filtrar eventos com NaN (não numérico. Por exemplo, infinito, - Infinity) numa coluna de número de vírgula FLUTUANTE escreva por estarem fora do intervalo documentado para esses números.
 
   * **versão atual:** CREATE TABLE permite-lhe especificar um forte esquema. O motor do Stream Analytics valida que os dados estão em conformidade com esse esquema. Com esse modelo, o comando pode filtrar eventos com valores de NaN. 
 
 * **Desative upcast automática para cadeias de caracteres de datetime em JSON.**  
 
-  * **versões anteriores:** analisador o JSON seria a cadeia de caracteres automaticamente upcast valores com informações de data/hora/fuso para DateTime escreva e, em seguida, convertê-lo para UTC. Isso resultou em perda de informações de fuso horário.
+  * **Versões anteriores:** O analisador JSON seria valores de cadeia de caracteres automaticamente upcast com informações de data/hora/fuso para o tipo DateTime e, em seguida, convertê-lo para UTC. Isso resultou em perda de informações de fuso horário.
 
-  * **versão atual:** há não mais automaticamente upcast dos valores de cadeia de caracteres com informações de data/hora/fuso para o tipo DateTime. Como resultado, as informações de fuso horário são mantidas. 
+  * **versão atual:** Há não mais automaticamente upcast dos valores de cadeia de caracteres com informações de data/hora/fuso para o tipo DateTime. Como resultado, as informações de fuso horário são mantidas. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Resolver problemas de entradas do Azure Stream Analytics](stream-analytics-troubleshoot-input.md)

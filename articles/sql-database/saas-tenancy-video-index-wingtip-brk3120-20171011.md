@@ -12,20 +12,20 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 05/14/2018
-ms.openlocfilehash: b472baf77cc8f253337aa0780321a6e7dd3fecac
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ec3f286791a3a2c7a3bebd84ba17a11571e389f8
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056694"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163978"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado e anotada para a aplicação de SaaS de multi-inquilino com a base de dados do Azure SQL
 
 Este artigo é um índice anotado para as localizações de tempo de um minuto 81 vídeo sobre os modelos de inquilinos de SaaS ou os padrões. Este artigo permite-lhe ignorar para trás ou no vídeo para o qual a parte a partir de agora lhe interessa. O vídeo explica as opções de design principais para uma aplicação de base de dados do multi-inquilino na base de dados do Azure SQL. O vídeo inclui demonstrações, orientações passo a passo do código de gestão e às vezes mais detalhadamente informado por experiência que pode ser na nossa documentação escrita.
 
 O vídeo amplifica as informações na nossa documentação escrita, encontrada em: 
-- *Conceptual:* [padrões de inquilinos da base de dados de SaaS de multi-inquilino][saas-concept-design-patterns-563e]
-- *Tutoriais:* [a aplicação Wingtip Tickets SaaS][saas-how-welcome-wingtip-app-679t]
+- *Conceitual:* [Padrões de inquilinos de bases de dados de SaaS de multi-inquilino][saas-concept-design-patterns-563e]
+- *Tutoriais:* [A aplicação Wingtip Tickets SaaS][saas-how-welcome-wingtip-app-679t]
 
 O vídeo e os artigos descrevem as muitas fases de criação de uma aplicação multi-inquilino no banco de dados do Azure SQL na cloud. Recursos especiais de base de dados SQL do Azure tornam mais fácil desenvolver e implementar aplicações multi-inquilino que são ambos mais fácil de gerenciar e fiável com bom desempenho.
 
@@ -63,8 +63,8 @@ Os títulos seguintes são links para suas correspondentes anotadas secções ma
 - [17. Aplicação de SaaS de multi-inquilino híbrida canônico, 0:47:33](#anchor-image-wtip-min04733)
 - [18. Aplicação de exemplo do Wingtip SaaS, 0:48:10](#anchor-image-wtip-min04810)
 - [19. Cenários e padrões exploradas nos tutoriais, 0:49:10](#anchor-image-wtip-min04910)
-- [20. Demonstração de tutoriais e repositório do Github, 0:50:18](#anchor-image-wtip-min05018)
-- [21. Repositório do Github Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
+- [20. Demonstração de tutoriais e repositório do GitHub, 0:50:18](#anchor-image-wtip-min05018)
+- [21. Repositório do GitHub Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
 - [22. Explorar os padrões, 0:56:20](#anchor-image-wtip-min05620)
 - [23. Aprovisionar inquilinos e integração, 0:57:44](#anchor-image-wtip-min05744)
 - [24. Aprovisionar inquilinos e ligação de aplicação, 0:58:58](#anchor-image-wtip-min05858)
@@ -94,11 +94,11 @@ Clicar em qualquer imagem de captura de ecrã, leva-o para a localização de ho
 &nbsp; <a name="anchor-image-wtip-min00001"/>
 #### <a name="1-start-welcome-slide-00001"></a>1. *(Start)*  Slide de boas-vindas, 0:00:01
 
-*Aprendendo com o MYOB: padrões de Design para aplicações de SaaS no Azure SQL Database - BRK3120*
+*Aprendendo com o MYOB: Padrões de design para aplicações de SaaS no Azure SQL Database - BRK3120*
 
 [![Slide de boas-vindos][image-wtip-min00003-brk3120-whole-welcome]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=1)
 
-- Título: Aprendendo com o MYOB: padrões de Design para aplicações SaaS na base de dados do Azure SQL
+- Título: Aprendendo com o MYOB: Padrões de design para aplicações SaaS na base de dados do Azure SQL
 - Bill.Gibson@microsoft.com
 - Gestor de programa principal, base de dados SQL do Azure
 - Sessão do Microsoft Ignite BRK3120, Orlando, FL EUA, / 11 de Outubro de 2017
@@ -121,7 +121,7 @@ Clicar em qualquer imagem de captura de ecrã, leva-o para a localização de ho
 
 &nbsp; <a name="anchor-image-wtip-min00505"/>
 #### <a name="4-multi-tenant-web-app-00500"></a>4. Aplicação web do multi-inquilino, 0: GMT+05:00
-[![Aplicação de SaaS da Wingtip: aplicação web do multi-inquilino][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
+[![Aplicação SaaS Wingtip: Aplicação web do multi-inquilino][image-wtip-min00505-web-app]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=300)
 
 
 &nbsp; <a name="anchor-image-wtip-min00555"/>
@@ -199,13 +199,13 @@ Clicar em qualquer imagem de captura de ecrã, leva-o para a localização de ho
 
 
 &nbsp; <a name="anchor-image-wtip-min05018"/>
-#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Demonstração de tutoriais e repositório do Github, 0:50:12
-[![Tutoriais de demonstração e o repositório do Github][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
+#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Demonstração de tutoriais e repositório do GitHub, 0:50:12
+[![Tutoriais de demonstração e o repositório do GitHub][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
 
 
 &nbsp; <a name="anchor-image-wtip-min05038"/>
-#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Repositório do Github Microsoft/WingtipSaaS, 0:50:32
-[![Repositório do Github Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
+#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Repositório do GitHub Microsoft/WingtipSaaS, 0:50:32
+[![Repositório do GitHub Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
 
 
 &nbsp; <a name="anchor-image-wtip-min05620"/>
@@ -294,14 +294,14 @@ Clicar em qualquer imagem de captura de ecrã, leva-o para a localização de ho
 
 - [Mensagem de blogue, 22 de Maio de 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *Conceptual:* [padrões de inquilinos da base de dados de SaaS de multi-inquilino][saas-concept-design-patterns-563e]
+- *Conceitual:* [Padrões de inquilinos de bases de dados de SaaS de multi-inquilino][saas-concept-design-patterns-563e]
 
-- *Tutoriais:* [a aplicação Wingtip Tickets SaaS][saas-how-welcome-wingtip-app-679t]
+- *Tutoriais:* [A aplicação Wingtip Tickets SaaS][saas-how-welcome-wingtip-app-679t]
 
-- Repositórios do Github para tipos de aplicação Wingtip Tickets SaaS inquilinos:
-    - [Repositório do Github para - modelo de aplicativo autônomo][github-wingtip-standaloneapp].
-    - [Repositório do Github para - modelo do DB por inquilino][github-wingtip-dbpertenant].
-    - [Repositório do Github para - modelo do multi-inquilino DB][github-wingtip-multitenantdb].
+- Repositórios do GitHub para tipos de aplicação Wingtip Tickets SaaS inquilinos:
+    - [Repositório do GitHub para - modelo de aplicativo autônomo][github-wingtip-standaloneapp].
+    - [Repositório do GitHub para - modelo do DB por inquilino][github-wingtip-dbpertenant].
+    - [Repositório do GitHub para - modelo do multi-inquilino DB][github-wingtip-multitenantdb].
 
 
 
@@ -322,7 +322,7 @@ Clicar em qualquer imagem de captura de ecrã, leva-o para a localização de ho
 
 [image-wtip-min00417-agenda]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00417-agenda-app-management-models-patterns.png "Agenda."
 
-[image-wtip-min00505-web-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00505-wingtip-saas-app-mt-web.png "Aplicação de SaaS da Wingtip: aplicação web do multi-inquilino"
+[image-wtip-min00505-web-app]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00505-wingtip-saas-app-mt-web.png "Aplicação SaaS Wingtip: Aplicação web do multi-inquilino"
 
 [image-wtip-min00555-app-web-form]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min00555-app-form-contoso-concert-hall-night-opera.png "Formulário da web de aplicação em ação"
 
@@ -354,9 +354,9 @@ Clicar em qualquer imagem de captura de ecrã, leva-o para a localização de ho
 
 [image-wtip-min04910-scenarios-tutorials]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04910-scenarios-patterns-explored-tutorials.png "Cenários e padrões exploradas nos tutoriais"
 
-[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Demonstração de tutoriais e repositório do Github"
+[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Demonstração de tutoriais e repositório do GitHub"
 
-[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Repositório do Github Microsoft/WingtipSaaS"
+[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Repositório do GitHub Microsoft/WingtipSaaS"
 
 [image-wtip-min05620-exploring-patterns]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05620-exploring-patterns-tutorials.png "Explorar os padrões de"
 

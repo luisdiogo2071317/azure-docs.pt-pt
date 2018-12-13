@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Utilizar o portal do Azure para começar'
+title: Início rápido através do portal do Azure
 titleSuffix: Azure Machine Learning service
 description: Introdução ao serviço Azure Machine Learning. Utilize o portal do Azure para criar uma área de trabalho, o que é o bloco fundamental na cloud que utilizar para testar, preparar e implementar modelos de aprendizagem automática.
 services: machine-learning
@@ -11,16 +11,16 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 00ad774caa0fe0dcfb7f41614ec25e6cc802da10
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c215a3947069e572f73692ea54010c77d78ae4fd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103103"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273566"
 ---
-# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início Rápido: Utilizar o portal do Azure para começar a trabalhar com o Azure Machine Learning
+# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o portal do Azure para começar a utilizar com o Azure Machine Learning
 
-Neste início rápido, vai utilizar o portal do Azure para criar uma área de trabalho do Azure Machine Learning. Esta área de trabalho é o pilar na cloud que utiliza para experimentar, preparar e implementar modelos de machine learning com Machine Learning. Este início rápido utiliza recursos na cloud e não requer qualquer instalação. Para configurar o seu próprio servidor de blocos de notas do Jupyter em vez disso, veja [Início Rápido: utilizar o Python para começar a utilizar o Azure Machine Learning](quickstart-create-workspace-with-python.md).
+Neste início rápido, vai utilizar o portal do Azure para criar uma área de trabalho do Azure Machine Learning. Esta área de trabalho é o pilar na cloud que utiliza para experimentar, preparar e implementar modelos de machine learning com Machine Learning. Este início rápido utiliza recursos na cloud e não requer qualquer instalação. Para configurar o seu próprio servidor de bloco de notas do Jupyter em vez disso, consulte [início rápido: Utilizar Python para começar a utilizar com o Azure Machine Learning](quickstart-create-workspace-with-python.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -39,7 +39,7 @@ Os seguintes recursos do Azure são adicionados automaticamente à sua área de 
 
 Os recursos que criar podem ser utilizados como pré-requisitos para outros tutoriais e artigos de procedimentos do serviço Machine Learning. Como com outros serviços do Azure, existem limites em certos recursos associados com o Machine Learning, como tamanho de cluster de computação. Saiba mais sobre [os limites predefinidos e como aumentar a quota](how-to-manage-quotas.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho 
@@ -119,4 +119,4 @@ Criou os recursos necessários para experimentar e implementar modelos. Também 
 Para obter uma experiência aprofundada de fluxo de trabalho, siga o tutorial de Machine Learning para preparar e implementar um modelo.  
 
 > [!div class="nextstepaction"]
-> [Tutorial: Preparar um modelo de classificação de imagens](tutorial-train-models-with-aml.md)
+> [Tutorial: Preparar um modelo de classificação de imagem](tutorial-train-models-with-aml.md)

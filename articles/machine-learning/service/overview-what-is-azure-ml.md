@@ -1,5 +1,6 @@
 ---
-title: O que é o serviço Azure Machine Learning?
+title: Acerca
+titleSuffix: Azure Machine Learning service
 description: Descrição geral do serviço do Azure Machine Learning--uma solução de ciência de dados ponto a ponto integrada para cientistas de dados profissionais desenvolver, experimentar e implementar aplicações de análise avançada à escala da cloud.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c3c0697af739c151f9aa7cbaed65283a365be7a7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f0860982da6a06a3529539768179f9bc28a0695a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077227"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272988"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
 
@@ -48,7 +49,7 @@ E com avançados [de machine learning pipelines](concept-ml-pipelines.md), pode 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>O que posso fazer com o serviço Azure Machine Learning?
 
 O serviço do Azure Machine Learning pode auto-preparar um modelo e otimização automáticas-lo para.
-Para obter um exemplo, veja [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) (Tutorial: preparar automaticamente um modelo de classificação com o Azure Automated Machine Learning).
+Por exemplo, veja [Tutorial: Preparar automaticamente um modelo de classificação com o Azure automatizada Machine Learning](tutorial-auto-train-models.md).
 
 Utilizar o Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> para o Python, juntamente com pacotes de Python de código-fonte aberto, que pode criar e treinar a aprendizagem altamente precisos e aprendizagem aprofundada modela-se numa área de trabalho do serviço Azure Machine Learning.
 Pode escolher de entre vários componentes de machine learning disponíveis em pacotes Python de open source, como os seguintes:
@@ -78,7 +79,10 @@ Utilize o serviço Machine Learning se trabalhar num ambiente Python, quiser mai
 > Os modelos criados no Azure Machine Learning Studio não podem ser implementados nem geridos pelo serviço Azure Machine Learning.
 
 ## <a name="free-trial"></a>Avaliação gratuita
-Se não for um subscritor, pode [abrir uma conta do Azure gratuitamente](https://aka.ms/amlfree). Receberá créditos para gastar em serviços do Azure. Depois de serem utilizados, pode manter a conta e utilizar os [serviços gratuitos do Azure](https://azure.microsoft.com/free/). O seu cartão de crédito não será cobrado, a menos que altere explicitamente as suas definições e peça para ser cobrado. Em alternativa, pode [ativar os benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), que dá-lhe créditos todos os meses que pode utilizar para os serviços do Azure pagos.
+
+Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
+
+Receberá créditos para gastar em serviços do Azure. Depois de serem utilizados, pode manter a conta e utilizar os [serviços gratuitos do Azure](https://azure.microsoft.com/free/). O seu cartão de crédito não será cobrado, a menos que altere explicitamente as suas definições e peça para ser cobrado. Em alternativa, pode [ativar os benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), que dá-lhe créditos todos os meses que pode utilizar para os serviços do Azure pagos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

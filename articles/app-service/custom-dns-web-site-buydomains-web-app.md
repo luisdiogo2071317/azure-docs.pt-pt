@@ -1,5 +1,5 @@
 ---
-title: Comprar um nome de domínio personalizado para Aplicações Web do Azure
+title: Comprar o nome de domínio personalizado no Azure - serviço de aplicações
 description: Saiba como comprar um nome de domínio personalizado com uma aplicação web no App Service do Azure.
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 48e0e68794e83739835d97aa8a2b26516c660357
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.custom: seodec18
+ms.openlocfilehash: 3f587b7e1b051b28d11ad84fcb2d02bd01315de5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345196"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256439"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Comprar um nome de domínio personalizado para Aplicações Web do Azure
 
@@ -153,7 +154,7 @@ Se optar por não atribuir uma ou mais nomes de anfitrião de predefinidos à su
 
 Também pode atribuir nomes de anfitrião do domínio do serviço de aplicações para qualquer outra aplicação web. Os passos dependem se o domínio do serviço de aplicações e a aplicação web de pertencer à mesma subscrição.
 
-- Uma subscrição diferente: mapear registos DNS personalizados do domínio do serviço de aplicações para a aplicação web, como um domínio externamente adquirida. Para obter informações sobre como adicionar nomes DNS personalizados a um domínio do serviço de aplicações, consulte [gerir registos DNS personalizados](#custom). Para mapear um domínio adquirido externo para uma aplicação web, consulte [mapear um nome DNS existente personalizado para aplicações Web do Azure](app-service-web-tutorial-custom-domain.md). 
+- Subscrição diferente: Mapa personalizados registos DNS do domínio do serviço de aplicações para a aplicação web, como um domínio externamente adquirido. Para obter informações sobre como adicionar nomes DNS personalizados a um domínio do serviço de aplicações, consulte [gerir registos DNS personalizados](#custom). Para mapear um domínio adquirido externo para uma aplicação web, consulte [mapear um nome DNS existente personalizado para aplicações Web do Azure](app-service-web-tutorial-custom-domain.md). 
 - Mesma subscrição: Utilize os seguintes passos.
 
 ### <a name="launch-add-hostname"></a>Iniciação Adicionar nome de anfitrião

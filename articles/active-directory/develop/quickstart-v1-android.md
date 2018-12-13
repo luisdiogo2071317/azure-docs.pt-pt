@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287239"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311070"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação Android
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
 Se estiver a desenvolver uma aplicação Android, a Microsoft torna o processo de início de sessão dos utilizadores no Azure Active Directory (Azure AD) simples e direto. O Azure AD permite que a sua aplicação obtenha acesso a dados de utilizador através do Microsoft Graph ou da sua própria API WEB protegida.
 
-A biblioteca Android da Biblioteca de Autenticação do Azure AD (ADAL) dá à sua aplicação a possibilidade de começar a utilizar a [Cloud do Microsoft Azure](https://cloud.microsoft.com) & [Microsoft Graph API](https://developer.microsoft.com/graph) ao suportar [contas do Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) com os protocolos OAuth 2.0 e OpenID Connect padrão do setor.
+A biblioteca do Android do Azure AD Authentication Library (ADAL) permite que a aplicação começar a utilizar o [Cloud do Microsoft Azure](https://cloud.microsoft.com) e [API do Microsoft Graph](https://developer.microsoft.com/graph) ao suportar [Microsoft Azure Contas do Active Directory](https://azure.microsoft.com/services/active-directory/) com o setor padrão OAuth 2.0 e OpenID Connect.
 
 Neste início rápido, vai aprender a:
 
@@ -51,23 +51,23 @@ Pode utilizar esta aplicação para todas as contas do Azure AD. Suporta cenári
 
 ## <a name="sample-code"></a>Código de exemplo
 
-O código de exemplo completo está disponível [no GitHub](https://github.com/Azure-Samples/active-directory-android).
+Pode encontrar o código de exemplo completo [no GitHub](https://github.com/Azure-Samples/active-directory-android).
 
 ```Java
 // Initialize your app with MSAL
 AuthenticationContext mAuthContext = new AuthenticationContext(
-        MainActivity.this, 
-        AUTHORITY, 
+        MainActivity.this,
+        AUTHORITY,
         false);
 
 
 // Perform authentication requests
 mAuthContext.acquireToken(
-    getActivity(), 
-    RESOURCE_ID, 
-    CLIENT_ID, 
-    REDIRECT_URI,  
-    PromptBehavior.Auto, 
+    getActivity(),
+    RESOURCE_ID,
+    CLIENT_ID,
+    REDIRECT_URI,
+    PromptBehavior.Auto,
     getAuthInteractiveCallback());
 
 // ...
@@ -95,7 +95,7 @@ Terá de ter uma aplicação cliente nativa registada na Microsoft com o [portal
     - Selecione **Adicionar** e, dentro de **Selecionar uma API**, selecione ***Microsoft Graph***.
     - Selecione a permissão **Iniciar sessão e ler perfil do utilizador** e clique em **Selecionar** para guardar.
         - Esta permissão é mapeada para o âmbito `User.Read`.
-    - Opcional: dentro de **Permissões obrigatórias > Microsoft Azure Active Directory**, remova a permissão selecionada **Iniciar sessão e ler perfil do utilizador**. Esta ação irá evitar que a página de consentimento do utilizador apresente a permissão duas vezes.
+    - Opcional: Dentro **permissões obrigatórias > Windows Azure Active Directory**, remova a permissão selecionada **iniciar sessão e ler o perfil de utilizador**. Esta ação irá evitar que a página de consentimento do utilizador apresente a permissão duas vezes.
 
 4. Parabéns! A sua aplicação está corretamente configurada. Na secção seguinte, terá de:
     - `Application ID`
@@ -110,7 +110,7 @@ Terá de ter uma aplicação cliente nativa registada na Microsoft com o [portal
 2. Abra o exemplo no Android Studio.
     - Selecione **Open an existing Android Studio project** (Abrir um projeto existente do Android Studio).
 
-## <a name="step-3-configure-your-code"></a>Passo 3: Configurar o código
+## <a name="step-3-configure-your-code"></a>Passo 3: Configurar o seu código
 
 Pode encontrar toda a configuração para este exemplo de código no ficheiro ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java***.
 

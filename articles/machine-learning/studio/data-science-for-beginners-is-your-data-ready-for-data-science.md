@@ -4,10 +4,9 @@ description: Critérios de quatro que seus dados têm de cumprir para estar pron
 keywords: dados relevantes, avaliar dados, preparar dados, os critérios de dados, dados prontos
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 3408130e97b6b38de58300244f884257c179230c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2a9101ed510c617df81f422aea92ca1ef2b28cd8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092894"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261233"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Os seus dados estão prontos para a ciência de dados?
 ## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Ciência de dados para a série de iniciantes
@@ -38,13 +37,13 @@ Para obter o máximo proveito da série, assista a todos eles. [Aceda à lista d
 ## <a name="other-videos-in-this-series"></a>Outros vídeos desta série
 *Ciência de dados para principiantes* é uma introdução rápida à ciência dos dados em cinco vídeos curtos.
 
-* Vídeo 1: [respostas de ciência de dados de questões do 5](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 seg)*
-* Vídeo 2: São os seus dados prontos para ciência de dados?
-* Vídeo 3: [faça uma pergunta que pode ser respondidas com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 seg)*
-* Vídeo 4: [prever uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 seg)*
-* Vídeo 5: [copiar o trabalho de outras pessoas para fazer ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 seg)*
+* Vídeo 1: [Respostas de ciência de dados de questões do 5](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 seg)*
+* Vídeo 2: Os seus dados estão prontos para a ciência de dados?
+* Vídeo 3: [Faça uma pergunta que pode ser respondidas com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 seg)*
+* Vídeo 4: [Prever uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 seg)*
+* Vídeo 5: [Copiar o trabalho de outras pessoas para fazer ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 seg)*
 
-## <a name="transcript-is-your-data-ready-for-data-science"></a>Transcrição: São os seus dados prontos para ciência de dados?
+## <a name="transcript-is-your-data-ready-for-data-science"></a>Transcrição: Os seus dados estão prontos para a ciência de dados?
 Bem-vindo ao "São os seus dados prontos para ciência de dados?" o segundo vídeo da série *ciência de dados para principiantes*.  
 
 Antes de ciência de dados pode fornecer-lhe as respostas que pretende, terá de atribuir-lhe alguns materiais de raw de alta qualidade para trabalhar com. Como fazer uma pizza, melhor os ingredientes que iniciar com melhor o produto final. 

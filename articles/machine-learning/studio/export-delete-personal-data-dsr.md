@@ -3,22 +3,21 @@ title: Exportar e eliminar os dados do Machine Learning Studio - Azure | Documen
 description: Dados de produto armazenados pelo Azure Machine Learning Studio estão disponíveis para a exportação e eliminação através do portal do Azure e também através de APIs de REST autenticados. Dados de telemetria podem ser acedidos através do Portal de privacidade do Azure. Este artigo mostra-lhe como.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: cgronlun
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 04b26dc9ad9f4b7a4feb03039d92854385d75465
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e69883022937ccb4ad0f83f144afef0b5b1e0e56
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262378"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276269"
 ---
-# <a name="export-and-delete-in-product-user-data-from-machine-learning-studio"></a>Exportar e eliminar dados de utilizador no produto de Machine Learning Studio
+# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exportar e eliminar dados de utilizador no produto do Azure Machine Learning Studio
 
 Pode eliminar ou exportar no produto dados armazenados por Azure Machine Learning Studio através do portal do Azure, a interface do Studio, PowerShell e autenticado REST APIs. Este artigo mostra-lhe como. 
 
@@ -33,8 +32,8 @@ Dados de telemetria podem ser acedidos através do portal de privacidade do Azur
 Para este serviço, dados de utilizador consiste em informações sobre os utilizadores autorizados a aceder a áreas de trabalho e registos de telemetria de interações de utilizador com o serviço.
 
 Existem dois tipos de dados de utilizador no Machine Learning Studio:
-- **Dados de conta pessoal:** IDs de conta e endereços de e-mail associados com uma conta.
-- **Dados do cliente:** dados carregados para analisar.
+- **Dados de conta pessoal:** IDs de conta e endereços associados a uma conta de e-mail.
+- **Dados do cliente:** Dados que carregou para analisar.
 
 ## <a name="studio-account-types-and-how-data-is-stored"></a>Tipos de conta de Studio e o modo como os dados são armazenados
 
@@ -65,7 +64,7 @@ Os utilizadores podem eliminar os recursos numa área de trabalho selecionando-o
 ### <a name="delete-an-entire-workspace"></a>Eliminar uma área de trabalho inteira
 
 Os utilizadores também podem eliminar a sua área de trabalho inteira:
-- Paga a área de trabalho: eliminar através do portal do Azure.
+- Área de trabalho paga: Elimine através do portal do Azure.
 - Área de trabalho gratuita: Utilize o botão Eliminar no **definições** painel.
 
 ![Eliminar uma área de trabalho gratuita no Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)

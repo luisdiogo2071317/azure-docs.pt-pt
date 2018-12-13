@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 93824c8f0e7667fcb58fd6b8292cddfa2b4a482a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb5d731fbef22c70aaf970bf64aa90361e47a542
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441465"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194203"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implementar o SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure
 Este artigo descreve como implementar um sistema SAP IDES em execução com o SQL Server e o sistema operativo do Windows no Azure através de SAP Cloud Appliance Library (SAP CAL) 3.0. As capturas de ecrã mostram o processo passo a passo. Para implementar uma solução diferente, siga os mesmos passos.
@@ -29,7 +29,7 @@ Este artigo descreve como implementar um sistema SAP IDES em execução com o SQ
 Para começar com o SAP CAL, vá para o [SAP Cloud Appliance Library](https://cal.sap.com/) Web site. SAP também tem um blog sobre o novo [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 > [!NOTE]
-A partir de 29 de Maio de 2017, pode utilizar o modelo de implementação Azure Resource Manager, além do modelo de implementação clássica menos preferível para implementar o SAP CAL. Recomendamos que utilize o novo modelo de implementação do Resource Manager e ignorar o modelo de implementação clássica.
+> A partir de 29 de Maio de 2017, pode utilizar o modelo de implementação Azure Resource Manager, além do modelo de implementação clássica menos preferível para implementar o SAP CAL. Recomendamos que utilize o novo modelo de implementação do Resource Manager e ignorar o modelo de implementação clássica.
 
 Se já criou uma conta de SAP CAL que utiliza o modelo clássico, *tem de criar outra conta de SAP CAL*. Esta conta tem de implementar exclusivamente para o Azure, utilizando o modelo do Resource Manager.
 
@@ -104,7 +104,7 @@ Antes de poder implementar a solução SAP IDES com base no Windows e do SQL Ser
 
     c.  Introduza o mestre **palavra-passe** para a solução, conforme mostrado:
 
-    ![Modo do SAP CAL básico: Criar instância](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
+    ![Modo do SAP CAL Basic: Criar instância](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
 1. Clique em **Criar**. Após algum tempo, dependendo do tamanho e complexidade da solução (o SAP CAL fornece uma estimativa), o estado é apresentado como ativo e pronto a utilizar: 
 

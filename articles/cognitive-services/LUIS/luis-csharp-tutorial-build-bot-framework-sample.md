@@ -1,5 +1,5 @@
 ---
-title: Bot comC#
+title: Bot - C# -v3
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Com o C#, crie um chatbot integrado com compreensão de idiomas (LUIS). Este chatbot utiliza o domínio de HomeAutomation criados previamente para implementar rapidamente uma solução de bot.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 919d48d73a552596c78c3be18e7628ee7700f7e1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b4b074de483d4a1ccd4c934a9fa7254e0f656a1b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080219"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133956"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot de LUIS em C# com o Bot Framework 3.x e bot de aplicação Web do Azure
 
@@ -37,11 +37,11 @@ Com o C#, crie um chatbot integrado com compreensão de idiomas (LUIS). Este cha
 
 1. Na [portal do Azure](https://portal.azure.com), selecione **criar novo recurso** no menu à esquerda superior.
 
-    ![Criar novo recurso](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
+    ![Criar novo recurso no portal do Azure](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
 
 2. Na caixa de pesquisa, procure **Web App Bot**. 
 
-    ![Criar novo recurso](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
+    ![Selecione o bot de funções como tipo de recurso](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
 
 3. Na janela do bot de funções, clique em **criar**.
 

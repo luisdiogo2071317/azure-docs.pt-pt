@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: zarhoads
-ms.openlocfilehash: dc7bb0eab9004b9c818a4a7cbbf6102f01b24f45
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e794c191737f14fb06351e345f70edb9f7cddb7c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465236"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322061"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalar e configurar o PostgreSQL no Azure
 PostgreSQL é um código-fonte aberto banco de dados avançado semelhante para Oracle e DB2. Inclui funcionalidades empresariais como conformidade completa ACID, processamento transacional fiável e controlo de simultaneidade de várias versões. Ele também oferece suporte a padrões como ANSI SQL e SQL/MED (incluindo invólucros de dados externa para Oracle, MySQL, MongoDB e muitas outras). É altamente extensível com suporte para as linguagens de procedimento mais 12, índices GIN e essência, suporte de dados geográficos e vários recursos do tipo do NoSQL para JSON ou aplicativos baseada em chave-valor.
@@ -76,7 +76,7 @@ Ligue-se para o Linux VM criada por meio do PuTTY. Se esta for a primeira vez qu
 ## <a name="configure-postgresql"></a>Configurar o PostgreSQL
 1. (Opcional) Crie um link simbólico para encurtar a referência de PostgreSQL não incluir o número de versão:
    
-        # ln -s /opt/pgsql9.3.5 /opt/pgsql
+        # ln -s /opt/postgresql-9.3.5 /opt/pgsql
 2. Crie um diretório para a base de dados:
    
         # mkdir -p /opt/pgsql_data
@@ -119,6 +119,7 @@ Ligue-se para o Linux VM criada por meio do PuTTY. Se esta for a primeira vez qu
 7. Também pode verificar a versão de PostgreSQL:
    
         $ psql -V
+
 8. Inicialize a base de dados:
    
         $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W

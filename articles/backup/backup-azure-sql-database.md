@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: f6271e8de6be0bcfab7ade4c9e90a69482e7905e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: d38fc727ed7e9e3c47d2fcb9af7894f8a2a7c7a7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878215"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262338"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer cópias de segurança de bases de dados do SQL Server para o Azure
 
@@ -117,8 +117,8 @@ Se estas condições existem no seu ambiente, continuar [configurar a cópia de 
 
 Para todas as operações, a máquina virtual do SQL necessita de conectividade para os endereços IP públicos do Azure. Operações de máquina virtual do SQL (por exemplo, a deteção de base de dados, configurar cópias de segurança, agendar cópias de segurança, restaurar pontos de recuperação e assim por diante) falhar sem conectividade com os endereços IP públicos. Utilize qualquer uma das seguintes opções para fornecer um caminho claro para o tráfego de cópia de segurança:
 
-- Lista de permissões de intervalos de IP do datacenter do Azure: À lista de permissões os intervalos IP do datacenter do Azure, utilize o [página do Centro de Download para obter detalhes sobre os intervalos de IP e as instruções](https://www.microsoft.com/download/details.aspx?id=41653).
-- Implementar um servidor proxy HTTP para encaminhar o tráfego: Quando cria cópias de uma base de dados SQL numa VM, a extensão de cópia de segurança na VM utiliza as APIs de HTTPS para enviar comandos de gestão para a cópia de segurança do Azure e os dados ao armazenamento do Azure. A extensão de cópia de segurança também utiliza o Azure Active Directory (Azure AD) para autenticação. Encaminhe o tráfego de extensão de cópia de segurança para estes três serviços através do proxy HTTP. A extensão 's o único componente que está configurado para acesso à internet pública.
+- Intervalos de IP do datacenter do Azure da lista de permissões: A lista de permissões os intervalos IP do datacenter do Azure, utilize o [página do Centro de Download para obter detalhes sobre os intervalos de IP e as instruções](https://www.microsoft.com/download/details.aspx?id=41653).
+- Implemente um servidor proxy HTTP para encaminhar o tráfego: Quando copia em segurança um banco de dados SQL numa VM, a extensão de cópia de segurança na VM utiliza as APIs de HTTPS para enviar comandos de gestão para a cópia de segurança do Azure e os dados ao armazenamento do Azure. A extensão de cópia de segurança também utiliza o Azure Active Directory (Azure AD) para autenticação. Encaminhe o tráfego de extensão de cópia de segurança para estes três serviços através do proxy HTTP. A extensão 's o único componente que está configurado para acesso à internet pública.
 
 As compensações entre as opções são a capacidade de gerenciamento, um controle granular e custo.
 
@@ -143,13 +143,13 @@ Para configurar permissões:
 
    ![Selecionar cópia de segurança para abrir o menu de objetivo de cópia de segurança](./media/backup-azure-sql-database/open-backup-menu.png)
 
-3. Na **objetivo de cópia de segurança** menu, defina **em que a sua carga de trabalho é executado** para o padrão: **Azure**.
+3. Na **objetivo de cópia de segurança** menu, defina **em que a sua carga de trabalho é executado** predefinido: **Azure**.
 
 4. Expanda a **o que fazer quiser a cópia de segurança** caixa de lista pendente e selecione **do SQL Server na VM do Azure**.
 
     ![Selecione o SQL Server na VM do Azure para a cópia de segurança](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    O **objetivo de cópia de segurança** menu apresenta dois passos: **detetar DBs em VMs** e **configurar a cópia de segurança**. O **detetar DBs em VMs** passo iniciar uma pesquisa de máquinas virtuais do Azure.
+    O **objetivo de cópia de segurança** menu apresenta duas etapas: **Detetar DBs em VMs** e **Configurar cópia de segurança**. O **detetar DBs em VMs** passo iniciar uma pesquisa de máquinas virtuais do Azure.
 
     ![Reveja os dois passos de objetivo de cópia de segurança](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -225,13 +225,13 @@ Cópia de segurança do Azure Deteta todas as bases de dados numa instância do 
 
    ![Selecionar cópia de segurança para abrir o menu de objetivo de cópia de segurança](./media/backup-azure-sql-database/open-backup-menu.png)
 
-6. Na **objetivo de cópia de segurança** menu, defina **em que a sua carga de trabalho é executado** para o padrão: **Azure**.
+6. Na **objetivo de cópia de segurança** menu, defina **em que a sua carga de trabalho é executado** predefinido: **Azure**.
 
 7. Expanda a **o que pretende criar cópias de segurança** caixa de lista pendente e selecione **do SQL Server na VM do Azure**.
 
     ![Selecione o SQL Server na VM do Azure para a cópia de segurança](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    O **objetivo de cópia de segurança** menu apresenta dois passos: **detetar DBs em VMs** e **configurar a cópia de segurança**.
+    O **objetivo de cópia de segurança** menu apresenta duas etapas: **Detetar DBs em VMs** e **Configurar cópia de segurança**.
 
     ![Reveja os dois passos de objetivo de cópia de segurança](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -273,13 +273,13 @@ Para configurar a proteção para uma base de dados SQL:
 
    ![Selecionar cópia de segurança para abrir o menu de objetivo de cópia de segurança](./media/backup-azure-sql-database/open-backup-menu.png)
 
-3. Na **objetivo de cópia de segurança** menu, defina **em que a sua carga de trabalho é executado** para o padrão: **Azure**.
+3. Na **objetivo de cópia de segurança** menu, defina **em que a sua carga de trabalho é executado** predefinido: **Azure**.
 
 4. Expanda a **o que pretende criar cópias de segurança** caixa de lista pendente e selecione **do SQL Server na VM do Azure**.
 
     ![Selecione o SQL Server na VM do Azure para a cópia de segurança](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    O **objetivo de cópia de segurança** menu apresenta dois passos: **detetar DBs em VMs** e **configurar a cópia de segurança**.
+    O **objetivo de cópia de segurança** menu apresenta duas etapas: **Detetar DBs em VMs** e **Configurar cópia de segurança**.
 
     Se tiver concluído os passos neste artigo em ordem, descobertos as máquinas virtuais desprotegidas e este Cofre está registado com uma máquina virtual. Agora, está pronto para configurar a proteção para as bases de dados SQL.
 
@@ -345,9 +345,9 @@ Para configurar a proteção para uma base de dados SQL:
 
 Uma política de cópia de segurança define uma matriz de quando os backups são feitos e o período de tempo são retidos. Utilize a cópia de segurança do Azure para agendar a três tipos de cópia de segurança de bases de dados SQL:
 
-* Cópia de segurança completa: uma cópia de segurança completa da base de dados faz backup de todo o banco de dados. Uma cópia de segurança completa contém todos os dados numa base de dados específica ou um conjunto de grupos de ficheiros ou ficheiros e suficiente registos para recuperar esses dados. No máximo, pode acionar uma cópia de segurança completa por dia. Pode optar por realizar um backup completo num intervalo diário ou semanal.
-* Cópia de segurança diferencial: um backup diferencial baseia-se a cópia de segurança de dados completa mais recente, anterior. Uma cópia de segurança diferencial captura apenas os dados que são alterados desde a cópia de segurança completa. No máximo, pode acionar uma cópia de segurança diferencial por dia. Não é possível configurar uma cópia de segurança completa e uma cópia de segurança diferencial no mesmo dia.
-* Cópia de segurança de registo de transações: restauro de ponto no tempo até um segundo específico permite a uma cópia de segurança do registo. No máximo, pode configurar cópias de segurança do registo transacional a cada 15 minutos.
+* Cópia de segurança completa: Uma cópia de segurança completa da base de dados faz backup de todo o banco de dados. Uma cópia de segurança completa contém todos os dados numa base de dados específica ou um conjunto de grupos de ficheiros ou ficheiros e suficiente registos para recuperar esses dados. No máximo, pode acionar uma cópia de segurança completa por dia. Pode optar por realizar um backup completo num intervalo diário ou semanal.
+* Cópia de segurança diferencial: Uma cópia de segurança diferencial baseia-se a cópia de segurança de dados completa mais recente, anterior. Uma cópia de segurança diferencial captura apenas os dados que são alterados desde a cópia de segurança completa. No máximo, pode acionar uma cópia de segurança diferencial por dia. Não é possível configurar uma cópia de segurança completa e uma cópia de segurança diferencial no mesmo dia.
+* Backup de log de transação: Uma cópia de segurança do registo permite que o restauro de ponto no tempo até um segundo específico. No máximo, pode configurar cópias de segurança do registo transacional a cada 15 minutos.
 
 A política criada no cofre dos serviços de recuperação de nível. Vários cofres podem utilizar a mesma política de cópia de segurança, mas tem de aplicar a política de cópia de segurança para cada cofre. Quando cria uma política de cópia de segurança, a cópia de segurança completa diária é a predefinição. Pode adicionar um backup diferencial, mas apenas se configurar cópias de segurança completas para ocorrer semanalmente. O procedimento seguinte explica como criar uma política de cópia de segurança para uma instância do SQL Server numa máquina virtual do Azure.
 
@@ -455,8 +455,8 @@ Também pode selecionar um backup completo ou diferencial específico para resta
     ![Selecione restaurar DB](./media/backup-azure-sql-database/restore-db-button.png)
 
     Quando o **restaurar** é aberto o menu, o **restaurar configuração** também é aberto o menu. O **restaurar configuração** menu é o primeiro passo para configurar o restauro. Use esse menu para selecione onde pretende restaurar os dados. As opções são:
-    - **Alternativo de localização**: restaurar a base de dados para uma localização alternativa e manter a base de dados de origem original.
-    - **Substituir a BD**: restaurar os dados para a mesma instância do SQL Server como a origem original. O efeito desta opção é substituir a base de dados original.
+    - **Alternativo de localização**: Restaurar a base de dados para uma localização alternativa e manter a base de dados de origem original.
+    - **Substituir a BD**: Restaure os dados para a mesma instância do SQL Server como a origem original. O efeito desta opção é substituir a base de dados original.
 
     > [!Important]
     > Se a base de dados selecionada pertence a um grupo de disponibilidade Always On, o SQL Server não permite que a base de dados sejam substituídas. Neste caso, apenas os **localização alternativa** opção está ativada.
@@ -798,19 +798,15 @@ A secção seguinte fornece informações adicionais sobre a cópia de seguranç
 ### <a name="can-i-throttle-the-speed-of-the-sql-server-backup-policy"></a>Pode limitar a velocidade da política de cópia de segurança do SQL Server?
 
 Sim. Pode limitar a taxa a que a política de cópia de segurança é executada para minimizar o impacto numa instância do SQL Server.
-
 Para alterar a definição:
-
-1. Na instância do SQL Server, na pasta C:\Program c:\programas\azure carga de trabalho Backup\bin, abra a **TaskThrottlerSettings.json** ficheiro.
-
-2. No ficheiro TaskThrottlerSettings.json, alterar os **DefaultBackupTasksThreshold** na definição de um valor inferior (por exemplo, 5).
+1. Na instância do SQL Server, na *pasta C:\Program c:\programas\azure carga de trabalho Backup\bin*, criar o **ExtensionSettingsOverrides.json** ficheiro.
+2. Na **ExtensionSettingsOverrides.json** de ficheiros, alterar a **DefaultBackupTasksThreshold** na definição de um valor inferior (por exemplo, 5) <br>
+  ` {"DefaultBackupTasksThreshold": 5}`
 
 3. Guarde as alterações. Feche o ficheiro.
-
-4. Na instância do SQL Server, abra **Gerenciador de tarefas**. Reinicie o **serviço de coordenador da carga de trabalho de cópia de segurança do Azure**.
+4. Na instância do SQL Server, abra **Gerenciador de tarefas**. Reinicie o **AzureWLBackupCoordinatorSvc** serviço.
 
 ### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Pode executar um backup completo de uma réplica secundária?
-
 Não. Esta funcionalidade não é suportada.
 
 ### <a name="do-successful-backup-jobs-create-alerts"></a>Tarefas de cópia de segurança bem-sucedida criar alertas?

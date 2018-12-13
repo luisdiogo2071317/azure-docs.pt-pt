@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 41965c4a498cfa4c1f0dfefaf7615e43083eb94c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c8a932ac06b58a8e683e326f082a3a2c038dba66
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011838"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273716"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>O registo de atividades do Azure para os Hubs de eventos do Stream
 Pode transmitir em fluxo a [registo de atividades do Azure](monitoring-overview-activity-logs.md) em tempo real para qualquer aplicativo, por qualquer um:
@@ -24,7 +24,7 @@ Pode transmitir em fluxo a [registo de atividades do Azure](monitoring-overview-
 ## <a name="what-you-can-do-with-the-activity-log-and-event-hubs"></a>O que pode fazer com o registo de atividades e os Hubs de eventos
 Seguem-se pode utilizar a capacidade de transmissão em fluxo para o registo de atividades de duas formas:
 
-* **Stream aos sistemas de Registro em log e telemetria de terceiros**: ao longo do tempo, Hubs de eventos de transmissão em fluxo irá tornar-se o mecanismo para o registo de atividades de pipes no SIEMs de terceiros e soluções de análise de registo.
+* **Stream aos sistemas de Registro em log e telemetria de terceiros**: Ao longo do tempo, Hubs de eventos de transmissão em fluxo se tornará o mecanismo para o registo de atividades de pipes no SIEMs de terceiros e soluções de análise de registo.
 * **Criar uma plataforma de Registro em log e telemetria personalizada**: Se já tiver uma plataforma de telemetria personalizados internos ou estão pensando em criar uma, altamente dimensionável de publicação-subscrição natureza dos Hubs de eventos permite-lhe flexibilidade ingerir o registo de atividades. Para obter mais informações, consulte [vídeo de Dan Rosanova sobre como utilizar os Hubs de eventos numa plataforma de telemetria de escala global](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Ativar a transmissão em fluxo do registo de atividades
@@ -101,5 +101,5 @@ O esquema para o registo de atividades está disponível no [monitorizar a ativi
 ## <a name="next-steps"></a>Passos Seguintes
 * [Arquive o registo de atividades para uma conta de armazenamento](monitoring-archive-activity-log.md)
 * [Leia a visão geral do registo de atividades do Azure](monitoring-overview-activity-logs.md)
-* [Configurar um alerta com base num evento do registo de atividade](monitor-alerts-unified-log-webhook.md)
+* [Configurar um alerta com base num evento do registo de atividade](../azure-monitor/platform/alerts-log-webhook.md)
 

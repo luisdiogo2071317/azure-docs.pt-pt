@@ -4,10 +4,9 @@ description: Este tutorial de machine learning apresenta-lhe uma experimentaçã
 keywords: experimentação, regressão linear, algoritmos de machine learning, tutorial de machine learning, técnicas de modelação preditiva, experiência de ciência de dados
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 9564ddcff3dfd910877f40482bc3f5acb2d03d35
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105398"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262423"
 ---
 # <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial: Criar a sua primeira experimentação de ciência de dados no Azure Machine Learning Studio
 
@@ -41,7 +40,7 @@ Neste tutorial, vamos aprender a utilizar o Studio pela primeira vez para criar 
 - [Machine learning basics with algorithm examples (Noções básicas de machine learning com exemplos de algoritmos)](basics-infographic-with-algorithm-examples.md) - esta infografia é útil se quiser saber mais sobre os diferentes tipos de algoritmos de machine learning que estão incluídos no Machine Learning Studio.
 - [Machine Learning Guide (Guia do Machine Learning)](https://gallery.cortanaintelligence.com/Tutorial/Machine-Learning-Guide-1) - este guia abrange informações semelhantes às da infografia anterior, mas num formato interativo.
 - [Machine learning algorithm cheat sheet (Referência rápida aos algoritmos de machine learning)](algorithm-cheat-sheet.md) e [How to choose algorithms for Microsoft Azure Machine Learning (Como escolher os algoritmos para o Microsoft Azure Machine Learning)](algorithm-choice.md) - esta imagem e o artigo associado abordam os algoritmos do Studio em maior detalhe.
-- [Machine Learning Studio: Algorithm and Module Help (Machine Learning Studio: Ajuda para Algoritmos e Módulos)](https://msdn.microsoft.com/library/azure/dn905974.aspx) - esta é a referência completa para todos os módulos do Studio, incluindo algoritmos de machine learning.
+- [O Machine Learning Studio: Algoritmo e o módulo de ajudar a](https://msdn.microsoft.com/library/azure/dn905974.aspx) -esta é a referência completa para todos os módulos do Studio, incluindo algoritmos de machine learning,
 
 
 
@@ -67,7 +66,7 @@ Para começar a utilizar com o Studio, aceda a [https://studio.azureml.net](http
 Neste tutorial do Machine Learning, vai executar cinco passos básicos para criar uma experimentação no Machine Learning Studio, de modo a criar, preparar e classificar o seu modelo:
 
 - **Criar um modelo**
-    - [Passo 1: Obter os dados]
+    - [Passo 1: Obter dados]
     - [Passo 2: Preparar os dados]
     - [Passo 3: Definir funcionalidades]
 - **Preparar o modelo**
@@ -75,7 +74,7 @@ Neste tutorial do Machine Learning, vai executar cinco passos básicos para cria
 - **Classificar e testar o modelo**
     - [Passo 5: Prever novos preços para automóveis]
 
-[Passo 1: Obter os dados]: #step-1-get-data
+[Passo 1: Obter dados]: #step-1-get-data
 [Passo 2: Preparar os dados]: #step-2-prepare-the-data
 [Passo 3: Definir funcionalidades]: #step-3-define-features
 [Passo 4: Escolher e aplicar um algoritmo de aprendizagem]: #step-4-choose-and-apply-a-learning-algorithm
@@ -85,7 +84,7 @@ Neste tutorial do Machine Learning, vai executar cinco passos básicos para cria
 > Pode encontrar uma cópia de trabalho da experimentação seguinte na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com). Aceda a **[Your first data science experiment - Automobile price prediction (A sua primeira experimentação de ciência de dados - Previsão do preço de automóveis)](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** e clique em **Open in Studio (Abrir no Studio)** para transferir uma cópia da experimentação para a sua área de trabalho do Machine Learning Studio.
 
 
-## <a name="step-1-get-data"></a>Passo 1: Obter os dados
+## <a name="step-1-get-data"></a>Passo 1: Obter dados
 
 A primeira coisa de que precisa para fazer o machine learning são os dados.
 Pode utilizar vários conjuntos de dados de exemplo incluídos no Machine Learning Studio ou pode importar dados de muitas origens. Neste exemplo, vamos utilizar o conjunto de dados de exemplo, **Automobile price data (Raw) (Dados de preços de automóveis (não processados))**, que está incluído na sua área de trabalho.
@@ -304,10 +303,10 @@ Para ver o resultado do módulo [Evaluate Model][evaluate-model], clique na port
 
 As estatísticas seguintes são apresentadas para o nosso modelo:
 
-- **Média dos erros absolutos** (MAE): A média dos erros absolutos (um *erro* é a diferença entre o valor previsto e o valor real).
-- **Raiz quadrada da média dos erros** (RMSE): A raiz quadrada da média dos erros ao quadrado das predições efetuadas no conjunto de dados de teste.
+- **Significa que o erro absoluto** (MAE): A média dos erros absolutos (um *erro* é a diferença entre o valor previsto e o valor real).
+- **Média de raiz ao quadrado erro** (RMSE): A raiz quadrada da média dos erros ao quadrado das predições efetuadas no conjunto de dados de teste.
 - **Erro relativo absoluto**: A média dos erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
-- **Erro ao quadrado absoluto**: A média dos erros ao quadrado relativos à diferença ao quadrado entre os valores reais e a média de todos os valores reais.
+- **Relativo ao quadrado erro**: A média dos erros ao quadrado relativos à diferença ao quadrado entre os valores reais e a média de todos os valores reais.
 - **Coeficiente de determinação**: Também conhecido como o **valor de R ao quadrado**, esta é uma métrica de estatística que indica o quão bem um modelo é adequado para os dados.
 
 Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor mais pequeno indica que as predições mais detalhadas correspondem aos valores reais. No **Coeficiente de determinação**, quanto mais próximo for um valor de outro (1.0), melhores serão as predições.

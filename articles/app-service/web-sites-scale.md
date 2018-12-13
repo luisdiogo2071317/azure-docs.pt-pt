@@ -1,5 +1,5 @@
 ---
-title: Aumentar verticalmente uma aplicação no Azure | Documentos da Microsoft
+title: Aumentar verticalmente os recursos e capacidades - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como aumentar verticalmente uma aplicação no serviço de aplicações do Azure para adicionar capacidade e funcionalidades.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: e612fc6ce737fba1552c4eacbab133783c9994dd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 2fb1f5ad0c3b46623550cbcc1204761b57f6093b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971237"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251062"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Aumentar verticalmente uma aplicação no Azure
 
@@ -30,7 +31,7 @@ ms.locfileid: "52971237"
 Este artigo mostra-lhe como dimensionar a sua aplicação no serviço de aplicações do Azure. Existem dois fluxos de trabalho para uma escala de dimensionamento, segurança e aumentar horizontalmente e este artigo explica o fluxo de trabalho de expansão.
 
 * [Aumentar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Obtenha mais CPU, memória, espaço em disco e funcionalidades adicionais, como máquinas de virtuais (VMs) dedicadas, domínios e certificados personalizados, ranhuras de teste, dimensionamento automático e muito mais. Aumentar verticalmente ao alterar o escalão de preço do plano do serviço de aplicações que qual pertence a sua aplicação.
-* [Aumentar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): aumentar o número de instâncias de VMS que executam a aplicação.
+* [Aumentar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Aumente o número de instâncias de VMS que executam a aplicação.
   Pode aumentar horizontalmente até 20 instâncias, consoante o escalão de preço. [Ambientes do App Service](environment/intro.md) no **Isolated** camada de ainda mais aumenta sua contagem de escalamento horizontal a 100 instâncias. Para obter mais informações sobre como ampliar, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md). Aí, encontrará informações sobre como utilizar o dimensionamento automático, que é Dimensionar automaticamente com base em regras predefinidas e agendas de contagem de instâncias.
 
 As definições de dimensionamento levam apenas alguns segundos para aplicar e afetam todas as aplicações no seu [plano do App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
@@ -98,7 +99,7 @@ Para uma tabela de limites do serviço, quotas e restrições e as funcionalidad
   
     [Máquina virtual e tamanhos do serviço Cloud do Microsoft Azure][vmsizes]
   
-* Para obter informações sobre o App Service do Azure melhores práticas, incluindo a criação de uma arquitetura resiliente e dimensionável, consulte [melhores práticas: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
+* Para obter informações sobre o App Service do Azure melhores práticas, incluindo a criação de uma arquitetura resiliente e dimensionável, consulte [práticas recomendadas: Aplicações Web do serviço de aplicações do Azure](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
 * Para os vídeos sobre o dimensionamento de aplicações do serviço de aplicações, consulte os seguintes recursos:
   
   * [Quando dimensionar Web sites do Azure - com Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)

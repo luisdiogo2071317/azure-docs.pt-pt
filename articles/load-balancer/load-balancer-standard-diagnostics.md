@@ -1,13 +1,11 @@
 ---
-title: Diagnóstico de Balanceador de carga Standard do Azure | Documentos da Microsoft
+title: Diagnóstico de Balanceador de carga Standard do Azure
+titlesuffix: Azure Load Balancer
 description: Utilize as informações de estado de funcionamento e as métricas disponíveis para obter um diagnóstico para o Balanceador de carga Standard do Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 258e093acd50946e95360416f89b2ceb96ee35d3
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77c3c595994092ff2ca68f3cefa5eb3c8a54bcd6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426473"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189052"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Diagnóstico de estado de funcionamento e de métricas para o Balanceador de carga Standard
 
 Balanceador de carga Standard do Azure expõe o Balanceador de carga Standard do Azure oferece as seguintes capacidades de diagnóstico de recursos do:
-* **Métricas multidimensionais**: fornece novos recursos de diagnóstico multidimensionais através de [do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para públicos e internos de configurações de Balanceador de carga. Pode monitorizar, gerir e resolver problemas de seus recursos do Balanceador de carga.
+* **Métricas multidimensionais**: Fornece novos recursos de diagnóstico multidimensionais através de [do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para públicos e internos de configurações de Balanceador de carga. Pode monitorizar, gerir e resolver problemas de seus recursos do Balanceador de carga.
 
-* **Estado de funcionamento do recurso**: página do Balanceador de carga no portal do Azure e a página de estado de funcionamento do recurso (sob o Monitor) expõem a secção de estado de funcionamento do recurso para a configuração de Balanceador de carga público do Balanceador de carga Standard.
+* **Estado de funcionamento do recurso**: A página de Balanceador de carga no portal do Azure e a página de estado de funcionamento do recurso (sob o Monitor) expõem a secção de estado de funcionamento do recurso para a configuração de Balanceador de carga público do Balanceador de carga Standard.
 
 Este artigo fornece um tour rápido estas capacidades e oferece maneiras de usá-los para o Balanceador de carga Standard.
 
@@ -82,7 +80,7 @@ Para obter a disponibilidade de VIP para os seus recursos do Balanceador de carg
 
 ![VIP de pesquisa](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-*Figura: VIP do Balanceador de carga detalhes de pesquisa*
+*Figura: Detalhes de pesquisa de VIP de Balanceador de carga*
 
 A métrica é gerada por uma medida de Active Directory, em banda. Um serviço de pesquisa dentro da região se origina o tráfego para a medição. O serviço é ativado quando cria uma implementação com um front-end público, e ele continua até remover o front-end. 
 
@@ -157,7 +155,7 @@ Para obter estatísticas de contagem de bytes ou pacote:
 
 ![Contagem de bytes](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*Figura: Contagem de bytes de Balanceador de carga*
+*Figura: Contagem de bytes do Balanceador de carga*
 
 #### <a name = "vipavailabilityandhealthprobes"></a>Como posso diagnosticar minha implementação do Balanceador de carga?
 
@@ -169,7 +167,7 @@ Pode dar um passo adicional e utilize métricas de disponibilidade de VIP para o
 
 ![Diagnóstico de VIP](./media/load-balancer-standard-diagnostics/LBMetrics-DIPnVIPAvailability.png)
 
-*Figura: Combinar as métricas de disponibilidade do DIP e VIP*
+*Figura: Combinando as métricas de disponibilidade do DIP e VIP*
 
 O gráfico apresenta as seguintes informações:
 - A própria infra-estrutura foi bom estado de funcionamento, a infraestrutura que aloja as suas VMs era acessível e, mais do que uma VM foi colocada no back-end. Esta informação é indicada pelo rastreio de azul para uma disponibilidade de VIP, que é 100 por cento. 
@@ -193,7 +191,7 @@ Para ver o estado de funcionamento dos seus recursos do Balanceador de carga Sta
 
    ![Página objeto da monitorização](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
-   *Figura: A ligação do Service Health Monitor do Azure*
+   *Figura: A ligação de estado de funcionamento do serviço no Azure Monitor*
 
 2. Selecione **Resource Health**e, em seguida, certifique-se de que **ID de subscrição** e **tipo de recurso = Balanceador de carga** estão selecionadas.
 
@@ -205,7 +203,7 @@ Para ver o estado de funcionamento dos seus recursos do Balanceador de carga Sta
 
     ![Estado de funcionamento do Balanceador de carga](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   *Figura: Vista de estado de funcionamento de recursos de Balanceador de carga*
+   *Figura: Vista de estado de funcionamento do recurso de Balanceador de carga*
  
 Os vários Estados de estado de funcionamento do recurso e suas descrições estão listadas na tabela a seguir: 
 

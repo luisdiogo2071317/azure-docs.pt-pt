@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 2d7b50eadc130900cbd69d579f5ebb2997ad46a0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 4d77f8aad07d2fd4b3e2c4ec42b5b0ec328f779d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872953"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269520"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure com cópias de segurança da base de dados automatizada
 
@@ -64,10 +64,10 @@ Para uma única subscrição, existem algumas limitações no número de pedidos
 |Conjunto elástico (por conjunto)|4|200|
 ||||
 
-Não é uma funcionalidade incorporada em massa de restauro. O [SQL Database do Azure: recuperação de servidor completo](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script é um exemplo de uma maneira de realizar essa tarefa.
+Não é uma funcionalidade incorporada em massa de restauro. O [base de dados SQL do Azure: Total de recuperação do servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) script é um exemplo de uma maneira de realizar essa tarefa.
 
 > [!IMPORTANT]
-> Para recuperar ao utilizar cópias de segurança automáticas, tem de ser um membro da função de contribuinte do SQL Server na subscrição ou ser o proprietário da subscrição - veja [RBAC: funções incorporadas](../role-based-access-control/built-in-roles.md). Pode recuperar através do portal do Azure, do PowerShell ou da API REST. Não é possível utilizar Transact-SQL.
+> Para recuperar ao utilizar cópias de segurança automáticas, tem de ser um membro da função de contribuinte do SQL Server na subscrição ou ser o proprietário da subscrição - veja [RBAC: Funções incorporadas](../role-based-access-control/built-in-roles.md). Pode recuperar através do portal do Azure, do PowerShell ou da API REST. Não é possível utilizar Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 
@@ -129,7 +129,7 @@ Georrestauro encontra-se a opção de recuperação predefinida quando a sua bas
 Restauro de ponto no tempo na geo-secundária não é atualmente suportado. Restauro de ponto no tempo pode ser feito apenas numa base de dados primária. Para obter informações detalhadas sobre como utilizar o restauro geográfico para recuperar a partir de uma falha, consulte [recuperar a partir de um período de indisponibilidade](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Recuperação a partir de cópias de segurança é a mais básica das soluções de recuperação após desastre disponíveis no banco de dados SQL com o objetivo de ponto de recuperação mais longo (RPO) e o tempo de recuperação de estimativa (ERT). Para soluções que utilizar bases de dados de tamanho pequeno (camada de serviços por exemplo, Basic ou conjuntos elásticos de bases de dados de inquilinos de tamanho pequeno), o restauro geográfico com frequência é uma solução de DR razoável com um ERT de até 12 horas (geralmente muito menos). Para soluções com grandes bancos de dados e necessitam de recuperação menores vezes, deve considerar o uso [ativação pós-falha de grupos e a georreplicação ativa](sql-database-geo-replication-overview.md). Replicação geográfica activa oferece um RPO de muito mais baixo e ERT uma vez que ele apenas requer que inicie uma ativação pós-falha para uma secundária replicada de forma contínua. Para obter mais informações sobre as opções de continuidade do negócio, veja [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
+> Recuperação a partir de cópias de segurança é a mais básica das soluções de recuperação após desastre disponíveis no banco de dados SQL com o objetivo de ponto de recuperação mais longo (RPO) e o tempo de recuperação de estimativa (ERT). Para soluções que utilizar bases de dados de tamanho pequeno (camada de serviços por exemplo, Basic ou conjuntos elásticos de bases de dados de inquilinos de tamanho pequeno), o restauro geográfico com frequência é uma solução de DR razoável com um ERT de até 12 horas (geralmente muito menos). Para soluções com grandes bancos de dados e necessitam de recuperação menores vezes, deve considerar o uso [georreplicação ativa](sql-database-active-geo-replication.md) ou [grupos de ativação pós-falha automática](sql-database-auto-failover-group.md). Replicação geográfica activa oferece um RPO de muito mais baixo e ERT uma vez que ele apenas requer que inicie uma ativação pós-falha para uma secundária replicada de forma contínua. Os grupos de ativação pós-falha automática permitem a ativação pós-falha automática para um grupo de bases de dados. Para obter mais informações sobre as opções de continuidade do negócio, veja [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Georrestauro com o portal do Azure
 
@@ -177,4 +177,4 @@ Cópias de segurança automáticas proteger as bases de dados de utilizador e er
 - Para uma visão geral de continuidade de negócio e cenários, consulte [descrição geral da continuidade de negócio](sql-database-business-continuity.md).
 - Para saber mais sobre SQL do Azure, base de dados automatizada de cópias de segurança, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md).
 - Para saber mais sobre a retenção de longa duração, veja [retenção a longo prazo](sql-database-long-term-retention.md).
-- Para saber mais sobre as opções de recuperação mais rápidas, veja [ativação pós-falha de grupos e a georreplicação ativa](sql-database-geo-replication-overview.md).
+- Para saber mais sobre as opções de recuperação mais rápidas, veja [georreplicação ativa](sql-database-active-geo-replication.md) ou [grupos de ativação pós-falha automática](sql-database-auto-failover-group.md).

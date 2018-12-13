@@ -1,6 +1,6 @@
 ---
-title: Filtros de aspeto de restrições na Azure Search | Microsoft Docs
-description: Filtre critérios pela identidade de segurança do utilizador, idioma, geolocalização ou valores numéricos para reduzir os resultados da pesquisa em consultas na Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure.
+title: Filtros de facetas para a navegação de pesquisa em aplicações - Azure Search
+description: Filtre critérios por identidade de segurança do utilizador, localização geográfica ou valores numéricos para reduzir os resultados da pesquisa em consultas no Azure Search, um serviço de pesquisa de nuvem alojada no Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,37 +8,38 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 3f2cfea52d3c3f4bfc75364d0662a4218219152d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 94a0d3f19e595ac040d908ea47d6332ceae0943c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792414"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314810"
 ---
-# <a name="how-to-build-a-facet-filter-in-azure-search"></a>Como criar um filtro de aspeto de restrições na Azure Search 
+# <a name="how-to-build-a-facet-filter-in-azure-search"></a>Como criar um filtro de faceta no Azure Search 
 
-Navegação por facetas é utilizada para filtragem auto-direcionada nos resultados de consulta numa aplicação de pesquisa, onde a aplicação oferece controlos de IU para a pesquisa de âmbito para grupos de documentos (por exemplo, categorias ou marcas) e pesquisa do Azure fornece a estrutura de dados para fazer uma cópia do experiência. Neste artigo, reveja rapidamente os passos básicos para criar uma estrutura de navegação por facetas cópia a experiência de pesquisa que pretende fornecer. 
+Navegação por facetas é utilizada para filtragem auto-direcionada nos resultados de consulta num aplicativo de pesquisa, em que seu aplicativo oferece controles de interface do Usuário para definir o âmbito de pesquisa para grupos de documentos (por exemplo, categorias ou marcas) e Azure Search fornece a estrutura de dados para fazer uma cópia do experiência. Neste artigo, analise rapidamente os passos básicos para a criação de uma estrutura de navegação por facetas, deseja fornecer a experiência de pesquisa de segurança. 
 
 > [!div class="checklist"]
-> * Escolha os campos para filtrar e facetamento
-> * Conjunto de atributos em campo
+> * Escolha os campos para filtragem e facetamento
+> * Conjunto de atributos no campo
 > * Criar os índice e carregar dados
-> * Adicionar filtros de aspeto de restrições a uma consulta
+> * Adicionar filtros de faceta para uma consulta
 > * Processar os resultados
 
-Facetas são dinâmicas e devolvido numa consulta. Colocar as respostas de pesquisa com os mesmos as categorias de faceta utilizadas para navegar os resultados. Se não estiver familiarizado com as facetas, o exemplo seguinte é uma ilustração de uma estrutura de navegação de faceta.
+Facetas são dinâmicos e retornados numa consulta. As respostas da pesquisa apresentam as categorias de faceta usadas para navegar os resultados. Se não estiver familiarizado com as facetas, o exemplo seguinte é uma ilustração de uma estrutura de navegação de faceta.
 
   ![](./media/search-filters-facets/facet-nav.png)
 
-Navegação por facetas a primeira e pretender mais detalhes? Consulte [como implementar navegação por facetas na Azure Search](search-faceted-navigation.md).
+Navegação por facetas a e pretender mais detalham? Ver [como implementar a navegação por facetas no Azure Search](search-faceted-navigation.md).
 
 ## <a name="choose-fields"></a>Escolha os campos
 
-Podem ser calculadas facetas através de campos de valor único, bem como as coleções. Os campos que funcionarão melhor na navegação por facetas tem cardinalidade baixa: um pequeno número de valores distintos que repita ao longo de documentos no seu corpus de procura (por exemplo, uma lista de cores, países ou nomes de marca). 
+Facetas podem ser calculadas ao longo de campos de valor único, bem como coleções. Campos que funcionam melhor no painel de navegação por facetas tem a cardinalidade baixa: um pequeno número de valores distintos que repetem em toda a documentos no corpo (por exemplo, uma lista de cores, países ou nomes de marca). 
 
-Facetamento está ativado numa base de campo ao campo ao criar o índice, definindo os seguintes atributos como TRUE: `filterable`, `facetable`. Apenas os campos filtráveis podem ser facetados.
+Facetamento é ativado numa base de campo por campo ao criar o índice, definindo os seguintes atributos como TRUE: `filterable`, `facetable`. Apenas os campos filtráveis podem ser facetados.
 
-Qualquer [campo tipo](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) que, possivelmente, poderia ser utilizado na navegação por facetas está marcada como "facetável":
+Qualquer [tipo de campo](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) que, possivelmente, poderia ser usado na navegação por facetas está marcada como "facetável":
 
 + Edm.String
 + Edm.DateTimeOffset
@@ -46,16 +47,16 @@ Qualquer [campo tipo](https://docs.microsoft.com/rest/api/searchservice/supporte
 + Edm.Collections
 + Tipos de campo numérico: Edm.Double Edm.Int32, Edm.Int64,
 
-Não é possível utilizar Edm.GeographyPoint na navegação por facetas. Facetas são construídas a partir de texto legível humano ou números. Como tal, facetas não são suportadas para georreplicação coordenadas. Precisa de um campo Cidade ou uma região para aspeto por localização.
+Não é possível utilizar geographypoint no painel de navegação por facetas. Facetas são construídas a partir de texto legível ou números. Como tal, facetas não são suportadas para geo coordenadas. Precisaria de um campo Cidade ou a região a faceta por localização.
 
 ## <a name="set-attributes"></a>Conjunto de atributos
 
-Atributos de índice que controlam a utilização de um campo são adicionados à definição de campo individual no índice. No exemplo seguinte, os campos com cardinalidade baixa, útil para facetamento, consistem: categoria (átrios hotel, hostel), amenities e as classificações. 
+Atributos de índice que controlam a forma como um campo é utilizado são adicionados às definições de campo individual no índice. No exemplo a seguir, os campos com cardinalidade baixa, útil para facetamento, consistem em: categoria (hotel, hotel, hostel), características e as classificações. 
 
-Na .NET API, a filtragem de atributos tem de ser definida explicitamente. A API REST, facetamento e filtragem estão ativados por predefinição, o que significa que só tem de definir explicitamente os atributos quando pretender desligue-os. Embora não seja necessário tecnicamente, mostramos de autoria no seguinte exemplo REST para fins de instrução. 
+Na API do .NET, a filtragem de atributos tem de ser definido explicitamente. Na API do REST, facetamento e filtragem estão ativadas por predefinição, o que significa que só precisa de definir explicitamente os atributos quando pretender desativá-las. Embora não seja tecnicamente necessária, vamos mostrar as atribuições no seguinte exemplo do REST para fins educativos. 
 
 > [!Tip]
-> Como melhor prática de desempenho e a otimização de armazenamento, desative facetamento para campos de que nunca devem ser utilizados como um aspeto de restrições. Em particular, os campos de cadeia para os valores de singleton, como um nome de produto ou ID devem ser definidos como "Facetável": Falso para impedir que os respetivos acidental (e ineficaz) utilize na navegação por facetas.
+> Como melhor prática para o desempenho e otimização de armazenamento, desative facetamento para os campos que nunca devem ser usados como um aspeto. Em particular, os campos de cadeia de caracteres para os valores de singleton, como um nome de ID ou o produto devem ser definidos como "Facetável": Falso para impedir que os seus acidental e (ineficaz) utilizar no painel de navegação por facetas.
 
 
 ```http
@@ -79,15 +80,15 @@ Na .NET API, a filtragem de atributos tem de ser definida explicitamente. A API 
 ```
 
 > [!Note]
-> Esta definição do índice é copiada da [criar um índice da Azure Search utilizando a API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). É idêntica, à exceção superficial diferenças nas definições de campo. Filtrável e facetáveis atributos explicitamente são adicionados na categoria, etiquetas, parkingIncluded, smokingAllowed e campos de classificação. Na prática, obterá filtrável e facetável para livre no EDM, Boolean e Edm.Int32 tipos de campo. 
+> Esta definição de índice é copiada da [criar um índice da Azure Search utilizando a API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). É idêntico, exceto para superficial diferenças nas definições de campo. Atributos filtrável e facetável explicitamente são adicionados na categoria, etiquetas, parkingIncluded, smokingAllowed e campos de classificação. Na prática, obtém filtrável e facetável para gratuitos no EDM, Boolean e Edm.Int32 tipos de campo. 
 
 ## <a name="build-and-load-an-index"></a>Criar e carregar um índice
 
-Um passo intermédio (e talvez óbvios) é que tem de [criar e preencher o índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) antes formulating uma consulta. Iremos mencionar este passo aqui por questões de exaustividade. É uma forma de determinar se o índice está disponível ao verificar a lista de índices [portal](https://portal.azure.com).
+Um passo intermédio (e talvez óbvio) é que precisa [criar e preencher o índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) antes de formular uma consulta. Mencionamos este passo para ser completo. Uma forma de determinar se o índice está disponível é ao verificar a lista de índices [portal](https://portal.azure.com).
 
-## <a name="add-facet-filters-to-a-query"></a>Adicionar filtros de aspeto de restrições a uma consulta
+## <a name="add-facet-filters-to-a-query"></a>Adicionar filtros de faceta para uma consulta
 
-No código da aplicação, crie uma consulta que especifica a todas as partes de uma consulta válida, incluindo expressões de pesquisa, facetas, filtros, a classificação de perfis – tudo utilizado para formular um pedido. O exemplo seguinte cria um pedido que cria com base no tipo de accommodation, classificação e outros amenities de navegação de faceta.
+No código da aplicação, crie uma consulta que especifica a todas as partes de uma consulta válida, incluindo as expressões de pesquisa, facetas, filtros, classificação perfis – nada utilizado para formular um pedido. O exemplo seguinte cria um pedido que cria a navegação de faceta com base no tipo de accommodation, classificação e outras características.
 
 ```csharp
 SearchParameters sp = new SearchParameters()
@@ -98,33 +99,33 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-### <a name="return-filtered-results-on-click-events"></a>Devolve resultados filtrados no clique em eventos
+### <a name="return-filtered-results-on-click-events"></a>Devolver resultados filtrados em eventos de clique
 
-A expressão de filtro processa o evento de clique com o valor de aspeto de restrições. Determinado um aspeto de categoria, clicando a categoria "motel" é implementado através de um `$filter` expressão que seleciona accommodations desse tipo. Quando um utilizador clica "motels" para indicar que devem ser apresentados apenas motels, a consulta seguinte, a aplicação envia inclui $filter = motels' categoria eq'.
+A expressão de filtro processa o evento de clique no valor de faceta. Dada uma faceta de categoria, clicar a categoria "motel" é implementado por meio de um `$filter` expressão que seleciona acomodações desse tipo. Quando um utilizador clica em "cheios de baratas" para indicar que devem ser mostrados apenas cheios de baratas, a consulta seguinte, a aplicação envia inclui $filter = 'cheios de baratas categoria eq'.
 
-O seguinte fragmento de código adiciona categoria para o filtro se um utilizador seleccionar um valor de aspeto de categoria.
+O fragmento de código seguinte adiciona categoria para o filtro se um usuário selecionar um valor da faceta de categoria.
 
 ```csharp
 if (categoryFacet != "")
   filter = "category eq '" + categoryFacet + "'";
 ```
-Utilizando a API REST, o pedido seria articulated como `$filter=category eq 'c1'`. Para tornar um campo de valor múltiplo de categoria, utilize a seguinte sintaxe: `$filter=category/any(c: c eq 'c1')`
+Com a API REST, a solicitação seria articulada como `$filter=category eq 'c1'`. Para tornar um campo de valor múltiplo de categoria, utilize a seguinte sintaxe: `$filter=category/any(c: c eq 'c1')`
 
-## <a name="tips-and-workarounds"></a>Soluções e sugestões
+## <a name="tips-and-workarounds"></a>Dicas e soluções alternativas
 
 ### <a name="initialize-a-page-with-facets-in-place"></a>Inicializar uma página com as facetas no local
 
-Se pretender inicializar uma página com as facetas no local, pode enviar uma consulta como parte da inicialização da página para efetuar o seeding a página com uma estrutura de faceta inicial.
+Se quiser inicializar uma página com as facetas no local, pode enviar uma consulta como parte da inicialização de página para efetuar o seeding a página com uma estrutura de faceta inicial.
 
-### <a name="preserve-a-facet-navigation-structure-asynchronously-of-filtered-results"></a>Manter uma estrutura de navegação de faceta assíncrona de resultados filtrados
+### <a name="preserve-a-facet-navigation-structure-asynchronously-of-filtered-results"></a>Preservar uma estrutura de navegação de faceta assíncrona de resultados filtrados
 
-Um dos desafios com navegação de faceta na Azure Search é que as facetas existem para apenas os resultados atuais. Na prática, é comum para manter um conjunto estático de faceta para que o utilizador pode navegar na inversa, retracing passos para explorar caminhos alternativos através de conteúdo de pesquisa. 
+Um dos desafios com navegação de faceta no Azure Search é que as facetas existem para apenas os resultados atuais. Na prática, é comum para manter um conjunto estático de facetas para que o usuário pode navegar na ordem inversa, retracing passos para explorar os caminhos alternativos por meio de conteúdo de pesquisa. 
 
-Apesar de este ser um caso de utilização comum, não é algo a estrutura de navegação de faceta atualmente fornece out of box. Os programadores que pretendem facetas estáticas normalmente contornar a limitação ao emitir duas consultas filtradas: um âmbito para os resultados, outros utilizado para criar uma lista estática de faceta para fins de navegação.
+Embora isso seja um caso de uso comum, não é algo a estrutura de navegação de faceta fornece atualmente out-of-the-box. Os desenvolvedores que desejam facetas estáticas normalmente solucionar a limitação através da emissão de duas consultas filtradas: um âmbito para os resultados, o outro utilizado para criar uma lista estática de facetas para fins de navegação.
 
 ## <a name="see-also"></a>Consulte também
 
-+ [Filtros na pesquisa do Azure](search-filters.md)
-+ [Criar API REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [API de REST de documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Filtros no Azure Search](search-filters.md)
++ [Criar API de REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [Procurar nos documentos de REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 

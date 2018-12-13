@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -16,18 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 5cddc767b4652df6753cc57eb7305b46ec45e19d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2bdc8b7b28bee37ae88e466874d2b3d22dcd7556
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098646"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277935"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definir módulos R personalizados para o Azure Machine Learning Studio
 
 Este tópico descreve como criar e implementar um módulo R personalizado no Azure Machine Learning Studio. Ele explica o que são módulos R personalizados e os ficheiros que são utilizados para defini-las. Ela ilustra como construir os ficheiros que definem um módulo e como registar o módulo para a implementação numa área de trabalho do Machine Learning. Os elementos e atributos usados na definição do módulo personalizado, em seguida, são descritos mais detalhadamente. Como utilizar a funcionalidade de auxiliar e de ficheiros e de várias saídas também é abordado. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="what-is-a-custom-r-module"></a>O que é um módulo R personalizado?
 R **módulo personalizado** é um módulo definido pelo utilizador que pode ser carregado para a área de trabalho e executado como parte de uma experimentação do Azure Machine Learning. R **módulo R personalizado** é um módulo personalizado que executa uma função de R definidas pelo utilizador. **R** é uma linguagem de programação para computação estatística e de gráficos, que é amplamente utilizados por estatísticos e cientistas de dados para a implementação de algoritmos. Atualmente, o R é o único idioma suportado em módulos personalizados, mas o suporte para idiomas adicionais está agendado para versões futuras.
@@ -96,7 +95,7 @@ Para expor esse `CustomAddRows` funcione como um módulo do Azure Machine Learni
     </Module>
 
 
-É fundamental ter em atenção que o valor do **id** atributos da **entrada** e **Arg** elementos no arquivo XML tem de coincidir com os nomes dos parâmetros da função do código R no CustomAddRows.R EXATAMENTE de ficheiros: (*dataset1*, *dataset2*, e *troca* no exemplo). Da mesma forma, o valor do **entryPoint** atributo da **linguagem** elemento têm de corresponder EXATAMENTE o nome da função no R script: (*CustomAddRows* no exemplo) . 
+É fundamental ter em atenção que o valor do **id** atributos da **entrada** e **Arg** elementos no arquivo XML tem de coincidir com os nomes dos parâmetros da função do código R no CustomAddRows.R EXATAMENTE de ficheiros: (*dataset1*, *dataset2*, e *troca* no exemplo). Da mesma forma, o valor do **entryPoint** atributo da **linguagem** elemento tem de corresponder ao nome da função no R script EXATAMENTE: (*CustomAddRows* no exemplo). 
 
 Por outro lado, o **id** atributo para o **saída** elemento não corresponde a todas as variáveis no R script. Quando mais do que uma saída for necessária, simplesmente devolver uma lista da função R com resultados colocados *na mesma ordem* como **saídas** elementos são declarados no arquivo XML.
 
@@ -150,7 +149,7 @@ Cada entrada e a porta de saída pode ter um opcional **Descrição** elemento s
 ### <a name="input-elements"></a>Elementos de entrada
 Portas de entrada permitem-lhe transmitir dados a sua função de R e a área de trabalho. O **tipos de dados** que são suportadas para portas de entrada são da seguinte forma: 
 
-**DataTable:** deste tipo é passado para a função de R como uma data. frame. Na verdade, todos os tipos (por exemplo, ficheiros CSV ou ficheiros ARFF) que são suportados pelo Machine Learning e que são compatíveis com o **DataTable** são convertidos numa data. frame automaticamente. 
+**DataTable:** Este tipo é passado para a sua função de R como uma data. frame. Na verdade, todos os tipos (por exemplo, ficheiros CSV ou ficheiros ARFF) que são suportados pelo Machine Learning e que são compatíveis com o **DataTable** são convertidos numa data. frame automaticamente. 
 
         <Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
             <Description>Input Dataset 1</Description>
@@ -159,7 +158,7 @@ Portas de entrada permitem-lhe transmitir dados a sua função de R e a área de
 O **id** atributo associado a cada **DataTable** porta de entrada tem de ter um valor exclusivo e este valor tem de corresponder ao seu parâmetro na sua função de R com o nome correspondente.
 Opcional **DataTable** portas que não forem transmitidas como entrada numa experimentação de ter o valor **nulo** passado para a função de R e zip opcional portas são ignoradas, se a entrada não estiver ligada. O **é opcional** atributo é opcional para ambos os **DataTable** e **Zip** tipos e é *false* por predefinição.
 
-**Zip:** módulos personalizados podem aceitar um arquivo zip como entrada. Esta entrada é descompactada no diretório de trabalho de R da sua função
+**Zip:** Módulos personalizados podem aceitar um arquivo zip como entrada. Esta entrada é descompactada no diretório de trabalho de R da sua função
 
         <Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
             <Description>Zip files to be extracted to the R working directory.</Description>
@@ -177,7 +176,7 @@ Para módulos R personalizados, o id para uma porta de Zip não tem de correspon
 * O valor do **é opcional** atributo da **entrada** elemento não é necessário (e é *false* por predefinição, quando não especificado); mas se for especificado, tem de ser *verdadeira* ou *false*.
 
 ### <a name="output-elements"></a>Elementos de saída
-**Portas de saída standard:** portas de saída são mapeadas para os valores de retorno da sua função de R, o que, em seguida, pode ser utilizada por módulos subsequentes. *DataTable* é o tipo de porta de saída padrão apenas suportado atualmente. (O suporte para *aprendizes* e *transforma* aprimoramentos.) R *DataTable* saída é definida como:
+**Portas de saída padrão:** Portas de saída são mapeadas para os valores de retorno da sua função de R, o que, em seguida, pode ser utilizada por módulos subsequentes. *DataTable* é o tipo de porta de saída padrão apenas suportado atualmente. (O suporte para *aprendizes* e *transforma* aprimoramentos.) R *DataTable* saída é definida como:
 
     <Output id="dataset" name="Dataset" type="DataTable">
         <Description>Combined dataset</Description>
@@ -215,7 +214,7 @@ E retornar a lista de objetos numa lista na ordem correta em "CustomAddRows.R":
     return (list(dataset, dataset1, dataset2)) 
     } 
 
-**Saída de visualização:** também é possível especificar uma porta de saída do tipo *visualização*, que apresenta o resultado a partir da saída de dispositivo e a consola de gráficos do R. Esta porta não é parte da saída da função de R e não interfere com a ordem dos outros tipos de porta de saída. Para adicionar uma porta de visualização para os módulos personalizados, adicione uma **saída** elemento com um valor de *visualização* para seu **tipo** atributo:
+**Saída de visualização:** Também pode especificar uma porta de saída do tipo *visualização*, que apresenta o resultado a partir da saída de dispositivo e a consola de gráficos do R. Esta porta não é parte da saída da função de R e não interfere com a ordem dos outros tipos de porta de saída. Para adicionar uma porta de visualização para os módulos personalizados, adicione uma **saída** elemento com um valor de *visualização* para seu **tipo** atributo:
 
     <Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
@@ -372,6 +371,6 @@ O ambiente de execução para o script R utiliza a mesma versão do R como o **e
 
 **Limitações do ambiente de execução** incluem:
 
-* Sistema de ficheiros não persistente: arquivos escritos quando o módulo personalizado é executado não são mantidos nas várias execuções do módulo do mesmo.
+* Sistema de ficheiros não persistente: Arquivos escritos quando o módulo personalizado é executado não são mantidos nas várias execuções do módulo do mesmo.
 * Sem acesso de rede
 

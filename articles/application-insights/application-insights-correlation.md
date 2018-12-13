@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: da9ec327edc27e2f37f76704d6b5481869621049
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 09db1c7a7d348d866cd131e66102044a37c010a8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997486"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310339"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -31,7 +31,7 @@ O Application Insights define um [modelo de dados](application-insights-data-mod
 
 Operação lógica distribuída normalmente consiste num conjunto de operações menores - pedidos processados por um dos componentes. Essas operações são definidas pelas [telemetria de pedido](application-insights-data-model-request-telemetry.md). Telemetria de cada pedido tem seu próprio `id` que o identifica exclusivamente globalmente. E toda a telemetria - rastreios, exceções, etc. associados a este pedido deve ser definido a `operation_parentId` para o valor da solicitação `id`.
 
-Cada operação de saída, como a chamada http para outro componente representado pelo [telemetria de dependência](application-insights-data-model-dependency-telemetry.md). Telemetria de dependência também define sua própria `id` que seja globalmente exclusivo. Telemetria de pedido, iniciada por chamada de dependência, utiliza-o como `operation_parentId`.
+Cada operação de saída (por exemplo, uma chamada http para outro componente) é representada por [telemetria de dependência](application-insights-data-model-dependency-telemetry.md). Telemetria de dependência também define sua própria `id` que seja globalmente exclusivo. Telemetria de pedido, iniciada por chamada de dependência, utiliza-o como `operation_parentId`.
 
 Pode criar a vista do uso de operação lógica distribuída `operation_Id`, `operation_parentId`, e `request.id` com `dependency.id`. Esses campos também definem a ordem de causalidade das chamadas de telemetria.
 

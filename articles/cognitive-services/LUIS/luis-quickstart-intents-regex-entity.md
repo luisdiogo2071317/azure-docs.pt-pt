@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 9cc88523ee31d80292c7d0d2bf9321dbbfc2ab6b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093327"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135581"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>Tutorial 3: Extrair dados bem formatados
 Neste tutorial, irá modificar a aplicação Recursos Humanos para extrair dados formatados de forma consistente a partir de uma expressão com a entidade **Expressão Regular**.
@@ -25,14 +25,13 @@ O objetivo de uma entidade é extrair dados importantes contidos na expressão. 
 
 **As expressões de exemplo incluem:**
 
-```
-Where is HRF-123456?
-Who authored HRF-123234?
-HRF-456098 is published in French?
-HRF-456098
-HRF-456098 date?
-HRF-456098 title?
-```
+|Expressões de exemplo|
+|--|
+|Onde posso encontrar HRF 123456?|
+|Quem criados HRF 123234?|
+|HRF 456098 está publicada em francês?|
+|HRF 456098|
+|Data de HRF 456098?|
  
 Uma expressão regular é uma boa opção para este tipo de dados quando:
 

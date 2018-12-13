@@ -1,6 +1,6 @@
 ---
-title: Modelação de dados na Azure Time Series Insights | Documentos da Microsoft
-description: Noções básicas sobre a modelação de dados na Azure Time Series Insights
+title: Modelação de dados do Azure Time Series Insights - modelação de dados na pré-visualização do Azure Time Series Insights | Documentos da Microsoft
+description: Compreenda a modelação de dados na pré-visualização do Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -8,133 +8,132 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.openlocfilehash: dc6244b6e263d3fb963d40b2f0c626cdfa9ecff8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.date: 12/10/2018
+ms.custom: seodec18
+ms.openlocfilehash: e68bc01d2c0781333454fa753992d0136fac0c06
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873466"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269095"
 ---
-# <a name="data-modeling-in-azure-time-series-insights"></a>Modelação de dados na Azure Time Series Insights
+# <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelação de dados na pré-visualização do Azure Time Series Insights
 
-Este documento descreve como trabalhar com **modelos de série de tempo** seguindo o Azure Time Series Insights (pré-visualização). Ele detalha os vários cenários de dados comuns.
+Este documento descreve como trabalhar com modelos de série de tempo após o pré-visualização do Azure Time Series Insights. Ele detalha os vários cenários de dados comuns.
 
-Leitura a [explorer (pré-visualização) do Azure TSI](./time-series-insights-update-explorer.md) artigo, para saber mais sobre como navegar a atualização.
+Para saber mais sobre como utilizar a atualização, leia [Explorador de pré-visualização do Azure Time Series Insights](./time-series-insights-update-explorer.md).
 
 ## <a name="types"></a>Tipos
 
-### <a name="how-to-create-a-single-type"></a>Como criar um único tipo
+### <a name="create-a-single-type"></a>Criar um único tipo
 
-1. Comece por cabeçalho para o painel de Seletor de modelo TSM e seleciona os tipos a partir do menu. Em seguida, fechar o painel para se concentrar em tipos TSM:
+1. Vá para o painel de Seletor de modelos de série de tempo e selecione **tipos** no menu. Fechar o painel para se concentrar os tipos de modelos de série de tempo.
 
-    ![portal_one][1]
+    ![Portal_one][1]
 
-1. Clique em **Adicionar**.
-1. Todos os detalhes relativos a tipos de entrada e clique em **criar**. Se o fizer, deve criar tipos no ambiente:
+1. Selecione **Adicionar**.
+1. Entrada de todos os detalhes que dizem respeito a tipos e selecione **criar**. Esta ação cria tipos no ambiente.
 
-    ![portal_two][2]
+    ![Portal_two][2]
 
-### <a name="how-to-bulk-upload-one-or-more-types"></a>Como em massa carregar um ou mais tipos
+### <a name="bulk-upload-one-or-more-types"></a>Um ou mais tipos de carregamento em volume
 
-1. Clique em **carregar JSON**.
-1. Escolha esse ficheiro que contém a carga de tipo.
-1. Clique em **carregar**
+1. Selecione **carregar JSON**.
+1. Selecione o ficheiro que contém o payload de tipo.
+1. Selecione **Upload**.
 
-    ![portal_three][3]
+    ![Portal_three][3]
 
-### <a name="how-to-edit-a-single-type"></a>Como editar um único tipo
+### <a name="edit-a-single-type"></a>Editar um único tipo
 
-* Selecione o tipo e clique em **editar** botão. Efetue as alterações necessárias e clique em **guardar**:
+Selecione o tipo e selecione **editar**. Faça as alterações necessárias e selecione **guardar**.
 
-    ![portal_four][4]
+![Portal_four][4]
 
-### <a name="how-to-delete-a-type"></a>Como eliminar um tipo
+### <a name="delete-a-type"></a>Eliminar um tipo
 
-* Selecione o tipo e clique em **eliminar** botão. Se não existem instâncias estão associadas aos tipos, vão ser eliminada:
+Selecione o tipo e selecione **eliminar**. Se não existem instâncias estão associadas com os tipos, este é eliminado.
 
-    ![portal_five][5]
+![Portal_five][5]
 
 ## <a name="hierarchies"></a>Hierarquias
 
-### <a name="how-to-create-a-single-hierarchy"></a>Como criar uma única hierarquia
+### <a name="create-a-single-hierarchy"></a>Criar uma única hierarquia
 
-1. Comece por cabeçalho para o painel de Seletor de modelo TSM e selecione hierarquias no menu. Em seguida, fechar o painel para se concentrar em tipos TSM:
+1. Vá para o painel de Seletor de modelos de série de tempo e selecione **hierarquias** no menu. Fechar o painel para se concentrar as hierarquias de modelos de série de tempo.
 
-    ![portal_six][6]
+    ![Portal_six][6]
 
-1. Clique em **adicionar**
+1. Selecione **Adicionar**.
 
-    ![portal_seven][7]
+    ![Portal_seven][7]
 
-1. Clique em **nível adicionar** no painel da direita:
+1. Selecione **nível adicionar** no painel da direita.
 
-    ![portal_eight][8]
+    ![Portal_eight][8]
 
-1. Introduza os detalhes de hierarquia e clique em **criar**:
+1. Introduza os detalhes de hierarquia e selecione **criar**.
 
-    ![portal_nine][9]
+    ![Portal_nine][9]
 
-### <a name="how-to-bulk-upload-one-or-more-hierarchies"></a>Como em massa carregar um ou mais hierarquias
+### <a name="bulk-upload-one-or-more-hierarchies"></a>Uma ou mais hierarquias de carregamento em volume
 
-1. Clique em **carregar JSON**.
-1. Escolha o ficheiro que contém o payload de hierarquia.
-1. Clique em **carregar**:
+1. Selecione **carregar JSON**.
+1. Selecione o ficheiro que contém o payload de hierarquia.
+1. Selecione **Upload**.
 
-    ![portal_ten][10]
+    ![Portal_ten][10]
 
-### <a name="how-to-edit-a-single-hierarchy"></a>Como editar uma única hierarquia
+### <a name="edit-a-single-hierarchy"></a>Editar uma única hierarquia
 
-* Selecione a hierarquia e clique nas **editar** botão. Efetue as alterações necessárias e clique em **guardar**:
+Selecione a hierarquia e selecione **editar**. Faça as alterações necessárias e selecione **guardar**.
 
-    ![portal_eleven][11]
+![Portal_eleven][11]
 
-### <a name="how-to-delete-a-hierarchy"></a>Como eliminar uma hierarquia
+### <a name="delete-a-hierarchy"></a>Eliminar uma hierarquia
 
-* Selecione a hierarquia e clique em **eliminar** botão. Se não existem instâncias estão associadas à hierarquia, este será eliminado.
+Selecione a hierarquia e selecione **eliminar**. Se não existem instâncias estão associadas com a hierarquia, este é eliminado.
 
-    ![portal_twelve][12]
+![Portal_twelve][12]
 
 ## <a name="instances"></a>Instâncias
 
-### <a name="how-to-create-a-single-instance"></a>Como criar uma única instância
+### <a name="create-a-single-instance"></a>Criar uma única instância
 
-1. Comece por cabeçalho para o painel de Seletor de modelo TSM e selecione as instâncias no menu. Em seguida, fechar o painel para se concentrar em tipos TSM:
+1. Vá para o painel de Seletor de modelos de série de tempo e selecione **instâncias** no menu. Fechar o painel para se concentrar nas instâncias de modelos de série de tempo.
 
-    ![portal_thirteen][13]
+    ![Portal_thirteen][13]
 
-1. Clique em **adicionar**:
+1. Selecione **Adicionar**.
 
-    ![portal_fourteen][14]
+    ![Portal_fourteen][14]
 
-1. Introduza os detalhes de instância, selecione a associação de tipo e a hierarquia e clique em **criar**.
+1. Introduza os detalhes de instância, selecione a associação de tipo e a hierarquia e selecione **criar**.
 
-### <a name="how-to-bulk-upload-one-or-more-instances"></a>Como em massa carregar uma ou mais instâncias
+### <a name="bulk-upload-one-or-more-instances"></a>Uma ou mais instâncias de carregamento em volume
 
-1. Clique em **carregar JSON**.
-1. Escolha o ficheiro que contém a carga de instâncias:
+1. Selecione **carregar JSON**.
+1. Selecione o ficheiro que contém a carga de instâncias.
 
-    ![portal_fifteen][15]
+    ![Portal_fifteen][15]
 
-1. Clique em **carregar**.
+1. Selecione **Upload**.
 
-### <a name="how-to-edit-a-single-instance"></a>Como editar uma única instância
+### <a name="edit-a-single-instance"></a>Editar uma única instância
 
-* Selecione a instância e clique nas **editar** botão. Efetue as alterações necessárias e clique em **guardar**:
+Selecione a instância e selecione **editar**. Faça as alterações necessárias e selecione **guardar**.
 
-    ![portal_sixteen][16]
+![Portal_sixteen][16]
 
-### <a name="how-to-delete-an-instance"></a>Como eliminar uma instância
+### <a name="delete-an-instance"></a>Eliminar uma instância
 
-* Selecione a instância e clique em **eliminar** botão. Se não existem eventos estão associados às instâncias, serão eliminado.
+Selecione a instância e selecione **eliminar**. Se não existem eventos estão associados com as instâncias, é eliminado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Leia sobre [modelação de dados](./time-series-insights-update-tsm.md) para obter mais informações sobre **modelos de série de tempo**.
-
-Ver o Explorador de TSI do Azure (pré-visualização) [artigo](./time-series-insights-update-explorer.md) para saber mais sobre a pré-visualização.
-
-Saiba mais sobre formas JSON suportadas, leia [formas de JSON suportado](./time-series-insights-send-events.md#json).
+- Para obter mais informações sobre os modelos de série de tempo, leia [modelação de dados](./time-series-insights-update-tsm.md).
+- Para saber mais sobre a pré-visualização, leia [visualizar dados no Explorador de pré-visualização do Azure Time Series Insights](./time-series-insights-update-explorer.md).
+- Para saber mais sobre formas JSON suportadas, leia [formas de JSON suportado](./time-series-insights-send-events.md#json).
 
 <!-- Images -->
 [1]: media/v2-update-how-to-tsm/portal_one.png

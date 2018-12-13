@@ -3,8 +3,8 @@ title: Exemplo do Script do Azure PowerShell - Vincular um certificado SSL perso
 description: Exemplo do Script do Azure PowerShell - Vincular um certificado SSL personalizado para uma aplicação Web
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: 23e83b74-614a-49a0-bc08-7542120eeec5
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 4ab6ad5e8a022c577e9382cde7bdcb3059a18a14
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: e55d22d8a61f6830f09262445fe008a0e8ec5b9d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39323811"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194101"
 ---
-# <a name="bind-a-custom-ssl-certificate-to-a-web-app"></a>Vincular um certificado SSL personalizado a uma aplicação Web
+# <a name="bind-a-custom-ssl-certificate-to-a-web-app-using-powershell"></a>Vincular um certificado SSL personalizado a uma aplicação web com o PowerShell
 
 Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, vincula o certificado SSL de um nome de domínio personalizado ao mesmo. 
 
@@ -57,7 +57,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [Set-AzureRmWebApp](/powershell/module/azurerm.websites/set-azurermwebapp) | Modifica a configuração de uma aplicação web. |
 | [New-AzureRmWebAppSSLBinding](/powershell/module/azurerm.websites/new-azurermwebappsslbinding) | Cria um enlace de certificado SSL para uma aplicação web. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e5943dde86b96dc0f95df0620212daf9a972fccf
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: bc3ab808234ee0759abea0520ea0336489fc60d6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52882864"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309608"
 documentType: LandingData
 title: Base de dados SQL do Azure - base de dados
 metadata:
@@ -21,7 +21,7 @@ metadata:
   ms.date: 12/01/2018
   ms.author: jovanpop-msft
 abstract:
-  description: A Base de Dados SQL do Azure é um serviço relacional de base de dados como serviço (DBaaS) baseado na versão estável mais recente do Motor de Base de Dados do Microsoft SQL Server. A Base de Dados SQL é uma base de dados de elevado desempenho, fiável e segura que pode utilizar para criar aplicações e sites com base em dados na linguagem de programação da sua preferência, sem ter de gerir infraestrutura. Saiba como utilizar a Base de Dados SQL com os nossos inícios rápidos, tutoriais e amostras.
+  description: A Base de Dados SQL do Azure é um serviço relacional de base de dados como serviço (DBaaS) baseado na versão estável mais recente do Motor de Base de Dados do Microsoft SQL Server. Base de dados SQL é um alto desempenho, a fácil de usar, confiável e a base de dados segura, que pode usar para criar novos aplicativos, sites e microsserviços na linguagem de programação à sua escolha, sem ter de gerir infraestrutura. Saiba como utilizar a Base de Dados SQL com os nossos inícios rápidos, tutoriais e amostras.
   aside:
     image:
       alt: 
@@ -68,6 +68,17 @@ sections:
       html: <p>Proteja a sua base de dados com a autenticação do Azure AD, Redes Virtuais, Firewalls, conexões Always Encrypted. Identifique ameaças e vulnerabilidades com a segurança incorporada.</p>
       image:
         src: media/index/i_security.svg
+- title: Novo e funcionalidades de pré-visualização
+  items:
+  - type: paragraph
+    text: 'Estamos continuamente a melhorar a base de dados SQL com os novos recursos e gostaríamos de ouvir os seus comentários sobre as novas funcionalidades seguintes:'
+  - type: list
+    style: unordered
+    items:
+    - html: (Pré-visualização) <a href="sql-database-service-tier-hyperscale">Hiperescala</a> escalão que suporta um máximo de bases de dados de 100 TB e várias réplicas legíveis.
+    - html: (Pré-visualização) Novo SQL Server de 2019 <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">processamento de consultas inteligentes</a> funcionalidades, como <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">variável de tabela diferidos compilação</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">modo de lotes em tabelas de rowstore</a>, e <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json"> Escalar UDF inlining</a>.
+    - html: (Pré-visualização) Novas funcionalidades de linguagem do Transact-SQL, tais como <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">agregado APPROX_COUNT_DISTINCT</a> e <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">armazenamento de importação em massa de Blobs do Azure</a>.
+    - html: (Pré-visualização) Novo 2019 Online do SQL Server <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">criar</a> e reconstruir as operações de índice COLUMNSTORE em cluster.
 - title: Inícios rápidos de cinco minutos
   items:
   - type: paragraph

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integrar uma única floresta do AD para o Azure com a autenticação pass-through (PTA) | Documentos da Microsoft'
+title: 'Tutorial:  Integrar uma única floresta do AD para o Azure com a autenticação pass-through (PTA) | Documentos da Microsoft'
 description: Demonstra como configurar um ambiente de identidade híbrida através da autenticação pass-through.
 services: active-directory
 author: billmath
@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df4a1ef30997bef6b83e66182404d0e2659a5d51
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 140161e88ee572d728a7f9c923c9528ea6755cc1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422309"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165460"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutorial: Integrar uma única floresta do AD através da autenticação pass-through (PTA)
+# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutorial:  Integrar uma única floresta do AD através da autenticação pass-through (PTA)
 
 ![Criar](media/tutorial-passthrough-authentication/diagram.png)
 
@@ -36,7 +36,7 @@ Seguem-se os pré-requisitos necessários para a conclusão deste tutorial
 >
 >Os scripts utilizados criam um ambiente do Active Directory geral antes de instalar o Azure AD Connect.  Eles são relevantes para todos os tutoriais.
 >
-> Cópias dos scripts do PowerShell que são utilizados neste tutorial estão disponíveis no Github [aqui](https://github.com/billmath/tutorial-phs).
+> Cópias dos scripts do PowerShell que são utilizados neste tutorial estão disponíveis no GitHub [aqui](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 A primeira coisa que precisamos para o fazer, para que o nosso ambiente de identidade híbrida a cópia de segurança e em execução é criar uma máquina virtual que será utilizada como nosso servidor do Active Directory no local.  
@@ -84,7 +84,7 @@ Para concluir a criação da máquina virtual, é necessário concluir a instala
 5. Clique em **instalar agora**.
 6. Introduza a chave de licença e clique em **seguinte**.
 7. Verificar * * posso aceitar os termos de licenciamento e clique em **seguinte**.
-8. Selecione **personalizado: instalar apenas o Windows (avançado)**
+8. Selecione **personalizado:  Instalar apenas o Windows (avançado)**
 9. Clique em **Seguinte**
 10. Depois de concluída a instalação, reinicie a máquina virtual, do início de sessão e executar atualizações do Windows para garantir que a VM está mais atualizadas.  Instale as atualizações mais recentes.
 
@@ -196,7 +196,7 @@ Agora que temos um inquilino do Azure AD, iremos criar uma conta de administrado
 1.  Em **Gerir**, selecione **Utilizadores**.</br>
 ![Criar](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Selecione **todos os utilizadores** e, em seguida, selecione **+ novo utilizador**.
-3.  Forneça um nome e o nome de utilizador para este utilizador. Este será o Administrador Global do inquilino. Também queira fazer a **função de diretório** para **Administrador Global.** Também pode mostrar a palavra-passe temporária. Quando tiver terminado, selecione **criar**.</br>
+3.  Forneça um nome e o nome de utilizador para este utilizador. Este será o Administrador Global do inquilino. Também queira fazer a **função de diretório** para **Administrador Global.** Também pode mostrar a palavra-passe temporária. Quando tiver terminado, selecione **Criar**.</br>
 ![Criar](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Assim que terminar, abra um novo navegador da web e início de sessão para myapps.microsoft.com usando a nova conta de administrador global e a palavra-passe temporária.
 5. Altere a palavra-passe de administrador global para algo que se lembrará.

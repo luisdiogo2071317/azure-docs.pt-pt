@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de modelo de regressão: automaticamente formar modelos'
+title: 'Tutorial do modelo de regressão: Automaticamente, formar modelos'
 titleSuffix: Azure Machine Learning service
 description: Saiba como gerar um modelo de ML com aprendizagem automática.  O Azure Machine Learning pode executar o pré-processamento de dados, a seleção de algoritmos e a seleção de hiperparâmetros de forma automatizada. O modelo final pode depois ser implementado com o serviço Azure Machine Learning.
 services: machine-learning
@@ -11,14 +11,14 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 593274cf66e93051b860ed75d77f13537188f345
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6bbc2d44ab128aec032ead29bf247cd834f932b6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076037"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315208"
 ---
-# <a name="tutorial-part-2-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial (parte 2): Utilize automatizada de machine learning para criar o seu modelo de regressão
+# <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
 Este tutorial é a **segunda parte de uma série composta por duas partes**. No tutorial anterior, [preparado os dados de táxis NYC para modelação de regressão](tutorial-data-prep.md).
 
@@ -36,11 +36,10 @@ Neste tutorial, ficará a saber como:
 > * Explorar os resultados
 > * Registar o melhor modelo
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
 >[!NOTE]
 > Código neste artigo foi testado com a versão 1.0.0 do SDK do Azure Machine Learning
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -599,7 +598,7 @@ from sklearn.model_selection import train_test_split
 x_df = dflow_X.to_pandas_dataframe()
 y_df = dflow_y.to_pandas_dataframe()
 
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=123)
+x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
 # flatten y_train to 1d array
 y_train.values.flatten()
 ```
@@ -708,7 +707,7 @@ local_run = experiment.submit(automated_ml_config, show_output=True)
 
 Explore os resultados de treinamento automática com um widget de Jupyter ou, examinando o histórico de experimentação.
 
-### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>Opção 1: Adicionar um widget de Jupyter para ver os resultados
+### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>Opção 1: Adicionar um widget do Jupyter para ver os resultados
 
 Se estiver a utilizar um bloco de notas Juypter, utilize este widget de bloco de notas do Jupyter para ver um gráfico e uma tabela de todos os resultados.
 
@@ -1101,18 +1100,42 @@ y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Compare os valores de custo previsto com os valores de custo real. Utilize o `y_test` dataframe e convertê-lo a uma lista a comparar com os valores previstos. A função `mean_squared_error` usa duas matrizes de valores e calcula o média erro ao quadrado entre eles. Levando a raiz quadrada do resultado indica um erro na mesma unidade como a variável y (custo) e indica aproximadamente são suas previsões a distância do valor real.
+Crie um gráfico de dispersão para visualizar os valores de custo previsto em comparação comparados os valores de custo real. O seguinte código utiliza a `distance` de recursos como o eixo x e atrair `cost` como o eixo y. As primeiras 100 previstos e valores de custo real são criadas como uma série separada, para comparar a variância de custo previsto em cada valor de distância de viagem. Examinar o desenho mostra que a relação de custo/distância é quase linear e os valores de custo previsto são na maioria dos casos muito próximo os valores de custo real para a mesma distância de viagem.
+
+```python
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(14, 10))
+ax1 = fig.add_subplot(111)
+
+distance_vals = [x[4] for x in x_test.values]
+y_actual = y_test.values.flatten().tolist()
+
+ax1.scatter(distance_vals[:100], y_predict[:100], s=18, c='b', marker="s", label='Predicted')
+ax1.scatter(distance_vals[:100], y_actual[:100], s=18, c='r', marker="o", label='Actual')
+
+ax1.set_xlabel('distance (mi)')
+ax1.set_title('Predicted and Actual Cost/Distance')
+ax1.set_ylabel('Cost ($)')
+
+plt.legend(loc='upper left', prop={'size': 12})
+plt.rcParams.update({'font.size': 14})
+plt.show()
+```
+
+![Gráfico de dispersão de predição](./media/tutorial-auto-train-models/automl-scatter-plot.png)
+
+Calcular o `root mean squared error` dos resultados. Utilize o `y_test` dataframe e convertê-lo a uma lista a comparar com os valores previstos. A função `mean_squared_error` usa duas matrizes de valores e calcula o média erro ao quadrado entre eles. Levando a raiz quadrada do resultado indica um erro na mesma unidade como a variável y (custo) e indica aproximadamente são suas previsões a distância do valor real.
 
 ```python
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
-y_actual = y_test.values.flatten().tolist()
 rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-    4.0317375193408544
+    3.2204936862688798
 
 Execute o seguinte código para calcular MAPE (erro de percentagem absoluto mean) usando o completo `y_actual` e `y_predict` conjuntos de dados. Esta métrica calcula uma diferença absoluta entre cada valor previsto e real, soma de todas as diferenças e, em seguida, expressa que a soma como percentagem do total dos valores reais.
 
@@ -1136,10 +1159,10 @@ print(1 - mean_abs_percent_error)
 ```
 
     Model MAPE:
-    0.11334441225861108
-    
+    0.10545153869569586
+
     Model Accuracy:
-    0.8866555877413889
+    0.8945484613043041
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

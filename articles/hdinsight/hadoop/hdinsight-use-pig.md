@@ -1,5 +1,5 @@
 ---
-title: Utilizar o Apache Pig no HDInsight
+title: Utilizar Apache Pig - Azure HDInsight
 description: Saiba como utilizar o Pig com o Apache Hadoop no HDInsight.
 services: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 4eb4fa201a435df5e2b5016ba9686d76707c0635
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 25a91c6217aac1b2278957c1ff0ed8b7a9b1f6ac
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011635"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166171"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Utilizar o Apache Pig com o Apache Hadoop no HDInsight
 
@@ -40,11 +40,11 @@ PIg permite-lhe definir o processamento como uma série de transformações que 
 
 O idioma de Pig Latin permite-lhe descrever o fluxo de dados de entrada não processado, por meio de transformações de um ou mais, para produzir a saída desejada. PIg Latin programas siga esse padrão geral:
 
-* **Carga**: ler os dados sejam manipulados do sistema de arquivos
+* **Carga**: Ler os dados sejam manipulados do sistema de arquivos
 
-* **Transformar**: manipular os dados
+* **Transformar**: Manipular os dados
 
-* **Informação do Estado ou armazenar**: dados para o ecrã de saída ou armazene-os para processamento
+* **Informação do Estado ou armazenar**: Enviar dados para o ecrã ou armazene-os para processamento
 
 ### <a name="user-defined-functions"></a>Funções definidas pelo utilizador
 

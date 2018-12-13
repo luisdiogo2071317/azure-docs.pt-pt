@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights para ASP.NET Core | Documentos da Microsoft
-description: Monitorizar aplicações web de disponibilidade, desempenho e utilização.
+description: Monitorizar aplicações web de ASP.NET Core para disponibilidade, desempenho e utilização.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7bdf53ac7adc8b3165a2483a56247cefeaad7ea5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 80f4d8544d18535b853323699a174ec5665ad5a3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680317"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277034"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para Núcleo do ASP.NET
 
@@ -257,7 +257,7 @@ São apresentados vários pedidos de confirmação. Leia e aceite se concordar c
 
 ### <a name="page-view-load-time"></a>Tempo de carregamento da vista de página
 
-1. No Visual Studio, aceda a **Explorador de soluções** > **páginas**. Tem de modificar dois ficheiros: *layout. cshtml* e *ViewImports.cshtml*.
+1. No Visual Studio, aceda a **Explorador de soluções** > **páginas**. Tem de modificar dois ficheiros: *Layout. cshtml* e *ViewImports.cshtml*.
 
 2. Na *ViewImports.cshtml*, adicione este código:
 

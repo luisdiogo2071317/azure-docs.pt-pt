@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4c54fe7c9ae5555ad1b8ba6919c70c8f7fa49125
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625458"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252115"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar em segurança as definições da aplicação secreta para uma aplicação web
 
 ## <a name="overview"></a>Descrição geral
 Este artigo descreve como guardar em segurança as definições de configuração do segredo de aplicação para aplicações do Azure.
 
-Tradicionalmente, todos os web configuração da aplicação definições são guardadas em arquivos de configuração como Web. config. Esta prática leva a dar entrada secretas definições, tais como as credenciais da Cloud em sistemas de controlo de origem público como o Github. Enquanto isso, é possível difíceis de acompanhar a melhor prática de segurança devido à sobrecarga necessária para alterar o código-fonte e reconfigurar as definições de desenvolvimento.
+Tradicionalmente, todos os web configuração da aplicação definições são guardadas em arquivos de configuração como Web. config. Esta prática leva a dar entrada secretas definições, tais como as credenciais da Cloud em sistemas de controlo de origem público como o GitHub. Enquanto isso, é possível difíceis de acompanhar a melhor prática de segurança devido à sobrecarga necessária para alterar o código-fonte e reconfigurar as definições de desenvolvimento.
 
 Para se certificar de que o processo de desenvolvimento é seguro, as ferramentas e a estrutura de bibliotecas são criadas para guardar as definições de segredo da aplicação em segurança com o mínimo ou nenhuma alteração de código de origem.
 

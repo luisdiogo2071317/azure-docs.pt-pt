@@ -1,5 +1,5 @@
 ---
-title: Orientações sobre a implementação de aplicações web do Azure com os modelos | Documentos da Microsoft
+title: Documentação de orientação sobre a implementação de aplicações com modelos - serviço de aplicações do Azure | Documentos da Microsoft
 description: Recomendações para a criação de modelos Azure Resource Manager para implementar aplicações web.
 services: app-service
 documentationcenter: app-service
@@ -11,12 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: c2f600d86965e1115d4be1370da8f7c8e1b67f05
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.custom: seodec18
+ms.openlocfilehash: 523574f49673ee961665136d90f04183e7c1a679
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927677"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277765"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Documentação de orientação sobre a implementação de aplicações web utilizando modelos Azure Resource Manager
 
@@ -87,7 +88,7 @@ O exemplo seguinte mostra a parte de um modelo. O valor da configuração da cad
 }
 ```
 
-Para obter um exemplo de ready-to-run que usa o código acima, veja [modelo: criar uma simples aplicação de Web do Umbraco](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
+Para obter um exemplo de ready-to-run que usa o código acima, veja [modelo: Criar uma simples aplicação de Web do Umbraco](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple).
 
 ## <a name="find-information-about-msdeploy-errors"></a>Encontre informações sobre erros de MSDeploy
 

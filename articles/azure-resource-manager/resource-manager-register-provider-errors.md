@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/07/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 787d6549eb8413c9dcfc0c906167cc36d4cff6b0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 704aa488d40a18d7be0b64c9fc9a1bd33f8a3d96
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135717"
+ms.locfileid: "53184547"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>Resolver erros de registo do fornecedor de recursos
 
@@ -47,9 +47,9 @@ A mensagem de erro deverá dar-lhe sugestões para as localizações suportadas 
 
 Receber estes erros para um dos três motivos:
 
-1. O fornecedor de recursos não foi registado para a sua subscrição
-1. Versão de API não suportada para o tipo de recurso
-1. Localização não é suportada para o tipo de recurso
+* O fornecedor de recursos não foi registado para a sua subscrição
+* Versão de API não suportada para o tipo de recurso
+* Localização não é suportada para o tipo de recurso
 
 ## <a name="solution-1---powershell"></a>Solução 1 - PowerShell
 

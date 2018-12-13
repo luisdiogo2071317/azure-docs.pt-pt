@@ -1,5 +1,5 @@
 ---
-title: Como se preparar para uma alteração de endereço IP de SSL - Azure
+title: Preparar a alteração de endereço IP de SSL - serviço de aplicações do Azure
 description: Se o seu endereço SSL IP vai ser alterado, saiba o que fazer para que a sua aplicação continua a funcionar após a alteração.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: e8558b4c3c7dafca8d4fff7e2aae0597a66c031d
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 4de20ba46d3c16d6cd7bde8e17efb0a6212bc771
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576547"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270795"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Como se preparar para uma alteração de endereço IP de SSL
 
@@ -31,7 +32,7 @@ Se tiver recebido uma notificação de que está a alterar o endereço IP de SSL
 
 4.  Sob o **configurações** cabeçalho, clique em **definições de SSL** na navegação à esquerda.
 
-5. Na secção de enlaces de SSL, selecione o registo de nome de anfitrião. No editor de que se abre, selecione **SNI SSL** sobre o **tipo de SSL** menu pendente e clique em **Adicionar enlace**. Quando vir a mensagem de êxito da operação, foi lançado o endereço IP existente.
+1. Na secção de enlaces de SSL, selecione o registo de nome de anfitrião. No editor de que se abre, selecione **SNI SSL** sobre o **tipo de SSL** menu pendente e clique em **Adicionar enlace**. Quando vir a mensagem de êxito da operação, foi lançado o endereço IP existente.
 
 6.  Na **enlaces SSL** secção, selecione novamente o mesmo registo de nome de anfitrião com o certificado. No editor de que se abre, dessa vez escolha **SSL baseados no IP** sobre o **tipo de SSL** menu pendente e clique em **Adicionar enlace de**. Quando vir a mensagem de êxito da operação, adquirir um novo endereço IP.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: bf41953300c3042853118c815dbf64e4474106fa
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715877"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194118"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Testar a sua oferta VM para o Azure Marketplace para efeitos de teste
 Fase de testes significa implementar o SKU numa "sandbox" privada "onde pode testar e validar sua funcionalidade antes de o implementar no Marketplace. O SKU é apresentada no teste tal como faria para um cliente que tenha implementado. Imagem de VM deve ser certificada para ser emitida para teste.
@@ -35,12 +35,12 @@ Fase de testes significa implementar o SKU numa "sandbox" privada "onde pode tes
    > Em caso de máquinas virtuais e modelos de soluções, volte **não** subscrições de lista aprovada de tipo CSP, DreamSpark ou do Azure no Open.
    > 
    > 
+   >
+   > Em caso de máquinas virtuais, ao clicar no botão **fase emitir para teste**, os passos seguintes são executados nos bastidores. Poderá ver o progresso de cada passo no separador Publicar na publicação portal. Tem de verificar esta página em intervalos regulares (até que o estado é apresentado em ESTÁGIOS) para qualquer informação de falha que precisam de correção da sua parte.
 
-    > Em caso de máquinas virtuais, ao clicar no botão **fase emitir para teste**, os passos seguintes são executados nos bastidores. Poderá ver o progresso de cada passo no separador Publicar na publicação portal. Tem de verificar esta página em intervalos regulares (até que o estado é apresentado em ESTÁGIOS) para qualquer informação de falha que precisam de correção da sua parte.
-
-    > - Em primeiro lugar, o seu pedido de teste vai para a equipe de certificação que validam o vhd. No entanto, se o pedido tem apenas alterações de marketing, em seguida, o passo de certificação será ignorado.
-    > - Depois de concluída a certificação, da oferta de início da replicação em todos os datacenters do Azure. Ele geralmente usa 24-48hours para a conclusão da replicação, mas poderá demorar até uma semana, dependendo do tamanho do vhd. No entanto, se o pedido tem apenas alterações de marketing, em seguida, a replicação é mais rápida.
-    > - Quando a replicação estiver concluída, em seguida, a oferta estará disponível na [portal do Azure](http:/portal.azure.com). Nessa época, o estado se tornar TRANSITADOS para a publicação portal. Uma oferta em etapas está visível no [portal do Azure](http:/portal.azure.com) usando apenas o IDs de e-mail associado à subscrição com a qual a oferta é testada.
+   > - Em primeiro lugar, o seu pedido de teste vai para a equipe de certificação que validam o vhd. No entanto, se o pedido tem apenas alterações de marketing, em seguida, o passo de certificação será ignorado.
+   > - Depois de concluída a certificação, da oferta de início da replicação em todos os datacenters do Azure. Ele geralmente usa 24-48hours para a conclusão da replicação, mas poderá demorar até uma semana, dependendo do tamanho do vhd. No entanto, se o pedido tem apenas alterações de marketing, em seguida, a replicação é mais rápida.
+   > - Quando a replicação estiver concluída, em seguida, a oferta estará disponível na [portal do Azure](http:/portal.azure.com). Nessa época, o estado se tornar TRANSITADOS para a publicação portal. Uma oferta em etapas está visível no [portal do Azure](http:/portal.azure.com) usando apenas o IDs de e-mail associado à subscrição com a qual a oferta é testada.
 
 1. Inicie sessão para o [portal de pré-visualização do Azure](https://portal.azure.com) ao utilizar uma das subscrições Azure listadas no passo anterior.
 2. Localizar a sua oferta e validar seus pontos de imagem VM:
@@ -58,8 +58,8 @@ Fase de testes significa implementar o SKU numa "sandbox" privada "onde pode tes
 > 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que a oferta é "teste" e testou a sua funcionalidade e conteúdo de marketing, pode avançar para a fase final de publicação, **passo 4**: [implementar a sua oferta no Marketplace](marketplace-publishing-push-to-production.md).
+Agora que a oferta é "teste" e testou a sua funcionalidade e conteúdo de marketing, pode avançar para a fase final de publicação, **passo 4**: [Implementar a sua oferta no Marketplace](marketplace-publishing-push-to-production.md).
 
 ## <a name="see-also"></a>Consulte também
-* [Introdução: como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Introdução: Como publicar uma oferta no Azure Marketplace](marketplace-publishing-getting-started.md)
 

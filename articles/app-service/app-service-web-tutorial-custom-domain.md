@@ -1,5 +1,5 @@
 ---
-title: Mapear um nome DNS personalizado já existente para as Aplicações Web do Azure | Microsoft Docs
+title: Mapear o nome DNS existente personalizado - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como adicionar um nome de domínio DNS personalizado já existente a uma aplicação Web, ao back-end de uma aplicação móvel ou a uma aplicação API no Serviço de Aplicações do Azure.
 keywords: serviço de aplicações, serviço de aplicações do azure, mapeamento de domínios, domínio existente, nome de anfitrião
 services: app-service\web
@@ -15,13 +15,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 30199005db93f9a43a37d2c72bb34dd772265419
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664892"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270268"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutorial: Mapear um nome DNS personalizado já existente para as Aplicações Web do Azure
 
@@ -52,7 +52,7 @@ Para concluir este tutorial:
 
 ## <a name="prepare-the-app"></a>Preparar a aplicação
 
-Para mapear um nome DNS personalizado para uma aplicação Web, o [plano do Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/) dessa aplicação tem de ser um escalão pago (**Partilhado**, **Básico**, **Standard** ou **Premium**). Neste passo, vai confirmar que a aplicação do Serviço de Aplicações está no escalão de preço suportado.
+Para mapear um nome DNS personalizado para uma aplicação web, a aplicação web [plano do App Service](https://azure.microsoft.com/pricing/details/app-service/) tem de ser um escalão pago (**partilhado**, **básica**, **padrão**, **Premium** ou **consumo** para as funções do Azure). Neste passo, vai confirmar que a aplicação do Serviço de Aplicações está no escalão de preço suportado.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -349,7 +349,7 @@ Set-AzureRmWebApp `
 
 Para obter mais informações, veja [Assign a custom domain to a web app](scripts/app-service-powershell-configure-custom-domain.md) (Atribuir um domínio personalizado a uma aplicação Web).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

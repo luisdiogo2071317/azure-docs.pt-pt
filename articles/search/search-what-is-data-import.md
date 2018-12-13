@@ -1,6 +1,6 @@
 ---
-title: Importação de dados no Azure Search | Microsoft Docs
-description: Saiba como carregar dados para um índice da Azure Search.
+title: Importação de dados para ingestão de dados para um índice de pesquisa - Azure Search
+description: Preencha e carregar dados para um índice da Azure Search a partir de origens de dados externas.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: ab26adb330e69f71d94aa296ede558b44e47a187
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249783"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314861"
 ---
-# <a name="indexing-in-azure-search"></a>A indexação no Azure Search
+# <a name="indexing-external-data-for-queries-in-azure-search"></a>Indexação de dados externos para consultas no Azure Search
 > [!div class="op_single_selector"]
 > * [Descrição geral](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -23,7 +24,7 @@ ms.locfileid: "51249783"
 > 
 > 
 
-No Azure Search, as consultas são executadas nos seus conteúdos carregados para um [índice de pesquisa](search-what-is-an-index.md). Este artigo analisa as duas abordagens básicas para carregar conteúdos para um índice: *enviar* os dados para o índice programaticamente ou instruir um [indexador do Azure Search](search-indexer-overview.md) numa origem de dados suportada para *extraí-los*.
+No Azure Search, as consultas são executadas nos seus conteúdos carregados para e guardou numa [índice de pesquisa](search-what-is-an-index.md). Este artigo examina as duas abordagens básicas para preencher um índice: *push* seus dados para o índice programaticamente, ou ponto de um [indexador de Azure Search](search-indexer-overview.md) numa origem de dados suportada para  *Extração* nos dados.
 
 ## <a name="pushing-data-to-an-index"></a>Enviar dados para um índice
 O modelo de envio, utilizado para enviar programaticamente os seus dados para o Azure Search, é a abordagem mais flexível. Em primeiro lugar, não tem restrições quanto ao tipo de origem de dados. Qualquer conjunto de dados composto por documentos JSON pode ser enviado para um índice do Azure Search, pressupondo que cada documento desse conjunto tem campos que sejam mapeados para os campos definidos no esquema de índice. Em segundo lugar, não tem restrições relativamente à frequência de execução. Pode enviar alterações para os índices tantas vezes quanto quiser. Para aplicações com requisitos de latência muito baixos (por exemplo, se quiser que as operações de pesquisa estejam sincronizadas com bases de dados de inventário dinâmicas), o modelo de envio é a única opção.

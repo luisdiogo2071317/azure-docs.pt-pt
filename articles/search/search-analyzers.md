@@ -1,5 +1,5 @@
 ---
-title: Analisadores no Azure Search | Documentos da Microsoft
+title: Analisadores de linguística e o processamento de texto - Azure Search
 description: Analisadores de atribuir a campos de texto pesquisável num índice para substituir a predefinição Lucene padrão com alternativas personalizadas, predefinidas ou específicas de idioma.
 services: search
 ms.service: search
@@ -8,14 +8,15 @@ ms.date: 09/11/2017
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.openlocfilehash: 68ce4fa5536f21d6d66245a9383a4b58c42febff
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: seodec2018
+ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116375"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310543"
 ---
-# <a name="analyzers-in-azure-search"></a>Analisadores no Azure Search
+# <a name="analyzers-for-text-processing-in-azure-search"></a>Analisadores de processamento no Azure Search de texto
 
 Uma *analisador* é um componente do [pesquisa em texto completo](search-lucene-query-architecture.md) responsável pelo processamento de texto em cadeias de consulta e documentos indexados. As seguintes transformações são característicos durante a análise:
 
@@ -82,7 +83,7 @@ O [demonstração do Search Analyzer](http://alice.unearth.ai/) é uma aplicaç�
 Os exemplos abaixo mostram as definições do analyzer para alguns cenários essenciais.
 
 <a name="Example1"></a>
-### <a name="example-1-custom-options"></a>Exemplo 1: Opções de personalizado
+### <a name="example-1-custom-options"></a>Exemplo 1: Opções personalizadas
 
 Este exemplo ilustra uma definição de analisador com opções personalizadas. Opções personalizadas para os filtros de char, tokenizers e filtros de token são especificadas em separado como construções com nome e, em seguida, referenciadas na definição do analyzer. Elementos predefinidos são utilizados como-é e simplesmente referenciado por nome.
 
@@ -181,7 +182,7 @@ O elemento "analyzer" substitui o analisador padrão numa base de campo por camp
 ~~~~
 
 <a name="Example3"></a>
-### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>Exemplo 3: Analisadores diferentes para operações de indexação e pesquisa
+### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>Exemplo 3: Analisadores de diferentes para operações de indexação e pesquisa
 
 As APIs incluem os atributos de índice adicional para especificar diferentes analisadores de indexação e pesquisa. O `searchAnalyzer` e `indexAnalyzer` atributos tem de ser especificados como um par, substituindo o único `analyzer` atributo.
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 110357a7a84aa8cc6bd7dcb5bbef9ca02879a9cb
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c0687ec94af60d3683d3f129eff2bad8fb97d786
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494276"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165810"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark (DStream) de exemplo com o Apache Kafka no HDInsight de transmissão em fluxo
 
@@ -57,17 +57,17 @@ Embora pode criar uma rede virtual do Azure, Kafka, e clusters do Spark manualme
    
     * **Grupo de recursos**: Crie um grupo ou selecione um existente. Este grupo contém o cluster do HDInsight.
 
-    * **Localização**: selecione uma localização geograficamente próximo de.
+    * **Localização**: Selecione um local geograficamente próximo de.
 
-    * **Nome do Cluster de base**: este valor é utilizado como o nome de base para o Spark e clusters do Kafka. Por exemplo, introduzir **hdistreaming** cria um cluster do Spark com o nome __spark hdistreaming__ e um cluster de Kafka com o nome **kafka hdistreaming**.
+    * **Nome do Cluster de base**: Este valor é utilizado como o nome de base para os clusters do Spark e Kafka. Por exemplo, introduzir **hdistreaming** cria um cluster do Spark com o nome __spark hdistreaming__ e um cluster de Kafka com o nome **kafka hdistreaming**.
 
     * **Nome de utilizador de início de sessão do cluster**: O nome de utilizador de administrador para os clusters do Spark e Kafka.
 
-    * **Palavra-passe de início de sessão do cluster**: A palavra-passe de utilizador do administrador para os clusters do Spark e Kafka.
+    * **Palavra-passe de início de sessão do cluster**: A senha do usuário de administrador para os clusters do Spark e Kafka.
 
     * **Nome de utilizador SSH**: O utilizador SSH para criar para os clusters do Spark e Kafka.
 
-    * **Palavra-passe SSH**: A palavra-passe do utilizador SSH para os clusters do Spark e Kafka.
+    * **SSH palavra-passe**: A palavra-passe do utilizador SSH para os clusters do Spark e Kafka.
 
 3. Leia os **Termos e Condições** e selecione **Aceito os temos e as condições apresentados acima**.
 

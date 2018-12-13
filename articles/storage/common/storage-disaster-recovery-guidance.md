@@ -6,15 +6,15 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 39a938d45c8f15c21b44bb5b04b1429fb4733b5a
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033928"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323273"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>O que fazer se ocorrer uma falha do Armazenamento do Azure
 Na Microsoft, trabalhamos arduamente para se certificar de que os nossos serviços estão sempre disponíveis. Às vezes, força além do nosso impacto de controle-nos de forma a provocar interrupções de serviço não planeada num ou mais regiões. Para ajudar a lidar com essas ocorrências raras, fornecemos as seguintes orientações de alto nível dos serviços de armazenamento do Azure.
@@ -34,7 +34,7 @@ A forma recomendada para determinar o estado do serviço do Azure é subscrever 
 ## <a name="what-to-do-if-a-storage-outage-occurs"></a>O que fazer se ocorrer uma falha de armazenamento
 Se um ou mais serviços de armazenamento estão temporariamente indisponíveis numa ou mais regiões, existem duas opções para a ser considerada. Se desejar ter acesso imediato aos seus dados, considere a opção 2.
 
-### <a name="option-1-wait-for-recovery"></a>Opção 1: Fim da espera para recuperação
+### <a name="option-1-wait-for-recovery"></a>Opção 1: Aguarde pela recuperação
 Neste caso, nenhuma ação da sua parte é necessária. Estamos a trabalhar diligentemente para restaurar a disponibilidade do serviço do Azure. Pode monitorizar o estado do serviço no [Dashboard de estado de funcionamento do serviço de Azure](https://azure.microsoft.com/status/).
 
 ### <a name="option-2-copy-data-from-secondary"></a>Opção 2: Copiar dados a partir do secundário
@@ -43,7 +43,7 @@ Se escolheu [armazenamento georredundante com acesso de leitura (RA-GRS)](storag
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>O que esperar se ocorre uma ativação pós-falha de armazenamento
 Se escolheu [armazenamento georredundante (GRS)](storage-redundancy-grs.md) ou [armazenamento georredundante com acesso de leitura (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recomendado), armazenamento do Azure irá manter os seus dados duráveis em duas regiões (primário e secundário). Em ambas as regiões, o armazenamento do Azure mantém constantemente várias réplicas dos seus dados.
 
-Quando um desastre regional afeta a região primária, tentaremos primeiro restaurar o serviço nessa região para fornece a melhor combinação das RTO e RPO. Depende da natureza do desastre e impacto, em algumas ocasiões raras, poderá não conseguir restaurar a região primária. Nesse ponto, iremos efetuar uma ativação pós-falha geográfica. Replicação de dados entre regiões é um processo assíncrono que envolve um atraso, portanto, é possível que as alterações que ainda não tem sido replicadas para a região secundária podem ser perdidas.
+Quando um desastre regional afeta a região primária, tentaremos primeiro restaurar o serviço nessa região para fornecer a melhor combinação das RTO e RPO. Depende da natureza do desastre e impacto, em algumas ocasiões raras, poderá não conseguir restaurar a região primária. Nesse ponto, iremos efetuar uma ativação pós-falha geográfica. Replicação de dados entre regiões é um processo assíncrono que envolve um atraso, portanto, é possível que as alterações que ainda não tem sido replicadas para a região secundária podem ser perdidas.
 
 Alguns pontos sobre a experiência de ativação pós-falha geográfica de armazenamento:
 

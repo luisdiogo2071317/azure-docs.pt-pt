@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de classificação de imagem: preparação de modelos'
+title: 'Tutorial de classificação de imagem: Preparar modelos'
 titleSuffix: Azure Machine Learning service
 description: Este tutorial mostra como utilizar o serviço do Azure Machine Learning para preparar um modelo de classificação de imagens com scikit-learn num bloco de notas do Jupyter em Python. Este tutorial é a primeira parte de uma série composta por duas partes.
 services: machine-learning
@@ -11,14 +11,14 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: fc61465615e35c071466c7a1350c8e9794a7f78e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a2208e160d641d762b57668cdc635fe877677ff5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099114"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310118"
 ---
-# <a name="tutorial-part-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial (parte 1): preparar um modelo de classificação de imagem com o serviço Azure Machine Learning
+# <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial: Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning
 
 Neste tutorial, vai preparar um modelo de machine learning, quer localmente, quer em recursos de computação remotos. Usará o treinamento e o fluxo de trabalho de implantação para o serviço Azure Machine Learning num bloco de notas do Jupyter do Python.  Depois, pode utilizar o bloco de notas como um modelo para preparar o seu próprio modelo de machine learning com os seus dados. Este tutorial é a **primeira parte de uma série composta por duas partes**.  
 
@@ -35,7 +35,7 @@ Aprenda a:
 
 Na [parte dois deste tutorial](tutorial-deploy-models-with-aml.md), mais adiante, vai aprender a selecionar um modelo e implementá-lo. 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
 >[!NOTE]
 > Código neste artigo foi testado com o Azure Machine Learning SDK versão 1.0.2
@@ -384,15 +384,15 @@ No total, a primeira execução demora **aproximadamente dez minutos**. Contudo,
 
 Eis o que está a acontecer enquanto espera:
 
-- **Criação da imagem**: é criada uma imagem do Docker que corresponde ao ambiente Python especificado pelo simulador. A imagem é carregada para a área de trabalho. A criação e o carregamento da imagem demora **cerca de cinco minutos**. 
+- **Criação de imagem**: Uma imagem do Docker é criada o ambiente de Python especificado pelo avaliador de correspondência. A imagem é carregada para a área de trabalho. A criação e o carregamento da imagem demora **cerca de cinco minutos**. 
 
   Esta fase acontece uma vez para cada ambiente Python, pois o contentor é colocado em cache nas execuções seguintes.  Durante a criação da imagem, os registos são transmitidos para o histórico de execuções. Pode utilizar esses registos para monitorizar o progresso da criação da imagem.
 
-- **Dimensionamento**: se o cluster remoto precisar de mais nós para realizar a execução que está disponível atualmente, são adicionados mais nós de forma automática. Regra geral, o dimensionamento **demora cerca de cinco minutos.**
+- **Dimensionamento**: Se o cluster remoto requer mais nós para executar a execução do que no momento, nós adicionais são adicionados automaticamente. Regra geral, o dimensionamento **demora cerca de cinco minutos.**
 
-- **Execução**: nesta fase, os scripts e os ficheiros necessários são enviados para o destino de computação, depois os arquivos de dados são montados/copiados e, por fim, é executado entry_script. Enquanto o trabalho está em execução, stdout e o diretório ./logs são transmitidos para o histórico de execuções. Pode utilizar esses registos para monitorizar o progresso da execução.
+- **Executar**: Nesta fase, os scripts necessários e os ficheiros são enviados para o destino de computação, em seguida, arquivos de dados são copiados/montado, em seguida, o entry_script é executado. Enquanto o trabalho está em execução, stdout e o diretório ./logs são transmitidos para o histórico de execuções. Pode utilizar esses registos para monitorizar o progresso da execução.
 
-- **Pós-processamento**: o diretório ./outputs da execução é copiado para o histórico de execuções na área de trabalho, para que possa aceder a esses resultados.
+- **Pós-processamento**: A. / produz o diretório da execução é copiado para o histórico de execuções em sua área de trabalho para que possa aceder esses resultados.
 
 
 Pode verificar o progresso de um trabalho em execução de várias formas. Este tutorial utiliza um widget Jupyter, bem como um método `wait_for_completion`. 

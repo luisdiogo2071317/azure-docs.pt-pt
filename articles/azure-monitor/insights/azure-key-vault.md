@@ -10,17 +10,15 @@ ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.component: ''
-ms.openlocfilehash: 28246e89d798fa86561930ed52f0c84e433f0d9d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 785ccba6766b6a4f7400f3fdacf7ac24a234adf5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838748"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192775"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solução de análise do Cofre de chaves do Azure no Log Analytics
 
@@ -138,9 +136,9 @@ Para utilizar a solução atualizada:
 1. [Configurar diagnóstico sejam enviadas diretamente para o Log Analytics do Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
 2. Ativar a solução de Cofre de chaves do Azure utilizando o processo descrito [adicionar soluções Log Analytics da Galeria de soluções](../../azure-monitor/insights/solutions.md)
 3. Atualizar quaisquer consultas guardadas, dashboards ou alertas para usar o novo tipo de dados
-  + É de tipo de alteração do: KeyVaults para AzureDiagnostics. Pode usar o ResourceType para filtrar para registos do Cofre de chave.
+  + Tipo é a mudança do: KeyVaults para AzureDiagnostics. Pode usar o ResourceType para filtrar para registos do Cofre de chave.
   - Em vez de: `KeyVaults`, utilize `AzureDiagnostics | where ResourceType'=="VAULTS"`
-  + Campos: (nomes de campo diferenciam maiúsculas de minúsculas)
+  + Campos: (Os nomes de campos diferenciam maiúsculas de minúsculas)
   - Para qualquer campo que tem um sufixo de \_s, \_1!d, ou \_g o nome, altere o primeiro caráter em minúsculas
   - Para qualquer campo que tem um sufixo de \_o nome, os dados é dividido em campos individuais com base nos nomes de campos aninhados. Por exemplo, o UPN do chamador é armazenado num campo `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    - Campo CallerIpAddress alterado para CallerIPAddress

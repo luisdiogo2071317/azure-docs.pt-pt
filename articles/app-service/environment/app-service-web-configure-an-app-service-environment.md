@@ -1,5 +1,5 @@
 ---
-title: Como configurar um serviço de aplicações v1 do ambiente
+title: Como configurar um serviço de aplicações v1 do ambiente - Azure
 description: Configuração, gestão e monitorização do ambiente de serviço de aplicações v1
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 60e086197b61d14394cad3d54a7efc4baede1f7b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 85353b68673ea91711e0c3d93e68bec662f406df
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965825"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272138"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuração de uma aplicação v1 do ambiente de serviço
 
@@ -44,14 +45,14 @@ Os anfitriões nos agrupamentos de recursos (front-ends e trabalhos) não estão
 Pode definir a quantidade de agrupamento de recursos e o tamanho. Num ASE, terá quatro opções de tamanho, que estão identificados como P1 a P4. Para obter detalhes sobre estes tamanhos e seus preços, consulte [preços do serviço de aplicações](https://azure.microsoft.com/pricing/details/app-service/).
 Alterar a quantidade ou o tamanho é chamado de uma operação de dimensionamento.  Operação de dimensionamento apenas uma pode estar em curso, ao mesmo tempo.
 
-**Front-ends**: os front-ends são os pontos finais de HTTP/HTTPS para as suas aplicações que são mantidas no seu ASE. Não executar cargas de trabalho no front-ends.
+**Front-ends**: Os front-ends são os pontos finais de HTTP/HTTPS para as suas aplicações que são mantidas no seu ASE. Não executar cargas de trabalho no front-ends.
 
 * Um ASE é iniciado com dois P2s, que é suficiente para cargas de trabalho de programador/teste e cargas de trabalho de produção de nível baixo. É altamente recomendável P3s para moderada para cargas de trabalho pesadas de produção.
 * Para moderada para cargas de trabalho pesadas de produção, recomendamos que tenha, pelo menos, quatro P3s para garantir que existem suficientes front-ends em execução quando ocorre a manutenção agendada. Atividades de manutenção agendada serão prejudicar um front-end ao mesmo tempo. Isso reduz global capacidade disponível de front-end durante as atividades de manutenção.
 * Front-ends podem demorar até uma hora para aprovisionar. 
 * Para Ajustar escala ainda mais, deve monitorar a percentagem de CPU, percentagem de memória e métricas de pedidos ativos para o conjunto de front-end. Se os percentuais de CPU ou memória são acima 70 por cento durante a execução P3s, adicione mais front-ends. Se o valor de pedidos ativos calcula a média 15.000 para 20 000 pedidos por front-end, deverá ainda adicionar mais front-ends. O objetivo geral é manter percentuais de CPU e memória abaixo 70% e pedidos ativos uma média de para abaixo de 15 000 pedidos por front end quando estiver a executar o P3s.  
 
-**Os operadores**: os trabalhadores estão onde, na verdade, executam as suas aplicações. Ao aumentar verticalmente os planos de serviço de aplicações, que utiliza funções de trabalho no conjunto de trabalho associados.
+**Os operadores**: Os trabalhadores estão onde, na verdade, executam as suas aplicações. Ao aumentar verticalmente os planos de serviço de aplicações, que utiliza funções de trabalho no conjunto de trabalho associados.
 
 * Instantaneamente não é possível adicionar funções de trabalho. Poderá demorar até uma hora para aprovisionar.
 * O tamanho de um recurso de computação para qualquer conjunto de dimensionamento irão demorar < 1 hora por domínio de atualização. Há 20 domínios de atualização num ASE. Se aumentado o tamanho de computação de um conjunto de trabalho com 10 instâncias, pode demorar até 10 horas a concluir.
@@ -68,7 +69,7 @@ Se as suas aplicações requerem um tamanho de recursos de computação maior, n
 * Reatribua seus planos de serviço de aplicações que estão a alojar as aplicações que precisam de um tamanho maior para o conjunto de trabalho recém configurada. Esta é uma operação rápida que deve demorar menos de um minuto para concluir.  
 * Reduza verticalmente o primeiro conjunto de trabalho se não precisa mais essas instâncias não utilizadas. Esta operação demora alguns minutos a concluir.
 
-**Dimensionamento automático**: uma das ferramentas que podem ajudar a gerir o seu consumo de recursos de computação é que o dimensionamento automático. Pode utilizar o dimensionamento automático para front-end ou conjuntos de trabalho. Pode fazer coisas como aumento as instâncias de qualquer tipo de conjunto de manhã e reduzi-lo durante a noite. Ou talvez pode adicionar instâncias quando o número de trabalhos que estão disponíveis num conjunto de trabalhos cai abaixo de um determinado limiar.
+**Dimensionamento automático**: Uma das ferramentas que podem ajudar a gerir o seu consumo de recursos de computação é o dimensionamento automático. Pode utilizar o dimensionamento automático para front-end ou conjuntos de trabalho. Pode fazer coisas como aumento as instâncias de qualquer tipo de conjunto de manhã e reduzi-lo durante a noite. Ou talvez pode adicionar instâncias quando o número de trabalhos que estão disponíveis num conjunto de trabalhos cai abaixo de um determinado limiar.
 
 Se pretender definir regras de dimensionamento automático em torno de métricas de conjunto de recursos de computação, em seguida, tenha em mente o tempo que necessita de aprovisionamento. Para obter mais detalhes sobre o dimensionamento automático de ambientes de serviço de aplicações, consulte [como configurar o dimensionamento automático num ambiente de serviço de aplicações][ASEAutoscale].
 
@@ -138,7 +139,7 @@ No painel do ASE, há uma **definições** seção que contém diversos recursos
 
 **As definições** > **endereços IP**: Quando cria uma aplicação de IP Secure Sockets Layer (SSL) no seu ASE, precisa de um endereço IP SSL. Para obter uma, o ASE tem endereços de IP SSL que ele possui que podem ser alocados. Quando um ASE é criado, ele tem um endereço IP SSL para este fim, mas pode adicionar mais. Existe uma cobrança para endereços de SSL de IP adicionais, conforme mostrado na [preços do serviço de aplicações] [ AppServicePricing] (na secção de ligações SSL). O preço adicional é o preço de SSL de IP.
 
-**As definições** > **conjunto de Front-End** / **conjuntos de trabalho**: cada um desses painéis de conjunto de recursos oferece a capacidade de ver informações apenas sobre esse pool de recursos, na Além de fornecer controles para dimensionar completamente esse agrupamento de recursos.  
+**As definições** > **conjunto final de front-** / **conjuntos de trabalho**: Cada um desses painéis de conjunto de recursos oferece a capacidade para ver informações apenas sobre esse pool de recursos, além de fornecermos o controles para dimensionar completamente esse agrupamento de recursos.  
 
 O painel de base para cada agrupamento de recursos fornece um gráfico com a métrica para esse pool de recursos. Assim como com os gráficos do painel do ASE, pode ir para o gráfico e configurar alertas conforme pretendido. Definir um alerta a partir do painel de ASE para um agrupamento de recursos específico faz a mesma coisa como fazê-lo do agrupamento de recursos. Do conjunto de trabalho **definições** painel, tem acesso a todas as aplicações ou planos de serviço de aplicações que estão a executar este conjunto de trabalho.
 

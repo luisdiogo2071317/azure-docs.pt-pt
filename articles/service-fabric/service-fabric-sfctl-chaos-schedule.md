@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492245"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276456"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obter e definir a agenda de caos.
@@ -29,7 +29,7 @@ Obter e definir a agenda de caos.
 |Comando|Descrição|
 | --- | --- |
 | Get | Obtenha o agendamento de Chaos definir quando e como executar o caos. |
-| conjunto | Defina a agenda de Chaos a ser utilizado pelo caos. |
+| set | Defina a agenda utilizada pelo caos. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>obter agenda de chaos sfctl
 Obtenha o agendamento de Chaos definir quando e como executar o caos.
@@ -53,9 +53,9 @@ Obtém a versão da agenda de Chaos em utilização e a agenda de Chaos que defi
 | -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>conjunto de agenda de chaos sfctl
-Defina a agenda de Chaos a ser utilizado pelo caos.
+Defina a agenda utilizada pelo caos.
 
-Defina a agenda de Chaos atualmente em utilização por caos. Chaos será automaticamente agendar execuções com base na agenda caos. A versão na programação de entrada fornecida tem de corresponder à versão da agenda caos no servidor. Se a versão fornecida não corresponde a versão no servidor, a agenda de Chaos não é atualizada. Se a versão fornecida corresponde à versão no servidor, em seguida, a agenda de Chaos é atualizada e a versão da agenda caos no servidor é incrementada num deles e inclui retornará ao 0 se depois de 2 147 483 647. Se estiver a executar Chaos quando esta chamada é feita, a chamada falhará.
+Chaos será automaticamente agendar execuções com base na agenda caos. A versão na programação de entrada fornecida tem de corresponder à versão da agenda caos no servidor. Se a versão fornecida não corresponde a versão no servidor, a agenda de Chaos não é atualizada. Se a versão fornecida corresponde à versão no servidor, em seguida, a agenda de Chaos é atualizada e a versão da agenda caos no servidor é incrementada num deles e inclui retornará ao 0 se depois de 2 147 483 647. Se estiver a executar Chaos quando esta chamada é feita, a chamada falhará.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -143,6 +143,7 @@ O comando a seguir define uma agenda (supondo que a agenda atual tem uma versão
         ]
     }
     ]
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Configurar](service-fabric-cli.md) a CLI do Service Fabric.

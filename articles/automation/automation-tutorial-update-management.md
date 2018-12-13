@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: d66221dea768d75395300ab663c9466718a0140d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 83647dfb0965b8aac8ede5f2e9669ae3d7722c41
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966796"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184989"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerir atualizações do Windows com a Automatização do Azure
 
@@ -109,7 +109,7 @@ Em **2. Definir detalhes do alerta**, introduza um nome e uma descrição para o
 
 ![Configurar lógica de sinal](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Sob **grupos de ação**, selecione **criar nova**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../monitoring-and-diagnostics/monitoring-action-groups.md).
+Sob **grupos de ação**, selecione **criar nova**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/platform/action-groups.md).
 
 Na caixa **Nome do grupo de ações**, introduza um nome para o alerta e um nome abreviado. O nome abreviado é utilizado em vez de um nome de grupo de ações completo quando as notificações são enviadas ao utilizar deste grupo.
 
@@ -131,15 +131,15 @@ Para agendar uma nova implementação de atualização para a VM, aceda a **Gest
 
 Em **Nova implementação de atualização**, especifique as seguintes informações:
 
-* **Nome**: indique um nome exclusivo para a implementação da atualização.
+* **Nome**: Introduza um nome exclusivo para a implementação da atualização.
 
-* **Sistema operativo**: selecione o SO de destino para a implementação da atualização.
+* **Sistema operativo**: Selecione o sistema operacional de destino para a implementação da atualização.
 
-* **Grupos a atualizar (pré-visualização)**: defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para obter mais informações, consulte [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
+* **Grupos de atualização (pré-visualização)**: Defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para obter mais informações, consulte [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
 
-* **Computadores a atualizar**: Selecione uma Pesquisa guardada, o Grupo importado ou escolha a Máquina a partir do menu pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md)
+* **Computadores a atualizar**: Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md)
 
-* **Classificação da atualização**: selecione os tipos de software que a implementação da atualização incluiu na implementação. Para este tutorial, deixe todos os tipos selecionados.
+* **Classificação da atualização**: Selecione os tipos de software que a implementação de atualizações incluída na implementação. Para este tutorial, deixe todos os tipos selecionados.
 
   Os tipos de classificação são:
 
@@ -152,14 +152,14 @@ Em **Nova implementação de atualização**, especifique as seguintes informaç
 
 * **Atualizações a incluir/excluir**: esta opção abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é processada, consulte [comportamento de inclusão](automation-update-management.md#inclusion-behavior)
 
-* **Definições da agenda**: o painel **Definições da Agenda** abre. A hora de início predefinida é 30 minutos depois da hora atual. Pode definir a hora de início para qualquer hora a partir de 10 minutos no futuro.
+* **Definições da agenda**: O **definições do agendamento** painel abre-se. A hora de início predefinida é 30 minutos depois da hora atual. Pode definir a hora de início para qualquer hora a partir de 10 minutos no futuro.
 
    Também pode especificar se a implementação ocorre uma vez ou configurar um agendamento periódico. Em **Periodicidade**, selecione **Uma vez**. Deixe a predefinição como 1 dia e selecione **OK**. Esta ação configura uma agenda periódica.
 
-* **Scripts prévios + Scripts posteriores**: selecione os scripts para executar antes e após a sua implementação. Para saber mais, veja [Gerir Scripts prévios e posteriores](pre-post-scripts.md).
-* **Janela de manutenção (minutos)**: deixe o valor predefinido. Pode especificar a janela de tempo na qual pretende que a implementação da atualização ocorra. Esta definição ajuda a garantir que as alterações são realizadas nos seus períodos de administração definidos.
+* **Pré- scripts de + pós-scripts de**: Selecione os scripts sejam executados antes e após a sua implementação. Para saber mais, veja [Gerir Scripts prévios e posteriores](pre-post-scripts.md).
+* **Janela de manutenção (minutos)**: Deixe o valor predefinido. Pode especificar a janela de tempo na qual pretende que a implementação da atualização ocorra. Esta definição ajuda a garantir que as alterações são realizadas nos seus períodos de administração definidos.
 
-* **Opções de reinício**: esta definição determina como os reinícios devem ser tratados. As opções disponíveis são:
+* **Opções de reinício**: Esta definição determina como devem ser tratadas reinicializações. As opções disponíveis são:
   * Reiniciar se for preciso (Predefinição)
   * Reiniciar sempre
   * Nunca reiniciar
@@ -186,9 +186,9 @@ Em **Resultados da atualização**, um resumo indica o número total de atualiza
 
 A lista seguinte mostra os valores disponíveis:
 
-* **Não tentado**: a atualização não foi instalada porque não havia tempo suficiente disponível com base na duração da janela de manutenção definida.
-* **Com êxito**: a atualização foi executada com êxito.
-* **Falhou**: a atualização falhou.
+* **Não tentada**: A atualização não foi instalada porque não havia tempo suficiente disponível com base na duração da janela de manutenção definida.
+* **Foi efetuada com êxito**: A atualização foi concluída com êxito.
+* **Falha ao**: A atualização falhou.
 
 Selecione **Todos os registos** para ver todas as entradas de registo criadas pela implementação.
 

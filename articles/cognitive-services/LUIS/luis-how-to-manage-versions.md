@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 454f45b692a87dbd47ca1ca70880323912693839
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a1594d3dfe449049258e5ee12bc173c413459f8a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082701"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132879"
 ---
 # <a name="manage-versions"></a>Gerir versões
 
@@ -45,7 +45,7 @@ A lista de versões mostram as versões que são publicadas, onde eles são publ
 
 Selecione uma versão da lista, em seguida, selecione **tornar Active** da barra de ferramentas. 
 
-[![Secção Gerir, página de versões](./media/luis-how-to-manage-versions/versions-other.png "secção Gerir, página de versões")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+[![Secção Gerir, página de versões, tomar uma ação de versão](./media/luis-how-to-manage-versions/versions-other.png "secção Gerir, página de versões, tomar uma ação de versão")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Versão de importação
 
@@ -53,7 +53,7 @@ Selecione uma versão da lista, em seguida, selecione **tornar Active** da barra
 
 2. Na **nova versão de importação** janela pop-up, introduza o novo nome de versão de dez caractere. Apenas terá de definir um ID de versão, se a versão no ficheiro JSON já existe na aplicação.
 
-    ![Gerir a seção, página de versões](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
+    ![Gerir a seção, página de versões, importar a nova versão](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Depois de importar uma versão, a nova versão torna-se a versão do Active Directory.
 

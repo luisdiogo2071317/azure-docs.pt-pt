@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Azure Policy – Auditar a encriptação de dados transparente da Base de Dados SQL
+title: Exemplo - auditar encriptação de dados transparente para a base de dados SQL
 description: Esta política de exemplo fará uma auditoria se a base de dados SQL não tiver a encriptação de dados transparente ativada.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 10/29/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: d7e8571c0b8301da953d84893ac48934a2392d55
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 36eb62dfa7ae45b70f5907241c66f2286f9ce760
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230008"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310628"
 ---
 # <a name="audit-sql-database-encryption"></a>Auditar a encriptação da base de dados SQL
 
@@ -66,6 +65,6 @@ Execute o seguinte comando para remover a atribuição de política.
 az policy assignment delete --name "SQL TDE Audit" --resource-group myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

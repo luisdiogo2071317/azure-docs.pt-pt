@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 57f4485e70bf91713539b3398fc93d6810c3c28e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391492"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163243"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operações do sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake com o .NET SDK
 > [!div class="op_single_selector"]
@@ -146,7 +146,7 @@ O fragmento seguinte devolve as propriedades associadas a um ficheiro ou diretó
     var directoryEntry = client.GetDirectoryEntry(fileName);
     PrintDirectoryEntry(directoryEntry);
 
-A definição do método `PrintDirectoryEntry` está disponível como parte do exemplo [no Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
+A definição do `PrintDirectoryEntry` método está disponível como parte da amostra [no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
 
 ## <a name="rename-a-file"></a>Mudar o nome de um ficheiro
 O fragmento seguinte muda o nome de um ficheiro existente numa conta de geração 1 de armazenamento do Data Lake.
@@ -164,7 +164,7 @@ O fragmento seguinte enumera os diretórios numa conta de geração 1 de armazen
         PrintDirectoryEntry(entry);
     }
 
-A definição do método `PrintDirectoryEntry` está disponível como parte do exemplo [no Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
+A definição do `PrintDirectoryEntry` método está disponível como parte da amostra [no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
 ## <a name="delete-directories-recursively"></a>Eliminar diretórios recursivamente
 O fragmento seguinte elimina um diretório e todos os respetivos sub-diretórios, recursivamente.
@@ -174,8 +174,8 @@ O fragmento seguinte elimina um diretório e todos os respetivos sub-diretórios
 
 ## <a name="samples"></a>Amostras
 Aqui estão alguns exemplos sobre como utilizar o SDK de sistema de ficheiros de geração 1 do Data Lake Storage.
-* [Exemplo básico no Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
-* [Exemplo avançado no Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
+* [Exemplo básico no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
+* [Exemplo avançado no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>Consulte também
 * [Operações de gestão de conta na geração 1 de armazenamento do Data Lake com o .NET SDK](data-lake-store-get-started-net-sdk.md)

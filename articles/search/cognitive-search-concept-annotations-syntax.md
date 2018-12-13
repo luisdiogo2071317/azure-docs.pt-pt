@@ -1,5 +1,5 @@
 ---
-title: Referenciar uma anotação nas entradas e saídas num pipeline de pesquisa cognitiva no Azure Search | Documentos da Microsoft
+title: Entradas de referência e saídas no cognitivos pesquisa pipelines - Azure Search
 description: Explica a sintaxe de anotação e como fazer referência a uma anotação nas entradas e saídas de um conjunto de capacidades num pipeline no Azure Search pesquisa cognitiva.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1ccc1fb20cb08cfd97d58984676ef4006e693118
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 57fed710d7d58199fb3cb70640d1f2d3f316f180
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801952"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315836"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Como fazer referência a anotações num conjunto de capacidades de pesquisa cognitiva
 
@@ -93,7 +94,7 @@ Quando as anotações são matrizes ou coleções de cadeias de caracteres, pode
 
 <a name="example-3"></a>
 
-## <a name="example-3-reference-members-within-an-array"></a>Exemplo 3: Os membros dentro de uma matriz de referência
+## <a name="example-3-reference-members-within-an-array"></a>Exemplo 3: Membros de referência dentro de uma matriz
 
 Às vezes precisa agrupar todas as anotações de um determinado tipo passá-los para uma determinada habilidade. Considere uma habilidade personalizada hipotética que identifica o sobrenome de segurança mais comuns de todos os nomes de última extraído no exemplo 2. Para fornecer apenas os último nomes para a habilidade de personalizado, especifique o contexto como `"/document"` e a entrada como `"/document/people/*/lastname"`.
 

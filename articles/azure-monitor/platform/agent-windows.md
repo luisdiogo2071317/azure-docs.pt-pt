@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 7474d76537111ebc9f34bb2632a899b7ceb4e50a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 1c90c85f667e18a80c4673a73867ee2d6b3b6294
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643139"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189902"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ligar computadores Windows ao serviço Log Analytics no Azure
 
@@ -49,7 +47,7 @@ Antes de instalar o agente Microsoft Monitoring para Windows, precisa do ID e da
 ## <a name="configure-agent-to-use-tls-12"></a>Configurar o agente para utilizar o TLS 1.2
 Para configurar a utilização do [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) protocolo para comunicação entre o agente do Windows e o serviço Log Analytics, pode seguir os passos abaixo para ativar antes do agente está instalado na máquina virtual ou posteriormente.   
 
-1. Localize a seguinte subchave do registo: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
+1. Localize a seguinte subchave do Registro: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. Criar uma subchave no **protocolos** para o TLS 1.2 **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
 3. Criar uma **cliente** subchave subchave de versão do protocolo TLS 1.2 que criou anteriormente. Por exemplo, **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
 4. Criar os seguintes valores DWORD em **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
@@ -59,9 +57,9 @@ Para configurar a utilização do [TLS 1.2](https://docs.microsoft.com/windows-s
 
 Configurar o .NET Framework 4.6 ou posterior para dar suporte seguro criptografia, como, por padrão, ele está desabilitada. O [criptografia segura](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) utiliza protocolos de rede mais seguros, como o TLS 1.2 e bloqueia protocolos que não são seguros. 
 
-1. Localize a seguinte subchave do registo: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\. NETFramework\v4.0.30319**.  
+1. Localize a seguinte subchave do Registro: **HKEY_LOCAL_MACHINE\Software\Microsoft\\. NETFramework\v4.0.30319**.  
 2. Criar o valor DWORD **SchUseStrongCrypto** esta subchave com um valor de **1**.  
-3. Localize a seguinte subchave do registo: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\. NETFramework\v4.0.30319**.  
+3. Localize a seguinte subchave do Registro: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\. NETFramework\v4.0.30319**.  
 4. Criar o valor DWORD **SchUseStrongCrypto** esta subchave com um valor de **1**. 
 5. Reinicie o sistema para as definições entrem em vigor. 
 
@@ -180,7 +178,7 @@ Para obter o código de produto a partir do pacote de instalação do agente dir
 
 Após a conclusão da instalação do agente, verificar é ligado com êxito e de relatórios podem ser feito de duas formas.  
 
-No computador no **painel de controlo**, localize o item **Microsoft Monitoring Agent**.  Selecione-o e, no **do Azure Log Analytics** separador, o agente deve exibir uma mensagem a indicar: **o Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite.**<br><br> ![Estado da ligação do MMA ao Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
+No computador no **painel de controlo**, localize o item **Microsoft Monitoring Agent**.  Selecione-o e, no **do Azure Log Analytics** guia, o agente deve exibir uma mensagem a indicar: **O Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite.**<br><br> ![Estado da ligação do MMA ao Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
 Também pode executar uma pesquisa de registos simples no portal do Azure.  
 

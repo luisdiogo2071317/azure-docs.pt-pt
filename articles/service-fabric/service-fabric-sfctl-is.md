@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 53e49099fd3486d51f021528c9354cf32f4952d2
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: abc1e835fa153fc5d061cca5a3eb009931240332
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492794"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276337"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Consultar e enviar comandos para o serviço de infraestrutura.
@@ -41,7 +41,7 @@ Para os clusters que têm uma ou mais instâncias do serviço de infraestrutura 
 |Argumento|Descrição|
 | --- | --- |
 | – comando [necessário] | O texto do comando a ser invocado. O conteúdo do comando é específica da infraestrutura. |
-| – id de serviço | A identidade do serviço de infraestrutura. <br><br> Este é o nome completo do serviço de infraestrutura sem o esquema URI de "malha". Este parâmetro necessário apenas para o cluster que tem mais de uma instância de serviço de infraestrutura em execução. |
+| – id de serviço | A identidade do serviço de infraestrutura. <br><br> Este é o nome completo do serviço de infraestrutura sem o "recursos de infraestrutura\:" esquema de URI. Este parâmetro necessário apenas para o cluster que tem mais de uma instância de serviço de infraestrutura em execução. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos global

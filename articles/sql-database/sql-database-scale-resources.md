@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: ede96607e14a43e85c3605e2d710c15ef0495c1f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 5e3c282c198b6a1290e724549a4af30119f9cb04
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868185"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251220"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dimensionar dinamicamente recursos de banco de dados com o tempo de inatividade mínimo
 
@@ -35,8 +35,8 @@ Não precisa se preocupar sobre a compra de hardware e alterar a infraestrutura 
 
 Base de dados SQL do Azure oferece a [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
-- O [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) oferece um blend de computação, memória e recursos de e/s em três escalões de serviço para suportar leves para cargas de trabalho de base de dados de ou pesadas: Basic, Standard e Premium. Os níveis de desempenho em cada camada fornecem uma mistura diferentes destes recursos, à qual pode adicionar recursos de armazenamento adicionais.
-- O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) permite-lhe escolher o número de vCores a quantidade ou memória e a quantidade e velocidade de armazenamento. Este modelo de compra oferece três escalões de serviço: para fins gerais, críticas para a empresa e a Hiperescala (pré-visualização).
+- O [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) oferece um blend de computação, memória e recursos de e/s em três escalões de serviço para suportar cargas de trabalho de base de dados de pedidos leves: Básico, Standard e Premium. Os níveis de desempenho em cada camada fornecem uma mistura diferentes destes recursos, à qual pode adicionar recursos de armazenamento adicionais.
+- O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) permite-lhe escolher o número de vCores a quantidade ou memória e a quantidade e velocidade de armazenamento. Este modelo de compra oferece três escalões de serviço: Geral finalidade, críticas para a empresa e a Hiperescala (pré-visualização).
 
 Pode criar a primeira aplicação numa base de dados pequena e individual a um custo reduzido por mês no escalão de serviço básico, Standard ou fins gerais e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para o escalão de serviço Premium ou críticas para a empresa para satisfazer o ne eds da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
 
@@ -50,7 +50,7 @@ No entanto, existem scripts que podem ajudar a automatizar a escalabilidade para
 
 Pode alterar [escalões de serviço DTU](sql-database-service-tiers-dtu.md) ou [características de vCore](sql-database-vcore-resource-limits-single-databases.md) em qualquer altura com o período de indisponibilidade mínimo para a sua aplicação (em média, menos de quatro segundos). Para muitas empresas e aplicações, ser capaz de criar bases de dados e aumentar e reduzir o desempenho a pedido é suficiente, sobretudo se os padrões de utilização forem relativamente previsíveis. No entanto, se tiver padrões de utilização imprevisíveis, pode tornar-se difícil gerir os custos e o seu modelo de negócio. Para este cenário, utilize um conjunto elástico com um determinado número de eDTUs que são partilhados entre várias bases de dados no conjunto.
 
-![Introdução à Base de Dados SQL: DTUs de base de dados individual por camada e nível](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+![Introdução à base de dados SQL: Base de dados DTUs por camada e nível](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Todos os três tipos de base de dados do Azure SQL oferecem alguma possibilidade de dimensionar dinamicamente o seus bancos de dados:
 
@@ -62,7 +62,7 @@ Todos os três tipos de base de dados do Azure SQL oferecem alguma possibilidade
 
 Dimensionar os recursos é o mais fácil e a forma mais eficiente para melhorar o desempenho da base de dados sem alterar o código de base de dados ou aplicação. Em alguns casos, até mesmo os escalões de serviço mais elevados, tamanhos de computação e otimizações de desempenho não podem processar a carga de trabalho na forma com êxito e econômica. Em que casos tem estas opções adicionais para dimensionar a sua base de dados:
 
-- [Escalamento leitura](sql-database-read-scale-out.md) é uma funcionalidade disponível em onde está a obter uma réplica só de leitura dos seus dados onde pode executar a exigência de consultas só de leitura, como relatórios. Réplica só de vermelho irá processar a carga de trabalho só de leitura sem afetar a utilização de recursos na sua base de dados primária.
+- [Escalamento leitura](sql-database-read-scale-out.md) é uma funcionalidade disponível em onde está a obter uma réplica só de leitura dos seus dados onde pode executar a exigência de consultas só de leitura, como relatórios. Réplica só de leitura irá processar a carga de trabalho só de leitura sem afetar a utilização de recursos na sua base de dados primária.
 - [Fragmentação de base de dados](sql-database-elastic-scale-introduction.md) é um conjunto de técnicas que lhe permite dividir os dados em várias bases de dados e dimensionar de forma independente.
 
 ## <a name="next-steps"></a>Passos Seguintes

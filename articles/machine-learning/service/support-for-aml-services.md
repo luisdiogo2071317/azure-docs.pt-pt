@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6acebef4481fc3d22cc7186663ce17e2602cde53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: cbf245b27bc6df9933a4786def42d85f848e09d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073504"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192095"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-service"></a>Obtenha suporte e treinamento para o serviço Azure Machine Learning
 
@@ -37,10 +37,10 @@ Pode **submeter pedidos de** para materiais de aprendizagem adicionais através 
 
 Veja estes recursos de suporte:
 
-+ **Suporte técnico**: visite [suporte técnico do Azure](https://azure.microsoft.com/support/options/) e selecione o Machine Learning. 
++ **Suporte técnico**: Visite [suporte técnico do Azure](https://azure.microsoft.com/support/options/) e selecione o Machine Learning. 
 
-+ **Fórum de usuários**: faça perguntas, responder a perguntas e ligue-se com outros utilizadores na [fórum de suporte do serviço Azure Machine Learning no MSDN](https://aka.ms/aml-forum-service).
++ **Fórum de usuários**: Faça perguntas, responder a perguntas e ligue-se com outros utilizadores na [fórum de suporte do serviço Azure Machine Learning no MSDN](https://aka.ms/aml-forum-service).
 
-+ **Stack Overflow**: visite a Comunidade do Azure Machine Learning no [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) etiquetados com "Azure-Machine-Learning".
++ **Stack Overflow**: Visite a Comunidade do Azure Machine Learning no [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) etiquetados com "Azure-Machine-Learning".
 
 + **Partilhar as sugestões de produtos** apresentam pedidos no nosso [canal de comentários do Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning), que também se encontra acessível através da ligação na parte inferior de cada artigo. 

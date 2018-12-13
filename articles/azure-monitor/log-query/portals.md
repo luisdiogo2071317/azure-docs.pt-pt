@@ -12,13 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 1d6a3ef4094bed92e8c40f2416b637f0830c3845
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9a5472a6dfc944eb793e863704897c92b1a7572e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959296"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183357"
 ---
 # <a name="viewing-and-analyzing-data-in-log-analytics"></a>Visualizando e analisando os dados no Log Analytics
 Existem duas opções disponíveis no portal do Azure para analisar dados armazenados no Log analytics e para a criação de consultas de análise ad hoc. As consultas que crie com estes portais podem ser utilizadas para outros recursos, como alertas e dashboards.

@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 831e5bff412f80f2140f6fd1b935a57bd412ccba
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582751"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188134"
 ---
-# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Do Azure Active Directory autenticação pass-through: Início rápido
+# <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação pass-through do Azure Active Directory: Início rápido
 
 ## <a name="deploy-azure-ad-pass-through-authentication"></a>Implementar a autenticação do Azure AD pass-through
 
@@ -58,13 +58,13 @@ Certifique-se de que os seguintes pré-requisitos são cumpridos.
 4. Se existir uma firewall entre os servidores e do Azure AD, configure os seguintes itens:
    - Certifique-se de que os agentes de autenticação podem efetuar *saída* pedidos para o Azure AD sobre as seguintes portas:
 
-    | Número da porta | Como são utilizadas |
-    | --- | --- |
-    | **80** | Transfere as listas de revogação de certificados (CRL) ao validar o certificado SSL |
-    | **443** | Processa todas as comunicações de saída com o serviço |
-    | **8080** (opcional) | Agentes de autenticação reportam o estado de cada dez minutos através da porta 8080, se a porta 443 não está disponível. Este estado é apresentado no portal do Azure AD. A porta 8080 está _não_ utilizado para inícios de sessão do utilizador. |
-
-    Se a firewall impuser regras de acordo com os utilizadores de origem, abra estas portas para o tráfego dos serviços do Windows que são executados como um serviço de rede.
+     | Número da porta | Como são utilizadas |
+     | --- | --- |
+     | **80** | Transfere as listas de revogação de certificados (CRL) ao validar o certificado SSL |
+     | **443** | Processa todas as comunicações de saída com o serviço |
+     | **8080** (opcional) | Agentes de autenticação reportam o estado de cada dez minutos através da porta 8080, se a porta 443 não está disponível. Este estado é apresentado no portal do Azure AD. A porta 8080 está _não_ utilizado para inícios de sessão do utilizador. |
+     
+     Se a firewall impuser regras de acordo com os utilizadores de origem, abra estas portas para o tráfego dos serviços do Windows que são executados como um serviço de rede.
    - Se sua firewall ou proxy permite que listas de permissões de DNS, ligações de lista de permissões para  **\*. msappproxy.net** e  **\*. servicebus.windows.net**. Se não, permitir o acesso para o [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que é atualizado semanalmente.
    - Os agentes de autenticação precisam acessar **login.windows.net** e **login.microsoftonline.com** para o registo inicial. Abra a firewall para essas URLs também.
    - Para validação do certificado, os seguintes URLs de desbloqueio: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, e  **www.microsoft.com:80**. Uma vez que estes URLs são utilizadas para validação de certificados com outros produtos da Microsoft que pode já ter estes URLs desbloqueados.
@@ -78,16 +78,16 @@ Ativar a autenticação pass-through através de [do Azure AD Connect](whatis-hy
 
 Se estiver a instalar o Azure AD Connect pela primeira vez, escolha o [caminho de instalação personalizada](how-to-connect-install-custom.md). Na **sessão do utilizador** página, selecione **autenticação pass-through** como o **método de início de sessão**. A conclusão com êxito, um agente de autenticação pass-through está instalado no mesmo servidor do Azure AD Connect. Além disso, a funcionalidade de autenticação pass-through está ativada no seu inquilino.
 
-![O Azure AD Connect: Utilizador início de sessão](./media/how-to-connect-pta-quick-start/sso3.png)
+![Azure AD Connect: Início de sessão do utilizador](./media/how-to-connect-pta-quick-start/sso3.png)
 
 Se já tiver instalado o Azure AD Connect utilizando as [instalação rápida](how-to-connect-install-express.md) ou o [instalação personalizada](how-to-connect-install-custom.md) caminho, selecione o **alterar utilizador inicie sessão** tarefas no Azure AD Ligar e, em seguida, selecione **seguinte**. Em seguida, selecione **autenticação pass-through** como o método de início de sessão. A conclusão com êxito, um agente de autenticação pass-through é instalado no mesmo servidor do Azure AD Connect e a funcionalidade está ativada no seu inquilino.
 
-![O Azure AD Connect: Alterar a sessão do utilizador](./media/how-to-connect-pta-quick-start/changeusersignin.png)
+![Azure AD Connect: Alterar início de sessão do utilizador](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
 >Autenticação pass-through é um recurso de nível de inquilino. Ativá-la afeta o início de sessão para os utilizadores em todas _todos os_ os domínios geridos no seu inquilino. Se estiver a mudar de serviços de Federação do Active Directory (AD FS) para autenticação pass-through, deve esperar, pelo menos, 12 horas antes de encerrar a sua infraestrutura do AD FS. Este tempo de espera é garantir que os utilizadores podem manter início de sessão no Exchange ActiveSync durante a transição. Para obter mais ajuda sobre a migração do AD FS para autenticação pass-through, confira o nosso plano de implementação detalhados publicado [aqui](https://aka.ms/adfstoptadpdownload).
 
-## <a name="step-3-test-the-feature"></a>Passo 3: Testar a funcionalidade
+## <a name="step-3-test-the-feature"></a>Passo 3: A funcionalidade de teste
 
 Siga estas instruções para verificar que ativou a autenticação pass-through corretamente:
 
@@ -97,9 +97,9 @@ Siga estas instruções para verificar que ativou a autenticação pass-through 
 4. Certifique-se de que o **autenticação pass-through** funcionalidade é apresentado como **ativado**.
 5. Selecione **autenticação pass-through**. O **autenticação pass-through** painel lista os servidores onde estão instalados os agentes de autenticação.
 
-![Centro de administração do Azure Active Directory: painel do Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
+![Centro de administração do Azure Active Directory: Painel do Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
 
-![Centro de administração do Azure Active Directory: o painel de autenticação pass-through](./media/how-to-connect-pta-quick-start/pta8.png)
+![Centro de administração do Azure Active Directory: Painel de autenticação pass-through](./media/how-to-connect-pta-quick-start/pta8.png)
 
 Nesta fase, os utilizadores de todos os domínios geridos no seu inquilino podem iniciar sessão utilizando a autenticação pass-through. No entanto, os utilizadores de domínios federados continuam iniciar sessão com o AD FS ou outro fornecedor de federação que configurou anteriormente. Se converter um domínio de federado gerenciados, todos os utilizadores de que o domínio iniciar automaticamente a iniciar sessão utilizando a autenticação pass-through. A funcionalidade de autenticação pass-through não afeta os utilizadores apenas na cloud.
 
@@ -117,9 +117,9 @@ Siga estas instruções para transferir o software do agente de autenticação:
 3. Selecione **do Azure AD Connect**, selecione **autenticação pass-through**e, em seguida, selecione **transferir o agente**.
 4. Selecione o **aceitar os termos e transferir** botão.
 
-![Centro de administração do Azure Active Directory: botão de transferir o agente de autenticação](./media/how-to-connect-pta-quick-start/pta9.png)
+![Centro de administração do Azure Active Directory: Baixe o botão de agente de autenticação](./media/how-to-connect-pta-quick-start/pta9.png)
 
-![Centro de administração do Azure Active Directory: o painel de transferir o agente](./media/how-to-connect-pta-quick-start/pta10.png)
+![Centro de administração do Azure Active Directory: Baixe o painel de agente](./media/how-to-connect-pta-quick-start/pta10.png)
 
 >[!NOTE]
 >Pode também diretamente [transferir o software do agente de autenticação](https://aka.ms/getauthagent). Rever e aceitar o agente de autenticação [termos de serviço](https://aka.ms/authagenteula) _antes de_ instalá-lo.
@@ -145,9 +145,9 @@ Em segundo lugar, pode criar e executar um script de implementação automática
 - [Migrar do AD FS para autenticação pass-through](https://aka.ms/adfstoptadp) -um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through.
 - [Bloqueio do smart](../authentication/howto-password-smart-lockout.md): Saiba como configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais cenários são suportados com a autenticação pass-through e quais não são.
-- [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md): compreender como funciona a funcionalidade de autenticação pass-through.
-- [Perguntas mais frequentes sobre](how-to-connect-pta-faq.md): encontre respostas para perguntas mais frequentes.
+- [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md): Compreenda como funciona o recurso de autenticação pass-through.
+- [Perguntas mais frequentes sobre](how-to-connect-pta-faq.md): Encontre respostas para perguntas mais frequentes.
 - [Resolver problemas de](tshoot-connect-pass-through-authentication.md): Saiba como resolver problemas comuns com a funcionalidade de autenticação pass-through.
 - [Detalhada da segurança](how-to-connect-pta-security-deep-dive.md): Obtenha informações técnicas sobre a funcionalidade de autenticação pass-through.
-- [O Azure AD Seamless SSO](how-to-connect-sso.md): Saiba mais sobre esta funcionalidade complementar.
+- [SSO totalmente integrado do Azure AD](how-to-connect-sso.md): Saiba mais sobre esta funcionalidade complementar.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Utilize o Fórum do Azure Active Directory para pedidos de novas funcionalidades de ficheiros.

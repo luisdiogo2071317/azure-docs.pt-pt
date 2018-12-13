@@ -1,7 +1,7 @@
 ---
 title: Entidade Simple, a lista de frase
 titleSuffix: Azure Cognitive Services
-description: Extrair dados de aprendizagem automática de uma expressão
+description: Neste tutorial, extrair dados de aprendidas de máquina de mensagens em fila de nome da tarefa de emprego de uma expressão com a entidade Simple. Para aumentar a precisão de extração, adicione uma lista de expressões de termos específicos da entidade simples.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: a783491ca04f19964cc66f1faef5e2fdba142e24
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e8a1575527f906fab130e08cda715f6c8e904275
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094445"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166273"
 ---
-# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutorial 7: Extrair nomes com entidade simples e lista de expressões
+# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutorial 7: Extrair nomes de lista simples de entidade e a frase
 
 Neste tutorial, irá extrair dados de aprendizagem automática do nome do cargo a partir de uma expressão com a entidade **Simple** (Simples). Para aumentar a precisão de extração, adicione uma lista de expressões de termos específicos da entidade simples.
 
@@ -284,7 +284,7 @@ Uma vez que um nome pode ser qualquer coisa, o LUIS prevê as entidades com maio
 
 ## <a name="to-boost-signal-add-phrase-list"></a>Para melhorar o sinal, adicione uma lista de expressões
 
-Abra o ficheiro [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) no repositório do Github LUIS-Samples. A lista contém mais de mil expressões e palavras relacionadas com trabalho. Dê uma vista de olhos à lista para encontrar palavras relacionadas com trabalho que são relevantes para si. Se as suas palavras ou expressões não estiverem na lista, adicione-as.
+Abra o [tarefas-frase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) partir do repositório GitHub de exemplos do LUIS. A lista contém mais de mil expressões e palavras relacionadas com trabalho. Dê uma vista de olhos à lista para encontrar palavras relacionadas com trabalho que são relevantes para si. Se as suas palavras ou expressões não estiverem na lista, adicione-as.
 
 1. Na secção **Build** (Criar) da aplicação LUIS, selecione **Phrase lists** (Listas de expressões), que se encontra no menu **Improve app performance** (Melhorar o desempenho da aplicação).
 

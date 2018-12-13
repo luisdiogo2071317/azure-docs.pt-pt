@@ -1,10 +1,10 @@
 ---
-title: Exemplo do Script da CLI do Azure - dimensionar uma aplicação web em todo o mundo com uma arquitetura de elevada disponibilidade | Documentos da Microsoft
+title: Exemplo do Script da CLI do Azure - Dimensionar aplicação todo o mundo com o Gestor de tráfego | Documentos da Microsoft
 description: Exemplo do Script da CLI do Azure - dimensionar uma aplicação web em todo o mundo com uma arquitetura de elevada disponibilidade
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: e4033a50-0e05-4505-8ce8-c876204b2acc
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 4403e0081df3120c889b93d642670895252ac47e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 61e47128369bbf7b76f0626241ba024afc0e65ab
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567972"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314623"
 ---
-# <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>Dimensionar uma aplicação Web para todo o mundo com uma arquitetura de elevada disponibilidade
+# <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>Dimensionar uma aplicação web em todo o mundo com uma arquitetura de elevada disponibilidade com a CLI do Azure
 
 Este script de exemplo cria um grupo de recursos, dois planos do serviço de aplicações, duas aplicações Web, um perfil do gestor de tráfego e dois pontos finais do gestor de tráfego. Assim que o exercício estiver concluído, terá uma arquitetura de elevada disponibilidade, que fornece a disponibilidade global da sua aplicação Web com base na latência de rede mais baixa.
 

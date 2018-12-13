@@ -1,5 +1,5 @@
 ---
-title: Consultas de introdução do Azure Resource Graph
+title: Exemplos de consulta Starter
 description: Utilize o Azure Resource Graph para executar algumas consultas de introdução.
 services: resource-graph
 author: DCtheGeek
@@ -8,13 +8,13 @@ ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: d5b2bb719bcd5c2145740a02bc408385953ff739
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: a1e54c4f78f502c6ae354ecdf4dd3c4b48a3457b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50084535"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310186"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de introdução do Azure Resource Graph
 
@@ -250,7 +250,7 @@ Search-AzureRmGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | 
 > [!NOTE]
 > Este exemplo utiliza `==` para a correspondência em vez do `=~` condicional. `==` é uma correspondência sensível a maiúsculas e minúsculas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saber mais sobre a [linguagem de consulta](../concepts/query-language.md)
 - Aprender a [explorar recursos](../concepts/explore-resources.md)

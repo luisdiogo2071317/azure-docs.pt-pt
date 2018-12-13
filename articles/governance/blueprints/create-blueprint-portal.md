@@ -1,5 +1,5 @@
 ---
-title: Criar um Azure Blueprint no portal
+title: Criar um plano gráfico no portal
 description: Utilize o Azure Blueprints para criar, definir e implementar artefactos.
 services: blueprints
 author: DCtheGeek
@@ -8,15 +8,15 @@ ms.date: 10/25/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 2c53c5c51a6e93fa99f32400e512f0e13503b436
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092132"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315303"
 ---
-# <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e Atribuir um Azure Blueprint no portal
+# <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e atribuir um esquema de Azure no portal
 
 Aprender a criar e atribuir esquemas permite a definição de padrões comuns para desenvolver configurações reutilizáveis e rapidamente implementáveis com base nos modelos do Resource Manager, política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
 
@@ -47,22 +47,22 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
    > [!NOTE]
    > As definições do esquema só podem ser guardadas em grupos de gestão. Para criar o seu primeiro grupo de gestão, siga [estes passos](../management-groups/create.md).
 
-1. Verifique se as informações estão corretas (os campos **Nome do Esquema** e **Localização da Definição** não poderão ser alterados posteriormente) e clique em **Seguinte: Artefactos** na parte inferior da página ou no separador **Artefactos** na parte superior da página.
+1. Certifique-se de que as informações estão corretas (a **nome do esquema** e **localização da definição** campos não não possível alterar mais tarde) e clique em **seguinte: Artefactos** na parte inferior da página ou o **artefactos** separador na parte superior da página.
 
-1. Adicione a atribuição de função à subscrição: clique com o botão esquerdo do rato na linha **+ Adicionar artefacto...** sob **Subscrição** para abrir a janela “Adicionar artefacto” no lado direito do browser. Selecione “Atribuição de Função” para _Tipo de artefacto_. Em _Função_, selecione “Contribuidor” e deixe o campo _Adicionar Utilizador, Aplicação ou Grupo_ com a caixa de verificação a indicar um **parâmetro dinâmico**. Clique em **Adicionar** para adicionar este artefacto ao esquema.
+1. Adicione atribuição de função na subscrição: LEFT-click no **+ adicionar artefacto...**  linha sob **subscrição** e a janela de "Adicionar artefacto" abre no lado direito do browser. Selecione “Atribuição de Função” para _Tipo de artefacto_. Em _Função_, selecione “Contribuidor” e deixe o campo _Adicionar Utilizador, Aplicação ou Grupo_ com a caixa de verificação a indicar um **parâmetro dinâmico**. Clique em **Adicionar** para adicionar este artefacto ao esquema.
 
    ![Artefacto – Atribuição de Função](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > A maioria dos _artefactos_ suporta parâmetros. Um parâmetro com um valor atribuído durante a criação do esquema é um **parâmetro estático**. Se o parâmetro for atribuído durante a atribuição do esquema, será um **parâmetro dinâmico**. Para obter mais informações, veja [Parâmetros de esquema](./concepts/parameters.md).
 
-1. Adicione a atribuição de política à subscrição: clique com o botão esquerdo do rato na linha **+ Adicionar artefacto...**  diretamente sob **Subscrição**. Selecione “Atribuição de Política” para _Tipo de artefacto_. Altere _Tipo_ para “Incorporado” e, em _Pesquisar_ introduza “etiqueta”. Clique fora da caixa _Pesquisar_ para filtrar os resultados. Selecione “Aplicar etiqueta e valor predefinido aos grupos de recursos” ao clicar na opção. Clique em **Adicionar** para adicionar este artefacto ao esquema.
+1. Adicione atribuição de política na subscrição: LEFT-click no **+ adicionar artefacto...**  linha diretamente sob o **subscrição**. Selecione “Atribuição de Política” para _Tipo de artefacto_. Altere _Tipo_ para “Incorporado” e, em _Pesquisar_ introduza “etiqueta”. Clique fora da caixa _Pesquisar_ para filtrar os resultados. Selecione “Aplicar etiqueta e valor predefinido aos grupos de recursos” ao clicar na opção. Clique em **Adicionar** para adicionar este artefacto ao esquema.
 
 1. Clique na linha de atribuição de política “Aplicar etiqueta e valor predefinido aos grupos de recursos”. É apresentada a janela com os parâmetros para o artefacto como parte da definição do esquema e que permite definir os parâmetros para todas as atribuições (**parâmetros estáticos**) com base neste esquema, em vez de o fazer durante a atribuição (**parâmetros dinâmicos**). Este exemplo utiliza **parâmetros dinâmicos** durante a atribuição do esquema, por isso, deixe as predefinições como estão e clique em **Cancelar**.
 
-1. Adicione o grupo de recursos à subscrição: clique com o botão esquerdo do rato na linha **+ Adicionar artefacto...** em **Subscrição**. Selecione “Grupo de Recursos” para _Tipo de artefacto_. Deixe os campos _Nome do Grupo de Recursos_ e _Localização_ em branco, mas garanta que a caixa de verificação está marcada em cada propriedade para torná-los **parâmetros dinâmicos**. Clique em **Adicionar** para adicionar este artefacto ao esquema.
+1. Adicione o grupo de recursos na subscrição: LEFT-click no **+ adicionar artefacto...**  linha sob **subscrição**. Selecione “Grupo de Recursos” para _Tipo de artefacto_. Deixe os campos _Nome do Grupo de Recursos_ e _Localização_ em branco, mas garanta que a caixa de verificação está marcada em cada propriedade para torná-los **parâmetros dinâmicos**. Clique em **Adicionar** para adicionar este artefacto ao esquema.
 
-1. Adicione o modelo em grupo de recursos: clique com o botão esquerdo do rato na linha **+ Adicionar Artefacto...** diretamente sob a entrada **ResourceGroup**. Selecione “Modelo do Azure Resource Manager” para _Tipo de artefacto_, defina _Nome do artefacto a apresentar_ como “StorageAccount” e deixe _Descrição_ em branco. No separador **Modelo** na caixa do editor, cole o seguinte modelo do Resource Manager. Depois de colar o modelo, clique no separador **Parâmetros** e observe que o parâmetro de modelo **storageAccountType** e o valor predefinido **Standard_LRS** foram automaticamente detetados e preenchidos, mas configurados como um **parâmetro dinâmico**. Desmarque a caixa de verificação e observe que o menu pendente contém apenas os valores incluídos no modelo do Resource Manager em **allowedValues**. Marque a caixa para a definir de novo como um **parâmetro dinâmico**. Clique em **Adicionar** para adicionar este artefacto ao esquema.
+1. Adicione modelo no grupo de recursos: LEFT-click no **+ adicionar artefacto....** diretamente sob a entrada **ResourceGroup**. Selecione “Modelo do Azure Resource Manager” para _Tipo de artefacto_, defina _Nome do artefacto a apresentar_ como “StorageAccount” e deixe _Descrição_ em branco. No separador **Modelo** na caixa do editor, cole o seguinte modelo do Resource Manager. Depois de colar o modelo, clique no separador **Parâmetros** e observe que o parâmetro de modelo **storageAccountType** e o valor predefinido **Standard_LRS** foram automaticamente detetados e preenchidos, mas configurados como um **parâmetro dinâmico**. Desmarque a caixa de verificação e observe que o menu pendente contém apenas os valores incluídos no modelo do Resource Manager em **allowedValues**. Marque a caixa para a definir de novo como um **parâmetro dinâmico**. Clique em **Adicionar** para adicionar este artefacto ao esquema.
 
    > [!IMPORTANT]
    > Se importar o modelo, garanta que o ficheiro é apenas JSON e não inclui HTML. Quando apontar para um URL no GitHub, garanta que clicou em **RAW** para obter o ficheiro JSON puro e não um encapsulado com HTML para apresentação no GitHub. Se o modelo importado não for JSON puro, ocorrerá um erro.
@@ -125,11 +125,11 @@ Em [Criar um esquema](#create-a-blueprint), não foi fornecida uma Descrição n
 
 1. Na lista de esquemas, clique com o botão direto do rato no esquema que criou anteriormente e selecione **Editar Esquema**.
 
-1. Na **Descrição do Esquema**, forneça algumas informações sobre o esquema e os artefactos que o compõe.  Neste caso, insira algo como: “Este esquema define a política de etiquetas e a atribuição de funções na subscrição, cria um ResourceGroup e implementa um modelo de recursos e uma atribuição de função nesse ResourceGroup”.
+1. Na **Descrição do Esquema**, forneça algumas informações sobre o esquema e os artefactos que o compõe.  Neste caso, insira algo parecido com: "Este esquema define a atribuição de política e a função de etiquetas na subscrição, cria um ResourceGroup e implementa uma atribuição de função e o modelo de recurso para esse ResourceGroup."
 
-1. Clique em **Seguinte: Artefactos** na parte inferior da página ou no separador **Artefactos** na parte superior da página.
+1. Clique em **seguinte: Artefactos** na parte inferior da página ou o **artefactos** separador na parte superior da página.
 
-1. Adicione a atribuição de função sob o grupo de recursos: clique com o botão esquerdo do rato na linha **+ Adicionar artefacto...**  diretamente sob a entrada **ResourceGroup**. Selecione “Atribuição de Função” para _Tipo de artefacto_. Em _Função_, selecione “Proprietário” e desmarque o campo _Adicionar Utilizador, Aplicação ou Grupo_ e procure e selecione um utilizador, aplicação ou grupo a adicionar. Este artefacto utiliza um **parâmetro estático** que é o mesmo em cada atribuição deste esquema. Clique em **Adicionar** para adicionar este artefacto ao esquema.
+1. Adicione atribuição de função no grupo de recursos: LEFT-click no **+ adicionar artefacto...**  linha diretamente sob o **ResourceGroup** entrada. Selecione “Atribuição de Função” para _Tipo de artefacto_. Em _Função_, selecione “Proprietário” e desmarque o campo _Adicionar Utilizador, Aplicação ou Grupo_ e procure e selecione um utilizador, aplicação ou grupo a adicionar. Este artefacto utiliza um **parâmetro estático** que é o mesmo em cada atribuição deste esquema. Clique em **Adicionar** para adicionar este artefacto ao esquema.
 
    ![Artefacto – Atribuição de Função 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
@@ -173,7 +173,7 @@ Após a publicação de um esquema, poderá atribuí-lo a uma subscrição. Atri
 
 1. Em **Atribuição de Bloqueio**, deixe a predefinição **Não Bloquear**. Para obter mais informações, veja [bloqueio de recurso em esquemas](./concepts/resource-locking.md).
 
-1. Para a atribuição de função ao nível da subscrição **[Grupo de utilizadores ou nome da aplicação]: Contribuidor**, procure e selecione um utilizador, uma aplicação ou um grupo.
+1. Para a atribuição de função de nível de subscrição **[grupo de utilizadores ou o nome da aplicação]: Contribuinte**, procure e selecione um utilizador, aplicação ou grupo.
 
 1. Para a atribuição de política ao nível da subscrição, defina o **Nome da Etiqueta** como “CostCenter” e o **Valor da Etiqueta** como “ContosoIT”.
 
@@ -222,7 +222,7 @@ Se já não precisar de um esquema, remova a atribuição do mesmo de uma subscr
 > [!NOTE]
 > Este método de eliminação de esquemas também elimina todas as **Versões publicadas** do esquema selecionado. Para eliminar uma única versão, abra o esquema, clique no separador **Versões publicadas**, selecione e clique na versão que quer eliminar e, em seguida, clique em **Eliminar Esta Versão**. Além disso, um esquema com atribuições não pode ser eliminado até que todas as atribuições de esquemas tenham sido eliminadas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saber mais sobre o [ciclo de vida do esquema](./concepts/lifecycle.md)
 - Compreender como utilizar [parâmetros estáticos e dinâmicos](./concepts/parameters.md)
