@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 3: Padrões para melhorar as predições do LUIS'
+title: Padrões
 titleSuffix: Azure Cognitive Services
 description: Utilize padrões para aumentar a predição de intenções e entidades ao mesmo tempo que fornece menos expressões de exemplo. O padrão é fornecido por meio de um exemplo de expressão de modelo, que inclui a sintaxe para identificar entidades e texto ignorável.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 7ba5db8e50e8da5b274f73046d56f7816ca8834d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138332"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075527"
 ---
 # <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial 3: Adicionar formatos de expressões comuns
 
@@ -106,7 +107,7 @@ Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seg
 
 2. Vá para o final do URL no endereço e introduza `Who is the boss of Jill Jones?`. O último parâmetro querystring é `q`, a expressão **query**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -229,7 +230,7 @@ Neste tutorial, vai adicionar duas novas intenções: `OrgChart-Manager` e `OrgC
 
 Quando o LUIS devolver uma predição à aplicação cliente, o nome da intenção pode ser utilizado como um nome de função na aplicação cliente e a entidade Employee pode ser utilizada como um parâmetro para essa função.
 
-```Javascript
+```nodejs
 OrgChartManager(employee){
     ///
 }
@@ -277,7 +278,7 @@ Lembre-se de que os colaboradores foram criados no [tutorial de entidade de list
 
 3. Vá para o fim do URL no endereço e introduza `Who is the boss of Jill Jones?` como a expressão. O último parâmetro querystring é `q`, a expressão **query**. 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -442,7 +443,7 @@ Todas estas expressões encontraram as entidades dentro. Por isso, correspondem 
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este tutorial adiciona duas intenções para expressões cuja predição era difícil de fazer com uma precisão elevada, sem ter muitas expressões de exemplo. A adição de padrões às mesmas permitiu que o LUIS fizesse uma predição mais eficaz da intenção, com uma classificação significativamente superior. A marcação de entidades e de texto ignorável permitiu que o LUIS aplicasse o padrão a uma maior variedade de expressões.
 

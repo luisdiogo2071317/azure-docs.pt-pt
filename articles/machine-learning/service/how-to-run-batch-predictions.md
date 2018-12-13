@@ -1,6 +1,5 @@
 ---
-title: Executar predições do batch em dados de grande dimensão
-titleSuffix: Azure Machine Learning service
+title: Executar predições do batch em grandes conjuntos de dados com o serviço Azure Machine Learning
 description: Saiba como fazer predições de batch de forma assíncrona em grandes quantidades de dados com o serviço Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -10,13 +9,12 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
-ms.custom: seodec18
-ms.openlocfilehash: cd9b0a117439f603e4820cb2dec2984aa2d68e73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1007e3f151a27fad5390404b0241dcb361168fd3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074338"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52882936"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Executar predições do batch em grandes conjuntos de dados com o serviço Azure Machine Learning
 
