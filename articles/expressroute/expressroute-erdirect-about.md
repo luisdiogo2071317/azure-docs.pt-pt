@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 2310f007697cf1acbdbc907d4562853a2717eb5d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2f984eb8cb09e5d65c4a366b827f695c739003f3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097129"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163832"
 ---
 # <a name="about-expressroute-direct-preview"></a>Sobre o ExpressRoute direcionar (pré-visualização)
 
-ExpressRoute Direct dá-lhe a capacidade para ligar diretamente para a rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. ExpressRoute Direct fornece conectividade de 100-Gbps dupla, que suporta a conetividade de ativo/ativo em escala.
+ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. ExpressRoute Direct fornece conectividade de 100-Gbps dupla, que suporta a conetividade de ativo/ativo em escala.
 
 Recursos-chave que ExpressRoute Direct fornece incluem, mas não estão limitados a:
 
 * Ingestão de Dados em Massa em serviços como o Armazenamento e o Cosmos DB
-* Isolamento físico para setores que estejam reguladas e exigir dedicado e isolado a conectividade, como: bancários, governamentais e varejo
+* Isolamento físico para setores que estejam reguladas e requerem conectividade dedicada e isolada, como: Banca, governamentais e varejo
 * Controlo granular de distribuição do circuito baseado na unidade de negócios
 
 > [!IMPORTANT]

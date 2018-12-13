@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: ccfe108b895450e97df1639f6c47eb01823ce5f4
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 8afa6a29d7d97b1d961f8a8ea44a2b62896ec4da
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636769"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323068"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Enviar métricas personalizadas para um recurso do Azure para o arquivo de métrica de Monitor do Azure com uma API REST
 
@@ -94,7 +94,7 @@ Se receber uma mensagem de erro com alguma parte do processo, considere as segui
 1. Não é possível emitir métricas relativamente a uma subscrição ou grupo de recursos como o seu recurso do Azure. 
 1. Não é possível colocar uma métrica para o arquivo que é a mais de 20 minutos de antigos. O arquivo de métrica está otimizado para alertas e criação de gráficos em tempo real. 
 2. O número de nomes de dimensão deve correspondem aos valores e vice-versa. Verifique os valores. 
-2. Poderá ser emitir métricas relativamente a uma região que não suporta métricas personalizadas. Ver [regiões suportadas](metrics-custom-overview.md#supported-regions). 
+2. Poderá ser emitir métricas relativamente a uma região que não suporta métricas personalizadas. Ver [regiões suportadas](../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
 
 
 
@@ -118,4 +118,4 @@ Se receber uma mensagem de erro com alguma parte do processo, considere as segui
 
  
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
+- Saiba mais sobre [métricas personalizadas](../azure-monitor/platform/metrics-custom-overview.md).

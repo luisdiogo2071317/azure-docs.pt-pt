@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3c33612ef76a572bd4bf63a5e7d6f05e36c7847b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 46c9eb99d808874e0f49dee5fa4865a4867873f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082004"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271526"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões de melhorar a exatidão da previsão
 Padrões foram criados para melhorar a precisão quando várias expressões são muito semelhantes.  Um padrão permite-lhe obter maior exatidão para um objetivo sem fornecer expressões de com muitos mais. 
@@ -43,6 +43,8 @@ Padrões de utilizam uma combinação de tecnologias de predição. A definiçã
 
 ## <a name="patterns-do-not-improve-entity-detection"></a>Padrões não aperfeiçoar a detecção de entidade
 Embora padrões precisam entidades, um padrão não ajuda a detetar a entidade. Um padrão destina-se apenas para ajudar a predição com intenções e funções.  
+
+Não espere ver a predição de entidade melhorado se fechar várias expressões de com num padrão único. Para obter entidades simples acionar, terá de adicionar expressões ou utilize entidades de lista mais que seu padrão de não serão acionados.
 
 ## <a name="patterns-use-entity-roles"></a>Padrões de utilizam as funções de entidade
 Se dois ou mais entidades num padrão contextualmente estejam relacionadas, padrões de utilizam entidade [funções](luis-concept-roles.md) para extrair informações contextuais sobre entidades. Isso é equivalente a crianças de entidades hierárquicas, mas é **apenas** disponíveis em padrões. 

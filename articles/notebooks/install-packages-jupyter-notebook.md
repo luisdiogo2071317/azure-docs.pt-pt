@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ed57cb458cc1f71c5d6fd2475c54cc712257dd84
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 5baa392d098b0b0e40986bc426c88785db025a29
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084877"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255300"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>Instalar pacotes a partir de um bloco de notas
 
@@ -40,13 +40,13 @@ Se a saída do comando indica que o requisito é satisfeito já, em seguida, blo
 
 ## <a name="r"></a>R
 
-Pacotes de R podem ser instalados partir CRAN ou do Github com o `install.packages` função numa célula de código:
+Pacotes de R podem ser instalados partir CRAN ou do GitHub com o `install.packages` função numa célula de código:
 
 ```r
 install.packages("package_name")
 ```
 
-Também pode instalar versões de pré-lançamento e de outros pacotes de desenvolvimento do Github com a biblioteca de devtools:
+Também pode instalar versões de pré-lançamento e de outros pacotes de desenvolvimento do GitHub com a biblioteca de devtools:
 
 ```r
 options(unzip = 'internal')
@@ -73,5 +73,5 @@ Paket.Package
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Como: configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
+- [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [Como: Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)

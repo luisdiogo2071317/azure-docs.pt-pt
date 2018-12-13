@@ -1,7 +1,7 @@
 ---
 title: Enviar consultas de imagem - API de pesquisa de imagens do Bing
 titleSuffix: Azure Cognitive Services
-description: Saiba mais sobre como personalizar as consultas de pesquisa enviadas para a API de pesquisa de imagens do Bing.
+description: Saiba mais sobre como personalizar as consultas de pesquisa que são enviados para a API de pesquisa de imagens do Bing.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: 5d2dcc60a8707394ec07a76e3286929db365c651
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5d850b7b95c15137f70a0d343f97171ec2d2f753
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296520"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256983"
 ---
 # <a name="send-queries-to-the-bing-image-search-api"></a>Enviar consultas para a API de pesquisa de imagens do Bing
 

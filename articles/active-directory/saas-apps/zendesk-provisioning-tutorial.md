@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 2dc965547511d27ed43a88c1f45b50593b30a937
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347941"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322777"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configurar o Zendesk para aprovisionamento automático de utilizadores
 
@@ -77,6 +77,10 @@ Antes de configurar e ativar o aprovisionamento de utilizador automático, deve 
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Dicas importantes para atribuir utilizadores a Zendesk
 
+*    Funções de Zendesk são automaticamente e dinamicamente preenchidas no portal do Azure da interface do Usuário hoje mesmo. Antes de atribuir funções de Zendesk para os utilizadores, certifique-se de que uma sincronização inicial foi concluída em relação a Zendesk para obter as funções mais recente no seu inquilino do Zendesk.
+
+*    Recomenda-se que um único utilizador do Azure AD é atribuído ao Zendesk para testar sua inicial configuração de aprovisionamento de utilizadores automática. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde quando os testes forem bem-sucedidos.
+  
 *   Recomenda-se que um único utilizador do Azure AD é atribuído ao Zendesk para testar o configuração de aprovisionamento automático de utilizadores. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
 
 *   Ao atribuir um utilizador ao Zendesk, tem de selecionar qualquer função de específicas da aplicação válida (se disponível) na caixa de diálogo atribuição. Os utilizadores com o **acesso predefinido** função são excluídas desde o aprovisionamento.
@@ -111,7 +115,7 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
     *   Na **segredo de Token** campo, preencha o token SECRETO, conforme descrito no passo 6.
 
     *   Na **domínio** campo, preencher o subdomínio do seu inquilino do Zendesk.
-    Exemplo: para uma conta com um URL de inquilino do https://my-tenant.zendesk.com, o subdomínio seria **meu inquilino**.
+    Exemplo: Uma conta com um URL de inquilino do https://my-tenant.zendesk.com, o subdomínio seria **meu inquilino**.
 
 6. O **segredo de Token** para o Zendesk conta está localizada na **administração > API > definições**. 
 

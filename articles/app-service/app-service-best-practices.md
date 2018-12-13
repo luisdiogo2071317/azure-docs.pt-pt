@@ -1,5 +1,5 @@
 ---
-title: Melhores Práticas do Serviço de Aplicações do Azure
+title: Melhores práticas - serviço de aplicações do Azure
 description: Aprenda as melhores práticas e resolução de problemas do serviço de aplicações do Azure.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ff79680c00a394790ba56db9ab4b237f06c677e5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 0a3570e8907369d5cefc1197eef60d682659d0ed
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240635"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261828"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Melhores Práticas do Serviço de Aplicações do Azure
 Este artigo resume as melhores práticas para utilizar [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -38,7 +39,7 @@ Quando que uma aplicação consome mais memória do que o esperado, como indicad
 ## <a name="CPUresources"></a>Quando aplicativos consumam mais CPU do que o esperado
 Quando observar um aplicativo consome mais CPU do que o esperado ou experiências repetidos picos de CPU como indicado por meio de recomendações de monitorização ou serviços específico, considere aumentar ou reduzir horizontalmente o plano do serviço de aplicações. Se seu aplicativo for com monitoração de estado, o aumento vertical é a única opção, enquanto se seu aplicativo estiver fora sem monitoração de estado, dimensionamento dá-lhe mais flexibilidade e mais alto potencial de dimensionamento. 
 
-Para obter mais informações sobre os aplicativos "sem monitoração de estado" de "com monitoração de estado" vs pode ver este vídeo: [planeamento de uma aplicação de várias camadas dimensionável ponto-a-ponto no Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para obter mais informações sobre as opções de dimensionamento e o dimensionamento automático do serviço de aplicações, consulte [dimensionar uma aplicação Web no serviço de aplicações do Azure](web-sites-scale.md).  
+Para obter mais informações sobre os aplicativos "sem monitoração de estado" de "com monitoração de estado" vs pode ver este vídeo: [Planeamento de uma aplicação de várias camadas de ponto a ponto escalável no Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para obter mais informações sobre as opções de dimensionamento e o dimensionamento automático do serviço de aplicações, consulte [dimensionar uma aplicação Web no serviço de aplicações do Azure](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Quando os recursos de soquete são esgotados
 Um motivo comum para esgotar ligações de saída de TCP é a utilização das bibliotecas de cliente, que não é implementado para reutilizar conexões TCP, ou quando não é utilizado um protocolo de alto nível, como HTTP - Keep-Alive. Reveja a documentação para cada uma das bibliotecas referenciadas pelas aplicações no seu plano de serviço de aplicações para garantir que eles são configurados ou acessados no seu código para reutilização eficiente de ligações de saída. Siga também as diretrizes de documentação da biblioteca para criação adequada e a versão ou a limpeza para evitar a fuga de ligações. Enquanto tais investigações de bibliotecas de cliente estão em curso, o impacto pode ser mitigado ao aumentar horizontalmente para várias instâncias.

@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: 2ef08831706a018422ea3700c8eb63bd6f95c469
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834969"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253685"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Escala para reativação pós-falha com servidores de processos adicionais
 
@@ -23,6 +23,9 @@ Por predefinição, quando está a replicar VMs de VMware ou servidores físicos
 ### <a name="capacity-planning"></a>Planeamento de capacidade
 
 Certifique-se de que já executou [planeamento de capacidade](site-recovery-plan-capacity-vmware.md) para a replicação de VMware. Isto ajuda a identificar como e quando deve implantar os servidores de processos adicionais.
+
+>[!NOTE]
+Não é suportada a utilização de um componente de servidor de processos clonado. Siga os passos neste artigo para cada PS Escalamento horizontal.
 
 ### <a name="sizing-requirements"></a>Requisitos de dimensionamento 
 

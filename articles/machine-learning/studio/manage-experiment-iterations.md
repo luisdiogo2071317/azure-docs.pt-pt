@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
 ms.service: machine-learning
@@ -16,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: a95004a24a9b136708f948f6a2697563216506fb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ebcae3e8e8f13904936dbe122f285a01a2a71459
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086037"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270455"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Gerir iterações da experimentação no Azure Machine Learning Studio
 Desenvolver um modelo de Análise Preditiva é um processo iterativo - à medida que modifica as várias funções e parâmetros da sua experimentação, os seus resultados convergem até achar que tem um modelo preparado e eficaz. A chave para este processo está acompanhando as várias interações de suas configurações e parâmetros de experimentação.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Pode rever execuções anteriores de suas experimentações em qualquer altura para desafiar, revisitar e, por fim, confirme ou refinar suposições anteriores. Quando executa uma experimentação, o Machine Learning Studio mantém um histórico da execução, incluindo o conjunto de dados, módulo e ligações de porta e parâmetros. Esse histórico também captura os resultados, informações de tempo de execução, tais como iniciar e parar vezes, as mensagens de registo e estado de execução. Pode olhar novamente qualquer um dessas execuções em qualquer altura para rever a cronologia da sua experimentação e os resultados intermediários. Pode até usar uma execução anterior da sua experimentação para uma nova fase de consulta e deteção de iniciar no seu caminho para criar soluções de modelagem de ensemble até mesmo, complexo ou simples.
 

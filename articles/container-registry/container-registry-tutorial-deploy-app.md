@@ -1,21 +1,21 @@
 ---
-title: Tutorial do Azure Container Registry - Implementar uma aplicação Web do Azure Container Registry
-description: Implemente uma aplicação Web baseada no Linux através de uma imagem de contentor a partir de um Azure Container Registry georreplicado. Parte dois de uma série com três partes.
+title: Tutorial - implementar a aplicação a partir do registo georreplicado de Docker no Azure
+description: Implemente uma aplicação web baseado em Linux para duas diferentes regiões do Azure com uma imagem de contentor a partir de um registo de contentor do Azure georreplicado. Parte dois de uma série com três partes.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: d1924d730f2c2a64063496d4be759194cef99175
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853866"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253838"
 ---
-# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Tutorial: implementar aplicação Web do Azure Container Registry
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Implementar uma aplicação web a partir de um registo de contentor do Azure georreplicado
 
 Esta é a parte dois de um tutorial de três partes. Na [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registo de contentor privado e georreplicado, e foi criada uma imagem de contentor da origem e publicada no registo. Neste artigo, irá tirar partido da proximidade da rede do registo georreplicado ao implementar o contentor em instâncias de Aplicações Web em duas regiões diferentes do Azure. Em seguida, cada instância extrai a imagem de contentor do registo mais próximo.
 

@@ -1,21 +1,21 @@
 ---
-title: Tutorial do Azure Container Instances - preparar a sua aplicação
-description: Tutorial do Azure Container Instances, parte 1 de 3 - preparar uma aplicação para implementação no Azure Container Instances
+title: Tutorial - preparar a imagem de contentor do Azure Container Instances
+description: Tutorial do Azure Container Instances parte 1 de 3 - Preparar uma aplicação numa imagem de contentor para implementação no Azure Container Instances
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: dfe494eba64f546616e4e6cc9898f9d63d81eaa2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 029b4f2d0f0f88f56ca1f3e282d8c80e76f4d5c7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854784"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186417"
 ---
-# <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>Tutorial: Criar um contentor para implementação no Azure Container Instances
+# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutorial: Criar uma imagem de contentor para implementação no Azure Container Instances
 
 O Azure Container Instances permite a implementação de contentores do Docker na infraestrutura do Azure sem que seja necessário aprovisionar máquinas virtuais ou adotar serviços de nível superior. Neste tutorial, vai compactar uma aplicação Web pequena em Node.js e numa imagem de contentor que pode ser executada com o Azure Container Instances.
 
@@ -120,7 +120,7 @@ Agora, navegue até http://localhost:8080 no browser para confirmar que o conten
 
 ![Executar a aplicação localmente no browser][aci-tutorial-app-local]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou uma imagem de contentor que pode ser implementada no Azure Container Instances e verificou que é executada localmente. Até agora, fez o seguinte:
 

@@ -1,5 +1,5 @@
 ---
-title: O que são os Hubs de Eventos do Azure? | Microsoft Docs
+title: O que são os Hubs de Eventos do Azure? -um serviço de ingestão de grandes volumes de dados | Documentos da Microsoft
 description: Saiba mais sobre Hubs de Eventos do Azure, um serviço de fluxo de Macrodados que ingere milhões de eventos por segundo.
 services: event-hubs
 documentationcenter: na
@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d7f2bd5487a5eab248f08b408341470dcaf04a93
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: cffa9f566c6b2f4feb0fd7426eeea54a4644fda8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017292"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140154"
 ---
 # <a name="azure-event-hubs---a-big-data-streaming-platform-and-event-ingestion-service"></a>Hubs de eventos do Azure - um serviço de ingestão de eventos e plataforma de transmissão em fluxo grandes volumes de dados
 
@@ -66,11 +66,11 @@ Com um ecossistema abrangente disponível em várias [linguagens (.NET, Java, Py
 
 Os Hubs de Eventos oferecem uma capacidade de processamento da transmissão de mensagens, mas têm características diferentes das mensagens empresariais tradicionais. As capacidades do Hubs de Eventos são criadas em torno dos cenários de alto débito e processamento de eventos. Os Hubs de Eventos contêm os seguintes [componentes principais](event-hubs-features.md):
 
-- **Produtores de eventos**: qualquer entidade que envie dados para um hub de eventos. Os publicadores de eventos podem publicar eventos através de HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 ou superior)
-- **Partições**: cada consumidor só lê um subconjunto específico, ou partição do fluxo de mensagens.
-- **Grupos de consumidores**: uma vista (estado, posição ou desvio) de um hub de eventos completo. Os grupos de consumidores ativam várias aplicações de consumo e cada uma tem uma vista separada do fluxo de eventos e lê o fluxo de forma independente ao seu próprio ritmo e com os seus próprios desvios.
-- **Unidades de débito**: unidades de capacidade previamente compradas que controlam a capacidade de débito dos Hubs de Eventos.
-- **Recetores de eventos**: qualquer entidade que leia os dados de eventos de um hub de eventos. Todos os consumidores de Hubs de Eventos ligam-se através da sessão AMQP 1.0 e os eventos são entregues durante a sessão à medida que ficam disponíveis. Todos os consumidores de Kafka ligam através do protocolo de Kafka 1.0 e posterior.
+- **Os produtores de eventos**: Qualquer entidade que envie dados para um hub de eventos. Os publicadores de eventos podem publicar eventos através de HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 ou superior)
+- **Partições**: Cada consumidor só lê um subconjunto específico, ou partição, do fluxo de mensagens.
+- **Grupos de consumidores**: Uma vista (estado, posição ou desvio) de um hub de eventos completo. Os grupos de consumidores ativam várias aplicações de consumo e cada uma tem uma vista separada do fluxo de eventos e lê o fluxo de forma independente ao seu próprio ritmo e com os seus próprios desvios.
+- **Unidades de débito**: Previamente adquiridas unidades de capacidade que controlam a capacidade de débito dos Hubs de eventos.
+- **Receptores de eventos**: Qualquer entidade que leia os dados de eventos de um hub de eventos. Todos os consumidores de Hubs de Eventos ligam-se através da sessão AMQP 1.0 e os eventos são entregues durante a sessão à medida que ficam disponíveis. Todos os consumidores de Kafka ligam através do protocolo de Kafka 1.0 e posterior.
 
 A imagem seguinte mostra a arquitetura do processamento de fluxos dos Hubs de Eventos:
 
@@ -81,7 +81,7 @@ A imagem seguinte mostra a arquitetura do processamento de fluxos dos Hubs de Ev
 
 Para começar a utilizar os Hubs de Eventos, veja os seguintes artigos:
 
-1. **Criar um hub de eventos**: [portal do Azure](event-hubs-create.md), [CLI do Azure](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
+1. **Criar um hub de eventos**: [Portal do Azure](event-hubs-create.md), [CLI do Azure](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [modelo Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 2. **Enviar eventos para um hub de eventos**: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [denode.js](event-hubs-node-get-started-send.md), [Vá](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
 3. **Receber eventos de um hub de eventos**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [node. js ](event-hubs-node-get-started-receive.md), [Vá](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)   
 

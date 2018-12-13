@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: fa19cdbb6c51248b5361ba747829c4f9e617ce6a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: cc76b15c3cb108b5181e22330954dfee789b01ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865391"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251118"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Azure Backup Server
 
-V2 de servidor de cópia de segurança do Azure e mais tarde é fornecido com o System Center 2016 proteção Manager moderna cópia de segurança do armazenamento de dados. Armazenamento de cópia de segurança moderno oferece poupança de armazenamento de 50%, cópias de segurança que são o armazenamento de três vezes mais rápido e mais eficiente. Ele também oferece armazenamento com deteção de carga de trabalho.
+O Azure Backup Server V2 e posterior suporta o armazenamento de cópia de segurança moderno que oferece poupança de armazenamento de 50%, cópias de segurança que é o armazenamento de três vezes mais rápido e mais eficiente. Ele também oferece armazenamento com deteção de carga de trabalho.
 
 > [!NOTE]
 > Para utilizar o armazenamento de cópia de segurança moderno, tem de executar cópia de segurança do servidor V2 ou V3 no Windows Server 2016 ou V3 no Windows Server 2019.
@@ -75,7 +75,7 @@ Com o armazenamento com deteção de carga de trabalho, pode selecionar volumes 
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Pode configurar o armazenamento com deteção de carga de trabalho com o cmdlet do PowerShell Update-DPMDiskStorage, que atualiza as propriedades de um volume no agrupamento de armazenamento num servidor do Data Protection Manager.
+Pode configurar o armazenamento com deteção de carga de trabalho através do cmdlet Update-DPMDiskStorage, que atualiza as propriedades de um volume no agrupamento de armazenamento num servidor de cópia de segurança do Azure PowerShell. 
 
 Sintaxe:
 

@@ -1,5 +1,5 @@
 ---
-title: Estrutura de definição do Azure Policy
+title: Detalhes da estrutura de definição de política
 description: Descreve como a definição de política de recurso do Azure Policy é utilizada para estabelecer as convenções para recursos na sua organização com a descrição quando a política é imposta e o efeito resultante para tirar.
 services: azure-policy
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 456ac392d74db0dc596c24a47d176e19d267bc85
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: c09f1f5af8ef417fc4ed195b8ff17cc23c744319
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079522"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313144"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -216,6 +217,8 @@ São suportados os seguintes campos:
 - `kind`
 - `type`
 - `location`
+- `identity.type`
+  - Devolve o tipo de [identidade gerido](../../../active-directory/managed-identities-azure-resources/overview.md) ativada no recurso.
 - `tags`
 - `tags.<tagName>`
   - Em que **\<tagName\>** é o nome da etiqueta para validar a condição para.

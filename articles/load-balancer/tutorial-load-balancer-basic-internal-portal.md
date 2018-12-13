@@ -1,5 +1,6 @@
 ---
-title: 'Tutorial: Criar um balanceador de carga interno básico com o portal do Azure | Documentos da Microsoft'
+title: 'Tutorial: Criar um balanceador de carga interno – portal do Azure'
+titlesuffix: Azure Load Balancer
 description: Este tutorial mostra-lhe como criar um balanceador de carga básico interno com o portal do Azure.
 services: load-balancer
 documentationcenter: na
@@ -12,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 404b667de32e16dc43fa1359a297078ac07b5cfe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 1ed77e8573479665d0caac15941d6b6c6ab790cb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106384"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262355"
 ---
-# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Balanceamento interno de carga de tráfego com um balanceador de carga básico no portal do Azure
+# <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Carga de tráfego interno de saldo com um balanceador de carga básico no portal do Azure
 
 Balanceamento de carga oferece um nível mais elevado de disponibilidade e dimensionamento ao propagar os pedidos recebidos por máquinas virtuais (VMs). Pode utilizar o portal do Azure para criar um balanceador de carga básico e balancear o tráfego entre VMs interno. Este tutorial mostra-lhe como criar e configurar um balanceador de carga interno, servidores de back-end e recursos de rede ao escalão de preço básico.
 
@@ -40,9 +41,9 @@ Primeiro, crie uma rede virtual (VNet). Crie a VNet, duas VMs a utilizar para o 
    
 1. Na **criar rede virtual** painel, escreva ou selecione estes valores:
    
-   - **Nome**: tipo *MyVNet*.
-   - **ResourceGroup**: selecione **criar novo**, em seguida, introduza *MyResourceGroupLB*e selecione **OK**. 
-   - **Sub-rede** > **nome**: tipo *MyBackendSubnet*.
+   - **Nome**: Tipo *MyVNet*.
+   - **ResourceGroup**: Selecione **criar novo**, em seguida, introduza *MyResourceGroupLB*e selecione **OK**. 
+   - **Sub-rede** > **nome**: Tipo *MyBackendSubnet*.
    
 1. Selecione **Criar**.
 
@@ -53,13 +54,13 @@ Primeiro, crie uma rede virtual (VNet). Crie a VNet, duas VMs a utilizar para o 
 1. No lado do canto superior esquerdo do portal, selecione **criar um recurso** > **computação** > **Windows Server 2016 Datacenter**. 
    
 1. Na **criar uma máquina virtual**, escreva ou selecione os seguintes valores no **Noções básicas** separador:
-   - **Subscrição** > **grupo de recursos**: Drop baixo e selecione **MyResourceGroupLB**.
-   - **Detalhes de instância** > **nome da Máquina Virtual**: tipo *MyVM1*.
+   - **Subscrição** > **grupo de recursos**: Lista pendente e selecione **MyResourceGroupLB**.
+   - **Detalhes de instância** > **nome da Máquina Virtual**: Tipo *MyVM1*.
    - **Detalhes de instância** > **opções de disponibilidade**: 
      1. Lista pendente e selecione **conjunto de disponibilidade**. 
      2. Selecione **criar novo**, tipo *MyAvailabilitySet*e selecione **OK**.
    
-1. Selecione o **Networking** separador ou selecione **próximo: discos**, em seguida, **seguinte: redes**. 
+1. Selecione o **Networking** separador ou selecione **seguinte: Discos**, em seguida, **seguinte: Funcionamento em rede**. 
    
    Certifique-se de que estão selecionadas as seguintes:
    - **Rede virtual**: **MyVNet**
@@ -87,14 +88,14 @@ Crie um balanceador de carga interno básico com o portal. O nome e endereço IP
    
 1. Na **criar Balanceador de carga** painel, escreva ou selecione estes valores:
    
-   - **Nome**: tipo *MyLoadBalancer*.
-   - **Tipo**: selecione **interno**. 
-   - **SKU**: selecione **básica**.
-   - **Rede virtual**: selecione **escolher uma rede virtual**e, em seguida, selecione **MyVNet**.
-   - **Sub-rede**: selecione **escolher sub-rede**e, em seguida, selecione **MyBackendSubnet**.
-   - **Atribuição de endereços IP**: selecione **estático** se não selecionada.
-   - **O endereço IP privado**: escreva um endereço que está no espaço de endereços da sua rede virtual e sub-rede, por exemplo *10.3.0.7*.
-   - **ResourceGroup**: lista pendente **selecionar existente** e selecione **MyResourceGroupLB**. 
+   - **Nome**: Tipo *MyLoadBalancer*.
+   - **Tipo de**: Selecione **interno**. 
+   - **SKU**: Selecione **Básico**.
+   - **Rede virtual**: Selecione **escolher uma rede virtual**e, em seguida, selecione **MyVNet**.
+   - **Sub-rede**: Selecione **escolha uma sub-rede**e, em seguida, selecione **MyBackendSubnet**.
+   - **Atribuição de endereços IP**: Selecione **estático** se não selecionada.
+   - **O endereço IP privado**: Escreva um endereço que está no espaço de endereços da sua rede virtual e sub-rede, por exemplo *10.3.0.7*.
+   - **ResourceGroup**: Menu pendente **selecionar existente** e selecione **MyResourceGroupLB**. 
    
 1. Selecione **Criar**.
    
@@ -116,9 +117,9 @@ Para distribuir o tráfego para as VMs, o Balanceador de carga utiliza um conjun
    
 1. Sobre o **adicionar um conjunto de back-end** página, escreva ou selecione os seguintes valores:
    
-   - **Nome**: tipo *MyBackendPool*.
-   - **Associados**: remova baixo e selecione **conjunto de disponibilidade**.
-   - **Conjunto de disponibilidade**: selecione **MyAvailabilitySet**.
+   - **Nome**: Tipo *MyBackendPool*.
+   - **Associados a**: Lista pendente e selecione **conjunto de disponibilidade**.
+   - **Conjunto de disponibilidade**: Selecione **MyAvailabilitySet**.
    
 1. Selecione **adicionar uma configuração de IP de rede de destino**. 
    1. Adicione **MyVM1** e **MyVM2** para o conjunto de back-end.
@@ -145,12 +146,12 @@ Para permitir que o Balanceador de carga monitorizar o estado da VM, pode utiliz
    
 1. Sobre o **adicionar uma sonda de estado de funcionamento** página, escreva ou selecione os seguintes valores:
    
-   - **Nome**: tipo *MyHealthProbe*.
-   - **Protocolo**: remova baixo e selecione **HTTP**. 
-   - **Porta**: tipo *80*. 
-   - **Caminho**: aceite */* para o URI predefinido. Pode substituir este valor com qualquer outro URI. 
-   - **Intervalo**: tipo *15*. O intervalo é o número de segundos entre tentativas da sonda.
-   - **Limiar de mau estado de funcionamento**: tipo *2*. Este valor é o número de falhas consecutivas da sonda que ocorrem antes de uma VM é considerada em mau estado de funcionamento.
+   - **Nome**: Tipo *MyHealthProbe*.
+   - **Protocolo**: Lista pendente e selecione **HTTP**. 
+   - **Porta**: Tipo *80*. 
+   - **Caminho**: Aceite */* para o URI predefinido. Pode substituir este valor com qualquer outro URI. 
+   - **Intervalo**: Tipo *15*. O intervalo é o número de segundos entre tentativas da sonda.
+   - **Limiar de mau estado de funcionamento**: Tipo *2*. Este valor é o número de falhas consecutivas da sonda que ocorrem antes de uma VM é considerada em mau estado de funcionamento.
    
 1. Selecione **OK**.
    
@@ -170,13 +171,13 @@ A regra de Balanceador de carga com o nome **MyLoadBalancerRule** escuta na port
    
 1. Sobre o **Adicionar regra de balanceamento de carga** página, escreva ou selecione os seguintes valores, se não estiver já presente:
    
-   - **Nome**: tipo *MyLoadBalancerRule*.
-   - **Endereço IP de front-end:** tipo *LoadBalancerFrontEnd* se não estiver presente.
-   - **Protocolo**: selecione **TCP**.
-   - **Porta**: tipo *80*.
-   - **Porta de back-end**: tipo *80*.
-   - **Conjunto back-end**: selecione **MyBackendPool**.
-   - **Sonda de estado de funcionamento**: selecione **MyHealthProbe**. 
+   - **Nome**: Tipo *MyLoadBalancerRule*.
+   - **Endereço IP de front-end:** Tipo *LoadBalancerFrontEnd* se não estiver presente.
+   - **Protocolo**: Selecione **TCP**.
+   - **Porta**: Tipo *80*.
+   - **Porta de back-end**: Tipo *80*.
+   - **Conjunto back-end**: Selecione **MyBackendPool**.
+   - **Sonda de estado de funcionamento**: Selecione **MyHealthProbe**. 
    
 1. Selecione **OK**.
    

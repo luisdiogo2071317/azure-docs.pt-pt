@@ -7,34 +7,33 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: juliako
-ms.openlocfilehash: 2261b8fa496beaf2a14c9b949047b6a5cbc6ea32
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: f29adb500401c9f5d6e177a0740ce54719c36a34
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292379"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253209"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
-Este artigo mostra como carregar um vídeo com o Video Indexer do Azure. A API do Video Indexer fornece duas opções de carregamento: 
+Ao carregar vídeos com a API do Video Indexer, tem duas opções de carregamento: 
 
 * carregar o vídeo a partir de um URL (preferencial),
 * enviar o ficheiro de vídeo como uma matriz de bytes no corpo do pedido,
 * Utilizar o recurso de serviços de multimédia do Azure existente, fornecendo a [id de recurso](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (suportado pagas apenas em contas).
 
-O artigo mostra como utilizar a API [Carregar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para carregar e indexar os seus vídeos com base num URL. O exemplo de código neste artigo inclui o código comentado que mostra como carregar a matriz de bytes.  
+O artigo mostra como utilizar a API [Carregar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para carregar e indexar os seus vídeos com base num URL. O exemplo de código neste artigo inclui o código comentado que mostra como carregar a matriz de bytes. <br/>O artigo também aborda alguns dos parâmetros que pode definir na API para alterar o processo e o resultado da API.
 
-O artigo também aborda alguns dos parâmetros que pode definir na API para alterar o processo e o resultado da API.
-
-> [!Note]
-> Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). <br/>Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção paga, pode criar uma conta do Video Indexer que está [ligada à sua subscrição do Azure e uma conta dos Serviços de Multimédia do Azure](connect-to-azure.md). Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
+Assim que o seu vídeo foi carregado, o indexador de vídeos, codifica opcionalmente o vídeo (discutido no artigo). Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção paga, pode criar uma conta do Video Indexer que está [ligada à sua subscrição do Azure e uma conta dos Serviços de Multimédia do Azure](connect-to-azure.md). Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
 
 ## <a name="uploading-considerations"></a>Considerações de carregamento
     
 - Ao carregar o seu vídeo com base no URL (preferencial), o ponto final tem de estar protegido por TLS 1.2 (ou posterior)
-- A opção de matriz de bytes está limitada a 2 GB e expira após 30 minutos
+- O tamanho de carregamento com a opção de URL está limitado a 10GB
+- O tamanho de carregamento com a opção de matriz de bytes é limitado a 2GB 
+- A opção de matriz de bytes expira após 30 minutos
 - O URL fornecido no parâmetro `videoURL` tem de ser codificado
 
 > [!Tip]
@@ -91,7 +90,7 @@ O preço varia consoante a opção de indexação selecionada.
 
 ### <a name="priority"></a>prioridade
 
-Vídeos são indexados pelo indexador de vídeo, de acordo com sua prioridade. Utilize o **prioridade** parâmetro para especificar a prioridade de índice. Os seguintes valores são válidos: **baixa**, **Normal** (predefinição), e **elevada**.
+Vídeos são indexados pelo indexador de vídeo, de acordo com sua prioridade. Utilize o **prioridade** parâmetro para especificar a prioridade de índice. Os seguintes valores são válidos: **Baixa**, **Normal** (predefinição), e **elevada**.
 
 **Prioridade** parâmetro só é suportado para contas pagas.
 

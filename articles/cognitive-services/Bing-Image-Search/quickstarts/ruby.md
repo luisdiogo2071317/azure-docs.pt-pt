@@ -1,6 +1,7 @@
 ---
-title: 'Guia de Início Rápido: Executar uma pesquisa de imagens com o Ruby – API de Pesquisa de Imagens do Bing'
-description: Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e receber uma resposta JSON. Esta aplicação Ruby simples envia uma consulta de pesquisa para a API e mostra os resultados não processados.
+title: 'Início rápido: Procure imagens - API de REST de pesquisa de imagens do Bing e Ruby'
+titleSuffix: Azure Cognitive Services
+description: Utilizar este guia de introdução para enviar pedidos de pesquisa de imagem para a API de pesquisa de imagens do Bing REST com Ruby e receber respostas JSON.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -10,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: d5772b46c167b873ed4f5d60a110d31a5c8308a5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 4a5b0c6e67ce4d7a533ad35023261a3c02601a83
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315941"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257663"
 ---
-# <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>Guia de Início Rápido: Enviar consultas de pesquisa com a API REST e o Ruby
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>Início rápido: Procure imagens usando a API de REST de pesquisa de imagens do Bing e Ruby
 
 Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e receber uma resposta JSON. Esta aplicação Ruby simples envia uma consulta de pesquisa para a API e mostra os resultados não processados.
 

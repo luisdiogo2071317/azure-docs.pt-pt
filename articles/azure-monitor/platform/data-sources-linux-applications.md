@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 4ddf163ce37c4adf1b89012c214ee807f55a0d98
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 03faa393d42f3596aa6b05c4a3afb476c8b9e0a3
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836327"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186519"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Recolher contadores de desempenho de aplicações do Linux no Log Analytics 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -118,7 +116,7 @@ Esses privilégios podem ser concedidos ao executar os seguintes comandos de con
 
 Depois de configurar o agente do Log Analytics para Linux enviar dados para o Log Analytics, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho do Log Analytics](data-sources-windows-events.md) com os contadores na tabela seguinte.
 
-| Nome do Objeto | Nome do contador |
+| Nome do Objeto | Nome do Contador |
 |:--|:--|
 | Base de Dados MySQL | Espaço em disco, em Bytes |
 | Base de Dados MySQL | Tabelas |
@@ -154,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 Depois de configurar o agente do Log Analytics para Linux enviar dados para o Log Analytics, tem de configurar os contadores de desempenho a recolher.  Utilize o procedimento [Windows e Linux origens de dados de desempenho do Log Analytics](data-sources-windows-events.md) com os contadores na tabela seguinte.
 
-| Nome do Objeto | Nome do contador |
+| Nome do Objeto | Nome do Contador |
 |:--|:--|
 | Apache HTTP Server | Operadores de ocupado |
 | Apache HTTP Server | Funções de trabalho ociosas |

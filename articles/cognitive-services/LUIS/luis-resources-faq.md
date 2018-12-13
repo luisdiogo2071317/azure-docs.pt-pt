@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 31d733ef7e80136641f0b6f6de46589f15567e57
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 9e5b132a7946bdc648e051c9f7327cc7159f291e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097884"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163638"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -215,13 +215,13 @@ As seguintes funcionalidades foram lançadas na conferência Build 2018:
 Criação adicionais [as rotas API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) foram incluídos.
 
 Vídeos:
-* [Azure Friday na compilação 2018: Serviços cognitivos-idiomas (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Azure Friday na compilação 2018: Serviços cognitivos - idiomas (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [Compilação de 2018 IA Mostrar - o que há de novo com o serviço de compreensão de idiomas](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
 * [Sessão do Build 2018 - Inteligência de bots, Capacidades de Voz e melhores práticas do NLU](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [Compilação de 2018 - atualizações de LUIS](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projetos:
-* [Bot de contoso Cafe](https://github.com/botbuilderbuild2018/build2018demo) demonstração - código-fonte no Github
+* [Bot de contoso Cafe](https://github.com/botbuilderbuild2018/build2018demo) demonstração - código-fonte no GitHub
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bcb448296313eedebb8f8389b320c5da5f1a80dd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ef86c9ee00fdd4673774640d33eec93e2ead876d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311788"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193099"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Autenticação de pass-through do Active Directory do Azure e de privacidade do utilizador
 
@@ -72,7 +72,7 @@ Para ver registos relacionados com o agente de autenticação pass-through, abra
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Eliminar ficheiros de registo de rastreio do agente de autenticação
 
-Deve verificar regularmente o conteúdo do **%ProgramData%\Microsoft\Azure AD ligar Agent\Trace de autenticação\**  e elimine o conteúdo desta pasta cada 48 horas. 
+Deve verificar regularmente o conteúdo do <strong>%ProgramData%\Microsoft\Azure AD ligar Agent\Trace de autenticação\</ strong > e elimine o conteúdo desta pasta cada 48 horas. 
 
 >[!IMPORTANT]
 >Se estiver a executar o serviço de agente de autenticação, não poderá eliminar o ficheiro de registo atual na pasta. Pare o serviço antes de tentar novamente. Para evitar falhas de início de sessão de utilizador, deve ter configurado a autenticação pass-through para [elevada disponibilidade](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).

@@ -1,6 +1,6 @@
 ---
-title: A indexação de uma origem de dados do Azure Cosmos DB para o Azure Search | Documentos da Microsoft
-description: Este artigo mostra-lhe como criar um indexador de Azure Search com uma origem de dados do Azure Cosmos DB.
+title: Índice de uma origem de dados do Azure Cosmos DB - Azure Search
+description: Pesquise a uma origem de dados do Azure Cosmos DB e ingestão de dados num índice de texto completo pesquisável no Azure Search. Indexadores automatizam ingestão de dados para origens de dados selecionada, como o Azure Cosmos DB.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec2018
+ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747546"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311818"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ligar o Cosmos DB com o Azure Search utilizando indexadores
 
@@ -73,7 +74,7 @@ Este artigo mostra como utilizar a API REST. Se optar ativamente por participar 
 > Por enquanto, não é possível criar ou editar **MongoDB** origens de dados com o Portal do Azure ou o SDK do .NET. No entanto, **pode** monitorizar o histórico de execução do MongoDB indexadores no portal.  
 
 <a name="CreateDataSource"></a>
-## <a name="step-1-create-a-data-source"></a>Passo 1: criar uma origem de dados
+## <a name="step-1-create-a-data-source"></a>Passo 1: Criar uma origem de dados
 Para criar uma origem de dados, faça uma POSTAGEM:
 
     POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
@@ -95,18 +96,18 @@ Para criar uma origem de dados, faça uma POSTAGEM:
 
 O corpo do pedido contém a definição de origem de dados, que deve incluir os seguintes campos:
 
-* **nome**: Escolha o nome para representar a sua base de dados.
-* **tipo**: tem de ser `documentdb`.
+* **Nome**: Escolha o nome para representar a sua base de dados.
+* **Tipo de**: Tem de ser `documentdb`.
 * **credenciais**:
   
-  * **connectionString**: necessário. Especifique as informações de ligação à base de dados do Azure Cosmos DB no seguinte formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` coleções para o MongoDB, adicione **ApiKind = MongoDb** para a cadeia de ligação: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  * **connectionString**: Necessário. Especifique as informações de ligação à base de dados do Azure Cosmos DB no seguinte formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Para coleções de MongoDB, adicione **ApiKind = MongoDb** para a cadeia de ligação: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
   Evite os números de porta no url do ponto final. Se incluir o número de porta, o Azure Search será não é possível indexar a base de dados do Azure Cosmos DB.
 * **contentor**:
   
-  * **nome**: necessário. Especifica o id da coleção da base de dados ser indexados.
-  * **consulta**: opcional. Pode especificar uma consulta para nivelamento um documento JSON arbitrário num esquema simples que o Azure Search pode indexar. Para coleções de MongoDB, as consultas não são suportadas. 
-* **dataChangeDetectionPolicy**: recomendado. Ver [indexar documentos alterados](#DataChangeDetectionPolicy) secção.
-* **dataDeletionDetectionPolicy**: Optional. Ver [indexar documentos eliminado](#DataDeletionDetectionPolicy) secção.
+  * **Nome**: Necessário. Especifica o id da coleção da base de dados ser indexados.
+  * **consulta**: Opcional. Pode especificar uma consulta para nivelamento um documento JSON arbitrário num esquema simples que o Azure Search pode indexar. Para coleções de MongoDB, as consultas não são suportadas. 
+* **dataChangeDetectionPolicy**: Recomendado. Ver [indexar documentos alterados](#DataChangeDetectionPolicy) secção.
+* **dataDeletionDetectionPolicy**: Opcional. Ver [indexar documentos eliminado](#DataDeletionDetectionPolicy) secção.
 
 ### <a name="using-queries-to-shape-indexed-data"></a>Através de consultas a forma indexou dados
 Pode especificar uma consulta SQL para nivelamento propriedades aninhadas ou matrizes, as propriedades do projeto JSON e filtrar os dados a ser indexados. 
@@ -145,7 +146,7 @@ Consulta de mesclagem de matriz:
     SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
 <a name="CreateIndex"></a>
-## <a name="step-2-create-an-index"></a>Passo 2: criar um índice
+## <a name="step-2-create-an-index"></a>Passo 2: Criar um índice
 Se ainda não tiver uma, crie um índice de pesquisa do Azure de destino. Pode criar um índice com o [portal do Azure da interface do Usuário](search-create-index-portal.md), o [criar o índice REST API](/rest/api/searchservice/create-index) ou [classe de índice](/dotnet/api/microsoft.azure.search.models.index).
 
 O exemplo seguinte cria um índice com um campo de id e a descrição:

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 1508ccc151aaafd7e0c0b46345c4dcb1a5b7b03c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b6d3cbd56182b8dba3738f38798efa378c6b49d0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083670"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254831"
 ---
 # <a name="use-azure-machine-learning-services-in-a-notebook"></a>Utilizar o Azure Machine Learning Services num bloco de notas
 
@@ -28,7 +28,7 @@ Blocos de notas do Azure está pré-configurada com o ambiente necessário para 
 
 1. Inicie sessão no [blocos de notas do Azure](https://notebooks.azure.com/).
 1. Selecione **meus projetos** para navegar para o dashboard de projetos.
-1. Selecione o **carregar repositório do GitHub** (a seta para cima) botão abrir o **carregar repositório do Github** pop-up.
+1. Selecione o **carregar repositório do GitHub** (a seta para cima) botão abrir o **carregar repositório do GitHub** pop-up.
 1. No pop-up, introduza `Azure/MachineLearningNotebooks` no **repositório do GitHub**, forneça um nome para o projeto no **nome do projeto** como "Azure ML Services", fornecer um identificador no **ID do projeto**, desmarque **pública** se desejar, em seguida, selecione **importação**.
 
     ![Importar exemplo do bloco de notas do Azure Machine Learning para sua conta de blocos de notas](media/azureml-import-project.png)

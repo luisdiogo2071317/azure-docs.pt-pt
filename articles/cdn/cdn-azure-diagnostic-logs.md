@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: d0b804c48f3de4d4ba29ebe0785f6dd991329a53
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2beb5aa7218df25a1af87411d9481d30b259c353
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409259"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256734"
 ---
 # <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 
@@ -98,7 +98,7 @@ Para utilizar o Log Analytics para armazenar os registos, siga estes passos:
    O **áreas de trabalho do Log Analytics** é apresentada a página.
 
     >[!NOTE] 
-    >Áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
+    >As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
 
     ![Portal – registos de diagnóstico](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
@@ -107,7 +107,7 @@ Para utilizar o Log Analytics para armazenar os registos, siga estes passos:
     O **área de trabalho do Log Analytics** é apresentada a página.
 
     >[!NOTE] 
-    >Áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
+    >As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
 
     ![Portal – registos de diagnóstico](./media/cdn-diagnostics-log/07_Create-new.png)
 
@@ -189,7 +189,7 @@ Registos de análise de núcleo são gerados a cada hora e os dados são recolhi
 |-------|---------|
 |ID da subscrição    |ID da subscrição do Azure no formato Guid.|
 |Nome do Grupo de Recursos |Nome do grupo de recursos ao qual pertencem os recursos do CDN.|
-|Nome do perfil |Nome do perfil da CDN|
+|Profile Name (Nome do Perfil) |Nome do perfil da CDN|
 |Nome do ponto final |Nome do ponto final da CDN|
 |Ano|  Representação de quatro dígitos do ano, por exemplo, de 2017|
 |Mês| Representação de dois dígitos do número do mês. 01 = Janeiro... 12 = Dezembro|
@@ -202,7 +202,7 @@ Para que seja fácil de aceder ao core analytics, o código de exemplo para uma 
 
 Eis como pode usar a ferramenta:
 
-1.  Visite a ligação do github: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.  Visite a ligação do GitHub: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.  Baixe o código.
 3.  Siga as instruções para compilar e configurar.
 4.  Execute a ferramenta.

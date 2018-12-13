@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação Web PHP e MySQL no Serviço de Aplicações do Azure no Linux | Microsoft Docs
+title: Criar aplicação de web PHP com MySQL no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como pôr aplicações PHP a funcionar no Azure, com ligação a uma base de dados MySQL no Azure.
 services: app-service\web
 author: cephalin
@@ -10,13 +10,13 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 2f69f3f8864fc196e9bdc4deec13580fd4b816ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: a8fc0b9dee8b496eabf7efded7ab83be0b958244
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967713"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274858"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web PHP e MySQL no Serviço de Aplicações do Azure no Linux
 
@@ -47,7 +47,7 @@ Para concluir este tutorial:
 * [Instalar o Git](https://git-scm.com/)
 * [Instalar o PHP 5.6.4 ou superior](https://php.net/downloads.php)
 * [Instalar o Composer](https://getcomposer.org/doc/00-intro.md)
-* Ative as extensões do PHP seguintes, de que o Laravel precisa: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+* Ative as seguintes extensões PHP que o Laravel precisa: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Instalar e iniciar o MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Preparar o MySQL local
@@ -62,7 +62,7 @@ Numa janela de terminal, ligue ao seu servidor MySQL local. Pode utilizar esta j
 mysql -u root -p
 ```
 
-Se lhe for pedida uma palavra-passe, introduza a palavra-passe da conta `root`. Se não se lembrar da sua palavra-passe da conta de raiz, veja [MySQL: Como Repor a Palavra-passe de Raiz](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Se lhe for pedida uma palavra-passe, introduza a palavra-passe da conta `root`. Se não se lembra da sua palavra-passe da conta de raiz, consulte o artigo [MySQL: Como repor a palavra-passe de raiz](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 Se o comando for executado com êxito, significa que o servidor MySQL está em execução. Se não, siga os [passos de pós-instalação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) para verificar se o servidor MySQL local é iniciado.
 

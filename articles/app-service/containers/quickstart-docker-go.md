@@ -1,5 +1,5 @@
 ---
-title: Implementar uma aplicação Docker/Go na Aplicação Web para Contentores do Azure
+title: Criar aplicação Docker/Go no Linux - serviço de aplicações do Azure
 description: Como implementar uma imagem de Docker a executar uma aplicação Go para uma Aplicação Web para Contentores.
 keywords: serviço de aplicações do azure, aplicação web, go, docker, contentor
 services: app-service
@@ -11,13 +11,13 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/17/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: f1d58adcc017367a3de8ee6130a3333f86fb501c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 36a6b73a6e358104f22d64b00f436a219f29bbd4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423250"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251883"
 ---
 # <a name="deploy-a-dockergo-web-app-in-web-app-for-containers"></a>Implementar uma aplicação Web Docker/Go na Aplicação Web para Contentores
 
@@ -74,7 +74,7 @@ http://<app_name>.azurewebsites.net/hello
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Utilizar uma imagem personalizada do Docker](tutorial-custom-docker-image.md)

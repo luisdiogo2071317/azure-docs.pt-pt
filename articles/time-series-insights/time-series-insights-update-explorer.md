@@ -1,5 +1,5 @@
 ---
-title: Visualizar dados no Explorador de pré-visualização do Azure Time Series Insights | Documentos da Microsoft
+title: Explorador do Time Series Insights pré-visualização do Azure - Visualize os dados no Explorador de pré-visualização do Azure Time Series Insights | Documentos da Microsoft
 description: Este artigo descreve os recursos e as opções disponíveis na aplicação web de explorer da pré-visualização do Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
@@ -9,12 +9,13 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 3a2958d838f0646ac030421b3785fc11a1466dd6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 5372a36291ee13966d497bdae83a6e214dce99b9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086730"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272342"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualizar dados no Explorador de pré-visualização
 
@@ -24,7 +25,7 @@ Este artigo descreve as funcionalidades e opções disponíveis na pré-visualiz
 
 Antes de utilizar o Explorador de pré-visualização do Azure Time Series Insights, faça o seguinte:
 
-* Tem um ambiente de Time Series Insights que configurar. Para obter mais informações, consulte [Tutorial: pré-visualização do Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+* Tem um ambiente de Time Series Insights que configurar. Para obter mais informações, consulte [Tutorial: Pré-visualização do Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 * Fornece acesso a dados para o ambiente do Time Series Insights que criou para a conta. Pode fornecer acesso a outros utilizadores, bem como para si próprio.
 * Adicione uma origem de evento para o ambiente do Time Series Insights para enviar dados para o ambiente.
 
@@ -34,12 +35,12 @@ Antes de utilizar o Explorador de pré-visualização do Azure Time Series Insig
 
 O Explorador de pré-visualização do Azure Time Series Insights é composta pelos seguintes elementos:
 
-* **Barra de navegação**: permite que alternar entre as páginas de análise e o modelo.
-* **Árvore de hierarquia**: permite selecionar elementos de dados específico para ser colocada em gráficos.
-* **Série de tempo bem**: exibe seus elementos de dados atualmente selecionados.
-* **Painel de gráfico**: apresenta o gráfico de trabalho atual.
-* **Linha cronológica**: permite-lhe modificar o intervalo de tempo de trabalho.
-* **Barra de aplicativo**: contém as opções de gestão de utilizador, como inquilino atual e permite-lhe alterar as definições de idioma e o tema.
+* **Barra de navegação**: Permite-lhe alternar entre as páginas de análise e o modelo.
+* **Árvore de hierarquia**: Permite-lhe selecionar os elementos de dados específicos para ser colocada em gráficos.
+* **Série de tempo bem**: Apresenta os elementos de dados atualmente selecionados.
+* **Painel de gráfico**: Apresenta o gráfico de trabalho atual.
+* **Linha cronológica**: Permite-lhe modificar o intervalo de tempo de trabalho.
+* **Barra de aplicativo**: Contém as opções de gestão de utilizador, como inquilino atual e permite que altere as definições de idioma e o tema.
 
 ## <a name="time-series-insights-preview-environment-panel"></a>Painel de ambiente de pré-visualização de informações de série de tempo
 
@@ -53,17 +54,17 @@ O painel de ambiente apresenta todos os ambientes do Time Series Insights que te
 
 Com o menu de navegação, pode alternar entre as aplicações do Time Series Insights:
 
-* **Analisar**: permite-lhe o gráfico e efetuar análises avançadas nos seus dados de série de tempo unmodeled ou modelados.
+* **Analisar**: Permite-lhe o gráfico e realizar análises avançadas com seus dados de séries de tempo unmodeled ou modelados.
 
-* **Modelo**: permite-lhe enviar tipos, hierarquias e instâncias de pré-visualização do Time Series Insights novo para o seu modelo de Time Series Insights.
+* **modelo**: Permite-lhe enviar tipos, hierarquias e instâncias de pré-visualização do Time Series Insights novo para o seu modelo de Time Series Insights.
 
 ## <a name="time-series-insights-preview-model-authoring"></a>A criação do modelo de pré-visualização de informações de série de tempo
 
 Com esta aplicação, pode efetuar operações de criação, leitura, atualização e exclusão (CRUD) em seu modelo de série de tempo.  
 
-* **Tipo de modelo de série de tempo**: o Time Series Insights tipos permitem definir variáveis ou fórmulas para fazer cálculos. Eles estão associados uma determinada instância de Time Series Insights. Um tipo pode ter uma ou mais variáveis.
-* **Hierarquia do modelo de série de tempo**: hierarquias são organizações sistemática dos seus dados. Hierarquias retratar as relações entre diferentes entidades nos seus dados do Time Series Insights.
-* **Instância do modelo de série de tempo**: as instâncias são a série de tempo propriamente ditas. Na maioria dos casos, eles são o DeviceID ou AssetID, que é o identificador exclusivo do recurso no ambiente.
+* **Tipo de modelo de série de tempo**: Tipos de informações de série de tempo permitem definir variáveis ou fórmulas para fazer cálculos. Eles estão associados uma determinada instância de Time Series Insights. Um tipo pode ter uma ou mais variáveis.
+* **Hierarquia do modelo de série de tempo**: Hierarquias são organizações sistemática dos seus dados. Hierarquias retratar as relações entre diferentes entidades nos seus dados do Time Series Insights.
+* **Instância do modelo de série de tempo**: As instâncias são a série de tempo propriamente ditas. Na maioria dos casos, eles são o DeviceID ou AssetID, que é o identificador exclusivo do recurso no ambiente.
 
 Para saber mais sobre o modelo de série de tempo, veja [modelos de série de vezes](./time-series-insights-update-tsm.md).
 
@@ -94,19 +95,19 @@ Com o gráfico, pode exibir as instâncias de série de tempo como linhas. Pode 
 
   ![Explorador de oito][8]
 
-1. **Selecionar intervalo de datas**: controles quais elementos de dados estão disponíveis para visualização.
+1. **Selecionar intervalo de datas**: Controlos de quais elementos de dados estão disponíveis para visualização.
 
-1. **Ferramenta de controlo de deslize de intervalo de datas interna**: utilizar os dois controles de ponto final ao arrastá-los ao longo do período de tempo pretendido.
+1. **Ferramenta de controlo de deslize de intervalo de datas interna**: Utilize os dois controles de ponto final ao arrastá-los ao longo do período de tempo pretendido.
 
-1. **Tempo o controlo de recolhimento span**: recolhe e expande o editor de span painel de tempo.
+1. **Tempo o controlo de recolhimento span**: Fecha e expande o editor de span painel de tempo.
 
-1. **Controlo de formato do eixo y**: percorre as opções de vista do eixo y disponíveis:
+1. **Controlo de formato do eixo y**: Percorre as opções de vista do eixo y disponíveis:
 
-    * `Default`: A cada linha tem um eixo y individual.
+    * `Default`: Cada linha tem um eixo y individual.
     * `Stacked`: Permite-lhe várias linhas no eixo y mesmo, de pilha com a alteração de dados de eixo y com base na linha selecionada.
-    * `Shared`: Apresentado em conjunto todos os dados do eixo y.
+    * `Shared`: Todos os dados do eixo y apresentados em conjunto.
 
-1. **Elemento de dados atual**: O elemento de dados atualmente selecionados e os respetivos detalhes associados.
+1. **Elemento de dados atual**: O elemento de dados atualmente selecionados e os detalhes associados.
 
 Podem desagregar ainda mais num setor de dados específico, left-clicking um ponto de dados no gráfico atual e, em seguida, arrastando a área selecionada para o ponto final da sua preferência. Com o botão direito a área de cinzento, selecionada e clique em zoom, conforme mostrado na imagem seguinte:
 
@@ -126,19 +127,19 @@ Quando trabalha com pré-visualização do Time Series Insights, primeiro seleci
 
   ![Explorador de doze][12]
 
-1. **Ferramenta de controlo de deslize de intervalo de datas interna**: utilizar os dois controles de ponto final ao arrastá-los ao longo do período de tempo pretendido. Este intervalo de datas de interna é restrita pelo controlo de deslize de intervalo de datas-externa.
+1. **Ferramenta de controlo de deslize de intervalo de datas interna**: Utilize os dois controles de ponto final ao arrastá-los ao longo do período de tempo pretendido. Este intervalo de datas de interna é restrita pelo controlo de deslize de intervalo de datas-externa.
 
-1. **Aumentar e diminuir os botões de intervalo de datas**: aumento ou diminuição span de seu tempo ao selecionar o botão para o intervalo que pretende.
+1. **Aumentar e diminuir os botões de intervalo de datas**: Aumentar ou diminuir o intervalo de tempo ao selecionar o botão para o intervalo que pretende.
 
-1. **Tempo o controlo de recolhimento span**: esse controle web permite-lhe ocultar todos os controles, exceto para a ferramenta de controlo de deslize de intervalo de datas interna.
+1. **Tempo o controlo de recolhimento span**: Esse controle web permite-lhe ocultar todos os controles, exceto para a ferramenta de controlo de deslize de intervalo de datas interna.
 
 1. **Controlo de deslize de intervalo de datas OUTER**: Utilize os controlos de ponto final para selecionar o intervalo de externa datas, o que estará disponível para o seu controle de intervalo de datas interna.
 
-1. **Vezes rápidas pendente do intervalo de datas**: permite que alternar rapidamente entre seleções span hora predefinidas, como os últimos 30 minutos, as últimas 12 horas ou um intervalo personalizado. Alterar este valor também é alterado os intervalos de intervalo disponível discutidos na ferramenta de controlo de deslize do tamanho do intervalo.
+1. **Vezes rápidas pendente do intervalo de datas**: Permite-lhe alternar rapidamente entre seleções span hora predefinidas, como os últimos 30 minutos, as últimas 12 horas ou um intervalo personalizado. Alterar este valor também é alterado os intervalos de intervalo disponível discutidos na ferramenta de controlo de deslize do tamanho do intervalo.
 
-1. **Ferramenta de controlo de deslize de intervalo de tamanho**: intervalo de tempo permite que ampliar e reduzir intervalos através da mesma. Esta ação fornece um controle mais preciso de movimento entre os setores de grandes dimensões de tempo. Apresenta as tendências uniformes para baixo para setores tão pequenas como um milissegundo, permitindo que veja reduções de alta resolução, granulares dos seus dados. Predefinição do controlo de deslize ponto de partida é definida como a exibição ideal dos dados da sua seleção, o que equilibra a resolução, velocidade de consulta e granularidade.
+1. **Ferramenta de controlo de deslize de intervalo de tamanho**: Permite-lhe ampliar e intervalos de reduzir durante o mesmo intervalo de tempo. Esta ação fornece um controle mais preciso de movimento entre os setores de grandes dimensões de tempo. Apresenta as tendências uniformes para baixo para setores tão pequenas como um milissegundo, permitindo que veja reduções de alta resolução, granulares dos seus dados. Predefinição do controlo de deslize ponto de partida é definida como a exibição ideal dos dados da sua seleção, o que equilibra a resolução, velocidade de consulta e granularidade.
 
-1. **Intervalo de e para o controle da web de datas**: com esse controle da web pode facilmente clique e selecione a data pretendida e os intervalos de tempo. Também pode utilizar o controlo de alternar entre diferentes fusos horários. Depois de efetuar as alterações, para aplicar a sua área de trabalho atual, selecione **guardar**.
+1. **Intervalo de e para o controle da web de datas**: Com esse controle da web pode facilmente clique e selecione a data pretendida e os intervalos de tempo. Também pode utilizar o controlo de alternar entre diferentes fusos horários. Depois de efetuar as alterações, para aplicar a sua área de trabalho atual, selecione **guardar**.
 
   ![treze-Explorer][13]
 
@@ -170,7 +171,7 @@ Selecione o link controle da web (realçado) para gerar um URL para guardar ou p
 Pré-visualização de informações de série de tempo do Azure suporta dois temas:
 
 * **Lite tema**: O tema predefinido mostrado em todo este documento.
-* **Tema escuro**: Renderiza o explorer, conforme mostrado aqui:
+* **Tema escuro**:  Processa o explorer conforme mostrado aqui:
 
   ![Explorer seventeen][17]
 
@@ -188,7 +189,7 @@ Em lugar da hierarquia, verá o painel de termos do Time Series Insights, onde d
 
 O painel de editor de termos de pré-visualização do Time Series Insights precisa dos seguintes parâmetros:
 
-**Onde**: where cláusula permite-lhe rapidamente filtro seus eventos ao utilizar o conjunto de operandos listados na tabela seguinte. Se realizar uma pesquisa selecionando um operando, o predicado é atualizado automaticamente com base em que a pesquisa. Tipos de operando suportados incluem:
+**Onde**: Where cláusula permite-lhe rapidamente filtro seus eventos ao utilizar o conjunto de operandos listados na tabela seguinte. Se realizar uma pesquisa selecionando um operando, o predicado é atualizado automaticamente com base em que a pesquisa. Tipos de operando suportados incluem:
 
 | Operação | Tipos suportados   | Notas |
 | --- | --- | --- |
@@ -203,9 +204,9 @@ Saiba mais sobre os tipos de operações e os dados de consulta suportados lendo
 
   ![dezenove-Explorer][19]
 
-**Medida**: esta lista pendente apresenta todas as colunas numéricas (**duplicatas**) que pode utilizar como elementos para o gráfico atual.
+**Medida**: Esta lista pendente apresenta todas as colunas numéricas (**duplicatas**) que pode utilizar como elementos para o gráfico atual.
 
-**Dividir por**: esta lista pendente apresenta todas as disponíveis categóricas colunas (cadeias de caracteres) em seu modelo que pode agrupar os seus dados por. Pode adicionar até cinco termos para ver no mesmo eixo x. Introduza os parâmetros pretendidos e, em seguida, selecione **adicionar** para adicionar um novo termo.
+**Dividir por**: Esta lista pendente apresenta todas as disponíveis categóricas colunas (cadeias de caracteres) em seu modelo que pode agrupar os seus dados por. Pode adicionar até cinco termos para ver no mesmo eixo x. Introduza os parâmetros pretendidos e, em seguida, selecione **adicionar** para adicionar um novo termo.
 
   ![vinte Explorer][20]
 

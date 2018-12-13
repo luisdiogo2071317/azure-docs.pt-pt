@@ -1,5 +1,5 @@
 ---
-title: Utilizar um ambiente de serviço de aplicações do Azure
+title: Utilizar o ambiente de serviço de aplicações - Azure
 description: Como criar, publicar e dimensionar aplicações num ambiente de serviço de aplicações do Azure
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 5f2959183e1741c8e37db92ede249d83bb3d53a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964701"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274722"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um ambiente de serviço de aplicações #
 
@@ -26,9 +27,9 @@ ms.locfileid: "52964701"
 
 Ambiente de serviço de aplicações do Azure é uma implementação do serviço de aplicações do Azure numa sub-rede na rede virtual do Azure de um cliente. Ele consiste em:
 
-- **Front-ends**: os front-ends são onde HTTP/HTTPS termina num ambiente de serviço de aplicações (ASE).
-- **Os operadores**: as funções de trabalho são os recursos que alojam as suas aplicações.
-- **Base de dados**: A base de dados contém informações que definem o ambiente.
+- **Front-ends**: Os front-ends são onde HTTP/HTTPS termina num ambiente de serviço de aplicações (ASE).
+- **Os operadores**: As funções de trabalho são os recursos que alojam as suas aplicações.
+- **Base de dados**: A base de dados contém informações que define o ambiente.
 - **Armazenamento**: O armazenamento é utilizado para alojar as aplicações publicadas do cliente.
 
 > [!NOTE]
@@ -51,7 +52,7 @@ Para criar uma aplicação web num ASE:
 
 1. Selecione **criar um recurso** > **Web + móvel** > **aplicação Web**.
 
-1. Introduza um nome para a aplicação web. Se já tiver selecionado um plano do serviço de aplicações num ASE, o nome de domínio para a aplicação reflete o nome de domínio do ASE.
+2. Introduza um nome para a aplicação web. Se já tiver selecionado um plano do serviço de aplicações num ASE, o nome de domínio para a aplicação reflete o nome de domínio do ASE.
 
     ![Seleção de nome de aplicação Web][1]
 
@@ -70,7 +71,7 @@ Para criar uma aplicação web num ASE:
 
     b. Introduza o nome para o seu plano do serviço de aplicações.
 
-    c. Selecione o seu ASE no **localização** na lista pendente. Alojar uma aplicação do Linux num ASE é habilitado apenas nas 6 regiões, no momento: **E.U.A. oeste, E.U.A. leste, Europa Ocidental, Europa do Norte, leste da Austrália, Sudeste asiático.** 
+    c. Selecione o seu ASE no **localização** na lista pendente. Alojar uma aplicação do Linux num ASE só é ativada em 6 regiões, neste momento: **E.U.A. oeste, E.U.A. leste, oeste Europa, Europa do Norte, Austrália leste, Sudeste asiático.** 
 
     d. Selecione um **Isolated** escalão de preço. Selecione **selecione**.
 

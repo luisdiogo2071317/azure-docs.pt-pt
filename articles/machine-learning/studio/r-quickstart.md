@@ -5,9 +5,8 @@ keywords: início rápido, a linguagem r, a linguagem de programação r, tutori
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: eea61419e76f4363a286f796e6df28a4e90a9ed7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317675"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278666"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Tutorial de início rápido para o R de linguagem de programação para o Azure Machine Learning Studio
 
@@ -33,7 +32,7 @@ Este tutorial de início rápido ajuda-o a começar rapidamente a expandir o Azu
 
 Microsoft Azure Machine Learning contém muitos módulos de manipulação de aprendizagem e dados máquina poderosas. A poderosa linguagem de R já foi amplamente descrita a língua franca da análise. Felizmente, a manipulação de dados e análises no Azure Machine Learning pode ser estendida com o R. Esta combinação fornece a escalabilidade e a facilidade de implementação do Azure Machine Learning com a flexibilidade e a análise profunda de R.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="forecasting-and-the-dataset"></a>Previsão e o conjunto de dados
 Previsão é um método de análise amplamente empregado e bastante útil. Comum utiliza o intervalo de previsão de vendas de itens sazonais, determinar os níveis de estoque ideal, para prever macroeconomic variáveis. Previsão é geralmente feita com modelos de série de tempo.
@@ -61,7 +60,7 @@ Irá utilizar o r Studio para desenvolver, testar e depurar o código de R em pe
 ### <a name="the-execute-r-script-module"></a>O módulo de executar o Script de R
 No Machine Learning Studio, os R scripts são executados dentro do [executar Script R] [ execute-r-script] módulo. Um exemplo do [executar Script R] [ execute-r-script] módulo no Machine Learning Studio é mostrado na figura 1.
 
- ![Linguagem de programação R: módulo do executar Script de R selecionado no Machine Learning Studio][1]
+ ![Linguagem de programação R: O módulo de executar o Script de R selecionado no Machine Learning Studio][1]
 
 *Figura 1. O ambiente de Machine Learning Studio, que mostra o módulo de executar o Script de R selecionado.*
 
@@ -1211,7 +1210,7 @@ Executar esse código produz a saída mostrada na figura 27 na porta de saída d
 
 Esses resultados, podemos ver que o adicionar os fatores sazonais ao modelo reduz o erro de RMS significativamente. Obviamente, o erro do RMS para os dados de treinamento é um pouco menor que para a previsão.
 
-## <a id="appendixa"></a>Apêndice a: Guia rstudio
+## <a id="appendixa"></a>APÊNDICE A: Guia para o r Studio
 RStudio é muito bem documentada, por isso neste apêndice, fornecerei alguns links para as secções principais da documentação do RStudio para começar.
 
 1. Criação de projetos
@@ -1228,7 +1227,7 @@ RStudio é muito bem documentada, por isso neste apêndice, fornecerei alguns li
    
    Os recursos de resolução de problemas de ponto de interrupção estão documentados em https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
-## <a id="appendixb"></a>Apêndice b: Ler mais
+## <a id="appendixb"></a>APÊNDICE B: Leitura adicional
 Este tutorial de programação R abrange as noções básicas sobre o que precisa de utilizar a linguagem R com o Azure Machine Learning Studio. Se não estiver familiarizado com o R, dois introduções estão disponíveis na CRAN:
 
 * R para iniciantes por Emmanuel Paradis é um bom lugar para iniciar o http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
@@ -1236,7 +1235,7 @@ Este tutorial de programação R abrange as noções básicas sobre o que precis
 
 Existem muitos livros em R que pode ajudá-lo a começar a utilizar. Aqui estão alguns que considero útil:
 
-* A arte de programação R: um Tour de estatísticas Design de Software por Norman Matloff é uma excelente introdução à programação em R.  
+* A arte de programação R: Um Tour de estatísticas Design de Software por Norman Matloff é uma excelente introdução à programação em R.  
 * Manual de R por Paul Teetor fornece uma abordagem de problema e a solução para utilizar o R.  
 * R em ação, Robert Kabacoff é outro livro introdutório úteis. O site do R rápida complementar é um recurso útil em http://www.statmethods.net/.
 * R Inferno por Patrick Burns é um livro surpreendentemente bem-humorada que lida com um número de tópicos complicados e difícil que podem ser encontrados ao programar em R. O livro está disponível gratuitamente em http://www.burns-stat.com/documents/books/the-r-inferno/.
@@ -1248,7 +1247,7 @@ O livro introdutório séries de tempo com R por Paul Cowpertwait e Andrew Metca
 
 Alguns ótimos recursos de internet:
 
-* DataCamp: DataCamp ensina o R no conforto do seu browser com lições de vídeo e exercícios de codificação. Há tutoriais interativos sobre as técnicas de R mais recentes e os pacotes. Fazer o tutorial interativo de R gratuito em https://www.datacamp.com/courses/introduction-to-r
+* DataCamp: DataCamp ensina R no conforto do seu browser com lições de vídeo e exercícios de codificação. Há tutoriais interativos sobre as técnicas de R mais recentes e os pacotes. Fazer o tutorial interativo de R gratuito em https://www.datacamp.com/courses/introduction-to-r
 * Um guia de introdução de introdução ao R do Programiz https://www.programiz.com/r-programming
 * Um tutorial rápido do R por preto Kelly da computação pela Universidade Clarkson http://www.cyclismo.org/tutorial/R/
 * Recursos-R de mais de 60 listados em http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html

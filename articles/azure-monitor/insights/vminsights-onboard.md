@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: magoedte
-ms.openlocfilehash: b78332933c7c406cd938091b578786467a73248f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 741288bd1a927b12705b3b31c5a1c60d6b94db5b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141786"
+ms.locfileid: "53194254"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Implementar o Azure Monitor para a pré-visualização de VMs
 Este artigo descreve como configurar o Azure Monitor para as VMs. O serviço monitoriza o estado de funcionamento do sistema operativo de máquinas de virtuais do Azure (VMs) e os conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais no seu ambiente. Esta monitorização inclui a deteção e o mapeamento de dependências de aplicações que podem ser hospedados nos mesmos. 
@@ -157,7 +156,7 @@ O Azure Monitor para a funcionalidade de mapa de VMs obtém seus dados do agente
 
 Se ativar o Azure Monitor para as VMs para uma única VM do Azure ou utilizar o método de implementação à escala, terá de utilizar a extensão de agente de dependência de VM do Azure para instalar o agente como parte da experiência. 
 
-Num ambiente híbrido, pode transferir e instalar o agente de dependência de qualquer uma das duas formas: manualmente ou através de um método de implantação automatizado para máquinas virtuais que estão alojados fora do Azure. 
+Num ambiente híbrido, pode transferir e instalar o agente de dependência de qualquer uma das duas formas: Manualmente, ou utilizando um método de implantação automatizado para máquinas virtuais que estão alojados fora do Azure. 
 
 A tabela seguinte descreve as origens ligadas que a funcionalidade de mapa suporta num ambiente híbrido.
 
@@ -333,18 +332,18 @@ As definições de política estão listadas na tabela a seguir:
 |Nome |Descrição |Tipo |  
 |-----|------------|-----|  
 |[Pré-visualização]: Ativar o Azure Monitor para VMs |Ative o Azure Monitor para as máquinas virtuais (VMs) no âmbito especificado (grupo de gestão, subscrição ou grupo de recursos). Aceita a área de trabalho do Log Analytics como um parâmetro. |Iniciativa |  
-|[Pré-visualização]: implementação de agente de dependência de auditoria – imagem de VM (SO) não listados |Relatórios de VMs como não conforme se a imagem de VM (SO) não está definido na lista e o agente não está instalado. |Política |  
-|[Pré-visualização]: implementação de agente de análise de registo de auditoria – imagem de VM (SO) não listados |Relatórios de VMs como não conforme se a imagem de VM (SO) não está definido na lista e o agente não está instalado. |Política |  
-|[Pré-visualização]: implementar o agente de dependência para VMs do Linux |Implemente o agente de dependência para VMs do Linux, se a imagem de VM (SO) é definido na lista e o agente não está instalado. |Política |  
-|[Pré-visualização]: implementar o agente de dependência para VMs do Windows |Implemente o agente de dependência para as VMs do Windows se a imagem de VM (SO) é definido na lista e o agente não está instalado. |Política |  
-|[Pré-visualização]: implementar o agente de análise de registo para VMs do Linux |Implemente agente do Log Analytics para VMs do Linux, se a imagem de VM (SO) é definido na lista e o agente não está instalado. |Política |  
-|[Pré-visualização]: implementar o agente de análise de registo para VMs do Windows |Implemente o agente de análise de registo para Windows VMs se a imagem de VM (SO) é definido na lista e o agente não está instalado. |Política |  
+|[Pré-visualização]: Implementação de agente de dependência de auditoria – imagem de VM (SO) não listados |Relatórios de VMs como não conforme se a imagem de VM (SO) não está definido na lista e o agente não está instalado. |Política |  
+|[Pré-visualização]: Implementação de agente da análise de registo de auditoria – imagem de VM (SO) não listados |Relatórios de VMs como não conforme se a imagem de VM (SO) não está definido na lista e o agente não está instalado. |Política |  
+|[Pré-visualização]: Implementar o agente de dependência para VMs do Linux |Implemente o agente de dependência para VMs do Linux, se a imagem de VM (SO) é definido na lista e o agente não está instalado. |Política |  
+|[Pré-visualização]: Implementar o agente de dependência para VMs do Windows |Implemente o agente de dependência para as VMs do Windows se a imagem de VM (SO) é definido na lista e o agente não está instalado. |Política |  
+|[Pré-visualização]: Implementar o agente de análise de registo para VMs do Linux |Implemente agente do Log Analytics para VMs do Linux, se a imagem de VM (SO) é definido na lista e o agente não está instalado. |Política |  
+|[Pré-visualização]: Implementar o agente de análise de registo para VMs do Windows |Implemente o agente de análise de registo para Windows VMs se a imagem de VM (SO) é definido na lista e o agente não está instalado. |Política |  
 
 Política de autónomo (não incluída com a iniciativa) é descrita aqui: 
 
 |Nome |Descrição |Tipo |  
 |-----|------------|-----|  
-|[Pré-visualização]: auditar a área de trabalho do Log Analytics para VM - erro de correspondência de relatório |Relatórios VMs como não conforme se eles não estão a iniciar a área de trabalho do Log Analytics especificada na atribuição de iniciativa de política /. |Política |
+|[Pré-visualização]: Área de trabalho do auditoria Log Analytics para VM - erro de correspondência de relatório |Relatórios VMs como não conforme se eles não estão a iniciar a área de trabalho do Log Analytics especificada na atribuição de iniciativa de política /. |Política |
 
 #### <a name="assign-the-azure-monitor-initiative"></a>Atribuir a iniciativa de Azure Monitor
 Com esta versão inicial, pode criar a atribuição de política apenas no portal do Azure. Para compreender como concluir estes passos, veja [criar uma atribuição de política do portal do Azure](../../governance/policy/assign-policy-portal.md). 
@@ -362,7 +361,7 @@ Com esta versão inicial, pode criar a atribuição de política apenas no porta
 1. Na **área de trabalho do Log Analytics** pendente lista para a região suportada, selecione uma área de trabalho.
 
     >[!NOTE]
-    >Se a área de trabalho está além do escopo da atribuição, conceder *Contribuidor do Log Analytics* permissões para o ID de Principal. a atribuição de política Se não fizer isso, poderá ver uma falha de implementação, tais como: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` para conceder acesso, reveja [como configurar manualmente a identidade gerida](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
+    >Se a área de trabalho está além do escopo da atribuição, conceder *Contribuidor do Log Analytics* permissões para o ID de Principal. a atribuição de política Se não fizer isso, poderá ver uma falha de implementação, tais como: `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ... ` Para conceder acesso, reveja [como configurar manualmente a identidade gerida](../../governance/policy/how-to/remediate-resources.md#manually-configure-the-managed-identity).
     >  
     O **identidade gerido** caixa de verificação está selecionada, porque a iniciativa que está sendo atribuída inclui uma política com o *deployIfNotExists* efeito. 
 1. Na **localização de gerir a identidade** pendente, selecione a região adequada. 
@@ -387,8 +386,8 @@ As VMs com base nos resultados das políticas incluídos com a iniciativa, são 
 * Imagem de VM (SO) não está identificado na definição de política. 
    Os critérios da política de implementação incluem apenas VMs que são implementadas a partir de imagens de VM do Azure bem conhecidas. Verifique a documentação para ver se o SO da VM é suportado. Se não é suportada, duplicar a política de implementação e a atualização ou modificá-lo para criar a imagem em conformidade. 
   
-    - [Pré-visualização]: implementação de agente de dependência de auditoria – imagem de VM (SO) não listados  
-    - [Pré-visualização]: implementação de agente de análise de registo de auditoria – imagem de VM (SO) não listados
+    - [Pré-visualização]: Implementação de agente de dependência de auditoria – imagem de VM (SO) não listados  
+    - [Pré-visualização]: Implementação de agente da análise de registo de auditoria – imagem de VM (SO) não listados
 
 * VMs não são de iniciar sessão para a área de trabalho do Log Analytics especificada.  
     É possível que algumas VMs no âmbito da iniciativa estão a iniciar sessão a uma área de trabalho do Log Analytics diferente daquele que é especificada na atribuição de política. Esta política é uma ferramenta para identificar quais as VMs que comunicam com uma área de trabalho de não conformidade. 

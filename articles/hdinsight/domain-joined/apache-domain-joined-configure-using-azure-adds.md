@@ -1,5 +1,5 @@
 ---
-title: Configurar um cluster do HDInsight com o Enterprise Security Package com o Azure AD-DS
+title: Configuração do Enterprise Security Package com o Azure Active Directory Domain Services - Azure HDInsight
 description: Saiba como definir e configurar um cluster do HDInsight Enterprise Security Package com o Azure Active Directory Domain Services.
 services: hdinsight
 ms.service: hdinsight
@@ -7,13 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/9/2018
-ms.openlocfilehash: 8b92191b60f8eb7e3c63f465926b434e205ef1b4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 10/09/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5e5b8320459561ac2dbbf72a812e29e837e08cd6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684754"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166664"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar um cluster do HDInsight com o Enterprise Security Package com o Azure Active Directory Domain Services
 
@@ -99,9 +100,9 @@ Quando cria um cluster do HDInsight com ESP, deve fornecer os seguintes parâmet
 
 - **Utilizador de administrador de cluster**: Escolha um administrador para o cluster de sincronização do Azure AD-DS. Esta conta de domínio têm de já estar sincronizados e estão disponíveis no Azure AD-DS.
 
-- **Grupos de acesso de cluster**: os grupos de segurança, cujos usuários que pretende sincronizar e ter acesso ao cluster devem estar disponíveis no Azure AD-DS. Por exemplo, HiveUsers grupo. Para obter mais informações, consulte [criar um grupo e adicionar membros no Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+- **Grupos de acesso de cluster**: Os grupos de segurança cujos usuários que pretende sincronizar e ter acesso ao cluster devem estar disponíveis no Azure AD-DS. Por exemplo, HiveUsers grupo. Para obter mais informações, consulte [criar um grupo e adicionar membros no Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-- **URL de LDAPS**: um exemplo é ldaps://contoso.com:636.
+- **URL DE LDAPS**: Um exemplo é ldaps://contoso.com:636.
 
 Captura de ecrã seguinte mostra uma configuração com êxito no portal do Azure:
 

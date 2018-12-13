@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242828"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270404"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Base de dados SQL perguntas mais frequentes (FAQ)
 
@@ -196,9 +196,9 @@ Por exemplo:
 > [!NOTE]
 > Por um período limitado, os custos de cópia de segurança e os encargos de e/s são gratuitos.
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Como funciona o uso de georreplicação ativa num conjunto elástico aparecem na minha fatura
+## <a name="how-does-the-use-of-active-geo-replication-or-auto-failover-groups-in-an-elastic-pool-show-up-on-my-bill"></a>Como é a utilização de grupos de replicação geográfica ou ativação pós-falha automática Active Directory num conjunto elástico aparece na minha fatura
 
-Ao contrário das bases de dados individuais, utilizando [georreplicação ativa](sql-database-geo-replication-overview.md) com bancos de dados elásticos, não tem um impacto direto de faturação.  É cobrado apenas para os recursos aprovisionados para cada um dos agrupamentos (conjunto primário e secundário conjunto)
+Ao contrário das bases de dados individuais, utilizando [georreplicação ativa](sql-database-active-geo-replication.md) ou [grupos de ativação pós-falha automática](sql-database-auto-failover-group.md) com bancos de dados elásticos, não tem um impacto direto de faturação. É cobrado apenas para os recursos aprovisionados para cada um dos agrupamentos (conjunto primário e secundário conjunto)
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>Como a utilização da funcionalidade de auditoria de afetar a minha fatura
 
@@ -217,7 +217,7 @@ Ver [gestão de bases de dados e inícios de sessão](sql-database-manage-logins
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>Como me certifico de que apenas endereços IP autorizados têm permissão para aceder a um servidor
 
-Ver [como: configurar as definições da firewall na base de dados SQL](sql-database-configure-firewall-settings.md).
+Consulte [como: Configurar as definições da firewall na base de dados SQL](sql-database-configure-firewall-settings.md).
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>O que é um atraso de replicação esperado quando georreplicação uma base de dados entre duas regiões dentro da mesma geografia do Azure
 

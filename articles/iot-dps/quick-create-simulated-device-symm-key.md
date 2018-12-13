@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 07be154f05441c94e32b05fc8354f59b88713929
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
-ms.translationtype: HT
+ms.openlocfilehash: 46eebf6b7d68267765ded5ff91610e94960c3679
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456939"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323529"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guia de Início Rápido: aprovisionar um dispositivo simulado com chaves simétricas
+# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Início rápido: Aprovisionar um dispositivo simulado com chaves simétricas
 
 Neste guia de início rápido, vai aprender a criar e executar um simulador de dispositivos numa máquina de desenvolvimento do Windows. Irá configurar este dispositivo simulado para utilizar uma chave simétrica para autenticação com uma instância do Serviço de Aprovisionamento de Dispositivos e atribuição a um hub IoT. Será utilizado código de exemplo do [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c) para simular uma sequência de arranque do dispositivo que inicia o aprovisionamento. O dispositivo será reconhecido com base numa inscrição individual com uma instância do serviço de aprovisionamento e atribuído a um hub IoT.
 
@@ -83,7 +83,7 @@ O SDK inclui o código de exemplo para um dispositivo simulado. Esse dispositivo
 4. Execute o seguinte comando para compilar uma versão do SDK específica da plataforma de cliente de desenvolvimento. Será gerada uma solução do Visual Studio para o dispositivo simulado no diretório `cmake`. 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     Se `cmake` não encontrar o compilador de C++, poderá obter erros de compilação ao executar o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -91,7 +91,7 @@ O SDK inclui o código de exemplo para um dispositivo simulado. Esse dispositivo
     Assim que a compilação for concluída com êxito, as últimas linhas de saída terão um aspeto semelhante ao seguinte:
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -114,13 +114,13 @@ O SDK inclui o código de exemplo para um dispositivo simulado. Esse dispositivo
 
 3. Em **Adicionar inscrição**, introduza as seguintes informações e clique no botão **Guardar**.
 
-    - **Mecanismo:** selecione **Chave Simétrica** como o *Mecanismo* de atestado de identidades.
+    - **Mecanismo**: Selecione **chave simétrica** como o atestado de identidades *mecanismo*.
 
-    - **Chaves de Geração Automática**: selecione esta caixa.
+    - **Chaves de geração automática**: Esta caixa de verificação.
 
-    - **ID de Registo**: introduza um ID de registo para identificar a inscrição. Utilize apenas carateres alfanuméricos em minúsculas e travessões ("-"). Por exemplo, `symm-key-device-007`.
+    - **ID de registo**: Introduza um ID de registo para identificar a inscrição. Utilize apenas carateres alfanuméricos em minúsculas e travessões ("-"). Por exemplo, `symm-key-device-007`.
 
-    - **ID do Dispositivo do Hub IoT:** introduza o identificador de um dispositivo. Por exemplo, **device-007**.
+    - **ID de dispositivo do IoT Hub:** Introduza um identificador de dispositivo. Por exemplo, **device-007**.
 
     ![Adicionar inscrição individual para o atestado de chave simétrica no portal](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
@@ -211,7 +211,7 @@ Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo
 1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Abra **Gerir Inscrições** para o seu serviço e, em seguida, clique no separador **Inscrições Individuais**. Selecione o *ID DE REGISTO* do dispositivo que inscreveu neste Início Rápido e clique no botão **Eliminar** na parte superior. 
 1. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra **Dispositivos IoT** para o seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Início Rápido e, em seguida, clique no botão **Eliminar** na parte superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste Guia de Início Rápido, criou um dispositivo simulado no seu computador Windows e aprovisionou-o no seu hub IoT ao utilizar a Chave simétrica com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure, no portal. Para saber como inscrever o seu dispositivo programaticamente, continue para o Guia de Início Rápido para inscrição programática de dispositivos X.509. 
 

@@ -1,5 +1,5 @@
 ---
-title: API RESTful com CORS no Serviço de Aplicações do Azure | Microsoft Docs
+title: Alojar API RESTful com CORS - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como é que o Serviço de Aplicações do Azure o ajuda a tirar o máximo partido das suas APIs RESTful com suporte para CORS.
 services: app-service\api
 documentationcenter: dotnet
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 4d8a95ee4afc844868cfda78087773a6a37c07c2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: b22ea49367009a4c76135d979d783c5b73449d9d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445435"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261573"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Alojar uma API RESTful com CORS no Serviço de Aplicações do Azure
 
@@ -58,7 +58,7 @@ Execute o seguinte comando para clonar o repositório de exemplo.
 git clone https://github.com/Azure-Samples/dotnet-core-api
 ```
 
-Este repositório contém uma aplicação que é criada com base no tutorial [ASP.NET Core Web API help pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio) (Páginas de ajuda da API Web ASP.NET Core mediante a utilização do Swagger). Utiliza um gerador do Swagger para servir a [IU do Swagger](https://swagger.io/swagger-ui/) e o ponto final JSON do Swagger.
+Este repositório contém uma aplicação que é criada com base no tutorial: [As páginas de ajuda do ASP.NET Core Web API com Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). Utiliza um gerador do Swagger para servir a [IU do Swagger](https://swagger.io/swagger-ui/) e o ponto final JSON do Swagger.
 
 ### <a name="run-the-application"></a>Executar a aplicação
 

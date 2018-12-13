@@ -5,19 +5,19 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: ''
-ms.devlang: pwershell
+ms.devlang: powershell
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 36b03794f4b55af3de89f96ecee02f5542f40f01
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972104"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278462"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Criar e gerir conjuntos elásticos de base de dados SQL com o PowerShell (pré-visualização)
 
@@ -31,7 +31,7 @@ As APIs do PowerShell para o **tarefas de bases de dados elásticas** (em pré-v
 * Uma subscrição do Azure. Para uma avaliação gratuita, consulte [durante um mês avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Um conjunto de bases de dados criadas com as ferramentas de bases de dados elásticas. Ver [introdução às ferramentas de bases de dados elásticas](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Para informações detalhadas, consulte [Como instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
-* **Tarefas de base de dados elásticas** pacotes do PowerShell: veja [tarefas de instalação de bases de dados elásticas](sql-database-elastic-jobs-service-installation.md)
+* **Tarefas de base de dados elásticas** pacotes do PowerShell: Consulte [tarefas de instalação de bases de dados elásticas](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Selecione a sua subscrição do Azure
 Para selecionar a subscrição tem o Id de subscrição (**- SubscriptionId**) ou o nome da subscrição (**- SubscriptionName**). Se tiver várias subscrições podem executar o **Get-AzureRmSubscription** cmdlet e copie as informações de subscrição pretendida do resultado definido. Depois de ter as informações da sua subscrição, execute o cmdlet seguinte para definir esta subscrição como predefinição, ou seja o destino para a criação e gestão de tarefas:
@@ -193,8 +193,8 @@ A tarefa executa scripts do Transact-SQL (T-SQL) ou a aplicação de DACPACs lon
 
 Existem dois tipos de grupos que podem ser criados: 
 
-* [Mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md) grupo: quando uma tarefa é submetida para um mapa de partições horizontais de destino, a tarefa consulta o mapa de partições horizontais para determinar o conjunto atual de partições horizontais e, em seguida, cria filho tarefas para cada partição horizontal no mapa de partições horizontais.
-* Grupo de recolha de personalizados: um personalizado definido pelo conjunto de bases de dados. Quando uma tarefa destina-se uma coleção personalizada, ele cria filho tarefas para cada base de dados atualmente na coleção personalizada.
+* [Mapa de partições horizontais](sql-database-elastic-scale-shard-map-management.md) grupo: Quando uma tarefa é submetida para um mapa de partições horizontais de destino, a tarefa consulta o mapa de partições horizontais para determinar o conjunto atual de partições horizontais e, em seguida, cria filho tarefas para cada partição horizontal no mapa de partições horizontais.
+* Grupo de recolha de personalizado: Um conjunto definido de personalizado de bases de dados. Quando uma tarefa destina-se uma coleção personalizada, ele cria filho tarefas para cada base de dados atualmente na coleção personalizada.
 
 ## <a name="to-set-the-elastic-database-jobs-connection"></a>Para definir a base de dados elásticas tarefas de ligação
 Uma ligação tem de ser definido como as tarefas *base de dados do controle* antes de utilizar as APIs de tarefas. Executar este cmdlet aciona uma janela de credencial para pop-up solicitando o nome de utilizador e palavra-passe criado ao instalar tarefas elásticas da base de dados. Todos os exemplos fornecidos neste tópico partem do princípio de que este primeiro passo já foi executado.
@@ -415,19 +415,19 @@ Tarefas elásticas da base de dados suporta a criação de políticas de execuç
 Atualmente permitem definir políticas de execução:
 
 * Nome: Identificador para a política de execução.
-* Tempo limite da tarefa: Tempo Total antes de uma tarefa será cancelada pelo tarefas elásticas da base de dados.
-* Intervalo inicial de repetição: Intervalo a aguardar antes da primeira repetição.
-* Intervalo de repetições máximo: Limite de intervalos de repetição para utilizar.
-* Coeficiente de término do intervalo de repetição: O coeficiente utilizado para calcular o próximo intervalo entre repetições.  É utilizada a seguinte fórmula: (intervalo de repetição inicial) * Math.pow ((coeficiente de término de intervalo), (Number of Retries) - 2). 
+* Tempo limite da tarefa: Tempo total antes de uma tarefa será cancelada pelo tarefas elásticas da base de dados.
+* Intervalo de repetição inicial: Intervalo de espera antes de primeira repetição.
+* Intervalo de repetições máxima: Limite de intervalos de repetição a utilizar.
+* Coeficiente de término do intervalo de repetição: Coeficiente utilizado para calcular o próximo intervalo entre repetições.  É utilizada a seguinte fórmula: (A inicial do intervalo entre tentativas) * Math.pow ((coeficiente de término de intervalo), (número de repetições) - 2). 
 * Máximo de tentativas: O número máximo de repetições tentou fazer dentro de uma tarefa.
 
 A política de execução predefinido utiliza os seguintes valores:
 
-* Nome: Política de execução do padrão
-* Tempo limite da tarefa: semana
-* Intervalo de repetição inicial: 100 milissegundos
-* Intervalo de repetições máximo: 30 minutos
-* Repita o coeficiente de intervalo: 2
+* Nome: Política de execução predefinida
+* Tempo limite da tarefa: uma semana
+* Intervalo de repetição inicial:  100 milissegundos
+* Intervalo de repetições máxima: 30 minutos
+* Coeficiente de intervalo de repetição: 2
 * Máximo de tentativas: 2 147 483 647
 
 Crie a política de execução desejado:
@@ -459,8 +459,8 @@ Tarefas elásticas da base de dados oferece suporte a solicitações de cancelam
 
 Existem duas formas diferentes, que as tarefas elásticas da base de dados pode efetuar um cancelamento:
 
-1. Cancelar tarefas atualmente em execução: se um cancelamento é detetado enquanto uma tarefa está atualmente em execução, um cancelamento ocorrerá dentro o aspecto atualmente em execução da tarefa.  Por exemplo: se houver uma consulta de execução longa atualmente a ser realizada quando um cancelamento é tentado, haverá uma tentativa de cancelar a consulta.
-2. A cancelar as repetições de tarefas: se um cancelamento é detetado pelo thread controlo antes de uma tarefa é iniciada para execução, o thread de controle será evitar iniciar a tarefa e declarar o pedido como canceladas.
+1. Cancelar tarefas atualmente em execução: Se um cancelamento é detetado enquanto uma tarefa está atualmente em execução, um cancelamento ocorrerá dentro o aspecto atualmente em execução da tarefa.  Por exemplo: Se houver uma consulta de execução longa atualmente a ser realizada quando um cancelamento é tentado, haverá uma tentativa de cancelar a consulta.
+2. A cancelar as repetições de tarefas: Se um cancelamento é detetado pelo thread controlo antes de uma tarefa é iniciada para execução, o thread de controle será evitar iniciar a tarefa e declarar o pedido como canceladas.
 
 Se é pedido um cancelamento de tarefa para uma tarefa principal, a solicitação de cancelamento será cumprida para a tarefa principal e para todas as tarefas de subordinado.
 

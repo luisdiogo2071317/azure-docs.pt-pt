@@ -1,23 +1,22 @@
 ---
-title: Ligar uma aplicação MongoDB ao Azure Cosmos DB com o node. js
-description: Saiba como ligar uma aplicação MongoDB Node.js existente ao Azure Cosmos DB
-services: cosmos-db
+title: Ligar uma aplicação MongoDB node. js ao Azure Cosmos DB
+description: Este início rápido demonstra como se pode ligar uma aplicação MongoDB existente escrita em node. js ao Azure Cosmos DB.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc, devcenter, seodec2018
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/19/2017
-ms.openlocfilehash: 1a5d0c7c2e44d934658434b8ea0b048c238a9bef
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: d9754cf66b05059c986c7ffbff94290e207f706a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097869"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141385"
 ---
-# <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: migrar uma aplicação Web MongoDB Node.js existente 
+# <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>o Azure Cosmos DB: Migrar uma aplicação de web MongoDB node. js existente 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

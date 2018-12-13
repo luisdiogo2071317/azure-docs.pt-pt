@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 60d19f6d598c6090e0dc00c61817a0f8aed35003
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: ae6ddea3860c7fc636e071b3c39c418ff4a10272
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889502"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273940"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolução de problemas de desempenho de base de dados do Azure SQL com informações inteligentes
 
@@ -227,7 +227,7 @@ Este padrão de desempenho detetável indica uma condição de desempenho da bas
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-O registo de diagnóstico produz os detalhes de contenção do tempDB. Pode utilizar as informações como o ponto de partida para resolução de problemas. Existem duas coisas que pode buscar a aliviar esse tipo de contenção e aumentar o débito da carga de trabalho geral: pode deixar de utilizar as tabelas temporárias. Também pode usar tabelas com otimização de memória. 
+O registo de diagnóstico produz os detalhes de contenção do tempDB. Pode utilizar as informações como o ponto de partida para resolução de problemas. Existem duas coisas que pode buscar a aliviar esse tipo de contenção e aumentar o débito da carga de trabalho geral: Pode deixar de utilizar as tabelas temporárias. Também pode usar tabelas com otimização de memória. 
 
 Para obter mais informações, consulte [introdução às tabelas com otimização de memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 

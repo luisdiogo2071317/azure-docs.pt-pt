@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: API de node. js SQL, SDK e recursos'
+title: 'o Azure Cosmos DB: SQL node. js API, SDK e recursos'
 description: Saiba tudo sobre a API de node. js de SQL e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK de node. js do Azure Cosmos DB.
 services: cosmos-db
 author: deborahc
@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5616ee6f6b855cb366f24c79c73d12a03b69b2ac
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 9a859c2a8feeaf60be56404367f126bbd252771b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865663"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164862"
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de node. js do Cosmos DB do Azure para a API de SQL: notas de versão e recursos
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de node. js do Azure Cosmos DB para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -106,8 +106,8 @@ ms.locfileid: "52865663"
 ### <a name="1.12.1"/>1.12.1</a>
 * Foi corrigido um erro no executeStoredProcedure em que os documentos envolvidos tinham carateres Unicode especiais (LS, PS).
 * Foi corrigido um erro no processamento de documentos com caracteres Unicode na chave de partição.
-* Obter suporte fixo para criar coleções com o suporte de dados do nome. Problema do Github #114.
-* Suporte fixo para o token de autorização de permissão. Problema do Github #178.
+* Obter suporte fixo para criar coleções com o suporte de dados do nome. Problema do GitHub #114.
+* Suporte fixo para o token de autorização de permissão. Problema do GitHub #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
 * Foi adicionado suporte para uma nova [nível de consistência](consistency-levels.md) chamado ConsistentPrefix.
@@ -119,8 +119,8 @@ ms.locfileid: "52865663"
 * Adicionar a opção para controlar o grau de paralelismo para cruzada consultas de partição.
 * Adicionar a opção para desativar a verificação de SSL na execução no emulador do Azure Cosmos DB.
 * Reduzidas débito mínimo em coleções particionadas do 10,100 RU/s para 2500 RU/s.
-* Corrigir o erro de token de continuação para a coleção de partição única. Problema do Github #107.
-* Foi corrigido o erro de executeStoredProcedure no processamento de 0 como único parâmetro. Problema do Github #155.
+* Corrigir o erro de token de continuação para a coleção de partição única. Problema do GitHub #107.
+* Foi corrigido o erro de executeStoredProcedure no processamento de 0 como único parâmetro. Problema do GitHub #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Cabeçalho do agente do usuário fixo para incluir a versão do SDK.
@@ -152,10 +152,10 @@ ms.locfileid: "52865663"
 * Foi corrigido o erro RangePartitionResolver.resolveForRead onde não foi retornando ligações devido a um concat ruim de resultados.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* Foi corrigido hashPartitionResolver resolveForRead(): quando nenhuma chave de partição fornecido estava gerando a exceção, em vez de retornar uma lista de todas as ligações registadas.
+* ResolveForRead() hashPartitionResolver fixo: Quando nenhuma chave de partição fornecido estava gerando a exceção, em vez de retornar uma lista de todas as ligações registadas.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Corrige o problema [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -agente dedicado de HTTPS: evitam a modificação do agente global para fins de Azure Cosmos DB. Utilize um agente dedicado para todos os pedidos da biblioteca.
+* Corrige o problema [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -agente de HTTPS dedicado: Evite a modificar o agente global para fins de Azure Cosmos DB. Utilize um agente dedicado para todos os pedidos da biblioteca.
 
 ### <a name="1.5.3"/>1.5.3</a>
 * Corrige o problema [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - corretamente lidar com travessões em ids de suporte de dados.

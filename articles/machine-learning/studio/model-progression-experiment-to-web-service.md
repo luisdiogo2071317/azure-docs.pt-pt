@@ -4,9 +4,8 @@ description: Uma visão geral sobre a mecânica como sua progride de modelo do A
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 1254f41d4961956acc8f7abc7d5490fedbb8c5d0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5cfa11042d269353cf33f99d1238265ff9657853
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310104"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253872"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Como um modelo de Machine Learning Studio evolui de uma experimentação para um serviço Web operacionalizado
 O Azure Machine Learning Studio dispõe numa tela interativa que permite que desenvolver, executar, testar e iterar um ***experimentar*** que representa um modelo de Análise Preditiva. Há uma grande variedade de módulos disponíveis que pode:
@@ -95,7 +94,7 @@ Que depende o que precisa para atualizar:
 
 Se não estiver a alterar o modelo, mas são apenas alterar a forma como o serviço Web processa os dados, pode editar a experimentação preditiva e, em seguida, clique em **implementar serviço Web** e selecione **implementar o serviço Web [clássica]** ou **implementar o Web Service [novo]** novamente. O serviço Web está parado, a experimentação preditiva atualizada é implementada e o serviço Web é reiniciado.
 
-Eis um exemplo: suponha que a sua experimentação preditiva devolve a linha inteira de dados de entrada com o resultado previsto. Pode decidir que pretende que o serviço Web para simplesmente retornar o resultado. Para que possa acrescentar uma **colunas do projeto** módulo na experimentação preditiva, logo antes da porta de saída, para excluir colunas que não seja o resultado. Quando clica em **implementar serviço Web** e selecione **implementar o serviço Web [clássica]** ou **implementar o Web Service [novo]** novamente, o serviço Web é atualizado.
+Segue-se um exemplo: Suponha que sua experimentação preditiva devolve a linha inteira de dados de entrada com o resultado previsto. Pode decidir que pretende que o serviço Web para simplesmente retornar o resultado. Para que possa acrescentar uma **colunas do projeto** módulo na experimentação preditiva, logo antes da porta de saída, para excluir colunas que não seja o resultado. Quando clica em **implementar serviço Web** e selecione **implementar o serviço Web [clássica]** ou **implementar o Web Service [novo]** novamente, o serviço Web é atualizado.
 
 **Pretende voltar a preparar o modelo com dados novos**
 
@@ -119,6 +118,6 @@ Para obter mais detalhes sobre o processo de desenvolvimento e experimentação,
 
 Para obter exemplos de todo o processo, consulte:
 
-* [Tutorial do Machine learning: crie a sua primeira experiência no Azure Machine Learning Studio](create-experiment.md)
-* [Instruções: Desenvolver uma solução de Análise Preditiva para a avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md)
+* [Tutorial do Machine learning: Criar a sua primeira experiência no Azure Machine Learning Studio](create-experiment.md)
+* [Passo a passo: Desenvolver uma solução de Análise Preditiva para a avaliação de risco de crédito no Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Compreender o recurso de bloqueio em esquemas do Azure
+title: Compreender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueios para proteger recursos, ao atribuir um plano gráfico.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4e71797837927fe5f5233bcf88d35fef98f504e9
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: seodec18
+ms.openlocfilehash: 0e272f7137967b545269a408b6e83552de532682
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139447"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309438"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o recurso de bloqueio em esquemas do Azure
 
@@ -21,9 +22,9 @@ A criação de ambientes de consistentes e à escala só é realmente importante
 
 ## <a name="locking-modes-and-states"></a>Modos de bloqueios e de Estados
 
-Modo de bloqueio aplica-se para a atribuição do esquema e só tem duas opções: **None** ou **todos os recursos**. O modo de bloqueio é configurado durante a atribuição do esquema e não pode ser alterado depois da atribuição é aplicada com êxito para a subscrição.
+Modo de bloqueio aplica-se para a atribuição do esquema e só tem duas opções: **NONE** ou **todos os recursos**. O modo de bloqueio é configurado durante a atribuição do esquema e não pode ser alterado depois da atribuição é aplicada com êxito para a subscrição.
 
-Recursos criados por artefactos de uma atribuição do esquema tem três Estados: **não bloqueado**, **só de leitura**, ou **não é possível editar / eliminar**. Cada artefato pode estar a **bloqueado não** estado. No entanto, os artefactos de grupo de recursos não têm **só de leitura** e tem de grupos de recursos **não é possível editar / eliminar** Estados. Essa diferença é uma distinção importante na forma como estes recursos são geridos.
+Recursos criados por artefactos de uma atribuição do esquema tem três Estados: **Não bloqueado**, **só de leitura**, ou **não é possível editar / eliminar**. Cada artefato pode estar a **bloqueado não** estado. No entanto, os artefactos de grupo de recursos não têm **só de leitura** e tem de grupos de recursos **não é possível editar / eliminar** Estados. Essa diferença é uma distinção importante na forma como estes recursos são geridos.
 
 O **só de leitura** exatamente conforme definido o estado é: o recurso não pode ser alterado de forma alguma – sem alterações e ele não podem ser eliminadas. O **não é possível editar / eliminar** é mais variada devido à natureza "contentor" de grupos de recursos. O objeto de grupo de recursos é só de leitura, mas é possível fazer alterações em recursos não bloqueado no grupo de recursos.
 

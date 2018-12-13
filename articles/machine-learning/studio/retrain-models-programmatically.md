@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: da3edf7bc17240dabcb5519317f38bdb468be9f2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7a1381ce43056607486a27710cd6ee6181b9a5c1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099992"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257398"
 ---
-# <a name="retrain-machine-learning-studio-models-programmatically"></a>Reparametrizar modelos do Machine Learning Studio por meio de programação
+# <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Reparametrizar modelos do Azure Machine Learning Studio por meio de programação
 Nestas instruções, irá aprender a reenviar programaticamente um através do serviço do Azure Machine Learning Studio web C# e o serviço de Machine Learning Batch Execution.
 
 Depois de ter de reestruturar o modelo, os guias seguintes mostram como atualizar o modelo no seu serviço web preditivo:
@@ -36,14 +35,14 @@ Para uma descrição geral do processo de reparametrização, consulte [voltar a
 Se quiser iniciar no serviço de web existente do novo Azure baseado no Resource Manager, veja [reenviar um serviço web preditivo existente](retrain-existing-resource-manager-based-web-service.md).
 
 ## <a name="create-a-training-experiment"></a>Criar uma experimentação de preparação
-Irá utilizar neste exemplo, "exemplo 5: Train, teste, avaliação de classificação binária: conjunto de dados para adultos" de exemplos do Microsoft Azure Machine Learning. 
+Irá utilizar neste exemplo, "exemplo 5: Preparar, testar, avalie para classificação binária: Um conjunto de dados para adultos"de exemplos do Microsoft Azure Machine Learning. 
 
 Para criar a experimentação:
 
 1. Inicie sessão no Microsoft Azure Machine Learning Studio. 
 2. No canto inferior direito do dashboard, clique em **New**.
 3. A partir de Samples Microsoft, selecione exemplo 5.
-4. Para mudar o nome da experimentação, na parte superior da tela de experimentação, selecione o nome de experimentação "exemplo 5: Train, teste, avaliação de classificação binária: conjunto de dados para adultos".
+4. Para mudar o nome da experimentação, na parte superior da tela de experimentação, selecione o nome de experimentação "exemplo 5: Preparar, testar, avalie para classificação binária: Conjunto de dados para adultos".
 5. Modelo de censo de tipo.
 6. Na parte inferior da tela de experimentação, clique em **executar**.
 7. Clique em **configurar o serviço de web** e selecione **reparametrização do serviço web**. 
@@ -93,7 +92,7 @@ Neste exemplo, estiver a utilizar o C# para criar o aplicativo de reparametriza�
 
 Para chamar as APIs de reparametrização:
 
-1. Criar uma aplicação de consola c# no Visual Studio: **New** > **projeto** > **em Visual C#** > **Windows Ambiente de trabalho clássico** > **aplicação da consola (.NET Framework)**.
+1. Criar um C# consola de aplicação no Visual Studio: **Novos** > **projeto** > **Visual C#**   >  **ambiente de trabalho clássico do Windows**  >   **Aplicação da consola (.NET Framework)**.
 2. Inicie sessão no portal do serviço Web Machine Learning.
 3. Se estiver a trabalhar com um serviço web clássico, clique em **serviços Web clássicos**.
    1. Clique no serviço de web que estiver a trabalhar com.
@@ -159,7 +158,7 @@ Veja o seguinte exemplo:
 
 ![Saída de reparametrização][6]
 
-Diagrama de 4: Reparametrização saída.
+Diagrama de 4: Saída de reparametrização.
 
 ## <a name="evaluate-the-retraining-results"></a>Avaliar os resultados de reparametrização
 Quando executar o aplicativo, a saída inclui o token de URL e SAS necessário para acessar os resultados da avaliação.

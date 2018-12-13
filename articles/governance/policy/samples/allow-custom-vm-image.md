@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Azure Policy – Permitir uma imagem de VM personalizada de um grupo de recursos
-description: Esta política de exemplo requer que as imagens personalizadas sejam provenientes de um grupo de recursos aprovado.
+title: Exemplo - permitir que a imagem de VM personalizada a partir de um grupo de recursos
+description: Esta política de exemplo exige que as imagens personalizadas sejam provenientes de um grupo de recursos aprovado.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 1eed7dc0348336d69d0b8ad9206c71fd72c1f012
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 17cf4c4fdfd270ee21f7f01d1c8f89ff1a1d11ea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971234"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315337"
 ---
 # <a name="allow-custom-vm-image-from-a-resource-group"></a>Permitir que a imagem de VM personalizada seja de um grupo de recursos
 
@@ -69,6 +68,6 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

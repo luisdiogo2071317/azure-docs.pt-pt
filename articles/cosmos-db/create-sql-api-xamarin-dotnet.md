@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Criar uma aplicação de lista de tarefas com Xamarin'
+title: 'o Azure Cosmos DB: Criar uma aplicação de tarefas com Xamarin'
 description: Apresenta um exemplo de código Xamarin que pode utilizar para ligar e consultar o Azure Cosmos DB
 services: cosmos-db
 author: codemillmatt
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: b26f8448f8f7c20d5b38df04b79b8cb42773f44c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f955e0386cd601212eb992870f02607538b537e2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105721"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252631"
 ---
-# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: Criar uma aplicação de lista de tarefas com Xamarin
+# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>o Azure Cosmos DB: Criar uma aplicação de tarefas com Xamarin
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -64,7 +64,7 @@ Se estiver a utilizar um Mac, pode transferir o [Visual Studio para Mac](https:/
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos clonar a aplicação API de SQL Xamarin a partir do github, reveja o código, obtenha as chaves da API e execute-a. Vai ver como é fácil trabalhar com dados programaticamente.
+Agora, vamos clonar a API de SQL Xamarin aplicação a partir do GitHub, reveja o código, obter as chaves de API e executá-lo. Vai ver como é fácil trabalhar com dados programaticamente.
 
 1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
 
@@ -114,9 +114,9 @@ Esta solução demonstra como criar uma aplicação de lista de tarefas com a AP
 
 O código na solução ToDoItems contém:
 
-* ToDoItems.Core: trata-se de um projeto .NET Standard que contém um projeto Xamarin.Forms e código de lógica de aplicação partilhado que mantém os itens de afazeres no Azure Cosmos DB.
-* ToDoItems.Android: este projeto contém a aplicação Android.
-* ToDoItems.iOS: este projeto contém a aplicação iOS.
+* Todoitems: Este é um projeto .NET Standard que contém um projeto xamarin. Forms e o código de lógica de aplicação partilhado que mantém os itens de afazeres no Azure Cosmos DB.
+* Todoitems: Este projeto contém a aplicação Android.
+* Todoitems.: Este projeto contém a aplicação iOS.
 
 Agora, vamos ver como é que a aplicação comunica com o Azure Cosmos DB.
 

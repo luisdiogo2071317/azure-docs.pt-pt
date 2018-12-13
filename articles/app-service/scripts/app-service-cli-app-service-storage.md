@@ -3,8 +3,8 @@ title: Exemplo do Script da CLI do Azure - Ligar uma aplicação Web a uma conta
 description: Exemplo do Script da CLI do Azure - Ligar uma aplicação Web a uma conta de armazenamento
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 5e1f2c11ffb177442947636ac48c342d0107354e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 917642fa7ee1941d1f4031606b64127ea7016aab
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960605"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190310"
 ---
-# <a name="connect-a-web-app-to-a-storage-account"></a>Ligar uma aplicação Web a uma conta de armazenamento
+# <a name="connect-a-web-app-to-a-storage-account-using-cli"></a>Ligar uma aplicação web a uma conta de armazenamento com a CLI
 
 Este script de exemplo cria uma conta de armazenamento do Azure e uma aplicação Web do Azure. Em seguida, liga a conta de armazenamento à aplicação Web com as definições da aplicação.
 
@@ -53,7 +53,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 | [`az storage account show-connection-string`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string) | Obtenha a cadeia de ligação para uma conta de armazenamento. |
 | [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Cria ou atualiza uma definição de aplicação para uma aplicação Web do Azure. As definições da aplicação são expostas como variáveis de ambiente para a sua aplicação. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

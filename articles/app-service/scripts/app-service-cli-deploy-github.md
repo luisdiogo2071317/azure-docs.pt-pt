@@ -3,8 +3,8 @@ title: Exemplo do Script da CLI do Azure - Criar uma aplicação Web com impleme
 description: Exemplo do Script da CLI do Azure - Criar uma aplicação Web com implementação a partir do GitHub
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: sample
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 81077e25dfdafae163490aae01266f4742f520c9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 85e90349c6842942423e5cf6d3a1cfed3f11b234
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993838"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186451"
 ---
-# <a name="create-a-web-app-with-deployment-from-github"></a>Criar uma aplicação Web com implementação do GitHub
+# <a name="create-a-web-app-with-deployment-from-github-using-azure-cli"></a>Criar uma aplicação web com implementação do GitHub com a CLI do Azure
 
 Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados. Em seguida, implementa o código da aplicação Web a partir de um repositório do GitHub público (sem implementação contínua). Para a implementação do GitHub com implementação contínua, veja [Criar uma aplicação Web com implementação contínua do GitHub](app-service-cli-continuous-deployment-github.md).
 
@@ -50,7 +50,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação Web do Azure. |
 | [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Associa uma aplicação Web do Azure a um repositório do Git ou do Mercurial. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

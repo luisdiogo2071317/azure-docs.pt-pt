@@ -1,5 +1,5 @@
 ---
-title: Aprovisionar e implementar microsserviços de forma previsível no Azure
+title: Aprovisionar e implementar microsserviços de forma previsível - serviço de aplicações do Azure
 description: Saiba como implementar uma aplicação compostas por microsserviços no serviço de aplicações do Azure como uma única unidade e de forma previsível, com modelos de grupo de recursos JSON e scripts do PowerShell.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: c4071da60ed1311d8dd75d6a369c48cf711778cb
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: aa7cf765a523f319850528b29316e254ebcabc13
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243219"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256592"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Aprovisionar e implementar microsserviços de forma previsível no Azure
 Este tutorial mostra como aprovisionar e implementar um aplicativo composto [microsserviços](https://en.wikipedia.org/wiki/Microservices) na [App Service do Azure](https://azure.microsoft.com/services/app-service/) como uma única unidade e de forma previsível, com modelos de grupo de recursos JSON e Script do PowerShell. 
@@ -161,7 +162,7 @@ As cadeias de ligação também são definidas como um recurso aninhado.
 Na `properties` elemento para `config/connectionstrings`, cada cadeia de ligação também é definida como um par de valores de nomes, com o formato específico de `"<name>" : {"value": "…", "type": "…"}`. Para o `type` elemento, os valores possíveis são `MySql`, `SQLServer`, `SQLAzure`, e `Custom`.
 
 > [!TIP]
-> Para obter uma lista definitiva dos tipos de cadeia de ligação, execute o seguinte comando no Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
+> Para obter uma lista definitiva dos tipos de cadeia de ligação, execute o seguinte comando no Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.websites.Services.WebEntities.DatabaseType")
 > 
 > 
 

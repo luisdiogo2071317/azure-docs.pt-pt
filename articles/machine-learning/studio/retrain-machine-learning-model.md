@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 57e3a444c9de951fdd974d98679908eb5a744ad1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 614a342dd28b711e3030c19f347fa432e3994a86
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099822"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257595"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Voltar a preparar um modelo do Azure Machine Learning Studio
 Como parte do processo de operacionalização de modelos de machine learning no Azure Machine Learning, o seu modelo é preparado e guardado. , Em seguida, utilizá-lo para criar um serviço Web preditivo. O serviço Web, em seguida, pode ser consumido em web sites, dashboards e aplicações móveis. 
@@ -43,7 +42,7 @@ Nestes cenários, uma API programática fornece uma forma conveniente de permiti
 > 
 
 ## <a name="end-to-end-workflow"></a>Fluxo de trabalho ponto a ponto
-O processo envolve os seguintes componentes: publicaram de uma experimentação de preparação e de uma experimentação preditiva como um serviço Web. Para ativar a reciclagem profissional um modelo preparado, a experimentação de preparação tem de ser publicada como um serviço Web com a saída de um modelo preparado. Isto permite o acesso à API para o modelo para a reparametrização. 
+O processo envolve os seguintes componentes: Uma experimentação de preparação e de uma experimentação preditiva publicaram como um serviço Web. Para ativar a reciclagem profissional um modelo preparado, a experimentação de preparação tem de ser publicada como um serviço Web com a saída de um modelo preparado. Isto permite o acesso à API para o modelo para a reparametrização. 
 
 Os seguintes passos aplicam-se aos serviços de novo e Web clássico:
 

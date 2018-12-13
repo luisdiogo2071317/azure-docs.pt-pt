@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31ca79976ec2ecf2755b975749e9c9150c4a49e8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ea884f6fecc1e8a0de1f6a0f8a4daafcdf612e9f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441078"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272713"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de versão para a pré-visualização pública do Azure Active Directory B2C política personalizada
 O conjunto de recursos de política personalizada agora está disponível para avaliação em pré-visualização pública para todos os Azure Active Directory B2C (Azure AD B2C) de clientes. Esse conjunto de recursos é direcionado para programadores de identidades avançada a criar soluções de identidade mais complexas.  
@@ -25,10 +25,9 @@ Hoje, esse conjunto de recursos requer que os desenvolvedores o configurem o Fra
 ## <a name="features-included-in-this-public-preview"></a>Funcionalidades incluídas nesta pré-visualização pública
 Com os novos recursos introduzidos na pré-visualização pública, os desenvolvedores podem realizar as seguintes tarefas:<br>
 
-* Autor e carregamento de autenticação personalizado utilizador Jornadas ao utilizar políticas personalizadas. 
+* A criar e carregar jornadas de utilizador de autenticação personalizado com as políticas personalizadas. 
    * Descreva jornadas de usuário passo a passo como trocas entre fornecedores de afirmações. 
-   * Defina a ramificação condicional no jornadas de utilizador. 
-* Integração de serviços de ativada para API do REST de mensagens em fila no seu jornadas de utilizador de autenticação personalizado.  
+   * Defina a ramificação condicional no jornadas de utilizador. * Integre serviços de ativada para API do REST de mensagens em fila no seu jornadas de utilizador de autenticação personalizado.  
 * Adicione federação com fornecedores de identidade que estão em conformidade com o OpenIDConnect padrão. <br>
 * Adicione federação com fornecedores de identidade que sigam para o protocolo SAML 2.0. 
 
@@ -42,7 +41,7 @@ Com os novos recursos introduzidos na pré-visualização pública, os desenvolv
 * À nossa escolha e, por qualquer motivo, a Microsoft pode sinalizar e rejeitar ou restringir cenários e jornadas de utilizador que excedem o âmbito da lista de produtos do Azure AD B2C para servir como uma plataforma de gestão (CIAM) de identidades e acessos dos clientes.
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Responsabilidades de desenvolvedores do conjunto de funcionalidades de política personalizada
-Configuração da política manual concede acesso de nível inferior na plataforma subjacente do Azure AD B2C e resulta na criação de uma estrutura de confiança exclusivo e totalmente personalizável. As combinações possíveis de fornecedores de identidade personalizada, relações de confiança, integrações com serviços externos e fluxos de trabalho passo a passo atribua maior demandas os desenvolvedores avançados consumi-las.
+Configuração da política manual concede acesso de nível inferior na plataforma subjacente do Azure AD B2C e resulta na criação de uma estrutura de confiança exclusivo e totalmente personalizável. As combinações possíveis de fornecedores de identidade personalizada, relações de confiança, integrações com serviços externos e fluxos de trabalho passo a passo atribua maior demandas os desenvolvedores avançados consumi-las.
 
 Para se beneficiar totalmente da pré-visualização pública, sugerimos que os desenvolvedores consumindo o conjunto de recursos de política personalizada seguir as diretrizes seguintes:
 * Familiarize-se com a linguagem de configuração da arquitetura de experiências de identidade e gestão de chaves/segredos.
@@ -52,7 +51,7 @@ Para se beneficiar totalmente da pré-visualização pública, sugerimos que os 
 * Mantenha-se informado sobre novos desenvolvimentos do fornecedores de identidade e integrar com os serviços. Por exemplo, mantenha um registo de alterações no segredos e das alterações programadas e não programadas para o serviço.
 * Configurar a monitorização de Active Directory e monitorize a capacidade de resposta de ambientes de produção.
 * Manter os endereços de correio eletrónico de contacto atualizados na subscrição do Azure e permaneça responsivo ao mensagens de e-mail de equipa do site em direto da Microsoft.
-* Tome medidas atempada somente quando aconselhado para fazê-lo pela equipe de sites ativos da Microsoft. 
+* Tome medidas atempada somente quando aconselhado para fazê-lo pela equipe de sites ativos da Microsoft. 
 
 ## <a name="features-by-stage-and-known-issues"></a>Funcionalidades ao estágio e problemas conhecidos
 Recursos personalizados da arquitetura de experiências de identidade/política estão em desenvolvimento de constante e rápido.  Esta tabela é um índice de disponibilidade de recursos/componentes.
@@ -100,7 +99,7 @@ Interfaces com aplicativos e componentes externos
 |   Conta local. o início de sessão, api.localaccountsignin |  | x |  |  |
 |   Api.localaccountsignup inscrição, da conta local |  | x |  |  |
 |   Página MFA, api.phonefactor |  | x |  |  |
-|   Autodeclarativas-por exemplo api.selfasserted sig-up, de conta de redes sociais |  | x |  |  |
+|   Autodeclarativas-por exemplo api.selfasserted inscrição, da conta de redes sociais |  | x |  |  |
 |   Autodeclarativas atualização de perfil, api.selfasserted.profileupdate |  | x |  |  |
 |   A unificação de inscrição ou início de sessão da página, api.signuporsignin |  | x |  |  |
 

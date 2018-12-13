@@ -4,15 +4,15 @@ description: Este artigo resume as perguntas mais comuns ao configurar a recuper
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 83216091c950593b16f158ea3d8df5a194ecee02
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.author: mayg
+ms.openlocfilehash: d7b3919d0f970190238dbc5899a20f2d9e7d8cd4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869828"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256520"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -27,8 +27,8 @@ Revisão [preços do Azure Site Recovery](https://azure.microsoft.com/pricing/de
 Durante a replicação, os dados são replicados para o armazenamento do Azure e não será necessário prestar quaisquer alterações VM. Quando executar uma ativação pós-falha para o Azure, o Site Recovery cria automaticamente máquinas de virtuais de IaaS do Azure. Depois disso é-lhe cobrada para recursos de computação que consumir no Azure.
 
 ### <a name="what-can-i-do-with-vmware-to-azure-replication"></a>O que posso fazer com o VMware para replicação do Azure?
-- **Recuperação após desastre**: pode configurar a recuperação após desastre. Neste cenário, é possível replicar VMs de VMware no local para o armazenamento do Azure. Em seguida, se a sua infraestrutura no local não estiver disponível, pode efetuar a ativação pós-falha para o Azure. Quando efetuar a ativação pós-falha, as VMs do Azure são criadas com os dados replicados. Pode aceder a aplicações e cargas de trabalho em VMs do Azure, até que o seu datacenter no local estiver novamente disponível. Em seguida, pode reativação pós-falha do Azure para o seu site no local.
-- **Migração**: pode utilizar o Site Recovery para migrar VMs de VMware no local para o Azure. Neste cenário, replicar VMs de VMware no local para o armazenamento do Azure. Em seguida, efetuar a ativação pós-falha do local para o Azure. Após a ativação pós-falha, as suas aplicações e cargas de trabalho estão disponíveis e em execução em VMs do Azure.
+- **Recuperação após desastre**: Pode configurar a recuperação após desastre. Neste cenário, é possível replicar VMs de VMware no local para o armazenamento do Azure. Em seguida, se a sua infraestrutura no local não estiver disponível, pode efetuar a ativação pós-falha para o Azure. Quando efetuar a ativação pós-falha, as VMs do Azure são criadas com os dados replicados. Pode aceder a aplicações e cargas de trabalho em VMs do Azure, até que o seu datacenter no local estiver novamente disponível. Em seguida, pode reativação pós-falha do Azure para o seu site no local.
+- **Migração**: Pode utilizar o Site Recovery para migrar VMs de VMware no local para o Azure. Neste cenário, replicar VMs de VMware no local para o armazenamento do Azure. Em seguida, efetuar a ativação pós-falha do local para o Azure. Após a ativação pós-falha, as suas aplicações e cargas de trabalho estão disponíveis e em execução em VMs do Azure.
 
 
 
@@ -146,11 +146,14 @@ Sim. Transferir o MySQL e colocá-la a **C:\Temp\ASRSetup** pasta. Em seguida, i
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Pode evitar o download de MySQL mas permitir que o Site Recovery instalá-lo?
 Sim. Transferir o instalador do MySQL e colocá-la a **C:\Temp\ASRSetup** pasta.  Ao configurar a VM do servidor de configuração, aceite os termos e clique em **transferir e instalar**, o portal irá utilizar o instalador que adicionou ao instalar o MySQL.
  
-### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>CanL posso utilizar o servidor de configuração de VM para qualquer outra coisa?
+### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Pode utilizar o servidor de configuração de VM para qualquer outra coisa?
 Não, só deve utilizar a VM para o servidor de configuração. 
 
+### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>Pode clonar um servidor de configuração e utilizá-lo para orquestração?
+Não, deve configurar um servidor de configuração atualizados para evitar problemas de registo.
+
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>Pode alterar o Cofre registado no servidor de configuração?
-Não. Depois de um cofre é registrado no servidor de configuração, não pode ser alterado.
+Não. Depois de um cofre é registrado no servidor de configuração, não pode ser alterado. Revisão [este artigo](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) para obter os passos de re-registo.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Pode utilizar o mesmo servidor de configuração para recuperação após desastre de VMs de VMware e servidores físicos
 Sim, mas tenha em atenção que a máquina física pode apenas ser falha novamente para uma VM do VMware.

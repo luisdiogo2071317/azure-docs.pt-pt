@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: cf470ad14c27fd36cf60bb540e823b15fc58eded
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8d3ffa2664c747f5fbbd4269b23ae54850e0d750
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496904"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321004"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerir definições de utilizador com o Azure multi-factor Authentication na cloud
 
@@ -30,8 +30,8 @@ Esta definição força o utilizador para concluir o processo de registo novamen
 
 ### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Como exigir que os utilizadores forneçam novamente os métodos de contacto
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores e grupos** > **todos os utilizadores**.
-3. Selecione **multi-factor Authentication**. É aberta a página do multi-factor authentication. 
+2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores** > **todos os utilizadores**.
+3. À direita, selecione **multi-factor Authentication** na barra de ferramentas. É aberta a página do multi-factor authentication. 
 4. Selecione a caixa ao lado do utilizador ou utilizadores que pretende gerir. Uma lista de opções do passo rápido são apresentados à direita. 
 5. Selecione **gerir definições de utilizador**.
 6. Marque a caixa **exigir que os utilizadores selecionados forneçam novamente os métodos de contacto**.
@@ -44,8 +44,8 @@ Esta definição elimina todas as palavras-passe de aplicação que criou um uti
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Como eliminar os utilizadores existentes de palavras-passe de aplicação
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores e grupos** > **todos os utilizadores**.
-3. Selecione **multi-factor Authentication**. É aberta a página do multi-factor authentication. 
+2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores** > **todos os utilizadores**.
+3. À direita, selecione **multi-factor Authentication** na barra de ferramentas. É aberta a página do multi-factor authentication. 
 6. Selecione a caixa ao lado do utilizador ou utilizadores que pretende gerir. Uma lista de opções do passo rápido são apresentados à direita. 
 7. Selecione **gerir definições de utilizador**.
 8. Marque a caixa **eliminar todas as senhas de aplicação existentes geradas pelos utilizadores selecionados**.
@@ -62,8 +62,8 @@ O **restauro a autenticação multifator em todos os dispositivos memorizados** 
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Como restaurar o MFA em todos os dispositivos suspensos para um utilizador
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores e grupos** > **todos os utilizadores**.
-3. Selecione **multi-factor Authentication**. É aberta a página do multi-factor authentication. 
+2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores** > **todos os utilizadores**.
+3. À direita, selecione **multi-factor Authentication** na barra de ferramentas. É aberta a página do multi-factor authentication. 
 6. Selecione a caixa ao lado do utilizador ou utilizadores que pretende gerir. Uma lista de opções do passo rápido são apresentados à direita. 
 7. Selecione **gerir definições de utilizador**.
 8. Marque a caixa **restauro a autenticação multifator em todos os dispositivos memorizados**

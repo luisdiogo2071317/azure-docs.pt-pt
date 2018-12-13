@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: faf8852df8b50c43affe32ede0f1e96d0bb80d3d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 25ea4f41ac1fa36c7f9b6f64bc7c4eede4702f38
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821247"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315184"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para exportar dados do armazenamento de Blobs do Azure
 Este artigo fornece instruções passo a passo sobre como utilizar o serviço importar/exportar do Azure em segurança exportar grandes quantidades de dados do armazenamento de Blobs do Azure. O serviço exige que envie discos vazios para o datacenter do Azure. O serviço exporta os dados da sua conta de armazenamento para as unidades e, em seguida, é fornecido as unidades de volta.
@@ -127,7 +127,7 @@ A exportação foi concluída. Neste momento, pode eliminar a tarefa ou automati
 
 Isso *opcional* passo ajuda a determina o número de unidades necessário para a tarefa de exportação. Efetue este procedimento num sistema Windows em execução uma [versão do SO suportado](storage-import-export-requirements.md#supported-operating-systems).
 
-1. [Baixe o versão 1 do WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=42659) no sistema Windows. 
+1. [Baixe o versão 1 do WAImportExport](https://aka.ms/waiev1) no sistema Windows. 
 2. Deszipe o para a pasta predefinida `waimportexportv1`. Por exemplo, `C:\WaImportExportV1`.
 3. Abra uma janela do PowerShell ou da linha de comandos com privilégios administrativos. Para alterar o diretório para a pasta descompactada, execute o seguinte comando:
     

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: be3c8d10ef034a4bd03f178bc1334b8a9eeb2f58
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7121087d9d9699a73b88e07599f70e0c7c40c1eb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282911"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308285"
 ---
 # <a name="azure-status"></a>Estado do Azure
 [Estado do Azure](https://azure.microsoft.com/status/) fornece-lhe uma vista global do Estado de funcionamento dos serviços do Azure. Com o estado do Azure, pode obter informações totalmente atualizadas sobre a disponibilidade de serviço. Todos têm acesso ao estado do Azure e pode ver todos os serviços que comunicar o estado de funcionamento do serviço. 
@@ -37,8 +37,8 @@ Apesar da página de estado do Azure mostra sempre as últimas informações de 
 Como pode ver eventos de cópia de segurança para 90 dias no passado, incluindo uma causa raiz preliminar, atenuação e passos seguintes para o Azure.
 
 ## <a name="rss-feed"></a>RSS Feed
-Estado do Azure também fornece [um RSS feed](https://azure.microsoft.com/en-us/status/feed/) das alterações para o estado de funcionamento dos serviços do Azure que pode subscrever.
+Estado do Azure também fornece [um RSS feed](https://azure.microsoft.com/status/feed/) das alterações para o estado de funcionamento dos serviços do Azure que pode subscrever.
 
-# <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Próximos Passos
 * Saiba como pode obter uma vista mais personalizada sobre o estado de funcionamento do Azure com [estado de funcionamento do serviço](./service-health-overview.md).
 * Saiba como pode obter uma vista mais granular sobre o estado de funcionamento dos seus recursos do Azure específicos com [Resource Health](./resource-health-overview.md).

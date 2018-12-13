@@ -1,5 +1,5 @@
 ---
-title: Introdução à Azure Search em Java | Microsoft Docs
+title: Introdução ao Azure Search em Java - Azure Search
 description: Como compilar uma aplicação de pesquisa na nuvem alojada no Azure utilizando Java como linguagem de programação.
 services: search
 author: jj09
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: d1ca905d415eb8ab49c449a69707c56d5c717081
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec2018
+ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419304"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316976"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introdução à Azure Search em Java
 > [!div class="op_single_selector"]
@@ -45,13 +46,13 @@ Nesta aplicação, o programa **SearchServlet.java** compila e carrega o índice
 ## <a name="about-the-program-files"></a>Sobre os ficheiros de programa
 A lista seguinte descreve os ficheiros relevantes para este exemplo.
 
-* Search.jsp: Fornece a interface de utilizador
-* SearchServlet.java: Fornece métodos (semelhantes a um controlador em MVC)
-* SearchServiceClient.java: Processa pedidos HTTP
-* SearchServiceHelper.java: Uma classe de programa auxiliar que fornece métodos estáticos
-* Document.Java: Disponibiliza o modelo de dados
-* Config.Properties: Define o URL do serviço de Pesquisa e uma chave de API
-* Pom. XML: Uma dependência Maven
+* Search. jsp: Fornece a interface do usuário
+* Searchservlet. Java: Fornece métodos (semelhantes a um controlador em MVC)
+* Searchserviceclient. Java: Processa os pedidos HTTP
+* Searchservicehelper. Java: Uma classe auxiliar que fornece métodos estáticos
+* Document. Java: Fornece o modelo de dados
+* Config. Properties: A pesquisa de conjuntos do serviço URL e a chave de api
+* pom. XML: Uma dependência Maven
 
 <a id="sub-2"></a>
 

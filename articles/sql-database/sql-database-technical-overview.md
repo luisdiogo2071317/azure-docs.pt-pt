@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 74e963abe5d2798f72bce8212c9f761f8f3297d1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256940"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270013"
 ---
 # <a name="the-azure-sql-database-service"></a>O serviço de base de dados do Azure SQL
 
@@ -60,7 +60,7 @@ Base de dados SQL, cada base de dados é isolada umas das outras e portáteis, t
 
 A Base de Dados SQL disponibiliza um [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) ou um [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
-- O modelo de compra baseado em DTU oferece um blend de computação, memória e recursos de E/S em três camadas de serviço para suportar cargas de trabalho de base de dados leves a pesadas: Basic, Standard e Premium. Computação tamanhos dentro de cada camada fornecem uma mistura diferentes destes recursos, ao qual pode adicionar recursos de armazenamento adicionais.
+- O modelo de compra baseado em DTU oferece um blend de computação, memória e recursos de e/s em três escalões de serviço para suportar cargas de trabalho de base de dados de pedidos leves: Básico, Standard e Premium. Computação tamanhos dentro de cada camada fornecem uma mistura diferentes destes recursos, ao qual pode adicionar recursos de armazenamento adicionais.
 - O modelo de compra baseado em vCore permite-lhe escolher o número de vCores, a quantidade ou memória e a quantidade e velocidade de armazenamento.
 
 Pode criar a primeira aplicação numa base de dados pequena e individual a um baixo custo por mês no escalão de serviço para fins gerais e, em seguida, alterar o escalão de serviço manual ou programaticamente em qualquer altura para a camada de negócio críticos de serviço para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
@@ -93,9 +93,9 @@ Mas como pode comparar o desempenho relativo das bases de dados individuais e do
 
 Além disso, a Base de Dados SQL pode [emitir métricas e registos de diagnósticos](sql-database-metrics-diag-logging.md) para uma monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
 
-- **Armazenamento do Azure**: para arquivar grandes quantidades de telemetria a um preço baixo
-- **Hub de Eventos do Azure**: para integrar a telemetria da Base de Dados SQL na sua solução personalizada de monitorizção ou em pipelines ativos.
-- **Azure Log Analytics**: para uma solução de monitorização incorporada com capacidade para relatórios, alertas e mitigação.
+- **O armazenamento do Azure**: Para arquivar grandes quantidades de telemetria a um preço baixo
+- **Hub de eventos do Azure**: Para integrar a telemetria de base de dados SQL com a sua solução personalizada monitorizção ou em pipelines
+- **Log Analytics do Azure**: Para solução de monitorização incorporada com relatórios, alertas e mitigação.
 
     ![arquitetura](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -109,10 +109,10 @@ O contrato de nível de serviço [(SLA)](https://azure.microsoft.com/support/leg
 - **[Restauros de ponto no tempo](sql-database-recovery-using-backups.md)**:
 
   Base de dados SQL suporta a recuperação para qualquer ponto no tempo dentro do período de retenção de cópia de segurança automáticas.
-- **[Georreplicação ativa](sql-database-geo-replication-overview.md)**:
+- **[Georreplicação ativa](sql-database-active-geo-replication.md)**:
 
   Base de dados SQL permite-lhe configurar até quatro secundárias bases de dados legíveis em qualquer um os centros de dados do Azure distribuídos globalmente ou mesmo.  Por exemplo, se tiver uma aplicação SaaS com uma base de dados de catálogo que tem um volume elevado de transações só de leitura simultâneas, utilize a georreplicação ativa para permitir uma escala de leitura global e remover estrangulamentos na base de dados principal que se devam a cargas de trabalho de leitura.
-- **[Grupos de ativação pós-falha](sql-database-geo-replication-overview.md)**:
+- **[Grupos de ativação pós-falha automática](sql-database-auto-failover-group.md)**:
 
   Base de dados SQL permite-lhe ativar a elevada disponibilidade e balanceamento de carga numa escala global, incluindo georreplicação transparente e ativação pós-falha de grandes conjuntos de bases de dados e conjuntos elásticos. Com os grupos de ativação pós-falha e a georreplicação ativa, é possível criar aplicações SaaS distribuídas globalmente com uma sobrecarga mínima em termos de administração, ficando a cabo da Base de Dados SQL a monitorização complexa, o encaminhamento e a orquestração de ativações pós-falha.
 - **[Bases de dados com redundância de zona](sql-database-high-availability.md)**:
@@ -135,8 +135,8 @@ Hoje em dia, muitos dos nossos parceiros que executam [aplicações SaaS multi-i
 
 Estão disponíveis dois aspetos de otimização automática na [Base de Dados SQL](sql-database-automatic-tuning.md):
 
-- **Gestão de índices automática**: identifica os índices que devem ser adicionados à sua base de dados e os que devem ser removidos.
-- **Correção de planos automática**: identifica planos problemáticos e corrige problemas de desempenho dos planos do SQL (brevemente; já disponível no SQL Server 2017).
+- **Gestão de índices automática**: Identifica os índices que devem ser adicionados à sua base de dados e os que devem ser removidos.
+- **Correção de planos automática**: Identifica planos problemáticos e corrige problemas de desempenho de planos do SQL (brevemente; já disponível no SQL Server 2017).
 
 ### <a name="adaptive-query-processing"></a>Processamento de consultas adaptável
 
@@ -197,11 +197,11 @@ A Base de Dados suporta a criação de aplicações com Python, Java, Node.js, P
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Envolver a equipa de engenharia do SQL Server
 
-- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): colocar questões de administração de base de dados
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): colocar questões de desenvolvimento
-- [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): colocar questões técnicas
-- [Comentários](https://aka.ms/sqlfeedback): relatar erros e pedir funcionalidades
-- [Reddit](https://www.reddit.com/r/SQLServer/): discutir sobre o SQL Server
+- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Faça perguntas de administração de banco de dados
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Colocar questões de desenvolvimento
+- [Fóruns do MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Faça perguntas técnicas
+- [Comentários](https://aka.ms/sqlfeedback): Relatório de erros e pedir funcionalidades
+- [Reddit](https://www.reddit.com/r/SQLServer/): Discuta o SQL Server
 
 ## <a name="next-steps"></a>Passos Seguintes
 

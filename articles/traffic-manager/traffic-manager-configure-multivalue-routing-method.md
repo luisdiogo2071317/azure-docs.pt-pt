@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: d9a0342332c2483b859e916b50fd05c9cb1e3395
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986770"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187373"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurar o método de encaminhamento de valores múltiplos no Gestor de tráfego
 
@@ -39,6 +39,7 @@ Crie um perfil do Gestor de tráfego que direciona o tráfego de utilizadores, e
 
 1. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Rede** > **Perfil do Gestor de Tráfego** > **Criar**.
 2. Na **Gestor de tráfego criar perfil**, introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **criar**:
+    
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Nome                   | Este nome tem de ser exclusivo na zona trafficmanager.net e dá origem ao nome DNS, trafficmanager.net, que é utilizado para aceder ao perfil do seu Gestor de Tráfego.                                   |
@@ -46,7 +47,7 @@ Crie um perfil do Gestor de tráfego que direciona o tráfego de utilizadores, e
     | Subscrição            | Selecione a sua subscrição.                          |
     | Grupo de recursos          | Selecione *myResourceGroupTM1*. |
     | Localização                | Esta definição refere-se à localização do grupo de recursos e não tem qualquer impacto no perfil do Gestor de Tráfego que vai ser implementado globalmente.                              |
-    |
+    
   
     ![Criar um perfil do Gestor de Tráfego](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 

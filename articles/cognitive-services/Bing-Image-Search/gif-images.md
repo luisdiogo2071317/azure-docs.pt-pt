@@ -1,7 +1,7 @@
 ---
-title: Obter imagens. gif - API de pesquisa de imagens do Bing
+title: Pesquisa de imagens GIF, usando a API de pesquisa de imagens do Bing
 titleSuffix: Azure Cognitive Services
-description: Como utilizar a API de pesquisa de imagens do Bing para obter mais informações sobre imagens. gif.
+description: Utilize a API de pesquisa de imagens do Bing para pesquisar imagens. gif em toda a web.
 services: cognitive-services
 author: MikeDodaro
 manager: cgronlun
@@ -10,16 +10,17 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh
-ms.openlocfilehash: 82a096ccc1ead9bfb542663ae193539fc227c1fb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.custom: seodec2018
+ms.openlocfilehash: 7536452d3ed0030b34e4f30deba56d6d8ae1957c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870252"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249316"
 ---
-# <a name="search-for-gif-images-using-the-bing-image-search-api"></a>Pesquisar imagens. gif, usando a API de pesquisa de imagens do Bing
+# <a name="search-for-gif-images"></a>Pesquisa de imagens GIF 
 
-A API de pesquisa do Bing imagem permite-lhe também procurar em toda a Web todo para as imagens de .gif mais relevantes.  Os desenvolvedores podem integrar gifs atraentes em vários cenários de conversação. 
+A API de pesquisa do Bing imagem permite-lhe também procurar em toda a Web todo para as imagens de .gif mais relevantes.  Os desenvolvedores podem integrar gifs atraentes em vários cenários de conversação. 
 
 O URL seguinte é uma consulta para imagens. gif animados.
 ````
@@ -206,5 +207,5 @@ O código obtém os seguintes resultados como objetos JSON:
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido em C#](quickstarts/csharp.md)
+- [Início Rápido do C#](quickstarts/csharp.md)
 - [Tutorial da aplicação de página única de pesquisa de imagens](tutorial-bing-image-search-single-page-app.md)

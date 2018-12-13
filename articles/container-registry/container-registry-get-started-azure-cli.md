@@ -1,5 +1,5 @@
 ---
-title: Início Rápido - Criar um registo do Docker privado no Azure com a CLI do Azure
+title: Início rápido - criar um registo privado do Docker no Azure - CLI do Azure
 description: Aprenda rapidamente a criar um registo do contentor do Docker com a CLI do Azure.
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: danlep
-ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 57c72056b669865278fa8109cd7f4963a1f0887a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.custom: seodec18, H1Hack27Feb2017, mvc
+ms.openlocfilehash: e75a2d126680c71542aa04bae5a30ea7c376cea1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855243"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255929"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Início Rápido: Criar um registo de contentores com a CLI do Azure
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Início rápido: Criar um registo de contentor privado com a CLI do Azure
 
 O Azure Container Registry é um serviço de registo do contentor Docker gerido, utilizado para armazenar imagens de contentor do Docker privadas. Este guia detalha a criação de uma instância do Azure Container Registry através da CLI do Azure, o envio de uma imagem de contentor por push para o registo e, por fim, a implementação do contentor a partir do registo no Azure Container Instances (ACI).
 
@@ -184,7 +184,7 @@ Quando já não for necessário, pode utilizar o comando [az group delete][az-gr
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, criou um Azure Container Registry com a CLI do Azure, enviou uma imagem de contentor por push para o registo e iniciou uma instância do mesmo através do Azure Container Instances. Avance para o tutorial do Azure Container Instances para ver mais detalhadamente o ACI.
 

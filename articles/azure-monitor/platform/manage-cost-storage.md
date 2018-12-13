@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 744a0f683f58aed98cea7bdef0b2a36af68ad2f1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 1ea99c045d5f1bfaacaefab04322b2d4f1123c84
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097578"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183511"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics
 
@@ -77,20 +76,20 @@ Os passos seguintes descrevem como configurar um limite para gerir o volume de d
 5. Limite diário é **OFF** por predefinição – clique em **ON** para ativá-la e, em seguida, defina o limite de volume de dados em GB/dia.<br><br> ![Configurar o limite de dados do log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-limit-reached"></a>Alertar quando atingido o limite
-Embora, apresentamos uma indicação visual no portal do Azure quando o limiar de limite de dados for cumprido, esse comportamento não necessariamente alinhados com como gerir os problemas operacionais que requerem atenção imediata.  Para receber uma notificação de alerta, pode criar uma nova regra de alerta no Azure Monitor.  Para obter mais informações, consulte [como criar, ver e gerir alertas](../../monitoring-and-diagnostics/alert-metric.md).      
+Embora, apresentamos uma indicação visual no portal do Azure quando o limiar de limite de dados for cumprido, esse comportamento não necessariamente alinhados com como gerir os problemas operacionais que requerem atenção imediata.  Para receber uma notificação de alerta, pode criar uma nova regra de alerta no Azure Monitor.  Para obter mais informações, consulte [como criar, ver e gerir alertas](../../azure-monitor/platform/alerts-metric.md).      
 
 Para começar, seguem-se as definições recomendadas para o alerta:
 
 * Destino: Selecione o recurso do Log Analytics
 * Critérios: 
-   * Nome do sinal: pesquisa de registos personalizado
-   * Consulta de pesquisa: operação | em que detalhes tem 'OverQuota'
-   * Com base em: número de resultados
-   * Condição: Maior do que
+   * Nome do sinal: Pesquisa de registos personalizado
+   * Consulta de pesquisa: Operação | em que detalhes tem 'OverQuota'
+   * Com base em: Número de resultados
+   * Condição: Maior que
    * Limiar: 0
-   * Período: 5 (minutos)
-   * Frequência: 5 (minutos)
-* Nome da regra de alerta: limite diário de dados foi atingido
+   * Período de: 5 (minutos)
+   * Frequência de: 5 (minutos)
+* Nome da regra de alerta: Limite diário de dados foi atingido
 * Gravidade: Aviso (gravidade 1)
 
 Assim que o alerta é definido e o limite for atingido, um alerta é acionado e executa a resposta definida no grupo de ação. Pode notificar a sua equipa através de e-mail e mensagens de texto, ou automatize ações através de webhooks, runbooks de automatização ou [integrar com uma solução ITSM externa](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts). 
@@ -103,10 +102,10 @@ Os passos seguintes descrevem como configurar o registo quanto dados são mantid
 5. No painel, mova o controlo de deslize para aumentar ou diminuir o número de dias e, em seguida, clique em **OK**.  Se estiver a utilizar o *gratuita* escalão, não será capaz de modificar o período de retenção de dados e terá de atualizar para o escalão pago para poder controlar esta definição.<br><br> ![Alteração da definição de retenção de dados de área de trabalho](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-**Pergunta**: como posso resolver problemas se o Log Analytics já não está a recolher dados? 
-**Resposta**: se são gratuito no escalão de preço e ter enviado a mais de 500 MB de dados num dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que o Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.  
+**Pergunta**: Como posso resolver problemas se o Log Analytics já não está a recolher dados? 
+**resposta**:  Se é gratuito no escalão de preço e ter enviado a mais de 500 MB de dados num dia, deixa de recolha de dados para o resto do dia. Atingir o limite diário é um motivo comum que o Log Analytics interrompe a recolha de dados ou dados parecem estar em falta.  
 O log Analytics cria um evento do tipo operação quando a recolha de dados é iniciada e interrompida.  
-Execute a seguinte consulta na pesquisa para verificar se estiver a atingir o limite diário e dados em falta: operação | onde OperationCategory = = "Estado de recolha de dados"   
+Execute a seguinte consulta na pesquisa para verificar se estiver a atingir o limite diário e dados em falta: Operação | onde OperationCategory = = "Estado de recolha de dados"   
 Quando parar a recolha de dados, o OperationStatus indica um aviso. Quando inicia a recolha de dados, o OperationStatus é concluído com êxito.  
 A tabela seguinte descreve as razões que pára de recolha de dados e uma ação sugerida para retomar a recolha de dados:  
 
@@ -120,8 +119,8 @@ A tabela seguinte descreve as razões que pára de recolha de dados e uma ação
 
 O log Analytics utiliza hora UTC. O tempo de reposição varia entre as áreas de trabalho para impedir que todos os de áreas de trabalho de limite de início, a ingestão de dados ao mesmo tempo. Se a área de trabalho atinge o limite diário, o processamento continua após a hora de reposição definido no **limite diário terá o valor**.<br><br> ![Fuso horário UTC de limitar o log Analytics](media/manage-cost-storage/data-volume-mgmt-limit-utc.png)
 
-**Pergunta**: como posso ser notificado quando parar a recolha de dados? 
-**Resposta**: Utilize os passos descritos no *criar limite de dados diário* alerta para ser notificado quando parar a recolha de dados e siga os passos utilizam os passos descritos em adicionam ações a regras de alerta de configurar um e-mail, webhook ou runbook ação para a regra de alerta. 
+**Pergunta**: Como posso ser notificado da quando parar a recolha de dados? 
+**resposta**: Utilize os passos descritos em *criar limite de dados diário* alerta para ser notificado quando parar a recolha de dados e siga os passos utilizam os passos descritos em adicionam ações a regras de alerta configure uma ação de e-mail, webhook ou runbook para a regra de alerta . 
 
 ## <a name="next-steps"></a>Passos Seguintes  
 

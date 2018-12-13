@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: manayar
-ms.openlocfilehash: 0718ad7112c759dd3fdd363f38b863186ec9a978
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: e30fdb684fbabbdcea334115e3f645e63dec6623
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740167"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322641"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Dimensionamento automático através de métricas de convidado num modelo de conjunto de dimensionamento do Linux
 
 Existem dois tipos de métricas no Azure, que são recolhidos das VMs e conjuntos de dimensionamento: algumas são provenientes da VM de anfitrião e outras pessoas vêm de VM do convidado. Num alto nível, se estiver a utilizar o padrão CPU, disco e métricas de rede, em seguida, métricas de anfitrião são provavelmente uma boa opção. Se, no entanto, terá uma seleção maior de métricas, em seguida, as métricas de convidado são provavelmente a melhor opção. Vamos dar uma olhada nas diferenças entre os dois:
 
-Métricas de anfitrião são mais simples e mais confiável. Não necessitam de configuração adicional porque eles são coletados pelo anfitrião de VM, ao passo que as métricas de convidado exigem a instalação do [extensão do Windows Azure Diagnostics](../virtual-machines/windows/extensions-diagnostics-template.md) ou o [extensão de diagnóstico do Linux do Azure](../virtual-machines/linux/diagnostic-extension.md)na VM do convidado. Uma das razões comuns para utilizar as métricas de convidado em vez de métricas de anfitrião é que as métricas de convidado oferecem uma seleção maior de métricas de métricas de anfitrião. Um exemplo desse tipo é métricas de consumo de memória, que só estão disponíveis por meio de métricas de convidado. As métricas de anfitrião suportados estão listadas [aqui](../monitoring-and-diagnostics/monitoring-supported-metrics.md), e as métricas de convidado usadas são listadas [aqui](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Este artigo mostra como modificar o [modelo de conjunto de dimensionamento mínimo viável](./virtual-machine-scale-sets-mvss-start.md) utilizar regras de dimensionamento automático com base em métricas de convidado para conjuntos de dimensionamento do Linux.
+Métricas de anfitrião são mais simples e mais confiável. Não necessitam de configuração adicional porque eles são coletados pelo anfitrião de VM, ao passo que as métricas de convidado exigem a instalação do [extensão do Windows Azure Diagnostics](../virtual-machines/windows/extensions-diagnostics-template.md) ou o [extensão de diagnóstico do Linux do Azure](../virtual-machines/linux/diagnostic-extension.md)na VM do convidado. Uma das razões comuns para utilizar as métricas de convidado em vez de métricas de anfitrião é que as métricas de convidado oferecem uma seleção maior de métricas de métricas de anfitrião. Um exemplo desse tipo é métricas de consumo de memória, que só estão disponíveis por meio de métricas de convidado. As métricas de anfitrião suportados estão listadas [aqui](../monitoring-and-diagnostics/monitoring-supported-metrics.md), e as métricas de convidado usadas são listadas [aqui](../azure-monitor/platform/autoscale-common-metrics.md). Este artigo mostra como modificar o [modelo de conjunto de dimensionamento mínimo viável](./virtual-machine-scale-sets-mvss-start.md) utilizar regras de dimensionamento automático com base em métricas de convidado para conjuntos de dimensionamento do Linux.
 
 ## <a name="change-the-template-definition"></a>Altere a definição do modelo
 
@@ -111,7 +111,7 @@ Em seguida, modifique o conjunto de dimensionamento `extensionProfile` para incl
        }
 ```
 
-Por fim, adicione um `autoscaleSettings` recursos para configurar o dimensionamento automático com base nessas métricas. Este recurso tem um `dependsOn` cláusula que faça referência a escala definida para garantir que o conjunto de dimensionamento existe antes de tentar para dimensionar automaticamente. Se optar por uma métrica diferente para dimensionamento automático no, tem de utilizar o `counterSpecifier` da configuração de extensão de diagnóstico, como o `metricName` na configuração do dimensionamento automático. Para obter mais informações sobre a configuração de dimensionamento automático, consulte a [melhores práticas de dimensionamento automático](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) e o [documentação de referência da API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931928.aspx).
+Por fim, adicione um `autoscaleSettings` recursos para configurar o dimensionamento automático com base nessas métricas. Este recurso tem um `dependsOn` cláusula que faça referência a escala definida para garantir que o conjunto de dimensionamento existe antes de tentar para dimensionar automaticamente. Se optar por uma métrica diferente para dimensionamento automático no, tem de utilizar o `counterSpecifier` da configuração de extensão de diagnóstico, como o `metricName` na configuração do dimensionamento automático. Para obter mais informações sobre a configuração de dimensionamento automático, consulte a [melhores práticas de dimensionamento automático](..//azure-monitor/platform/autoscale-best-practices.md) e o [documentação de referência da API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931928.aspx).
 
 ```diff
 +    },

@@ -1,22 +1,24 @@
 ---
-title: Ligações de saída no Azure (clássico) | Documentos da Microsoft
+title: Ligações de saída no Azure (clássico)
+titlesuffix: Azure Load Balancer
 description: Este artigo explica como o Azure permite que serviços para comunicar com serviços de internet pública em nuvem.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 5cb0647148d2cd90ad4cce6e16de30b72fff8429
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219669"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190004"
 ---
 # <a name="outbound-connections-classic"></a>Ligações de saída (clássicas)
 
@@ -62,7 +64,7 @@ Uma pública IP atribuído a uma VM é um 1:1 relação (em vez de 1:many) e imp
 
 Se seu aplicativo inicia muitos fluxos de saída e tiver exaustão de porta SNAT, considere atribuir um [ILPIP para atenuar as restrições SNAT](#assignilpip). Revisão [esgotamento de gerenciamento de SNAT](#snatexhaust) na íntegra.
 
-### <a name="publiclbendpoint"></a>Cenário 2: Com balanceamento de carga ponto final público
+### <a name="publiclbendpoint"></a>Cenário 2: Ponto final com balanceamento de carga público
 
 Neste cenário, a VM ou a função de trabalho da Web está associada um endereço IP público através do ponto final com balanceamento de carga. A VM não tem um endereço IP público atribuído ao mesmo. 
 

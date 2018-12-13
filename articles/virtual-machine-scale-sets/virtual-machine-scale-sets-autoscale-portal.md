@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: 6ce737cb221b948a1cc25b8a441d3b623915662b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ceb3f1da742c79d80398b87b9c4880781175690c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466526"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321516"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionar automaticamente um conjunto de dimensionamento no portal do Azure
 Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação.
@@ -131,4 +131,4 @@ Neste artigo, aprendeu a utilizar regras de dimensionamento automático para aum
 
 Para obter informações sobre como gerir as suas instâncias de VM, consulte [conjuntos de dimensionamento de máquina virtual de gerir com o Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 
-Para saber como gerar alertas quando o acionador de regras de seu dimensionamento automático, veja [utilizar ações de dimensionamento automático para enviar e-mail e webhook notificações de alertas no Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md). Também pode [registos de auditoria de uso para enviar e-mail e webhook notificações de alertas no Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+Para saber como gerar alertas quando o acionador de regras de seu dimensionamento automático, veja [utilizar ações de dimensionamento automático para enviar e-mail e webhook notificações de alertas no Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Também pode [registos de auditoria de uso para enviar e-mail e webhook notificações de alertas no Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).

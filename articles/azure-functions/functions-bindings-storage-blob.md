@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: b386cf72525c6ef6234d99255ca0eed5ade32066
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b48b60390887ea7356385954a81fa51ded2b1fb8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000487"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270676"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -101,7 +101,7 @@ Para obter mais informações sobre o `BlobTrigger` de atributos, consulte [acio
 
 ### <a name="trigger---c-script-example"></a>Acionador - exemplo de script do c#
 
-O exemplo seguinte mostra um acionador de blob de enlace num *Function* ficheiro e [script c# (. csx)](functions-reference-csharp.md) código que utiliza o enlace. A função registra um log quando um blob é adicionado ou atualizado no `samples-workitems` contentor.
+O exemplo seguinte mostra um acionador de blob de enlace num *Function* ficheiro e [código de Python](functions-reference-python.md) que utiliza o enlace. A função registra um log quando um blob é adicionado ou atualizado na `samples-workitems` [contentor](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
 Eis a vinculação de dados a *Function* ficheiro:
 
@@ -320,7 +320,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**direção** | n/d | Tem de ser definido como `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. Exceções estão apontadas na [utilização](#trigger---usage) secção. |
 |**name** | n/d | O nome da variável que representa o blob no código de função. | 
 |**path** | **BlobPath** |O contentor para monitorizar.  Pode ser um [padrão de nome de blob](#trigger---blob-name-patterns). | 
-|**ligação** | **ligação** | O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para essa ligação. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação de armazenamento predefinida na definição da aplicação com o nome `AzureWebJobsStorage`.<br><br>A cadeia de ligação tem de ser para uma conta de armazenamento para fins gerais, não uma [conta de armazenamento de BLOBs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**ligação** |**ligação**| O nome de uma definição de aplicação que contém o [cadeia de ligação de armazenamento](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) a utilizar para essa ligação. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação de armazenamento predefinida na definição da aplicação com o nome `AzureWebJobsStorage`.<br><br>A cadeia de ligação tem de ser para uma conta de armazenamento para fins gerais, não uma [conta de armazenamento apenas de BLOBs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -420,7 +420,7 @@ O runtime das funções do Azure garante que nenhuma função de Acionador de bl
 
 Arquivos de funções do Azure de BLOBs num contentor com o nome do Editor *anfitriões de webjobs do azure* na conta de armazenamento do Azure para a sua aplicação de função (definido pela definição da aplicação `AzureWebJobsStorage`). Um recibo de blob tem as seguintes informações:
 
-* A função acionada ("*&lt;nome da aplicação >*. Funções.  *&lt;nome da função >*", por exemplo:"MyFunctionApp.Functions.CopyBlob")
+* A função acionada ("*&lt;nome da aplicação >*. Funções.  *&lt;nome da função >*", por exemplo: "MyFunctionApp.Functions.CopyBlob")
 * O nome do contentor
 * O tipo de blob ("BlockBlob" ou "PageBlob")
 * O nome do blob

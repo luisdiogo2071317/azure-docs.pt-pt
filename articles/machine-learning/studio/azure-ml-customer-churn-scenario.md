@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 2063198ab2a7b11e15528e81acb46ba16277782a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 48e3ca0b9910b673491e20e834b38170308aa132
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097646"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272172"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analisar o abandono de clientes com o Azure Machine Learning Studio
 ## <a name="overview"></a>Descrição geral
@@ -31,11 +30,11 @@ Este artigo apresenta uma implementação de referência de um projeto de análi
 Esta experiência foi desenvolvida e testada pela Serge Berger, cientista de dados Principal da Microsoft e Roger Barga, anteriormente, Gestor de produto do Microsoft Azure Machine Learning. A equipe de documentação do Azure gratamente reconhece os seus conhecimentos e obrigado-los para partilhar este white paper.
 
 > [!NOTE]
-> Os dados utilizados para esta fase experimental não estão disponíveis publicamente. Para obter um exemplo de como criar um modelo de aprendizagem automática para análise de alterações a dados, consulte: [modelo de modelo de abandono de revenda](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) no [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/)
+> Os dados utilizados para esta fase experimental não estão disponíveis publicamente. Para obter um exemplo de como criar um modelo de aprendizagem automática para análise de alterações a dados, consulte: [Modelo de modelo de abandono de varejo](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) em [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="the-problem-of-customer-churn"></a>O problema de abandono de clientes
 As empresas no mercado consumidor e em todos os setores de enterprise tem de lidar com alterações a dados. Por vezes, é excessiva e influencia as decisões de política de alterações. A solução tradicional é prever churners propensão alta e atender as suas necessidades através de um serviço de assistente, campanhas, de marketing ou ao aplicar dispensations especiais. Essas abordagens podem variar do setor para setor. Ainda pode variar de um cluster de consumidor específica para outra dentro de um setor (por exemplo, telecomunicações).
@@ -66,7 +65,7 @@ Essa abordagem para a frente atraente é a melhor forma de tratar alterações a
 
 ![][2]
 
-*Figura 4: Unified mvn com vários modelo*  
+*Figura 4: Unificada mvn com vários modelo*  
 
 Interação entre os modelos é a chave se estivermos fornecer uma abordagem holística para retenção de clientes. Cada modelo necessariamente degrada o ao longo do tempo; Por conseguinte, a arquitetura é um loop implícito (semelhante ao mvn definido pelo padrão de extração de dados de CRISP DM, [***3***]).  
 
@@ -104,15 +103,15 @@ Os diagramas seguintes mostram os dados que foi utilizados.
 
 ![][4]
 
-*Figura 6: Excerto da origem de dados (oculto)*  
+*Figura 6: Trecho de origem de dados (oculto)*  
 
 ![][5]
 
-*Figura 7: Funcionalidades extraídas da origem de dados*
+*Figura 7: Recursos extraídos da origem de dados*
  
 
 > Tenha em atenção que estes dados são privados e, portanto, não não possível partilhar o modelo e os dados.
-> No entanto, para um modelo semelhante usando dados publicamente disponíveis, veja este exemplo na experimentação da [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/): [abandono de clientes de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> No entanto, para um modelo semelhante usando dados publicamente disponíveis, veja este exemplo na experimentação da [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/): [Dos clientes da Telco](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > Para saber mais sobre como implementar um modelo de análise de alterações a dados com o Cortana Intelligence Suite, também é recomendável [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) pelo gerente de programas Sênior Wee Hyong Tok. 
 > 
@@ -130,7 +129,7 @@ O diagrama seguinte ilustra uma parte da superfície de design experimentação,
 
 ![][6]  
 
-*Figura 8: Criar modelos no Machine Learning Studio*  
+*Figura 8: A criação de modelos de Machine Learning Studio*  
 
 ### <a name="scoring-methods"></a>Métodos de classificação
 Podemos classificadas de quatro modelos usando um conjunto de dados de treinamento etiquetadas.  
@@ -168,7 +167,7 @@ O diagrama seguinte da Wikipedia descreve a relação num elemento de gráfico a
 
 ![][8]
 
-*Figura 10: Compromisso entre a precisão e a precisão*
+*Figura 10: Variação entre a precisão e a precisão*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Resultados de precisão e a precisão para o modelo de árvore de decisões elevada
 A tabela a seguir apresenta os resultados brutos de usando o protótipo de Machine Learning para o modelo de árvore de decisões elevada, o que vem a ser mais precisos entre quatro modelos de classificação:  
@@ -217,13 +216,13 @@ Este documento descreve um método sensato para lidar com o problema comum de ab
  
 
 ## <a name="references"></a>Referências
-[1] Análise Preditiva: além do gerenciamento de informações Predições, McKnight Ocidental, Julho/Agosto de 2011, p.18 e 20.  
+[1] Análise Preditiva: Além do gerenciamento de informações Predições, McKnight Ocidental, Julho/Agosto de 2011, p.18 e 20.  
 
-[2] artigo da Wikipedia: [precisão e a precisão](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] artigo da Wikipedia: [Precisão e a precisão](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Guia de mineração de dados passo a passo](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [Marketing de grandes volumes de dados: interaja com os seus clientes com mais eficiência e o valor da unidade](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Marketing de grandes volumes de dados: Cative os clientes com mais eficiência e o valor da unidade](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [modelo de modelo de abandono de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) no [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) 
  

@@ -1,5 +1,5 @@
 ---
-title: Descrição geral de Cache Local do serviço de aplicações do Azure | Documentos da Microsoft
+title: Descrição geral de local cache - serviço de aplicações do Azure | Documentos da Microsoft
 description: Este artigo descreve como ativar, redimensionar e consultar o estado da funcionalidade de Cache Local do serviço de aplicações do Azure
 services: app-service
 documentationcenter: app-service
@@ -16,12 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 6729c87dcc9a85e2e3ccb6b4822213d38e2ba6f7
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.custom: seodec18
+ms.openlocfilehash: 418f471d3b79f09e726f0dc2a5ca05ff5585cf1c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666119"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259176"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Descrição geral de Cache Local do serviço de aplicações do Azure
 
@@ -66,7 +67,7 @@ Configurar o Local Cache ao utilizar uma combinação de definições da aplica�
 
 Ativar a Local Cache numa base por-web-app ao utilizar esta definição de aplicação: `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
-![Definições de aplicação do portal do Azure: Local Cache](media/app-service-local-cache-overview/app-service-local-cache-configure-portal.png)
+![Definições de aplicação do portal do Azure: Cache Local](media/app-service-local-cache-overview/app-service-local-cache-configure-portal.png)
 
 ### <a name="configure-local-cache-by-using-azure-resource-manager"></a>Configurar a Local Cache ao utilizar o Azure Resource Manager
 <a name="Configure-Local-Cache-ARM"></a>
@@ -104,7 +105,7 @@ Recomendamos que utilize o Local Cache em conjunto com o [ambientes de teste](..
 * Quando estiver pronto, emitir uma [operação de troca](../app-service/web-sites-staged-publishing.md#Swap) entre seu teste e produção ranhuras.  
 * Definições de auto-adesivas incluem nome e auto-adesivo para um bloco. Então, quando o bloco de teste obtém colocado em produção, ele herda as definições de aplicação do Local Cache. O bloco de produção trocado recentemente será executado em relação à cache local após alguns minutos e será ser aquecido como parte de aquecimento de ranhura depois de troca. Então, quando a troca de ranhura estiver concluída, o bloco de produção está em execução em relação à cache local.
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-web-app"></a>Como posso saber se a Local Cache aplica-se a minha aplicação web?
 Se a aplicação web precisa de um arquivo de conteúdo de alto desempenho, fiável, não utiliza o arquivo de conteúdos para escrever dados críticos em tempo de execução e é inferior a 2 GB de tamanho total, em seguida, a resposta for "Sim"! Para obter o tamanho total das pastas /site e /siteextensions, pode utilizar a extensão de site "Azure Web Apps utilização do disco."
 

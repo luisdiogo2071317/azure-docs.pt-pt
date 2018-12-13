@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: b3285e242b88f2bdc07390db49a1fe582a5c7f09
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a6343d9bd2009ee2c16f0cca3118e5653faa4c07
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075576"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138692"
 ---
-# <a name="intents-in-luis"></a>Objetivos de LUIS
+# <a name="concepts-about-intents-in-your-luis-app"></a>Conceitos sobre intenções na sua aplicação LUIS
 
 Um objetivo representa uma tarefa ou ação o usuário quer executar. Este é um objetivo ou objetivo expressado num usuário [expressão](luis-concept-utterance.md).
 

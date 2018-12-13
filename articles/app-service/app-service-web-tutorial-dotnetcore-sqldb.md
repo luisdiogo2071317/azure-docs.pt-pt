@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação Web .NET Core e Base de Dados SQL no Serviço de Aplicações do Azure | Microsoft Docs
+title: Criar o .NET Core de aplicação com a base de dados do SQL - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como colocar uma aplicação .NET Core a funcionar no Serviço de Aplicações do Azure, com ligação a uma Base de Dados SQL.
 services: app-service\web
 documentationcenter: dotnet
@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: e0161073c0c3e7d6ef491a4f2b86510e826b85dc
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: 775d7595e80c02bcfbc1c3d6abc687d5e335d7da
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678666"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261012"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Tutorial: Criar uma aplicação Web .NET Core e Base de Dados SQL no Serviço de Aplicações do Azure
 

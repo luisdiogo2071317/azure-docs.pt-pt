@@ -1,5 +1,5 @@
 ---
-title: FAQs sobre a implementação de aplicações web do Azure | Documentos da Microsoft
+title: FAQs sobre a implementação - serviço de aplicações do Azure | Documentos da Microsoft
 description: Obtenha respostas às perguntas mais frequentes sobre a implementação para a funcionalidade aplicações Web do serviço de aplicações do Azure.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: b38291df576d1dbd180f741659dbc379ca006d8e
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec18
+ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748447"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262117"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>FAQs sobre a implementação de aplicações Web no Azure
 
@@ -39,7 +40,7 @@ Para obter mais informações, consulte [implementar a aplicação no serviço d
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Vejo uma mensagem de erro ao tentar implementar a partir do Visual Studio. Como posso resolver isto?
 
-Se vir a mensagem seguinte, poderá estar a utilizar uma versão mais antiga do SDK: "erro durante a implementação para o recurso"YourResourceName"no grupo de recursos"YourResourceGroup": MissingRegistrationForLocation: A subscrição não está registada para o tipo de recurso "componentes" na localização "E.U.A. Central". Volte a registar para este fornecedor para ter acesso a esta localização." 
+Se vir a mensagem seguinte, poderá estar a utilizar uma versão mais antiga do SDK: "Erro durante a implementação para o recurso"YourResourceName"no grupo de recursos"YourResourceGroup": MissingRegistrationForLocation: A subscrição não está registada para o tipo de recurso "componentes" na localização "E.U.A. Central". Volte a registar para este fornecedor para ter acesso a esta localização." 
 
 Para resolver este erro, atualize para o [SDK mais recente](https://azure.microsoft.com/downloads/). Se vir esta mensagem e tem o SDK mais recente, submeta um pedido de suporte.
 

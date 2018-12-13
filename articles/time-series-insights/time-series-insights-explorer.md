@@ -1,5 +1,5 @@
 ---
-title: Explorar dados com o Explorador do Azure Time Series Insights | Documentos da Microsoft
+title: Exploração de dados do Explorador de Time Series Insights do Azure - explorar dados com o Explorador do Azure Time Series Insights | Documentos da Microsoft
 description: Este artigo descreve como utilizar o Explorador do Azure Time Series Insights no seu browser para ver rapidamente uma vista global dos seus macrodados e validar o seu ambiente de IoT.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: f4a9d09aa701d490e8391d68435e672ff49c771c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364239"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273141"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador do Time Series Insights do Azure
 Este artigo explora os vários recursos e as opções disponíveis dentro da aplicação de web de Explorador do Time Series Insights. Utilize o Explorador do Time Series Insights no seu browser para criar visualizações dos dados.
@@ -55,21 +56,21 @@ Dentro de minutos de ligar-se a origem do evento para o seu ambiente do Time Ser
 
 5. Em seguida, verá um gráfico que mostra uma contagem de todos os eventos durante o período de tempo selecionado.  Aqui tem uma série de controles:
 
-    **Painel do Editor de termos**: O espaço de termo é onde consultar o seu ambiente.  Que pode ser encontrada no lado esquerdo do ecrã, ativa 
-      - **Medida**: esta lista pendente mostra todas as colunas numéricas (duplicatas)
-      - **Dividir por**: esta lista pendente mostra colunas categóricas (cadeias de caracteres)
+    **Painel do Editor de termos**:  O espaço de termo é onde consultar o seu ambiente.  Que pode ser encontrada no lado esquerdo do ecrã, ativa 
+      - **Medida**:  Esta lista pendente mostra todas as colunas numéricas (duplicatas)
+      - **Dividir por**: Esta lista pendente mostra colunas categóricas (cadeias de caracteres)
       - Pode ativar a interpolação linear, Mostrar mínimo e máximo e ajustar o eixo y do painel de controlo, em seguida, para medir.  Além disso, pode ajustar se dados mostrados são uma contagem, média ou a soma dos dados.
       - Pode adicionar até cinco termos para ver no mesmo eixo x.  Utilize o **cópia pendente** botão para adicionar um termo adicional ou clique nas **Add** botão para adicionar um novo termo.
      
         ![Painel do Editor de termos](media/time-series-insights-explorer/explorer2.png)
 
-      - **Predicado**: O predicado permite-lhe filtrar rapidamente os seus eventos usando o conjunto de operandos listados abaixo. Se realizar uma pesquisa ao selecionar/clicar, o predicado serão atualizados automaticamente com base no que a pesquisa.      Tipos de operando suportados incluem:
+      - **Predicado**:  O predicado permite-lhe filtrar rapidamente os seus eventos usando o conjunto de operandos listados abaixo. Se realizar uma pesquisa ao selecionar/clicar, o predicado serão atualizados automaticamente com base no que a pesquisa.      Tipos de operando suportados incluem:
 
          |Operação  |Tipos suportados  |Notas  |
          |---------|---------|---------|
          |<, >, <=, >=     |  Período de tempo de Double, DateTime,       |         |
          |=, !=, <>     | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo        |         |
-         |ÍNDIA     | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo        |  Todos os operandos devem ser do mesmo tipo ou ser constante NULL.        |
+         |IN     | Cadeia de caracteres, Bool, Double, DateTime, TimeSpan, nulo        |  Todos os operandos devem ser do mesmo tipo ou ser constante NULL.        |
          |TEM     | Cadeia        |  Literais de cadeia de caracteres constante só são permitidas no lado direito. Cadeia de caracteres vazia e NULL não são permitidas.       |
 
       - **Exemplos de consultas**
@@ -102,7 +103,7 @@ Dentro de minutos de ligar-se a origem do evento para o seu ambiente do Time Ser
 
    ![Mapa térmico](media/time-series-insights-explorer/explorer6.png)
 
-12. **Eventos**: ao escolher explorar eventos ao selecionar ou clicando com o botão direito acima, o painel de eventos é disponibilizado.  Aqui, pode ver todos os eventos não processados e exportar seus eventos como JSON ou ficheiros CSV. Tenha em atenção que o Time Series Insights armazena todos os dados não processados.
+12. **Eventos**:  Ao escolher explorar eventos ao selecionar ou clicando com o botão direito acima, o painel de eventos é disponibilizado.  Aqui, pode ver todos os eventos não processados e exportar seus eventos como JSON ou ficheiros CSV. Tenha em atenção que o Time Series Insights armazena todos os dados não processados.
 
    ![Eventos](media/time-series-insights-explorer/explorer7.png)
 
@@ -110,7 +111,7 @@ Dentro de minutos de ligar-se a origem do evento para o seu ambiente do Time Ser
 
    - **Padrões**: esta funcionalidade analisam proativamente as os padrões mais estatisticamente significativos numa região de dados selecionada. Isso libera da necessidade de examinar a milhares de eventos para compreender quais padrões garantem mais tempo e energia. Além disso, o Time Series Insights permite-lhe passar diretamente para estes padrões estatisticamente significativos para continuar a realizar uma análise. Esta funcionalidade também é útil para investigações de post-mortem a dados históricos. 
 
-   - **Estatísticas de coluna**: estatísticas de coluna fornecem a criação de gráficos e tabelas que dividir dados de cada coluna da série de dados selecionadas ao longo do período de tempo selecionado.  
+   - **Estatísticas de coluna**:  Estatísticas de coluna fornecem a criação de gráficos e tabelas que dividir dados de cada coluna da série de dados selecionadas ao longo do período de tempo selecionado.  
  
       ![ESTATÍSTICAS](media/time-series-insights-explorer/explorer8.png) 
 

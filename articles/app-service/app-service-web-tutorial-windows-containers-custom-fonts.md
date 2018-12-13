@@ -1,5 +1,5 @@
 ---
-title: Migrar uma aplicação ASP.NET para o Serviço de Aplicações do Azure com um contentor do Windows (Pré-visualização) | Microsoft Docs
+title: Criar aplicação ASP.NET com o contentor do Windows (pré-visualização) - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como implementar um contentor do Windows personalizado no Serviço de Aplicações do Azure.
 services: app-service\web
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 8f6268a345a861ae65a10c3220d1992ba2d45928
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 6c237db6968cf04766647375c43117b1281c2ae1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980343"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250961"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrar uma aplicação ASP.NET para o Serviço de Aplicações do Azure com um contentor do Windows (Pré-visualização)
 

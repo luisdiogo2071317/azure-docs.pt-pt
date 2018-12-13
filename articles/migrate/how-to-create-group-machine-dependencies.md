@@ -4,19 +4,21 @@ description: Descreve como criar uma avaliação com as dependências das máqui
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: e83ec29c5ff06e80c09b9328a7bfe545f3a0f6f3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8756809de4ec1a8150610027a8197f1bcae213f0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844826"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252535"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupar máquinas através de mapeamento de dependências de máquina
 
 Este artigo descreve como criar um grupo de máquinas para [do Azure Migrate](migrate-overview.md) avaliação ao visualizar as dependências de máquinas. Geralmente usa esse método quando pretender avaliar a grupos de VMs com níveis mais altos de confiança por verificar as dependências das máquinas, antes de executar uma avaliação. Visualização de dependência pode ajudar a planear efetivamente a migração para o Azure. Ele ajuda a garantir que nada seja deixado e não ocorrerem falhas de surpresa quando estiver a migrar para o Azure. Pode descobrir todos os sistemas interdependentes que precisam migrar em conjunto e identificar se um sistema em execução ainda está a servir os utilizadores ou é uma candidata para desativar em vez de migração.
 
+> [!NOTE]
+> A funcionalidade de visualização de dependência não está disponível no Azure Government.
 
 ## <a name="prepare-for-dependency-visualization"></a>Preparar para a visualização de dependências
 O Azure Migrate tira partido da solução mapa de serviço do Log Analytics para ativar a visualização de dependências de máquinas.
@@ -89,7 +91,7 @@ Saiba mais sobre o suporte de agente de dependência para o [Windows](../azure-m
     - Processos em execução no interior da máquina, pode expandir cada caixa de máquina para ver os processos
     - Propriedades como nome de domínio completamente qualificado, sistema operativo, etc. do endereço MAC de cada máquina, pode clicar em cada caixa de máquina para ver estes detalhes
 
- ![Ver as dependências das máquinas](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
+      ![Ver as dependências das máquinas](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
 4. Pode ver as dependências para diferentes horas de duração clicando-se na duração de tempo na etiqueta de intervalo de tempo. Por predefinição, o intervalo é uma hora. Pode modificar o intervalo de tempo ou especificar o início e datas de término e duração.
 5. Depois de identificar as máquinas dependentes que pretende agrupar, utilize Ctrl + clique para selecionar várias máquinas no mapa e clique em **agrupar máquinas**.

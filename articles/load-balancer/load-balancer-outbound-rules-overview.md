@@ -1,5 +1,6 @@
 ---
-title: Regras de saída no balanceador de carga do Azure | Documentos da Microsoft
+title: Regras de saída no balanceador de carga do Azure
+titlesuffix: Azure Load Balancer
 description: Utilizar regras de saída para definir conversões de endereço de rede de saída
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 34a80a180d4c08027e4c975d4f7955966eec7307
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3848e2caefbc8fdfb30f36272f1b13e120312a7c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086373"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185023"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Balanceador de carga
 
@@ -191,14 +193,14 @@ Ao usar um Standard Balanceador de carga interno, NAT de saída não está dispo
    1. Desative o SNAT de saída a regra de balanceamento de carga.
    2. Configure uma regra de saída no mesmo Balanceador de carga.
    3. Reutilize o conjunto de back-end já utilizado por suas VMs.
-   4. Especificar "protocolo": "Tudo" como parte da regra de saída.
+   4. Especifique "protocolo": "Tudo" como parte da regra de saída.
 
 - Quando são utilizadas apenas regras NAT de entrada, é fornecido sem NAT de saída.
 
    1. Colocar VMs num conjunto de back-end.
    2. Defina uma ou mais configurações de IP de front-end com o endereço de IP público (s) ou o prefixo do IP público.
    3. Configure uma regra de saída no mesmo Balanceador de carga.
-   4. Especificar "protocolo": "Tudo" como parte da regra de saída
+   4. Especifique "protocolo": "Tudo" como parte da regra de saída
 
 ## <a name="limitations"></a>Limitações
 

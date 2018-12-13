@@ -1,9 +1,9 @@
 ---
-title: Trabalhar com coleções fiáveis | Microsoft Docs
-description: Saiba as melhores práticas para trabalhar com coleções fiável.
+title: Trabalhar com as Reliable Collections | Documentos da Microsoft
+description: Aprenda as melhores práticas para trabalhar com as Reliable Collections.
 services: service-fabric
 documentationcenter: .net
-author: rajak
+author: tylermsft
 manager: timlt
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
-ms.author: rajak
-ms.openlocfilehash: 2568e116fdb3f80976d49787877d2ecf68f128ef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: 86e1370bb5241dbe14b34cebe2f2ee6d71a0a323
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210822"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193540"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhar com as Reliable Collections
-Recursos de infraestrutura de serviço oferece um modelo de programação com monitorização de estado disponível para programadores do .NET através de coleções fiável. Especificamente, o Service Fabric fornece dicionário fiável e classes de fila fiável. Ao utilizar estas classes, o estado está particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vamos observar uma utilização típica de um objeto de dicionário fiável e ver o respetivo, na verdade, a fazer.
+Recursos de infraestrutura do serviço oferece um modelo de programação com monitoração de estado disponível para os desenvolvedores do .NET através de coleções fiáveis. Especificamente, o Service Fabric fornece classes de fila do reliable e de dicionário fiável. Quando usar essas classes, seu estado é particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vamos examinar um uso típico de um objeto de dicionário fiável e ver o que seu realmente fazendo.
 
 ```csharp
 
@@ -49,20 +49,20 @@ catch (TimeoutException) {
 }
 ```
 
-Todas as operações em objetos de dicionário fiável (exceto ClearAsync que não é undoable), necessitam de um objeto de ITransaction. Este objeto associado ao mesmo qualquer e todas as alterações que está a tentar efetuar para qualquer dicionário fiável e/ou fiável fila objetos dentro de uma única partição. Adquirir um ITransaction objeto chamando a partição do método de CreateTransaction do StateManager.
+Todas as operações em objetos de dicionário fiável (exceto para ClearAsync que não pode ser executado), exigem um objeto de ITransaction. Este objeto tem associados, pelo que quaisquer e todas as alterações que está a tentar fazer para qualquer dicionário fiável e/ou confiável fila de espera de objetos dentro de uma única partição. Adquirir um ITransaction objeto chamando a partição do método de CreateTransaction do StateManager.
 
-No código acima, o objeto de ITransaction é transmitido ao método de AddAsync de um dicionário fiável. Internamente, métodos de dicionário que aceita uma chave demorar um bloqueio de leitor/escritor associado à chave. Se o método modifica o valor da chave, o método assume um bloqueio de escrita na chave e se o método só lê a partir do valor da chave, um bloqueio de leitura, em seguida, é executado na chave. Uma vez que AddAsync modifica o valor da chave para o novo e passado no valor, o bloqueio de escrita a chave foi atribuído. Por isso, se a tentativa de threads de 2 (ou mais) adicionar valores com a mesma chave ao mesmo tempo, um thread vai adquirir o bloqueio de escrita e irão impedir que os outros threads. Por predefinição, o bloco de métodos de até 4 segundos adquirir o bloqueio; Depois de 4 segundos, os métodos de gerem um TimeoutException. Sobrecargas do método existem, permitindo-lhe transmita um valor de timeout explícito, se preferir.
+No código acima, o objeto de ITransaction é transmitido ao método de AddAsync um dicionário fiável. Internamente, os métodos de dicionário que aceita uma chave de usar um bloqueio de Leitor/gravador associado à chave. Se o método modifica o valor da chave, o método usa um bloqueio de escrita na chave e se o método lê apenas a partir do valor da chave, um bloqueio de leitura com a, em seguida, é colocado na chave. Uma vez que AddAsync modifica o valor da chave para o valor novo, no passado, o bloqueio de escrita da chave é utilizado. Então, se tentarem threads 2 (ou mais) adicionar valores com a mesma chave ao mesmo tempo, um thread irá adquirir o bloqueio de escrita e os outros threads irão bloquear. Por predefinição, o bloco de métodos para até 4 segundos adquirir o bloqueio; Após 4 segundos, os métodos de lançar uma TimeoutException. Sobrecargas do método existem que lhe permite passar um valor de tempo limite explícito, se preferir.
 
-Normalmente, escrever código para reagir a um TimeoutException por obtendo-lo e repetir a operação de completa (conforme mostrado no código acima). No código my simple, apenas posso estou chamar Task.Delay transmitir 100 milissegundos cada vez. No entanto, na realidade, poderá ser melhor através de algum tipo de atraso de início de término exponencial em vez disso.
+Normalmente, escrever seu código para reagir a uma TimeoutException ao capturando-lo e repetir a operação de toda a operação (como mostrado no código acima). No meu código simple, estou apenas chamando Task.Delay passando 100 milissegundos cada vez. Mas, na realidade, poderá ser melhor usar algum tipo de atraso de início de término exponencial em vez disso.
 
-Depois do bloqueio é obtido, AddAsync adiciona as referências de objeto de chave e valor para um dicionário temporário interno associado ao objeto de ITransaction. Isto é feito para lhe fornecer a semântica de leitura-your-proprietário-operações de escrita. Ou seja, depois de chamar AddAsync, uma chamada posterior para TryGetValueAsync (utilizando o mesmo objeto de ITransaction) irá devolver o valor, mesmo se ainda não consolidada a transação. Em seguida, AddAsync serializa a chave e valor objetos às matrizes de bytes e acrescenta estes matrizes de bytes para um ficheiro de registo no nó local. Por fim, AddAsync envia as matrizes de bytes para todas as réplicas secundárias pelo que têm as mesmas informações de chave/valor. Apesar das informações de chave/valor foi escritas para um ficheiro de registo, as informações não são consideradas parte do dicionário de até é consolidar a transação que estão associados.
+Assim que o bloqueio seja adquirido, AddAsync adiciona as referências de objeto de chave e valor a um dicionário temporário interno associado ao objeto de ITransaction. Isso é feito para lhe fornecer a semântica de leitura-your-own-escritas. Ou seja, depois de chamar AddAsync, uma chamada posterior para TryGetValueAsync (usando o mesmo objeto de ITransaction) irá devolver o valor, mesmo que ainda não consolidada a transação. Em seguida, AddAsync serializa a chave e valor de objetos para matrizes de bytes e acrescenta essas matrizes de bytes para um ficheiro de registo no nó local. Por fim, AddAsync envia as matrizes de byte para todas as réplicas secundárias, para que eles tenham as mesmas informações de chave/valor. Apesar das informações de chave/valor foi escritas para um ficheiro de registo, as informações não são consideradas parte do dicionário até que a transação que estão associados foi confirmada.
 
-No código acima, a chamada para CommitAsync consolida todas as operações da transação. Especificamente, acrescenta consolidação informações para o ficheiro de registo no nó local e também envia o registo de consolidação para todas as réplicas secundárias. Depois de um quórum (maioria) das réplicas tem respondidas, todas as alterações de dados são consideradas permanentes e qualquer bloqueios associados às chaves que foram manipuladas através do objeto de ITransaction são libertados para outras transações/threads pode manipular as mesmas chaves e os respetivos valores.
+No código acima, a chamada para CommitAsync consolida todas as operações da transação. Especificamente, ele acrescenta informações de consolidação para o ficheiro de registo no nó local e também envia o registo de consolidação para todas as réplicas secundárias. Depois de um quórum (maioria) das réplicas respondeu, todas as alterações de dados são consideradas permanentes e nenhum bloqueio associado às chaves que foram manipuladas por meio do objeto de ITransaction é lançado para que outros threads/transações pode manipular as mesmas chaves e suas valores.
 
-Se CommitAsync não for chamado (normalmente, devido a uma exceção que está a ser emitida), o objeto de ITransaction obtém eliminado. Quando disposing um objeto de ITransaction não consolidado, o Service Fabric acrescenta abortar informações para o ficheiro de registo do nó local e nada tem de ser enviadas para qualquer uma das réplicas secundárias. E, em seguida, são lançados as bloqueios associados às chaves que foram manipuladas através da transação.
+Se não é chamado de CommitAsync (geralmente devido a uma exceção a ser lançada), o objeto de ITransaction obtém descartado. Ao descartar um objeto de ITransaction não consolidado, o Service Fabric acrescenta informações de anulação de ficheiro de registo do nó local e nada precisa ser enviada a qualquer uma das réplicas secundárias. E, em seguida, é lançado nenhum bloqueio associado às chaves que foram manipuladas por meio da transação.
 
-## <a name="common-pitfalls-and-how-to-avoid-them"></a>Pitfalls comuns e como os evitar
-Agora que compreende como as coleções fiáveis funcionam internamente, vamos ver alguns misuses comuns delas. Consulte o código abaixo:
+## <a name="common-pitfalls-and-how-to-avoid-them"></a>Armadilhas comuns e como evitá-los
+Agora que compreende como as coleções fiáveis funcionam internamente, vamos dar uma olhada em alguns misuses comuns delas. Consulte o código a seguir:
 
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction()) {
@@ -78,9 +78,9 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 }
 ```
 
-Ao trabalhar com um dicionário de .NET regular, pode adicionar um chave-valor para o dicionário e, em seguida, altere o valor de uma propriedade (tais como LastLogin). No entanto, este código não funcionará corretamente com um dicionário fiável. Lembre-se do debate anterior, a chamada para AddAsync serializa os objetos de chave/valor a matrizes de bytes e, em seguida, guarda as matrizes de um ficheiro local e também envia-as para réplicas secundárias. Se posteriormente alterar uma propriedade, isto altera o valor da propriedade na memória apenas; não afeta o ficheiro local ou os dados enviados para as réplicas. Se o processo de falha, o que é na memória é emitida ausente. Quando inicia um processo novo ou se outra réplica se tornar principal, em seguida, o valor da propriedade antigo é que está disponível.
+Ao trabalhar com um dicionário regular do .NET, pode adicionar um chave/valor ao dicionário e, em seguida, altere o valor de uma propriedade (como LastLogin). No entanto, esse código não funcionará corretamente com um dicionário fiável. Lembre-se com a discussão anterior, a chamada para AddAsync serializa os objetos de chave/valor para matrizes de bytes e, em seguida, guarda as matrizes de um ficheiro local e também envia-os para as réplicas secundárias. Se posteriormente alterar uma propriedade, isto altera o valor da propriedade na memória apenas; ela não afeta o arquivo local ou os dados enviados para as réplicas. Se o processo falhar, o que está na memória é descartada. Quando um novo processo é iniciado ou se outra réplica se tornar primária, o antigo valor da propriedade é o que está disponível.
 
-Realçar posso não é suficientemente como é fácil para tornar o tipo de erro mostrado acima. Além disso, apenas aprenderá sobre o erro se/quando que o processo de fica inativo. A forma correta para escrever o código é simplesmente inverter as duas linhas:
+Não consigo enfatizar suficiente como é fácil fazer o tipo de erro mostrado acima. E, apenas aprenderá sobre o erro if/quando que o processo de fica inativo. A maneira correta de escrever o código é simplesmente inverter as duas linhas:
 
 
 ```csharp
@@ -92,7 +92,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 }
 ```
 
-Segue-se outro exemplo que mostra um erro comum:
+Eis outro exemplo que mostra um erro comum:
 
 ```csharp
 
@@ -111,11 +111,11 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 }
 ```
 
-Novamente, com regulares dicionários de .NET, o código acima funciona bem e é um padrão comum: o programador utiliza uma chave para procurar um valor. Se o valor, o programador altera o valor da propriedade. No entanto, com coleções fiáveis, este código exhibits o mesmo problema abordado como já: **não deve modificar um objecto uma vez que atribuiu-la a uma coleção fiável.**
+Novamente, com dicionários regulares do .NET, o código acima funciona bem e é um padrão comum: o desenvolvedor usa uma chave para procurar um valor. Se o valor existir, o desenvolvedor altera o valor de uma propriedade. No entanto, com as reliable collections, esse código exibe o mesmo problema, como já explicado: **não deve modificar um objeto assim que tiver dado-la numa coleção fiável.**
 
-É a forma correta para atualizar um valor de uma coleção fiável, para obter uma referência para o valor existente e considere o objeto referenciado por esta referência imutável. Em seguida, crie um novo objeto que é uma cópia exata do objeto original. Agora, pode modificar o estado deste objeto novo e escrever o novo objeto à coleção para que este obtém serializado para matrizes de bytes, anexado ao ficheiro local e enviadas para as réplicas. Depois de confirmar a change(s), os objetos em memória, o ficheiro local e todas as réplicas têm o mesmo Estado exato. Todos os é boa!
+É a maneira correta de atualizar um valor numa coleção fiável obter uma referência ao valor existente e considerar o objeto referenciado por esta referência imutável. Em seguida, crie um novo objeto que é uma cópia exata do objeto original. Agora, pode modificar o estado do novo objeto e escrever o novo objeto à coleção para que ele obtém serializado para matrizes de bytes, anexado o ficheiro local e enviadas para as réplicas. Após efetuar a alteração ou alterações à, os objetos na memória, o arquivo local e todas as réplicas têm o mesmo Estado exato. Tudo o que é bom!
 
-O código abaixo mostra a forma correta para atualizar um valor de uma coleção fiável:
+O código abaixo mostra a maneira correta de atualizar um valor numa coleção fiável:
 
 ```csharp
 
@@ -142,10 +142,10 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 }
 ```
 
-## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definir os tipos de dados imutável para evitar erros de programador
-Idealmente, pretende que o compilador de erros de relatório quando acidentalmente a produzir código mutates estado de um objeto que é suposto considerar imutável. No entanto, o compilador do c# não tem a capacidade para efetuar este procedimento. Por isso, para evitar potenciais erros de programador, recomendamos vivamente que definir os tipos de utilizar com coleções fiáveis para ser tipos imutáveis. Mais concretamente, isto significa que pen para tipos de valor de núcleos (por exemplo, números [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e o semelhante). E, obviamente, também pode utilizar cadeia. É melhor evitar a propriedades de coleção como serializar e anular a serialização dos mesmos pode frequentemente pacote pode prejudicar o desempenho. No entanto, se pretender utilizar propriedades de coleção, recomendamos vivamente a utilização de. Biblioteca de coleções imutável do NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Esta biblioteca está disponível para transferência a partir do http://nuget.org. Também recomendamos que selar as classes e tornando os campos só de leitura sempre que possível.
+## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definir os tipos de dados imutáveis para impedir que o erro do Programador
+Idealmente, gostaríamos do compilador para relatar erros quando acidentalmente de produzir o código que desenvolvendo o estado de um objeto que deve considerar um imutável. No entanto, o C# compilador não tem a capacidade de fazer isso. Portanto, para evitar potenciais erros de programador, é altamente recomendável que definir os tipos de usar com as reliable collections ser tipos imutáveis. Especificamente, isso significa que siga principais tipos de valor (por exemplo, números [Int32, UInt64, etc.], DateTime, Guid, período de tempo e assim por diante). E, claro, também pode utilizar a cadeia de caracteres. É melhor evitar as propriedades de coleção como serializando e desserializar-las pode com freqüência pode prejudicar o desempenho. No entanto, se pretender utilizar as propriedades de coleção, recomendamos vivamente a utilização de. Biblioteca de coleções imutáveis da NET ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Essa biblioteca está disponível para download em http://nuget.org. Também recomendamos selar suas classes e fazendo campos só de leitura, sempre que possível.
 
-O tipo de UserInfo abaixo demonstra como definir um tipo imutável tirando partido de recomendações acima mencionados.
+O tipo de UserInfo abaixo demonstra como definir um imutável tipo tirar partido de recomendações mencionados anteriormente.
 
 ```csharp
 
@@ -197,23 +197,23 @@ public struct ItemId {
 }
 ```
 
-## <a name="schema-versioning-upgrades"></a>Controlo de versões do esquema (atualizações)
-Internamente, coleções fiável serializar os objetos a utilizar. DataContractSerializer da rede. Os objetos serializados são mantidos no disco local da réplica primária e também são transmitidos para réplicas secundárias. Como o seu serviço evoluiu, é provável que pretenda alterar o tipo de dados (esquema) necessita do seu serviço. Tem de abordar o controlo de versões dos seus dados com cuidado excelente. Primeiro e mais importante, deve sempre poderá anular a serialização dados antigos. Mais concretamente, isto significa que o código de anulação da serialização tem de ser infinitamente retrocompatível: 333 de versão de código do serviço tem de ser possível operar nos dados colocados numa coleção fiável por versão 1 do código do serviço 5 anos há.
+## <a name="schema-versioning-upgrades"></a>Controle de versão do esquema (atualizações)
+Internamente, as coleções fiáveis serializar os objetos usando. DataContractSerializer do NET. Os objetos serializados serem mantidos no disco local da réplica primária e também são transmitidos para as réplicas secundárias. Como o seu serviço amadurece, é provável que vai querer alterar o tipo de dados (esquema), que seu serviço requer. Deve abordar o controlo de versões dos seus dados com muito cuidado. Primeiro e mais importante, deve sempre ser capaz de anular a serialização de dados antigos. Especificamente, isso significa que seu código de desserialização tem de ser compatíveis infinitamente com versões anteriores: Versão 333 do seu código de serviço tem de ser capaz de operar em dados colocados numa coleção fiável, por versão 1 do seu código de serviço, há cinco anos.
 
-Além disso, o código do serviço é atualizado um domínio de atualização a uma hora. Por isso, durante uma atualização, tem duas versões diferentes do código do serviço em execução em simultâneo. Deve evitar ter a nova versão do código do serviço utilizar o novo esquema como versões antigas do código do serviço poderão não ser capazes de lidar com o esquema novo. Sempre que possível, deve criar cada versão do seu serviço para ser diretamente compatíveis por 1 versão. Mais concretamente, isto significa que V1 do código do serviço deve conseguir simplesmente ignorar quaisquer elementos de esquema não processar explicitamente. No entanto, tem de ser capaz de guardar quaisquer dados que explicitamente desconheça e simplesmente-lo de contingência ao atualizar uma chave de dicionário ou valor de escrita.
+Além disso, o código de serviço é atualizado um domínio de atualização de cada vez. Por isso, durante uma atualização, tem duas versões diferentes do seu código de serviço em execução em simultâneo. Deve evitar a nova versão do seu código de serviço utilizar o novo esquema conforme as versões antigas do seu código de serviço podem não ser capazes de lidar com o novo esquema. Sempre que possível, deve conceber a cada versão do seu serviço para ser compatível com a 1 versão. Especificamente, isso significa que V1 do seu código de serviço deve ser capaz de simplesmente ignorar quaisquer elementos de esquema não processar explicitamente. No entanto, tem de ser capaz de guardar todos os dados não explicitamente o conhece e simplesmente-lo de volta ao atualizar uma chave de dicionário ou valor de escrita.
 
 > [!WARNING]
-> Enquanto pode modificar o esquema de uma chave, certifique-se de que o código de hash da chave e algoritmos de é igual a estão estáveis. Se alterar qualquer uma destes algoritmos como operar, não será possível procurar alguma vez novamente a chave no dicionário fiável.
+> Embora possa modificar o esquema de uma chave, certifique-se de que o código de hash de sua chave e algoritmos de é igual a são estáveis. Se alterar qualquer um desses algoritmos como funcionam, não será capaz de pesquisar novamente a chave no dicionário fiável.
 >
 >
 
-Em alternativa, pode efetuar o que, normalmente, é referido como uma atualização de fase 2. Com uma atualização de fase 2, atualizar o serviço v1 para V2: V2 contém o código que sabe como lidar com a nova alteração de esquema, mas este código não ser executado. Quando o código de V2 lê dados V1, funciona no mesmo e escreve dados V1. Em seguida, após a atualização concluída em atualização de todos os domínios, pode examinar assinalar para as instâncias de V2 em execução que a atualização foi concluída. (Uma forma Sinal Isto serve para implementar uma atualização da configuração; este é o que faz com que esta uma atualização de fase 2). Agora, as instâncias de V2 podem ler os dados de V1, convertê-lo para dados V2, operar na mesma e escrever como dados V2. Quando outras instâncias de ler os dados de V2, não é necessário convertê-lo, podendo apenas operam na mesma e escrever dados V2.
+Em alternativa, pode efetuar o que normalmente é referido como uma atualização de fase 2. Com uma atualização de fase 2 e atualizar seu serviço do V1 para o V2: V2 contém o código que sabe como lidar com a nova alteração de esquema, mas esse código não é executado. Quando o código de V2 lê dados V1, ele opera no mesmo e escreve dados V1. Em seguida, após a atualização estiver concluída em domínios de atualização de tudo, pode alguma forma Sinalizar para as instâncias de V2 em execução que a atualização foi concluída. (Uma forma de sinal isso é implementar uma atualização de configuração; este é o que torna isso uma atualização de fase 2). Agora, as instâncias de V2 podem ler os dados de V1, convertê-lo aos dados da V2, operar no mesmo e escrevê-lo como dados da V2. Quando outras instâncias de ler os dados de V2, não precisa convertê-lo, eles apenas operam nele e escrever os dados da V2.
 
 ## <a name="next-steps"></a>Próximos Passos
-Para saber mais sobre a criação de contratos de reencaminhar dados compatível, consulte [compatível com a reencaminhar dados contratos](https://msdn.microsoft.com/library/ms731083.aspx).
+Para saber mais sobre como criar contratos de reencaminhar dados compatíveis, consulte [contratos de dados de compatibilidade](https://msdn.microsoft.com/library/ms731083.aspx).
 
-Para obter as melhores práticas em contratos de dados de controlo de versões, consulte [controlo de versões de contrato de dados](https://msdn.microsoft.com/library/ms731138.aspx).
+Para obter melhores práticas em contratos de dados de controlo de versões, veja [versão do contrato de dados](https://msdn.microsoft.com/library/ms731138.aspx).
 
-Para saber como implementar contratos de dados de tolerância a falhas de versão, consulte [chamadas de retorno de serialização tolerância a falhas versão](https://msdn.microsoft.com/library/ms733734.aspx).
+Para saber como implementar contratos de dados com tolerância a falhas de versão, veja [retornos de chamada de serialização tolerância a falhas versão](https://msdn.microsoft.com/library/ms733734.aspx).
 
-Para saber como fornecer uma estrutura de dados que pode interagir entre várias versões, consulte [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
+Para saber como fornecer uma estrutura de dados que pode interoperar entre várias versões, veja [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).

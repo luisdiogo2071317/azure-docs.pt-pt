@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 2/1/2018
-ms.openlocfilehash: 7e84db390d3a193be5ac1755837e5f9333bebbc9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.date: 02/01/2018
+ms.openlocfilehash: e836323ad452b86d89eee62936b574b2cc9d0337
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097204"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269503"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Suplemento do Excel para serviços da web do Azure Machine Learning Studio
 Excel torna mais fácil chamar serviços web diretamente sem a necessidade de escrever qualquer código.
@@ -41,7 +41,7 @@ Excel torna mais fácil chamar serviços web diretamente sem a necessidade de es
    
     ![Prever a secção][02]
 
-Implementar um serviço web ou utilizar um serviço Web existente. Para obter mais informações sobre como implementar um serviço da web, consulte [instruções passo 5: implementar o serviço Web do Azure Machine Learning](walkthrough-5-publish-web-service.md).
+Implementar um serviço web ou utilizar um serviço Web existente. Para obter mais informações sobre como implementar um serviço da web, consulte [instruções passo 5: Implementar o serviço Web do Azure Machine Learning](walkthrough-5-publish-web-service.md).
 
 Obtenha a chave de API do web Service. Quando efetuar esta ação depende se publicou um serviço da web clássico Machine Learning de um serviço web do Machine Learning de novo.
 
@@ -69,7 +69,7 @@ Obtenha a chave de API do web Service. Quando efetuar esta ação depende se pub
 
 ## <a name="steps-to-add-a-new-web-service"></a>Passos para adicionar um novo serviço web
 
-1. Implementar um serviço web ou utilizar um serviço Web existente. Para obter mais informações sobre como implementar um serviço da web, consulte [instruções passo 5: implementar o serviço Web do Azure Machine Learning](walkthrough-5-publish-web-service.md).
+1. Implementar um serviço web ou utilizar um serviço Web existente. Para obter mais informações sobre como implementar um serviço da web, consulte [instruções passo 5: Implementar o serviço Web do Azure Machine Learning](walkthrough-5-publish-web-service.md).
 2. Clique em **consumir**.
 3. Procure o **informações básicas do consumo** secção. Copie e guarde o **chave primária** e o **solicitação-resposta** URL.
 4. No Excel, vá para o **serviços Web** secção (se estiver na **Predict** secção, clique na seta voltar para ir para a lista de serviços da web).

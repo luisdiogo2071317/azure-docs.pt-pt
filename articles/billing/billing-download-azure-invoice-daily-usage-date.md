@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: cwatson
-ms.openlocfilehash: 80721fc82a54c62c982298cb8eabb999caaf1dfb
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: fe3cb2d15602407b54ff47763d409c2e77614f0a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583113"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311138"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixe ou exiba sua fatura do Azure e dados de utilização diária
 
@@ -122,7 +122,7 @@ Para obter mais informações sobre a sua utilização diária, veja [Compreende
 
 Para ver e transferir dados de utilização como um cliente EA, tem de ser um administrador de empresa, ou administrador do departamento ou proprietário da conta com a política de encargos de vista ativada.
 
-1. Inicie sessão no [portal do Azure]( http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Pesquisar nos **custo Management + faturação**.
 
     ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)

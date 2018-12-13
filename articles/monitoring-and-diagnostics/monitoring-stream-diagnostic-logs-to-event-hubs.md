@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: d178041a420c49480c6043869f139eb3a09c91fd
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b7c2c28ab049f0cce26f306736ec938955156ebb
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959278"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322589"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Registos de diagnóstico do Azure Stream para um hub de eventos
 **[Registos de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)**  podem ser transmitidos em fluxo em tempo real para qualquer aplicação que utilize a opção "Exportar para os Hubs de eventos" incorporada no Portal ou ao ativar o ID da regra de autorização de Hub de eventos numa definição de diagnóstico do Azure CLI do Azure ou Cmdlets do PowerShell.
@@ -44,14 +44,14 @@ Seguem-se apenas algumas maneiras, pode utilizar a capacidade de transmissão em
 Pode ativar a transmissão em fluxo de registos de diagnóstico através de programação, através do portal, ou utilizando o [APIs de REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). De qualquer forma, criar uma definição de diagnóstico em que especificar um espaço de nomes de Hubs de eventos e as categorias de registo e métricas que deseja enviar para o espaço de nomes. Um hub de eventos é criado no espaço de nomes para cada categoria de registo que ativa. Um diagnóstico **categoria de registo** é um tipo de registo que pode recolher um recurso.
 
 > [!WARNING]
-> Ativar e transmissão em fluxo registos de diagnóstico a partir dos recursos de computação (por exemplo, VMs ou recursos de infraestrutura do serviço) [requer um conjunto diferente de passos](azure-diagnostics-streaming-event-hubs.md).
+> Ativar e transmissão em fluxo registos de diagnóstico a partir dos recursos de computação (por exemplo, VMs ou recursos de infraestrutura do serviço) [requer um conjunto diferente de passos](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 O espaço de nomes não tem de estar na mesma subscrição que o recurso emite os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para as subscrições e ambas as subscrições do Event Hubs são parte do mesmo inquilino do AAD.
 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 >
-> *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
+> *Por exemplo*: A métrica "Mensagens recebidas" num Hub de eventos pode ser explorada e representada um por nível de fila. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
 >
 >
 
@@ -191,7 +191,7 @@ Pode exibir uma lista de todos os fornecedores de recursos que suportam a transm
 
 ## <a name="stream-data-from-compute-resources"></a>Dados de Stream de recursos de computação
 
-Também pode transmitir em fluxo registos de diagnóstico a partir dos recursos de computação com o agente do Windows Azure Diagnostics. [Veja este artigo](azure-diagnostics-streaming-event-hubs.md) para saber como configurar essa opção.
+Também pode transmitir em fluxo registos de diagnóstico a partir dos recursos de computação com o agente do Windows Azure Diagnostics. [Veja este artigo](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md) para saber como configurar essa opção.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

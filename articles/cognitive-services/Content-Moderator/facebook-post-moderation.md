@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Moderação de conteúdo do Facebook - Azure Content Moderator'
+title: 'Tutorial: Moderação de conteúdos do Facebook - Azure Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Moderar páginas do Facebook com o Content Moderator.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: ead8c1d445bf32ecaaf236b4e73c2a583c755049
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223943"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255436"
 ---
-# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Tutorial: Moderação de conteúdo do Facebook com o Content Moderator
+# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Tutorial: Moderação de conteúdos do Facebook com o Content Moderator
 
 Neste tutorial, vamos aprender a utilizar o Content Moderator baseado em aprendizagem automática para ajudar a moderar mensagens e comentários do Facebook.
 
@@ -61,7 +61,7 @@ Inicie sessão no [Portal de Gestão do Azure](https://portal.azure.com/) para c
 4. Especifique as seguintes [definições da aplicação](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings):
 
 > [!NOTE]
-> A definição **cm: Region** deve ser o nome da região (sem espaços).
+> O **cm: Região** deve ser o nome da região (sem espaços).
 > Por exemplo, **westeurope**, não Europa Ocidental, **westcentralus**, não E.U.A. Centro-Oeste, etc.
 >
 
@@ -155,12 +155,12 @@ Todos os exemplos e SDKs dos Serviços Cognitivos da Microsoft estão licenciado
 
 ## <a name="developer-code-of-conduct"></a>Código de Conduta do Programador
 
-Espera-se que os programadores que utilizam os Serviços Cognitivos, incluindo esta biblioteca de cliente e exemplo, sigam o “Código de Conduta do Programador dos Serviços Cognitivos da Microsoft”, disponível em http://go.microsoft.com/fwlink/?LinkId=698895.
+Espera-se que os programadores que utilizam os Serviços Cognitivos, incluindo esta biblioteca de cliente e exemplo, sigam o "Código de Conduta do Programador dos Serviços Cognitivos da Microsoft", disponível em http://go.microsoft.com/fwlink/?LinkId=698895.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 1. [Veja uma demonstração (vídeo)](https://channel9.msdn.com/Events/Build/2017/T6033) desta solução no Microsoft Build 2017.
-1. [O exemplo do Facebook no Github](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
+1. [O exemplo do Facebook no GitHub](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
 2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
 3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token

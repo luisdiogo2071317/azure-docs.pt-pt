@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: d2dda25c63a6e4a73205b9e4a830a211d025b3ed
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.reviewer: georgel
+ms.openlocfilehash: 7bcec2d17f61345986c1676d13011946a0036666
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688170"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164733"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Notas de versão do fornecedor 1.1.30.0 de recursos do SQL
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Estas notas de versão descrevem as melhorias e problemas conhecidos no SQL 1.1.30.0 de versão do fornecedor de recursos.
 
@@ -58,15 +58,29 @@ Esta versão do fornecedor de recursos de SQL do Azure Stack inclui as seguintes
 
 - **SKUs de SQL pode demorar até uma hora para ser visível no portal**. Pode demorar até uma hora para recentemente SKUs criados para ser visível para utilização durante a criação de novas bases de dados do SQL. 
 
-    **Solução**: nenhuma.
+    **Solução**: Nenhum.
 
 - **Reutilizado inícios de sessão SQL**. Início de sessão com o mesmo nome de utilizador como um início de sessão existente na mesma subscrição tentar criar um novo SQL irá resultar em reutilizar o mesmo início de sessão e a palavra-passe existente. 
 
-    **Solução**: utilizar diferentes nomes de utilizador durante a criação de novos inícios de sessão na mesma subscrição ou criar inícios de sessão com o mesmo nome de utilizador em subscrições diferentes.
+    **Solução**: Utilize nomes de utilizador diferente durante a criação de novos inícios de sessão na mesma subscrição ou criar inícios de sessão com o mesmo nome de utilizador em subscrições diferentes.
 
 - **Inícios de sessão SQL partilhados inconsistências nos dados**. Se um início de sessão SQL é partilhado por várias bases de dados do SQL na mesma subscrição, alterar a palavra-passe de início de sessão irá provocar inconsistências nos dados.
 
     **Solução**: Utilize sempre os inícios de sessão diferentes para bases de dados diferentes na mesma subscrição.
+
+- **Requisito de suporte de TLS 1.2**. Se tentar implementar ou atualizar o fornecedor de recursos do SQL de um computador em que o TLS 1.2 não está ativada, a operação poderá falhar. Execute o seguinte comando do PowerShell no computador que está a ser utilizado para implementar ou atualizar o fornecedor de recursos para verificar que o TLS 1.2 é retornado como suportadas:
+
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  Se **Tls12** não é incluídos na saída do comando, TLS 1.2 não está ativada no computador.
+
+    **Solução**: Execute o seguinte comando do PowerShell para ativar o TLS 1.2 e, em seguida, iniciar a implementação de fornecedor de recursos ou atualizar o script a partir da mesma sessão do PowerShell:
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Problemas conhecidos para os administradores de nuvem operacionais do Azure Stack
 Consulte a documentação sobre o [notas de versão do Azure Stack](azure-stack-servicing-policy.md).

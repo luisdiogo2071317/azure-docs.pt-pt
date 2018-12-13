@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Criar uma aplicação Node.js com o JavaScript SDK para gerir os dados da API SQL do Azure Cosmos DB'
+title: 'o Azure Cosmos DB: Criar uma aplicação de node. js com o SDK de JavaScript para gerir os dados do Azure Cosmos DB SQL API'
 description: Apresenta um exemplo de código Node.js que pode utilizar para ligar e consultar a Azure Cosmos DB SQL API
 services: cosmos-db
 author: deborahc
@@ -10,14 +10,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 10dcdd1c9660f37e272251aba181828405eb07ca
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ae935157264dd5fa33df9afd0d8f7d5447855a92
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106588"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161294"
 ---
-# <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB: Criar uma aplicação Node.js com o JavaScript SDK para gerir os dados da API SQL do Azure Cosmos DB
+# <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>o Azure Cosmos DB: Criar uma aplicação de node. js com o SDK de JavaScript para gerir os dados do Azure Cosmos DB SQL API
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -59,7 +59,7 @@ Este início rápido demonstra como criar uma conta [API SQL](sql-api-introducti
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos clonar uma aplicação de API SQL a partir do GitHub, definir a cadeia de ligação e executá-la.
+Agora vamos clonar uma aplicação API SQL a partir do GitHub, definir a cadeia de ligação e executá-la.
 
 1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
 

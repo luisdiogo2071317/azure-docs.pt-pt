@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157365"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256677"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisitos de sistema de Gateway de caixa de dados do Azure (pré-visualização)
 
@@ -26,6 +26,19 @@ Os requisitos de sistema para o dispositivo virtual de Gateway de caixa de dados
 
 > [!IMPORTANT]
 > O Data Box Gateway está em Pré-visualização. Reveja os [termos de utilização da pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução. 
+
+## <a name="specifications-for-the-virtual-device"></a>Especificações para o dispositivo virtual
+
+O sistema anfitrião subjacente para o Gateway de caixa de dados é capaz de dedicar os seguintes recursos para aprovisionar o seu dispositivo virtual:
+
+| Especificações                                          | Descrição              |
+|---------------------------------------------------------|--------------------------|
+| Processadores virtuais (núcleos)   | Mínimo de 4 |            
+| Memória  | Mínimo de 8 GB|
+| Disponibilidade|Nó único|
+| Discos| Disco do SO: 250 GB <br> Disco de dados: Mínimo de 2 TB, fino aprovisionado e tem de ser apoiado por SSDs|
+| Interfaces de rede|1 ou mais interfaces de rede virtual|
+
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>SO suportado para os clientes ligados ao dispositivo
 

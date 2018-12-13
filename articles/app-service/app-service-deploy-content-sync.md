@@ -1,5 +1,5 @@
 ---
-title: Sincronização de conteúdo de uma pasta de cloud para o serviço de aplicações do Azure
+title: Sincronização de conteúdo de uma pasta de cloud - App Service do Azure
 description: Saiba como implementar a aplicação no App Service do Azure através de sincronização de conteúdo de uma pasta de cloud.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 10a33163b2bfe6a1c9c24b9de58f83813e7534a6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: a818cf440fea939eb86271482e95aa813d678e06
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863929"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258632"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronização de conteúdo de uma pasta de cloud para o serviço de aplicações do Azure
 Este artigo mostra-lhe como sincronizar o conteúdo do seu [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) da Dropbox e OneDrive. 

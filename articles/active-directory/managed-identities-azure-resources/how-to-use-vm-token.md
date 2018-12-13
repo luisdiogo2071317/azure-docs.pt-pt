@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 9c1c833046c7dff0f26621be57768021dc036846
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 0355b8cf19209509dca2f3cac93c7abb92a63990
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888992"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323325"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como utilizar identidades geridas para recursos do Azure numa VM do Azure para adquirir um token de acesso 
 
@@ -51,6 +51,7 @@ Uma aplicação cliente pode pedir identidades geridas para recursos do Azure [t
 | [Obter um token através de HTTP](#get-a-token-using-http) | Ponto final de token de detalhes de protocolo de identidades geridas para recursos do Azure |
 | [Obter um token com a biblioteca de Microsoft.Azure.Services.AppAuthentication para .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Exemplo de como utilizar a biblioteca de Microsoft.Azure.Services.AppAuthentication de um cliente .NET
 | [Obter um token com c#](#get-a-token-using-c) | Exemplo do uso de identidades geridas para o ponto final REST de recursos do Azure de um cliente do c# |
+| [Obter um token com Java](#get-a-token-using-java) | Exemplo do uso de identidades geridas para o ponto final REST de recursos do Azure de um cliente de Java |
 | [Obter um token com Go](#get-a-token-using-go) | Exemplo do uso de identidades geridas para o ponto final REST de recursos do Azure de um cliente do Go |
 | [Obter um token com o Azure PowerShell](#get-a-token-using-azure-powershell) | Exemplo do uso de identidades geridas para o ponto final REST de recursos do Azure de um cliente do PowerShell |
 | [Obter um token com o CURL](#get-a-token-using-curl) | Exemplo do uso de identidades geridas para o ponto final REST de recursos do Azure de um cliente de Bash/CURL |
@@ -172,6 +173,50 @@ catch (Exception e)
     string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
 }
 
+```
+
+## <a name="get-a-token-using-java"></a>Obter um token com Java
+
+Utilize esta opção [biblioteca JSON](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4) para obter um token com Java.
+
+```Java
+import java.io.*;
+import java.net.*;
+import com.fasterxml.jackson.core.*;
+ 
+class GetMSIToken {
+    public static void main(String[] args) throws Exception {
+ 
+        URL msiEndpoint = new URL("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
+        HttpURLConnection con = (HttpURLConnection) msiEndpoint.openConnection();
+        con.setRequestMethod("GET");
+        con.setRequestProperty("Metadata", "true");
+ 
+        if (con.getResponseCode()!=200) {
+            throw new Exception("Error calling managed identity token endpoint.");
+        }
+ 
+        InputStream responseStream = con.getInputStream();
+ 
+        JsonFactory factory = new JsonFactory();
+        JsonParser parser = factory.createParser(responseStream);
+ 
+        while(!parser.isClosed()){
+            JsonToken jsonToken = parser.nextToken();
+ 
+            if(JsonToken.FIELD_NAME.equals(jsonToken)){
+                String fieldName = parser.getCurrentName();
+                jsonToken = parser.nextToken();
+ 
+                if("access_token".equals(fieldName)){
+                    String accesstoken = parser.getValueAsString();
+                    System.out.println("Access Token: " + accesstoken.substring(0,5)+ "..." + accesstoken.substring(accesstoken.length()-5));
+                    return;
+                }
+            }
+        }
+    }
+}
 ```
 
 ## <a name="get-a-token-using-go"></a>Obter um token com Go

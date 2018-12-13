@@ -10,17 +10,15 @@ ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 7a8f2fc0d8b9f023e20cf8c4d4939aa3094a13e8
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: c8cc6ccae59b8ee530ad679c492419a348423553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890182"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184123"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorizar o estado de replicação do Active Directory com o Log Analytics
 
@@ -51,7 +49,7 @@ Se não pretender ligar-se a qualquer um dos seus controladores de domínio dire
 2. [Ligar o computador do Windows ao Log Analytics](../../azure-monitor/platform/om-agents.md) ou [ligá-la com o seu ambiente existente do Operations Manager ao Log Analytics](../../azure-monitor/platform/om-agents.md), se já não está ligado.
 3. Nesse computador, defina a seguinte chave de registo:
 
-   * Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management grupos\<ManagementGroupName > \Solutions\ADReplication**
+   * Chave: **Grupos de HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management\<ManagementGroupName > \Solutions\ADReplication**
    * Valor: **IsTarget**
    * Dados do valor: **verdadeiro**
 
@@ -119,32 +117,32 @@ Também pode clicar **exportar** para exportar os resultados para o Excel. Expor
 ![exportado erros de estado de replicação de AD no Excel](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>FAQ de estado de replicação do AD
-**P: qual a frequência são atualizados de dados de estado de replicação de AD?**
-R: as informações são atualizadas a cada cinco dias.
+**P: São a frequência com que dados de estado de replicação de AD atualizados?**
+R: As informações são atualizadas a cada cinco dias.
 
-**P: existe uma forma de configurar a frequência com que estes dados são atualizados?**
-R: não neste momento.
+**P: Existe uma forma de configurar a frequência com que estes dados são atualizados?**
+R: Neste momento, não.
 
-**P: é necessário adicionar todos meus controladores de domínio para a minha área de trabalho do Log Analytics para ver o estado de replicação?**
-R: não, apenas um único controlador de domínio tem de ser adicionado. Se tiver vários controladores de domínio na sua área de trabalho do Log Analytics, os dados de todos eles são enviados para o Log Analytics.
+**P: É necessário adicionar todos meus controladores de domínio para a minha área de trabalho do Log Analytics para ver o estado de replicação?**
+R: Não, apenas um único controlador de domínio tem de ser adicionado. Se tiver vários controladores de domínio na sua área de trabalho do Log Analytics, os dados de todos eles são enviados para o Log Analytics.
 
-**P: não pretendo adicionar quaisquer controladores de domínio a minha área de trabalho do Log Analytics. Posso continuar a utilizar a solução de estado de replicação do AD?**
+**P: Não quero adicionar quaisquer controladores de domínio a minha área de trabalho do Log Analytics. Posso continuar a utilizar a solução de estado de replicação do AD?**
 R: Sim. Pode definir o valor de uma chave de registo para ativá-la. Ver [para permitir que um controlador de domínio enviar dados de AD para o Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
-**P: qual é o nome do processo que faz a recolha de dados?**
+**P: O que é o nome do processo que faz a recolha de dados?**
 R: AdvisorAssessment.exe
 
-**P: quanto tempo demora para recolher dados?**
-R: hora de recolha de dados do depende do tamanho do ambiente do Active Directory, mas, normalmente, demora menos de 15 minutos.
+**P: Quanto tempo demora para recolher dados?**
+R: Hora de recolha de dados depende do tamanho do ambiente do Active Directory, mas, normalmente, demora menos de 15 minutos.
 
-**P: os tipos de dados são recolhidos?**
-R: informações de replicação de são recolhidas através de LDAP.
+**P: Que tipo de dados é recolhido?**
+R: Informações de replicação são recolhidas através de LDAP.
 
-**P: existe uma forma de configurar quando os dados são recolhidos?**
-R: não neste momento.
+**P: Existe uma forma de configurar quando os dados são recolhidos?**
+R: Neste momento, não.
 
-**P: quais as permissões que é necessário recolher dados?**
-R: permissões de usuário normal de para o Active Directory são suficientes.
+**P: Que permissões preciso recolher dados?**
+R: Permissões de usuário normal para o Active Directory são suficientes.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Resolução de problemas de recolha de dados
 Para recolher dados, o pacote de solução de estado de replicação do AD requer pelo menos um controlador de domínio a ser ligado à sua área de trabalho do Log Analytics. Até que se liga um controlador de domínio, é apresentada uma mensagem indicando que **ainda estão a ser recolhidos dados**.

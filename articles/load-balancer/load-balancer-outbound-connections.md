@@ -1,22 +1,24 @@
 ---
-title: Ligações de saída no Azure | Documentos da Microsoft
+title: Ligações de saída no Azure
+titlesuffix: Azure Load Balancer
 description: Este artigo explica como o Azure permite às VMs comunicarem com os serviços de internet pública.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: fdcc039eb71eaeea03aaae856a6d031d4c528669
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687576"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190973"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -54,7 +56,7 @@ Um IP público atribuído a uma VM é uma relação de 1:1 (em vez de 1: muitos)
 
 Se seu aplicativo inicia muitos fluxos de saída e tiver exaustão de porta SNAT, considere atribuir um [ILPIP para atenuar as restrições SNAT](#assignilpip). Revisão [esgotamento de gerenciamento de SNAT](#snatexhaust) na íntegra.
 
-### <a name="lb"></a>Cenário 2: Com balanceamento de carga VM sem um endereço IP público de nível de instância
+### <a name="lb"></a>Cenário 2: VM com balanceamento de carga sem um endereço IP público de nível de instância
 
 Neste cenário, a VM faz parte de um conjunto de back-end de Balanceador de carga público. A VM não tem um endereço IP público atribuído ao mesmo. O recurso do Balanceador de carga tem de ser configurado com uma regra de Balanceador de carga para criar uma ligação entre pública IP Front-end com o conjunto de back-end.
 
@@ -70,7 +72,7 @@ Quando [vários endereços IP públicos estão associados com o Balanceador de c
 
 Para monitorizar o estado de funcionamento das ligações de saída com o Balanceador de carga básico, pode usar [Log Analytics para o Balanceador de carga](load-balancer-monitor-log.md) e [registos de eventos de alerta](load-balancer-monitor-log.md#alert-event-log) para monitorizar as mensagens de esgotamento de porta SNAT.
 
-### <a name="defaultsnat"></a>Cenário 3: Autónomo VM sem um endereço IP público de nível de instância
+### <a name="defaultsnat"></a>Cenário 3: VM autónoma, sem um endereço IP público de nível de instância
 
 Neste cenário, a VM não é parte de um conjunto de Balanceador de carga público (e não faz parte de um conjunto de Balanceador de carga interno) e não tem um endereço ILPIP atribuído a ele. Quando a VM cria um fluxo de saída, Azure traduz-se o endereço IP de origem privados do fluxo de saída para um endereço IP público de origem. O endereço IP público utilizado para este fluxo de saída não é configurável e não contam para o limite de recursos IP público da subscrição. Este endereço IP público não pertence ao utilizador e não pode ser reservado. Se voltar a implementar o conjunto de dimensionamento VM ou o conjunto de disponibilidade ou a máquina virtual, este endereço IP público será liberado e um novo endereço IP público pedida. Não utilize este cenário para endereços IP da lista de permissões. Em vez disso, utilize um dos outros dois cenários em que declara explicitamente o cenário de saída e o endereço IP público a utilizar para conectividade de saída.
 

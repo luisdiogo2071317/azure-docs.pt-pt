@@ -1,5 +1,5 @@
 ---
-title: Integrar uma aplicação com uma rede Virtual do Azure
+title: Integrar aplicações com a rede Virtual do Azure - serviço de aplicações do Azure
 description: Mostra-lhe como ligar uma aplicação no App Service do Azure a uma rede de virtual do Azure nova ou existente
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
-ms.openlocfilehash: e086c187129799e499c7ac057b1755a35f1f2327
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971152"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273362"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a sua aplicação com uma rede Virtual do Azure
 Este documento descreve a funcionalidade de integração de rede virtual do App Service do Azure e mostra como configurá-lo com as aplicações no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). [Redes virtuais do Azure] [ VNETOverview] (VNets) permitem-lhe colocar muitos dos seus recursos do Azure numa rede de endereçáveis não internet. Estas redes, em seguida, podem ser ligadas às suas redes no local usando as tecnologias VPN. 
@@ -30,7 +31,7 @@ O serviço de aplicações do Azure tem duas formas.
 
 Este documento aborda o recurso de integração de VNet, o que é destinado à utilização no multi-inquilino de serviço de aplicações.  Se a sua aplicação está em [ambiente do serviço de aplicações][ASEintro], em seguida, ele já se encontra numa VNet e não requer a utilização da funcionalidade de integração de VNet para aceder aos recursos na mesma VNet.
 
-Integração VNet oferece o acesso a aplicações web a recursos na sua rede virtual, mas não conceder acesso privado à sua aplicação web da rede virtual. Acesso a sites privada refere-se para tornar a sua aplicação apenas acessível a partir de uma rede privada, tais como a partir de dentro de uma rede virtual do Azure. Acesso de sites privados só está disponível com um ASE configurado com uma carga balanceador interno (ILB). Para obter detalhes sobre como utilizar um ASE de ILB, começar com o artigo aqui: [criando e usando um ASE de ILB][ILBASE]. 
+Integração VNet oferece o acesso a aplicações web a recursos na sua rede virtual, mas não conceder acesso privado à sua aplicação web da rede virtual. Acesso a sites privada refere-se para tornar a sua aplicação apenas acessível a partir de uma rede privada, tais como a partir de dentro de uma rede virtual do Azure. Acesso de sites privados só está disponível com um ASE configurado com uma carga balanceador interno (ILB). Para obter detalhes sobre como utilizar um ASE de ILB, começar com o artigo aqui: [Criar e utilizar um ASE de ILB][ILBASE]. 
 
 Integração de VNet, muitas vezes, é utilizada para ativar o acesso a partir de aplicações para uma base de dados e web services em execução na sua VNet. Com a integração de VNet, não terá de expor um ponto final público para aplicações na sua VM, mas pode utilizam os endereços de encaminháveis privados não internet em vez disso. 
 
@@ -161,7 +162,7 @@ Existem três custos relacionados ao uso da funcionalidade de integração de VN
 * Custos da transferência de dados
 * Custos de Gateway de VPN.
 
-As suas aplicações tem de estar no Standard, Premium ou plano de serviço de aplicações do PremiumV2. Pode ver mais detalhes sobre esses custos aqui: [preços do App Service][ASPricing]. 
+As suas aplicações tem de estar no Standard, Premium ou plano de serviço de aplicações do PremiumV2. Pode ver mais detalhes sobre esses custos aqui: [Preços do serviço de aplicações][ASPricing]. 
 
 Existe um custo de saída de dados, mesmo se a VNet estiver no mesmo centro de dados. Esses custos são descritos num [detalhes de preços de transferência de dados][DataPricing]. 
 

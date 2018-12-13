@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: ddf749dd033771ae9bad09f4548c277c279c2bb5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839370"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186128"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução do System Center Operations Manager verificação de integridade (pré-visualização)
 
@@ -99,7 +97,7 @@ Agora que foi criada a conta Run As, tem de servidores de gestão de destino no 
 2. Na **distribuição** separador, clique em **Add** para o **selecionado computadores** caixa e adicione o servidor de gestão para distribuir a conta a.  Clique em **OK** duas vezes para guardar as alterações.
 3. Sob **configuração de Run As**, clique em **perfis**.
 4. Procure o *perfil de avaliação do SCOM*.
-5. Deve ser o nome do perfil: *Microsoft System Center Advisor SCOM avaliação perfil Run As*.
+5. O nome de perfil deve ser: *Avaliação do Microsoft System Center Advisor SCOM perfil Run As*.
 6. Com o botão direito e atualizar as respetivas propriedades e adicionar recentemente criado a conta Run as que criou anteriormente.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script SQL para conceder permissões mais detalhadas para a conta Run As
@@ -161,8 +159,8 @@ Por predefinição, o Microsoft System Center Advisor SCOM avaliação executar 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Ativar a regra para um servidor de gestão específico
 
 1. Na **Authoring** área de trabalho da consola de operações do Operations Manager, procure a regra *Microsoft System Center Advisor SCOM avaliação executar avaliação regra* no **regras** painel.
-2. Nos resultados da pesquisa, selecione aquele que inclui o texto *tipo: servidor de gestão*.
-3. A regra com o botão direito e, em seguida, clique em **substitui** > **para um objeto específico da classe: servidor de gestão**.
+2. Nos resultados da pesquisa, selecione aquele que inclui o texto *tipo: Servidor de gestão*.
+3. A regra com o botão direito e, em seguida, clique em **substitui** > **para um objeto específico da classe: Servidor de gestão**.
 4.  Na lista de servidores de gestão disponíveis, selecione o servidor de gestão em que a regra deve ser executado.  Deve ser o mesmo servidor de gestão que configurou anteriormente para associar a conta Run As com.
 5.  Certifique-se de que altere o valor de substituição como **True** para o **ativado** valor do parâmetro.<br><br> ![parâmetro de substituição](./media/scom-assessment/rule.png)
 
@@ -173,8 +171,8 @@ Por predefinição, o Microsoft System Center Advisor SCOM avaliação executar 
 Por predefinição, a avaliação é configurada para executar cada 10.080 minutos (ou sete dias). É possível substituir o valor para um valor mínimo de 1440 minutos (ou um dia). O valor representa a lacuna de tempo mínimo necessária entre as execuções de avaliação sucessivas. Para o intervalo de substituição, utilize os passos abaixo.
 
 1. Na **Authoring** área de trabalho da consola do Operations Manager, procure a regra *Microsoft System Center Advisor SCOM avaliação executar avaliação regra* no **regras** secção.
-2. Nos resultados da pesquisa, selecione aquele que inclui o texto *tipo: servidor de gestão*.
-3. A regra com o botão direito e, em seguida, clique em **substituir a regra** > **para todos os objetos da classe: servidor de gestão**.
+2. Nos resultados da pesquisa, selecione aquele que inclui o texto *tipo: Servidor de gestão*.
+3. A regra com o botão direito e, em seguida, clique em **substituir a regra** > **para todos os objetos da classe: Servidor de gestão**.
 4. Alteração da **intervalo** valor do parâmetro para o valor de intervalo desejado. No exemplo abaixo, o valor é definido como 1.440 minutos (um dia).<br><br> ![parâmetro de intervalo](./media/scom-assessment/interval.png)<br>  
 
     Se o valor é definido como inferior a 1440 minutos, em seguida, a regra é executada num intervalo de um dia. Neste exemplo, a regra ignora o valor do intervalo e é executado com uma frequência de um dia.

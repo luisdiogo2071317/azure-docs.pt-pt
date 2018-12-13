@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 3cd6ef1716d455c5ac755122b8696dbc43fdf459
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 92f6bc358fe8cc5ab8f7242d94edc3004eaab4b9
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581872"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163383"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalar o bloco de notas do Jupyter no seu computador e ligar ao Apache Spark no HDInsight
 
@@ -36,9 +36,9 @@ Os pré-requisitos listados aqui não são para instalar o Jupyter. Estes destin
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Instalar o bloco de notas do Jupyter no seu computador
 
-Tem de instalar o Python antes de instalar o Jupyter notebooks. Python e o Jupyter estão disponíveis como parte dos [distribuição Anaconda](https://www.continuum.io/downloads). Quando instalar o Anaconda, instala uma distribuição do Python. Depois de instalar o Anaconda, adicionar a instalação de Jupyter ao executar comandos apropriados.
+Tem de instalar o Python antes de instalar o Jupyter notebooks. Python e o Jupyter estão disponíveis como parte dos [distribuição Anaconda](https://www.anaconda.com/download/). Quando instalar o Anaconda, instala uma distribuição do Python. Depois de instalar o Anaconda, adicionar a instalação de Jupyter ao executar comandos apropriados.
 
-1. Transfira o [instalador de Anaconda](https://www.continuum.io/downloads) por sua plataforma e a execução do programa de configuração. Ao executar o Assistente de configuração, certifique-se de que selecionar a opção para adicionar Anaconda a sua variável de caminho.
+1. Transfira o [instalador de Anaconda](https://www.anaconda.com/download/) por sua plataforma e a execução do programa de configuração. Ao executar o Assistente de configuração, certifique-se de que selecionar a opção para adicionar Anaconda a sua variável de caminho.
 1. Execute o seguinte comando para instalar o Jupyter.
 
         conda install jupyter
@@ -138,12 +138,12 @@ Pode haver vários motivos por que razão poderá querer instalar o Jupyter no s
 >
 
 ## <a name="seealso"></a>Ver também
-* [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
+* [Descrição geral: Apache Spark no HDInsight do Azure](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Apache Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: Efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de registos de Web site com o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações

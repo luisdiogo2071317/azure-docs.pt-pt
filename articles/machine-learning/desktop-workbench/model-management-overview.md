@@ -2,20 +2,20 @@
 title: Descrição geral conceptual da gestão de modelos do Azure Machine Learning | Documentos da Microsoft
 description: Este documento explica os conceitos de gestão de modelos do Azure Machine Learning.
 services: machine-learning
-author: hjerezmsft
-ms.author: hjerez
+author: chris-lauren
+ms.author: clauren
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: d3f7e206e7f4aa61a8ec1272ff2670d81bb7a33e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b89e80051ec53649a3da8fadcf412c58c177525c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974685"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260213"
 ---
 # <a name="azure-machine-learning-model-management"></a>Gestão de Modelos do Azure Machine Learning
 
@@ -102,7 +102,7 @@ O fluxo de trabalho completo, que descrevem esses conceitos é capturado na figu
 
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) 
+## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ) 
 - **Que tipos de dados são suportados? Pode transmitir matrizes NumPy diretamente como entrada para o serviço web?**
 
    Se está a fornecer o ficheiro de esquema que foi criado com generate_schema SDK, em seguida, pode passar NumPy e/ou Pandas DF. Também é possível passar qualquer entradas serializáveis de JSON. Pode passar a imagem como cadeia com codificação binária também.

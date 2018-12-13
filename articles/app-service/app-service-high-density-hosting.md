@@ -1,5 +1,5 @@
 ---
-title: Alojamento de alta densidade no serviço de aplicações do Azure com o dimensionamento por aplicação | Documentos da Microsoft
+title: Alojamento de alta densidade usando por aplicação dimensionamento - serviço de aplicações do Azure | Documentos da Microsoft
 description: Alojamento de alta densidade no App Service do Azure
 author: btardif
 manager: erikre
@@ -14,12 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
-ms.openlocfilehash: e07653db70c5baff038cacf8628351c682e20f7f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: e7ebe3ade66e62e1f42aa304b33c42d96be72c06
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971985"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258921"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Alojamento de alta densidade no serviço de aplicações do Azure com o dimensionamento por aplicação
 Por predefinição, dimensionar aplicações de serviço de aplicações, tem de dimensionar os [plano do App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) que são executados. Quando várias aplicações são executadas no mesmo plano de serviço de aplicações, cada instância de escalamento horizontal é executada todas as aplicações no plano.
@@ -129,10 +130,10 @@ Por aplicação dimensionamento é uma funcionalidade que está ativada em ambas
 Siga estes passos para configurar de alta densidade para as suas aplicações de alojamento:
 
 1. Configurar o ambiente de serviço de aplicações e escolha um conjunto de trabalho dedicado para o cenário de alojamento de alta densidade.
-1. Criar um único plano do serviço de aplicações e dimensioná-lo para utilizar a capacidade disponível no conjunto de trabalho.
-1. Definir o `PerSiteScaling` sinalizador como true no plano de serviço de aplicações.
-1. Novas aplicações são criadas e atribuídas a esse plano de serviço de aplicações com o **numberOfWorkers** definida como **1**. Utilizando esta configuração produz a mais alta densidade possível neste conjunto de trabalho.
-1. O número de trabalhadores pode ser configurado de forma independente por aplicação para conceder recursos adicionais, conforme necessário. Por exemplo:
+2. Criar um único plano do serviço de aplicações e dimensioná-lo para utilizar a capacidade disponível no conjunto de trabalho.
+3. Definir o `PerSiteScaling` sinalizador como true no plano de serviço de aplicações.
+4. Novas aplicações são criadas e atribuídas a esse plano de serviço de aplicações com o **numberOfWorkers** definida como **1**. Utilizando esta configuração produz a mais alta densidade possível neste conjunto de trabalho.
+5. O número de trabalhadores pode ser configurado de forma independente por aplicação para conceder recursos adicionais, conforme necessário. Por exemplo:
     - Pode definir uma aplicação de uso intenso **numberOfWorkers** ao **3** tenham maior capacidade de processamento para essa aplicação. 
     - Aplicações de baixa utilização definiria **numberOfWorkers** ao **1**.
 

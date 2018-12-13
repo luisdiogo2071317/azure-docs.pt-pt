@@ -1,5 +1,5 @@
 ---
-title: Vincular um certificado SSL personalizado já existente às Aplicações Web do Azure | Microsoft Docs
+title: Vincular o certificado SSL personalizado existente - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como vincular um certificado SSL personalizado a aplicações Web, ao back-end de aplicações móveis ou a aplicações API no Serviço de Aplicações do Azure.
 services: app-service\web
 documentationcenter: nodejs
@@ -14,15 +14,15 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: df2ab9b16201cdb408cbe028b1814de7a3dfb4c7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 57046b9e199fbe5e88d0ea7fa25248641693508a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962897"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257000"
 ---
-# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Vincular um certificado SSL personalizado já existente às Aplicações Web do Azure
+# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Associar um certificado SSL personalizado existente às Aplicações Web do Azure
 
 As Aplicações Web do Azure dispõem de um serviço de alojamento na Web, altamente dimensionável e com correção automática. Este tutorial mostra-lhe como vincular um certificado SSL personalizado comprado numa autoridade de certificação fidedigna às [Aplicações Web do Azure](app-service-web-overview.md). Quando tiver terminado, poderá aceder à sua aplicação Web no ponto final HTTPS do seu domínio DNS personalizado.
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3a16977f2d3bc7321de2d2a1538276f182e7fa10
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321738"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190997"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -27,7 +27,7 @@ Este artigo descreve as políticas de palavra-passe e os requisitos de complexid
 
 Com uma política de porta de dois **os administradores não têm a capacidade de utilizar perguntas de segurança**.
 
-Uma política de porta de dois requer dois tipos de dados de autenticação, como um endereço de e-mail *e* um número de telefone. Uma política de porta de dois aplica-se nas seguintes circunstâncias:
+A política de porta de dois requer dois tipos de dados de autenticação, por exemplo, um **endereço de e-mail**, **aplicação de autenticador**, ou uma **número de telefone**. Uma política de porta de dois aplica-se nas seguintes circunstâncias:
 
 * Todas as seguintes funções de administrador do Azure são afetadas:
   * Administrador de suporte técnico
@@ -80,7 +80,7 @@ A tabela seguinte descreve as definições de política de palavra-passe dispon�
 | --- | --- |
 | Carateres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
 | Carateres não permitidos |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Apenas palavras-passe fortes</li></ul> |
-| Restrições de palavra-passe |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 carateres.</li><li>Apenas palavras-passe fortes: requer três de quatro dos seguintes procedimentos:<ul><li>Carateres em minúsculas.</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
+| Restrições de palavra-passe |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 carateres.</li><li>Palavras-passe seguras apenas: Requer três de quatro dos seguintes procedimentos:<ul><li>Carateres em minúsculas.</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
 | Duração de expiração de palavra-passe |<ul><li>Valor predefinido: **90** dias.</li><li>O valor é configurável utilizando o `Set-MsolPasswordPolicy` cmdlet a partir do módulo Azure Active Directory para Windows PowerShell.</li></ul> |
 | Notificação de expiração de palavra-passe |<ul><li>Valor predefinido: **14** dias (antes de expira a palavra-passe).</li><li>O valor é configurável utilizando o `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
 | Expiração de palavra-passe |<ul><li>Valor predefinido: **false** dias (indica que expiração de palavra-passe está ativada).</li><li>O valor pode ser configurado para contas de utilizador individuais ao utilizar o `Set-MsolUser` cmdlet.</li></ul> |

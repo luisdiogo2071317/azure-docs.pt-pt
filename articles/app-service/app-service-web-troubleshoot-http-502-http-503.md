@@ -1,5 +1,5 @@
 ---
-title: Corrigir 502 gateway incorreto, 503 Serviço indisponíveis erros | Documentos da Microsoft
+title: Corrigir 502 gateway incorreto, 503 Serviço indisponíveis erros - serviço de aplicações do Azure | Documentos da Microsoft
 description: Resolva 502 gateway incorreto e 503 Serviço indisponível na sua aplicação web alojada no App Service do Azure.
 services: app-service\web
 documentationcenter: ''
@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: d0d1efcdaab07e77d835319544fc70eb8687702f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: 71842f9dbc8d0454da1847c956dea3b063208836
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316349"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259295"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Resolver erros HTTP "502 gateway inválido" e "503 Serviço indisponível" nas suas aplicações web do Azure
 "502 gateway inválido" e "503 Serviço indisponível" são erros comuns na sua aplicação web alojada num [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Este artigo ajuda-o a resolver esses erros.

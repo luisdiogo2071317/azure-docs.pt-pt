@@ -1,7 +1,7 @@
 ---
 title: Adicionar expressões de exemplo
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Saiba como adicionar expressões em aplicativos de compreensão de idiomas (LUIS).
+description: Expressões com de exemplo são exemplos de texto de perguntas de utilizador ou de comandos. Ensinar a compreensão de idiomas (LUIS), terá de adicionar expressões de exemplo para um objetivo.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: ada1d7e922bdd47cfc9fe8139ad83adfa45ed073
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 33c941f84952faca1961bb65687b4098b837a2fd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085523"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139177"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a expressões de exemplo 
 
@@ -90,7 +90,7 @@ O nome do funcionário, John Smith, é um pré-criados [personName](luis-referen
 
 1. Introduza o nome da entidade composta na lista pendente.
 
-    ![Captura de ecrã da introdução do nome da entidade](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
+    ![Captura de ecrã de introduzir o nome da entidade compostos na lista pendente](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     Quando encapsula as entidades corretamente, uma linha verde está sob a frase inteira.
 
@@ -118,7 +118,7 @@ Na expressão `Move John Smith from Seattle to Cairo`, Seattle é a localizaçã
 
 1. A palavra a expressão foi identificada com a entidade de hierárquica do principal. Terá de atribuir a palavra a entidade subordinada. Voltar para a expressão na página de detalhes de intenção. Selecione o word, em seguida, na lista pendente, escolha o nome da entidade que criou e siga o menu à direita para escolher a entidade de filho correta.
 
-    ![Página de detalhes de captura de ecrã de objetivos, com a entidade de ToLocation realçada](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
+    ![Página de detalhes de captura de ecrã de objetivos, onde tem de atribuir a palavra para a entidade subordinada](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >Os nomes de entidades de subordinado tem de ser exclusivos em todas as entidades numa única aplicação. Duas entidades hierárquicas diferentes não podem conter entidades subordinadas com o mesmo nome. 
@@ -135,7 +135,7 @@ Selecione as palavras que são sublinhadas em vermelho na expressão.
 
 Apresenta a caixa de entidade a **estado de entidade** com uma marca de exclamação vermelha se existe uma discrepância de predição. Para ver o estado de entidade com informações sobre a diferença entre entidades com nome e previstas, selecione **estado de entidade** , em seguida, selecione o item para a direita.
 
-![Discrepância de predição de estado de captura de ecrã da entidade](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Captura de ecrã da seleção correta item a corrigir discrepância de predição](./media/luis-how-to-add-example-utterances/entity-status.png)
 
 A linha de vermelho pode aparecer em qualquer um dos seguintes horas:
 

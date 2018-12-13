@@ -1,7 +1,7 @@
 ---
-title: Criar e usar destinos de computação para a preparação de modelos
+title: Destinos de computação para a preparação de modelos
 titleSuffix: Azure Machine Learning service
-description: Saiba como selecionar e configurar os ambientes de treinamento (destinos de computação) usados para treinar seus modelos de machine learning. O serviço Azure Machine Learning permite-lhe facilmente ambientes de treinamento do comutador. Comece a formação localmente e, se precisar de aumentar horizontalmente, mude para um destino de computação com base na cloud.
+description: Configure os ambientes de treinamento (destinos de computação) para a preparação de modelos de aprendizagem automática. É possível alternar facilmente ambientes de treinamento. Comece a formação localmente e, se precisar de aumentar horizontalmente, mude para um destino de computação com base na cloud. Databricks
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -12,12 +12,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1a6533c1ec25eb8500f67cb98494463d7daf752b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: c91cc8dabc1fcf4918e64c18e5d5975dc7720c30
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080100"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316000"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação de preparação de modelos
 
@@ -27,11 +27,11 @@ Um destino de computação é um recurso onde é executado o script de treinamen
 
 Existem três amplas categorias de destinos de computação que suporta o Azure Machine Learning:
 
-* __Local__: seu computador local ou uma VM com base na cloud que utiliza como um ambiente de dev/experimentação. 
+* __Local__: Seu computador local ou uma VM com base na cloud que utiliza como um ambiente de dev/experimentação. 
 
-* __Gerido computação__: computação do Azure Machine Learning é uma oferta de computação que é gerenciada pelo serviço Azure Machine Learning. Permite-lhe criar facilmente computação única ou várias node para o treinamento, teste e inferência de batch.
+* __Gerido computação__: Computação do Azure Machine Learning é uma oferta de computação é gerida pelo serviço Azure Machine Learning. Permite-lhe criar facilmente computação única ou várias node para o treinamento, teste e inferência de batch.
 
-* __Ligado a computação__: também pode trazer a sua própria computação em nuvem do Azure e ligá-los para o Azure Machine Learning. Leia mais abaixo em tipos de computação suportados e como utilizá-los.
+* __Ligado a computação__: Também pode trazer a sua própria computação em nuvem do Azure e ligá-los para o Azure Machine Learning. Leia mais abaixo em tipos de computação suportados e como utilizá-los.
 
 
 ## <a name="supported-compute-targets"></a>Destinos de computação suportados
@@ -43,7 +43,7 @@ O serviço do Azure Machine Learning tem suporte diferentes em vários destinos 
 |[Computador local](#local)| Talvez | &nbsp; | ✓ | &nbsp; |
 |[Computação do Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[VM remota](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
 |[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[O Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
@@ -169,8 +169,8 @@ Um persistente computação do Azure Machine Learning podem ser reutilizada em v
 
 Para criar um recurso de computação do Azure Machine Learning persistente, tem de especificar o `vm_size` e `max_nodes` parâmetros. O Azure Machine Learning utiliza, em seguida, predefinições inteligentes para o restante dos parâmetros.  Por exemplo, a computação está definida para dimensionar automaticamente para zero nós quando não utilizado e para criar VMs dedicadas para executarem as tarefas conforme necessário. 
 
-* **vm_size**: família de VM de nós criados pela computação do Azure Machine Learning.
-* **max_nodes**: número máximo de nós para dimensionamento automático e executar uma tarefa na computação do Azure Machine Learning.
+* **vm_size**: Família de VM de nós criados pela computação do Azure Machine Learning.
+* **max_nodes**: Número máximo de nós para dimensionamento automático e executar uma tarefa na computação do Azure Machine Learning.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -198,12 +198,12 @@ Também pode configurar várias propriedades avançadas durante a criação de c
 
 Para além `vm_size` e `max_nodes`, pode utilizar as seguintes propriedades:
 
-* **min_nodes**: nós mínimo (0 nós predefinida) para reduzir verticalmente e executar uma tarefa na computação do Azure Machine Learning.
-* **vm_priority**: escolher entre "dedicada" (predefinição) e "lowpriority' VMs durante a criação de computação do Azure Machine Learning. As VMs de prioridade baixa utilizar excesso de capacidade do Azure e são, portanto, mais baratas, mas o risco de ficar a ser suplantadas.
-* **idle_seconds_before_scaledown**: tempo de inatividade (padrão de 120 segundos) de espera após a conclusão de execução antes de dimensionamento automático para min_nodes.
-* **vnet_resourcegroup_name**: grupo de recursos do __existente__ rede virtual. Computação do Azure Machine Learning é criado dentro desta rede virtual.
-* **vnet_name**: nome da rede virtual. A rede virtual tem de estar na mesma região que a sua área de trabalho do Azure Machine Learning.
-* **subnet_name**: nome da sub-rede na rede virtual. Recursos de computação do Machine Learning do Azure serão atribuídos a endereços IP deste intervalo de sub-rede.
+* **min_nodes**: Número mínimo de nós (0 nós predefinida) para reduzir verticalmente e executar uma tarefa na computação do Azure Machine Learning.
+* **vm_priority**: Escolha entre "dedicada" (predefinição) e "lowpriority' VMs durante a criação de computação do Azure Machine Learning. As VMs de prioridade baixa utilizar excesso de capacidade do Azure e são, portanto, mais baratas, mas o risco de ficar a ser suplantadas.
+* **idle_seconds_before_scaledown**: Tempo de inatividade (padrão de 120 segundos) de espera após a conclusão de execução antes de dimensionamento automático para min_nodes.
+* **vnet_resourcegroup_name**: Grupo de recursos do __existente__ rede virtual. Computação do Azure Machine Learning é criado dentro desta rede virtual.
+* **vnet_name**: Nome da rede virtual. A rede virtual tem de estar na mesma região que a sua área de trabalho do Azure Machine Learning.
+* **subnet_name**: Nome da sub-rede na rede virtual. Recursos de computação do Machine Learning do Azure serão atribuídos a endereços IP deste intervalo de sub-rede.
 
 > [!TIP]
 > Quando cria um recurso de computação do Azure Machine Learning persistente tem também a capacidade de atualizar as respetivas propriedades, como o min_nodes ou o max_nodes. Basta chamar o `update()` função para o mesmo.
@@ -359,7 +359,7 @@ Para anexar como um destino de computação do Data Lake Analytics, tem de utili
 
 * __Nome de computação__: O nome que pretende atribuir a este recurso de computação.
 * __Grupo de recursos__: O grupo de recursos que contém a conta do Data Lake Analytics.
-* __Nome da conta__: nome da conta do Data Lake Analytics.
+* __Nome da conta__: O nome da conta do Data Lake Analytics.
 
 O código a seguir demonstra como anexar como um destino de computação do Data Lake Analytics:
 
@@ -571,6 +571,6 @@ Consulte os blocos de notas nas seguintes localizações:
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Referência do SDK do Machine Learning do Azure](https://aka.ms/aml-sdk)
-* [Tutorial: preparar um modelo](tutorial-train-models-with-aml.md)
+* [Tutorial: Preparar um modelo](tutorial-train-models-with-aml.md)
 * [Onde pretende implementar modelos](how-to-deploy-and-where.md)
 * [Criar machine learning pipelines com o serviço Azure Machine Learning](concept-ml-pipelines.md)

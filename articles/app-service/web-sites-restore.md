@@ -1,5 +1,5 @@
 ---
-title: Restaurar uma aplicação no Azure
+title: Restaurar aplicação - serviço de aplicações do Azure
 description: Saiba como restaurar a aplicação a partir de uma cópia de segurança.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 69e0e8282ee0b8503fe11a57b8ba6037247822dd
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.custom: seodec18
+ms.openlocfilehash: 603a6bab75c4a5da4425bcc57d2cc5ccda728636
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160506"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274144"
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar uma aplicação no Azure
 Este artigo mostra como restaurar uma aplicação no [App Service do Azure](../app-service/app-service-web-overview.md) que anteriormente efetuou uma cópia (consulte [volta a sua aplicação no Azure](web-sites-backup.md)). Pode restaurar a sua aplicação com as respetivas bases de dados ligadas no local para um estado anterior, ou criar novas aplicações com base numa das suas cópias de segurança originais da aplicação. Serviço de aplicações do Azure suporta as seguintes bases de dados para cópia de segurança e restauro:

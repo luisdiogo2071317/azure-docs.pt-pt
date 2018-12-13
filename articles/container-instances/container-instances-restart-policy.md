@@ -1,18 +1,18 @@
 ---
-title: Executar tarefas em contentores no Azure Container Instances com as políticas de reinício
+title: As políticas com tarefas em contentores de reinício de utilização no Azure Container Instances
 description: Saiba como utilizar o Azure Container Instances para executar tarefas que são executadas até a conclusão, tal como na compilação, teste ou trabalhos de composição de imagem.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 12/10/2018
 ms.author: danlep
-ms.openlocfilehash: c9e3fadd5164ca0d770f36ba95c30db933efcd39
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853897"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321038"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contentores com políticas de reinício
 
@@ -24,7 +24,7 @@ Os exemplos apresentados neste artigo uso a CLI do Azure. Tem de ter a CLI do Az
 
 ## <a name="container-restart-policy"></a>Política de reinício do contentor
 
-Quando cria um contentor no Azure Container Instances, pode especificar uma das três definições de política de reinício.
+Quando cria um [grupo de contentores](container-instances-container-groups.md) no Azure Container Instances, pode especificar uma das três definições de política de reinício.
 
 | Política de reinício   | Descrição |
 | ---------------- | :---------- |
@@ -93,6 +93,24 @@ Saída:
 
 Este exemplo mostra a saída que o script enviado para STDOUT. As tarefas em contentores, no entanto, poderão em vez disso, escrever o resultado no armazenamento persistente para recuperação posterior. Por exemplo, para um [partilha de ficheiros do Azure](container-instances-mounting-azure-files-volume.md).
 
+## <a name="manually-stop-and-start-a-container-group"></a>Manualmente parar e iniciar um grupo de contentores
+
+Independentemente da política de reinício configurada para um [grupo de contentores](container-instances-container-groups.md), pode querer manualmente parar ou iniciar um grupo de contentores.
+
+* **Parar** - manualmente pode parar um grupo de contentor em execução em qualquer altura - por exemplo, utilizando o [stop do contentor de az] [ az-container-stop] comando. Para determinadas cargas de trabalho do contentor, poderá querer parar um grupo de contentores após um período de tempo definido para poupar nos custos. 
+
+  A parar a um grupo de contentores é encerrado e recicla os contentores no grupo de; ele não preservar o estado do contentor. 
+
+* **Iniciar** - quando um grupo de contentores está parado - ou porque os contentores terminaram por conta própria ou parar manualmente o grupo - pode utilizar o [contentor iniciar API](/rest/api/container-instances/containergroups/start) ou o portal do Azure para iniciar manualmente os contentores o grupo. Se a imagem de contentor para qualquer contentor for atualizada, uma nova imagem é extraída. 
+
+  A partir de um grupo de contentores começa uma nova implementação com a mesma configuração de contentor. Esta ação pode ajudá-lo a reutilizar rapidamente uma configuração de grupo do contentor conhecidos que funciona como esperado. Não precisa de criar um novo grupo de contentor para executar a mesma carga de trabalho.
+
+* **Reinicie** -pode reiniciar um grupo de contentores, enquanto está a ser executado - por exemplo, utilizando o [reinício do contentor de az] [ az-container-restart] comando. Esta ação reinicia todos os contentores no grupo de contentores. Se a imagem de contentor para qualquer contentor for atualizada, uma nova imagem é extraída. 
+
+  Reiniciar um grupo de contentores é útil quando deseja resolver um problema de implementação. Por exemplo, se uma limitação de recursos temporário impede que os contentores em execução com êxito, reiniciar o grupo poderá ajudar a resolver o problema.
+
+Depois de iniciar manualmente ou reinicie um grupo de contentores, o grupo de contentor é executado, de acordo com o configurado política de reinício.
+
 ## <a name="configure-containers-at-runtime"></a>Configurar os contentores em tempo de execução
 
 Quando cria uma instância de contentor, pode definir seus **variáveis de ambiente**, bem como especificar um personalizado **linha de comandos** para ser executado quando o contentor é iniciado. Pode utilizar estas definições nas suas tarefas de lote para preparar cada contentor com a configuração de tarefa específica.
@@ -131,6 +149,8 @@ Saída:
  ('ROSENCRANTZ', 69),
  ('GUILDENSTERN', 54)]
 ```
+
+
 
 ## <a name="command-line-override"></a>Substituição de linha de comandos
 
@@ -174,5 +194,7 @@ Para obter detalhes sobre como manter a saída de seus contentores que são exec
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli

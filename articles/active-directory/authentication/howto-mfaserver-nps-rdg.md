@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 99ed74a9664fbeeb65d90e51d0afcd97dd0b0ca0
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 67c9cc5b46b7567674b3d0bf99bd85ab321c6bd3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346503"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277177"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Gateway de Ambiente de Trabalho Remoto e Servidor Multi-Factor Authentication do Azure com o RADIUS
 
@@ -30,6 +30,9 @@ Instale o Servidor Multi-Factor Authentication num servidor separado, o qual ir�
 - Um Servidor de MFA do Azure associado a um domínio. Se ainda não tiver um instalado, siga os passos em [Getting started with the Azure Multi-Factor Authentication Server (Introdução ao Servidor Multi-Factor Authentication do Azure)](howto-mfaserver-deploy.md).
 - Existente configurado o servidor NPS.
 - Um Gateway de Ambiente de Trabalho Remoto que autentica com os Serviços de Política de Rede.
+
+> [!NOTE]
+> Este artigo deve ser utilizado com implementações de servidor MFA apenas, não do MFA do Azure (com base na Cloud).
 
 ## <a name="configure-the-remote-desktop-gateway"></a>Configurar o Gateway de Ambiente de Trabalho Remoto
 Configure o Gateway de RD para enviar a autenticação RADIUS para um Servidor Multi-Factor Authentication do Azure. 

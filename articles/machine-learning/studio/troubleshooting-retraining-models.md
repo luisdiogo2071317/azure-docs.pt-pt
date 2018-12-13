@@ -4,9 +4,8 @@ description: Identificar e corrigir encontrou de problemas comuns quando são re
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0f12627e169af00f575347796d1f2e79fe1f6fa2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307207"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252784"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Resolução de problemas relativos a novas preparações de um serviço web clássico do Azure Machine Learning Studio
 ## <a name="retraining-overview"></a>Descrição geral de reparametrização
@@ -41,16 +40,16 @@ Em seguida, pode utilizar o exemplo C# código de página de ajuda de API do ser
 
 Com todas as peças no lugar, os principais passos que tem de efetuar para voltar a preparar o modelo são os seguintes:
 
-1. Chamar o Web Service de treinamento: A chamada é para o serviço BES (Batch Execution), não a resposta RRS (Request Service). Pode utilizar o exemplo C# código na página de ajuda da API para efetuar a chamada. 
-2. Localizar os valores para o *BaseLocation*, *RelativeLocation*, e *SasBlobToken*: estes valores são devolvidos na saída da sua chamada para o serviço da Web de treinamento. 
+1. Chame o Web Service de treinamento:  A chamada é para o serviço BES (Batch Execution), não a resposta RRS (Request Service). Pode utilizar o exemplo C# código na página de ajuda da API para efetuar a chamada. 
+2. Localizar os valores para o *BaseLocation*, *RelativeLocation*, e *SasBlobToken*: Estes valores são devolvidos na saída da sua chamada para o serviço da Web de treinamento. 
    ![a mostrar a saída do exemplo reparametrização e os valores de BaseLocation RelativeLocation e SasBlobToken.][image6]
-3. Atualizar o ponto de final de adicionado do serviço web classificação com o novo modelo treinado: usando o código de exemplo fornecido nos modelos do Machine Learning voltar a preparar programaticamente, atualize o novo ponto final adicionado para o modelo de classificação com o modelo treinado recentemente a partir do Serviço da Web de treinamento.
+3. Atualize o ponto de final adicionado do serviço web classificação com o novo modelo treinado: Usando o código de exemplo fornecido nos modelos do Machine Learning voltar a preparar programaticamente, atualize o novo ponto final que para o modelo de classificação com o modelo treinado recentemente adicionou do serviço da Web de treinamento.
 
 ## <a name="common-obstacles"></a>Obstáculos comuns
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Verifique se tem o URL correto do PATCH
 O URL de aplicar o PATCH de mensagens em fila que está a utilizar tem de ser um associados com o novo ponto de extremidade classificação adicionado para o serviço web de pontuação. Existem várias formas de obter o URL de PATCHES:
 
-**Opção 1: programaticamente**
+**Opção 1: Programaticamente**
 
 Para obter o URL correto de PATCHES:
 
@@ -71,7 +70,7 @@ Para obter o URL correto de PATCHES:
 7. Sob o **Patch** URL, clique em **API ajuda** para abrir a página de ajuda de aplicação de patches.
 
 > [!NOTE]
-> Se tiver adicionado o ponto final para o serviço da Web de treinamento em vez do serviço Web preditivo, receberá o erro seguinte ao clicar o **recursos de atualização** ligação: "Pedimos, mas esta funcionalidade não é suportado ou disponíveis no Neste contexto. Este serviço Web tem não existem recursos atualizáveis. Podemos desculpa pelo inconveniente e estão a trabalhar na melhoria este fluxo de trabalho."
+> Se tiver adicionado o ponto final para o serviço da Web de treinamento em vez do serviço Web preditivo, receberá o erro seguinte ao clicar o **recursos de atualização** ligação: "Desculpe, mas esta funcionalidade não é suportado ou disponíveis neste contexto. Este serviço Web tem não existem recursos atualizáveis. Podemos desculpa pelo inconveniente e estão a trabalhar na melhoria este fluxo de trabalho."
 > 
 > 
 
@@ -80,8 +79,8 @@ A página de ajuda de PATCH contém o URL de aplicar o PATCH de mensagens em fil
 ![URL de patch.][image5]
 
 ### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Verifique que está a atualizar o ponto de final de classificação correto
-* Não corrigir o serviço da web de treinamento: A operação de correção deve ser executada no serviço web de pontuação.
-* Não aplicar o patch o ponto final predefinido do serviço web: A operação de correção deve ser executada em nova classificação web ponto final do serviço que adicionou.
+* Não corrigir o serviço da web de treinamento: A operação de patch tem de ser efetuada sobre o serviço web de pontuação.
+* Não corrigir o ponto final predefinido do serviço web: A operação de patch tem ser efetuada na nova classificação web ponto final do serviço que adicionou.
 
 Pode verificar o serviço web, o ponto final está no, visite o portal de serviços da Web. 
 

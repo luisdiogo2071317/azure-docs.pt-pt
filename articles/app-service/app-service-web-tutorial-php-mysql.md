@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação Web PHP e MySQL no Azure | Microsoft Docs
+title: Criar aplicação PHP com MySQL – serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como pôr aplicações PHP a funcionar no Azure, com ligação a uma base de dados MySQL no Azure.
 services: app-service\web
 documentationcenter: php
@@ -14,13 +14,13 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: e5574eee1ac553151f073fe4e398a84c596c55f2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968233"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251679"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Tutorial: Criar uma aplicação Web PHP e MySQL no Azure
 
@@ -51,7 +51,7 @@ Para concluir este tutorial:
 * [Instalar o Git](https://git-scm.com/)
 * [Instalar o PHP 5.6.4 ou superior](https://php.net/downloads.php)
 * [Instalar o Composer](https://getcomposer.org/doc/00-intro.md)
-* Ative as extensões do PHP seguintes, de que o Laravel precisa: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+* Ative as seguintes extensões PHP que o Laravel precisa: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Instalar e iniciar o MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>Preparar o MySQL local
@@ -66,7 +66,7 @@ Numa janela de terminal, ligue ao seu servidor MySQL local. Pode utilizar esta j
 mysql -u root -p
 ```
 
-Se lhe for pedida uma palavra-passe, introduza a palavra-passe da conta `root`. Se não se lembrar da sua palavra-passe da conta de raiz, veja [MySQL: Como Repor a Palavra-passe de Raiz](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+Se lhe for pedida uma palavra-passe, introduza a palavra-passe da conta `root`. Se não se lembra da sua palavra-passe da conta de raiz, consulte o artigo [MySQL: Como repor a palavra-passe de raiz](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
 Se o comando for executado com êxito, significa que o servidor MySQL está em execução. Se não, siga os [passos de pós-instalação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html) para verificar se o servidor MySQL local é iniciado.
 
@@ -600,7 +600,7 @@ Para parar a transmissão de registos em fluxo em qualquer altura, escreva `Ctrl
 > [!TIP]
 > Uma aplicação PHP pode utilizar o padrão [error_log()](https://php.net/manual/function.error-log.php) como saída para a consola. A aplicação de exemplo utiliza esta abordagem em _app/Http/routes.php_.
 >
-> Como uma arquitetura Web [o Laravel utiliza o Monolog](https://laravel.com/docs/5.4/errors) como fornecedor de registo. Para ver como o Monolog envia mensagens para a consola, veja [PHP: como utilizar o Monolog para iniciar sessão na consola (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
+> Como uma arquitetura Web [o Laravel utiliza o Monolog](https://laravel.com/docs/5.4/errors) como fornecedor de registo. Para ver como o monolog envia mensagens de saída para a consola, consulte [PHP: Como utilizar o monolog para iniciar sessão na consola (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >
 >
 

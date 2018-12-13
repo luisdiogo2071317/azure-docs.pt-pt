@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 206dddd70ae9063782b7dc8dfaf1214f53d5fac8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 62b7e293468a8b92f22ee1a5fd5b38cd15cfafbf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955713"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261539"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com o .NET SDK
 > [!div class="op_single_selector"]
@@ -104,7 +104,7 @@ Facilidade de utilização, o fragmento seguinte utiliza valores predefinidos pa
 
 Algumas coisas que deve saber sobre o trecho anterior:
 
-* O trecho anterior utiliza funções de programa auxiliar `GetTokenCache` e `GetCreds_User_Popup`. O código para estas funções de programa auxiliar está disponível [aqui, no Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
+* O trecho anterior utiliza funções de programa auxiliar `GetTokenCache` e `GetCreds_User_Popup`. O código para estas funções de programa auxiliar está disponível [aqui, no GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache).
 * Para ajudar a concluir o tutorial mais depressa, o fragmento utiliza um ID de cliente do aplicativo nativo que está disponível por predefinição para todas as subscrições do Azure. Por isso, pode **utilizar este fragmento tal como está na sua aplicação**.
 * No entanto, se pretender utilizar o seu próprio domínio do Azure AD e o ID de cliente de aplicação, tem de criar uma aplicação nativa do Azure AD e, depois, utilizar o ID de inquilino do Azure AD, o ID de cliente e o URI de redirecionamento da aplicação que criou. Ver [criar uma aplicação do Active Directory para autenticação de utilizador final com o Data Lake Storage Gen1](data-lake-store-end-user-authenticate-using-active-directory.md) para obter instruções.
 

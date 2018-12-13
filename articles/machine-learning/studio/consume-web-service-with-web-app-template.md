@@ -1,5 +1,5 @@
 ---
-title: Consumir o serviço web com o modelo de aplicação web - Azure Machine Learning Studio | Documentos da Microsoft
+title: Consumir o serviço web do Studio com o modelo de aplicação web - Azure Machine Learning Studio | Documentos da Microsoft
 description: Utilize um modelo de aplicação web no Azure Marketplace para consumir um serviço web preditivo no Azure Machine Learning.
 keywords: serviço Web, operacionalização, API de REST do machine learning
 services: machine-learning
@@ -7,7 +7,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 3eaf881ea1b8831891588310bfcec5e8fb146978
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6a6da1af937338637cd875abe4e9d539b2e2b6e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078587"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273889"
 ---
-# <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>Consumir um serviço web Azure Machine Learning utilizando um modelo de aplicação web
+# <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>Consumir um serviço web do Azure Machine Learning Studio utilizando um modelo de aplicação web
 
 Pode desenvolver um modelo preditivo e implementá-la como um serviço web do Azure ao utilizar:
 - Azure Machine Learning Studio.
@@ -36,7 +35,7 @@ Existem várias formas de utilizar a API REST e aceder ao serviço web. Por exem
 
 Mas a maneira mais rápida e fácil de acessar o serviço web é através de modelos de aplicação web disponíveis na [do Azure Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="azure-machine-learning-web-app-templates"></a>Modelos de aplicação de web do Azure Machine Learning
 Modelos de aplicações web disponíveis no Azure Marketplace, podem criar uma aplicação web personalizado que sabe que os dados de entrada e os resultados esperados do seu serviço da web. Tudo o que precisa fazer é permitir o acesso a aplicações web ao seu serviço web e os dados e o modelo faz o resto.

@@ -1,5 +1,5 @@
 ---
-title: Tutorial sobre como indexar bases de dados SQL do Azure no Azure Search | Microsoft Docs
+title: Tutorial para indexação de bases de dados SQL do Azure no portal do Azure - Azure Search
 description: Neste tutorial, pesquise as bases de dados SQL do Azure para extrair dados pesquisáveis e preencher um índice do Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988800"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312056"
 ---
-# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial: Pesquisar uma base de dados SQL do Azure através dos indexadores do Azure Search
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial: Pesquise a uma base de dados SQL do Azure com indexadores do Azure Search
 
 Este tutorial mostra-lhe como configurar um indexador para extrair dados pesquisáveis a partir de uma base de dados SQL do Azure de exemplo. Os [indexadores](search-indexer-overview.md) são um componente do Azure Search que pesquisam origens de dados externas e preenchem um [índice de pesquisa](search-what-is-an-index.md) com conteúdos. O indexador da base de dados SQL do Azure é o mais utilizado de todos. 
 
@@ -274,7 +275,7 @@ Todos os indexadores, incluindo o que acabou de criar programaticamente, são ap
 
 A forma mais rápida de os limpar após o tutorial é eliminar o grupo de recursos que contém o serviço Azure Search. Pode eliminar o grupo de recursos agora para eliminar definitivamente tudo o que este contém. No portal, o nome do grupo de recursos está na página Descrição Geral do serviço Azure Search.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode anexar algoritmos com tecnologia de IA a um pipeline de indexador. Como próximo passo, avance para o tutorial seguinte.
 

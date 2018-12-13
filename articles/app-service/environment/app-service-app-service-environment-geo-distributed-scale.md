@@ -1,5 +1,5 @@
 ---
-title: Escala Distribuída Geograficamente com Ambientes de Serviço de Aplicações
+title: Dimensionamento distribuído geograficamente com ambientes de serviço de aplicações - Azure
 description: Saiba como dimensionar horizontalmente aplicações com a distribuição geográfica com o Gestor de tráfego e ambientes de serviço de aplicações.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
-ms.openlocfilehash: bc85139dfa3589baf6505fac2269f8755dcaddc8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.custom: seodec18
+ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213253"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273872"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala Distribuída Geograficamente com Ambientes de Serviço de Aplicações
 ## <a name="overview"></a>Descrição geral
@@ -42,18 +43,18 @@ O resto deste tópico descreve as etapas envolvidas com a configuração de uma 
 ## <a name="planning-the-topology"></a>Planejar a topologia
 Antes de criar um espaço de aplicação distribuída, ajuda para ter algumas informações de partes antes do tempo.
 
-* **Domínio personalizado para a aplicação:** qual é o nome de domínio personalizado que os clientes irão utilizar para aceder à aplicação?  Para a aplicação de exemplo é o nome de domínio personalizado *www.scalableasedemo.com*
-* **Domínio do Traffic Manager:** um nome de domínio tem de ser escolhido ao criar um [perfil do Gestor de tráfego do Azure][AzureTrafficManagerProfile].  Este nome será combinado com o *trafficmanager.net* sufixo para registar uma entrada de domínio que é gerenciada pelo Gestor de tráfego.  Para a aplicação de exemplo, o escolhido de nome é *demonstração dimensionável ase*.  Como resultado é o nome de domínio completo que é gerido pelo Gestor de tráfego *demo.trafficmanager.net dimensionável ase*.
-* **Estratégia para dimensionar os requisitos de espaço de aplicação:** será distribuída a superfície do aplicativo em vários ambientes de serviço de aplicações numa única região?  Várias regiões?  Um misturar e combinar as duas abordagens?  A decisão deve basear-se as expectativas de onde o tráfego do cliente terão origem, bem como a eficiência com que pode dimensionar o restante de uma aplicação que suporta a infraestrutura de back-end.  Por exemplo, com uma aplicação sem monitoração de estado de 100%, uma aplicação pode ser altamente dimensionada utilizando uma combinação de vários ambientes de serviço de aplicações por região do Azure, multiplicado por ambientes de serviço de aplicação implementado em várias regiões do Azure.  Com 15 + regiões públicas do Azure disponíveis para escolha, os clientes verdadeiramente podem criar um volume de memória do aplicativo de hiper escala a nível mundial.  Para a aplicação de exemplo utilizada neste artigo, três ambientes de serviço de aplicações foram criados numa única região do Azure (Sul E.u.a.).
-* **Convenção de nomenclatura para os ambientes de serviço de aplicações:** cada ambiente de serviço de aplicações requer um nome exclusivo.  Para além de um ou dois ambientes de serviço de aplicações é útil ter uma convenção de nomenclatura para ajudar a identificar cada ambiente de serviço de aplicações.  Para a aplicação de exemplo foi utilizada uma convenção de nomenclatura simple.  Os nomes dos três ambientes de serviço de aplicação são *fe1ase*, *fe2ase*, e *fe3ase*.
-* **Convenção de nomenclatura para as aplicações:** , uma vez que várias instâncias da aplicação serão implementadas, um nome é necessária para cada instância da aplicação implementada.  Um recurso pouco conhecido, mas muito conveniente de ambientes de serviço de aplicações é que o mesmo nome de aplicação pode ser usado em vários ambientes de serviço de aplicações.  Uma vez que cada ambiente de serviço de aplicações tem um sufixo de domínio exclusivo, os desenvolvedores podem optar por utilizar novamente o mesmo nome de aplicação em cada ambiente.  Por exemplo um desenvolvedor pode ter aplicações com o nome da seguinte forma: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc.  Embora o aplicativo de exemplo de cada instância da aplicação também tem um nome exclusivo.  Os nomes de instância da aplicação utilizados são *webfrontend1*, *webfrontend2*, e *webfrontend3*.
+* **Domínio personalizado para a aplicação:**  O que é o nome de domínio personalizado que os clientes irão utilizar para aceder à aplicação?  Para a aplicação de exemplo é o nome de domínio personalizado *www.scalableasedemo.com*
+* **Domínio do Gestor de tráfego:**  Um nome de domínio tem de ser escolhido ao criar uma [perfil do Gestor de tráfego do Azure][AzureTrafficManagerProfile].  Este nome será combinado com o *trafficmanager.net* sufixo para registar uma entrada de domínio que é gerenciada pelo Gestor de tráfego.  Para a aplicação de exemplo, o escolhido de nome é *demonstração dimensionável ase*.  Como resultado é o nome de domínio completo que é gerido pelo Gestor de tráfego *demo.trafficmanager.net dimensionável ase*.
+* **Estratégia para dimensionar os requisitos de espaço de aplicação:**  A superfície do aplicativo ser distribuída em vários ambientes de serviço de aplicações numa única região?  Várias regiões?  Um misturar e combinar as duas abordagens?  A decisão deve basear-se as expectativas de onde o tráfego do cliente terão origem, bem como a eficiência com que pode dimensionar o restante de uma aplicação que suporta a infraestrutura de back-end.  Por exemplo, com uma aplicação sem monitoração de estado de 100%, uma aplicação pode ser altamente dimensionada utilizando uma combinação de vários ambientes de serviço de aplicações por região do Azure, multiplicado por ambientes de serviço de aplicação implementado em várias regiões do Azure.  Com 15 + regiões públicas do Azure disponíveis para escolha, os clientes verdadeiramente podem criar um volume de memória do aplicativo de hiper escala a nível mundial.  Para a aplicação de exemplo utilizada neste artigo, três ambientes de serviço de aplicações foram criados numa única região do Azure (Sul E.u.a.).
+* **Convenção de nomenclatura para os ambientes de serviço de aplicações:**  Cada ambiente de serviço de aplicações requer um nome exclusivo.  Para além de um ou dois ambientes de serviço de aplicações é útil ter uma convenção de nomenclatura para ajudar a identificar cada ambiente de serviço de aplicações.  Para a aplicação de exemplo foi utilizada uma convenção de nomenclatura simple.  Os nomes dos três ambientes de serviço de aplicação são *fe1ase*, *fe2ase*, e *fe3ase*.
+* **Convenção de nomenclatura para as aplicações:**  Uma vez que várias instâncias da aplicação serão implementadas, é necessário um nome para cada instância da aplicação implementada.  Um recurso pouco conhecido, mas muito conveniente de ambientes de serviço de aplicações é que o mesmo nome de aplicação pode ser usado em vários ambientes de serviço de aplicações.  Uma vez que cada ambiente de serviço de aplicações tem um sufixo de domínio exclusivo, os desenvolvedores podem optar por utilizar novamente o mesmo nome de aplicação em cada ambiente.  Por exemplo um desenvolvedor pode ter aplicações com o nome da seguinte forma: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc.  Embora o aplicativo de exemplo de cada instância da aplicação também tem um nome exclusivo.  Os nomes de instância da aplicação utilizados são *webfrontend1*, *webfrontend2*, e *webfrontend3*.
 
 ## <a name="setting-up-the-traffic-manager-profile"></a>Como configurar o perfil do Gestor de tráfego
 Depois de várias instâncias de uma aplicação estão implementadas em vários ambientes de serviço de aplicações, as instâncias de aplicações individuais podem ser registadas com o Gestor de tráfego.  Para a aplicação de exemplo, um Gestor de tráfego de perfil é necessária para *demo.trafficmanager.net dimensionável ase* que possa rotear os clientes a qualquer uma das seguintes instâncias de aplicação implementada:
 
-* **webfrontend1.fe1ase.p.azurewebsites.NET:** uma instância da aplicação de exemplo implementada num ambiente de serviço de aplicações primeiro.
-* **webfrontend2.fe2ase.p.azurewebsites.NET:** uma instância da aplicação de exemplo implementada num ambiente de serviço de aplicações segundo.
-* **webfrontend3.fe3ase.p.azurewebsites.NET:** uma instância da aplicação de exemplo implementada num ambiente de serviço de aplicações terceiro.
+* **webfrontend1.fe1ase.p.azurewebsites.NET:**  Uma instância da aplicação de exemplo implementada num ambiente de serviço de aplicações primeiro.
+* **webfrontend2.fe2ase.p.azurewebsites.NET:**  Uma instância da aplicação de exemplo implementada num ambiente de serviço de aplicações segundo.
+* **webfrontend3.fe3ase.p.azurewebsites.NET:**  Uma instância da aplicação de exemplo implementada num ambiente de serviço de aplicações terceiro.
 
 A maneira mais fácil para registrar vários App Service do Azure pontos de extremidade, tudo em execução no **mesmo** região do Azure, é com o Powershell [suporte do Gestor de tráfego do Azure Resource Manager] [ ARMTrafficManager].  
 

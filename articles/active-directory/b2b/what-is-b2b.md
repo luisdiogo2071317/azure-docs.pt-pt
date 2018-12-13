@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 609f48d0c2ba41d658850ade367d9b225941b105
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: HT
+ms.openlocfilehash: 992abf97751695c10f28f355e1086a12530b9456
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982613"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165236"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso do utilizador convidado na colaboração B2B do Azure Active Directory?
 
@@ -73,11 +73,11 @@ Pode delegar a gestão de utilizadores convidados aos proprietários da aplicaç
 
 Integre os seus parceiros externos de forma personalizada de acordo com as necessidades da sua organização.
 - Utilize as [APIs de convite da colaboração B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) para personalizar as suas experiências de integração, incluindo a criação de portais de inscrição self-service. 
-- Utilize o código de exemplo que fornecemos para um portal self-service [no Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
+- Utilize o código de exemplo que fornecemos para um portal self-service [no GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
 ![portal de inscrição](media/what-is-b2b/sign-up-portal.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Orientação sobre o licenciamento para a colaboração B2B do Azure Active Directory](licensing-guidance.md)
 - [Adicionar utilizadores convidados de colaboração B2B no portal](add-users-administrator.md)

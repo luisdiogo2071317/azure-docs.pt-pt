@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Azure Policy – impor padrão de correspondência da etiqueta
+title: Exemplo - impor o padrão de correspondência de etiqueta
 description: Esta política de exemplo requer que os recursos cumpram o padrão de correspondência do valor da etiqueta.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 4de75212567c03b4fd5395818dbeae7644ee4926
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 237a5e9a54394f1227e270c0a42a160f9259710a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963241"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313892"
 ---
 # <a name="enforce-tag-match-pattern-for-tag-values"></a>Impor o padrão de correspondência da etiqueta para valores de etiqueta
 
@@ -69,6 +68,6 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-- Reveja mais exemplos nas [amostras do Azure Policy](index.md)
+- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

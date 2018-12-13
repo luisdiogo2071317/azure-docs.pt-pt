@@ -1,5 +1,5 @@
 ---
-title: Criar um índice da Azure Search no portal do | Documentos da Microsoft
+title: Criar um índice da Azure Search no portal do Azure - Azure Search
 description: Saiba como criar um índice para o Azure Search com designers de índice de portal internos.
 manager: cgronlun
 author: heidisteen
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: bb1ba5e860dab237b3f6e16205b5e4cbad45e6e3
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 4bba8b41418dadad1b241d60ab0b7aeee4c046d7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990851"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316714"
 ---
 # <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Como criar um índice da Azure Search no portal do Azure
 
@@ -95,7 +96,7 @@ A documentação da API do Azure Search inclui exemplos de código com um índic
 
 Depois de criar um índice do Azure Search, pode avançar para o próximo passo: [carregar dados pesquisáveis para o índice](search-what-is-data-import.md).
 
-Em alternativa, também pode analisar os índices mais detalhadamente. Além da coleção de Campos, um índice também especifica analisadores, sugestores, perfis de classificação e definições CORS. O portal fornece páginas com separadores para definir os elementos mais comuns: campos, analisadores e sugestores. Para criar ou modificar outros elementos, pode utilizar a API REST ou o SDK .NET.
+Em alternativa, também pode analisar os índices mais detalhadamente. Além da coleção de Campos, um índice também especifica analisadores, sugestores, perfis de classificação e definições CORS. O portal fornece páginas com separadores para definir os elementos mais comuns: Campos, analisadores e sugestores. Para criar ou modificar outros elementos, pode utilizar a API REST ou o SDK .NET.
 
 ## <a name="see-also"></a>Consulte também
 

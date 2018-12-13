@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 12/12/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 1ecdbdfb657d0372fea87c4260226f9de8ded9ce
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d1c95802889c80baf79eaf0a0af1e30d6bc3fdfd
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682508"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322282"
 ---
-# <a name="application-map-triage-distributed-applications"></a>Mapa da aplicação: Fazer a triagem de aplicações distribuídas
+# <a name="application-map-triage-distributed-applications"></a>Mapa da aplicação: Faça a triagem de aplicações distribuídas
 
 Mapa da aplicação ajuda-o a afunilamentos de desempenho spot ou hotspots de falha em todos os componentes da aplicação distribuída. Cada nó no mapa representa um componente da aplicação ou as respetivas dependências; e tem o estado de funcionamento KPI e estado de alerta. Pode clicar a partir de qualquer componente para diagnósticos mais detalhados, como eventos do Application Insights. Se a sua aplicação utilizar serviços do Azure, também pode clicar sucessivamente para diagnóstico do Azure, tais como as recomendações do Assistente de base de dados SQL.
 
@@ -38,7 +38,7 @@ Pode ver a topologia de completo da aplicação através de vários níveis dos 
 
 Esta experiência é iniciado com a deteção de progressiva dos componentes. Quando carrega o mapa de aplicativo em primeiro lugar, um conjunto de consultas são acionados para detetar os componentes relacionados com este componente. Um botão no canto superior esquerdo será atualizado com o número de componentes na sua aplicação à medida que são detetados. 
 
-Ao clicar em "Componentes de mapa de atualização", o mapa é atualizado com todos os componentes detetados até que ponto.
+Ao clicar em "Componentes de mapa de atualização", o mapa é atualizado com todos os componentes detetados até que ponto. Dependendo da complexidade da sua aplicação, isto pode demorar um minuto para carregar.
 
 Se todos os componentes são funções dentro de um único recurso do Application Insights, em seguida, este passo de deteção não é necessário. O carregamento inicial para esse aplicativo terá todos os seus componentes.
 
@@ -60,7 +60,7 @@ Selecione **investigar falhas** para iniciar o painel de falhas.
 
 ### <a name="investigate-performance"></a>Investigar o desempenho
 
-Para resolver problemas de desempenho problemas selecione **investigue o desempenho**
+Para resolver problemas de desempenho, selecione **investigar desempenho**.
 
 ![Captura de ecrã do botão de desempenho de investigar](media/app-insights-app-map/investigate-performance.png)
 
@@ -68,7 +68,7 @@ Para resolver problemas de desempenho problemas selecione **investigue o desempe
 
 ### <a name="go-to-details"></a>Ir para os detalhes
 
-Selecione **vá para detalhes** para explorar a experiência de transação de ponta a ponta que pode oferecer exibições feitas para o nível de pilha de chamada.
+Selecione **vá para detalhes** para explorar a experiência de transação de ponto-a-ponto, o que pode oferecer exibições feitas para o nível de pilha de chamada.
 
 ![Captura de ecrã do botão go-detalhes](media/app-insights-app-map/go-to-details.png)
 
@@ -76,7 +76,7 @@ Selecione **vá para detalhes** para explorar a experiência de transação de p
 
 ### <a name="view-in-analytics"></a>Vista no Analytics
 
-Para consultar e investigar o clique de mais de dados de aplicativos **ver na análise**.
+Para consultar e investigar ainda mais os seus dados de aplicações, clique em **ver na análise**.
 
 ![Captura de ecrã da vista no botão análise](media/app-insights-app-map/view-in-analytics.png)
 
@@ -84,21 +84,128 @@ Para consultar e investigar o clique de mais de dados de aplicativos **ver na an
 
 ### <a name="alerts"></a>Alertas
 
-Para ver alertas ativos e as regras subjacentes que fazem com que os alertas ser tiggered, selecione **alertas**.
+Para ver alertas ativos e as regras subjacentes que fazem com que os alertas ser acionado, selecione **alertas**.
 
 ![Captura de ecrã do botão de alertas](media/app-insights-app-map/alerts.png)
 
 ![Captura de ecrã da experiência de análise](media/app-insights-app-map/alerts-view.png)
 
-## <a name="video"></a>Vídeo
+## <a name="set-cloudrolename"></a>Conjunto cloud_RoleName
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+Mapa da aplicação utiliza o `cloud_RoleName` propriedade para identificar os componentes no mapa. O SDK do Application Insights adiciona automaticamente o `cloud_RoleName` propriedade para a telemetria emitida por componentes. Por exemplo, o SDK irá adicionar um nome do web site ou um nome de função de serviço para o `cloud_RoleName` propriedade. No entanto, há casos em que poderá pretender substituir o valor predefinido. Para substituir cloud_RoleName e alterar o que é apresentado no mapa de aplicativo:
 
-## <a name="feedback"></a>Comentários
-Envie comentários por meio da opção de comentários do portal.
+### <a name="net"></a>.NET
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace CustomInitializer.Telemetry
+{
+    public class MyTelemetryInitializer : ITelemetryInitializer
+    {
+        public void Initialize(ITelemetry telemetry)
+        {
+            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+            {
+                //set custom role name here
+                telemetry.Context.Cloud.RoleName = "RoleName";
+            }
+        }
+    }
+}
+```
+
+**Carregar seu inicializador**
+
+In ApplicationInsights.config:
+
+```xml
+    <ApplicationInsights>
+      <TelemetryInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="CustomInitializer.Telemetry.MyTelemetryInitializer, CustomInitializer"/>
+        ...
+      </TelemetryInitializers>
+    </ApplicationInsights>
+```
+
+É um método alternativo instanciar o inicializador no código, por exemplo, no Global.aspx.cs:
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+### <a name="nodejs"></a>Node.js
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY').start();
+appInsights.defaultClient.context.tags["ai.cloud.role"] = "your role name";
+appInsights.defaultClient.context.tags["ai.cloud.roleInstance"] = "your role instance";
+```
+
+### <a name="alternate-method-for-nodejs"></a>Método alternativo para node. js
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY').start();
+
+appInsights.defaultClient.addTelemetryProcessor(envelope => {
+    envelope.tags["ai.cloud.role"] = "your role name";
+    envelope.tags["ai.cloud.roleInstance"] = "your role instance"
+});
+```
+
+### <a name="java"></a>Java
+
+Se utilizar o Spring Boot com o arranque de Spring Boot do Application Insights, a única alteração necessária é definir seu nome personalizado para o aplicativo no arquivo Application.
+
+`spring.application.name=<name-of-app>`
+
+O starter Spring Boot atribuirá automaticamente para o valor introduzido para a propriedade spring.application.name cloudRoleName.
+
+Para obter mais informações sobre a correlação de Java e como configurar cloudRoleName para Check-out de aplicativos de não-SpringBoot [secção](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) no correlação.
+
+### <a name="clientbrowser-side-javascript"></a>JavaScript do lado do cliente/browser
+
+```javascript
+appInsights.queue.push(() => {
+appInsights.context.addTelemetryInitializer((envelope) => {
+  envelope.tags["ai.cloud.role"] = "your role name";
+  envelope.tags["ai.cloud.roleInstance"] = "your role instance";
+});
+});
+```
+
+Para obter mais informações sobre como substituir a propriedade cloud_RoleName com inicializadores de telemetria, consulte [adicionar propriedades: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Se estiver a ter problemas ao mapa da aplicação a funcionar conforme esperado, experimente estes passos:
+
+1. Certifique-se de que está a utilizar um SDK oficialmente suportado. SDKs de Comunidade/não suportadas não suportem a correlação.
+
+    Consulte este [artigo](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) para obter uma lista dos SDKs suportados.
+
+2. Atualize todos os componentes para a versão mais recente do SDK.
+
+3. Se estiver a utilizar as funções do Azure com o C#, atualize para o [V2 funções](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+
+4. Confirme [cloud_RoleName](app-insights-app-map.md#Set-cloud-RoleName) está configurado corretamente.
+
+## <a name="portal-feedback"></a>Comentários do portal
+Para enviar comentários, utilize a opção de comentários do portal.
 
 ![Imagem de MapLink-1](./media/app-insights-app-map/13.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Portal do Azure](https://portal.azure.com)
+* [Correlação de compreensão](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)

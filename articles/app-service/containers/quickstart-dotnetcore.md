@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação Web .NET Core e implementar no Serviço de Aplicações no Linux | Microsoft Docs
+title: Criar aplicação web .NET Core no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Implemente a sua primeira aplicação Hello World .NET Core no Serviço de Aplicações no Linux em minutos.
 keywords: serviço de aplicações do azure, aplicação web, dotnet, núcleos, linux, oss
 services: app-service
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 5aff783735d38a2707f42efe8a1632bd5aaafc4b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: f074c6184652ced133a7253bee3cc7a8a556c574
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316774"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251798"
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Criar uma aplicação Web .NET Core no Serviço de Aplicações no Linux
 

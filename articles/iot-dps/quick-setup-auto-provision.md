@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cad0ec8c2e2f8972cd856b34b8abdd5afd3a6316
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 15d243218632ce9010d0f4542fb97f311e8a3166
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515204"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53182643"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure
 
@@ -36,12 +36,12 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 3. Apresente as seguintes informações para a sua nova instância do serviço Aprovisionamento de Dispositivos e clique em **Criar**.
 
-    * **Nome**: indique um nome exclusivo para a nova instância do serviço Aprovisionamento de Dispositivos. Se o nome introduzido estiver disponível, aparece uma marca de verificação verde.
-    * **Subscrição**: escolha a subscrição que quer utilizar para criar a instância do serviço Aprovisionamento de Dispositivos.
-    * **Grupo de recursos**: este campo permite criar um novo grupo de recursos ou selecionar um já existente para conter a nova instância. Selecione o mesmo grupo de recursos que contém o hub Iot que criou acima, por exemplo, **TestResources**. Ao colocar todos os recursos relacionados num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos elimina todos os recursos que se encontram nesse grupo. Para obter mais informações, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-portal.md).
-    * **Localização**: selecione a localização mais próxima dos seus dispositivos.
+    * **Nome:** Forneça um nome exclusivo para a nova instância do serviço aprovisionamento de dispositivos. Se o nome introduzido estiver disponível, aparece uma marca de verificação verde.
+    * **Subscrição:** Escolha a subscrição que pretende utilizar para criar esta instância do serviço aprovisionamento de dispositivos.
+    * **Grupo de recursos:** Este campo permite-lhe criar um novo grupo de recursos ou selecione um já existente para conter a nova instância. Selecione o mesmo grupo de recursos que contém o hub Iot que criou acima, por exemplo, **TestResources**. Ao colocar todos os recursos relacionados num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos elimina todos os recursos que se encontram nesse grupo. Para obter mais informações, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-portal.md).
+    * **Localização:** Selecione a localização mais próxima dos seus dispositivos.
 
-    ![Introduza as informações básicas da instância do serviço Aprovisionamento de Dispositivos no painel do portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+      ![Introduza as informações básicas da instância do serviço Aprovisionamento de Dispositivos no painel do portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
 4. Clique no botão de notificação para monitorizar a criação da instância do recurso. Assim que o serviço é implementado com êxito, clique em **Afixar ao dashboard** e, em seguida **Ir para recurso**.
 
@@ -57,11 +57,11 @@ Nesta secção, vai adicionar uma configuração à instância do Serviço de Ap
 
 3. Na página **Adicionar ligação ao hub IoT**, forneça as seguintes informações para ligar a nova instância do serviço Aprovisionamento de Dispositivos a um hub IoT. Em seguida, clique em **Guardar**. 
 
-    * **Subscrição**: selecione a subscrição que contém o hub IoT que quer ligar à nova instância do Serviço Aprovisionamento de Dispositivos.
-    * **Hub IoT**: selecione o hub IoT a ligar à nova instância do serviço Aprovisionamento de Dispositivos.
-    * **Política de Acesso**: selecione **iothubowner** como as credenciais para estabelecer a ligação ao hub IoT.  
+    * **Subscrição:** Selecione a subscrição que contém o IoT hub que deseja vincular com a nova instância de serviço aprovisionamento de dispositivos.
+    * **Hub IOT:** Selecione o hub IoT para ligar com a nova instância de serviço aprovisionamento de dispositivos.
+    * **Política de acesso:** Selecione **iothubowner** como as credenciais para estabelecer a ligação com o hub IoT.  
 
-    ![Ligar o nome do hub para ligar à instância do serviço Aprovisionamento de Dispositivos no painel do portal](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+      ![Ligar o nome do hub para ligar à instância do serviço Aprovisionamento de Dispositivos no painel do portal](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
 3. Agora, deverá ver o hub selecionado no painel **Hubs IoT ligados**. Poderá ter de clicar em **Atualizar** para mostrar os **Hubs IoT ligados**.
 

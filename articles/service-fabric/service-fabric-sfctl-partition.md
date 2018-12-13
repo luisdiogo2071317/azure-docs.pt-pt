@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 93478e5d13ef649b86ebc047f4e53f1486e2ff68
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c2bb1c0147d38b4286e2cdfb2d161eaa0704e393
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493958"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271492"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Consultar e gerir partições de qualquer serviço.
@@ -30,9 +30,9 @@ Consultar e gerir partições de qualquer serviço.
 | --- | --- |
 | perda de dados | Esta API irá induza perda de dados para a partição especificada. |
 | data-loss-status | Obtém o progresso de uma operação de perda de dados de partição a utilizar com a API de StartDataLoss. |
-| estado de funcionamento | Obtém o estado de funcionamento a partição especificada do Service Fabric. |
+| saúde | Obtém o estado de funcionamento a partição especificada do Service Fabric. |
 | informações | Obtém as informações sobre uma partição do Service Fabric. |
-| lista | Obtém a lista de partições de um serviço do Service Fabric. |
+| list | Obtém a lista de partições de um serviço do Service Fabric. |
 | carregar | Obtém as informações de carga da partição do Service Fabric especificada. |
 | a reposição de carga | Repõe a carga atual de uma partição do Service Fabric. |
 | perda de quórum | Induces perda de quórum para uma partição de determinado serviço com estado. |
@@ -47,8 +47,9 @@ Consultar e gerir partições de qualquer serviço.
 ## <a name="sfctl-partition-data-loss"></a>perda de dados do partição sfctl
 Esta API irá induza perda de dados para a partição especificada.
 
-Aciona uma chamada à API do OnDataLossAsync da partição.  Esta API irá induza perda de dados para a partição especificada. Aciona uma chamada à API do OnDataLoss da partição. Perda de dados real irá depender do DataLossMode especificado. <br> PartialDataLoss - apenas um quórum de réplicas são removidos e OnDataLoss seja acionada para a partição mas perda de dados real depende da presença da replicação em andamento. <br>Todas as réplicas de FullDataLoss - são removidos, por conseguinte, todos os dados são perdidos e OnDataLoss é acionado. <br>Esta API só deve ser chamada com um serviço com estado como destino. Não é aconselhada a chamar esta API com um serviço de sistema como o destino. 
-> [!NOTE]
+Aciona uma chamada à API do OnDataLossAsync da partição.  Esta API irá induza perda de dados para a partição especificada. Aciona uma chamada à API do OnDataLoss da partição. Perda de dados real irá depender do DataLossMode especificado.  <br> -PartialDataLoss - apenas um quórum de réplicas são removidos e OnDataLoss seja acionada para a partição mas perda de dados real depende da presença da replicação em andamento.  <br> -FullDataLoss - todas as réplicas são removidas, por conseguinte, todos os dados são perdidos e OnDataLoss é acionado. Esta API só deve ser chamada com um serviço com estado como destino. Não é aconselhada a chamar esta API com um serviço de sistema como o destino.
+
+> [!NOTE] 
 > Depois desta API for chamada, ele não pode ser revertido. Chamar CancelOperation apenas interromperá a execução e limpar o estado do sistema interno. Não irá restaurar dados se o comando progrediu suficiente para causar perda de dados. Chame a API de GetDataLossProgress com o mesmo OperationId para devolver informações sobre a operação iniciada com esta API.
 
 ### <a name="arguments"></a>Argumentos
@@ -314,13 +315,13 @@ Estado de funcionamento de relatórios da partição especificada do Service Fab
 | – [necessária] de propriedade de estado de funcionamento | A propriedade das informações de estado de funcionamento. <br><br> Uma entidade pode ter relatórios de estado de funcionamento para diferentes propriedades. A propriedade é uma cadeia de caracteres e não uma enumeração fixa para permitir que a flexibilidade de gerador de relatórios categorizar a condição de estado que aciona o relatório. Por exemplo, um gerador de relatórios com SourceId "LocalWatchdog" pode monitorizar o estado do disco disponível num nó, para que ele pode informar a propriedade de "AvailableDisk" nesse nó. O mesmo gerador de relatórios pode monitorizar a conectividade de nó, para que ele pode reportar uma propriedade "Conectividade" no mesmo nó. No arquivo de estado de funcionamento, esses relatórios são tratados como eventos de estado de funcionamento separado para o nó especificado. Em conjunto com o SourceId, a propriedade identifica exclusivamente as informações de estado de funcionamento. |
 | -Estado de funcionamento [necessário] | Os valores possíveis incluem\: "Inválido", "Ok", "Aviso", "Error", "Desconhecido". |
 | – id de partição [necessário] | A identidade da partição. |
-| – id de origem [necessário] | O nome de origem que identifica o componente de cliente/watchdog/sistemas que geraram as informações de estado de funcionamento. |
+| – id de origem [necessário] | O nome de origem que identifica o componente de sistema/watchdog/cliente gerado as informações de estado de funcionamento. |
 | – Descrição | A descrição das informações de estado de funcionamento. <br><br> Ele representa o texto livre usado para adicionar informações legíveis humanas sobre o relatório. O comprimento máximo da cadeia para a descrição é 4096 carateres. Se a cadeia fornecida é mais longa, ele será automaticamente truncado. Quando truncados, os últimos carateres da descrição contêm um marcador "[truncado]" e o tamanho total da cadeia de caracteres é 4096 carateres. A presença do marcador indica aos utilizadores esse truncamento ocorreu. Observe que, quando truncados, a descrição tem menos de 4096 carateres a partir da cadeia original. |
 | – imediata | Um sinalizador que indica se o relatório deve ser enviado imediatamente. <br><br> Um relatório de estado de funcionamento é enviado para um aplicativo, que encaminha para o arquivo de estado de funcionamento de gateway do Service Fabric. Se Immediate estiver definido como true, o relatório será enviado imediatamente do Gateway de HTTP para o armazenamento de estado de funcionamento, independentemente das definições de cliente de recursos de infraestrutura que está a utilizar a aplicação de Gateway HTTP. Isto é útil para os relatórios críticos que devem ser enviados logo que possível. Dependendo do tempo e outras condições, enviar o relatório poderá ainda falhar, por exemplo, se o HTTP Gateway foi fechado ou a mensagem não aceder ao Gateway. Se Immediate estiver definido como false, o relatório é enviado com base nas definições de cliente do Estado de funcionamento do HTTP Gateway. Por conseguinte, irá ser loteado, de acordo com a configuração de HealthReportSendInterval. Esta é a definição recomendada porque permite que o cliente do Estado de funcionamento otimizar as mensagens para o arquivo de estado de funcionamento, bem como o processamento de relatórios de estado de funcionamento de relatórios de estado de funcionamento. Por predefinição, os relatórios não são enviados imediatamente. |
 | – remover quando expirou | Valor que indica se o relatório é removido do arquivo de estado de funcionamento, quando este expirar. <br><br> Se definido como true, o relatório for removido do arquivo de estado de funcionamento, depois de expirar. Se definido como false, o relatório é tratado como um erro quando a expirou. O valor desta propriedade é false por padrão. Quando os clientes reportem periodicamente, eles devem definir RemoveWhenExpired false (predefinição). Dessa forma, é o gerador de relatórios tem problemas (por exemplo, o deadlock) e não é possível reportar a entidade é avaliada em erro quando expira o relatório de estado de funcionamento. Este processo sinaliza a entidade como sendo num Estado de funcionamento de erro. |
 | – número de sequência | O número de sequência para este relatório de estado de funcionamento como uma cadeia numérica. <br><br> O número de sequência de relatório é utilizado pelo arquivo de estado de funcionamento para detetar relatórios obsoletos. Se não for especificado, um número de sequência é gerado automaticamente pelo cliente do Estado de funcionamento quando é adicionado um relatório. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
-| – o valor de ttl | A duração para o qual este relatório de estado de funcionamento é válido. Este campo está a utilizar o formato de ISO8601 para especificar a duração. <br><br> Quando os clientes reportem periodicamente, eles devem enviar relatórios com freqüência mais alta do que o tempo de duração. Se os clientes comunicam na transição, eles podem definir o tempo de duração para infinito. Quando expira o TTL, o evento de estado de funcionamento que contém as informações de estado de funcionamento é seja removido do arquivo de estado de funcionamento, se RemoveWhenExpired for true, ou avaliadas no erro, se RemoveWhenExpired false. Se não for especificado, tempo de duração a predefinição é o valor de infinito. |
+| – o valor de ttl | A duração para o qual este relatório de estado de funcionamento é válido. Este campo utiliza o formato ISO8601 para especificar a duração. <br><br> Quando os clientes reportem periodicamente, eles devem enviar relatórios com freqüência mais alta do que o tempo de duração. Se os clientes comunicam na transição, eles podem definir o tempo de duração para infinito. Quando expira o TTL, o evento de estado de funcionamento que contém as informações de estado de funcionamento é seja removido do arquivo de estado de funcionamento, se RemoveWhenExpired for true, ou avaliadas no erro, se RemoveWhenExpired false. Se não for especificado, tempo de duração a predefinição é o valor de infinito. |
 
 ### <a name="global-arguments"></a>Argumentos global
 

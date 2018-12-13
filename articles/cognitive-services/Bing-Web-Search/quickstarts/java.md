@@ -1,7 +1,7 @@
 ---
-title: 'Guia de Início Rápido: Executar uma pesquisa com o Java – API de Pesquisa na Web do Bing'
+title: 'Início rápido: Execute uma pesquisa na web com Java - API de REST de pesquisa de Web do Bing'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá aprender a fazer a primeira chamada à API de Pesquisa na Web do Bing através do Java e receber uma resposta JSON.
+description: Utilize este guia de introdução para enviar pedidos para a API de pesquisa Web do Bing REST com Java e receber uma resposta JSON
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: bd6630f67e151dd2ee1e60654352f3070466899b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: f56d64151f36216652c21067d5f3c64270ca266c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312668"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260978"
 ---
-# <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o Java para chamar a API de Pesquisa na Web do Bing  
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Início rápido: Pesquisar a web com a API de REST de pesquisa do Bing Web e Java
 
 Utilize este início rápido para fazer a primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON.  
 

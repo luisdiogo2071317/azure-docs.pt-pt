@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Introdução em Python'
+title: 'Início rápido:  Comece a utilizar em Python'
 titleSuffix: Azure Machine Learning service
 description: Introdução ao serviço Azure Machine Learning em Python. Utilize o Python SDK para criar uma área de trabalho, o que é o bloco fundamental na cloud que utilizar para testar, preparar e implementar modelos de aprendizagem automática.
 services: machine-learning
@@ -11,16 +11,16 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2ca97275848d87ccc03c7839265f867f9c3c3948
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3ab55cec4b8483cf254ec3d9fe68521baca9cdf5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073363"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268520"
 ---
 # <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o Python SDK para começar a utilizar com o Azure Machine Learning
 
-Neste início rápido, irá utilizar o SDK para Python do Azure Machine Learning para criar e, em seguida, utilizar uma [área de trabalho](concept-azure-machine-learning-architecture.md) de serviço do Machine Learning. Esta área de trabalho é o pilar na cloud que utiliza para experimentar, preparar e implementar modelos de machine learning com Machine Learning. Neste início rápido, comece por configurar o seu próprio ambiente de Python e o servidor de blocos de notas do Jupyter. Para executar sem instalação, veja [Início Rápido: Utilizar o portal do Azure para começar a trabalhar com o Azure Machine Learning](quickstart-get-started.md).
+Neste início rápido, irá utilizar o SDK para Python do Azure Machine Learning para criar e, em seguida, utilizar uma [área de trabalho](concept-azure-machine-learning-architecture.md) de serviço do Machine Learning. Esta área de trabalho é o pilar na cloud que utiliza para experimentar, preparar e implementar modelos de machine learning com Machine Learning. Neste início rápido, comece por configurar o seu próprio ambiente de Python e o servidor de blocos de notas do Jupyter. Para executar sem instalação, consulte [início rápido: Utilizar o portal do Azure para começar a utilizar com o Azure Machine Learning](quickstart-get-started.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -40,14 +40,12 @@ Os seguintes recursos do Azure são adicionados automaticamente à sua área de 
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Cofre de Chaves do Azure](https://azure.microsoft.com/services/key-vault/)
 
->[!NOTE]
-> Código neste artigo requer o Azure Machine Learning SDK versão 1.0.2 ou posterior. 
-
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
-
+Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
 ## <a name="install-the-sdk"></a>Instalar o SDK
+
+>[!NOTE]
+> Código neste artigo requer o Azure Machine Learning SDK versão 1.0.2 ou posterior. 
 
 *Ignore esta secção se utilizar uma máquina virtual de ciência de dados criada depois de 27 de setembro de 2018.* Essas máquinas virtuais de ciência de dados são disponibilizadas com o SDK Python pré-instalado.
 
@@ -206,6 +204,6 @@ Precisa de mais alguns pacotes no seu ambiente para utilizá-lo com os tutoriais
 Depois de instalar estes pacotes, siga os tutoriais para preparar e implementar um modelo. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Preparar um modelo de classificação de imagens](tutorial-train-models-with-aml.md)
+> [Tutorial: Preparar um modelo de classificação de imagem](tutorial-train-models-with-aml.md)
 
 Também pode explorar [exemplos mais avançados no GitHub](https://aka.ms/aml-notebooks).

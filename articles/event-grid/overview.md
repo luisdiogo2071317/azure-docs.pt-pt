@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 12/06/2018
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 1b45350d826f41726668a27ce8f98624202c8e32
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 466f7614026866bb038f3c73b23e28e34d9f2e30
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088085"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321021"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?
 
@@ -87,7 +87,7 @@ Para ver uma comparação entre o Event Grid, os Hubs de Eventos e o Service Bus
 
 ## <a name="what-can-i-do-with-event-grid"></a>O que posso fazer com o Event Grid?
 
-O Azure Event Grid fornece várias funcionalidades que melhorar ainda mais a sem servidor, automatização de operações e trabalho de integração: 
+O Azure Event Grid fornece várias funcionalidades que melhorar ainda mais a sem servidor, automatização de operações, e [integração](http://azure.com/integration) trabalhar: 
 
 ### <a name="serverless-application-architectures"></a>Arquiteturas de aplicações sem servidor
 

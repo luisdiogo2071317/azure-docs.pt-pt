@@ -4,15 +4,15 @@ description: Descreve como detetar e avaliar VMs VMware no local para migração
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dddfbab1d40c03659ba346c9f0e898cfefc8d55e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847988"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257816"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar VMs VMware no local para migração para o Azure
 
@@ -30,17 +30,17 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **VMware**: as VMs que planeia migrar têm de ser geridas pelo vCenter Server com a versão 5.5, 6.0 ou 6.5. Além disso, precisa de um anfitrião ESXi com a versão 5.0 ou superior para implementar a VM do recoletor.
-- **Conta do vCenter Server**: precisa de uma conta só de leitura para aceder ao vCenter Server. O Azure Migrate utiliza esta conta para detetar as VMs no local.
-- **Permissões**: no vCenter Server, precisa de permissões para criar uma VM ao importar um ficheiro no formato .OVA.
+- **VMware**: As VMs que planeia migrar tem de ser geridas pelo vCenter Server com a versão 5.5, 6.0 ou 6.5. Além disso, precisa de um anfitrião ESXi com a versão 5.0 ou superior para implementar a VM do recoletor.
+- **conta do vCenter Server**: Precisa de uma conta só de leitura para aceder ao vCenter Server. O Azure Migrate utiliza esta conta para detetar as VMs no local.
+- **Permissões**: No vCenter Server, precisa de permissões para criar uma VM ao importar um ficheiro no. Formato de OVA.
 
 ## <a name="create-an-account-for-vm-discovery"></a>Criar uma conta para deteção de VMs
 
 O Azure Migrate necessita de acesso aos servidores VMware para detetar automaticamente as VMs para avaliação. Crie uma conta VMware com as seguintes propriedades. Esta conta é especificada durante a configuração do Azure Migrate.
 
-- Tipo de utilizador: pelo menos um utilizador só de leitura
+- Tipo de utilizador: Pelo menos um utilizador só de leitura
 - Permissões: Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura
-- Detalhes: utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.
+- Detalhes: Utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.
 - Para restringir o acesso, atribua a função Sem acesso com Propagar para o objeto subordinado aos objetos subordinados (anfitriões vSphere, arquivos de dados, VMs e redes).
 
 
@@ -54,9 +54,14 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Procure **Azure Migrate** e selecione o serviço **Azure Migrate** nos resultados da pesquisa. Em seguida, clique em **Criar**.
 3. Especifique um nome de projeto e a subscrição do Azure para o projeto.
 4. Crie um novo grupo de recursos.
-5. Especifique a geografia na qual quer criar o projeto e, em seguida, clique em **Criar**. Só pode criar projetos do Azure Migrate na geografia Estados Unidos. No entanto, ainda pode planear a migração para qualquer localização do Azure. A geografia especificada para o projeto só é utilizada para armazenar os metadados recolhidos das VMs no local.
+5. Especifique a geografia na qual quer criar o projeto e, em seguida, clique em **Criar**. Só pode criar um projeto do Azure Migrate em áreas geográficas indicadas a seguir. No entanto, ainda pode planear a migração para qualquer localização do Azure. A geografia especificada para o projeto só é utilizada para armazenar os metadados recolhidos das VMs no local.
 
-    ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
+**Geografia** | **Localização de armazenamento**
+--- | ---
+Une Estados | EUA Centro-Oeste ou E.U.A. leste
+Azure Government | Gov (US) - Virginia
+
+![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
 
 ## <a name="download-the-collector-appliance"></a>Transferir a aplicação recoletora
@@ -71,13 +76,13 @@ O Azure Migrate cria uma VM no local, conhecida como aplicação recoletora. Est
     > [!NOTE]
     > A aplicação de deteção de uso individual foi agora preterida como esse método baseou-se no vCenter definições de estatísticas do servidor para a disponibilidade de ponto de dados de desempenho e coletados contadores de desempenho médio que resultou em insuficientemente dimensionamento de VMs para a migração para o Azure.
 
-    **Resultados instantâneos:** com a aplicação da deteção contínua, assim que estiver a deteção concluir (demora duas horas, consoante o número de VMs), pode criar avaliações de imediato. Uma vez que a recolha de dados de desempenho é iniciado quando pode iniciar a deteção, se estiver à procura de instantâneos, selecione o critério de tamanho na avaliação como *como no local*. Para obter avaliações baseado no desempenho, é recomendado aguardar pelo menos um dia após iniciar deteção para obter recomendações de tamanho fiável.
+    **Resultados instantâneos:** Com a aplicação da deteção contínua, assim que estiver a deteção concluir (demora duas horas, consoante o número de VMs), pode criar avaliações de imediato. Uma vez que a recolha de dados de desempenho é iniciado quando pode iniciar a deteção, se estiver à procura de instantâneos, selecione o critério de tamanho na avaliação como *como no local*. Para obter avaliações baseado no desempenho, é recomendado aguardar pelo menos um dia após iniciar deteção para obter recomendações de tamanho fiável.
 
     A aplicação só recolhe dados de desempenho continuamente, ele não detecta qualquer alteração de configuração no ambiente no local (ou seja, a adição de VM, eliminação, a adição de disco etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
 
-    - Adição de itens (VMs, discos, núcleos, etc.): para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, iniciá-la novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
+    - Adição de itens (VMs, discos, núcleos, etc.): Para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, inicie-o novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
 
-    - Eliminação das VMs: devido à forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
+    - Eliminação das VMs: A forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
 
 
 3. Em **Copiar as credenciais do projeto**, copie o ID e a chave do projeto. Precisará destes dados quando configurar o recoletor.
@@ -95,6 +100,14 @@ Verifique se o ficheiro .OVA é seguro, antes de implementá-lo.
 3. O hash gerado deve corresponder a estas definições.
 
 #### <a name="continuous-discovery"></a>Deteção contínua
+
+  Para a versão ova 1.0.10.9
+
+  **Algoritmo** | **Valor de hash**
+  --- | ---
+  MD5 | 169f6449cc1955f1514059a4c30d138b
+  SHA1 | f8d0a1d40c46bbbf78cd0caa594d979f1b587c8f
+  SHA256 | d68fe7d94be3127eb35dd80fc5ebc60434c8571dcd0e114b87587f24d6b4ee4d
 
   Para a versão OVA 1.0.10.4
 
@@ -156,12 +169,13 @@ Importe o ficheiro transferido para o vCenter Server.
 3. No ambiente de trabalho, clique no atalho **Executar recoletor**.
 4. Clique em **Procurar atualizações**, na barra superior da IU do recoletor, e verifique se o recoletor está em execução na versão mais recente. Caso contrário, pode optar por transferir o pacote de atualização mais recente a partir da ligação e atualizar o recoletor.
 5. No Recoletor do Azure Migrate, abra **Configurar pré-requisitos**.
+    - Selecione a nuvem do Azure para o qual pretende migrar (Global do Azure ou do Azure Government).
     - Aceite os termos de licenciamento e leia as informações de terceiros.
     - O recoletor verifica se a VM tem acesso à Internet.
-    - Se a VM acede à Internet através de um proxy, clique em **Definições de proxy** e especifique o endereço do proxy e a porta de escuta. Especifique as credenciais se o proxy precisar de autenticação. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) acerca dos requisitos de conectividade à Internet e da lista dos URLs a que o recoletor acede.
+    - Se a VM acede à Internet através de um proxy, clique em **Definições de proxy** e especifique o endereço do proxy e a porta de escuta. Especifique as credenciais se o proxy precisar de autenticação. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre os requisitos de conectividade de internet e o [lista de URLs](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) que acessa o recoletor.
 
-    > [!NOTE]
-    > O endereço de proxy tem de ser introduzido no formato http://ProxyIPAddress ou http://ProxyFQDN. Apenas é suportado o proxy HTTP. Se tiver um proxy de interceção, a ligação à internet poderá falhar, inicialmente, se não tiver importado o certificado de proxy. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) sobre a forma como pode corrigir este problema ao importar o certificado de proxy como um certificado fidedigno na VM do recoletor.
+      > [!NOTE]
+      > O endereço de proxy tem de ser introduzido no formato http://ProxyIPAddress ou http://ProxyFQDN. Apenas é suportado o proxy HTTP. Se tiver um proxy de interceção, a ligação à internet poderá falhar, inicialmente, se não tiver importado o certificado de proxy. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) sobre a forma como pode corrigir este problema ao importar o certificado de proxy como um certificado fidedigno na VM do recoletor.
 
     - O recoletor verifica se o serviço do recoletor está em execução. O serviço está instalado por predefinição na VM do recoletor.
     - Transfira e instale o VMware PowerCLI.

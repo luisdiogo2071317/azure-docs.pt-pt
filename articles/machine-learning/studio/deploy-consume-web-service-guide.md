@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a596fe572e31a330fa976470d31dc7d0de5b0398
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ed57f80a210cdb9c7ff8e77da2269d8494892fcc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073742"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268432"
 ---
-# <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Serviços Web do Azure Machine Learning: implementação e consumo
+# <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio serviços da Web: Implementação e consumo
 Pode utilizar o Azure Machine Learning para implementar fluxos de trabalho do machine learning e modelos como serviços web. Esses serviços da web, em seguida, podem ser utilizados para chamar os modelos de machine learning a partir de aplicações através da Internet para fazer previsões em tempo real ou no modo de lote. Porque os serviços web RESTful, pode chamá-los a partir de várias linguagens de programação e plataformas, como o .NET e Java e de aplicativos, como o Excel.
 
 As secções seguintes fornecem ligações para instruções passo a passo, código e documentação para ajudar a começar.
@@ -37,7 +36,7 @@ As ligações seguintes fornecem informações gerais sobre como implementar um 
 
 * Para uma descrição geral sobre como implementar um novo serviço web baseado no Azure Resource Manager, consulte [implementar um novo serviço web](publish-a-machine-learning-web-service.md).
 * Para obter instruções sobre como implementar um serviço da web, consulte [implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
-* Para obter instruções completas sobre como criar e implementar um serviço web, consulte [instruções passo 1: criar uma área de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md).
+* Para obter instruções completas sobre como criar e implementar um serviço web, consulte [instruções passo 1: Criar uma área de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md).
 * Para obter exemplos específicos que implementa um serviço web, consulte:
 
   * [Passo 5 das instruções: Implementar o serviço web do Azure Machine Learning](walkthrough-5-publish-web-service.md)

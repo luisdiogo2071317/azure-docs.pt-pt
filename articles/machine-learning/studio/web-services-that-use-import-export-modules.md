@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 84bc151e8d7acf8d320b5883e8637c321762fb32
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090351"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251390"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços web Azure Machine Learning Studio que utilizam módulos importar dados e exportação de dados
 
@@ -29,10 +28,10 @@ Quando cria uma experimentação preditiva, normalmente, adicione uma entrada do
 
 Os dados de importação e exportação módulos de dados, pode ler a partir do e gravar dados de várias localizações, como um URL de Web via HTTP, uma consulta do Hive, uma base de dados SQL do Azure, armazenamento de tabelas do Azure, armazenamento de Blobs do Azure, um Feed de dados fornecem ou uma base de dados do SQL no local.
 
-Este tópico utiliza o "exemplo 5: Train, teste, avaliação de classificação binária: conjunto de dados para adultos" de exemplo e pressupõe que o conjunto de dados já foi carregado para uma tabela de SQL do Azure com o nome censusdata.
+Este tópico utiliza o "exemplo 5: Preparar, testar, avalie para classificação binária: Exemplo de um conjunto de dados para adultos"e pressupõe que o conjunto de dados já foi carregado para uma tabela de SQL do Azure com o nome censusdata.
 
 ## <a name="create-the-training-experiment"></a>Criar a experimentação de preparação
-Ao abrir o "exemplo 5: Train, teste, avaliação de classificação binária: conjunto de dados para adultos" exemplo utiliza o conjunto de dados de classificação de binário para adultos recenseamento receitas de exemplo. E a experimentação na tela será semelhante à seguinte imagem:
+Ao abrir o "exemplo 5: Preparar, testar, avalie para classificação binária: Exemplo de um conjunto de dados para adultos"utiliza o conjunto de dados de classificação de binário para adultos recenseamento receitas de exemplo. E a experimentação na tela será semelhante à seguinte imagem:
 
 ![Configuração inicial da experimentação.](./media/web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
@@ -104,7 +103,7 @@ Para implementar como um serviço Web clássico e criar uma aplicação de consu
 2. Quando a execução for concluída, clique em **implementar serviço Web** e selecione **implementar o serviço Web [clássica]**.
 3. No dashboard do serviço web, localize a chave de API. Copie e guarde-o para utilizar mais tarde.
 4. Na **ponto final predefinido** da tabela, clique no **execução de lotes** link para abrir a página de ajuda da API.
-5. No Visual Studio, crie um C# aplicação de consola: **New** > **projeto** > **Visual C#**   >   **Ambiente de trabalho clássico do Windows** > **aplicação da consola (.NET Framework)**.
+5. No Visual Studio, crie um C# aplicação de consola: **Novos** > **projeto** > **Visual C#**   >  **ambiente de trabalho clássico do Windows**  >   **Aplicação da consola (.NET Framework)**.
 6. A página Ajuda da API, encontrará a **código de exemplo** seção na parte inferior da página.
 7. Copie e cole o C# código de exemplo para o ficheiro Program.cs e remover todas as referências para o armazenamento de Blobs.
 8. Atualize o valor do *apiKey* variável com a chave de API que guardou anteriormente.
@@ -133,7 +132,7 @@ Para implementar como um novo serviço Web e criar uma aplicação de consumi-la
 3. Na página de experimentação de implementar, introduza um nome para o seu serviço web e selecione um plano de preços, em seguida, clique em **Deploy**.
 4. Sobre o **início rápido** página, clique em **Consume**.
 5. Na **código de exemplo** secção, clique em **Batch**.
-6. No Visual Studio, crie um C# aplicação de consola: **New** > **projeto** > **Visual C#**   >   **Ambiente de trabalho clássico do Windows** > **aplicação da consola (.NET Framework)**.
+6. No Visual Studio, crie um C# aplicação de consola: **Novos** > **projeto** > **Visual C#**   >  **ambiente de trabalho clássico do Windows**  >   **Aplicação da consola (.NET Framework)**.
 7. Copie e cole o C# código de exemplo para o ficheiro Program.cs.
 8. Atualize o valor do *apiKey* variável com o **chave primária** localizado no **informações de consumo básica** secção.
 9. Localize a *scoreRequest* declaração e atualizar os valores dos parâmetros do serviço Web que são transmitidos para o *importar dados* e *exportar dados* módulos. Neste caso, usa a consulta original, mas define um novo nome de tabela.

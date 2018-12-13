@@ -6,7 +6,6 @@ documentationcenter: ''
 author: ericlicoding
 ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: ''
 ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: ebb5fed079d674a0a8a590f7a955a2fe878807fd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 11f4ad4ff1e8e2eab688596d393e63009f7e5624
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090469"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255487"
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Criar modelos de análise de texto no Azure Machine Learning Studio
 Pode utilizar o Azure Machine Learning para criar e operacionalizar modelos de análise de texto. Esses modelos podem ajudá-lo a resolver, por exemplo, problemas de análise de classificação ou sentimentos do documento.
@@ -34,7 +33,7 @@ Numa experiência de análise de texto, normalmente seria:
 4. Pontuar e validar o modelo
 5. Implementar o modelo para produção
 
-Neste tutorial, ficará a saber estes passos enquanto percorremos um modelo de análise de sentimentos com o conjunto de dados do Amazon resenha de livro (consulte este artigo de pesquisa "biografias, Bollywood, caixas de Boom e Blenders: adaptação de domínio para a classificação de sentimentos" por John Blitzer, Marcar Dredze e Fernando Pereira; Associação de computacional linguística (ACL), 2007.) Este conjunto de dados consiste em pontuações de revisão (1 a 2 ou 4 e 5) e um texto de forma livre. O objetivo é prever a classificação de revisão: baixa (1 - 2) ou alto (4-5).
+Neste tutorial, ficará a saber estes passos enquanto percorremos um modelo de análise de sentimentos com o conjunto de dados do Amazon resenha de livro (consulte este artigo de pesquisa "biografias, Bollywood, caixas de Boom e Blenders: Domínio adaptação para classificação de sentimento"por John Blitzer, marcar Dredze e Fernando Pereira; Associação de computacional linguística (ACL), 2007.) Este conjunto de dados consiste em pontuações de revisão (1 a 2 ou 4 e 5) e um texto de forma livre. O objetivo é prever a classificação de revisão: baixa (1 - 2) ou alto (4-5).
 
 Pode encontrar experimentações abrangidas neste tutorial na Galeria de IA do Azure:
 
@@ -68,7 +67,7 @@ Além disso, pode utilizar a seleção de funcionalidades para selecionar apenas
 
 Como uma abordagem alternativa para usar recursos de grama-N extrair, pode utilizar o módulo de Hashing de funcionalidade. No entanto, observe que [Hashing de funcionalidade](https://msdn.microsoft.com/library/azure/dn906018.aspx) não tem recursos de seleção de funcionalidade de compilação ou TF * IDF pesar.
 
-## <a name="step-3-train-classification-or-regression-model"></a>Passo 3: Preparar o modelo de classificação ou regressão
+## <a name="step-3-train-classification-or-regression-model"></a>Passo 3: Preparar modelo de classificação ou regressão
 Agora, o texto ter sido transformado para colunas de funcionalidades numéricas. O conjunto de dados contiver colunas de cadeia de caracteres de fases anteriores, pelo que vamos utilizar selecionar colunas no conjunto de dados para os excluir.
 
 Em seguida, usamos [regressão logística de duas classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) para prever o nosso destino: pontuação de revisão de alta ou baixa. Neste momento, o problema de análise de texto tem sido transformado num problema de classificação regular. Pode utilizar as ferramentas disponíveis no Azure Machine Learning para melhorar o modelo. Por exemplo, pode experimentar diferentes classificadores para descobrir o grau de precisão resultados que eles apresentam ou utilizar para melhorar a precisão de otimização de hiper-parâmetros.

@@ -7,13 +7,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: c437f350e394dc8c264903508a2a5a66fa8225a7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7a1e440a8dc8f518e272df9e126771df54390ed5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346862"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161989"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Resolver problemas de consultas do Azure Stream Analytics
 
@@ -47,47 +48,47 @@ No processamento de dados em tempo real, a saber o que aspeto dos dados no meio 
 
 A seguinte consulta de exemplo num trabalho do Azure Stream Analytics tem um fluxo de entrada, duas entradas de dados de referência e uma saída para o armazenamento de tabelas do Azure. A consulta associa os dados do hub de eventos e blobs de referência de dois para obter as informações de nome e categoria:
 
-![Exemplo de consulta SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
+![Consulta do Stream Analytics SELECT INTO de exemplo](./media/stream-analytics-select-into/stream-analytics-select-into-query1.png)
 
 Tenha em atenção que a tarefa está em execução, mas não existem eventos estão a ser produzido na saída. Na **monitorização** mosaico, mostrado aqui, pode ver que a entrada produz dados, mas não sabe qual etapa da **associar** causado todos os eventos a ser removido.
 
-![O mosaico de monitorização](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
+![O mosaico monitorização do Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
  
 Nesta situação, pode adicionar alguns Extras em instruções SELECT INTO "iniciar sessão" os resultados intermediários de associação e os dados que são lidos a partir de entrada.
 
 Neste exemplo, adicionámos duas novas "temporárias saídas." Eles podem ser qualquer coletor que desejar. Aqui usamos armazenamento do Azure como um exemplo:
 
-![Adicionar Extras em instruções SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
+![Adição de instruções SELECT INTO extras a consulta do Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
 
 Em seguida, pode reescrever a consulta como esta:
 
-![Reescrito consulta SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
+![Consulta do reescrito SELECIONAR para o Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-query2.png)
 
 Agora, iniciar a tarefa novamente e deixar executar durante alguns minutos. Em seguida, consultar temp1 e temp2 com o Visual Studio Cloud Explorer para produzir as tabelas seguintes:
 
 **tabela de temp1**
-![SELECT INTO temp1 tabela](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
+![consulta do Stream Analytics SELECT INTO tabela temp1](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
 **tabela de temp2**
-![SELECT INTO temp2 tabela](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
+![consulta do Stream Analytics SELECT INTO tabela temp2](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 Como pode ver, temp1 e temp2 têm dados e a coluna de nome é preenchida corretamente no temp2. No entanto, uma vez que ainda não houver dados na saída, algo está errado:
 
-![SELECT INTO output1 tabela sem dados](./media/stream-analytics-select-into/stream-analytics-select-into-out-table-1.png)
+![SELECT INTO output1 tabela com nenhuma consulta do Stream Analytics de dados](./media/stream-analytics-select-into/stream-analytics-select-into-out-table-1.png)
 
 Pelos dados de amostragem, pode ser quase certo que o problema é com a associação de segundo. Pode transferir os dados de referência de blob e dar uma olhada:
 
-![Tabela de ref SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
+![Consulta do Stream Analytics SELECT INTO tabela ref](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-1.png)
 
 Como pode ver, o formato de GUID nestes dados de referência é diferente do formato da [coluna na temp2 from]. É por isso que os dados não chegam output1 conforme esperado.
 
 Pode corrigir o formato de dados, carregue-o para o blob de referência e tente novamente:
 
-![SELECT INTO tabela temporária](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-2.png)
+![Consulta de Stream Analytics SELECT INTO tabela temporária](./media/stream-analytics-select-into/stream-analytics-select-into-ref-table-2.png)
 
 Desta vez, os dados no resultado são formatados e preenchidos conforme esperado.
 
-![SELECT INTO tabela final](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
+![Consulta de Stream Analytics SELECT INTO tabela final](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
 ## <a name="get-help"></a>Obter ajuda
 

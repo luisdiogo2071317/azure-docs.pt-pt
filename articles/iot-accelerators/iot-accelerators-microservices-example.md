@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b206d7b56fc8a65c422a4ce22b2f5585e71c8da
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219430"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315762"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizar e reimplementar um microsserviço
 
-Este tutorial mostra como editar uma dos microsserviços na solução de monitorização remota, crie uma imagem de sua microsserviços, implantar a imagem ao seu hub do docker e, em seguida, utilizá-lo na solução de monitorização remota. Para apresentar esse conceito, o tutorial utiliza um cenário básico em que chama um API de microsserviços e alterar a mensagem de estado de "Ativo e bem" para "New edita Made aqui!"
+Este tutorial mostra como editar uma da [microsserviços](http://azure.com/microservices) na solução de monitorização remota, crie uma imagem de sua microsserviços, implantar a imagem ao seu hub do docker e, em seguida, utilizá-lo na solução de monitorização remota. Para apresentar esse conceito, o tutorial utiliza um cenário básico em que chama um API de microsserviços e alterar a mensagem de estado de "Ativo e bem" para "New edita Made aqui!"
 
 Solução de monitorização remota utiliza microsserviços que são criados através de imagens do docker que são obtidas a partir de um hub do docker. 
 
@@ -45,7 +45,7 @@ Nesta parte, chama o padrão IoT hub manager microsserviços API. A API devolve 
 1. Certifique-se de que a solução de monitorização remota é executada localmente no seu computador.
 2. Localize onde transferiu o Postman e abri-lo.
 3. No Postman, introduza o seguinte no GET: http://localhost:8080/iothubmanager/v1/status.
-4. Ver o retorno e deverá ver, "Status": "OK: ativo e bem".
+4. Ver o retorno, e verá, "Status": "OK: ativo e bem".
 
     ![Mensagem de ativo e bem Postman](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
@@ -54,25 +54,31 @@ Nesta parte, chama o padrão IoT hub manager microsserviços API. A API devolve 
 Agora, altere a mensagem de estado de microsserviços o Gestor do Hub Iot "Novas edições feitas aqui!" e, em seguida, recriar a imagem do docker com este novo Estado. Caso se depare com problemas aqui, consulte a nossa [resolução de problemas](#Troubleshoot) secção.
 
 1. Certifique-se de que o seu terminal está aberto e altere o diretório em que tem um clone a solução de monitorização remota. 
-2. Altere o diretório para "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/WebService/v1/Controllers".
-3. Abra StatusController.cs em qualquer editor de texto ou IDE que quiser. 
-4. Localize o código a seguir:
+1. Altere o diretório para "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/Services".
+1. Abra StatusService.cs em qualquer editor de texto ou IDE que quiser. 
+1. Localize o seguinte código:
 
     ```csharp
-    return new StatusApiModel(true, "Alive and well");
+    var result = new StatusServiceModel(true, "Alive and well!");
     ```
 
     e alterá-lo para o código abaixo e guarde-o.
 
     ```csharp
-    return new StatusApiModel(true, "New Edits Made Here!");
+    var result = new StatusServiceModel(true, "New Edits Made Here!");
     ```
 
 5. Voltar para o seu terminal, mas agora, altere ao diretório seguinte: "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker".
 6. Para criar a imagem do docker nova, escreva
 
-    ```cmd/sh
+    ```sh
     sh build
+    ```
+    
+    ou no Windows:
+    
+    ```
+    ./build.cmd
     ```
 
 7. Para verificar a que sua nova imagem foi criada com êxito, escreva
@@ -115,7 +121,7 @@ Agora tem de atualizar o docker-Compose local para extrair a imagem do docker no
 
 1. Volte para o terminal e mude para o diretório seguinte: "azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local".
 2. Abra o docker-Compose em qualquer editor de texto ou IDE que quiser.
-3. Localize o código a seguir:
+3. Localize o seguinte código:
 
     ```docker
     image: azureiotpcs/iothub-manager-dotnet:testing
@@ -138,7 +144,7 @@ Concluir voltar a implementar uma instância local da solução de monitorizaç�
     ```
 
 3. Localize onde transferiu o Postman e abri-lo.
-4. No Postman, introduza o seguinte pedido no GET: http://localhost:8080/iothubmanager/v1/status. Deverá ver agora, "Status": "OK: novas edições feitas aqui!".
+4. No Postman, introduza o seguinte pedido no GET: http://localhost:8080/iothubmanager/v1/status. Deverá ver agora, "Status": "OK: Novas edições feitas aqui! ".
 
 ![Nova edita feita aqui postman mensagem](./media/iot-accelerators-microservices-example/new-postman-message.png)
 

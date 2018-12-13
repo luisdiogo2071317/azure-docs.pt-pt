@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50868d32b35e77495965b9ee9d0023d23b43fd5a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b813a276c2047a41038408744637b3dd50aff863
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426388"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163519"
 ---
-# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federar um ambiente de floresta único do AD para a cloud
+# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federar um ambiente de floresta AD único na cloud
 
 ![Criar](media/tutorial-federation/diagram.png)
 
@@ -39,7 +39,7 @@ Seguem-se os pré-requisitos necessários para a conclusão deste tutorial
 >
 >Os scripts utilizados criam um ambiente do Active Directory geral antes de instalar o Azure AD Connect.  Eles são relevantes para todos os tutoriais.
 >
-> Cópias dos scripts do PowerShell que são utilizados neste tutorial estão disponíveis no Github [aqui](https://github.com/billmath/tutorial-phs).
+> Cópias dos scripts do PowerShell que são utilizados neste tutorial estão disponíveis no GitHub [aqui](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 A primeira coisa que precisamos para o fazer, para que o nosso ambiente de identidade híbrida a cópia de segurança e em execução é criar uma máquina virtual que será utilizada como nosso servidor do Active Directory no local.  
@@ -87,7 +87,7 @@ Para concluir a criação da máquina virtual, é necessário concluir a instala
 5. Clique em **instalar agora**.
 6. Introduza a chave de licença e clique em **seguinte**.
 7. Verificar * * posso aceitar os termos de licenciamento e clique em **seguinte**.
-8. Selecione **personalizado: instalar apenas o Windows (avançado)**
+8. Selecione **personalizado:  Instalar apenas o Windows (avançado)**
 9. Clique em **Seguinte**
 10. Depois de concluída a instalação, reinicie a máquina virtual, do início de sessão e executar atualizações do Windows para garantir que a VM está mais atualizadas.  Instale as atualizações mais recentes.
 
@@ -214,7 +214,7 @@ Agora que temos um inquilino do Azure AD, iremos criar uma conta de administrado
 1.  Em **Gerir**, selecione **Utilizadores**.</br>
 ![Criar](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Selecione **todos os utilizadores** e, em seguida, selecione **+ novo utilizador**.
-3.  Forneça um nome e o nome de utilizador para este utilizador. Este será o Administrador Global do inquilino. Também queira fazer a **função de diretório** para **Administrador Global.** Também pode mostrar a palavra-passe temporária. Quando tiver terminado, selecione **criar**.</br>
+3.  Forneça um nome e o nome de utilizador para este utilizador. Este será o Administrador Global do inquilino. Também queira fazer a **função de diretório** para **Administrador Global.** Também pode mostrar a palavra-passe temporária. Quando tiver terminado, selecione **Criar**.</br>
 ![Criar](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Assim que terminar, abra um novo navegador da web e início de sessão para myapps.microsoft.com usando a nova conta de administrador global e a palavra-passe temporária.
 5. Altere a palavra-passe de administrador global para algo que se lembrará.

@@ -1,6 +1,6 @@
 ---
 title: FAQ do Azure Backup
-description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
+description: 'Respostas a perguntas comuns sobre: Funcionalidades de cópia de segurança do Azure incluindo serviços de recuperação cofres, o que pode criar cópias de segurança, como ele funciona, encriptação e limites. '
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 61e8a7732b7e6dc7fd521819a135fb1a7a6a13b3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 647ed64d405424431419da1e693abea2bdf07ace
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261671"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262270"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
@@ -235,8 +235,8 @@ Sim. Dados são encriptados na máquina no local utilizando AES256. Os dados sã
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Os dados da cópia de segurança no Azure também são encriptados?
 
 Sim. Os dados no Azure são encriptados em repouso.
-- Para cópia de segurança no local, encriptação em reposição é fornecida com a frase de acesso que fornecer quando a cópia de segurança para o Azure.
-- Para VMs do Azure, os dados são encriptados em-redefinição utilizando a encriptação de serviço de armazenamento (SSE).
+- Para cópia de segurança no local, encriptação em repouso é fornecido com a frase de acesso que fornecer quando a cópia de segurança para o Azure.
+- Para VMs do Azure, os dados são encriptados em repouso com o Storage Service Encryption (SSE).
 
 A Microsoft não desencripta os dados da cópia de segurança em momento algum.
 

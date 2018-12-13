@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: criar um pipeline de pesquisa cognitiva no Azure Search através do portal | Microsoft Docs'
+title: 'Início rápido: pipeline de pesquisa cognitiva no portal do Azure - Azure Search'
 description: Exemplo de extração de dados, linguagem natural e competências de processamento de imagens no portal do Azure com dados de exemplo.
 manager: cgronlun
 author: HeidiSteen
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: ef4a445539efa27ebd154980a4ea8b70b5aba082
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec2018
+ms.openlocfilehash: 0dc942b7e1779efab5b9fb2477b8358554bbb31d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956913"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310101"
 ---
-# <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início Rápido: criar um pipeline de pesquisa cognitiva com competências e dados de exemplo
+# <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início rápido: Criar um pipeline de pesquisa cognitiva com habilidades e dados de exemplo
 
 A pesquisa cognitiva (pré-visualização) adiciona a extração de dados, o processamento de linguagem natural (NLP) e as competências de processamento de imagens a um pipeline de indexação do Azure Search, tornando o conteúdo não pesquisável ou não estruturado mais pesquisável. As informações criadas por uma competência, como o reconhecimento de entidades ou a análise de imagens, são adicionadas a um índice no Azure Search.
 
@@ -47,7 +48,9 @@ Pode experimentar a pesquisa cognitiva num serviço do Azure Search criado nas s
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
-> A Pesquisa Cognitiva está em pré-visualização pública. A execução de conjuntos de capacidades e a normalização e extração de imagens estão atualmente disponíveis gratuitamente. Posteriormente, anunciaremos os preços destas funcionalidades. 
+> A partir de 21 de Dezembro de 2018, poderá associar um recurso dos serviços cognitivos com um conjunto de capacidades do Azure Search. Isso permitirá que comecem a cobrança de consumo para a execução do conjunto de capacidades. Esta data, podemos também começar a cobrar extração de imagem como parte da fase de aberturas de documentos. Continuaremos a oferecer a extração de texto de documentos sem custos adicionais.
+>
+> A execução das habilidades internas será cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/) . Preços de extração de imagem são cobrados ao preço de pré-visualização e está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba mais [mais](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -79,7 +82,7 @@ Primeiro, inscreva-se no serviço do Azure Search.
   ![Página de definição de serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "página de definição de serviço no portal")
   ![página de definição de serviço no portal do](./media/cognitive-search-tutorial-blob/create-search-service2.png "página de definição de serviço no o portal")
   > [!NOTE]
-  > A Pesquisa cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuito. Posteriormente, iremos anunciar os preços desta capacidade.
+  > A Pesquisa cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuito. Será capaz de executar um número limitado de possível sem associar um recurso dos serviços cognitivos pago. Saiba mais [mais](cognitive-search-attach-cognitive-services.md).
 
 1. Afixe o serviço no dashboard para ter acesso rápido às informações do serviço.
 
@@ -101,7 +104,7 @@ O pipeline de melhoramento solicita as origens de dados do Azure suportadas pelo
 
 Volte à página do dashboard do serviço do Azure Search e clique em **Importar dados** na barra de comandos para configurar o melhoramento em quatro passos.
 
-### <a name="step-1-create-a-data-source"></a>Passo 1: criar uma origem de dados
+### <a name="step-1-create-a-data-source"></a>Passo 1: Criar uma origem de dados
 
 Em **Ligar aos seus dados** > **Armazenamento de Blobs do Azure**, selecione a conta e o contentor que criou. Dê um nome à origem de dados e utilize os valores predefinidos para o resto. 
 
@@ -112,7 +115,7 @@ Clique em **OK** para criar a origem de dados.
 
 Uma vantagem da utilização do assistente para **Importar dados** é que também pode criar o índice. Com a criação da origem de dados, o assistente cria em simultâneo um esquema de índice. A criação do índice pode demorar alguns segundos.
 
-### <a name="step-2-add-cognitive-skills"></a>Passo 2: adicionar capacidades cognitivas
+### <a name="step-2-add-cognitive-skills"></a>Passo 2: Adicionar capacidades cognitivas
 
 Em seguida, adicione passos de melhoramento ao pipeline de indexação. O portal fornece-lhe competências cognitivas predefinidas para a análise de imagens e a análise de texto. No portal, um conjunto de competências funciona através de um campo de origem exclusivo. Tal poderá parecer como um destino pequeno, mas, para os blobs do Azure, o campo `content` contém a maior parte do documento de blobs (por exemplo, um documento Word ou uma apresentação do PowerPoint). Como tal, este campo é uma entrada ideal uma vez que contém todo o conteúdo de um blob.
 
@@ -126,7 +129,7 @@ Clique em **OK** para aceitar a definição.
 
 As competências de processamento de linguagem natural funcionam através de conteúdo de texto no conjunto de dados de exemplo. Uma vez que não foram selecionadas quaisquer opções de processamento de imagens, os ficheiros JPEG presentes no conjunto de dados de exemplo não serão processados neste início rápido. 
 
-### <a name="step-3-configure-the-index"></a>Passo 3: configurar o índice
+### <a name="step-3-configure-the-index"></a>Passo 3: Configurar o índice
 
 Lembra-se do índice que foi criado com a origem de dados? Neste passo, pode ver o esquema dele e possivelmente rever as definições. 
 
@@ -151,7 +154,7 @@ Clique em **OK** para aceitar a definição do índice.
 > [!NOTE]
 > Os campos não utilizados foram recortados da captura de ecrã por uma questão de brevidade. Se estiver a acompanhar o processo no portal, a lista mostrará campos adicionais.
 
-### <a name="step-4-configure-the-indexer"></a>Passo 4: configurar o indexador
+### <a name="step-4-configure-the-indexer"></a>Passo 4: Configurar o indexador
 
 O indexador é um recurso de alto nível que impulsiona o processo de indexação. Especifica o nome da origem de dados, o índice e a frequência de execução. O resultado final do assistente para **Importar dados** é sempre um indexador que pode executar repetidamente.
 
@@ -212,4 +215,4 @@ Pode experimentar a indexação e o melhoramento ao executar novamente o assiste
 Alternativamente, reutilize os dados de exemplo e os serviços que criou e saiba como realizar as mesmas tarefas programaticamente no próximo tutorial. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Learn the cognitive search REST APIs](cognitive-search-tutorial-blob.md) (Tutorial: Saber mais acerca das APIs REST da pesquisa cognitiva)
+> [Tutorial: Saiba que o cognitivos APIs de REST de pesquisa](cognitive-search-tutorial-blob.md)

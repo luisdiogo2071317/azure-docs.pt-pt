@@ -1,5 +1,5 @@
 ---
-title: Configurar aplicações Python para o Serviço de Aplicações do Azure no Linux
+title: Configurar aplicações Python no Linux - serviço de aplicações do Azure
 description: Este tutorial descreve as opções para a criação e a configuração de aplicações Python para o Serviço de Aplicações do Azure no Linux.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
-ms.custom: mvc
-ms.openlocfilehash: 22afdc0ae483959940776aecd20b0a29854097d9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970761"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249639"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configurar a aplicação Python para o Serviço de Aplicações do Azure no Linux
 
@@ -28,7 +28,7 @@ Este artigo descreve como o [Serviço de Aplicações do Azure no Linux](app-ser
 
 ## <a name="set-python-version"></a>Definir a versão do Python
 
-As imagens bases dois estão disponíveis: Python 3.6 e 3.7 de Python. Pode criar uma aplicação com a imagem pretendida do Python com base. Por exemplo, para criar uma aplicação com Python 3.7, execute o seguinte comando no Cloud Shell:
+Duas imagens bases estão disponíveis: Python 3.6 e o Python 3.7. Pode criar uma aplicação com a imagem pretendida do Python com base. Por exemplo, para criar uma aplicação com Python 3.7, execute o seguinte comando no Cloud Shell:
 
 ```azurecli-interactive
 az webapp create --resource-group <group_name> --plan <plan_name> --name <app_name> --runtime "PYTHON|3.7"
@@ -59,9 +59,9 @@ Este contentor tem as seguintes características:
 Durante o arranque, o Serviço de Aplicações no contentor do Linux executa os seguintes passos:
 
 1. Procurar e aplicar um comando de arranque personalizado, se for fornecido.
-1. Verificar a existência de um ficheiro *wsgi.py* da aplicação Django e, nesse caso, iniciar o Gunicorn com esse ficheiro.
-1. Procurar um ficheiro chamado *application.py* e, se for encontrado, iniciar o Gunicorn com `application:app`, supondo uma aplicação Flask.
-1. Não se for encontrada nenhuma outra aplicação, iniciar uma aplicação predefinida incorporada no contentor.
+2. Verificar a existência de um ficheiro *wsgi.py* da aplicação Django e, nesse caso, iniciar o Gunicorn com esse ficheiro.
+3. Procurar um ficheiro chamado *application.py* e, se for encontrado, iniciar o Gunicorn com `application:app`, supondo uma aplicação Flask.
+4. Não se for encontrada nenhuma outra aplicação, iniciar uma aplicação predefinida incorporada no contentor.
 
 As secções seguintes fornecem detalhes adicionais para cada opção.
 

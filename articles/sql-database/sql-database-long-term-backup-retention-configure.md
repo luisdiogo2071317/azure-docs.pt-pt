@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: eab0c1339030ffeb14c4fe39a70178fdf5f13a22
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 33086be2c85e44b81a9f444a10a683e54f8612f7
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871103"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164454"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a retenção de cópia de segurança de longa duração de base de dados do Azure SQL
 
@@ -173,7 +173,7 @@ $ltrBackup = $ltrBackups[0]
 Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 > [!IMPORTANT]
-> A eliminar LTR cópia de segurança é não reversível. Pode definir notificações sobre cada delete no Azure Monitor ao filtrar pela operação 'Elimina uma cópia de segurança de retenção de longo prazo'. O registo de atividade contém informações sobre quem e quando efetuou o pedido. Ver [criar alertas de registo de atividades](../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md) para obter instruções detalhadas.
+> A eliminar LTR cópia de segurança é não reversível. Pode definir notificações sobre cada delete no Azure Monitor ao filtrar pela operação 'Elimina uma cópia de segurança de retenção de longo prazo'. O registo de atividade contém informações sobre quem e quando efetuou o pedido. Ver [criar alertas de registo de atividades](../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
 >
 
 ### <a name="restore-from-ltr-backups"></a>Restaurar a partir de cópias de segurança LTR

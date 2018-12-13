@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Executar uma tarefa do Spark no Azure Databricks com o portal do Azure'
+title: 'Início rápido: Executar uma tarefa do Spark no Azure Databricks com o portal do Azure'
 description: O manual de início rápido mostra como utilizar o portal do Azure para criar uma área de trabalho do Azure Databricks, um cluster do Apache Spark e executar uma tarefa do Spark.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 080bf465d65199c54e0d09eab8c7bccbc9616ed7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568959"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259550"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: Executar uma tarefa do Spark no Azure Databricks com o portal do Azure
 
@@ -86,12 +86,12 @@ Para obter mais informações sobre a criação de clusters, veja [Criar um clus
 ## <a name="download-a-sample-data-file"></a>Transferir um ficheiro de dados de exemplo
 Transfira um ficheiro de dados JSON de exemplo e guarde-o no armazenamento de blobs do Azure.
 
-1. Transfira este ficheiro de dados JSON de exemplo [do Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) para o seu computador local. Clique com o botão direito do rato e guarde o ficheiro sem formato localmente.
+1. Transferir este ficheiro de dados JSON de exemplo [do GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) no seu computador local. Clique com o botão direito do rato e guarde o ficheiro sem formato localmente.
 
 2. Se ainda não tiver uma conta de armazenamento, crie uma.
     - No portal do Azure, selecione **Criar um recurso**. Selecione a categoria **Armazenamento** e selecione **Contas de Armazenamento**
     - Indique um nome único para a conta de armazenamento.
-    - Selecione **Tipo de Conta**: **Armazenamento de Blobs**
+    - Selecione **tipo de conta**: **Armazenamento de Blobs**
     - Selecione um nome de **Grupo de Recursos**. Utilize o mesmo grupo de recursos onde criou a área de trabalho do Databricks.
     
     Para obter mais informações, veja [Criar uma conta de armazenamento de Blobs do Azure](../storage/common/storage-quickstart-create-account.md).

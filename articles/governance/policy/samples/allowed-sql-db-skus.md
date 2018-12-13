@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Azure Policy – SKUs da BD SQL permitidos
+title: Exemplo - SQL DB SKUs permitido
 description: Este exemplo de política exige que as bases de dados SQL utilizem um SKU aprovado.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 3f2ed04555f46f80585c3a17612e3071bfec415d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: f22ee99750f12d44ca61fac6a0e5db4bde9634a1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992784"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311359"
 ---
 # <a name="allowed-sql-db-skus"></a>SKUs de BD SQL permitidos
 
@@ -69,6 +68,6 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

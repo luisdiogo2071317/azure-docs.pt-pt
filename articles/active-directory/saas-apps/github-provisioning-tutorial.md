@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: bc82f0b71c6963c4f5a356180a1eabbca1b166c4
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cf66a257ef176ab6f8d58ab558d2582a811609a4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156957"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166562"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para o aprovisionamento automático de utilizadores
 
@@ -36,7 +36,7 @@ O cenário descrito neste tutorial parte do princípio de que já tem os seguint
 *   Uma conta de utilizador no GitHub com permissões de administrador 
 
 > [!NOTE]
-> O Azure AD aprovisionamento integração depende a [API do GitHub SCIM](https://developer.github.com/v3/scim/), que está disponível para as equipes do Github no plano de negócios ou melhor.
+> O Azure AD aprovisionamento integração depende a [API do GitHub SCIM](https://developer.github.com/v3/scim/), que está disponível para as equipes do GitHub no plano de negócios ou melhor.
 
 ## <a name="assigning-users-to-github"></a>Atribuir utilizadores a GitHub
 
@@ -80,7 +80,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD para a API de aprovisi
 
     ![Caixa de diálogo de autorização](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. No portal do Azure, de entrada **URL de inquilino** e clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação do GitHub. Se a ligação falhar, certifique-se de sua conta do GitHub com permissões de administrador e **URl de inquilino** é introduzido corretamente, em seguida, repita o passo de "Autorizar" (pode constituem **URL de inquilino** através da regra: `https://api.github.com/scim/v2/organizations/<Organization_name>` Pode encontrar suas organizações na sua conta do GitHub: **configurações** > **organizações**).
+7. No portal do Azure, de entrada **URL de inquilino** e clique em **Testar ligação** para garantir que o Azure AD pode ligar à sua aplicação do GitHub. Se a ligação falhar, certifique-se de sua conta do GitHub com permissões de administrador e **URl de inquilino** é introduzido corretamente, em seguida, repita o passo de "Autorizar" (pode constituem **URL de inquilino** através da regra: `https://api.github.com/scim/v2/organizations/<Organization_name>` , pode encontrar suas organizações na sua conta do GitHub: **As definições** > **organizações**).
 
     ![Caixa de diálogo de autorização](./media/github-provisioning-tutorial/GitHub3.png)
 

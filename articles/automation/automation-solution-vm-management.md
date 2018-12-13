@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 086bddb34017d41e3e7efe86531e3c849ccd80ab
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 5f5c86a90325c9a6dcd521a97cb899b88b55198d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679941"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194271"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
-A iniciar/parar VMs fora do horário comercial solução inicia e interrompe as máquinas virtuais do Azure em agendas definidas pelo utilizador, fornece informações através do Azure Log Analytics e envia e-mails opcionais ao utilizar [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md). Ele oferece suporte do Azure Resource Manager e as VMs clássicas na maioria dos cenários.
+A iniciar/parar VMs fora do horário comercial solução inicia e interrompe as máquinas virtuais do Azure em agendas definidas pelo utilizador, fornece informações através do Azure Log Analytics e envia e-mails opcionais ao utilizar [grupos de ação](../azure-monitor/platform/action-groups.md). Ele oferece suporte do Azure Resource Manager e as VMs clássicas na maioria dos cenários.
 
 Esta solução fornece uma opção de automatização descentralizada de baixo custo para os utilizadores que queiram otimizar seus custos VM. Com esta solução, pode:
 
@@ -79,7 +79,7 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
    - Especifique a **nomes de ResourceGroup de destino**. Estes valores são os nomes de grupo de recursos que contêm as VMs a ser geridas por esta solução. Pode introduzir mais de um nome e separar cada um com uma vírgula (valores não diferenciam maiúsculas de minúsculas). Se quiser segmentar todas as VMs em todos os grupos de recursos da subscrição, a utilização de um caráter universal é suportada. Este valor é armazenado no **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames** variáveis.
    - Especifique a **lista de exclusões de VM (cadeia)**. Este valor é o nome de um ou mais máquinas virtuais do grupo de recursos de destino. Pode introduzir mais de um nome e separar cada um com uma vírgula (valores não diferenciam maiúsculas de minúsculas). A utilização de um caráter universal é suportada. Este valor é armazenado no **External_ExcludeVMNames** variável.
    - Selecione um **agenda**. Este valor é uma data e hora recorrente para iniciar e parar as VMs em grupos de recursos de destino. Por predefinição, a agenda está configurada para 30 minutos a partir de agora. Selecionar uma região diferente não está disponível. Para configurar a agenda para o seu fuso horário específico depois de configurar a solução, consulte [modificar a agenda de arranque e encerramento](#modify-the-startup-and-shutdown-schedules).
-   - Para receber **notificações por E-Mail** de um grupo de ação, aceite o valor predefinido **Sim** e fornecer um endereço de e-mail válido. Se selecionou **não** mas decidir posteriormente que pretende receber notificações por e-mail, pode atualizar o [grupo de ação](../monitoring-and-diagnostics/monitoring-action-groups.md) que é criada com endereços de e-mail válidos separados por vírgulas. Também tem de ativar as seguintes regras de alerta:
+   - Para receber **notificações por E-Mail** de um grupo de ação, aceite o valor predefinido **Sim** e fornecer um endereço de e-mail válido. Se selecionou **não** mas decidir posteriormente que pretende receber notificações por e-mail, pode atualizar o [grupo de ação](../azure-monitor/platform/action-groups.md) que é criada com endereços de e-mail válidos separados por vírgulas. Também tem de ativar as seguintes regras de alerta:
 
      - AutoStop_VM_Child
      - Scheduled_StartStop_Parent
@@ -101,7 +101,7 @@ Este cenário é a configuração predefinida quando implantar a solução pela 
 > [!NOTE]
 > O fuso horário é seu fuso horário atual quando configurar o parâmetro de tempo da agenda. No entanto, ele é armazenado no formato UTC na automatização do Azure. Não tem de fazer qualquer conversão do fuso horário como isso é manipulado durante a implantação.
 
-Controla quais as VMs estão no âmbito ao configurar as seguintes variáveis: **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**, e **External_ ExcludeVMNames**.
+Controle que as VMs estão no âmbito ao configurar as seguintes variáveis: **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**, e **External_ExcludeVMNames**.
 
 Pode habilitar o direcionamento a ação em relação a uma subscrição e grupo de recursos ou visando uma lista específica de VMs, mas não ambos.
 
@@ -191,7 +191,7 @@ Incluir todos os runbooks do principal do _WhatIf_ parâmetro. Quando definido c
 |Bootstrap_Main | nenhum | Utilizado uma vez para definir configurações de arranque do sistema, tais como webhookURI, que normalmente não são acessíveis a partir do Azure Resource Manager. Este runbook é removido automaticamente após a implementação com êxito.|
 |ScheduledStartStop_Child | VMName <br> Ação: Iniciar ou parar <br> ResourceGroupName | Chamada do runbook principal. Executa uma ação iniciar ou parar para a parada agendada.|
 |ScheduledStartStop_Parent | Ação: Iniciar ou parar <br>VMList <br> WhatIf: VERDADEIRO ou FALSO | Esta definição afeta todas as VMs na subscrição. Editar a **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames** ser executado somente sobre esses grupos de recursos de destino. Também pode excluir VMs específicas ao atualizar o **External_ExcludeVMNames** variável.<br> VMList: Lista separada por vírgulas de VMs. Por exemplo, _vm1, vm2, vm3_.<br> _WhatIf_ valida a lógica de runbook sem executar.|
-|SequencedStartStop_Parent | Ação: Iniciar ou parar <br> WhatIf: VERDADEIRO ou FALSO<br>VMList| Criar etiquetas com o nome **sequencestart** e **sequencestop** em cada VM para o qual pretende que a atividade de início/paragem de sequência. Esses nomes de marca diferenciam maiúsculas de minúsculas. O valor da etiqueta deve ser um número inteiro positivo (1, 2, 3) que corresponde à ordem na qual pretende iniciar ou parar. <br> VMList: Lista separada por vírgulas de VMs. Por exemplo, _vm1, vm2, vm3_. <br> _WhatIf_ valida a lógica de runbook sem executar. <br> **Tenha em atenção**: as VMs devem estar em grupos de recursos definidos como External_Start_ResourceGroupNames External_Stop_ResourceGroupNames e External_ExcludeVMNames em variáveis de automatização do Azure. Têm de ter as etiquetas adequadas para ações entrem em vigor.|
+|SequencedStartStop_Parent | Ação: Iniciar ou parar <br> WhatIf: VERDADEIRO ou FALSO<br>VMList| Criar etiquetas com o nome **sequencestart** e **sequencestop** em cada VM para o qual pretende que a atividade de início/paragem de sequência. Esses nomes de marca diferenciam maiúsculas de minúsculas. O valor da etiqueta deve ser um número inteiro positivo (1, 2, 3) que corresponde à ordem na qual pretende iniciar ou parar. <br> VMList: Lista separada por vírgulas de VMs. Por exemplo, _vm1, vm2, vm3_. <br> _WhatIf_ valida a lógica de runbook sem executar. <br> **Tenha em atenção**: As VMs devem estar em grupos de recursos definidos como External_Start_ResourceGroupNames External_Stop_ResourceGroupNames e External_ExcludeVMNames em variáveis de automatização do Azure. Têm de ter as etiquetas adequadas para ações entrem em vigor.|
 
 ### <a name="variables"></a>Variáveis
 
@@ -309,7 +309,7 @@ Sobre o **StartStop_VM_Notification** página, clique em **editar detalhes** sob
 
 ![Página de solução de gestão de atualizações de automatização](media/automation-solution-vm-management/change-email.png)
 
-Em alternativa pode adicionar ações adicionais para o grupo de ação, para saber mais sobre grupos de ação, consulte [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md)
+Em alternativa pode adicionar ações adicionais para o grupo de ação, para saber mais sobre grupos de ação, consulte [grupos de ação](../azure-monitor/platform/action-groups.md)
 
 Segue-se uma mensagem de e-mail de exemplo que é enviada quando a solução encerra as máquinas virtuais.
 

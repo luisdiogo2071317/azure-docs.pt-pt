@@ -3,8 +3,8 @@ title: Exemplo de Script do PowerShell do Azure - restaurar uma aplicação web 
 description: Exemplo de Script do PowerShell do Azure - restaurar uma aplicação web a partir de uma cópia de segurança
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: jpconnoc
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
@@ -13,16 +13,16 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 ms.date: 11/21/2018
-ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 6e8d950db6facacd9ae84566c6e85a14657050fe
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 1f9e35c471ef846a77667eee94f0e048bd914710
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292176"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193353"
 ---
-# <a name="restore-a-web-app-from-a-backup"></a>Restaurar uma aplicação Web a partir de uma cópia de segurança
+# <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Restaurar uma aplicação web a partir de uma cópia de segurança com o Azure PowerShell
 
 Este script de exemplo obtém uma cópia de segurança concluída anteriormente a partir de uma aplicação web existente e restaurá-lo ao substituir seu conteúdo. 
 

@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: f46d5a31667f52f553bcfdbd20ff56439d526144
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0dd6430021eed5571a6590f411a68e747cd7b506
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163312"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274892"
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Informações de desempenho de consulta de base de dados SQL do Azure
 Gerenciamento e ajuste do desempenho de bases de dados relacionais são uma tarefa desafiadora, que exige especialização significativa e investimento de tempo. O Query Performance Insight permite gastar menos tempo de resolução de problemas de desempenho de base de dados ao fornecer o seguinte:

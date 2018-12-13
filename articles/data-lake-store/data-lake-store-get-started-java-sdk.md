@@ -1,5 +1,5 @@
 ---
-title: 'Java SDK: operações do sistema de ficheiros no Gen1 de armazenamento do Azure Data Lake | Documentos da Microsoft'
+title: 'Java SDK: Operações de sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake | Documentos da Microsoft'
 description: Utilização do Azure Storage Gen1 Java SDK do Data Lake para executar operações de sistema de ficheiros no Data Lake Storage Gen1, como criar pastas, etc.
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: a91593c1bae3002be8b7e423b627f1baf19e86e2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: edbaa8fe42c0e6bfda8558e7d9e5cd0ce42bfcc4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129201"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260706"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operações do sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake com o SDK de Java
 > [!div class="op_single_selector"]
@@ -206,7 +206,7 @@ O fragmento seguinte elimina os ficheiros e pastas especificados numa conta do D
 
 ## <a name="build-and-run-the-application"></a>Compilar e executar a aplicação
 1. Para executar a partir de um IDE, localize e prima o botão **Executar**. Para executar a partir do Maven, utilize [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
-2. Para produzir um jar autónomo que pode executar a partir da linha de comandos, compile um jar com todas as dependências incluídas com o [plug-in de montagem do Maven](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). O pom.xml no [código de origem de exemplo no github](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) tem um exemplo.
+2. Para produzir um jar autónomo que pode executar a partir da linha de comandos, compile um jar com todas as dependências incluídas com o [plug-in de montagem do Maven](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). O pom. XML no [código de fonte de exemplo no GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) tem um exemplo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Explorar JavaDoc para o SDK Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
