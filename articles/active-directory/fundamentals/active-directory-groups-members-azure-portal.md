@@ -1,6 +1,6 @@
 ---
-title: Como adicionar ou remover membros do grupo com o Azure Active Directory | Documentos da Microsoft
-description: Saiba como adicionar ou remover utilizadores e dispositivos a partir de um grupo com o Azure Active Directory.
+title: Adicionar ou remover membros do grupo - Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como adicionar ou remover membros de um grupo com o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,21 +10,21 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 7c1a83d83dcbf247550c66602a6f53d4ef0d7930
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42b80b53ca7c860143f1de1005a609b3e921e650
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733369"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076164"
 ---
-# <a name="how-to-add-or-remove-group-members-using-azure-active-directory"></a>Como: Adicionar ou remover membros do grupo com o Azure Active Directory
+# <a name="add-or-remove-group-members-using-azure-active-directory"></a>Adicionar ou remover membros do grupo com o Azure Active Directory
 Utilizar o Azure Active Directory, pode continuar a adicionar e remover membros do grupo.
 
 ## <a name="to-add-group-members"></a>Para adicionar membros do grupo
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com) com uma conta de Administrador Global do diretório.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta de Administrador global do diretório.
 
 2. Selecione **do Azure Active Directory**e, em seguida, selecione **grupos**.
 
@@ -32,7 +32,7 @@ Utilizar o Azure Active Directory, pode continuar a adicionar e remover membros 
 
     ![Página de grupos de todos os grupos, nome do grupo realçado](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
-4. Do **política MDM - descrição geral do Oeste** página, selecione **membros** do **gerir** área.
+4. Na página **Descrição Geral da Política MDM - Oeste**, selecione **Membros** na área **Gerir**.
 
     ![Política MDM - página de descrição geral do oeste, com a opção de membros realçada](media/active-directory-groups-members-azure-portal/group-overview-blade.png)
 

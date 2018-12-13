@@ -1,20 +1,20 @@
 ---
-title: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Azure | Microsoft Docs
+title: Visualizar anomalias de dados nos eventos em tempo real - Event Hubs do Azure | Documentos da Microsoft
 description: Tutorial - Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Microsoft Azure
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.author: shvija
-ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.custom: mvc
-ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
-ms.translationtype: HT
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.openlocfilehash: add88a24da2e217d705065274f26382c1ffe8e17
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004118"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091685"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados em eventos em tempo real enviados para os Hubs de Eventos do Azure
 

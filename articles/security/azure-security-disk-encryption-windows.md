@@ -1,20 +1,21 @@
 ---
-title: Ativar a encriptação de disco do Azure para VMs de IaaS do Windows | Documentos da Microsoft
+title: Ativar a encriptação de disco do Azure para VMs de IaaS do Windows
 description: Este artigo fornece instruções sobre como ativar o Microsoft disco encriptação para o Windows VMs IaaS do Azure.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/12/2018
-ms.openlocfilehash: 545723a020609766b9556746e6547eb8b93e5de9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: MT
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: c4cada102a4996a388ce3a6ac7d8f83e79f1b074
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687525"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076751"
 ---
-# <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Ativar a encriptação de disco do Azure para VMs de IaaS do Windows 
+# <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Ativar a encriptação de disco do Azure para VMs de IaaS do Windows
 
 Pode ativar vários cenários de encriptação de disco e os passos podem variar de acordo com o cenário. As secções seguintes abrangem os cenários mais detalhadamente para VMs de IaaS do Windows. Antes de poder utilizar a encriptação de disco, o [pré-requisitos do Azure Disk Encryption](../security/azure-security-disk-encryption-prerequisites.md) devem ser concluídas. 
 
@@ -194,13 +195,13 @@ Utilize o [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurerm.co
 
 ### <a name="register-for-disk-encryption-preview-using-azure-cli"></a>Registar-se na pré-visualização da encriptação de disco com a CLI do Azure
 
-A encriptação de disco do Azure para pré-visualização de conjuntos de dimensionamento de máquina virtual requer que Self-registar a sua subscrição com [Registre-se de funcionalidade de az](/cli/azure/feature#az_feature_register). Apenas terá de efetuar os passos seguintes na primeira vez que utilize a funcionalidade de pré-visualização da encriptação de disco:
+A encriptação de disco do Azure para pré-visualização de conjuntos de dimensionamento de máquina virtual requer que Self-registar a sua subscrição com [Registre-se de funcionalidade de az](/cli/azure/feature#az-feature-register). Apenas terá de efetuar os passos seguintes na primeira vez que utilize a funcionalidade de pré-visualização da encriptação de disco:
 
 ```azurecli-interactive
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Pode demorar até 10 minutos para que o pedido de registo propagar. Pode verificar o estado de registo com [show de funcionalidade de az](/cli/azure/feature#az_feature_show). Quando o `State` relatórios *registada*, volte a registar o *Microsoft. Compute* fornecedor com [Registre-se fornecedor de az](/cli/azure/provider#az_provider_register):
+Pode demorar até 10 minutos para que o pedido de registo propagar. Pode verificar o estado de registo com [show de funcionalidade de az](/cli/azure/feature#az-feature-show). Quando o `State` relatórios *registada*, volte a registar o *Microsoft. Compute* fornecedor com [Registre-se fornecedor de az](/cli/azure/provider#az-provider-register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute

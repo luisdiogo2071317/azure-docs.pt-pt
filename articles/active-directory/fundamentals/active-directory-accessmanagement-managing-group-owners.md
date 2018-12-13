@@ -1,6 +1,6 @@
 ---
-title: Como adicionar ou remover os proprietários do grupo do Active Directory do Azure | Documentos da Microsoft
-description: Saiba como adicionar ou remover os proprietários do grupo com o Azure Active Directory.
+title: Adicionar ou remover os proprietários do grupo - Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como adicionar ou remover do grupo proprietários com o Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
-ms.custom: it-pro
-ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 8c70378993e0155cbe730a5a351848ca1a1daa0a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139725"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087155"
 ---
-# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Como: Adicionar ou remover os proprietários do grupo no Azure Active Directory
+# <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Adicionar ou remover os proprietários do grupo no Azure Active Directory
 Os grupos do Active Directory (Azure AD) do Azure são detidos e geridos pelo proprietários do grupo. Os proprietários do grupo são atribuídos para gerir um grupo e seus membros por um proprietário do recurso (administrador). Os proprietários do grupo não têm de ser membros do grupo. Depois que foi atribuído a um proprietário do grupo, apenas um proprietário do recurso pode adicionar ou remover proprietários.
 
 Em alguns casos,, como o administrador pode decidir não atribuir um proprietário do grupo. Neste caso, se torna o proprietário do grupo. Além disso, os proprietários podem atribuir outros proprietários ao respetivo grupo, a menos que já restrito isso nas definições de grupo.

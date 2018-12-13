@@ -1,6 +1,6 @@
 ---
-title: Início Rápido para ver os grupos e membros da sua organização no Azure Active Directory | Microsoft Docs
-description: Início Rápido com os passos sobre como pesquisar e ver os grupos da sua organização e os respetivos membros atribuídos no portal do Azure.
+title: Início rápido para ver os grupos e membros - Azure Active Directory da sua organização | Documentos da Microsoft
+description: Instruções sobre como pesquisar e ver os grupos da sua organização e seus membros atribuídos.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,14 +10,14 @@ ms.component: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 9da9f055163f5df4ea064bd46caa811e39fba20c
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
-ms.translationtype: HT
+ms.openlocfilehash: 002b4bb4ab20e531132b461f90857cfab6aecfd3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056408"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087481"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -126,7 +126,7 @@ Este grupo é utilizado em vários processos de procedimentos que estão dispon�
     >[!Important]
     >Esta ação não elimina o utilizador Alain Charon, apenas elimina a sua associação do grupo eliminado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Avance para o artigo seguinte para saber como associar uma subscrição ao diretório do Azure AD.
 
 > [!div class="nextstepaction"]

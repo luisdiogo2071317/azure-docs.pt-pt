@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: barbkess
-ms.openlocfilehash: c4aa311018603b32e854d3d3423d342350e6520d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d99209af9b1b6697419a046812928e75fed70321
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044489"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076959"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Atribuir utilizadores e grupos a uma aplicação no Azure Active Directory
 Este artigo mostra-lhe como atribuir utilizadores ou grupos a uma aplicação no Azure Active Directory (Azure AD). Os usuários primeiro devem ser atribuídos a uma aplicação antes de um administrador pode conceder-lhes acesso para fazer o seguinte:
@@ -57,7 +57,7 @@ Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga os pas
 
 5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+    * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
 6.  Selecione a aplicação que pretende atribuir um utilizador a partir da lista.
 
@@ -95,7 +95,7 @@ Para atribuir um ou mais grupos diretamente a uma aplicação, siga os passos ab
 
 5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+    * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
 6.  Selecione a aplicação que pretende atribuir um utilizador a partir da lista.
 

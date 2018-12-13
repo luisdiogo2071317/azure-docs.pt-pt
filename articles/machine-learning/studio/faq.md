@@ -5,7 +5,7 @@ keywords: introdução ao machine learning, modelação preditiva, o que é o ma
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 4d4e6a47b35d3cb98e4425c11628625818642fa0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867856"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091301"
 ---
-# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>O Azure Machine Learning Studio perguntas mais frequentes: faturação, capacidades, limitações e suporte
+# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>O Azure Machine Learning Studio FAQ: Faturação, capacidades, limitações e suporte
 Seguem-se algumas perguntas mais frequentes (FAQ) e as respostas correspondentes sobre o Azure Machine Learning, um serviço cloud para desenvolver modelos preditivos e operacionalizar soluções através de serviços Web. Estas FAQ respondem a perguntas sobre como utilizar o serviço, o que inclui o modelo de faturação, as capacidades, as limitações e o suporte.
 
 **Tem alguma pergunta que não encontre aqui?**

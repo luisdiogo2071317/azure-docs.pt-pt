@@ -2,18 +2,18 @@
 title: Eliminar um cofre dos serviços de recuperação do Azure "
 description: Este artigo explica como eliminar um cofre dos serviços de recuperação. O artigo inclui passos de resolução de problemas ao tentar eliminar um cofre, mas não é possível.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 7/6/2018
-ms.author: markgal
-ms.openlocfilehash: e5bc68b55fdefc07b9764b8393ea6f4062468252
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: raynew
+ms.openlocfilehash: d7617ce96181a0708dfa4731c07d581e332bdff4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816468"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873109"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminar um cofre dos Serviços de Recuperação
 

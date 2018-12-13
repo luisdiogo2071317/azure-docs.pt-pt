@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: moderakh
-ms.openlocfilehash: 01d353d3f1b59fecbb1894d08c6404f441422593
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fadefe09f9f744fabe0f0f3f3cb519b3abb50b41
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872905"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098888"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "52872905"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-O SDK de Java de Async de API de SQL é diferente do SDK de Java API do SQL ao fornecer operações assíncronas com suporte do [biblioteca Netty](http://netty.io/). O pré-existente [SDK de Java API de SQL](sql-api-sdk-java.md) não suporta operações assíncronas. 
+O SDK de Java de Async de API de SQL é diferente do SDK de Java API do SQL ao fornecer operações assíncronas com suporte do [biblioteca Netty](https://netty.io/). O pré-existente [SDK de Java API de SQL](sql-api-sdk-java.md) não suporta operações assíncronas. 
 
 <table>
 
@@ -113,7 +113,7 @@ O SDK de Java de Async de API de SQL é diferente do SDK de Java API do SQL ao f
 * Arquivos de cabeçalho de Java fixos para a geração de documentos de java adequado.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* SDK de disponibilidade geral com suporte ponto a ponto para a utilização de e/s sem bloqueio a [biblioteca Netty](http://netty.io/) no modo de gateway. 
+* SDK de disponibilidade geral com suporte ponto a ponto para a utilização de e/s sem bloqueio a [biblioteca Netty](https://netty.io/) no modo de gateway. 
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e de extinção
 A Microsoft irá fornecer, pelo menos, notificação **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.

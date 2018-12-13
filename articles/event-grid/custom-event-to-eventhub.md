@@ -1,5 +1,5 @@
 ---
-title: Enviar eventos personalizados do Azure Event Grid para o Hubs de Eventos | Microsoft Docs
+title: Enviar eventos personalizados para os Hubs de eventos - Event Grid, Azure CLI
 description: Utilize o Azure Event Grid e a CLI do Azure para publicar um tópico e subscrever esse evento. É utilizado um hub de eventos para o ponto final.
 services: event-grid
 keywords: ''
@@ -8,14 +8,15 @@ ms.author: tomfitz
 ms.date: 10/09/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 0d8504dc002fa43c25f689b4c5b3f78c822cf5b0
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 08039932583fce24db9cd264a15f31b6df782627
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069425"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086912"
 ---
-# <a name="route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Encaminhar eventos personalizados para o Hubs de Eventos do Azure com a CLI do Azure e o Event Grid
+# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Início rápido: Encaminhar eventos personalizados para os Hubs de eventos do Azure com a CLI do Azure e o Event Grid
 
 O Azure Event Grid é um serviço de eventos para a cloud. Os Hubs de Eventos do Azure é um dos processadores de eventos suportados. Neste artigo, a CLI do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado. Envia eventos para um hub de eventos.
 
@@ -113,7 +114,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 az group delete --name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

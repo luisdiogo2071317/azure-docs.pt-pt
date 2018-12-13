@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
-ms.custom: ''
-ms.openlocfilehash: b244c7347b458439e9c1c088cf83cff3d0ec5a2e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 9bb8d74b012b25ca959cdb87b8a3d5e4284b6497
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001124"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097221"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adicionar métricas expandidas para máquinas virtuais do Azure
 
@@ -35,7 +35,7 @@ Por exemplo, pode querer monitorizar a % de CPU e memória % das suas VMs do Azu
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinar se métricas expandidas estão ativadas
 
-1. Inicie sessão no portal do Azure em http://portal.azure.com.
+1. Inicie sessão no portal do Azure em https://portal.azure.com.
 2. Sob **máquinas virtuais**, selecione uma VM e, em **monitorização**, selecione **métricas**. É apresentada uma lista de métricas disponíveis.
 3. Selecione algumas métricas e um gráfico Exibe dados para eles.  
     ![Métrica de exemplo – percentagem de CPU do anfitrião](./media/azure-vm-extended-metrics/metric01.png)
@@ -55,18 +55,18 @@ Tenha em atenção que o Azure e Linux monitorização ao nível do convidado pr
 1. Na **máquinas virtuais**, ver a lista das suas VMs e, em seguida, selecione uma VM.
 2. Sob **monitorização**, selecione **das definições de diagnóstico**.
 3. Na página de definições de diagnóstico, clique em **ativar a monitorização ao nível do convidado**.  
-    ![Ativar a monitorização ao nível do convidado](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
+    ![Ativar a convidado a monitorização ao nível da página de descrição geral](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
 4. Após alguns minutos, o agente de diagnóstico do Azure está instalado na VM. São adicionados um conjunto básico de métricas. Atualize a página. Os contadores de desempenho são apresentados no separador de descrição geral.
 5. Em monitorização, selecione **métricas**.
 6. No gráfico de métricas no **espaço de nomes de métrica**, selecione **convidado (clássico)**.
 7. Na lista de métrica, pode ver todos os contadores de desempenho disponíveis para VM do convidado.  
-    ![Métricas expandidas](./media/azure-vm-extended-metrics/extended-metrics.png)
+    ![lista de métricas de exemplo expandido](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### <a name="enable-guest-level-monitoring-on-new-vms"></a>Ativar a monitorização ao nível do convidado novas VMs
 
 Quando criar novas VMs, no separador de gestão, selecione **nos** para **SO convidado diagnóstico**.
 
-![Ativar diagnósticos de SO convidado](./media/azure-vm-extended-metrics/new-enable-diag.png)
+![definir o diagnóstico do SO convidado no](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
 Para obter mais informações sobre como ativar métricas expandidas para máquinas virtuais do Azure, consulte [compreensão e a utilizar o agente Linux do Azure](../virtual-machines/extensions/agent-linux.md) e [descrição geral do agente de Máquina Virtual do Azure](../virtual-machines/extensions/agent-windows.md).
 
@@ -82,7 +82,7 @@ Pode ativar métricas da VM com scripts do PowerShell do Azure. Quando tiver mui
 
 Para ver métricas de desempenho em suas instâncias do Azure no portal do Cloudyn, navegue para **ativos** > **computação** > **instância Explorer**. Na lista de instâncias de VM, expanda uma instância e, em seguida, expanda um recurso para ver os detalhes.
 
-![Explorador de instância](./media/azure-vm-extended-metrics/instance-explorer.png)
+![informações de exemplo mostradas no Explorador de instância](./media/azure-vm-extended-metrics/instance-explorer.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

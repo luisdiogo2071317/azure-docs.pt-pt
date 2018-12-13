@@ -1,21 +1,22 @@
 ---
-title: Eventos personalizados do Azure Event Grid com o portal do Azure | Microsoft Docs
-description: Utilize o Azure Event Grid e o PowerShell para publicar um tópico e subscrever esse evento.
+title: Enviar eventos personalizados para o portal web do ponto de extremidade - Event Grid, do Azure
+description: Utilize o Azure Event Grid e o portal do Azure para publicar um tópico personalizado e subscrever eventos para esse tópico. Os eventos são processados por um aplicativo web.
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/02/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 630130bde0440a8a5f51589386f42214f27af59a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: e93ee410d1d6ac0de0646194c716d64ffb8e4316
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040631"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093470"
 ---
-# <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Criar e encaminhar eventos personalizados com o portal do Azure e o Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Início rápido: Encaminhar eventos personalizados para o ponto final da web com o portal do Azure e o Event Grid
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, o portal do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
@@ -45,7 +46,7 @@ Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual
 
    ![Passos de início](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Forneça um nome exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, porque este é representado por uma entrada DNS. Não utilize o nome apresentado na imagem. Em vez disso, crie o seu próprio nome. Forneça um nome para o grupo de recursos. Selecione **Criar**.
+1. Forneça um nome exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, porque este é representado por uma entrada DNS. Não utilize o nome apresentado na imagem. Em vez disso, criar seu próprio nome - tem de ter entre 3 e 50 carateres e conter apenas valores-z, A-Z, 0-9, e "-". Forneça um nome para o grupo de recursos. Selecione **Criar**.
 
    ![Fornecer valores do tópico do Event Grid](./media/custom-event-quickstart-portal/create-custom-topic.png)
 
@@ -179,7 +180,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 
 Selecione o grupo de recursos e selecione **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que sabe como criar tópicos personalizados e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 0a130613d6d2086fda55ca015b1c0ca77c909e3d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: d6a1f2829352e8589c8d132a195a425edcbe62c3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684618"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872950"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Monitorizar a sincronização de dados SQL com o Log Analytics 
 
@@ -97,7 +97,7 @@ Para obter mais informações sobre a criação de um runbook, consulte [meu pri
 
     2.  Informações do grupo de sincronização.
 
-    3.  Registe informações de análise. Pode encontrar estas informações no Portal do Azure | Definições | Origens ligadas. Para obter mais informações sobre como enviar dados para o Log Analytics, consulte [enviar dados para o Log Analytics com a API de Recoletor de dados HTTP (pré-visualização)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Registe informações de análise. Pode encontrar estas informações no Portal do Azure | Definições | Origens ligadas. Para obter mais informações sobre como enviar dados para o Log Analytics, consulte [enviar dados para o Log Analytics com a API de Recoletor de dados HTTP (pré-visualização)](../azure-monitor/platform/data-collector-api.md).
 
 11. Execute o runbook no painel de teste. Verifique para se certificar de que ele foi concluída com êxito.
 

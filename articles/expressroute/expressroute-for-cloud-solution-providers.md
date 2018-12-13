@@ -1,25 +1,19 @@
 ---
-title: Azure ExpressRoute para Fornecedores de Soluções em Nuvem | Microsoft Docs
-description: Este artigo fornece informações para Fornecedores de Serviço em Nuvem que pretendem incorporar os serviços do Azure e ExpressRoute nas suas ofertas.
-documentationcenter: na
+title: ExpressRoute para fornecedores de soluções de Cloud - Azure | Documentos da Microsoft
+description: Este artigo fornece informações para fornecedores de soluções de Cloud que pretende incorporar serviços do Azure e ExpressRoute nas suas ofertas.
 services: expressroute
 author: richcar
-manager: carmonm
-editor: ''
-ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 9991da5d5ab6f43cc8c5ebf1672d7da0f1ad061e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 842654f860a94481b53ebf9732fc4ed8be24cf4a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405709"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077516"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Fornecedores de Soluções em Nuvem (CSP)
 A Microsoft fornece serviços de hiper escala para revendedores e distribuidores (CSP) tradicionais de forma a aprovisionar novos serviços e soluções para os seus clientes sem a necessidade de investir no desenvolvimento destes novos serviços. Para permitir que o Fornecedor de Soluções em Nuvem (CSP) possa gerir diretamente estes novos serviços, a Microsoft disponibiliza programas e APIs que permitem ao CSP gerir os recursos do Microsoft Azure em nome dos seus clientes. Um destes recursos é o ExpressRoute. O ExpressRoute permite ao CSP ligar os recursos existentes do cliente aos serviços do Azure. O ExpressRoute é uma ligação privada de comunicações de alta velocidade para serviços no Azure. 
@@ -130,7 +124,7 @@ Consoante o modelo em utilização, Connect-To ou Connect-Through, o seu cliente
 
 ![texto alternativo](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 O serviço do Fornecedor de Soluções em Nuvem permite-lhe aumentar o seu valor para os seus clientes sem a necessidade de comprar capacidades e infraestruturas dispendiosas, enquanto mantém a sua posição como o fornecedor principal de outsourcing. A integração totalmente integrada com o Microsoft Azure pode ser conseguida através da API de CSP, permitindo-lhe integrar a gestão do Microsoft Azure nas suas estruturas de gestão existentes.  
 
 Pode encontrar informações adicionais nas seguintes ligações:

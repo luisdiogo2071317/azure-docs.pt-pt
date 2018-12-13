@@ -1,6 +1,6 @@
 ---
-title: O Azure AD implementação lista de verificação de 30 dias, 90 dias e muito mais
-description: O Azure Active Directory Premium P2 funcionalidade implementação lista de verificação
+title: Licenciamento do Premium P2 do Azure Active Directory - lista de verificação da funcionalidade | Documentos da Microsoft
+description: Lista de verificação de implementação para implantação de recursos do Azure Active Directory Premium P2 em 30 dias, 90 dias e muito mais.
 services: active-directory
 ms.service: active-directory
 ms.component: ''
@@ -9,13 +9,13 @@ ms.date: 09/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: ''
-ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705656"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078245"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>O Azure Active Directory Premium P2 licenciamento funcionalidade lista de verificação
 

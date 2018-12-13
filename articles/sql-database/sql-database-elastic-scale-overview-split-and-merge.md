@@ -3,7 +3,7 @@ title: Mover dados entre bases de dados de cloud aumentadas horizontalmente | Do
 description: Explica como manipular as partições horizontais e mover dados através de um serviço de hospedagem interna usando APIs de bases de dados elásticas.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: fb87a67d84588b5199a5d31530530d5afb7985e7
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 0f5dc5cc7d981eb162ba101671b1e967ddf4bfff
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353687"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868468"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bases de dados de nuvem aumentadas horizontalmente
 

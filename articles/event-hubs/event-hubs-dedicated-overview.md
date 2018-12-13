@@ -1,6 +1,6 @@
 ---
-title: Descrição geral da capacidade dedicado de Hubs de eventos do Azure | Documentos da Microsoft
-description: Descrição geral da capacidade do Microsoft Azure Hubs de eventos dedicados.
+title: Descrição geral dos hubs de eventos dedicados - Event Hubs do Azure | Documentos da Microsoft
+description: Este artigo fornece uma visão geral do dedciated Hubs de eventos do Azure, que oferece implementações de inquilino único dos hubs de eventos.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 68a55d8a16e55e2f5e4b48153f045daa40c9a68c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: ed1fedab45ce59af2c67ed8a2ef60714d26d5801
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054612"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091031"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Descrição geral dos Hubs de eventos dedicados
 

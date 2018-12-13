@@ -1,10 +1,10 @@
 ---
 title: Experiências de Galeria de IA do Azure - Azure Machine Learning Studio | Documentos da Microsoft
-description: Detetar e partilhar as experimentações na Galeria de IA do Azure.
+description: Detetar e partilhar as experimentações na Galeria de IA do Azure. Uma experimentação é uma tela no Machine Learning Studio, que pode utilizar para construir um modelo de Análise Preditiva
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 66b5e30a26c57676bdd65b4861d34ca90c0c25af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 74791c3dce543ae9c0489a6c6124e4edba9204d2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317471"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096966"
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Descubra as experimentações na Galeria de IA do Azure
 

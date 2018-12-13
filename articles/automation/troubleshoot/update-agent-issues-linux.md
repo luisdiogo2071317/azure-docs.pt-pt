@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: adaeb3087fca57a4a868f4525d588e014ff36fcf
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 028a06a7fb627fd69bdd2f0a2084bbdef11eaed4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335832"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077248"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Compreender os resultados de verificação de agente do Linux no gerenciamento de atualizações
 
@@ -54,7 +54,7 @@ A verificação do sistema operacional, verifica se a função de trabalho de Ru
 
 ### <a name="oms-agent"></a>Agente do OMS
 
-Este verificações garante que o agente do OMS para Linux está instalado. Para obter instruções sobre como instalá-lo, consulte [instalar o agente para Linux](../../log-analytics//log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux
+Este verificações garante que o agente do OMS para Linux está instalado. Para obter instruções sobre como instalá-lo, consulte [instalar o agente para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).
 
 ### <a name="oms-agent-status"></a>Estado do agente do OMS

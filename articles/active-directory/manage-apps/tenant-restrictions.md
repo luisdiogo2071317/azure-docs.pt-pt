@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: ca3396024fdab31217b00ef7cdd39e4e61504d27
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6989fe88fa17bcd99c99ee3e82d82fb403d1aae4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851099"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096711"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Restrições de inquilino de utilização para gerir o acesso ao SaaS na nuvem
 
@@ -129,18 +129,18 @@ Fiddler é um proxy que pode ser usado para capturar e modificar o tráfego HTTP
 1.  [Transferir e instalar o Fiddler](https://www.telerik.com/fiddler).
 2.  Configurar o Fiddler para desencriptar o tráfego HTTPS, por [documentação de ajuda do Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
 3.  Configurar o Fiddler para inserir o *restringir acesso para inquilinos* e *contexto de restringir acesso* cabeçalhos usando regras personalizadas:
-  1. Na ferramenta de depurador da Web Fiddler, selecione o **regras** menu e selecione **personalizar regras...** Para abrir o ficheiro de CustomRules.
-  2. Adicione as seguintes linhas no início da *OnBeforeRequest* função. Substitua \<domínio de inquilino\> com um domínio registar-se com o seu inquilino, por exemplo, contoso.onmicrosoft.com. Substitua \<ID de diretório\> com o identificador de GUID do Azure AD do seu inquilino.
+    1. Na ferramenta de depurador da Web Fiddler, selecione o **regras** menu e selecione **personalizar regras...** Para abrir o ficheiro de CustomRules.
+    2. Adicione as seguintes linhas no início da *OnBeforeRequest* função. Substitua \<domínio de inquilino\> com um domínio registar-se com o seu inquilino, por exemplo, contoso.onmicrosoft.com. Substitua \<ID de diretório\> com o identificador de GUID do Azure AD do seu inquilino.
 
-  ```
-  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
-  ```
+    ```
+    if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
+    ```
 
-  Se tiver de permitir que vários inquilinos, utilize uma vírgula para separar os nomes de inquilino. Por exemplo:
+    Se tiver de permitir que vários inquilinos, utilize uma vírgula para separar os nomes de inquilino. Por exemplo:
 
-  ```
-  oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
-  ```
+    ```
+    oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
+    ```
 
 4. Guarde e feche o ficheiro de CustomRules.
 

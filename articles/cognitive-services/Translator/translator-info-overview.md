@@ -1,5 +1,5 @@
 ---
-title: O que é a API de Texto do Microsoft Translator?
+title: O que é a API de Texto do Microsoft Translator? -API de texto do translator
 titlesuffix: Azure Cognitive Services
 description: Integre a API de Texto do Microsoft Translator nas suas aplicações, sites, ferramentas e outras soluções para oferecer experiências de utilizador de vários idiomas.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: overview
-ms.date: 05/10/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 9d1c5fac9e305e397e0184653e6d8965f9098ee3
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: eed06d64e81196bbd6964aa33840f37dc5f14dbc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037452"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091616"
 ---
 # <a name="what-is-translator-text-api"></a>O que é a API de Texto do Microsoft Translator?
 
@@ -51,7 +52,7 @@ Os modelos da NMT são o núcleo da API e não estão visíveis para os utilizad
 
 Saiba mais sobre [como funciona a NMT](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Leia sobre os [detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
 

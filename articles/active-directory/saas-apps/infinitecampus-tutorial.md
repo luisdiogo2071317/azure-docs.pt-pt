@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f4adbacf2749e8c8ff2da8f331a007e8dcaaea3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632811"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099958"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integração do Azure Active Directory com Campus infinita
 
@@ -111,11 +111,11 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](common/editconfigure.png)
 
-5. Sobre o **configuração básica de SAML** secção, se tiver **ficheiro de metadados do fornecedor de serviços** (passo **11.b**), execute os seguintes passos:
+5. Sobre o **configuração básica de SAML** secção, se tiver **ficheiro de metadados do fornecedor de serviços** (avance para o passo **11.c**), execute os seguintes passos:
 
     a. Clique em **carregamento de ficheiro de metadados**.
 
-    ![image](common/b9_saml.png)
+        ![image](common/b9_saml.png)
 
     b. Clique em **logótipo da pasta** para selecionar o ficheiro de metadados e clique em **carregar**.
 
@@ -128,9 +128,9 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     d. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão (o domínio irão variar consoante o modelo de alojamento): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
-    > Obtém o **ficheiro de metadados do fornecedor de serviços** na página de configuração do fornecedor de serviço de SSO do infinito Campus, que é explicada mais tarde no tutorial.
+    > Obtém o **ficheiro de metadados do fornecedor de serviços** na página de configuração do fornecedor de serviço de SSO do infinito Campus, que é explicada mais tarde no tutorial. Se estiver começando com uma nova configuração de fornecedor de serviços de SAML no Campus infinito, avance para o **passo 11** para concluir a exportação do ficheiro de metadados do fornecedor de serviços.
 
-6. Se não tiver **ficheiro de metadados do fornecedor de serviços**, execute os seguintes passos:
+6. Se não tiver **ficheiro de metadados do fornecedor de serviços**, execute os seguintes passos (Observe que o domínio irão variar consoante o modelo de alojamento):
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
@@ -169,10 +169,10 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![O sso](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
     a. Selecione **ativar SAML início de sessão único**.
+    
+    b. Na **Selecione uma opção para recuperar dados de servidor do fornecedor de identidade (IDP)** secção, selecione **URL de metadados**, cole o **Url de metadados de Federação de aplicação** na caixa e, em seguida, Clique em **sincronização**.
 
-    b. Clique em **metadados do fornecedor de serviço** link para salvar o **ficheiro de metadados do fornecedor de serviços** no seu computador e carregá-la no **configuração básica de SAML** secção automaticamente polulate a **identificador** e **URL de resposta** valores no portal do Azure (consulte a etapa 5).
-
-    c. Sobre o **Selecione uma opção para recuperar dados de servidor do fornecedor de identidade (IDP)** secção, selecione **URL de metadados** e cole o **Url de metadados de Federação de aplicação** na caixa de texto e em seguida, clique em **sincronização**.
+    c. Clique em **metadados do fornecedor de serviço** link para salvar o **ficheiro de metadados do fornecedor de serviços** no seu computador e carregá-la no **configuração básica de SAML** secção automaticamente preencher o **identificador** e **URL de resposta** valores no portal do Azure (consulte a etapa 4 para o upload e a população automática de valores ou o passo 5 para entrada manual).
 
     d. Depois de clicar em **sincronização** os valores ficam preenchidos automaticamente na **configuração do fornecedor de serviço de SSO** página.
 

@@ -1,5 +1,5 @@
 ---
-title: Armazenamento de Blobs do Azure em dispositivos do Azure IoT Edge | Documentos da Microsoft
+title: Store blobs de blocos em dispositivos - Azure IoT Edge | Documentos da Microsoft
 description: Implemente um módulo de armazenamento de Blobs do Azure para o seu dispositivo IoT Edge para armazenar dados na periferia.
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fa88ff46b4fb93d55aa0087cca0e6184f3e087a0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: e56d49208740686b51cdaef1bab778e2c08a9b58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567286"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077925"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store dados na periferia com o armazenamento de Blobs do Azure no IoT Edge (pré-visualização)
 
@@ -105,7 +106,7 @@ Escolha uma das duas formas de localizar o módulo de armazenamento de BLOBs:
    > [!CAUTION]
    > Não altere o "/ blobroot" para Linux e "C: / BlobRoot" para o Windows, para  **\<bind do diretório de armazenamento >** valores.
 
-    ![Atualize os valores de módulo](./media/how-to-store-data-blob/edit-module.png)
+    ![Atualização do contentor de módulo criar opções - portais](./media/how-to-store-data-blob/edit-module.png)
 
 6. **Guardar** os valores em "Módulos de personalizado do IoT Edge"
 7. Clique em **seguinte** na secção "Definir módulos"
@@ -149,7 +150,7 @@ O modelo de solução cria um modelo de manifesto de implantação que inclua a 
    {\"Env\": [\"LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME\",\" LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY\"],\"HostConfig\": {\"Binds\": [\"<storage directory bind>\"],\"PortBindings\": {\"11002/tcp\": [{\"HostPort\":\"11002\"}]}}}
    ```
 
-   ![Opções de criação do módulo de atualização](./media/how-to-store-data-blob/create-options.png)
+   ![Atualizar o módulo createOptions - VS Code](./media/how-to-store-data-blob/create-options.png)
 
 4. As opções de criar, JSON, atualizar `<storage directory bind>` consoante o sistema operativo do contentor. Forneça o nome de um [volume](https://docs.docker.com/storage/volumes/) ou o caminho absoluto para um diretório no seu dispositivo IoT Edge onde pretende que o módulo de BLOBs para armazenar os dados.  
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial C do Azure IoT Edge | Microsoft Docs
+title: Tutorial criar o módulo de C personalizado - Azure IoT Edge | Documentos da Microsoft
 description: Este tutorial mostra como criar um módulo do IoT Edge com código C e implementá-lo num dispositivo Edge
 services: iot-edge
 author: shizn
@@ -8,13 +8,13 @@ ms.author: xshi
 ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: bc66e143dc8cb98f08080092af95661ba50be9a3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.custom: mvc, seodec18
+ms.openlocfilehash: fb2f0162eeacddf83c166619fe356d117a9304a6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317709"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099807"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver um módulo do IoT Edge em C e implementar no seu dispositivo simulado
 

@@ -1,5 +1,5 @@
 ---
-title: Atualizar os dispositivos para a versão mais recente do Azure IoT Edge | Documentos da Microsoft
+title: Versão da atualização do IoT Edge em dispositivos - Azure IoT Edge | Documentos da Microsoft
 description: Como atualizar os dispositivos de IoT Edge para executar as versões mais recentes do daemon de segurança e o runtime do IoT Edge
 keywords: ''
 author: kgremban
@@ -9,14 +9,15 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1522d9c9bc4fda178d8571fb57cb9c94ed1044ae
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 8b8638d8fa428b1b867e3f126ac8b5cc992cc273
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567796"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095159"
 ---
-# <a name="update-the-iot-edge-runtime"></a>Atualizar o runtime do IoT Edge
+# <a name="update-the-iot-edge-security-daemon-and-runtime"></a>O daemon de segurança de IoT Edge e o tempo de execução de atualização
 
 Como o serviço de IoT Edge versões novas versões, convém atualizar os seus dispositivos IoT Edge para ter as mais recentes funcionalidades e melhorias de segurança. Este artigo fornece informações sobre como atualizar os seus dispositivos IoT Edge quando uma nova versão estiver disponível. 
 
@@ -63,7 +64,7 @@ A maneira que Atualize o agente do Edge e os contentores de hub do Edge depende 
 
 Verifique a versão do agente do IoT Edge e os módulos de hub do Edge atualmente no seu dispositivo com os comandos `iotedge logs edgeAgent` ou `iotedge logs edgeHub`. 
 
-  ![Versão do contentor de vista](./media/how-to-update-iot-edge/container-version.png)
+  ![Encontrar a versão do contentor nos registos](./media/how-to-update-iot-edge/container-version.png)
 
 ### <a name="understand-iot-edge-tags"></a>Compreenda as marcas de IoT Edge
 

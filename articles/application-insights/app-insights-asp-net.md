@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6977d992bd50ca0f3f03ef10095e12472515b780
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 4b9952cbe034df59dd1f152d5b70b50e9a4db8ab
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682406"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873602"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para o seu site ASP.NET
 
@@ -149,7 +149,7 @@ Existem tópicos alternativos que pode ver se estiver interessado em:
 
 * **[Trabalhar com o Application Insights no Visual Studio](app-insights-visual-studio.md)**<br/>Inclui informações sobre depuração com telemetria, pesquisa de diagnóstico e exploração do código.
 * **[Trabalhar com o portal do Application Insights](app-insights-dashboards.md)**<br/> Inclui informações sobre dashboards, ferramentas avançadas de diagnóstico e análise, alertas, um mapa de dependência em direto da aplicação e exportação da telemetria.
-* **[Análise](../log-analytics/query-language/get-started-analytics-portal.md)** - a linguagem de consulta poderosa.
+* **[Análise](../azure-monitor/log-query/get-started-portal.md)** - a linguagem de consulta poderosa.
 
 ### <a name="alerts"></a>Alertas
 

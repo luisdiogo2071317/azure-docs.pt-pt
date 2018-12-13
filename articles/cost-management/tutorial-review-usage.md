@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: a7212f64a550b3567affb1f6369ab5655dabafb1
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 928b8fd8ef076afa2c60c870fb705a9a682003d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001676"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093612"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -51,15 +51,15 @@ O dinheiro efetivamente gasto para utilização e custos é controlado com os re
 
 Segue-se um exemplo de relatório:
 
-![relatório de exemplo](./media/tutorial-review-usage/actual-cost01.png)
+![Relatório de custo Efetivo ao longo do tempo de exemplo](./media/tutorial-review-usage/actual-cost01.png)
 
 O relatório mostra todos os gastos ao longo dos últimos 30 dias. Para ver os gastos apenas para serviços do Azure, aplique o grupo Serviços e filtre por todos os serviços do Azure. A imagem seguinte mostra os serviços filtrados.
 
-![serviços filtrados](./media/tutorial-review-usage/actual-cost02.png)
+![A mostrar exemplo filtrado serviços do Azure](./media/tutorial-review-usage/actual-cost02.png)
 
 No exemplo anterior, foi gasto menos dinheiro a partir de 29-10-2018. No entanto, haver demasiadas colunas pode ocultar uma tendência óbvia. Pode alterar a vista do relatório para uma linha ou área do gráfico para ver os dados apresentados noutras vistas. A imagem seguinte mostra a tendência com mais clareza.
 
-![tendência no relatório](./media/tutorial-review-usage/actual-cost03.png)
+![Exemplo que mostra uma tendência de custo de VM do Azure diminuir](./media/tutorial-review-usage/actual-cost03.png)
 
 Continuando com o exemplo, pode ver que o custo de VMs do Azure diminuiu. Os custos para outros serviços do Azure também começou a diminuir nesse dia. Então, o que é que originou a redução nas despesas? Neste exemplo, um projeto grande de trabalho foi concluído, pelo que o consumo de muitos serviços do Azure também diminuíram.
 
@@ -77,15 +77,15 @@ O relatório Recomendações de Dimensionamento Económico identifica potenciais
 
 No menu na parte superior do portal, clique em **Otimizador** > **Otimização de Dimensionamento** > **Recomendações de Dimensionamento Económico**. Se for útil, aplique um filtro para reduzir os resultados. Segue-se uma imagem de exemplo.
 
-![VMs do Azure](./media/tutorial-review-usage/sizing01.png)
+![Custo eficaz de dimensionar os relatórios de recomendação para VMs do Azure](./media/tutorial-review-usage/sizing01.png)
 
 Neste exemplo, seguir as recomendações para alterar os tipos de instância de VM levaria a uma poupança de 2382 $. Clique no sinal de adição (+) em **Detalhes** na primeira recomendação. Seguem-se os detalhes da primeira recomendação.
 
-![detalhes da recomendação](./media/tutorial-review-usage/sizing02.png)
+![Detalhes de recomendação do exemplo que mostra](./media/tutorial-review-usage/sizing02.png)
 
 Clique no sinal de mais junto a **Lista de Candidatos** para ver os IDs das instâncias de VMs.
 
-![Lista de Candidatos](./media/tutorial-review-usage/sizing03.png)
+![Exemplo que mostra uma lista de candidatos VM para redimensionar](./media/tutorial-review-usage/sizing03.png)
 
 Para ver um tutorial em vídeo sobre como detetar ineficiências de utilização, veja [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704) (Otimizar o Tamanho das VMs na Cloudyn).
 
@@ -99,7 +99,7 @@ Pode utilizar qualquer relatório Custos para criar um alerta para qualquer desp
 
 Na caixa Guardar ou Agendar este relatório, utilize o separador **Agendamento** para enviar um e-mail para si próprio com o relatório de acordo com a frequência que pretenda. Lembre-se de selecionar **Enviar por e-mail**. Todos os grupos, etiquetas e filtragem que utilizou são incluídos no e-mail com o relatório. Clique no separador **Limiar** e selecione **Custo Efetivo vs. Limiar**. Se tiver um orçamento total de 20 000 $ e quiser ser notificado quando os custos estiverem quase a atingir metade do orçamento, pode criar um **Alerta vermelho** nos 10 000 $ e um **Alerta amarelo** nos 9 000 $. Não inclua vírgulas nos valores introduzidos. Depois, escolha o número de alertas consecutivos. Quando receber o número total de alertas que especificou, não são enviados alertas adicionais. Guarde o relatório agendado.
 
-![relatório de exemplo](./media/tutorial-review-usage/schedule-alert01.png)
+![Exemplo que mostra alertas amarelas e vermelhas, com base nos limites de gastos](./media/tutorial-review-usage/schedule-alert01.png)
 
 Também pode escolher a métrica Percentagem de Custos vs. Limiar de orçamento para criar os alertas. Com esta métrica, pode utilizar percentagens do orçamento em vez de valores de moeda.
 

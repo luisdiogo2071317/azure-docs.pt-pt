@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/30/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6d3f367ce21e9574282805737f2eff6c83ea6157
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 08bef967d456a5fb9a5edf093dca40fb9ea1ca51
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248201"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090640"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure
 
@@ -119,10 +119,10 @@ Definir o runtime do Node para 8.11.1. Para ver todos os runtimes suportados, ex
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
-Navegue para a sua aplicação Web recentemente criada. Substitua _&lt;nome da aplicação>_ por um nome único da aplicação.
+Navegue para a sua aplicação Web recentemente criada. Substitua `<app_name>` com um nome de aplicação único.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 A aplicação Web deve ter o seguinte aspeto:
@@ -191,7 +191,7 @@ Assista ao vídeo para ver este guia de introdução em ação e, em seguida, si
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Node.js com MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5cff0041eb478bcaf007a455a47e56db9b6121bc
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 8e77e7db5ccaa9861c8e90e2b7038c3f5e0d3e46
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002584"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076088"
 ---
 # <a name="manage-workspaces"></a>Gerir áreas de trabalho
 
@@ -239,6 +239,6 @@ O novo plano de dados é apresentado no friso do portal do OMS na parte superior
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Ver [descrição geral do agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para recolher dados de computadores no seu datacenter ou outro ambiente de cloud.
-* Consulte [Recolher dados sobre Máquinas Virtuais do Azure](../../log-analytics/log-analytics-quick-collect-azurevm.md) para configurar a recolha de dados a partir de VMs do Azure.  
+* Consulte [Recolher dados sobre Máquinas Virtuais do Azure](../../azure-monitor/learn/quick-collect-azurevm.md) para configurar a recolha de dados a partir de VMs do Azure.  
 * [Adicionar soluções do Log Analytics a partir da Galeria de Soluções](../../azure-monitor/insights/solutions.md) para adicionar funcionalidade e recolher dados.
 

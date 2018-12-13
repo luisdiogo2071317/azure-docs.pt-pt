@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: c21d78d1e0660b97c44130539ab3b5c71b8d6f6b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b2eff49f94dfcd67cb9741055520d990429051cd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843041"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098564"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Início de sessão único para aplicações no Azure Active Directory
 Saiba como escolher o método mais apropriado único início de sessão quando configurar as aplicações no Azure Active Directory (Azure AD). 
@@ -61,7 +61,6 @@ Baseado em SAML início de sessão único é suportada para aplicações que uti
 
 - SAML 2.0
 - WS-Federation
-- OpenID connect
 
 Para configurar uma aplicação para baseado em SAML início de sessão único, consulte [baseado em SAML configurar início de sessão único](configure-single-sign-on-portal.md). Além disso, muitos aplicativos têm [específico do aplicativo tutoriais](../saas-apps/tutorial-list.md) que conduzi-lo a configurar baseado em SAML início de sessão único para aplicações específicas. 
 
@@ -162,7 +161,7 @@ Utilize com base no cabeçalho início de sessão único quando:
 
 Para configurar a autenticação baseada em cabeçalho, consulte [autenticação baseada em cabeçalho para início de sessão único com o Proxy de aplicações](application-proxy-configure-single-sign-on-with-ping-access.md). 
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>O que é o PingAccess para Azure AD?
+### <a name="what-is-pingaccess-for-azure-ad"></a>O que é o PingAccess para o Azure AD?
 
 Usando o PingAccess para o Azure AD, os utilizadores podem acesso e o único início de sessão em aplicações que utilizam cabeçalhos para autenticação. Proxy de aplicações trata esses aplicativos, como qualquer outro, utilizar o Azure AD para autenticar o acesso e, em seguida, passar o tráfego através do serviço de conector. Após a ocorrência da autenticação, o serviço do PingAccess traduz-se o token de acesso do Azure AD para um formato de cabeçalho que é enviado para a aplicação.
 

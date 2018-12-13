@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: e301afaa2fed2b00599fbdde8178203965280c0d
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: MT
+ms.openlocfilehash: e2b68982a855b56d97983460f248ef3040d03d79
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365002"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876765"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorizar e mitigar limitação para reduzir a latência no Azure Time Series Insights
 Quando a quantidade de dados de entrada excede a configuração do seu ambiente, poderá experienciar latência ou limitação no Azure Time Series Insights.
@@ -56,9 +56,9 @@ A partir daí, pode configurar alertas com as métricas seguintes:
 |**Entrada recebeu mensagens inválidas**     | Contagem de mensagens inválidas de leitura de todas as origens de eventos de Hubs de eventos do Azure ou o IoT Hub do Azure.      |
 |**Entrada recebeu mensagens**   | Contagem de mensagens de ler a partir de origens de eventos de todos os Hubs de eventos ou os Hubs IoT.        |
 |**Entrada armazenados Bytes**     | Total de tamanho de eventos armazenados e disponíveis para consulta. Tamanho é calculado apenas no valor da propriedade.        |
-|**Entrada armazenados eventos**     |   Contagem de eventos plana, armazenados e estão disponíveis para consulta.      |
-|**Intervalo de tempo de mensagem recebida de entrada**    |  Diferença em segundos entre a hora em que a mensagem é colocado em fila de eventos de origem e o tempo que é processada na entrada.      |
-|**Entrada recebidos desfasamento de contagem de mensagens**    |  Diferença entre o número de sequência de mensagem do último colocados em fila de eventos da origem de número de partição e a sequência de mensagem a ser processado na entrada.      |
+|**Entrada armazenados eventos**     |   Contagem de eventos plana, armazenados e estão disponíveis para consulta.      |
+|**Intervalo de tempo de mensagem recebida de entrada**    |  Diferença em segundos entre a hora em que a mensagem é colocado em fila de eventos de origem e o tempo que é processada na entrada.      |
+|**Entrada recebidos desfasamento de contagem de mensagens**    |  Diferença entre o número de sequência de mensagem do último colocados em fila de eventos da origem de número de partição e a sequência de mensagem a ser processado na entrada.      |
 
 
 ![Latência](media/environment-mitigate-latency/latency.png)

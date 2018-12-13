@@ -1,6 +1,6 @@
 ---
-title: Como atribuir ou remover licenças do Azure Active Directory | Documentos da Microsoft
-description: Atribuir ou remover licenças do Azure Active Directory, os usuários ou grupos com o Azure Active Directory.
+title: Atribuir ou remover licenças - Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como atribuir ou remover licenças do Azure Active Directory, os usuários ou grupos.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: e1b0b2f84c67e30c3bb998554dc662b002744003
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 6cf3e9a9b767dfaa6f04d151864f64123e3d6ae7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603894"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077466"
 ---
-# <a name="how-to-assign-or-remove-azure-active-directory-licenses"></a>Como: atribuir ou remover licenças do Azure Active Directory
+# <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Atribuir ou remover licenças através do portal do Azure Active Directory
 Muitos serviços do Azure Active Directory (Azure AD) requerem para ativar um produto do Azure AD e para cada um dos seus utilizadores ou grupos (e os membros associados) de licença do produto em questão. Apenas os utilizadores com licenças ativas poderão aceder e utilizar o licenciada serviços do Azure AD.
 
 ## <a name="available-product-editions"></a>Edições do produto disponíveis
@@ -40,7 +40,7 @@ Para obter informações específicas sobre cada edição do produto e os detalh
 Pode ver os seus produtos disponíveis, incluindo as licenças individuais, verificar a existência de quaisquer datas de expiração pendente e o número de atribuições disponíveis.
 
 ### <a name="to-find-your-product-and-license-details"></a>Para encontrar os detalhes da sua licença e de produto
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
 2. Selecione **do Azure Active Directory**e, em seguida, selecione **licenças**.
 

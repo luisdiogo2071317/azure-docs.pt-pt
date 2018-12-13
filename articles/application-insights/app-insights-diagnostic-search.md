@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5bff5c5cfd022134c1d86883a267528717969c59
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c595695f3643522d36b53091656c3655f83a9345
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721685"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877841"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizar a pesquisa no Application Insights
 A pesquisa é uma funcionalidade do [Application Insights](app-insights-overview.md) que utilizar para localizar e explorar os itens de telemetria individuais, como vistas de páginas, exceções ou pedidos da web. E pode ver os rastreios de registos e eventos que codificou tem.
 
-(Para obter consultas mais complexas com os seus dados, utilize [Analytics](../log-analytics/query-language/get-started-analytics-portal.md).)
+(Para obter consultas mais complexas com os seus dados, utilize [Analytics](../azure-monitor/log-query/get-started-portal.md).)
 
 ## <a name="where-do-you-see-search"></a>Onde vê a pesquisa?
 
@@ -101,7 +101,7 @@ Localize todos os itens com o mesmo valor de propriedade:
 ## <a name="search-the-data"></a>Pesquisar os dados
 
 > [!NOTE]
-> Para escrever consultas mais complexas, abra [ **Analytics** ](../log-analytics/query-language/get-started-analytics-portal.md) da parte superior do painel de pesquisa.
+> Para escrever consultas mais complexas, abra [ **Analytics** ](../azure-monitor/log-query/get-started-portal.md) da parte superior do painel de pesquisa.
 > 
 
 Pode pesquisar termos em qualquer um dos valores de propriedade. Isto é particularmente útil se tiver escrito [eventos personalizados](app-insights-api-custom-events-metrics.md) com valores de propriedade. 
@@ -163,7 +163,7 @@ Nós não iniciar sessão automaticamente os dados de POSTAGEM, mas pode usar [c
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Passos seguintes
-* [Escrever consultas complexas no Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Escrever consultas complexas no Analytics](../azure-monitor/log-query/get-started-portal.md)
 * [Enviar registos e telemetria personalizada para o Application Insights](app-insights-asp-net-trace-logs.md)
 * [Configurar a disponibilidade e testes de capacidade de resposta](app-insights-monitor-web-app-availability.md)
 * [Resolução de problemas](app-insights-troubleshoot-faq.md)

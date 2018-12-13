@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 8: extração de expressões-chave no LUIS'
+title: Extração de expressões chave
 titleSuffix: Azure Cognitive Services
 description: Utilize a entidade keyPhrase pré-concebida para extrair o assunto-chave das expressões. Não é necessário etiquetar expressões com entidades pré-concebidas. A entidade é detetada automaticamente.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0a064966f118925d2a08e0ff1ce6efc7683cac96
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424817"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096932"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Tutorial 8: extrair expressões-chave da expressão
 Neste tutorial, vai utilizar a entidade keyPhrase pré-concebida para extrair o assunto-chave das expressões. Não é necessário etiquetar expressões com entidades pré-concebidas. A entidade é detetada automaticamente.
@@ -31,7 +32,6 @@ A sua aplicação cliente pode utilizar estes valores, juntamente com outras ent
 
 **Neste tutorial, ficará a saber como:**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * Utilizar a aplicação de tutorial existente
 > * Adicionar a entidade KeyPhrase 
@@ -84,7 +84,7 @@ Adicione a entidade pré-concebida keyPhrase para extrair o assunto das express�
 
 2. Vá para o final do URL no endereço e introduza `does form hrf-123456 cover the new dental benefits and medical plan`. O último parâmetro querystring é `q`, a expressão **query**. 
     
-    ```JSON
+    ```json
     {
       "query": "does form hrf-123456 cover the new dental benefits and medical plan",
       "topScoringIntent": {

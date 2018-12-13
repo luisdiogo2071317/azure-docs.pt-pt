@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1b7499990a049f276bf1af9e31b639ea4944d8f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 8e2b65f83395c9e8991338864d2037d0572dd269
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167573"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078011"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiar dados do Netezza com o Azure Data Factory 
 
@@ -80,7 +80,12 @@ Esta seção fornece uma lista de propriedades que suporta o conjunto de dados N
 
 Para obter uma lista completa de seções e as propriedades que estão disponíveis para definir conjuntos de dados, consulte [conjuntos de dados](concepts-datasets-linked-services.md). 
 
-Para copiar dados de Netezza, defina o **tipo** propriedade do conjunto de dados para **NetezzaTable**. Não existe nenhuma propriedade de tipo específicas adicional neste tipo de conjunto de dados.
+Para copiar dados de Netezza, defina o **tipo** propriedade do conjunto de dados para **NetezzaTable**. São suportadas as seguintes propriedades:
+
+| Propriedade | Descrição | Necessário |
+|:--- |:--- |:--- |
+| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **NetezzaTable** | Sim |
+| tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
 
@@ -92,7 +97,8 @@ Para copiar dados de Netezza, defina o **tipo** propriedade do conjunto de dados
         "linkedServiceName": {
             "referenceName": "<Netezza linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -110,7 +116,7 @@ Para copiar dados de Netezza, defina o **origem** tipo de atividade de cópia pa
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **NetezzaSource**. | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Exemplo: `"SELECT * FROM MyTable"` | Sim |
+| consulta | Utilize a consulta SQL personalizada para ler os dados. Exemplo: `"SELECT * FROM MyTable"` | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 904727c09fec1cd9cf1093f2681ba170c84f4fab
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4e6f50614520639901dcd4a6edbefe22f1226bde
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723113"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875387"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegação e Dashboards no portal do Application Insights
 Depois de ter [configurar o Application Insights no seu projeto](app-insights-overview.md), dados de telemetria sobre o desempenho e a utilização da sua aplicação serão apresentado no recurso do Application Insights do seu projeto no [portal do Azure](https://portal.azure.com).
@@ -62,7 +62,7 @@ O gráfico é atualizado automaticamente com uma frequência que depende do inte
 * Intervalo superior a 24 horas de tempo: (intervalo de tempo) / 60.
 
 ### <a name="pin-any-query-in-analytics"></a>Afixar qualquer consulta do Analytics
-Também pode [afixar Analytics](../log-analytics/query-language/get-started-analytics-portal.md) gráficos para um [partilhado](#share-dashboards-with-your-team) dashboard. Isto permite-lhe a adição de gráficos de qualquer consulta arbitrária juntamente com as métricas standard. 
+Também pode [afixar Analytics](../azure-monitor/log-query/get-started-portal.md) gráficos para um [partilhado](#share-dashboards-with-your-team) dashboard. Isto permite-lhe a adição de gráficos de qualquer consulta arbitrária juntamente com as métricas standard. 
 
 Os resultados são automaticamente recalculados a cada hora. Clique no ícone de atualização no gráfico para recalcular imediatamente. (Atualizar o navegador não recalcular.)
 

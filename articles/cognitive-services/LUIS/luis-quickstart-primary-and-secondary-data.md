@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 7: Entidade simples com lista de expressões no LUIS'
+title: Entidade Simple, a lista de frase
 titleSuffix: Azure Cognitive Services
 description: Extrair dados de aprendizagem automática de uma expressão
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: f3e931344d2d2294c03756d630c688df1e5da9a8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: MT
+ms.openlocfilehash: a783491ca04f19964cc66f1faef5e2fdba142e24
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425264"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094445"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutorial 7: Extrair nomes com entidade simples e lista de expressões
 
@@ -92,7 +93,7 @@ Depois de as entidades serem marcadas nas expressões de exemplo, é importante 
 
 3. Na expressão, `I want to apply for the new accounting job`, selecione `accounting`, introduza `Job` no campo superior do menu de pop-up e, em seguida, selecione **Create new entity** (Criar nova entidade) no menu de pop-up. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Captura de ecrã do LUIS com a intenção \"ApplyForJob\" com os passos de criação de entidade realçados")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![Captura de ecrã do LUIS, com a intenção de 'ApplyForJob' com criar passos de entidade realçados](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "captura de ecrã do LUIS, com a intenção de 'ApplyForJob' com criar passos de entidade realçados")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 4. Na janela de pop-up, verifique o nome e o tipo da entidade e selecione **Done** (Concluído).
 
@@ -100,7 +101,7 @@ Depois de as entidades serem marcadas nas expressões de exemplo, é importante 
 
 5. Na expressão, `Submit resume for engineering position`, identifique a palavra `engineering` como a entidade de Trabalho. Selecione a palavra `engineering` e, em seguida, selecione **Trabalho** no menu de pop-up. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Captura de ecrã do LUIS com a identificação da entidade Job realçada")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![Captura de ecrã do LUIS etiquetagem entidade de tarefa realçada](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "captura de ecrã do LUIS etiquetagem entidade de tarefa realçada")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
     Todas as expressões estão identificadas, mas cinco expressões não são suficientes para ensinar ao LUIS sobre palavras e expressões relacionadas com trabalho. Os trabalhos que utilizam o valor numérico não precisam de mais exemplos porque utilizam uma entidade de expressão regular. Os trabalhos que são palavras ou expressões precisam de, pelo menos, mais 15 exemplos. 
 
@@ -157,7 +158,7 @@ Etiquetar ou _marcar_ a entidade mostra ao LUIS onde está a entidade nas expres
 
 2. Vá para o final do URL no endereço e introduza `Here is my c.v. for the programmer job`. O último parâmetro querystring é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões identificadas, pelo que é um bom teste e deve devolver as expressões `ApplyForJob`.
 
-    ```JSON
+    ```json
     {
       "query": "Here is my c.v. for the programmer job",
       "topScoringIntent": {
@@ -226,7 +227,7 @@ A aplicação LUIS encontrou a intenção correta com um índice elevado de conf
 
 No seguinte JSON, o LUIS responde com a intenção correta, `ApplyForJob`, mas não extraiu o nome do trabalho `lead welder`. 
 
-```JSON
+```json
 {
   "query": "This is the lead welder paperwork.",
   "topScoringIntent": {
@@ -291,13 +292,13 @@ Abra o ficheiro [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples
 
 3. Atribua à nova lista de expressões o nome `Job` e copie a lista de jobs-phrase-list.csv para a caixa de texto **Values** (Valores). Selecione Enter. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Captura de ecrã do pop-up da caixa de diálogo Criar nova lista de expressões")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    [![Captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     Se pretender adicionar mais palavras à lista de expressões, reveja os **Valores Relacionados** e adicione os que são relevantes. 
 
 4. Selecione **Save** (Guardar) para ativar a lista de expressões.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Captura de ecrã do pop-up da caixa de diálogo Criar nova lista de expressões com palavras na caixa de valores da lista de expressões")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![Captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up com palavras na caixa de valores de lista de frase](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up com palavras na caixa de valores de lista de frase")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 5. [Prepare](#train) e [publique](#publish) a aplicação novamente para utilizar a lista de expressões.
 
@@ -305,7 +306,7 @@ Abra o ficheiro [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples
 
     A resposta JSON inclui a entidade extraída:
 
-    ```JSON
+    ```json
     {
         "query": "This is the lead welder paperwork.",
         "topScoringIntent": {

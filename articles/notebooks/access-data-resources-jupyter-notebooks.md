@@ -1,5 +1,5 @@
 ---
-title: Aceder a recursos de dados a partir de blocos de notas do Jupyter no Azure | Documentos da Microsoft
+title: Aceder a recursos de dados de blocos de notas do Jupyter no Azure
 description: Como aceder a ficheiros, REST APIs, bases de dados e diferentes recursos de armazenamento do Azure a partir de um bloco de notas do Jupyter.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: cf03b614826b8da644fbf7817a91f04456c194e7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 425c1019a9c67ac726d03955d60d1389bef7cae2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856399"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084945"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Aceder a dados na cloud num bloco de notas
 

@@ -1,5 +1,6 @@
 ---
-title: Guia para o serviço Azure Machine Learning de resolução de problemas de implementação
+title: Guia de resolução de problemas de implementação
+titleSuffix: Azure Machine Learning service
 description: Saiba como a solução, resolver e resolver problemas relacionados com os erros de implementação comuns do Docker com o AKS e ACI com o serviço Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.author: haining
 author: hning86
 ms.reviewer: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: ed6fed58aac236f143345a9504ece21aceae09d2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 6bd3bc86aa828ab28462de9d45f660889634cbd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865374"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100519"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Resolver problemas de implementações de AKS e ACI de serviço do Azure Machine Learning
 
@@ -222,10 +224,6 @@ def run(input_data):
 ## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre a implementação: 
-* [Como implementar no ACI](how-to-deploy-to-aci.md)
+* [Como implementar e, em que](how-to-deploy-and-where.md)
 
-* [Como implementar no AKS](how-to-deploy-to-aks.md)
-
-* [Tutorial, parte 1: preparar modelo](tutorial-train-models-with-aml.md)
-
-* [Tutorial, parte 2: implementar o modelo](tutorial-deploy-models-with-aml.md)
+* [Tutorial: Preparar e implementar modelos](tutorial-train-models-with-aml.md)

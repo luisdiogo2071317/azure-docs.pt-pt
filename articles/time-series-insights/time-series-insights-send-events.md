@@ -1,6 +1,6 @@
 ---
-title: Como enviar eventos para um ambiente do Azure Time Series Insights | Documentos da Microsoft
-description: Este tutorial explica como criar e configurar o hub de eventos e executar uma aplicação de exemplo para enviar eventos para ser mostrada no Azure Time Series Insights.
+title: Enviar eventos para um ambiente do Azure Time Series Insights | Documentos da Microsoft
+description: Saiba como configurar um hub de eventos e executar um aplicativo de exemplo para enviar eventos, pode ver no Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -11,71 +11,78 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: c583c2211297acd83f88d23b2b8cbd9f8207927f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 09d72db62998d178475666c170ee5eae460924ae
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867613"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097068"
 ---
-# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Enviar eventos para um ambiente do Time Series Insights com um hub de eventos
+# <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos para um ambiente do Time Series Insights com um hub de eventos
 
-Este artigo explica como criar e configurar o hub de eventos e executa uma aplicação de exemplo para enviar eventos. Se tiver um hub de eventos existente com eventos no formato JSON, ignorar este tutorial e ver o seu ambiente no [do Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+Este artigo explica como criar e configurar um hub de eventos nos Hubs de eventos do Azure e, em seguida, execute um aplicativo de exemplo para enviar eventos. Se tiver um hub de eventos existente que tenha de eventos no formato JSON, ignorar este tutorial e ver o seu ambiente no [do Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
-## <a name="configure-an-event-hub"></a>Configurar um Hub de eventos
+## <a name="configure-an-event-hub"></a>Configurar um hub de eventos
 
-1. Para a criação do Hub de eventos, siga as instruções do Hub de eventos [documentação](https://docs.microsoft.com/azure/event-hubs/).
-1. Procure `Event Hub` na barra de pesquisa. Clique em **os Hubs de eventos** na lista devolvida.
-1. Selecione o seu Hub de eventos ao clicar no respetivo nome.
-1. Quando cria um Hub de eventos, realmente está a criar um espaço de nomes do Hub de eventos.  Se ainda tiver que criar um Hub de eventos no espaço de nomes, tem de criar um em entidades.  
+1. Para saber como criar um hub de eventos, consulte a [documentação dos Hubs de eventos](https://docs.microsoft.com/azure/event-hubs/).
+1. Na caixa de pesquisa, procure **os Hubs de eventos**. Na lista devolvida, selecione **os Hubs de eventos**.
+1. Selecione o seu hub de eventos.
+1. Quando cria um hub de eventos, realmente está a criar um espaço de nomes do hub de eventos. Se ainda não criou um hub de eventos no espaço de nomes, no menu, em **entidades**, criar um hub de eventos.  
 
-    ![atualizado][1]
+    ![Lista de hubs de eventos][1]
 
-1. Depois de criar um Hub de eventos, clique no respetivo nome.
-1. Sob **entidades** na janela de configuração média, clique em **dos Hubs de eventos** novamente.
-1. Selecione o nome do Hub de eventos para configurá-lo.
+1. Depois de criar um hub de eventos, selecione-o na lista de hubs de eventos.
+1. No menu, sob **entidades**, selecione **dos Hubs de eventos**.
+1. Selecione o nome do hub de eventos para configurá-lo.
+1. Sob **entidades**, selecione **grupos de consumidores**e, em seguida, selecione **grupo de consumidores**.
 
-    ![grupo de consumidores][2]
+    ![Criar um grupo de consumidores][2]
 
-1. Sob **entidades**, selecione **grupos de consumidores**.
-1. Certifique-se de que cria um grupo de consumidores que seja utilizado exclusivamente pela origem de evento TSI.
+1. Confirme que cria um grupo de consumidores que seja utilizado exclusivamente pela sua origem de eventos do Time Series Insights.
 
     > [!IMPORTANT]
-    > Certifique-se de que este grupo de consumidores não é utilizado por nenhum outro serviço (por exemplo, a tarefa do Stream Analytics ou outro ambiente do TSI). Se o grupo de consumidores for utilizado por outros serviços, a operação de leitura é afetada negativamente neste ambiente e os outros serviços. Se estiver a utilizar `$Default` como o grupo de consumidores pode levar à potencial reutilização por outros leitores.
+    > Certifique-se de que este grupo de consumidores não é utilizado por nenhum outro serviço (como uma tarefa do Azure Stream Analytics ou outro ambiente do Time Series Insights). Se o grupo de consumidores for utilizado por outros serviços, operações de leitura são afetados negativamente para este ambiente e para outros serviços. Se usar **$Default** como o grupo de consumidores, outros leitores potencialmente poderão reutilizar seu grupo de consumidores.
 
-1. Sob o **configurações** cabeçalho, selecione **políticas de acesso de partilha**.
-1. No hub de eventos, crie **MySendPolicy** que é utilizado para enviar eventos no C# exemplo.
+1. No menu, sob **configurações**, selecione **políticas de acesso partilhado**e, em seguida, selecione **Add**.
 
-    ![partilhado = um acesso][3]
+    ![Selecione políticas de acesso partilhado e, em seguida, selecione o botão Adicionar][3]
 
-    ![partilhado-access-dois][4]
+1. Na **Adicionar nova política de acesso partilhado** painel, criar um acesso partilhado com o nome **MySendPolicy**. Irá utilizar esta política de acesso partilhado para enviar eventos no C# exemplos neste artigo.
 
-## <a name="add-time-series-insights-instances"></a>Adicionar instâncias do Time Series Insights
+    ![Na caixa de nome de política, introduza MySendPolicy][4]
 
-A atualização do TSI usa instâncias para adicionar dados contextuais para dados telemétricos recebidos. Os dados que estão associados ao tempo de consulta utilizando um **ID de série de tempo**. O **ID de série de tempo** para os windmills de exemplo é projeto `Id`. Para saber mais sobre as instâncias de série de tempo e **IDs de série de tempo**, leia [modelos de série de tempo](./time-series-insights-update-tsm.md).
+1. Sob **afirmação**, selecione a **enviar** caixa de verificação.
 
-### <a name="create-time-series-insights-event-source"></a>Criar a origem de eventos do Time Series Insights
+## <a name="add-a-time-series-insights-instance"></a>Adicionar uma instância do Time Series Insights
 
-1. Se não tiver criado uma origem de eventos, siga [estas instruções](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub) para criá-la.
-1. Especifique a `timeSeriesId` – veja [modelos de série de tempo](./time-series-insights-update-tsm.md) para saber mais sobre **IDs de série de tempo**.
+A atualização do Time Series Insights utiliza instâncias para adicionar dados contextuais para dados telemétricos recebidos. Os dados são associados no momento da consulta ao utilizar um **ID de série de tempo**. O **ID de série de tempo** para os windmills de exemplo é o projeto que podemos utilizar posteriormente neste artigo **Id**. Para saber mais sobre as instâncias de Time Series Insight e **ID de série de tempo**, consulte [modelos de série de tempo](./time-series-insights-update-tsm.md).
 
-### <a name="push-events-sample-windmills"></a>Enviar eventos (windmills de exemplo)
+### <a name="create-a-time-series-insights-event-source"></a>Criar uma fonte de eventos do Time Series Insights
 
-1. Procure o hub de eventos na barra de pesquisa. Clique em **os Hubs de eventos** na lista devolvida.
-1. Selecione o seu hub de eventos ao clicar no respetivo nome.
-1. Aceda a **partilhados políticas de acesso** e, em seguida **RootManageSharedAccessKey**. Copiar o **ligação chave primária sting**
+1. Se não tiver criado uma origem de evento, conclua os passos para [criar uma origem de evento](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
-   ![connection-string][5]
+1. Definir um valor para `timeSeriesId`. Para saber mais sobre **ID de série de tempo**, consulte [modelos de série de tempo](./time-series-insights-update-tsm.md).
 
-1. Aceda a https://tsiclientsample.azurewebsites.net/windFarmGen.html. Esta solução é executada windmill simulado dispositivos.
-1. Cole a cadeia de ligação que copiou no passo três no **cadeia de ligação do Hub de eventos**.
+### <a name="push-events"></a>Enviar eventos (exemplo de windmills)
 
-    ![connection-string][6]
+1. Na barra de pesquisa, procure **os Hubs de eventos**. Na lista devolvida, selecione **os Hubs de eventos**.
 
-1. Clique em **clique aqui para iniciar**. O simulador também irá gerar um JSON de instância que pode utilizar diretamente.
-1. Regresse ao seu Hub de eventos. Deverá ver os novos eventos que está a ser recebidos pelo hub:
+1. Selecione o seu hub de eventos.
 
-   ![telemetria][7]
+1. Aceda a **partilhados políticas de acesso** > **RootManageSharedAccessKey**. Copie o valor para **ligação chave primária sting**.
+
+    ![Copie o valor para a cadeia de ligação da chave primária][5]
+
+1. Aceda a https://tsiclientsample.azurewebsites.net/windFarmGen.html. O URL é executado windmill simulado dispositivos.
+1. Na **cadeia de ligação do Hub de eventos** caixa na página Web, cole a cadeia de ligação que copiou no [enviar eventos](#push-events).
+  
+    ![Cole a cadeia de ligação da chave primária na caixa de cadeia de ligação do Hub de eventos][6]
+
+1. Selecione **clique aqui para iniciar**. O simulador gera instância JSON que pode utilizar diretamente.
+
+1. Regresse ao seu hub de eventos no portal do Azure. Sobre o **descrição geral** página, deverá ver os novos eventos que está a ser recebidos pelo hub de eventos:
+
+    ![Uma página de descrição geral do hub de eventos que mostra as métricas para o hub de eventos][7]
 
 <a id="json"></a>
 
@@ -85,7 +92,7 @@ A atualização do TSI usa instâncias para adicionar dados contextuais para dad
 
 #### <a name="input"></a>Input
 
-Um objeto JSON simples.
+Um objeto JSON simples:
 
 ```json
 {
@@ -94,7 +101,7 @@ Um objeto JSON simples.
 }
 ```
 
-#### <a name="output---one-event"></a>Saída - um evento
+#### <a name="output-one-event"></a>Saída: Um evento
 
 |ID|carimbo de data/hora|
 |--------|---------------|
@@ -104,7 +111,8 @@ Um objeto JSON simples.
 
 #### <a name="input"></a>Input
 
-Uma matriz JSON com dois objetos JSON. Cada objeto JSON será convertido num evento.
+Uma matriz JSON com dois objetos JSON. Cada objeto JSON é convertido para um evento.
+
 ```json
 [
     {
@@ -118,7 +126,7 @@ Uma matriz JSON com dois objetos JSON. Cada objeto JSON será convertido num eve
 ]
 ```
 
-#### <a name="output---two-events"></a>Saída - dois eventos
+#### <a name="output-two-events"></a>Saída: Dois eventos
 
 |ID|carimbo de data/hora|
 |--------|---------------|
@@ -130,6 +138,7 @@ Uma matriz JSON com dois objetos JSON. Cada objeto JSON será convertido num eve
 #### <a name="input"></a>Input
 
 Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON:
+
 ```json
 {
     "location":"WestUs",
@@ -144,12 +153,11 @@ Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON:
         }
     ]
 }
-
 ```
 
-#### <a name="output---two-events"></a>Saída - dois eventos
+#### <a name="output-two-events"></a>Saída: Dois eventos
 
-Tenha em atenção que a propriedade "location" é copiada para cada evento.
+A propriedade **localização** é copiada para cada evento.
 
 |localização|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -160,7 +168,7 @@ Tenha em atenção que a propriedade "location" é copiada para cada evento.
 
 #### <a name="input"></a>Input
 
-Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON. Essa entrada demonstra que as propriedades globais podem ser representadas pelo objeto JSON complexo.
+Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON. Essa entrada demonstra que propriedades globais podem ser representadas pelo objeto JSON complexo.
 
 ```json
 {
@@ -192,7 +200,7 @@ Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON. Essa 
 }
 ```
 
-#### <a name="output---two-events"></a>Saída - dois eventos
+#### <a name="output-two-events"></a>Saída: Dois eventos
 
 |localização|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
@@ -202,7 +210,7 @@ Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON. Essa 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Ver o seu ambiente no Explorador do Time Series Insights](https://insights.timeseries.azure.com).
+> [Ver o seu ambiente no Explorador do Time Series Insights](https://insights.timeseries.azure.com)
 
 <!-- Images -->
 [1]: media/send-events/updated.png

@@ -1,6 +1,6 @@
 ---
-title: Início Rápido para aceder ao Microsoft Azure Active Directory e para criar um novo inquilino | Microsoft Docs
-description: Início Rápido com os passos para localizar o Microsoft Azure Active Directory e criar um novo inquilino para a sua organização.
+title: Início rápido para acessar e criar um novo inquilino - Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como localizar o Azure Active Directory e como criar um novo inquilino para a sua organização.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
-custom: it-pro
-ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: cd179d371ec75a2e6ca258a1efbc2361e50a5438
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023558"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083282"
 ---
-# <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>Início Rápido: Aceder ao Microsoft Azure Active Directory para criar um novo inquilino
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Início rápido: Criar um novo inquilino no Azure Active Directory
 Pode fazer todas as suas tarefas administrativas com o portal do Microsoft Azure Active Directory (Microsoft Azure AD), incluindo a criação de um novo inquilino para a sua organização. 
 
 Neste início rápido, ficará a saber como aceder ao portal do Azure e do Microsoft Azure Active Directory e aprenderá como criar um inquilino básico para a sua organização.
@@ -61,7 +61,7 @@ Se não quiser continuar a utilizar esta aplicação, poderá eliminar o inquili
 
     ![Página Criar diretório](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Para alterar ou adicionar nomes de domínio, veja [Como adicionar um nome de domínio personalizado ao Microsoft Azure Active Directory](add-custom-domain.md)
 
 - Para adicionar utilizadores, veja [Adicionar ou eliminar um novo utilizador](add-users-azure-active-directory.md)

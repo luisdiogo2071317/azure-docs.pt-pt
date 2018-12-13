@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 12e2f96e66305370499fbacf9ae6a834a22eb504
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fec5ef3ef190270d22e9a7d0306eb9477b39a8c8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412504"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095241"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrar a autenticação de RADIUS do gateway de VPN do Azure com o servidor NPS para multi-factor Authentication 
 
@@ -58,7 +58,7 @@ Para ativar a MFA, os utilizadores tem de ser no Azure Active Directory (Azure A
     - **Endereço (IP ou DNS)**: escreva a sub-rede do gateway que criou no passo 1.
     - **Segredo partilhado**: escreva qualquer chave secreta e não se esqueça dela para utilização posterior.
 
-    ![A imagem sobre definições de cliente RADUIS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+      ![A imagem sobre definições de cliente RADUIS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
 3.  Na **avançadas** separador, defina o nome do fornecedor para **RADIUS padrão** e certifique-se de que o **opções adicionais** não está selecionada a caixa de verificação.
@@ -77,7 +77,7 @@ Para ativar a MFA, os utilizadores tem de ser no Azure Active Directory (Azure A
     - **Tipo de autenticação**: selecione **autenticação RADIUS**.
     - **Endereço IP do servidor**: escreva o endereço IP do servidor NPS.
 
-    ![A imagem sobre ponto para as definições do site](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
+      ![A imagem sobre ponto para as definições do site](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

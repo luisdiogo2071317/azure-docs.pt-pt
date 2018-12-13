@@ -1,6 +1,6 @@
 ---
-title: Como instalar o Azure IoT Edge no Windows com contentores do Linux | Documentos da Microsoft
-description: O Azure IoT Edge as instruções de instalação no Windows com contentores do Linux
+title: Instalar o Azure IoT Edge no Windows com contentores do Linux | Documentos da Microsoft
+description: Instruções de instalação do Azure IoT Edge em dispositivos Windows configurados para contentores do Linux
 author: kgremban
 manager: philmea
 ms.reviewer: veyalla
@@ -9,12 +9,13 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 7bae81f2f8b9ef9f7da45aed3bf8d7b6e15c9d0b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 470b2ccbafffc298022b8ba1ff757cb7fa3a32c5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568272"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099338"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Instalar o runtime do Azure IoT Edge no Windows para utilização com contentores do Linux
 

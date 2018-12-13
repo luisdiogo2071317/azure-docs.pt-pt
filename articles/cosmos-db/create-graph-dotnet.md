@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 132e13f213a681b2e6e8581200070fb316e7b582
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 954d223b7534e7fc72c54bc6c30ad55053c2fe1d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847104"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089280"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-gremlin-api"></a>Azure Cosmos DB: criar uma aplicação .NET Framework ou Core com a API do Gremlin
 
@@ -30,7 +30,7 @@ ms.locfileid: "52847104"
 
 O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distribuído globalmente da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB. 
 
-Este guia de introdução demonstra como criar uma conta da [API do Gremlin](graph-introduction.md) do Azure Cosmos DB, bases de dados e gráficos (contentores) com o portal do Azure. Em seguida, irá criar e executar uma aplicação de consola com o controlador open-source [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
+Este guia de introdução demonstra como criar uma conta da [API do Gremlin](graph-introduction.md) do Azure Cosmos DB, bases de dados e gráficos (contentores) com o portal do Azure. Em seguida, irá criar e executar uma aplicação de consola com o controlador open-source [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -161,7 +161,7 @@ Os seguintes fragmentos são retirados do ficheiro Program.cs.
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação.
 
-1. A partir do [portal do Azure](http://portal.azure.com/), navegue até à sua conta da base de dados de gráficos. No separador **Descrição geral**, pode ver dois pontos finais- 
+1. A partir do [portal do Azure](https://portal.azure.com/), navegue até à sua conta da base de dados de gráficos. No separador **Descrição geral**, pode ver dois pontos finais- 
  
    **.NET SDK URI** – Este valor é utilizado quando se liga a conta de gráficos através da biblioteca de Microsoft.Azure.Graphs. 
 

@@ -1,5 +1,5 @@
 ---
-title: Encaminhar eventos de armazenamento de Blobs do Azure para um ponto de extremidade de web personalizados - Powershell | Documentos da Microsoft
+title: Enviar eventos de armazenamento de Blobs do Azure para a web endpoint - Powershell | Documentos da Microsoft
 description: Utilize a Azure Event Grid para subscrever a eventos de armazenamento de Blobs.
 services: storage,event-grid
 author: david-stanford
@@ -8,14 +8,15 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 8482678a9c42fa2d960dee54c9810593cd820553
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec18
+ms.openlocfilehash: c7c8fd487bef0da7da84a23e18a4e999645106b3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732007"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076428"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Encaminhar eventos de armazenamento de BLOBs para um ponto final web personalizado com o PowerShell
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Início rápido: Encaminhar eventos de armazenamento para o ponto final da web com o PowerShell
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, vai utilizar o Azure PowerShell para subscrever a eventos de armazenamento de BLOBs, acionar um evento e ver o resultado. 
 
@@ -27,11 +28,11 @@ Quando tiver terminado, verá que os dados do evento foram enviados para a aplic
 
 ## <a name="setup"></a>Configurar
 
-Este artigo requer a utilização da versão mais recente do Azure PowerShell. Se precisar de instalar ou atualizar, veja [Instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este artigo requer que está a executar a versão mais recente do Azure PowerShell. Se precisar de instalar ou atualizar, veja [Instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão na sua subscrição do Azure com o comando `Connect-AzureRmAccount` e siga as instruções no ecrã para autenticar.
+Inicie sessão na sua subscrição do Azure com o `Connect-AzureRmAccount` de comando e siga na tela direções para autenticar.
 
 ```powershell
 Connect-AzureRmAccount
@@ -58,7 +59,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Eventos de armazenamento de BLOBs estão disponíveis em contas de armazenamento para fins gerais v2 e contas de armazenamento de Blobs. **Para fins gerais v2** contas de armazenamento suportam todas as funcionalidades para todos os serviços de armazenamento, incluindo Blobs, ficheiros, filas e tabelas. Uma **conta de armazenamento de Blobs** é uma conta de armazenamento especializada para armazenar os seus dados não estruturados como blobs (objetos) no Armazenamento do Azure. As contas de armazenamento de Blobs são semelhantes às contas de armazenamento para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100% de consistência com a API dos blobs de blocos e dos blobs de acréscimo. Para obter mais informações, consulte [descrição geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
+Os eventos de armazenamento de blobs estão disponíveis em contas de armazenamento para fins gerais v2 e contas de armazenamento de Blobs. As contas de armazenamento de **Fins gerais v2** suportam todas as funcionalidades de todos os serviços de armazenamento, incluindo Blobs, Ficheiros, Filas e Tabelas. Uma **conta de armazenamento de Blobs** é uma conta de armazenamento especializada para armazenar os seus dados não estruturados como blobs (objetos) no Armazenamento do Azure. As contas de armazenamento de Blobs são semelhantes às contas de armazenamento para fins gerais e partilham todas as excelentes características de durabilidade, disponibilidade, escalabilidade e desempenho que utiliza atualmente, incluindo 100% de consistência com a API dos blobs de blocos e dos blobs de acréscimo. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../common/storage-account-overview.md).
 
 Criar uma conta de armazenamento de Blobs com replicação LRS através de [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), em seguida, obter o contexto de conta de armazenamento que define a conta de armazenamento a ser utilizado. Ao efetuar ações em contas de armazenamento, referencia o contexto em vez de fornecer repetidamente as credenciais. Este exemplo cria uma conta de armazenamento denominada **gridstorage** com armazenamento localmente redundante (LRS). 
 
@@ -160,7 +161,7 @@ Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configu
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se quiser continuar a trabalhar com esta conta de armazenamento e subscrição de eventos, não limpe os recursos criados neste artigo. Se não quiser continuar, utilize o comando seguinte para eliminar os recursos que criou neste artigo.
+Se planeia continuar a trabalhar com esta subscrição de evento e a conta de armazenamento, não limpe os recursos criados neste artigo. Se não quiser continuar, utilize o seguinte comando para eliminar os recursos criados neste artigo.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup

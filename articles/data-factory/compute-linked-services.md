@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 110005469d5ff42af10b29fcee97c2f130ecdc2d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390216"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873833"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 Este artigo explica os diferentes ambientes de computação que pode utilizar para processar ou transformar dados. Ele também fornece detalhes sobre as configurações diferentes (sob demanda versus traga seu próprio) suportados pelo Data Factory, quando configurar os serviços ligados de ligação estes ambientes de uma fábrica de dados do Azure de computação.
@@ -30,7 +30,7 @@ A tabela seguinte fornece uma lista dos ambientes de computação suportados pel
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Atividades de Machine Learning: Execução de Lotes e Atualizar Recurso](transform-data-using-machine-learning.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [SQL do Azure](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [do SQL Server](#sql-server-linked-service) | [Procedimento Armazenado](transform-data-using-stored-procedure.md) |
-| [O Azure Databricks](#azure-databricks-linked-service)         | [Bloco de notas](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
+| [Azure Databricks](#azure-databricks-linked-service)         | [Bloco de notas](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 
 >  
 
@@ -48,11 +48,7 @@ Tenha em atenção o seguinte procedimento **importante** pontos sobre o HDInsig
 * O cluster de HDInsight a pedido é criado na sua subscrição do Azure. É capaz de ver o cluster no portal do Azure quando o cluster está ativo e em execução. 
 * Os registos para tarefas que são executados num cluster do HDInsight a pedido são copiados para a conta de armazenamento associada ao cluster do HDInsight. O clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword definido na sua definição de serviço ligado são utilizados para iniciar sessão para o cluster para resolução de problemas detalhada durante o ciclo de vida do cluster. 
 * É cobrado apenas para o tempo quando o cluster de HDInsight está ativo e tarefas em execução.
-* Não é possível utilizar uma ação de Script com o serviço ligado do Azure HDInsight a pedido. Se tiver de instalar outras dependências, por exemplo, considere utilizar a automatização do Azure para executar um script do PowerShell que faça o seguinte:  
-  a. Crie o cluster do HDInsight.  
-  b. Execute uma ação de Script para instalar outras dependências, por exemplo.  
-  c. Execute o pipeline da fábrica de dados.  
-  d. Elimine o cluster.  
+* Ação de script é agora suportada com o serviço ligado do Azure HDInsight a pedido.  
 
 > [!IMPORTANT]
 > Normalmente, demora **20 minutos** ou mais para aprovisionar um cluster do Azure HDInsight a pedido.

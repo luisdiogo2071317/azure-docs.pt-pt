@@ -1,6 +1,6 @@
 ---
-title: Implementar e monitorizar módulos para o Azure IoT Edge (CLI) | Documentos da Microsoft
-description: Gerir os módulos que são executados em dispositivos periféricos
+title: Criar implementações automáticas a partir da linha de comando - Azure IoT Edge | Documentos da Microsoft
+description: Utilizar a extensão de IoT para a CLI do Azure para criar implementações automáticas para grupos do IoT Edge de dispositivos
 keywords: ''
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3f2e7de6b32b4cca6320933050775f843e2cdf39
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 64c4b82208b2f8a20f7fd00fb574d5e017030e81
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567938"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094156"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar e monitorizar os módulos do IoT Edge em escala com a CLI do Azure
 

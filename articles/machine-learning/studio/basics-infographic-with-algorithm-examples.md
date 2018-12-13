@@ -1,11 +1,11 @@
 ---
-title: 'Infografia: Machine learning Noções básicas sobre - exemplos de algoritmos - Azure Machine Learning Studio | Documentos da Microsoft'
+title: Exemplos de algoritmos - Azure Machine Learning Studio | Documentos da Microsoft
 description: Uma descrição geral de fácil compreensão das noções básicas do machine learning inclui exemplos de algoritmo. O infográfico transferível abrange a maioria de machine learning perguntas.
 keywords: Noções básicas de aprendizagem máquina, exemplos de algoritmos da aprendizagem automática para iniciantes, perguntas do machine learning, algoritmos populares, infográfico de algoritmo
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: ccbe152901ff7f59548239a1d59e585b8e356c23
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 610cc430170ac31832703b822e027f3dbdd053a2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308007"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093765"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico Transferível: Noções básicas do Machine Learning com exemplos de algoritmos
 Baixe esta descrição geral de fácil de compreender o infográfico de noções básicas do machine learning para saber mais sobre os algoritmos populares utilizados para responder a perguntas comuns de machine learning. Exemplos de algoritmos ajudam a iniciantes de aprendizado de máquina compreender quais algoritmos para utilização e o que eles são usados para.

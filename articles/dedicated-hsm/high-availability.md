@@ -1,22 +1,23 @@
 ---
-title: Disponibilidade elevada de HSM dedicados do Azure | Documentos da Microsoft
-description: HSM dedicada do Azure fornece recursos de armazenamento de chaves no Azure que cumpra FIPS 140-2 nível 3 certificação
+title: Elevada disponibilidade - HSM dedicada do Azure | Documentos da Microsoft
+description: Exemplo de elevada disponibilidade de HSM dedicados do Azure e considerações básicas
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: b02e3da086a3f33a55650fa72661f65028bfb78b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 991482d3d6be4d09b37014e5bb03708987e0f74e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680026"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078179"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Disponibilidade elevada de HSM dedicados do Azure
 

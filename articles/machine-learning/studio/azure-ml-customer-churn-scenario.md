@@ -1,10 +1,10 @@
 ---
-title: Analisar o abandono de clientes com o Azure Machine Learning Studio | Documentos da Microsoft
+title: Analisar a perda de clientes - Azure Machine Learning Studio | Documentos da Microsoft
 description: Estudo de caso de desenvolvimento de um modelo integrado para analisar e classificação de abandono de clientes com o Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 2063198ab2a7b11e15528e81acb46ba16277782a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314989"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097646"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analisar o abandono de clientes com o Azure Machine Learning Studio
 ## <a name="overview"></a>Descrição geral

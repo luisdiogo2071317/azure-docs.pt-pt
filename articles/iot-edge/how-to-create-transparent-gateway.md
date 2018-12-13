@@ -1,6 +1,6 @@
 ---
-title: Criar um gateway transparente com o Azure IoT Edge | Documentos da Microsoft
-description: Utilizar um dispositivo Azure IoT Edge como gateway transparente que pode processar informações para vários dispositivos
+title: Criar dispositivo de gateway transparente - Azure IoT Edge | Documentos da Microsoft
+description: Utilizar um dispositivo Azure IoT Edge como gateway transparente que pode processar informações a partir de dispositivos de downstream
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 55968393ff64d9eed1f5b384094a77d0d169dc5d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.custom: seodec18
+ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681199"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094360"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como gateway transparente
 
@@ -31,7 +32,7 @@ Um dispositivo de downstream pode ser qualquer aplicação ou a plataforma que t
 
 Pode criar qualquer infraestrutura de certificado que permite a confiança necessária para a sua topologia de gateway de dispositivo. Neste artigo, partimos do princípio a mesma configuração de certificado que pretende utilizar para ativar [segurança de AC X.509](../iot-hub/iot-hub-x509ca-overview.md) no IoT Hub, que envolve um certificado X.509 de AC associado a um hub de IoT específico (o IoT hub proprietário AC) e uma série de certificados, sessão iniciada com esta AC e uma autoridade de certificação para o dispositivo de limite.
 
-![Configuração do gateway](./media/how-to-create-transparent-gateway/gateway-setup.png)
+![Configurar o certificado do gateway](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 O gateway apresenta o respetivo certificado de AC de dispositivo do Edge no dispositivo jusante durante a inicialização da ligação. O dispositivo de downstream verifica para se certificar de que o certificado de AC de dispositivo do Edge está assinado pelo certificado de AC de proprietário. Este processo permite ao dispositivo downstream confirmar se que o gateway é proveniente de uma origem fidedigna.
 

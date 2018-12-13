@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 9908dae627ae11a42e8e01a9a4f4d11f35ce0f8d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1fe0db2f0c7fea4b24cc23aaa52deb16376012b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422965"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092014"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Tutorial: Integração do Azure Active Directory com os recursos de infraestrutura de segurança de Cloud
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com os recursos de infraestrutura de segurança de Cloud, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um a recursos de infraestrutura de segurança de Cloud logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração de recursos de infraestrutura de segurança a Clo
 
 **Para adicionar os recursos de infraestrutura de segurança de Cloud a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -108,12 +108,14 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Os URLs e do domínio de recursos de infraestrutura de segurança de Cloud única informações de início de sessão](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL:
+
     | |
     |--|
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|
     | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
@@ -166,7 +168,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 ### <a name="create-a-the-cloud-security-fabric-test-user"></a>Criar um utilizador de teste os recursos de infraestrutura de segurança de Cloud
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida nos recursos de infraestrutura de segurança a Cloud. Trabalhar com [equipa de suporte a recursos de infraestrutura de segurança de Cloud](mailto:support@cloudlock.com) para adicionar os utilizadores na plataforma de recursos de infraestrutura de segurança a Cloud. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida nos recursos de infraestrutura de segurança a Cloud. Trabalhar com [equipa de suporte a recursos de infraestrutura de segurança de Cloud](mailto:support@cloudlock.com) para adicionar os utilizadores na plataforma de recursos de infraestrutura de segurança a Cloud. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -198,7 +200,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

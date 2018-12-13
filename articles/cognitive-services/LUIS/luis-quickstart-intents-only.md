@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial 1: Localizar intenções na aplicação LUIS personalizada'
+title: Prever intenções
 titleSuffix: Azure Cognitive Services
 description: Crie uma aplicação personalizada que prevê a intenção de um utilizador. Esta aplicação é o tipo mais simples de aplicação LUIS, porque não extrai vários elementos de dados do texto da expressão, como endereços de e-mail ou datas.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 30c9f572d77caacbeecf5f15d74fd8517e9fa883
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b1a9718fdf7222dae06f7fe9b3a0f14b50293c08
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426864"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097799"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Tutorial 1: Criar uma aplicação personalizada para determinar as intenções do utilizador
 
@@ -43,11 +44,11 @@ Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não forn
 
 2. Selecione **Create new app** (Criar nova aplicação).  
 
-    [![](media/luis-quickstart-intents-only/app-list.png "Captura de ecrã a mostrar a página My Apps (As Minhas Aplicações) do Language Understanding (LUIS)")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+    [![Página das minhas aplicações de captura de ecrã de compreensão de idiomas (LUIS)](media/luis-quickstart-intents-only/app-list.png "página de captura de ecrã de compreensão de idiomas (LUIS) as minhas aplicações")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
 3. Na caixa de diálogo pop-up, introduza o nome `HumanResources` e mantenha a cultura predefinida, **Inglês**. Deixe a descrição em branco.
 
-    ![A nova aplicação LUIS](./media/luis-quickstart-intents-only/create-app.png)
+    ![Criar nova aplicação de RecursosHumanos LUIS](./media/luis-quickstart-intents-only/create-app.png)
 
     Em seguida, a aplicação mostra a página **Intents** (Intenções) com a intenção **None** (Nenhuma).
 
@@ -55,7 +56,7 @@ Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não forn
 
 1. Selecione **Create new intent** (Criar nova intenção). Introduza o nome da nova intenção `GetJobInformation`. Esta intenção é prevista sempre que um utilizador quer informações sobre cargos disponíveis na empresa.
 
-    ![](media/luis-quickstart-intents-only/create-intent.png "Captura de ecrã a mostrar a caixa de diálogo New intent (Nova intenção) do Language Understanding (LUIS)")
+    ![Captura de ecrã de compreensão de idiomas (LUIS) nova intenção caixa de diálogo](media/luis-quickstart-intents-only/create-intent.png "captura de ecrã de compreensão de idiomas (LUIS) intenção caixa de diálogo Novo")
 
 2. Ao fornecer _expressões de exemplo_, está a ensinar ao LUIS os tipos de expressões que devem ser previstos para esta intenção. Adicione várias expressões de exemplo esperadas a esta intenção, tais como:
 
@@ -69,7 +70,7 @@ Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não forn
     |Novos empregos?|
     |Existem novas vagas no escritório de Seattle?|
 
-    [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Captura de ecrã da introdução de novas expressões para a intenção MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    [![Captura de ecrã da introdução de expressões com novos para MyStore intenção](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "captura de ecrã da introdução de expressões com novos para MyStore intenção")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
@@ -150,7 +151,7 @@ Regresse ao site do LUIS e crie uma intenção para determinar se a expressão d
     |Eis o meu CV para a vaga 654234|
     |Emprego 567890 e a minha documentação|
 
-    [![](media/luis-quickstart-intents-only/utterance-applyforjob.png "Captura de ecrã da introdução de novas expressões para a intenção ApplyForJob")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+    [![Captura de ecrã da introdução de expressões com novos para ApplyForJob intenção](media/luis-quickstart-intents-only/utterance-applyforjob.png "captura de ecrã da introdução de expressões com novos para ApplyForJob intenção")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
 
     A intenção etiquetada está realçada a vermelho porque o LUIS atualmente não tem a certeza se a intenção está correta. A aplicação de preparação informa o LUIS de que as expressões estão na intenção correta. 
 
@@ -168,7 +169,7 @@ Regresse ao site do LUIS e crie uma intenção para determinar se a expressão d
 
 2. Na nova janela do browser, introduza `Can I submit my resume for job 235986` no final do URL. 
 
-    ```JSON
+    ```json
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {

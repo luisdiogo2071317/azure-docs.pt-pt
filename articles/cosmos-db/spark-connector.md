@@ -8,24 +8,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: b52305d59803d9fb8e70d89ae13cd5006c74129f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: fd1fa105a880acb0d2b18a3b69ba8d475d8f82a3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865459"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081596"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Acelerar a análise de macrodados utilizando o Apache Spark para o conector do Azure Cosmos DB
  
-O conector do Apache Spark para o Azure Cosmos DB permite ao Azure Cosmos DB ser uma entrada ou saída de tarefas do Apache Spark. Ligar [Spark](http://spark.apache.org/) ao [do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) acelerará a sua capacidade para resolver problemas de ciência de dados rápida evolução. Pode utilizar o Azure Cosmos DB para manter e consultar dados rapidamente. O conector utiliza de forma eficiente os índices geridos do Azure Cosmos DB nativos. Os índices permitem colunas atualizáveis ao realizar análises e filtragens de predicados contra dados distribuídos globalmente. Esse tipo de dados pode variar de Internet das coisas (IoT) para cenários de análise e ciência de dados.
+O conector do Apache Spark para o Azure Cosmos DB permite ao Azure Cosmos DB ser uma entrada ou saída de tarefas do Apache Spark. Ligar [Spark](https://spark.apache.org//) ao [do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) acelerará a sua capacidade para resolver problemas de ciência de dados rápida evolução. Pode utilizar o Azure Cosmos DB para manter e consultar dados rapidamente. O conector utiliza de forma eficiente os índices geridos do Azure Cosmos DB nativos. Os índices permitem colunas atualizáveis ao realizar análises e filtragens de predicados contra dados distribuídos globalmente. Esse tipo de dados pode variar de Internet das coisas (IoT) para cenários de análise e ciência de dados.
 
 ## <a name="connector-components"></a>Componentes de conector
 
 O Spark para o conector do Azure Cosmos DB tem os seguintes componentes:
 
-* [O Azure Cosmos DB](http://documentdb.com) permite-lhe aprovisionar e dimensionar o débito e armazenamento, em qualquer número de regiões geográficas.  
+* [O Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) permite-lhe aprovisionar e dimensionar o débito e armazenamento, em qualquer número de regiões geográficas.  
 
-* [Apache Spark](http://spark.apache.org/) é um motor de processamento de código-fonte aberto poderosas, criado em torno de velocidade, facilidade de utilização e análise sofisticadas.  
+* [Apache Spark](https://spark.apache.org/) é um motor de processamento de código-fonte aberto poderosas, criado em torno de velocidade, facilidade de utilização e análise sofisticadas.  
 
 * [Cluster do Apache Spark no Azure Databricks](https://docs.azuredatabricks.net/getting-started/index.html) permite-lhe executar tarefas do Spark no cluster do Spark.
 
@@ -177,7 +177,7 @@ Comunicação entre o Spark e o Azure Cosmos DB é significativamente mais rápi
 
 4. Extraia os conteúdos de exemplo no feed do Twitter e abra o ficheiro config.py. Atualize os valores de masterKey, host, databaseId, collectionId e preferredLocations.  
 
-5. Aceda a `http://apps.twitter.com/`e registar o aplicação de feed do Twitter. Depois de escolher um nome para a sua aplicação, será fornecido com um **chave de consumidor, o segredo de consumidor, o token de acesso e o segredo de token de acesso**. Copie estes valores e atualizá-los no ficheiro config.py para fornecer o que feed do Twitter do aplicativo o acesso programático ao Twitter.   
+5. Aceda a `https://apps.twitter.com/`e registar o aplicação de feed do Twitter. Depois de escolher um nome para a sua aplicação, será fornecido com um **chave de consumidor, o segredo de consumidor, o token de acesso e o segredo de token de acesso**. Copie estes valores e atualizá-los no ficheiro config.py para fornecer o que feed do Twitter do aplicativo o acesso programático ao Twitter.   
 
 6. Guarde o ficheiro config.py. Abra uma linha de comandos e execute a aplicação Python utilizando o seguinte comando:
 
@@ -511,4 +511,4 @@ Se ainda não o fez, transfira o Spark para o conector do Azure Cosmos DB a part
 * [Exemplos de agregações](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
 * [Scripts de exemplo e blocos de notas](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-Pode também querer rever os [guia de conjuntos de dados, Apache Spark SQL e DataFrames](http://spark.apache.org/docs/latest/sql-programming-guide.html)e o [Apache Spark no Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artigo.
+Pode também querer rever os [guia de conjuntos de dados, Apache Spark SQL e DataFrames](https://spark.apache.org/docs/latest/sql-programming-guide.html)e o [Apache Spark no Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artigo.

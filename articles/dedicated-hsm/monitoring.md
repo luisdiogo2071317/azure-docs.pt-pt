@@ -1,22 +1,23 @@
 ---
-title: Azure dedicada a monitorização de HSM | Documentos da Microsoft
-description: HSM dedicada do Azure fornece recursos de armazenamento de chaves no Azure que cumpra FIPS 140-2 nível 3 certificação
+title: Opções - HSM do Azure dedicado de monitorização | Documentos da Microsoft
+description: Descrição geral do Azure dedicado HSM opções de monitorização e as responsabilidades de monitorização
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 4e2089c62da5fec1e1cfe96ce27b363cfb35eadf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b577c2c68512c6e7e36f80b75245d9db4f839d9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319576"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085694"
 ---
 # <a name="azure-dedicated-hsm-monitoring"></a>A monitorização do Azure de HSM dedicados
 

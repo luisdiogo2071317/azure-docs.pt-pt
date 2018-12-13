@@ -1,21 +1,22 @@
 ---
 title: Tradução de voz com o SDK de voz para C++
 titleSuffix: Azure Cognitive Services
-description: Mostra como a conversão de voz com o SDK de voz para C++.
+description: Este artigo inclui código de exemplo para a tradução de voz usando o SDK de voz num ambiente de C++.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 1bd466d231387034ead5dd46745708802f6e7488
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 917eb170ee1798546f4ba6dcf228097d5a5d853c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464736"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092218"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Traduzir a conversão de voz com o SDK de voz dos serviços cognitivos para C++
 

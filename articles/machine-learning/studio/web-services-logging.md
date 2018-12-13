@@ -1,10 +1,10 @@
 ---
-title: Registar serviços web de Machine Learning Studio | Documentos da Microsoft
+title: Web de registo do serviço - Azure Machine Learning Studio | Documentos da Microsoft
 description: Saiba como ativar o registo de serviços web Machine Learning. O registo fornece informações adicionais para ajudar a resolver problemas relacionados com as APIs.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 5ac8712b1f5dbea4ed3225e87b1a6f51312c3529
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 6da5a3c278c237b6139508ba49652deb3166eb1a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310417"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091463"
 ---
 # <a name="enable-logging-for-machine-learning-studio-web-services"></a>Ativar o registo de serviços web Machine Learning Studio
 Este documento fornece informações sobre a capacidade de registos de serviços web Machine Learning. O registo fornece informações adicionais, além de apenas um número de erro e uma mensagem, que pode ajudá-lo a resolver problemas de suas chamadas para as APIs de Machine Learning.  

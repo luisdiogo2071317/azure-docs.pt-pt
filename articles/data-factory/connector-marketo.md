@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 02d21db5c5fadb65ec63e41cbd9e2db8869ed2e7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8c3210a560c079f66cd21dbb30be4a4b823a6502
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415836"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078213"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copiar dados do Marketo com o Azure Data Factory (pré-visualização)
 
@@ -79,7 +79,12 @@ As seguintes propriedades são suportadas para o serviço do Marketo associado:
 
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do Marketo.
 
-Para copiar dados do Marketo, defina a propriedade de tipo de conjunto de dados para **MarketoObject**. Não existe nenhuma propriedade de tipo específicas adicional neste tipo de conjunto de dados.
+Para copiar dados do Marketo, defina a propriedade de tipo de conjunto de dados para **MarketoObject**. São suportadas as seguintes propriedades:
+
+| Propriedade | Descrição | Necessário |
+|:--- |:--- |:--- |
+| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **MarketoObject** | Sim |
+| tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
 
@@ -91,7 +96,8 @@ Para copiar dados do Marketo, defina a propriedade de tipo de conjunto de dados 
         "linkedServiceName": {
             "referenceName": "<Marketo linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -100,14 +106,14 @@ Para copiar dados do Marketo, defina a propriedade de tipo de conjunto de dados 
 
 Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas por origem do Marketo.
 
-### <a name="marketosource-as-source"></a>MarketoSource como origem
+### <a name="marketo-as-source"></a>Marketo como origem
 
 Para copiar dados do Marketo, defina o tipo de origem na atividade de cópia para **MarketoSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MarketoSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Activitiy_Types"`. | Sim |
+| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Activitiy_Types"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 

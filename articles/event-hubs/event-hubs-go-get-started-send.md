@@ -1,20 +1,21 @@
 ---
-title: Enviar eventos para Hubs de eventos do Azure com Go | Documentos da Microsoft
-description: Introdução ao envio de eventos para Hubs de eventos com Go
+title: Enviar eventos através de Go - Event Hubs do Azure | Documentos da Microsoft
+description: Este artigo fornece um passo a passo para criar uma aplicação Go para enviar eventos de Hubs de eventos do Azure.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2cc7c19d623427f7c98bbb66089b764bb067136b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 44cbea8cc40f83ed5fdd2863da0cb0a01e8dc2b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52954915"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091065"
 ---
 # <a name="send-events-to-event-hubs-using-go"></a>Enviar eventos para Hubs de eventos com Go
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: a273d0bd4d064cb1c6ac4d3951af8a493e303f51
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0b3c4a4c21bc9b124a98b1f204f85e6e78ff233e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015896"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099567"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introdução à pré-visualização do Azure Data Lake Storage geração 2
 
@@ -66,20 +66,20 @@ Seguem-se as entidades equivalentes, conforme descrito pelo conceitos diferentes
 | BLOBs – armazenamento de objetos de fins gerais | Contentor              | Diretório virtual (SDK apenas – não fornece manipulação atômica) | Blobs           |
 | ADLS Gen2 – análise de armazenamento          | Sistema de ficheiros             | Diretório                                                           | Ficheiro           |
 
-## <a name="open-source-platforms-that-work-with-data-lake-storage-gen2"></a>Plataformas de código-fonte aberto que funcionam com geração 2 de armazenamento do Data Lake
+## <a name="supported-open-source-platforms"></a>Código-fonte aberto plataformas suportadas
 
 Várias plataformas de código-fonte aberto suportam a geração 2 de armazenamento do Data Lake. Essas plataformas são apresentados na tabela seguinte.
 
 > [!NOTE]
 > São suportadas apenas as versões que aparecem nesta tabela.
 
-| Plataforma |  Versões suportadas | Mais informações |
+| Plataforma |  Versões suportadas | Mais Informações |
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6 + | [Quais são os componentes do Apache Hadoop e versões disponíveis com o HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 | [Hadoop](https://hadoop.apache.org/) | 2.7 + | [Arquivo de versões do Apache Hadoop](https://hadoop.apache.org/release.html) |
-| [Cloudera](https://www.cloudera.com/) | 6.1 + | [Notas de versão do Claudera Enterprise 6.x](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
+| [Cloudera](https://www.cloudera.com/) | 6.1 + | [Notas de versão do 6.x Cloudera Enterprise](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2 + | [Versões de Runtime do Databricks](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[HortenWorks](https://hortonworks.com/)| 2.6 + | [Documentação de HortenWorks](https://docs.hortonworks.com/) |
+|[Hortonworks](https://hortonworks.com/)| 2.6 + | [Documentação da Hortonworks](https://docs.hortonworks.com/) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -87,5 +87,5 @@ Os seguintes artigos descrevem alguns dos principais conceitos de geração 2 de
 
 -   [Espaço de nomes hierárquico](data-lake-storage-namespace.md)
 -   [Criar uma conta de armazenamento](data-lake-storage-quickstart-create-account.md)
--   [Criar um cluster do HDInsight com geração 2 de armazenamento do Azure Data Lake](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
--   [Utilizar uma conta de geração 2 de armazenamento do Azure Data Lake no Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md)
+-   [Criar um cluster do HDInsight com geração 2 de armazenamento do Data Lake](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
+-   [Utilizar uma conta de geração 2 de armazenamento do Data Lake no Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md)

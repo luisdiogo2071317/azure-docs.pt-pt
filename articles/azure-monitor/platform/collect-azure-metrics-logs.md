@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 867d3647e293292a6294a30b71a046cc1c64d0d3
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 33ceece70c920bcb8bfd49fcfc8ff544af592b6b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888295"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088209"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recolher registos de serviço do Azure e as métricas de utilização do Log Analytics
 
@@ -61,7 +61,7 @@ Existem quatro formas diferentes de recolha de registos e métricas para os serv
 
 
 > [!NOTE]
-> Para monitorizar máquinas virtuais do Azure (Linux e Windows), recomendamos que instale o [extensão de VM do Log Analytics](../../log-analytics/log-analytics-quick-collect-azurevm.md). O agente fornece informações recolhidas a partir de suas máquinas virtuais. Também pode utilizar a extensão para conjuntos de dimensionamento de Máquina Virtual.
+> Para monitorizar máquinas virtuais do Azure (Linux e Windows), recomendamos que instale o [extensão de VM do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md). O agente fornece informações recolhidas a partir de suas máquinas virtuais. Também pode utilizar a extensão para conjuntos de dimensionamento de Máquina Virtual.
 >
 >
 

@@ -1,6 +1,6 @@
 ---
-title: Como implementar um serviço Web em várias regiões - Azure Machine Learning Studio | Documentos da Microsoft
-description: Passos para implementar (copiar) um novo serviço Web para outras regiões.
+title: Implementar o serviço Web em várias regiões - Azure Machine Learning Studio | Documentos da Microsoft
+description: Passos para implementar (copiar) um novo serviço Web para outras regiões. Implemente facilmente um serviço web em várias regiões sem a necessidade de várias subscrições ou áreas de trabalho.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.custom: (previous ms.author=aashishb, author=aashishb)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-ms.openlocfilehash: ab28cce0f973c4798bfd6995cc275c4724b7bcc9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: MT
+ms.openlocfilehash: 21c930a4e9c28f3d3f612a89ce88accd2de2925e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308024"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092949"
 ---
 # <a name="azure-machine-learning-studio-deploy-a-web-service-to-multiple-regions"></a>O Azure Machine Learning Studio: Implementar um serviço web em várias regiões
 Os novos serviços de Web do Azure permitem-lhe facilmente implementar um serviço web em várias regiões sem a necessidade de várias subscrições ou áreas de trabalho. 

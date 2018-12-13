@@ -1,21 +1,22 @@
 ---
-title: Estrutura da aplicação iterativo na compreensão de idiomas (LUIS)
-titleSuffix: Azure Cognitive Services
-description: LUIS Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final.  As aplicações de LUIS necessitam iterações de design para preparar o LUIS para obter a melhor extração de dados.
+title: Estrutura da aplicação iterativo
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: LUIS Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 2bd30aad995e9d1f334988652477f8b017c187b9
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: MT
+ms.openlocfilehash: e3472258cacea4ad0d9d8467d0cd06822a3acc6b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638295"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090504"
 ---
 # <a name="authoring-cycle"></a>Ciclo de criação
 LUIS Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final. 

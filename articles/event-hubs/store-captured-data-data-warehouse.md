@@ -1,5 +1,5 @@
 ---
-title: Migrar dados de Hubs de Eventos do Azure para o SQL Data Warehouse | Microsoft Docs
+title: Migrar dados de eventos para o SQL Data Warehouse - Event Hubs do Azure | Documentos da Microsoft
 description: Este tutorial mostra como capturar dados do seu hub de eventos para um armazém de dados SQL, através de uma função do Azure acionada por uma grelha de eventos.
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 56701f039ae2de6d136a2a06fbeb9e99359a0029
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 03ebdabf60882a73eb15cbd36481068591bbd3bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017070"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086288"
 ---
 # <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Migrar dados de Hubs de eventos capturados para um SQL Data Warehouse com o Event Grid e as funções do Azure
 

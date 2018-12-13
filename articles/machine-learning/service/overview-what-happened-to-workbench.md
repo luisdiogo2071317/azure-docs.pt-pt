@@ -1,5 +1,6 @@
 ---
 title: O que aconteceu ao Azure Machine Learning Workbench?
+titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre o que aconteceu com a Bancada de trabalho de aplicação, o que mudou no serviço Azure Machine Learning e o que é a linha cronológica de suporte.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b6df86d63e897d5cde34fb697ad2364c107a8fbe
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: 2d97ee70c8456bb3b21a14b646756c8024eab018
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011147"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090130"
 ---
 # <a name="what-is-happening-to-workbench-in-azure-machine-learning-service"></a>O que acontece à Bancada de trabalho no serviço Azure Machine Learning?
 
@@ -83,13 +84,13 @@ Saiba como começar a utilizar o [Python com o SDK principal](quickstart-get-sta
  
 Os modelos que registou no seu registo do modelo antigo devem ser migrados para nova área de trabalho, se quiser continuar a utilizá-los. Pode fazê-lo ao [transferir os modelos e ao registá-los novamente](how-to-migrate.md) na sua nova área de trabalho. 
 
-As imagens que criou no seu registo de imagens antigo têm de ser recriadas na nova área de trabalho para continuar a utilizá-las. Pode fazê-lo ao seguir os passos na secção de [criação da imagem do Docker](how-to-deploy-to-aci.md#configure-an-image). 
+As imagens que criou no seu registo de imagens antigo têm de ser recriadas na nova área de trabalho para continuar a utilizá-las. Pode fazê-lo ao seguir a [configurar e criar a imagem](how-to-deploy-and-where.md#configureimage) secções. 
 
 ## <a name="what-about-deployed-web-services"></a>E em relação aos serviços Web implementados?
 
 Os modelos que implementou como serviços Web com a sua conta de Gestão de Modelos irão continuar a funcionar, desde que o Azure Container Service (ACS) seja suportado. Esses serviços Web irão funcionar inclusivamente após o fim do suporte para contas de Gestão de Modelos. No entanto, quando o suporte para a antiga CLI terminar, terminará também a capacidade para gerir esses serviços Web.
 
-Na versão mais recente, os modelos são implementados como serviços Web nos clusters do [Azure Container Instances](how-to-deploy-to-aci.md) (ACI) ou do [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS). Também pode [implementar em FPGAs e no IoT Edge](how-to-deploy-and-where.md). Pode implementar novamente os modelos com o SDK ou a CLI novos, sem ter de alterar qualquer um dos seus ficheiros, dependências e esquemas de classificação. 
+Na versão mais recente, os modelos são implementados como serviços da web para clusters Instances(ACI) de contentor do Azure ou do Azure Kubernetes Service (AKS). Também pode implementar para FPGAs e para o IoT edge. Para obter mais informações, consulte a [como implementar e, em que](how-to-deploy-and-where.md) documento. Pode implementar novamente os modelos com o SDK ou a CLI novos, sem ter de alterar qualquer um dos seus ficheiros, dependências e esquemas de classificação. 
 
 ## <a name="what-about-the-old-sdk--cli"></a>E em relação ao SDK e à CLI antigos?
 

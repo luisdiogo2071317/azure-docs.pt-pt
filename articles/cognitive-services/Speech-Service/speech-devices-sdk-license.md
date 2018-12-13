@@ -1,5 +1,5 @@
 ---
-title: Contrato de licença do SDK de dispositivos de voz
+title: Contrato de licença do SDK de dispositivos de voz - serviços de voz
 titleSuffix: Azure Cognitive Services
 description: Contrato de licença do SDK de dispositivos de voz.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: dea27d7363210580d5f040de7ea1db770701d9c9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: b1605337a810c635bfa40cd05e2f9b15d2e5a7e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466125"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078519"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Contrato de licença do SDK de dispositivos de voz
 
-## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>TERMOS DE LICENCIAMENTO DE SOFTWARE MICROSOFT<br>VOZ DISPOSITIVOS SOFTWARE DEVELOPMENT KIT (SDK) 
+## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>TERMOS DE LICENCIAMENTO DE SOFTWARE MICROSOFT<br>VOZ DISPOSITIVOS SOFTWARE DEVELOPMENT KIT (SDK)
 
 > SE VIVER (OU SE TIVER UMA EMPRESA COM O SEU LOCAL DE PRINCIPAL DE NEGÓCIO EM) NOS ESTADOS UNIDOS, LEIA A SECÇÃO "ARBITRAGEM DE ENLACE E RENÚNCIA À AÇÃO DE CLASSE POR" ABAIXO. AFETA A FORMA COMO AS CONTESTAÇÕES SÃO RESOLVIDAS.
 
@@ -57,7 +58,7 @@ f) tem de utilizar o software apenas em combinação com o Azure serviços cogni
 
 **5\. COMENTÁRIOS.** Se fizer comentários sobre o software à Microsoft, concede à Microsoft, sem encargos, o direito de usar, compartilhar e comercializar os seus comentários de qualquer forma e para qualquer finalidade. Não fornecerá comentários que estão sujeitas a uma licença que requeira a Microsoft licencie seu software ou documentação a terceiros, porque a Microsoft inclui seus comentários nos mesmos. Estes direitos sobrevivem a este contrato.
 
-**6\. PERÍODO.** O presente contrato em vigor na sua aceitação e pode ser terminado por si ou a Microsoft em qualquer altura. 
+**6\. PERÍODO.** O presente contrato em vigor na sua aceitação e pode ser terminado por si ou a Microsoft em qualquer altura.
 
 **7\. CESSAÇÃO.** Sem prejudice para quaisquer outros direitos, a Microsoft pode cessar o presente contrato se não está em conformidade com qualquer um dos respetivos termos ou condições. Esse evento, terá de destruir todas as cópias do software e todos os seus componentes.
 

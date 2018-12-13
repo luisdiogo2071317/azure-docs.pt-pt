@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 99e42f404fe103f406c4b3835f8c455bc2b91e07
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.custom: seodec18
+ms.openlocfilehash: 77a5b455e3ef86484119983af24b6461a2fba229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017693"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074492"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar o seu investimento na cloud com o Azure Cost Management
 
@@ -64,7 +64,7 @@ Act para reduzir os gastos. Aproveite ao máximo-lo com base em averiguações c
 
 Todas as pessoas na sua organização devem fazer do ciclo de vida de gestão de custos. Eles precisam para se manter envolvidos numa base contínua para otimizar os custos. Ser rigoroso sobre esse processo interativo e torná-lo um princípio importante de governação de responsável de cloud na sua organização.
 
-![Princípios fundamentais](./media/cost-mgt-best-practices/principles.png)
+![Diagrama de princípios fundamentais que mostra visibilidade, da responsabilização e Otimização](./media/cost-mgt-best-practices/principles.png)
 
 ## <a name="plan-with-cost-in-mind"></a>Planear com custo em mente
 

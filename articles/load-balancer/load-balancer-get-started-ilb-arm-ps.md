@@ -1,5 +1,6 @@
 ---
-title: Criar um balanceador de carga interno do Azure com o PowerShell | Microsoft Docs
+title: Criar um balanceador de carga interno do Azure com o PowerShell
+titlesuffix: Azure Load Balancer
 description: Saiba como utilizar o módulo do Azure PowerShell com o Azure Resource Manager para criar um balanceador de carga interno
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4e99411ec56f25e249429e4e65bae4a8e7071cc1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0a85c5e90be465b324248f961fd297b15c008d02
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412691"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075875"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Criar um balanceador de carga interno com o módulo do Azure PowerShell
 

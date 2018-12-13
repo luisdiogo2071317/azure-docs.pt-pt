@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: bcda662790c1af72e28b8968142bab15f62e83bf
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c58b956a0fc1899b12050daf0fbf61514ca24407
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127183"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095142"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Copiar dados do serviço Web do Amazon Marketplace com o Azure Data Factory (pré-visualização)
 
@@ -85,7 +85,12 @@ As seguintes propriedades são suportadas para o serviço do serviço Web do Ama
 
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do serviço Web do Amazon Marketplace.
 
-Para copiar dados do serviço Web do Amazon Marketplace, defina a propriedade de tipo de conjunto de dados para **AmazonMWSObject**. Não existe nenhuma propriedade de tipo específicas adicional neste tipo de conjunto de dados.
+Para copiar dados do serviço Web do Amazon Marketplace, defina a propriedade de tipo de conjunto de dados para **AmazonMWSObject**. São suportadas as seguintes propriedades:
+
+| Propriedade | Descrição | Necessário |
+|:--- |:--- |:--- |
+| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **AmazonMWSObject** | Sim |
+| tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
 
@@ -97,7 +102,8 @@ Para copiar dados do serviço Web do Amazon Marketplace, defina a propriedade de
         "linkedServiceName": {
             "referenceName": "<AmazonMWS linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -107,14 +113,14 @@ Para copiar dados do serviço Web do Amazon Marketplace, defina a propriedade de
 
 Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas por origem do Amazon Marketplace Web Service.
 
-### <a name="amazonmwssource-as-source"></a>AmazonMWSSource como origem
+### <a name="amazon-mws-as-source"></a>MWS Amazon como origem
 
 Para copiar dados do serviço Web do Amazon Marketplace, defina o tipo de origem na atividade de cópia para **AmazonMWSSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AmazonMWSSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Sim |
+| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 

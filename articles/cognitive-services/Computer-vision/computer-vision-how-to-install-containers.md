@@ -1,21 +1,22 @@
 ---
-title: Como instalar e executar contentores
-titlesuffix: Computer Vision - Cognitive Services - Azure
+title: Instalar e executar contentores
+titlesuffix: Computer Vision - Azure Cognitive Services
 description: Como transferir, instalar e executar contentores para imagem digitalizada neste tutorial passo a passo.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 67dbf3bdf6631785fc876283847e36349e857a77
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9964be07c578cd1cafd93328bffe972483123e03
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634647"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077040"
 ---
 # <a name="install-and-run-containers"></a>Instalar e executar contentores
 
@@ -39,7 +40,7 @@ Docker tem de ser configurado para permitir que os contentores para se ligar com
 
 Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).
 
-### <a name="server-requirements-and-recommendations"></a>Requisitos de servidor e recomendações
+### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
 
 O contentor de reconhecer texto requer um mínimo de 1 núcleo de CPU, pelo menos 2,6 GHz (gigahertz) ou mais rápida e 8 gigabytes (GB) de memória alocada, mas recomendamos, pelo menos, 2 núcleos de CPU e 8 GB de memória alocada.
 
@@ -162,7 +163,9 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e
 * Executam imagens de contentor no Docker.
 * Pode utilizar a REST API ou o SDK para chamar operações em contentores de imagem digitalizada, especificando o URI do contentor do anfitrião.
 * Tem de especificar informações de faturação ao instanciar um contentor.
-* * * Cognitivos contentores de serviços não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.  
+
+> [!IMPORTANT]
+> Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

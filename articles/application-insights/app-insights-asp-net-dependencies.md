@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 034e611f6ea95675dc3169feefe1916a81c50943
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e94af6e50c923d975c6ce71cca94479354891e0d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972376"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097782"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: controlo de dependência
 R *dependência* é um componente externo que é chamado pela sua aplicação. Normalmente, é um serviço chamado através de HTTP, ou uma base de dados ou um sistema de ficheiros. [O Application Insights](app-insights-overview.md) mede o tempo que o aplicativo aguardará dependências e a frequência com que uma chamada de dependência falha. Pode investigar chamadas específicas e estão relacionadas com pedidos e exceções.
@@ -32,7 +32,7 @@ O monitor de dependência de out-of-the-box relatórios atualmente chamadas para
 * Páginas Web
   * Chamadas AJAX
 
-A monitorização funciona utilizando [instrumentação de código de byte](https://msdn.microsoft.com/library/z9z62c29.aspx) em torno de métodos selecionados. Sobrecarga de desempenho é mínima.
+A monitorização funciona utilizando [instrumentação de código de byte](https://msdn.microsoft.com/library/z9z62c29.aspx) cerca selecionar métodos ou com base em DiagnosticSource retornos de chamada de (nos SDKs do .NET mais recente) do .NET Framework. Sobrecarga de desempenho é mínima.
 
 Também pode escrever suas próprias chamadas SDK para monitorizar outras dependências, ambos no código de cliente e servidor, utilizando o [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
