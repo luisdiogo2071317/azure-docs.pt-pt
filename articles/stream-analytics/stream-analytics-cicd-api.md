@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: 57ba02049d6008d8b68a5a5d217d4e28cc55dcb4
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 727c1ce79fbd20252f7455f95ad00a6c44d67c65
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892618"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090521"
 ---
 # <a name="implement-cicd-for-stream-analytics-using-apis"></a>Implementar o CI/CD para análise de Stream com APIs
 
@@ -253,7 +253,7 @@ Exemplo de manifesto de implantação:
 } 
 ```
 
-Após a configuração do manifesto de implantação, consulte [módulos de implementar o Azure IoT Edge com a CLI do Azure](/iot-edge/how-to-deploy-modules-cli) para implementação.
+Após a configuração do manifesto de implantação, consulte [módulos de implementar o Azure IoT Edge com a CLI do Azure](/iot-edge/how-to-deploy-modules-cli.md) para implementação.
 
 
 ## <a name="next-steps"></a>Passos Seguintes 

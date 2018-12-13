@@ -1,5 +1,6 @@
 ---
-title: Tutorial de modelo de regressão - automaticamente preparar modelo com o serviço Azure Machine Learning
+title: 'Tutorial de modelo de regressão: automaticamente formar modelos'
+titleSuffix: Azure Machine Learning service
 description: Saiba como gerar um modelo de ML com aprendizagem automática.  O Azure Machine Learning pode executar o pré-processamento de dados, a seleção de algoritmos e a seleção de hiperparâmetros de forma automatizada. O modelo final pode depois ser implementado com o serviço Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -9,15 +10,15 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.custom: seodec12
-ms.openlocfilehash: 5c732cd6dc707cfb34248414187d8f2d15357572
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.custom: seodec18
+ms.openlocfilehash: 593274cf66e93051b860ed75d77f13537188f345
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013940"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076037"
 ---
-# <a name="tutorial-part-2-use-automated-machine-learning-to-build-and-train-a-regression-model"></a>Tutorial (parte 2): Utilize automatizada de machine learning para criar e formar um modelo de regressão
+# <a name="tutorial-part-2-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial (parte 2): Utilize automatizada de machine learning para criar o seu modelo de regressão
 
 Este tutorial é a **segunda parte de uma série composta por duas partes**. No tutorial anterior, [preparado os dados de táxis NYC para modelação de regressão](tutorial-data-prep.md).
 
@@ -653,7 +654,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ### <a name="train-the-automatic-regression-model"></a>Preparar o modelo de regressão automática
 
-Inicie a experimentação para ser executada localmente. Passar o definido `automated_ml_config` objeto para a experimentação e defina a saída `true` para ver o progresso durante a experimentação.
+Inicie a experimentação para ser executada localmente. Passar o definido `automated_ml_config` objeto para a experimentação e defina a saída `True` para ver o progresso durante a experimentação.
 
 
 ```python
@@ -717,7 +718,8 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-![Widget de Jupyter detalhes da execução](./media/tutorial-auto-train-models/jup-widget-auto.png)
+![Detalhes da execução de Widget de Jupyter](./media/tutorial-auto-train-models/automl-dash-output.png)
+![plotagem de Widget do Jupyter](./media/tutorial-auto-train-models/automl-chart-output.png)
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Opção 2: Obter e examinar todas as iterações de execução em Python
 

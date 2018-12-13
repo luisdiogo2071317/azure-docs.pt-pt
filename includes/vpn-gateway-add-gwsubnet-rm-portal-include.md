@@ -5,21 +5,24 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a1fa4d58cefa82e70c036d697957254531042b9c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: 29ec30840e550b87f83de67d52348b9723400e0f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30196934"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111879"
 ---
-1. No [portal](http://portal.azure.com), navegue para a rede virtual do Gestor de Recursos para a qual pretende criar um gateway de rede virtual.
-2. Na secção **Definições** da página da VNet, clique em **Sub-redes** para expandir a página Sub-redes.
-3. Na página **Sub-redes**, clique em **+Sub-rede do gateway** para abrir a página **Adicionar sub-rede**.
+1. Na [portal do Azure](http://portal.azure.com), selecione a rede virtual do Resource Manager para o qual pretende criar um gateway de rede virtual.
+
+2. Na **definições** secção da página da rede virtual, selecione **sub-redes** para expandir o **sub-redes** página.
+
+3. Sobre o **sub-redes** página, selecione **sub-rede do Gateway** para abrir o **adicionar sub-rede** página.
 
   ![Add the gateway subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsub.png "Add the gateway subnet")
-4. O **Nome** da sub-rede é preenchido automaticamente com o valor "GatewaySubnet". Este valor é obrigatório para que o Azure reconheça a sub-rede como a sub-rede do gateway. Ajuste os valores de preenchimento automático **Intervalo de endereços** para corresponder aos requisitos de configuração e, em seguida, clique em **OK** na parte inferior da página para criar a sub-rede.
+
+4. O **Name** para a sub-rede é automaticamente autofilled com o valor *GatewaySubnet*. Este valor é necessário para o Azure reconheça a sub-rede como a sub-rede do gateway. Ajustar o autofilled **intervalo de endereços** valores para corresponder aos requisitos de configuração, em seguida, selecione **OK** para criar a sub-rede.
 
   ![Adding the subnet](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addsubnetgw.png "Adding the subnet")

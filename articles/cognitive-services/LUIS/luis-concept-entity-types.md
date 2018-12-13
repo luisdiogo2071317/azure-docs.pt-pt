@@ -1,21 +1,22 @@
 ---
-title: Tipos de entidade em aplicações de LUIS - compreensão de idiomas
-titleSuffix: Azure Cognitive Services
+title: Tipos de entidade
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Adicione entidades (dados de chave no domínio de seu aplicativo) em aplicações de Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: MT
+ms.openlocfilehash: 761b2101ed7b55de27628882778c51bc86c70ef4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085869"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075663"
 ---
 # <a name="entities-in-luis"></a>Entidades de LUIS
 
@@ -71,7 +72,7 @@ LUIS oferece muitos tipos de entidades; entidades previamente concebidas, máqui
 | Nome | Pode Etiquetar | Descrição |
 | -- |--|--|
 | **Pré-criados** <br/>[Personalizado](#prebuilt)| |  **Definição**<br>Tipos internos que representam conceitos comuns. <br><br>**Lista**<br/>número de expressões-chave, ordinal, temperatura, dimensão, dinheiro, idade, percentagem, e-mail, URL, número de telefone e expressões-chave. <br><br>Os nomes de entidades pré-criados estão reservados. <br><br>Todas as entidades pré-concebidas que são adicionadas à aplicação são retornadas no [ponto final](luis-glossary.md#endpoint) consulta. Para obter mais informações, consulte [entidades pré-concebidas](./luis-prebuilt-entities.md). <br/><br/>[Resposta de exemplo para a entidade](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Expressão regular**<br/>[RegEx](#regex)||**Definição**<br>Expressão regular personalizada para texto formatado de expressão não processados. Ele ignora caso e ignora a variante cultural.  <br><br>Esta entidade é bom para palavras ou frases que consistentemente são formatados com qualquer variação que também é consistente.<br><br>Correspondência de expressões regulares é aplicada após a verificação ortográfica alterações. <br><br>Se a expressão regular é demasiado complexa, como o uso de muitos Retos, não é possível adicionar a expressão para o modelo. <br><br>**Exemplo**<br>`kb[0-9]{6,}` kb123456 correspondências.<br/><br/>[Início rápido](luis-quickstart-intents-regex-entity.md)<br>[Resposta de exemplo para a entidade](luis-concept-data-extraction.md)|
+|<!-- added week of 3/21/08 --> **Expressão regular**<br/>[RegEx](#regex)||**Definição**<br>Expressão regular personalizada para texto formatado de expressão não processados. Ele ignora caso e ignora a variante cultural.  <br><br>Esta entidade é bom para palavras ou frases que consistentemente são formatados com qualquer variação que também é consistente.<br><br>Correspondência de expressões regulares é aplicada após a verificação ortográfica alterações ao nível do caráter, não no nível de token. Utiliza a parte, mas nem todos os [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) biblioteca.<br><br>Se a expressão regular é demasiado complexa, como o uso de muitos Retos, não é possível adicionar a expressão para o modelo. <br><br>**Exemplo**<br>`kb[0-9]{6,}` kb123456 correspondências.<br/><br/>[Início rápido](luis-quickstart-intents-regex-entity.md)<br>[Resposta de exemplo para a entidade](luis-concept-data-extraction.md)|
 | **Simples** <br/>[Ficou a saber de máquina](#machine-learned) | ✔ | **Definição**<br>Uma entidade é uma entidade genérica que descreve um único conceito e será adquirida do contexto aprendidas por máquina. Contexto incluem a escolha do word, o posicionamento de word e o comprimento da expressão.<br/><br/>Esta é uma boa entidade palavras ou expressões que não estão formatados de forma consistente, mas indicam a mesma coisa. <br/><br/>[Início rápido](luis-quickstart-primary-and-secondary-data.md)<br/>[Resposta de exemplo para a entidade](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Lista** <br/>[Correspondência exata](#exact-match)|| **Definição**<br>Lista de entidades representam um conjunto de palavras relacionadas, juntamente com seus synoymns fixo e fechado no seu sistema. <br><br>Cada entidade de lista pode ter um ou mais formulários. Melhor utilizados para um conjunto conhecido de variações em maneiras de representar o mesmo conceito.<br/><br/>LUIS não Deteta valores adicionais para entidades de lista. Utilize o **Recomendamos** funcionalidade para ver sugestões para novas palavras com base na lista atual.<br/><br>Se houver mais de uma entidade de lista com o mesmo valor, cada entidade é devolvida na consulta de ponto final. <br/><br/>[Início rápido](luis-quickstart-intent-and-list-entity.md)<br>[Resposta de exemplo para a entidade](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Misto](#mixed) | ✔|**Definição**<br>Patterns.any é um marcador de posição de comprimento variável utilizado apenas na expressão de modelo de um padrão para marcar onde a entidade começa e termina.  <br><br>**Exemplo**<br>Devido uma pesquisa de expressão para livros com base no título, a pattern.any extrai o título completo. É uma expressão de modelo usando pattern.any `Who wrote {BookTitle}[?]`.<br/><br/>[Tutorial](luis-tutorial-pattern.md)<br>[Resposta de exemplo para a entidade](luis-concept-data-extraction.md#composite-entity-data)|  
@@ -98,7 +99,7 @@ Revisão [limites](luis-boundaries.md#model-boundaries) para compreender quantos
 
 ## <a name="roles-versus-hierarchical-entities"></a>Funções versus entidades hierárquicas
 
-Para obter mais informações, consulte [funções versus entidades hierárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
+Para obter mais informações, veja [Funções versus entidades hierárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="composite-vs-hierarchical-entities"></a>Entidades hierárquica do vs compostos
 Entidades compostas e entidades hierárquicas tanto têm relações pai-filho e são máquina aprendida. O machine learning permite que o LUIS compreender as entidades com base em diferentes contextos (disposição de palavras). Entidades compostas são mais flexíveis porque permitem que os tipos de entidade diferentes como filhos. Subordinados de uma entidade hierárquica são apenas as entidades simples. 

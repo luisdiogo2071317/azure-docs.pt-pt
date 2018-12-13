@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: f0a119bb7a2e18b04caa52319e4908fa5f6241dc
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: 45d5cee92ce75c2e13f602d1ea6540698ea8abf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000336"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078366"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Ligar uma conta do Google Cloud Platform
 
@@ -30,7 +30,7 @@ Comece a coleta de informações sobre o seu projeto.
 
 1. Inicie sessão na consola do Google Cloud Platform em [ https://console.cloud.google.com ](https://console.cloud.google.com).
 2. Reveja as informações de projeto que pretende integrar ao Cloudyn e tenha em atenção a **nome do projeto** e o **ID do projeto**. Manter as informações úteis para os passos seguintes.  
-    ![Consola do Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
+    ![Nome do projeto e o ID de projeto, mostrado na consola do Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
 3. Se a faturação não está ativada e ligada ao seu projeto, crie uma conta de cobrança. Para obter mais informações, consulte [criar uma nova conta de faturação](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account).
 
 ## <a name="enable-storage-bucket-billing-export"></a>Ativar a exportação de faturação de bucket de armazenamento
@@ -41,7 +41,7 @@ Utilizar o Google Cloud Storage para armazenar os relatórios de utilização, i
 
 1. Se não tiver ativado a exportação de faturação para um ficheiro, siga as instruções em [como ativar a exportação de faturação para um ficheiro](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file). Pode utilizar o formato de exportação de faturação JSON ou CSV.
 2. Caso contrário, na consola do Google Cloud Platform, navegue até **faturação** > **exportação de faturação**. Tenha em atenção a sua cobrança **nome do Bucket** e **prefixo de relatório**.  
-    ![Exportação de faturação](./media/connect-google-account/billing-export.png)
+    ![Informações de exportação de faturação mostradas na página de exportação de faturação](./media/connect-google-account/billing-export.png)
 
 ## <a name="enable-google-cloud-platform-apis"></a>Ativar as APIs do Google Cloud Platform
 
@@ -69,7 +69,7 @@ Para recolher informações de utilização e ativos, Cloudyn tem as seguintes A
 4. Na **nome da conta Google**, introduza o endereço de e-mail para a conta de cobrança, em seguida, clique em **próxima**.
 5. Na caixa de diálogo de autenticação de Google, selecione ou introduza uma conta do Google e, em seguida **permitir** cloudyn.com acesso à sua conta.
 6. Adicionar informações de pedidos de projeto que tinha anterior indicado. Eles incluem **ID do projeto**, **projeto** nome, **faturação** nome do registo, e **ficheiro faturação** prefixo de relatório, em seguida, clique em  **Guardar**.  
-    ![Adicionar o projeto do Google](./media/connect-google-account/add-project.png)
+    ![Adicionar o projeto Google à conta do Cloudyn](./media/connect-google-account/add-project.png)
 
 Sua conta Google aparece na lista de contas e deverá indicar **autenticado**. Sob a mesma, o nome do projeto Google e o ID devem aparecer e ter um símbolo de marca de verificação verde. Estado da conta deverá indicar **concluído**.
 
