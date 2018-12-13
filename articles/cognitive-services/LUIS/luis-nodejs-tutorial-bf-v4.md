@@ -1,23 +1,24 @@
 ---
-title: Bot de LUIS com Node.js - Tutorial - Bot de aplicação Web - Bot Framework SDK 4.0
+title: Bot de LUIS com node. js
 titleSuffix: Azure Cognitive Services
 description: Com Node.js, crie um chatbot integrado na compreensão de idioma (LUIS). Este chatbot utiliza a aplicação Human Resources para implementar rapidamente uma solução de bot. O bot é criado com a versão 4 do Bot Framework e o bot de aplicação Web do Azure.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: ad21754b3f55a0d14bb43a2898d5bd4b8b8150ae
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d9645c1d1c5ee153a4d24ae18f253f33c6557bd1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385911"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099091"
 ---
-# <a name="tutorial-luis-bot-in-nodejs"></a>Tutorial: bot de LUIS em Node.js
+# <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Tutorial: Bot de LUIS em node. js com o Bot Framework 4.x e bot de aplicação Web do Azure
 Com Node.js, pode criar um chatbot integrado com compreensão de idiomas (LUIS). Este bot utiliza a aplicação HomeAutomation para implementar uma solução de bot. O bot é criado com o [bot de aplicação Web](https://docs.microsoft.com/azure/bot-service/) do Azure com a versão v4 do [Bot Framework](https://github.com/Microsoft/botbuilder-js).
 
 **Neste tutorial, vai aprender a:**
@@ -32,8 +33,6 @@ Com Node.js, pode criar um chatbot integrado com compreensão de idiomas (LUIS).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-<!--* Samples from 
-https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp-with-luis-->
 * [Emulador de bot](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
@@ -115,7 +114,7 @@ Para poder desenvolver o código de bot de aplicação Web, transfira o código 
 
 6. Abra o ficheiro bot.cs e procure `const results = await this.luisRecognizer.recognize(context);`. É aqui que a expressão do utilizador introduzida no bot é enviada para o LUIS.
 
-    ```javascript
+    ```nodejs
     /**
      * Driver code that does one of the following:
      * 1. Display a welcome card upon startup
@@ -214,7 +213,7 @@ Antes de alterar qualquer código ou as definições, certifique-se de que o bot
 
 5. Quando o bot arrancar, a janela de terminal apresenta a porta local na qual o bot está a ser executado:
 
-    ```
+    ```console
     > basic-bot@0.1.0 start C:\Users\pattiowens\repos\BFv4\luis-nodejs-bot-src
     > node ./index.js NODE_ENV=development
 
@@ -248,7 +247,7 @@ No ficheiro `bot.js`, adicione o código para processar as novas intenções.
 
 1. Na parte superior do ficheiro, encontre a secção **Supported LUIS Intents** (Intenções de LUIS Suportadas) e adicione constantes para as intenções HomeAutomation:
 
-    ```javascript
+    ```nodejs
     // Supported LUIS Intents
     const GREETING_INTENT = 'Greeting';
     const CANCEL_INTENT = 'Cancel';
@@ -262,7 +261,7 @@ No ficheiro `bot.js`, adicione o código para processar as novas intenções.
 
 2. Encontre o **isTurnInterrupted** que recebe a predição do LUIS da expressão e adicione uma linha para imprimir o resultado da consola.
 
-    ```node
+    ```nodejs
     /**
      * Look at the LUIS results and determine if we need to handle
      * an interruptions due to a Help or Cancel intent
@@ -277,7 +276,7 @@ No ficheiro `bot.js`, adicione o código para processar as novas intenções.
 
     O bot não tem a mesma resposta exata de um pedido de API REST do LUIS, pelo que é importante observar a resposta JSON para saber as diferenças. O texto e as propriedades de intenções são os mesmos, mas os valores das propriedades das entidades foram modificados. 
 
-    ```JSON
+    ```json
     {
         "$instance": {
             "HomeAutomation_Device": [
@@ -310,7 +309,7 @@ No ficheiro `bot.js`, adicione o código para processar as novas intenções.
 
 3. Adicione as intenções à declaração de comutador onTurn do método para o caso `DialogTurnStatus.empty`:
 
-    ```javascript
+    ```nodejs
     switch (topIntent) {
         case GREETING_INTENT:
             await dc.begin(GREETING_DIALOG);
@@ -343,7 +342,7 @@ No ficheiro `bot.js`, adicione o código para processar as novas intenções.
 
 2. O bot responde com:
 
-    ```JSON
+    ```json
     TurnOn intent found, entities included: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
     ```
 
@@ -355,7 +354,7 @@ O serviço Azure Bot utiliza o Bot Framework SDK. Saiba mais sobre o SDK e o Bot
 * [Bot Builder SDK](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
 * [Bot Builder tools](https://github.com/Microsoft/botbuilder-tools) (Ferramentas do Bot Builder):
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Criou um serviço Azure Bot Service, copiou o segredo do bot e o caminho do ficheiro .bot e transferiu o ficheiro zip do código. Adicionou o domínio HomeAutomation pré-criado à aplicação LUIS criada como parte do serviço Azure Bot Service novo e, depois, preparou e publicou a aplicação novamente. Extraiu o projeto de código, criou um ficheiro de ambiente (`.env`) e definiu o segredo do bot e o caminho do ficheiro .bot. No ficheiro bot.js, adicionou código para processar as duas intenções novas. Depois, testou o bot no emulador de bot para ver a resposta do LUIS a uma expressão de uma das intenções novas. 
 

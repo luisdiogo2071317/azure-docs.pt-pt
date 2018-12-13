@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 453101b1f5368dba9aa9dbfc89f5b893d42a0542
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: MT
+ms.openlocfilehash: 280df7ff80e637539f85c5d7ddafbb564b8fe562
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684594"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879564"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Criar um pipeline de dados com a API de Recoletor de dados
 
-O [API do Recoletor de dados do Log Analytics](../../log-analytics/log-analytics-data-collector-api.md) permite que importe quaisquer dados personalizados para o Log Analytics. Os únicos requisitos são que os dados estejam formatados por JSON e dividir em 30 MB ou menos segmentos. Este é um mecanismo completamente flexível que pode ser conectado de várias maneiras: de dados que está a ser enviados diretamente a partir da sua aplicação, para ad hoc pontual carrega. Este artigo descreverá alguns pontos de partida para um cenário comum: a necessidade de carregar os dados armazenados em arquivos de forma regular, automatizado. Enquanto o pipeline apresentadas aqui não vai ser o melhor desempenho ou caso contrário otimizado, destina-se para ser usado como um ponto de partida para criar um pipeline de produção de sua própria.
+O [API do Recoletor de dados do Log Analytics](../../azure-monitor/platform/data-collector-api.md) permite que importe quaisquer dados personalizados para o Log Analytics. Os únicos requisitos são que os dados estejam formatados por JSON e dividir em 30 MB ou menos segmentos. Este é um mecanismo completamente flexível que pode ser conectado de várias maneiras: de dados que está a ser enviados diretamente a partir da sua aplicação, para ad hoc pontual carrega. Este artigo descreverá alguns pontos de partida para um cenário comum: a necessidade de carregar os dados armazenados em arquivos de forma regular, automatizado. Enquanto o pipeline apresentadas aqui não vai ser o melhor desempenho ou caso contrário otimizado, destina-se para ser usado como um ponto de partida para criar um pipeline de produção de sua própria.
 
 ## <a name="example-problem"></a>Problema de exemplo
 Para o restante deste artigo, examinaremos os dados de exibição de página no Application Insights. Em nosso cenário hipotético, o que queremos correlacionar informações geográficas recolhidas por predefinição pelo Application Insights SDK para dados personalizados que contém a população de todos os países do mundo, com o objetivo de identificar em que podemos deve dedicar mais marketing dólares. 
@@ -173,4 +173,4 @@ Este artigo apresentou um protótipo funcional, a lógica por trás do que pode 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre o [API do Recoletor de dados](../../log-analytics/log-analytics-data-collector-api.md) para escrever dados para o Log Analytics a partir de qualquer cliente de REST API.
+Saiba mais sobre o [API do Recoletor de dados](../../azure-monitor/platform/data-collector-api.md) para escrever dados para o Log Analytics a partir de qualquer cliente de REST API.

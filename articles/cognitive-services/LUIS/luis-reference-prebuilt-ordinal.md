@@ -1,21 +1,22 @@
 ---
-title: LUIS pré-criados entidades ordinal referência - Azure | Documentos da Microsoft
+title: Ordinal entidade pré-criados
 titleSuffix: Azure
 description: Este artigo contém informações de entidade pré-criados ordinal na compreensão de idiomas (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: e80b9dc63accec43532116b81e6eb0b9bd52ee22
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: 060314bd56d477bad3dcb3333ba02c5f4786b476
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335258"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082769"
 ---
 # <a name="ordinal-entity"></a>Entidade ordinal
 Número de ordinal é uma representação numérica de um objeto dentro de um conjunto: `first`, `second`, `third`. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém ordinal para os objetivos do aplicativo. Entidade ordinal é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
@@ -26,7 +27,7 @@ Ordinal é gerido a partir da [reconhecedores texto](https://github.com/Microsof
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Resolução de entidade ordinal pré-criados
 O exemplo seguinte mostra a resolução do **builtin.ordinal** entidade.
 
-```JSON
+```json
 {
   "query": "Order the second option",
   "topScoringIntent": {

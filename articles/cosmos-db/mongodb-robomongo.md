@@ -1,50 +1,48 @@
 ---
-title: Utilizar Robomongo para Azure Cosmos DB | Microsoft Docs
-description: 'Saiba como utilizar Robomongo com uma base de dados do Azure Cosmos: API para a conta do MongoDB'
+title: Utilizar Robomongo para o Azure Cosmos DB
+description: 'Saiba como utilizar o Robomongo com um Azure Cosmos DB: API para a conta do MongoDB'
 keywords: robomongo
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: sngun
-ms.openlocfilehash: b6d64d7d7b30d4175fb8c8bf6c98127465427d4e
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 78f0158c9a80a60717b81b4788531c7efd979111
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795036"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863810"
 ---
-# <a name="use-robomongo-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Utilizar Robomongo com uma base de dados do Azure Cosmos: API para a conta do MongoDB
-Para ligar a uma base de dados do Azure Cosmos: API para a conta de MongoDB com Robomongo, tem de:
+# <a name="use-robomongo-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Utilizar Robomongo com um Azure Cosmos DB: API para a conta do MongoDB
+Para ligar ao Azure Cosmos DB: API para utilizar o Robomongo de conta de MongoDB, tem:
 
-* Transfira e instale [Robomongo](https://robomongo.org/)
-* Tem a sua base de dados do Azure Cosmos: API para a conta do MongoDB [cadeia de ligação](connect-mongodb-account.md) informações
+* Transferir e instalar [Robomongo](https://robomongo.org/)
+* Ter o Azure Cosmos DB: API para a conta do MongoDB [cadeia de ligação](connect-mongodb-account.md) informações
 
-## <a name="connect-using-robomongo"></a>Ligar utilizando Robomongo
-Para adicionar a base de dados do Azure Cosmos: API para a conta do MongoDB para ligações de MongoDB Robomongo, execute os seguintes passos.
+## <a name="connect-using-robomongo"></a>Ligar com o Robomongo
+Para adicionar o Azure Cosmos DB: API para a conta do MongoDB para ligações de MongoDB Robomongo, execute os seguintes passos.
 
-1. Obter a sua base de dados do Azure Cosmos: API de informações de ligação de conta do MongoDB utilizando as instruções [aqui](connect-mongodb-account.md).
+1. Obter o Azure Cosmos DB: API para MongoDB informações de ligação de conta com as instruções [aqui](connect-mongodb-account.md).
 
     ![Captura de ecrã do painel de cadeia de ligação](./media/mongodb-robomongo/connectionstringblade.png)
 2. Executar *Robomongo.exe*
 
-3. Clique no botão de ligação em **ficheiro** para gerir as suas ligações. Em seguida, clique em **criar** no **MongoDB ligações** janela, que será apresentado o **as definições de ligação** janela.
+3. Clique no botão de ligação sob **ficheiro** para gerir as suas ligações. Em seguida, clique em **criar** no **ligações MongoDB** janela, que abrirá a **definições de ligação** janela.
 
-4. No **as definições de ligação** janela, escolha um nome. Em seguida, localize o **anfitrião** e **porta** das suas informações de ligação no passo 1 e insira-os em **endereço** e **porta**, respetivamente.
+4. Na **definições de ligação** janela, escolha um nome. Em seguida, procure o **Host** e **porta** do suas informações de ligação no passo 1 e introduza-os em **endereço** e **porta**, respectivamente.
 
-    ![Captura de ecrã das Robomongo gerir ligações](./media/mongodb-robomongo/manageconnections.png)
-5. No **autenticação** separador, clique em **executar autenticação**. Em seguida, introduza a sua base de dados (predefinição é *Admin*), **nome de utilizador** e **palavra-passe**.
-Ambos **nome de utilizador** e **palavra-passe** pode ser encontrado na suas informações de ligação no passo 1.
+    ![Captura de ecrã da Robomongo gerir ligações](./media/mongodb-robomongo/manageconnections.png)
+5. Sobre o **autenticação** separador, clique em **executar autenticação**. Em seguida, introduza a sua base de dados (a predefinição é *administrador*), **nome de utilizador** e **palavra-passe**.
+Ambos **nome de utilizador** e **palavra-passe** podem ser encontrados nas informações de ligação no passo 1.
 
     ![Captura de ecrã do separador autenticação Robomongo](./media/mongodb-robomongo/authentication.png)
-6. No **SSL** separador, verificação **protocolo SSL de utilização**, em seguida, altere o **método de autenticação** para **certificado autoassinado**.
+6. Na **SSL** separador, verificação **utilizar o protocolo SSL**, em seguida, altere o **método de autenticação** para **certificado autoassinado**.
 
-    ![Captura de ecrã do separador Robomongo SSL](./media/mongodb-robomongo/SSL.png)
-7. Por fim, clique em **teste** para verificar que é possível estabelecer ligação, em seguida, **guardar**.
+    ![Captura de ecrã do separador de SSL Robomongo](./media/mongodb-robomongo/SSL.png)
+7. Por fim, clique em **teste** para verificar a capacidade de ligar, em seguida, **guardar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Explorar o Azure Cosmos DB: API para o MongoDB [amostras](mongodb-samples.md).
+* Explore o Azure Cosmos DB: API para MongoDB [amostras](mongodb-samples.md).

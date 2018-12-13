@@ -12,16 +12,16 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: 60d19f6d598c6090e0dc00c61817a0f8aed35003
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230041"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889502"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolução de problemas de desempenho de base de dados do Azure SQL com informações inteligentes
 
-Esta página fornece informações sobre a base de dados do Azure SQL e detetados problemas de desempenho de instância gerida através da [informações inteligentes](sql-database-intelligent-insights.md) registo de diagnóstico de desempenho da base de dados. A telemetria de registo de diagnóstico possam ser transmitida para [do Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Event Hubs do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou uma solução de terceiros para alertas personalizados de DevOps e capacidades de relatórios.
+Esta página fornece informações sobre a base de dados do Azure SQL e detetados problemas de desempenho de instância gerida através da [informações inteligentes](sql-database-intelligent-insights.md) registo de diagnóstico de desempenho da base de dados. A telemetria de registo de diagnóstico possam ser transmitida para [do Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Event Hubs do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou uma solução de terceiros para alertas personalizados de DevOps e capacidades de relatórios.
 
 > [!NOTE]
 > Para obter um rápido desempenho de base de dados SQL com informações inteligentes de guia de resolução de problemas, consulte a [recomendado a resolução de problemas de fluxo](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) fluxograma neste documento.

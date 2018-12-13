@@ -1,6 +1,6 @@
 ---
-title: Como atribuir funções de diretório para os utilizadores com o Azure Active Directory | Documentos da Microsoft
-description: Saiba como atribuir funções de diretório para os utilizadores com o Azure Active Directory.
+title: Atribuir funções de diretório para os utilizadores - Azure Active Directory | Documentos da Microsoft
+description: Instruções sobre como atribuir funções de administrador e não-administrador aos utilizadores no Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,15 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: b73df5ec0381e83c54c8cd9f8c0335448def0c6d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: e8646893d6dd57fd3f743f450f438cd962f02b36
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733047"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095125"
 ---
-# <a name="how-to-assign-roles-and-administrators-to-users-with-azure-active-directory"></a>Como: atribuir funções e os administradores a utilizadores com o Azure Active Directory
+# <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Atribuir funções de administrador e não-administrador aos utilizadores no Azure Active Directory
 Se um utilizador na sua organização necessita da permissão para gerir os recursos do Azure Active Directory (Azure AD), tem de atribuir ao utilizador uma função adequada no Azure AD, com base nas ações que o utilizador tem permissão para executar.
 
 Para obter mais informações sobre as funções disponíveis, consulte [atribuir funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Para obter mais informações sobre como adicionar utilizadores, consulte [adicionar novos utilizadores ao Azure Active Directory](add-users-azure-active-directory.md).
@@ -29,7 +30,7 @@ Uma maneira comum de atribuir funções do Azure AD a um utilizador é sobre o *
 Também pode atribuir funções usando o Privileged Identity Management (PIM). Para obter mais informações sobre como utilizar o PIM, consulte [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 ### <a name="to-assign-a-role-to-a-user"></a>Para atribuir uma função a um utilizador
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
 2. Selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, procure e selecione o utilizador a obter a atribuição de função. Por exemplo, _Alain Charon_.
 

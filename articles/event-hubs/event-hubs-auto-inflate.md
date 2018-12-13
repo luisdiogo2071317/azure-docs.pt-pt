@@ -1,5 +1,5 @@
 ---
-title: Dimensionar automaticamente unidades de débito dos Hubs de eventos do Azure | Documentos da Microsoft
+title: Dimensionar automaticamente unidades de débito - Event Hubs do Azure | Documentos da Microsoft
 description: Ative ampliação automática num espaço de nomes para a dimensionar automaticamente unidades de débito.
 services: event-hubs
 documentationcenter: na
@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 1bbbbbada07dc898a4c1424a315d472cf910926f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: cf0c7a5339d2880bbed01fc95b54038d15f1c2ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010829"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083539"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Dimensionar automaticamente unidades de débito dos Hubs de eventos do Azure
-
 Os Hubs de eventos do Azure é uma plataforma de transmissão em fluxo de dados altamente dimensionável. Como tal, a utilização de Hubs de eventos aumenta, muitas vezes, depois de começar a utilizar o serviço. Essa utilização requer aumentar o predeterminado [unidades de débito](event-hubs-features.md#throughput-units) para dimensionar os Hubs de eventos e processar maiores taxas de transferência. O **ampliação automática** funcionalidade dos Hubs de eventos de dimensionamento automaticamente do aumento do número de unidades de débito, para utilização de satisfazer as necessidades. Aumentar as unidades de débito impede cenários, no qual de limitação:
 
 * As taxas de entrada de dados excederem as unidades de débito do conjunto.

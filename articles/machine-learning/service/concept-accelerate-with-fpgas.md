@@ -1,5 +1,6 @@
 ---
-title: O que é um FPGA e Project Brainwave? -As do azure Machine Learning de serviço
+title: O que é um FPGA e Project Brainwave?
+titleSuffix: Azure Machine Learning service
 description: Saiba como acelerar as redes neurais profundas com FPGAs e modelos no Azure. Este artigo fornece uma introdução sobre matrizes de porta de campos programáveis (FPGA) e como o serviço do Azure Machine Learning fornece em tempo real de inteligência artificial (IA) ao implementar o seu modelo para um FPGA do Azure.
 services: machine-learning
 ms.service: machine-learning
@@ -8,13 +9,14 @@ ms.topic: conceptual
 ms.author: tedway
 author: tedway
 ms.reviewer: jmartens
-ms.date: 9/24/2018
-ms.openlocfilehash: 411beacd65915c30338ab415b095acc1a0c8cbe6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
-ms.translationtype: MT
+ms.date: 10/24/2018
+ms.custom: seodec18
+ms.openlocfilehash: b55d641f9a72fc2f757a7687b1b6214a98c92507
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238860"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094003"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>O que é FPGA e Project Brainwave?
 
@@ -37,7 +39,7 @@ FPGAs contêm uma matriz de blocos de lógica programável e uma hierarquia de r
 
 [Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) é arquitetura de hardware económicas da Microsoft, com base em dispositivos FPGA da Intel, que os programadores e cientistas de dados usam para acelerar os cálculos de IA em tempo real.  Esta arquitetura habilitados em FPGA oferece **desempenho**, **flexibilidade**, e **dimensionamento** e está disponível no Azure.
 
-**FPGAs tornam possível obter a baixa latência para pedidos de inferência em tempo real.** Processamento em lote, significa uma grande quantidade de dados a recolher e alimentá-los para um processador para melhorar a utilização de hardware. Processamento em lote pode causar uma latência porque precisam de mais dados a ser processada, mas pode melhorar o débito. Project Brainwave implementações de unidades de processamento neural não exigem a criação de batches; sendo assim a latência pode ser muitas vezes mais baixo em comparação comparadas a CPU e GPU.
+**FPGAs tornam possível obter a baixa latência para pedidos de inferência em tempo real.** Solicitações assíncronas (batch) não são necessários. Processamento em lote pode causar uma latência porque precisam de mais dados a ser processada, mas ele pode melhorar o débito em alguns contextos. Project Brainwave implementações de unidades de processamento neural não exigem a criação de batches; sendo assim a latência pode ser muitas vezes mais baixo em comparação comparadas a CPU e GPU.
 
 ### <a name="reconfigurable-power"></a>Power reconfiguráveis
 **FPGAs podem ser reconfigurados para diferentes tipos de modelos de aprendizagem automática.** Esta flexibilidade torna mais fácil acelerar as aplicações com a mais precisão numérica ideal e o modelo de memória que está a ser utilizado.
@@ -68,7 +70,7 @@ Os seguintes cenários utilizam FPGA na arquitetura do Project Brainwave:
 
 Eis o fluxo de trabalho para criar um serviço de reconhecimento de imagem no Azure utilizando DNNs suportados como um featurizer para implementação no Azure FPGAs:
 
-1. Utilizar o Azure Machine Learning SDK para Python para criar uma definição de serviço, o que é um arquivo que descreve um pipeline de gráficos (entrada, featurizer e classificador) com base em TensorFlow. O comando de implementação automaticamente comprimir a definição e gráficos para um ficheiro ZIP e carregue o ZIP para o armazenamento de Blobs do Azure.  O DNN já estiver implementado no Project Brainwave para ser executado no FPGA.
+1. Utilize o [do Azure Machine Learning SDK para Python](https://aka.ms/aml-sdk) para criar uma definição de serviço, que é um ficheiro que descreve um pipeline de gráficos (entrada, featurizer e classificador) com base em TensorFlow. O comando de implementação automaticamente comprimir a definição e gráficos para um ficheiro ZIP e carregue o ZIP para o armazenamento de Blobs do Azure.  O DNN já estiver implementado no Project Brainwave para ser executado no FPGA.
 
 1. Registe o modelo com o SDK com o arquivo ZIP no armazenamento de Blobs do Azure.
 

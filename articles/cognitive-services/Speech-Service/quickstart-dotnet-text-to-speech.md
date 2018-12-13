@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Converter voz, .NET Core - serviço de voz'
+title: 'Início rápido: Converter voz, .NET Core - Serviços de voz'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender como converter voz com a API de REST de voz. O texto de exemplo incluído neste guia está estruturado como Speech Synthesis Markup Language (SSML). Isto permite-lhe escolher a voz e o idioma da resposta de voz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: erhopf
-ms.openlocfilehash: 4f424e73fbe1f05155e7f051d90dd72d57405adf
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641587"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089875"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Início rápido: Converta texto para voz com o .NET Core
 
@@ -193,7 +193,6 @@ using (var client = new HttpClient())
         // Update your resource name
         request.Headers.Add("User-Agent", "YOUR_RESOURCE_NAME");
         request.Headers.Add("X-Microsoft-OutputFormat", "riff-24khz-16bit-mono-pcm");
-        request.Headers.Add("Connection", "Keep-Alive");
         // Create a request
         Console.WriteLine("Calling the TTS service. Please wait... \n");
         using (var response = await client.SendAsync(request).ConfigureAwait(false))
@@ -237,4 +236,5 @@ Se codificou a chave de subscrição no seu programa, certifique-se de que remov
 
 ## <a name="see-also"></a>Consulte também
 
-* [Tutorial: Reconhecer intenções de voz](how-to-recognize-intents-from-speech-csharp.md)
+* [Criar tipos de voz personalizada](how-to-customize-voice-font.md)
+* [Exemplos de voz de registo para criar uma voz personalizada](record-custom-voice-samples.md)

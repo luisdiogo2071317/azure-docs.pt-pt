@@ -15,12 +15,12 @@ ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 986ee4f6081b71c0222118806427a9c6479f9028
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: 0d6855982bb395813433974f72222a809c04e7dc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975823"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088245"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e partilhar dashboards dos dados do Log Analytics
 
@@ -32,7 +32,7 @@ Os dashboards do Log Analytics podem visualizar todas as suas pesquisas de regis
 > * Adicionar uma pesquisa de registo a um dashboard partilhado 
 > * Personalizar um mosaico num dashboard partilhado
 
-Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente [ligada à área de trabalho do Log Analytics](../../log-analytics/log-analytics-quick-collect-azurevm.md).  
+Para concluir o exemplo neste tutorial, tem de ter uma máquina virtual existente [ligada à área de trabalho do Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md).  
  
 ## <a name="log-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
 Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 

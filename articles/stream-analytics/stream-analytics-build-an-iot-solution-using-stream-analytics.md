@@ -2,19 +2,19 @@
 title: Criar uma solução de IoT com o Azure Stream Analytics
 description: Tutorial de introdução para a solução de IoT do Stream Analytics de um cenário de tollbooth
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: jasonh, sngun
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/21/2018
-ms.openlocfilehash: e70a1210d44e5bfec914006afaf18eff772cac47
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: MT
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 230318dc8e352a3adc970b13f20fa992954e3b15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978796"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091099"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Criar uma solução de IoT com o Stream Analytics
 
@@ -36,7 +36,7 @@ Depois de concluir esta solução, é possível:
 ## <a name="scenario-introduction-hello-toll"></a>Introdução de cenário: "Olá, incidir!"
 Uma estação de ligação é um fenômeno comuns. Se deparar com elas em muitas expressways, pontes e túneis em todo o mundo. Cada estação de ligação tem vários estandes de ligação. Em estandes manuais, parar para pagar a ligação para um atendedor. Em estandes automatizadas, um sensor na parte superior de cada stand analisa um cartão RFID afixação windshield de sua veículo conforme passa o pedágio. É fácil de visualizar a passagem para dos veículos através destas estações de ligação como um fluxo de eventos através do qual podem ser executadas operações interessantes.
 
-![Imagem de carros em estandes de ligação](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
+! [Imagem de carros em estandes incidir] (media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth. jpg)
 
 ## <a name="incoming-data"></a>Dados recebidos
 Esta solução funciona com dois fluxos de dados. Instalado na entrada e saída das estações de número de sensores produzem o primeiro fluxo. O fluxo segundo é um conjunto de dados de pesquisa estática que tem dados de registo de veículos.
@@ -44,7 +44,7 @@ Esta solução funciona com dois fluxos de dados. Instalado na entrada e saída 
 ### <a name="entry-data-stream"></a>Fluxo de dados de entrada
 O fluxo de dados de entrada contém informações sobre carros à medida que entra o número de estações. Os eventos de dados de saída estão em direto transmitido numa fila do Hub de eventos de uma aplicação Web incluídos na aplicação de exemplo.
 
-| TollID | EntryTime | LicensePlate | Estado | Tornar | Modelo | VehicleType | VehicleWeight | Ligação | Etiqueta |
+| TollID | EntryTime | LicensePlate | Estado | Criar | Modelo | VehicleType | VehicleWeight | Ligação | Etiqueta |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -61,7 +61,7 @@ Eis uma breve descrição das colunas:
 | EntryTime |A data e hora de entrada do veículo para o pedágio em UTC |
 | LicensePlate |O número de pratos de licença do veículo |
 | Estado |Um Estado nos Estados Unidos |
-| Tornar |Fabricante do automóvel |
+| Criar |Fabricante do automóvel |
 | Modelo |O número de modelo do automóvel |
 | VehicleType |1 para os veículos de passageiros ou 2 para veículos comerciais |
 | WeightType |Peso do veículo em toneladas; 0 para veículos de passageiros |
@@ -310,7 +310,7 @@ Para aumentar verticalmente a tarefa de transmissão em fluxo mais unidades de t
 ## <a name="monitor-the-job"></a>Monitorizar a tarefa
 O **MONITOR** área contém estatísticas sobre a tarefa em execução. Configuração de iniciantes é necessária para utilizar a conta de armazenamento na mesma região (nome de ligação como o restante deste documento).   
 
-![Captura de ecrã do monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+![Monitorização da tarefa de Stream Analytics do Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 
 Pode acessar **registos de atividades** partir do dashboard da tarefa **definições** área também.
 

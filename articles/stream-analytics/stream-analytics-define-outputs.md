@@ -7,13 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 555a2bdfe3997114c1aaa202a89d650287f27c0e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310050"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091633"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Pode fazer com os dados de saída, ainda mais análises de negócio e o armazenamento de dados dos seus dados. 
@@ -34,13 +35,13 @@ Saída de Azure Data Lake Store do Stream Analytics não está atualmente dispon
 
 1. Quando o armazenamento do Data Lake está selecionado como uma saída no portal do Azure, lhe for pedido para autorizar uma ligação para um Lake Store existente do dados.  
 
-   ![Autorizar o Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+   ![Autorizar a ligação para o Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 2. Se já tiver acesso ao Data Lake Store, selecione **autorizar agora** e uma página será exibida indicando **redirecionar para autorização**. Após a autorização obtiver êxito, é apresentada a página que lhe permite configurar a saída do Data Lake Store.
 
 3. Assim que tiver a conta do Data Lake Store autenticada, pode configurar as propriedades para a saída do Data Lake Store. A tabela a seguir é a lista de nomes de propriedade e a respetiva descrição para configurar a saída do Data Lake Store.
 
-   ![Autorizar o Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
+   ![Definir o Data Lake Store como saída de Stream Analytics](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 | Nome da propriedade | Descrição | 
 | --- | --- |
@@ -59,7 +60,7 @@ Tem de autenticar a sua conta do Data Lake Store, se a palavra-passe tiver sido 
 
 Para renovar a autorização, **parar** seu trabalho > vá para a saída do Data Lake Store > Clique a **renovar a autorização** associar e, por um breve período a página será exibida indicando **redirecionar para autorização...** . A página fecha automaticamente e se tiver êxito, indica **autorização foi renovada com êxito**. Precisa, em seguida, clique em **salvar** na parte inferior da página e pode continuar, mediante a reiniciar a tarefa da **data/hora da última parado** para evitar a perda de dados.
 
-![Autorizar o Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
+![Renovar a autorização do Data Lake Store na saída](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
 ## <a name="sql-database"></a>SQL Database
 [Base de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) pode ser utilizado como uma saída de dados que é de natureza relacionais ou de aplicativos que dependem de conteúdo a ser alojado numa base de dados relacional. Tarefas do Stream Analytics gravar numa tabela existente numa base de dados SQL do Azure.  O esquema da tabela deve corresponder exatamente os campos e seus tipos que está a ser o resultado da sua tarefa. Uma [do Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) também podem ser especificadas como uma saída via também a opção de saída de base de dados SQL. Para saber mais sobre formas de melhorar o débito de escrita, consulte a [Stream Analytics com o Azure SQL DB como saída](stream-analytics-sql-output-perf.md) artigo. A tabela abaixo lista os nomes de propriedade e a respetiva descrição para a criação de uma base de dados SQL de saída.
@@ -133,11 +134,11 @@ Saída do Power BI do Stream Analytics não está atualmente disponível nas reg
 ### <a name="authorize-a-power-bi-account"></a>Autorizar uma conta do Power BI
 1. Quando o Power BI está selecionada como uma saída no portal do Azure, são-lhe pedido para autorizar um utilizador do Power BI existente ou criar uma nova conta do Power BI.  
    
-   ![Autorizar o utilizador do Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
+   ![Autorizar o utilizador do Power BI para configurar a saída](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 
 2. Crie uma nova conta se não, mas tiver um, em seguida, clique em autorizar agora.  É apresentada a página seguinte:
    
-   ![Conta do Azure Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
+   ![Autenticação no Power BI da conta do Azure](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 
 3. Neste passo, forneça a conta escolar ou profissional para autorizar a saída do Power BI. Se não já têm sessão iniciada Power BI, selecione inscrever-se agora. A conta escolar ou profissional que utiliza para o Power BI pode ser diferente da conta de subscrição do Azure, que tem sessão iniciada em com.
 
@@ -190,11 +191,11 @@ Datetime | Cadeia | Cadeia |  Datetime | Cadeia
 ### <a name="renew-power-bi-authorization"></a>Renovar a autorização do Power BI
 Se a palavra-passe de conta do Power BI for alterado depois da tarefa de Stream Analytics foi criada ou pela última vez autenticada, terá de autenticar o Stream Analytics. Se a multi-factor Authentication (MFA) é configurada no seu inquilino do Azure Active Directory (AAD), terá também de renovar a autorização do Power BI duas em duas semanas. Um sintoma de que este problema é sem saída de tarefa e um "erro do utilizador de autenticar" nos registos de operação:
 
-  ![Erro de token de atualização do Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
+  ![Erro de utilizador de autenticação do Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
 Para resolver este problema, pare o seu trabalho em execução e vá para a saída do Power BI.  Selecione o **renovar a autorização** ligação e reinicie a tarefa da **data/hora da última parado** para evitar a perda de dados.
 
-  ![Autorização renova o Power BI](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
+  ![Renovar a autorização do Power BI para saída](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>Armazenamento de Tabelas
 [Armazenamento de tabelas do Azure](../storage/common/storage-introduction.md) oferece armazenamento de elevada disponibilidade e escalável em massa, para que um aplicativo pode dimensionar automaticamente para satisfazer o pedido de utilizador. O Table storage é o arquivo chaves/atributos NoSQL da Microsoft, qual deles pode tirar partido para dados estruturados com menos restrições no esquema. Armazenamento de tabelas do Azure pode ser utilizado para armazenar dados de persistência e obtenção de eficiente.

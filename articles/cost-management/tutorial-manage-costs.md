@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 1642a9398ed9d2f0e74c03cd77990339b0a0ac03
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 02ff1822bab0abb4850541135a6ea51ea0e7119f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997692"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083568"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Gerir os custos através da Cloudyn
 
@@ -53,13 +53,11 @@ Quando inicia a alocação de custos, a primeira coisa a fizer é definir o âmb
 
 Para criar um modelo de alocação de custos personalizado, selecione **Custos** &gt; **Cost Management** &gt; **Cost Allocation 360°** no menu relatório.
 
-![Seleção do Cost Allocation 360](./media/tutorial-manage-costs/cost-allocation-360.png)
+![Exemplo que mostra um dashboard, onde poderá selecionar Cost Allocation 360](./media/tutorial-manage-costs/cost-allocation-360.png)
 
 Na página **Cost Allocation 360**, selecione **Adicionar** e, em seguida, introduza um nome e uma descrição para o modelo de custos. Selecione todas as contas ou contas individuais. Se quiser utilizar contas individuais, pode selecionar múltiplas contas de vários fornecedores de serviços cloud. Em seguida, clique em **Categorização** para escolher as etiquetas detetadas que categorizam os dados de custo. Escolha as etiquetas (categorias) que quer incluir no modelo. No exemplo seguinte, a etiqueta **Unidade** está selecionada.
 
-![Categorização do modelo de custos de exemplo](./media/tutorial-manage-costs/cost-model01.png)
-
-
+![Categorização de modelos de exemplo que mostra custos](./media/tutorial-manage-costs/cost-model01.png)
 
 O exemplo mostra que o valor 19 680 $ não está categorizado (sem etiquetas).
 
@@ -97,7 +95,7 @@ Para definir uma nova regra, na área **Regras**, crie uma nova regra. Por exemp
 
 A imagem seguinte mostra um exemplo de regras criadas para uma nova categoria designada **Carga de Trabalho**:
 
-![Categoria de exemplo](./media/tutorial-manage-costs/category01.png)
+![Exemplo que mostra a nova categoria de carga de trabalho](./media/tutorial-manage-costs/category01.png)
 
 ### <a name="tag-sources-and-reports"></a>Relatórios e origens de etiquetas
 
@@ -124,7 +122,7 @@ O método que as organizações utilizam para efetuar uma análise de custos e e
 
 Para ver os resultados da alocação de custos, abra o relatório Análise de Custos e selecione o modelo de custos que criou. Em seguida, adicione um agrupamento de uma ou mais das etiquetas selecionadas no modelo de custos.
 
-![Relatório Análise de Custos](./media/tutorial-manage-costs/cost-analysis.png)
+![Relatório de análise de custo que mostra um exemplo de dados do custo de novo](./media/tutorial-manage-costs/cost-analysis.png)
 
 Pode facilmente criar e guardar relatórios que se concentrem em serviços específicos consumidos por grupos específicos. Por exemplo, pode ter um departamento que utiliza extensivamente VMs do Azure. Pode criar um relatório que seja filtrado nas VMs do Azure para mostrar o consumo e os custos.
 

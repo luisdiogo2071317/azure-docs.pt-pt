@@ -1,6 +1,6 @@
 ---
-title: Descrição geral das funcionalidades dos Hubs de eventos do Azure | Documentos da Microsoft
-description: Descrição geral e detalhes sobre as funcionalidades dos Hubs de eventos do Azure
+title: Descrição geral das funcionalidades - Event Hubs do Azure | Documentos da Microsoft
+description: Este artigo fornece detalhes sobre os recursos e terminologia dos Hubs de eventos do Azure.
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e27ac67db6a12b4ebfe04e9e1f89203e5e539318
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012730"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075171"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funcionalidades e a terminologia nos Hubs de eventos do Azure
 

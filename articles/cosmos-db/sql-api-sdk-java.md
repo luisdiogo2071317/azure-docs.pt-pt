@@ -1,10 +1,8 @@
 ---
-title: 'Azure Cosmos DB: SQL Java API, SDK e recursos | Documentos da Microsoft'
+title: 'Do Azure Cosmos DB: SQL Java API, SDK e recursos'
 description: Saiba tudo sobre o SQL Java API e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK de Java do Azure Cosmos DB SQL.
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
@@ -12,12 +10,12 @@ ms.topic: reference
 ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a1be3b948ca5571972179e08ba8b85657b0bb8d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: MT
+ms.openlocfilehash: 6c8d7221e367abbbcb1a7968003c1cd25106b866
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725170"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871228"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]

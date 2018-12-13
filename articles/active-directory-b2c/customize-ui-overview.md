@@ -36,7 +36,7 @@ Antes de começar, reveja as seguintes orientações:
 - O Azure AD B2C mescla o conteúdo HTML em suas páginas. Não copie e tentar alterar o conteúdo predefinido que fornece o Azure AD B2C. É melhor criar o seu conteúdo HTML do zero e utilize o conteúdo predefinido como referência.
 - Por motivos de segurança, não são permitidos para incluir o JavaScript nos seus conteúdos.
 - Versões de browser suportado são: 
-    - Internet Explorer 11, 10 e o Edge
+    - Internet Explorer 11, 10 e o Microsoft Edge
     - Suporte limitado para o Internet Explorer 9 e 8
     - Google Chrome 42.0 e acima
     - Mozilla Firefox 38.0 e acima

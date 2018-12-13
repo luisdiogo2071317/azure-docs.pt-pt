@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 918ffaf42e7216313a385c866f73bd57a529784a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e663a7b8f68c43ebf4c562dd67630db5d113e979
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838893"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090759"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utilize o Azure Cosmos DB alterar feed para visualizar a análise de dados em tempo real
 
@@ -94,13 +94,12 @@ Crie recursos do Azure - Azure Cosmos DB, conta de armazenamento, Hub de eventos
 
 Agora, vai criar uma coleção para manter os eventos de site de comércio eletrônico. Quando um utilizador vê um item, adiciona um item ao seu carrinho ou compra de um item, a coleção irá receber um registo que inclui a ação ("exibidas", "adicionadas" ou "comprados"), o nome do item de envolvidos, o preço do item envolvidos e o número de ID de ao carrinho de utilizador i nvolved.
 
-1. Aceda a [Portal do Azure](http://portal.azure.com/) e localize a **conta do Azure Cosmos DB** que são criadas pela implementação do modelo.  
+1. Aceda a [Portal do Azure](https://portal.azure.com/) e localize a **conta do Azure Cosmos DB** que são criadas pela implementação do modelo.  
 
 2. Partir do **Data Explorer** painel, selecione **nova coleção** e preencha o formulário com os seguintes detalhes:  
 
    * Para o **id de base de dados** campo, selecione **criar nova**, em seguida, introduza **changefeedlabdatabase**. Deixe o **débito de base de dados de aprovisionamento** caixa desmarcada.  
    * Para o **recolha** id, insira **changefeedlabcollection**.  
-   * Para **capacidade de armazenamento**, selecione **ilimitado**.  
    * Para o **chave de partição** , insira **/Item**. O que diferencia maiúsculas de minúsculas, pelo que certifique-se de que inseri-lo corretamente.  
    * Para o **débito** , insira **10000**.  
    * Selecione o botão **OK**.  
@@ -119,7 +118,7 @@ Agora, vai criar uma coleção para manter os eventos de site de comércio eletr
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Obter a cadeia de ligação do Azure Cosmos DB
 
-1. Aceda a [Portal do Azure](http://portal.azure.com/) e localize a **conta do Azure Cosmos DB** que são criadas pela implementação do modelo.  
+1. Aceda a [Portal do Azure](https://portal.azure.com/) e localize a **conta do Azure Cosmos DB** que são criadas pela implementação do modelo.  
 
 2. Navegue para o **chaves** painel, copie a cadeia de ligação primária e copie-o para um bloco de notas ou outro documento que terá acesso em todo o laboratório. Deve etiquetá-lo **cadeia de ligação do Cosmos DB**. Terá de copiar a cadeia de caracteres em seu código mais tarde, por isso, tome nota e lembre-se de onde são armazená-los.
 
@@ -179,7 +178,7 @@ Para ver como feed de alterações processa novas ações num site de comércio 
  
 6. Aguarde que o programa seja executado. As estrelas significam que dados vem! Manter o programa em execução – é importante que muitos dados são recolhidos.  
 
-7. Se navegar até [Portal do Azure](http://portal.azure.com/) , em seguida, para o Cosmos DB de contas no seu grupo de recursos, em seguida, para **Data Explorer**, verá os dados aleatório importados para sua  **changefeedlabcollection** .
+7. Se navegar até [Portal do Azure](https://portal.azure.com/) , em seguida, para o Cosmos DB de contas no seu grupo de recursos, em seguida, para **Data Explorer**, verá os dados aleatório importados para sua  **changefeedlabcollection** .
  
    ![Dados gerados no portal](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -187,7 +186,7 @@ Para ver como feed de alterações processa novas ações num site de comércio 
 
 O Azure Stream Analytics é um serviço totalmente gerido na cloud para processamento em tempo real de dados de transmissão em fluxo. Neste laboratório, irá utilizar o stream analytics para processar novos eventos do Hub de eventos (ou seja, quando um item é visualizado, adicionado a um carrinho ou adquirido), incorporar esses eventos em análise de dados em tempo real e enviá-los para o Power BI para visualização.
 
-1. Do [Portal do Azure](http://portal.azure.com/), navegue para o grupo de recursos, em seguida, para **streamjob1** (a tarefa do stream analytics que criou no prelab).  
+1. Do [Portal do Azure](https://portal.azure.com/), navegue para o grupo de recursos, em seguida, para **streamjob1** (a tarefa do stream analytics que criou no prelab).  
 
 2. Selecione **entradas** como demonstrado a seguir.  
 
@@ -322,11 +321,11 @@ O Power BI é um conjunto de ferramentas de análise de negócio para analisar d
 
 Agora irá observar como pode utilizar a nova ferramenta de análise de dados para estabelecer ligação com um site de comércio eletrônico real. Para criar o site de comércio eletrónico, utilize uma base de dados do Azure Cosmos DB para armazenar a lista de categorias de produtos (feminino, masculino, Unisex), o catálogo de produtos e uma lista dos itens mais populares.
 
-1. Navegue de volta para o [Portal do Azure](http://portal.azure.com/), em seguida, para sua **conta do Cosmos DB**, em seguida, para **Data Explorer**.  
+1. Navegue de volta para o [Portal do Azure](https://portal.azure.com/), em seguida, para sua **conta do Cosmos DB**, em seguida, para **Data Explorer**.  
 
    Adicionar duas coleções sob **changefeedlabdatabase** - **produtos** e **categorias** com capacidade de armazenamento fixa.
 
-   Adicionar outra coleção sob **changefeedlabdatabase** com o nome **topItems** com **ilimitado** capacidade de armazenamento. Escrever **/Item** como a chave de partição.
+   Adicionar outra coleção sob **changefeedlabdatabase** com o nome **topItems** e **/Item** como a chave de partição.
 
 2. Selecione o **topItems** coleção e, em **dimensionamento e as definições** definir o **TTL** ser **30 segundos** , de modo que topItems atualiza cada 30 segundos.
 
@@ -392,7 +391,7 @@ Agora irá observar como pode utilizar a nova ferramenta de análise de dados pa
 
 ## <a name="delete-the-resources"></a>Eliminar os recursos
 
-Para eliminar os recursos que criou durante este laboratório, navegar para o grupo de recursos na [Portal do Azure](http://portal.azure.com/), em seguida, selecione **eliminar grupo de recursos** no menu na parte superior da página e siga as instruções fornecido.
+Para eliminar os recursos que criou durante este laboratório, navegar para o grupo de recursos na [Portal do Azure](https://portal.azure.com/), em seguida, selecione **eliminar grupo de recursos** no menu na parte superior da página e siga as instruções fornecido.
 
 ## <a name="next-steps"></a>Passos Seguintes 
   

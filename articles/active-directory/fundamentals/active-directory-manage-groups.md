@@ -1,5 +1,5 @@
 ---
-title: Saiba mais sobre a gestão de acesso para aplicações e recursos com grupos do Active Directory do Azure | Documentos da Microsoft
+title: Gerir o acesso de aplicação e de recursos com grupos - Azure Active Directory | Documentos da Microsoft
 description: Saiba mais sobre como gerir o acesso a aplicações baseadas na cloud, aplicações no local e recursos com grupos do Active Directory do Azure da sua organização.
 services: active-directory
 author: eross-msft
@@ -11,14 +11,15 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.openlocfilehash: 69be2cb8b57b34502d5a5688ac163d7451abe48e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 5a706a2a879ae3b4c4adb2690faa77846474ce49
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223977"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087291"
 ---
-# <a name="learn-about-access-management-using-azure-active-directory-groups"></a>Saiba mais sobre a gestão de acesso através de grupos do Azure Active Directory
+# <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gerir o acesso de aplicação e de recursos com grupos do Active Directory do Azure
 Azure Active Directory (Azure AD) ajuda-o a gerir as suas aplicações com base na cloud, aplicações no local e seus recursos através de grupos da sua organização. Os recursos podem fazer parte do diretório, tais como permissões para gerir objetos através de funções no diretório ou externo no diretório, como para aplicações de Software como um serviço (SaaS), serviços do Azure, sites do SharePoint e recursos no local.
 
 >[!NOTE]

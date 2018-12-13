@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 83fbebc07be3a61d7fd54953f842a320a537a7ac
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985017"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091048"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Tirar partido de paralelização de consultas no Azure Stream Analytics
 Este artigo mostra-lhe como tirar partido da paralelização no Azure Stream Analytics. Saiba como dimensionar tarefas do Stream Analytics ao configurar partições de entrada e a definição de consulta de análise de otimização.
@@ -51,7 +51,7 @@ Saídas de Power BI, SQL e SQL Data Warehouse não suportam a criação de parti
 Para obter mais informações sobre as partições, consulte os artigos seguintes:
 
 * [Descrição geral das funcionalidades dos Hubs de Eventos](../event-hubs/event-hubs-features.md#partitions)
-* [A partição de dados](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning#partitioning-azure-blob-storage)
+* [A partição de dados](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Tarefas constrangedoramente paralelas
@@ -80,9 +80,11 @@ As secções seguintes abordam alguns cenários de exemplo constrangedoramente p
 
 Consulta:
 
+```SQL
     SELECT TollBoothId
     FROM Input1 Partition By PartitionId
     WHERE TollBoothId > 100
+```
 
 Esta consulta é um filtro simple. Por conseguinte, não precisamos de se preocupar sobre a criação de partições de entrada que está a ser enviada para o hub de eventos. Tenha em atenção que a consulta inclui **PARTITION BY PartitionId**, por isso, ele cumpre o requisito #2 anteriores. Para a saída, precisamos de configurar a saída do hub de eventos da tarefa para que o conjunto de chaves de partição para **PartitionId**. Última verificação de um é certificar-se de que o número de partições de entrada é igual ao número de partições de saída.
 
@@ -93,9 +95,11 @@ Esta consulta é um filtro simple. Por conseguinte, não precisamos de se preocu
 
 Consulta:
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Esta consulta tem uma chave de agrupamento. Por conseguinte, os eventos agrupados em conjunto têm de ser enviados para a mesma partição do Hub de eventos. Uma vez que neste exemplo, agrupar por TollBoothID, podemos deve ter certeza de que TollBoothID é utilizado como a chave de partição quando os eventos são enviados para o Hub de eventos. Em seguida, no ASA, podemos usar **PARTITION BY PartitionId** herdam este esquema de partição e ativar a paralelização completa. Uma vez que a saída é o armazenamento de BLOBs, não precisamos de se preocupar sobre como configurar um valor de chave de partição, de acordo com o requisito #4.
 
@@ -121,6 +125,7 @@ Saída do Power BI atualmente não suporta a criação de partições. Por conse
 
 Consulta:
 
+```SQL
     WITH Step1 AS (
     SELECT COUNT(*) AS Count, TollBoothId, PartitionId
     FROM Input1 Partition By PartitionId
@@ -130,6 +135,7 @@ Consulta:
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1 Partition By TollBoothId
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 Como pode ver, a segunda etapa usa **TollBoothId** como a chave de particionamento. Este passo não é o mesmo que o primeiro passo e, portanto, requer-nos fazer um shuffle. 
 
@@ -143,6 +149,7 @@ Uma consulta pode ter um ou vários passos. Cada passo ser uma subconsulta defin
 
 Consulta:
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -151,6 +158,7 @@ Consulta:
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute,3), TollBoothId
+```
 
 Esta consulta tem duas etapas.
 
@@ -182,20 +190,25 @@ Pode ver algumas **exemplos** na tabela abaixo.
 
 A seguinte consulta calcula o número de carros durante um período de três minutos através de uma estação de ligação que tem três tollbooths. Esta consulta pode ser dimensionada até seis SUs.
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Para utilizar mais de SUs para a consulta, o fluxo de dados de entrada e a consulta devem ser particionados. Uma vez que a partição de fluxo de dados está definida como 3, a seguinte consulta modificada pode ser dimensionada até 18 SUs:
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Quando uma consulta estiver particionada, os eventos de entrada são processados e agregados em grupos de partições separado. Eventos de saída também são gerados para cada um dos grupos. Criação de partições pode fazer com que alguns resultados inesperados quando os **GROUP BY** campo não é a chave de partição no fluxo de dados de entrada. Por exemplo, o **TollBoothId** campo na consulta anterior não é a chave de partição de **Input1**. O resultado é que os dados a partir de TollBooth 1 possam ser distribuídos em várias partições.
 
 Cada um a **Input1** partições serão processadas em separado pelo Stream Analytics. Como resultado, serão criados vários registos da contagem de carro para o mesmo tollbooth na mesma janela em cascata. Se a chave de partição de entrada não pode ser alterada, esse problema pode ser corrigido adicionando um passo de não-partition para valores agregados em partições, como no exemplo seguinte:
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -205,6 +218,7 @@ Cada um a **Input1** partições serão processadas em separado pelo Stream Anal
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 Esta consulta pode ser dimensionada até 24 SUs.
 

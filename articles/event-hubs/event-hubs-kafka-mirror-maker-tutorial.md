@@ -1,21 +1,21 @@
 ---
-title: Utilizar MirrorMaker do Apache Kafka com os Hubs de eventos do Azure para o ecossistema de Kafka | Documentos da Microsoft
-description: Utilize o Kafka MirrorMaker para espelhar um cluster do Kafka nos Hubs de eventos.
+title: Utilizar MirrorMaker do Apache Kafka - Hubs de eventos do Azure | Documentos da Microsoft
+description: Este artigo fornece informações sobre como utilizar o Kafka MirrorMaker para espelhar um cluster de Kafka em AzureEvent Hubs.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: mirror-maker
-ms.custom: mvc
-ms.date: 08/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: b79d62175c29dfc1671f0cb59c36f4bd2a8857e1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 83f51d2980e5cb5bc2e2a415bb3ee96778667ed7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282830"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095040"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Utilizar Kafka MirrorMaker com os Hubs de eventos para o Apache Kafka
 
@@ -56,7 +56,7 @@ Para concluir este tutorial, confirme que tem:
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 
-Um espaço de nomes de Hubs de eventos é necessário para enviar e receber a partir de qualquer serviço de Hubs de eventos. Ver [criar um Kafka ativado para o Hub de eventos](event-hubs-create.md) para obter instruções sobre como obter um ponto de extremidade do Kafka de Hubs de eventos. Certifique-se copiar a cadeia de ligação de Hubs de eventos para utilização posterior.
+É necessário um espaço de nomes dos Hubs de Eventos para enviar e receber a partir de qualquer serviços dos Hubs de Eventos. Para obter instruções sobre como conseguir um ponto final de Kafka dos Hubs de Eventos, veja [Creating a Kafka enabled Event Hub](event-hubs-create.md) (Criar um hub de eventos com Kafka ativado). Certifique-se copiar a cadeia de ligação de Hubs de eventos para utilização posterior.
 
 ## <a name="clone-the-example-project"></a>Clonar o projeto de exemplo
 
@@ -130,14 +130,14 @@ Neste tutorial, ficará a saber como:
 > * Configurar o MirrorMaker do Kafka
 > * Execute o MirrorMaker do Kafka
 
-Para saber mais sobre os Hubs de eventos e os Hubs de eventos para o Kafka, consulte o tópico seguinte:  
+Para saber mais sobre os Hubs de Eventos e os Hubs de Eventos para Kafka, veja os tópicos seguintes:  
 
 - [Saiba mais sobre Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-- [Hubs de eventos para o Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Como criar Kafka ativado os Hubs de eventos](event-hubs-create-kafka-enabled.md)
-- [Stream nos Hubs de eventos a partir das suas aplicações de Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-- [Ligar o Apache Spark para um hub de eventos de Kafka-ativada](event-hubs-kafka-spark-tutorial.md)
-- [Ligar o Apache Flink para um hub de eventos de Kafka-ativada](event-hubs-kafka-flink-tutorial.md)
-- [Integrar o Kafka estabelecer ligação com um hub de eventos de Kafka-ativada](event-hubs-kafka-connect-tutorial.md)
-- [Ligar Akka fluxos para um hub de eventos de Kafka-ativada](event-hubs-kafka-akka-streams-tutorial.md)
-- [Explore exemplos no nosso GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) (Hubs de Eventos para Apache Kafka)
+- [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md) (Como criar os Hubs de Eventos ativados para Kafka)
+- [Transmitir em fluxo para os Hubs de Eventos a partir das suas aplicações Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Connect Apache Spark to a Kafka-enabled event hub](event-hubs-kafka-spark-tutorial.md) (Ligar o Apache Spark a um hub de eventos com Kafka ativado)
+- [Connect Apache Spark to a Kafka-enabled event hub](event-hubs-kafka-flink-tutorial.md) (Ligar o Apache Flink a um hub de eventos com Kafka ativado)
+- [Integrate Kafka Connect with a Kafka-enabled event hub](event-hubs-kafka-connect-tutorial.md) (Integrar o Kafka Connect num hub de eventos com Kafka ativado)
+- [Connect Akka Streams to a Kafka-enabled event hub](event-hubs-kafka-akka-streams-tutorial.md) (Ligar o Akka Streams a um hub de eventos com Kafka ativado)
+- [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) (Explorar exemplos no nosso GitHub)

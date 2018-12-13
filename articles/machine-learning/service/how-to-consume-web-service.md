@@ -1,5 +1,6 @@
 ---
-title: Como consumir implementações de serviço web - serviço do Azure Machine Learning
+title: Consumir serviços web implementados
+titleSuffix: Azure Machine Learning service
 description: Saiba como consumir um serviço web que foi gerado quando um modelo foi implementado com o modelo do Azure Machine Learning. O serviço web que expõe uma API REST. Crie clientes para esta API usando a linguagem de programação da sua preferência.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,12 @@ author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: d964eef08557ddd95ff86bc9e7de806cd4a8ca18
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: 0cf585ec3eb95b71080436791fd47d96239dfa9f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016645"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100467"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como um serviço web
 
@@ -124,6 +125,43 @@ Por exemplo, o modelo no [Train dentro do bloco de notas](https://github.com/Azu
 ``` 
 
 O serviço web pode aceitar vários conjuntos de dados numa solicitação. Ele retorna um documento JSON que contenha uma matriz de respostas.
+
+### <a name="binary-data"></a>Dados binários
+
+Se o seu modelo aceita dados binários, como uma imagem, tem de modificar o `score.py` ficheiro utilizado para a sua implementação para aceitar pedidos HTTP não processados. Eis um exemplo de um `score.py` que aceita dados binários e devolve os bytes revertidos em solicitações POST. Para pedidos GET-devolve o URL completo no corpo da resposta:
+
+```python 
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> Coisas a `azureml.contrib` espaço de nomes mudam frequentemente enquanto Trabalhamos para melhorar o serviço. Como tal, qualquer coisa neste espaço de nomes deve ser considerada como uma pré-visualização e não totalmente suportada pela Microsoft.
+>
+> Se precisar de teste em seu ambiente de desenvolvimento local, pode instalar os componentes no espaço de nomes contrib com o seguinte comando:
+> 
+> ```shell
+> pip install azureml-contrib-services
+> ```
 
 ## <a name="call-the-service-c"></a>Chamar o serviço (C#)
 
@@ -447,7 +485,3 @@ Os resultados retornados são semelhantes para o documento JSON seguinte:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
-
-## <a name="next-steps"></a>Passos Seguintes
-
-Agora que aprendeu como criar um cliente de um modelo implementado, saiba como [implementar um modelo para um dispositivo IoT Edge](how-to-deploy-to-iot.md).

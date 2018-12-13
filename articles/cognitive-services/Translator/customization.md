@@ -10,20 +10,20 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f02c495c7448334529de2d5b42cda02206daea0d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229684"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877977"
 ---
 # <a name="customize-your-text-translations"></a>Personalize as suas traduções de texto
 
-A pré-visualização do Microsoft Translator de Custom é a funcionalidade do serviço Microsoft Translator, que permite aos utilizadores personalizar a tradução de máquina de neural avançada de Microsoft Translator, ao traduzir texto usando a API de texto do Translator (apenas a versão 3).
+O personalizado do Microsoft Translator é a funcionalidade do serviço Microsoft Translator, que permite aos utilizadores personalizar a tradução de máquina de neural avançada de Microsoft Translator, ao traduzir texto usando a API de texto do Translator (apenas a versão 3).
 
-O recurso também pode ser usado para personalizar a tradução de voz quando utilizado com [pré-visualização de voz de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+O recurso também pode ser usado para personalizar a tradução de voz quando utilizado com [voz de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
-## <a name="custom-translator"></a>Tradutor personalizado
+## <a name="custom-translator"></a>Custom Translator
 
 Tradutor personalizada, pode criar sistemas de tradução neural que perceber a terminologia utilizada no seu próprio negócio e do setor. O sistema de tradução personalizados, em seguida, integrará em aplicativos existentes, os fluxos de trabalho e Web sites.
 
@@ -48,7 +48,7 @@ O Microsoft Translator Hub herdados podem ser usado para converter estatísticos
 
 |   | **Hub** | **Tradutor personalizado**|
 |:-----|:----:|:----:|
-|Estado da funcionalidade de personalização   | Disponibilidade Geral  | Pré-visualização |
+|Estado da funcionalidade de personalização   | Disponibilidade Geral  | Disponibilidade Geral |
 | Versão de API de texto  | Apenas v2   | Apenas v3 |
 | Personalização de SMT | Sim   | Não |
 | Personalização de NMT | Não    | Sim |

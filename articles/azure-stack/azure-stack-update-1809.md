@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bcb135e19796bcab8a8e06e3c1896b247188a58c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970846"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088056"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização de 1809 de pilha do Azure
 
@@ -70,17 +70,6 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 - <!-- 2702741 -  IS, ASDK --> Foi corrigido o problema no qual os IPs públicos que foram implementadas utilizando a alocação de dinâmica método não eram a garantia de ser preservadas quando uma paragem da Desalocação é emitido. Agora são preservadas.
 
 - <!-- 3078022 - IS, ASDK --> Se uma VM foi parada-desalocada antes de 1808 não pode ser reatribuída após a atualização 1808.  Este problema é resolvido de 1809. Instâncias que foram neste estado e não foi possível iniciar podem ser iniciadas na 1809 com esta correção. A correção também evita que este problema ocorrer.
-
-<!-- 3090289 – IS, ASDK --> 
-- Foi corrigido o problema onde depois de aplicar a atualização de 1808, poderá encontrar os seguintes problemas ao implementar VMs com discos geridos:
-
-   1. Se a subscrição tiver sido criada antes da atualização de 1808, implantação de VM com Managed Disks poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos para cada subscrição:
-      1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
-      2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que **disco gerido do Azure Stack –** está listado.
-   2. Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos:
-      1. Aplicar a [correção de pilha do 1808 Azure](https://support.microsoft.com/help/4481066).
-      2. Siga os passos em [este artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
-
 
 ### <a name="changes"></a>Alterações
 
@@ -173,7 +162,7 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links ant
 > Prepare-se a implementação do Azure Stack para o anfitrião de extensão que está ativada pelo pacote de atualização seguinte. Preparar o seu sistema usando as seguintes orientações [preparar para o anfitrião de extensão para o Azure Stack](azure-stack-extension-host-prepare.md).
 
 Após a instalação desta atualização, instale as correções aplicáveis. Para obter mais informações, consulte os seguintes artigos da base de dados de conhecimento, bem como nossos [política de manutenção](azure-stack-servicing-policy.md).  
-- [KB 4477849 – o Azure Stack correção Azure Stack correção 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
+- [KB 4481548 – o Azure Stack correção Azure Stack correção 1.1809.12.114](https://support.microsoft.com/help/4481548/)  
 
 ## <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
 
@@ -226,7 +215,7 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
    
   Executar o [AzureStack teste](azure-stack-diagnostic-test.md) cmdlet para verificar o estado de funcionamento das instâncias de função de infraestrutura e dimensionar nós de unidade. Se não existem problemas são detetados pelo [AzureStack teste](azure-stack-diagnostic-test.md), pode ignorar estes alertas. Se for detetado um problema, pode tentar iniciar a instância de função de infraestrutura ou o nó com o portal de administração ou PowerShell.
 
-  Este problema é resolvido da versão mais recente [versão de correção de 1809](https://support.microsoft.com/help/4477849/), por isso, certifique-se de que instale esta correção, se estiver a ter o problema. 
+  Este problema é resolvido da versão mais recente [versão de correção de 1809](https://support.microsoft.com/help/4481548/), por isso, certifique-se de que instale esta correção, se estiver a ter o problema. 
 
 <!-- 1264761 - IS ASDK -->  
 - Poderá ver alertas para o **controlador de estado de funcionamento** componente que tem os seguintes detalhes:  
@@ -292,7 +281,18 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
    Para localizar dados de métricas, como o gráfico de percentagem de CPU para a VM, vá para a janela de métricas e mostrar todas as as VM de Windows convidado métricas suportadas.
 
+<!-- 3507629 - IS, ASDK --> 
+- Discos geridos cria dois novos [tipos de quota de computação](azure-stack-quota-types.md#compute-quota-types) para limitar a capacidade máxima de discos geridos que podem ser aprovisionados. Por predefinição, 2048 GiB é alocado para cada tipo de quota de discos geridos. No entanto, pode encontrar os seguintes problemas:
 
+   - Para quotas criadas antes da atualização de 1808, a quota de Managed Disks mostrará 0 valor no portal do administrador, embora 2048 GiB é alocado. Pode aumentar ou diminuir o valor com base nas suas necessidades reais e recentemente defina o valor da quota substitui a predefinição do 2048 GiB.
+   - Se atualizar o valor da quota como 0, é equivalente para o valor predefinido de 2048 GiB. Como solução, defina o valor de quota para 1.
+
+<!-- TBD - IS ASDK --> Depois de aplicar o 1809 de atualização, poderá encontrar os seguintes problemas ao implementar VMs com discos geridos:
+
+   - Se a subscrição tiver sido criada antes da atualização de 1808, implementar uma VM com Managed Disks poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos para cada subscrição:
+      1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
+      2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que **disco gerido do Azure Stack –** está listado.
+   2. Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos [este artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
 
 ### <a name="networking"></a>Redes  
 

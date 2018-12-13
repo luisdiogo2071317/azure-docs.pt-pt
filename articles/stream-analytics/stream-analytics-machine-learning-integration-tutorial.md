@@ -2,19 +2,19 @@
 title: Integração do Stream Analytics do Azure com o Azure Machine Learning
 description: Este artigo descreve como configurar rapidamente a uma tarefa Azure Stream Analytics simples que integra o Azure Machine Learning, utilizando uma função definida pelo utilizador.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/16/2018
-ms.openlocfilehash: 2169c3a41991b0b49a4324c16ea079f5943fad0b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: d90439e498e8812551d9e2994165f1714d3bdaab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685757"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093340"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Executar análise de sentimentos com o Azure Stream Analytics e o Azure Machine Learning
 Este artigo descreve como configurar rapidamente a uma tarefa Azure Stream Analytics simples que integra o Azure Machine Learning. Utilize um modelo de análise de sentimentos de Machine Learning a partir da galeria do Cortana Intelligence para analisar dados de texto de transmissão em fluxo e determinar a classificação de sentimento em tempo real. Utilizar o Cortana Intelligence Suite permite-lhe realizar esta tarefa sem se preocupar sobre a complexidade da criação de um modelo de análise de sentimentos.
@@ -28,7 +28,7 @@ Pode aplicar o que Aprenda com este artigo, para estes cenários:
 
 Num cenário do mundo real, obteria os dados diretamente a partir de um fluxo de dados do Twitter. Para simplificar o tutorial, ele é escrito para que a tarefa do Stream Analytics obtém os tweets de um ficheiro CSV no armazenamento de Blobs do Azure. Pode criar seu próprio ficheiro CSV ou pode utilizar um ficheiro CSV de exemplo, conforme mostrado na imagem seguinte:
 
-![exemplo de tweets num ficheiro CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
+![Tweets de exemplo mostradas um ficheiro CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
 A tarefa de análise de transmissão em fluxo que criar aplica-se o modelo de análise de sentimentos como uma função definida pelo utilizador (UDF) nos dados de texto de exemplo do armazenamento de Blobs. O resultado (o resultado da análise de sentimentos) é escrito para o mesmo arquivo de blob num arquivo CSV diferente. 
 
@@ -58,15 +58,15 @@ Para este passo, pode utilizar ficheiros CSV, como o disponibilizado a partir do
 
 3. Especifique um grupo de recursos existente e especificar uma localização. Para a localização, recomendamos que todos os recursos criados neste tutorial, utilize a mesma localização.
 
-    ![forneça detalhes da conta de armazenamento](./media/stream-analytics-machine-learning-integration-tutorial/create-sa1.png)
+    ![forneça detalhes da conta de armazenamento](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
 4. No portal do Azure, selecione a conta de armazenamento. No painel da conta de armazenamento, clique em **contentores** e, em seguida, clique em  **+ &nbsp;contentor** para criar o armazenamento de Blobs.
 
-    ![Criar contentor de BLOBs](./media/stream-analytics-machine-learning-integration-tutorial/create-sa2.png)
+    ![Criar contentor de armazenamento de BLOBs de entrada](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
 5. Forneça um nome para o contentor (`azuresamldemoblob` no exemplo) e certifique-se de que **acessar tipo** está definido como **Blob**. Quando tiver terminado, clique em **OK**.
 
-    ![Especifique os detalhes do contentor de BLOBs](./media/stream-analytics-machine-learning-integration-tutorial/create-sa3.png)
+    ![Especifique os detalhes do contentor de BLOBs](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
 6. Na **contentores** painel, selecione o novo contentor, que abre o painel para esse contentor.
 
@@ -123,7 +123,7 @@ Agora, pode criar uma tarefa de Stream Analytics que lê os tweets de exemplo do
 
 3. Nome da tarefa `azure-sa-ml-demo`, especifique uma subscrição, especifique um grupo de recursos existente ou crie um novo e selecione a localização para a tarefa.
 
-   ![especificar definições para a nova tarefa de Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
+   ![especificar definições para a nova tarefa de Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-job-1.png)
    
 
 ### <a name="configure-the-job-input"></a>Configurar a entrada da tarefa
@@ -143,7 +143,7 @@ A tarefa obtém entrada do ficheiro CSV que carregado anteriormente para o armaz
    |**Contentor**  | Selecione o contentor que criou anteriormente (`azuresamldemoblob`)        |
    |**Formato de serialização de eventos**  |  Selecione **CSV**       |
 
-   ![Definições para a nova entrada da tarefa](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
+   ![Definições para a nova entrada de tarefa do Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
 4. Clique em **Guardar**.
 
@@ -163,7 +163,7 @@ A tarefa envia resultados para o mesmo armazenamento de BLOBs onde obtém entrad
    |**Contentor**  | Selecione o contentor que criou anteriormente (`azuresamldemoblob`)        |
    |**Formato de serialização de eventos**  |  Selecione **CSV**       |
 
-   ![Definições para a nova saída de tarefa](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
+   ![Definições para a nova saída de tarefa do Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
 4. Clique em **Guardar**.   
 
@@ -185,7 +185,7 @@ Nesta secção do tutorial, vai definir uma função da tarefa de análise de St
    | **URL**| Cole o URL do serviço web.|
    |**Chave** | Cole a chave de API. |
   
-   ![Definições para adicionar uma função de Machine Learning para a tarefa do Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![Definições para adicionar a função de Machine Learning à tarefa do Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
 4. Clique em **Guardar**.
 

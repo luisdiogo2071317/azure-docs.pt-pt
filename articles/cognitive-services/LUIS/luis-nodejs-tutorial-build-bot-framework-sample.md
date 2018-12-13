@@ -1,25 +1,26 @@
 ---
-title: Bot de LUIS com node. js - Web app Bot - Bot Framework SDK 3.0
+title: Bot de LUIS com node. js
 titleSuffix: Azure Cognitive Services
 description: Crie um bot integrado com um aplicativo de LUIS com o Bot Framework.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 0bd191da3f2625bc202ee66100e7dac25d9d65de
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: 7229155b9fbfb93babd45c746d0f36fbab812013
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042334"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093408"
 ---
-# <a name="luis-bot-in-nodejs"></a>Bot de LUIS em node. js
+# <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot de LUIS em node. js com o Bot Framework 3.x e bot de aplicação Web do Azure
 
-Com o node. js, crie um chatbot integrado (LUIS) de compreensão de idiomas. Este chatbot utiliza o domínio de HomeAutomation criados previamente para implementar rapidamente uma solução de bot. O bot baseia-se com o Bot Framework 3.x e bot de aplicação Web do Azure.
+Com Node.js, crie um chatbot integrado na compreensão de idioma (LUIS). Este chatbot utiliza o domínio de HomeAutomation criados previamente para implementar rapidamente uma solução de bot. O bot baseia-se com o Bot Framework 3.x e bot de aplicação Web do Azure.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -78,7 +79,7 @@ Instale pacotes NPM com os seguintes passos:
 
 5. É aberta uma nova janela do browser. Na consola, introduza o seguinte comando:
 
-    ```
+    ```console
     cd site\wwwroot && npm install
     ```
 
@@ -115,7 +116,7 @@ Vá para a segunda janela de browser, se estiver ainda abrir ou na primeira jane
 
 No editor de código, abra `app.js`. Contém o código a seguir:
 
-```javascript
+```nodejs
 /*-----------------------------------------------------------------------------
 A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
 -----------------------------------------------------------------------------*/
@@ -206,7 +207,7 @@ Os objetivos existentes no App. js são ignorados. Pode deixá-los.
 
 Copie o código seguinte e adicione-o a `app.js`.
 
-```javascript
+```nodejs
 bot.dialog('TurnOn',
     (session) => {
         session.send('You reached the TurnOn intent. You said \'%s\'.', session.message.text);
@@ -223,7 +224,7 @@ O [corresponde ao] [ matches] opção o [triggerAction] [ triggerAction] anexado
 
 Copie o código seguinte e adicione-o a `app.js`.
 
-```javascript
+```nodejs
 bot.dialog('TurnOff',
     (session) => {
         session.send('You reached the TurnOff intent. You said \'%s\'.', session.message.text);
@@ -241,7 +242,7 @@ No Portal do Azure, selecione no **teste na Web Chat** para testar o bot. Experi
 > [!TIP]
 > Se achar que o seu bot sempre não reconhece a intenção correta ou entidades, melhore o desempenho da sua aplicação LUIS ao dar a ele mais expressões de exemplo formá-lo. Pode voltar a preparar a aplicação do LUIS sem quaisquer modificações ao código de seu bot. Ver [adicionar expressões de exemplo](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) e [treinar e testar a aplicação do LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test).
 
-## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre arquitetura de Bot
+## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre o Bot Framework
 Saiba mais sobre [Bot Framework](https://dev.botframework.com/) e o [3.x](https://github.com/Microsoft/BotBuilder) e [4.x](https://github.com/Microsoft/botbuilder-js) SDKs.
 
 ## <a name="next-steps"></a>Passos Seguintes

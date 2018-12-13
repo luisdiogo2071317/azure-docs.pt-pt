@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: b5e2a36dd201bf33683bd09c6447137642f32738
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 64e56233546a22804036b43d9769247678036049
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993656"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099448"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Tutorial: Atribuir acesso a dados da Cloudyn
 
@@ -47,7 +47,7 @@ Embora já tenha acesso de administrador, os seus colegas na organização podem
 Introduza as informações necessárias sobre o utilizador. O **ID de início de sessão** tem de ser um endereço de e-mail válido. Escolha as permissões para Permitir Gestão de Utilizadores, para que o utilizador possa criar e modificar outros utilizadores. Gestão de Listas de Destinatários para permitir ao utilizador editar listas de destinatários. É enviada uma ligação do Cloudyn com informações de início de sessão ao utilizador por e-mail quando seleciona **Notificar utilizador por e-mail**. No primeiro início de sessão, o utilizador define uma palavra-passe.
 
 Em **O utilizador tem acesso de administrador**, está selecionada a entidade de raiz da sua organização. Mantenha a raiz selecionada e, em seguida, guarde as informações de utilizador. A seleção da entidade de raiz permite ao utilizador ter permissão de administrador não só para a entidade de raiz na árvore, mas também para todas as entidades que residem abaixo da mesma.  
-  ![Adicionar novo utilizador com acesso de administrador](./media/tutorial-user-access/new-admin-access.png)
+  ![Exemplo que mostra o acesso de administrador na caixa de adicionar novo utilizador](./media/tutorial-user-access/new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>Criar um utilizador com acesso de utilizador
 Os utilizadores típicos que precisem de acesso à Cloudyn, como os dashboards e relatórios, devem ter acesso de utilizador para os visualizar. Crie um novo utilizador com acesso de utilizador semelhante ao que criou com acesso de administrador, com as seguintes diferenças:
@@ -56,7 +56,7 @@ Os utilizadores típicos que precisem de acesso à Cloudyn, como os dashboards e
 - Selecione as entidades que o utilizador precisa de aceder na lista **O utilizador tem acesso de utilizador**.
 - Também pode permitir o acesso do administrador a entidades específicas, conforme necessário.
 
-![adicionar novo utilizador com acesso de utilizador](./media/tutorial-user-access/new-user-access.png)
+![Exemplo que mostra o acesso de utilizador na caixa de adicionar novo utilizador](./media/tutorial-user-access/new-user-access.png)
 
 Para ver um tutorial em vídeo sobre como adicionar utilizadores, veja [Adding Users to Cloudyn](https://youtu.be/Nzn7GLahx30) (Adicionar Utilizadores à Cloudyn).
 
@@ -88,11 +88,11 @@ Quando registou o seu contrato ou conta do Azure no Cloudyn, os dados dos recurs
 
 No portal do Cloudyn, clique no símbolo de engrenagem na parte superior direita e selecione **Contas da Cloud**. Começa por uma única entidade (raiz) e cria a árvore de entidades na raiz. Segue-se um exemplo de uma hierarquia de entidades que poderá assemelhar-se a muitas organizações de TI após a conclusão da árvore:
 
-![Árvore de entidades](./media/tutorial-user-access/entity-tree.png)
+![Exemplo de uma árvore de entidades, mostrado na página de gestão de contas](./media/tutorial-user-access/entity-tree.png)
 
 Junto a **Entidades**, clique em **Adicionar Entidade**. Introduza as informações sobre a pessoa ou o departamento que quer adicionar. Os campos **Nome Completo** e **E-mail** não têm de corresponder ao utilizadores existentes. Se quiser ver uma lista de níveis de acesso, procure *Adicionar uma entidade* na ajuda.
 
-![Adicionar entidade](./media/tutorial-user-access/add-entity.png)
+![Exemplo mostrando os níveis de acesso e o nome na caixa de entidade de adicionar a entidade](./media/tutorial-user-access/add-entity.png)
 
 Quando tiver terminado, **guarde** a entidade.
 

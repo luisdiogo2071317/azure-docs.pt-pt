@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 88041cf185aeb6ae5cb27f2405b62401cae069d9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964258"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098105"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização de 1808 de pilha do Azure
 
@@ -275,6 +275,12 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 <!-- 3179561 - IS --> 
 - Utilização de discos gerida é comunicada nas horas, conforme descrito no [FAQ de utilização do Azure Stack](azure-stack-usage-related-faq.md#managed-disks). No entanto, a faturação do Azure Stack utiliza o preço mensal em vez disso, para que pode obter incorretamente cobrada a utilização de Managed Disks em ou antes de 27 de Setembro. Podemos ter temporariamente suspensa custos para os Managed Disks após 27 de Setembro até que o problema de faturação é resolvido. Se ter sido cobrados incorretamente para a utilização de Managed Disks, contacte o suporte de faturação da Microsoft.
 Relatórios de utilização produzidos a partir de APIs de utilização do Azure Stack mostram quantidades corretas e podem ser utilizados.
+
+<!-- 3507629 - IS, ASDK --> 
+- Discos geridos cria dois novos [tipos de quota de computação](azure-stack-quota-types.md#compute-quota-types) para limitar a capacidade máxima de discos geridos que podem ser aprovisionados. Por predefinição, 2048 GiB é alocado para cada tipo de quota de discos geridos. No entanto, pode encontrar os seguintes problemas:
+
+   - Para quotas criadas antes da atualização de 1808, a quota de Managed Disks mostrará 0 valor no portal do administrador, embora 2048 GiB é alocado. Pode aumentar ou diminuir o valor com base nas suas necessidades reais e recentemente defina o valor da quota substitui a predefinição do 2048 GiB.
+   - Se atualizar o valor da quota como 0, é equivalente para o valor predefinido de 2048 GiB. Como solução, defina o valor de quota para 1.
 
 <!-- 2869209 – IS, ASDK --> 
 - Ao utilizar o [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), tem de utilizar o **- OsUri** parâmetro como a conta de armazenamento URI onde o disco é carregado. Se utilizar o caminho local do disco, o cmdlet falhar com o seguinte erro: *operação de longa execução falhou com o estado 'Com falhas'*. 

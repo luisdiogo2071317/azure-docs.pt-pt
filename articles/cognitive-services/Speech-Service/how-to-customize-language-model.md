@@ -1,21 +1,22 @@
 ---
 title: 'Tutorial: Como criar um modelo de idioma com o Serviço de Voz'
 titlesuffix: Azure Cognitive Services
-description: Saiba como criar um modelo de idioma com o Serviço de Voz.
+description: Saiba como criar um modelo de idioma com o Serviço de Voz. Utilize este modelo de idioma personalizado em conjunto com modelos de voz topo de gama existentes da Microsoft para adicionar a interação de voz à sua aplicação.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: b8d58450ccc5081e3be3131761d1321a32567df3
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 0eb946babaa3a01ca933a1290122755978fa017b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468998"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093473"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Criar um modelo de linguagem personalizado
 
@@ -48,7 +49,7 @@ As frases não têm de ser completas ou gramaticamente corretas, mas devem refle
 
 Os dados do modelo de linguagem devem ser gravados no UTF-8 BOM. O ficheiro de texto deve conter um exemplo (frase, expressão ou consulta) por linha.
 
-Se desejar que alguns termos tenham uma ponderação mais elevada (importância), pode adicionar várias expressões aos seus dados que incluem esses termos. 
+Se desejar que alguns termos tenham uma ponderação mais elevada (importância), pode adicionar várias expressões aos seus dados que incluem esses termos.
 
 Os requisitos principais para os dados de linguagem estão resumidos na tabela seguinte.
 
@@ -75,7 +76,7 @@ Selecione o botão **Importar** na linha **Conjuntos de Dados da Linguagem** e o
 
 Quando estiver pronto para importar o seu conjunto de dados de linguagem, inicie sessão no [portal dos Serviços de Voz](https://customspeech.ai). Primeiro, selecione o menu pendente **Voz Personalizada** no friso superior. Em seguida, selecione **Dados de Adaptação**. Quando tentar carregar dados para o Serviço de Voz pela primeira vez, verá uma tabela vazia chamada **Conjuntos de dados**.
 
-Para importar um novo conjunto de dados, selecione o botão **Importar** na linha **Conjuntos de Dados da Linguagem**. Em seguida, o site apresenta uma página para carregar um novo conjunto de dados. Introduza um **Nome** e uma **Descrição** para ajudar a identificar o conjunto de dados no futuro e, em seguida, escolha o local. 
+Para importar um novo conjunto de dados, selecione o botão **Importar** na linha **Conjuntos de Dados da Linguagem**. Em seguida, o site apresenta uma página para carregar um novo conjunto de dados. Introduza um **Nome** e uma **Descrição** para ajudar a identificar o conjunto de dados no futuro e, em seguida, escolha o local.
 
 Em seguida, utilize o botão **Escolher ficheiro** para localizar o ficheiro de texto dos dados de linguagem. Depois disso, selecione **Importar** e o conjunto de dados será carregado. Dependendo do tamanho do conjunto de dados, a importação pode demorar vários minutos.
 
@@ -97,9 +98,9 @@ Quando os dados de linguagem estiverem prontos, selecione **Modelos de Linguagem
 
 Tem de selecionar a região apropriada antes de realizar qualquer ação. A região atual é indicada no título da tabela em todas as páginas de dados, modelo e implementação. Para alterar a região, selecione o botão **Alterar a Região** que se encontra sob o título da tabela.  Isto leva-o para uma página de confirmação de região. Selecione **OK** para regressar à tabela.
 
-Na página Criar Modelo de Linguagem, introduza um **Nome** e uma **Descrição** para ajudá-lo a manter-se a par de informações pertinentes sobre este modelo, tal como o conjunto de dados utilizado. Em seguida, selecione **Modelo de Linguagem Base** no menu pendente. Este modelo é o ponto de partida para a sua personalização. 
+Na página Criar Modelo de Linguagem, introduza um **Nome** e uma **Descrição** para ajudá-lo a manter-se a par de informações pertinentes sobre este modelo, tal como o conjunto de dados utilizado. Em seguida, selecione **Modelo de Linguagem Base** no menu pendente. Este modelo é o ponto de partida para a sua personalização.
 
-Pode escolher entre dois modelos de linguagem base. O modelo Pesquisa e Ditado é adequado para voz direcionada para uma aplicação, como comandos, consultas de pesquisa ou ditado. O modelo Conversação é adequado para reconhecer voz falada num estilo de conversação. Este tipo de voz é, normalmente, direcionado para outra pessoa e ocorre em centros de atendimento telefónico ou reuniões. 
+Pode escolher entre dois modelos de linguagem base. O modelo Pesquisa e Ditado é adequado para voz direcionada para uma aplicação, como comandos, consultas de pesquisa ou ditado. O modelo Conversação é adequado para reconhecer voz falada num estilo de conversação. Este tipo de voz é, normalmente, direcionado para outra pessoa e ocorre em centros de atendimento telefónico ou reuniões.
 
 O modelo Pesquisa e Ditado é adequado para voz direcionada para uma aplicação, como comandos, consultas de pesquisa ou ditado. O modelo Conversação é adequado para reconhecer voz falada num estilo de conversação. Este tipo de voz é, normalmente, direcionado para outra pessoa e ocorre em centros de atendimento telefónico ou reuniões. Um novo modelo chamado "Universal" também está publicamente disponível. O Universal tem como objetivo lidar com todos os cenários e, eventualmente, substituir os modelos de Pesquisa e Ditado e da Conversação.
 
@@ -119,7 +120,7 @@ Quando o modelo chegar ao estado **Complete**, pode ser implementado num ponto f
 
 Se quiser alterar o **Nome** e a **Descrição** do modelo, pode utilizar a hiperligação **Edit** (Editar) na linha adequada da tabela de modelos de linguagem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Obter a subscrição de avaliação dos Serviços de Voz](https://azure.microsoft.com/try/cognitive-services/)
 - [Como reconhecer voz em C#](quickstart-csharp-dotnet-windows.md)

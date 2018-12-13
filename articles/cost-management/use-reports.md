@@ -1,23 +1,23 @@
 ---
 title: Utilizar relatórios do Cloudyn no Azure | Documentos da Microsoft
-description: Este artigo descreve como utilizar vários relatórios no portal do Cloudyn.
+description: Este artigo descreve a finalidade dos relatórios do Cloudyn que estão incluídos no portal do Cloudyn para o ajudar a usá-las efetivamente.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: c3f1fec21ab2c71f75677e814a6e19e1e540dddb
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.custom: seodec18
+ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994739"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075885"
 ---
-# <a name="use-cloudyn-reports"></a>Utilizar relatórios do Cloudyn
+# <a name="reports-available-in-the-cloudyn-portal"></a>Relatórios disponíveis no portal do Cloudyn
 
 Este artigo descreve a finalidade dos relatórios do Cloudyn que estão incluídos no portal do Cloudyn. Ele também descreve como pode usar com eficiência os relatórios. A maioria dos relatórios são intuitivos e tem uma aparência uniforme. A maioria das ações que pode fazer num relatório, também pode fazer de outros relatórios. Para obter uma descrição geral sobre como utilizar relatórios do Cloudyn, incluindo como personalizar e guardar ou para agendar relatórios, consulte [Noções básicas sobre relatórios de custos](understanding-cost-reports.md).
 
@@ -59,7 +59,7 @@ Dashboards no Cloudy fornecem uma visão geral de relatórios. Dashboards são c
 
 ## <a name="budget-information-in-reports"></a>Informações de orçamento nos relatórios
 
-Muitos relatórios do Cloudyn mostram informações de orçamento, depois de ter criado manualmente um. Então, os relatórios não mostrará informações de orçamento até criar um orçamento. Para obter mais informações, consulte [orçamento definições](#budget-settings).
+Muitos relatórios do Cloudyn mostram informações de orçamento, depois de ter criado manualmente um. Então, os relatórios não mostrará informações de orçamento até criar um orçamento. Para obter mais informações, consulte [definições de gestão do orçamento](#budget-management-settings).
 
 ## <a name="reports-and-reporting-features"></a>Relatórios e recursos de relatórios
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: d2b6b7a5d2baf9e46cca18aec97f31beda1e2a38
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a992851deda0659509c0ee4ea5de76b19734f017
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736738"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867616"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Utilize o StorSimple Device Manager para gerir as credenciais da conta de armazenamento do StorSimple Virtual Array
 
@@ -148,7 +148,7 @@ Para informar o serviço de Gestor de dispositivos do StorSimple da alteração,
     
 4. No serviço StorSimple Device Manager, terá de atualizar a chave que anteriormente foi alterada no serviço de armazenamento do Microsoft Azure. Na **sincronizar a chave de conta de armazenamento** painel, se a chave de acesso primária foi alterada (regenerada), clique em principal e, em seguida, clique em **sincronizar chave**. Se a chave secundária tiver sido alterada, clique em **secundário**e, em seguida, clique em **sincronizar chave**.
    
-    ![Chave de acesso de sincronização](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-acess-key.png)
+    ![Chave de acesso de sincronização](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-access-key.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba como [administrar a sua matriz Virtual StorSimple](storsimple-ova-web-ui-admin.md).

@@ -1,21 +1,22 @@
 ---
-title: Preparar a sua versão de LUIS
-titleSuffix: Azure Cognitive Services
+title: Preparar a aplicação
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Treinamento é o processo de ensinar a sua versão de aplicação de compreensão de idiomas (LUIS) para aprimorar sua compreensão de linguagem natural. Treine a sua aplicação LUIS após as atualizações para o modelo de como adicionar, editar, etiquetagem ou a eliminação de entidades, intenções ou expressões com.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: 362c5e2e7216d584a9858ace5fb607dc0ee126d5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: MT
+ms.openlocfilehash: 9affaaaf38fbba8a374824aeccf70663693e1cb0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426109"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092558"
 ---
 # <a name="train-your-luis-app-version"></a>Preparar a sua versão de aplicação LUIS
 

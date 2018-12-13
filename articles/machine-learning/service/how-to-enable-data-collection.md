@@ -1,5 +1,6 @@
 ---
-title: Ativar a recolha de dados de modelos em produção - Azure Machine Learning
+title: Ativar a recolha de dados de modelos em produção
+titleSuffix: Azure Machine Learning service
 description: Saiba como recolher dados de entrada de modelo do Azure Machine Learning num armazenamento de Blobs do Azure.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3033b049b3d4bbe49b6a30be7ec78e1c2caf49ef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: MT
+ms.openlocfilehash: e6b6a8e1dd1b3746977062341013b92acff132c4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011148"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100550"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recolher dados para modelos em produção
 
@@ -55,7 +56,7 @@ O caminho para os dados de saída no blob segue esta sintaxe:
 
 - Um modelo de aprendizagem de máquina preparado para ser implementada para o Azure Kubernetes Service (AKS). Se não tiver uma, veja a [preparar o modelo de classificação de imagem](tutorial-train-models-with-aml.md) tutorial.
 
-- Uma [cluster do AKS](how-to-deploy-to-aks.md).
+- Um cluster do serviço Kubernetes do Azure. Para obter informações sobre como criar e implementar a um, consulte a [como implementar e, em que](how-to-deploy-and-where.md) documento.
 
 - [Configurar o ambiente](how-to-configure-environment.md) e instale o [SDK monitorização](https://aka.ms/aml-monitoring-sdk).
 
@@ -103,7 +104,7 @@ Para ativá-la, terá de:
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ``` 
 
-5. [Criar nova imagem e implementar o seu serviço.](how-to-deploy-to-aks.md) 
+5. Para criar uma nova imagem e implementar o serviço, consulte a [como implementar e, em que](how-to-deploy-and-where.md) documento.
 
 
 Se já tiver um serviço com as dependências instaladas no seu **ficheiro de ambiente** e **ficheiro de classificação**, ativar a recolha de dados por:

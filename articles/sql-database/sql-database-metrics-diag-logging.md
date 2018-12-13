@@ -3,7 +3,7 @@ title: Registo de diagnóstico e de métricas de base de dados SQL do Azure | Do
 description: Saiba mais sobre como configurar a base de dados do Azure SQL para armazenar a utilização de recursos, conectividade e estatísticas de execução de consulta.
 services: sql-database
 ms.service: sql-database
-ms.subservice: performance
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: b903d0ddbccac8fe4fa8b251d409bd8addebb435
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: MT
+ms.openlocfilehash: 19117803783047d8ddd9740c799b4cb81fd74c2c
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426004"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890913"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos 
 
@@ -291,7 +291,7 @@ Saiba mais sobre como [ative as definições de diagnóstico durante a criação
 
 Análise de SQL do Azure é uma cloud de solução de monitorização para monitorização do desempenho de bases de dados SQL do Azure, conjuntos elásticos e instâncias geridas em escala e em várias subscrições através de um único painel de vidro. Ele recolhe e visualiza métricas de desempenho de base de dados do Azure SQL importantes com a inteligência incorporada para resolução de problemas de desempenho.
 
-![Descrição geral da análise SQL do Azure](../log-analytics/media/log-analytics-azure-sql/azure-sql-sol-overview.png)
+![Descrição geral da análise SQL do Azure](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
 Registos de diagnóstico e métricas de base de dados SQL podem ser transmitidos em análise de SQL do Azure utilizando o incorporado **enviar para o Log Analytics** opção no painel de definições de diagnóstico no portal. Também pode ativar o Log Analytics utilizando uma definição de diagnóstico através de cmdlets do PowerShell, a CLI do Azure ou a API de REST do Azure Monitor.
 
@@ -327,7 +327,7 @@ No caso estiver a utilizar os conjuntos elásticos ou instâncias geridas, tamb�
 
 ### <a name="use-the-sql-analytics-solution"></a>Utilizar a solução de análise de SQL
 
-Análise de SQL é um dashboard hierárquico que lhe permite mover através da hierarquia de recursos de base de dados SQL. Para saber como utilizar a solução de análise de SQL, veja [monitorizar a base de dados de SQL com a solução de análise de SQL](../log-analytics/log-analytics-azure-sql.md).
+Análise de SQL é um dashboard hierárquico que lhe permite mover através da hierarquia de recursos de base de dados SQL. Para saber como utilizar a solução de análise de SQL, veja [monitorizar a base de dados de SQL com a solução de análise de SQL](../azure-monitor/insights/azure-sql.md).
 
 ## <a name="stream-into-event-hubs"></a>Transmitir em fluxo para os Hubs de Eventos
 

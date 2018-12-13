@@ -2,20 +2,20 @@
 title: O que é o Backup do Azure?
 description: Utilize o Azure Backup para criar cópias de segurança e restaurar dados e cargas de trabalho de Servidores Windows, estações de trabalho do Windows, servidores do System Center DPM e máquinas virtuais do Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: cópia de segurança e restauro; serviços de recuperação; soluções de cópia de segurança
 ms.service: backup
 ms.topic: overview
 ms.date: 8/2/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0a5b9e6cdb5329705cb3c6d4676dfc8d987119e4
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
-ms.translationtype: HT
+ms.openlocfilehash: b0d920c1a41ff679c3dedcb6745e250b77cb769a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480978"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878337"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Descrição geral das funcionalidades do Azure Backup
 O Azure Backup é o serviço baseado no Azure que pode utilizar para criar cópias de segurança (ou proteger) e restaurar os dados na nuvem Microsoft. O Azure Backup substitui a solução de cópia de segurança no local ou fora das instalações por uma solução baseada na nuvem que é fiável, segura e competitiva em termos de custos. O Azure Backup oferece vários componentes que são transferidos e implementados no computador ou servidor adequado, ou na nuvem. O componente ou o agente que implementar depende do que pretende proteger. Todos os componentes do Azure Backup (independentemente de estar a proteger dados no local ou na cloud) podem ser utilizados para criar cópias de segurança para um cofre dos Serviços de Recuperação do Azure. Veja a [tabela de componentes do Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais à frente neste artigo) para obter informações sobre os componentes a utilizar para proteger dados, aplicações ou cargas de trabalho específicos.
@@ -231,7 +231,7 @@ Os seguintes conceitos podem ajudá-lo a tomar decisões importantes acerca da c
 | Objetivo de tempo de recuperação (RTO) |A quantidade de tempo que demora a concluir uma recuperação ou um restauro. |Devido ao RPO maior, a quantidade de dados que uma solução de cópia de segurança necessita para processar é, normalmente, muito mais elevada, o que resulta em RTOs maiores. Por exemplo, pode demorar dias para restaurar dados de bandas, consoante o tempo que demora a transportar a banda a partir de uma localização fora das instalações. |As soluções de recuperação após desastre têm RTOs menores porque são estão mais sincronizadas com a origem. Não é necessário processar tantas as alterações. |
 | Retenção |O tempo durante o qual os dados precisam de ser armazenados |Para cenários que necessitem de uma recuperação operacional (danos em dados, eliminação de ficheiros inadvertida, falha de SO), os dados de cópia de segurança são, normalmente, mantidos durante 30 dias ou menos.<br>A partir de um ponto de vista da conformidade, os dados poderão ter de ser armazenados durante meses ou mesmo anos. Dados de cópia de segurança são, idealmente, adequados para o arquivo nestes casos. |A recuperação após desastre apenas precisa de dados da recuperação operacional, que demoram, normalmente, algumas horas ou um dia, no máximo. Devido à captura de dados detalhados utilizada em soluções de DR, não se recomenda a utilização de dados de DR para uma retenção de longo prazo. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Utilize um dos seguintes tutoriais para obter instruções detalhadas, passo-a-passo, para proteger os dados no Windows Server ou proteger uma máquina virtual (VM) no Azure:
 
 * [Fazer uma Cópia de Segurança de Ficheiros e Pastas](backup-try-azure-backup-in-10-mins.md)

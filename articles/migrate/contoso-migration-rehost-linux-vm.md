@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 4845fdbbfa4dfabf53b1f7e747668cf7f5108eb7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4f4c52bd217bf67206fe1208c1d5402216bd8178
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232713"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879456"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migração de Contoso: realojar a uma aplicação do Linux no local para VMs do Azure
 
@@ -145,7 +145,7 @@ A Contoso precisa de alguns componentes do Azure para o Site Recovery:
     - A conta de armazenamento tem de estar na mesma região que o cofre dos Serviços de Recuperação.
     - Se utilizarem uma conta de fins gerais, com o armazenamento standard e replicação LRS.
 
-    ![Armazenamento de recuperação de site](./media/contoso-migration-rehost-linux-vm/asr-storage.png)
+      ![Armazenamento de recuperação de site](./media/contoso-migration-rehost-linux-vm/asr-storage.png)
 
 2. Com a conta de armazenamento e de rede no local, que criar um cofre (ContosoMigrationVault) e colocá-la a **ContosoFailoverRG** grupo de recursos na região E.U.A. Leste 2 primária.
 

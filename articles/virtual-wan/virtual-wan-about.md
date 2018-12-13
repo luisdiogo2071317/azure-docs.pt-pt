@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: fedb41f6538e0c65114c4a28c8aa43ffc7ef6d7f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: c2edb821eb8bd9a5da7a6cce81269e7d3f611722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957605"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869896"
 ---
 # <a name="what-is-azure-virtual-wan"></a>O que é a WAN Virtual do Azure?
 
@@ -29,7 +29,7 @@ Este artigo fornece uma vista rápida da conectividade de rede das suas cargas d
 
 ## <a name="s2s"></a>Ligações Site a site
 
-Para criar uma ligação Site a Site através da WAN Virtual, pode prosseguir através de um [parceiro de WAN Virtual](https://go.microsoft.com/fwlink/p/?linkid=2019615) ou criar a ligação manualmente.
+Para criar uma ligação Site a Site através da WAN Virtual, pode prosseguir através de um [parceiro de WAN Virtual](virtual-wan-locations-partners.md) ou criar a ligação manualmente.
 
 ### <a name="s2spartner"></a>Trabalhar com um parceiro de WAN Virtual
 
@@ -46,11 +46,11 @@ Se não quiser utilizar um parceiro preferencial, pode configurar a ligação ma
 
 Uma ligação Ponto a Site (P2S) permite-lhe criar uma ligação segura ao seu hub virtual a partir de um computador cliente individual. É estabelecida uma ligação P2S ao iniciá-la a partir do computador cliente. Esta solução é útil para as pessoas que trabalham à distância que queiram ligar a partir de uma localização remota, como, por exemplo, a partir de casa ou de uma conferência. Uma VPN P2S também é uma solução útil para utilizar em vez de uma VPN S2S, quando são poucos os clientes que precisam de ligar.
 
-Para criar a ligação manualmente, veja [Criar uma ligação Ponto a Site com a WAN Virtual](https://go.microsoft.com/fwlink/p/?linkid=2020051&clcid).
+Para criar a ligação manualmente, veja [Criar uma ligação Ponto a Site com a WAN Virtual](virtual-wan-point-to-site-portal.md).
 
 ## <a name="er"></a>Ligações do ExpressRoute (Pré-visualização)
 
-Para criar a ligação manualmente, veja [Criar uma ligação ExpressRoute com a WAN Virtual](https://go.microsoft.com/fwlink/p/?linkid=2020148&clcid).
+Para criar a ligação manualmente, veja [Criar uma ligação ExpressRoute com a WAN Virtual](virtual-wan-expressroute-portal.md).
 
 
 ## <a name="resources"></a>Recursos da WAN virtual
@@ -74,6 +74,6 @@ Para configurar uma WAN virtual ponto a ponto, crie os seguintes recursos:
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* Veja as [localizações e parceiros do WAN Virtual](https://aka.ms/virtualwan)
+Ver os [Virtual WAN parceiros e localizações de](virtual-wan-locations-partners.md) página.

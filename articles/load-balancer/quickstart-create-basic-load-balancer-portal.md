@@ -4,11 +4,7 @@ description: Este guia de início rápido mostra como criar um balanceador de ca
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: hero-article
@@ -17,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2e4e4e7cb1ae49a856bbfed0716936b7b5b13d19
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: MT
+ms.openlocfilehash: 9cf1fcda8651cccb82b2de58487becf25541a6e2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635106"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098683"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Guia de Início Rápido: Criar um balanceador de carga Básico público com o portal do Azure
 
@@ -80,10 +76,7 @@ Em seguida, crie uma rede virtual e duas máquinas virtuais para o conjunto de b
    - **Detalhes de instância** > **opções de disponibilidade**: 
      1. Lista pendente e selecione **conjunto de disponibilidade**. 
      2. Selecione **criar novo**, tipo *MyAvailabilitySet*e selecione **OK**.
-   - **Conta de administrador** > **nome de utilizador**: tipo *azureuser*.
-   - **Conta de administrador** > **palavra-passe**: tipo *Azure1234567*. 
-     Volte a escrever a palavra-passe no **Confirmar palavra-passe** campo.
-   
+  
 1. Selecione o **Networking** separador ou selecione **próximo: discos**, em seguida, **seguinte: redes**. 
    
    Certifique-se de que estão selecionadas as seguintes:
@@ -136,7 +129,7 @@ Nesta secção, vai criar segurança de rede regras de grupo (NSG) para as VMs, 
 
 Nesta secção, irá configurar as definições de Balanceador de carga para um conjunto de endereços de back-end, uma sonda de estado de funcionamento e uma regra de Balanceador de carga.
 
-### <a name="create-a-back-end-address-pool"></a>Criar um conjunto de endereços de back-end
+### <a name="create-a-backend-address-pool"></a>Criar um conjunto de endereços de back-end
 
 Para distribuir o tráfego para as VMs, o Balanceador de carga utiliza um conjunto de endereços de back-end. O conjunto de endereços de back-end contém os endereços IP das interfaces de rede virtuais (NICs) que estão ligadas ao balanceador de carga. 
 
@@ -232,7 +225,7 @@ Instale serviços de informação Internet (IIS) em máquinas virtuais para o aj
    
 1. No ecrã de segurança do Windows, selecione **mais escolhas** e, em seguida **utilizar uma conta diferente**. 
    
-   Introduza o nome de utilizador *azureuser* e a palavra-passe *Azure1234567*e selecione **OK**.
+   Introduza o nome de utilizador e palavra-passe e selecione **OK**.
    
 1. Responder **Sim** para qualquer linha de comandos do certificado. 
    
@@ -258,9 +251,7 @@ Instale serviços de informação Internet (IIS) em máquinas virtuais para o aj
 
 ### <a name="test-the-load-balancer"></a>Testar o balanceador de carga
 
-Em cada VM, abra um browser e responder **OK** para qualquer configuração pede-lhe. 
-
-Cole o endereço IP público do seu Balanceador de carga na barra de endereço do browser. A página predefinida do IIS web server deve aparecer no navegador.
+Abra um browser e cole o endereço IP público do seu Balanceador de carga na barra de endereço do browser. A página predefinida do IIS web server deve aparecer no navegador.
 
 ![Servidor Web do IIS](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 

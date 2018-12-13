@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5183e626ac990e265e9f4794220f24d43d865ed7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.openlocfilehash: 38f2fb4fd2056758997471a4d7a5008d7db9dfa1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999999"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087495"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gestão de informações de conector de aplicações (pré-visualização)
 
@@ -45,7 +45,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 | Origem Ligada | Suportadas | Descrição |
 | --- | --- | --- |
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não | A solução não recolhe informações de agentes do Windows. |
-| [Agentes do Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Não | A solução não recolhe informações de agentes do Linux. |
+| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de agentes do Linux. |
 | [Grupo de gestão do SCOM](../../azure-monitor/platform/om-agents.md) | Não | A solução não recolhe informações de agentes num grupo de gestão ligado do SCOM. |
 | [Conta de armazenamento do Azure](collect-azure-metrics-logs.md) | Não | A solução faz não informações da coleção do armazenamento do Azure. |
 

@@ -1,20 +1,21 @@
 ---
-title: FAQ de encriptação de disco do Azure | Documentos da Microsoft
+title: FAQ - Azure Disk Encryption para IaaS VMs | Documentos da Microsoft
 description: Este artigo fornece respostas para perguntas freqüentes sobre o Microsoft Azure disco encriptação para Windows e VMs de IaaS Linux.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/16/2018
-ms.openlocfilehash: 8da966154f1da8cb1be090f70d80e4484e9bce0d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: ba955e9e71926a513f6c083acb6508b3ec330d17
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377296"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094564"
 ---
-# <a name="azure-disk-encryption-faq"></a>FAQ de encriptação de disco do Azure
+# <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption para VMs de Iaas FAQ
 
 Este artigo fornece respostas às perguntas mais frequentes (FAQ) sobre a encriptação de disco do Azure para Windows e VMs de IaaS Linux. Para obter mais informações sobre este serviço, consulte [encriptação de disco do Azure para Windows e VMs de IaaS Linux](azure-security-disk-encryption-overview.md).
 

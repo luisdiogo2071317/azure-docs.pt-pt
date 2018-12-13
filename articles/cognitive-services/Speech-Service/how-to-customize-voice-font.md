@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467723"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867585"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar tipos de voz personalizada
 
@@ -87,7 +87,7 @@ Por exemplo:
 O sistema de voz personalizada normaliza transcrições convertendo o texto em minúsculas e removendo pontuação estranhas. É importante que as transcrições são 100% transcrições precisos de gravações de áudio correspondentes.
 
 > [!TIP]
-> Quando criar produção voz vozes, selecionadas expressões de com (ou escrever scripts) que fazer em conta a cobertura fonética e eficiência. A ter problemas ao obter os resultados, deseja? [Contacte a equipa de voz personalizada](mailto:tts@microsoft.com) para descobrir mais sobre-na ter consulte.
+> Quando criar produção voz vozes, selecionadas expressões de com (ou escrever scripts) que fazer em conta a cobertura fonética e eficiência. A ter problemas ao obter os resultados, deseja? [Contacte a equipa de voz personalizada](mailto:speechsupport@microsoft.com) para descobrir mais sobre-na ter consulte.
 
 ## <a name="upload-your-datasets"></a>Carregar os conjuntos de dados
 

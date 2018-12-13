@@ -1,21 +1,22 @@
 ---
 title: Suporte de idiomas - API de serviço de voz
 titleSuffix: Azure Cognitive Services
-description: Uma lista de idiomas suportados pelo serviço de voz.
+description: Os serviços de voz do Azure suporta vários idiomas para conversão de voz em texto e texto para voz, juntamente com a tradução de voz. Este artigo fornece uma lista abrangente de suporte de idiomas pelo serviço.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec18
+ms.openlocfilehash: 8cdcdd6c5e0201f8f6af39faab0a67a68920e568
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284766"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094581"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Suporte de idioma e região para a API de serviço de voz
 
@@ -36,8 +37,8 @@ A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas. Estão
  en-GB | Inglês (Reino Unido) | Não | Sim | Sim
  EN-IN | English (India) | Sim | Sim | Sim
  EN-NZ | Inglês (Nova Zelândia) | Não | Sim | Sim  
- pt-PT | Inglês (Estados Unidos) | Sim | Sim | Sim
- es-ES | Espanhol (Espanha) | Não | Sim | Não
+ en-US | Inglês (Estados Unidos) | Sim | Sim | Sim
+ es-ES | Espanhol (Espanha) | Sim | Sim | Não
  es-MX | Espanhol (México) | Não | Sim | Não
  fi-FI | Finlandês (Finlândia) | Não | Não | Não
  fr-CA | Francês (Canadá) | Não | Sim | Não
@@ -49,7 +50,7 @@ A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas. Estão
  nb-NO | Norueguês (Bokmål) (Noruega) | Não | Não | Não
  NL-NL | Holandês (Países Baixos) | Não | Sim | Não
  pl-PL | Polaco (Polónia) | Não | Não | Não
- pt-BR | Português (Brasil) | Não | Sim | Não
+ pt-BR | Português (Brasil) | Sim | Sim | Não
  pt-PT | Português (Portugal) | Não | Sim | Não
  ru-RU | Russo (Rússia) | Sim | Sim | Não
  SV-SE | Sueco (Suécia) | Não | Não | Não
@@ -158,7 +159,7 @@ Personalização de voz está disponível para nós inglês (en-US), continente 
 
 ## <a name="speech-translation"></a>Tradução de Voz
 
-O **tradução por voz** API suporta idiomas diferentes para a tradução de voz para voz e conversão de voz em texto. O idioma de origem tem de ser sempre partir da seguinte tabela de idiomas de voz. Os idiomas de destino disponíveis dependem se o destino de tradução é voz ou texto. Pode converter voz recebida em mais do que [60 idiomas](https://www.microsoft.com/translator/business/languages/). Um subconjunto de idiomas estão disponíveis para [síntese de fala](language-support.md#text-languages). 
+O **tradução por voz** API suporta idiomas diferentes para a tradução de voz para voz e conversão de voz em texto. O idioma de origem tem de ser sempre partir da seguinte tabela de idiomas de voz. Os idiomas de destino disponíveis dependem se o destino de tradução é voz ou texto. Pode converter voz recebida em mais do que [60 idiomas](https://www.microsoft.com/translator/business/languages/). Um subconjunto de idiomas estão disponíveis para [síntese de fala](language-support.md#text-languages).
 
 ### <a name="speech-languages"></a>Idiomas de voz
 

@@ -1,6 +1,6 @@
 ---
-title: O Azure Active Directory - FAQ | Documentos da Microsoft
-description: Saiba mais comuns de perguntas e respostas sobre o Azure e Azure Active Directory, gestão de palavra-passe e acesso da aplicação.
+title: Perguntas mais frequentes sobre (FAQ) - Azure Active Directory | Documentos da Microsoft
+description: Perguntas e respostas sobre o Azure e Azure Active Directory, gestão de palavra-passe e acesso a aplicações comuns.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: a3571ff24c36b7f2129f60348414d4d178ef30d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621756"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084099"
 ---
-# <a name="azure-active-directory-faq"></a>FAQ do Azure Active Directory
+# <a name="frequently-asked-questions-about-azure-active-directory"></a>Perguntas mais frequentes sobre o Azure Active Directory
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
 
 Para obter mais informações, consulte [What is Azure Active Directory? (O que é o Azure Active Directory?)](active-directory-whatis.md).

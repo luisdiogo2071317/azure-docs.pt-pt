@@ -3,7 +3,7 @@ title: Introdução às tarefas de bases de dados elásticas | Documentos da Mic
 description: Utilize tarefas de bases de dados elásticas para executar scripts T-SQL que abrangem várias bases de dados.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,27 +12,27 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: ada95f9fc09aeb7e8dac67bc5f9c4af96f9700df
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241366"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863538"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introdução às tarefas de bases de dados elásticas
 
-
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
 
 Tarefas de base de dados elástica (pré-visualização) para a base de dados do Azure SQL permite que execute com fiabilidade scripts T-SQL que abrangem várias bases de dados ao repetir automaticamente e o fornecimento de garantias de sua eventual conclusão. Para obter mais informações sobre a funcionalidade de trabalho de bases de dados elásticas, consulte [tarefas elásticas](sql-database-elastic-jobs-overview.md).
 
 Este artigo estende a amostra encontrada na [introdução às ferramentas de bases de dados elásticas](sql-database-elastic-scale-get-started.md). Quando concluído, irá aprender a criar e gerir tarefas que gerem um grupo de bases de dados relacionados. Não é necessário utilizar as ferramentas de escala elástica para tirar o máximo partido dos benefícios das tarefas elásticas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Transferir e executar o [introdução ao exemplo de ferramentas de bases de dados elásticas](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Criar uma partição horizontal Gestor de mapas de utilizar a aplicação de exemplo
+
 Aqui é criar um mapa de partições horizontais manager juntamente com vários fragmentos, seguido de inserção de dados em partições horizontais. Se já tiver partições horizontais que configurar com dados em partição horizontal nos mesmos, pode ignorar os passos seguintes e mover para a secção seguinte.
 
 1. Criar e executar o **introdução às ferramentas de bases de dados elásticas** aplicação de exemplo. Siga os passos até o passo 7 na secção [transferir e executar a aplicação de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). No final do 7 passo, verá a seguinte linha de comandos:
@@ -48,8 +48,9 @@ Aqui é criar um mapa de partições horizontais manager juntamente com vários 
 
 Aqui estamos normalmente criaria um mapa de partições horizontais de destino, utilizando o **New-AzureSqlJobTarget** cmdlet. A base de dados de Gestor de mapas de partições horizontais tem de ser definido como um destino de base de dados e, em seguida, o mapa de partições horizontais específico é especificado como destino. Em vez disso, vamos enumerar todas as bases de dados no servidor e adicionar as bases de dados para a nova coleção personalizada, com exceção de base de dados mestra.
 
-## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Cria uma coleção personalizada e adicionar todas as bases de dados no servidor para o destino de coleção personalizada com a exceção principal.
-   ```
+## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Cria uma coleção personalizada e adicionar todas as bases de dados no servidor para o destino de coleção personalizada com a exceção principal
+
+   ```Powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -301,23 +302,25 @@ Atualize a política de execução desejado para atualizar:
    ```
 
 ## <a name="cancel-a-job"></a>Cancelar uma tarefa
+
 Tarefas elásticas da base de dados oferece suporte a solicitações de cancelamento de tarefas.  Se as tarefas de base de dados elásticas detectar uma solicitação de cancelamento de uma tarefa atualmente a ser executada, tenta parar a tarefa.
 
 Existem duas formas diferentes, que as tarefas elásticas da base de dados pode efetuar um cancelamento:
 
 1. A cancelar a execução no momento tarefas: se um cancelamento é detetado enquanto uma tarefa está atualmente em execução, um cancelamento for tentado no aspecto atualmente em execução da tarefa.  Por exemplo: se houver uma consulta de execução longa atualmente a ser realizada quando um cancelamento é tentado, há uma tentativa de cancelar a consulta.
-2. Cancelamento de tarefa de repetições: Se um cancelamento é detetado pelo thread controlo antes de uma tarefa é iniciada para execução, o thread de controle evita a iniciar a tarefa e declarar o pedido como canceladas.
+2. Cancelamento de tarefa de repetições: Se um cancelamento é detetado pelo thread controlo antes de uma tarefa é iniciada para execução, o thread de controle evita a iniciar a tarefa e declara o pedido como canceladas.
 
 Se é pedido um cancelamento de tarefa para uma tarefa principal, a solicitação de cancelamento é honrada para a tarefa principal e para todas as tarefas de subordinado.
 
 Para submeter um pedido de cancelamento, utilize o **Stop-AzureSqlJobExecution** cmdlet e defina a **JobExecutionId** parâmetro.
 
-   ```
+   ```Powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Eliminar uma tarefa por nome e o histórico da tarefa
+
 Tarefas elásticas da base de dados suporta a eliminação assíncrona de tarefas. Uma tarefa pode ser marcada para eliminação e o sistema elimina a tarefa e o respetivo histórico de tarefas depois de concluíram todas as execuções de tarefas para a tarefa. O sistema não cancela automaticamente as execuções de tarefas do Active Directory.  
 
 Em vez disso, Stop-AzureSqlJobExecution tem de ser invocado para cancelar as execuções de tarefas do Active Directory.

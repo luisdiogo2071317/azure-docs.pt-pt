@@ -1,21 +1,19 @@
 ---
-title: Suporte de funcionalidades do Azure Cosmos DB para MongoDB | Microsoft Docs
+title: Suporte de funcionalidades do Azure Cosmos DB para o MongoDB
 description: Saiba mais sobre o suporte de funcionalidades que a API do Azure Cosmos DB MongoDB presta para MongoDB 3.4.
 services: cosmos-db
 author: alekseys
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: d9616f87e76231c3bb587c2018572b7526b471a5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 01e8af08ff5059867cc49cb9d55ae92f2ae21cdc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050345"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879678"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Suporte de API do MongoDB para a sintaxe e funcionalidades do MongoDB
 
@@ -334,7 +332,7 @@ Determinadas APIs do MongoDB suportam uma [Preocupação Escrita](https://docs.m
 
 O Azure Cosmos DB suporta a fragmentação automática do lado do servidor. O Azure Cosmos DB não suporta comandos de fragmentação manuais.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [utilizar Studio 3T](mongodb-mongochef.md) com uma API para base de dados do MongoDB.
 - Saiba como [utilizar Robo 3T](mongodb-robomongo.md) com uma API para base de dados do MongoDB.

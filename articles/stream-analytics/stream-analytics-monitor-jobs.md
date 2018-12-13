@@ -1,6 +1,6 @@
 ---
 title: Monitorizar e gerir tarefas do Azure Stream Analytics através de programação
-description: Este artigo descreve como monitorizar programaticamente tarefas do Stream Analytics criadas através de REST APIs, o SDK do Azure ou o PowerShell.
+description: Este artigo descreve como monitorizar através de programação de tarefas do Stream Analytics criadas através de REST APIs, o SDK do Azure ou o PowerShell.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -9,38 +9,38 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 2688f148185b1c1523178d190a7a2a76e6ceabef
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fac56117c4c70e2735580abb52d05e008d660003
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30908790"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089423"
 ---
-# <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Programaticamente criar um monitor de tarefa do Stream Analytics
+# <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Criar programaticamente um monitor de tarefa do Stream Analytics
 
-Este artigo demonstra como ativar a monitorização de uma tarefa de Stream Analytics. Tarefas do Stream Analytics que são criadas através de REST APIs, o SDK do Azure ou o PowerShell não dispõe de monitorização ativada por predefinição. Poderá ativar manualmente-la no portal do Azure ao aceder à página de Monitor da tarefa e clicar no botão Ativar ou pode automatizar este processo, seguindo os passos neste artigo. Os dados de monitorização serão apresentada na área de métricas do portal do Azure para a tarefa de Stream Analytics.
+Este artigo demonstra como ativar a monitorização de uma tarefa do Stream Analytics. As tarefas do Stream Analytics que são criadas através de REST APIs, o SDK do Azure ou o PowerShell não têm monitorização ativada por predefinição. Pode ativá-lo manualmente no portal do Azure ao aceder à página de Monitor da tarefa e clicar no botão Ativar ou pode automatizar esse processo ao seguir os passos neste artigo. Os dados de monitorização serão apresentados na área de métricas do portal do Azure para a sua tarefa do Stream Analytics.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este processo, tem de ter o seguinte:
 
 * Visual Studio 2017 ou 2015
-* [O SDK .NET do Azure](https://azure.microsoft.com/downloads/) transferido e instalado
-* Uma tarefa do Stream Analytics existente que tem de ter a monitorização ativada
+* [Azure SDK de .NET](https://azure.microsoft.com/downloads/) baixado e instalado
+* Uma tarefa de Stream Analytics existente, que tem de ter monitorização ativada
 
 ## <a name="create-a-project"></a>Criar um projeto
 
 1. Crie uma aplicação de consola do Visual Studio c# .NET.
-2. Na consola do Gestor de pacotes, execute os seguintes comandos para instalar os pacotes NuGet. A primeira é o SDK .NET da Azure Stream Analytics Management. Segunda é o SDK de Monitor do Azure que será utilizado para ativar a monitorização. O cliente do Azure Active Directory que será utilizado para a autenticação é o último.
+2. Na consola do Gestor de pacotes, execute os seguintes comandos para instalar os pacotes de NuGet. A primeira é o SDK de .NET de gestão do Azure Stream Analytics. A segunda é o SDK de Monitor do Azure que será utilizado para ativar a monitorização. O último é o cliente do Azure Active Directory que será utilizado para autenticação.
    
-   ```
+   ```powershell
    Install-Package Microsoft.Azure.Management.StreamAnalytics
    Install-Package Microsoft.Azure.Insights -Pre
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
    ```
 3. Adicione a seguinte secção appSettings ao ficheiro App. config.
    
-   ```
+   ```csharp
    <appSettings>
      <!--CSM Prod related values-->
      <add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
@@ -55,14 +55,14 @@ Antes de começar este processo, tem de ter o seguinte:
      <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
    </appSettings>
    ```
-   Substitua os valores para *SubscriptionId* e *ActiveDirectoryTenantId* com os IDs de subscrição e de inquilino do Azure. Pode obter estes valores, executando o seguinte cmdlet do PowerShell:
+   Substituir valores para *SubscriptionId* e *ActiveDirectoryTenantId* com os seus IDs de subscrição e de inquilino do Azure. Pode obter estes valores, executando o seguinte cmdlet do PowerShell:
    
-   ```
+   ```powershell
    Get-AzureAccount
    ```
-4. Adicione as seguintes instruções de utilização para o ficheiro de origem (Program.cs) no projeto.
+4. Adicione as seguintes instruções "using" para o ficheiro de origem (Program.cs) no projeto.
    
-   ```
+   ```csharp
      using System;
      using System.Configuration;
      using System.Threading;
@@ -74,8 +74,9 @@ Antes de começar este processo, tem de ter o seguinte:
      using Microsoft.IdentityModel.Clients.ActiveDirectory;
    ```
 5. Adicione um método de programa auxiliar de autenticação.
-   
-     cadeia estática pública GetAuthorizationHeader()
+
+```csharp   
+     public static string GetAuthorizationHeader()
    
          {
              AuthenticationResult result = null;
@@ -111,11 +112,13 @@ Antes de começar este processo, tem de ter o seguinte:
    
              throw new InvalidOperationException("Failed to acquire token");
      }
+```
 
-## <a name="create-management-clients"></a>Criar os clientes de gestão
+## <a name="create-management-clients"></a>Criar clientes de gestão
 
-O seguinte código irá configurar as variáveis necessárias e os clientes de gestão.
+O código a seguir configurar os clientes de gestão e as variáveis necessárias.
 
+```csharp
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
 
@@ -133,22 +136,23 @@ O seguinte código irá configurar as variáveis necessárias e os clientes de g
     StreamAnalyticsManagementClient(aadTokenCredentials, resourceManagerUri);
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
+```
 
-## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Ativar a monitorização para uma tarefa de Stream Analytics existente
+## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Ative a monitorização para uma tarefa do Stream Analytics existente
 
-O código seguinte ativa a monitorização para um **existente** tarefa do Stream Analytics. A primeira parte do código efetua um pedido GET contra o serviço de Stream Analytics para obter informações sobre a tarefa de Stream Analytics específica. Utiliza o *Id* propriedade (obtida no pedido GET) como um parâmetro para o método Put na segunda metade do código, o que envia uma PUT o pedido para o serviço de informações para ativar a monitorização para a tarefa de Stream Analytics.
+O código a seguir ativa a monitorização para um **existente** tarefa do Stream Analytics. A primeira parte do código realiza um pedido GET para o serviço do Stream Analytics para obter informações sobre a tarefa de Stream Analytics específica. Ele usa o *Id* propriedade (obtida a partir do pedido de obtenção) como um parâmetro para o método Put na segunda metade do código, que envia um PUT do pedido para o serviço de informações para ativar a monitorização para a tarefa do Stream Analytics.
 
 >[!WARNING]
->Se ativou anteriormente monitorização para uma tarefa de Stream Analytics diferente, através do portal do Azure ou através de programação através de abaixo código, **, recomendamos que forneça o mesmo nome de conta de armazenamento que utilizou quando anteriormente Ativar a monitorização.**
+>Se ativou anteriormente para uma tarefa de Stream Analytics diferente, através do portal do Azure ou através de programação através de monitorização a abaixo o código, **, recomendamos que forneça o mesmo nome de conta de armazenamento que utilizou quando anteriormente Ativar a monitorização.**
 > 
-> A conta de armazenamento está ligada à região que criou a tarefa de Stream Analytics, não especificamente para a tarefa propriamente dito.
+> A conta de armazenamento está ligada à região que criou a tarefa de Stream Analytics, não especificamente para o trabalho propriamente dito.
 > 
-> Todos os Stream Analytics tarefas (e todos os outros recursos do Azure) nessa mesma região partilharem esta conta de armazenamento para armazenar dados de monitorização. Se fornecer uma conta de armazenamento diferente, pode provocar indesejados efeitos secundários na monitorização do seu outras tarefas do Stream Analytics ou outros recursos do Azure.
+> Análise de Stream todas as tarefas (e todos os outros recursos do Azure) nessa mesma região partilharem esta conta de armazenamento para armazenar dados de monitorização. Se fornecer uma conta de armazenamento diferentes, ele poderá causar efeitos colaterais indesejados na monitorização de suas outras tarefas do Stream Analytics ou outros recursos do Azure.
 > 
-> O nome da conta de armazenamento que utilizar para substituir `<YOUR STORAGE ACCOUNT NAME>` no seguinte código deve ser uma conta de armazenamento que está na mesma subscrição que a tarefa de Stream Analytics que pretende ativar a monitorização.
+> O nome da conta de armazenamento que utilizar para substituir `<YOUR STORAGE ACCOUNT NAME>` no código a seguir deve ser uma conta de armazenamento que está na mesma subscrição que a tarefa de Stream Analytics que pretende ativar a monitorização para.
 > 
 > 
-
+```csharp
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
     {
@@ -165,12 +169,12 @@ O código seguinte ativa a monitorização para um **existente** tarefa do Strea
             }
     };
     insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
-
+```
 
 
 ## <a name="get-support"></a>Obter suporte
 
-Para obter mais assistência, experimente a nossa [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

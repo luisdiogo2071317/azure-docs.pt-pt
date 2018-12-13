@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 62c89861d784931b2a13297abac578010e0fea5f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 61ec9d0639f4bee950be69ee951492974ac95c64
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251074"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867482"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orquestrar a implementação do Azure DevTest Labs
 Este artigo fornece uma abordagem recomendada para implementação rápida e a implementação do Azure DevTest Labs. A imagem seguinte enfatiza o processo geral de como uma orientação prescritiva ao observar a flexibilidade para oferecer suporte a vários cenários e requisitos do setor.
@@ -46,7 +46,7 @@ Assim que estiver a topologia de rede no local, o laboratório de primeiro/pilot
 2. Determine as imagens de VM permitidas e os tamanhos para utilização com o laboratório. Decida se as imagens personalizadas podem ser carregadas para o Azure para utilização com o DevTest Labs.
 3. Proteger o acesso ao laboratório através da criação inicial funções Base acesso controles (RBAC) para o laboratório (os proprietários de laboratório e os utilizadores de laboratório). Recomendamos que utilize contas sincronizadas do Active Directory com o Azure Active Directory para a identidade com os laboratórios DevTest.
 4. Configure o DevTest Labs para utilizar políticas, tais como agendas, custos de gestão, VMs reclamáveis, imagens personalizadas ou fórmulas.
-5. Estabelece um repositório online, como o Git do VSTS.
+5. Estabelece um repositório online, como o Azure Repos/Git.
 6. Decida sobre a utilização de repositórios públicos ou privados ou combinação de ambos. Organize os modelos JSON para implementações e sustainment de longo prazo.
 7. Se for necessário, crie artefactos personalizados. Este passo é opcional. 
 

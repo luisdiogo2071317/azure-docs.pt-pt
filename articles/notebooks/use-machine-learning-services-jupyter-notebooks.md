@@ -1,5 +1,5 @@
 ---
-title: Utilizar o Azure Machine Learning Services em blocos de notas do Azure | Documentos da Microsoft
+title: Utilizar o Azure Machine Learning Services em blocos de notas do Azure
 description: Uma visão geral dos blocos de notas de exemplo do Azure Machine Learning Services que pode utilizar com blocos de notas do Azure.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: fabd89f7591abafd68b318921fb7723f3eb7373d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: 1508ccc151aaafd7e0c0b46345c4dcb1a5b7b03c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856453"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083670"
 ---
 # <a name="use-azure-machine-learning-services-in-a-notebook"></a>Utilizar o Azure Machine Learning Services num bloco de notas
 
@@ -47,9 +47,9 @@ Blocos de notas do Azure está pré-configurada com o ambiente necessário para 
 
 A documentação do Azure Machine Learning Services contém uma variedade de outros recursos que guiá-lo a trabalhar com o serviço Machine Learning em blocos de notas:
 
-- [Início rápido: Utilizar o Python para começar a utilizar com o Azure Machine Learning](/azure/machine-learning/service/quickstart-create-workspace-with-python.md)
-- [Tutorial #1: Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning](/azure/machine-learning/service/tutorial-train-models-with-aml.md)
-- [Tutorial #2: Implementar um modelo de classificação de imagem na instância de contentor do Azure (ACI)](/azure/machine-learning/service/tutorial-deploy-models-with-aml.md)
-- [Tutorial: Preparar um modelo de classificação com aprendizagem automática no serviço Azure Machine Learning](/azure/machine-learning/service/tutorial-auto-train-models.md)
+- [Início rápido: Utilizar o Python para começar a utilizar com o Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [Tutorial #1: Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [Tutorial #2: Implementar um modelo de classificação de imagem na instância de contentor do Azure (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [Tutorial: Preparar um modelo de classificação com aprendizagem automática no serviço Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
-Também consulte a documentação para o [do Azure Machine Learning SDK para Python](/python/api/overview/azure/ml/intro.md?view=azure-ml-py).
+Também consulte a documentação para o [do Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

@@ -1,21 +1,20 @@
 ---
-title: API, SDK de .NET Standard e recursos de tabelas do Azure Cosmos DB | Documentos da Microsoft
+title: Azure Cosmos DB tabela API, SDK de .NET Standard & recursos
 description: Saiba tudo sobre a API de tabela do Azure Cosmos DB e o .NET SDK padrão, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão.
 services: cosmos-db
 author: donghexu
-manager: sudheerd
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: dox
-ms.openlocfilehash: 689a18ff690273229254a0d7e75187a26f1383de
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 38e8c0c16c51ee1885187263c9016c1411e4e95b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957323"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874061"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API do Azure Cosmos DB tabela .NET Standard: Transferir e notas de versão
 > [!div class="op_single_selector"]

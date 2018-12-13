@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/11/2018
-ms.openlocfilehash: 2b2dc3ba78cfa682c4a326754bdddfa9bc81f836
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: MT
+ms.openlocfilehash: 0098d532f09ca2fa7ef4434add90729a15809ac5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346774"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087461"
 ---
 # <a name="troubleshoot-input-connections"></a>Resolver problemas de ligações de entrada
 
@@ -35,7 +35,7 @@ Desserialização problemas causados quando o fluxo de entrada da sua tarefa do 
  
 Quando uma tarefa do Stream Analytics recebe uma mensagem incorretamente formada de entrada, ele ignora a mensagem e notifica-o com um aviso. Um símbolo de aviso é apresentado no **entradas** mosaico da sua tarefa do Stream Analytics. Este início de sessão de aviso existe, desde que a tarefa está no estado de execução:
 
-![Mosaico de entradas de Stream Analytics do Azure](media/stream-analytics-malformed-events/inputs_tile.png)
+![Mosaico de entradas de Stream Analytics do Azure](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Ative os registos de diagnóstico para ver os detalhes do aviso. Para eventos de entrada com formato incorreto, os registos de execução contém uma entrada com a mensagem que é semelhante a: 
 <code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
@@ -47,8 +47,8 @@ Pode realizar os passos seguintes para analisar os eventos de entrada em detalhe
 
 2. O mosaico de detalhes de entrada apresenta uma lista de avisos com detalhes sobre cada problema. A mensagem de aviso de exemplo abaixo inclui a partição, o deslocamento e a números de sequência em que há dados JSON com formato incorreto. 
 
-   ![Mensagem de aviso com o deslocamento](media/stream-analytics-malformed-events/warning_message_with_offset.png)
-
+   ![Mensagem de aviso com o deslocamento](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   
 3. Para encontrar os dados JSON com formato incorreto, execute o código de CheckMalformedEvents.cs disponível na [repositório de exemplos do GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Este código leituras o ID de partição, deslocamento e imprime os dados que estão localizados no deslocamento. 
 
 4. Depois de ler os dados, pode analisar e corrigir o formato de serialização.

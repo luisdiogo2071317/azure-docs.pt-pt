@@ -1,7 +1,7 @@
 ---
-title: Guia de Início Rápido da linguagem Go – alterar o modelo e preparar a aplicação LUIS
-description: Neste guia de início rápido da linguagem Go, adicione expressões de exemplo a uma aplicação de Automatização Doméstica e prepare a aplicação. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Alteração, a aplicação de comboio, Go
+description: Neste guia de início rápido da linguagem Go, adicione expressões de exemplo a uma aplicação de Automatização Doméstica e prepare a aplicação.
+titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: cgronlun
 ms.custom: seodec18
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 092771ed4ce2ebbe134ea5c39e23294555124c19
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e3fb6b2532f2dc99a48cc3c2eac9029367c52185
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013667"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100298"
 ---
 # <a name="quickstart-change-model-using-go"></a>Início rápido: Alterar o modelo com Go
 
@@ -69,7 +69,7 @@ Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha 
 
 2. Execute a aplicação do Go a partir da linha de comandos ao introduzir o seguinte texto na linha de comandos: 
 
-    ```CMD
+    ```console
     add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region westus -utteranceFile utterances.json
 
     ```
@@ -78,7 +78,7 @@ Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha 
 
     Esta linha de comandos apresenta os resultados:
 
-    ```CMD
+    ```console
     add example utterances requested
     [
         {

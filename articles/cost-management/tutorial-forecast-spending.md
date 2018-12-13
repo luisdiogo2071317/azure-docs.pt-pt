@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 37a2515aee2609f0119475a0865fc62b61b113cc
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2d83bab3686d274b9f37c0b0f7c92515801dbe70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001739"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086458"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Tutorial: prever despesas futuras
 
@@ -37,11 +37,11 @@ O Cloudyn inclui relatórios de projeção de custos para ajudar a prever despes
 
 O relatório de Custo Previsto do Mês Atual mostra os custos dos seus serviços. Utiliza os custos do início do mês e do mês anterior para mostrar o custo previsto. No menu de relatórios na parte superior do portal, clique em **Custos** > **Projeção e Orçamento** > **Custo Previsto do Mês Atual**. A imagem seguinte mostra um exemplo.
 
-![Custo previsto do mês atual](./media/tutorial-forecast-spending/project-month01.png)
+![Informações de exemplo mostradas no relatório de custo previsto do mês](./media/tutorial-forecast-spending/project-month01.png)
 
 No exemplo, pode ver quais os serviços que mais gastam. Os custos do Azure foram inferiores aos custos dos AWS. Se quer ver os detalhes da previsão de custos para VMs do Azure, na lista **Filtrar**, selecione **Azure/VM**.
 
-![Custo previsto do mês atual da VM do Azure](./media/tutorial-forecast-spending/project-month02.png)
+![Exemplo que mostra o custo do mês atual previsto de VM do Azure](./media/tutorial-forecast-spending/project-month02.png)
 
 Siga os mesmos passos básicos anteriores para ver as previsões do custo mensal para outros serviços em que está interessado.
 
@@ -49,11 +49,11 @@ O relatório do Custo Previsto Anual mostra o custo extrapolado dos seus serviç
 
 No menu de relatórios na parte superior do portal, clique em **Custos** > **Projeção e Orçamento** > **Custo Previsto Anual**. A imagem seguinte mostra um exemplo.
 
-![Relatório do custo previsto anual](./media/tutorial-forecast-spending/project-annual01.png)
+![Exemplo que mostra o relatório de custo previsto anual](./media/tutorial-forecast-spending/project-annual01.png)
 
 No exemplo, pode ver quais os serviços que mais gastam. Semelhante ao exemplo mensal, os custos do Azure foram inferiores aos custos do AWS. Se quer ver os detalhes da previsão de custos para VMs do Azure, na lista **Filtrar**, selecione **Azure/VM**.
 
-![Custo previsto anual das VMs](./media/tutorial-forecast-spending/project-annual02.png)
+![Exemplo que mostra o custo previsto anual das VMs](./media/tutorial-forecast-spending/project-annual02.png)
 
 Na imagem acima, o custo previsto anual das VMs do Azure é de $ 28.374.
 

@@ -3,7 +3,7 @@ title: Recuperação após desastre de base de dados SQL | Documentos da Microso
 description: Saiba como recuperar uma base de dados a partir de uma falha do regional datacenter ou a falha com a base de dados do Azure SQL georreplicação ativa e o georrestauro capacidades.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: f04b17ec052e4d55ccb39c803b2d690589cb27d2
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
-ms.translationtype: MT
+ms.openlocfilehash: 571ed2b69f078e00ceba44d1526e1783c7602535
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161680"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876734"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar uma base de dados do Azure SQL ou a ativação pós-falha para uma secundária
 Base de dados SQL do Azure oferece as seguintes funcionalidades para recuperar a partir de uma falha:

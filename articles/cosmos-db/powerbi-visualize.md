@@ -1,21 +1,19 @@
 ---
-title: Tutorial de BI de energia para o conector do Azure Cosmos DB | Documentos da Microsoft
+title: Tutorial de BI de energia para o conector do Azure Cosmos DB
 description: Utilize este tutorial de Power BI para importar o JSON, criar relatórios criteriosos e visualizar dados utilizando o conector do Azure Cosmos DB e o Power BI.
 keywords: Power bi tutorial, visualize os dados, o conector do power bi
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 5f75ada1d37f6bd5cb2d870dd5169de7a4844eb3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622096"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869059"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar dados do Azure Cosmos DB ao utilizar o conector do Power BI
 

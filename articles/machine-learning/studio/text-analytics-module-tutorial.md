@@ -1,10 +1,10 @@
 ---
-title: Criar modelos de análise de texto no Azure Machine Learning Studio | Documentos da Microsoft
+title: Criar texto modelos de análise - Azure Machine Learning Studio | Documentos da Microsoft
 description: Como criar modelos de análise de texto no Azure Machine Learning Studio a utilização de módulos para o processamento prévio de texto, N-grams ou hashing de funcionalidade
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=roastala, author=rastala)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 manager: cgronlun
 editor: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 10b4f8a494a9effc04db731f05eeb010f4fb0b6a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: MT
+ms.openlocfilehash: ebb5fed079d674a0a8a590f7a955a2fe878807fd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262487"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090469"
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Criar modelos de análise de texto no Azure Machine Learning Studio
 Pode utilizar o Azure Machine Learning para criar e operacionalizar modelos de análise de texto. Esses modelos podem ajudá-lo a resolver, por exemplo, problemas de análise de classificação ou sentimentos do documento.

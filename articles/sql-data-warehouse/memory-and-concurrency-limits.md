@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ab90b4431a0f8d3a4ee70869e053174f89f23dba
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: fdc45f6f1fbbb4580b71a46740fa51278b869ec0
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785220"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889315"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limites de memória e simultaneidade para o Azure SQL Data Warehouse
 Ver os limites de memória e simultaneidade alocados para os vários níveis de desempenho e classes de recursos no Azure SQL Data Warehouse. Para obter mais informações e para aplicar estas capacidades ao seu plano de gestão da carga de trabalho, consulte [classes de recursos para a gestão da carga de trabalho](resource-classes-for-workload-management.md). 
@@ -27,10 +27,14 @@ As tabelas seguintes mostram a capacidade máxima para o armazém de dados em di
 
 ### <a name="gen2"></a>Ger2
 
-Geração 2 fornece 2,5 vezes mais memória por consulta do que a geração 1. Esta memória extra ajuda a geração 2 fornecer seu rápido desempenho.  Os níveis de desempenho para o intervalo de geração 2 de DW500c a DW30000c. 
+Geração 2 fornece 2,5 vezes mais memória por consulta do que a geração 1. Esta memória extra ajuda a geração 2 fornecer seu rápido desempenho.  Os níveis de desempenho para o intervalo de geração 2 de DW100c a DW30000c. 
 
 | Nível de desempenho | Nós de computação | Distribuições por nó de computação | Memória por armazém de dados (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW100c            | 1             | 60                             |    60                          |
+| DW200c            | 1             | 60                             |   120                          |
+| DW300c            | 1             | 60                             |   180                          |
+| DW400c            | 1             | 60                             |   240                          |
 | DW500c            | 1             | 60                             |   300                          |
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
@@ -76,6 +80,10 @@ A tabela seguinte mostra as consultas em simultâneo máximas e blocos de simult
 
 | Nível de Serviço | Consultas em simultâneo máximas | Ranhuras de simultaneidade disponíveis |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
+| DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
+| DW300c        | 12                         |   12                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
+| DW400c        | 16                         |   16                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW500c        | 20                         |   20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
@@ -92,7 +100,7 @@ A tabela seguinte mostra as consultas em simultâneo máximas e blocos de simult
 **Classes de dinâmica de recursos**
 
 > [!NOTE]
-> A classe de recursos de smallrc no ger2 adiciona dinamicamente memória à medida que o nível de serviço aumenta e só suporta um máximo e 32 consultas em simultâneo em DW1000c e 20 e DW500c.  Assim que a instância é dimensionada para além dos DW1500c, os blocos de simultaneidade e a memória usada pelo smallrc aumenta à medida que os aumentos de nível de serviço. 
+> A classe de recursos de smallrc no ger2 adiciona dinamicamente memória à medida que o nível de serviço aumenta e só suporta um máximo e 32 consultas em simultâneo em DW1000c e 4 e DW100c.  Assim que a instância é dimensionada para além dos DW1500c, os blocos de simultaneidade e a memória usada pelo smallrc aumenta à medida que os aumentos de nível de serviço. 
 >
 >
 
@@ -100,6 +108,10 @@ A tabela seguinte mostra as consultas em simultâneo máximas e blocos de simult
 
 | Nível de Serviço | Consultas em simultâneo máximas | Ranhuras de simultaneidade disponíveis | Ranhuras utilizadas pelo smallrc | Ranhuras utilizadas pelo mediumrc | Ranhuras utilizadas pelo largerc | Ranhuras utilizadas pelo xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
+| DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
+| DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
+| DW300c        | 12                         |   12                        | 1                     |  1                     |  2                    |   8                    |
+| DW400c        | 16                         |   16                        | 1                     |  1                     |  3                    |  11                    |
 | DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |

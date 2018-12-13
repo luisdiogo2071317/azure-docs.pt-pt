@@ -1,5 +1,5 @@
 ---
-title: A monitorização de ExpressRoute do Azure, métricas e alertas | Documentos da Microsoft
+title: Monitorização, métricas e alertas - ExpressRoute do Azure | Documentos da Microsoft
 description: Esta página fornece informações sobre a monitorização de ExpressRoute
 services: expressroute
 author: cherylmc
@@ -7,19 +7,20 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: 90735ac04c95ee3d270853c18eddebd3f11dd8c1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec18
+ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725968"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091769"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
 
-Este artigo ajuda-o a compreender a monitorização de ExpressRoute, métricas e alertas. Monitor do Azure é um meio único para todas as métricas, alertas, os registos de diagnóstico em todas as do Azure.
+Este artigo ajuda-o a compreender o ExpressRoute, monitorização, métricas e alertas com o Azure Monitor. Monitor do Azure é um meio único para todas as métricas, alertas, os registos de diagnóstico em todas as do Azure.
  
 >[!NOTE]
->Usando **métricas clássico** não é recomendado. 
+>Usando **métricas clássico** não é recomendado.
 >
 
 ## <a name="circuit-metrics"></a>Métricas de circuito

@@ -1,6 +1,6 @@
 ---
-title: 'Adicionar várias ligações do VPN gateway Site para Site a uma VNet: Portal do Azure: Resource Manager | Microsoft Docs'
-description: Adicione as ligações S2S de vários sites a um gateway VPN que tenha uma ligação existente
+title: 'Adicionar várias ligações de gateway Site para Site VPN a uma VNet: Portal do Azure: Resource Manager | Documentos da Microsoft'
+description: Adicionar as ligações de S2S de múltiplos sites a um gateway VPN que tenha uma ligação existente
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5830b3a4bdcd12c01626d9ff3f814d2e7612eaaa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a814834be3225764c3b6f237bd515ca087f975a7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29398615"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873126"
 ---
-# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Adicionar uma ligação Site a Site para uma VNet com uma ligação de gateway VPN existente
+# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Adicionar uma ligação Site a Site a uma VNet com uma ligação de gateway VPN existente
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
@@ -30,68 +30,68 @@ ms.locfileid: "29398615"
 >
 > 
 
-Este artigo ajuda-o a adicionar as ligações Site a Site (S2S) para um gateway VPN que tenha uma ligação existente utilizando o portal do Azure. Este tipo de ligação é frequentemente referido como um configuration "multilocal". Pode adicionar uma ligação S2S para uma VNet que já tem uma ligação S2S, a ligação de ponto a Site ou a ligação VNet a VNet. Existem algumas limitações ao adicionar as ligações. Verifique o [antes de começar](#before) secção neste artigo para verificar antes de iniciar a configuração. 
+Este artigo ajuda-o a adicionar ligações Site a Site (S2S) a um gateway VPN que tenha uma ligação existente utilizando o portal do Azure. Este tipo de ligação é frequentemente referido como uma configuração de "multilocal". Pode adicionar uma ligação S2S a uma VNet que já tenha uma ligação S2S, a ligação ponto a Site ou a ligação de VNet a VNet. Existem algumas limitações ao adicionar ligações. Verifique os [antes de começar](#before) secção deste artigo para verificar antes de iniciar a configuração. 
 
-Este artigo aplica-se a VNets do Resource Manager com um gateway de RouteBased VPN. Estes passos não se aplicam a configurações de ligação coexistentes ExpressRoute/Site a Site. Consulte [ligações coexistentes ExpressRoute/S2S](../expressroute/expressroute-howto-coexist-resource-manager.md) para obter informações sobre ligações coexistentes.
+Este artigo se aplica a VNets do Resource Manager que têm um gateway de RouteBased VPN. Estes passos não são aplicáveis a configurações de ligação coexistentes do ExpressRoute/Site para Site. Ver [ligações coexistentes do ExpressRoute/S2S](../expressroute/expressroute-howto-coexist-resource-manager.md) para obter informações sobre ligações coexistentes.
 
 ### <a name="deployment-models-and-methods"></a>Métodos e modelos de implementação
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Atualizamos esta tabela medida que novos artigos e ferramentas adicionais ficam disponíveis para esta configuração. Quando estiver disponível um artigo, criamos uma ligação direta desta tabela.
+Atualizamos esta tabela como novos artigos e ferramentas adicionais ficam disponíveis para esta configuração. Quando estiver disponível um artigo, vamos ligar diretamente a ele desta tabela.
 
 [!INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)]
 
 ## <a name="before"></a>Antes de começar
-Verifique os seguintes itens:
+Verifique se os seguintes itens:
 
-* Não estiver a criar uma ligação coexistentes ExpressRoute/S2S.
-* Tiver uma rede virtual que foi criada utilizando o modelo de implementação Resource Manager com uma ligação existente.
+* Não está a criar uma ligação de coexistentes do ExpressRoute/S2S.
+* Tem uma rede virtual que foi criada com o modelo de implementação do Resource Manager com uma ligação existente.
 * O gateway de rede virtual para a sua VNet é RouteBased. Se tiver um gateway de PolicyBased VPN, tem de eliminar o gateway de rede virtual e criar um novo gateway de VPN RouteBased.
-* Nenhum dos intervalos de endereços sobrepor-se para qualquer um das VNets que está a ligar nesta VNet.
-* Ter o dispositivo VPN compatível e alguém que consiga configurá-lo. Veja [Acerca dos Dispositivos VPN](vpn-gateway-about-vpn-devices.md). Se não estiver familiarizado com a configuração do dispositivo VPN ou com os intervalos de endereços IP localizados na configuração da rede no local, tem de se coordenar com alguém que consiga fornecer esses detalhes.
-* Tem um endereço IP público com acesso exterior para o dispositivo VPN. Este endereço IP não pode estar localizado atrás de um NAT.
+* Nenhum dos intervalos de endereços se sobreponha para qualquer uma das VNets a que está a ligar a esta VNet.
+* Tem o dispositivo VPN compatível e alguém que consiga configurá-lo. Veja [Acerca dos Dispositivos VPN](vpn-gateway-about-vpn-devices.md). Se não estiver familiarizado com a configuração do dispositivo VPN ou com os intervalos de endereços IP localizados na configuração da rede no local, tem de se coordenar com alguém que consiga fornecer esses detalhes.
+* Ter um endereço IP público com acesso exterior para o dispositivo VPN. Este endereço IP não pode estar localizado atrás de um NAT.
 
-## <a name="part1"></a>Parte 1 - configurar uma ligação
+## <a name="part1"></a>Parte 1: configurar uma ligação
 1. Num browser, navegue para o [Portal do Azure](http://portal.azure.com) e, se necessário, inicie sessão com a sua conta do Azure.
-2. Clique em **todos os recursos** e localize o **gateway de rede virtual** da lista de recursos e clique no mesmo.
-3. No **gateway de rede Virtual** página, clique em **ligações**.
+2. Clique em **todos os recursos** e localize seu **gateway de rede virtual** na lista de recursos e clique no mesmo.
+3. Sobre o **gateway de rede Virtual** página, clique em **ligações**.
    
     ![Página de Ligações](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Página de Ligações")<br>
-4. No **ligações** página, clique em **+ adicionar**.
+4. Sobre o **conexões** página, clique em **+ adicionar**.
    
-    ![Botão de ligação de adicionar](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "adicionar botão de ligação")<br>
-5. No **adicionar ligação** página, preencha os campos seguintes:
+    ![Adicionar botão de ligação](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "adicionar botão de ligação")<br>
+5. Sobre o **adicionar ligação** página, preencha os campos seguintes:
    
-   * **Nome:** o nome que pretende dar ao site que está a criar a ligação.
-   * **Tipo de ligação:** selecione **Site a site (IPsec)**.
+   * **Nome:** o nome que pretende dar ao site está a criar a ligação.
+   * **Tipo de ligação:** selecionar **Site-site (IPsec)**.
      
      ![Adicionar página de ligação](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Adicionar página de ligação")<br>
 
-## <a name="part2"></a>Parte 2 – Adicionar um gateway de rede local
-1. Clique em **gateway de rede Local** ***escolher um gateway de rede local***. Esta ação irá abrir o **escolher gateway de rede local** página.
+## <a name="part2"></a>Parte 2: adicionar um gateway de rede local
+1. Clique em **gateway de rede Local** ***escolher um gateway de rede local***. Esta ação abre o **gateway de rede local de escolha** página.
    
-    ![Gateway de rede local escolha](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "escolher gateway de rede local")<br>
-2. Clique em **criar nova** para abrir o **criar gateway de rede local** página.
+    ![Escolher gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "escolher gateway de rede local")<br>
+2. Clique em **criar novo** para abrir o **criar o gateway de rede local** página.
    
     ![Página de criação de gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "criar gateway de rede local")<br>
-3. No **criar gateway de rede local** página, preencha os campos seguintes:
+3. Sobre o **criar gateway de rede local** página, preencha os campos seguintes:
    
-   * **Nome:** o nome que pretende dar ao recurso de gateway da rede local.
-   * **Endereço IP:** o endereço IP público do dispositivo VPN no site que pretende ligar.
-   * **Espaço de endereços:** o espaço de endereços que pretende ser encaminhados para o novo site de rede local.
-4. Clique em **OK** no **criar gateway de rede local** página para guardar as alterações.
+   * **Nome:** o nome que pretende dar ao recurso de gateway de rede local.
+   * **Endereço IP:** o endereço IP público do dispositivo VPN no site que deseja se conectar.
+   * **Espaço de endereços:** o espaço de endereços que pretende ser encaminhado para o novo site de rede local.
+4. Clique em **OK** sobre o **criar o gateway de rede local** página para guardar as alterações.
 
 ## <a name="part3"></a>Parte 3 - adicionar a chave partilhada e criar a ligação
-1. No **adicionar ligação** página, adicione a chave partilhada que pretende utilizar para criar a ligação. Pode obter a chave partilhada do seu dispositivo VPN, ou aqui e, em seguida, configurar o dispositivo VPN para utilizar a mesma chave partilhada. O mais importante é que as chaves são iguais.
+1. Sobre o **adicionar ligação** página, adicione a chave partilhada que pretende utilizar para criar a ligação. Pode obter a chave partilhada do seu dispositivo VPN, ou criar uma aqui e, em seguida, configurar o dispositivo VPN para utilizar a mesma chave partilhada. O importante é que as chaves são exatamente os mesmos.
    
     ![Chave partilhada](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Chave partilhada")<br>
 2. Na parte inferior da página, clique em **OK** para criar a ligação.
 
-## <a name="part4"></a>Parte 4 - verificar a ligação VPN
+## <a name="part4"></a>Parte 4: verificar a ligação VPN
 
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Veja o [percurso de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) das máquinas virtuais para obter mais informações.
+Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Consulte a [percurso de aprendizagem de máquinas de virtuais](/learn/paths/deploy-a-website-with-azure-virtual-machines/) para obter mais informações.

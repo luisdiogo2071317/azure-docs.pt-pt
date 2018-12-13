@@ -3,7 +3,7 @@ title: Introdução às ferramentas de base de dados elásticas - Azure | Docume
 description: EXPLICAÇÃO básica da funcionalidade ferramentas de base de dados elásticas do SQL Database do Azure, incluindo uma aplicação de exemplo simples para executar.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: ''
 manager: craigg
 ms.date: 08/27/2018
-ms.openlocfilehash: ad07b0a9ae2d0c90f63d4f3a842a5d386ac4c59b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 13e9bb045bcce553ba9fdc344baa86ba96260387
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249868"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870236"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introdução às ferramentas de base de dados elásticas
 Este documento apresenta a a experiência do desenvolvedor para o [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-database-client-library.md) , ajudando a executar uma aplicação de exemplo. A aplicação de exemplo cria uma aplicação fragmentada simples e explora os principais capacidades da funcionalidade ferramentas de base de dados elásticas da base de dados do Azure SQL. Ele se concentra em casos de utilização [gestão de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md), [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md), e [consultas de vários fragmentos](sql-database-elastic-scale-multishard-querying.md). A biblioteca de clientes está disponível para .NET, bem como a Java. 

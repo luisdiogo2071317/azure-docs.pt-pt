@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 32198387be680fd01558e900e4c438cde2cdc5b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b2f106edf69b57410fd1990d0888cf9d3a71be56
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52267104"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880187"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Capacidades de transações comerciais do Azure Marketplace e considerações
 
@@ -177,8 +177,9 @@ Por exemplo, se o cliente compra com um cartão de crédito:
 |Data de cálculo de dividendos (mensalmente no dia de 15) | 1 de Outubro de 2018 |
 |Data de dividendos | 15 de Outubro de 2018 |
 
-Se o cliente compra com um contrato Enterprise:  
-|Descrição    |    Date  |
+Se o cliente compra com um contrato Enterprise:
+
+| Descrição |    Date  |
 |----------|----------|
 |Período de ordem | 15 de Agosto de 2018-30 de Agosto de 2018 |
 |Fim do termo (trimestre) | 30 de Setembro de 2018 |

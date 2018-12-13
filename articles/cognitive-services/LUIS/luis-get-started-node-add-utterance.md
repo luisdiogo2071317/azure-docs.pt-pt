@@ -1,21 +1,22 @@
 ---
-title: Guia de Início Rápido do Node.js – alterar o modelo e preparar a aplicação LUIS
+title: Alterar, preparar a aplicação, node. js
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido do Node.js, adicione expressões de exemplo a uma aplicação de Automatização de Casa e treine a aplicação. As expressões de exemplo são texto de utilizador de conversação mapeado para uma intenção. Ao conceder expressões de exemplo para intenções, ensina o LUIS sobre quais são os tipos de texto fornecido pelo utilizador que pertencem a que intenção.
+description: Neste início rápido do Node.js, adicione expressões de exemplo a uma aplicação de Automatização de Casa e treine a aplicação.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a487f44e164830928367d9f6ea737e793e38c0a8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 048579aa6d22144b9de8129042ab9fd2a36d4d00
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036155"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092693"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>Início rápido: Alterar o modelo com Node.js
 
@@ -78,7 +79,7 @@ Execute a aplicação a partir de uma linha de comandos com Node.js.
 
 Chamar `npm start`adiciona as expressões, treinos e obtém o estado do treino.
 
-```CMD
+```console
 > npm start 
 ```
 
@@ -91,6 +92,6 @@ Esta linha de comandos apresenta os resultados da chamada à API de expressões 
 
 Quando tiver terminado o início rápido, remova todos os ficheiros criados neste início rápido. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"] 
 > [Criar uma aplicação LUIS programaticamente](luis-tutorial-node-import-utterances-csv.md)

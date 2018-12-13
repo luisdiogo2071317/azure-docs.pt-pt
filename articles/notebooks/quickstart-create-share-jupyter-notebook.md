@@ -1,5 +1,5 @@
 ---
-title: Criar e partilhar um bloco de notas do Jupyter no Azure | Documentos da Microsoft
+title: Criar e partilhar um bloco de notas do Jupyter no Azure
 description: Rapidamente criar e executar um bloco de notas do Jupyter nos blocos de notas do Azure, em seguida, partilhar o bloco de anotações com outras pessoas.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 9f7659dadb4c710169ec1e700d31e60cbc957ac1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 96eb6a823299521a071edc87b5bce95409405ffb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856297"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096278"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Início rápido: Criar e partilhar um bloco de notas
 
@@ -97,11 +97,11 @@ ms.locfileid: "52856297"
 
 ## <a name="share-the-notebook"></a>Partilhar o bloco de notas
 
-1. Para partilhar o seu bloco de notas, mude novamente para a página do projeto, se necessário, clique com o botão direito do ficheiros de bloco de notas, selecione **copiar ligação** (atalho de teclado: y) e cole o link para uma mensagem apropriada (e-mail, mensagens Instantâneas, etc.).
+Para partilhar o seu bloco de notas, mude novamente para a página do projeto, se necessário, clique com o botão direito do ficheiros de bloco de notas, selecione **copiar ligação** (atalho de teclado: y) e cole o link para uma mensagem apropriada (e-mail, mensagens Instantâneas, etc.).
 
-    Na página do projeto, também pode utilizar o **partilha** código de incorporação de menu para obter uma ligação, crie uma mensagem de e-mail com a ligação ou obter o HTML e Markdown:
+Na página do projeto, também pode utilizar o **partilha** código de incorporação de menu para obter uma ligação, crie uma mensagem de e-mail com a ligação ou obter o HTML e Markdown:
 
-    ![Comando de partilha do projeto](media/quickstarts/share-project-command.png)
+![Comando de partilha do projeto](media/quickstarts/share-project-command.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

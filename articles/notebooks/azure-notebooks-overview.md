@@ -1,6 +1,6 @@
 ---
-title: Descrição geral dos blocos de notas do Azure | Documentos da Microsoft
-description: Execute blocos de notas do Jupyter na cloud com o serviço gratuito de blocos de notas do Azure.
+title: Descrição geral dos blocos de notas do Azure
+description: Execute blocos de notas do Jupyter na cloud com o serviço de blocos de notas do Azure gratuito, onde não é necessária nenhuma configuração ou a configuração.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a84f71c2656c73867ee076d4b993026558a0a504
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 92cfdea12dc51884ea04ed894a79ded7f532d88b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853125"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085404"
 ---
 # <a name="overview-of-azure-notebooks"></a>Descrição geral dos blocos de notas do Azure
 
-Blocos de notas do Azure é um serviço hospedado gratuito para desenvolver e executar blocos de notas do Jupyter na cloud sem instalação. [Jupyter](http://jupyter.org/) (anteriormente denominado IPython) é um projeto de código-fonte aberto que lhe permite facilmente combinar o texto de Markdown, código executável, dados persistentes, gráficos e visualizações para uma tela partilháveis única, o *bloco de notas* (imagem cortesia jupyter.org):
+O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação. [Jupyter](https://jupyter.org/) (anteriormente denominado IPython) é um projeto de código-fonte aberto que lhe permite facilmente combinar o texto de Markdown, código executável, dados persistentes, gráficos e visualizações para uma tela partilháveis única, o *bloco de notas* (imagem cortesia jupyter.org):
 
-[![](http://jupyter.org/assets/jupyterpreview.png "Blocos de notas do Jupyter")](http://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![](https://jupyter.org/assets/jupyterpreview.png "Blocos de notas do Jupyter")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Devido a esta poderosa combinação de código, gráficos e texto explicativo, Jupyter tornou conhecido por muitos usos, incluindo instruções de ciência de dados, limpeza de dados e transformação, simulação numérica, modelação estatística e o desenvolvimento de modelos de Machine learning.
 
@@ -51,7 +51,7 @@ Como blocos de notas do Azure é um código geral de criação, execução e a p
 Em resumo, blocos de notas do Azure ajuda-o a realizar seu trabalho com mais eficiência e, portanto, obter muito mais.
 
 > [!Note]
-> Obter mais informações sobre o Jupyter em si podem ser encontradas no [jupyter.org](http://jupyter.org/) e, no [Jupyter documentação](http://jupyter-notebook.readthedocs.io/en/latest/).
+> Obter mais informações sobre o Jupyter em si podem ser encontradas no [jupyter.org](https://jupyter.org/) e, no [Jupyter documentação](https://jupyter-notebook.readthedocs.io/en/latest/).
 
 ## <a name="pricing-and-quotas"></a>Preços e quotas
 

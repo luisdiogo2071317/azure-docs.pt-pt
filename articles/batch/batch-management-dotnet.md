@@ -16,12 +16,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 65f8eb0752a181eda312515e557bb733c091e2e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fd511a8a9d17bf79f1237bbfe2dc2ddbc5ec1b2e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505395"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867431"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Gerir contas do Batch e quotas com a biblioteca de cliente de gestão do Batch para .NET
 
@@ -153,7 +153,7 @@ A biblioteca de gestão de lotes .NET é um cliente do fornecedor de recursos do
 
 ## <a name="sample-project-on-github"></a>Projeto de exemplo no GitHub
 
-Para ver a gestão de lotes .NET em ação, veja a [AccountManagment] [ acct_mgmt_sample] projeto de exemplo no GitHub. O aplicativo de exemplo AccountManagment demonstra as seguintes operações:
+Para ver a gestão de lotes .NET em ação, veja a [AccountManagement] [ acct_mgmt_sample] projeto de exemplo no GitHub. O aplicativo de exemplo de AccountManagement demonstra as seguintes operações:
 
 1. Adquirir um token de segurança do Azure AD utilizando [ADAL][aad_adal]. Se o utilizador não está já iniciou sessão, é-lhes pedido para as respetivas credenciais do Azure.
 2. Com o token de segurança obtido a partir do Azure AD, crie uma [SubscriptionClient] [ resman_subclient] a consulta do Azure para obter uma lista das subscrições associadas à conta. O usuário pode selecionar uma subscrição na lista se contiver mais de uma assinatura.

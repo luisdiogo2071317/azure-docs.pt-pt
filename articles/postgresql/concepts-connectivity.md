@@ -3,19 +3,19 @@ title: Manipulação de erros de conectividade transitória da base de dados do 
 description: Saiba como lidar com erros de conectividade transitória da base de dados do Azure para PostgreSQL.
 keywords: ligação do postgresql, cadeia de ligação, problemas de conectividade, erro transitório, erro de ligação
 services: postgresql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 0459c8ff31564adfbaa3e1735535cd24c3064663
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 021fad5e59e76444351711fb529c542d428af189
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51284981"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890065"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-postgresql"></a>Tratamento de erros de conectividade transitória da base de dados do Azure para PostgreSQL
 
@@ -49,4 +49,4 @@ Certifique-se testar a lógica de repetição. Por exemplo, tente executar o seu
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Resolver problemas de ligação à base de dados do Azure para PostgreSQL](howto-troubleshoot-common-connection-issues.md)
+* [Resolver problemas de ligação à Base de Dados do Azure para PostgreSQL](howto-troubleshoot-common-connection-issues.md)

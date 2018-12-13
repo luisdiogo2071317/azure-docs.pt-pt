@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: 29fe100821e5ad2d9d5d340a1178c19c60c6d821
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: fb0a67a9b3b556a85a2b28989fe15dfeea1f0d72
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995436"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099595"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 
@@ -27,11 +27,23 @@ Se precisar de utilizar a mesma ferramenta para trabalhar com todo o conteúdo q
 
 ## <a name="blob-storage-apis"></a>APIs de armazenamento de BLOBs
 
-APIs de armazenamento de blob ainda não estão disponíveis para contas de armazenamento Gen 2 do Azure Data Lake.
+APIs de armazenamento de blob ainda não estão disponíveis para contas de geração 2 de armazenamento do Azure Data Lake.
 
 Essas APIs estão desativadas para evitar problemas de acesso de dados acidentais que podem surgir como APIs de armazenamento de BLOBs não ainda são interoperáveis com APIs de geração 2 do Azure Data Lake.
 
-Discos não geridos da Máquina Virtual (VM) dependem essas APIs, portanto, se pretender ativar espaços de nomes hierárquicos numa conta de armazenamento, considere colocar os discos VM não geridos para uma conta de armazenamento que não tem espaços de nomes hierárquicos ativados.
+Se utilizou estas APIs para carregar os dados antes de eles foram desativados, e tem um requisito de produção para aceder a esses dados, em seguida, entre em contato com Support da Microsoft com as seguintes informações:
+
+* ID de subscrição (o GUID, não o nome do utilizador)
+
+* Nome de conta de armazenamento (s)
+
+* Se ativamente foi afetado em produção e em caso afirmativo, para as contas de armazenamento?
+
+* Mesmo que não são a ativamente afetados na produção, diga-nos se estes dados para ser copiado para outra conta de armazenamento por algum motivo são necessários e em caso afirmativo, por que?
+
+Nessas circunstâncias, podemos pode restaurar o acesso à API do Blob para um período de tempo limitado, de modo a que pode copiar esses dados para uma conta de armazenamento que não tem espaços de nomes hierárquicos ativados.
+
+Discos não geridos da Máquina Virtual (VM) dependem de APIs de armazenamento de BLOBs desativado, portanto, se pretender ativar espaços de nomes hierárquicos numa conta de armazenamento, considere colocar os discos VM não geridos para uma conta de armazenamento que não tem espaços de nomes hierárquicos ativados.
 
 ## <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
 

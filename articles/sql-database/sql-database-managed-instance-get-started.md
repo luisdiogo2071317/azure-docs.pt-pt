@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: 02a7a460799a098b6be10a52d6e1a1598b023454
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
+ms.openlocfilehash: d5be25abc634200e0c0afed6946b38fd163fb78e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839137"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890505"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início Rápido: Criar uma Instância Gerida de Base de Dados SQL do Azure
 
@@ -90,4 +90,4 @@ Depois da implementação ser concluída com êxito, reveja os recursos criados 
   - Para obter um guia de início rápido que mostre como ligar a uma Instância Gerida a partir de uma máquina virtual do Azure, veja [Configurar uma ligação de máquina virtual do Azure](sql-database-managed-instance-configure-vm.md).
   - Para um guia de início rápido que mostre como ligar a uma Instância Gerida a partir de um computador cliente no local através de uma ligação ponto a site, veja [Configurar uma ligação ponto a site](sql-database-managed-instance-configure-p2s.md).
 - Para restaurar uma base de dados do SQL Server existente do local para uma Instância Gerida, pode utilizar o [Azure Database Migration Service (DMS) para a migração](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados ou o [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados.
-- Para avançadas de monitorização de desempenho da base de dados de instância gerida com inteligência incorporada de resolução de problemas, consulte [SQL Database do Azure Monitor, através da análise de SQL do Azure](../log-analytics/log-analytics-azure-sql.md)
+- Para avançadas de monitorização de desempenho da base de dados de instância gerida com inteligência incorporada de resolução de problemas, consulte [SQL Database do Azure Monitor, através da análise de SQL do Azure](../azure-monitor/insights/azure-sql.md)

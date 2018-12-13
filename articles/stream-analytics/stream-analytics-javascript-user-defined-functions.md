@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
 ms.author: rodrigoa
-ms.openlocfilehash: 56ac08593d29a9003f5509f2be52f50fa250bd75
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431600"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088882"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics
  
@@ -58,7 +58,7 @@ Para criar uma função simples definida pelo utilizador do JavaScript sob uma t
 4.  No painel **Nova Função**, para **Tipo de Função**, selecione **JavaScript**. É apresentado um modelo de função predefinido no editor.
 5.  Para o **alias do UDF**, introduza **hex2Int** e altere a implementação da função da seguinte forma:
 
-    ```
+    ```javascript
     // Convert Hex value to integer.
     function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
@@ -73,7 +73,7 @@ Para criar uma função simples definida pelo utilizador do JavaScript sob uma t
 1. No editor de consulta, em **TOPOLOGIA DA TAREFA**, selecione **Consulta**.
 2.  Edite a consulta e, em seguida, chame a função definida pelo utilizador, da seguinte forma:
 
-    ```
+    ```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -129,14 +129,14 @@ Se tiver um passo de processamento de seguimento que utiliza uma saída da taref
 
 **Definição da função definida pelo utilizador do JavaScript:**
 
-```
+```javascript
 function main(x) {
 return JSON.stringify(x);
 }
 ```
 
 **Consulta de exemplo:**
-```
+```SQL
 SELECT
     DataString,
     DataValue,

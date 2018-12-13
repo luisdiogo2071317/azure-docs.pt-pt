@@ -1,7 +1,7 @@
 ---
-title: Sobre a conversão de voz em texto
+title: Sobre a conversão de voz em texto - serviços de voz
 titleSuffix: Azure Cognitive Services
-description: Uma descrição geral das funcionalidades de voz para a API de texto.
+description: A API de voz em texto converte os fluxos de áudio em texto que seu aplicativo pode exibir ou agir sobre como entrada. O serviço está disponível através do SDK e um ponto de extremidade RESTful.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: 041ec1c095ec604fed7906368ff266c1586df570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 050d395614fa4a08e6d0d0967200029e8fc36010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471344"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094717"
 ---
 # <a name="about-the-speech-to-text-api"></a>Sobre a conversão de voz em texto API
 

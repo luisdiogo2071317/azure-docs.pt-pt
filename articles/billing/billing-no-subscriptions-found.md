@@ -1,5 +1,5 @@
 ---
-title: Não foram encontradas subscrições erro quando tentarem iniciar sessão portal do Azure ou centro de contas do Azure | Documentos da Microsoft
+title: Não foram encontradas subscrições erro - início de sessão portal do Azure | Documentos da Microsoft
 description: Oferece a solução para um problema em que não foram encontradas subscrições erro ocorre quando iniciar sessão no portal do Azure ou centro de contas do Azure.
 services: ''
 documentationcenter: ''
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 584342b3dd223c45495db36ad49d83dece858137
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: cef34d4e22732c2d718daf7ce10c23b25ff4649d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581787"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081308"
 ---
-# <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Não foram encontradas subscrições erro no portal do Azure ou centro de contas do Azure
+# <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Não foram encontradas subscrições início de sessão no erro para o portal do Azure ou centro de contas do Azure
 
 Poderá receber uma mensagem de erro "Não foram encontradas subscrições" ao tentar iniciar sessão para o [portal do Azure](https://portal.azure.com/) ou o [Centro de contas do Azure](https://account.windowsazure.com/Subscriptions). Este artigo fornece uma solução para este problema.
 

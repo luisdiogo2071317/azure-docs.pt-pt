@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: c53016c6e8760f2fef15c73f460886c46ac8a58c
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: b5d64f374152cc537825bd49210c116deec87533
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679210"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870593"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de Azure Application Insights com o conector para o Microsoft Flow
 
@@ -124,7 +124,7 @@ Quando o fluxo é executado, os destinatários que especificou na lista de corre
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre a criação [consultas de análise](../log-analytics/query-language/get-started-queries.md).
+- Saiba mais sobre a criação [consultas de análise](../azure-monitor/log-query/get-started-queries.md).
 - Saiba mais sobre [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

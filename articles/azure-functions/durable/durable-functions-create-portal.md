@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: acbba991e6dcce56fad7f27c45f85214cc8fc707
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3381939e296009b0fd58366f7fff410ea01d1206
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642306"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864031"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Criar funções duráveis com o portal do Azure
 
@@ -34,7 +34,7 @@ Tem de ter uma aplicação de funções para alojar a execução de qualquer fun
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
-Por predefinição, a aplicação function app criada utiliza a versão 2.x do runtime das funções do Azure. A extensão de funções duráveis funciona em ambas as versões 1.x e 2.x do runtime das funções do Azure. No entanto, modelos só estão disponíveis quando versão 2.x do runtime.
+Por predefinição, a aplicação de funções criada utiliza a versão 2.x do runtime das funções do Azure. A extensão de funções duráveis funciona em ambas as versões 1.x e 2.x do runtime das funções do Azure. No entanto, modelos só estão disponíveis quando versão 2.x do runtime.
 
 ## <a name="create-an-orchestrator-function"></a>Criar uma função de orquestrador
 

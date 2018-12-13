@@ -12,29 +12,29 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 2e7ac70f0e59c50a87e59c8c50db2a0805f20095
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.date: 12/04/2018
+ms.openlocfilehash: b3342164aec49967e819c316827dca9a65f2674f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50911783"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098962"
 ---
-# <a name="quickstart-azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Início Rápido: Base de Dados SQL do Azure: utilize o SQL Server Management Studio para ligar e consultar dados
+# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Início rápido: Utilizar SQL Server Management Studio para ligar e consultar uma base de dados SQL do Azure
 
-O [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) é um ambiente integrado para gerir qualquer infraestrutura SQL, do SQL Server à Base de Dados SQL do Microsoft Windows. Este guia de introdução demonstra como utilizar o SSMS para ligar a uma base de dados SQL do Azure e, em seguida, utilizar as declarações de Transact-SQL para consultar, inserir, atualizar e eliminar dados na base de dados. 
+Pode usar [SQL Server Management Studio] [ ssms-install-latest-84g] (SSMS) para gerir qualquer infraestrutura SQL, do SQL Server à base de dados SQL para Microsoft Windows. Este guia de introdução mostra-lhe como utilizar o SSMS para ligar a uma base de dados SQL do Azure e, em seguida, executar declarações de Transact-SQL para consultar, inserir, atualizar e eliminar dados. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este início rápido o utiliza como ponto de partida os recursos criados num dos inícios rápidos seguintes:
+Para concluir este tutorial, precisa de:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-Este guia de início rápido também necessita que configure uma regra de firewall ao nível do servidor. Para ver um guia de início rápido que mostre como fazer isto, veja [Criar regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md).
+* Uma regra de firewall de ao nível do servidor configurada. Para obter mais informações, consulte [criar regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md).
 
 #### <a name="install-the-latest-ssms"></a>Instalar o SSMS mais recente
 
-Antes de começar, certifique-se de que instalou a versão mais recente do [SSMS][ssms-install-latest-84g]. 
+Antes de começar, certifique-se de que instalou a versão mais recente [SSMS][ssms-install-latest-84g]. 
 
 ## <a name="sql-server-connection-information"></a>Informações de ligação do servidor SQL
 
@@ -42,43 +42,44 @@ Antes de começar, certifique-se de que instalou a versão mais recente do [SSMS
 
 ## <a name="connect-to-your-database"></a>Ligar à base de dados
 
-Utilize o SQL Server Management Studio para estabelecer uma ligação ao servidor da Base de Dados SQL do Azure. 
+No SMSS, ligue ao seu servidor de base de dados do Azure SQL. 
 
 > [!IMPORTANT]
-> Um servidor lógico da Base de Dados SQL do Azure ouve na porta 1433. Se está a tentar ligar a um servidor lógico da Base de Dados SQL do Azure a partir de uma firewall empresarial, esta porta tem de estar aberta na firewall empresarial para se ligar com êxito.
+> Um servidor lógico da Base de Dados SQL do Azure ouve na porta 1433. Para ligar a um servidor lógico atrás de uma firewall empresarial, o firewall tem de ter esta porta abrir.
 >
 
-1. Abra o SQL Server Management Studio.
+1. Abra o SQL Server Management Studio. A caixa de diálogo **Ligar ao Servidor** é apresentada.
 
-2. Na caixa de dialogo **Ligar ao Servidor**, introduza as seguintes informações:
+2. Introduza as seguintes informações:
 
    | Definição      | Valor sugerido    | Descrição | 
    | ------------ | ------------------ | ----------- | 
-   | **Tipo de servidor** | Motor de base de dados | Este valor é preciso. |
-   | **Nome do servidor** | O nome de servidor completamente qualificado | O nome deve ser semelhante a: **mynewserver20170313.database.windows.net**. |
-   | **Autenticação** | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configurámos neste tutorial. |
-   | **Início de sessão** | A conta de administrador do servidor | Esta é a conta que especificou quando criou o servidor. |
-   | **Palavra-passe** | A palavra-passe da sua conta de administrador do servidor | Esta é a palavra-passe que especificou quando criou o servidor. |
+   | **Tipo de servidor** | Motor de base de dados | Valor obrigatório. |
+   | **Nome do servidor** | O nome de servidor completamente qualificado | Algo como: **mynewserver20170313.database.windows.net**. |
+   | **Autenticação** | Autenticação do SQL Server | Este tutorial utiliza a autenticação do SQL. |
+   | **Início de sessão** | ID de utilizador da conta de administrador de servidor | O ID de utilizador da conta de administrador de servidor utilizado para criar o servidor. |
+   | **Palavra-passe** | Senha de conta de administrador do servidor | A palavra-passe da conta de administrador de servidor utilizada para criar o servidor. |
    ||||
 
    ![ligar ao servidor](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Clique em **Opções** na caixa de diálogo **Ligar ao servidor**. Na secção **Ligar à base de dados**, introduza **mySampleDatabase** para ligar a esta base de dados.
+3. Selecione **opções** no **ligar ao servidor** caixa de diálogo. Na **ligar à base de dados** menu pendente, selecione **mySampleDatabase**.
 
    ![ligar à base de dados no servidor](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Clique em **Ligar**. A janela do Object Explorer é aberta no SSMS. 
+4. Selecione **Ligar**. É aberta a janela do Object Explorer. 
 
-   ![ligado ao servidor](./media/sql-database-connect-query-ssms/connected.png)  
+5. Para ver os objetos da base de dados, expanda **bases de dados** e, em seguida, expanda **mySampleDatabase**.
 
-5. No Object Explorer, expanda as **Bases de Dados** e, em seguida, expanda **mySampleDatabase**, para ver os objetos na base de dados de exemplo.
+   ![ver os objetos de base de dados](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="query-data"></a>Consultar dados
 
-Utilize o seguinte código para consultar os 20 melhores produtos por categoria com uma declaração Transact-SQL [SELECIONAR](https://msdn.microsoft.com/library/ms189499.aspx).
+Utilize o seguinte procedimento [SELECIONE](https://msdn.microsoft.com/library/ms189499.aspx) código Transact-SQL para consultar os 20 melhores produtos por categoria.
 
-1. No Object Explorer, clique com o botão direito do rato em **mySampleDatabase** e, em seguida, clique em **Nova Consulta**. É aberta uma janela de consulta em branco que está ligada à sua base de dados.
-2. Na janela da consulta, introduza a seguinte consulta:
+1. No Object Explorer, clique com botão direito **mySampleDatabase** e selecione **nova consulta**. É aberta uma janela de consulta em branco que está ligada à sua base de dados.
+
+1. Na janela da consulta, cole esta consulta SQL.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -87,15 +88,15 @@ Utilize o seguinte código para consultar os 20 melhores produtos por categoria 
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. Na barra de ferramentas, clique em **Executar** para obter dados das tabelas Produto e ProductCategory.
+3. Na barra de ferramentas, selecione **Execute** para obter dados a partir do `Product` e `ProductCategory` tabelas.
 
-    ![consulta](./media/sql-database-connect-query-ssms/query.png)
+    ![consulta para recuperar dados de 2 tabelas](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Inserir dados
 
-Utilize o seguinte código para inserir um novo produto na tabela SalesLT.Product com uma declaração Transact-SQL [INSERIR](https://msdn.microsoft.com/library/ms174335.aspx).
+Utilize o seguinte procedimento [inserir](https://msdn.microsoft.com/library/ms174335.aspx) código Transact-SQL para criar um novo produto no `SalesLT.Product` tabela.
 
-1. Na janela da consulta, substitua a consulta anterior pela seguinte consulta:
+1. Substitua a consulta anterior este.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -105,8 +106,7 @@ Utilize o seguinte código para inserir um novo produto na tabela SalesLT.Produc
            , [ProductCategoryID]
            , [StandardCost]
            , [ListPrice]
-           , [SellStartDate]
-           )
+           , [SellStartDate] )
      VALUES
            ('myNewProduct'
            ,123456789
@@ -117,15 +117,26 @@ Utilize o seguinte código para inserir um novo produto na tabela SalesLT.Produc
            ,GETDATE() );
    ```
 
-2. Na barra de ferramentas, clique em **Executar**, para inserir uma nova linha na tabela Produto.
+2. Selecione **Execute** para inserir uma nova linha na tabela Produto. O **mensagens** painel apresenta **(1 linhas afetadas)**.
 
-    <img src="./media/sql-database-connect-query-ssms/insert.png" alt="insert" style="width: 780px;" />
+## <a name="view-the-result"></a>Ver o resultado
 
-## <a name="update-data"></a>Atualizar dados
+1. Substitua a consulta anterior este.
 
-Utilize o seguinte código para atualizar o produto novo que foi adicionado anteriormente com uma declaração Transact-SQL [ATUALIZAR](https://msdn.microsoft.com/library/ms177523.aspx).
+   ```sql
+   SELECT * FROM [SalesLT].[Product] 
+   WHERE Name='myNewProduct' 
 
-1. Na janela da consulta, substitua a consulta anterior pela seguinte consulta:
+2. Select **Execute**. The following result appears. 
+
+   ![result](./media/sql-database-connect-query-ssms/result.png)
+
+ 
+## Update data
+
+Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify the new product you just added.
+
+1. Replace the previous query with this one.
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -133,28 +144,24 @@ Utilize o seguinte código para atualizar o produto novo que foi adicionado ante
    WHERE Name = 'myNewProduct';
    ```
 
-2. Na barra de ferramentas, clique em **Executar**, para atualizar a linha especificada na tabela Produto.
-
-    <img src="./media/sql-database-connect-query-ssms/update.png" alt="update" style="width: 780px;" />
+2. Selecione **Execute** para atualizar a linha especificada na tabela Produto. O **mensagens** painel apresenta **(1 linhas afetadas)**.
 
 ## <a name="delete-data"></a>Eliminar dados
 
-Utilize o seguinte código para eliminar o produto novo que foi adicionado anteriormente com uma declaração Transact-SQL [ELIMINAR](https://msdn.microsoft.com/library/ms189835.aspx).
+Utilize o seguinte procedimento [eliminar](https://msdn.microsoft.com/library/ms189835.aspx) código Transact-SQL para remover o produto novo que foi adicionado anteriormente.
 
-1. Na janela da consulta, substitua a consulta anterior pela seguinte consulta:
+1. Substitua a consulta anterior este.
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-2. Na barra de ferramentas, clique em **Executar**, para eliminar a linha especificada na tabela Produto.
+2. Selecione **Execute** para eliminar a linha especificada na tabela Produto. O **mensagens** painel apresenta **(1 linhas afetadas)**.
 
-    <img src="./media/sql-database-connect-query-ssms/delete.png" alt="delete" style="width: 780px;" />
+## <a name="next-steps"></a>Passos Seguintes
 
-## <a name="next-steps"></a>Passos seguintes
-
-- Para obter informações sobre o SSMS, consulte o artigo [Use SQL Server Management Studio (Utilizar o SQL Server Management Studio)](https://msdn.microsoft.com/library/ms174173.aspx).
+- Para obter informações sobre o SSMS, consulte [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - Para ligar e fazer consultas com o portal do Azure, veja [Ligar e fazer consultas com o editor de consultas SQL do portal do Azure](sql-database-connect-query-portal.md).
 - Para ligar e consultar com o Visual Studio Code, veja [Connect and query with Visual Studio Code (Ligar e consultar com o Visual Studio Code)](sql-database-connect-query-vscode.md).
 - Para ligar e consultar com .NET, consulte [Connect and query with .NET (Ligar e consultar com .NET)](sql-database-connect-query-dotnet.md).

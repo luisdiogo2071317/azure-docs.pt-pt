@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 12/06/2018
 ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: 2e36f52568d349aeecd47f90bf9431f096cc4fdc
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 70641084d2213b50803800a64000611d139facec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060711"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075782"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gerir o acesso a recursos com o controlo de acesso de Azure Stack Role-Based
 
@@ -91,9 +91,9 @@ Os passos seguintes descrevem como configurar permissões para um utilizador.
 1. Inicie sessão com uma conta que tenha permissões de proprietário do recurso que pretende gerir.
 2. Na navegação à esquerda, selecione **Grupos de recursos**.
 3. Escolha o nome do grupo de recursos que pretende definir permissões em.
-4. No painel de navegação do grupo de recursos, escolha **controlo de acesso (IAM)**. O **controlo de acesso** vista lista os itens que têm acesso ao grupo de recursos. Pode filtrar esses resultados e usar uma barra de menu para adicionar ou remover as permissões.
-5. Sobre o **controlo de acesso** menu barra, escolha **+ adicionar**.
-6. No **adicionar permissões**:
+4. No painel de navegação do grupo de recursos, escolha **controlo de acesso (IAM)**. O **atribuições de funções** vista lista os itens que têm acesso ao grupo de recursos. Pode filtrar e agrupar os resultados.
+5. Sobre o **controlo de acesso** menu barra, escolha **adicionar atribuição de função**.
+6. No **adicionar atribuição de função** painel:
 
    * Escolha a função que pretende atribuir a partir da **função** na lista pendente.
    * Escolha o recurso que pretende atribuir a partir da **atribuir acesso a** na lista pendente.

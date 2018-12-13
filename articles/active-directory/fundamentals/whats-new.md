@@ -1,6 +1,6 @@
 ---
-title: Novidades Notas de versão para o Azure AD | Documentos da Microsoft
-description: Saiba quais são as novidades no Azure Active Directory (Azure AD), por exemplo, as notas de versão mais recente, problemas conhecidos, correções de erros, funcionalidades preteridas e alterações futuras.
+title: Novidades Notas - Azure Active Directory de versão | Documentos da Microsoft
+description: Saiba o que há de novo no Azure Active Directory, como as notas de versão mais recente, problemas, correções de erros conhecidos de funcionalidade preterida e futuras alterações.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -14,12 +14,13 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dc4e421808ab0f79070224edea4b75f527affaf0
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: MT
+ms.custom: it-pro
+ms.openlocfilehash: 8ed51a5f61ca48434fd837449ecc2b6b8c3d74dc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426242"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083522"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 

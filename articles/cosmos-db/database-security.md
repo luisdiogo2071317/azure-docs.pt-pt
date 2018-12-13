@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: d88a82921e5baee06aacc09fafe274a8c56780c7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0ffd07269570b26b527286f1a0b5a57a6b5c6018
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972410"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093425"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Segurança de base de dados do Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Recomendamos a seguinte lista de verificação dos requisitos em que pretende co
 - Proteção física dos servidores nos centros de dados protegidos
 - Certificações
 
-E embora possa parecer óbvio, recentes [violações de base de dados em grande escala](http://thehackernews.com/2017/01/mongodb-database-security.html) lembre-na importância de simples, mas críticas dos seguintes requisitos:
+E embora possa parecer óbvio, recentes [violações de base de dados em grande escala](https://thehackernews.com/2017/01/mongodb-database-security.html) lembre-na importância de simples, mas críticas dos seguintes requisitos:
 - Patches em servidores que são mantidos atualizados
 - HTTPS por criptografia SSL/padrão
 - Contas administrativas com palavras-passe fortes

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: f8ef54393f3de00ae231c45c117e3a16a8d1aad1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7ebb9d683803a6c5a5a0fa25308b348eeea586c4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725612"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097901"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Métricas suportadas com o Azure Monitor no Azure Stack
 
@@ -26,7 +26,7 @@ ms.locfileid: "52725612"
 
 Pode recuperar as suas métricas do Azure monitor, no Azure Stack, no mesmo global Azure. Pode criar as suas medidas no portal, obtê-los a partir da API REST ou consultá-los com o PowerShell ou CLI.
 
-As tabelas seguintes listam as métricas disponíveis com o pipeline de métrico do Monitor do Azure no Azure Stack. Para consultar e aceder a estas métricas, precisará para o **2018-01-01** versão de api-version do perfil de API. Para obter mais informações sobre os perfis de API e o Azure Stack, veja [perfis de versão de API de gerir no Azure Stack](azure-stack-version-profiles.md).
+As tabelas seguintes listam as métricas disponíveis com o pipeline de métrico do Monitor do Azure no Azure Stack. Para consultar e aceder a estas métricas, terá de utilizar o **2018-01-01** versão de api-version do perfil de API. Para obter mais informações sobre os perfis de API e o Azure Stack, veja [perfis de versão de API de gerir no Azure Stack](azure-stack-version-profiles.md).
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 

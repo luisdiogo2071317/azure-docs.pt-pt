@@ -1,17 +1,18 @@
 ---
 title: Criar e personalizar planos de recuperação para a recuperação após desastre com o Azure Site Recovery | Documentos da Microsoft
 description: Saiba como criar e personalizar planos de recuperação para recuperação após desastre com o serviço Azure Site Recovery.
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: aed37195f352719f3363992e4cee1e339e6e6056
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 85e649f3065d7f8d601541bbac6e93f4b2a0dc85
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835595"
+ms.locfileid: "52878673"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Criar e personalizar planos de recuperação
 
@@ -42,7 +43,7 @@ Este artigo descreve como criar e personalizar um plano de recuperação no [do 
 
 ## <a name="add-a-group-to-a-plan"></a>Adicionar um grupo para um plano
 
-Criar grupos adicionais e adicionar máquinas para diferentes grupos, para que pode especificar um comportamento diferente numa base de grupo por grupo. Por exemplo, pode especificar quando as máquinas num grupo de devem iniciar após a ativação pós-falha ou especificar ações personalizadas por grupo.
+Criar grupos adicionais e adicionar máquinas para diferentes grupos, para que pode especificar um comportamento diferente numa base por grupo. Por exemplo, pode especificar quando as máquinas num grupo de devem iniciar após a ativação pós-falha ou especificar ações personalizadas por grupo.
 
 1. Na **planos de recuperação**, clique com o botão direito do plano > **personalizar**. Por predefinição, depois de criar um plano de todas as máquinas que adicionou à mesma estão localizados em default grupo 1.
 2. Clique em **+ grupo**. Por predefinição, um novo grupo esteja enumerado na ordem em que é adicionado. Pode ter até sete grupos.

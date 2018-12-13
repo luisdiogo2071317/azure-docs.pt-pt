@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 9f02c6779b3561f6eea57512ecb27dd2fd451d90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 20782679a4e73c029d6c83fd3bc57914b4d28691
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238153"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865051"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definir a estratégia de proteção de dados para a sua solução de identidade híbrida
 Nesta tarefa, vai definir a estratégia de proteção de dados para a sua solução de identidade híbrida cumprir os requisitos de negócios que definiu no:
@@ -92,7 +92,7 @@ Ao tirar partido da autenticação, autorização e funcionalidades de controlo 
 
 Gestão centralizada e totalmente a integração com outros diretórios
 
-O Azure Active Directory fornece início de sessão único a milhares de aplicações SaaS e aplicativos da web no local. Consulte a [lista de compatibilidades de Federação do Azure Active Directory: fornecedores de identidade de terceiros que podem ser utilizados para implementar o início de sessão único](https://msdn.microsoft.com/library/azure/jj679342.aspx) artigo para obter mais detalhes sobre o SSO de terceiros que foram testados pela Microsoft. Esta capacidade permite que a organização implementar uma variedade de cenários B2B enquanto mantém o controlo da gestão de identidades e acessos. No entanto, durante o B2B a criação de processo, é importante compreender o método de autenticação que é usado pelo parceiro e valide se este método é suportado pelo Azure. Atualmente, os métodos seguintes são suportados pelo Azure AD:
+O Azure Active Directory fornece início de sessão único a milhares de aplicações SaaS e aplicativos da web no local. Consulte a [lista de compatibilidades de Federação do Azure Active Directory: fornecedores de identidade de terceiros que podem ser utilizados para implementar o início de sessão único](how-to-connect-fed-compatibility.md) artigo para obter mais detalhes sobre o SSO de terceiros que foram testados pela Microsoft. Esta capacidade permite que a organização implementar uma variedade de cenários B2B enquanto mantém o controlo da gestão de identidades e acessos. No entanto, durante o B2B a criação de processo, é importante compreender o método de autenticação que é usado pelo parceiro e valide se este método é suportado pelo Azure. Atualmente, os métodos seguintes são suportados pelo Azure AD:
 
 * Security Assertion Markup Language (SAML)
 * OAuth

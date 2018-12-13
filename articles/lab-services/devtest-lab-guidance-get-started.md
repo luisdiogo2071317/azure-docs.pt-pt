@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1d00dbe23fbd724893ba2b964fc54a3ea9066dcb
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 87baef8ddb5b5d8fc979ba5afb9f9b13cb4fc2ef
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251070"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876541"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Introdução ao Azure DevTest Labs
 Depois de decidir explore o DevTest Labs, existem dois caminhos gerais para a frente – prova de conceito vs implementação aumentados. 
@@ -51,7 +51,7 @@ Criar e gerir ambientes de teste de uma empresa podem exigir um esforço signifi
 
 - Testadores podem testar a versão mais recente de seu aplicativo ao aprovisionar rapidamente ambientes Windows e Linux utilizando modelos e artefactos reutilizáveis.
 - Testadores podem aumentar verticalmente o seu teste ao aprovisionar vários agentes de teste de carga
-- Os administradores podem ligar-se o laboratório no VSTS para ativar cenários de DevOps
+- Os administradores podem ligar-se o laboratório para DevOps do Azure para ativar cenários de DevOps
 - Os administradores podem controlar os custos, assegurando que:
     - Os testadores não é possível obter as VMs de mais do que o necessário
     - As VMs são encerradas quando não está em utilização

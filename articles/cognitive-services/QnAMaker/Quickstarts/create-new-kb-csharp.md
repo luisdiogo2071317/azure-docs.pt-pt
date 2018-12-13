@@ -1,21 +1,22 @@
 ---
-title: 'Início Rápido: criar base de dados de conhecimento - REST, C# - Criador de FAQ'
-titlesuffix: Azure Cognitive Services
+title: Criar base de dados de conhecimento - REST,C#
+titlesuffix: QnA Maker- Azure Cognitive Services
 description: Este início rápido baseado em REST do C# descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no Dashboard do Azure da sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: 190a937a4239c08d844d271d2e1d8e858215a5c2
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: MT
+ms.openlocfilehash: ef950978d73659888e76fc89c0db14924f54b6f4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334964"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092619"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Início Rápido: criar uma base de dados de conhecimento no Criador de FAQ com o C#
 

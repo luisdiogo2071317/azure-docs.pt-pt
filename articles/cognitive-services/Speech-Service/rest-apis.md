@@ -1,5 +1,5 @@
 ---
-title: APIs REST do serviço de voz - serviço de voz
+title: APIs REST - serviços de voz dos serviços de voz
 titleSuffix: Azure Cognitive Services
 description: Saiba como utilizar as APIs de REST de voz em texto e texto para voz. Neste artigo, irá aprender sobre as opções de autorização, opções de consulta, como estruturar uma solicitação e receber uma resposta.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 5a3c160fcb550fc4f0c92145733aa993b95bd112
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584864"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089349"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST do serviço de voz
 

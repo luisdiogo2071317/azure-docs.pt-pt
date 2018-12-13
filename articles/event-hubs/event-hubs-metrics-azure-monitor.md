@@ -1,6 +1,6 @@
 ---
-title: Métricas de Hubs de eventos do Azure no Azure Monitor (pré-visualização) | Documentos da Microsoft
-description: Utilizar a monitorização do Azure para monitorizar os Hubs de eventos
+title: Métricas no Azure Monitor (pré-visualização) - Event Hubs do Azure | Documentos da Microsoft
+description: Este artigo fornece informações sobre como utilizar a monitorização do Azure para monitorizar os Hubs de eventos do Azure
 services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e01262d67b6d08cd1cb05a6375344a5087fffce3
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 27a9f2619801346660dfedbda3eefe57b41ad6ac
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012526"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094326"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Métricas de Hubs de eventos do Azure no Azure Monitor (pré-visualização)
 

@@ -8,12 +8,12 @@ author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: e2366a9fb127d134d2b15acb345f424d2f84b666
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b6831e9c6b679d2fd4fa585331213290d67068c2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842106"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084027"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementar uma arquitetura de lambda na plataforma do Azure 
 
@@ -34,7 +34,7 @@ Uma arquitetura de lambda é um genérico, dimensionável, e dados tolerante a f
 
 Origem: http://lambda-architecture.net/
 
-Os princípios básicos de uma arquitetura de lambda são descritos no diagrama anterior, de acordo [ https://lambda-architecture.net ](http://lambda-architecture.net/).
+Os princípios básicos de uma arquitetura de lambda são descritos no diagrama anterior, de acordo [ http://lambda-architecture.net ](http://lambda-architecture.net/).
 
  1. Todos os **dados** emitidos via push para *ambos* o *camada de lotes* e *camada de velocidade*.
  2. O **camada de lotes** tem um conjunto de dados mestre (imutável, só de acréscimo conjunto de dados não processados) e computa previamente as exibições do batch.
@@ -278,4 +278,4 @@ Se ainda não o fez, transfira o Spark para o conector do Azure Cosmos DB a part
 * [Demonstrações de feed de alterações](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
 * [Stream processamento de alterações com Feed de alterações do Azure Cosmos DB e do Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
 
-Pode também querer rever os [guia de conjuntos de dados, Apache Spark SQL e DataFrames](http://spark.apache.org/docs/latest/sql-programming-guide.html) e o [Apache Spark no Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artigo.
+Pode também querer rever os [guia de conjuntos de dados, Apache Spark SQL e DataFrames](https://spark.apache.org/docs/latest/sql-programming-guide.html) e o [Apache Spark no Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artigo.

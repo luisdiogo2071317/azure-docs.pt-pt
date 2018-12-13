@@ -1,19 +1,20 @@
 ---
-title: Saída de armazenamento (pré-visualização) de blob de padrões de caminho de DateTime personalizadas para o Azure Stream Analytics
-description: ''
+title: Padrões de caminho de DateTime para o Azure Stream Analytics blob de saída (pré-visualização)
+description: Este artigo descreve a funcionalidade de padrões de caminho personalizada DateTime de saída de armazenamento de BLOBs de tarefas do Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: da29c6bd8ddc1e2f62a78fb683df5e1784141722
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452569"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090794"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Saída de armazenamento (pré-visualização) de blob de padrões de caminho de DateTime personalizadas para o Azure Stream Analytics
 
@@ -61,7 +62,7 @@ Por exemplo, `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={d
 
 Saída personalizada elimina a necessidade de alterar tabelas e a adição manual de partições de dados de porta entre o Azure Stream Analytics e o Hive. Em vez disso, muitos pastas podem ser adicionadas automaticamente ao utilizar:
 
-```
+```SQL
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
@@ -75,9 +76,9 @@ Crie um sink de saída do blob com a seguinte configuração:
 
 O padrão de caminho completo é o seguinte:
 
-```
-year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}
-```
+
+`year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}`
+
 
 Quando iniciar a tarefa, uma estrutura de pastas com base no padrão de caminho é criada no contentor de blob. Pode desagregar para o nível do dia.
 

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
-ms.openlocfilehash: 81513819fd60dc088c2ed4a781562684c84e803a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: dec903d8557145701e06ddd588a58eb11fef96f5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415479"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879317"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar a partir da API de voz do Translator para o serviço de voz
 
@@ -45,7 +45,7 @@ Utilize este artigo para migrar as suas aplicações de API de voz do Microsoft 
 | Informações de temporização                                       | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                 |
 | ID de Correlação                                    | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Modelos de voz personalizada                              | : heavy_minus_sign:                                              | :heavy_check_mark:                 | O serviço de voz oferece modelos de voz personalizada que lhe permitem personalizar o reconhecimento de fala para vocabulário exclusivo da sua organização.                                                                                                                                           |
-| Modelos de tradução personalizados                         | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Subscrever a API de tradução de texto do Microsoft permite-lhe utilizar [Translator personalizado](https://www.microsoft.com/translator/business/customization/) (atualmente em pré-visualização) para utilizar os seus dados para traduções mais precisas.                                                 |
+| Modelos de tradução personalizados                         | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Subscrever a API de tradução de texto do Microsoft permite-lhe utilizar [Translator personalizado](https://www.microsoft.com/translator/business/customization/) para utilizar os seus dados para traduções mais precisas.                                                 |
 
 ## <a name="migration-strategies"></a>Estratégias de migração
 

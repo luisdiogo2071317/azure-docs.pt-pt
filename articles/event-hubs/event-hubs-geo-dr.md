@@ -1,5 +1,5 @@
 ---
-title: Recuperação de desastre geográfico dos Hubs de eventos do Azure | Documentos da Microsoft
+title: Recuperação após desastre geográfico - Event Hubs do Azure | Documentos da Microsoft
 description: Como usar regiões geográficas para ativação pós-falha e efetuar a recuperação de desastres nos Hubs de eventos do Azure
 services: event-hubs
 documentationcenter: ''
@@ -11,18 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 89ecfd93c22fe72fee3befd8d4a722eb41d816af
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 59eebc8389238af7180b94cb094f9528a21d26d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747176"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091351"
 ---
-# <a name="azure-event-hubs-geo-disaster-recovery"></a>Recuperação após desastre dos Hubs de eventos Geo do Azure
+# <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de eventos do Azure - recuperação após desastre geográfico 
 
-Quando todo regiões do Azure ou de centros de dados (se não [zonas de disponibilidade](../availability-zones/az-overview.md) servem) sofrer períodos de inatividade, é fundamental para processamento de dados continuar a funcionar numa região diferente ou datacenter. Como tal, *recuperação após desastre geográfico* e *georreplicação* são recursos importantes para todas as empresas. Os Hubs de eventos do Azure suporta a recuperação após desastre geográfico e georreplicação, ao nível do espaço de nomes. 
+Quando todo regiões do Azure ou de centros de dados (se não [zonas de disponibilidade](../availability-zones/az-overview.md) servem) sofrer períodos de inatividade, é fundamental para processamento de dados continuar a funcionar numa região diferente ou datacenter. Como tal, *recuperação após desastre geográfico* e *georreplicação* são recursos importantes para todas as empresas. Os Hubs de eventos do Azure suporta a recuperação após desastre geográfico e georreplicação, ao nível do espaço de nomes. 
 
 O recurso de recuperação após desastre geográfico é globalmente disponível para o SKU Standard de Hubs de eventos.
 
