@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: ''
-ms.openlocfilehash: 54fad2e830ae7ff1d07cc8f67e50d2b5bc4fe8a7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: MT
+ms.openlocfilehash: 67d4da0a57e38863cc73faab1e3ed8d4b271ceb3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096593"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864167"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API de tabela do Cosmos DB do Azure para Java: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "53096593"
 |   |   |
 |---|---|
 |**Transferência de SDK**|[Opções de download](https://github.com/azure/azure-storage-java#download)|
-|**Documentação da API**|[Documentação de referência da API de Java](https://azure.github.io/azure-storage-java/)|
+|**Documentação da API**|[Documentação de referência da API de Java](http://azure.github.io/azure-storage-java/)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-storage-java#contribute-code-or-provide-feedback)|
 
 > [!IMPORTANT]
