@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: c7084a10aceafcdd1039893b810fcbd8b74b874b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7fa2cbc831c6bcb734b4a4596a3f75f81e8ee085
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967409"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317037"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Descrição geral dos padrões comuns do dimensionamento automático
 Este artigo descreve alguns dos padrões comuns para dimensionar o seu recurso no Azure.
 
 Dimensionamento automático de Monitor do Azure aplicam-se apenas ao [conjuntos de dimensionamento de máquinas virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [serviços Cloud](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicações - aplicações Web](https://azure.microsoft.com/services/app-service/web/), e [deserviçosdegestãodeAPI](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
-# <a name="lets-get-started"></a>Permite começar a utilizar
+## <a name="lets-get-started"></a>Permite começar a utilizar
 
 Este artigo pressupõe que está familiarizado com o dimensionamento automático. Pode [comece aqui para dimensionar o seu recurso][1]. Seguem-se alguns dos padrões comuns do dimensionamento.
 
@@ -56,7 +56,7 @@ Tem uma aplicação web (/ VMSS/função do serviço cloud) e
 
 Tem um front-end da web e uma camada de API que comunica com o back-end.
 
-- Pretende dimensionar a camada de API com base em eventos personalizados no front-end (exemplo: pretende dimensionar o seu processo de Check-out com base no número de itens no carrinho de compras)
+- Pretende dimensionar a camada de API com base em eventos personalizados no front-end (exemplo: Pretende dimensionar o seu processo de Check-out com base no número de itens no carrinho de compras)
 
 ![Dimensionar com base na métrica personalizada][5]
 

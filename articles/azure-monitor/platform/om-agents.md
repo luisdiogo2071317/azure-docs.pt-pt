@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 1988f5790b719acf4e5dad1a378139c8d74b56f9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 133e617cd6bac1155ba22276887cf0790221e9de
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995336"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186978"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Ligar o Operations Manager ao Log Analytics
 Para manter o investimento existente no [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) e utilizar as capacidades expandidas com o Log Analytics, pode integrar o Operations Manager com a sua área de trabalho do Log Analytics. Desta forma, pode tirar partido das oportunidades do Log Analytics e continuar a utilizar o Operations Manager para:
@@ -103,19 +102,19 @@ Depois de concluir os passos seguintes para integrar com o Log Analytics, pode r
 1. Na consola do Operations Manager, selecione a área de trabalho **Administração**.
 1. Expanda o nó Operations Management Suite e clique em **Ligação**.
 1. Clique na ligação **Registar no Operations Management Suite**.
-1. Na página **Assistente de Inclusão do Operations Management Suite: Autenticação**, introduza o endereço de e-mail ou o número de telefone e a palavra-passe da conta de administrador associada à sua subscrição do OMS e clique em **Iniciar sessão**.
+1. Sobre o **Assistente de integração do Operations Management Suite: Autenticação** página, introduza o endereço de e-mail ou o número de telefone e a palavra-passe da conta de administrador que está associada a sua subscrição do OMS e clique em **iniciar sessão**.
 
    >[!NOTE]
    >OMS agora é referido como o Log Analytics.
    
-1. Depois que serem autenticadas com êxito, no **Assistente de integração do Operations Management Suite: selecionar área de trabalho** página, lhe for pedido para selecionar o seu inquilino do Azure, a subscrição e a área de trabalho do Log Analytics. Se tiver mais do que uma área de trabalho, selecione a área de trabalho que pretende registar com o grupo de gestão do Operations Manager na lista pendente e clique em **Seguinte**.
+1. Depois que serem autenticadas com êxito, no **Assistente de integração do Operations Management Suite: Selecione a área de trabalho** página, lhe for pedido para selecionar o seu inquilino do Azure, a subscrição e a área de trabalho do Log Analytics. Se tiver mais do que uma área de trabalho, selecione a área de trabalho que pretende registar com o grupo de gestão do Operations Manager na lista pendente e clique em **Seguinte**.
    
    > [!NOTE]
    > O Operations Manager suporta apenas uma área de trabalho do Log Analytics de cada vez. A ligação e os computadores que foram registados no Log Analytics com a área de trabalho anterior são removidos do Log Analytics.
    > 
    > 
-1. Na página **Assistente de Inclusão do Operations Management Suite: Resumo**, confirme as definições, verifique se estão corretas e clique em **Criar**.
-1. Na página **Assistente de Inclusão do Operations Management Suite: Concluir**, clique em **Fechar**.
+1. Sobre o **Assistente de integração do Operations Management Suite: Resumo** página, confirme as suas definições e se eles estiverem corretos, clique em **criar**.
+1. Sobre o **Assistente de integração do Operations Management Suite: Concluir** página, clique em **fechar**.
 
 ### <a name="add-agent-managed-computers"></a>Adicionar computadores geridos por agentes
 Depois de configurar a integração com sua área de trabalho do Log Analytics, apenas estabelece uma ligação com o serviço, não existem dados são recolhidos a partir os agentes que reportam ao grupo de gestão. Isso não acontece até depois de configurar os computadores geridos por agente específicos recolher dados para o Log Analytics. Pode selecionar os objetos de computador individualmente ou pode selecionar um grupo que contenha objetos de computador do Windows. Não pode selecionar um grupo que contenha instâncias de outra classe, tais como discos lógicos ou bases de dados SQL.
@@ -133,7 +132,7 @@ Se um servidor proxy interno é entre o grupo de gestão e o serviço do Log Ana
 1. Abra a consola do Operations Manager e selecione a área de trabalho de **Administração**.
 1. Expanda o Operations Management Suite e clique em **Ligações**.
 1. Na vista Ligação OMS, clique em **Configurar Servidor Proxy**.
-1. Na página **Assistente do Operations Management Suite: Servidor Proxy**, selecione **Utilizar um servidor proxy para aceder ao Operations Management Suite**, escreva o URL com o número da porta, por exemplo, http://corpproxy:80 e, em seguida, clique em **Concluir**.
+1. No **assistente Operations Management Suite: Servidor proxy** página, selecione **utilizar um servidor proxy para aceder ao Operations Management Suite**, e, em seguida, escreva o URL com o número de porta, por exemplo, http://corpproxy:80 e, em seguida, clique em **concluir** .
 
 Se o servidor proxy requer autenticação, execute os seguintes passos para configurar as credenciais e as definições que têm de ser propagados para computadores geridos que informa ao Log Analytics, no grupo de gestão.
 
@@ -171,7 +170,7 @@ Para continue a seguir o processo de controle de alteração existentes para con
 1. Siga os **Assistente de ativação do Log Analytics** e introduza o e-mail endereço ou número de telefone e a palavra-passe da conta de administrador que está associada a sua nova área de trabalho do Log Analytics.
    
    > [!NOTE]
-   > A página **Assistente de Inclusão do Operations Management Suite: Selecionar Área de Trabalho** apresenta a área de trabalho existente que está a ser utilizada.
+   > O **Assistente de integração do Operations Management Suite: Selecione a área de trabalho** página apresenta a área de trabalho existente que está a ser utilizado.
    > 
    > 
 

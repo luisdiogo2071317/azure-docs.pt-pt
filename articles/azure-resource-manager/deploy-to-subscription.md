@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 12/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d281ebe80c6089c559cfaa77f4875a856566092
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9a9fe16f562805f1bfd6f51af063531f34ffdde2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079383"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308503"
 ---
 # <a name="deploy-resources-to-an-azure-subscription"></a>Implementar recursos para uma subscrição do Azure
 
 Normalmente, implementa recursos para um grupo de recursos na sua subscrição do Azure. No entanto, alguns recursos podem ser implementados no nível da sua subscrição do Azure. Estes recursos aplicam-se na sua subscrição. [As políticas](../azure-policy/azure-policy-introduction.md), [controlo de acesso baseado em funções](../role-based-access-control/overview.md), e [Centro de segurança do Azure](../security-center/security-center-intro.md) são os serviços que talvez deseje aplicam-se ao nível da subscrição, em vez de nível do grupo de recursos.
 
-Este artigo utiliza a CLI do Azure e o PowerShell para implementar os modelos.
+Este artigo utiliza a CLI do Azure e o PowerShell para implementar os modelos. Não é possível utilizar o portal para implementar os modelos porque a interface do portal implementa o grupo de recursos, não a subscrição do Azure.
 
 ## <a name="name-and-location-for-deployment"></a>Nome e a localização para a implementação
 

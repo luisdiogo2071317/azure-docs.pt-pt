@@ -1,26 +1,19 @@
 ---
-title: Exemplo de Script da CLI do Azure – Criar um Serviço SignalR | Microsoft Docs
+title: CLI do Azure exemplo do Script - criar um serviço SignalR
 description: Exemplo de Script da CLI do Azure – Criar um Serviço SignalR
-services: signalr
-documentationcenter: signalr
 author: sffamily
-manager: cfowler
-editor: ''
-tags: azure-service-management
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: signalr
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: d64e43ad6dc021676fb9483574e0d710cd0a766f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 364a8b6574b06aa2403ea028fecd0676ba0342a7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998649"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256218"
 ---
 # <a name="create-a-signalr-service"></a>Criar um Serviço SignalR 
 
@@ -59,7 +52,7 @@ Cada comando na tabela liga à documentação específica do comando. Este scrip
 | [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | Lista as chaves, que serão utilizadas pela sua aplicação quando efetuar atualizações push de conteúdo em tempo real com o SignalR. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

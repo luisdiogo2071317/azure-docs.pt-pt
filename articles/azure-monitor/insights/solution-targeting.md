@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: 53f28d29b9667bb885a5c3d0da8d926f756f3427
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682079"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192758"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Soluções de gestão de direcionamento no Azure (pré-visualização)
 Quando adiciona uma solução de gestão à sua subscrição, será automaticamente implantado por predefinição para todos os agentes Windows e Linux ligados à sua área de trabalho do Log Analytics.  Poderá querer gerir os custos e limitar a quantidade de dados recolhidos para uma solução ao limitá-la para um determinado conjunto de agentes.  Este artigo descreve como utilizar **filtragem da solução** que é uma funcionalidade que lhe permite aplicar um âmbito às suas soluções.

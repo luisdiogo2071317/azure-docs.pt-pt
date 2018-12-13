@@ -1,5 +1,5 @@
 ---
-title: O que é a Pesquisa de Imagens do Bing?
+title: O que é a API de pesquisa de imagens do Bing?
 titleSuffix: Azure Cognitive Services
 description: A API de Pesquisa de Imagens do Bing permite-lhe utilizar as capacidades cognitivas de pesquisa de imagens do Bing na sua aplicação. Com o envio de consultas de pesquisa de utilizadores com a API, pode obter e apresentar imagens relevantes e de alta qualidade semelhantes às Imagens do Bing.
 services: cognitive-services
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: overview
 ms.date: 10/11/2017
 ms.author: aahi
-ms.openlocfilehash: 5d5d69eea3a064679cbc5ddc41891a73e77e55ea
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: eb5f508916ef0944a61d556725ae1ba04123584b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295364"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258309"
 ---
-# <a name="what-is-bing-image-search"></a>O que é a Pesquisa de Imagens do Bing?
+# <a name="what-is-the-bing-image-search-api"></a>O que é a API de pesquisa de imagens do Bing?
 
 A API de Pesquisa de Imagens do Bing permite-lhe utilizar as capacidades cognitivas de pesquisa de imagens do Bing na sua aplicação. Com o envio de consultas de pesquisa de utilizadores com a API, pode obter e apresentar imagens relevantes e de alta qualidade semelhantes às [Imagens do Bing](https://www.bing.com/images).
 
@@ -45,7 +46,7 @@ A API de Pesquisa de Imagens do Bing é um serviço Web RESTful fácil de chamar
 2. Envie um pedido para a API com uma [consulta de pesquisa](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) válida.
 3. Processe a resposta da API ao analisar a mensagem JSON devolvida.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Em primeiro lugar, experimente a [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) da API de Pesquisa de Imagens do Bing.
 Esta demonstração mostra como pode rapidamente personalizar uma consulta de pesquisa e fazer uma busca de imagens na web.

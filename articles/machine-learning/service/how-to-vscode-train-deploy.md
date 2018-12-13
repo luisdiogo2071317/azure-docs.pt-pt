@@ -1,5 +1,5 @@
 ---
-title: Utilizar o Visual Studio Code para preparar e implementar modelos
+title: Preparar e implementar modelos a partir do VS Code
 titleSuffix: Azure Machine Learning service
 description: Saiba mais sobre o Azure Machine Learning para Visual Studio Code e como começar a machine learning e modelos no serviço Azure Machine Learning com o Visual Studio Code de aprendizagem profunda de treinamento e de implantação.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 62c3dd051f9f4c06d8d5b5cd08422b34cf565f2f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0910cce92c410a68dce6e2c44d29e72e594cd153
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100672"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271713"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Utilizar o Visual Studio Code para preparar e implementar modelos de machine learning
 
@@ -27,11 +27,11 @@ E pode implantar esses modelos para suas necessidades de teste e produção.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
++ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
+
 + Tem a [do Azure Machine Learning para o VS Code](how-to-vscode-tools.md) configurar a extensão.
 
 + Tem a [do Azure Machine Learning SDK para Python instalada](how-to-vscode-tools.md) com o VS Code.
-
-+ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
 ## <a name="create-and-manage-compute-targets"></a>Criar e gerir os destinos de computação
 
@@ -43,7 +43,7 @@ Esta extensão oferece suporte a vários destinos de computação remota diferen
 
 **Para criar um destino de computação:**
 
-1. Clique no ícone do Azure na barra de atividade de código do Visual Studio. O Azure: A barra lateral do Machine Learning aparece.
+1. Clique no ícone do Azure na barra de atividade de código do Visual Studio. O Azure: É apresentada a barra lateral do Machine Learning.
 
 2. Na vista de árvore, expanda a sua subscrição do Azure e a área de trabalho do serviço Azure Machine Learning. Na imagem animada, o nome da subscrição é "Versão de avaliação" e a área de trabalho é 'TeamWorkspace'. 
 
@@ -55,7 +55,7 @@ Esta extensão oferece suporte a vários destinos de computação remota diferen
 
 6. Quando tiver concluído a configurar o destino de computação, clique em **submeter** na parte inferior direita.
 
-Eis um exemplo de computação do Azure Machine Learning (AMLCompute): [ ![criar AML de computação no VS Code](./media/vscode-tools-for-ai/CreateAMLCompute.gif)](./media/vscode-tools-for-ai/CreateAMLCompute.gif#lightbox)
+Eis um exemplo de computação do Azure Machine Learning (AMLCompute): [![Criar AML computação no VS Code](./media/vscode-tools-for-ai/CreateAMLCompute.gif)](./media/vscode-tools-for-ai/CreateAMLCompute.gif#lightbox)
 
 ### <a name="use-remote-computes-for-experiments-in-vs-code"></a>Utilizar computações remotas para experimentações no VS Code
 
@@ -117,7 +117,7 @@ Utilize o Azure Machine Learning para o VS Code (pré-visualização) para rapid
 
 **Para executar a experimentação com o Azure Machine Learning:**
 
-1. Clique no ícone do Azure na barra de atividade de código do Visual Studio. O Azure: A barra lateral do Machine Learning aparece.
+1. Clique no ícone do Azure na barra de atividade de código do Visual Studio. O Azure: É apresentada a barra lateral do Machine Learning.
 
 1. Na vista de árvore, expanda a sua subscrição do Azure e a área de trabalho do serviço Azure Machine Learning. 
 
@@ -137,7 +137,7 @@ Modelos de registado podem ser monitorizados e implementados.
 
 **Para registar o seu modelo:**
 
-1. Clique no ícone do Azure na barra de atividade de código do Visual Studio. O Azure: A barra lateral do Machine Learning aparece.
+1. Clique no ícone do Azure na barra de atividade de código do Visual Studio. O Azure: É apresentada a barra lateral do Machine Learning.
 
 1. Na vista de árvore, expanda a sua subscrição do Azure e a área de trabalho do serviço Azure Machine Learning.
 
@@ -163,7 +163,7 @@ Saiba mais sobre [implementação com o Azure Machine Learning](how-to-deploy-an
 
 **Para implementar um serviço web:**
 
-1. Clique no ícone do Azure na barra de atividade de código do Visual Studio. O Azure: A barra lateral do Machine Learning aparece.
+1. Clique no ícone do Azure na barra de atividade de código do Visual Studio. O Azure: É apresentada a barra lateral do Machine Learning.
 
 1. Na vista de árvore, expanda a sua subscrição do Azure e a sua área de trabalho do serviço do Azure Machine Learning.
 
@@ -185,6 +185,6 @@ O serviço web agora é implementado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para um passo a passo de treinamento com o Machine Learning fora do VS Code, leia [Tutorial: criar modelos com o Azure Machine Learning](tutorial-train-models-with-aml.md).
+Para um passo a passo de treinamento com o Machine Learning fora do VS Code, leia [Tutorial: Utilizar modelos com o Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 Para um passo a passo de editar, executar e depurar o código localmente, consulte o [Python Hello World Tutorial](https://code.visualstudio.com/docs/python/python-tutorial)

@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação com vários contentores (pré-visualização) na Aplicação Web para Contentores
+title: Criar aplicação de vários contentor numa aplicação Web para contentores - serviço de aplicações do Azure
 description: Saiba como utilizar vários contentores no Azure com os ficheiros de configuração Kubernetes e Docker Compose, com uma aplicação MySQL e WordPress.
 keywords: serviço de aplicações do azure, aplicação web, linux, docker, compor, vários contentores, vários contentores, aplicação web para contentores, vários contentores, contentor, kubernetes, wordpress, bd do azure para mysql, base de dados de produção com contentores
 services: app-service
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 68e53be5c12eb8032b91e644600dded5467342e7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 7feb168d9cbcb9fc19e6fcd320bbf87c15077a50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956538"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251645"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar uma aplicação com vários contentores (pré-visualização) na Aplicação Web para Contentores
 

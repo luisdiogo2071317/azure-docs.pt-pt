@@ -1,6 +1,6 @@
 ---
 title: Bases de Dados SQL (PaaS) vs SQL Server na nuvem em VMs (IaaS) | Microsoft Docs
-description: 'Saiba qual a opção do SQL Server na nuvem que se adequa à sua aplicação: Base de Dados SQL (PaaS) do Azure ou SQL Server na nuvem em Azure Virtual Machines.'
+description: 'Saiba que opção de SQL Server na nuvem se adapta seu aplicativo: Base de dados SQL (PaaS) do Azure ou SQL Server na cloud em máquinas de virtuais do Azure.'
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -13,18 +13,18 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 11/26/2018
-ms.openlocfilehash: 06c56f92e26fba61120933eca32bd98e310b4474
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: fccb570be772f9a06fe5bae9c3cb43993d670f48
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335236"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278479"
 ---
-# <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Escolha uma opção de SQL Server na nuvem: Base de Dados SQL (PaaS) do Azure ou SQL Server em VMs (IaaS) do Azure
+# <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Escolha uma opção de SQL Server na nuvem: Base de dados SQL do Azure (PaaS) ou o SQL Server em VMs do Azure (IaaS)
 
 No Azure, pode ter suas cargas de trabalho do SQL Server em execução numa infraestrutura alojada (IaaS) ou em execução como um serviço hospedado ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)):
 
-- [Base de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/): motor de base de dados A SQL, com base no Enterprise Edition do SQL Server, otimizada para o desenvolvimento de aplicativos modernos. Base de dados SQL do Azure oferece várias opções de implementação:
+- [Base de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/): Um base de dados motor de SQL, com base no Enterprise Edition do SQL Server, otimizada para o desenvolvimento de aplicativos modernos. Base de dados SQL do Azure oferece várias opções de implementação:
 
   - Pode implementar uma base de dados para um [servidor lógico](sql-database-logical-servers.md).
   - Pode implementar um [conjunto elástico](sql-database-elastic-pool.md) num [servidor lógico](sql-database-logical-servers.md) partilhar recursos e reduzir os custos.
@@ -37,7 +37,7 @@ No Azure, pode ter suas cargas de trabalho do SQL Server em execução numa infr
      > [!NOTE]
      > Com todas as três versões, a base de dados do Azure SQL adiciona funcionalidades adicionais que não estão disponíveis no SQL Server, como a inteligência incorporada e gestão. Um servidor lógico que contém as bases de dados individuais e em pool oferece a maioria dos recursos no âmbito da base de dados do SQL Server. Com o Azure SQL Database Managed Instance, base de dados do Azure SQL oferece recursos compartilhados para bases de dados e funcionalidades adicionais com âmbito de instância. Instância de gerida de base de dados de SQL do Azure suporta a migração de base de dados com um mínimo de nenhuma alteração de base de dados.
 
-- [SQL Server em Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server instalado e alojado na cloud em máquinas de virtuais do Windows Server ou Linux (VMs) em execução no Azure, também conhecido como uma infraestrutura como serviço (IaaS). SQL Server em máquinas virtuais do Azure é uma boa opção para a migração no local bases de dados do SQL Server e a aplicações sem qualquer alteração de base de dados. Todas as versões recentes e edições do SQL Server estão disponíveis para a instalação na máquina virtual IaaS. A diferença mais significativa da base de dados SQL é que as VMs do SQL Server permitem o controlo total sobre o motor de base de dados. Pode escolher quando a aplicação de patches/manutenção será iniciada, para alterar o modelo de recuperação para simples ou em massa registados para ativar carregamento mais rápido menos log, para colocar em pausa ou iniciar o motor quando necessário, e podem personalizar totalmente o motor de base de dados do SQL Server. Com esse controle adicional vem com responsabilidade para gerir as máquinas virtuais.
+- [SQL Server em máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server instalado e alojado na nuvem no Windows Server ou máquinas de virtuais do Linux (VMs) em execução no Azure, também conhecido como uma infraestrutura como serviço (IaaS). SQL Server em máquinas virtuais do Azure é uma boa opção para a migração no local bases de dados do SQL Server e a aplicações sem qualquer alteração de base de dados. Todas as versões recentes e edições do SQL Server estão disponíveis para a instalação na máquina virtual IaaS. A diferença mais significativa da base de dados SQL é que as VMs do SQL Server permitem o controlo total sobre o motor de base de dados. Pode escolher quando a aplicação de patches/manutenção será iniciada, para alterar o modelo de recuperação para simples ou em massa registados para ativar carregamento mais rápido menos log, para colocar em pausa ou iniciar o motor quando necessário, e podem personalizar totalmente o motor de base de dados do SQL Server. Com esse controle adicional vem com responsabilidade para gerir as máquinas virtuais.
 
 Saiba como cada opção de implementação se adapta a plataforma de dados da Microsoft e obtenha ajuda para encontrar a opção adequada aos seus requisitos empresariais. Quer dê prioridade à redução de custos ou a uma administração mínima acima de tudo o resto, este artigo pode ajudá-lo a decidir qual é a abordagem que melhor responde aos requisitos comerciais a que dá mais importância.
 
@@ -45,7 +45,7 @@ Saiba como cada opção de implementação se adapta a plataforma de dados da Mi
 
 Um dos primeiros aspetos a compreender em qualquer debate do Azure versus bases de dados do SQL Server no local é que pode utilizar todas. A plataforma de dados da Microsoft tira partido da tecnologia do SQL Server e disponibiliza-a em máquinas físicas no local, ambientes de nuvem privada, ambientes de nuvem privada alojada de terceiros e nuvem pública. O SQL Server nas máquinas virtuais do Azure permite-lhe responder a necessidades comerciais únicas e diversas através de uma combinação de implementações alojadas na cloud e no local, utilizando o mesmo conjunto de produtos de servidor, ferramentas de desenvolvimento e conhecimentos em todos estes ambientes.
 
-   ![Opções do SQL Server na nuvem: SQL server em IaaS ou base de dados SQL SaaS na nuvem.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
+   ![Opções do SQL Server de nuvem: Base de dados do SQL server em IaaS ou SaaS SQL na cloud.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
 Tal como ilustrado no diagrama, cada oferta pode ser caracterizada pelo nível de administração que têm sobre a infraestrutura (no eixo X) e pelo grau de eficiência de custos alcançada através da automatização e consolidação de nível de base de dados (no eixo Y).
 
@@ -56,7 +56,7 @@ Ao conceber uma aplicação, estão disponíveis quatro opções básicas para a
 - SQL Server numa Máquina Virtual do Azure (nuvem pública da Microsoft)
 - Base de Dados SQL do Azure (nuvem pública da Microsoft)
 
-Nas secções seguintes, ficará a conhecer o SQL Server na nuvem pública da Microsoft: Base de Dados SQL do Azure e SQL Server em VMs do Azure. Além disso, explorará motivadores de negócio comuns para determinar qual é a opção que funciona melhor para a sua aplicação.
+As secções seguintes, vai aprender sobre o SQL Server na nuvem pública da Microsoft: Base de dados SQL do Azure e o SQL Server em VMs do Azure. Além disso, explorará motivadores de negócio comuns para determinar qual é a opção que funciona melhor para a sua aplicação.
 
 ## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>Um olhar mais atento sobre a Base de Dados SQL do Azure e o SQL Server em VMs do Azure
 
@@ -89,7 +89,8 @@ A tabela seguinte resume as principais caraterísticas da Base de Dados SQL e do
 | **Compatibilidade** | Oferece suporte a maioria dos recursos de nível de base de dados no local. | Suporta quase todas as capacidades de nível de instância e ao nível da base de dados no local. | Suporta todas as capacidades no local. |
 | **Recursos:** | Não pretende utilizar recursos de TI para a configuração e gestão da infraestrutura subjacente, mas pretende focar-se na camada da aplicação. | Mesmo que as bases de dados num servidor lógico da SQL Database do Azure. | Tem alguns recursos de TI para a configuração e gestão. Algumas das funcionalidades automatizadas fornecidas simplificam-no significativamente. |
 | **Custo total de propriedade:** | Elimina os custos de hardware e reduz os custos administrativos. | Mesmo que as bases de dados num servidor lógico da SQL Database do Azure. | Elimina os custos com hardware. |
-| **Continuidade do negócio:** |Para além [capacidades de infraestrutura de tolerância a falhas incorporada](sql-database-high-availability.md), a base de dados do Azure SQL fornece funcionalidades, tais como [cópias de segurança automatizadas](sql-database-automated-backups.md), [restaurodepontonotempoda](sql-database-recovery-using-backups.md#point-in-time-restore), [georrestauro](sql-database-recovery-using-backups.md#geo-restore), e [ativação pós-falha grupos e a georreplicação ativa](sql-database-geo-replication-overview.md) para aumentar a continuidade do negócio. Para obter mais informações, consulte [Descrição geral da continuidade de negócio da Base de Dados SQL](sql-database-business-continuity.md). | Mesmo que as bases de dados numa base de dados do Azure SQL server lógico, além de cópias de segurança iniciada pelo utilizador e apenas de cópia estão disponíveis. | O SQL Server em VMs do Azure permite configurar uma solução de elevada disponibilidade e recuperação após desastre para as necessidades específicas da sua base de dados. Assim, poderá ter um sistema que está altamente otimizado para a sua aplicação. Pode testar e executar ativações pós-falha sempre que necessário. Para obter mais informações, consulte [Elevada Disponibilidade e Recuperação Após Desastre do SQL Server em Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
+| **Continuidade do negócio:** |Para além [capacidades de infraestrutura de tolerância a falhas incorporada](sql-database-high-availability.md), a base de dados do Azure SQL fornece funcionalidades, tais como [cópias de segurança automatizadas](sql-database-automated-backups.md), [restaurodepontonotempoda](sql-database-recovery-using-backups.md#point-in-time-restore), [georrestauro](sql-database-recovery-using-backups.md#geo-restore), [georreplicação ativa](sql-database-active-geo-replication.md), e [grupos de ativação pós-falha automática](sql-database-auto-failover-group.md)
+ para aumentar a continuidade do negócio. Para obter mais informações, consulte [Descrição geral da continuidade de negócio da Base de Dados SQL](sql-database-business-continuity.md). | Mesmo que as bases de dados numa base de dados do Azure SQL server lógico, além de cópias de segurança iniciada pelo utilizador e apenas de cópia estão disponíveis. | O SQL Server em VMs do Azure permite configurar uma solução de elevada disponibilidade e recuperação após desastre para as necessidades específicas da sua base de dados. Assim, poderá ter um sistema que está altamente otimizado para a sua aplicação. Pode testar e executar ativações pós-falha sempre que necessário. Para obter mais informações, consulte [Elevada Disponibilidade e Recuperação Após Desastre do SQL Server em Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
 | **Nuvem híbrida:** |A sua aplicação no local pode aceder a dados na Base de Dados SQL do Azure. | [Implementação de rede virtual nativo](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration) e a conectividade ao seu ambiente no local com o Express Route do Azure ou o Gateway de VPN. | Com o SQL Server em VMs do Azure, pode ter aplicações que são executadas parcialmente na nuvem e parcialmente no local. Por exemplo, pode expandir a sua rede no local e o Domínio do Active Directory para a nuvem através da [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md). Além disso, pode armazenar ficheiros de dados no local no Armazenamento do Azure, utilizando [Ficheiros de Dados do SQL Server no Azure](https://msdn.microsoft.com/library/dn385720.aspx). Para obter mais informações, consulte [Introdução à Nuvem Híbrida do SQL Server 2014](https://msdn.microsoft.com/library/dn606154.aspx). |
 |  | Suporta a [replicação transacional do SQL Server](https://msdn.microsoft.com/library/mt589530.aspx) como um subscritor para replicar os dados. | A replicação não é suportada para a instância gerida da base de dados SQL do Azure. | Suporta totalmente [replicação transacional do SQL Server](https://msdn.microsoft.com/library/mt589530.aspx), [grupos de Disponibilidade AlwaysOn](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), serviços de integração e envio de registo para replicar dados. Além disso, as cópias de segurança do SQL Server tradicionais são totalmente suportadas | |
 |  | | |
@@ -98,7 +99,7 @@ A tabela seguinte resume as principais caraterísticas da Base de Dados SQL e do
 
 ### <a name="cost"></a>Custo
 
-Quer seja uma start-up com problemas de liquidez ou uma equipa numa empresa estabelecida que opera com grandes restrições orçamentais, o financiamento limitado é, muitas vezes, o principal fator quando tem de decidir como alojar as suas bases de dados. Nesta secção, aprenderá primeiro as noções básicas do licenciamento e da faturação no Azure com respeito a estas duas opções de base de dados relacional: Base de Dados SQL e SQL Server em VMs do Azure. Também podem aprender a calcular o custo total da aplicação.
+Quer seja uma start-up com problemas de liquidez ou uma equipa numa empresa estabelecida que opera com grandes restrições orçamentais, o financiamento limitado é, muitas vezes, o principal fator quando tem de decidir como alojar as suas bases de dados. Nesta secção, vai aprender sobre a faturação e licenciamento Noções básicas no Azure com respeito a estas duas opções de base de dados relacional: Base de dados SQL e SQL Server em VMs do Azure. Também podem aprender a calcular o custo total da aplicação.
 
 #### <a name="billing-and-licensing-basics"></a>Noções básicas de faturação e licenciamento
 

@@ -4,14 +4,14 @@ description: Fornece uma descrição geral dos problemas conhecidos no serviço 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9303f20d84547dee62e7012e0dca50f47ad54083
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4ebd6eb860a6b102d1a3b12642510c429c18baa7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839590"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259159"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -23,11 +23,11 @@ ms.locfileid: "52839590"
 
 A aplicação de deteção contínua só recolhe dados de desempenho continuamente, ele não detecta qualquer alteração de configuração no ambiente no local (ou seja, a adição de VM, eliminação, a adição de disco etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
 
-- Adição de itens (VMs, discos, núcleos, etc.): para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, iniciá-la novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
+- Adição de itens (VMs, discos, núcleos, etc.): Para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, inicie-o novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
 
    ![Parar deteção](./media/troubleshooting-general/stop-discovery.png)
 
-- Eliminação das VMs: devido à forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
+- Eliminação das VMs: A forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Falha na criação de projeto de migração com erro *pedidos devem conter cabeçalhos de identidade do utilizador*
 
@@ -41,23 +41,31 @@ Se não é possível exportar o relatório de avaliação a partir do portal, te
 
 1. Instale *armclient* no seu computador (se não estiver já instalada):
 
-a. Numa janela de linha de comandos de administrador, execute o seguinte comando:  *@powershell - NoProfile - ExecutionPolicy ignorar - comando "iex ((New-Object System.NET. WebClient). DownloadString('https://chocolatey.org/install.ps1')) "& & DEFINA"PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"*
+  a. Numa janela de linha de comandos de administrador, execute o seguinte comando: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
-b.In numa janela do Windows PowerShell de administrador, execute o seguinte comando: *choco instalar armclient*
+  b. Numa janela do Windows PowerShell de administrador, execute o seguinte comando: ```choco install armclient```
 
 2.  Obter o URL de transferência para o relatório de avaliação com a API de REST de migrar do Azure
 
-a.  Numa janela do Windows PowerShell de administrador, execute o seguinte comando: *armclient início de sessão* esta ação abre o Azure início de sessão pop-up em que precisa ao iniciar sessão no Azure.
+  a.    Numa janela do Windows PowerShell de administrador, execute o seguinte comando: ```armclient login```
 
-b.  Na mesma janela do PowerShell, execute o seguinte comando para obter o URL de transferência para o relatório de avaliação (substitua os parâmetros do URI com os valores apropriados, a API de exemplo do pedido abaixo)
+  Esta ação abre o Azure início de sessão pop-up em que precisa ao iniciar sessão no Azure.
 
-       *armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02*
+  b.    Na mesma janela do PowerShell, execute o seguinte comando para obter o URL de transferência para o relatório de avaliação (substitua os parâmetros do URI com os valores apropriados, a API de exemplo do pedido abaixo)
 
-Pedido de exemplo e a saída:
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
-PS C:\WINDOWS\system32 > armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2 018_12_16_21/downloadUrl? api-version = 2018-02-02 {" assessmentReportUrl":"https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r","expirationTime":" 2018-11-20T22:09:30.5681954 + UTC+05:30 "
+       Pedido de exemplo e a saída:
+
+       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+018_12_16_21/downloadUrl?api-version=2018-02-02
+{
+  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
 
 3. Copie o URL da resposta e abra-o num browser para transferir o relatório de avaliação.
+
 4. Assim que o relatório é transferido, utilize o Excel para navegar para a pasta transferida e abra o ficheiro no Excel para vê-la.
 
 ### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Dados de desempenho para os adaptadores de discos e redes mostram como os zeros
@@ -74,7 +82,7 @@ Pode ir para o **Essentials** secção a **descrição geral** página do projet
 
 ## <a name="collector-errors"></a>Erros do recoletor
 
-### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Implementação do Recoletor do Azure Migrate falhou com o erro: O ficheiro de manifesto fornecido é inválido: entrada do manifesto OVF inválido.
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Falha na implementação do Recoletor do Azure Migrate com o erro: O ficheiro de manifesto fornecido é inválido: Entrada do manifesto OVF inválida.
 
 1. Certifique-se de que se a ficheiros do Azure Migrate Recoletor OVA é transferido corretamente ao verificar o seu valor de hash. Consulte o [artigo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) para verificar o valor de hash. Se o valor de hash não corresponde, transfira o ficheiro OVA novamente e repetir a implementação.
 2. Se ainda assim falhar e se estiver a utilizar o Cliente VMware vSphere para implementar o OVF, tente implementá-lo por meio do Cliente Web vSphere. Se continuar a falhar, tente utilizar outro navegador da web.
@@ -112,7 +120,7 @@ Certifique-se de ter copiado e colado as informações corretas. Para resolver p
 7. Certifique-se de que o agente pode ligar-se ao projeto. Se não for possível, verifique as definições. Se o agente pode ligar, mas o recoletor não é possível, contacte o suporte.
 
 
-### <a name="error-802-date-and-time-synchronization-error"></a>Erro 802: Data e hora de erro de sincronização
+### <a name="error-802-date-and-time-synchronization-error"></a>Erro 802: Erro de sincronização de data e hora
 
 O relógio do servidor pode ser fora de sincronização com a hora atual em mais de cinco minutos. Altere a hora de relógio no coletor de VM para corresponder a hora atual, da seguinte forma:
 
@@ -128,7 +136,7 @@ Recoletor do Azure Migrate transfere PowerCLI e instala-o em que a aplicação. 
 2. Ir para o diretório C:\ProgramFiles\ProfilerService\VMWare\Scripts\
 3. Execute o script InstallPowerCLI.ps1
 
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Ocorreu o erro interno UnhandledException: FileNotFoundException
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Ocorreu um erro interno UnhandledException: FileNotFoundException
 
 Este problema pode ocorrer devido a um problema com a instalação do VMware PowerCLI. Siga os passos abaixo para resolver o problema:
 
@@ -138,7 +146,7 @@ Este problema pode ocorrer devido a um problema com a instalação do VMware Pow
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
-Não consegue ligar ao vCenter Server "Servername.com:9443" devido ao erro: não existia um ponto final à escuta em https://Servername.com:9443/sdk que pudesse aceitar a mensagem.
+Não é possível ligar ao vCenter Server "Servername.com:9443" devido ao erro: Não havia nenhum ponto final à escuta em https://Servername.com:9443/sdk que pudesse aceitar a mensagem.
 
 Verifique se estiver a executar a versão mais recente da aplicação recoletora, caso contrário, atualizar a aplicação para o [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
 
@@ -150,6 +158,10 @@ Se o problema ainda acontece na versão mais recente, é possível porque a máq
 4. Por fim, verifique se o servidor do vCenter está em execução.
 
 ## <a name="dependency-visualization-issues"></a>Problemas de visualização de dependência
+
+### <a name="i-am-unable-to-find-the-dependency-visualization-functionality-for-azure-government-projects"></a>Eu não consigo encontrar a funcionalidade de visualização de dependência para projetos do Azure Government.
+
+O Azure Migrate depende do mapa de serviço para a funcionalidade de visualização de dependência e uma vez que o mapa de serviço não está atualmente disponível no Azure Government, esta funcionalidade não está disponível no Azure Government.
 
 ### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Instalei o Microsoft Monitoring Agent (MMA) e o agente de dependência em minhas VMs no local, mas as dependências são agora aparecer no portal do Azure Migrate.
 

@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.component: ''
-ms.openlocfilehash: 0c75926943ceb2e77335732445f56099961f7667
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6ac34df87c3138aa667e57f7112d31b306e4d9f5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099040"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191228"
 ---
 # <a name="log-analytics-for-service-providers"></a>O log Analytics para fornecedores de serviços
 O log Analytics pode ajudar a fornecedores de serviços geridos (MSPs), grandes empresas, fornecedores independentes de software (ISVs) e alojamento fornecedores de serviços, gerir e monitorizar os servidores no local do cliente ou na infraestrutura de nuvem. 
@@ -73,9 +72,9 @@ A terceira mistura de arquitetura entre as duas opções. Baseia-se na arquitetu
 
 Existem duas opções para implementar o local central no Log Analytics:
 
-1. Área de trabalho central: O fornecedor de serviços pode criar uma área de trabalho no seu inquilino e utilizar um script que utiliza a [API de consulta](https://dev.loganalytics.io/) com o [API de recolha de dados](../../azure-monitor/platform/data-collector-api.md) para colocar os dados de vários espaços de trabalho para isso localização central. Outra opção, que não seja um script, é usar [do Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+1. Área de trabalho central: O fornecedor de serviços pode criar uma área de trabalho no seu inquilino e utilizar um script que utiliza a [API de consulta](https://dev.loganalytics.io/) com o [API de recolha de dados](../../azure-monitor/platform/data-collector-api.md) para colocar os dados de vários espaços de trabalho para esse local central. Outra opção, que não seja um script, é usar [do Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI como um local central: Power BI pode atuar como o local central quando vários espaços de trabalho exportar dados utilizando a integração entre o Log Analytics e [Power BI](../../azure-monitor/platform/powerbi.md). 
+2. Power BI, como um local central: Power BI pode atuar como o local central quando vários espaços de trabalho exportar dados utilizando a integração entre o Log Analytics e [Power BI](../../azure-monitor/platform/powerbi.md). 
 
 
 ## <a name="next-steps"></a>Próximos Passos

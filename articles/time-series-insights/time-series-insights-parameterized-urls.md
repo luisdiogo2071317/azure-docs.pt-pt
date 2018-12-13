@@ -1,5 +1,5 @@
 ---
-title: Partilhar vistas personalizadas do Azure Time Series Insights com URLs parametrizados | Microsoft Docs
+title: Do Azure Time Series Insights URLs - vistas personalizadas de partilha do Azure Time Series Insights com URLs parametrizados | Documentos da Microsoft
 description: Este artigo descreve como desenvolver URLs parametrizados no Azure Time Series Insights, para partilhar facilmente a vista de um cliente.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: dbd717d79230c5dc2fc823484376267e7b7b8ab1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 5b43ba4c3f88c678b160e8aec442fa92b4822a3d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628805"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274365"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partilhar vistas personalizadas com um URL parametrizado
 
@@ -70,7 +71,7 @@ O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os 
   - É o nome da coluna da *medida*.
 - "predicate":"<string>"
   - É a cláusula *where* para a filtragem do lado do servidor.
--  "useSum":"true"
+- "useSum":"true"
   - Este é um parâmetro opcional que especifica através da soma para a sua medida.  Tenha em atenção que se a medida selecionada for "Eventos", a contagem é selecionada por predefinição.  Se "Eventos" não estiver selecionado, a média é selecionada por predefinição.  
 
 O parâmetro "multiChartStack=<true/false>" permite o empilhamento no gráfico e o parâmetro "multiChartSameScale=<true/false>" permite a mesma escala de eixo Y entre termos dentro de um parâmetro opcional.  

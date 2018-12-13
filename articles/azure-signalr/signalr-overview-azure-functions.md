@@ -1,23 +1,17 @@
 ---
-title: Criar Aplicações em Tempo Real com as Funções do Azure e o Azure SignalR | Microsoft Docs
+title: Crie aplicações em tempo real com as funções do Azure e do Azure SignalR
 description: Uma descrição geral da utilização do serviço Azure SignalR em aplicações sem servidor.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
 ms.service: signalr
-ms.devlang: na
 ms.topic: overview
-ms.workload: tbd
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 587752b25e3c98bbabbd42bd4d838fd19ae9fd45
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 9380c6434902c6882f84312a3d6999791bf15115
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318712"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256014"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Criar Aplicações em Tempo Real com as Funções do Azure e o Azure SignalR
 
@@ -65,10 +59,9 @@ Um exemplo de como utilizar os enlaces do Serviço SignalR é utilizar as Funç�
 
 O Serviço SignalR permite-lhe difundir mensagens para todos os clientes ou apenas um subconjunto de clientes, tais como aqueles que pertencem a um único utilizador. Os enlaces do Serviço SignalR para as Funções do Azure podem ser combinados com a Autenticação do Serviço de Aplicações para autenticar utilizadores com fornecedores como o Azure Active Directory, o Facebook e o Twitter. Em seguida, pode enviar mensagens diretamente para estes utilizadores autenticados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, obteve uma descrição geral de como pode utilizar as Funções do Azure com o Serviço SignalR para ativar uma grande diversidade de cenários de mensagens em tempo real sem servidor. Siga um destes inícios rápidos para saber mais.
 
 * [Início Rápido do Serviço Azure SignalR Sem Servidor - C#](signalr-quickstart-azure-functions-csharp.md)
 * [Início Rápido do Serviço Azure SignalR Sem Servidor - JavaScript](signalr-quickstart-azure-functions-javascript.md)
-

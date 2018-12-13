@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 1c80bd8d7290e49b6ddeca067e0b17aebf1f024e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 674a26b9c8eb5fe8f44b416b5296b61c6678d2cd
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883163"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186179"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados para o Log Analytics com a API de Recoletor de dados HTTP (pré-visualização pública)
 Este artigo mostra-lhe como utilizar a API de Recoletor de dados de HTTP para enviar dados para o Log Analytics a partir de um cliente de REST API.  Ele descreve como formatar os dados recolhidos pelo seu script ou aplicativo, incluí-lo num pedido e ter esse pedido autorizado pelo Log Analytics.  São fornecidos exemplos do PowerShell, c# e Python.

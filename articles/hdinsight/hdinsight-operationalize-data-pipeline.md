@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 9057d9f5d63598ea249e8f3193b84fd715018829
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 93c2808dc244a86f7a58aa65d649e9c3e8c17f7c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109976"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251713"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operacionalizar um pipeline de análise de dados
 
@@ -24,10 +24,10 @@ Este artigo descreve como operacionalizar os seus pipelines de dados para a capa
 
 No cenário seguinte, os dados de entrada são um arquivo simples que contém um lote de dados de voo durante um mês. Estes dados de voo incluem informações como o aeroporto de origem e destino, quilómetros voou, a mudança e tempos de chegada e assim por diante. O objetivo com este pipeline é resumir o desempenho de companhia aérea diário, onde cada companhia aérea tem uma linha para cada dia, com os atrasos de mudança e chegada média em minutos e os total quilómetros voou nesse dia.
 
-| ANO | MÊS | DAY_OF_MONTH | OPERADORA |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
+| YEAR | MONTH | DAY_OF_MONTH | OPERADORA |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2017 | 1 | 3 | AA | 10.142229 | 7.862926 | 2644539 |
-| 2017 | 1 | 3 | COMO | 9.435449 | 5.482143 | 572289 |
+| 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
 O pipeline de exemplo aguarda até que os dados de um novo período de tempo de voo chegam, em seguida, armazena essas informações de voo detalhadas para o armazém de dados de Hive para análises de longo prazo. O pipeline cria também um muito mais pequeno conjunto de dados que resume apenas os dados diários de voo. Estes dados de resumo de voo diária são enviados para uma base de dados SQL para fornecer relatórios, por exemplo, para um Web site.
@@ -156,7 +156,7 @@ Para utilizar a consola Web do Oozie para ver o estado das coordenador e das ins
 
 ### <a name="configure-hive"></a>Configurar o Hive
 
-1. Transferir um ficheiro CSV de exemplo que contém dados de voo durante um mês. Transfira o ficheiro ZIP `2017-01-FlightData.zip` partir do [repositório do Github do HDInsight](https://github.com/hdinsight/hdinsight-dev-guide) e deszipe-o para o ficheiro CSV `2017-01-FlightData.csv`. 
+1. Transferir um ficheiro CSV de exemplo que contém dados de voo durante um mês. Transfira o ficheiro ZIP `2017-01-FlightData.zip` partir do [repositório do GitHub do HDInsight](https://github.com/hdinsight/hdinsight-dev-guide) e deszipe-o para o ficheiro CSV `2017-01-FlightData.csv`. 
 
 2. Copie este ficheiro CSV para a conta de armazenamento do Azure ligado ao seu cluster do HDInsight e colocá-la a `/example/data/flights` pasta.
 
@@ -553,7 +553,7 @@ Como pode ver, a maioria do coordenador de está passando apenas informações d
 
     Ele é responsável pelo agendamento de ações dentro da `start` e `end` intervalo, de datas, de acordo com o intervalo especificado pelo `frequency` atributo. Cada ação agendada por sua vez executa o fluxo de trabalho conforme configurado. Na definição do coordenador acima, o coordenador está configurado para executar ações a partir de 1 de Janeiro de 2017 para 5 de Janeiro de 2017. A frequência está definida para 1 dia, o [linguagem de expressão de Oozie](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) expressão de frequência `${coord:days(1)}`. Isso resulta no coordenador de agendamento de uma ação (e, por conseguinte, o fluxo de trabalho) uma vez por dia. Para intervalos de datas que estão no passado, tal como neste exemplo, a ação será agendada para ser executado sem demora. Denomina-se o início da data do que uma ação está agendada para executar o *tempo nominal*. Por exemplo, para processar os dados de 1 de Janeiro de 2017, o coordenador de agendará ação com um tempo nominal de 2017-01-01T00:00:00 GMT.
 
-* Ponto de 2: dentro do intervalo de datas do fluxo de trabalho, o `dataset` elemento Especifica onde procurar os dados para um determinado intervalo de datas no HDFS e configura a forma como o Oozie determina se os dados estão disponíveis ainda para processamento.
+* Ponto de 2: Dentro do intervalo de datas de fluxo de trabalho, o `dataset` elemento Especifica onde procurar os dados para um determinado intervalo de datas no HDFS e configura a forma como o Oozie determina se os dados estão disponíveis ainda para processamento.
 
     ```
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">

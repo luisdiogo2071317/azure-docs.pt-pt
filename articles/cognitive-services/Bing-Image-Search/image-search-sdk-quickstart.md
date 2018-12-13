@@ -1,5 +1,5 @@
 ---
-title: 'Guia de Início Rápido: Procurar imagens com o SDK de Pesquisa de Imagens do Bing para C#'
+title: 'Início rápido: Procure imagens - SDK de pesquisa de imagens do Bing paraC#'
 description: Utilize este guia de início rápido para criar a sua primeira pesquisa de imagens com o SDK da Pesquisa de Imagens do Bing, um wrapper para a API que contém as mesmas funcionalidades. Esta aplicação C# simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 4058527263e95a75ed3d5d15cd12972170aa28fd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: 2d81c7b22e5d7cae0beb8a549d4e44f3a1ebc132
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096915"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261250"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-c"></a>Guia de Início Rápido: Procurar imagens com o SDK de Pesquisa de Imagens do Bing e C#
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>Início rápido: Pesquisa de imagens com o SDK de pesquisa de imagens do Bing paraC#
 
 Utilize este guia de início rápido para criar a sua primeira pesquisa de imagens com o SDK da Pesquisa de Imagens do Bing, um wrapper para a API que contém as mesmas funcionalidades. Esta aplicação C# simples envia uma consulta de pesquisa de imagens, analisa a resposta JSON e apresenta o URL da primeira imagem devolvida.
 

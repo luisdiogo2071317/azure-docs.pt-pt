@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 02412f2ac4ff6ce0394ad46e03ae4c89f924624f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b552918f6b415bcd55c7c27c80ff721df77ca99f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016406"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276082"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos suportados para alertas de métricas no Azure Monitor
 
-Agora suporta o Monitor do Azure um [novo tipo de alerta de métrica](monitoring-overview-alerts.md) que apresenta vantagens consideráveis sobre o mais antigo [alertas de métricas clássicas](monitoring-overview-alerts-classic.md). As métricas estão disponíveis para [grande lista de serviços do Azure](monitoring-supported-metrics.md). Os alertas mais recente suportam um subconjunto (crescente) dos tipos de recursos. Este artigo lista esse subconjunto.
+Agora suporta o Monitor do Azure um [novo tipo de alerta de métrica](monitoring-overview-alerts.md) que apresenta vantagens consideráveis sobre o mais antigo [alertas de métricas clássicas](../azure-monitor/platform/alerts-classic.overview.md). As métricas estão disponíveis para [grande lista de serviços do Azure](monitoring-supported-metrics.md). Os alertas mais recente suportam um subconjunto (crescente) dos tipos de recursos. Este artigo lista esse subconjunto.
 
 
 Também pode utilizar alertas de métricas mais recente em populares registos do Log Analytics extraídos como métricas. Para obter mais informações, veja [alertas de métrica para os registos](monitoring-metric-alerts-logs.md).
@@ -35,7 +35,7 @@ Eis a lista completa de origens de métrica de monitor do Azure suportadas pelos
 |Microsoft.ApiManagement/service     | Sim        | [Gestão de API](monitoring-supported-metrics.md#microsoftapimanagementservice)|
 |Microsoft.Automation/automationAccounts     |     Sim   | [Contas de automatização](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
 |Microsoft.Batch/batchAccounts | N/A| [Contas do batch](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
-|Microsoft.Cache/Redis     |    N/A     |[Cache de Redis do Azure](monitoring-supported-metrics.md#microsoftcacheredis)|
+|Microsoft.Cache/Redis     |    N/A     |[Cache do Azure para Redis](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.CognitiveServices/accounts     |    N/A     | [Serviços Cognitivos](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines     |    N/A     | [Máquinas Virtuais](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
 |Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[Conjuntos de dimensionamento de máquinas virtuais](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
@@ -48,7 +48,7 @@ Eis a lista completa de origens de métrica de monitor do Azure suportadas pelos
 |Microsoft.EventHub/namespaces     |  Sim      |[Hubs de Eventos](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
 |Microsoft.KeyVault/vaults| Não | [cofres](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Aplicações Lógicas](monitoring-supported-metrics.md#microsoftlogicworkflows) |
-|Microsoft.Network/applicationGateways     |    N/A     | [Gateways de aplicação](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/applicationGateways     |    N/A     | [Gateways de Aplicação](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/expressRouteCircuits | N/A |  [Express Route circuitos](monitoring-supported-metrics.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/dnsZones | N/A| [Zonas DNS](monitoring-supported-metrics.md#microsoftnetworkdnszones) |
 |Network/loadbalancers (apenas para o SKU Standard)| Sim| [Balanceadores de carga](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
@@ -69,7 +69,7 @@ Eis a lista completa de origens de métrica de monitor do Azure suportadas pelos
 
 ## <a name="payload-schema"></a>Esquema do payload
 
-A operação de POSTAGEM contém o JSON payload seguinte e o esquema para todos os perto de alertas de métricas mais recentes quando um configurado de forma apropriada [grupo de ação](monitoring-action-groups.md) é usado:
+A operação de POSTAGEM contém o JSON payload seguinte e o esquema para todos os perto de alertas de métricas mais recentes quando um configurado de forma apropriada [grupo de ação](../azure-monitor/platform/action-groups.md) é usado:
 
 ```json
 {"schemaId":"AzureMonitorMetricAlert","data":
@@ -122,5 +122,5 @@ A operação de POSTAGEM contém o JSON payload seguinte e o esquema para todos 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre a nova [experiência de alertas](monitoring-overview-alerts.md).
-* Saiba mais sobre [alertas de registo no Azure](monitor-alerts-unified-log.md).
+* Saiba mais sobre [alertas de registo no Azure](../azure-monitor/platform/alerts-unified-log.md).
 * Saiba mais sobre [alertas no Azure](monitoring-overview-alerts.md).

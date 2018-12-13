@@ -1,5 +1,5 @@
 ---
-title: 'Aplicação saas: monitorizar o desempenho de muitas bases de dados SQL do Azure | Documentos da Microsoft'
+title: 'Aplicação de saas: Monitorizar o desempenho de muitas bases de dados SQL do Azure | Documentos da Microsoft'
 description: Monitorizar e gerir o desempenho de bases de dados SQL do Azure e conjuntos numa aplicação SaaS multi-inquilino
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 86fdd7b0bd8ac76ddb2ac30ff324b80101c177e8
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353905"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259142"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho de bases de dados SQL do Azure e conjuntos numa aplicação SaaS multi-inquilino
 
@@ -75,7 +75,7 @@ Se já tiver aprovisionado um lote de inquilinos num tutorial anterior, avance p
 
 O script implementará 17 inquilinos em menos de cinco minutos.
 
-O *New-TenantBatch* script usa um conjunto ligado ou aninhado de [Gestor de recursos](../azure-resource-manager/index.md) modelos que cria um lote de inquilinos, que, por predefinição, copia a base de dados **basetenantdb**no servidor de catálogo para criar o novo inquilino bases de dados, em seguida, regista estes no catálogo e, finalmente, inicializa-os com o tipo de nome e o local do inquilino. Isso é consistente com a forma como a aplicação aprovisiona um novo inquilino. Todas as alterações efetuadas *basetenantdb* são aplicadas a quaisquer novos inquilinos aprovisionados a partir de então. Consulte a [tutorial de gestão de esquemas](saas-tenancy-schema-management.md) para ver como efetuar alterações de esquema ao *existente* bases de dados de inquilino (incluindo o *basetenantdb* base de dados).
+O *New-TenantBatch* script usa um conjunto ligado ou aninhado de [Gestor de recursos](../azure-resource-manager/index.yml) modelos que cria um lote de inquilinos, que, por predefinição, copia a base de dados **basetenantdb**no servidor de catálogo para criar o novo inquilino bases de dados, em seguida, regista estes no catálogo e, finalmente, inicializa-os com o tipo de nome e o local do inquilino. Isso é consistente com a forma como a aplicação aprovisiona um novo inquilino. Todas as alterações efetuadas *basetenantdb* são aplicadas a quaisquer novos inquilinos aprovisionados a partir de então. Consulte a [tutorial de gestão de esquemas](saas-tenancy-schema-management.md) para ver como efetuar alterações de esquema ao *existente* bases de dados de inquilino (incluindo o *basetenantdb* base de dados).
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Simular a utilização em todas as bases de dados de inquilinos
 

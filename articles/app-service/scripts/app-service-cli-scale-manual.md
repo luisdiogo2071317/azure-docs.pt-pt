@@ -3,8 +3,8 @@ title: Exemplo de Script da CLI do Azure – Dimensionar uma aplicação Web man
 description: Exemplo de Script da CLI do Azure – Dimensionar uma aplicação Web manualmente com a CLI do Azure
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: 251d9074-8fff-4121-ad16-9eca9556ac96
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 28ca20d44d18e8fe25153b7f9298d5174412ad79
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: da269c2a096ad317703329bf6ad847dbaf9016e9
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988585"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188664"
 ---
-# <a name="scale-a-web-app-manually"></a>Dimensionar uma aplicação Web manualmente
+# <a name="scale-a-web-app-manually-using-azure-cli"></a>Dimensionar uma aplicação web manualmente com a CLI do Azure
 
 Este script de exemplo cria um grupo de recursos, um plano do Serviço de Aplicações e uma aplicação Web. Dimensiona, em seguida, o plano do Serviço de Aplicações de uma única instância única para várias instâncias.
 
@@ -50,7 +50,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação Web do Azure. |
 | [`az appservice plan update`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-update) | Atualiza as propriedades do plano do Serviço de Aplicações. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

@@ -4,9 +4,8 @@ description: Este guia fornece soluções para alguns encontrados com freqüênc
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 1a8aec4b-35f9-44e8-9570-2575b8979ab1
 ms.service: machine-learning
@@ -16,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 5e52abeeef7d40ac5594f4edfa2b80ef553081e4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 878b26b72263ddd640e1cfa936c1e4ade1af6d68
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312073"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275283"
 ---
-# <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-studio-workspace"></a>Guia de resolução de problemas: criar e ligar a uma área de trabalho do Machine Learning Studio
+# <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-workspace"></a>Guia de resolução de problemas: Criar e ligar a uma área de trabalho do Azure Machine Learning Studio
 Este guia fornece soluções para alguns encontrados com freqüência desafios quando estiver a configurar áreas de trabalho do Azure Machine Learning Studio.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="workspace-owner"></a>Proprietário da área de trabalho
 Para abrir uma área de trabalho no Machine Learning Studio, precisa estar conectado à Account Microsoft que utilizou para criar a área de trabalho ou terá de receber um convite de proprietário para associar a área de trabalho. No portal do Azure pode gerir a área de trabalho, que inclui a capacidade para configurar o acesso.

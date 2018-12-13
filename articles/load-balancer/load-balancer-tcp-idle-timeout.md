@@ -1,11 +1,11 @@
 ---
-title: Configurar o tempo limite de inatividade de TCP de Balanceador de carga | Microsoft Docs
+title: Configurar o tempo limite de inatividade de TCP de Balanceador de carga no Azure
+titlesuffix: Azure Load Balancer
 description: Configurar o tempo limite de inatividade de TCP de Balanceador de carga
 services: load-balancer
 documentationcenter: na
 author: kumudd
-manager: timlt
-ms.assetid: 4625c6a8-5725-47ce-81db-4fa3bd055891
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,42 +13,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: f19ac77f7c7f7d4ab8909d628f9dcce08c07c928
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24a7d2354693e362d7709b8817c438555caae0e3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23855230"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256201"
 ---
-# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configurar definições de tempo limite de inatividade de TCP para o Balanceador de carga do Azure
+# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configurar as definições de tempo limite de inatividade de TCP para o Balanceador de carga do Azure
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Na sua configuração predefinida, o Balanceador de carga do Azure tem uma definição de tempo limite de inatividade de 4 minutos. Se um período de inatividade é maior do que o valor de tempo limite, não há nenhuma garantia de que a sessão TCP ou HTTP é mantida entre o cliente e o serviço em nuvem.
+Na configuração predefinida, o Balanceador de carga do Azure tem uma definição de tempo limite de inatividade de 4 minutos. Se um período de inatividade é maior do que o valor de tempo limite, não há nenhuma garantia de que a sessão TCP ou HTTP é mantida entre o cliente e o seu serviço cloud.
 
-Quando a ligação é fechada, a aplicação cliente pode receber a seguinte mensagem de erro: "a ligação subjacente foi fechada: uma ligação que esperava ser mantida activa foi fechada pelo servidor."
+Quando a conexão é fechada, a aplicação cliente pode receber a seguinte mensagem de erro: "A ligação subjacente foi fechada: Uma ligação que foi poderá demorar a ser mantido ativo foi fechada pelo servidor."
 
-Uma prática comum é utilizar uma ligação keep-alive de TCP. Esta prática mantém a ligação ativa durante um período de tempo. Para obter mais informações, consulte estes [exemplos de .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Com ligação keep-alive ativada, os pacotes são enviados durante períodos de inatividade na ligação. Estes pacotes ligação keep-alive Certifique-se de que o valor de tempo limite de inatividade nunca foi alcançado e a ligação é mantida durante um longo período.
+Uma prática comum é usar uma ligação keep-alive de TCP. Esta prática mantém a ligação ativa durante um período mais longo. Para obter mais informações, consulte estes [exemplos de .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Com a ligação keep-alive ativada, pacotes são enviados durante os períodos de inatividade na ligação. Estes pacotes de keep-alive Certifique-se de que nunca é atingido o valor de tempo limite de inatividade e a ligação é mantida por um longo período.
 
-Esta definição funciona em ligações de entrada apenas. Para evitar a perda de ligação, tem de configurar o TCP ligação keep-alive com um intervalo menor que a definição de tempo limite de inatividade ou aumente o valor de tempo limite de inatividade. Para suportar tais cenários, adicionámos suporte para um tempo limite de inatividade configurável. Agora pode defini-lo para uma duração de 4 a 30 minutos.
+Esta definição funciona para apenas ligações de entrada. Para evitar perder a ligação, tem de configurar a ligação keep-alive de TCP com um intervalo menor do que a definição de tempo limite de inatividade ou aumentar o valor de tempo limite de inatividade. Para suportar tais cenários, adicionámos suporte para um tempo de limite de inatividade configurável. Agora pode defini-lo para uma duração de 4 a 30 minutos.
 
-TCP ligação keep-alive funciona bem para cenários em que a vida bateria não é uma restrição. Não é recomendado para aplicações móveis. Utilizar uma ligação keep-alive na aplicação móvel de TCP pode drenar a bateria do dispositivo mais rapidamente.
+TCP keep-alive funciona bem para cenários em que a vida útil da bateria não é uma restrição. Não é recomendado para aplicativos móveis. Utilizar uma ligação keep-alive de um aplicativo móvel de TCP pode drenar a bateria do dispositivo mais rápido.
 
 ![Tempo limite TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
 
 As secções seguintes descrevem como alterar as definições de tempo limite de inatividade em máquinas virtuais e serviços em nuvem.
 
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Configurar o tempo limite TCP para o IP público de nível de instância para 15 minutos
+## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Configurar o tempo limite TCP para o seu IP público de nível de instância para 15 minutos
 
 ```powershell
 Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 ```
 
-`IdleTimeoutInMinutes` é opcional. Se não for definido, o tempo limite predefinido é 4 minutos. O intervalo de tempo limite aceitável é 4 a 30 minutos.
+`IdleTimeoutInMinutes` é opcional. Se não estiver definido, o tempo limite predefinido é de 4 minutos. O intervalo de tempo limite aceitável é de 4 a 30 minutos.
 
-## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Definir o limite de tempo inativo durante a criação de um ponto final do Azure numa máquina virtual
+## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Definir o tempo limite de inatividade durante a criação de um ponto final do Azure numa máquina virtual
 
-Para alterar a definição de tempo limite para um ponto final, utilize o seguinte:
+Para alterar a definição de tempo limite para um ponto de extremidade, utilize o seguinte:
 
 ```powershell
 Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
@@ -76,15 +76,15 @@ Para obter a configuração de tempo limite de inatividade, utilize o seguinte c
 
 ## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Definir o tempo limite TCP num conjunto de ponto final com balanceamento de carga
 
-Se os pontos finais fizerem parte de um conjunto de ponto final com balanceamento de carga, o tempo limite TCP tem de ser definido no conjunto de ponto final com balanceamento de carga. Por exemplo:
+Se os pontos finais fazem parte de um conjunto de ponto final com balanceamento de carga, o tempo limite TCP deve ser definido no conjunto de ponto final com balanceamento de carga. Por exemplo:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
 ```
 
-## <a name="change-timeout-settings-for-cloud-services"></a>Alterar as definições de tempo limite para serviços cloud
+## <a name="change-timeout-settings-for-cloud-services"></a>Alterar as definições de tempo limite para os serviços cloud
 
-Pode utilizar o Azure SDK para atualizar o seu serviço em nuvem. Se as definições de endpoint para serviços em nuvem no ficheiro. csdef. Atualizar o tempo limite TCP para a implementação de um serviço em nuvem exige uma atualização da implementação. Uma exceção é se o tempo limite TCP é especificado apenas para um IP público. Definições de IP público estão no ficheiro. cscfg, e pode atualizá-las através da atualização da implementação e atualização.
+Pode utilizar o Azure SDK para atualizar o seu serviço cloud. Verifique as definições de ponto de extremidade para serviços em nuvem no ficheiro. csdef. A atualizar o tempo limite TCP para a implementação de um serviço em nuvem requer uma atualização de implementação. Uma exceção é se o tempo limite TCP é especificado apenas para um IP público. Definições de IP públicas estão no ficheiro. cscfg e atualizá-las por meio de atualização da implementação e atualização.
 
 As alterações. csdef para definições de ponto final são:
 
@@ -96,7 +96,7 @@ As alterações. csdef para definições de ponto final são:
 </WorkerRole>
 ```
 
-As alterações. cscfg para a definição de tempo limite do IPs públicos são:
+As alterações. cscfg para a definição de tempo limite nos IPs públicos são:
 
 ```xml
 <NetworkConfiguration>
@@ -113,7 +113,7 @@ As alterações. cscfg para a definição de tempo limite do IPs públicos são:
 
 ## <a name="rest-api-example"></a>Exemplo de REST API
 
-Pode configurar o limite de tempo inativo do TCP, utilizando a API de gestão do serviço. Certifique-se de que o `x-ms-version` cabeçalho está definido para a versão `2014-06-01` ou posterior. Atualize a configuração especificada com balanceamento de carga entrada pontos finais em todas as máquinas virtuais numa implementação.
+Pode configurar o tempo de limite de inatividade de TCP ao utilizar a API de gestão do serviço. Certifique-se de que o `x-ms-version` cabeçalho está definido para a versão `2014-06-01` ou posterior. Atualize a configuração das especificado com balanceamento de carga pontos finais de entrada em todas as máquinas virtuais numa implementação.
 
 ### <a name="request"></a>Pedir
 
@@ -152,10 +152,10 @@ Pode configurar o limite de tempo inativo do TCP, utilizando a API de gestão do
 </LoadBalancedEndpointList>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Descrição geral do Balanceador de carga interno](load-balancer-internal-overview.md)
 
-[Começar a configurar um balanceador de carga para a Internet](load-balancer-get-started-internet-arm-ps.md)
+[Começar a configurar um balanceador de carga com acesso à Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Configurar um modo de distribuição de balanceador de carga](load-balancer-distribution-mode.md)

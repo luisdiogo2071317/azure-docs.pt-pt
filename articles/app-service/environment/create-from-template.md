@@ -1,5 +1,5 @@
 ---
-title: Criar um ambiente de serviço de aplicações do Azure com um modelo do Resource Manager
+title: Criar o ambiente de serviço de aplicações com o modelo do Resource Manager - Azure
 description: Explica como criar um ambiente externo ou o serviço de aplicações do Azure ILB utilizando um modelo do Resource Manager
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: bdd8ac47f709153b17e2dcf44ff9a2c568e650cc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 9056abdd57640026d04779a3c5c3a201095ea045
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958752"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277476"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Criar um ASE com um modelo Azure Resource Manager
 
@@ -49,9 +50,9 @@ Um modelo do Resource Manager que cria um ASE e o respetivo ficheiro de parâmet
 
 Se quiser fazer um ASE de ILB, utilize estes modelo do Resource Manager [exemplos][quickstartilbasecreate]. Eles se adaptar a que o caso de utilização. A maioria dos parâmetros a *azuredeploy* ficheiro são comuns para a criação dos ASEs do ILB e os ASEs externo. A lista a seguir chama parâmetros de destacar ou que são exclusivos, ao criar um ASE de ILB:
 
-* *internalLoadBalancingMode*: na maioria dos casos, conjunto esta opção para 3, o que significa que o tráfego HTTP/HTTPS na portas 80/443 e os controle/dados portas de canal aberta pelo serviço FTP sobre o ASE, sejam ligados com uma ILB alocada rede virtual interna endereço. Se esta propriedade é definida como 2, apenas as com o serviço portas de FTP (canais de controlo e dados) estão vinculadas a um endereço ILB. O tráfego HTTP/HTTPS permanece no VIP público.
-* *dnsSuffix*: este parâmetro define o domínio de raiz predefinido que é atribuído para o ASE. A variação pública do serviço de aplicações do Azure, o domínio de raiz predefinida para todas as web apps é *azurewebsites.net*. Como um ASE de ILB é interno para a rede virtual de um cliente, não faz sentido usar o domínio de raiz do serviço público predefinido. Em vez disso, um ASE de ILB deve ter um domínio de raiz predefinida que faça sentido para utilização na rede virtual interna de uma empresa. Por exemplo, Contoso Corporation poderá utilizar um domínio de raiz predefinida da *interna contoso.com* para aplicações que se destinam a ser resolvido e acessível apenas numa rede virtual da Contoso. 
-* *ipSslAddressCount*: este parâmetro é automaticamente predefinido para um valor de 0 no *azuredeploy. JSON* ficheiros porque os ASEs do ILB tem apenas um único endereço ILB. Não há nenhum endereço IP SSL explícito para um ASE de ILB. Por conseguinte, o conjunto de endereços IP SSL para um ASE de ILB tem de ser definido como zero. Caso contrário, ocorre um erro de aprovisionamento. 
+* *internalLoadBalancingMode*: Na maioria dos casos, conjunto esta opção para 3, o que significa que o tráfego HTTP/HTTPS na portas 80/443 e os controle/dados portas de canal aberta pelo serviço FTP sobre o ASE, sejam ligados com um endereço de ILB alocada a rede virtual. Se esta propriedade é definida como 2, apenas as com o serviço portas de FTP (canais de controlo e dados) estão vinculadas a um endereço ILB. O tráfego HTTP/HTTPS permanece no VIP público.
+* *dnsSuffix*: Este parâmetro define o domínio de raiz predefinido que é atribuído para o ASE. A variação pública do serviço de aplicações do Azure, o domínio de raiz predefinida para todas as web apps é *azurewebsites.net*. Como um ASE de ILB é interno para a rede virtual de um cliente, não faz sentido usar o domínio de raiz do serviço público predefinido. Em vez disso, um ASE de ILB deve ter um domínio de raiz predefinida que faça sentido para utilização na rede virtual interna de uma empresa. Por exemplo, Contoso Corporation poderá utilizar um domínio de raiz predefinida da *interna contoso.com* para aplicações que se destinam a ser resolvido e acessível apenas numa rede virtual da Contoso. 
+* *ipSslAddressCount*: Este parâmetro é automaticamente predefinido para um valor de 0 no *azuredeploy. JSON* ficheiros porque os ASEs do ILB tem apenas um único endereço ILB. Não há nenhum endereço IP SSL explícito para um ASE de ILB. Por conseguinte, o conjunto de endereços IP SSL para um ASE de ILB tem de ser definido como zero. Caso contrário, ocorre um erro de aprovisionamento. 
 
 Depois do *azuredeploy* ficheiro é preenchido, criar o ASE com o trecho de código do PowerShell. Altere os caminhos de ficheiro para corresponder as localizações de ficheiro de modelo do Resource Manager no seu computador. Não se esqueça de fornecer seus próprios valores para o nome da implementação do Resource Manager e o nome do grupo de recursos:
 
@@ -69,8 +70,8 @@ Um certificado SSL deve ser associado com o ASE como o certificado SSL de "prede
 
 Obter um certificado SSL válido ao utilizar autoridades de certificação internas, adquirir um certificado de um emissor externo ou utilizar um certificado autoassinado. Independentemente da origem do certificado SSL, os seguintes atributos de certificado tem de ser configurados corretamente:
 
-* **Assunto**: este atributo deve ser definido como **.your-raiz-domínio-here.com*.
-* **Nome alternativo do requerente**: este atributo tem de incluir **.your-raiz-domínio-here.com* e **Here-raiz-domínio-here.com*. Ligações de SSL ao site SCM/Kudu associadas a cada aplicação utilizam um endereço do formulário *your-app-name.scm.your-root-domain-here.com*.
+* **Assunto**: Este atributo deve ser definido como **.your-raiz-domínio-here.com*.
+* **Nome alternativo do requerente**: Este atributo tem de incluir **.your-raiz-domínio-here.com* e **Here-raiz-domínio-here.com*. Ligações de SSL ao site SCM/Kudu associadas a cada aplicação utilizam um endereço do formulário *your-app-name.scm.your-root-domain-here.com*.
 
 Com um certificado SSL válido em mãos, são necessárias duas etapas preparatórias adicionais. Converta/guarde o certificado SSL como um ficheiro .pfx. Lembre-se de que o ficheiro. pfx tem de incluir todos os intermediário e certificados de raiz. Proteja-o com uma palavra-passe.
 
@@ -104,11 +105,11 @@ Depois do certificado SSL é gerado e convertido numa cadeia com codificação b
 Os parâmetros nos *azuredeploy* arquivo estão listados aqui:
 
 * *appServiceEnvironmentName*: O nome do ASE de ILB a ser configurado.
-* *existingAseLocation*: cadeia de texto que contém a região do Azure em que o ASE de ILB foi implementado.  Por exemplo: "Sul E.u.a. Central".
+* *existingAseLocation*: Cadeia de texto que contém a região do Azure em que o ASE de ILB foi implementado.  Por exemplo: "Sul dos E.U.A.".
 * *pfxBlobString*: A representação de cadeia com codificação based64 do ficheiro. pfx. Utilize o fragmento de código mostrado anteriormente e copie a cadeia de caracteres contida no "exportedcert.pfx.b64". Cole-a no como o valor do *pfxBlobString* atributo.
 * *palavra-passe*: A palavra-passe utilizada para proteger o ficheiro. pfx.
-* *certificateThumbprint*: O thumbprint do certificado. Se recuperar esse valor a partir do PowerShell (por exemplo, *$certificate. Thumbprint* do trecho de código anterior), pode usar o valor como está. Se copiar o valor da caixa de diálogo de certificado do Windows, não se esqueça de retirar os espaços estranhos. O *certificateThumbprint* deve ser algo semelhante AF3143EB61D43F6727842115BB7F17BBCECAECAE.
-* *certificateName*: um identificador de cadeia de caracteres amigável à sua escolha utilizado para identidade, o certificado. O nome é utilizado como parte do identificador exclusivo do Resource Manager para o *Microsoft.Web/certificates* entidade que representa o certificado SSL. O nome *tem* terminar com o seguinte sufixo: \_yourASENameHere_InternalLoadBalancingASE. O portal do Azure utiliza este sufixo como um indicador de que o certificado é utilizado para proteger um ASE com ILB ativado.
+* *certificateThumbprint*: Thumbprint do certificado. Se recuperar esse valor a partir do PowerShell (por exemplo, *$certificate. Thumbprint* do trecho de código anterior), pode usar o valor como está. Se copiar o valor da caixa de diálogo de certificado do Windows, não se esqueça de retirar os espaços estranhos. O *certificateThumbprint* deve ser algo semelhante AF3143EB61D43F6727842115BB7F17BBCECAECAE.
+* *certificateName*: Utilizado um identificador de cadeia de caracteres amigável seus próprios escolher para identidade o certificado. O nome é utilizado como parte do identificador exclusivo do Resource Manager para o *Microsoft.Web/certificates* entidade que representa o certificado SSL. O nome *tem* terminar com o seguinte sufixo: \_yourASENameHere_InternalLoadBalancingASE. O portal do Azure utiliza este sufixo como um indicador de que o certificado é utilizado para proteger um ASE com ILB ativado.
 
 Um exemplo abreviado *azuredeploy* é mostrado aqui:
 
@@ -155,7 +156,7 @@ Após a conclusão do modelo, as aplicações no ASE de ILB podem ser acedidas a
 No entanto, assim como aplicações que são executadas no serviço público multi-inquilino, os desenvolvedores podem configurar nomes de anfitrião personalizado para aplicações individuais. Também pode configurar exclusivos enlaces de certificado de SNI SSL para aplicações individuais.
 
 ## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicações v1 ##
-O Ambiente de Serviço de Aplicações tem duas versões: ASEv1 e ASEv2. As informações anteriores tiveram como base a versão ASEv2. Esta secção mostra as diferenças entre as versões ASEv1 e ASEv2.
+Ambiente de serviço de aplicações tem duas versões: ASEv1 e ASEv2. As informações anteriores tiveram como base a versão ASEv2. Esta secção mostra as diferenças entre as versões ASEv1 e ASEv2.
 
 No ASEv1, gere todos os recursos manualmente. Tal inclui os front-ends, os trabalhos e os endereços IP utilizados para SSL baseado em IP. Antes do utilizador pode ampliar o seu plano do serviço de aplicações, deve aumentar horizontalmente o conjunto de trabalho que pretende alojá-lo.
 

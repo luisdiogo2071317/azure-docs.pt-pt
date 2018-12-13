@@ -1,26 +1,19 @@
 ---
-title: Exemplo de Script da CLI do Azure – Criar um Serviço SignalR com um Serviço de Aplicações | Microsoft Docs
+title: CLI do Azure exemplo do Script - criar um serviço SignalR com um serviço de aplicações
 description: Exemplo de Script da CLI do Azure – Criar um Serviço SignalR com um Serviço de Aplicações
-services: signalr
-documentationcenter: signalr
 author: sffamily
-manager: cfowler
-editor: ''
-tags: azure-service-management
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: signalr
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 971c618300c1aedcdfb26bfaa79660a92eada475
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 007bf58c06d28f4445b3e57c5d692e3ee19b5b8c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978731"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257748"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>Criar um Serviço SignalR com um Serviço de Aplicações
 
@@ -59,7 +52,7 @@ Cada comando na tabela liga à documentação específica do comando. Este scrip
 | [az webapp create](/cli/azure/webapp#az-webapp-create) | Cria uma aplicação Web do Azure com o plano de alojamento do Serviço de Aplicações. |
 | [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Adiciona a nova definição de aplicação para a aplicação Web. Esta definição de aplicação é utilizada para armazenar a cadeia de ligação SignalR. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

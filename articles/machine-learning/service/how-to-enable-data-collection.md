@@ -1,5 +1,5 @@
 ---
-title: Ativar a recolha de dados de modelos em produção
+title: Recolha de dados de seus modelos de produção
 titleSuffix: Azure Machine Learning service
 description: Saiba como recolher dados de entrada de modelo do Azure Machine Learning num armazenamento de Blobs do Azure.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: e6b6a8e1dd1b3746977062341013b92acff132c4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2a4f0f1100064010405c3d0bc599e7add1041074
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100550"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271577"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recolher dados para modelos em produção
 
@@ -50,7 +50,7 @@ O caminho para os dados de saída no blob segue esta sintaxe:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
+- Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
 - Uma Azure Machine Learning serviço área de trabalho, um diretório local que contém os scripts e o SDK do Azure Machine Learning para Python instalada. Saiba como obter estes pré-requisitos com o [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md) documento.
 

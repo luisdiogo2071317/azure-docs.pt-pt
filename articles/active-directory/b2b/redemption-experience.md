@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 12/10/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7819ed3e18092e8b7bdf52225e7025b4b6d8146a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: c0f384dafc4ba30eb3e735ee17ae051245378135
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981887"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254994"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate de convite de colaboração do Azure Active Directory B2B
 
@@ -26,7 +26,7 @@ Colaborar com os utilizadores de organizações parceiras por meio da colaboraç
 
 ## <a name="redemption-through-a-direct-link"></a>Resgate por meio de uma ligação direta
 
-Um autor de convite pode convidar um utilizador convidado ao enviar uma ligação direta para uma aplicação partilhada. Para o utilizador convidado, a experiência de resgate é tão fácil quanto a iniciar sessão para a aplicação que foi partilhada com eles. Pode clicar numa ligação para a aplicação, reveja e aceite os termos de privacidade e, em seguida, acessar diretamente a aplicação. Na maioria dos casos, os utilizadores convidados não precisam mais clique um URL de resgate numa mensagem de e-mail de convite.
+Um autor de convite pode convidar um utilizador convidado ao enviar um [ligação direta para uma aplicação partilhada](../manage-apps/end-user-experiences.md#direct-sign-on-links). Para o utilizador convidado, a experiência de resgate é tão fácil quanto a iniciar sessão para a aplicação que foi partilhada com eles. Pode clicar numa ligação para a aplicação, reveja e aceite os termos de privacidade e, em seguida, acessar diretamente a aplicação. Na maioria dos casos, os utilizadores convidados não precisam mais clique um URL de resgate numa mensagem de e-mail de convite.
 
 Se os utilizadores convidados por meio da interface do usuário, ou optar por enviar o e-mail de convite como parte da experiência de convite do PowerShell, o usuário convidado ainda recebe um e-mail de convite. Este e-mail é útil para os seguintes casos especiais:
 
@@ -51,7 +51,7 @@ Depois de qualquer utilizador convidado inicia sessão aceder aos recursos numa 
 
 ![Captura de ecrã que mostra as definições de utilizador no painel de acesso](media/redemption-experience/ConsentScreen.png) 
 
-Para obter informações sobre como, como um administrador inquilino pode ligar a declaração de privacidade da sua organização, consulte [procedimentos: adicionar informações de privacidade da sua organização no Azure Active Directory](https://aka.ms/adprivacystatement).
+Para obter informações sobre como, como um administrador inquilino pode ligar a declaração de privacidade da sua organização, consulte [procedimentos: Adicionar informações de privacidade da sua organização no Azure Active Directory](https://aka.ms/adprivacystatement).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

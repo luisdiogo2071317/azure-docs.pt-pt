@@ -1,5 +1,5 @@
 ---
-title: Criar uma conta, uma base de dados e uma tabela da API para Cassandra do Azure Cosmos DB com uma aplicação Java
+title: Criar uma conta de API de Cassandra através de uma aplicação de Java - Azure Cosmos DB
 description: Este artigo mostra como criar uma conta da API para Cassandra, adicionar uma base de dados (também referida como um keyspace) e uma tabela a essa conta com uma aplicação Java.
 author: kanshiG
 ms.author: govindk
@@ -8,15 +8,16 @@ services: cosmos-db
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: 57b255fc3875adfd411ee8508f238f0e10af85f6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 0bff57d91a777619b825dacef5988dda010c794b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089841"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138845"
 ---
-# <a name="tutorial-create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>Tutorial: criar uma conta, uma base de dados e um tabela da API para Cassandra do Azure Cosmos DB com uma aplicação Java
+# <a name="tutorial-create-an-azure-cosmos-db-cassandra-api-account-by-using-a-java-application"></a>Tutorial: Criar uma conta de API de Cassandra do Azure Cosmos DB através de uma aplicação de Java
 
 Este tutorial descreve como utilizar uma aplicação Java para criar uma conta da API para Cassandra no Azure Cosmos DB, adicionar uma base de dados (também referida como um keyspace) e adicionar uma tabela. A aplicação Java utiliza o [controlador Java](https://github.com/datastax/java-driver) para criar uma base de dados de utilizador que contém detalhes como o ID do utilizador, o nome do utilizador e a cidade do utilizador.  
 

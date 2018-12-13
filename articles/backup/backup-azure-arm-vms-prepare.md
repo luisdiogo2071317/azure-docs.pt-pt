@@ -1,5 +1,5 @@
 ---
-title: 'Cópia de segurança do Azure: Preparar para fazer uma cópia de segurança de máquinas virtuais'
+title: 'Cópia de segurança do Azure: Prepare-se para fazer uma cópia de segurança de máquinas virtuais'
 description: Certifique-se de que o seu ambiente está preparado para fazer backup de máquinas virtuais no Azure.
 services: backup
 author: rayne-wiselman
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: d24b2773aa056b33a4067d5d84677d186d25b195
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422801"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255079"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparar a cópia de segurança de VMs do Azure
 
@@ -34,12 +34,12 @@ Se estas condições já existem no seu ambiente, avance para o [cópia de segur
 
 ## <a name="supported-operating-systems-for-backup"></a>Sistemas operativos suportados para a cópia de segurança
 
- * **Linux**: cópia de segurança do Azure suporta [uma lista de distribuições Azure endossa](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), exceto o CoreOS Linux e do sistema de operativo de 32 bits. Para obter a lista dos sistemas operativos Linux que suporta o restauro de ficheiros, consulte [recuperar ficheiros a partir de cópia de segurança da máquina virtual](backup-azure-restore-files-from-vm.md#for-linux-os).
+ * **Linux**: O Azure Backup suporta [uma lista de distribuições Azure endossa](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), exceto o CoreOS Linux e do sistema de operativo de 32 bits. Para obter a lista dos sistemas operativos Linux que suporta o restauro de ficheiros, consulte [recuperar ficheiros a partir de cópia de segurança da máquina virtual](backup-azure-restore-files-from-vm.md#for-linux-os).
 
     > [!NOTE]
     > Outras distribuições de bring-your-own-Linux podem funcionar, desde que o agente da VM está disponível na máquina virtual e haja suporte para Python. No entanto, esses distribuições não são suportadas.
     >
- * **Windows Server**, **cliente Windows**: as versões mais antigas do que o Windows Server 2008 R2 ou Windows 7, não são suportadas.
+ * **Windows Server**, **cliente Windows**:  As versões mais antigas do que o Windows Server 2008 R2 ou Windows 7, não são suportadas.
 
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitações ao fazer backup e restaurar uma VM
@@ -177,14 +177,14 @@ Para a extensão de cópia de segurança trabalhar, do Azure [agente da VM](../v
 
 As seguintes informações são fornecidas para situações onde está *não* através de uma VM criada no Azure Marketplace. **Por exemplo, migrou uma VM de um datacenter no local. Nesse caso, o agente da VM tem de ser instalado para poder proteger a máquina virtual.**
 
-**Tenha em atenção**: depois de instalar o agente da VM, também tem de utilizar Azure PowerShell para atualizar a propriedade de ProvisionGuestAgent, portanto, significa que o Azure a VM tem o agente instalado.
+**Tenha em atenção**: Depois de instalar o agente da VM, também tem de utilizar o Azure PowerShell para atualizar a propriedade de ProvisionGuestAgent, portanto, significa que o Azure a VM tem o agente instalado.
 
 Se tiver problemas, fazer backup da VM do Azure, utilize a tabela seguinte para verificar que o agente de VM do Azure está corretamente instalado na máquina virtual. A tabela fornece informações adicionais sobre o agente da VM para Windows e VMs do Linux.
 
 | **Operação** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalar o Agente da VM |Transfira e instale o [MSI do agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necessita de privilégios de Administrador para concluir o processo de instalação. |<li> Instalar a versão mais recente [agente Linux](../virtual-machines/extensions/agent-linux.md). Necessita de privilégios de Administrador para concluir o processo de instalação. Recomendamos que instale o agente do seu repositório de distribuição. Estamos **não é recomendável** instalar agente de VM com Linux diretamente a partir do github.  |
-| Atualizar o Agente da VM |A atualização do Agente da VM é tão simples como reinstalar os [binários do Agente da VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Certifique-se de que nenhuma operação de cópia de segurança está em execução enquanto o agente da VM está a ser atualizado. |Siga as instruções para [atualizar o Agente da VM do Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Recomendamos que Atualize o agente a partir do seu repositório de distribuição. Estamos **não é recomendável** atualizar agente de VM com Linux diretamente a partir do github.<br>Certifique-se de que nenhuma operação de cópia de segurança está em execução enquanto o Agente da VM está a ser atualizado. |
+| Instalar o Agente da VM |Transfira e instale o [MSI do agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necessita de privilégios de Administrador para concluir o processo de instalação. |<li> Instalar a versão mais recente [agente Linux](../virtual-machines/extensions/agent-linux.md). Necessita de privilégios de Administrador para concluir o processo de instalação. Recomendamos que instale o agente do seu repositório de distribuição. Estamos **não é recomendável** instalar agente de VM com Linux diretamente a partir do GitHub.  |
+| Atualizar o Agente da VM |A atualização do Agente da VM é tão simples como reinstalar os [binários do Agente da VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Certifique-se de que nenhuma operação de cópia de segurança está em execução enquanto o agente da VM está a ser atualizado. |Siga as instruções para [atualizar o Agente da VM do Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Recomendamos que Atualize o agente a partir do seu repositório de distribuição. Estamos **não é recomendável** atualizar agente de VM com Linux diretamente a partir do GitHub.<br>Certifique-se de que nenhuma operação de cópia de segurança está em execução enquanto o Agente da VM está a ser atualizado. |
 | A validar a instalação do Agente da VM |<li>Navegue até à pasta *C:\WindowsAzure\Packages* na VM do Azure. <li>Deve encontrar o ficheiro WaAppAgent.exe presente.<li> Clique com o botão direito do rato no ficheiro, aceda a **Propriedades** e, em seguida, selecione o separador **Detalhes**. O campo da Versão do Produto deve ser 2.6.1198.718 ou superior. |N/A |
 
 ### <a name="backup-extension"></a>Extensão da cópia de segurança

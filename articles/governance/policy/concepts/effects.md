@@ -1,5 +1,5 @@
 ---
-title: Compreenda os efeitos de política do Azure
+title: Compreender como funcionam os efeitos
 description: Definição de política do Azure tem vários efeitos que determinam como conformidade é gerenciada e comunicada.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,13 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 2bed2f52f29d5c97ab576fae73498b60fb7ecc30
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079805"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310849"
 ---
 # <a name="understand-policy-effects"></a>Compreender os efeitos do Policy
 
@@ -89,7 +89,7 @@ Exemplo 2: Dois **campo/valor** pares para acrescentar um conjunto de marcas.
 }
 ```
 
-Exemplo 3: Único **campo/valor** emparelhe com um [alias](definition-structure.md#aliases) com uma matriz **valor** para definir regras IP numa conta de armazenamento.
+Exemplo 3: Único **valor do campo** emparelhe com um [alias](definition-structure.md#aliases) com uma matriz **valor** para definir regras IP numa conta de armazenamento.
 
 ```json
 "then": {
@@ -120,7 +120,7 @@ O efeito de recusa não tem as propriedades adicionais para utilização no **, 
 
 ### <a name="deny-example"></a>Exemplo de negação
 
-Exemplo: A utilizar o efeito de recusa.
+Exemplo: Usando o efeito de recusa.
 
 ```json
 "then": {
@@ -142,7 +142,7 @@ O efeito de auditoria não tem as propriedades adicionais para utilização no *
 
 ### <a name="audit-example"></a>Exemplo de auditoria
 
-Exemplo: A utilizar o efeito de auditoria.
+Exemplo: Usando o efeito de auditoria.
 
 ```json
 "then": {
@@ -265,7 +265,7 @@ O **detalhes** propriedade dos efeitos DeployIfNotExists tem todos os subpropert
 
 ### <a name="deployifnotexists-example"></a>Exemplo de DeployIfNotExists
 
-Exemplo: Avalia as bases de dados do SQL Server para determinar se transparentDataEncryption está ativado. Caso contrário, em seguida, é executada uma implementação para ativá-la.
+Exemplo: Avalia a bases de dados do SQL Server para determinar se transparentDataEncryption está ativado. Caso contrário, em seguida, uma implementação para permitir que é executada.
 
 ```json
 "if": {

@@ -1,5 +1,5 @@
 ---
-title: Efetuar cópia de segurança da sua aplicação no Azure
+title: Fazer uma cópia de segurança de aplicação - serviço de aplicações do Azure
 description: Saiba como criar cópias de segurança das suas aplicações no serviço de aplicações do Azure.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 8035a704a76d8f6287addff9c5503eb93f8e04fc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 95fc4567248ca8201174494eee2da5922b7d0f0e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227846"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269231"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 A funcionalidade de cópia de segurança e restauro no [App Service do Azure](app-service-web-overview.md) permite-lhe facilmente criar cópias de segurança de aplicação com base numa agenda ou manualmente. Pode restaurar a aplicação para um instantâneo de um estado anterior ao substituir a aplicação existente ou restaurar para outra aplicação. 
@@ -75,7 +76,7 @@ As seguintes soluções de base de dados são suportadas com a funcionalidade c�
 
 2. Na **cópia de segurança** página, clique em **configurar**
 ![clique em configurar](./media/web-sites-backup/ClickConfigure1.png)
-3. Na **configuração de cópia de segurança** página, clique em **armazenamento: não configurado** para configurar uma conta de armazenamento.
+3. Na **configuração de cópia de segurança** página, clique em **armazenamento: Não configurado** para configurar uma conta de armazenamento.
    
     ![Escolher conta de armazenamento][ChooseStorageAccount]
 4. Escolher o destino da cópia de segurança, selecionando um **conta de armazenamento** e **contentor**. A conta de armazenamento têm de pertencer à mesma subscrição que a aplicação que pretende criar cópias de segurança. Se desejar, pode criar uma nova conta de armazenamento ou um novo contentor nas respectivas páginas. Quando tiver terminado, clique em **selecione**.

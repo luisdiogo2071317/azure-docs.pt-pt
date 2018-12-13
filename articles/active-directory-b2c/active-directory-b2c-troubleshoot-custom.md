@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e4b33552c4b070164b55a84f1d8586422aced2f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c733c148994b06e6d7cd13ee98e1a8157f26010a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446678"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163182"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>O Azure Active Directory B2C: Recolher registos
 
@@ -29,7 +29,7 @@ Este artigo fornece os passos para recolher registos do Azure AD B2C, para que p
 
 O Azure AD B2C suporta uma funcionalidade para enviar dados para o Application Insights.  O Application Insights fornece uma forma de diagnosticar exceções e visualize os problemas de desempenho do aplicativo.
 
-### <a name="setup-application-insights"></a>Configurar o Application Insights
+### <a name="setup-application-insights"></a>Configurar Application Insights
 
 1. Aceda ao [Portal do Azure](https://portal.azure.com). Certifique-se de que está no inquilino com a sua subscrição do Azure (não o inquilino do Azure AD B2C).
 1. Clique em **+ novo** no menu de navegação esquerdo.
@@ -108,7 +108,7 @@ A versão do Visualizador de que lê eventos a partir do Application Insights es
 >[!NOTE]
 >Atualmente, os registos de atividade detalhado descritos aqui são projetados **apenas** para ajudar no desenvolvimento de políticas personalizadas. Não utilize o modo de desenvolvimento em produção.  Registos de recolhem todas as afirmações enviadas de e para os fornecedores de identidade durante o desenvolvimento.  Se usado na produção, o desenvolvedor assume a responsabilidade de PII (em privado informações de identificação) recolhida no registo do App Insights que possuem.  Estes registos detalhados apenas são recolhidos quando a política for colocada em **modo de desenvolvimento**.
 
-[Repositório do Github para exemplos de política personalizada não suportado e ferramentas relacionadas](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
+[Repositório do GitHub para exemplos de política personalizada não suportado e ferramentas relacionadas](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
 
 

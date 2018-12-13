@@ -2,7 +2,7 @@
 title: O que inclui as condições de localização acesso condicional do Azure Active Directory? | Microsoft Docs
 description: Saiba como utilizar a condição de localização para controlar o acesso às suas aplicações na cloud com base na localização de rede de um utilizador.
 services: active-directory
-keywords: acesso condicional para aplicações, o acesso condicional com o Azure AD, o acesso seguro aos recursos da empresa, políticas de acesso condicional
+keywords: acesso condicional a aplicações, acesso condicional com o Azure AD, acesso seguro a recursos da empresa, políticas de acesso condicional
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eeb12500a5ddfb95317b3d20b41acf12e3978bad
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 80818a7264b35b703be217f07127ab7883da339a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626527"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271594"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>O que é a condição de localização no acesso condicional do Azure Active Directory? 
 
@@ -58,7 +58,7 @@ Um local nomeado tem os seguintes componentes:
 
 - **Nome** -o nome a apresentar de um local nomeado.
 
-- **Intervalos de IP** -endereço IP de um ou mais intervalos no formato CIDR.
+- **Intervalos de IP** -um ou mais intervalos de endereços de IPv4 no formato CIDR. Especificar uma moda de endereço Ipv6 não é suportado.
 
 - **Marcar como localização fidedigna** -um sinalizador pode ser definido para um local nomeado indicar a localização fidedigna. Normalmente, os locais confiáveis são áreas de rede que são controladas pelo seu departamento de TI. Além do acesso condicional, localizações com nome confiáveis também são utilizadas pelos relatórios de segurança do Azure Identity Protection e o Azure AD para reduzir [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
@@ -168,4 +168,4 @@ API e PowerShell ainda não é suportado para localizações com nome, ou para p
 
 - Se quiser saber como configurar uma política de acesso condicional, consulte [exigir a MFA para aplicações específicas com acesso condicional do Azure Active Directory](app-based-mfa.md).
 
-- Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, veja a [melhores práticas para acesso condicional no Azure Active Directory](best-practices.md). 
+- Se estiver pronto para configurar políticas de acesso condicional para o seu ambiente, veja [Best practices for conditional access in Azure Active Directory](best-practices.md) (Melhores práticas do acesso condicional no Azure Active Directory). 

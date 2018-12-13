@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: ad19aa8eef72234e034fe9c0e1905e848ace0650
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 31dce870e99cbe74e2795a3ba661b0caf92dd48e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091752"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140239"
 ---
-# <a name="personname-entity"></a>Entidade PersonName
+# <a name="personname-prebuilt-entity-for-a-luis-app"></a>PersonName entidade criados previamente para uma aplicação LUIS
 A entidade de personName pré-criados Deteta os nomes de pessoas. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém personName para os objetivos do aplicativo. entidade de personName é suportada em inglês e chinês [culturas](luis-reference-prebuilt-entities.md).
 
 ## <a name="resolution-for-personname-entity"></a>Resolução de entidades de personName

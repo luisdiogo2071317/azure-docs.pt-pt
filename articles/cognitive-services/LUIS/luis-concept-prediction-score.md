@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: ca920a3c46a336b66a7238eeca83e3389221033a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d082f8ee4d516e3c9571ec63653f39723cad8c77
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087648"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141990"
 ---
-# <a name="prediction-score"></a>Classificação da predição
+# <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Pontuações de previsão indicam a exatidão da previsão para intenções e entidades
 Uma pontuação de predição indica o grau de confiança que Luis tem para resultados de predição. 
 
 Uma pontuação de predição é entre zero (0) e um (1). Um exemplo de uma pontuação de LUIS elevada confiança será 0,99. Um exemplo de uma pontuação de confiança baixa é a 0,01. 

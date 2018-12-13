@@ -10,25 +10,23 @@ ms.assetid: 5718d620-b96e-4d33-8616-e127ee9379c4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 8f2bf9707d28744707c39a507108120e948dde7f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866683"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193880"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência a partes de visualização do estruturador de vistas no Log Analytics
 Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados da sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para as partes de visualização que estão disponíveis em suas vistas personalizadas.
 
 Para obter mais informações sobre o estruturador de vistas, consulte:
 
-* [Exibir Designer](view-designer.md): fornece uma visão geral do estruturador de vistas e procedimentos para criação e edição de exibições personalizadas.
-* [Referência de mosaico](view-designer-tiles.md): fornece uma referência para as definições para cada mosaico disponível nas suas vistas personalizadas.
+* [Exibir Designer](view-designer.md): Fornece uma visão geral do estruturador de vistas e procedimentos para criação e edição de exibições personalizadas.
+* [Referência de mosaico](view-designer-tiles.md): Fornece uma referência para as definições para cada mosaico disponível nas suas vistas personalizadas.
 
 
 Os tipos de mosaico do estruturador de vistas disponíveis são descritos na tabela a seguir:
@@ -143,7 +141,7 @@ O cabeçalho apresenta um único número que resume uma coluna de valor numa con
 | Navegação por clique | Ação tomada quando clicar no cabeçalho.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Anel** |**> Center** |
 | Texto |O texto que é apresentado no valor dentro do anel. |
-| Operação |A operação para executar na propriedade de valor para resumi-lo como um único valor.<ul><li>Soma: Adiciona os valores de todos os registos.</li><li>Percentagem: A proporção de registros retornado pelos valores na **resultar valores utilizados na operação do centro** para o total de registos na consulta.</li></ul> |
+| Operação |A operação para executar na propriedade de valor para resumi-lo como um único valor.<ul><li>Soma: Adiciona os valores de todos os registos.</li><li>Percentagem de: A proporção de registros retornado pelos valores na **resultar valores utilizados na operação do centro** para o total de registos na consulta.</li></ul> |
 | Valores dos resultados utilizados na operação do centro |Opcionalmente, selecione o sinal de adição (+) para adicionar um ou mais valores. Os resultados da consulta são limitados aos registros com os valores de propriedade que especificar. Se não os valores são adicionados, todos os registos estão incluídos na consulta. |
 | **Opções adicionais** |**> Cores** |
 | Cor 1<br>Cor 2<br>Cor 3 |Selecione a cor para cada um dos valores que são apresentados no anel. |
@@ -182,7 +180,7 @@ O cabeçalho apresenta os resultados de duas consultas de registo ao longo do te
 | Legenda |O texto que é apresentado em nota de aviso para a primeira série. |
 | Cor |A cor a utilizar para as colunas da série. |
 | Consulta |A consulta seja executada para a primeira série. A contagem de registos ao longo de cada intervalo de tempo é representada pelas colunas do gráfico. |
-| Operação |A operação para executar na propriedade de valor para resumi-lo como um valor único para a nota de aviso.<ul><li>Soma: A soma dos valores de todos os registos.</li><li>Média: A média dos valores de todos os registos.</li><li>Última de exemplo: O valor no último intervalo de que está incluído no gráfico.</li><li>Em primeiro lugar de exemplo: O valor do primeiro intervalo de que está incluído no gráfico.</li><li>Contagem: Contagem de todos os registos que são devolvidos pela consulta.</li></ul> |
+| Operação |A operação para executar na propriedade de valor para resumi-lo como um valor único para a nota de aviso.<ul><li>Soma: A soma dos valores de todos os registos.</li><li>Média: A média dos valores de todos os registos.</li><li>Último exemplo: O valor no último intervalo de que está incluído no gráfico.</li><li>Primeiro exemplo: O valor do primeiro intervalo de que está incluído no gráfico.</li><li>Contagem de: Contagem de todos os registos que são devolvidos pela consulta.</li></ul> |
 | **Lista** | |
 | Consulta |A consulta seja executada para obter a lista. É apresentada a contagem dos registos que são devolvidos pela consulta. |
 | Ocultar gráfico |Selecione esta ligação para desativar o gráfico à direita da coluna numérica. |
@@ -238,7 +236,7 @@ O cabeçalho apresenta um gráfico de linhas com várias séries de uma consulta
 | **Gráfico de linhas** |**> Texto explicativo** |
 | Título da nota de aviso |O texto que é apresentado acima do valor da nota de aviso. |
 | Nome da Série |Valor da propriedade para a série a utilizar para o valor da nota de aviso. Se não for fornecido nenhum série, todos os registos da consulta são utilizados. |
-| Operação |A operação para executar na propriedade de valor para resumi-lo como um valor único para a nota de aviso.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem: Contagem de todos os registos que são devolvidos pela consulta.</li><li>Última de exemplo: O valor no último intervalo de que está incluído no gráfico.</li><li>Máx.: O valor máximo de intervalos de que estão incluídos no gráfico.</li><li>Mínimo: O valor mínimo dos intervalos que estão incluídos no gráfico.</li><li>Soma: A soma dos valores de todos os registos.</li></ul> |
+| Operação |A operação para executar na propriedade de valor para resumi-lo como um valor único para a nota de aviso.<ul><li>Média: A média dos valores de todos os registos.</li><li>Contagem de: Contagem de todos os registos que são devolvidos pela consulta.</li><li>Último exemplo: O valor no último intervalo de que está incluído no gráfico.</li><li>Máx.: O valor máximo de intervalos de que estão incluídos no gráfico.</li><li>Mínimo: O valor mínimo dos intervalos que estão incluídos no gráfico.</li><li>Soma: A soma dos valores de todos os registos.</li></ul> |
 | **Gráfico de linhas** |**> Eixo y** |
 | Utilizar Escala Logarítmica |Selecione esta ligação para utilizar escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Estas informações são utilizadas para rótulos de gráficos de apresentação que indicam os tipos de valor e, opcionalmente, para converter os valores. O *unidade* tipo Especifica a categoria da unidade e define o disponíveis *unidade atual* tipo de valores. Se selecionar um valor na *converter*, os valores numéricos são convertidos da *unidade atual* escreva para o *converter* tipo. |
@@ -344,7 +342,7 @@ A tabela seguinte descreve as definições para os minigráficos:
 | Definição | Descrição |
 |:--- |:--- |
 | Ativar Gráficos Sparkline |Selecione esta ligação para ver um gráfico sparkline em vez de uma barra horizontal. |
-| Operação |Se os minigráficos são ativados, esta é a operação para executar cada propriedade na lista para calcular os valores para o gráfico sparkline.<ul><li>Última de exemplo: O último valor para a série ao longo do intervalo de tempo.</li><li>Máx.: O valor máximo para a série ao longo do intervalo de tempo.</li><li>Mínimo: O valor mínimo para a série ao longo do intervalo de tempo.</li><li>Soma: A soma dos valores para a série ao longo do intervalo de tempo.</li><li>Resumo: Utiliza as mesmas `measure` comando como a consulta no cabeçalho.</li></ul> |
+| Operação |Se os minigráficos são ativados, esta é a operação para executar cada propriedade na lista para calcular os valores para o gráfico sparkline.<ul><li>Último exemplo: O último valor para a série ao longo do intervalo de tempo.</li><li>Máx.: O valor máximo para a série ao longo do intervalo de tempo.</li><li>Mínimo: O valor mínimo para a série ao longo do intervalo de tempo.</li><li>Soma: A soma dos valores para a série ao longo do intervalo de tempo.</li><li>Resumo: Utiliza as mesmas `measure` comando como a consulta no cabeçalho.</li></ul> |
 
 ### <a name="thresholds"></a>Limiares
 Ao utilizar limiares, pode apresentar um ícone colorido ao lado de cada item numa lista. Limiares dão-lhe um indicador visual rápido de itens que exceder um determinado valor ou enquadram-se dentro de um intervalo específico. Por exemplo, pode apresentar um ícone verde para itens com um valor aceitável, amarelo, se o valor for dentro de um intervalo que indica um aviso e vermelho, se ela exceder um valor de erro.

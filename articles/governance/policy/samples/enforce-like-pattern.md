@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Azure Policy – impor padrão like
+title: Exemplo - impor como padrão
 description: Esta política de exemplo exige que os recursos cumpram o padrão like para convenções de nomenclatura.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: c895c92617245f8b60daf463798fac78117a36a1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 47ade1081317addadb40fca94bd6c3c5de066f74
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955423"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311580"
 ---
 # <a name="enforce-like-pattern-for-naming-conventions"></a>Impor padrão like para convenções de nomenclatura
 
@@ -69,6 +68,6 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

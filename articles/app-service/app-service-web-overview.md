@@ -1,5 +1,5 @@
 ---
-title: Descrição geral das Web Apps | Microsoft Docs
+title: Descrição geral do serviço de aplicações - Azure | Documentos da Microsoft
 description: Saiba como o App Service do Azure o ajuda a desenvolver e alojar Web Apps
 services: app-service\web
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: d8940a305a672f032f2e4e170f99a2cd70ca2b12
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 17f90d54b31fbc46fc831fca0650417c50937fe6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318100"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253368"
 ---
-# <a name="web-apps-overview"></a>Descrição geral das Web Apps
+# <a name="app-service-overview"></a>Descrição geral do Serviço de Aplicações
 
-*Aplicações Web do Serviço de Aplicações* (ou apenas Aplicações Web) é um serviço para o alojamento de aplicações Web, APIs REST e back-ends móveis. Pode desenvolver no seu idioma favorito, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. As aplicações são executadas e dimensionadas com facilidade em ambientes baseados em Windows. Para ambientes baseados em Linux, veja [Serviço de Aplicações no Linux](containers/app-service-linux-intro.md). 
+*Serviço de aplicações do Azure* é um serviço para alojar aplicações web, REST APIs e back-ends móveis. Pode desenvolver no seu idioma favorito, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. As aplicações são executadas e dimensionadas com facilidade em ambientes baseados em Windows. Para ambientes baseados em Linux, veja [Serviço de Aplicações no Linux](containers/app-service-linux-intro.md). 
 
 As Aplicações Web não só adicionam a capacidade do Microsoft Azure à sua aplicação, como também acrescentam segurança, balanceamento de carga, dimensionamento automático e gestão automatizada. Também pode tirar partido das respetivas capacidades do DevOps, como a implementação contínua do Azure DevOps, do GitHub, do Docker Hub e de outras origens, gestão de pacotes, ambientes de teste, domínio personalizado e certificados SSL. 
 
@@ -46,7 +46,7 @@ Apresentamos a seguir algumas das principais funcionalidades das Aplicações We
 
 Para além das Web Apps no App Service, o Azure oferece outros serviços que podem ser utilizados para alojar sites e Web Apps. Para a maioria dos cenários, as Web Apps são a melhor escolha.  Para uma arquitetura de microsserviço, considere o [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric). Se precisar de mais controlo sobre as VMs em que o seu código é executado, considere as [Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/). Para obter mais informações sobre como escolher entre estes serviços do Azure, consulte a [Comparação entre o App Service do Azure, as Virtual Machines, o Service Fabric e os Cloud Services](choose-web-site-cloud-service-vm.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Crie a sua primeira aplicação Web.
 

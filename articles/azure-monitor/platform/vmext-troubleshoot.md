@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 107e8c340412e0b90e367331c15fa550dac1e858
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 72a24175b93057bf774810517f4d6c5e4b6c41eb
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078672"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183323"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>A extensão de VM do Log Analytics de resolução de problemas
 Este artigo disponibiliza ajuda a resolver problemas de erros que poderá deparar-se com a extensão de VM do Log Analytics para Windows e Linux máquinas de virtuais em execução no Microsoft Azure e sugere possíveis soluções para resolvê-los.

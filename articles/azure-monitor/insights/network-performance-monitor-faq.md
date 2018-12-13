@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 208e021dd9025ffff92ed46749346cfb53d0b080
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8e152bc96293d5e6e801fd23657d0de303093eb6
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002602"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166613"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ de solução de Monitor de desempenho de rede
 
@@ -161,17 +161,8 @@ Isto pode acontecer se a firewall do anfitrião ou o intermediário firewall (fi
 Como os caminhos de rede entre A para B podem ser diferentes dos caminhos de rede entre B para R, podem ser observados valores diferentes para perda e latência.
 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Por que são todos os meus circuitos do ExpressRoute e ligações de peering não detetadas?
-Isto pode acontecer se o seu circuito e ligações de peering são distribuídas por várias subscrições. NPM Deteta apenas esses ExpressRoute ligações de peering privadas em que as VNETs ligadas a expressroute estão na mesma subscrição que aquela ligada a área de trabalho do NPM. Além disso, o NPM Deteta essas ligações de peering da Microsoft em que o circuito de ExpressRoute ligado é na mesma subscrição que aquela que está associado à área de trabalho do NPM. Isso pode ser esclarecido do exemplo abaixo:
+NPM agora Deteta circuitos do ExpressRoute e ligações de peering em todas as subscrições a que o utilizador tem acesso. Escolha todas as subscrições em que os seus recursos de Express Route estão ligados e ative a monitorização para cada recurso detetado. NPM procura objetos de conexão quando detetar um peering privado, portanto, não se uma VNET está associada a seu modo de peering.
 
- Se tiver 2 VNET de VNETS - A na subscrição A e B de VNET na subscrição B, respetivamente, ligada ao ExpressRoute numa subscrição de C. Além disso, existe outra VNET - VNET C na subscrição C. O ER também tem MS peering na subscrição C. 
-
-Em seguida,
-
-* Se a área de trabalho NPM estiver associada com a subscrição A, em seguida, será capaz de monitorizar a conectividade através de ER a VNET A apenas.
-* Se a área de trabalho NPM está ligada à subscrição B, em seguida, será capaz de monitorizar a conectividade através de ER a VNET B apenas.
-* Se a área de trabalho NPM está ligada à subscrição C, em seguida, será capaz de monitorizar a conectividade através de ER para a VNET C, bem como MS peering.
-
-O suporte de subscrição cruzada estará disponível brevemente. Depois disso será capaz de monitorar todos os seus privado do ExpressRoute e ligações de peering da Microsoft em subscrições diferentes, de uma área de trabalho.
 ### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>A capacidade de ER Monitor tem uma mensagem de diagnóstico "Tráfego não passa através de qualquer circuito". O que é que isto significa?
 
 É possível um cenário onde existe uma ligação de bom estado de funcionamento entre no local e nós do Azure, mas o tráfego não será o circuito de ExpressRoute configurados para serem monitorizados pelo NPM. 

@@ -1,5 +1,5 @@
 ---
-title: Serviço de aplicações do Azure no Linux perguntas frequentes | Documentos da Microsoft
+title: Serviço de aplicações no Linux FAQ - Azure | Documentos da Microsoft
 description: Serviço de aplicações do Azure no Linux FAQ.
 keywords: serviço de aplicações do Azure, aplicação web, perguntas frequentes, linux, oss, aplicação web para contentores, com vários contentores, multicontainer
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
-ms.openlocfilehash: 94e61cf5bf4f629dfd776cf9ea2ae54233e91dc6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 7fe9fd68e03fc36f5aac5d6c27c07896715af906
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417587"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261165"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Serviço de aplicações do Azure no Linux FAQ
 
@@ -74,9 +75,9 @@ Sim, precisa definir uma aplicação chamada `WEBSITE_WEBDEPLOY_USE_SCM` para *f
 
 Se falhar a implementação do Git para a sua aplicação web do Linux, escolha uma das seguintes opções para implementar o código da aplicação:
 
-- Utilizar a funcionalidade de entrega contínua (pré-visualização): pode armazenar o código-fonte da sua aplicação num repositório de Git de DevOps do Azure ou o repositório do GitHub para utilizar a entrega contínua do Azure. Para obter mais informações, consulte [como configurar a entrega contínua para aplicação web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Utilize a funcionalidade de entrega contínua (pré-visualização): Pode armazenar o código-fonte da sua aplicação num repositório de Git de DevOps do Azure ou um repositório do GitHub para utilizar a entrega contínua do Azure. Para obter mais informações, consulte [como configurar a entrega contínua para aplicação web do Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Utilizar o [ZIP implementar API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): para utilizar esta API, [SSH na sua aplicação web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) e aceda à pasta onde pretende implementar o seu código. Execute o seguinte código:
+- Utilize o [ZIP implementar API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Para utilizar esta API, [SSH na sua aplicação web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) e aceda à pasta onde pretende implementar o seu código. Execute o seguinte código:
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy

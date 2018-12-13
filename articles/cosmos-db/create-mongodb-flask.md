@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Criar uma aplicação web do Flask com Python e a API de MongoDB do Azure Cosmos DB'
+title: 'o Azure Cosmos DB: Criar uma aplicação web do Flask com Python e a API de MongoDB do Azure Cosmos DB'
 description: Apresenta um exemplo de código Python Flask que pode utilizar para ligar e consultar a API MongoDB do Azure Cosmos DB
 services: cosmos-db
 author: slyons
@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc, seodec18
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/02/2017
-ms.openlocfilehash: 96ccaf70906d495d1bd2781cf9eeaed7c27bc35e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 09c19f57a2993c0faad3dca708f67526f99d13df
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101386"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165117"
 ---
-# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: Criar uma aplicação Flask com a API MongoDB
+# <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>o Azure Cosmos DB: Criar uma aplicação Flask com a API do MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -46,7 +46,7 @@ Este início rápido, utiliza o seguinte [exemplo de Flask](https://github.com/A
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos clonar uma aplicação API Flask-MongoDB a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente.
+Agora vamos clonar uma aplicação de API Flask-MongoDB a partir do GitHub, definir a cadeia de ligação e executá-lo. Vai ver como é fácil trabalhar com dados programaticamente.
 
 1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
 
@@ -134,7 +134,7 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 
 ## <a name="deploy-to-azure"></a>Implementar no Azure
 
-Para implementar esta aplicação, pode criar uma nova aplicação Web no Azure e ativar a implementação contínua com um fork deste repositório do github. Siga este [tutorial](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) para configurar a implementação contínua com o Github no Azure.
+Para implementar esta aplicação, pode criar uma nova aplicação web no Azure e ativar a implementação contínua com um fork deste repositório do GitHub. Siga este [tutorial](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) para configurar a implementação contínua com o GitHub no Azure.
 
 Ao implementar no Azure, deve remover as chaves da aplicação e certificar-se de que a secção abaixo não está comentada:
 
@@ -153,7 +153,7 @@ Se não quiser criar um fork deste repositório, também pode clicar no botão I
 </a>
 
 > [!NOTE]
-> Se pretender armazenar o código no Github ou outras opções de controlo de origem, certifique-se de que remove as cadeias de ligação do código. Em alternativa, podem ser definidas com as definições da aplicação para a aplicação Web.
+> Se pretender armazenar o código no GitHub ou outras opções de controlo de origem, não se esqueça de remover as cadeias de ligação do código. Em alternativa, podem ser definidas com as definições da aplicação para a aplicação Web.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Rever os SLAs no portal do Azure
 

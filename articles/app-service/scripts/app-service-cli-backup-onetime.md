@@ -3,8 +3,8 @@ title: Exemplo do Script da CLI do Azure - Fazer cópia de segurança de uma apl
 description: Exemplo do Script da CLI do Azure - Fazer cópia de segurança de uma aplicação Web
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.service: app-service-web
@@ -12,16 +12,16 @@ ms.workload: web
 ms.devlang: na
 ms.topic: sample
 ms.date: 12/07/2017
-ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 816cc1cbe13a43aaaf527fe74ab8a3eb5faab3a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu;cephalin
+ms.custom: seodec18
+ms.openlocfilehash: 195995d394404af11f277cba9d3de342347f8527
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946192"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183884"
 ---
-# <a name="back-up-a-web-app"></a>Fazer cópia de segurança de uma aplicação Web
+# <a name="back-up-a-web-app-using-cli"></a>Fazer uma cópia de segurança de uma aplicação web com a CLI
 
 Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com os respetivos recursos relacionados e, em seguida, cria uma cópia de segurança única para o mesmo. 
 
@@ -52,7 +52,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [`az webapp config backup create`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-create) | Cria uma cópia de segurança de uma aplicação Web. |
 | [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Obtém uma lista de cópias de segurança para uma aplicação Web. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

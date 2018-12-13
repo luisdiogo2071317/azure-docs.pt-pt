@@ -2,19 +2,20 @@
 title: Modelagem de arquitetura "multitenancy" na pesquisa do Azure | Documentos da Microsoft
 description: Saiba mais sobre os padrões de design comuns para aplicações SaaS multi-inquilino, ao utilizar o Azure Search.
 manager: jlembicz
-author: ashmaka
+author: LiamCavanagh
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
-ms.author: ashmaka
-ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: liamca
+ms.custom: seodec2018
+ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232386"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313042"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Padrões de design para aplicações SaaS multi-inquilino e Azure Search
 Uma aplicação multi-inquilino é aquele que fornece as mesmas serviços e recursos para qualquer número de inquilinos que não é possível ver ou partilhar os dados de qualquer outro inquilino. Este documento discute as estratégias de isolamento de inquilino para aplicações multi-inquilino criadas com o Azure Search.
@@ -57,20 +58,20 @@ Concretamente, um serviço de S3 poderia ter entre 1 e 200 índices que em conju
 ## <a name="considerations-for-multitenant-applications"></a>Considerações para aplicações multi-inquilino
 Aplicações multi-inquilino com eficiência tem de distribuir recursos entre inquilinos, preservando a algum nível de privacidade, entre os vários inquilinos. Existem algumas considerações ao projetar a arquitetura para uma aplicação desse tipo:
 
-* *Isolamento de inquilinos:* os desenvolvedores de aplicativos precisam de tomar as medidas adequadas para se certificar de que não existem inquilinos tenham não autorizado ou indesejável acesso aos dados de outros inquilinos. Além da perspectiva de privacidade dos dados, estratégias de isolamento de inquilino, requerem um gerenciamento eficiente de recursos partilhados e proteção contra vizinhos ruidosos.
-* *Custo de recursos da cloud:* como com qualquer outro aplicativo, soluções de software têm de permanecer competitivo como um componente de aplicação multi-inquilino de custo.
-* *Facilidade de operações:* durante o desenvolvimento de uma arquitetura de multi-inquilino, o impacto sobre operações e a complexidade do aplicativo é uma consideração importante. O Azure Search tem um [SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-* *Requisitos de espaço global:* aplicações multi-inquilino poderão ter de atender com eficiência os inquilinos que são distribuídos em todo o mundo.
-* *Escalabilidade:* os desenvolvedores de aplicativos precisam considerar como elas reconciliar entre manter um nível suficientemente baixo de complexidade de aplicativos e criar a aplicação para dimensionamento com o número de inquilinos e o tamanho dos dados dos inquilinos e carga de trabalho.
+* *Isolamento de inquilino:* Os desenvolvedores de aplicativos precisam tomar as medidas adequadas para se certificar de que não existem inquilinos tenham não autorizado ou indesejável acesso aos dados de outros inquilinos. Além da perspectiva de privacidade dos dados, estratégias de isolamento de inquilino, requerem um gerenciamento eficiente de recursos partilhados e proteção contra vizinhos ruidosos.
+* *Custo de recursos de nuvem:* Tal como acontece com qualquer outro aplicativo, soluções de software tem de permanecer competitivo como um componente de aplicação multi-inquilino de custo.
+* *Facilidade de operações:* Ao desenvolver uma arquitetura de multi-inquilino, o impacto sobre operações e a complexidade do aplicativo é uma consideração importante. O Azure Search tem um [SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+* *Requisitos de espaço global:* Aplicações multi-inquilino poderá atender com eficiência os inquilinos que são distribuídos em todo o mundo.
+* *Escalabilidade:* Os desenvolvedores de aplicativos precisam considerar como elas reconciliar entre manter um nível suficientemente baixo de complexidade de aplicativos e criar a aplicação para dimensionamento com o número de inquilinos e o tamanho dos dados e a carga de trabalho dos inquilinos.
 
 O Azure Search oferece alguns limites que podem ser utilizados para isolar a carga de trabalho e dados dos inquilinos.
 
 ## <a name="modeling-multitenancy-with-azure-search"></a>Modelagem de arquitetura "multitenancy" com o Azure Search
 No caso de um cenário de multi-inquilino, o desenvolvedor do aplicativo consome um ou mais serviços de pesquisa e dividir os respetivos inquilinos entre serviços, índices ou ambos. O Azure Search tem alguns padrões comuns ao modelar um cenário de multi-inquilino:
 
-1. *Índice por inquilino:* cada inquilino tem seu próprio índice dentro de um serviço de pesquisa que é partilhado com outros inquilinos.
-2. *Serviço por inquilino:* cada inquilino tem seu próprio serviço de Azure Search dedicado, oferecendo mais alto nível de separação de dados e a carga de trabalho.
-3. *Combinação de ambos:* inquilinos maiores e mais-Active Directory são atribuídos serviços dedicados, enquanto os inquilinos mais pequenos são atribuídos a índices individuais dentro de serviços compartilhados.
+1. *Índice por inquilino:* Cada inquilino tem seu próprio índice dentro de um serviço de pesquisa que é partilhado com outros inquilinos.
+2. *Serviço por inquilino:* Cada inquilino tem seu próprio serviço de Azure Search dedicado, oferecendo mais alto nível de separação de dados e a carga de trabalho.
+3. *Combinação de ambos:* Inquilinos maiores e mais-Active Directory são atribuídos serviços dedicados, enquanto os inquilinos mais pequenos são atribuídos a índices individuais dentro de serviços compartilhados.
 
 ## <a name="1-index-per-tenant"></a>1. Índice por inquilino
 ![Um portrayal do modelo de índice por inquilino](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)

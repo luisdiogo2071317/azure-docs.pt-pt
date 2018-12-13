@@ -1,27 +1,20 @@
 ---
-title: Início rápido para aprender a utilizar o Azure SignalR Service | Microsoft Docs
+title: Início rápido para saber como utilizar o serviço Azure SignalR
 description: Um início rápido para utilizar o Azure SignalR Service para criar uma sala de chat com aplicações ASP.NET Core MVC.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: b667f38c4e3d2a3fad323171a3b3b49ed3619fd9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 805f8d55b1627ad12ce58e8a64728a42867a858e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959483"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260621"
 ---
-# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Início rápido: Criar uma sala de chat com o SignalR Service
+# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Início rápido: Criar uma sala de bate-papo com o serviço SignalR
 
 
 O Serviço Azure SignalR é um serviço do Azure que ajuda os programadores a facilmente criar aplicações web com funcionalidades em tempo real. Este serviço é baseado em [SignalR para ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
@@ -41,7 +34,7 @@ O código deste tutorial está disponível para transferência no [repositório 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Instalar o [SDK .NET Core](https://www.microsoft.com/net/download/windows)
-* Transferir ou clonar o repositório do GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples). 
+* Transfira ou clone a [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) repositório do GitHub. 
 
 ## <a name="create-an-azure-signalr-resource"></a>Criar um recurso do Azure SignalR
 
@@ -133,8 +126,8 @@ Nesta secção, vai adicionar a [ferramenta Secret Manager](https://docs.microso
 
 No SignalR, o hub é um componente central que expõe um conjunto de métodos que podem ser chamados a partir do cliente. Nesta secção, vai definir uma classe hub com dois métodos: 
 
-* `Broadcast`: este método transmite uma mensagem para todos os clientes.
-* `Echo`: este método envia uma mensagem novamente para o autor da chamada.
+* `Broadcast`: Este método transmite uma mensagem a todos os clientes.
+* `Echo`: Este método envia uma mensagem para o chamador.
 
 Ambos os métodos utilizam a interface `Clients` que é disponibilizada pelo SDK ASP.NET Core SignalR. Esta interface dá-lhe acesso a todos os clientes ligados, permitindo-lhe enviar conteúdos para os clientes.
 
@@ -269,7 +262,7 @@ Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesm
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, criou um recurso novo do Azure SignalR Service e utilizou-o com uma aplicação Web ASP.NET Core para enviar atualizações de conteúdos em tempo real para vários clientes ligados. Para saber mais sobre como utilizar o Azure SignalR Service, avance para o próximo tutorial que demonstra a autenticação.
 

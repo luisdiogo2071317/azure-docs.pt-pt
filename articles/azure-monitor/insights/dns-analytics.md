@@ -10,17 +10,15 @@ ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: ef689aec58624495a61f5fde2a8050fb7400f56e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 5641792c058d10bba1bfd468f3c5c90b9217226e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888856"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187658"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolher informações sobre a infraestrutura DNS com a solução de análise de DNS pré-visualização
 
@@ -45,7 +43,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | **Origem ligada** | **Suporte** | **Descrição** |
 | --- | --- | --- |
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Sim | A solução recolhe informações de DNS de agentes do Windows. |
-| [Agentes do Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Não | A solução não recolhe informações de DNS de agentes diretos do Linux. |
+| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de DNS de agentes diretos do Linux. |
 | [Grupo de gestão do System Center Operations Manager](../../azure-monitor/platform/om-agents.md) | Sim | A solução recolhe informações de DNS de agentes num grupo de gestão do Operations Manager ligado. Não é necessária uma ligação direta a partir do agente do Operations Manager ao Log Analytics. Os dados são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics. |
 | [Conta de armazenamento do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Não | O armazenamento do Azure não é utilizado pela solução. |
 

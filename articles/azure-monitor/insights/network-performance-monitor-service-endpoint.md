@@ -10,19 +10,17 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: 6a9bc347af471a2ab84cefc25bcd7f48f1d5908d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846050"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186213"
 ---
-# <a name="service-connectivity-monitor"></a>Monitor de conectividade do serviço
+# <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
 Pode utilizar a capacidade de Monitor de conectividade do serviço no [Monitor de desempenho de rede](network-performance-monitor.md) para monitorizar a conectividade de rede para qualquer ponto final que tem uma porta TCP aberta. Esses pontos de extremidade incluem Web sites, aplicações SaaS, PaaS aplicações e bases de dados SQL. 
 
@@ -35,7 +33,7 @@ Pode executar as seguintes funções com o Monitor de conectividade do serviço:
 - Identifica pontos de acesso na rede que podem estar provocando o desempenho da aplicação insatisfatório visualizando a latência contribuída cada salto num mapa de topologia.
 
 
-![Monitor de conectividade do serviço](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
+![Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuração 
@@ -97,11 +95,11 @@ Na **nós de teste** vista, pode observar que a conectividade de rede de cada n�
 
 Determine se o desempenho da aplicação insatisfatório é devido à rede ou um problema no final do fornecedor de aplicativo ao observar a correlação entre o tempo de resposta do aplicativo e a latência de rede. 
 
-* **Problema de aplicação:** um pico no tempo de resposta, mas a consistência na latência de rede sugere que a rede estiver funcionando e que o problema poderá ser devido a um problema no final do aplicativo. 
+* **Problema de aplicativo:** Um pico no tempo de resposta, mas a consistência na latência de rede sugere que a rede estiver funcionando e que o problema poderá ser devido a um problema no final do aplicativo. 
 
     ![Problema de aplicativo de Monitor de conectividade do serviço](media/network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
-* **Problema de rede:** um pico no tempo de resposta acompanhado de um pico correspondente na latência de rede sugere que o aumento no tempo de resposta pode ser devido a um aumento na latência de rede. 
+* **Problema de rede:** Um pico no tempo de resposta acompanhado de um pico correspondente na latência de rede sugere que o aumento no tempo de resposta pode ser devido a um aumento na latência de rede. 
 
     ![Problema de Monitor de conectividade do serviço de rede](media/network-performance-monitor-service-endpoint/service-endpoint-network-issue.png)
 

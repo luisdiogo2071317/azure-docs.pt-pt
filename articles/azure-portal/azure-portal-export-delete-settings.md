@@ -10,12 +10,12 @@ ms.service: azure-portal
 ms.custom: ''
 manager: dougeby
 ms.author: cwatson
-ms.openlocfilehash: b2bf674dbb253c7ec698b18776d8752ed6a4c1c8
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 8bbba504f95233db7cf65556b57148771962f507
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394085"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308588"
 ---
 # <a name="export-or-delete-settings-in-the-azure-portal"></a>Exportar ou eliminar as definições no portal do Azure
 Pode exportar e eliminar as seguintes definições no menu de definições do portal do Azure:
@@ -23,13 +23,13 @@ Pode exportar e eliminar as seguintes definições no menu de definições do po
 * As definições de utilizador, como favoritas subscrições ou diretórios e iniciou sessão no diretório
 * Temas e personalizações
 
-Recomendamos vivamente que exportar e rever as suas definições antes de os eliminar. Pode ser demorado para reconstruir os dashboards e volte a adicionar as suas personalizações.
+Recomendamos vivamente que exportar e rever as suas definições antes de os eliminar. Pode ser demorado para reconstruir os dashboards e readd suas personalizações.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 **Exportar ou eliminar as definições do portal**
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No canto superior direito do portal, selecione **definições**.
 
     ![Captura de ecrã que mostra o ícone de engrenagem de definições do portal](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)

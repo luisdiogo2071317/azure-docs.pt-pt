@@ -1,5 +1,5 @@
 ---
-title: Como atualizar uma atribuição de esquema do Azure existente
+title: Como atualizar uma atribuição existente
 description: Saiba mais sobre o mecanismo para a atualização de uma atribuição existente no Azure esquemas.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 2c9f660e54da50e32ce1d0dc43b0efeacd643c57
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 2ada0ccc1286677300c005da4fa0e92be94a3ca8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093790"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314836"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma existente da atribuição do esquema
 
@@ -25,7 +26,7 @@ Quando lhe for atribuído um plano gráfico, a atribuição pode ser atualizada.
 
 ## <a name="updating-assignments"></a>A atualizar as atribuições
 
-1. Clique em **todos os serviços** e a procurar e selecionando **política** no painel esquerdo. Na página **Política**, clique em **Esquemas**.
+1. Clique em **Todos os serviços** e procure e selecione **Política**, no painel do lado esquerdo. Na página **Política**, clique em **Esquemas**.
 
 1. Selecione **Esquemas Atribuídos** na página à esquerda.
 

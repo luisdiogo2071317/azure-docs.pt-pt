@@ -1,5 +1,5 @@
 ---
-title: Certificados e o ambiente de serviço de aplicações do Azure
+title: Certificados e o ambiente de serviço de aplicações - Azure
 description: Explicar vários tópicos relacionados ao certificados num ASE
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 3d417d560d8a88100f31def27c7db5f9b2493062
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168072"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271900"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados e o ambiente de serviço de aplicações 
 
@@ -32,8 +33,8 @@ Se estiver a utilizar um ASE externo, em seguida, as suas aplicações são cont
 
 Existem duas opções para configurar certificados com o ASE de ILB.  Pode configurar um certificado de padrão de caráter universal para o ASE de ILB ou defina os certificados em aplicativos web individuais no ASE.  Independentemente da escolha que fizer, os seguintes atributos de certificado tem de ser configurados corretamente:
 
-- **Assunto:** este atributo deve ser definido como *. [ your-raiz-domain-here] para um certificado de ASE de ILB com carateres universais. Se criar o certificado para a sua aplicação, em seguida, deve ser [appname]. [your-raiz-domain-here]
-- **Nome alternativo do requerente:** este atributo tem de incluir *. [ your-raiz-domain-here] e SCM.{0. [your-raiz-domain-here] para o certificado de ASE de ILB com carateres universais. Se criar o certificado para a sua aplicação, em seguida, deve ser [appname]. [your-raiz-domain-here] e [appname]. SCM a seguir. [your-raiz-domain-here].
+- **Assunto:** Este atributo deve ser definido como *. [your-raiz-domain-here] para um certificado de ASE de ILB com carateres universais. Se criar o certificado para a sua aplicação, em seguida, deve ser [appname]. [your-raiz-domain-here]
+- **Nome alternativo do requerente:** Este atributo tem de incluir *. [your-raiz-domain-here] e SCM.{0. [your-raiz-domain-here] para o certificado de ASE de ILB com carateres universais. Se criar o certificado para a sua aplicação, em seguida, deve ser [appname]. [your-raiz-domain-here] e [appname]. SCM a seguir. [your-raiz-domain-here].
 
 Como uma variante de terceiro, pode criar um certificado de ASE de ILB que inclui todos os nomes de aplicações individuais na SAN do certificado em vez de usar uma referência de caráter universal. O problema com este método é que precisa saber com antecedência os nomes das aplicações que estão a colocar no ASE ou terá de continuar a atualizar o certificado do ASE de ILB.
 

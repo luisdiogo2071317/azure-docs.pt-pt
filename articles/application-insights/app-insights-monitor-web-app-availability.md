@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a5177293b24ec400714d8f87be4198a76d59214a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 11a421a30508774d976def8d5836451743ecb6ea
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878725"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270387"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorizar a disponibilidade e a capacidade de resposta de qualquer site
 Depois de implementar a aplicação Web ou o Web site em qualquer servidor, pode configurar testes para monitorizar a respetiva disponibilidade e capacidade de resposta. O [Azure Application Insights](app-insights-overview.md) envia regularmente pedidos Web para a sua aplicação a partir de pontos em todo o mundo. Este ferramenta alerta-o se a aplicação não responder ou responder lentamente.
@@ -49,11 +49,11 @@ Abra o painel Disponibilidade e adicione um teste.
 ![Indique, pelo menos, o URL do seu site](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **O URL** pode ser qualquer página Web que pretender testar, mas tem de estar visível a partir da Internet pública. O URL pode incluir uma cadeia de consulta. Desta forma, pode, por exemplo, testar um pouco a base de dados. Se o URL remeter para um redirecionamento, iremos segui-lo até dez redirecionamentos.
-* **Analisar pedidos dependentes**: se esta opção for selecionada, o teste pede imagens, scripts, ficheiros de estilo e outros ficheiros que fazem parte da página Web a ser testada. O tempo de resposta gravado inclui o tempo necessário para obter estes ficheiros. O teste falha se todos estes recursos não puderem ser transferidos com êxito no tempo limite para a realização do teste completo. Se a opção não estiver selecionada, o teste pede apenas o ficheiro no URL especificado.
+* **Analisar pedidos dependentes**: Se esta opção estiver marcada, o teste pede imagens, scripts, ficheiros de estilo e outros ficheiros que fazem parte da página da web em teste. O tempo de resposta gravado inclui o tempo necessário para obter estes ficheiros. O teste falha se todos estes recursos não puderem ser transferidos com êxito no tempo limite para a realização do teste completo. Se a opção não estiver selecionada, o teste pede apenas o ficheiro no URL especificado.
 
-* **Permitir repetição de tentativas**: se esta opção estiver selecionada, quando o teste falhar, será feita uma nova tentativa após um curto intervalo. Uma falha só é comunicada após três tentativas falhadas sucessivas. Os testes subsequentes são realizados à frequência habitual de teste. A repetição encontra-se temporariamente suspensa até ao próximo êxito. Esta regra é aplicada de forma independente em cada localização de teste. Recomendamos esta opção. Em média, cerca de 80% das falhas desaparecem aquando da repetição.
+* **Permitir repetição de tentativas**:  Se esta opção estiver marcada, quando o teste falhar, será tentada novamente após um curto intervalo. Uma falha só é comunicada após três tentativas falhadas sucessivas. Os testes subsequentes são realizados à frequência habitual de teste. A repetição encontra-se temporariamente suspensa até ao próximo êxito. Esta regra é aplicada de forma independente em cada localização de teste. Recomendamos esta opção. Em média, cerca de 80% das falhas desaparecem aquando da repetição.
 
-* **Frequência de teste**: define a frequência de execução do teste em cada localização de teste. Com uma frequência predefinida de cinco minutos e cinco localizações de teste, o site é testado, em média, a cada minuto.
+* **Frequência de teste**: Define a frequência com que a execução do teste em cada localização de teste. Com uma frequência predefinida de cinco minutos e cinco localizações de teste, o site é testado, em média, a cada minuto.
 
 * As **Localizações de teste** são os locais a partir de onde os nossos servidores enviam pedidos Web ao seu URL. Nosso número mínimo de localizações de teste recomendado é cinco e para assim garantir que pode distinguir problemas no seu Web site dos problemas de rede. Pode selecionar até 16 localizações.
 
@@ -63,13 +63,13 @@ Abra o painel Disponibilidade e adicione um teste.
 
 * **Critérios de êxito**:
 
-    **Tempo limite de teste**: reduza este valor para ser alertado de repostas lentas. O teste será contabilizado como uma falha se as respostas do seu site não foram recebidas durante este período. Se tiver selecionado **Pedidos dependentes de análise**, todas as imagens, ficheiros de estilos, scripts e outros recursos dependentes terão de ser recebidos durante este período.
+    **Tempo limite de teste**: Reduza este valor para ser alertado de repostas lentas. O teste será contabilizado como uma falha se as respostas do seu site não foram recebidas durante este período. Se tiver selecionado **Pedidos dependentes de análise**, todas as imagens, ficheiros de estilos, scripts e outros recursos dependentes terão de ser recebidos durante este período.
 
-    **Resposta HTTP**: o código de estado devolvido é contabilizado como um êxito. 200 é o código que indica que foi devolvida uma página Web normal.
+    **Resposta HTTP**: O código de estado devolvido é contabilizado como um sucesso. 200 é o código que indica que foi devolvida uma página Web normal.
 
     **Correspondência do conteúdo**: uma cadeia, como “Bem-vindo!” Podemos testar que uma correspondência sensíveis às maiúsculas e minúsculas ocorre em cada resposta. Tem de ser uma cadeia simples, sem carateres universais. Não se esqueça de que se alterar o conteúdo da página, poderá ter de a atualizar.
 
-* **Limiar de alerta de localização**: recomendamos um mínimo de 3/5 localizações. A relação ideal entre o limiar de alerta de localização e o número de localizações de teste é **limiar de localização de alerta** = **número de localizações de teste** - 2, com um mínimo de cinco testar localizações.
+* **Limiar de alerta de localização**: Recomendamos um mínimo de 3/5 localizações. A relação ideal entre o limiar de alerta de localização e o número de localizações de teste é **limiar de localização de alerta** = **número de localizações de teste** - 2, com um mínimo de cinco testar localizações.
 
 ## <a name="multi-step-web-tests"></a>Testes Web com vários passos
 Pode monitorizar um cenário que envolva uma sequência de URLs. Por exemplo, se estiver a monitorizar um site de vendas, pode testar se a adição de artigos no carrinho de compras funciona corretamente.
@@ -160,8 +160,8 @@ Selecione um teste ou uma localização específica ou reduza o período de temp
 
 Para além de resultados em bruto, existem duas métricas de Disponibilidade no Explorador de Métricas: 
 
-1. Disponibilidade: percentagem dos testes que foram bem-sucedidos, em todas as execuções de testes. 
-2. Duração do Teste: duração média dos testes em todas as execuções de testes.
+1. Disponibilidade: Percentagem dos testes que foram bem-sucedidos, em todas as execuções de teste. 
+2. Duração do teste: Duração média do teste em todas as execuções de teste.
 
 Pode aplicar filtros no nome e na localização dos testes para analisar tendências de testes e/ou localizações específicas.
 
@@ -202,7 +202,7 @@ O X fora de localizações de Y regra de alerta está ativada por predefinição
 
 ![Criar experiência](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
-**Importante**: com o [novos alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), as preferências de gravidade e a notificação de regra de alerta com [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **tem de ser** configurado no experiência de alertas. Sem os seguintes passos, apenas receberá notificações no portal. 
+**Importante**: Com o [novos alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), as preferências de gravidade e a notificação de regra de alerta com [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **tem de ser** configurado na experiência de alertas. Sem os seguintes passos, apenas receberá notificações no portal. 
 
 1. Depois de guardar o teste de disponibilidade, clique no nome do novo teste para ir para os respetivos detalhes. Clique em "Editar alerta" ![editar depois de guardar](./media/app-insights-monitor-web-app-availability/editaftersave.png)
 
@@ -217,7 +217,7 @@ O X fora de localizações de Y regra de alerta está ativada por predefinição
 ### <a name="alert-on-availability-metrics"></a>Alerta relativamente a métricas de disponibilidade
 Utilizar o [novos alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), pode alertar sobre a disponibilidade de agregação segmentada e testar também as métricas de duração:
 
-1. Selecione um recurso do Application Insights a experiência de métricas e selecione uma métrica de disponibilidade: ![seleção de métricas de disponibilidade](./media/app-insights-monitor-web-app-availability/selectmetric.png)
+1. Selecione um recurso do Application Insights a experiência de métricas e selecione uma métrica de disponibilidade:  ![Seleção de métricas de disponibilidade](./media/app-insights-monitor-web-app-availability/selectmetric.png)
 
 2. Configure alertas de opção no menu leva-o para a nova experiência onde pode selecionar localizações para configurar a regra de alerta sobre ou de testes específicos. Também pode configurar os grupos de ação para esta regra de alerta aqui.
     ![Configuração de alertas de disponibilidade](./media/app-insights-monitor-web-app-availability/availabilitymetricalert.png)
@@ -281,7 +281,7 @@ Quando o teste estiver concluído, são-lhe apresentados tempos de resposta e ta
 
 ## <a name="automation"></a>Automatização
 * [Utilize scripts do PowerShell para configurar um teste de disponibilidade](app-insights-powershell.md#add-an-availability-test) automaticamente.
-* Configure um [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) que será chamado sempre que for gerado um alerta.
+* Configure um [webhook](../azure-monitor/platform/alerts-webhooks.md) que será chamado sempre que for gerado um alerta.
 
 ## <a name="qna"></a> PERGUNTAS FREQUENTES
 
@@ -309,7 +309,7 @@ Quando o teste estiver concluído, são-lhe apresentados tempos de resposta e ta
 
     O erro ("violação do protocolo.. CR tem de ser seguido por LF") indica um problema com o servidor (ou dependências). Isto acontece quando há cabeçalhos mal formados estão definidos na resposta. Pode ser causado por balanceadores de carga ou CDNs. Especificamente, alguns cabeçalhos poderão não estar a utilizar CRLF para indicar o fim de linha, que viola a especificação de HTTP e, por conseguinte, a falha de validação a nível de .NET WebRequest. Inspecione a resposta a cabeçalhos spot que poderá estar em violação.
     
-    Nota: o URL não pode falhar em browsers que tenham uma validação simples de cabeçalhos de HTTP. Veja esta mensagem de blogue para uma explicação detalhada deste problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+    Nota: O URL não pode falhar em browsers que tenham uma validação simples de cabeçalhos HTTP. Veja esta mensagem de blogue para uma explicação detalhada deste problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
 * *Não vejo qualquer telemetria de lado do servidor relacionada para diagnosticar falhas do teste?*
     

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 6999f51482d38245373a8a7a5081a89f1790b669
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0338ffa13d1b141bb40deaf43fd04fe37bfaf5d2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956765"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252118"
 ---
 # <a name="traffic-analytics"></a>Análise de tráfego
 
@@ -39,11 +39,11 @@ Redes virtuais do Azure têm registos de fluxo NSG, o que lhe fornecem informaç
 
 ## <a name="key-components"></a>Componentes principais
 
-- **O grupo de segurança de rede (NSG)**: contém uma lista de regras de segurança que permitem ou negam o tráfego de rede para recursos ligados a uma rede Virtual do Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou a interfaces de rede individuais (NIC) ligadas a VMs (Resource Manager). Para obter mais informações, consulte [descrição geral de grupo de segurança de rede](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Registos de fluxo de grupo (NSG) de segurança de rede**: permitem-lhe ver informações sobre o tráfego IP de entrada e de saída através de um grupo de segurança de rede. Fluxo NSG registos são escritos no formato json e mostram os fluxos de saída e entrados numa base por regra, que a NIC, o fluxo de mensagens em fila aplica-se a informações de cinco cadeias de identificação sobre o fluxo (endereço IP de origem/destino, porta de origem/destino e protocolo) e se o tráfego foi permitido ou negado. Para obter mais informações sobre os registos de fluxo do NSG, consulte [registos de fluxo NSG](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: serviço de um Azure que recolhe dados de monitorização e armazena os dados num repositório central. Estes dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API do Azure. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. Monitorização de aplicações, tais como análise de tráfego e o monitor de desempenho de rede é criada com o Log Analytics como uma base. Para obter mais informações, consulte [do Log analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Área de trabalho de análise de registo**: uma instância do log analytics, onde os dados relativos a uma conta do Azure, são armazenados. Para obter mais informações sobre áreas de trabalho do log analytics, consulte [criar uma área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Observador de rede**: um serviço regional que permite-lhe monitorizar e diagnosticar condições ao nível de um cenário de rede no Azure. Pode ativar registos de fluxo NSG e desativar com o observador de rede. Para obter mais informações, consulte [observador de rede](network-watcher-monitoring-overview.md).
+- **O grupo de segurança de rede (NSG)**: Contém uma lista de regras de segurança que permitem ou negam o tráfego de rede para recursos ligados a uma rede Virtual do Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou a interfaces de rede individuais (NIC) ligadas a VMs (Resource Manager). Para obter mais informações, consulte [descrição geral de grupo de segurança de rede](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Registos de fluxo de grupo (NSG) de segurança de rede**: Permitem-lhe ver informações sobre o tráfego IP de entrada e de saída através de um grupo de segurança de rede. Fluxo NSG registos são escritos no formato json e mostram os fluxos de saída e entrados numa base por regra, que a NIC, o fluxo de mensagens em fila aplica-se a informações de cinco cadeias de identificação sobre o fluxo (endereço IP de origem/destino, porta de origem/destino e protocolo) e se o tráfego foi permitido ou negado. Para obter mais informações sobre os registos de fluxo do NSG, consulte [registos de fluxo NSG](network-watcher-nsg-flow-logging-overview.md).
+- **Log Analytics**: Um serviço do Azure que recolhe dados de monitorização e armazena os dados num repositório central. Estes dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API do Azure. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. Monitorização de aplicações, tais como análise de tráfego e o monitor de desempenho de rede é criada com o Log Analytics como uma base. Para obter mais informações, consulte [do Log analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Área de trabalho de análise de registo**: Uma instância do log analytics, onde os dados relativos a uma conta do Azure, são armazenados. Para obter mais informações sobre áreas de trabalho do log analytics, consulte [criar uma área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Observador de rede**: Um serviço regional que lhe permite monitorizar e diagnosticar condições ao nível de um cenário de rede no Azure. Pode ativar registos de fluxo NSG e desativar com o observador de rede. Para obter mais informações, consulte [observador de rede](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Como funciona a análise de tráfego
 
@@ -291,9 +291,12 @@ Algumas das informações que talvez queira obter após a análise de tráfego �
     ![Dashboard que mostra a distribuição de rede virtual](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - A topologia de rede Virtual mostra a faixa de opções principal para a seleção dos parâmetros como o da rede virtual (rede virtual do Inter ligações/Active/Inactive), ligações externas, fluxos ativos e fluxos maliciosos da rede virtual.
+- Pode filtrar a topologia de rede Virtual com base nas subscrições, áreas de trabalho, grupos de resouece e intervalo de tempo. Filtros adicionais que o ajudam a compreender o fluxo são: Fluxo de tipo (inter-Vnet, IntraVNET etc), direção de fluxo de mensagens em fila (entrada, saída), estado do fluxo (permitido, bloqueado) VNETs (destino e ligado), o tipo de ligação (Peering ou Gateway - P2S e S2S) e do NSG. Utilize estes filtros para se concentrar em VNets que pretende examinar em detalhes.
 - A topologia de rede Virtual mostra a distribuição de tráfego para uma rede virtual com respeito a fluxos (permitido/bloqueado/entrada/saída/Benign/maliciosos), protocolo de aplicação e grupos de segurança de rede, por exemplo:
 
     ![Topologia de rede virtual que mostra detalhes de distribuição e o fluxo de tráfego](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
+    
+    ![Topologia de rede virtual que mostra o nível superior e mais filtros](./media/traffic-analytics/virtual-network-filters.png)
 
     ![Detalhes para a distribuição de tráfego de rede virtual na pesquisa de registos do fluxo](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 

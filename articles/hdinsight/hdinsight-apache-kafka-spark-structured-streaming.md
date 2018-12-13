@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Transmissão em Fluxo Estruturada do Apache Spark com o Apache Kafka - Azure HDInsight '
+title: 'Tutorial: A transmissão em fluxo estruturada com o Apache Kafka - Azure HDInsight do Apache Spark'
 description: Saiba como utilizar a transmissão em fluxo do Apache Spark para introduzir ou extrair dados do Apache Kafka. Neste tutorial, vai transmitir dados através de um bloco de notas Jupyter do Spark no HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5f59f14f93b5bfc79c07b096a07ac109be0bedb6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4ac341d780a3c348f9ba9f8fd0241c351bd5fdc5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499100"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162438"
 ---
-# <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar a Transmissão em Fluxo Estruturada do Apache Spark com o Apache Kafka no HDInsight
+# <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar o Apache Spark estruturado de transmissão em fluxo com o Apache Kafka no HDInsight
 
 Este tutorial demonstra como usar [transmissão estruturada do Apache Spark](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) ler e escrever dados com [Apache Kafka](https://kafka.apache.org/) no Azure HDInsight.
 

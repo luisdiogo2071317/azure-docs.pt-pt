@@ -1,5 +1,5 @@
 ---
-title: Tutorial sobre indexação, consulta e filtragem no Azure Search através do portal | Microsoft Docs
+title: Tutorial sobre indexação, consulta e filtragem no portal do Azure - Azure Search
 description: Neste tutorial, utilize o portal do Azure e os dados de exemplo predefinidos para gerar um índice no Azure Search. Explore a pesquisa em texto completo, filtros, facetas, a pesquisa difusa, a pesquisa geográfica e muito mais.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: aac579da3aaf6ab1507bbc12d79a5b183a82d665
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592760"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314028"
 ---
-# <a name="tutorial-use-built-in-tools-for-azure-search-indexing-and-queries"></a>Tutorial: utilizar as ferramentas incorporadas para indexação e consultas do Azure Search
+# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>Tutorial: Utilizar ferramentas do portal internas para consultas e de indexação de pesquisa do Azure
 
 Para ver uma revisão rápida e aprender rapidamente os conceitos do Azure Search, pode utilizar as ferramentas incorporadas que estão disponíveis na página do serviço Azure Search, no portal do Azure. Estas ferramentas podem não oferecer todas as funcionalidades das APIs .NET e REST. Contudo, os assistentes e os editores oferecem uma introdução sem código ao Azure Search, a qual lhe permite escrever consultas interessantes num conjunto de dados de exemplo imediatamente.
 
@@ -55,7 +56,7 @@ As consultas de pesquisa iteram num [*índice*](search-what-is-an-index.md) que 
 
 Neste tutorial, utilizamos um conjunto de dados de exemplo incorporado que pode ser pesquisado com um [*indexador*](search-indexer-overview.md) através do assistente para **Importar dados**. Um indexador é um crawler específico da origem que pode ler metadados e conteúdo de origens de dados suportadas pelo Azure. Estes indexadores estão visíveis no portal através do assistente para **Importar dados**. Mais adiante, pode criar e gerir os indexadores programaticamente como recursos independentes.
 
-### <a name="step-1-start-the-import-data-wizard"></a>Passo 1: Iniciar o assistente para Importar dados
+### <a name="step-1-start-the-import-data-wizard"></a>Passo 1: Iniciar o Assistente de importação de dados
 
 1. No dashboard do serviço Azure Search, clique em **Importar dados**, na barra de comandos, para iniciar o assistente. Este assistente ajuda-o a criar e preencher um índice de pesquisa.
 
@@ -242,7 +243,7 @@ Também aprendeu a utilizar os mosaicos no dashboard do portal para o índice de
 
 Se tiver utilizado o serviço Azure Search pela primeira vez neste tutorial, elimine o grupo de recursos que o contém. Se não, procure o nome do grupo de recursos certo na lista de serviços e elimine o adequado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode utilizar as ferramentas programáticas para explorar mais o Azure Search:
 

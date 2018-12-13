@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: ac62800e81cece61e9f51c496ace2868629a49a1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 911b8051530daca57fe26fb22c6dc1be845c6d6d
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960248"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321431"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Gerir os direitos de acesso para BLOBs do Azure e dados de fila com o RBAC (pré-visualização)
 
@@ -29,6 +29,7 @@ O armazenamento do Azure suporta funções do RBAC incorporadas e personalizadas
 
 - [Contribuinte de dados de Blob de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
 - [Leitor de dados de Blob de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+- [Proprietário de dados de Blob de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
 - [Contribuinte de dados de fila de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
 - [Leitor de dados de fila de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
 
@@ -44,7 +45,7 @@ Atribua uma função RBAC para uma identidade do Azure para conceder permissões
 
 |Âmbito|Proprietário de dados de blob|Contribuinte de dados de blob|Leitor de dados de blob|Contribuinte de dados de fila|Leitor de dados de fila|
 |---|---|---|---|---|---|
-|Nível de subscrição|Acesso de leitura/escrita a todos os contentores e blobs na subscrição|Acesso de leitura/escrita a todos os contentores e blobs na subscrição| Acesso de leitura a todos os contentores e blobs na subscrição|Acesso de leitura/gravação para todas as filas na subscrição|Acesso de leitura para todas as filas na subscrição|
+|Nível de assinatura|Acesso de leitura/escrita a todos os contentores e blobs na subscrição|Acesso de leitura/escrita a todos os contentores e blobs na subscrição| Acesso de leitura a todos os contentores e blobs na subscrição|Acesso de leitura/gravação para todas as filas na subscrição|Acesso de leitura para todas as filas na subscrição|
 |Ao nível do grupo de recursos|Acesso de leitura/escrita a todos os contentores e blobs, no grupo de recursos|Acesso de leitura/escrita a todos os contentores e blobs, no grupo de recursos|Acesso de leitura a todos os contentores e blobs, no grupo de recursos|Acesso de leitura/gravação para todas as filas no grupo de recursos|Acesso de leitura para todas as filas no grupo de recursos|
 |Nível de conta de armazenamento|Acesso de leitura/escrita a todos os contentores e blobs na conta de armazenamento|Acesso de leitura/escrita a todos os contentores e blobs na conta de armazenamento|Acesso de leitura a todos os contentores e blobs na conta de armazenamento|Acesso de leitura/gravação para todas as filas na conta de armazenamento|Acesso de leitura para todas as filas na conta de armazenamento|
 |Nível de contêiner/fila|Acesso de leitura/gravação para o contentor especificado e respetivos blobs|Acesso de leitura/gravação para o contentor especificado e respetivos blobs|Acesso de leitura para o contentor especificado e respetivos blobs|Acesso de leitura/escrita para a fila especificada|Acesso de leitura para a fila especificada|

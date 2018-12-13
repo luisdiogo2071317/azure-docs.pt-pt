@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: API de Pesquisa de Notícias do Bing, PHP'
+title: 'Início rápido: Efetua uma pesquisa de notícias com PHP - API de REST de pesquisa de notícias do Bing'
 titlesuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Pesquisa de Notícias do Bing.
+description: Utilize este guia de introdução para enviar um pedido para a API de REST do Search do Bing notícias com PHP e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: 0fb43bac75d677612f06b37f1ee91afba13417b5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: f34f86fe7fba09bfbc5a05814fb4e39ee40c003b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312872"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252444"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-php"></a>Início Rápido da API de Pesquisa de Notícias do Bing com PHP
+# <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Início rápido: Execute uma pesquisa de notícias utilizando PHP e a API de REST de pesquisa do Bing notícias
 
 Este artigo mostra como utilizar a API de Pesquisa de Notícias do Bing, que faz parte dos Serviços Cognitivos da Microsoft no Azure. Embora este artigo utilize PHP, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que consiga fazer pedidos HTTP e analisar JSON. 
 

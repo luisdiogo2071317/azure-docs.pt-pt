@@ -1,5 +1,5 @@
 ---
-title: Introdução ao Serviço de Aplicações no Linux | Microsoft Docs
+title: Introdução ao serviço de aplicações no Linux – Azure | Documentos da Microsoft
 description: Saiba mais sobre o Serviço de Aplicações do Azure no Linux.
 keywords: serviço de aplicações do azure, linux, oss
 services: app-service
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: wesmc
-ms.custom: mvc
-ms.openlocfilehash: 3910e13900ec1774e5a1fe449b4f510a661f1f53
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: ac8d5ddb843227e5c5d8e7508c3ea46946f4850e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165327"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257884"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 

@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: b59d503b8aadef9e8f9c2d7db71ff60aee3b6387
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300715"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257381"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração de datacenter do Azure Stack - identidade
 Pode implementar o Azure Stack com o Azure Active Directory (Azure AD) ou serviços de Federação do Active Directory (AD FS) como os fornecedores de identidade. Deve fazer a escolha antes de implementar o Azure Stack. Implementação com o AD FS é também referida como implementar o Azure Stack no modo desligado.
@@ -131,7 +131,7 @@ As seguintes informações são necessárias como entrada para os parâmetros de
 
 |Parâmetro|Descrição|Exemplo|
 |---------|---------|---------|
-|CustomAdfsName|Nome do fornecedor de afirmações. <cr>Parece dessa forma, na página de aterrissagem do AD FS.|Contoso|
+|CustomAdfsName|Nome do fornecedor de afirmações.<br>Parece dessa forma, na página de aterrissagem do AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Ligação de metadados de Federação|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
@@ -215,7 +215,7 @@ Para este procedimento, utilize um computador que possa comunicar com o ponto fi
 
 A Microsoft fornece um script que configura a confiança de entidade confiadora, incluindo as regras de transformação de afirmações. Usando o script é opcional, como pode executar os comandos manualmente.
 
-Pode transferir o script do programa auxiliar [ferramentas do Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) no Github.
+Pode transferir o script do programa auxiliar [ferramentas do Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) no GitHub.
 
 Se optar por executar os comandos manualmente, siga estes passos:
 

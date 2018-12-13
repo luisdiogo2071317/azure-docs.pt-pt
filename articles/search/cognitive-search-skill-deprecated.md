@@ -1,5 +1,5 @@
 ---
-title: Preterido capacidades cognitivas (Azure Search) | Documentos da Microsoft
+title: Capacidades cognitivas preteridas - Azure Search
 description: Esta página contém uma lista de pesquisa cognitiva as competências que são consideradas preterida e não será suportada em breve.
 services: search
 manager: pablocas
@@ -10,20 +10,21 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 6bd364ea9923b1c8cdd7c96fc29cb91dff88ec95
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 85f02acf05e89db3e22dd24ecd0e100a9ec4af6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52449988"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311733"
 ---
-#    <a name="deprecated-cognitive-seach-skills"></a>Habilidades de procurar cognitivos preterido
+#    <a name="deprecated-cognitive-search-skills"></a>Habilidades de pesquisa cognitiva preterido
 
 Este documento descreve as capacidades cognitivas que são consideradas preteridas. Utilize o guia seguinte para o conteúdo:
 
 * Nome de habilidades: O nome da habilidade que vai ser preterido, mapeia para o @odata.type atributo.
-* Última versão da api disponível: A última versão da pesquisa do Azure através do qual conjuntos de habilidades que contém o correspondente preterido a habilidade de API pública pode ser criado/atualizado.
-* Fim do suporte: último dia após o qual a habilidade de correspondente é considerada não suportado. Criado anteriormente conjuntos de habilidades ainda deverão continuar a funcionar, mas os utilizadores são recomendados para evitar uma habilidade preterida.
+* Última versão de api disponíveis: A última versão do Azure pesquise API pública através da qual conjuntos de habilidades que contém a habilidade de preterido correspondente pode ser criado/atualizado.
+* Fim do suporte: O último dia após o qual a habilidade de correspondente é considerada não suportado. Criado anteriormente conjuntos de habilidades ainda deverão continuar a funcionar, mas os utilizadores são recomendados para evitar uma habilidade preterida.
 * Recomendações: Caminho de migração para a frente para utilizar uma habilidade suportada. Os usuários são aconselhados a seguir as recomendações para continuarão a receber suporte.
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
@@ -42,7 +43,7 @@ Uso [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity
 
 Para migrar para o [habilidade de reconhecimento de entidades](cognitive-search-skill-entity-recognition.md), terá de realizar uma ou mais das seguintes alterações à sua definição de habilidade. Pode atualizar a definição de habilidades utilizando o [atualizar o conjunto de capacidades API](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Tenha em atenção_: atualmente, a pontuação de confiança, como um conceito não é suportada. Este irá ser suportado em breve. O `minimumPrecision` parâmetro existe no `EntityRecognitionSkill` para utilização futura e para efeitos compatibilidade.
+_Tenha em atenção_: Atualmente, a pontuação de confiança, como um conceito não é suportada. Este irá ser suportado em breve. O `minimumPrecision` parâmetro existe no `EntityRecognitionSkill` para utilização futura e para efeitos compatibilidade.
 
 1. *(Obrigatório)*  Alteração a `@odata.type` partir `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` para `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script do Azure PowerShell - Crie uma aplicação Web e implemente o código a partir de um repositório Git local | Microsoft Docs
+title: Script do Azure PowerShell de exemplo - criar aplicação e implemente a partir do repositório de Git local | Documentos da Microsoft
 description: Exemplo do Script do Azure PowerShell - Crie uma aplicação Web e implemente o código a partir de um repositório Git local
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: cdd691d156d182c3d85dcc731ddf1bc62204b072
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
-ms.translationtype: HT
+ms.openlocfilehash: 5a8976ce806554f9faae6376cdb938cecd5ced1b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324159"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309362"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Criar uma aplicação Web e implementar código a partir de um repositório do Git local
 
@@ -48,7 +48,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Cria uma aplicação Web com o grupo de recursos necessário e o grupo de Serviço de Aplicações. Quando o diretório atual contém um repositório de Git, adicione também um `azure` remoto. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

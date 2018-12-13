@@ -1,5 +1,5 @@
 ---
-title: Dados de segurança e privacidade no Azure Search | Documentos da Microsoft
+title: Dados de segurança e privacidade - Azure Search
 description: O Azure Search está em conformidade com o SOC 2, HIPAA e outras certificações. Filtra a ligação e encriptação, autenticação e identidade acesso a dados por meio de utilizador e identificadores de grupo de segurança no Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: heidist
-ms.openlocfilehash: 4b1307aa00fae26d7425c9a95ed673b11ba2e9b4
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.custom: seodec2018
+ms.openlocfilehash: 55558f1483a576e7ac3b9ce027588eceabd5db70
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092636"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311716"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Dados de segurança e privacidade no Azure Search
 
@@ -21,7 +22,7 @@ Recursos abrangentes de segurança e controlos de acesso são criados para o Azu
 
 Arquitetura de segurança de pesquisa do Azure abrange segurança física, as transmissões de encriptados, armazenamento encriptado e conformidade com os padrões de toda a plataforma. Operacionalmente, o Azure Search só aceita pedidos autenticados. Opcionalmente, pode adicionar controlos de acesso de usuário no conteúdo por meio de filtros de segurança. Este artigo aborda a segurança em cada camada, mas principalmente se concentra em como os dados e as operações são protegidas no Azure Search.
 
-## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Conformidade com os padrões: ISO 27001, SOC 2, HIPAA
+## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Conformidade de padrões: ISO 27001, SOC 2, HIPAA
 
 O Azure Search está certificado para os seguintes padrões, como [anunciado em Junho de 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/):
 
@@ -99,7 +100,7 @@ Acesso por utilizador para o conteúdo de um índice é implementado por meio de
 |[Remoção de segurança com base nos filtros de identidade](search-security-trimming-for-azure-search.md)  | Documenta o fluxo de trabalho básico para a implementação de controlo de acesso de identidade do utilizador. Ele cobre adicionar identificadores de segurança para um índice e, em seguida, explica a filtragem em relação a esse campo para cortar os resultados de conteúdo proibido. |
 |[Remoção de segurança com base em identidades do Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Este artigo traz mais no artigo anterior, fornecendo passos de recuperação de identidades do Azure Active Directory (AAD), um da [serviços gratuitos](https://azure.microsoft.com/free/) na plataforma cloud do Azure. |
 
-## <a name="table-permissioned-operations"></a>Tabela: Operações de recebendo
+## <a name="table-permissioned-operations"></a>Tabela: Recebendo operações
 
 A tabela seguinte resume as operações permitidas no Azure Search e qual a chave desbloqueia o acesso de uma determinada operação.
 

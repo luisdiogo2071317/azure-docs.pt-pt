@@ -1,5 +1,5 @@
 ---
-title: Formar modelos do ML usando uma classe de Calculadora
+title: Formar modelos do ML com estimadores
 titleSuffix: Azure Machine Learning service
 description: Saiba como realizar treinamento de nó único e distribuído da máquina tradicional de aprendizagem e a aprendizagem profunda modelos com a classe de estimador de serviços do Azure Machine Learning
 ms.author: minxia
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e7157b9546d1f9ca40bab35d9e643c38051db04e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0ebb12df835cf1c32e02419989b21684e9884c18
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100757"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184360"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Utilizar modelos com o Azure Machine Learning
 
 Treinamento modelos de machine learning, redes neurais profundas particularmente, muitas vezes, é uma tarefa de tempo e computação intensivas. Depois de terminar de escrever o script de treinamento e em execução num pequeno subconjunto de dados no seu computador local, provavelmente irá querer aumentar verticalmente a carga de trabalho.
 
-Para facilitar a treinamento, o SDK de Python do Azure Machine Learning fornece uma abstração de alto nível, a classe de calculadora, que permite aos utilizadores a criar facilmente seus modelos no ecossistema do Azure. Pode criar e utilizar um `Estimator` objeto para enviar qualquer código de treinamento que pretende executar na computação remota, se se trata de um treinamento de execução ou distribuído de nó único num cluster GPU. Para trabalhos PyTorch e TensorFlow, Azure Machine Learning também fornece personalizado respectivo `PyTorch` e `TensorFlow` estimadores para simplificar o uso dessas estruturas.
+Para facilitar a treinamento, o SDK de Python do Azure Machine Learning fornece uma abstração de alto nível, a classe de calculadora, que permite aos utilizadores a criar facilmente seus modelos no ecossistema do Azure. Pode criar e utilizar um [ `Estimator` objeto](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) para submeter a qualquer código de treinamento que pretende executar na computação remota, seja um treinamento de execução ou distribuído de nó único num cluster GPU. Para trabalhos PyTorch e TensorFlow, Azure Machine Learning também fornece personalizado respectivo `PyTorch` e `TensorFlow` estimadores para simplificar o uso dessas estruturas.
 
 ## <a name="train-with-an-estimator"></a>Preparar com um avaliador que esteja
 

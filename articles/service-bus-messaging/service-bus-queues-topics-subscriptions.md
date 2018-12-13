@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: spelluru
-ms.openlocfilehash: 047c4c37090db77f7a7a692604dd63c5effff9fa
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c4899db41f9c60bf6efb40c4d53aaa35f22ad275
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409766"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312889"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e subscrições do Service Bus
 
@@ -32,9 +32,9 @@ Utilizar filas para intermediário entre mensagem produtores e consumidores forn
 
 ### <a name="create-queues"></a>Criar filas
 
-Criar filas com o [portal do Azure](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), ou [modelos do Resource Manager](service-bus-resource-manager-namespace-queue.md). Em seguida, enviar e receber mensagens com uma [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) objeto. 
+Criar filas com o [portal do Azure](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), ou [modelos do Resource Manager](service-bus-resource-manager-namespace-queue.md). Em seguida, enviar e receber mensagens com uma [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) objeto.
 
-Para saber rapidamente como criar uma fila, em seguida, enviar e receber mensagens de e para a fila, consulte a [inícios Rápidos](service-bus-quickstart-portal.md) para cada método. Para consultar um tutorial mais aprofundado sobre como utilizar as filas de mensagens em fila, consulte [introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md). 
+Para saber rapidamente como criar uma fila, em seguida, enviar e receber mensagens de e para a fila, consulte a [inícios Rápidos](service-bus-quickstart-portal.md) para cada método. Para consultar um tutorial mais aprofundado sobre como utilizar as filas de mensagens em fila, consulte [introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md).
 
 Para obter um exemplo de trabalho, consulte a [BasicSendReceiveUsingQueueClient exemplo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) no GitHub.
 
@@ -56,9 +56,9 @@ Por meio de comparação, a funcionalidade de envio de mensagens de uma fila é 
 
 ### <a name="create-topics-and-subscriptions"></a>Criar tópicos e subscrições
 
-Criar um tópico é semelhante a criar uma fila, conforme descrito na secção anterior. , Em seguida, envia mensagens utilizando o [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) classe. Para receber mensagens, crie uma ou mais subscrições para o tópico. Semelhante às filas, as mensagens são recebidas de uma subscrição a utilizar um [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) objeto em vez de um [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) objeto. Crie a subscrição de cliente, passando o nome do tópico, o nome da subscrição e (opcionalmente) o modo de receber como parâmetros. 
+Criar um tópico é semelhante a criar uma fila, conforme descrito na secção anterior. , Em seguida, envia mensagens utilizando o [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) classe. Para receber mensagens, crie uma ou mais subscrições para o tópico. Semelhante às filas, as mensagens são recebidas de uma subscrição a utilizar um [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) objeto em vez de um [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) objeto. Crie a subscrição de cliente, passando o nome do tópico, o nome da subscrição e (opcionalmente) o modo de receber como parâmetros.
 
-Para um completo trabalhar de exemplo, consulte a [BasicSendReceiveUsingTopicSubscriptionClient exemplo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) no Github.
+Para um completo trabalhar de exemplo, consulte a [BasicSendReceiveUsingTopicSubscriptionClient exemplo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) no GitHub.
 
 ### <a name="rules-and-actions"></a>Regras e ações
 
@@ -66,7 +66,7 @@ Em muitos cenários, as mensagens com características específicas devem ser pr
 
 Para um completo trabalhar de exemplo, consulte a [TopicSubscriptionWithRuleOperationsSample exemplo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) no GitHub.
 
-Para obter mais informações sobre os valores de filtro possíveis, consulte a documentação para o [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) e [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes. 
+Para obter mais informações sobre os valores de filtro possíveis, consulte a documentação para o [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) e [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

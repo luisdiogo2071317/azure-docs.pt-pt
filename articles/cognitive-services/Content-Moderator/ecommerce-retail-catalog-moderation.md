@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 0bd61c3f1a4f660076be4e87bb5443302e5dc013
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 285590435a7e3c31d45d5d154d4e430ed3252838
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363999"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256235"
 ---
 # <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>Tutorial: moderação do catálogo de comércio eletrónico com aprendizagem automática
 
@@ -247,6 +247,6 @@ Todos os exemplos e SDKs dos Serviços Cognitivos da Microsoft estão licenciado
 
 Espera-se que os programadores que utilizam os Serviços Cognitivos, incluindo esta biblioteca de cliente e exemplo, sigam o "Código de Conduta do Programador dos Serviços Cognitivos da Microsoft", disponível em http://go.microsoft.com/fwlink/?LinkId=698895.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Crie e expanda o tutorial com os [ficheiros de origem do projeto](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) no Github.
+Crie e expanda o tutorial, utilizando o [ficheiros de origem do projeto](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) no GitHub.

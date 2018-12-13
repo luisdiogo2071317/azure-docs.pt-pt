@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
 ms.author: daveba
-ms.openlocfilehash: 5d67d25912df5040665b3a04858be0f3807e8112
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ee4b504cf26456baa7d10eab05305eee5e36c35a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623830"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191908"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema numa VM do Windows para aceder ao SQL do Azure
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Utilize uma VM do Windows atribuídos de sistema identidade gerida para aceder ao SQL do Azure
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -63,6 +63,8 @@ Para este próximo passo, vai precisar do [Microsoft SQL Server Management Studi
 
 - [Autenticação Universal com a Base de Dados SQL e o SQL Data Warehouse (suporte do SSMS para MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [Configurar e gerir a autenticação do Azure Active Directory com a Base de Dados SQL ou o SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
+
+BD SQL requer que os nomes a apresentar exclusivos AAD. Com isso, o AAD contas como utilizadores, grupos e principais de serviço (aplicações) e nomes VM ativados para a identidade gerida tem de ser exclusivamente definidos no AAD em relação a seus nomes de exibição. BD SQL verifica o nome a apresentar do AAD durante a criação de T-SQL de tais usuários e se não for exclusivo, o comando falha a pedir para fornecer um nome exclusivo para a exibição AAD numa dada conta.
 
 1.  Inicie o SQL Server Management Studio.
 2.  Na caixa de diálogo **Ligar ao Servidor**, introduza o nome do seu SQL Server no campo **Nome do servidor**.

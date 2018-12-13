@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: fa5560c008270635d0d93b8004e017c810c9c27a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6f6de278e802b83623413b0bf70e556d083818c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074423"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140613"
 ---
-# <a name="application-dashboard"></a>Dashboard de aplicações
+# <a name="model-and-usage-statistics-in-the-dashboard"></a>Estatísticas de modelo e a utilização no dashboard
 O dashboard de aplicações permite-lhe monitorizar a sua aplicação única rapidamente. O **Dashboard** apresenta quando abre uma aplicação ao clicar no nome de aplicação no **as minhas aplicações** página em seguida, selecione **Dashboard** do painel superior. 
 
 > [!CAUTION]
@@ -71,7 +71,7 @@ O **análise detalhada de intenção** apresenta uma divisão dos objetivos com 
 
 Para controlar se a divisão se baseia em expressões com etiquetadas ou acertos de ponto final:
 
-1. Clique em **definições adicionais** ![botão de configurações adicionais](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aceder à lista conforme a imagem seguinte:
+1. Clique em **definições adicionais** ![botão de configurações adicionais à lista de acesso](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aceder à lista conforme a imagem seguinte:
 
     ![Lista de divisão de intenção](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
 2. Selecione um valor na lista e, em seguida, clique na seta para trás ![Seta para trás](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para apresentar o gráfico.
@@ -83,7 +83,7 @@ O dashboard mostra uma análise detalhada das entidades com base em expressões 
 
 Para controlar se a divisão se baseia em expressões com etiquetadas ou acertos de ponto final:
 
-1. Clique em **definições adicionais** ![botão de configurações adicionais](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aceder à lista conforme a imagem seguinte:
+1. Clique em **definições adicionais** ![botão de configurações adicionais para obter a lista de](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aceder à lista conforme a imagem seguinte:
 
     ![Lista de divisão de entidades](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
 2. Selecione um valor na lista e, em seguida, clique na seta para trás ![Seta para trás](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para apresentar o gráfico em conformidade.

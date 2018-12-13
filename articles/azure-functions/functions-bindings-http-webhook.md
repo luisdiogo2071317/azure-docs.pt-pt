@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3cdedd0c8ddf6d2c724351cf150499434e3886c9
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: acd2d5a3448d805b8b3c741139fc5f9a79c40ed2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994709"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317445"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces e acionadores de HTTP de funções do Azure
 
@@ -495,7 +495,7 @@ Se estiver a utilizar a aplicação de funções [aplicação serviço de autent
 
 Também é possível ler essas informações de vinculação de dados. Esta funcionalidade só está disponível para o runtime 2.x de funções. Também está atualmente apenas disponível para linguagens .NET.
 
-No .NET languagues, esta informação está disponível como um [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). A ClaimsPrincipal está disponível como parte do contexto do pedido, conforme mostrado no exemplo a seguir:
+Em linguagens .NET, esta informação está disponível como um [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). A ClaimsPrincipal está disponível como parte do contexto do pedido, conforme mostrado no exemplo a seguir:
 
 ```csharp
 using System.Net;
@@ -540,8 +540,8 @@ As funções permite-lhe utilizar as chaves para que seja mais difícil acessar 
 
 Existem dois tipos de chaves:
 
-* **Das chaves de anfitrião**: estas chaves são partilhadas por todas as funções dentro da aplicação de função. Quando utilizado como uma chave de API, elas permitem o acesso a qualquer função dentro da aplicação de função.
-* **Chaves de função**: estas chaves são aplicadas apenas a funções específicas, sob a qual são definidas. Quando utilizado como uma chave de API, estes apenas permitem o acesso a essa função.
+* **Das chaves de anfitrião**: Estas chaves são partilhadas por todas as funções dentro da aplicação de função. Quando utilizado como uma chave de API, elas permitem o acesso a qualquer função dentro da aplicação de função.
+* **Chaves de função**: Essas chaves aplicam-se apenas a funções específicas, sob a qual são definidas. Quando utilizado como uma chave de API, estes apenas permitem o acesso a essa função.
 
 Cada chave é chamado para referência e há uma chave de padrão (denominada "predefinido") ao nível da função e o anfitrião. Teclas de função têm precedência sobre as chaves de anfitrião. Quando duas chaves forem definidas com o mesmo nome, a tecla de função é sempre usada.
 

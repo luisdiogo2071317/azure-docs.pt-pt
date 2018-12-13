@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 25dc4715e4cfd028b6d0f83a32edd3f8ef93d560
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 66b36fc66a889bc156edc55198b9f415e297a4bf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874894"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193965"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Recolher dados de recolhidos nos agentes do Linux no Log Analytics
 [Recolhidos](https://collectd.org/) é um daemon de Linux do código-fonte aberto que periodicamente recolhe métricas de desempenho de aplicativos e suas informações de nível de sistema. Aplicativos de exemplo incluem a Máquina Virtual de Java (JVM), o servidor MySQL e o Nginx. Este artigo fornece informações sobre a recolha de dados de desempenho recolhidos no Log Analytics.

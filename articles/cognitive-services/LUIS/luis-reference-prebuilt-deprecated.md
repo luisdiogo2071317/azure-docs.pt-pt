@@ -11,19 +11,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 2fcd5a784801c3591d76b4c4569a7dda9472686e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7b294b9c528d0b7a93a3e287b37124a26d0851dd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103987"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138063"
 ---
-# <a name="deprecated-entities"></a>Entidades preteridas
+# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades pré-concebidas preteridas numa aplicação LUIS
 As seguintes entidades pré-criados foram preteridas e não não possível adicionar novas aplicações de LUIS.
 
-* **DateTime**: as aplicações de LUIS existentes que utilizam **datetime** devem ser migradas para **datetimeV2**, apesar da entidade de datetime continua a funcionar em aplicações já existentes que a utilizam.
-* **Geografia**: as aplicações de LUIS existentes que utilizam **geografia** é suportada até Dezembro de 2018.
-* **Enciclopédia**: as aplicações de LUIS existentes que utilizam **enciclopédia** é suportada até Dezembro de 2018.
+* **DateTime**: Aplicações de LUIS existentes que utilizem **datetime** devem ser migradas para **datetimeV2**, apesar da entidade de datetime continua a funcionar em aplicações já existentes que a utilizam.
+* **Geografia**: Aplicações de LUIS existentes que utilizem **geografia** é suportada até Dezembro de 2018.
+* **Enciclopédia**: Aplicações de LUIS existentes que utilizem **enciclopédia** é suportada até Dezembro de 2018.
 
 ## <a name="geography-culture"></a>Cultura de geografia
 **Geografia** só está disponível no `en-us` localidade.
@@ -43,7 +43,7 @@ Entidade pré-criados   |   Expressão de exemplo   |   JSON
 **Enciclopédia** só está disponível no `en-US` localidade.
 
 #### <a name="encyclopedia-subtypes"></a>Subtipos enciclopédia
-Entidade incorporada da enciclopédia inclui mais de 100 tipos de secundárias na seguinte tabela: Além disso, as entidades de enciclopédia são, muitas vezes, mapeiam para vários tipos. Por exemplo, a consulta Ronald Reagan resulta em: 
+Entidade incorporada da enciclopédia inclui mais de 100 tipos de secundárias na tabela a seguir: Além disso, as entidades de enciclopédia, muitas vezes, a mapear para vários tipos. Por exemplo, a consulta Ronald Reagan resulta em: 
 
 ```json
 {

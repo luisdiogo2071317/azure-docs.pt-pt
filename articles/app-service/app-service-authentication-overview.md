@@ -1,5 +1,5 @@
 ---
-title: Autenticação e autorização no serviço de aplicações do Azure | Documentos da Microsoft
+title: Autenticação e autorização - serviço de aplicações do Azure | Documentos da Microsoft
 description: Referência conceptual e descrição geral da autenticação / autorização de recursos para o serviço de aplicações do Azure
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 27726f261b2d9c88f1544a6e66ea352fbb98d253
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: add470aec1b19a8862a17d4a5a84bc221b8582b4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685672"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250880"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
 
@@ -91,8 +92,8 @@ Quando ativa a autenticação e autorização com um destes fornecedores, o seu 
 
 O fluxo de autenticação é o mesmo para todos os fornecedores, mas diferente dependendo se pretende iniciar sessão com SDK o fornecedor:
 
-- Sem o fornecedor de SDK: delega o aplicativo federada início de sessão no serviço de aplicações. Isso normalmente é o caso com as aplicações de browser, que pode apresentar a página de início de sessão do fornecedor ao usuário. O código de servidor gerencia o processo de início de sessão, para que ele também é chamado _direcionado de servidor de fluxo_ ou _fluxo de servidor_. Este caso aplica-se nas aplicações web. Ele também se aplica a aplicações nativas que inscrevem os utilizadores em sessão com o SDK do cliente de Mobile Apps, uma vez que o SDK abre uma vista web para assinar os utilizadores em autenticação do serviço de aplicações. 
-- Com o fornecedor de SDK: A aplicação inicia manualmente a utilizadores para o fornecedor e, em seguida, envia o token de autenticação no serviço de aplicações para a validação. Isso normalmente é o caso com aplicações sem browser que não é possível apresentar a página de início de sessão do fornecedor ao usuário. O código do aplicativo gerencia o processo de início de sessão, para que ele também é chamado _fluxo de cliente direcionado_ ou _fluxo de cliente_. Este caso aplica-se às APIs de REST [as funções do Azure](../azure-functions/functions-overview.md)e os clientes de browser de JavaScript, bem como aplicações web que precisam de mais flexibilidade no processo de início de sessão. Ele também se aplica a aplicações móveis nativas que inscrevem os utilizadores com o SDK do fornecedor.
+- Sem o fornecedor de SDK: Delega o aplicativo federada início de sessão no serviço de aplicações. Isso normalmente é o caso com as aplicações de browser, que pode apresentar a página de início de sessão do fornecedor ao usuário. O código de servidor gerencia o processo de início de sessão, para que ele também é chamado _direcionado de servidor de fluxo_ ou _fluxo de servidor_. Este caso aplica-se nas aplicações web. Ele também se aplica a aplicações nativas que inscrevem os utilizadores em sessão com o SDK do cliente de Mobile Apps, uma vez que o SDK abre uma vista web para assinar os utilizadores em autenticação do serviço de aplicações. 
+- Com o fornecedor de SDK: O aplicativo inicia manualmente a utilizadores para o fornecedor e, em seguida, envia o token de autenticação no serviço de aplicações para a validação. Isso normalmente é o caso com aplicações sem browser que não é possível apresentar a página de início de sessão do fornecedor ao usuário. O código do aplicativo gerencia o processo de início de sessão, para que ele também é chamado _fluxo de cliente direcionado_ ou _fluxo de cliente_. Este caso aplica-se às APIs de REST [as funções do Azure](../azure-functions/functions-overview.md)e os clientes de browser de JavaScript, bem como aplicações web que precisam de mais flexibilidade no processo de início de sessão. Ele também se aplica a aplicações móveis nativas que inscrevem os utilizadores com o SDK do fornecedor.
 
 > [!NOTE]
 > Chamadas a partir de uma aplicação de browser confiável no serviço de aplicações chama outra API de REST no serviço de aplicações ou [as funções do Azure](../azure-functions/functions-overview.md) pode ser autenticado utilizando o fluxo de servidor direcionadas. Para obter mais informações, consulte [personalizar autenticação e autorização no serviço de aplicações](app-service-authentication-how-to.md).
@@ -150,7 +151,7 @@ Guias de procedimentos específica do fornecedor:
 * [Como configurar a aplicação para utilizar o início de sessão do Google][Google]
 * [Como configurar a aplicação para utilizar o Microsoft Account login][MSA]
 * [Como configurar a aplicação para utilizar o início de sessão do Twitter][Twitter]
-* [Como: utilizar a autenticação personalizada para a sua aplicação][custom-auth]
+* [Como: Utilizar a autenticação personalizada para a sua aplicação][custom-auth]
 
 [AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
 [Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md

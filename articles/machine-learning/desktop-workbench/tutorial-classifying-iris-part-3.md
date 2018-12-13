@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/13/2018
+ms.date: 03/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 52757098436349d38538f4c2168a70e53ad58421
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946617"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270166"
 ---
-# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: classificar Íris: implementar um modelo
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: Classificar íris: Implementar um modelo
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -168,7 +168,7 @@ Pode utilizar o _modo local_ para desenvolvimento e testes. O motor do Docker te
    az provider show -n Microsoft.ContainerRegistry 
    ``` 
 
-   A terceira linha da saída apresenta **"registrationState": "Registering"**. Aguarde uns momentos e repita o comando **show**, até que a saída apresente **"registrationState": "Registered"**.
+   A terceira linha da saída apresenta **"registrationState": "Registering"**. Aguarde alguns momentos e repita a **mostrar** comando até que a saída apresente **"registrationState": "Registered"**.
 
    >[!NOTE] 
    Se está a implementar num cluster do ACS, precisa de registar o fornecedor de recursos **Microsoft.ContainerService** e utilizar a mesma abordagem.
@@ -234,24 +234,24 @@ Agora, está pronto para criar o serviço Web em tempo real.
 
    Os comutadores seguintes são utilizados com o comando **az ml service create realtime**:
 
-   * `-f`: o nome do ficheiro de script de classificação.
+   * `-f`: O nome de ficheiro de script classificação.
 
-   * `--model-file`: o ficheiro de modelo. Neste caso, é o ficheiro model.pkl de pickle.
+   * `--model-file`: O ficheiro de modelo. Neste caso, é o ficheiro model.pkl de pickle.
 
-   * `-s`: o esquema do serviço. Isto foi gerado num passo anterior ao executar o script **score_iris.py** localmente.
+   * `-s`: O esquema de serviço. Isto foi gerado num passo anterior ao executar o script **score_iris.py** localmente.
 
-   * `-n`: o nome da aplicação, tem de estar todo em minúsculas.
+   * `-n`: O nome de aplicação, tem de estar todo em minúsculas.
 
-   * `-r`: o runtime do modelo. Neste caso, é um modelo de Python. Os runtimes válidos são `python` e `spark-py`.
+   * `-r`: O tempo de execução do modelo. Neste caso, é um modelo de Python. Os runtimes válidos são `python` e `spark-py`.
 
-   * `--collect-model-data true`: este comutador permite a recolha de dados.
+   * `--collect-model-data true`: Este comutador permite a recolha de dados.
 
-   * `-c`: caminho do ficheiro de dependências de conda onde os pacotes adicionais são especificados.
+   * `-c`: Caminho para o ficheiro de dependências de conda onde os pacotes adicionais são especificados.
 
    >[!IMPORTANT]
    >O nome do serviço, que também é o nome da imagem do Docker nova, tem de estar em minúsculas. Caso contrário, recebe um erro. 
 
-1. Quando executa o comando, o modelo e o ficheiro de classificação são carregados para a conta de armazenamento que criou como parte da configuração do ambiente. O processo de implementação cria uma imagem do Docker com o modelo, o esquema e o ficheiro de classificação no mesmo e envia-o para o registo do Azure Container Registry: **\<ACR_name\>.azurecr.io/\<imagename\>:\<version\>**. 
+1. Quando executa o comando, o modelo e o ficheiro de classificação são carregados para a conta de armazenamento que criou como parte da configuração do ambiente. O processo de implementação cria uma imagem de Docker com o seu modelo, o esquema e o ficheiro de classificação no mesmo e, em seguida, envia-o para o registo de contentor do Azure: **\<ACR_name\>.azurecr.io/\<imagename\>:\<versão\>**. 
 
    O comando extrai a imagem localmente para o computador e inicia um contentor do Docker com base na mesma. Se o seu ambiente estiver configurado no modo de cluster, o contentor do Docker é implementado no cluster do Kubernetes dos Serviços Cloud do Azure.
 
@@ -351,15 +351,15 @@ Para testar o serviço Web **irisapp** que está em execução, utilize um regis
 
 1. Pode consumir estes dados a partir do armazenamento de Blobs do Azure. Existem diversas ferramentas que utilizam, tanto o software Microsoft, como ferramentas de código aberto, como:
 
-   * Machine Learning: abra o ficheiro CSV, adicionando-o como uma origem de dados.
+   * Machine Learning: Abra o ficheiro CSV, adicionando-o como uma origem de dados.
 
-   * Excel: abra os ficheiros CSV diários como uma folha de cálculo.
+   * Excel: Abra os ficheiros CSV diários como uma folha de cálculo.
 
-   * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): crie gráficos com os dados extraídos a partir dos dados do CSV nos blobs.
+   * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): Crie gráficos com os dados extraídos a partir dos dados do CSV nos blobs.
 
-   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): carregue os dados do CSV para uma tabela do Hive e execute consultas SQL diretamente nos blobs.
+   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): Carregar os dados do CSV para uma tabela do Hive e execute consultas SQL diretamente nos blobs.
 
-   * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): crie um DataFrame com uma grande quantidade de dados do CSV.
+   * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): Crie um DataFrame com uma grande quantidade de dados do CSV.
 
       ```python
       var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
@@ -369,7 +369,7 @@ Para testar o serviço Web **irisapp** que está em execução, utilize um regis
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Nesta terceira parte da série do tutorial de três partes, aprendeu a utilizar o Machine Learning para:
 > [!div class="checklist"]
 > * Localizar o ficheiro de modelo.

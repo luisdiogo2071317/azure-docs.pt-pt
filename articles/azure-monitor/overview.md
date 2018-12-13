@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: ccdee1963d3d37966f6784e7a7421c500d6a8a51
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2d1f96359512a3c2135909ebf69ec9ec3b801d61
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994218"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190565"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -48,11 +48,11 @@ A linguagem de consulta do Log Analytics é adequada para consultas de registo s
 ## <a name="what-data-does-azure-monitor-collect"></a>Os dados que recolher o Azure Monitor?
 O Azure Monitor pode recolher dados de várias origens. Pode considerar os dados para as suas aplicações em camadas que vão desde a sua aplicação, qualquer sistema operacional e depende, para baixo para a própria plataforma de serviços de monitorização. Monitor do Azure recolhe dados de cada um dos seguintes escalões:
 
-- **Dados de monitorização de aplicações**: dados sobre o desempenho e a funcionalidade do código escreveu, independentemente de sua plataforma.
-- **Dados de monitorização de SO de convidado**: dados sobre o sistema operativo no qual a sua aplicação está em execução. Isso poderia estar em execução no Azure, noutra cloud ou no local. 
-- **Dados de monitorização de recursos do Azure**: dados sobre o funcionamento de um recurso do Azure.
-- **Subscrição do Azure, os dados de monitorização**: dados sobre a operação e a gestão de uma subscrição do Azure, bem como dados sobre o estado de funcionamento e a operação do Azure em si. 
-- **Inquilino do Azure, os dados de monitorização**: dados sobre o funcionamento dos serviços do Azure ao nível do inquilino, como o Azure Active Directory.
+- **Dados de monitorização de aplicações**: Dados sobre o desempenho e a funcionalidade dos códigos escritos, independentemente de sua plataforma.
+- **Dados de monitorização de SO de convidado**: Dados sobre o sistema operativo no qual a sua aplicação está em execução. Isso poderia estar em execução no Azure, noutra cloud ou no local. 
+- **Dados de monitorização de recursos do Azure**: Dados sobre o funcionamento de um recurso do Azure.
+- **Subscrição do Azure, os dados de monitorização**: Dados sobre a operação e a gestão de uma subscrição do Azure, bem como dados sobre o estado de funcionamento e a operação do Azure em si. 
+- **Inquilino do Azure, os dados de monitorização**: Dados sobre o funcionamento dos serviços do Azure ao nível do inquilino, como o Azure Active Directory.
 
 Assim que criar uma subscrição do Azure e comece a adicionar recursos, tais como máquinas virtuais e aplicações web, o Azure Monitor inicia a recolha de dados.  [Registos de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) gravar quando os recursos são criados ou modificados. [Métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) informá-lo como o recurso está sendo executada e os recursos que ele está a consumir. 
 
@@ -96,7 +96,7 @@ Além de lhe permitir analisar dados de monitorização interativamente, uma sol
 ### <a name="alerts"></a>Alertas
 [Alertas no Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) notificado proativamente das condições críticas e potencialmente tentar tomar medidas corretivas. Regras de alerta com base em métricas fornecem quase em tempo real de alerta com base em valores numéricos, enquanto as regras com base em registos permitem para lógica complexa, em todos os dados de várias origens.
 
-Regras em utilização do Azure Monitor de alerta [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md), que contêm conjuntos de exclusivos de destinatários e ações que podem ser partilhadas entre várias regras. Com base nos seus requisitos, grupos de ação podem executar ações como através de webhooks ter alertas iniciar ações externas ou integrar com as suas ferramentas ITSM.
+Regras em utilização do Azure Monitor de alerta [grupos de ação](../azure-monitor/platform/action-groups.md), que contêm conjuntos de exclusivos de destinatários e ações que podem ser partilhadas entre várias regras. Com base nos seus requisitos, grupos de ação podem executar ações como através de webhooks ter alertas iniciar ações externas ou integrar com as suas ferramentas ITSM.
 
 ![Alertas](media/overview/alerts.png)
 

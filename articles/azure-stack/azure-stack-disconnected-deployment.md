@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 5714257fce53fafa148b8ae4d5a3addf3b872c6f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035480"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276258"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Sistemas integrados do Azure decisões para o Azure Stack de planejamento da implantação desligada
 Depois de decidir [como irá integrar o Azure Stack para seu ambiente de cloud híbrida](azure-stack-connection-models.md), em seguida, pode finalizar suas decisões de implementação do Azure Stack.
 
-Pode implementar e utilizar o Azure Stack sem uma ligação à internet. No entanto, com uma implementação de desligado, está limitado a um repositório de identidades do AD FS e o modelo de faturação com base na capacidade. 
+Pode implementar e utilizar o Azure Stack sem uma ligação à internet. No entanto, com uma implementação de desligado, está limitado a um repositório de identidades do AD FS e o modelo de faturação com base na capacidade. Como a arquitetura "multitenancy" requer a utilização do Azure AD, arquitetura "multitenancy" não é suportada para implementações desligadas. 
 
 Escolha esta opção se:
 - Ter segurança ou outras restrições que requerem a implementação do Azure Stack num ambiente que não está ligado à Internet.
@@ -58,7 +58,7 @@ Telemetria|Indisponível – dados de telemetria para o Azure Stack como bem com
 
 ## <a name="learn-more"></a>Saiba mais
 - Para obter informações sobre casos de utilização, de compra, parceiros e fornecedores de hardware de OEM, consulte a [do Azure Stack](https://azure.microsoft.com/overview/azure-stack/) página do produto.
-- Para obter informações sobre o plano e a disponibilidade geográfica para o Azure Stack, sistemas integrados, consulte o white paper: [do Azure Stack: uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Para obter informações sobre o plano e a disponibilidade geográfica para o Azure Stack, sistemas integrados, consulte o white paper: [O Azure Stack: Uma extensão do Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Para saber mais sobre pacotes e preços do Microsoft Azure Stack [transferir o PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Passos Seguintes

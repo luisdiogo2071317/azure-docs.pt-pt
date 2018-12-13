@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 2965f9fcedba55536ef25469975679bffe27b4e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 88d2633a107f36c7c0eab8803a3b6ea10e067506
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102661"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166545"
 ---
-# <a name="age-entity"></a>Entidade de idade
+# <a name="age-prebuilt-entity-for-a-luis-app"></a>Idade entidade criados previamente para uma aplicação LUIS
 A entidade de idade pré-criados captura o valor de idade tanto numericamente e em termos de dias, semanas, meses e anos. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém a idade para os objetivos do aplicativo. Entidade de idade é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-age"></a>Tipos de idade
-Idade é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) repositório do Github
+Idade é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3) repositório do GitHub
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Resolução de entidades de idade pré-criados
 O exemplo seguinte mostra a resolução do **builtin.age** entidade.

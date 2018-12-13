@@ -11,12 +11,12 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: ce84d1ba16ec75525740a2b799fd78c35474cda9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7c567cc70a87e7856f511112d3bff692f5af3993
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096642"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194016"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
@@ -185,7 +185,7 @@ Alertas automatizados na solução se baseia em escrever uma consulta do Log Ana
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Criar alertas para a base de dados do Azure SQL
 
-Pode facilmente [criar alertas](../../monitoring-and-diagnostics/alert-metric.md) com os dados provenientes de recursos de base de dados do Azure SQL. Aqui estão algumas útil [registar as consultas](../../azure-monitor/log-query/log-query-overview.md) que pode utilizar com um alerta de registo:
+Pode facilmente [criar alertas](../../azure-monitor/platform/alerts-metric.md) com os dados provenientes de recursos de base de dados do Azure SQL. Aqui estão algumas útil [registar as consultas](../../azure-monitor/log-query/log-query-overview.md) que pode utilizar com um alerta de registo:
 
 #### <a name="high-cpu-on-azure-sql-database"></a>Elevada da CPU na base de dados SQL do Azure
 

@@ -1,23 +1,23 @@
 ---
-title: 'Azure Cosmos DB: Desenvolver com a API de Tabelas em .NET'
-description: Saiba como desenvolver com a API de Tabelas do Azure Cosmos DB em .NET
-services: cosmos-db
+title: Desenvolver com a API de tabela com o .NET SDK
+titleSuffix: Azure Cosmos DB
+description: Aprenda a desenvolver com a API de tabela no Azure Cosmos DB com o .NET SDK
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/18/2017
+ms.date: 12/07/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: c3749657ae432d8a6c85522b7dac31e31e39ea77
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: f10cb17f0300b6bd21d17b1e2ff204d57e4a7988
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075920"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251186"
 ---
-# <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Desenvolver com a API de Tabelas em .NET
+# <a name="develop-with-azure-cosmos-dbs-table-api-using-net-sdk"></a>Desenvolver com a API de tabela do Azure Cosmos DB com o .NET SDK
 
 O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB.
 

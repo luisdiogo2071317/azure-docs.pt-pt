@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
+ms.date: 03/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: dd10581888da64114debec40cba8564023033864
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990166"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278513"
 ---
-# <a name="tutorial-1-classify-iris---preparing-the-data"></a>Tutorial 1: Classificar Íris – Preparar os dados
+# <a name="tutorial-1-classify-iris---preparing-the-data"></a>Tutorial 1: Classificar íris – preparar os dados
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -45,11 +45,11 @@ Para concluir este tutorial, tem de ter:
 - Uma conta de Experimentação do Azure Machine Learning
 - O Azure Machine Learning Workbench instalado
 
-Se ainda não tem estes pré-requisitos, siga os passos do artigo [Início Rápido: instalar e iniciar](quickstart-installation.md) para configurar as suas contas e instalar a aplicação Azure Machine Learning Workbench. 
+Se ainda não tiver estes pré-requisitos, siga os passos a [início rápido: Instalar e iniciar](quickstart-installation.md) artigo para configurar as suas contas e instalar a aplicação do Azure Machine Learning Workbench. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Criar um projeto novo no Workbench
 
-Se seguiu os passos do artigo [Início Rápido: instalar e iniciar](quickstart-installation.md), já deve ter este projeto e pode avançar para a secção seguinte.
+Se tiver seguido os passos a [início rápido: Instalar e iniciar](quickstart-installation.md) artigo já deve ter este projeto e pode avançar para a secção seguinte.
 
 1. Abra a aplicação Azure Machine Learning Workbench e inicie sessão, se necessário. 
    
@@ -152,7 +152,7 @@ Este pacote de preparação de dados pode ser posteriormente entregue a um runti
    1. Clique com o botão direito do rato para a selecionar. 
    1. Selecione **Contagens de Valores** no menu pendente. 
 
-   O painel **Inspectors** é aberto por baixo dos dados. É apresentado um histograma com quatro barras. A coluna de destino tem quatro valores distintos: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** e um valor **(null)** (nulo).
+   O painel **Inspectors** é aberto por baixo dos dados. É apresentado um histograma com quatro barras. A coluna de destino tem quatro valores distintos: **Iris_virginica**, **iris_versicolor**, **Iris-setosa**e um **(null)** valor.
 
    ![Selecione Contagens de Valores](media/tutorial-classifying-iris/value_count.png)
 
@@ -211,7 +211,7 @@ Este pacote de preparação de dados pode ser posteriormente entregue a um runti
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, utilizou o Azure Machine Learning Workbench para:
 > [!div class="checklist"]

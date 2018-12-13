@@ -4,9 +4,8 @@ description: 'Sintaxe para o Net # neural redes linguagem de especificação, ju
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315312"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272240"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guia para a linguagem de especificação Net # rede neural para o Azure Machine Learning Studio
 
@@ -29,7 +28,7 @@ NET # é uma linguagem desenvolvida pela Microsoft, que é utilizada para defini
 
 Pode usar uma especificação de arquitetura do Net # desses contextos:
 
-+ Todos os módulos de redes neuronais no Microsoft Azure Machine Learning Studio: [várias classes de rede Neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [duas classes de rede Neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), e [regressão de rede Neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Todos os módulos de redes neuronais no Microsoft Azure Machine Learning Studio: [Várias classes rede Neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [rede Neural de classe dois](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), e [regressão de rede Neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
 + Funções de rede neural em MicrosoftML: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)para a linguagem R, e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
 
 
@@ -39,7 +38,7 @@ Este artigo descreve os conceitos básicos e a sintaxe necessária para desenvol
 + A sintaxe e as palavras-chave da linguagem de especificação Net #
 + Exemplos de redes neuronais personalizadas criadas com Net # 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="neural-network-basics"></a>Noções básicas de rede neural
 
@@ -114,7 +113,7 @@ output Result[2] from Hidden all;
 ```
 
 + O produto das dimensões é o número de nós na camada. Neste exemplo, existem duas dimensões [5,20], que significa que existem 100 nós na camada.
-+ As camadas podem ser declaradas em qualquer ordem, com uma exceção: se mais do que uma camada de entrada é definida, a ordem em que elas são declaradas tem de corresponder a ordem dos recursos nos dados de entrada.
++ As camadas podem ser declaradas em qualquer ordem, com uma exceção: Se mais do que uma camada de entrada é definida, a ordem em que elas são declaradas tem de corresponder a ordem dos recursos nos dados de entrada.
 
 Para especificar que o número de nós numa camada de determinado automaticamente, utilize o `auto` palavra-chave. O `auto` palavra-chave tem efeitos diferentes, consoante a camada:
 
@@ -219,7 +218,7 @@ Existem dois conjuntos de propriedades que controlam o preenchimento, as proprie
     
     Se o valor para uma dimensão for False, os kernels são definidos para que o número de nós em cada lado que são deixados de lado é o mesmo (até uma diferença de 1). O valor predefinido deste atributo é uma cadeia de identificação com todos os componentes iguais a False.
 
-+ **UpperPad** e **LowerPad**: (opcional) forneça mais controle sobre a quantidade de preenchimento para utilizar. **Importante:** estes atributos podem ser definido se e apenas se o **preenchimento** propriedade acima é ***não*** definido. Os valores devem ser cadeias de identificação com valor de número inteiro com comprimentos de serem arity do pacote. Quando esses atributos são especificados, nós "fictícios" são adicionadas até as extremidades superiores e inferior de cada dimensão da camada de entrada. O número de nós adicionados até as extremidades superiores e inferior em cada dimensão é determinado pelo **LowerPad**[i] e **UpperPad**[i], respetivamente. 
++ **UpperPad** e **LowerPad**: (opcional) forneça mais controle sobre a quantidade de preenchimento para utilizar. **Importante:** Estes atributos podem ser definido se e apenas se o **preenchimento** propriedade acima é ***não*** definido. Os valores devem ser cadeias de identificação com valor de número inteiro com comprimentos de serem arity do pacote. Quando esses atributos são especificados, nós "fictícios" são adicionadas até as extremidades superiores e inferior de cada dimensão da camada de entrada. O número de nós adicionados até as extremidades superiores e inferior em cada dimensão é determinado pelo **LowerPad**[i] e **UpperPad**[i], respetivamente. 
 
     Para garantir que os kernels correspondem apenas em nós de "reais" e não a nós de "fictícios", as condições seguintes têm de ser cumpridas:
       - Cada componente do **LowerPad** tem de ser estritamente menor que `KernelShape[d]/2`. 
@@ -375,7 +374,7 @@ Pode usar a forma apenas quando as camadas de contenham um único pacote. Em ger
 
 Esta seção fornece alguns exemplos de como pode usar Net # para adicionar camadas ocultas, definir a forma que camadas ocultas interagirem com outras camadas e criar as redes convolucionais.
 
-### <a name="define-a-simple-custom-neural-network-hello-world-example"></a>Definir uma rede neural personalizada simples: exemplo de "Hello World"
+### <a name="define-a-simple-custom-neural-network-hello-world-example"></a>Defina uma rede neural personalizada simples: Exemplo de "Olá, mundo"
 
 Neste exemplo simples demonstra como criar um modelo de rede neural que tem uma única camada oculta.
 

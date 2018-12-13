@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 87aa1c30bb567c6820e2d9ecacfc3f8cd2338339
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: a1bb841c1218be0a418583af8ca95b2dff2f67d9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137774"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309506"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um servidor SQL no local para o SQL Azure com o Azure Data Factory
 
@@ -24,7 +24,7 @@ Este artigo mostra como mover dados de uma base de dados do servidor de SQL no l
 
 Para uma tabela que resume as várias opções para mover dados para uma base de dados do SQL do Azure, consulte [mover dados para uma base de dados do SQL do Azure para o Azure Machine Learning](move-sql-azure.md).
 
-## <a name="intro"></a>Introdução: Qual é o ADF e quando deve, ser utilizado para migrar os dados?
+## <a name="intro"></a>Introdução: O que é o ADF e quando deve, ser utilizado para migrar os dados?
 O Azure Data Factory é um serviço de integração de dados totalmente gerido com base na cloud que orquestra e automatiza o movimento e transformação de dados. O conceito-chave no modelo do ADF é o pipeline. Os pipelines são agrupamentos lógicos de atividades, cada um deles define as ações a efetuar nos dados contidos em conjuntos de dados. Serviços ligados são utilizados para definir as informações necessárias para o Data Factory se ligue aos recursos de dados.
 
 Com o ADF, serviços de processamento de dados existentes podem ser compostos em pipelines de dados que são de elevada disponibilidade e gerido na cloud. Esses pipelines de dados podem ser agendados para ingerir, preparar, transformar, analisar e publicar os dados e o ADF gere e orquestra as dependências de processamento e dados complexos. Soluções podem ser criadas e implementadas na cloud, ligar um número cada vez maior de locais rapidamente e origens de dados na cloud.
@@ -43,7 +43,7 @@ Configuramos um pipeline do ADF que compõe a duas atividades de migração de d
 * copiar dados da conta de armazenamento de Blobs do Azure para uma base de dados do SQL do Azure.
 
 > [!NOTE]
-> As etapas mostradas aqui foram adaptadas do tutorial mais detalhado fornecido pela equipe do ADF: [copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal/) referências para as secções relevantes desse tópico são fornecidas quando apropriado.
+> As etapas mostradas aqui tem sido adaptadas a partir do tutorial mais detalhado fornecido pela equipe do ADF: [Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) referências para as secções relevantes desse tópico são fornecidas quando apropriado.
 >
 >
 
@@ -71,7 +71,7 @@ As instruções para criar uma nova fábrica de dados do Azure e o grupo de recu
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Instalar e configurar o Azure Data Factory Integration Runtime 
 O Runtime de integração é uma infraestrutura de integração de dados geridos de cliente utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados em ambientes de rede diferentes. Este tempo de execução era anteriormente denominado "Gateway de gestão de dados". 
 
-Para configurar, [siga instrutions para criar um pipeline](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Para configurar, [siga instrutions para criar um pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Criar serviços ligados para ligar aos recursos de dados
 Um serviço ligado define as informações necessárias para ligar a um recurso de dados do Azure Data Factory. Temos três recursos neste cenário para o qual os serviços ligados são necessários:

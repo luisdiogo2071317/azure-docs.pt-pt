@@ -1,7 +1,7 @@
 ---
-title: Implementar modelos como serviços web em FPGAs
+title: Implementar modelos no FPGAs
 titleSuffix: Azure Machine Learning service
-description: Saiba como implementar um serviço web com um modelo em execução num FPGA com o Azure Machine Learning.
+description: Saiba como implementar um serviço web com um modelo em execução num FPGA com o serviço Azure Machine Learning para inferência de latência Ultra baixas.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 10/29/2018
+ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f5252f8de56658ebcf0d3815f6bd6246c495cd75
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3148d4d63ad1464dbd45c361237ac9cd4ffd485a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090419"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268245"
 ---
-# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Implementar um modelo como um serviço web num FPGA com o Azure Machine Learning
+# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Implementar um modelo como um serviço web num FPGA com o serviço Azure Machine Learning
 
 Pode implementar um modelo como um serviço web no [campo matrizes de porta programável por (FPGAs)](concept-accelerate-with-fpgas.md).  A utilização de FPGAs fornece a inferência de latência Ultra baixas, mesmo com um tamanho de lote única.   
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
+- Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
 - Uma área de trabalho do serviço do Azure Machine Learning e o Azure Machine Learning SDK para Python instalada. Saiba como obter estes pré-requisitos com o [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md) documento.
  

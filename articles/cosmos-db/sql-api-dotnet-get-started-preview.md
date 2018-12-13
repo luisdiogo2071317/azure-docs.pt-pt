@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 4ac770b58e4a4d9a547916997a8f9d181b2fa895
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 139d7a13b9f6ce6132bffb798aa41b207ebf7929
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853018"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317417"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Criar uma aplicação de consola .NET para gerir dados na conta do Azure Cosmos DB SQL API (SDK versão 3 pré-visualização)
 
@@ -173,7 +173,7 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende ut
 Parabéns! Ligou com êxito a uma conta do Azure Cosmos DB. 
 
 ## <a name="step-4-create-a-database"></a>Passo 4: Criar uma base de dados
-Uma base de dados pode ser criado utilizando o [ **CreateDatabaseIfNotExistsAsync** ](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) ou [ **CreateDatabaseAsync** ](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) função do ``CosmosDatabases`` classe. As bases de dados são os contentores lógicos dos itens particionados em contentores.
+Uma base de dados pode ser criado utilizando o [ **CreateDatabaseIfNotExistsAsync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) ou [ **CreateDatabaseAsync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) função do ``CosmosDatabases`` classe. As bases de dados são os contentores lógicos dos itens particionados em contentores.
     
 1. Copie e cole o **CreateDatabase** método abaixo sua **GetStartedDemoAsync** método. **CreateDatabase** irá criar uma nova base de dados com o id ``FamilyDatabase`` se ainda não exista, com o id especificado a partir do ``databaseId`` campo. 
 
@@ -290,7 +290,7 @@ Parabéns! Criou uma base de dados do Azure Cosmos DB com êxito.
 > 
 > 
 
-Um contentor pode ser criado utilizando o [ **CreateContainerIfNotExistsAsync** ](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) ou [ **CreateContainerAsync** ](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) funcionem no **CosmosContainers** classe. Um contentor consiste em itens (o que, no caso da API de SQL é documentos JSON) e associados a lógica de aplicação do lado do servidor de JavaScript, por exemplo, procedimentos armazenados, funções definidas pelo utilizador e acionadores.
+Um contentor pode ser criado utilizando o [ **CreateContainerIfNotExistsAsync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) ou [ **CreateContainerAsync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) funcionem no **CosmosContainers** classe. Um contentor consiste em itens (o que, no caso da API de SQL é documentos JSON) e associados a lógica de aplicação do lado do servidor de JavaScript, por exemplo, procedimentos armazenados, funções definidas pelo utilizador e acionadores.
 
 1. Copie e cole o **CreateContainer** método abaixo sua **CreateDatabase** método. **CreateContainer** irá criar um novo contentor com o id ``FamilyContainer`` se ainda não exista, com o id especificado a partir do ``containerId`` campo. 
 
@@ -325,7 +325,7 @@ Select **F5** to run your application.
 Congratulations! You have successfully created an Azure Cosmos DB container.  
 
 ## <a id="CreateDoc"></a>Step 6: Add items to the container
-An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.cosmositems) function of the **CosmosItems** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
+An item can be created by using the [**CreateItemAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) function of the **CosmosItems** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
 
 First, we need to create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note that documents must have an **Id** property serialized as **id** in JSON. 
 1. Select **Ctrl+Shift+A** to open the **Add New Item** dialog. Add a new class **Family.cs** to your project. 
@@ -684,7 +684,7 @@ Selecione **F5** para executar a sua aplicação.
 
 Parabéns! Eliminou bases de dados do Azure Cosmos DB com êxito.
 
-## <a id="Run"></a>Passo 11: Executar a sua aplicação de consola C# em conjunto!
+## <a id="Run"></a>Passo 11: Executar o C# aplicação de consola tudo!
 Selecione F5 no Visual Studio para compilar e executar a aplicação no modo de depuração.
 
 Deverá ver a saída de todo o seu aplicativo numa janela de consola. O resultado apresentará os resultados das consultas que adicionámos e deverá corresponder ao texto de exemplo abaixo.
@@ -731,7 +731,7 @@ Para restaurar as referências para o SDK de .NET do Azure Cosmos DB no Visual S
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Quer um tutorial ASP.NET MVC mais complexo? Veja o [Tutorial do MVC ASP.NET: desenvolvimento de aplicação Web com o Azure Cosmos DB](sql-api-dotnet-application-preview.md).
+* Quer um tutorial ASP.NET MVC mais complexo? Consulte [Tutorial do ASP.NET MVC: Desenvolvimento de aplicação com o Azure Cosmos DB Web](sql-api-dotnet-application-preview.md).
 * Pretende testar o dimensionamento e desempenho com o Azure Cosmos DB? Veja [Testar o Desempenho e o Dimensionamento com o Azure Cosmos DB](performance-testing.md)
 * Saiba como [monitorizar pedidos, utilização e armazenamento do Azure Cosmos DB](monitor-accounts.md).
 * Execute consultas no nosso conjunto de dados de exemplo no [Query Playground](https://www.documentdb.com/sql/demo).

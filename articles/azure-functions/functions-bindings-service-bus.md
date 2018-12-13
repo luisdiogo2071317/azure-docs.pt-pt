@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 80091ce94e9798af46348e8ceb658c8db9c30e0e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0a4d5cf4731932ed72e0dc38c13a5f855a937864
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087565"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317513"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces do Service Bus do Azure para as funções do Azure
 
@@ -311,7 +311,7 @@ Processamento de mensagens não processáveis não pode ser controlado ou config
 
 O runtime das funções recebe uma mensagem numa [PeekLock modo](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Ele chama `Complete` na mensagem se a função for concluída com êxito ou chamadas `Abandon` se a função falhar. Se a função é executada mais do que o `PeekLock` tempo limite, o bloqueio é renovado automaticamente, desde que a função está em execução. 
 
-As funções permite-lhe configurar 1.x `autoRenewTimeout` no *Host. JSON*, que é mapeado para [OnMessageOptions.AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout?view=azure-dotnet#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout). O máximo permitido para esta definição é de 5 minutos, de acordo com a documentação do Service Bus, ao passo que pode aumentar o limite de tempo de funções da predefinição de 5 minutos para 10 minutos. Para as funções do Service Bus não iria querer fazer isso, em seguida, porque iria exceder o limite de renovação do Service Bus.
+O `maxAutoRenewDuration` pode ser configurada no *Host. JSON*, que é mapeado para [OnMessageOptions.MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). O máximo permitido para esta definição é de 5 minutos, de acordo com a documentação do Service Bus, ao passo que pode aumentar o limite de tempo de funções da predefinição de 5 minutos para 10 minutos. Para as funções do Service Bus não iria querer fazer isso, em seguida, porque iria exceder o limite de renovação do Service Bus.
 
 ## <a name="trigger---message-metadata"></a>Acionador - metadados de mensagem
 

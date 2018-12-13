@@ -1,6 +1,6 @@
 ---
-title: Como utilizar o Azure Search a partir de um aplicativo .NET | Documentos da Microsoft
-description: Como utilizar o Azure Search a partir de uma aplicação .NET
+title: Como utilizar o Azure Search a partir de um aplicativo .NET - Azure Search
+description: Saiba como utilizar o Azure Search num aplicativo .NET usando C# e o SDK de .NET. Tarefas baseadas em código incluem a ligar ao serviço, indexar conteúdo e consultar um índice.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 19913f9c30992e833e5435af7066611d4662ba56
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.custom: seodec2018
+ms.openlocfilehash: c2dd9d7c7567a7c57def093c4d611ab09c870d84
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525642"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310692"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Como utilizar o Azure Search a partir de uma aplicação .NET
 Este artigo é um passo a passo para ajudá-lo em execução com o [SDK .NET da Azure Search](https://aka.ms/search-sdk). Pode utilizar o SDK de .NET para implementar uma experiência de pesquisa avançadas na sua aplicação com o Azure Search.
@@ -386,7 +387,7 @@ public partial class Hotel
 }
 ```
 
-A primeira coisa a reparar é que cada propriedade pública de `Hotel` corresponde a um campo na definição do índice, mas com uma diferença crucial: o nome de cada campo começa com uma letra minúscula ("camel case"), enquanto o nome de cada propriedade pública de `Hotel` começa com uma letra maiúscula ("Pascal case"). Este é um cenário comum em aplicações .NET que realizam enlace de dados no qual o esquema de destino está fora do controlo do programador da aplicação. Em vez de ter de violar as diretrizes de nomenclatura .NET aplicando o estilo camel-case aos nomes de propriedade, pode indicar ao SDK para mapear os nomes das propriedades no estilo camel-case automaticamente com o atributo `[SerializePropertyNamesAsCamelCase]`.
+A primeira coisa a observar é que cada propriedade pública de `Hotel` corresponde a um campo na definição do índice, mas com uma diferença crucial: O nome de cada campo começa com uma letra minúscula ("camel case"), enquanto o nome de cada propriedade pública de `Hotel` começa com uma letra maiúscula ("Pascal case"). Este é um cenário comum em aplicações .NET que realizam enlace de dados no qual o esquema de destino está fora do controlo do programador da aplicação. Em vez de ter de violar as diretrizes de nomenclatura .NET aplicando o estilo camel-case aos nomes de propriedade, pode indicar ao SDK para mapear os nomes das propriedades no estilo camel-case automaticamente com o atributo `[SerializePropertyNamesAsCamelCase]`.
 
 > [!NOTE]
 > O SDK .NET da Azure Search utiliza a biblioteca [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar e anular a serialização dos objetos do modelo personalizado de e para JSON. Se necessário, pode personalizar esta serialização. Para obter mais detalhes, consulte [personalizados de serialização com JSON.NET](#JsonDotNet).
@@ -408,7 +409,7 @@ Essa capacidade de usar suas próprias classes, como documentos funciona em amba
 
 Ao conceber as suas próprias classes de modelo para mapear para um índice da Azure Search, recomendamos que declare as propriedades dos tipos de valores, tais como `bool` e `int` para que seja anulável (por exemplo, `bool?` ao invés de `bool`). Se utilizar uma propriedade não anulável, terá de **garantir** que não existem documentos no seu índice de contenham um valor nulo para o campo correspondente. Nem o SDK nem o serviço da Azure Search irão ajudá-lo a impor tais pedidos.
 
-Esta não é apenas uma preocupação hipotética: imagine um cenário onde adiciona um novo campo a um índice existente do tipo `Edm.Int32`. Depois de atualizar a definição do índice, todos os documentos terão um valor nulo para esse campo novo (uma vez que todos os tipos são anuláveis na Azure Search). Se, em seguida, utilizar uma classe de modelo com uma propriedade `int` não anulável para esse campo, obterá uma `JsonSerializationException` assim ao tentar obter documentos:
+Não é apenas uma preocupação hipotética: Imagine um cenário em que adicionar um novo campo para um índice existente que é do tipo `Edm.Int32`. Depois de atualizar a definição do índice, todos os documentos terão um valor nulo para esse campo novo (uma vez que todos os tipos são anuláveis na Azure Search). Se, em seguida, utilizar uma classe de modelo com uma propriedade `int` não anulável para esse campo, obterá uma `JsonSerializationException` assim ao tentar obter documentos:
 
     Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 

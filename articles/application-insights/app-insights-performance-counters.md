@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: da6cc943c310b627626b3d2081ffa88ef3185013
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bcfb3a52793ba0daca980564d5d2248629b5caf4
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727839"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323017"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
 Windows fornece uma grande variedade de [contadores de desempenho](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) , como a ocupação da CPU, memória, disco e utilização de rede. Também pode definir seus próprios. [O Application Insights](app-insights-overview.md) pode mostrar esses contadores de desempenho se seu aplicativo seja executado sob o IIS num anfitrião no local ou máquina virtual para o qual tem acesso administrativo. Os gráficos de indicam os recursos disponíveis para a aplicação em direto e podem ajudar a identificar a carga desequilibrada entre instâncias de servidor.
@@ -26,7 +26,7 @@ Contadores de desempenho são apresentados no painel de servidores, que inclui u
 
 ![Contadores de desempenho comunicados no Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
-(Contadores de desempenho não estão disponíveis para aplicações Web do Azure. Mas pode [enviar diagnósticos do Azure para o Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).)
+(Contadores de desempenho não estão disponíveis para aplicações Web do Azure. Mas pode [enviar diagnósticos do Azure para o Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).)
 
 ## <a name="view-counters"></a>Contadores do Vista
 O painel de servidores mostra um conjunto predefinido de contadores de desempenho. 

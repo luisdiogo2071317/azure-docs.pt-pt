@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 68ca8593dea93faf076ffb5d99ec7bcad210a810
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ee0de5d03de29adddd8f77efbe7491603cc0e4c4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141837"
+ms.locfileid: "53188797"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode usá-lo para ver os servidores, como considerá-los – sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -363,7 +362,7 @@ Se tiver quaisquer problemas de instalação ou execução de mapa de serviço, 
 #### <a name="installer-prompts-for-a-reboot"></a>Pedidos de instalador de um reinício
 O agente de dependência *geralmente* não requer um reinício após a instalação ou desinstalação. No entanto, em certos casos raros, Windows Server exige uma reinicialização para continuar com uma instalação. Isto acontece quando uma dependência, normalmente, o Microsoft Visual C++ Redistributable, requer uma reinicialização devido a um arquivo bloqueado.
 
-#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>Mensagem "não é possível instalar o agente de dependência: não foi possível instalar as bibliotecas de Runtime do Visual Studio (código = [code_number])" é apresentada
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>Mensagem "não é possível instalar o agente de dependência: Não foi possível instalar as bibliotecas de tempo de execução do Studio Visual (código = [code_number]) "é apresentada
 
 O agente do Microsoft Dependency baseia-se as bibliotecas de tempo de execução do Microsoft Visual Studio. Obterá uma mensagem se existe um problema durante a instalação das bibliotecas. 
 
@@ -375,14 +374,14 @@ A tabela seguinte apresenta uma lista de números de código e resoluções suge
 
 | Código | Descrição | Resolução |
 |:--|:--|:--|
-| 0x17 | O instalador de biblioteca exige uma atualização do Windows que não foi instalada. | Procure no registo do instalador mais recente da biblioteca.<br><br>Se uma referência a "Windows8.1-KB2999226-x64.msu" seguida de uma linha de "erro 0x80240017: Falha ao executar o pacote MSU," não tem os pré-requisitos para instalar KB2999226. Siga as instruções na secção pré-requisitos [Universal o tempo de execução do C em Windows](https://support.microsoft.com/kb/2999226). Poderá ter de executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute o instalador do agente Microsoft Dependency novamente. |
+| 0x17 | O instalador de biblioteca exige uma atualização do Windows que não foi instalada. | Procure no registo do instalador mais recente da biblioteca.<br><br>Se uma referência a "Windows8.1-KB2999226-x64.msu" seguida de uma linha de "erro 0x80240017: Falha ao executar o pacote MSU,"não tem os pré-requisitos para instalar KB2999226. Siga as instruções na secção pré-requisitos [Universal o tempo de execução do C em Windows](https://support.microsoft.com/kb/2999226). Poderá ter de executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute o instalador do agente Microsoft Dependency novamente. |
 
 ### <a name="post-installation-issues"></a>Problemas de pós-instalação
 #### <a name="server-doesnt-appear-in-service-map"></a>Servidor não aparece no mapa de serviço
 Se a instalação do agente de dependência foi concluída com êxito, mas não a vir o seu servidor na solução mapa de serviço:
 * O agente de dependência é instalado com êxito? Pode confirmar isto, verificando se o serviço está instalado e em execução.<br><br>
-**Windows**: procure o serviço com o nome "Agente Microsoft Dependency."<br>
-**Linux**: procura a execução processar "microsoft--agente de dependência."
+**Windows**: Procure o serviço com o nome "Agente Microsoft Dependency."<br>
+**Linux**: Procure o processo em execução "microsoft--agente de dependência."
 
 * Está o [escalão do Operations Management Suite/Log Analytics de preço gratuito](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Permite que o plano gratuito para até cinco servidores exclusivos do mapa de serviço. Todos os servidores subsequentes não aparecerão no mapa de serviço, mesmo que os cinco anterior já não estão a enviar dados.
 
@@ -390,7 +389,7 @@ Se a instalação do agente de dependência foi concluída com êxito, mas não 
 
         Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
-Obteve uma variedade de eventos nos resultados? Os dados são recentes? Se assim for, o agente do Log Analytics está operando corretamente e ao comunicar com o Log Analytics. Caso contrário, verifique o agente no seu servidor: [agente do Log Analytics para resolução de problemas do Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) ou [agente do Log Analytics para resolução de problemas do Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md).
+Obteve uma variedade de eventos nos resultados? Os dados são recentes? Se assim for, o agente do Log Analytics está operando corretamente e ao comunicar com o Log Analytics. Caso contrário, verifique o agente no seu servidor: [Agente de análise de registo para resolução de problemas do Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) ou [agente do Log Analytics para resolução de problemas do Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servidor é apresentado no mapa de serviço, mas não tem nenhum processo
 Se vir o seu servidor no mapa de serviço, mas ele não tem processo ou ligação de dados, que indica que o agente de dependência é instalado e em execução, mas não carregou o driver do kernel. 

@@ -1,5 +1,5 @@
 ---
-title: Reconstruir um conteúdo do pesquisável como índice ou a atualização da Azure Search | Documentos da Microsoft
+title: Aumentar horizontalmente a indexação com indexadores incorporados - Azure Search
 description: Adicionar novos elementos, atualizar elementos existentes ou documentos ou eliminar documentos obsoletos numa recriação completa ou a indexação incremental parcial para atualizar o índice da Azure Search.
 services: search
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 0b346756349c483dea32ec31827a653bd9b777cf
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec2018
+ms.openlocfilehash: 5f268de43f4f860458c062cb80e5bea0134b4407
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705944"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316692"
 ---
 # <a name="how-to-scale-out-indexing-in-azure-search"></a>Como a indexação de escalamento horizontal no Azure Search
 

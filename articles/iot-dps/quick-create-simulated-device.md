@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c2f5ff778b49ffb544c53b41cf515e820d646249
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 3ae454be8327c1f9ce605899e4b26105d44ab0f6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157858"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189307"
 ---
-# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Início Rápido: Aprovisionar um dispositivo TPM simulado com o SDK C do Azure IoT
+# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Início rápido: Aprovisionar um dispositivo TPM simulado com o SDK de C do IoT do Azure
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
@@ -25,10 +25,10 @@ Neste início rápido, vai aprender a criar e executar um simulador de dispositi
 Se não estiver familiarizado com o processo de aprovisionamento automático, reveja [Conceitos de aprovisionamento automático](concepts-auto-provisioning.md). Certifique-se também de que executa os passos descritos em [Configurar o Serviço de Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md) antes de continuar este início rápido. 
 
 O Serviço Aprovisionamento de Dispositivos no IoT do Azure suporta dois tipos de inscrição:
-- [Grupos de inscrição](concepts-service.md#enrollment-group): utilizados para inscrever vários dispositivos relacionados.
-- [Inscrições Individuais](concepts-service.md#individual-enrollment): utilizadas para inscrever um dispositivo individual.
+- [Grupos de inscrição](concepts-service.md#enrollment-group): Utilizado para inscrever vários dispositivos relacionados.
+- [Inscrições individuais](concepts-service.md#individual-enrollment): Utilizado para inscrever um dispositivo individual.
 
-Este artigo irá demonstrar as inscrições individuais.
+Este artigo vai demonstrar as inscrições individuais.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -142,15 +142,15 @@ Nesta secção, vai compilar e executar um exemplo que irá ler a chave de endos
 
 3. Em **Adicionar inscrição**, introduza as seguintes informações e clique no botão **Guardar**.
 
-    - **Mecanismo:** selecione **TPM** como *Mecanismo* de atestado de identidades.
-    - **Chave de endossamento:** introduza a *Chave de endossamento* gerada para o dispositivo TPM ao executar o projeto *tpm_device_provision*.
-    - **ID de registo:** introduza o *ID de registo* gerado para o dispositivo TPM ao executar o projeto *tpm_device_provision*.
-    - **Dispositivo IoT Edge:** selecione **Desativar**.
-    - **ID do Dispositivo do Hub IoT:** introduza **test-docs-device** para atribuir um ID ao dispositivo.
+    - **Mecanismo:** Selecione TPM como o *Mecanismo* de atestado de identidades.
+    - **Chave de endossamento:** Introduza o *chave de endossamento* gerado para o seu dispositivo TPM ao executar o *tpm_device_provision* projeto.
+    - **ID de registo:** Introduza o *ID de registo* gerado para o seu dispositivo TPM ao executar o *tpm_device_provision* projeto.
+    - **Dispositivo IoT Edge:** Selecione **desativar**.
+    - **ID de dispositivo do IoT Hub:** Introduza **test-docs-device** para atribuir a um ID.
 
-    ![Introduza as informações de inscrição de dispositivos no portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+      ![Introduza as informações de inscrição de dispositivos no portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
-    Após a instalação bem-sucedida, o *ID de Registo* do seu dispositivo aparece na lista, no separador *Inscrições Individuais*. 
+      Após a instalação bem-sucedida, o *ID de Registo* do seu dispositivo aparece na lista, no separador *Inscrições Individuais*. 
 
 
 <a id="firstbootsequence"></a>
@@ -228,7 +228,7 @@ Se quiser continuar a trabalhar e a explorar o exemplo de cliente do dispositivo
 3. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu Serviço Aprovisionamento de Dispositivos. Abra **Gerir Inscrições** para o seu serviço e, em seguida, clique no separador **Inscrições Individuais**. Selecione o *ID DE REGISTO* do dispositivo que inscreveu neste Início Rápido e clique no botão **Eliminar** na parte superior. 
 4. No menu do lado esquerdo do portal do Azure, clique em **Todos os recursos** e selecione o seu hub IoT. Abra **Dispositivos IoT** para o seu hub, selecione o *ID DE DISPOSITIVO* do dispositivo que registou neste Início Rápido e, em seguida, clique no botão **Eliminar** na parte superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, criou um dispositivo simulado TPM no seu computador e aprovisionou-o no seu hub IoT com o Serviço Aprovisionamento de Dispositivos no Hub IoT. Para saber como inscrever o seu dispositivo TPM programaticamente, continue para o Manual de Início Rápido para inscrição programática de um dispositivo TPM. 
 

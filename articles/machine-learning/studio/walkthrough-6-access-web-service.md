@@ -1,12 +1,11 @@
 ---
 title: 'Passo 6: Aceder ao serviço web - Azure Machine Learning Studio | Documentos da Microsoft'
-description: 'Passo 6 da desenvolver uma solução preditiva instruções: aceder a um serviço de web do Active Directory do Azure Machine Learning Studio.'
+description: 'Passo 6 da desenvolver uma solução preditiva passo a passo: Aceda a um serviço de web do Active Directory do Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cgronlun
 ms.assetid: 6a65c89a-40ab-4673-8dd8-8eee0a150e3b
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 5c7db2c2c6e21197eac0296d2a9a42d447adfb66
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e0628f6ed39652f3168917e26383b5d3c4a4fa4b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091116"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260927"
 ---
-# <a name="walkthrough-step-6-access-the-azure-machine-learning-studio-web-service"></a>Passo 6 das instruções: Aceder ao serviço de web do Azure Machine Learning Studio
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-studio-web-service"></a>Passo 6 das instruções: Aceder ao serviço web do Azure Machine Learning Studio
 
 Esta é a última etapa do passo a passo, [desenvolver uma solução de Análise Preditiva no Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 

@@ -1,10 +1,10 @@
 ---
-title: Exemplo do Script da CLI do Azure - Criar uma aplicação Web e implementar código num ambiente de teste | Microsoft Docs
-description: Exemplo do Script da CLI do Azure - Criar uma aplicação Web e implementar código num ambiente de teste
+title: Script da CLI do Azure de exemplo - criar aplicação e implementar código no bloco de teste | Documentos da Microsoft
+description: Exemplo do Script da CLI do Azure - criar uma aplicação web e implementar código para um bloco de teste
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 8f6bcbf87e998c97b1631e159418d82c6c53f779
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 2ee0d4f5b53bbe8395dccdb8426d06fe946740f3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979428"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314437"
 ---
-# <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>Criar uma aplicação Web e implementar código para um ambiente de teste
+# <a name="create-a-web-app-and-deploy-code-to-a-staging-environment-using-azure-cli"></a>Criar uma aplicação web e implementar código num ambiente de teste com a CLI do Azure
 
 Este script de exemplo cria uma aplicação Web no Serviço de Aplicações com um bloco de implementação adicional denominado "teste" e, em seguida, implementa uma aplicação de exemplo para o bloco "teste".
 
@@ -53,7 +53,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Associa uma aplicação Web do Azure a um repositório do Git ou do Mercurial. |
 | [`az webapp deployment slot swap`](/cli/azure/webapp/deployment/slot?view=azure-cli-latest#az-webapp-deployment-slot-swap) | Alternar um bloco de implementação especificado para produção. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

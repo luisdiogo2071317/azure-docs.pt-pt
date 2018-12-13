@@ -4,9 +4,8 @@ description: Como estender a funcionalidade do Azure Machine Learning Studio pel
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 2c038a45-ba4d-42ea-9a88-e67391ef8c0a
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: df6453f1cf6e8b372239d528067a7258d645518d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 74f08421de893a4fe8916a052f8a32134cd222a5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311013"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272070"
 ---
-# <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>O Azure Machine Learning Studio: Expandir a sua experiência com R 
+# <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio: Ampliar a sua experimentação com R 
 Pode expandir a funcionalidade do Azure Machine Learning Studio pela linguagem R ao utilizar o [executar Script R] [ execute-r-script] módulo.
 
 Este módulo aceita vários conjuntos de dados de entrada e produz um único conjunto de dados como saída. Pode escrever um script R para o **R Script** parâmetro do [executar Script do R] [ execute-r-script] módulo.
@@ -58,7 +57,7 @@ Pode importar pacotes que ainda não estiver instalados utilizando os seguintes 
 
 onde o `my_favorite_package.zip` arquivo contém o pacote.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 
 <!-- Module References -->

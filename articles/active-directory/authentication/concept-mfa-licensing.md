@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 393b90395698c18fdbd4fc8ba4d8bc79bd6287be
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 15a528bfdc1f23c932d1206dbca4b05af8bd58ba
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495187"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186706"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Como obter o Azure multi-factor Authentication
 
@@ -87,17 +87,17 @@ Quando utilizar um fornecedor de autenticação do multi-factor do Azure, existe
 
 1. **Por utilizador ativado** – para empresas que pretendem ativar a verificação de dois passos para um número fixo de funcionários que precisar regularmente de autenticação. Faturação por utilizador baseia-se no número de utilizadores ativados para a MFA no seu inquilino do Azure AD e o servidor de MFA do Azure. Se os utilizadores ativados para o MFA do Azure AD e o servidor de MFA do Azure, a sincronização de domínio (Azure AD Connect) está ativada, e Contamos o maior conjunto de utilizadores. Se a sincronização de domínio não está ativada, então Contamos a soma de todos os utilizadores ativados para o MFA no Azure AD e o servidor MFA do Azure. A faturação é rateada e comunicada ao sistema de comércio diariamente.
 
-  > [!NOTE]
-  > Exemplo de faturação 1: tiver 5.000 utilizadores ativados para o MFA hoje mesmo. O sistema MFA divide esse número por 31 e 161.29 usuários de relatórios para esse dia. Amanhã é habilitar 15 mais usuários, para que o sistema MFA relatórios 161.77 utilizadores para esse dia. No final do ciclo de faturação, o número total de utilizadores faturados no âmbito da sua subscrição do Azure adiciona até em torno de 5000.
-  >
-  > Exemplo de faturação 2: tiver uma mistura de utilizadores com licenças e os utilizadores sem, pelo que terá de um fornecedor de MFA do Azure por utilizador para constituir a diferença. Existem 4.500 Enterprise Mobility + licenças de segurança no seu inquilino, mas de 5000 utilizadores ativados para o MFA. Sua subscrição do Azure é cobrada a 500 usuários, rateada e comunicada diariamente como 16.13 utilizadores.
-  >
+   > [!NOTE]
+   > Exemplo de faturação 1: Terá de 5000 utilizadores ativados para o MFA hoje mesmo. O sistema MFA divide esse número por 31 e 161.29 usuários de relatórios para esse dia. Amanhã é habilitar 15 mais usuários, para que o sistema MFA relatórios 161.77 utilizadores para esse dia. No final do ciclo de faturação, o número total de utilizadores faturados no âmbito da sua subscrição do Azure adiciona até em torno de 5000.
+   >
+   > Exemplo de faturação 2: Tiver uma mistura de utilizadores com licenças e os utilizadores sem, pelo que terá de um fornecedor de MFA do Azure por utilizador para constituir a diferença. Existem 4.500 Enterprise Mobility + licenças de segurança no seu inquilino, mas de 5000 utilizadores ativados para o MFA. Sua subscrição do Azure é cobrada a 500 usuários, rateada e comunicada diariamente como 16.13 utilizadores.
+   >
 
 1. **Por autenticação** – para empresas que pretendem ativar a verificação de dois passos para um grande grupo de utilizadores que precisam com pouca frequência a autenticação. A faturação baseia-se no número de pedidos de verificação de dois passos, independentemente se essas verificações com êxito ou serão negadas. Esta faturação é apresentada a declaração de utilização do Azure nos pacotes de 10 autenticações e é comunicada diariamente.
 
-  > [!NOTE]
-  > Exemplo de faturação 3: hoje, o serviço de MFA do Azure recebeu 3,105 pedidos de verificação de dois passos. A subscrição do Azure é cobrada por 310.5 pacotes de autenticação.
-  >
+   > [!NOTE]
+   > Exemplo de faturação 3: Hoje em dia, o serviço de MFA do Azure recebeu 3,105 pedidos de verificação de dois passos. A subscrição do Azure é cobrada por 310.5 pacotes de autenticação.
+   >
 
 É importante observar que pode ter licenças, mas ainda será faturado com base no consumo de configuração. Se configurar um fornecedor de MFA do Azure por autenticação, a faturação para cada pedido de verificação de dois passos, mesmo aqueles efetuados pelos utilizadores que possuem licenças. Se configurar um fornecedor de MFA do Azure por utilizador no domínio que não está ligado ao seu inquilino do Azure AD, a faturação por utilizador ativado, mesmo que os utilizadores tiverem licenças no Azure AD.
 

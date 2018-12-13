@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 7061776ba5325a333033d0f272de3b2663b44351
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 292247ae2881bd60616728ad857fab58c8ed7fd5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887802"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309548"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: configurar a associação ao Azure Active Directory para os domínios geridos
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios geridos
 
 Da forma semelhante ao utilizador, o dispositivo está a tornar-se outra identidade que deve proteger e também utilizar para proteger os seus recursos em qualquer momento e em qualquer lugar. Pode concretizar este objetivo ao trazer as identidades dos seus dispositivos para o Azure AD através de um dos seguintes métodos:
 
@@ -153,7 +153,7 @@ Para registar dispositivos de nível inferior do Windows, terá de se certificar
 
 
     
-A seguinte política tem de ser definida como **Todos**: **os utilizadores podem registar os seus dispositivos com o Azure AD**
+A seguinte política tem de ser definida **todos os**: **Os utilizadores podem registar os seus dispositivos com o Azure AD**
 
 ![Registar dispositivos](media/hybrid-azuread-join-managed-domains/23.png)
 
@@ -172,7 +172,7 @@ Além disso, tem de ativar **Permitir atualizações à barra de estado por meio
 
 ### <a name="configure-seamless-sso"></a>Configurar o SSO totalmente integrado
 
-A associação do Azure AD híbrido de concluído com êxito de seu Windows dispositivos de nível inferior num domínio gerido, que está a utilizar autenticação pass-through (PTA) ou a sincronização de Hash de palavra-passe (PHS) como o Azure AD na cloud o método de autenticação, tem também [configurar SSO totalmente integrado](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+A associação do Azure AD híbrido de concluído com êxito de seu Windows dispositivos de nível inferior num domínio gerido, que está a utilizar autenticação pass-through (PTA) ou a sincronização de Hash de palavra-passe (PHS) como o Azure AD na cloud o método de autenticação, tem também [configurar SSO totalmente integrado](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
 
 
 ### <a name="control-windows-down-level-devices"></a>Controlar dispositivos de nível inferior do Windows 

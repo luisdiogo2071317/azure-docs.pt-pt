@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 9ec8cbe3d2467714a4b2586db79566aaef30d6d7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 60e0485c28d90050a6ff775db41f8696a09fe033
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627553"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165763"
 ---
 # <a name="train-a-model"></a>Preparar um modelo
 
@@ -26,21 +26,17 @@ Para preparar um modelo:
 
 2.  O separador de dados para o projeto irá mostrar todos os documentos do par de idioma do projeto. Selecione manualmente os documentos que pretende utilizar para preparar o seu modelo. Pode selecionar de treinamento, Otimização e teste documentos neste ecrã. Também lhe apenas selecionar o conjunto de treinamento e ter tradutor de personalizada a otimização de criar e testar conjuntos para.
 
-    -  Nome do documento: nome do documento.
+    -  Nome do documento: Nome do documento.
 
-    -  Emparelhamento: Se este documento é um documento ou monolíngüe em paralelo.
+    -  Emparelhamento: Se este documento é um documento ou monolíngüe em paralelo. Documentos monolíngües não são atualmente suportados para treinamento.
 
-    - Documentos monolíngües não são atualmente suportados para treinamento.
-
-    -  Tipo de documento: pode ser treinamento, otimização, testes ou dicionário.
+    -  Tipo de documento: Pode ser treinamento, otimização, testes ou dicionário.
 
     -  Par de idioma: Isto Mostrar a origem e o idioma de destino para o projeto.
 
-    -  Frases de origem: mostra o número de frases extraídos das
-    - ficheiro de origem.
+    -  Frases de origem: Mostra o número de frases extraídas do arquivo de origem.
 
-    -  Frases de destino: mostra o número de frases extraídos das
-    - ficheiro de destino.
+    -  Frases de destino: Mostra o número de frases extraídos a partir do ficheiro de destino.
 
     ![Preparar modelo](media/how-to/how-to-train-model.png)
 
@@ -67,7 +63,7 @@ Pode editar um modelo através da ligação de edição na página de detalhes d
 
 2.  Na alteração de caixa de diálogo,
 
-    1.  Modelar o nome (obrigatório): dê um nome significativo ao seu modelo.
+    1.  Nome de modelo (obrigatório): Dê um nome significativo ao seu modelo.
 
         ![Mais de caixa de diálogo Editar](media/how-to/how-to-edit-model-dialog.png)
 

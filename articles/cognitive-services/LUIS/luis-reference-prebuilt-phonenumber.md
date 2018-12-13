@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 3c2a873514c7355cdf7fa08372e1e17409021d56
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3a538886b0137e1069af1fa680374b749a9b3f92
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081069"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165419"
 ---
-# <a name="phonenumber-entity"></a>Entidade Phonenumber
+# <a name="phonenumber-prebuilt-entity-for-a-luis-app"></a>PhoneNumber entidade criados previamente para uma aplicação LUIS
 O `phonenumber` entidade extrai uma variedade de números de telefone, incluindo o indicativo de país. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo para a aplicação. O `phonenumber` entidade é suportada no `en-us` apenas a cultura. 
 
 ## <a name="types-of-phonenumber"></a>Tipos de phonenumber
-PhoneNumber é gerido a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) repositório do Github
+PhoneNumber é gerido a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) repositório do GitHub
 
 ## <a name="resolution-for-prebuilt-phonenumber-entity"></a>Resolução de entidade phonenumber pré-criados
 O exemplo seguinte mostra a resolução do **builtin.phonenumber** entidade.

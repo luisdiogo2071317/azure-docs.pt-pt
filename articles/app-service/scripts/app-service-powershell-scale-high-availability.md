@@ -1,5 +1,5 @@
 ---
-title: Exemplo do Script do Azure PowerShell – Dimensionar uma aplicação Web para todo o mundo com uma arquitetura de elevada disponibilidade | Microsoft Docs
+title: Exemplo de Script do PowerShell do Azure - Dimensionar aplicação todo o mundo com o Gestor de tráfego | Documentos da Microsoft
 description: Exemplo do Script do Azure PowerShell – Dimensionar uma aplicação Web para todo o mundo com uma arquitetura de elevada disponibilidade
 services: app-service\web
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 92f830786f19190fc61479db42117c831bba007c
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
-ms.translationtype: HT
+ms.openlocfilehash: f71b52d3e3eb7264fa3cf2d8a82c46ad6498c8a0
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39323882"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308231"
 ---
 # <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>Dimensionar uma aplicação Web para todo o mundo com uma arquitetura de elevada disponibilidade
 
@@ -53,7 +53,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Cria uma aplicação Web. |
 | [New-AzureRMTrafficManagerEndpoint](/powershell/module/azurerm.trafficmanager/new-azurermtrafficmanagerendpoint) | Cria um ponto final num Perfil do Gestor de Tráfego. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

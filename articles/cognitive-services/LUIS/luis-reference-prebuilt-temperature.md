@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 51ae734a62de79d765ef1adc46b59fb98a5ca7e8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 348030d888383c497d80259b279056d8ff892bfe
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089195"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165527"
 ---
-# <a name="temperature-entity"></a>Entidade de temperatura
+# <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Temperatura entidade criados previamente para uma aplicação LUIS
 Temperatura extrai uma variedade de tipos de temperatura. Uma vez que esta entidade já está preparada, não é necessário adicionar expressões de exemplo que contém a temperatura à aplicação. Entidade de temperatura é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-temperature"></a>Tipos de temperatura
-Temperatura é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) repositório do Github
+Temperatura é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) repositório do GitHub
 
 ## <a name="resolution-for-prebuilt-temperature-entity"></a>Resolução de entidades de temperatura pré-criados
 O exemplo seguinte mostra a resolução do **builtin.temperature** entidade.

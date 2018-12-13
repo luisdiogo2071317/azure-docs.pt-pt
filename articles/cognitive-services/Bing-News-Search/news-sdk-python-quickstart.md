@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: SDK de Pesquisa de Notícias do Bing, Python'
+title: 'Início rápido: Efetua uma pesquisa de notícias - SDK de pesquisa de notícias do Bing para Python'
 titleSuffix: Azure Cognitive Services
-description: Configure a aplicação de consola do SDK de Pesquisa de Notícias do Bing.
+description: Utilize este guia de introdução para pesquisar notícias com o SDK de pesquisa de notícias do Bing para Python e processar a resposta.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 6e029b7e830b6ec157d03d17dc24e65282a9c742
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 3489a9634cecd776afc8619a81acd72a2649ec36
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316808"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261202"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-python"></a>Início Rápido: SDK de Pesquisa de Notícias do Bing com Python
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Início rápido: Efetua uma pesquisa de notícias com o SDK de pesquisa de notícias do Bing para Python
 
 O SDK de Pesquisa de Notícias do Bing contém a funcionalidade da API REST para consultas Web e análise de resultados. 
 

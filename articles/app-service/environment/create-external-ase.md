@@ -1,5 +1,5 @@
 ---
-title: Criar um ambiente de serviço de aplicações do Azure externo
+title: Criar um ambiente de serviço externo da aplicação - Azure
 description: Explica como criar um ambiente de serviço de aplicações, enquanto cria uma aplicação ou autónomo
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 6df708c97750c89c850c993d0e1a43ded01934a2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 98d534e20b8e4c6bf6bcc3f483f59b796dc85073
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959973"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274487"
 ---
 # <a name="create-an-external-app-service-environment"></a>Criar um ambiente de serviço de aplicações externo #
 
@@ -64,27 +65,27 @@ Para criar um ASE enquanto pode criar um plano de serviço de aplicações:
 
     ![Criação de aplicações Web][1]
 
-1. Selecione a sua subscrição. A aplicação e o ASE são criadas nas mesmas subscrições.
+2. Selecione a sua subscrição. A aplicação e o ASE são criadas nas mesmas subscrições.
 
-1. Selecione ou crie um grupo de recursos. Com grupos de recursos, pode gerir os recursos relacionados do Azure como uma unidade. Grupos de recursos também são úteis quando estabelecer as regras de controlo de acesso baseado em funções para as suas aplicações. Para obter mais informações, consulte a [descrição geral do Azure Resource Manager][ARMOverview].
+3. Selecione ou crie um grupo de recursos. Com grupos de recursos, pode gerir os recursos relacionados do Azure como uma unidade. Grupos de recursos também são úteis quando estabelecer as regras de controlo de acesso baseado em funções para as suas aplicações. Para obter mais informações, consulte a [descrição geral do Azure Resource Manager][ARMOverview].
 
-1. Selecione seu sistema operacional (Windows, Linux ou Docker). 
+4. Selecione seu sistema operacional (Windows, Linux ou Docker). 
 
-1. Selecione o plano de serviço de aplicações e, em seguida, selecione **criar novo**. Aplicações web do Linux e aplicações de web do Windows não podem estar no mesmo plano serviço de aplicações, mas podem ser no mesmo ambiente de serviço de aplicações. 
+5. Selecione o plano de serviço de aplicações e, em seguida, selecione **criar novo**. Aplicações web do Linux e aplicações de web do Windows não podem estar no mesmo plano serviço de aplicações, mas podem ser no mesmo ambiente de serviço de aplicações. 
 
     ![Novo plano do Serviço de Aplicações][2]
 
-1. Na **localização** na lista pendente, selecione a região onde pretende criar o ASE. Se selecionar um ASE existente, não é criado um novo ASE. O plano do serviço de aplicações é criado no ASE que selecionou. 
+6. Na **localização** na lista pendente, selecione a região onde pretende criar o ASE. Se selecionar um ASE existente, não é criado um novo ASE. O plano do serviço de aplicações é criado no ASE que selecionou. 
 
-1. Selecione **escalão de preço**e escolha uma da **Isolated** SKUs de preços. Se escolher uma **Isolated** cartão SKU e uma localização que não é um ASE, um novo ASE é criado nessa localização. Para iniciar o processo de criar um ASE, selecione **selecione**. O **Isolated** SKU está disponível apenas em conjunto com um ASE. Também não é possível utilizar nenhum SKU preço num ASE que **Isolated**. 
+7. Selecione **escalão de preço**e escolha uma da **Isolated** SKUs de preços. Se escolher uma **Isolated** cartão SKU e uma localização que não é um ASE, um novo ASE é criado nessa localização. Para iniciar o processo de criar um ASE, selecione **selecione**. O **Isolated** SKU está disponível apenas em conjunto com um ASE. Também não é possível utilizar nenhum SKU preço num ASE que **Isolated**. 
 
     ![Seleção do escalão de preço][3]
 
-1. Introduza o nome para o seu ASE. Este nome é utilizado o nome endereçável para as suas aplicações. Se o nome do ASE for _appsvcenvdemo_, o nome de domínio é *. appsvcenvdemo.p.azurewebsites.net*. Se criar uma aplicação com o nome *mytestapp*, é acessível em mytestapp.appsvcenvdemo.p.azurewebsites.net. Não é possível utilizar o espaço em branco no nome. Se utilizar carateres maiúsculos, o nome de domínio é a versão em minúsculas total esse nome.
+8. Introduza o nome para o seu ASE. Este nome é utilizado o nome endereçável para as suas aplicações. Se o nome do ASE for _appsvcenvdemo_, o nome de domínio é *. appsvcenvdemo.p.azurewebsites.net*. Se criar uma aplicação com o nome *mytestapp*, é acessível em mytestapp.appsvcenvdemo.p.azurewebsites.net. Não é possível utilizar o espaço em branco no nome. Se utilizar carateres maiúsculos, o nome de domínio é a versão em minúsculas total esse nome.
 
     ![Novo nome do plano do serviço de aplicações][4]
 
-1. Especifique os detalhes da rede virtual do Azure. Selecione **criar novo** ou **selecionar existente**. A opção de selecionar uma VNet existente está disponível apenas se tiver uma VNet na região selecionada. Se selecionou **criar novo**, introduza um nome para a VNet. É criada uma nova VNet do Resource Manager com esse nome. Ele usa o espaço de endereços `192.168.250.0/23` na região selecionada. Se selecionou **selecionar existente**, terá de:
+9. Especifique os detalhes da rede virtual do Azure. Selecione **criar novo** ou **selecionar existente**. A opção de selecionar uma VNet existente está disponível apenas se tiver uma VNet na região selecionada. Se selecionou **criar novo**, introduza um nome para a VNet. É criada uma nova VNet do Resource Manager com esse nome. Ele usa o espaço de endereços `192.168.250.0/23` na região selecionada. Se selecionou **selecionar existente**, terá de:
 
     a. Selecione o bloco de endereços da VNet, se tiver mais do que um.
 
@@ -94,7 +95,7 @@ Para criar um ASE enquanto pode criar um plano de serviço de aplicações:
 
     d. Selecione o intervalo IP de sub-rede.
 
-1. Selecione **criar** para criar o ASE. Este processo também cria o plano do serviço de aplicações e a aplicação. O ASE, plano do serviço de aplicações e aplicação são todos na mesma subscrição e também no mesmo grupo de recursos. Se o ASE tem um grupo de recursos separado, ou se precisar de um ASE de ILB, siga os passos para criar um ASE por si só.
+10. Selecione **criar** para criar o ASE. Este processo também cria o plano do serviço de aplicações e a aplicação. O ASE, plano do serviço de aplicações e aplicação são todos na mesma subscrição e também no mesmo grupo de recursos. Se o ASE tem um grupo de recursos separado, ou se precisar de um ASE de ILB, siga os passos para criar um ASE por si só.
 
 ## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>Criar um ASE e uma aplicação web do Linux utilizar uma imagem personalizada do Docker em conjunto
 

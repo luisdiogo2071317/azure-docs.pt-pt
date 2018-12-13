@@ -10,17 +10,15 @@ ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 33ceece70c920bcb8bfd49fcfc8ff544af592b6b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 49f515c4321b13652d64c2e6f5b8e44ed6a29bca
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088209"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188100"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recolher registos de serviço do Azure e as métricas de utilização do Log Analytics
 
@@ -73,7 +71,7 @@ Recursos do Azure que suportam [o Azure monitor](../../azure-monitor/overview.md
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais para o Log Analytics através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 >
-> *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico que a métrica é representada como todas as mensagens de entrada em todos os coloca na fila de eventos Hub.
+> *Por exemplo*: A métrica "Mensagens recebidas" num Hub de eventos pode ser explorada e representada um por nível de fila. No entanto, se for exportada através das definições de diagnóstico que a métrica é representada como todas as mensagens de entrada em todos os coloca na fila de eventos Hub.
 >
 >
 

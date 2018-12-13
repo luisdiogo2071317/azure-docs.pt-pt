@@ -1,5 +1,5 @@
 ---
-title: Como dimensionar uma aplicação num ambiente de serviço de aplicações
+title: Como dimensionar uma aplicação num ambiente de serviço de aplicações - Azure
 description: Dimensionar uma aplicação num ambiente de serviço de aplicações
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-ms.openlocfilehash: 3b2f93c9763805377ed534d59b1025a5aa1a32e8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: c94e7f761dcbc7e05965e359d7f9a864335c9c6b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955535"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269350"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Dimensionar aplicações num Ambiente do Serviço de Aplicações
 No serviço de aplicações do Azure, existem normalmente três coisas que pode ser dimensionado:
@@ -39,7 +40,7 @@ A alteração de algum item é efetuada através da IU adequada apresentada para
 
 ![][1]
 
-Não é possível aumentar verticalmente o ASP, além do número de recursos de computação disponíveis no conjunto de trabalho que está a seu ASP.  Se precisar de recursos desse conjunto de trabalho de computação terá de obter o seu administrador de ASE para adicioná-los.  Para obter informações em torno de reconfigurar o ASE leia as informações aqui: [como configurar um ambiente de serviço de aplicações][HowtoConfigureASE].  Também poderá tirar partido das funcionalidades de dimensionamento automático ASE para adicionar a capacidade com base num agendamento ou métricas.  Para obter mais detalhes sobre como configurar o dimensionamento automático para o ambiente de ASE próprio ver [como configurar o dimensionamento automático para um ambiente de serviço de aplicações][ASEAutoscale].
+Não é possível aumentar verticalmente o ASP, além do número de recursos de computação disponíveis no conjunto de trabalho que está a seu ASP.  Se precisar de recursos desse conjunto de trabalho de computação terá de obter o seu administrador de ASE para adicioná-los.  Para obter informações em torno de reconfigurar o seu ASE ler as informações aqui: [Como configurar um ambiente de serviço de aplicações][HowtoConfigureASE].  Também poderá tirar partido das funcionalidades de dimensionamento automático ASE para adicionar a capacidade com base num agendamento ou métricas.  Para obter mais detalhes sobre como configurar o dimensionamento automático para o ambiente de ASE próprio ver [como configurar o dimensionamento automático para um ambiente de serviço de aplicações][ASEAutoscale].
 
 Pode criar a aplicação de vários planos de serviço com recursos de computação de conjuntos de trabalho diferentes ou pode utilizar o mesmo conjunto de trabalho.  Por exemplo, se tiver (10) recursos de computação disponível em 1 de conjunto de trabalho, pode optar por criar um plano de serviço de aplicações com os recursos de computação (6) e um serviço de aplicações de segundo plano que utiliza (4) recursos de computação.
 

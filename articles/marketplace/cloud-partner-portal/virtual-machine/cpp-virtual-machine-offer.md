@@ -12,23 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d3682d18fb849b2d851bae0986f9e61f216aaf2c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d51fffad897ba2658c7bee51c26e7e3be9f10e88
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639949"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188763"
 ---
 # <a name="virtual-machine-offer"></a>Oferta de máquina virtual
 
-Esta secção descreve os elementos de publicação de uma Máquina Virtual (VM) e destina-se como um guia para o publicador para o [do Azure Marketplace](https://azuremarketplace.microsoft.com).  De que este ponto de vista, ele é dividido as seguintes partes principais:
+|    |    |
+|-----------------------------------------------------------------|------------------------------------------|
+| Esta secção explica como publicar uma nova oferta de máquina virtual para o [do Azure Marketplace](https://azuremarketplace.microsoft.com). O suporte é fornecido para máquinas de virtuais baseados em Linux e Windows, que contém um sistema operativo disco virtual (VHD) e dados de zero ou mais VHDs. | ![ícone de máquina virtual](./media/virtual-machine-icon.png)  |
 
-- [Pré-requisitos](./cpp-prerequisites.md) -lista os requisitos técnicos e empresariais antes de criar ou publicar uma oferta VM
-- [Criar oferta de VM](./cpp-create-offer.md) -listas os passos necessários para criar uma nova VM oferecem ao utilizar de entrada a [Cloud Partner Portal](https://cloudpartner.azure.com)
-- [Criar recursos técnicos de VM](./cpp-create-technical-assets.md) - a forma como a técnica de criar ativos para uma solução VM e como configurar este pacote como uma VM da oferta no Azure Marketplace
-- [Publicar oferta de VM](./cpp-publish-offer.md) -como submeter a oferta para publicação no Azure Marketplace
+
+## <a name="publishing-overview"></a>Descrição geral de publicação
+
+O vídeo seguinte, [otimizar Your Azure Marketplace oferece](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player), apresenta uma ampla visão geral do Azure Marketplace, incluindo como publicar no marketplace (usando uma solução de máquina virtual), como otimizar a experiência do usuário com a sua página de produto e a experiência de teste de unidade opcional, como oportunidades potenciais do utilizador são gerados e como pode aceder aos mesmos e otimizar o envolvimento do cliente.
+
+> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026]
 
 
 ## <a name="vm-publishing-process-flow"></a>Fluxo do processo de publicação de VM

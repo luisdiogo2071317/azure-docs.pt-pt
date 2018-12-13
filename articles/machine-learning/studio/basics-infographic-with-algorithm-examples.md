@@ -4,10 +4,9 @@ description: Uma descrição geral de fácil compreensão das noções básicas 
 keywords: Noções básicas de aprendizagem máquina, exemplos de algoritmos da aprendizagem automática para iniciantes, perguntas do machine learning, algoritmos populares, infográfico de algoritmo
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodc18
+ms.author: garye
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
 ms.service: machine-learning
@@ -17,23 +16,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 610cc430170ac31832703b822e027f3dbdd053a2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: df628447a441d1580fa1a3862275f2b461f8d18a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093765"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275742"
 ---
-# <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico Transferível: Noções básicas do Machine Learning com exemplos de algoritmos
+# <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infográfico transferível: Noções básicas com exemplos de algoritmos de aprendizagem automática
 Baixe esta descrição geral de fácil de compreender o infográfico de noções básicas do machine learning para saber mais sobre os algoritmos populares utilizados para responder a perguntas comuns de machine learning. Exemplos de algoritmos ajudam a iniciantes de aprendizado de máquina compreender quais algoritmos para utilização e o que eles são usados para.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Algoritmos populares no Machine Learning Studio
 [O Azure Machine Learning Studio](https://studio.azureml.net/) vem com uma grande biblioteca de algoritmos para Análise Preditiva. O infográfico identifica quatro famílias populares de algoritmos - regressão, deteção de anomalias, clustering e classificação e fornece ligações para exemplos de trabalho na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/). A Galeria contém experimentações de exemplo e tutoriais que demonstram como esses algoritmos podem ser aplicados em muitas soluções do mundo real.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Transferir o infográfico com exemplos de algoritmos
-**[Transferência: Infografia Noções básicas de aprendizado de máquina com ligações para exemplos de algoritmo (PDF)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+**[Transferir: Infografia de noções básicas do machine learning com ligações para exemplos de algoritmo (PDF)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
-![Infografia: A máquina Noções básicas com exemplos de algoritmos de aprendizagem. Algoritmos populares. Aprendizagem automática para iniciantes.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
+![Infografia: Noções básicas com exemplos de algoritmos de aprendizado de máquina. Algoritmos populares. Aprendizagem automática para iniciantes.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Mais ajuda com algoritmos para iniciantes e os utilizadores avançados
 * Para uma discussão mais profunda sobre os diferentes tipos de algoritmos de machine learning, como são utilizadas e como escolher a ferramenta correta para a sua solução, consulte [como escolher algoritmos para o Microsoft Azure Machine Learning](algorithm-choice.md).
@@ -42,7 +41,7 @@ Baixe esta descrição geral de fácil de compreender o infográfico de noções
 * Para transferir e imprimir um diagrama da descrição geral das funcionalidades do Machine Learning Studio, consulte o artigo [Diagrama da descrição geral das funcionalidades do Azure Machine Learning Studio](studio-overview-diagram.md).
 * Para uma descrição geral da Galeria de IA do Azure e muitos gerado pela Comunidade recursos disponíveis, consulte [partilhar e detetar recursos na Galeria de IA do Azure](gallery-how-to-use-contribute-publish.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <!-- Module References -->
 [a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx

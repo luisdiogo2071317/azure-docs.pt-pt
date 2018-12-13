@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d3442710e1e1327dcafc1b4ed6617aeb7ff1bf0f
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634511"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322435"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Tutorial: Configurar Samanage para aprovisionamento automático de utilizadores
 
@@ -76,7 +76,9 @@ Antes de configurar e ativar o aprovisionamento de utilizador automático, deve 
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>Dicas importantes para atribuir utilizadores a Samanage
 
-*   Recomenda-se que um único utilizador do Azure AD está atribuído a Samanage para testar o configuração de aprovisionamento automático de utilizadores. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
+*    Funções de Samanage são automaticamente e dinamicamente preenchidas no portal do Azure da interface do Usuário hoje mesmo. Antes de atribuir funções de Samanage aos utilizadores, certifique-se de que uma sincronização inicial está concluída contra Samanage para obter as funções mais recente no seu inquilino Samanage.
+
+*    Recomenda-se que um único utilizador do Azure AD está atribuído a Samanage para testar sua inicial configuração de aprovisionamento de utilizadores automática. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde quando os testes forem bem-sucedidos.
 
 *   Ao atribuir um utilizador para Samanage, tem de selecionar qualquer função de específicas da aplicação válida (se disponível) na caixa de diálogo atribuição. Os utilizadores com o **acesso predefinido** função são excluídas desde o aprovisionamento.
 

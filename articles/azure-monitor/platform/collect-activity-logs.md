@@ -10,17 +10,15 @@ ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: cb246ad927669ac9b8a3981134142ad9be27c6ae
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: 1556c228aa2e00cf18f16cc26eefab4691f6de23
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889536"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184955"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recolher e analisar registos de atividades do Azure no Log Analytics
 
@@ -55,7 +53,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 | Origem Ligada | Suportadas | Descrição |
 | --- | --- | --- |
 | [Agentes do Windows](../../azure-monitor/platform/agent-windows.md) | Não | A solução não recolhe informações de agentes do Windows. |
-| [Agentes do Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) | Não | A solução não recolhe informações de agentes do Linux. |
+| [Agentes do Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de agentes do Linux. |
 | [Grupo de gestão do SCOM](../../azure-monitor/platform/om-agents.md) | Não | A solução não recolhe informações de agentes num grupo de gestão ligado do SCOM. |
 | [Conta de armazenamento do Azure](collect-azure-metrics-logs.md) | Não | A solução não recolhe informações do armazenamento do Azure. |
 
@@ -100,5 +98,5 @@ Dados de registo de atividade só é apresentado *depois de* que configurou os s
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Criar uma [alerta](../../monitoring-and-diagnostics/alert-metric.md) quando ocorre uma atividade específica.
+- Criar uma [alerta](../../azure-monitor/platform/alerts-metric.md) quando ocorre uma atividade específica.
 - Uso [pesquisa de registos](../../azure-monitor/log-query/log-query-overview.md) para ver informações detalhadas de registos de atividades.

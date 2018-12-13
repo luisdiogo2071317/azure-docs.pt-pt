@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 56beb9779b0dde7074a2f49fab156c8b6e6577b3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: a48bd66c335981a76a67206f840f4be69aaa8af1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870185"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273352"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Utilizar o portal do Azure para criar alertas para o Azure SQL Database e o armazém de dados
 
@@ -38,8 +38,8 @@ Pode configurar um alerta para fazer o seguinte quando é acionado:
 Pode configurar e obtenha informações sobre como utilizar as regras de alerta
 
 * [Portal do Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Interface de linha de comandos (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [Interface de linha de comandos (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Criar uma regra de alerta numa métrica no portal do Azure
@@ -48,7 +48,7 @@ Pode configurar e obtenha informações sobre como utilizar as regras de alerta
    
      ![Monitorização](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **Armazém de dados SQL só**: clique nas **utilização da DWU** gráfico. Selecione **ver alertas clássicos**
+   - **APENAS O SQL DW**: Clique nas **utilização da DWU** gráfico. Selecione **ver alertas clássicos**
 
 3. Selecione o **Adicionar alerta de métrica (clássico)** botão e preencha os campos.
    
@@ -116,6 +116,6 @@ Assim que tiver criado um alerta, pode selecioná-lo e:
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Obtenha uma visão geral da monitorização do Azure](../monitoring-and-diagnostics/monitoring-overview.md) incluindo os tipos de informações pode recolher e monitorizar.
-* Saiba mais sobre [configurar webhooks nos alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+* Saiba mais sobre [configurar webhooks nos alertas](../azure-monitor/platform/alerts-webhooks.md).
 * Obter um [descrição geral dos registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) e recolher métricas de alta frequência detalhadas no seu serviço.
 * Obter um [descrição geral da coleção de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o seu serviço está disponível e reativo.

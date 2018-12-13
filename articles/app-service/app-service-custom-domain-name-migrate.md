@@ -1,5 +1,5 @@
 ---
-title: Migrar um nome DNS do Active Directory para o serviço de aplicações do Azure | Documentos da Microsoft
+title: Migrar um nome DNS do Active Directory - App Service do Azure | Documentos da Microsoft
 description: Saiba como migrar um nome de domínio DNS personalizado já está atribuído a um site em direto para o serviço de aplicações do Azure sem qualquer período de inatividade.
 services: app-service
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: 632558760d0b4a00384763cc30de3b9241bb1ae6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.custom: seodec18
+ms.openlocfilehash: 64e629c05e9dcef6eaf65e3e0994d928d1b59c15
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300171"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252801"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS do Active Directory para o serviço de aplicações do Azure
 

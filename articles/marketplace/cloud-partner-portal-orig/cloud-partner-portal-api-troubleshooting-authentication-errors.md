@@ -14,26 +14,25 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 82a5ef86d1ca35cddb05cb4e126e64cc3759bcc0
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 12ed395855b9d870f8f6e3564dc5b3b899b9c6c1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810288"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313875"
 ---
-<a name="troubleshooting-common-authentication-errors"></a>Resolução de problemas de erros de autenticação comuns
-------------------------------------------
+# <a name="troubleshooting-common-authentication-errors"></a>Resolução de problemas de erros de autenticação comuns
 
 Este artigo fornece assistência com erros de autenticação comuns ao utilizar as APIs de Portal de parceiro de Cloud.
 
-### <a name="unauthorized-error"></a>Erro não autorizado
+## <a name="unauthorized-error"></a>Erro não autorizado
 
 Se obtiver consistentemente `401 unauthorized` erros, certifique-se de que tem um token de acesso válido.  Se ainda não o fez, crie uma aplicação básica do Azure Active Directory (Azure AD) e um principal de serviço, conforme descrito em [utilize o portal para criar um Azure Active Directory principal de aplicações e serviço que pode aceder a recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Em seguida, utilize a aplicação ou um pedido de HTTP POST simple para verificar o seu acesso.  Irá incluir o ID de inquilino, ID da aplicação, ID de objeto e a chave secreta para obter o token de acesso, conforme mostrado na imagem seguinte:
 
 ![Resolução de problemas do erro 401](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-401-error.jpg)
 
 
-### <a name="forbidden-error"></a>Erro proibido
+## <a name="forbidden-error"></a>Erro proibido
 
 Se obtiver um `403 forbidden` erro, certifique-se de que o principal de serviço correto foi adicionado à sua conta de editor no Portal de parceiros de nuvem.
 Siga os passos a [pré-requisitos](./cloud-partner-portal-api-prerequisites.md) página para adicionar o seu principal de serviço para o portal.

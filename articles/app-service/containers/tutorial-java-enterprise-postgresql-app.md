@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação web de Java Enterprise no serviço de aplicações do Azure no Linux | Documentos da Microsoft
+title: Criar aplicação web empresarial de Java no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como colocar uma aplicação de Java Enterprise funcionar no Wildfly no serviço de aplicações do Azure no Linux.
 author: JasonFreeberg
 manager: routlaw
@@ -10,12 +10,13 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
-ms.openlocfilehash: 40bee31b7880a323a48e92912ee323c43c3a97da
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18
+ms.openlocfilehash: 2b8151117a9093cb58ffe6db45bc5ee1a9abd54b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634778"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259261"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutorial: Criar uma aplicação de web de Java EE e Postgres no Azure
 
@@ -32,8 +33,8 @@ Neste tutorial, vai aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. [Transferir e instalar o Git](https://git-scm.com/)
-1. [Transferir e instalar o Maven 3](https://maven.apache.org/install.html)
-1. [Transferir e instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+2. [Transferir e instalar o Maven 3](https://maven.apache.org/install.html)
+3. [Transferir e instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## <a name="clone-and-edit-the-sample-app"></a>Clonar e editar a aplicação de exemplo
 
@@ -51,13 +52,38 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 Atualize o POM Maven com o desejado nome e grupo de recursos do seu serviço de aplicações. Estes valores serão ser injetados no plug-in do Azure, o que é mais abaixo na _pom_ ficheiro. Não é necessário criar o plano do serviço de aplicações ou a instância previamente. O plug-in do Maven irá criar o grupo de recursos e o serviço de aplicações, caso ainda não exista.
 
+Pode rolar para baixo para o `<plugins>` secção do _pom_ para inspecionar o plug-in do Azure. A secção do `<plugin>` configuração no _pom_ para o azure-webapp-maven-Plug-in deve incluir a seguinte configuração:
+
+```xml
+      <!--*************************************************-->
+      <!-- Deploy to WildFly in App Service Linux           -->
+      <!--*************************************************-->
+ 
+      <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <configuration>
+ 
+          <!-- Web App information -->
+          <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+          <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
+          <appName>${WEBAPP_NAME}</appName>
+          <region>${REGION}</region>
+ 
+          <!-- Java Runtime Stack for Web App on Linux-->
+          <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+ 
+        </configuration>
+      </plugin>
+```
+
 Substitua os marcadores de posição pelos seus nomes de recursos desejados:
 ```xml
 <azure.plugin.appname>YOUR_APP_NAME</azure.plugin.appname>
 <azure.plugin.resourcegroup>YOUR_RESOURCE_GROUP</azure.plugin.resourcegroup>
 ```
 
-Pode rolar para baixo para o `<plugins>` secção do _pom_ para inspecionar o plug-in do Azure.
 
 ## <a name="build-and-deploy-the-application"></a>Criar e implementar a aplicação
 
@@ -135,10 +161,10 @@ Em seguida, é necessário editar nossa configuração de transação de Java AP
 
 Antes de implantar nosso aplicativo reconfigurado, podemos tem de atualizar o servidor de aplicações WildFly com o módulo de Postgres e as respetivas dependências. Para configurar o servidor, precisamos quatro arquivos no `wildfly_config/` diretório:
 
-- **postgresql 42.2.5.jar**: ficheiro JAR este é o controlador JDBC para Postgres. Para obter mais informações, consulte a [site oficial](https://jdbc.postgresql.org/index.html).
-- **postgres-Module. XML**: ficheiro este XML declara um nome para o módulo de Postgres (org.postgres). Também especifica os recursos e as dependências necessários para o módulo a ser utilizado.
-- **jboss_cli_commands.CL**: este ficheiro contém comandos de configuração que serão executados para a CLI JBoss. Os comandos adicionar o módulo de Postgres para o servidor de aplicações WildFly, fornecem as credenciais, declare um nome JNDI, defina o limiar de tempo limite, etc. Se não estiver familiarizado com a CLI JBoss, consulte a [documentação oficial](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-- **startup_script.SH**: por fim, este script de shell será executada sempre que for iniciada a sua instância do serviço de aplicações. O script só executa uma função: encaminhando os comandos `jboss_cli_commands.cli` para a CLI JBoss.
+- **postgresql 42.2.5.jar**: Este ficheiro. JAR é o controlador JDBC para Postgres. Para obter mais informações, consulte a [site oficial](https://jdbc.postgresql.org/index.html).
+- **postgres-Module. XML**: Esse arquivo XML declara um nome para o módulo de Postgres (org.postgres). Também especifica os recursos e as dependências necessários para o módulo a ser utilizado.
+- **jboss_cli_commands.CL**: Este ficheiro contém comandos de configuração que serão executados para a CLI JBoss. Os comandos adicionar o módulo de Postgres para o servidor de aplicações WildFly, fornecem as credenciais, declare um nome JNDI, defina o limiar de tempo limite, etc. Se não estiver familiarizado com a CLI JBoss, consulte a [documentação oficial](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
+- **startup_script.SH**: Por fim, este script de shell será executado sempre que for iniciada a sua instância do serviço de aplicações. O script só executa uma função: encaminhando os comandos `jboss_cli_commands.cli` para a CLI JBoss.
 
 Sugerimos altamente ler o conteúdo desses arquivos, especialmente _jboss_cli_commands.cli_.
 

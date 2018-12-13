@@ -9,16 +9,15 @@ documentationcenter: azure-monitor
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 368cef4ef86e29ea4fe55560e44644e332455b93
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 88a4c6dbe9311a054c6ed93df0005d32e6d21672
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962669"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271798"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitorização contínua com o Azure Monitor
 
@@ -50,7 +49,7 @@ Os aplicativos só são tão fiáveis como a respetiva infraestrutura subjacente
 
 [Infraestrutura como código](/devops/learn/what-is-infrastructure-as-code) é o gerenciamento da infra-estrutura num modelo descritivo, usando o mesmo controle de versão, como o uso do código-fonte as equipas de DevOps. Adiciona a confiabilidade e escalabilidade para o seu ambiente e permite tirar partido dos processos semelhantes que utilizado para gerir as suas aplicações.
 
--  Uso [modelos do Resource Manager](../azure-monitor/platform/template-workspace-configuration.md) para ativar a monitorização e configurar alertas ao longo de um grande conjunto de recursos.
+-  Uso [modelos do Resource Manager](platform/template-workspace-configuration.md) para ativar a monitorização e configurar alertas ao longo de um grande conjunto de recursos.
 - Uso [do Azure Policy](../governance/policy/overview.md) para impõem diferentes regras aos recursos. Isto garante que esses recursos mantêm-se em conformidade com os seus padrões empresariais e contratos de nível de serviço. 
 
 
@@ -65,15 +64,15 @@ Integração contínua / implementação contínua permite-lhe automaticamente i
 
 - Uso [Pipelines do Azure](/azure/devops/pipelines) para a implementação contínua de implementar e automatizar o processo inteiro da consolidação de código para produção com base em seus testes de CI/CD.
 - Uso [limites de qualidade](/devops/pipelines/release/approvals/gates) para integrar a monitorização em seu pré-implantação ou pós-implementação. Isto garante que está a cumprir as métricas chave de estado de funcionamento/desempenho (KPIs) à medida que seus aplicativos movem de desenvolvimento para a produção e as diferenças no ambiente de infraestrutura ou de escala é não afetar negativamente os KPIs.
-- [Manter a monitorização de instâncias separadas](../application-insights/app-insights-separate-resources.md) entre seus ambientes de implementação diferentes, como o desenvolvimento, teste, Canárias e Prod. Isto garante que os dados recolhidos são relevantes em toda a infra-estrutura e os aplicativos associados. Se precisar de correlacionar dados em ambientes, pode utilizar [vários recursos gráficos no Explorador de métricas](../monitoring-and-diagnostics/monitoring-metric-charts.md) ou crie [entre recursos consultas do Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md).
+- [Manter a monitorização de instâncias separadas](../application-insights/app-insights-separate-resources.md) entre seus ambientes de implementação diferentes, como o desenvolvimento, teste, Canárias e Prod. Isto garante que os dados recolhidos são relevantes em toda a infra-estrutura e os aplicativos associados. Se precisar de correlacionar dados em ambientes, pode utilizar [vários recursos gráficos no Explorador de métricas](../monitoring-and-diagnostics/monitoring-metric-charts.md) ou crie [entre recursos consultas do Log Analytics](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Criar alertas acionáveis com as ações
 Um aspeto fundamental do monitoramento proativo é notificando os administradores de quaisquer problemas atuais e previstos. 
 
-- Crie [alertas no Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) com base em registos e métricas para identificar os Estados de falha previsível. Deve ter um objetivo de tornar todos os alertas acionáveis que significa que eles representam condições críticas reais e procurar o ressarcimento de reduzir os falsos positivos. Uso [limiares dinâmicos](../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md) para calcular automaticamente as linhas de base de dados de métrica, em vez de definir seu próprio limiares estáticos. 
-- Defina as ações de alertas utilizar a forma mais eficaz de notificar os administradores. Disponível [ações de notificação](../monitoring-and-diagnostics/monitoring-action-groups.md#create-an-action-group-by-using-the-azure-portal) são SMS, emails, notificações push ou chamadas de voz.
-- Utilização avançada mais ações para [ligar a sua ferramenta ITSM](../log-analytics/log-analytics-itsmc-overview.md) ou outros sistemas de gestão de alertas por meio [webhooks](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+- Crie [alertas no Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) com base em registos e métricas para identificar os Estados de falha previsível. Deve ter um objetivo de tornar todos os alertas acionáveis que significa que eles representam condições críticas reais e procurar o ressarcimento de reduzir os falsos positivos. Uso [limiares dinâmicos](platform/alerts-dynamic-thresholds.md) para calcular automaticamente as linhas de base de dados de métrica, em vez de definir seu próprio limiares estáticos. 
+- Defina as ações de alertas utilizar a forma mais eficaz de notificar os administradores. Disponível [ações de notificação](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) são SMS, emails, notificações push ou chamadas de voz.
+- Utilização avançada mais ações para [ligar a sua ferramenta ITSM](platform/itsmc-overview.md) ou outros sistemas de gestão de alertas por meio [webhooks](platform/activity-log-alerts-webhook.md).
 - Remediar situações identificadas nos alertas, igualmente com [runbooks de automatização do Azure](../automation/automation-webhooks.md) ou [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) que pode ser iniciado a partir de um alerta através de webhooks. 
 - Uso [dimensionamento automático](../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md) para aumentar e diminuir os recursos de computação com base nas métricas recolhidas dinamicamente.
 

@@ -1,5 +1,5 @@
 ---
-title: Aplicações web de tecnologias de open source FAQs do Azure | Documentos da Microsoft
+title: Tecnologias de open source FAQs - serviço de aplicações do Azure | Documentos da Microsoft
 description: Obtenha respostas para perguntas freqüentes sobre tecnologias de código aberto na funcionalidade aplicações Web do serviço de aplicações do Azure.
 services: app-service\web
 documentationcenter: ''
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 19168f965f2a98a1dc3f94ae0b029449865a9582
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: ac80cd5ee1c530736666338e8bc3763b110c688c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971359"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255538"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Tecnologias de open source FAQs para aplicações Web no Azure
 
@@ -113,7 +114,7 @@ Para obter informações sobre a instalação do Django, consulte [implementar u
 
 Para o Azure Marketplace e implementações personalizadas:
 
-* Localização da pasta: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
+* Localização da pasta: D:\home\site\wwwroot\bin\apache-Tomcat-8.0.33\logs
 * Arquivos de interesse:
     * catalina.*yyyy-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
@@ -189,7 +190,7 @@ Se tiver recentemente migrado para o Azure, o WordPress pode redirecionar para o
 
 WordPress Buddy + é uma extensão de Site do Azure que pode utilizar para atualizar o URL de redirecionamento diretamente na base de dados. Para obter mais informações sobre como utilizar o WordPress Buddy +, consulte [WordPress ferramentas e migração do MySQL com o WordPress Buddy +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
 
-Em alternativa, se preferir de atualizar manualmente o redirecionamento de URL com consultas SQL ou PHPMyAdmin, veja [WordPress: redirecionamento de URL incorreto](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
+Em alternativa, se preferir de atualizar manualmente o redirecionamento de URL com consultas SQL ou PHPMyAdmin, consulte [WordPress: Redirecionamento de URL incorreto](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Como posso alterar minha senha de início de sessão WordPress?
 
@@ -203,8 +204,8 @@ Se impedido de aceder ao WordPress depois de instalar recentemente um plug-in, p
 
 Tem várias opções para a migração de base de dados MySQL que está ligada ao seu Web site WordPress:
 
-* Os programadores: Utilizar o [linha de comandos ou PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-* Não-desenvolvedores: Utilizar o [WordPress Buddy +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
+* Programadores: Utilize o [linha de comandos ou PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
+* Não-programadores: Utilize [WordPress Buddy +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Como ajudar a tornar o WordPress mais seguro?
 

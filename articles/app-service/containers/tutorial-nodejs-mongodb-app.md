@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação Web Node.js e MongoDB no Serviço de Aplicações do Azure no Linux | Microsoft Docs
+title: Criar aplicação de node. js com MongoDB no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como colocar uma aplicação Node.js a funcionar no Serviço de Aplicações do Azure no Linux, com uma ligação à base de dados do Cosmos DB com uma cadeia de ligação do MongoDB.
 services: app-service\web
 documentationcenter: nodejs
@@ -14,13 +14,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: feaaf0df96a1742d071dec5f98b57a69ea85b1ac
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 59173550c0cdff44931e0b686308b39e985dddcf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972325"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254960"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web Node.js e MongoDB no Serviço de Aplicações do Azure no Linux
 
@@ -49,9 +49,9 @@ O que aprende com o saiba como:
 Para concluir este tutorial:
 
 1. [Instalar o Git](https://git-scm.com/)
-1. [Instalar o Node.js v6.0 ou posterior e NPM](https://nodejs.org/)
-1. [Instalar o Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-1. [Instalar e executar a Edição de Comunidade do MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
+2. [Instalar o Node.js v6.0 ou posterior e NPM](https://nodejs.org/)
+3. [Instalar o Gulp.js](https://gulpjs.com/) (exigido pelo [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+4. [Instalar e executar a Edição de Comunidade do MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
 
 ## <a name="test-local-mongodb"></a>Testar MongoDB local
 

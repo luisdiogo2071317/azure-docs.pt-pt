@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação Web de página única do Azure Time Series Insights
+title: Criar uma aplicação web de página única do Azure Time Series Insights | Documentos da Microsoft
 description: Saiba como criar uma aplicação Web de página única que consulta e apresenta dados a partir de um ambiente TSI.
 author: ashannon7
 ms.service: time-series-insights
@@ -7,12 +7,13 @@ ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: fccd509d4f16cee86d30feb0e838f1493cae4e0b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626760"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275844"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Tutorial: Criar uma aplicação Web de página única do Azure Time Series Insights
 
@@ -33,8 +34,8 @@ Também terá de instalar o Visual Studio, se ainda não o fez. Para este tutori
 
 Conforme mencionado, o exemplo de aplicação TSI fornece a base para a estrutura e o código utilizados neste tutorial. O código inclui a utilização da biblioteca JavaScript do Cliente TSI. A biblioteca do Cliente TSI fornece uma abstração para duas categorias principais de API:
 
-- **Métodos de encapsulamento em wrapper para chamar as APIs de Consulta do TSI**: APIs REST que lhe permitem consultar os dados do TSI com recurso a expressões baseadas em JSON. Os métodos estão organizados no espaço de nomes `TsiClient.server` da biblioteca.
-- **Métodos para criar e preencher vários tipos de controlos de gráficos**: métodos que são utilizados para visualizar os dados do TSI numa página Web. Os métodos estão organizados no espaço de nomes `TsiClient.ux` da biblioteca.
+- **Métodos de invólucro para chamar as APIs de consulta do TSI**: APIs REST que permitem a consultar dados TSI usando expressões baseados em JSON. Os métodos estão organizados no espaço de nomes `TsiClient.server` da biblioteca.
+- **Métodos para criar e Popular os vários tipos de controles de criação de gráficos**: Métodos que são utilizados para visualizar os dados TSI numa página da web. Os métodos estão organizados no espaço de nomes `TsiClient.ux` da biblioteca.
 
 Este tutorial também irá utilizar os dados do ambiente TSI do exemplo de aplicação. Para obter detalhes sobre a estrutura do exemplo de aplicação TSI e a respetiva utilização da biblioteca de Clientes TSI, consulte o tutorial [Explorar a biblioteca de clientes JavaScript do Azure Time Series Insights](tutorial-explore-js-client-lib.md).
 
@@ -91,7 +92,7 @@ Antes de criar a aplicação, tem de registá-la com o Azure AD. O registo forne
    > Consoante o browser, poderá ter de corrigir a extensão do ficheiro (para HTML ou CSS) antes de guardar o ficheiro.
 
    - **Index.html** HTML e JavaScript para a página https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
-   - **sampleStyles.css:** folha de estilo CSS: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
+   - **sampleStyles.css:** Folha de estilos CSS: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
 1. Abra e inicie sessão no Visual Studio para criar um projeto para a aplicação Web. No menu **Ficheiro**, selecione a opção **Abrir**, **Site**. Na caixa de diálogo **Abrir Site**, selecione o diretório de trabalho onde armazenou os ficheiros HTML e CSS e, em seguida, clique em **Abrir**:
 
@@ -177,8 +178,8 @@ Antes de criar a aplicação, tem de registá-la com o Azure AD. O registo forne
 
 Código de erro/condição | Descrição
 ---------------------| -----------
-*AADSTS50011: nenhum endereço de resposta está registado para a aplicação.* | O registo do Azure AD tem a propriedade "URL de resposta" em falta. Vá para a página **Definições** / **URLs de Resposta** do seu registo de aplicações do Azure AD. Certifique-se de que o URL de **Início de Sessão** especificado no passo n.º 3 de [Registar a aplicação com o Azure AD](#register-the-application-with-azure-ad) está presente. 
-*AADSTS50011: o url de resposta especificado no pedido não corresponde aos urls de resposta configurados para a aplicação: “<Application ID GUID>”.* | O `postLogoutRedirectUri` especificado no passo n.º 4.b de [Criar e publicar a aplicação Web](#build-and-publish-the-web-application) tem de corresponder ao valor especificado na propriedade **Definições** / **URLs de Resposta** do seu registo de aplicação do AD. Certifique-se também de que altera o **URL de destino** para utilizar `https`, de acordo com o passo n.º 5.e de [Criar e publicar a aplicação Web](#build-and-publish-the-web-application).
+*AADSTS50011: Nenhum endereço de resposta está registado para a aplicação.* | O registo do Azure AD tem a propriedade "URL de resposta" em falta. Vá para a página **Definições** / **URLs de Resposta** do seu registo de aplicações do Azure AD. Certifique-se de que o URL de **Início de Sessão** especificado no passo n.º 3 de [Registar a aplicação com o Azure AD](#register-the-application-with-azure-ad) está presente. 
+*AADSTS50011: A resposta do url especificado no pedido não coincide com os urls de resposta configurados para a aplicação: "<Application ID GUID>'.* | O `postLogoutRedirectUri` especificado no passo n.º 4.b de [Criar e publicar a aplicação Web](#build-and-publish-the-web-application) tem de corresponder ao valor especificado na propriedade **Definições** / **URLs de Resposta** do seu registo de aplicação do AD. Certifique-se também de que altera o **URL de destino** para utilizar `https`, de acordo com o passo n.º 5.e de [Criar e publicar a aplicação Web](#build-and-publish-the-web-application).
 A aplicação carrega, mas apresenta uma página de início de sessão só com texto e sem estilo, com um fundo branco. | Certifique-se de que os caminhos abordados no passo n.º 4.a de [Criar e publicar a aplicação web](#build-and-publish-the-web-application) estão corretos. Se a aplicação Web não conseguir localizar os ficheiros .css, a página não terá o estilo correto.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -190,7 +191,7 @@ No menu esquerdo do portal do Azure:
 1. Clique no ícone **Grupos de recursos** e, em seguida, selecione o grupo de recursos que criou para o Ambiente do TSI. Na parte superior da página, clique em **Eliminar grupo de recursos**, escreva o nome do grupo de recurso e, em seguida, clique em **Eliminar**. 
 1. Clique no ícone **Grupos de recursos** e, em seguida, selecione o grupo de recursos que foi criado pelo acelerador de soluções da simulação de dispositivos. Na parte superior da página, clique em **Eliminar grupo de recursos**, escreva o nome do grupo de recurso e, em seguida, clique em **Eliminar**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

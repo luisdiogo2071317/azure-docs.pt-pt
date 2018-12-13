@@ -4,16 +4,16 @@ description: Saiba como resolver problemas de gerenciamento de atualizações
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7339592833db148acb38ce378fe4cf261977dd72
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092632"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275657"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas de gerenciamento de atualizações
 
@@ -45,13 +45,42 @@ Este erro pode dever-se pelos seguintes motivos:
 1. Visitar [planeamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber quais são os endereços e portas têm de ser permitidos para gerenciamento de atualizações trabalhar.
 2. Se utilizar uma imagem clonada de sysprep a imagem em primeiro lugar e instalar o agente MMA após o fato.
 
+### <a name="multi-tenant"></a>Cenário: Recebe um erro de subscrição ligada ao criar uma implementação de atualizações para máquinas no outro inquilino do Azure.
+
+#### <a name="issue"></a>Problema
+
+Receber o seguinte erro ao tentar criar uma implementação de atualizações para máquinas no outro inquilino do Azure:
+
+```
+The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
+```
+
+#### <a name="cause"></a>Causa
+
+Este erro ocorre quando cria uma implementação de atualização que tenha máquinas virtuais do Azure noutro inquilino incluídos numa implementação de atualização.
+
+#### <a name="resolution"></a>Resolução
+
+Terá de utilizar a solução abaixo para que eles agendada. Pode utilizar o [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) cmdlet com o comutador `-ForUpdate` para criar uma agenda e utilizar os [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+) cmdlet e passar o as máquinas no outro inquilino para o `-NonAzureComputer` parâmetro. O exemplo seguinte mostra um exemplo sobre como fazer isso:
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
+
 ## <a name="windows"></a>Windows
 
 Se tiver problemas ao tentar carregar a solução numa máquina virtual, verifique os **Operations Manager** registo de eventos na **registos de serviços de aplicações e** no computador local para eventos com ID de evento **4502** e mensagens de evento com **hybridagent**.
 
 A secção seguinte realça as mensagens de erro específicas e uma resolução possível para cada um. Para integração de outra problemas, consulte [resolver problemas de inclusão da solução](onboarding.md).
 
-### <a name="machine-already-registered"></a>Cenário: A máquina já está registada para outra conta
+### <a name="machine-already-registered"></a>Cenário: Máquina já está registada para outra conta
 
 #### <a name="issue"></a>Problema
 
@@ -69,7 +98,7 @@ A máquina já está incluído para outra área de trabalho para gestão de atua
 
 Executar a limpeza dos artefactos antigos na máquina por [a eliminação do grupo de runbook híbrida](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) e tente novamente.
 
-### <a name="machine-unable-to-communicate"></a>Cenário: A máquina não consegue comunicar com o serviço
+### <a name="machine-unable-to-communicate"></a>Cenário: Máquina não consegue comunicar com o serviço
 
 #### <a name="issue"></a>Problema
 
@@ -113,7 +142,7 @@ A função de trabalho de Runbook híbrida não foi capaz de gerar um certificad
 
 Verifique se conta de sistema tem acesso de leitura à pasta **C:\ProgramData\Microsoft\Crypto\RSA** e tente novamente.
 
-### <a name="nologs"></a>Cenário: Dados de gestão de atualizações não está a mostrar no Log Analytics para uma máquina
+### <a name="nologs"></a>Cenário: Atualizar os dados de gestão não está a mostrar no Log Analytics para uma máquina
 
 #### <a name="issue"></a>Problema
 
@@ -151,7 +180,7 @@ Faça duplo clique na exceção apresentada a vermelho para ver a mensagem de ex
 
 ## <a name="linux"></a>Linux
 
-### <a name="scenario-update-run-fails-to-start"></a>Cenário: Execução de atualização Falha ao iniciar
+### <a name="scenario-update-run-fails-to-start"></a>Cenário: Falha ao iniciar o execução da atualização
 
 #### <a name="issue"></a>Problema
 
@@ -169,7 +198,7 @@ Faça uma cópia do ficheiro de registo seguinte e preservá-la para fins de res
 /var/opt/microsoft/omsagent/run/automationworker/worker.log
 ```
 
-### <a name="scenario-update-run-starts-but-encounters-errors"></a>Cenário: Execução de atualização é iniciada, mas encontra erros
+### <a name="scenario-update-run-starts-but-encounters-errors"></a>Cenário: Execução da atualização é iniciada, mas se encontra erros
 
 #### <a name="issue"></a>Problema
 

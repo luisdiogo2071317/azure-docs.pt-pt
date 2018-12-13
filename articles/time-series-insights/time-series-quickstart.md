@@ -9,16 +9,16 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
-ms.custom: mvc
+ms.custom: mvc seodec18
 ms.date: 11/15/2017
-ms.openlocfilehash: 6d1e5951ed8cdd9542463ffc57be81e55e4b9194
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
-ms.translationtype: HT
+ms.openlocfilehash: 6b2a21cf50c03c8e44794540074dabf90049bc7c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629638"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275521"
 ---
-# <a name="quickstart-explore-azure-time-series-insights"></a>Guia de introdução: Explorar o Azure Time Series Insights
+# <a name="quickstart-explore-azure-time-series-insights"></a>Início rápido: Explorar o Azure Time Series Insights
 Este guia de introdução mostra como começar a utilizar o explorador do Azure Time Series Insights num ambiente de demonstração gratuito. Irá aprender a utilizar o seu browser para visualizar grandes volumes de dados de IoT e realizar uma visita guiada das principais funcionalidades do explorador do Time Series Insights. 
 
 O Azure Time Series Insights é um serviço de análise, armazenamento e visualização totalmente gerido que simplifica a exploração e a análise de milhões de eventos de IoT em simultâneo. Apresenta uma vista global dos seus dados, o que lhe permite validar rapidamente a sua solução IoT e evitar um período de indisponibilidade dispendioso para dispositivos fundamentais para a sua atividade ao ajudá-lo a descobrir tendências ocultas, detetar anomalias e realizar análises de causa raiz praticamente em tempo real.  Se está a criar uma aplicação que precisa de armazenar ou consultar dados de série de tempo, pode programar com as APIs REST do Time Series Insights.
@@ -71,7 +71,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 
 Depois de concluir o guia de introdução, pode experimentar com o conjunto de dados de exemplo para criar visualizações diferentes. 
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Passos Seguintes
 Está pronto para criar o seu próprio ambiente do Time Series Insights:
 > [!div class="nextstepaction"]
 > [Planeie o seu ambiente do Time Series Insights](time-series-insights-environment-planning.md)

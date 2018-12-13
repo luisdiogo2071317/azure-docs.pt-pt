@@ -1,7 +1,7 @@
 ---
-title: Como paginar as imagens disponíveis - API de pesquisa de imagens do Bing
+title: Página imagens devolvido pela API de pesquisa de imagens do Bing
 titleSuffix: Azure Cognitive Services
-description: Aprenda a página por meio de todas as imagens que o Bing pode devolver.
+description: Mover através de diferentes páginas de imagens devolvidas pela API de pesquisa de imagens do Bing.
 services: cognitive-services
 author: swhite-msft
 manager: cgonlun
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0db8c62bbb4da1a6fa1230b439c5074325bbe9c3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.custom: seodec2018
+ms.openlocfilehash: 69829066e543e5ab3badc4d1d3f77ff3c1d16ffd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739371"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259754"
 ---
-# <a name="paging-results"></a>Resultados de paginação
+# <a name="page-through-the-images-results"></a>Página através dos resultados de imagens
 
 Quando chama a API de pesquisa de imagens, o Bing devolve uma lista de resultados. A lista é um subconjunto do número total de resultados que são relevantes para a consulta. Para obter o número total de resultados disponíveis, acessar o objeto de resposta [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) campo.  
 

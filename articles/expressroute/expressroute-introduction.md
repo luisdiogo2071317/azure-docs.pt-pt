@@ -1,5 +1,5 @@
 ---
-title: 'Descrição geral do ExpressRoute: Expandir a sua rede no local para o Azure através de uma ligação privada | Microsoft Docs'
+title: 'Expanda a sua rede no local para o Azure através de uma ligação privada - descrição geral do ExpressRoute: Azure | Documentos da Microsoft'
 description: A Descrição Geral Técnica do ExpressRoute explica como funciona uma ligação do ExpressRoute para expandir a sua rede no local para o Azure através de uma ligação privada.
 services: expressroute
 author: mialdrid
@@ -7,19 +7,20 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/18/2018
 ms.author: mialdrid
-ms.openlocfilehash: fb3e7ac449934fe9fa36b1683bda20ff3e07f0f4
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 56baabb95a7873b48a27943a58b8e26c56efb6b7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429410"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139559"
 ---
 # <a name="expressroute-overview"></a>Descrição geral do ExpressRoute
-O Microsoft Azure ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, tais como o Microsoft Azure, o Office 365 e o Dynamics 365.
+O ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, tais como o Microsoft Azure, o Office 365 e o Dynamics 365.
 
 A conectividade pode ser a partir de uma rede qualquer a qualquer (VPN de IP), uma rede Ethernet de ponto a ponto ou uma ligação cruzada virtual através de um fornecedor de conectividade numa localização conjunta. As ligações do ExpressRoute não passam para a Internet pública. Tal permite que as ligações do ExpressRoute ofereçam mais fiabilidade, velocidades superiores, latências inferiores e uma maior segurança do que as ligações típicas através da Internet. Para obter informações sobre como ligar a sua rede à Microsoft com o ExpressRoute, consulte [Modelos de conectividade do ExpressRoute](expressroute-connectivity-models.md).
 
-![](./media/expressroute-introduction/expressroute-connection-overview.png)
+![Descrição geral de ligação do ExpressRoute](./media/expressroute-introduction/expressroute-connection-overview.png)
 
 ## <a name="key-benefits"></a>Principais vantagens
 
@@ -77,7 +78,7 @@ O ExpressRoute Direct permite aos clientes ligarem diretamente à rede global da
 As principais funcionalidades que o ExpressRoute Direct dispõe incluem, mas não se limitam a:
 
 * Ingestão de Dados em Massa em serviços como o Armazenamento e o Cosmos DB
-* Isolamento físico para setores que são regulamentados e exigem conectividade dedicada e isolada como: Bancos, Governo e Retalho
+* Isolamento físico para setores que estejam reguladas e exigir dedicado e isolado a conectividade, como: Banca, governamentais e varejo
 * Controlo granular de distribuição do circuito baseado na unidade de negócios
 
 Para obter mais informações, veja [Sobre o ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
@@ -110,7 +111,7 @@ Pode escolher um modelo de faturação que funciona melhor para si. Escolha entr
 ## <a name="faq"></a>FAQ
 Para perguntas mais frequentes sobre o ExpressRoute, veja [FAQ do ExpressRoute](expressroute-faqs.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [ExpressRoute connectivity models (Modelos de conectividade do ExpressRoute)](expressroute-connectivity-models.md).
 * Saiba mais sobre ligações ExpressRoute e domínios de encaminhamento. Veja [Circuitos ExpressRoute e domínios de encaminhamento](expressroute-circuit-peerings.md).
 * Encontre um fornecedor de serviços. Veja [Parceiros e localizações de peering do ExpressRoute ](expressroute-locations.md).

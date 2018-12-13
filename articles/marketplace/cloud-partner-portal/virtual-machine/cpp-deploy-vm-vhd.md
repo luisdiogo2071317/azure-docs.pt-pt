@@ -3,7 +3,7 @@ title: Implementar uma VM a partir dos VHDs para o Azure Marketplace | Documento
 description: Explica como registar uma VM a partir de um VHD implementadas no Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: pbutlerm
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 06ef4247d3cd7f87d763feb3f61cb8101d17a2e4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 9157ce7f8f16bc60a6d5c16fa992a5402cf2d7ad
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877121"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190735"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implementar uma VM a partir dos VHDs
 
-Este artigo explica como registar-se de uma máquina virtual (VM) a partir de um Azure implementadas com o disco rígido virtual (VHD).  Ele lista as ferramentas necessárias e como utilizá-los para criar uma imagem de VM do utilizador, em seguida, implementá-la para o Azure através da [portal do Microsoft Azure](https://ms.portal.azure.com/) ou scripts do PowerShell. 
+Esta secção explica como implementar uma máquina virtual (VM) a partir de um Azure implementadas com o disco rígido virtual (VHD).  Esta tabela indica as ferramentas necessárias e como usá-los para criar uma imagem de VM do utilizador, em seguida, implementá-la para o Azure com scripts do PowerShell.
 
 Depois de carregar os discos rígidos virtuais (VHDs) — o sistema de operativo VHD generalizado e zero ou mais VHDs de discos, à sua conta de armazenamento do Azure, pode registá-los como uma imagem de VM do utilizador. Em seguida, pode testar essa imagem. Uma vez que o sistema de operativo VHD é generalizado, é possível implementar diretamente a VM, fornecendo o URL de VHD.
 
@@ -33,48 +33,23 @@ Para mais informações sobre imagens VM, consulte as seguintes mensagens de blo
 - [PowerShell de imagem VM "Como"](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 
-## <a name="set-up-the-necessary-tools"></a>Configurar as ferramentas necessárias
+## <a name="prerequisite-install-the-necessary-tools"></a>Pré-requisito: instalar as ferramentas necessárias
 
 Se ainda não o fez, instale o Azure PowerShell e CLI do Azure, com as instruções seguintes:
-
-<!-- TD: Change the following URLs (in this entire topic) to relative paths.-->
 
 - [Instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 - [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
-## <a name="create-a-user-vm-image"></a>Criar uma imagem de VM do utilizador
+## <a name="deployment-steps"></a>Passos da implementação
 
-Em seguida, irá criar uma imagem não gerida a partir de seu VHD generalizado.
+Irá utilizar os seguintes passos para criar e implementar uma imagem de VM do utilizador:
 
-#### <a name="capture-the-vm-image"></a>Capturar a imagem VM
+1. Crie a imagem VM do utilizador, o que envolve a capturar e generalizar a imagem. 
+2. Criar certificados e armazená-los num novo cofre de chaves do Azure. Um certificado é necessário para estabelecer uma ligação segura de WinRM para a VM.  Um modelo Azure Resource Manager e um script do PowerShell do Azure são fornecidos. 
+3. Implemente a VM a partir de uma imagem de VM do utilizador, com o modelo fornecido e o script.
 
-Utilize as instruções no artigo sobre como capturar a VM que corresponde à sua abordagem de acesso:
-
--  PowerShell: [como criar uma imagem VM não gerida a partir de uma VM do Azure](../../../virtual-machines/windows/capture-image-resource.md)
--  CLI do Azure: [como criar uma imagem de uma máquina virtual ou VHD](../../../virtual-machines/linux/capture-image.md)
--  API: [capturar de máquinas virtuais -](https://docs.microsoft.com/rest/api/compute/virtualmachines/capture)
-
-### <a name="generalize-the-vm-image"></a>Generalize a imagem VM
-
-Uma vez que tê gerou a imagem do utilizador a partir de um VHD generalizado anteriormente, também deve ser generalizado.  Mais uma vez, selecione o seguinte artigo que corresponde ao seu mecanismo de acesso.  (Pode ter já generalizada seu disco quando capturou isso.)
-
--  PowerShell: [generalizar a VM](https://docs.microsoft.com/azure/virtual-machines/windows/sa-copy-generalized#generalize-the-vm)
--  CLI do Azure: [passo 2: imagem de VM de criar](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image#step-2-create-vm-image)
--  API: [generalizar de máquinas virtuais -](https://docs.microsoft.com/rest/api/compute/virtualmachines/generalize)
-
-
-## <a name="deploy-a-vm-from-a-user-vm-image"></a>Implementar uma VM a partir de uma imagem VM do utilizador
-
-Em seguida, irá implementar uma VM a partir de uma imagem de VM do utilizador, através do portal do Azure ou PowerShell.
-
-<!-- TD: Recapture following hilited images and replace with red-box. -->
-
-### <a name="deploy-a-vm-from-azure-portal"></a>Implementar uma VM a partir do portal do Azure
-
-Utilize o seguinte processo para implementar a sua VM de utilizador do portal do Azure.
-
-1.  Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Depois da VM é implementada, está pronto para [certificar a sua imagem VM](./cpp-certify-vm.md).
 
 2.  Clique em **New** e procure **implementação do modelo**, em seguida, selecione **criar seu próprio modelo no Editor**.  <br/>
   ![Criar modelo de implementação do VHD no portal do Azure](./media/publishvm_021.png)
@@ -124,4 +99,5 @@ Para implementar uma VM grande a partir da imagem de VM generalizada acabou de c
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois da VM é implementada, está pronto para [configurar a VM](./cpp-configure-vm.md).
+Em seguida, irá [criar uma imagem de VM do utilizador](cpp-create-user-image.md) para a sua solução.
+

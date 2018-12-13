@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 9340c5a70ac652f1cf0a8b0cddce8488e0a62eee
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: d86e543da5c7000f0140c1b6e53674a0fd22b0e4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978874"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194135"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
 
@@ -52,7 +52,7 @@ Os principais atributos de uma regra de alerta são:
 
 **Gravidade** – a gravidade do alerta assim que os critérios especificados na regra de alerta são cumpridos. Gravidade pode variar entre 0 e 4.
 
-**Ação** – uma ação específica tomada quando o alerta é acionado. Para obter mais informações, consulte [grupos de ação](monitoring-action-groups.md).
+**Ação** – uma ação específica tomada quando o alerta é acionado. Para obter mais informações, consulte [grupos de ação](../azure-monitor/platform/action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>O que pode alertar
 
@@ -122,7 +122,7 @@ Criar uma nova regra de alerta com os seguintes três passos:
  
 Este processo de criação simplificado já não necessita de saber a origem de monitorização ou sinais que são suportados antes de selecionar um recurso do Azure. A lista de sinais disponíveis automaticamente é filtrada com base no recurso de destino que selecionou. Também se baseia no que visam, é guiado pelos definir a lógica de regra de alerta automaticamente.  
 
-Pode saber mais sobre como criar regras de alerta no [criar, ver e gerir alertas ao utilizar o Azure Monitor](alert-metric.md).
+Pode saber mais sobre como criar regras de alerta no [criar, ver e gerir alertas ao utilizar o Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
 Alertas estão disponíveis em todo o Azure vários serviços de monitorização. Para obter informações sobre como e quando usar cada um desses serviços, consulte [aplicações de monitorização do Azure e recursos](../azure-monitor/overview.md). A tabela seguinte fornece uma listagem dos tipos de regras de alerta que estão disponíveis em todo o Azure. Também apresenta o que é atualmente suportado no que experiência de alerta.
 
@@ -130,7 +130,7 @@ Anteriormente, o Azure Monitor, o Application Insights, o Log Analytics e o esta
 
 | **Origem de monitor** | **Tipo de sinal**  | **Descrição** | 
 |-------------|----------------|-------------|
-| Estado de funcionamento do serviço | Registo de atividades  | Não suportado. Ver [criar alertas do registo de atividade nas notificações do serviço](monitoring-activity-log-alerts-on-service-notifications.md).  |
+| Estado de funcionamento do serviço | Registo de atividades  | Não suportado. Ver [criar alertas do registo de atividade nas notificações do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
 | Application Insights | Testes de disponibilidade da Web | Não suportado. Ver [alertas de teste Web](../application-insights/app-insights-monitor-web-app-availability.md). Disponível para qualquer Web site que foi instrumentada para enviar dados para o Application Insights. Receba uma notificação quando a disponibilidade ou a capacidade de resposta de um Web site é inferior expectativas. |
 
 
@@ -174,13 +174,13 @@ A página de detalhes de alerta inclui as secções seguintes.
 
 O registo de atividade e as métricas de Azure Monitor alertas capacidade antes de Junho de 2018 é chamado de "Alertas (clássico)". 
 
-Para obter mais informações, consulte [clássico de alertas](./monitoring-overview-alerts-classic.md)
+Para obter mais informações, consulte [clássico de alertas](./../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba mais sobre os grupos inteligente](https://aka.ms/smart-groups)
-- [Saiba mais sobre grupos de ação](monitoring-action-groups.md)
+- [Saiba mais sobre grupos de ação](../azure-monitor/platform/action-groups.md)
 - [Gestão das suas instâncias do alerta no Azure](https://aka.ms/managing-alert-instances)
 - [Gerir grupos inteligentes](https://aka.ms/managing-smart-groups)
 

@@ -1,5 +1,5 @@
 ---
-title: Texto dividir a habilidade de pesquisa cognitiva (Azure Search) | Documentos da Microsoft
+title: Texto a dividir a habilidade de pesquisa cognitiva - Azure Search
 description: Divida texto em segmentos ou páginas de texto com base no comprimento num pipeline de enriquecimento de Azure Search.
 services: search
 manager: pablocas
@@ -10,19 +10,17 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 583d2ac5a8ac4c236612cdfe78595da1812c56fa
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 376a5a2214c5f1d77439923d6a11aaad5e011e73
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730771"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313858"
 ---
 #   <a name="text-split-cognitive-skill"></a>Texto a dividir competências cognitivas
 
 O **divisão de texto** habilidade quebra o texto em segmentos de texto. Pode especificar se pretende dividem o texto em frases ou em páginas de um comprimento específico. Essa habilidade é especialmente útil se existirem texto máximo requisitos de comprimento de outras habilidades downstream. 
-
-> [!NOTE]
-> A Pesquisa Cognitiva está em pré-visualização pública. Conjunto de capacidades execução e a extração de imagem e a normalização atualmente são oferecidos gratuitamente. Posteriormente, os preços para estas capacidades serão anunciado. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
@@ -34,7 +32,7 @@ Parâmetros diferenciam maiúsculas de minúsculas.
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | textSplitMode      | "Páginas" ou "frases" | 
-| maximumPageLength | Se textSplitMode estiver definido como "páginas", isso se refere ao comprimento máximo de página, medido pela `String.Length`. O valor mínimo é 100. | 
+| maximumPageLength | Se textSplitMode estiver definido como "páginas", isso se refere ao comprimento máximo de página, medido pela `String.Length`. O valor mínimo é 100.  Se o textSplitMode estiver definido como "páginas", o algoritmo irá tentar dividir o texto em partes que têm mais de "maximumPageLenth" de tamanho. Neste caso, o algoritmo fará o melhor para interromper a frase num limite de sentença, portanto, o tamanho do segmento pode ser um pouco menor que "maximumPageLength". | 
 | defaultLanguageCode   | (opcional) Um dos seguintes códigos de idioma: `da, de, en, es, fi, fr, it, ko, pt`. A predefinição é o inglês (en). Alguns aspetos a considerar:<ul><li>Se passar um formato de languagecode-indicativo do país, é utilizada apenas a parte de languagecode no formato.</li><li>Se o idioma não estiver na lista anterior, a habilidade de divisão quebra o texto em limites dos caracteres.</li><li>Fornecer um código de idioma é útil para evitar cortando uma palavra em metade para não espaço idiomas como chinês, japonês e coreano.</li></ul>  |
 
 

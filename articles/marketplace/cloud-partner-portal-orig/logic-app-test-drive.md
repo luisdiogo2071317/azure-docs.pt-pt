@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 938472edf0c82da6f3e1fdaf4e6b052ac178bd8a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722978"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258207"
 ---
 <a name="logic-app-test-drive"></a>Unidade de teste da aplicação lógica
 ====================
@@ -29,7 +29,7 @@ Este artigo é para os publicadores que tem suas ofertas no AppSource e pretende
 <a name="how-to-build-a-logic-app-test-drive"></a>Como criar uma unidade de teste da aplicação lógica
 -----------------------------------
 
-Testar a unidade de documentação para versões de teste de aplicação lógica é, atualmente, ainda no github para [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app), aceda aqui para ler mais.
+Testar a unidade de documentação para versões de teste de aplicação lógica é, atualmente, ainda no GitHub para [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) e [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app), aceda aqui para ler mais.
 
 <a name="how-to-publish-a-test-drive"></a>Como publicar um Test Drive
 ---------------------------
@@ -40,7 +40,7 @@ Agora que tem a sua versão de teste criada, esta secção descreve cada um dos 
 
 O campo de primeiro e mais importante é ativar/desativar se pretende que o teste do formulário com todos os campos obrigatórios são apresentadas para que possa preencher. Quando seleciona **não,** o formulário torna-se desativado e se voltar a publicar com o Test-Drive desativada, a sua versão de teste é removido da produção.
 
-*Tenha em atenção*: Se não houver nenhuma unidade de teste ativamente utilizada por utilizadores, essas versões de teste continuará a ser executado até que a sessão expira.
+*Tenha em atenção*: Se houver quaisquer versões de teste ativamente utilizadas por utilizadores, essas versões de teste irá continuar a ser executado até a sessão expira.
 
 ### <a name="details"></a>Detalhes
 
@@ -70,11 +70,11 @@ A secção seguinte para preencher é onde configurar a aplicação de lógica d
 
 - **Região** - *[Field necessário]* a região que selecionou é onde escolhe em que os recursos de teste de unidade lógica aplicação são implementados no.
 
-    *Nota:* se a sua aplicação lógica tiver todos os recursos personalizados que estão armazenados numa região, certificar-se de que essa região está selecionada aqui. É a melhor forma de fazer isso **totalmente implementar a sua aplicação lógica localmente na sua subscrição do Azure no portal e certifique-se de que ele funciona** antes de os escrever aqui.
+    *Nota:* Se a sua aplicação lógica tiver todos os recursos personalizados que estão armazenados numa região, certificar-se de que essa região está selecionada aqui. É a melhor forma de fazer isso **totalmente implementar a sua aplicação lógica localmente na sua subscrição do Azure no portal e certifique-se de que ele funciona** antes de os escrever aqui.
 
 - **Máximo versões de teste de simultâneas** - *[Field necessário]* aceder a instâncias de número de teste de unidade de mensagens em fila que já estão implementados e espera por região selecionada. Os clientes podem aceder de forma instantânea este versões de teste, em vez de ter de esperar por uma implementação.
 
-    *Nota:* se estiver a executar uma webinar/classe onde pretende que todos os seu número de N de estudantes para fazer um Test Drive, recomenda-se para publicar com N diversas instâncias de acesso frequente e uma vez, em seguida, a classe está a terminar, voltar a publicar novamente para o seu número normal de instâncias de acesso frequente.
+    *Nota:* Se estiver a executar uma webinar/classe onde pretende que todos os seu número de N de estudantes para fazer um Test Drive, recomenda-se para publicar com N diversas instâncias de acesso frequente e uma vez, em seguida, a classe está a terminar, voltar a publicar novamente para o seu número normal de instâncias de acesso frequente.
 
 - **Teste de unidade de duração (horas) -** *[necessário Field]* duração para o tempo que o Test-Drive permanecerá ativo, em \# de horas. O Test-Drive automaticamente termina após o final deste período de tempo.
 

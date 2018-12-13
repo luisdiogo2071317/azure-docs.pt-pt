@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: executar uma tarefa do Apache Spark no Azure Databricks com o modelo do Resource Manager '
+title: 'Início rápido: Executar uma tarefa do Spark no Azure Databricks com o modelo do Resource Manager '
 description: O início rápido mostra como utilizar o modelo do Azure Resource Manager para criar uma área de trabalho do Azure Databricks, criar um cluster do Apache Spark e executar uma tarefa do Spark.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,14 +10,14 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/12/2018
-ms.openlocfilehash: 87aaf7108fabe0e4d96c4a2edd15db8531f1a828
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 793aa52c0eb49d122f520ead3ee80a869e7b62d9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578337"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251339"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início Rápido: Executar uma tarefa do Spark no Azure Databricks com o modelo do Azure Resource Manager
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início rápido: Executar uma tarefa do Spark no Azure Databricks com o modelo Azure Resource Manager
 
 Este início rápido mostra como criar uma área de trabalho do Azure Databricks com o modelo do Azure Resource Manager. Utilize a área de trabalho para criar um cluster do Apache Spark e executar uma tarefa do Spark no cluster do Databricks. Para obter mais informações sobre o Azure Databricks, veja [O que é o Azure Databricks?](what-is-azure-databricks.md)
 
@@ -80,7 +80,7 @@ Para obter mais informações sobre a criação de clusters, veja [Criar um clus
 Antes de começar esta secção, tem de satisfazer os seguintes pré-requisitos:
 
 * [Criar uma conta de armazenamento de Blobs do Azure](../storage/common/storage-quickstart-create-account.md).
-* Transferir um ficheiro JSON de exemplo [a partir do Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
+* Transferir um ficheiro JSON de exemplo [do GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 * Carregar o ficheiro JSON de exemplo para a conta de armazenamento de Blobs do Azure que criou. Pode utilizar o [Explorador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar ficheiros.
 
 Execute as tarefas seguintes para criar um bloco de notas no Databricks, configure o bloco de notas para ler dados a partir de uma conta de armazenamento de Blobs do Azure e, em seguida, execute uma tarefa SQL do Spark nos dados.

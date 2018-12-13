@@ -1,21 +1,21 @@
 ---
-title: 'Início rápido: Introdução ao Apache Hadoop e Apache Hive no HDInsight do Azure através do portal do Azure '
+title: 'Início rápido: Introdução ao Apache Hadoop e Apache Hive com o portal do Azure - Azure HDInsight'
 description: Saiba como criar clusters do HDInsight através do portal do Azure e consultar dados com o Hive.
 keywords: guia de introdução do hadoop, hadoop linux, início rápido do hadoop, introdução do hive, início rápido do hive
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017,mvc
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4cdb19de75a96df386c76ef49e7bab50e80f9097
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8917e193b3c7abbbd915746aada2e76822e44eed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012866"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163485"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Início rápido: Introdução ao Apache Hadoop e Apache Hive no HDInsight do Azure no portal do Azure
 
@@ -173,7 +173,7 @@ Neste tutorial, aprendeu a criar um cluster do HDInsight baseado em Linux com um
 Se estiver pronto para começar a trabalhar com os seus próprios dados e precisar de saber mais sobre a forma como o HDInsight armazena os dados ou como carregar dados para o HDInsight, consulte os seguintes artigos:
 
 * Para obter informações sobre como o HDInsight utiliza o Armazenamento do Azure, consulte [Utilizar o Armazenamento do Azure com o HDInsight](../hdinsight-hadoop-use-blob-storage.md).
-* Para obter informações sobre como criar um cluster do HDInsight com o Armazenamento do Data Lake, veja [Início Rápido: Configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* Para obter informações sobre como criar um cluster do HDInsight com o armazenamento do Data Lake, veja [início rápido: Configurar clusters no HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * Para obter informações sobre como carregar dados para o HDInsight, veja [Upload data to HDInsight](../hdinsight-upload-data.md) (Carregar dados para o HDInsight).
 
 Saiba mais sobre como analisar os dados com o HDInsight, veja os seguintes artigos:

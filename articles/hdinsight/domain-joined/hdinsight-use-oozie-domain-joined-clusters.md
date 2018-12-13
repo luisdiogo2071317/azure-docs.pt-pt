@@ -1,22 +1,23 @@
 ---
-title: Fluxos de trabalho Apache Oozie do Hadoop em clusters do HDInsight do Azure com o Enterprise Security Package
-description: Utilize o Oozie do Hadoop num pacote de segurança empresarial do HDInsight baseado em Linux. Saiba como definir um fluxo de trabalho do Oozie e submeter uma tarefa de Oozie.
+title: Fluxos de trabalho Apache Oozie com o Enterprise Security Package - Azure HDInsight seguros
+description: Proteja os fluxos de trabalho Apache Oozie com o Azure HDInsight Enterprise Security Package. Saiba como definir um fluxo de trabalho do Oozie e submeter uma tarefa de Oozie.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: mamccrea
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 298277b720045c06d78f1c4964de2246dac22f08
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: d0bc48e07efeaf8f09f177367da0570cf3c250ec
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633670"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165151"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Execute Apache Oozie no Hadoop do HDInsight clusters com o Enterprise Security Package
+
 Apache Oozie é um sistema de fluxo de trabalho e a coordenação que gere as tarefas do Apache Hadoop. Oozie está integrado com a pilha do Hadoop e suporta as seguintes tarefas:
 - Apache MapReduce
 - Apache Pig
@@ -26,6 +27,7 @@ Apache Oozie é um sistema de fluxo de trabalho e a coordenação que gere as ta
 Também pode utilizar o Oozie para agendar tarefas que são específicas para um sistema, como programas de Java ou scripts de shell.
 
 ## <a name="prerequisite"></a>Pré-requisito
+
 - Um cluster de Hadoop do Azure HDInsight com o pacote de segurança da empresa (ESP). Ver [clusters do HDInsight configurar com ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
@@ -224,8 +226,11 @@ nano workflow.xml
    Este ficheiro de propriedades tem de existir localmente ao executar os trabalhos de Oozie.
 
 ## <a name="create-custom-hive-scripts-for-oozie-jobs"></a>Criar scripts de Hive personalizados para as tarefas de Oozie
+
 Pode criar os dois scripts de Hive para servidor do Hive 1 e servidor do Hive 2, conforme mostrado nas seções a seguir.
+
 ### <a name="hive-server-1-file"></a>Ficheiro de 1 de servidor do Hive
+
 1.  Criar e editar um ficheiro para ações de servidor 1 do Hive:
     ```bash
     nano countrowshive1.hql
@@ -244,6 +249,7 @@ Pode criar os dois scripts de Hive para servidor do Hive 1 e servidor do Hive 2,
     ```
 
 ### <a name="hive-server-2-file"></a>Ficheiro de servidor 2 do Hive
+
 1.  Criar e editar um campo para ações de servidor 2 do Hive:
     ```bash
     nano countrowshive2.hql
@@ -262,11 +268,13 @@ Pode criar os dois scripts de Hive para servidor do Hive 1 e servidor do Hive 2,
     ```
 
 ## <a name="submit-oozie-jobs"></a>Submeter tarefas de Oozie
+
 Submeter tarefas de Oozie para clusters do ESP é como o envio de trabalhos de Oozie no clusters não ESP.
 
 Para obter mais informações, consulte [Oozie de utilização com o Hadoop para definir e executar um fluxo de trabalho no HDInsight do Azure baseado em Linux](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="results-from-an-oozie-job-submission"></a>Resultados de uma submissão de tarefas do Oozie
+
 Trabalhos de Oozie são executados para o utilizador. Então, Apache YARN e Apache Ranger auditoria registos show as tarefas em execução como o utilizador representado. A saída de interface de linha de comandos de uma tarefa de Oozie é semelhante ao seguinte código:
 
 
@@ -304,6 +312,7 @@ Trabalhos de Oozie são executados para o utilizador. Então, Apache YARN e Apac
 Os registos de auditoria do Ranger para ações de servidor 2 Hive mostram Oozie executar a ação do utilizador. As exibições do Ranger e YARN são visíveis apenas para o administrador de cluster.
 
 ## <a name="configure-user-authorization-in-oozie"></a>Configurar a autorização do utilizador no Oozie
+
 Oozie por si só tem uma configuração de autorização de utilizador que pode impedir que os utilizadores a parar ou eliminar tarefas de outros usuários. Para ativar esta configuração, defina o `oozie.service.AuthorizationService.security.enabled` para `true`. 
 
 Para obter mais informações, consulte [Oozie instalação e configuração](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
@@ -311,6 +320,7 @@ Para obter mais informações, consulte [Oozie instalação e configuração](ht
 Para componentes, como o servidor do Hive 1 em que o Ranger Plug-in não está disponível ou suportado, apenas de alta granularidade autorização HDFS, é possível. Autorização detalhada está disponível apenas através de plug-ins do Ranger.
 
 ## <a name="get-the-oozie-web-ui"></a>Obter a IU da web de Oozie
+
 A IU da web de Oozie fornece uma vista baseada na web para o estado das tarefas de Oozie no cluster. Para obter a IU da web, siga os passos seguintes em ESP clusters:
 
 1. Adicionar uma [nó de extremidade](../hdinsight-apps-use-edge-node.md) e ative [autenticação SSH Kerberos](../hdinsight-hadoop-linux-use-ssh-unix.md).

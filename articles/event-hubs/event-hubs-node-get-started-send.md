@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 15ba584e882dd5a28b74094f949843ed653ad400
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c75d4404cb0892c3d90261af2fb4982ac84041c4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104072"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163791"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>Enviar eventos para Hubs de eventos do Azure com node. js
 
@@ -36,10 +36,10 @@ Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um espaço de nomes de Hubs de Eventos e um hub de eventos
 O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento descrito [neste artigo](event-hubs-create.md) e, em seguida, continue com os passos seguintes deste tutorial.
 
-Obter a cadeia de ligação para o espaço de nomes do hub de eventos ao seguir as instruções do artigo: [obter cadeia de ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Irá utilizar a cadeia de ligação mais tarde neste tutorial.
+Obter a cadeia de ligação para o espaço de nomes do hub de eventos ao seguir as instruções do artigo: [Obter cadeia de ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Irá utilizar a cadeia de ligação mais tarde neste tutorial.
 
 ## <a name="clone-the-sample-git-repository"></a>Clonar o repositório de Git de exemplo
-Clonar o repositório de Git de exemplo da [Github](https://github.com/Azure/azure-event-hubs-node) no seu computador. 
+Clonar o repositório de Git de exemplo da [GitHub](https://github.com/Azure/azure-event-hubs-node) no seu computador. 
 
 ## <a name="install-nodejs-package"></a>Instalar o pacote de node. js
 Instale o pacote de node. js para os Hubs de eventos do Azure no seu computador. 
@@ -49,7 +49,7 @@ npm install @azure/event-hubs
 ```
 
 ## <a name="clone-the-git-repository"></a>Clonar o repositório de Git
-Transfira ou clone a [exemplo](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples) do Github. 
+Transfira ou clone a [exemplo](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples) do GitHub. 
 
 ## <a name="send-events"></a>Enviar eventos
 O SDK tem um clone contém vários exemplos que mostram-lhe como enviar eventos para um hub de eventos com node. js. Neste início rápido, vai utilizar o **simpleSender.js** exemplo. Para observar eventos a ser recebidos, abra outra terminal e receber eventos com o [receber exemplo](event-hubs-node-get-started-receive.md).

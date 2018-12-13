@@ -1,14 +1,11 @@
 ---
-title: 'Tutorial: VMs de Balanceador de Carga em múltiplas zonas de disponibilidade – Portal do Azure | Microsoft Docs'
+title: 'Tutorial: VMs de Balanceador de carga entre zonas de disponibilidade - portal do Azure'
+titlesuffix: Azure Load Balancer
 description: Este tutorial demonstra como criar um Balanceador de Carga Standard com front-end com redundância entre zonas para balancear a carga de VMs em múltiplas zonas de disponibilidade, através do portal do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 18b5f82a5181f0bbf7024b302b802684ef676c8f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304465"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255341"
 ---
-# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: VMs de balanceamento de carga em múltiplas zonas de disponibilidade com um Balanceador de Carga Standard, através do portal do Azure
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs por zonas de disponibilidade com um balanceador de carga Standard com o portal do Azure
 
 O balanceamento de carga oferece um nível mais elevado de disponibilidade ao propagar os pedidos recebidos por várias máquinas virtuais. Este tutorial descreve como criar um Balanceador de Carga Standard público que balanceia a carga de VMs em múltiplas zonas de disponibilidade. Isto ajuda a proteger as aplicações e os dados de uma falha pouco provável ou da perda de um datacenter completo. Com a redundância de zona, uma ou mais zonas de disponibilidade podem falhar e o caminho de dados mantém-se desde que uma zona na região permaneça em bom estado de funcionamento. Saiba como:
 
@@ -229,6 +226,6 @@ Para ver o balanceador de carga a distribuir tráfego nas VMs ao longo da zona, 
 
 Quando já não for necessário, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém o balanceador de carga e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais o [Balanceador de Carga Standard](load-balancer-standard-overview.md).

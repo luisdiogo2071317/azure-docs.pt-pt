@@ -1,5 +1,5 @@
 ---
-title: Monitorizar a utilização e estatísticas num serviço Azure Search | Documentos da Microsoft
+title: Monitorizar a utilização e estatísticas para um serviço de pesquisa - Azure Search
 description: Controlar o tamanho de consumo e o índice de recursos do Azure Search, um serviço de pesquisa de nuvem alojada no Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 274513c7e8ad1ca9ed0452f6237eec4ebb38e9cd
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.custom: seodec2018
+ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134867"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314164"
 ---
-# <a name="monitoring-an-azure-search-service"></a>Monitorização de um serviço Azure Search
+# <a name="monitor-an-azure-search-service-in-azure-portal"></a>Monitorizar um serviço de Azure Search no portal do Azure
 
 O Azure Search oferece vários recursos para o controlo de utilização e desempenho dos serviços de pesquisa. Dá-lhe acesso a métricas, registos, estatísticas de índice e capacidades de monitorização expandidas no Power BI. Este artigo descreve como ativar as diferentes estratégias de monitorização e como interpretar os dados resultantes.
 
@@ -26,9 +27,9 @@ Métricas dão-lhe perto de visibilidade em tempo real para o serviço de pesqui
 
 O Azure Search recolhe dados de três métricas diferentes:
 
-* Latência de pesquisa: o serviço de pesquisa necessário para processar consultas de pesquisa, agregadas por cada minuto de tempo.
-* Pesquisar consultas por segundo (QPS): número de pesquisa agregada de consultas recebidas por segundo, por minuto.
-* Percentagem de consulta de pesquisa limitada: percentagem de consultas de pesquisa que eram limitados, agregados por minuto.
+* Latência de pesquisa: O serviço de pesquisa necessário para processar consultas de pesquisa, agregadas por cada minuto de tempo.
+* Consultas de pesquisa por segundo (QPS): Número de pesquisa agregada de consultas recebidas por segundo, por minuto.
+* Percentagem de consultas de pesquisa limitados: Percentagem de consultas de pesquisa que eram limitados, agregados por cada minuto.
 
 ![Atividade de captura de ecrã de QPS][1]
 
@@ -71,7 +72,7 @@ Pode exportar os registos de operações para o seu serviço e os dados não pro
 ### <a name="enabling-monitoring"></a>A ativação da monitorização
 Abra o serviço Azure Search no [portal do Azure](http://portal.azure.com) sob a opção de ativar a monitorização.
 
-Escolher os dados que pretende exportar: registos, métricas ou ambos. Pode copiá-lo para uma conta de armazenamento, enviá-lo para um hub de eventos ou exportá-lo para o Log Analytics.
+Escolha os dados que pretende exportar: Os registos, métricas ou ambos. Pode copiá-lo para uma conta de armazenamento, enviá-lo para um hub de eventos ou exportá-lo para o Log Analytics.
 
 ![Como ativar a monitorização no portal][3]
 
@@ -99,7 +100,7 @@ Cada blob tem registos em todas as operações que ocorreu durante a mesma hora.
 | operationName |cadeia |"Query.Search" |O nome da operação |
 | operationVersion |cadeia |"2015-02-28" |A api-version utilizada |
 | categoria |cadeia |"OperationLogs" |constante |
-| resultType |cadeia |"Êxito" |Valores possíveis: êxito ou falha |
+| resultType |cadeia |"Êxito" |Valores possíveis: Êxito ou falha |
 | resultSignature |int |200 |Código de resultado HTTP |
 | durationMS |int |50 |Duração da operação em milissegundos |
 | propriedades |objeto |consulte a tabela seguinte |Objeto que contém dados específicos da operação |

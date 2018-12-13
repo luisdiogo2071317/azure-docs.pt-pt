@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: c4325f0c9de0d945d1612a3ab4171a2bfe1be25b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106520"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164420"
 ---
 # <a name="create-and-clone-projects"></a>Criar e clonar projetos
 
@@ -42,7 +42,7 @@ O que pode fazer no dashboard depende se iniciou sessão com a conta que possui 
 | **Eliminar** | Proprietário | Elimina o projeto selecionado. Esta operação não pode ser anulada. |
 | **Terminal** | Proprietário | Inicia o servidor de projeto, em seguida, abre-se de uma nova janela do browser com o bash para esse servidor de terminal. |
 | **+ Novo projeto** | Proprietário | Cria um novo projeto. Ver [criar um novo projeto](#create-a-new-project). |
-| **Carregar o repositório do Github** | Proprietário | Importa um projeto do GitHub. [Importar um projeto do GitHub](#import-a-project-from-github). |
+| **Carregar o repositório do GitHub** | Proprietário | Importa um projeto do GitHub. [Importar um projeto do GitHub](#import-a-project-from-github). |
 | **Clone** | Qualquer pessoa | Copia um projeto selecionado para a sua própria conta. Pede-lhe para iniciar sessão em se não o tiver feito. Ver [clonar um projeto](#clone-a-project). |
 
 ### <a name="obtain-a-launch-badge"></a>Obter um destaque de lançamento
@@ -105,9 +105,9 @@ Para clonar um projeto:
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Explore os blocos de notas de exemplo](azure-notebooks-samples.md)
-- [Como: configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
-- [Como: apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
-- [Como: trabalhar com arquivos de dados](work-with-project-data-files.md)
-- [Como: aceder aos recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Como: utilizar o Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [Como: Instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
+- [Como: Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
+- [Como: Trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [Como: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [Como: Utilizar o Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: criar base de dados de conhecimento - REST, Node.js - Criador de FAQ'
+title: 'Início rápido: Criar base de dados de conhecimento - REST, node. js - QnA Maker'
 description: Este início rápido baseado em REST descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no Dashboard do Azure da sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: a9a6470e8dc7b9f82ae8db586fcbd6629d8ed757
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 8d9f1bf746c98d16539fdd3332977611f072bfff
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235569"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259703"
 ---
-# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>Início Rápido: criar uma base de dados de conhecimento no Criador de FAQ com o Node.js
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>Início rápido: Criar uma base de dados de conhecimento no QnA Maker com node. js
 
 Este início rápido descreve a criação e publicação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API. 
 
@@ -29,7 +29,7 @@ Este início rápido chama as APIs do Criador de FAQ:
 * [Node.js 6+](https://nodejs.org/en/download/)
 * Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para obter a sua chave, selecione **Chaves** em **Gestão de Recursos** no seu dashboard. 
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 ## <a name="create-a-knowledge-base-nodejs-file"></a>Criar um ficheiro Node.js de base de dados de conhecimento
 
@@ -120,7 +120,7 @@ Assim que a sua base de dados de conhecimento é criada, pode visualizá-la no s
 
 [!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

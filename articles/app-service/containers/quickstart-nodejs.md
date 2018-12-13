@@ -1,5 +1,5 @@
 ---
-title: Criar um Node.js no Serviço de Aplicações do Azure no Linux | Microsoft Docs
+title: Criar aplicação web do node. js no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Implemente em minutos o seu primeiro Node.js Hello World no Serviço de Aplicações do Azure no Linux.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 44c3f8ce05854e993ad551a025eec447d882c326
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 22a022b12e931fd4edf139038eb7506e69422f8e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969549"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253589"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web Node.js no Serviço de Aplicações do Azure no Linux
 
@@ -200,7 +200,7 @@ az group delete --name appsvc_rg_Linux_CentralUS
 
 Este comando pode demorar alguns minutos a ser executado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Node.js com MongoDB](tutorial-nodejs-mongodb-app.md)

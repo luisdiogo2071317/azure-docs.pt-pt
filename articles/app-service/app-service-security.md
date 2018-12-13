@@ -1,5 +1,5 @@
 ---
-title: Segurança no serviço de aplicações do Azure e as funções do Azure | Documentos da Microsoft
+title: Descrição geral de segurança - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba mais sobre como o serviço de aplicações ajuda a proteger seu aplicativo e como pode mais bloquear a aplicação de ameaças.
 keywords: serviço de aplicações do Azure, aplicação web, aplicação móvel, a aplicação de api, aplicação de funções, segurança, segura e protegida, conformidade, em conformidade, certificado, certificados, https, ftps, tls, confiança, encriptação, encriptar, encriptados, restrições de ip, autenticação, autorização, authn, autho, msi, identidade de serviço gerida, identidade gerida, segredos, segredo, aplicação de patches, patch, patches, versão, isolamento, isolamento de rede, ddos, mitm
 services: app-service
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 3bacc2bf253a6b8c3b869b7a6d4952d982de3ee6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18
+ms.openlocfilehash: 7c2297fa5f7ebaae1c54794ebbbd37e25d3931ca
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857504"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251475"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Segurança no serviço de aplicações do Azure e as funções do Azure
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 5f6f3f61b5f7a06ac4056499edfb811780838cdc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bd3bcd575e8e0f60d5d8f9640aa7b0ed4935249e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441882"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273226"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>Configurar alertas de estado de funcionamento do serviço com PagerDuty
 
@@ -38,7 +38,7 @@ Este artigo mostra-lhe como configurar notificações de estado de funcionamento
 
     a. **Tipo de integração**: Microsoft Azure
 
-    b. **Nome de integração**: \<nome\>
+    b. **Nome de integração**: \<Nome\>
 
     ![As "definições de integração" PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 
@@ -50,15 +50,15 @@ Este artigo mostra-lhe como configurar notificações de estado de funcionamento
 
 ## <a name="create-an-alert-using-pagerduty-in-the-azure-portal"></a>Criar um alerta com PagerDuty no portal do Azure
 ### <a name="for-a-new-action-group"></a>Para um novo grupo de ação:
-1. Siga os passos 1 a 8 na [criar um alerta numa notificação de estado de funcionamento do serviço para um novo grupo de ação com o portal do Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+1. Siga os passos 1 a 8 na [criar um alerta numa notificação de estado de funcionamento do serviço para um novo grupo de ação com o portal do Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 1. Definir na lista de **ações**:
 
     a. **Tipo de ação:** *Webhook*
 
-    b. **Detalhes:** o PagerDuty **URL de integração** tinha guardado.
+    b. **Detalhes:** O PagerDuty **URL de integração** tinha guardado.
 
-    c. **Nome:** do Webhook nome, o alias ou o identificador.
+    c. **Nome:** Do Webhook nome, alias ou identificador.
 
 1. Selecione **guardar** quando terminar de criar o alerta.
 
@@ -73,14 +73,14 @@ Este artigo mostra-lhe como configurar notificações de estado de funcionamento
 
     a. **Tipo de ação:** *Webhook*
 
-    b. **Detalhes:** o PagerDuty **URL de integração** tinha guardado.
+    b. **Detalhes:** O PagerDuty **URL de integração** tinha guardado.
 
-    c. **Nome:** do Webhook nome, o alias ou o identificador.
+    c. **Nome:** Do Webhook nome, alias ou identificador.
 
 1. Selecione **guardar** quando terminar de atualizar o grupo de ação.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Teste a sua integração de webhook através de um pedido POST de HTTP
-1. Crie o payload de estado de funcionamento do serviço que pretende enviar. Pode encontrar um payload de webhook do Estado de funcionamento do serviço do exemplo na [alertas de registo de Webhooks para atividades do Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Crie o payload de estado de funcionamento do serviço que pretende enviar. Pode encontrar um payload de webhook do Estado de funcionamento do serviço do exemplo na [alertas de registo de Webhooks para atividades do Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Crie um pedido POST de HTTP da seguinte forma:
 
@@ -97,6 +97,6 @@ Este artigo mostra-lhe como configurar notificações de estado de funcionamento
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba como [configurar notificações de webhook para sistemas de gestão existentes do problema](service-health-alert-webhook-guide.md).
-- Reveja os [esquema de webhook de alerta de registo de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Reveja os [esquema de webhook de alerta de registo de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre [notificações de estado de funcionamento de serviço](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Saiba mais sobre [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md).

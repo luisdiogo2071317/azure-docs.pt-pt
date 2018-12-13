@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 060314bd56d477bad3dcb3333ba02c5f4786b476
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2565a799c5ac33644a06a942cddcc9eb4dad22dc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082769"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162567"
 ---
-# <a name="ordinal-entity"></a>Entidade ordinal
+# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Ordinal entidade criados previamente para uma aplicação LUIS
 Número de ordinal é uma representação numérica de um objeto dentro de um conjunto: `first`, `second`, `third`. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém ordinal para os objetivos do aplicativo. Entidade ordinal é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-ordinal"></a>Tipos de ordinal
-Ordinal é gerido a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) repositório do Github
+Ordinal é gerido a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) repositório do GitHub
 
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Resolução de entidade ordinal pré-criados
 O exemplo seguinte mostra a resolução do **builtin.ordinal** entidade.

@@ -1,6 +1,6 @@
 ---
-title: Filtros na Azure Search | Microsoft Docs
-description: Filtrar por identidade de segurança do utilizador, idioma, geolocalização ou valores numéricos para reduzir os resultados da pesquisa em consultas na Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure.
+title: Filtros para controlar o âmbito resultados da pesquisa de um índice - Azure Search
+description: Filtrar por identidade de segurança do utilizador, idioma, localização geográfica ou valores numéricos para reduzir os resultados da pesquisa em consultas no Azure Search, um serviço de pesquisa de nuvem alojada no Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,67 +8,68 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: 9f891dbe3f051f2fb5bfd242830f3c30abede487
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: d99196e231d122fcb0e707d30aed4d3b3eb2b89d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191371"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310356"
 ---
 # <a name="filters-in-azure-search"></a>Filtros no Azure Search 
 
-A *filtro* fornece critérios de seleção de documentos utilizados numa consulta de pesquisa do Azure. Procura e não filtrada inclui todos os documentos no índice. Um filtro de âmbitos de uma consulta de pesquisa a um subconjunto de documentos. Por exemplo, um filtro pode restringir a pesquisa em texto completo para apenas esses produtos ter uma marca específica ou a cor, em pontos de preços acima de um determinado limiar.
+R *filtro* fornece critérios para a seleção de documentos usados numa consulta de pesquisa do Azure. Pesquisa não filtrada inclui todos os documentos no índice. Um filtro de âmbitos de uma consulta de pesquisa a um subconjunto de documentos. Por exemplo, um filtro poderia restringir a pesquisa em texto completo para apenas os produtos com uma marca específica ou a cor, em pontos de preço acima de um determinado limiar.
 
-Alguns experiências de pesquisa impõe requisitos de filtro como parte da implementação, mas pode utilizar filtros sempre que pretende restringir a utilização de pesquisa *baseado no valor* critérios (definir o âmbito de pesquisa para o tipo de produto "books" para a categoria" não-fiction"publicado por"Simon e Schuster").
+Algumas experiências de pesquisa impõem requisitos de filtro como parte da implementação, mas pode utilizar filtros sempre que quiser restringir a pesquisa usando *com base no valor* critérios (âmbito procure para o tipo de produto "livros" category" não-fiction"publicado por"Simon & Schuster").
 
-Se em vez disso, o seu objetivo é visada pesquisa sobre dados específicos do *estruturas* (definir o âmbito de pesquisa a um campo de revisões de cliente), existem métodos alternativos, descritos abaixo.
+Se em vez disso, o seu objetivo é uma pesquisa direcionada em dados específicas *estruturas* (pesquise âmbito para um campo de opiniões de clientes), existem métodos alternativos, descritos abaixo.
 
 ## <a name="when-to-use-a-filter"></a>Quando utilizar um filtro
 
-Os filtros são fundamentais sobre para várias experiências de pesquisa, incluindo "Localizar quase-me", segurança e navegação por facetas filtra que mostram apenas esses documentos de um utilizador está autorizado a ver. Se implementar qualquer um destes experiências, um filtro é necessário. É o filtro anexado à consulta de pesquisa que fornece as coordenadas de geolocalização, a categoria de faceta selecionada pelo utilizador ou o ID de segurança do requerente.
+Os filtros são fundamentais para várias experiências de pesquisa, incluindo "encontrar perto de mim", navegação por facetas e a segurança filtra que mostram apenas esses documentos de um utilizador tem permissão para ver. Se implementar qualquer um destas experiências, um filtro é necessário. É o filtro anexado à consulta de pesquisa que fornece as coordenadas de localização geográfica, a categoria de faceta selecionada pelo utilizador ou o ID de segurança do requerente.
 
 Cenários de exemplo incluem o seguinte:
 
-1. Utilize um filtro para o índice com base nos valores de dados no índice do setor. Tendo em conta um esquema com cidade, tipo housing e amenities, poderá criar um filtro para selecionar explicitamente documentos que satisfaçam os critérios (em Seattle, condos, marítima de são Francisco). 
+1. Utilize um filtro para segmentar o seu índice com base nos valores de dados no índice. Devido um esquema com a cidade, o tipo de alojamento e características, poderá criar um filtro para selecionar explicitamente os documentos que satisfazem os critérios (em Seattle, condos, frente marítima). 
 
-  Pesquisa em texto completo com as mesmas entradas frequentemente produz resultados semelhantes, mas um filtro é mais preciso requer uma correspondência exata do termo de filtro de conteúdos no seu índice. 
+  Pesquisa em texto completo com as entradas do mesmo, muitas vezes, produz resultados semelhantes, mas é mais preciso um filtro em que ele requer uma correspondência exata do termo de filtro estrita de conteúdos no seu índice. 
 
-2. Utilize um filtro se a experiência de pesquisa é fornecido com um requisito de filtro:
+2. Utilize um filtro, se a experiência de pesquisa é fornecido com um requisito de filtro:
 
- * [Navegação por facetas](search-faceted-navigation.md) utiliza um filtro para passar volta a categoria de faceta selecionada pelo utilizador.
- * Georreplicação-search utiliza um filtro para transmitir as coordenadas da localização atual no "Localizar quase-me" aplicações. 
- * Filtros de segurança de passar identificadores de segurança como critérios de filtro, onde uma correspondência no índice funciona como um proxy para direitos de acesso ao documento.
+ * [Navegação por facetas](search-faceted-navigation.md) utiliza um filtro para transmitir de volta a categoria de faceta selecionada pelo usuário.
+ * Pesquisa geográfica utiliza um filtro para passar as coordenadas da localização atual no "encontrar perto de mim" aplicações. 
+ * Filtros de segurança passam identificadores de segurança como critérios de filtro, em que uma correspondência no índice serve como um proxy para os direitos de acesso ao documento.
 
-3. Utilize um filtro se pretender que os critérios de pesquisa num campo numérico. 
+3. Utilize um filtro, se pretender que os critérios de pesquisa num campo numérico. 
 
-  Os campos numéricos são recuperável no documento e podem aparecer nos resultados da pesquisa, mas não são pesquisáveis (sujeitos a pesquisa em texto completo) individualmente. Se precisar de critérios de seleção de com base em dados numéricos, utilize um filtro.
+  Campos numéricos são recuperáveis no documento e podem aparecer nos resultados da pesquisa, mas não são pesquisáveis (sujeito a pesquisa em texto completo) individualmente. Se precisar de critérios de seleção com base em dados numéricos, utilize um filtro.
 
 ### <a name="alternative-methods-for-reducing-scope"></a>Métodos alternativos para reduzir o âmbito
 
-Se pretender um efeito para diminuir nos resultados da pesquisa, filtros não são à sua escolha apenas. Estas alternativas pode ser uma opção melhor, consoante o objetivo:
+Se quiser que um efeito de restrição de seus resultados de pesquisa, os filtros não são sua única escolha. Essas alternativas poderiam ser a melhor opção, consoante o seu objetivo:
 
- + `searchFields` o parâmetro de consulta pegs pesquisa a campos específicos. Por exemplo, se o seu índice fornece os campos separados para obter descrições em inglês e espanhol, pode utilizar searchFields para os campos a utilizar para pesquisa em texto completo de destino. 
+ + `searchFields` parâmetro de consulta pegs pesquisa a campos específicos. Por exemplo, se o índice fornece campos separados para obter descrições em inglês e espanhol, pode utilizar searchFields para direcionar os campos a utilizar para pesquisa em texto completo. 
 
-+ `$select` parâmetro é utilizado para especificar os campos para incluir num resultado de definir, trimming efetivamente a resposta antes de a enviar para a aplicação de chamada. Este parâmetro não refine a consulta ou reduza a coleção de documentos, mas se uma resposta granular sobre o seu objetivo, este parâmetro é uma opção a ter em consideração. 
++ `$select` parâmetro é utilizado para especificar quais campos serão incluídos num resultado de definir, com eficiência cortar a resposta antes de os enviar ao aplicativo de chamada. Este parâmetro não refinar a consulta ou reduzir a coleção de documentos, mas se uma resposta granular é o seu objetivo, este parâmetro é uma opção a considerar. 
 
-Para obter mais informações sobre o parâmetro, consulte [documentos sobre pesquisa > pedido > parâmetros de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
+Para obter mais informações sobre qualquer parâmetro, consulte [documentos sobre pesquisa > Pedir > parâmetros de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
 
 
 ## <a name="filters-in-the-query-pipeline"></a>Filtros no pipeline de consulta
 
-No momento da consulta, um analisador de filtro aceita critérios como entrada, converte a expressão atómicas expressões e baseia-se de uma árvore de filtros, em seguida, é avaliada através de campos filtráveis num índice.  
+No momento da consulta, um analisador de filtro aceita critérios como entrada, converte a expressão em expressões booleanas atômicas e cria uma árvore de filtros, em seguida, é avaliada através de campos filtráveis num índice.  
 
-Filtragem ocorre antes de pesquisa, elegíveis os documentos para incluir no processamento a jusante para obtenção de documento e relevância classificação. Quando emparelhado com uma cadeia de procura, o filtro de forma eficaz reduz a área de superfície da operação de pesquisa subsequentes. Quando utilizado individualmente (por exemplo, quando a cadeia de consulta está vazio onde `search=*`), os critérios de filtro é a entrada única. 
+Filtragem ocorre antes de pesquisa, qualificar quais documentos para incluir no processamento a jusante para obtenção de documento e a pontuação de relevância. Quando combinado com uma cadeia de caracteres de pesquisa, o filtro reduz efetivamente a área de superfície da operação de pesquisa subsequentes. Quando usada sozinha (por exemplo, quando a cadeia de consulta está vazia onde `search=*`), os critérios de filtro é a única entrada. 
 
 ## <a name="filter-definition"></a>Definição do filtro
 
-Os filtros são expressões de OData, articulated utilizando um [subconjunto da sintaxe de OData V4 suportado na Azure Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+Os filtros são expressões de OData, articuladas usando um [subconjunto da sintaxe de OData V4 suportado no Azure Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
-Pode especificar um filtro para cada **pesquisa** operação, mas o filtro de si próprio pode incluir vários campos, vários critérios, e se utilizar um **ismatch** função, várias expressões. Uma expressão de filtro com várias partes, pode especificar predicados por qualquer ordem. Não há nenhum significativa na ganhos no desempenho se tentar reorganizar predicados numa sequência específico.
+Pode especificar um filtro para cada **pesquisa** operação, mas o filtro em si pode incluir vários campos, vários critérios, e se usar um **ismatch** função, várias expressões. Numa expressão de filtro com várias partes, pode especificar predicados por qualquer ordem. Não há nenhum ganho considerável no desempenho se tentar reorganizar predicados numa sequência específica.
 
-O limite do disco rígido uma expressão de filtro é o limite máximo no pedido. O pedido completo, que inclui o filtro, pode ter um máximo de 16 MB para o POST ou 8 KB para o GET. Os limites parciais está correlacionado com o número de cláusulas na expressão de filtro. Uma boa regra geral é que se tiver centenas de cláusulas, está em risco de execução para o limite. É recomendável conceber a sua aplicação de forma a que não gere os filtros de tamanho unbounded.
+O limite do disco rígido uma expressão de filtro é o limite máximo na solicitação. O pedido completo, que inclui o filtro, pode ter um máximo de 16 MB para o POST ou 8 KB para o GET. Correlacionam os limites flexíveis para o número de cláusulas na sua expressão de filtro. Uma boa regra prática é que se tiver centenas de cláusulas, está em risco de em execução para o limite. Recomendamos a criação do seu aplicativo de tal forma que ele não gera filtros de tamanho não vinculado.
 
-Os exemplos seguintes representam as definições de filtro prototypical em várias APIs.
+Os exemplos a seguir representam as definições do filtro prototípico em várias APIs.
 
 ```http
 # Option 1:  Use $filter for GET
@@ -93,23 +94,23 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ```
 
-## <a name="filter-design-patterns"></a>Padrões de conceção de filtro
+## <a name="filter-design-patterns"></a>Padrões de design de filtro
 
-Os exemplos seguintes mostram vários padrões de conceção para cenários de filtro. Para obter mais ideias, consulte [sintaxe de expressão de OData > exemplos](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
+Os exemplos seguintes mostram vários padrões de design para cenários de filtro. Para obter mais ideias, consulte [sintaxe da expressão OData > exemplos](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
 
-+ Autónomo **$filter**, sem uma cadeia de consulta, útil quando a expressão de filtro é capaz de qualificar completamente a documentos de interesse. Sem uma cadeia de consulta, não há nenhum lexical ou linguístico análise, sem classificação e sem classificação. Tenha em atenção de que a cadeia de procura está vazia.
++ Autónomo **$filter**, sem uma cadeia de consulta, útil quando a expressão de filtro é capaz de qualificar completamente a documentos de interesse. Sem uma cadeia de consulta, não existe nenhuma análise lexical ou linguística, sem pontuação e nenhuma classificação. Tenha em atenção que a cadeia de pesquisa está vazia.
 
    ```
    search=*&$filter=(baseRate ge 60 and baseRate lt 300) and accommodation eq 'Hotel' and city eq 'Nogales'
    ```
 
-+ Combinação de cadeia de consulta e **$filter**, onde o filtro cria o subconjunto, e a cadeia de consulta fornece as entradas do termo de pesquisa em texto completo sobre o subconjunto filtrado. A utilização de um filtro com uma cadeia de consulta é o padrão do código mais comuns.
++ Combinação de cadeia de consulta e **$filter**, em que o filtro cria o subconjunto e a cadeia de consulta fornece as entradas do termo de pesquisa em texto completo sobre o subconjunto filtrado. Utilizar um filtro com uma cadeia de consulta é o padrão de código mais comuns.
 
    ```
    search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) and city eq 'Los Angeles'
    ```
 
-+ Composta consultas, separadas por "ou", cada um com os seus próprios critérios de filtro (por exemplo, ' beagles' no 'preguiçoso') ou 'siamese' no 'cat'. OU tinha as expressões são avaliadas individualmente, com as respostas a partir de cada um combinados uma resposta enviada para a aplicação de chamada. Neste padrão de conceção é conseguido através da função de search.ismatch. Pode utilizar a versão não classificação (search.ismatch) ou a versão de classificação (search.ismatchscoring).
++ Componha consultas, separadas por "ou", cada um com seus próprios critérios de filtro (por exemplo, "beagles" em "cachorro") ou "siamese" em "gato". OU tinha as expressões são avaliadas individualmente, com as respostas de cada um combinados numa resposta enviada de volta ao aplicativo de chamada. Este padrão de design é obtido por meio da função de search.ismatch. Pode utilizar a versão de não de classificação de mensagens em fila (search.ismatch) ou a versão de classificação (search.ismatchscoring).
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -119,56 +120,56 @@ Os exemplos seguintes mostram vários padrões de conceção para cenários de f
    $filter=search.ismatchscoring('luxury | high-end', 'description') or category eq 'Luxury'
    ```
 
-Siga cópias de segurança com estes artigos para obter orientações sobre abrangente em casos de utilização específicos:
+Acompanhe os os artigos seguintes para orientações abrangentes em casos de uso específico:
 
 + [Filtros de facetas](search-filters-facets.md)
 + [Filtros de idioma](search-filters-language.md)
 + [limitação de segurança](search-security-trimming-for-azure-search.md) 
 
-## <a name="field-requirements-for-filtering"></a>Requisitos de campo para filtrar
+## <a name="field-requirements-for-filtering"></a>Requisitos do campo para filtragem
 
-A API REST, filtrável é *no* por predefinição. Filtráveis campos aumentam o tamanho do índice; Certifique-se definir `filterable=FALSE` para os campos que não pretende utilizar, na verdade, num filtro. Para obter mais informações sobre as definições para definições de campo, consulte [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Na API do REST, é o filtrável *no* por predefinição. Os campos filtráveis aumentam o tamanho do índice; Certifique-se de que definir `filterable=FALSE` para os campos que não planeja, na verdade, utilize um filtro. Para obter mais informações sobre as definições para definições de campo, veja [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-O SDK .NET, o filtrável é *desativar* por predefinição. A API para definir a propriedade filtrável [IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). No exemplo abaixo, o conjunto na definição de campo BaseRate.
+No SDK do .NET, é o filtrável *desativar* por predefinição. É a API para definir a propriedade filtrável [IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). No exemplo abaixo, seu conjunto sobre a definição de campo BaseRate.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
     public double? BaseRate { get; set; }
 ```
 
-### <a name="reindexing-requirements"></a>Requisitos de reindexing
+### <a name="reindexing-requirements"></a>Requisitos de reindexação
 
-Se um campo é não filtrável e que pretende tornar filtrável, terá de adicionar um novo campo ou reconstrua o campo existente. Alterar uma definição de campo altera a estrutura física do índice. Na Azure Search, todos os caminhos de acesso permitido são indexados para a velocidade de consulta rápida, que exige uma reconstrução do mesmo as estruturas de dados quando forem efetuadas alterações de definições de campo. 
+Se um campo é não filtradas e quiser torná-lo filtráveis, terá de adicionar um novo campo, ou recriar o campo existente. Alterar uma definição de campo altera a estrutura física do índice. No Azure Search, todos os caminhos de acesso permitidos são indexados para a velocidade de consulta rápida, que exige uma reconstrução das estruturas de dados quando alterar definições de campo. 
 
-Reconstruir campos individuais, pode ser uma operação de impacto baixa, que requerem apenas uma operação de intercalação que envia a chave de documento existente e valores associados para o índice, se deixar o resto cada documento. Se tiver um requisito de reconstrução, consulte as seguintes ligações para instruções:
+A reconstrução de campos individuais pode ser uma operação de baixo impacto, exigindo apenas uma operação de intercalação que envia a chave de documento existente e valores associados para o índice, deixando intactos os o resto de cada documento. Se tiver um requisito de recompilação, veja as ligações seguintes para obter instruções:
 
- + [Ações de indexação utilizando o SDK .NET](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
- + [Ações de indexação utilizando a API REST](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
+ + [Ações de indexação com o SDK .NET](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
+ + [Ações de indexação com a API REST](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
 
-## <a name="text-filter-fundamentals"></a>Noções básicas de filtro de texto
+## <a name="text-filter-fundamentals"></a>Conceitos básicos do filtro de texto
 
-Filtros de texto são válidos para campos de cadeia, a partir do qual pretende solicitar algumas arbitrária coleção de documentos com base nos valores dentro corpus de pesquisa.
+Filtros de texto são válidos para campos de cadeia de caracteres, a partir do qual pretende extrair alguns coleção arbitrária de documentos com base nos valores dentro do corpo.
 
-Para os filtros de texto compostos por cadeias, não é não lexical analysis ou quebra de palavra, pelo que são comparações de correspondências exatas apenas. Por exemplo, suponha um campo *f* contém "sunny dia", `$filter=f eq 'Sunny'`não corresponderem, mas `$filter=f eq 'Sunny day'` será. 
+Para filtros de texto compostos por cadeias de caracteres, não existe nenhum análise lexical ou separação de palavras, para que as comparações destinam-se apenas a correspondências exatas. Por exemplo, suponha que um campo *f* contém "sunny day", `$filter=f eq 'Sunny'`não corresponderem, mas `$filter=f eq 'Sunny day'` será. 
 
-Cadeias de texto são maiúsculas e minúsculas. Não há nenhum inferior-tem maiúsculas e minúsculas das palavras cased em maiúsculas: `$filter=f eq 'Sunny day'` não irá encontrar ' dia sunny '.
+Cadeias de texto diferenciam maiúsculas de minúsculas. Não existe nenhum inferior-letras maiúsculas e minúsculas maiúsculo palavras: `$filter=f eq 'Sunny day'` não irá encontrar "dia ensolarado '.
 
 
 | Abordagem | Descrição | 
 |----------|-------------|
-| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma função de fornecer lista delimitada por vírgulas de cadeias para um determinado campo. As cadeias compõem os critérios de filtro, o que são aplicados a todos os campos no âmbito de consulta. <br/><br/>`search.in(f, ‘a, b, c’)` ponto de vista semântico equivalente ao `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, exceto que executa muito mais rapidamente quando a lista de valores é grande.<br/><br/>Recomendamos o **search.in** funcionar para [filtros de segurança](search-security-trimming-for-azure-search.md) e para quaisquer filtros é composto por texto não processado a correspondência nos valores num campo especificado. Esta abordagem foi concebida para velocidade. Pode contar com tempo de resposta subsecond centenas e os milhares de valores. Enquanto não existe nenhum limite explícito no número de itens que pode passar para a função, os aumentos de latência in proportion to o número de cadeias que fornecer. | 
-| [Search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma função que permite-lhe misturar operações de pesquisa em texto completo com operações de filtro estritamente booleano na mesma expressão de filtro. Permite que várias combinações de filtro de consulta num pedido. Também pode utilizá-la para um *contém* filtro para filtrar numa cadeia parcial dentro de uma cadeia de maior. |  
-| [$filter = cadeia de operador do campo](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma expressão definido pelo utilizador é composto por campos, operadores e valores. | 
+| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma função fornece a lista delimitada por vírgulas de cadeias de caracteres para um determinado campo. As cadeias de caracteres compreendem os critérios de filtro, que são aplicados a todos os campos no âmbito da consulta. <br/><br/>`search.in(f, ‘a, b, c’)` é semanticamente equivalente a `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, exceto que ele seja executado muito mais rapidamente quando a lista de valores é grande.<br/><br/>Recomendamos que o **search.in** funcionar para [filtros de segurança](search-security-trimming-for-azure-search.md) e para todos os filtros compostos de texto não processado para corresponder nos valores num determinado campo. Esta abordagem destina-se a velocidade. Pode esperar subsecond o tempo de resposta para centenas ou milhares de valores. Embora não haja nenhum limite explícito no número de itens que pode passar para a função, os aumentos de latência forma proporcional, segundo o número de cadeias de caracteres que fornecer. | 
+| [Search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma função que permite combinar as operações de pesquisa em texto completo com operações de filtro estritamente booleano na mesma expressão de filtro. Permite que várias combinações de filtro de consulta numa solicitação. Também pode usá-lo para um *contém* filtro para filtrar numa cadeia parcial dentro de uma cadeia de caracteres maior. |  
+| [$filter = a cadeia de caracteres de operador de campo](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Uma expressão definida pelo utilizador compostas por campos, operadores e valores. | 
 
-## <a name="numeric-filter-fundamentals"></a>Noções básicas de filtro numérico
+## <a name="numeric-filter-fundamentals"></a>Conceitos básicos de filtro numérico
 
-Os campos numéricos não são `searchable` no contexto de pesquisa em texto completo. Apenas cadeias estão sujeitos a pesquisa em texto completo. Por exemplo, se introduzir 99,99 como um termo de pesquisa, não será regressar itens um preço em $99,99. Em vez disso, o que poderá ver itens de que tem o número de 99 campos de cadeia do documento. Assim, se tiver dados numéricos, pressuposto é que irá utilizá-los para filtros, incluindo intervalos, facetas, grupos e assim sucessivamente. 
+Campos numéricos não são `searchable` no contexto de pesquisa em texto completo. Apenas cadeias de caracteres são sujeitos a pesquisa em texto completo. Por exemplo, se introduzir 99,99 como um termo de pesquisa, não obtém itens que o preço de US $99,99. Em vez disso, veria itens que tenham o número de 99 em campos de cadeia de caracteres do documento. Assim, se tiver dados numéricos, o pressuposto é que irá utilizá-los para filtros, incluindo intervalos, facetas, grupos e assim por diante. 
 
-Documentos que contenham os campos numéricos (preço, tamanho, SKU, ID) fornecem esses valores nos resultados da pesquisa, se o campo está marcado como `retrievable`. O ponto de aqui é que a pesquisa em texto completo em si não é aplicável a tipos de campo numérico.
+Documentos que contenham campos numéricos (preço, tamanho, SKU, ID) fornecem esses valores nos resultados da pesquisa, se o campo está marcado `retrievable`. O ponto aqui é que a pesquisa em texto completo em si não é aplicável ao tipos de campo numérico.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Em primeiro lugar, tente **Explorador de pesquisa** no portal para submeter consultas com **$filter** parâmetros. O [real-propriedade-sample índice](search-get-started-portal.md) fornece resultados interessantes para o seguinte filtrado consultas quando cole-os para a barra de pesquisa:
+Em primeiro lugar, tente **Explorador de pesquisa** no portal para submeter consultas com **$filter** parâmetros. O [índice de exemplo de real estate](search-get-started-portal.md) fornece resultados interessantes para o seguinte filtrado consultas quando colá-los na barra de pesquisa:
 
 ```
 # Geo-filter returning documents within 5 kilometers of Redmond, Washington state
@@ -195,8 +196,8 @@ Para trabalhar com mais exemplos, consulte [sintaxe de expressão de filtro de O
 
 ## <a name="see-also"></a>Consulte também
 
-+ [Como completa a pesquisa em texto funciona na Azure Search](search-lucene-query-architecture.md)
-+ [API de REST de documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Completa como funciona a pesquisa de texto no Azure Search](search-lucene-query-architecture.md)
++ [Procurar nos documentos de REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 + [Sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Sintaxe de consulta Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 + [Tipos de dados suportados](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)

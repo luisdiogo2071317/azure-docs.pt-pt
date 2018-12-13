@@ -12,18 +12,18 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/19/2018
-ms.openlocfilehash: 6432c6b2c1c224f44b962df63e1502729f69e57f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fb9332832f46dc5c39bf932ce91cd3d3f3d7354f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470664"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269622"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Servidores de lógicos de base de dados SQL do Azure e a gestão
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>O que é um servidor lógico SQL do Azure
 
-Um servidor lógico atua como um ponto administrativo central para vários único ou [agrupados](sql-database-elastic-pool.md) bases de dados, [inícios de sessão](sql-database-manage-logins.md), [regras de firewall](sql-database-firewall-configure.md), [regrasdeauditoria](sql-database-auditing.md), [políticas de deteção de ameaças](sql-database-threat-detection.md), e [grupos de ativação pós-falha](sql-database-geo-replication-overview.md). Um servidor lógico pode ser numa região diferente do que o seu grupo de recursos. O servidor lógico tem de existir antes de poder criar a base de dados SQL do Azure. Todas as bases de dados num servidor são criados na mesma região que o servidor lógico.
+Um servidor lógico atua como um ponto administrativo central para vários único ou [agrupados](sql-database-elastic-pool.md) bases de dados, [inícios de sessão](sql-database-manage-logins.md), [regras de firewall](sql-database-firewall-configure.md), [regrasdeauditoria](sql-database-auditing.md), [políticas de deteção de ameaças](sql-database-threat-detection.md), e [grupos de ativação pós-falha](sql-database-auto-failover-group.md) um servidor lógico pode ser numa região diferente do que o seu grupo de recursos. O servidor lógico tem de existir antes de poder criar a base de dados SQL do Azure. Todas as bases de dados num servidor são criados na mesma região que o servidor lógico.
 
 Um servidor lógico é uma construção lógica distinta de uma instância do SQL Server que talvez esteja familiarizado com o mundo no local. Especificamente, o serviço Base de Dados SQL não dá qualquer garantia relativamente à localização das bases de dados em relação aos respetivos servidores lógicos, nem expõe qualquer acesso de nível de instância ou funcionalidades. Por outro lado, um servidor numa instância gerida do SQL da base de dados é semelhante a uma instância do SQL Server que talvez esteja familiarizado com o mundo no local.
 
@@ -162,7 +162,7 @@ Para criar e gerir o servidor SQL do Azure, bases de dados e firewalls com Trans
 |[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Remove a definição de firewall ao nível da base de dados da sua base de dados do Azure SQL ou SQL Data Warehouse. |
 
 > [!TIP]
-> Para um início rápido com o SQL Server Management Studio no Microsoft Windows, consulte [SQL Database do Azure: Utilize o SQL Server Management Studio para ligar e consultar dados](sql-database-connect-query-ssms.md). Para um início rápido com o Visual Studio Code no macOS, Linux ou Windows, consulte [base de dados do Azure SQL: utilizar Visual Studio Code para ligar e consultar dados](sql-database-connect-query-vscode.md).
+> Para um início rápido com o SQL Server Management Studio no Microsoft Windows, consulte [SQL Database do Azure: Utilizar o SQL Server Management Studio para ligar e consultar dados](sql-database-connect-query-ssms.md). Para um início rápido com o Visual Studio Code no macOS, Linux ou Windows, consulte [SQL Database do Azure: Utilizar o Visual Studio Code para ligar e consultar dados](sql-database-connect-query-vscode.md).
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>Gerir servidores, bases de dados e firewalls com a API REST do SQL do Azure
 

@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 34b2658ef4b25b3d545932ceffd2f3cf8969034e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309367"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310378"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: planear a implementação de associação do Azure AD
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planear a sua implementação de associação do Azure AD
 
 
 Associação do Azure AD permite-lhe associar dispositivos diretamente para o Azure AD sem a necessidade de associar ao Active Directory no local, mantendo os seus utilizadores produtivos e seguros. Associação do Azure AD está pronto para empresas para à escala e implementações de âmbito.   
@@ -91,9 +91,9 @@ Estes cenários não requerem que configurar um servidor de Federação para aut
 
 Ambiente federado, deve ter um fornecedor de identidade que oferece suporte a protocolos WS-Trust e WS-Fed:
 
-- **WS-Fed:** este protocolo é necessário para associar um dispositivo ao Azure AD.
+- **WS-Fed:** Esse protocolo é necessário para associar um dispositivo ao Azure AD.
 
-- **WS-Trust:** este protocolo é necessário para iniciar sessão num dispositivo associado ao Azure AD. 
+- **WS-Trust:** Esse protocolo é necessário para iniciar sessão num dispositivo associado ao Azure AD. 
 
 Se o fornecedor de identidade não suportar estes protocolos, associação do Azure AD não funciona de forma nativa. A partir do Windows 10 1809, os utilizadores podem iniciar sessão num dispositivo associado ao Azure AD com um fornecedor de identidade baseado em SAML através de [web início de sessão no Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Atualmente, web início de sessão é uma funcionalidade como só de pré-visualização.
 
@@ -102,7 +102,7 @@ Se o fornecedor de identidade não suportar estes protocolos, associação do Az
 
 Não é possível utilizar smart cards ou a autenticação baseada em certificado para associar dispositivos ao Azure AD. No entanto, os cartões inteligentes podem ser utilizado para iniciar sessão em dispositivos associados ao Azure AD, se tiver o AD FS configurado.
 
-**Recomendação:** implementar Windows Hello para empresas para a autenticação forte, sem palavra-passe em dispositivos Windows 10.
+**Recomendação:** Implemente o Windows Hello para empresas para a autenticação forte, sem palavra-passe em dispositivos Windows 10.
 
 
 ### <a name="user-configuration"></a>Configuração do utilizador
@@ -127,7 +127,7 @@ Associação ao Azure AD:
 
 - Não é aplicável a versões anteriores do Windows ou outros sistemas operacionais. Se tiver dispositivos do Windows 7/8.1, tem de atualizar para o Windows 10 para implementar a associação do Azure AD.
  
-**Recomendação:** utilizar sempre a versão mais recente do Windows 10 para tirar partido das funcionalidades atualizadas.
+**Recomendação:** Utilize sempre a versão mais recente do Windows 10 para tirar partido das funcionalidades atualizadas.
 
 
 ### <a name="management-platform"></a>Plataforma de gestão
@@ -155,7 +155,7 @@ Se a sua solução de MDM não está disponível através da Galeria de aplicaç
 
 Por meio de cogestão, pode usar o SCCM para gerir determinados aspetos dos seus dispositivos, enquanto as políticas são fornecidas por meio de sua plataforma MDM. O Microsoft Intune permite a cogestão no SCCM. Para obter mais informações, consulte [cogestão para dispositivos Windows 10](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Se usar um produto MDM que não seja o Intune, consulte o seu fornecedor de MDM em cenários de cogestão aplicável.
 
-**Recomendação:** considere MDM apenas a dispositivos associados ao gerenciamento para o Azure AD.
+**Recomendação:** Considere MDM, só os dispositivos associados ao gerenciamento para o Azure AD.
 
 
 
@@ -185,13 +185,13 @@ Se as suas aplicações são personalizadas criadas e/ou alojadas no local, ter�
 
 Se utilizar o AD FS, veja [Certifique-se e gerir o início de sessão único com o AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
-**Recomendação:** considerar a hospedagem na nuvem (por exemplo, o Azure) e a integração com o Azure AD para uma melhor experiência.
+**Recomendação:** Considere o alojamento na cloud (por exemplo, o Azure) e a integração com o Azure AD para uma melhor experiência.
 
 ### <a name="on-premises-applications-relying-on-legacy-protocols"></a>Aplicações contando com protocolos legados no local
 
 Os utilizadores get SSO do Azure AD associado a um dispositivos se o dispositivo tiver acesso a um controlador de domínio. 
 
-**Recomendação:** Deploy [proxy de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) para permitir o acesso seguro para estas aplicações.
+**Recomendação:** Implementar [proxy de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) para permitir o acesso seguro para estas aplicações.
 
 
 ### <a name="on-premises-network-shares"></a>Partilhas de rede no local
@@ -209,11 +209,11 @@ Embora impressoras não puderem ser detetadas automaticamente num ambiente de cl
 
 Dispositivos do Azure AD associado não suportam aplicações no local, contando com autenticação de máquina. 
 
-**Recomendação:** considere extinguir esses aplicativos e mover a respetivas alternativas modernas.
+**Recomendação:** Considere estas aplicações a extinguir e mover a respetivas alternativas modernas.
 
 ### <a name="remote-desktop-services"></a>Serviços de Ambiente de Trabalho Remoto
 
-Ligação de ambiente de trabalho remoto para um dispositivos associados ao Azure AD requer a máquina de host para ser de qualquer associados ao Azure AD ou Azure AD híbrido. Ambiente de trabalho remoto de um dispositivo retirado ou não Windows não é suportada. Para obter mais informações, consulte [pc associado a ligar ao remoto do Azure AD](https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc)
+Ligação de ambiente de trabalho remoto para um dispositivos associados ao Azure AD requer a máquina de host para ser de qualquer associados ao Azure AD ou Azure AD híbrido. Ambiente de trabalho remoto de um dispositivo retirado ou não Windows não é suportada. Para obter mais informações, consulte [pc associado a ligar ao remoto do Azure AD](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
 
 
 ## <a name="understand-your-provisioning-options"></a>Compreender as opções de aprovisionamento
@@ -312,7 +312,7 @@ Com base no seu âmbito, um dos seguintes acontece:
 
 - **Utilizador está no âmbito do MDM**: Se tiver uma subscrição do Azure AD Premium, a inscrição MDM é automatizada, juntamente com a associação do Azure AD. Todos os utilizadores de âmbito tem de ter uma licença adequada para a MDM. Se a inscrição MDM falhar neste cenário, associação do Azure AD será também revertida.
     
-- **Utilizador não está no âmbito do MDM**: se os utilizadores não estiverem no âmbito MDM, a associação do Azure AD é concluída sem qualquer inscrição MDM. Isso resulta num dispositivo não gerido.
+- **Utilizador não está no âmbito do MDM**: Se os utilizadores não estiverem no âmbito MDM, a associação do Azure AD é concluída sem qualquer inscrição MDM. Isso resulta num dispositivo não gerido.
 
 
 ### <a name="mdm-urls"></a>URLs MDM
@@ -340,7 +340,7 @@ MAM não é aplicável a associação do Azure AD.
 
 Se pretender ativar o roaming de estado para o Azure AD para que os utilizadores podem sincronizar suas configurações em vários dispositivos, veja [ativar Enterprise Estado Roaming no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable). 
 
-**Recomendação**: ative esta definição, mesmo para dispositivos de associados ao Azure AD híbrido.
+**Recomendação**: Ative esta definição, mesmo para dispositivos de associados ao Azure AD híbrido.
 
 
 ## <a name="configure-conditional-access"></a>Configurar o acesso condicional

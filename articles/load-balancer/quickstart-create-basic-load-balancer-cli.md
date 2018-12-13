@@ -1,14 +1,13 @@
 ---
-title: 'Início Rápido: Criar um balanceador de carga público – CLI do Azure | Microsoft Docs'
+title: 'Início rápido: Criar um balanceador de carga básico - CLI do Azure'
+titlesuffix: Azure Load Balancer
 description: Este início rápido mostra como criar um balanceador de carga público com a CLI do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: ''
+ms.custom: mvc
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 3eb7ae721b0c275ffa39e04904e19c067b949214
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 60cdf251d9a862f8bae80f4f782c6ad94c0b85ce
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965502"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260774"
 ---
-# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início Rápido: Criar um balanceador de carga público para fazer o balanceamento de carga das VMs com a CLI do Azure
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início rápido: Criar um balanceador de carga para balancear carga de VMs com CLI do Azure
 
-Este guia de introdução mostra como criar um Balanceador de Carga do Azure. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o servidor Ubuntu e faça o balanceamento de carga de uma aplicação Web entre as mesmas.
+Este guia de introdução mostra-lhe como criar um balanceador de carga do Azure para carregar balancear o tráfego de internet entre máquinas virtuais no Azure. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o servidor Ubuntu e faça o balanceamento de carga de uma aplicação Web entre as mesmas.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -262,7 +260,7 @@ Quando já não for necessário, pode utilizar o comando [az group delete](/cli/
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste guia de introdução, criou o Balanceador de Carga Básico, anexou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, em seguida, testou o balanceador de carga. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
 
 > [!div class="nextstepaction"]

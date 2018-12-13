@@ -1,5 +1,5 @@
 ---
-title: Descrição geral de diagnóstico de serviço de aplicações do Azure | Documentos da Microsoft
+title: Descrição geral de diagnóstico - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como pode resolver problemas com a sua aplicação web com o diagnóstico do serviço de aplicações.
 keywords: serviço de aplicações, serviço de aplicações do azure, diagnóstico, suporte, aplicação web, resolução de problemas, ajuda autónoma
 services: app-service
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: 7ad205c75a02b496abe2cb910c7eb459cdb16c97
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.custom: seodec18
+ms.openlocfilehash: a8b256f43d8e4103404ab4276431ceb06d9ed36a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969243"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255147"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Descrição geral de diagnóstico de serviço de aplicações do Azure 
 
@@ -66,5 +67,5 @@ Porque muitos problemas de aplicação estão relacionadas com problemas no cód
 
 Para ver as exceções do Application Insights e as dependências, selecione o **aplicação Web inativa** ou **lenta de aplicação Web** mosaico atalhos. 
 
-![Application Insights](./media/app-service-diagnostics/AppInsights6.png)
+![O Application insights](./media/app-service-diagnostics/AppInsights6.png)
 

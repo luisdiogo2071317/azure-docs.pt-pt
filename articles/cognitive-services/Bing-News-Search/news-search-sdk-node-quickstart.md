@@ -1,7 +1,7 @@
 ---
-title: 'Início Rápido: SDK da Pesquisa de Notícias do Bing, Node'
+title: 'Início rápido: Efetua uma pesquisa de notícias - SDK de pesquisa de notícias do Bing para node. js'
 titleSuffix: Azure Cognitive Services
-description: Configurar a aplicação de consola do SDK da Pesquisa de Notícias do Bing
+description: Utilize este guia de introdução para pesquisar notícias utilizando o SDK de pesquisa de notícias do Bing para node. js e processar a resposta.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 075ce771b6fa92663f172734aabf57b089b294a9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 0fa78474d6400f890626859c32915c8657f92d4e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316944"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249350"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-node"></a>Início Rápido: SDK da Pesquisa de Notícias do Bing com Node
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Início rápido: Efetua uma pesquisa de notícias com o SDK de pesquisa de notícias do Bing para node. js
 
 O SDK da Pesquisa de Notícias do Bing contém a funcionalidade da API REST para consultas de notícias e análise de resultados. 
 
@@ -50,11 +51,11 @@ client.newsOperations.search('Winter Olympics').then((result) => {
 });
 
 ```
-O código imprime `result.value` itens para a consola sem analisar qualquer texto. Os resultados, se ocorrerem por categoria, irão incluir:
-- _type: 'NewsArticle'
-- _type: 'WebPage'
-- _type: 'VideoObject'
-- _type: 'ImageObject'
+O código imprime `result.value` itens para a consola sem analisar qualquer texto. Os resultados, se existirem por categoria, incluirão:
+- tipo: 'NewsArticle'
+- tipo: "Página da Web"
+- tipo: 'VideoObject'
+- tipo: 'ImageObject'
 
 <!-- Remove until we can replace with santized version
 ![News results](media/node-sdk-quickstart-results.png)

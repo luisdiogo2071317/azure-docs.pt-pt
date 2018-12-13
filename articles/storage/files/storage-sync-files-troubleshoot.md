@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0787d023676c707a987b4b69cb5601394db4bd3b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6ee16a0483b13471f12654f82ef6972b41ace634
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728383"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316954"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -40,7 +40,7 @@ Reveja installer.log para determinar a causa da falha de instalação.
 <a id="agent-installation-on-DC"></a>**Instalação do agente falhar no controlador de domínio do Active Directory**  
 Se tentar instalar o agente de sincronização no controlador de domínio do Active Directory em que o proprietário de função PDC é num Windows Server 2008 R2 ou abaixo de versão do SO, pode atingir o problema em que o agente de sincronização não irá instalar.
 
-Para resolver, transfira a função PDC para outro domínio controlador em execução do Windows Server 2012R2 ou mais recente, em seguida, instalar a sincronização.
+Para resolver, transfira a função PDC para outro controlador de domínio com o Windows Server 2012 R2 ou mais recente, em seguida, instalar a sincronização.
 
 <a id="server-registration-missing"></a>**Servidor não está listado em servidores registados no portal do Azure**  
 Se um servidor não está listado em **servidores registados** para um serviço de sincronização de armazenamento:
@@ -48,7 +48,7 @@ Se um servidor não está listado em **servidores registados** para um serviço 
 2. Abra o Explorador de ficheiros e, em seguida, vá para o diretório de instalação do agente de sincronização de armazenamento (a localização predefinida é c:\Programas\Microsoft Files\Azure\StorageSyncAgent). 
 3. Execute ServerRegistration.exe e conclua o Assistente para registar o servidor com um serviço de sincronização de armazenamento.
 
-<a id="server-already-registered"></a>**O registo do servidor apresenta a seguinte mensagem durante a instalação do agente de sincronização de ficheiros do Azure: "este servidor já está registado"** 
+<a id="server-already-registered"></a>**O registo do servidor apresenta a seguinte mensagem durante a instalação do agente do Azure File Sync: "Este servidor já está registado"** 
 
 ![Uma captura de ecrã da caixa de diálogo de registo do servidor com o erro "o servidor já está registado" mensagem](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
@@ -68,7 +68,7 @@ Reset-StorageSyncServer
 Este problema ocorre quando o **segurança avançada do Internet Explorer** política for ativada durante o registo do servidor. Para obter mais informações sobre como desativar corretamente o **segurança avançada do Internet Explorer** política, veja [preparar o Windows Server para utilizar com o Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) e [como implementar os ficheiros do Azure Sincronização](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Gestão de grupo de sincronização
-<a id="cloud-endpoint-using-share"></a>**Falha ao criar o ponto final na cloud, com este erro: "A partilha de ficheiros do Azure especificada já está em utilização por um CloudEndpoint diferente"**  
+<a id="cloud-endpoint-using-share"></a>**Falha ao criar o ponto final na cloud, com este erro: "A partilha de ficheiros do Azure especificado já está em utilização por um CloudEndpoint diferente"**  
 Este problema ocorre se a partilha de ficheiros do Azure já está a ser utilizada por outro ponto final da cloud. 
 
 Se vir esta mensagem e a partilha de ficheiros do Azure atualmente não está em utilização por um ponto final da cloud, conclua os seguintes passos para limpar os metadados de sincronização de ficheiros do Azure na partilha de ficheiros do Azure:
@@ -85,9 +85,9 @@ Este problema ocorre se a sua conta de utilizador não tem direitos suficientes 
 
 Para criar um ponto final da cloud, sua conta de utilizador tem de ter as seguintes permissões de Authorization da Microsoft:  
 * Leitura: Obter a definição de função
-* Escrita: Criar ou atualizar a definição de função personalizada
+* Escreva: Criar ou atualizar uma definição de função personalizada
 * Leitura: Obter a atribuição de função
-* Escrita: Criar a atribuição de função
+* Escreva: Criar atribuição de função
 
 As seguintes funções incorporadas têm as permissões necessárias do Authorization da Microsoft:  
 * Proprietário
@@ -105,7 +105,7 @@ Para determinar se a sua função de conta de utilizador tem as permissões nece
 <a id="server-endpoint-createjobfailed"></a>**Falha de criação de ponto final de servidor, com este erro: "MgmtServerJobFailed" (código de erro:-2134375898)**  
 Este problema ocorre se o caminho do ponto final de servidor está no volume de sistema e na cloud em camadas está ativada. Na cloud em camadas não é suportada no volume do sistema. Para criar um ponto final do servidor no volume do sistema, desative a camada ao criar o ponto final do servidor de cloud.
 
-<a id="server-endpoint-deletejobexpired"></a>**Falha de eliminação de ponto final de servidor, com este erro: "MgmtServerJobExpired"**                
+<a id="server-endpoint-deletejobexpired"></a>**Eliminação de ponto final de servidor falha, com este erro: "MgmtServerJobExpired"**                
 Este problema ocorre se o servidor está offline ou não tem conectividade de rede. Se o servidor já não estiver disponível, anular o registo do servidor no portal do que irá eliminar os pontos de extremidade do servidor. Para eliminar os pontos de extremidade do servidor, siga os passos descritos em [anular o registo de um servidor com o Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Não é possível abrir a página de propriedades do ponto final de servidor ou atualizar a política de camadas de cloud**  
@@ -132,7 +132,7 @@ Este problema pode ocorrer se o processo de Monitor de sincronização de armaze
 
 Para resolver este problema, execute os seguintes passos:
 
-1. Abra o Gestor de tarefas no servidor e certifique-se de que o processo de Monitor de sincronização de armazenamento (AzureStorageSyncMonitor.exe) está em execução. Se o processo de mensagens em fila não está em execução, primeiro tente reiniciar o servidor. Se reiniciar o servidor não resolver o problema, atualize o agente de sincronização de ficheiros do Azure para a versão [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) se não estão atualmente instalado.
+1. Abra o Gestor de tarefas no servidor e certifique-se de que o processo de Monitor de sincronização de armazenamento (AzureStorageSyncMonitor.exe) está em execução. Se o processo de mensagens em fila não está em execução, primeiro tente reiniciar o servidor. Se reiniciar o servidor não resolver o problema, atualize para o mais recente do Azure File Sync [versão do agente](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes).
 2. Certifique-se de que as definições de Firewall e Proxy estão configuradas corretamente:
     - Se o servidor estiver protegido por uma firewall, certifique-se de que a porta 443 de saída é permitida. Se a firewall restringe o tráfego a domínios específicos, certifique-se os domínios listados na Firewall [documentação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) estão acessíveis.
     - Se o servidor estiver atrás de um proxy, configure as definições de proxy de aplicações específicas ou todo o computador ao seguir os passos no Proxy [documentação](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).

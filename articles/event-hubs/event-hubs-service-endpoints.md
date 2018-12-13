@@ -11,23 +11,40 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 18c63b9c16ed9e82972a933d2aee5990d2fa84ac
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2ad525ee0e10064d4d606dc1f899ef813fe92ab5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081579"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273509"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utilizar pontos finais de serviço de rede Virtual com o Event Hubs do Azure
 
-A integração do Hubs de eventos com [pontos finais de serviço de rede Virtual (VNet)] [ vnet-sep] permite o acesso seguro às capacidades de mensagens de cargas de trabalho como as máquinas virtuais que estão vinculadas a virtual redes, com o caminho do tráfego de rede que estão protegidas em ambas as extremidades. 
-
-> [!IMPORTANT]
-> Redes virtuais são suportadas no **padrão** e **dedicado** escalões de Hubs de eventos. Não é suportada no escalão básico. 
+A integração do Hubs de eventos com [pontos finais de serviço de rede Virtual (VNet)] [ vnet-sep] permite o acesso seguro às capacidades de mensagens de cargas de trabalho como as máquinas virtuais que estão vinculadas a virtual redes, com o caminho do tráfego de rede que estão protegidas em ambas as extremidades.
 
 Depois de configurado para ser associada a pelo menos um ponto final do serviço de sub-rede virtual de rede, o respetivo dos Hubs de eventos espaço de nomes já não aceita tráfego de qualquer lugar, mas autorizado sub-redes nas redes virtuais. Da perspectiva de rede virtual, ligando um espaço de nomes de Hubs de eventos a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de mensagens.
 
 O resultado é uma relação isolada e privada entre as cargas de trabalho ligada à sub-rede e o namespace respectivo do Hubs de eventos, apesar do endereço de rede observable do sistema de mensagens serviço ponto final que está a ser num intervalo IP público.
+
+>[!WARNING]
+> Implementar a integração de redes virtuais pode impedir que outros serviços do Azure a interagir com os Hubs de eventos.
+>
+> Confiável Microsoft serviços não são suportados quando as redes virtuais são implementadas e serão disponibilizadas em breve.
+>
+> Cenários comuns do Azure que não funcionam com redes virtuais (tenha em atenção que a lista está **não** exaustiva)-
+> - Azure Monitor
+> - Azure Stream Analytics
+> - Integração com o Azure Event Grid
+> - Encaminha o Hub IoT do Azure
+> - O Azure IoT Device Explorer
+> - Azure Data Explorer
+>
+> O abaixo Microsoft serviços são necessários para estar numa rede virtual
+> - Aplicações Web do Azure
+> - Funções do Azure
+
+> [!IMPORTANT]
+> Redes virtuais são suportadas no **padrão** e **dedicado** escalões de Hubs de eventos. Não é suportada no escalão básico.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários de segurança avançada ativados pela integração de VNet 
 
@@ -43,7 +60,7 @@ Isso significa que a segurança confidencial soluções na cloud não ganhará a
 
 Um espaço de nomes de Hubs de eventos de enlace a uma rede virtual é um processo de dois passos. Tem primeiro de criar uma **ponto final de serviço de rede Virtual** numa sub-rede de rede Virtual e enable-lo "Eventhub", como explicado no [descrição geral do ponto final de serviço] [ vnet-sep]. Depois de adicionar o ponto final de serviço, vincular o espaço de nomes de Hubs de eventos ao mesmo com um *regra de rede virtual*.
 
-A regra de rede virtual é uma associação com o nome do espaço de nomes dos Hubs de eventos com uma sub-rede de rede virtual. Embora exista a regra, todas as cargas de trabalho ligadas à sub-rede são concedidas acesso ao espaço de nomes dos Hubs de eventos. Os Hubs de eventos em si nunca estabelece as ligações de saída, não precisa de obter acesso e é, portanto, nunca concedida acesso à sua sub-rede, permitindo que esta regra.
+A regra de rede virtual é uma associação do espaço de nomes dos Hubs de eventos com uma sub-rede de rede virtual. Embora exista a regra, todas as cargas de trabalho ligadas à sub-rede são concedidas acesso ao espaço de nomes dos Hubs de eventos. Os Hubs de eventos em si nunca estabelece as ligações de saída, não precisa de obter acesso e é, portanto, nunca concedida acesso à sua sub-rede, permitindo que esta regra.
 
 ### <a name="create-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Criar uma regra de rede virtual com modelos Azure Resource Manager
 
@@ -51,45 +68,120 @@ O modelo do Resource Manager seguinte permite adicionar uma regra de rede virtua
 
 Parâmetros do modelo:
 
-* **namespaceName**: espaço de nomes de Hubs de eventos.
-* **vnetRuleName**: nome para a regra de rede Virtual a ser criada.
-* **virtualNetworkingSubnetId**: caminho totalmente qualificado do Resource Manager para a sub-rede de rede virtual; por exemplo, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede de predefinição de uma rede virtual.
+* **namespaceName**: Espaço de nomes dos Hubs de eventos.
+* **vnetRuleName**: Nome para a regra de rede Virtual a ser criada.
+* **virtualNetworkingSubnetId**: Caminho totalmente qualificado do Resource Manager para a sub-rede de rede virtual; Por exemplo, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede de predefinição de uma rede virtual.
+
+> [!NOTE]
+> Embora não haja nenhuma regra de negação possível, o modelo Azure Resource Manager, tem a ação padrão definida como **"Permitir"** que não restringem as ligações.
+> Ao fazer as regras de rede Virtual ou Firewalls, devemos alterar o ***"defaultAction"***
+> 
+> de
+> ```json
+> "defaultAction": "Allow"
+> ```
+> para
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
 
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "vnetRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "virtualNetworkSubnetId":{  
-             "type":"string",
-             "metadata":{  
-                "description":"subnet Azure Resource Manager ID"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "eventhubNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Event Hubs namespace"
+        }
       },
+      "virtualNetworkName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Rule"
+        }
+      },
+      "subnetName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Virtual Network Sub Net"
+        }
+      },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('eventhubNamespaceName'), concat('/', 'default'))]",
+      "subNetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets/', parameters('virtualNetworkName'), parameters('subnetName'))]"
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('vnetRuleName'))]",
-            "type":"Microsoft.EventHub/namespaces/VirtualNetworkRules",         
-            "properties": {             
-                "virtualNetworkSubnetId": "[parameters('virtualNetworkSubnetId')]"  
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('eventhubNamespaceName')]",
+        "type": "Microsoft.EventHub/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2017-09-01",
+        "name": "[parameters('virtualNetworkName')]",
+        "location": "[parameters('location')]",
+        "type": "Microsoft.Network/virtualNetworks",
+        "properties": {
+          "addressSpace": {
+            "addressPrefixes": [
+              "10.0.0.0/23"
+            ]
+          },
+          "subnets": [
+            {
+              "name": "[parameters('subnetName')]",
+              "properties": {
+                "addressPrefix": "10.0.0.0/23",
+                "serviceEndpoints": [
+                  {
+                    "service": "Microsoft.EventHub"
+                  }
+                ]
+              }
             }
-        } 
-    ]
-}
+          ]
+        }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": 
+          [
+            {
+              "subnet": {
+                "id": "[variables('subNetId')]"
+              },
+              "ignoreMissingVnetServiceEndpoint": false
+            }
+          ],
+          "ipRules":[<YOUR EXISTING IP RULES>],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 Para implementar o modelo, siga as instruções para [do Azure Resource Manager][lnk-deploy].

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: d2f3c2ba6849540f90117ef127e25030ff56b569
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d8c652d75b01b3a13ef06475190ad81980f31e44
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427170"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270370"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento do back-end, registos de diagnóstico e métricas para o Gateway de aplicação
 
@@ -25,7 +25,7 @@ Ao utilizar o Gateway de aplicação do Azure, pode monitorizar os recursos das 
 
 * [Estado de funcionamento do back-end](#back-end-health): Gateway de aplicação fornece a capacidade de monitorizar o estado de funcionamento dos servidores nos agrupamentos de back-end por meio do portal do Azure e PowerShell. Também pode encontrar o estado de funcionamento dos agrupamentos de back-end por meio dos registos de diagnóstico de desempenho.
 
-* [Registos](#diagnostic-logging): permitir que os registos de desempenho, acesso e outros dados a ser guardado ou consumidos a partir de um recurso para efeitos de monitorização.
+* [Registos](#diagnostic-logging): Permitir que os registos de desempenho, acesso e outros dados a ser guardado ou consumidos a partir de um recurso para efeitos de monitorização.
 
 * [Métricas](#metrics): Gateway de aplicação atualmente tem sete métricas para ver os contadores de desempenho.
 
@@ -97,19 +97,19 @@ O fragmento seguinte mostra um exemplo da resposta:
 
 Pode utilizar diferentes tipos de registos no Azure para gerir e resolver problemas de gateways de aplicação. Pode aceder a alguns destes registos através do portal. Todos os registos podem ser extraídos de armazenamento de Blobs do Azure e visualizados em diferentes ferramentas, como [do Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel e o Power BI. Pode saber mais sobre os diferentes tipos de registos da lista seguinte:
 
-* **Registo de atividades**: pode utilizar [registos de atividades do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecida como registos operacionais e registos de auditoria) para ver todas as operações que são submetidas para a sua subscrição do Azure e o respetivo estado. As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
-* **Registo de acesso**: pode utilizar este registo para ver os padrões de acesso de Gateway de aplicação e analisar informações importantes, incluindo IP, URL solicitada, latência de resposta, código de retorno e bytes do chamador de entrada e saída. Um registo de acesso é recolhido de 300 segundos. Este registo contém um registo por instância de Gateway de aplicação. A instância de Gateway de aplicação pode ser identificada pela propriedade instanceId.
-* **Registo de desempenho**: pode utilizar este registo para ver o desempenho das instâncias de Gateway de aplicação. Este registo captura informações de desempenho para cada instância, incluindo o total de pedidos servidos, débito em bytes, total de pedidos servidos, contagem de pedidos com falha e a contagem de instâncias de back-end com e sem integridade. Um registo de desempenho é recolhido de 60 em 60 segundos.
-* **Log do firewall**: pode utilizar este registo para ver os pedidos que são registados através do modo de deteção ou prevenção de um gateway de aplicação que está configurado com a firewall de aplicações web.
+* **Registo de atividades**: Pode usar [registos de atividades do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecida como registos operacionais e registos de auditoria) para ver todas as operações que são submetidas para a sua subscrição do Azure e o respetivo estado. As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
+* **Registo de acesso**: Pode utilizar este registo para ver os padrões de acesso de Gateway de aplicação e analisar informações importantes, incluindo IP, URL solicitada, latência de resposta, código de retorno e bytes do chamador de entrada e saída. Um registo de acesso é recolhido de 300 segundos. Este registo contém um registo por instância de Gateway de aplicação. A instância de Gateway de aplicação pode ser identificada pela propriedade instanceId.
+* **Registo de desempenho**: Pode utilizar este registo para ver o desempenho das instâncias de Gateway de aplicação. Este registo captura informações de desempenho para cada instância, incluindo o total de pedidos servidos, débito em bytes, total de pedidos servidos, contagem de pedidos com falha e a contagem de instâncias de back-end com e sem integridade. Um registo de desempenho é recolhido de 60 em 60 segundos.
+* **Log do firewall**: Pode utilizar este registo para ver os pedidos que são registados através do modo de deteção ou prevenção de um gateway de aplicação que está configurado com a firewall de aplicações web.
 
 > [!NOTE]
 > Os registos estão disponíveis apenas para recursos implementados no modelo de implementação Azure Resource Manager. Não é possível utilizar registos para os recursos no modelo de implementação clássica. Para uma melhor compreensão dos dois modelos, consulte a [implementação do Gestor de recursos de compreensão e a implementação clássica](../azure-resource-manager/resource-manager-deployment-model.md) artigo.
 
 Tem três opções para armazenar os registos:
 
-* **Conta de armazenamento**: as contas de armazenamento são ideais para os registos quando estes são armazenados durante um período mais longo e revistos quando necessário.
-* **Hubs de eventos**: os Hubs de eventos são uma excelente opção para integrar com outras informações de segurança e ferramentas de gestão de eventos (SEIM) para obter alertas sobre os seus recursos.
-* **Log Analytics**: o Log Analytics é ideal para monitorização geral em tempo real da sua aplicação ou para observar tendências.
+* **Conta de armazenamento**: Contas de armazenamento são melhor utilizadas para os registos quando os registos são armazenados durante um período mais longo e revisados quando necessário.
+* **Os hubs de eventos**: Os hubs de eventos são uma ótima opção para integrar com outras ferramentas de gestão (SEIM) de informações e eventos da segurança para obter alertas sobre seus recursos.
+* **Log Analytics**: Log Analytics melhor é utilizado para a monitorização em tempo real gerais da sua aplicação ou ao procurar tendências.
 
 ### <a name="enable-logging-through-powershell"></a>Ativar o registo através do PowerShell
 
@@ -174,7 +174,7 @@ O registo de acesso é gerado apenas se tiver habilitado em cada instância de G
 |clientPort     | Porta de origem para o pedido.       |
 |HttpMethod     | Método HTTP usado pelo pedido.       |
 |requestUri     | URI do pedido recebido.        |
-|RequestQuery     | **Encaminhado por servidor**: instância de conjunto de Back-end que foi enviada o pedido.</br>**X-AzureApplicationGateway-LOG-ID**: ID de correlação utilizada para o pedido. Ele pode ser usado para resolver problemas de tráfego nos servidores de back-end. </br>**Estado do servidor**: código de resposta HTTP recebido de Gateway de aplicação de back-end.       |
+|RequestQuery     | **Encaminhado por servidor**: Instância de conjunto de back-end que foi enviada o pedido.</br>**X-AzureApplicationGateway-LOG-ID**: ID de correlação utilizado para o pedido. Ele pode ser usado para resolver problemas de tráfego nos servidores de back-end. </br>**ESTADO DO SERVIDOR**: Código de resposta HTTP que o Gateway de aplicação recebido do back-end.       |
 |UserAgent     | Agente de utilizador do cabeçalho de pedido HTTP.        |
 |httpStatus     | Código de estado HTTP devolvido para o cliente do Gateway de aplicação.       |
 |httpVersion     | Versão HTTP do pedido.        |
@@ -298,8 +298,8 @@ O log do firewall é gerado apenas se está ativado para cada gateway de aplica�
 
 Pode ver e analisar os dados de registo de atividades através de um dos seguintes métodos:
 
-* **Ferramentas do Azure**: recuperar informações de registo de atividades através do Azure PowerShell, a CLI do Azure, a API REST do Azure ou o portal do Azure. As instruções passo-a-passo para cada método estão detalhadas no artigo [Operações de atividades com o Resource Manager](../azure-resource-manager/resource-group-audit.md).
-* **Power BI**: se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), pode experimentá-lo gratuitamente. Ao utilizar o [pacote de conteúdos de Registos de Atividades do Azure para o Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), pode analisar os seus dados com dashboards pré-configurados que podem ser utilizados tal como estão ou personalizados.
+* **Ferramentas do Azure**: Obter informações de registo de Atividades através do Azure PowerShell, a CLI do Azure, a API de REST do Azure ou o portal do Azure. As instruções passo-a-passo para cada método estão detalhadas no artigo [Operações de atividades com o Resource Manager](../azure-resource-manager/resource-group-audit.md).
+* **Power BI**: Se ainda não tiver uma [Power BI](https://powerbi.microsoft.com/pricing) conta, pode experimentar gratuitamente. Ao utilizar o [pacote de conteúdos de Registos de Atividades do Azure para o Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), pode analisar os seus dados com dashboards pré-configurados que podem ser utilizados tal como estão ou personalizados.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Ver e analisar o acesso, desempenho e registos de firewall
 
@@ -357,7 +357,7 @@ O exemplo seguinte explica como criar uma regra de alerta que envia um e-mail pa
 
 2. Sobre o **Adicionar regra** painel, preencha o nome, a condição, notificar secções e clique em **OK**.
 
-   * Na **condição** Seletor, selecione um dos quatro valores: **superior**, **maior que ou igual**, **inferior a**, ou **Menor que ou igual a**.
+   * Na **condição** Seletor, selecione um dos quatro valores: **Superior a**, **maior que ou igual**, **inferior**, ou **inferior ou igual a**.
 
    * Na **período** Seletor, selecione um período de cinco minutos a seis horas.
 
@@ -375,7 +375,7 @@ Se o limiar é quebrado, chega uma mensagem de e-mail que é semelhante ao mostr
 
 Para obter mais informações sobre notificações de alerta, consulte [receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-Para compreender melhor os webhooks e como pode usá-los com alertas, visite [configurar um webhook num alerta de métrica do Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Para compreender melhor os webhooks e como pode usá-los com alertas, visite [configurar um webhook num alerta de métrica do Azure](../azure-monitor/platform/alerts-webhooks.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -7,14 +7,15 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: 60248da2bbdac751845a40720f8967203c562b4a
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 48fd64908a5cb2488d58f3c078e0ccb17419352f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085752"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260254"
 ---
-# <a name="quickstart-send-container-registry-events-to-event-grid"></a>Início rápido: Enviar contentor eventos de registo para o Event Grid
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Início rápido: Enviar eventos de registo de contentor privado para o Event Grid
 
 O Azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido que fornece o consumo de eventos uniforme com um publicar-subscrever o modelo. Neste início rápido, vai utilizar a CLI do Azure para criar um registo de contentor, assinar eventos de registo, em seguida, implementar uma aplicação web de exemplo para receber os eventos. Por fim, disparar a imagem de contentor `push` e `delete` eventos e ver o payload do evento no aplicativo de exemplo.
 
@@ -212,7 +213,7 @@ Parabéns! Se vir a `ImagePushed` e `ImageDeleted` eventos, o registo está a en
 
 Quando tiver terminado com os recursos criados neste início rápido, pode eliminá-los tudo com o seguinte comando da CLI do Azure. Quando elimina um grupo de recursos, todos os recursos que nele contidos serão permanentemente eliminados.
 
-**AVISO**: esta operação é irreversível. Certifique-se de que já não necessita de qualquer um dos recursos no grupo antes de executar o comando.
+**AVISO**: Esta operação é irreversível. Certifique-se de que já não necessita de qualquer um dos recursos no grupo antes de executar o comando.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME

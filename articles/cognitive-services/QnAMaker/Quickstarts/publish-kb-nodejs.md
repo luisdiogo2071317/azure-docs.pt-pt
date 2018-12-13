@@ -11,14 +11,14 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 4b6f3e6913801de9259c106469bf8ca986f5b7b6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 5970cb0b4f5e38862d41fc0db84847b1bb92c173
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083806"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164182"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Início Rápido: publicar uma base de dados de conhecimento no Criador de FAQ com o Node.js
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Início rápido: Publicar uma base de dados de conhecimento do QnA Maker com node. js
 
 Este guia de introdução baseada em REST orienta-o através de publicação por meio de programação de sua base de dados de conhecimento (KB). A publicação emite a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 
@@ -33,11 +33,11 @@ Este início rápido chama as APIs do Criador de FAQ:
 
     ![ID da base de dados de conhecimento do Criador de FAQ](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    Se ainda não tiver uma base de dados de conhecimento, pode criar uma de exemplo para utilizar neste guia de introdução: [Criar uma nova base de dados de conhecimento](create-new-kb-nodejs.md).
+    Se ainda não tiver uma base de dados de conhecimento, pode criar um exemplo de uma para utilizar para este início rápido: [Criar uma nova base de dados de conhecimento](create-new-kb-nodejs.md).
 
 
 > [!NOTE] 
-> Os ficheiros de solução completos estão disponíveis a partir do repositório do Github [**Azure-Samples/cognitive-services-qnamaker-nodejs**](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/publish-knowledge-base-short).
+> O ficheiro de solução concluída (s) está disponíveis a partir da [ **Azure-amostras/cognitivos-services-qnamaker-nodejs** repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/publish-knowledge-base-short).
 
 ## <a name="create-a-knowledge-base-nodejs-file"></a>Criar um ficheiro Node.js de base de dados de conhecimento
 

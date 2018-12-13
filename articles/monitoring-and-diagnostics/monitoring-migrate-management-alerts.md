@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: fe854c6a33a950f9f937118b6048d547f1a2fe37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 63eb5f39d5ac8ba6c92a2b500766bc538959595c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245771"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274195"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrar os alertas do Azure em eventos de gestão para alertas de registo de atividades
 
@@ -92,18 +92,18 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 
 Cada alerta é separada por uma linha tracejada e detalhes incluem o ID de recurso do alerta e a regra específica que está a ser monitorizados.
 
-Esta funcionalidade transitou para [alertas de registo de atividade do Azure Monitor](monitoring-activity-log-alerts.md). Estes novos alertas permitem-lhe definir uma condição em eventos de registo de atividades e receber uma notificação quando a condição corresponde a um novo evento. Também oferece vários aperfeiçoamentos de alertas nos eventos de gestão:
-* É possível reutilizar o seu grupo de destinatários de notificação ("ações") em muitos alertas usando [grupos de ação](monitoring-action-groups.md), reduzindo a complexidade da alteração que deve receber um alerta.
+Esta funcionalidade transitou para [alertas de registo de atividade do Azure Monitor](../azure-monitor/platform/activity-log-alerts.md). Estes novos alertas permitem-lhe definir uma condição em eventos de registo de atividades e receber uma notificação quando a condição corresponde a um novo evento. Também oferece vários aperfeiçoamentos de alertas nos eventos de gestão:
+* É possível reutilizar o seu grupo de destinatários de notificação ("ações") em muitos alertas usando [grupos de ação](../azure-monitor/platform/action-groups.md), reduzindo a complexidade da alteração que deve receber um alerta.
 * Pode receber uma notificação diretamente no telefone usando o SMS com grupos de ação.
-* Pode [criar alertas de registo de atividades com modelos do Resource Manager](alert-activity-log.md).
+* Pode [criar alertas de registo de atividades com modelos do Resource Manager](../azure-monitor/platform/alerts-activity-log.md).
 * Pode criar condições com maior flexibilidade e a complexidade para atender às suas necessidades específicas.
 * Notificações são entregues mais rapidamente.
  
 ## <a name="how-to-migrate"></a>Como migrar
  
 Para criar um alerta de registo de nova atividade, pode:
-* Siga [nosso guia sobre como criar um alerta no portal do Azure](monitoring-activity-log-alerts.md)
-* Saiba como [criar um alerta com um modelo do Resource Manager](alert-activity-log.md)
+* Siga [nosso guia sobre como criar um alerta no portal do Azure](../azure-monitor/platform/activity-log-alerts.md)
+* Saiba como [criar um alerta com um modelo do Resource Manager](../azure-monitor/platform/alerts-activity-log.md)
  
 Alertas nos eventos de gestão que tenha criado anteriormente não serão migradas automaticamente para os alertas de registo de atividade. Tem de utilizar o script anterior do PowerShell para listar os alertas nos eventos de gestão que tiver configurado o atualmente e recriá-los manualmente como alertas de registo de atividade. Isso deve ser feito antes de 1 de Outubro, após o qual alertas nos eventos de gestão já não estarão visíveis na sua subscrição do Azure. Outros tipos de alertas do Azure, incluindo alertas de métricas do Azure Monitor, os alertas das informações de aplicativo e alertas do Log Analytics não são afetados por esta alteração. Se tiver dúvidas, publique nos comentários abaixo.
 
@@ -111,8 +111,8 @@ Alertas nos eventos de gestão que tenha criado anteriormente não serão migrad
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre [registo de atividades](monitoring-overview-activity-logs.md)
-* Configurar [alertas de registo de atividade através do portal do Azure](monitoring-activity-log-alerts.md)
-* Configurar [alertas de registo de atividade através do Gestor de recursos](alert-activity-log.md)
-* Reveja o [esquema de webhook de alerta de registo de atividades](monitoring-activity-log-alerts-webhook.md)
+* Configurar [alertas de registo de atividade através do portal do Azure](../azure-monitor/platform/activity-log-alerts.md)
+* Configurar [alertas de registo de atividade através do Gestor de recursos](../azure-monitor/platform/alerts-activity-log.md)
+* Reveja o [esquema de webhook de alerta de registo de atividades](../azure-monitor/platform/activity-log-alerts-webhook.md)
 * Saiba mais sobre [notificações de serviço](monitoring-service-notifications.md)
-* Saiba mais sobre [grupos de ação](monitoring-action-groups.md)
+* Saiba mais sobre [grupos de ação](../azure-monitor/platform/action-groups.md)

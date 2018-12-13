@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: b2adb2e69475b79324cad2d11a420cbefdf8b059
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a938e5d872d2c1602f7ce898f0d14e3e04feb759
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514490"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312572"
 ---
 # <a name="get-started-with-device-twins-java"></a>Introdução aos dispositivos duplos (Java)
 
@@ -228,7 +228,7 @@ Nesta secção, vai criar uma aplicação de consola do Java que define um valor
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.32</version>
+      <version>1.14.2</version>
     </dependency>
     ```
 
@@ -278,6 +278,17 @@ Nesta secção, vai criar uma aplicação de consola do Java que define um valor
 
     Esta aplicação de exemplo utiliza a variável de **protocolo** para instanciar um objeto **DeviceClient**. 
 
+1. Adicione o seguinte método para o **aplicação** classe para imprimir informações sobre atualizações de duplo:
+
+    ```java
+    protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
+        @Override
+        public void execute(IotHubStatusCode status, Object context) {
+          System.out.println("IoT Hub responded to device twin operation with status " + status.name());
+        }
+      }
+    ```
+
 9. Adicione o seguinte código para o **principal** método para:
     * Crie um cliente de dispositivo para comunicar com IoT Hub.
     * Criar uma **dispositivo** objeto para armazenar propriedades de twin do dispositivo.
@@ -310,7 +321,7 @@ Nesta secção, vai criar uma aplicação de consola do Java que define um valor
     catch (Exception e) {
       System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
       dataCollector.clean();
-      client.close();
+      client.closeNow();
       System.out.println("Shutting down...");
     }
     ```
@@ -327,7 +338,13 @@ Nesta secção, vai criar uma aplicação de consola do Java que define um valor
     client.close();
     ```
 
-12. Guarde e feche o `simulated-device\src\main\java\com\mycompany\app\App.java` ficheiro.
+1. Modifique a assinatura do método **principal** para incluir as exceções da seguinte forma:
+
+    ```java
+    public static void main(String[] args) throws URISyntaxException, IOException
+    ```
+
+1. Guarde e feche o `simulated-device\src\main\java\com\mycompany\app\App.java` ficheiro.
 
 13. Criar a **simulated-device** aplicação e corrigir eventuais erros. Na linha de comandos, navegue para o `simulated-device` pasta e execute o seguinte comando:
 

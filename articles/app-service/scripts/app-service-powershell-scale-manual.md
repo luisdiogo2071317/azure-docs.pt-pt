@@ -3,8 +3,8 @@ title: Exemplo do Script do Azure PowerShell - Dimensionar manualmente uma aplic
 description: Exemplo do Script do Azure PowerShell - Dimensionar manualmente uma aplicação web
 services: app-service\web
 documentationcenter: ''
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: bb4f4dbb0486687353f60667f158539df492dcf2
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: 176101df6a0be8ee6d98d0286bc191ffc1accc28
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325756"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187420"
 ---
-# <a name="scale-a-web-app-manually"></a>Dimensionar uma aplicação Web manualmente
+# <a name="scale-a-web-app-manually-using-powershell"></a>Dimensionar uma aplicação web manualmente com o PowerShell
 
 Neste cenário, vai aprender a criar um grupo de recursos, um plano de serviço de aplicações e aplicações web. Vai então dimensionar o Plano do Serviço de Aplicações a partir de uma única instância para várias instâncias.
 
@@ -52,7 +52,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Cria uma aplicação Web. |
 | [Set-AzureRmWebApp](/powershell/module/azurerm.websites/set-azurermwebapp) | Modifica a configuração de uma aplicação web. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o módulo do Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

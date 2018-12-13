@@ -1,19 +1,20 @@
 ---
-title: Filtros de segurança para remoção de resultados da pesquisa de Azure através de identidades do Active Directory | Documentos da Microsoft
-description: Controlo de acesso no conteúdo de Azure Search com filtros de segurança e identidades do Active Directory.
-author: revitalbarletz
+title: Filtros de segurança para limitar os resultados com o Active Directory identidades - Azure Search
+description: Controlo de acesso no conteúdo de Azure Search com filtros de segurança e identidades do Azure Active Directory (AAD).
+author: brjohnstmsft
 manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
-ms.author: revitalb
-ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.author: brjohnst
+ms.custom: seodec2018
+ms.openlocfilehash: 2d1ac36341ef47ac95317c583005b675f31f1265
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684642"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308832"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de segurança para cortar os resultados de pesquisa do Azure com identidades do Active Directory
 
@@ -97,7 +98,7 @@ User newUser = await graph.Users.Request().AddAsync(user);
 await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
-### <a name="step-4-cache-the-groups-identifiers"></a>Passo 4: Colocar em Cache os identificadores de grupos
+### <a name="step-4-cache-the-groups-identifiers"></a>Passo 4: Colocar em cache os identificadores de grupos
 Opcionalmente, para reduzir a latência de rede, pode colocar em cache as associações de grupo de utilizadores para que quando é emitida uma solicitação de pesquisa, grupos são devolvidos da cache, economizando uma ida e volta para o AAD. Pode usar [API do Batch AAD](https://developer.microsoft.com/graph/docs/concepts/json_batching) para enviar um único pedido de Http com vários utilizadores e criar a cache.
 
 Microsoft Graph foi concebido para lidar com um grande volume de pedidos. Se ocorrer um número massivo de pedidos, o Microsoft Graph falha o pedido com o código de estado HTTP 429. Para obter mais informações, consulte [limitação do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/throttling).

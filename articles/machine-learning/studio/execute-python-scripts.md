@@ -5,9 +5,8 @@ keywords: machine learning, pandas, pandas de python, scripts do python, Python 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 958dd91277a81a9082a4149d2b0026fc11bf882a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f0fa2401e37e15137e9d5387d1395baf64b0fe61
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317590"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274076"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Executar scripts de machine learning em Python no Azure Machine Learning Studio
 
@@ -52,7 +51,7 @@ Python está a ser utilizado em todas as fases de um fluxo de trabalho normalmen
 
 O Azure Machine Learning Studio oferece suporte a incorporação de Python de scripts em várias partes de uma máquina experimentação de aprendizagem e publicá-los diretamente como serviços da web no Microsoft Azure.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 
 ## <a name="design-principles-of-python-scripts-in-machine-learning"></a>Princípios de design de scripts do Python no Machine Learning

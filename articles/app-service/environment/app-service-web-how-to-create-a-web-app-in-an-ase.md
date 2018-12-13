@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação web num ambiente de serviço de aplicações v1
+title: Criar uma aplicação web no v1 ambiente de serviço de aplicações - Azure
 description: Saiba como criar aplicações web e aplicações planos de serviço num ambiente de serviço de aplicações v1
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 78a1f3bb1d49a8a2e8a44d665abd211c32711d7c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: dcb8ef54cf6816ec3bcedc90790948d6eb58e42f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961451"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274535"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Criar uma aplicação web num ambiente de serviço de aplicações v1
 

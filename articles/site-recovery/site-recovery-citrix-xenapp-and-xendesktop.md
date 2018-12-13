@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 4df7975d4d52e00cce7b57c6f207eb6cb9ea3be3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847903"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310526"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>configurar a recuperação após desastre para uma implementação de várias camada Citrix XenApp e XenDesktop
 
@@ -130,17 +130,17 @@ Uma recuperação Planear grupos máquinas de virtuais em conjunto com semelhant
 
 1. Adicione as máquinas de virtuais de componente de XenApp no plano de recuperação.
 2. Clique em planos de recuperação -> + plano de recuperação. Forneça um nome intuitivo para o plano de recuperação.
-3. Para máquinas virtuais VMware: selecionar origem como servidor de processos do VMware, destino como o Microsoft Azure e o modelo de implementação Resource Manager e clique em selecionar itens.
-4. Para máquinas de virtuais de Hyper-V: selecione a origem de servidor do VMM, como o Microsoft Azure e o modelo de implementação do Gestor de recursos de destino e clique em selecionar itens e, em seguida, selecione a implementação de XenApp VMs.
+3. Para máquinas de virtuais de VMware: Selecione a origem como servidor de processos do VMware, destino como o Microsoft Azure e o modelo de implementação Resource Manager e clique em selecionar itens.
+4. Para máquinas de virtuais de Hyper-V: Selecione a origem de servidor do VMM, destino como o Microsoft Azure e o modelo de implementação do Gestor de recursos e clique em selecionar itens e, em seguida, selecione a implementação de XenApp VMs.
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>A adicionar máquinas virtuais para grupos de ativação pós-falha
 
 Planos de recuperação podem ser personalizados para adicionar grupos de ativação pós-falha para a sequência de arranque específico, scripts ou ações manuais. Os seguintes grupos precisam de ser adicionados ao plano de recuperação.
 
-1. Group1 de ativação pós-falha: DNS de AD
-2. Ativação pós-falha CN=grupo2: VMs SQL Server
+1. Group1 de ativação pós-falha: DNS DO AD
+2. CN=grupo2 de ativação pós-falha: VMs do SQL Server
 2. Group3 de ativação pós-falha: VM de imagem de mestre de VDA
-3. Group4 de ativação pós-falha: Controlador de entrega e as VMs de servidor StoreFront
+3. Group4 de ativação pós-falha: Controlador de entrega e as VMs do servidor de loja
 
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Adição de scripts para o plano de recuperação
@@ -149,16 +149,17 @@ Scripts podem ser executados antes ou depois de um grupo específico, num plano 
 
 O plano de recuperação personalizados é semelhante a abaixo:
 
-1. Group1 de ativação pós-falha: DNS de AD
-2. Ativação pós-falha CN=grupo2: VMs SQL Server
+1. Group1 de ativação pós-falha: DNS DO AD
+2. CN=grupo2 de ativação pós-falha: VMs do SQL Server
 3. Group3 de ativação pós-falha: VM de imagem de mestre de VDA
 
    >[!NOTE]     
    >Os passos 4, 6 e 7, que contém ações de script ou manual são aplicáveis a apenas um XenApp no local > ambiente com catálogos de MCS/PVS.
 
-4. Ação de script ou Manual do grupo 3: encerramento VDA VM o mestre de VDA VM principal quando a ativação pós-falha para o Azure estará num Estado de execução. Para criar novos catálogos MCS através do alojamento do Azure, a VM de VDA principal é necessário para ter parado (de alocada) Estado. Encerramento da VM no portal do Azure.
+4. Ação de script ou Manual de grupo 3: Encerre a VM de VDA principal.
+A VM de VDA mestre quando a ativação pós-falha para o Azure vai estar num Estado de execução. Para criar novos catálogos MCS através do alojamento do Azure, a VM de VDA principal é necessário para ter parado (de alocada) Estado. Encerramento da VM no portal do Azure.
 
-5. Group4 de ativação pós-falha: Controlador de entrega e as VMs de servidor StoreFront
+5. Group4 de ativação pós-falha: Controlador de entrega e as VMs do servidor de loja
 6. Group3 manual ou script ação 1:
 
     ***Adicionar ligação de anfitrião do Azure RM***

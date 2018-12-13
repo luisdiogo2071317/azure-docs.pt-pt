@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação Web Ruby e Postgres no Serviço de Aplicações do Azure no Linux | Microsoft Docs
+title: Criar uma aplicação Ruby web com Postgres no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como pôr aplicações Ruby a funcionar no Azure, com ligação a uma base de dados Postgres no Azure.
 services: app-service\web
 documentationcenter: ''
@@ -11,13 +11,13 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 9b64cedb54ac0777c4402d39bad5a23df79e5cf7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 247c4f24869901f0f50b081d8f57b7e3841a8e8a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961251"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271033"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web Ruby e Postgres no Serviço de Aplicações do Azure no Linux
 

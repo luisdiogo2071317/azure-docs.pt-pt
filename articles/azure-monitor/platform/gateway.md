@@ -10,17 +10,15 @@ ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 68698cf23a59a5f4fd182891ebed243dac1319bf
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870542"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194237"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Ligar computadores sem acesso à Internet através do gateway do Log Analytics
 Este documento descreve como configurar a comunicação com a automatização do Azure e ligadas do Log Analytics com o gateway do Log Analytics quando direto ou computadores monitorizados do Operations Manager não tem acesso à Internet.  O gateway do Log Analytics, que é um proxy de encaminhamento de HTTP que suporte a HTTP com o comando de ligação HTTP de túnel, pode recolher dados e enviá-lo para a automatização do Azure e o Log Analytics em seu nome.  
@@ -89,8 +87,8 @@ A tabela seguinte realça o número suportado de agentes ao comunicar com um ser
 
 |Gateway |Aprox. número de agentes suportados|  
 |--------|----------------------------------|  
-|-CPU: Intel XEON CPU E5 2660 v3 \@ núcleos de 2,6 GHz 2<br> -Memória: 4 GB<br> -Largura de banda de rede: 1 Gbps| 600|  
-|-CPU: Intel XEON CPU E5 2660 v3 \@ 2,6 GHz 4 núcleos<br> -Memória: 8 GB<br> -Largura de banda de rede: 1 Gbps| 1000|  
+|-CPU: Intel XEON CPU E5 2660 v3 \@ núcleos de 2,6 GHz 2<br> -Memória: 4GB<br> -Largura de banda de rede: 1 Gbps| 600|  
+|-CPU: Intel XEON CPU E5 2660 v3 \@ 2,6 GHz 4 núcleos<br> -Memória: 8 GB<br> -Largura de banda de rede: 1 Gbps| 1000|  
 
 ## <a name="download-the-log-analytics-gateway"></a>Transfira o gateway do Log Analytics
 
@@ -136,13 +134,13 @@ Para saber como projetar e implementar uma cluster de balanceamento de carga na 
 1. Inicie sessão para o servidor do Windows que é um membro do cluster NLB com uma conta administrativa.  
 1. Abra o Gestor de balanceamento de carga na rede no Gestor de servidores, clique em **ferramentas**e, em seguida, clique em **Gestor de balanceamento de carga na rede**.
 1. Para ligar um servidor de gateway do Log Analytics com o Microsoft Monitoring Agent instalado, endereço IP do cluster com o botão direito e, em seguida, clique em **Adicionar anfitrião ao Cluster**.<br><br> ![Rede de carga, Gestor de balanceamento – Adicionar anfitrião ao Cluster](./media/gateway/nlb02.png)<br> 
-1. Introduza o endereço IP do servidor de gateway que pretende ligar.<br><br> ![Rede do Gestor de balanceamento de carga – Adicionar anfitrião ao Cluster: ligar](./media/gateway/nlb03.png) 
+1. Introduza o endereço IP do servidor de gateway que pretende ligar.<br><br> ![Rede de carga, Gestor de balanceamento – Adicionar anfitrião ao Cluster: Ligar](./media/gateway/nlb03.png) 
     
 ## <a name="configure-log-analytics-agent-and-operations-manager-management-group"></a>Configurar o agente do Log Analytics e o grupo de gestão do Operations Manager
 A seção a seguir inclui os passos sobre como configurar os agentes, um grupo de gestão do Operations Manager ou do Azure Automation Hybrid Runbook Workers do Log Analytics ligadas diretamente com o gateway do Log Analytics para comunicar com a automatização do Azure ou de registo Análise.  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>Configurar o agente do Log Analytics autónomo
-Para compreender os requisitos e passos sobre como instalar o agente Log Analytics em computadores Windows, ligando-se diretamente ao Log Analytics, veja [computadores Windows ligar ao Log Analytics](agent-windows.md) ou para Linux, consulte computadores [ Ligar computadores Linux ao Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md). No lugar de especificar um servidor proxy ao configurar o agente, é possível substituir esse valor com o endereço IP do servidor de gateway do Log Analytics e o respetivo número de porta.  Se tiver implementado por trás de um balanceador de carga de rede de vários servidores de gateway, a configuração de proxy de agente do Log Analytics é o endereço IP virtual do NLB.  
+Para compreender os requisitos e passos sobre como instalar o agente Log Analytics em computadores Windows, ligando-se diretamente ao Log Analytics, veja [computadores Windows ligar ao Log Analytics](agent-windows.md) ou para Linux, consulte computadores [ Ligar computadores Linux ao Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md). No lugar de especificar um servidor proxy ao configurar o agente, é possível substituir esse valor com o endereço IP do servidor de gateway do Log Analytics e o respetivo número de porta.  Se tiver implementado por trás de um balanceador de carga de rede de vários servidores de gateway, a configuração de proxy de agente do Log Analytics é o endereço IP virtual do NLB.  
 
 Para informações relacionadas com o Runbook Worker do Automation híbrida, veja [implementar a função de trabalho de Runbook do híbrida](../../automation/automation-hybrid-runbook-worker.md).
 
@@ -183,7 +181,7 @@ Para ambientes de grandes ou complexos, pode querer apenas servidores específic
 1. Abra a consola do Operations Manager e selecione o **Authoring** área de trabalho.  
 1. Na área de trabalho de criação, selecione **regras** e clique nas **âmbito** botão na barra de ferramentas do Operations Manager. Se este botão não estiver disponível, verifique se tem um objeto, não uma pasta, selecionado no painel de monitorização. O **objetos de pacote de gestão do âmbito** caixa de diálogo apresenta uma lista de classes comuns de destinados, grupos ou objetos. 
 1. Tipo **serviço de integridade** no **procure** campo e selecione-o na lista.  Clique em **OK**.  
-1. Procure a regra **regra de definição de Proxy do Advisor** e na barra de ferramentas da consola de operações, clique em **substituições** e, em seguida, aponte para **substituir o Rule\For um objeto específico da classe: serviço de estado de funcionamento**  e selecione um objeto específico da lista.  Opcionalmente, pode criar um grupo personalizado que contém o objeto de serviço de estado de funcionamento dos servidores que pretende aplicar esta substituição para e, em seguida, aplicar a substituição para esse grupo.
+1. Procure a regra **regra de definição de Proxy do Advisor** e na barra de ferramentas da consola de operações, clique em **substituições** e, em seguida, aponte para **substituir o Rule\For um objeto específico da classe: Serviço de estado de funcionamento** e selecione um objeto específico da lista.  Opcionalmente, pode criar um grupo personalizado que contém o objeto de serviço de estado de funcionamento dos servidores que pretende aplicar esta substituição para e, em seguida, aplicar a substituição para esse grupo.
 1. Na **propriedades da substituição** caixa de diálogo, clique para colocar uma marca de verificação no **substituir** coluna seguinte para o **WebProxyAddress** parâmetro.  Na **valor de substituição** campo, introduza o URL da garantia de servidor de gateway do Log Analytics que comece com o `http://` prefixo.  
 
     >[!NOTE]

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: reconhecer emoções no rosto numa imagem - API de Emoções, C#'
+title: 'Tutorial: Reconhecer emoções num rosto numa imagem - API de emoçõesC#'
 titlesuffix: Azure Cognitive Services
 description: Explore uma aplicação básica do Windows para reconhecer as emoções expressas nos rostos numa imagem.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 01/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: f3a84a68718fba29e2a4b2fae057e68976119c95
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
-ms.translationtype: HT
+ms.openlocfilehash: da605ec4013fb11606f99f3d9a2dcfcfcab00d3b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237029"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163332"
 ---
-# <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>Tutorial: reconhecer emoções no rosto numa imagem.
+# <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>Tutorial: Reconheça emoções num rosto numa imagem.
 
 > [!IMPORTANT]
 > A API de Emoções vai ser preterida no dia 15 de fevereiro de 2019. A função de reconhecimento de emoções está agora geralmente disponível como parte da [API Face](https://docs.microsoft.com/azure/cognitive-services/face/). 
@@ -34,12 +34,12 @@ Antes de criar o exemplo, tem de subscrever a API de Emoções, que faz parte do
 
 #### <a name="get-the-client-library-and-example"></a>Obter a biblioteca de cliente e o exemplo  
 Pode transferir a biblioteca de cliente da API de Emoções através de [SDK](https://www.github.com/microsoft/cognitive-emotion-windows). O ficheiro zip transferido tem de ser extraído para uma pasta à sua escolha, vários utilizadores escolhem a pasta do Visual Studio 2015.
-## <a name="Step1">Passo 1: abrir o exemplo</a>
+## <a name="Step1">Passo 1: Abra o exemplo</a>
 1.  Inicie o Microsoft Visual Studio 2015 e clique em **Ficheiro**, selecione **Abrir**, em seguida, **Projeto/Solução**.
 2.  Procure a pasta onde guardou os ficheiros transferidos da API de Emoções. Clique em **Emoções**, **Windows** e, em seguida, na pasta **Sample-WPF**.
 3.  Faça duplo clique para abrir o ficheiro de Solução do Visual Studio 2015 (.sln) com o nome **EmotionAPI-WPF-Samples.sln**. A solução irá abrir no Visual Studio.
 
-## <a name="Step2">Passo 2: compilar o exemplo</a>
+## <a name="Step2">Passo 2: Criar o exemplo</a>
 1. No **Explorador de Soluções**, clique com o botão direito do rato em **Referências** e, em seguida, clique em **Gerir Pacotes NuGet**.
 
   ![Abrir o Gestor de Pacotes NuGet](../Images/EmotionNuget.png)
@@ -50,21 +50,21 @@ Pode transferir a biblioteca de cliente da API de Emoções através de [SDK](ht
 
 3.  Prima Ctrl+Shift+B ou clique em **Compilar** no menu do friso e, em seguida, selecione **Compilar Solução**.
 
-## <a name="Step3">Passo 3: executar o exemplo</a>
+## <a name="Step3">Passo 3: Executar o exemplo</a>
 1.  Depois de a compilação estar concluída, prima **F5** ou clique em **Iniciar** no menu do friso para executar o exemplo.
 2.  Localize a janela da API de Emoções com a **caixa de texto** com o texto “**Cole a chave de subscrição aqui para iniciar**”. Cole a chave de subscrição na caixa de texto, conforme mostrado na captura de ecrã abaixo. Pode optar por manter a sua chave de subscrição no seu PC ou portátil ao clicar no botão “Guardar Chave”. Quando pretender eliminar a chave de subscrição do sistema, clique em “Eliminar chave” para removê-la do PC ou computador portátil.
 
   ![Interface de Funcionalidades de Emoções](../Images/EmotionKey.png)
 
 3.  Em “**Selecionar Cenário**”, clique para utilizar um dos dois cenários, “**Detetar emoções com um fluxo**” ou “**Detetar emoções com um URL**” e siga as instruções no ecrã. A Microsoft recebe as imagens que carregar e pode utilizá-las para melhorar a API de Emoções e os serviços relacionados. Ao submeter uma imagem, certifique-se de que seguiu o nosso [Código de Conduta do Programador](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
-4.  Existem imagens de exemplo para utilização com esta aplicação de exemplo. Pode encontrar estas imagens no [repositório do Github da API Face](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data), na pasta **Dados**. Tenha em atenção que a utilização destas imagens está licenciada ao abrigo do contrato de Utilização Justa, o que significa que são adequadas para utilização em testes deste exemplo, mas não para republicação.
+4.  Existem imagens de exemplo para utilização com esta aplicação de exemplo. Pode encontrar estas imagens no [o repositório do GitHub de API de rostos](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) sob a **dados** pasta. Tenha em atenção que a utilização destas imagens está licenciada ao abrigo do contrato de Utilização Justa, o que significa que são adequadas para utilização em testes deste exemplo, mas não para republicação.
 
 ## <a name="Review">Rever e Aprender</a>
 Agora que tem uma aplicação em execução, vamos rever como esta aplicação de exemplo se integra nos Serviços Cognitivos da Microsoft. Isto irá permitir que continue a compilar esta aplicação ou que desenvolva a sua própria aplicação através da API de Emoções da Microsoft.
 
 Esta aplicação de exemplo utiliza a Biblioteca de Cliente da API de Emoções, um wrapper de cliente magro em C# para a API de Emoções da Microsoft. Quando criou a aplicação de exemplo, conforme descrito acima, obteve a biblioteca de cliente a partir de um pacote NuGet. Pode rever o código fonte da Biblioteca de Cliente na pasta intitulada “[Biblioteca de Cliente](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary)” em **Emoções**, **Windows**, **Biblioteca de Cliente**, que faz parte do repositório do ficheiro transferido mencionado acima nos [Pré-requisitos](#Prerequisites).
 
-Pode também ficar a saber como utilizar o código da Biblioteca de Cliente no **Explorador de Soluções**: em **EmotionAPI-WPF_Samples**, expanda **DetectEmotionUsingStreamPage.xaml** para localizar **DetectEmotionUsingStreamPage.xaml.cs**, que é utilizado para navegar para um ficheiro armazenado localmente, ou expanda **DetectEmotionUsingURLPage.xaml** para localizar **DetectEmotionUsingURLPage.xaml.cs**, que é utilizado ao carregar um URL de imagem. Faça duplo clique nos ficheiros. xaml.cs para abri-los numa nova janela do Visual Studio.
+Pode também descobrir como usar o código da biblioteca de cliente no **Explorador de soluções**: Sob **EmotionAPI WPF_Samples**, expanda **DetectEmotionUsingStreamPage.xaml** para localizar **DetectEmotionUsingStreamPage.xaml.cs**, que é utilizado para navegar para um localmente armazenado o ficheiro ou expanda **DetectEmotionUsingURLPage.xaml** para localizar **DetectEmotionUsingURLPage.xaml.cs**, que é utilizada ao carregar um URL de imagem. Faça duplo clique nos ficheiros. xaml.cs para abri-los numa nova janela do Visual Studio.
 
 Ao rever como a Biblioteca de Cliente de Emoções é utilizada na nossa aplicação de exemplo, vamos analisar dois fragmentos de código de **DetectEmotionUsingStreamPage.xaml.cs** e **DetectEmotionUsingURLPage.xaml.cs**. Cada ficheiro contém comentários ao código que indicam “KEY SAMPLE CODE STARTS HERE” e “KEY SAMPLE CODE ENDS HERE” para ajudá-lo a localizar os fragmentos de código reproduzidos abaixo.
 

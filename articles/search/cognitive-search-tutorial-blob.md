@@ -1,5 +1,5 @@
 ---
-title: Tutorial para chamar API de pesquisa cognitiva no Azure Search | Microsoft Docs
+title: Tutorial para chamar a pesquisa cognitiva APIs - Azure Search
 description: Neste tutorial, acompanhe um exemplo de extração de dados, linguagem natural e processamento de imagem por IA na indexação do Azure Search para extração e transformação de dados.
 manager: pablocas
 author: luiscabrer
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 3350f182e236cc0828040f1ee1eb73cf54cf18a8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec2018
+ms.openlocfilehash: 4f5b0661f67dd63177309905079ee68716e9e721
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957372"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315745"
 ---
-# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar APIs de pesquisa cognitiva (Pré-visualização)
+# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Saiba como chamar cognitivos procurar APIs (pré-visualização)
 
 Neste tutorial, vai aprender os mecanismos da programação do melhoramento de dados no Azure Search com as *competências cognitivas*. As competências cognitivas são o processamento de linguagem natural (NLP) e as operações de análise de imagem que extraem texto e representações de texto a partir de uma imagem, detetam o idioma, as entidades, as expressões-chave e muito mais. O resultado final é conteúdo avançado adicional num índice do Azure Search, criado por um pipeline de indexação da pesquisa cognitiva. 
 
@@ -34,7 +35,9 @@ O resultado é um índice pesquisável de texto completo no Azure Search. Pode m
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!NOTE]
-> A Pesquisa Cognitiva está em pré-visualização pública. A execução de conjuntos de capacidades e a normalização e extração de imagens estão atualmente disponíveis gratuitamente. Posteriormente, anunciaremos os preços destas funcionalidades. 
+> A partir de 21 de Dezembro de 2018, poderá associar um recurso dos serviços cognitivos com um conjunto de capacidades do Azure Search. Isso permitirá que comecem a cobrança de consumo para a execução do conjunto de capacidades. Esta data, podemos também começar a cobrar extração de imagem como parte da fase de aberturas de documentos. Continuaremos a oferecer a extração de texto de documentos sem custos adicionais.
+>
+> A execução das habilidades internas será cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/) . Preços de extração de imagem são cobrados ao preço de pré-visualização e está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba mais [mais](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,14 +68,12 @@ Primeiro, inscreva-se no serviço do Azure Search.
   ![Página de definição de serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "página de definição de serviço no portal")
   ![página de definição de serviço no portal do](./media/cognitive-search-tutorial-blob/create-search-service2.png "página de definição de serviço no o portal")
 
-  > [!NOTE]
-  > A Pesquisa cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuito. Posteriormente, iremos anunciar os preços desta capacidade.
-
+ 
 1. Afixe o serviço no dashboard para ter acesso rápido às informações do serviço.
 
   ![Página de definições do serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definições do serviço no portal")
 
-1. Depois de criar o serviço, recolha as seguintes informações: o **URL** da página de Descrição geral e a **chave de API** (primária ou secundária) da página Chaves.
+1. Depois do serviço é criado, recolha as seguintes informações: **URL** da página de descrição geral, e **a chave de api** (primário ou secundário) na página chaves.
 
   ![Informações do ponto final e da chave no portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Informações do ponto final e da chave no portal")
 
@@ -130,7 +131,7 @@ Uma vez que este é o seu primeiro pedido, verifique o portal do Azure para conf
 Se obtiver um erro 403 ou 404, verifique a construção do pedido: `api-version=2017-11-11-Preview` deve estar no ponto final, `api-key` deve estar no Cabeçalho após `Content-Type` e o valor deve ser válido para um serviço de pesquisa. Pode reutilizar o cabeçalho para os restantes passos neste tutorial.
 
 > [!TIP]
-> Agora, antes de realizar uma grande parte do trabalho, é uma boa altura para verificar se o serviço de pesquisa está em execução numa das localizações suportadas a fornecer a funcionalidade de pré-visualização: EUA Centro-Sul ou Europa Ocidental.
+> Agora, antes de fazer muito trabalho, é um bom momento para verificar se o serviço de pesquisa está em execução em uma das localizações suportadas fornecendo a funcionalidade de pré-visualização: Centro-Sul dos E.U.A. ou Europa Ocidental.
 
 ## <a name="create-a-skillset"></a>Criar um conjunto de competências
 

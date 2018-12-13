@@ -1,5 +1,5 @@
 ---
-title: Executar um contentor do Windows personalizado no Azure (Pré-visualização) | Microsoft Docs
+title: Executar o contentor personalizado do Windows (pré-visualização) - serviço de aplicações do Azure | Documentos da Microsoft
 description: Saiba como implementar um contentor do Windows personalizado no Serviço de Aplicações do Azure.
 services: app-service\web
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: e2d058cfe6d6a31f557708277902063e51f54bc5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 9c77bbbf3d2149e905d77355579021d10094496c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971373"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250863"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Executar um contentor do Windows personalizado no Azure (Pré-visualização)
 
@@ -189,7 +189,7 @@ O carregamento das imagens principais durante o arranque da aplicação demora a
 - [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-aspnetcore-runtime
 - [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-sdk
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Migrar para o contentor do Windows no Azure](app-service-web-tutorial-windows-containers-custom-fonts.md)

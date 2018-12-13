@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 82a3ce9f899e94a1cc737f2ca2dc1dc79688a224
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4e30b143a11e35fc83103abfa03e3fb7f29cf9dc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055589"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270139"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificações de manutenção planeada para conjuntos de dimensionamento de máquinas virtuais
 
@@ -101,11 +101,11 @@ Azure comunica um agendamento para a manutenção planeada ao enviar um e-mail p
 2. No menu da esquerda, selecione **Monitor**. 
 3. Na **monitorizar - alertas (clássico)** painel, selecione **+ Adicionar alerta de registo de atividade**.
 4. Sobre o **Adicionar alerta de registo de atividade** página, selecione ou introduza as informações pedidas. Na **critérios**, certifique-se de que defina os seguintes valores:
-   - **Categoria de evento**: selecione **estado de funcionamento do serviço**.
-   - **Os serviços**: selecione **conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais**.
-   - **Tipo**: selecione **manutenção planeada**. 
+   - **Categoria de evento**: Selecione **estado de funcionamento do serviço**.
+   - **Serviços**: Selecione **conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais**.
+   - **Tipo de**: Selecione **manutenção planeada**. 
     
-Para saber mais sobre como configurar alertas de registo de atividades, consulte [alertas de criar o registo de atividades](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+Para saber mais sobre como configurar alertas de registo de atividades, consulte [alertas de criar o registo de atividades](../azure-monitor/platform/activity-log-alerts.md)
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>Iniciar manutenção no seu conjunto de dimensionamento de máquina virtual do portal
@@ -177,42 +177,42 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 ## <a name="faq"></a>FAQ
 
-**P: por que precisa reiniciar agora minhas VMs?**
+**P: Por que precisa reiniciar agora minhas VMs?**
 
-**R:** embora a maioria das atualizações e melhoramentos para a plataforma do Azure não afetam a disponibilidade da VM, em alguns casos, nós não é possível evitar o reinício de VMs alojadas no Azure. Temos acumulado várias alterações, requerer que o reinício dos nossos servidores que resultarão no reinício da VM.
+**R:** Embora a maioria das atualizações e melhoramentos para a plataforma do Azure não afetam a disponibilidade da VM, em alguns casos, não podemos não é possível evitar o reinício de VMs alojadas no Azure. Temos acumulado várias alterações, requerer que o reinício dos nossos servidores que resultarão no reinício da VM.
 
-**P: se eu seguir as suas recomendações para elevada disponibilidade através da utilização de disponibilidade do conjunto, sou eu seguro?**
+**P: Se eu seguir as suas recomendações para elevada disponibilidade através da utilização de disponibilidade do conjunto, sou eu seguro?**
 
-**R:** máquinas virtuais implementadas num disponibilidade definida ou em conjuntos de dimensionamento de máquina virtual utilizar domínios de atualização. Quando efetuar a manutenção, o Azure honra a restrição de domínio de atualização e não reiniciar VMs a partir de um domínio de atualização diferentes (dentro do mesmo conjunto de disponibilidade). Azure também tem de aguardar durante, pelo menos, 30 minutos antes de passar para o grupo seguinte de VMs. 
+**R:** Máquinas virtuais implementadas num disponibilidade definida ou em conjuntos de dimensionamento de máquina virtual utilizar domínios de atualização. Quando efetuar a manutenção, o Azure honra a restrição de domínio de atualização e não reiniciar VMs a partir de um domínio de atualização diferentes (dentro do mesmo conjunto de disponibilidade). Azure também tem de aguardar durante, pelo menos, 30 minutos antes de passar para o grupo seguinte de VMs. 
 
 Para obter mais informações sobre a elevada disponibilidade, consulte [regiões e disponibilidade para máquinas virtuais no Azure](../virtual-machines/windows/regions-and-availability.md).
 
-**P: como posso ser notificado sobre manutenção planeada?**
+**P: Como posso ser notificado sobre manutenção planeada?**
 
-**R:** uma onda de manutenção planeada é iniciada ao definir uma agenda a um ou mais regiões do Azure. Logo depois, uma notificação por e-mail é enviada para os proprietários de subscrições (um e-mail por subscrição). Pode adicionar canais e os destinatários para obter esta notificação ao utilizar os alertas de registo de atividades. Se implementar uma VM para uma região em que já foi agendada a manutenção planeada, não receber a notificação. Em vez disso, verifique o estado de manutenção da VM.
+**R:** Inicia uma onda de manutenção planeada ao definir uma agenda a um ou mais regiões do Azure. Logo depois, uma notificação por e-mail é enviada para os proprietários de subscrições (um e-mail por subscrição). Pode adicionar canais e os destinatários para obter esta notificação ao utilizar os alertas de registo de atividades. Se implementar uma VM para uma região em que já foi agendada a manutenção planeada, não receber a notificação. Em vez disso, verifique o estado de manutenção da VM.
 
-**P: não vejo qualquer indicação de manutenção planeada no portal, PowerShell ou a CLI. O que há de errado?**
+**P: Não vejo qualquer indicação de manutenção planeada no portal, PowerShell ou a CLI. O que há de errado?**
 
-**R:** informações relacionadas com a manutenção planeada estão disponíveis durante uma onda de manutenção planeada apenas para as VMs que são afetados pela manutenção planeada. Se não vir dados, a onda de manutenção pode já estar concluída (ou não iniciado), ou a VM já pode ser alojada num servidor atualizado.
+**R:** Informações relacionadas com a manutenção planeada está disponível durante uma onda de manutenção planeada apenas para as VMs que são afetados pela manutenção planeada. Se não vir dados, a onda de manutenção pode já estar concluída (ou não iniciado), ou a VM já pode ser alojada num servidor atualizado.
 
-**P: existe uma forma de saber exatamente quando a minha VM será afetada?**
+**P: Existe uma forma de saber exatamente quando a minha VM será afetada?**
 
-**R:** quando definimos a agenda, definimos uma janela de tempo de vários dias. A sequenciação exata de servidores (e VMs) nesse período é desconhecida. Se deseja saber o tempo exato, serão possível atualizar as suas VMs, pode utilizar [eventos agendados](../virtual-machines/windows/scheduled-events.md). Quando usa eventos agendados, pode consultar a partir de dentro da VM e receber uma notificação de 15 minutos antes de um reinício VM.
+**R:** Quando vamos definir a agenda, definimos uma janela de tempo de vários dias. A sequenciação exata de servidores (e VMs) nesse período é desconhecida. Se deseja saber o tempo exato, serão possível atualizar as suas VMs, pode utilizar [eventos agendados](../virtual-machines/windows/scheduled-events.md). Quando usa eventos agendados, pode consultar a partir de dentro da VM e receber uma notificação de 15 minutos antes de um reinício VM.
 
-**P: o tempo que demora a reiniciar a minha VM?**
+**P: O tempo que demora a reiniciar a minha VM?**
 
-**R:** dependendo do tamanho da sua VM, o reinício pode demorar vários minutos durante a janela de manutenção self-service. Durante os reinícios iniciada pelo Azure na janela de manutenção agendada, a reinicialização normalmente demora cerca de 25 minutos. Se utiliza os serviços de Cloud (função da Web/trabalho), os conjuntos de dimensionamento de máquinas virtuais ou conjuntos de disponibilidade, é-lhe dada 30 minutos entre cada grupo de VMs (domínio de atualização) durante a janela de manutenção agendada. 
+**R:**  Dependendo do tamanho da sua VM, o reinício pode demorar vários minutos durante a janela de manutenção self-service. Durante os reinícios iniciada pelo Azure na janela de manutenção agendada, a reinicialização normalmente demora cerca de 25 minutos. Se utiliza os serviços de Cloud (função da Web/trabalho), os conjuntos de dimensionamento de máquinas virtuais ou conjuntos de disponibilidade, é-lhe dada 30 minutos entre cada grupo de VMs (domínio de atualização) durante a janela de manutenção agendada. 
 
-**P: não vejo qualquer informação de manutenção nas minhas VMs. O que aconteceu de errado?**
+**P: Não vejo qualquer informação de manutenção nas minhas VMs. O que aconteceu de errado?**
 
-**R:** por vários motivos por que razão poderá não ver todas as informações de manutenção nas suas VMs:
+**R:** Há vários motivos por que razão poderá não ver todas as informações de manutenção nas suas VMs:
    - Estiver a utilizar uma subscrição marcada como *Microsoft Internal*.
    - As VMs não estão agendadas para manutenção. Pode ser que a onda de manutenção terminou, foi cancelada ou foi modificada para que as suas VMs já não são afetadas pelo mesmo.
    - Não tem o **manutenção** coluna adicionada à sua exibição de lista VM. Embora esta coluna, adicionámos a exibição padrão, se configurar a vista para ver colunas não predefinidas, tem de adicionar manualmente os **manutenção** coluna à sua exibição de lista VM.
 
-**P: a minha VM está agendada para manutenção pela segunda vez. Porquê?**
+**P: A minha VM está agendada para manutenção pela segunda vez. Porquê?**
 
-**R:** em vários casos de utilização, a sua VM está agendada para manutenção depois de já ter concluído a manutenção e implantados novamente:
+**R:** Em vários casos de utilização, a sua VM está agendada para manutenção depois de já ter concluído a manutenção e implantados novamente:
    - Temos cancelada a onda de manutenção e reiniciado-lo com um payload de diferente. Pode ser que foi detetada uma carga com falha e precisamos simplesmente de implementar um payload adicional.
    - A VM esteve *corrigido por outro serviço* para outro nó devido a uma falha de hardware.
    - Selecionou a parar (desaloque) e reinicie a VM.

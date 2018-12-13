@@ -1,5 +1,5 @@
 ---
-title: Compreender como o Azure Policy realiza auditorias dentro de uma máquina virtual
+title: Compreender como executar auditorias dentro de uma máquina virtual
 description: Saiba como política do Azure utiliza a configuração de convidado para fazer auditoria definições dentro de uma máquina virtual do Azure.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,13 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 19bc8a58c1ad2115afdfd1d7e59b714ba19cadec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 1ea87dc01048a2747a668db7a5b1f22b37ed9213
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078893"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310067"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de convidado do Azure Policy
 
@@ -106,7 +106,7 @@ Política do Azure utiliza os fornecedores de recursos de configuração de conv
 > [!NOTE]
 > Para cada definição de configuração de convidado, tanto o **DeployIfNotExists** e **AuditIfNotExists** definições de política tem de existir.
 
-Todas as políticas incorporadas para a configuração de convidado são incluídas numa iniciativa para as definições para utilizam em atribuições de grupo. A iniciativa incorporada com o nome *[pré-visualização]: definições de palavra-passe de auditoria de segurança dentro de máquinas virtuais do Linux e Windows* contém 18 políticas. Existem seis **DeployIfNotExists** e **AuditIfNotExists** pares para Windows e três pares para Linux. Valida a apenas o destino em cada caso, a lógica dentro da definição do sistema operativo é avaliado com base no [regra de política](definition-structure.md#policy-rule) definição.
+Todas as políticas incorporadas para a configuração de convidado são incluídas numa iniciativa para as definições para utilizam em atribuições de grupo. A iniciativa incorporada com o nome *[pré-visualização]: Definições de segurança de palavra-passe dentro de máquinas virtuais do Linux e Windows de auditoria* contém 18 políticas. Existem seis **DeployIfNotExists** e **AuditIfNotExists** pares para Windows e três pares para Linux. Valida a apenas o destino em cada caso, a lógica dentro da definição do sistema operativo é avaliado com base no [regra de política](definition-structure.md#policy-rule) definição.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

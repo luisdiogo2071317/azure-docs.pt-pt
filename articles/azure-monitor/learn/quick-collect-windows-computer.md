@@ -14,13 +14,12 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.component: ''
-ms.openlocfilehash: 011cfc181438d1a816afd9046f58f4d5c25b4504
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 39261f18c4335f0f27b68a2df2246ec4180d11e7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090165"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193710"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configurar o agente do Log Analytics para computadores Windows num ambiente híbrido
 O [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) pode recolher dados diretamente do seu computador Windows físico ou virtual no seu datacenter ou noutro ambiente na cloud para um único repositório, para análise e correlação detalhadas.  Este início rápido mostra-lhe como configurar e recolher dados do seu computador Windows em alguns passos simples.  Para as VMs do Windows do Azure, veja o tópico seguinte [Collect data about Azure Virtual Machines](../../azure-monitor/learn/quick-collect-azurevm.md) (Recolher dados sobre as Máquinas Virtuais do Azure).  
@@ -73,7 +72,7 @@ Os passos seguintes instalam e configuram o agente para o Log Analytics no Azure
 8. Na página **Pronto para Instalar**, reveja as suas opções e clique em **Instalar**.
 9. Na página **Configuração Concluída com Êxito**, clique em **Concluir**.
 
-Quando terminar, o **Microsoft Monitoring Agent** aparece no **Painel de Controlo**. Pode rever a configuração e confirmar que o agente está ligado ao Log Analytics. Quando estiver ligado, no separador **Azure Log Analytics**, o agente apresenta uma mensagem que diz: **O Microsoft Monitoring Agent ligou-se com êxito ao serviço Microsoft Log Analytics.**<br><br> ![Estado da ligação do MMA ao Log Analytics](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Quando terminar, o **Microsoft Monitoring Agent** aparece no **Painel de Controlo**. Pode rever a configuração e confirmar que o agente está ligado ao Log Analytics. Quando estiver ligado, no **do Azure Log Analytics** guia, o agente apresenta uma mensagem que diz: **O Microsoft Monitoring Agent foi ligado com êxito para o serviço Microsoft Log Analytics.**<br><br> ![Estado da ligação do MMA ao Log Analytics](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 ## <a name="collect-event-and-performance-data"></a>Recolher dados de eventos e de desempenho
 O Log Analytics pode recolher eventos do registo do Windows e de contadores de desempenho que especificar para análises e relatórios a longo prazo e efetuar ações quando é detetada uma determinada condição.  Siga estes passos para configurar a recolha de eventos a partir do registo de eventos do Windows e de vários contadores de desempenho comuns para começar.  

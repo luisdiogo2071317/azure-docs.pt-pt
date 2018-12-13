@@ -1,5 +1,5 @@
 ---
-title: Configuração de cluster de Hadoop, Spark, Kafka, HBase ou R Server - Azure HDInsight
+title: Configuração de cluster para Apache Hadoop, Apache Spark, Apache Kafka, Apache HBase ou R Server - Azure HDInsight
 description: Configure clusters do Hadoop, Kafka, Spark, HBase, R Server ou Storm para HDInsight partir de um navegador, a CLI clássica do Azure, Azure PowerShell, REST ou SDK.
 keywords: configuração de cluster do hadoop, instalação, configuração de cluster do spark, o que é o cluster do hadoop de cluster do kafka
 services: hdinsight
@@ -7,17 +7,17 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: ca3a4b4ffc8639b2636b917e656255c2c1b10d33
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4efbf3ec13820892b2abf88919b6ea9ed9df0e45
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005483"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164335"
 ---
-# <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurar clusters no HDInsight com o Hadoop, Spark, Kafka e muito mais
+# <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com o Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -32,7 +32,7 @@ Um cluster do Hadoop é composta por várias máquinas de virtuais (nós) que s�
 ## <a name="cluster-setup-methods"></a>Métodos de configuração de cluster
 A tabela seguinte mostra os diferentes métodos que pode utilizar para configurar um cluster do HDInsight.
 
-| Clusters criados com | Navegador da Web | Linha de comandos | API REST | SDK | 
+| Clusters criados com | Browser | Linha de comandos | API REST | SDK | 
 | --- |:---:|:---:|:---:|:---:|
 | [Portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
@@ -42,7 +42,7 @@ A tabela seguinte mostra os diferentes métodos que pode utilizar para configura
 | [SDK do .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
 | [Modelos Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
-## <a name="quick-create-basic-cluster-setup"></a>Criação rápida: configuração de cluster básico
+## <a name="quick-create-basic-cluster-setup"></a>Criação rápida: Configuração de cluster básico
 Este artigo explica-lhe a configuração no [portal do Azure](https://portal.azure.com), onde pode criar um cluster do HDInsight com *criação rápida* ou *Custom*. 
 
 ![Opções de criação rápida personalizada de criação de hdinsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-options.png)
@@ -97,13 +97,13 @@ Para obter mais informações sobre a criação de HDInsight associado a um dom�
 Com os clusters do HDInsight, pode configurar duas contas de usuário durante a criação do cluster:
 
 * Utilizador HTTP: O nome de utilizador predefinido é *administrador*. Ele usa a configuração básica no portal do Azure. Às vezes, isso é chamado de "Usuário do Cluster".
-* Utilizador SSH (clusters do Linux): utilizado para ligar ao cluster através de SSH. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Utilizador SSH (clusters do Linux): Utilizado para ligar ao cluster através de SSH. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 O pacote de segurança da empresa permite-lhe integrar o HDInsight no Active Directory e Apache Ranger. Vários utilizadores podem ser criados utilizando o pacote de segurança da empresa.
 
 ## <a name="location"></a>Localização (regiões) para armazenamento e os clusters
 
-Não é necessário especificar explicitamente a localização do cluster: O cluster está na mesma localização como armazenamento predefinido. Para obter uma lista de regiões suportadas, clique nas **região** na lista pendente na [preços do HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Não precisa especificar explicitamente a localização do cluster: O cluster está na mesma localização como armazenamento predefinido. Para obter uma lista de regiões suportadas, clique nas **região** na lista pendente na [preços do HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 ## <a name="storage-endpoints-for-clusters"></a>Pontos finais de armazenamento para clusters
 
@@ -114,7 +114,7 @@ Embora uma instalação local do Hadoop utiliza o Hadoop Distributed File System
 
 Durante a configuração, para o ponto final de armazenamento de predefinido Especifique um contentor de BLOBs de uma conta de armazenamento do Azure ou um Store de Lake de dados. O armazenamento predefinido contém o aplicativo e sistema de registos. Opcionalmente, pode especificar contas de armazenamento do Azure ligadas adicionais e contas de Data Lake Store que o cluster pode aceder. O cluster do HDInsight e as contas de armazenamento dependente tem de ser na mesma localização do Azure.
 
-![As definições de armazenamento de cluster: pontos finais de armazenamento compatível com HDFS](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
+![Definições de armazenamento de cluster: Pontos finais de armazenamento compatível com HDFS](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
@@ -193,8 +193,8 @@ Quando utiliza o portal do Azure para configurar o cluster, o tamanho do nó est
 
 ### <a name="virtual-machine-sizes"></a>Tamanhos de máquinas virtuais 
 Quando implementa clusters, escolha os recursos de computação com base na solução que pretende implementar. As VMs seguintes são utilizadas para clusters do HDInsight:
-* A e VMs de série de D1-4: [tamanhos de VM do Linux General-purpose](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
-* VM da série de D11 14: [tamanhos de VM do Linux com otimização de memória](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+* A e VMs de série de D1-4: [Tamanhos de VM do Linux para fins gerais](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
+* VM da série D11 14: [Tamanhos de VM do Linux com otimização de memória](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 
 Para saber o que valor que deve utilizar para especificar um tamanho de VM ao criar um cluster com os SDKs diferentes ou ao utilizar o Azure PowerShell, consulte [tamanhos de VM a utilizar para clusters do HDInsight](../cloud-services/cloud-services-sizes-specs.md#size-tables). A partir deste artigo ligado, utilize o valor na **tamanho** coluna das tabelas.
 
@@ -205,7 +205,7 @@ Para saber o que valor que deve utilizar para especificar um tamanho de VM ao cr
 
 Para obter mais informações, consulte [tamanhos de máquinas virtuais](../virtual-machines/windows/sizes.md). Para obter informações sobre os preços de vários tamanhos, veja [preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
 
-## <a name="advanced-settings-script-actions"></a>Definições avançadas: ações de Script
+## <a name="advanced-settings-script-actions"></a>Definições avançadas: Ações do script
 
 Pode instalar componentes adicionais ou personalizar a configuração de cluster através de scripts durante a criação. Esses scripts são invocados por meio **ação de Script**, que é uma opção de configuração que pode ser utilizada a partir do portal do Azure, cmdlets do PowerShell do Windows HDInsight ou o SDK de .NET do HDInsight. Para obter mais informações, consulte [cluster de HDInsight personalizar com ação de Script](hdinsight-hadoop-customize-cluster-linux.md).
 

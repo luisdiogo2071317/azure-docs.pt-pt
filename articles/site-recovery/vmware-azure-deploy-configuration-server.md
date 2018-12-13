@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: 5d6510c1e069abe1fc295f2fccd9f2c0a9aad5bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837575"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251033"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -148,6 +148,9 @@ Para evitar interrupções na replicação em curso, certifique-se de que o ende
 7. Onde posso transferir as chaves de registo do Cofre?
 
     Na **Cofre de serviços de recuperação**, **gerir** > **infraestrutura do Site Recovery** > **deservidoresdeconfiguração**. Nos servidores, selecione **chave de registo do Download** para transferir o ficheiro de credenciais do cofre.
+8. Pode clonar um servidor de configuração existente e utilizá-lo para a orquestração da replicação?
+
+    **Não**, utilização de um componente de servidor de configuração clonado não é suportada. 
 
 ## <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação
 

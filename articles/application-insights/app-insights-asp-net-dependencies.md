@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: e94af6e50c923d975c6ce71cca94479354891e0d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 77e78e6052e1477696eafa84a3e1c913593ec87e
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097782"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268840"
 ---
-# <a name="set-up-application-insights-dependency-tracking"></a>Configurar o Application Insights: controlo de dependência
+# <a name="set-up-application-insights-dependency-tracking"></a>Configure o Application Insights: Rastreamento de dependências
 R *dependência* é um componente externo que é chamado pela sua aplicação. Normalmente, é um serviço chamado através de HTTP, ou uma base de dados ou um sistema de ficheiros. [O Application Insights](app-insights-overview.md) mede o tempo que o aplicativo aguardará dependências e a frequência com que uma chamada de dependência falha. Pode investigar chamadas específicas e estão relacionadas com pedidos e exceções.
 
 O monitor de dependência de out-of-the-box relatórios atualmente chamadas para esses tipos de dependências:
@@ -208,8 +208,9 @@ Consulte a tabela abaixo e assim garantir que escolheu a configuração correta 
 | Plataforma | Instalar |
 | --- | --- |
 | Servidor IIS |Qualquer um dos [instalar o Monitor de estado no seu servidor](app-insights-monitor-performance-live-website-now.md). Ou [atualizar a sua aplicação para o .NET framework 4.6 ou posterior](https://go.microsoft.com/fwlink/?LinkId=528259) e instale o [SDK do Application Insights](app-insights-asp-net.md) na sua aplicação. |
+| IIS Express |Utilize em vez disso, o servidor de IIS. |
 | Aplicação Web do Azure |No seu painel de controlo de aplicação web, [abrir o painel do Application Insights no seu painel de controlo de aplicação web](app-insights-azure-web-apps.md) e escolha a instalação, se lhe for pedido. |
-| Serviço Cloud do Azure |[Tarefa de arranque de utilização](app-insights-cloudservices.md) ou [framework de instalar o .NET 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
+| Serviço Cloud do Azure |[Tarefa de arranque de utilização](app-insights-cloudservices.md) ou [framework de instalar o .NET 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
 ## <a name="video"></a>Vídeo
 

@@ -7,13 +7,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 0098d532f09ca2fa7ef4434add90729a15809ac5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087461"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164386"
 ---
 # <a name="troubleshoot-input-connections"></a>Resolver problemas de ligações de entrada
 
@@ -47,7 +48,7 @@ Pode realizar os passos seguintes para analisar os eventos de entrada em detalhe
 
 2. O mosaico de detalhes de entrada apresenta uma lista de avisos com detalhes sobre cada problema. A mensagem de aviso de exemplo abaixo inclui a partição, o deslocamento e a números de sequência em que há dados JSON com formato incorreto. 
 
-   ![Mensagem de aviso com o deslocamento](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   ![Mensagem de aviso do Stream Analytics com o deslocamento](media/stream-analytics-malformed-events/warning-message-with-offset.png)
    
 3. Para encontrar os dados JSON com formato incorreto, execute o código de CheckMalformedEvents.cs disponível na [repositório de exemplos do GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Este código leituras o ID de partição, deslocamento e imprime os dados que estão localizados no deslocamento. 
 
@@ -90,8 +91,8 @@ Se a sintaxe de consulta de transmissão em fluxo referencia o mesmo recurso de 
 Cenários em que o número de leitores por partição excede o limite de Hubs de eventos de cinco incluem o seguinte:
 
 * Múltiplas instruções SELECIONADAS: Se utilizar várias instruções SELECT que fazem referência a **mesmo** hub de eventos de entrada, cada instrução SELECIONADA faz com que um novo recetor a ser criada.
-* União: Quando utiliza uma União, é possível ter várias entradas que consulte o **mesmo** grupo de hub e o consumidor de eventos.
-* ASSOCIAÇÃO automática: Quando utiliza uma operação de associação de SELF, é possível fazer referência a **mesmo** hub de eventos várias vezes.
+* UNIÃO: Quando utiliza uma União, é possível ter várias entradas que consulte o **mesmo** grupo de hub e o consumidor de eventos.
+* ASSOCIAÇÃO AUTOMÁTICA: Quando utiliza uma operação de associação de SELF, é possível fazer referência a **mesmo** hub de eventos várias vezes.
 
 As seguintes práticas recomendadas podem ajudar a atenuar os cenários em que o número de leitores por partição excede o limite de Hubs de eventos de cinco.
 
@@ -101,7 +102,7 @@ A cláusula WITH Especifica um conjunto de resultados de com nome temporário qu
 
 Por exemplo, em vez desta consulta:
 
-```
+```SQL
 SELECT foo 
 INTO output1
 FROM inputEventHub
@@ -114,7 +115,7 @@ FROM inputEventHub
 
 Utilize esta consulta:
 
-```
+```SQL
 WITH data AS (
    SELECT * FROM inputEventHub
 )

@@ -1,10 +1,10 @@
 ---
-title: Exemplo do Script da CLI do Azure - Monitorizar uma aplicação Web com os registos do servidor Web | Microsoft Docs
-description: Exemplo do Script da CLI do Azure - Monitorizar uma aplicação Web com os registos do servidor Web
+title: Exemplo do Script da CLI do Azure - monitorizar uma aplicação web com os registos de servidor web | Documentos da Microsoft
+description: Exemplo do Script da CLI do Azure - monitorizar uma aplicação web com os registos de servidor web
 services: appservice
 documentationcenter: appservice
-author: syntaxc4
-manager: erikre
+author: msangapu
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ms.assetid: 0887656f-611c-4627-8247-b5cded7cef60
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/11/2017
-ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: af7d6315b53a4bbb49a97fd8904536bb59d8465a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: msangapu
+ms.custom: seodec18
+ms.openlocfilehash: bea6c9a1f975394f4b1cbf7322c9449c52440994
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952398"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188746"
 ---
-# <a name="monitor-a-web-app-with-web-server-logs"></a>Monitorizar uma aplicação Web com os registos do servidor Web
+# <a name="monitor-a-web-appwith-web-server-logs-using-azure-cli"></a>Monitorizar uma aplicação web com os registos de servidor web com a CLI do Azure
 
 Este script de exemplo cria um grupo de recursos, o plano do serviço de aplicações e a aplicação Web, e configura a aplicação Web para ativar os registos do servidor Web. Em seguida, transfere os ficheiros de registo para revisão.
 
@@ -51,7 +51,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 | [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) | Configura os registos que persistem numa aplicação Web do Azure. |
 | [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-download) | Transfere os registos de uma aplicação Web do Azure no seu computador local. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

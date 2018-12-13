@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2b97ee8853ba49a3b12d98aeb2b494aa890c8e8f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 176d0f00774106bbf9ae8dade0fe3fd4062530bb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102288"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277187"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Monitorizar os seus modelos do Azure Machine Learning com o Application Insights
 
@@ -29,7 +29,9 @@ Neste artigo, saiba como configurar o Azure Application Insights para o seu serv
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
+
+* Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
+
 * Trabalho do Azure Machine Learning, um diretório local que contém os seus scripts e o SDK do Azure Machine Learning para Python instalada. Para saber como obter estes pré-requisitos, veja [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md).
 * Um modelo de aprendizagem de máquina preparado para ser implementada para o Azure Kubernetes Service (AKS) ou instância de contentor do Azure (ACI). Se não tiver uma, veja a [modelo de classificação de imagem Train](tutorial-train-models-with-aml.md) tutorial.
 

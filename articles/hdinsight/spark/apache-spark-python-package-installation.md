@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5b90519120e64a905073eec6b73e4ced64fe4f64
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: bfb2df377030f14893b3e124e6112ef6c2994afd
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496050"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321190"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Utilize a ação de Script para instalar pacotes de Python externos para blocos de notas do Jupyter nos clusters do Apache Spark no HDInsight
 > [!div class="op_single_selector"]
@@ -57,19 +57,17 @@ Existem dois tipos de componentes de código-fonte aberto que estão disponívei
 > [!WARNING]
 > Componentes fornecidos com o cluster do HDInsight são totalmente suportadas. Support da Microsoft ajuda a isolar e resolver problemas relacionados com esses componentes.
 >
-> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Suporte da Microsoft poderá conseguir resolver o problema ou eles poderão pedir-lhe para interagir com os canais disponíveis para as tecnologias de código-fonte aberto, onde os conhecimentos aprofundados para essa tecnologia é encontrado. Por exemplo, há muitos sites de Comunidade que podem ser utilizados, como: [fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Também projetos Apache tem sites de projeto no [ http://apache.org ](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
+> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a resolver o problema. Suporte da Microsoft poderá conseguir resolver o problema ou eles poderão pedir-lhe para interagir com os canais disponíveis para as tecnologias de código-fonte aberto, onde os conhecimentos aprofundados para essa tecnologia é encontrado. Por exemplo, há muitos sites de Comunidade que podem ser utilizados, como: [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Também projetos Apache tem sites de projeto no [ http://apache.org ](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/).
 
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Utilizar pacotes externos com blocos de notas do Jupyter
 
 1. No [Portal do Azure](https://portal.azure.com/), no startboard, clique no mosaico relativo ao cluster do Spark (se o tiver afixado ao startboard). Também pode navegar até ao cluster em **Procurar Tudo** > **Clusters do HDInsight**.   
 
-2. No painel do cluster do Spark, clique em **ações de Script** no painel à esquerda. Utilize o tipo de script "Personalizado" e introduza um nome amigável para a ação de script. Execute o script no **nós principais e de trabalho** e deixar o campo de parâmetros em branco. O script de bash pode ser referenciado em: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh visite a documentação sobre [como utilizar as ações de script personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+2. No painel do cluster do Spark, clique em **ações de Script** no painel à esquerda. Utilize o tipo de script "Personalizado" e introduza um nome amigável para a ação de script. Execute o script no **nós principais e de trabalho** e deixar o campo de parâmetros em branco. O script de bash pode ser referenciado a partir de: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh Visite a documentação sobre [como utilizar as ações de script personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
    > [!NOTE]
-   > Existem dois python instalações no cluster. Spark irá utilizar a instalação do python Anaconda localizada em `/usr/bin/anaconda/bin`. Essa instalação nas suas ações personalizadas através de referência `/usr/bin/anaconda/bin/pip` e `/usr/bin/anaconda/bin/conda`.
-   > 
-   > 
+   > Existem dois python instalações no cluster. Spark irá utilizar a instalação do python Anaconda localizada em `/usr/bin/anaconda/bin` e será predefinido para o ambiente de Python 2.7. Para utilizar pacotes de Python 3.x e instalar no kernel do PySpark3, utilize o caminho para o `conda` executável para esse ambiente e use o `-n` parâmetro para especificar o ambiente. Por exemplo, o comando `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, instala o `ggplot` pacote para o ambiente de Python 3.5 com o `conda-forge` canal.
 
 3. Abra um bloco de notas do Jupyter do PySpark
 
@@ -93,12 +91,12 @@ Existem dois tipos de componentes de código-fonte aberto que estão disponívei
     ![Execução de código do TensorFlow](./media/apache-spark-python-package-installation/execution.png "TensorFlow executar código")
 
 ## <a name="seealso"></a>Ver também
-* [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
+* [Descrição geral: Apache Spark no HDInsight do Azure](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
-* [Apache Spark com BI: efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: Efetuar análise de dados interativa com o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para analisar a temperatura de construção com dados de AVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Utilizar o Spark no HDInsight para prever resultados de inspeções alimentares](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de registos de Web site com o Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Criar e executar aplicações

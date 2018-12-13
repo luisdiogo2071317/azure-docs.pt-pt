@@ -4,10 +4,9 @@ description: Como criar um modelo de regressão simples para prever um preço em
 keywords: criar um modelo, o modelo simples, a previsão de preços, o modelo de regressão simples
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
-manager: hjerez
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 155b853ef46c54fbb6e230573b860189bacc0d64
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e2c49b9da215c038cfa47689f11da22b2dffc2dc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092938"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253599"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prever uma resposta com um modelo simples
 ## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: Ciência de dados para a série de iniciantes
@@ -38,11 +37,11 @@ Para obter o máximo proveito da série, assista a todos eles. [Aceda à lista d
 ## <a name="other-videos-in-this-series"></a>Outros vídeos desta série
 *Ciência de dados para principiantes* é uma introdução rápida à ciência dos dados em cinco vídeos curtos.
 
-* Vídeo 1: [respostas de ciência de dados de questões do 5](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 seg)*
-* Vídeo 2: [são os seus dados prontos para ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 seg)*
-* Vídeo 3: [faça uma pergunta que pode ser respondidas com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 seg)*
+* Vídeo 1: [Respostas de ciência de dados de questões do 5](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 seg)*
+* Vídeo 2: [Seus dados está pronto para ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 seg)*
+* Vídeo 3: [Faça uma pergunta que pode ser respondidas com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 seg)*
 * Vídeo 4: Prever uma resposta com um modelo simples
-* Vídeo 5: [copiar o trabalho de outras pessoas para fazer ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 seg)*
+* Vídeo 5: [Copiar o trabalho de outras pessoas para fazer ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 seg)*
 
 ## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transcrição: Prever uma resposta com um modelo simples
 Bem-vindo ao vídeo nos "dados ciência para principiantes" quarto série. Este aqui, vamos criar um modelo simple e efetuar uma predição.
@@ -66,7 +65,7 @@ Na verdade, criamos um pequeno conjunto de dados aqui – uma tabela. Tenha em a
 * E, como verá, ele possui **suficiente** dados para responder a nossa pergunta
 
 ## <a name="ask-a-sharp-question"></a>Faça uma pergunta sharp
-Agora, vai fazer nossa pergunta de uma forma de sustenido: "quanto ele custará comprar um diamante acento circunflexo 1.35?"
+Agora, vai fazer o nosso pergunta de uma forma de sustenido: "Quanto ele custará comprar um diamante acento circunflexo 1.35?"
 
 Nossa lista não tem um acento circunflexo 1.35 diamante, então teremos que usar o resto dos nossos dados para obter uma resposta à pergunta.
 
@@ -97,18 +96,18 @@ O fato de que todos os pontos não passam exatamente através da linha está OK.
 Uma vez que estamos tentando responder à pergunta *quanto?* isso é chamado um *regressão*. E porque estamos usando uma linha reta, é um *regressão linear*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Usar o modelo para encontrar a resposta
-Agora, temos um modelo e podemos fazer nossa pergunta: quanto um diamante acento circunflexo 1.35 custará?
+Agora temos um modelo e podemos fazer nossa pergunta: Quanto custará o losango um acento circunflexo 1.35?
 
-Para responder a nossa pergunta, podemos olho 1.35 carats e desenhar uma linha vertical. Onde ele cruza a linha de modelo, podemos eyeball uma linha horizontal para o eixo de dólar. Chegar a direita em 10 000. Boom! Essa é a resposta: um diamante acento circunflexo 1.35 custa aproximadamente US $10.000.
+Para responder a nossa pergunta, podemos olho 1.35 carats e desenhar uma linha vertical. Onde ele cruza a linha de modelo, podemos eyeball uma linha horizontal para o eixo de dólar. Chegar a direita em 10 000. Boom! Essa é a resposta: Custos de diamante um acento circunflexo 1.35 sobre $10.000.
 
 ![Encontrar a resposta no modelo](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Criar um intervalo de confiança
-É natural para se pergunte como precisa é desta predição. É útil para saber se o acento circunflexo 1.35 losango estará muito perto de $10.000, ou muito superior ou inferior. Para isso, vamos desenhar um envelope em torno da linha de regressão que inclui a maioria dos pontos. Este envelope é chamado nosso *intervalo de confiança*: estamos bastante confiança de que os preços coincidir com este envelope, porque as últimos maioria deles têm. Podemos pode desenhar duas linhas horizontais mais de onde a linha de acento circunflexo 1.35 cruza na parte superior e a parte inferior do que envelope.
+É natural para se pergunte como precisa é desta predição. É útil para saber se o acento circunflexo 1.35 losango estará muito perto de $10.000, ou muito superior ou inferior. Para isso, vamos desenhar um envelope em torno da linha de regressão que inclui a maioria dos pontos. Este envelope é chamado nosso *intervalo de confiança*: Estamos bastante confiança de que os preços coincidir com este envelope, porque as últimos maioria deles têm. Podemos pode desenhar duas linhas horizontais mais de onde a linha de acento circunflexo 1.35 cruza na parte superior e a parte inferior do que envelope.
 
 ![Intervalo de confiança](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-Agora podemos dizer algo sobre o nosso intervalo de confiança: podemos dizer com confiança que o preço de um acento circunflexo 1.35 losango é aproximadamente US $10.000 - mas pode ser apenas US $8.000 e pode ser tão elevada como 12 000 $.
+Agora, podemos dizer algo sobre o nosso intervalo de confiança:  Podemos dizer com confiança que o preço de um acento circunflexo 1.35 losango é aproximadamente US $10.000 - mas pode ser apenas US $8.000 e pode ser tão elevada como 12 000 $.
 
 ## <a name="were-done-with-no-math-or-computers"></a>Pronto, sem matemática ou computadores
 Dissemos que os cientistas de dados sejam pagas para o fazer. e fizemos desenhando apenas:

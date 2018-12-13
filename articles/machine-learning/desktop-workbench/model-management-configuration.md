@@ -2,8 +2,8 @@
 title: Configuração de gestão de modelo do Azure Machine Learning e configuração | Documentos da Microsoft
 description: Este documento descreve os passos e conceitos envolvidos na definir e configurar a gestão de modelos no Azure Machine Learning.
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d10f61e6276b1ce0a0237e3cf2e35a68edf4a0cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968718"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257585"
 ---
 # <a name="model-management-setup"></a>Configuração de gestão de modelo
 
@@ -91,7 +91,7 @@ Para começar, terá de configurar o ambiente de implantação. Configuração d
 
 Quando concluir a configuração do ambiente:
 - Lhe for pedido para iniciar sessão no Azure. Para iniciar sessão, utilize um browser para abrir a página https://aka.ms/devicelogin e introduza o código fornecido para autenticar.
-- Durante o processo de autenticação, lhe for pedido para uma conta autenticar com o. Importante: Selecione uma conta que tenha uma subscrição do Azure válida e permissões suficientes para criar recursos na conta. - quando o início de sessão estiver concluído, as informações da sua subscrição são apresentadas e lhe for perguntado se desejar continuar com o conta selecionada.
+- Durante o processo de autenticação, lhe for pedido para uma conta autenticar com o. Importante: Selecione uma conta que tenha uma subscrição do Azure válida e permissões suficientes para criar recursos na conta. - quando o início de sessão estiver concluído, as informações da sua subscrição são apresentadas e lhe for perguntado se desejar continuar com a conta selecionada .
 
 ### <a name="environment-setup"></a>Configuração do ambiente
 Para iniciar o processo de configuração, terá de registar o fornecedor de ambiente, introduzindo o seguinte comando:
@@ -114,7 +114,7 @@ O comando de configuração do ambiente local cria os seguintes recursos na sua 
 - Um grupo de recursos (se não for indicado)
 - Uma conta de armazenamento
 - Um Azure Container Registry (ACR)
-- Application Insights
+- O Application insights
 
 Após a conclusão da configuração com êxito, defina o ambiente para ser utilizado com o seguinte comando:
 
@@ -136,7 +136,7 @@ O comando de configuração do ambiente de cluster cria os seguintes recursos na
 - Uma conta de armazenamento
 - Um Azure Container Registry (ACR)
 - Uma implementação de Kubernetes num cluster do Azure Container Service (ACS)
-- Application Insights
+- O Application insights
 
 O grupo de recursos, a conta de armazenamento e o ACR são criadas rapidamente. A implementação do ACS pode demorar até 20 minutos. 
 

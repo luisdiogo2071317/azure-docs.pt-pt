@@ -1,5 +1,5 @@
 ---
-title: Como gerir o seu ambiente do Azure Time Series Insights utilizando modelos Azure Resource Manager | Documentos da Microsoft
+title: Gestão de modelo do Azure Time Series Insights - como gerir o seu ambiente do Azure Time Series Insights utilizando modelos Azure Resource Manager | Documentos da Microsoft
 description: Este artigo descreve como gerir o seu ambiente do Azure Time Series Insights através de programação com o Azure Resource Manager.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 3ca9af8c2c504f75322e00fdaaeac9a3e727a820
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 70f82c19bced7618027379fcf9451348ac2591eb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627132"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270625"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar recursos do Time Series Insights com modelos Azure Resource Manager
 
@@ -91,7 +92,7 @@ Para criar um ficheiro de parâmetros, copiar os [201-timeseriesinsights-ambient
    | --- | --- |
    | eventHubNamespaceName | O espaço de nomes do hub de eventos de origem. |
    | eventHubName | O nome do hub de eventos de origem. |
-   | consumerGroupName | O nome do grupo de consumidor que o serviço do Time Series Insights irá utilizar para ler os dados do hub de eventos. **Nota:** para evitar a contenção de recursos, este grupo de consumidores deve estar dedicado para o serviço do Time Series Insights e não partilhado com outros leitores. |
+   | consumerGroupName | O nome do grupo de consumidor que o serviço do Time Series Insights irá utilizar para ler os dados do hub de eventos. **NOTA:** Para evitar a contenção de recursos, este grupo de consumidor tem de ser dedicado para o serviço do Time Series Insights e não partilhado com outros leitores. |
    | EnvironmentName | O nome do ambiente. O nome não pode incluir: ' <', ' >', '%', '&', ': ','\\','?', '/' e quaisquer carateres de controlo. Todos os outros carateres são permitidos.|
    | eventSourceName | O nome do recurso de subordinado de origem de evento. O nome não pode incluir: ' <', ' >', '%', '&', ': ','\\','?', '/' e quaisquer carateres de controlo. Todos os outros carateres são permitidos. |
 
@@ -99,9 +100,9 @@ Para criar um ficheiro de parâmetros, copiar os [201-timeseriesinsights-ambient
 
    | Parâmetro | Descrição |
    | --- | --- |
-   | existingEventHubResourceId | Um ID de recurso opcional de um Hub de eventos existente que será ligado para o ambiente de Time Series Insights por meio de origem do evento. **Nota:** o utilizador a implementar o modelo tem de ter privilégios para executar a operação de listkeys no Hub de eventos. Se nenhum valor for transmitido, será criado um novo hub de eventos pelo modelo. |
+   | existingEventHubResourceId | Um ID de recurso opcional de um Hub de eventos existente que será ligado para o ambiente de Time Series Insights por meio de origem do evento. **NOTA:** O utilizador a implementar o modelo tem de ter privilégios para executar a operação de listkeys no Hub de eventos. Se nenhum valor for transmitido, será criado um novo hub de eventos pelo modelo. |
    | environmentDisplayName | Um nome amigável opcional para mostrar nas interfaces de utilizador ou as ferramentas em vez do nome de ambiente. |
-   | environmentSkuName | O nome do sku. Para obter mais informações, consulte a [página de preços do Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
+   | environmentSkuName | O nome do SKU. Para obter mais informações, consulte a [página de preços do Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
    | environmentSkuCapacity | A capacidade de unidade do Sku. Para obter mais informações, consulte a [página de preços do Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
    | environmentDataRetentionTime | O período de tempo mínimo eventos do ambiente estarão disponíveis para consulta. O valor tem de ser especificado no formato ISO 8601, por exemplo "P30D" para uma política de retenção de 30 dias. |
    | eventSourceDisplayName | Um nome amigável opcional para mostrar nas interfaces de utilizador ou as ferramentas em vez do nome de origem do evento. |

@@ -1,6 +1,6 @@
 ---
-title: O arranque da VM está preso em "A Preparar o Windows. Não desligue o computador." no Azure | Documentos da Microsoft
-description: Introduzir os passos para resolver o problema no qual VM arranque está bloqueado no "obtendo Windows pronto. Não desative o seu computador".
+title: Inicialização VM está bloqueada no "obtendo Windows pronto. Não desativar o seu computador"no Azure | Documentos da Microsoft
+description: Introduzir os passos para resolver o problema em que o arranque da VM está bloqueada no "obtendo Windows pronto. Não desligue o computador."
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -14,42 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 722bf7b42e500e3e6a46f48646ff1fd2edfb68f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: eb27b4e6c60f23a55a58cd2aae3cff927ffeaf03
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955741"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316102"
 ---
-# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>O arranque da VM está preso em "A Preparar o Windows. Não desligue o computador." no Azure
+# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Inicialização VM está bloqueada no "obtendo Windows pronto. Não desativar o seu computador"no Azure
 
-Este artigo ajuda-o a resolver o problema quando está bloqueada a Máquina Virtual (VM) sobre o "introdução Windows pronto. Não desligue o computador." estágio durante o arranque.
+Este artigo ajuda-o a resolver o problema quando está bloqueada a sua máquina virtual (VM) sobre o "introdução Windows pronto. Não, desligar o computador"estágio durante o arranque.
 
 ## <a name="symptoms"></a>Sintomas
 
-Quando utiliza **diagnósticos de arranque** para obter a captura de ecrã de uma VM, encontrará o sistema operativo não totalmente arrancar. Além disso, a VM exibindo um **"obtendo Windows pronto. Não desativar o seu computador."** mensagem.
+Quando utiliza **diagnósticos de arranque** para obter a captura de ecrã de uma VM, o sistema operativo não totalmente arrancar. A VM apresenta a mensagem "obtendo Windows pronto. Não desligue o computador."
 
-![Exemplo de mensagem](./media/troubleshoot-vm-configure-update-boot/message1.png)
+![Exemplo de mensagem para o Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
 ![Exemplo de mensagem](./media/troubleshoot-vm-configure-update-boot/message2.png)
 
 ## <a name="cause"></a>Causa
 
-Geralmente, este problema ocorre quando o servidor está a fazer a reinicialização final após a configuração foi alterada. Foi possível inicializar a alteração da configuração por atualizações do Windows ou as alterações na funcionalidade/funções do servidor. Para o Windows Update, se o tamanho das atualizações foi grande, o sistema operativo irá precisar de mais tempo para reconfigurar as alterações.
+Geralmente, este problema ocorre quando o servidor está a fazer a reinicialização final após a configuração foi alterada. A alteração de configuração pode ser inicializada por atualizações do Windows ou as alterações na funcionalidade/funções do servidor. Para o Windows Update, se o tamanho das atualizações foi grande, o sistema operativo tem mais tempo para reconfigurar as alterações.
 
 ## <a name="back-up-the-os-disk"></a>Criar cópias de segurança do disco do SO
 
-Antes de tentar corrigir o problema, criar cópias de segurança do disco do SO:
+Antes de tentar corrigir o problema, criar cópias de segurança do disco do SO.
 
 ### <a name="for-vms-with-an-encrypted-disk-you-must-unlock-the-disks-first"></a>Para VMs com um disco encriptado, tem de desbloquear os discos em primeiro lugar
 
-Valide se a VM é uma VM encriptada. Para tal, siga estes passos:
+Siga estes passos para determinar se a VM é uma VM encriptada.
 
-1. No portal, abra a sua VM e, em seguida, navegue para os discos.
+1. No portal do Azure, abra a sua VM e, em seguida, navegue para os discos.
 
-2. Verá uma coluna chamada "Encriptação", que informa se a encriptação está ativada.
+2. Examinar os **Encryption** coluna para ver se a encriptação está ativada.
 
-Se o disco do SO estiver encriptado, desbloquear o disco criptografado. Para tal, siga estes passos:
+Se o disco do SO estiver encriptado, desbloquear o disco criptografado. Para desbloquear o disco, siga estes passos.
 
 1. Crie uma VM de recuperação que está localizado no mesmo grupo de recursos, conta de armazenamento e localização da VM afetada.
 
@@ -72,7 +72,7 @@ Se o disco do SO estiver encriptado, desbloquear o disco criptografado. Para tal
     Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
     ```
 
-5. Depois de ter o nome do segredo, execute os seguintes comandos do PowerShell:
+5. Depois de ter o nome do segredo, execute os seguintes comandos no PowerShell.
 
     ```Powershell
     $secretName = 'SecretName'
@@ -80,10 +80,10 @@ Se o disco do SO estiver encriptado, desbloquear o disco criptografado. Para tal
     $bekSecretBase64 = $keyVaultSecret.SecretValueText
     ```
 
-6. Converter o valor codificado em Base64 para bytes e escrever a saída para um ficheiro. 
+6. Converter o valor codificado pela Base64 para bytes e escrever a saída para um ficheiro. 
 
     > [!Note]
-    > O nome do ficheiro BEK tem de corresponder ao original BEK GUID se usar o USB desbloquear opção. Além disso, terá de criar uma pasta na unidade C com o nome "BEK" antes dos seguintes passos irão funcionar.
+    > Se usar o USB desbloquear opção, o nome do ficheiro BEK tem de corresponder o GUID de BEK original. Crie uma pasta na unidade C com o nome "BEK" antes de seguir estes passos.
     
     ```Powershell
     New-Item -ItemType directory -Path C:\BEK
@@ -92,22 +92,22 @@ Se o disco do SO estiver encriptado, desbloquear o disco criptografado. Para tal
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7. Depois do ficheiro BEK é criado no seu PC, copie o ficheiro para a VM tem o disco do SO bloqueado anexado a de recuperação. Execute o seguinte usando a BEK a localização de ficheiros:
+7. Depois do ficheiro BEK é criado no seu PC, copie o ficheiro para a VM tem o disco do SO bloqueado anexado a de recuperação. Execute os seguintes comandos com a localização do ficheiro BEK.
 
     ```Powershell
     manage-bde -status F:
     manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
     ```
-    **Opcional** em alguns cenários, poderá ser necessário também desencriptar o disco com este comando.
+    **Opcional**: Em alguns cenários, poderá ser necessário desencriptar o disco ao utilizar este comando.
    
     ```Powershell
     manage-bde -off F:
     ```
 
     > [!Note]
-    > Isso é considerar que o disco a encriptação está em letra f:.
+    > O comando anterior pressupõe que o disco a encriptação está em letra F.
 
-8. Se pretender recolher registos, pode navegar para o caminho **letra de unidade: \Windows\System32\winevt\Logs**.
+8. Se pretender recolher registos, vá para o caminho **letra de unidade: \Windows\System32\winevt\Logs**.
 
 9. Desligar a unidade a partir da máquina de recuperação.
 
@@ -121,17 +121,17 @@ Utilize os passos no [despejo de recolher os](troubleshoot-common-blue-screen-er
 
 ## <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
 
-Depois de recolher o ficheiro de informação, contacte [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) a análise da causa raiz.
+Depois de recolher o ficheiro de informação, contacte [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para analisar a causa raiz.
 
 
-## <a name="rebuild-the-vm-using-powershell"></a>Recriar a VM com o PowerShell
+## <a name="rebuild-the-vm-by-using-powershell"></a>Recriar a VM com o PowerShell
 
-Depois de recolher o arquivo de despejo de memória, utilize os seguintes passos para recriar a VM.
+Depois de recolher o arquivo de despejo de memória, siga estes passos para recriar a VM.
 
 **Para discos não geridos**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -162,7 +162,7 @@ New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 **Para discos geridos**
 
 ```PowerShell
-# To login to Azure Resource Manager
+# To log in to Azure Resource Manager
 Login-AzureRmAccount
 
 # To view all subscriptions for your account
@@ -183,7 +183,7 @@ $avName = "AvailabilitySetName";
 $osDiskName = "OsDiskName";
 $DataDiskName = "DataDiskName"
 
-#This can be found by selecting the Managed Disks you wish you use in the Azure Portal if the format below doesn't match
+#This can be found by selecting the Managed Disks you wish you use in the Azure portal if the format below doesn't match
 $osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 

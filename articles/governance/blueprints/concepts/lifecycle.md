@@ -1,6 +1,6 @@
 ---
-title: Compreender o ciclo de vida de um esquema do Azure
-description: Saiba mais sobre o ciclo de vida que atravessa um plano gráfico e os detalhes sobre cada fase.
+title: Compreender o ciclo de vida de um plano gráfico
+description: Saiba mais sobre o ciclo de vida que atravessa um plano gráfico e detalhes sobre cada fase.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,16 +8,17 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 882279019a5f321c6af9beab1f4d0f220781bc5c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094164"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309811"
 ---
-# <a name="understand-the-life-cycle-of-an-azure-blueprint"></a>Compreender o ciclo de vida de um esquema do Azure
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Compreender o ciclo de vida de um esquema do Azure
 
-Como muitos recursos no Azure, um plano gráfico em esquemas do Azure tem um típico e natural ciclo de vida. Estão criados, implantados e, finalmente eliminados quando já não é necessário ou relevantes.
+Como muitos recursos no Azure, um plano gráfico em esquemas do Azure tem um ciclo de vida típico e natural. Estão criados, implantados e, finalmente eliminados quando já não é necessário ou relevantes.
 Planos gráficos suporta operações de ciclo de vida padrão. Em seguida, se baseia na-los para fornecer níveis adicionais de estado que suportam comuns integração contínua e pipelines de implementação contínua para as organizações que gerir a sua infraestrutura como código – um elemento-chave em DevOps.
 
 Para compreender totalmente um plano gráfico e as fases, iremos abranger um ciclo de vida padrão:
@@ -68,7 +69,7 @@ Cada versão de um plano gráfico é um objeto exclusivo e podem ser individualm
 > [!NOTE]
 > Não é possível eliminar um plano gráfico com atribuições ativas. Elimine as atribuições de primeiro e, em seguida, elimine a versão que pretende remover.
 
-1. Clique em **todos os serviços** e a procurar e selecionando **política** no painel esquerdo. Na página **Política**, clique em **Esquemas**.
+1. Clique em **Todos os serviços** e procure e selecione **Política**, no painel do lado esquerdo. Na página **Política**, clique em **Esquemas**.
 
 1. Selecione **definição de Blueprint** partir da página à esquerda e utilize o filtro de opções para localizar o plano gráfico que pretende eliminar uma versão do. Clique no mesmo para abrir a página de edição.
 
@@ -87,7 +88,7 @@ Eliminar um plano gráfico com o [portal do Azure](../create-blueprint-portal.md
 
 ## <a name="assignments"></a>Atribuições
 
-Há vários pontos durante o ciclo de vida, que um plano gráfico pode ser atribuído a uma subscrição. Quando o modo de uma versão do esquema estiver **publicado**, em seguida, essa versão pode ser atribuído a uma subscrição. Este ciclo de vida que permite que as versões de um plano gráfico para ser utilizado e ativamente atribuído enquanto está a ser desenvolvida uma versão mais recente.
+Há vários pontos durante o ciclo de vida de que um plano gráfico pode ser atribuído a uma subscrição. Quando o modo de uma versão do esquema estiver **publicado**, em seguida, essa versão pode ser atribuído a uma subscrição. Este ciclo de vida que permite que as versões de um plano gráfico para ser utilizado e ativamente atribuído enquanto está a ser desenvolvida uma versão mais recente.
 
 Como são atribuídas as versões de esquemas, é importante compreender onde que lhes foram atribuídas e com os quais os parâmetros tem sido atribuídos com. Os parâmetros podem ser estático ou dinâmico. Para obter mais informações, consulte [parâmetros estáticos e dinâmicos](parameters.md).
 

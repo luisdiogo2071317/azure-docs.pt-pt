@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5e2599c2089cbd9961b54966df5f0f98d6badcce
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345310"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274671"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migração de instância do SQL Server para instância gerida da base de dados SQL do Azure
 
@@ -117,8 +117,7 @@ Controlar o comportamento do aplicativo e o desempenho após a migração. Na in
 
 Para reduzir riscos de migração, altere o nível de compatibilidade de base de dados apenas depois de monitorização do desempenho. Store de consulta de utilização como uma ferramenta ideal para obter informações sobre o desempenho da carga de trabalho antes e depois da alteração de nível de compatibilidade da base de dados, conforme explicado [manter a estabilidade de desempenho durante a atualização para a versão mais recente do SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 
-Assim que estiver numa plataforma totalmente gerida, demorar vantagens que são fornecidas automaticamente como parte integrante do serviço de base de dados SQL. Por exemplo, não precisa de criar cópias de segurança na instância gerida - o serviço faz cópias de segurança para automaticamente. Já não deve se preocupar sobre agendar, levando e gerir cópias de segurança. Instância gerida fornece-lhe a capacidade de restaurar para qualquer ponto anterior no tempo dentro com do período de retenção [ponto no tempo de recuperação (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Durante a pré-visualização pública, o período de retenção é fixa para sete dias.
-Além disso, não é necessário se preocupar sobre como configurar a elevada disponibilidade como [elevada disponibilidade](sql-database-high-availability.md) baseia-se.
+Assim que estiver numa plataforma totalmente gerida, demorar vantagens que são fornecidas automaticamente como parte integrante do serviço de base de dados SQL. Por exemplo, não precisa de criar cópias de segurança na instância gerida - o serviço faz cópias de segurança para automaticamente. Já não deve se preocupar sobre agendar, levando e gerir cópias de segurança. Instância gerida fornece-lhe a capacidade de restaurar para qualquer ponto anterior no tempo dentro com do período de retenção [ponto no tempo de recuperação (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Além disso, não é necessário se preocupar sobre como configurar a elevada disponibilidade como [elevada disponibilidade](sql-database-high-availability.md) baseia-se.
 
 Para reforçar a segurança, considere a utilização de algumas das funcionalidades que estão disponíveis:
 

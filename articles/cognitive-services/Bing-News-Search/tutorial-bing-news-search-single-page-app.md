@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: aplicação de página única de Pesquisa de Notícias do Bing'
+title: 'Tutorial: Criar uma aplicação web de página única - API de pesquisa de notícias do Bing'
 titlesuffix: Azure Cognitive Services
-description: Explica como utilizar a API de Pesquisa de Notícias do Bing numa aplicação Web de página única.
+description: Utilize este tutorial para criar uma aplicação web de página única que pode enviar consultas de pesquisa para a API de notícias do Bing e exibir os resultados na página Web.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,16 @@ ms.component: bing-news-search
 ms.topic: tutorial
 ms.date: 10/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: 1d27751d12c82736ca519bb3a0e9bcd49bef4a47
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.custom: seodec2018
+ms.openlocfilehash: 311abe4583d29098ebd26dfcf2214553aa1fe1c9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803652"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262049"
 ---
-# <a name="tutorial-single-page-news-search-app"></a>Tutorial: aplicação de página única de Pesquisa de Notícias
+# <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Criar uma aplicação web de página única
+
 A API de Pesquisa de Notícias do Bing permite-lhe pesquisar na Web e obter resultados dos tipos de notícias relevantes para uma consulta de pesquisa. Neste tutorial, vamos compilar uma aplicação Web de página única que utiliza a API de Pesquisa de Notícias do Bing para apresentar resultados da pesquisa na página. A aplicação inclui componentes HTML, CSS e JavaScript.
 
 <!-- Remove until we can replace it with sanitized copy
@@ -109,7 +111,7 @@ O formulário HTML inclui elementos com os nomes abaixo:
 | `when` | Menu pendente para limitar, opcionalmente, a pesquisa ao dia, semana ou mês mais recente. |
 | `safe` | Uma caixa de verificação que indica se deve ser utilizada a funcionalidade SafeSearch do Bing para filtrar resultados de conteúdos para adultos. |
 | `count` | Campo oculto. O número de resultados da pesquisa a devolver em cada pedido. Altere-o para mostrar menos ou mais resultados por página. |
-| `offset`|  Campo oculto. O desfasamento do primeiro resultado da pesquisa no pedido; utilizado para paginação. É reposto para `0` nos pedidos novos. |
+| `offset`|  Campo oculto. O desfasamento do primeiro resultado da pesquisa no pedido, utilizado para paginação. É reposto para `0` nos pedidos novos. |
 
 > [!NOTE]
 > A Pesquisa na Web do Bing disponibiliza outros parâmetros de consulta. Só vamos utilizar alguns desses parâmetros.
@@ -269,9 +271,9 @@ function handleBingResponse() {
 > [!IMPORTANT]
 > Um pedido HTTP bem-sucedido *não* significa necessariamente que a pesquisa em si foi concluída com êxito. Se ocorrer um erro na operação de pesquisa, a API de Pesquisa de Notícias do Bing devolve um código de estado HTTP que não 200 e inclui as informações do erro na resposta JSON. Além disso, se o pedido tiver uma limitação de frequência, a API devolve uma resposta vazia.
 
-Grande parte do código em ambas as funções acima é dedicado à resolução de erros. Podem ocorrer erros nas fases seguintes:
+A maioria do código nas funções anteriores é dedicado ao processamento de erros. Poderão ocorrer erros nas seguintes fases:
 
-|Fase|Potencial erro(s)|Resolvido por|
+|Fase|Potenciais erros|Resolvido por|
 |-|-|-|
 |Criar o objeto de pedido JavaScript|URL inválido|bloco `try`/`catch`|
 |Fazer o pedido|Erros de rede, ligações abortadas|Processadores de eventos `error` e `abort`|
@@ -317,9 +319,9 @@ A API de Pesquisa de Notícias do Bing devolve até quatro tipos diferentes de r
 
 |Relação|Descrição|
 |-|-|
-|`pivotSuggestions`|Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se pesquisar por “flores vermelhas”, uma palavra “pivô” poderá ser “vermelhas” e uma sugestão “pivô” “flores amarelas”.|
-|`queryExpansions`|Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se pesquisar por “Microsoft Surface”, uma expansão da consulta poderá ser “Microsoft Surface Pro”.|
-|`relatedSearches`|Consultas que também foram introduzidas por outros utilizadores que introduziram a pesquisa original. Por exemplo, se pesquisar por “Mount Rainier”, uma consulta relacionada poderá ser “Monte de Santa Helena”.|
+|`pivotSuggestions`|Consultas que substituem uma palavra pivô na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas".|
+|`queryExpansions`|Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se procurar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".|
+|`relatedSearches`|Consultas que também foram introduzidas por outros utilizadores que introduziram a pesquisa original. Por exemplo, se procurar "Monte Rainier", uma consulta relacionada poderá ser "Monte de Santa Helena".|
 |`similarTerms`|Consultas cujo significado é semelhante ao da pesquisa original. Por exemplo, se pesquisar por “escolas”, um termo semelhante poderá ser “educação”.|
 
 Conforme vimos anteriormente em `renderSearchResults()`, só convertermos as sugestões `relatedItems` e colocamos as ligações resultantes na barra lateral da página.
@@ -388,18 +390,18 @@ As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-
 
 Fornecer o cabeçalho `X-MSEdge-ClientID` permite às APIs do Bing associarem todas as pesquisas de um determinado utilizador, o que tem duas importantes vantagens.
 
-Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que deixem o utilizador mais satisfeito. Se um utilizador tiver pesquisado por termos relacionados com vela, por exemplo, no passado, uma pesquisa posterior por “nós” poderá devolver, preferencialmente, informações sobre os nós utilizados na vela.
+Em primeiro lugar, permite que o motor de busca do Bing aplique um contexto passado às pesquisas para encontrar resultados que deixem o utilizador mais satisfeito. Se um utilizador tiver procurado termos relacionados com vela, por exemplo, ao procurar posteriormente a palavra "nós" poderá devolver, de preferência, informações sobre os nós utilizados em vela.
 
 Em segundo lugar, o Bing pode selecionar utilizadores aleatoriamente para experimentarem funcionalidades novas antes de serem disponibilizadas ao grande público. Fornecer o mesmo ID de cliente em todos os pedidos garante que os utilizadores que veem uma funcionalidade a verão sempre. Sem o ID de cliente, os utilizadores poderão ver a funcionalidade aparecer e desaparecer, de forma aparentemente aleatória, nos resultados da pesquisa.
 
-As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` esteja disponível para o JavaScript. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio que a página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` fica então disponível para o JavaScript.
+As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-MSEdge-ClientID` esteja disponível para o JavaScript. Esta limitação ocorre quando a origem da resposta da pesquisa é diferente da página que a pediu. Num ambiente de produção, deve abordar esta política ao alojar um script do lado do servidor que faça a chamada à API no mesmo domínio da página Web. Uma vez que a origem do script é a mesma da página Web, o cabeçalho `X-MSEdge-ClientID` fica então disponível para o JavaScript.
 
 > [!NOTE]
-> Numa aplicação Web de produção, deve fazer o pedido no lado do servidor. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas na sua chave de subscrição da API, inclusive pedidos feitos por partes não autorizadas, pelo que é importante não expor a chave.
+> Numa aplicação Web de produção, deve fazer o pedido no lado do servidor. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de desenvolvimento, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy CORS. A resposta de um proxy deste tipo tem um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza ao JavaScript.
+Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de um proxy deste tipo inclui um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza para o JavaScript.
 
-É fácil instalar um proxy CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho de ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
+É fácil instalar um proxy do CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho do ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 
     npm install -g cors-proxy-server
 
@@ -407,12 +409,12 @@ Depois, altere o ponto final da Pesquisa na Web do Bing no ficheiro HTML para:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Por fim, inicie o proxy CORS com o comando seguinte:
+Por fim, inicie o proxy do CORS com o comando seguinte:
 
     cors-proxy-server
 
-Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial; se a fechar, o proxy para. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
+Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Referência da API de Pesquisa de Notícias do Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)

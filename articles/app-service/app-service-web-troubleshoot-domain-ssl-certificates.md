@@ -1,5 +1,5 @@
 ---
-title: Resolver problemas de domínio e problemas de certificado SSL em aplicações web do Azure | Documentos da Microsoft
+title: Resolver problemas de domínios e certificados SSL - serviço de aplicações do Azure | Documentos da Microsoft
 description: Resolver problemas de domínio e problemas de certificado SSL em aplicações web do Azure
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 5c5bdb8fad60a2e4196c2c9f74764e27cec5ba62
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 726bc78532cfe621eb3f3787aa05a7a54571a8c3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970778"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251611"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Resolver problemas de domínio e problemas de certificado SSL em aplicações web do Azure
 
@@ -74,26 +75,26 @@ Este problema pode ocorrer em qualquer um dos seguintes motivos:
 
 - O plano do serviço de aplicações é gratuito ou partilhado. Estes escalões de preço não suportam SSL. 
 
-    **Solução**: atualizar o plano do serviço de aplicações para a aplicação web para o Standard.
+    **Solução**: Atualize o plano do serviço de aplicações para a aplicação web para o Standard.
 
 - A subscrição não tem um cartão de crédito válido.
 
-    **Solução**: adicionar um cartão de crédito válido para a sua subscrição. 
+    **Solução**: Adicione um cartão de crédito válido para a sua subscrição. 
 
 - A oferta de subscrição não suporta a adquirir um certificado de serviço de aplicações, tais como Microsoft Student.  
 
-    **Solução**: atualizar a sua subscrição. 
+    **Solução**: Atualize a sua subscrição. 
 
 - A subscrição atingiu o limite de compras que são permitidas numa subscrição.
 
-    **Solução**: certificados de serviço de aplicações têm um limite de 10 compras de certificado para os tipos de subscrição pay as you go e EA. Para outros tipos de subscrição, o limite é 3. Para aumentar o limite, contacte [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- O certificado de serviço de aplicações foi marcado como fraudes. Recebeu a seguinte mensagem de erro: "o certificado foi sinalizado como possível fraude. O pedido está atualmente a ser analisadas. Se o certificado se tornar utilizável dentro de 24 horas, contacte o suporte do Azure."
+    **Solução**: Certificados de serviço de aplicações têm um limite de 10 compras de certificado para os tipos de subscrição pay as you go e EA. Para outros tipos de subscrição, o limite é 3. Para aumentar o limite, contacte [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- O certificado de serviço de aplicações foi marcado como fraudes. Recebeu a mensagem de erro seguinte: "O certificado foi sinalizado como possível fraude. O pedido está atualmente a ser analisadas. Se o certificado se tornar utilizável dentro de 24 horas, contacte o suporte do Azure."
 
-    **Solução**: se o certificado está marcado como fraude e não é resolvido após 24 horas, siga estes passos:
+    **Solução**: Se o certificado está marcado como fraude e não é resolvido após 24 horas, siga estes passos:
 
     1. Inicie sessão no [portal do Azure](https://portal.azure.com).
     2. Aceda a **certificados do serviço de aplicações**e selecione o certificado.
-    3. Selecione **configuração do certificado** > **passo 2: verificar** > **verificação de domínio**. Este passo envia uma notificação de e-mail para o fornecedor de certificados do Azure para resolver o problema.
+    3. Selecione **configuração do certificado** > **passo 2: Certifique-se** > **verificação de domínio**. Este passo envia uma notificação de e-mail para o fornecedor de certificados do Azure para resolver o problema.
 
 ## <a name="domain-problems"></a>Problemas de domínio
 
@@ -163,17 +164,17 @@ Este problema ocorre para um dos seguintes motivos:
 
 - Não existe nenhum cartão de crédito da subscrição do Azure ou o cartão de crédito é inválido.
 
-    **Solução**: adicionar um cartão de crédito válido para a sua subscrição.
+    **Solução**: Adicione um cartão de crédito válido para a sua subscrição.
 
 - Não é o proprietário da subscrição, pelo que não tem permissão para comprar um domínio.
 
-    **Solução**: [atribuir a função de proprietário](../role-based-access-control/role-assignments-portal.md) à sua conta. Ou contacte o administrador da subscrição para obter permissão para comprar um domínio.
+    **Solução**: [Atribuir a função de proprietário](../role-based-access-control/role-assignments-portal.md) à sua conta. Ou contacte o administrador da subscrição para obter permissão para comprar um domínio.
 - Atingiu o limite para a compra de domínios na sua subscrição. O limite atual é 20.
 
-    **Solução**: para pedir um aumento do limite, entre em contato com [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+    **Solução**: Para pedir um aumento do limite, contacte [suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - O tipo de subscrição do Azure não suporta a compra de um domínio do serviço de aplicações.
 
-    **Solução**: atualizar a sua subscrição do Azure para outro tipo de subscrição, como uma subscrição pay as you go.
+    **Solução**: Atualize a sua subscrição do Azure para outro tipo de subscrição, como uma subscrição pay as you go.
 
 ### <a name="you-cant-add-a-host-name-to-a-web-app"></a>Não é possível adicionar um nome de anfitrião para uma aplicação web 
 
@@ -187,7 +188,7 @@ Este problema ocorre para um dos seguintes motivos:
 
 - Não tem permissão para adicionar um nome de anfitrião.
 
-    **Solução**: peça ao administrador de subscrição para lhe dar permissão para adicionar um nome de anfitrião.
+    **Solução**: Peça ao administrador de subscrição para lhe dar permissão para adicionar um nome de anfitrião.
 - Não foi possível verificar a propriedade do domínio.
 
     **Solução**: Certifique-se de que seu CNAME ou um registo está configurado corretamente. Para mapear um domínio personalizado para a aplicação web, crie um registo CNAME ou um registo. Se pretender utilizar um domínio de raiz, tem de utilizar registos a e TXT:

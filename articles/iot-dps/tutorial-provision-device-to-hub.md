@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ed226ff689649b7eb6a4717fd07be043e1cdfc1e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 40d16076a3d995ecccd06591278b330652d960d8
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966947"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189018"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Aprovisionar o dispositivo num hub IoT com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
 
@@ -40,12 +40,12 @@ Este passo envolve a adição dos artefactos de segurança exclusiva do disposit
     - Da *Chave de Endossamento* que é exclusiva de cada chip ou simulação de TPM, que é obtida junto do fabricante do chip de TPM.  Leia [Understand TPM Endorsement Key](https://technet.microsoft.com/library/cc770443.aspx) (Compreender a Chave de Endossamento de TPM) para obter mais informações.
     - Do *ID de Registo* que é utilizado para identificar exclusivamente um dispositivo no espaço de nomes/âmbito. Este ID pode ou não ser o mesmo que o ID de dispositivo. O ID é obrigatório para todos os dispositivos. Para os dispositivos baseados em TPM, o ID de registo pode derivar do próprio TPM, como, por exemplo, um hash SHA-256 da Chave de Endossamento de TPM.
 
-    [![Informações de inscrição do TPM no portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
+      [![Informações de inscrição do TPM no portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Para dispositivos baseados em X.509, precisa:
     - Do [certificado emitido para o chip ou simulação de X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), sob a forma de ficheiro *.pem* ou *.cer*. Para inscrição individual, tem de utilizar o *certificado de signatário* por dispositivo para o seu sistema X.509, ao passo que, para grupos de inscrição, tem de utilizar o *certificado de arranque*. 
 
-    [![Adicionar inscrição individual para fins de atestado X.509 no portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
+      [![Adicionar inscrição individual para fins de atestado X.509 no portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 Existem duas formas de inscrever o dispositivo no Serviço Aprovisionamento de Dispositivos:
 

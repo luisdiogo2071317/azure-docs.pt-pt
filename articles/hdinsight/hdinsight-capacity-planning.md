@@ -2,19 +2,19 @@
 title: Planeamento de capacidade no Azure HDInsight do cluster
 description: Como especificar um cluster do HDInsight para a capacidade e desempenho.
 services: hdinsight
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/22/2017
-ms.author: maxluk
-ms.openlocfilehash: b8b562e1f783a9da7621b29fbf6d5bd1ff6ca5ef
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.date: 12/04/2018
+ms.author: hrasheed
+ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013514"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193863"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento da capacidade para clusters do HDInsight
 
@@ -32,7 +32,7 @@ As perguntas importantes para perguntar para planejamento de capacidade são:
 
 A região do Azure determina em que o seu cluster fisicamente está aprovisionado. Para minimizar a latência de leituras e escritas, o cluster deve estar perto seus dados.
 
-HDInsight está disponível em muitas regiões do Azure. Para a região mais próxima, consulte a *Linux de HDInsight* entrada sob *dados + análise* na [Azure produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
+HDInsight está disponível em muitas regiões do Azure. Para a região mais próxima, consulte a *HDInsight* entrada sob *Analytics* na [produtos disponíveis por região](https://azure.microsoft.com/regions/services/).
 
 ## <a name="choose-storage-location-and-size"></a>Escolha a localização de armazenamento e tamanho
 
@@ -57,7 +57,7 @@ Um cluster pode aceder a uma combinação de contas de armazenamento diferentes.
 * Quando deseja tornar os dados, já tiver carregado para um contentor de BLOBs disponível para o cluster.
 * Quando quiser isolar diferentes partes de armazenamento por motivos de segurança, ou para simplificar a administração.
 
-Para um cluster de nó de 48 recomendamos as contas de armazenamento de 4 a 8. Embora já deve haver totais de armazenamento suficiente, cada conta de armazenamento fornece a largura de banda de rede adicional para os nós de computação. Quando tiver várias contas de armazenamento, utilize um nome aleatório para cada conta de armazenamento, sem um prefixo. O objetivo de atribuição de nomes aleatórios é reduzir a possibilidade de afunilamentos de armazenamento (limitação) ou falhas de modo comum em todas as contas. Para um melhor desempenho, utilize apenas um contêiner por conta de armazenamento.
+Para um cluster de nó de 48, recomendamos que as contas de armazenamento de 4 a 8. Embora já deve haver totais de armazenamento suficiente, cada conta de armazenamento fornece a largura de banda de rede adicional para os nós de computação. Quando tiver várias contas de armazenamento, utilize um nome aleatório para cada conta de armazenamento, sem um prefixo. O objetivo de atribuição de nomes aleatórios é reduzir a possibilidade de afunilamentos de armazenamento (limitação) ou falhas de modo comum em todas as contas. Para um melhor desempenho, utilize apenas um contêiner por conta de armazenamento.
 
 ## <a name="choose-a-cluster-type"></a>Escolha um tipo de cluster
 
@@ -95,7 +95,7 @@ Pode aumentar horizontalmente o seu cluster para os picos de procura de carga, e
 
 ### <a name="isolate-cluster-job-errors"></a>Isolar os erros de tarefas de cluster
 
-Erros, às vezes, podem ocorrer devido à execução paralela de mapa vários e reduzir componentes num cluster de vários nós. Para ajudar a isolar o problema, tente testes distribuídos sendo executada em simultâneo vários trabalhos num cluster de nó único, em seguida, expanda essa abordagem para executar várias tarefas simultaneamente em clusters que contêm mais de um nó. Para criar um cluster de HDInsight nó único no Azure, utilize o *avançadas* opção.
+Erros, às vezes, podem ocorrer devido à execução paralela de vários mapas e reduzir componentes num cluster de vários nós. Para ajudar a isolar o problema, tente testes distribuídos sendo executada em simultâneo vários trabalhos num cluster de nó único, em seguida, expanda essa abordagem para executar várias tarefas simultaneamente em clusters que contêm mais de um nó. Para criar um cluster de HDInsight nó único no Azure, utilize o *avançadas* opção.
 
 Também pode instalar um ambiente de desenvolvimento de nó único no seu computador local e testar a solução aqui. Hortonworks fornece um ambiente de desenvolvimento local de nó único para soluções baseadas no Hadoop que é útil para o desenvolvimento inicial, prova de conceito e teste. Para obter mais informações, consulte [Sandbox da Hortonworks](https://hortonworks.com/products/hortonworks-sandbox/).
 
@@ -103,7 +103,27 @@ Identificar o problema num cluster local de nó único pode voltar a executar ta
 
 ## <a name="quotas"></a>Quotas
 
-Depois de determinar o tamanho VM do cluster de destino, o dimensionamento e o tipo, verifique os limites de capacidade de quota atual da sua subscrição. Quando atingir um limite de cota, poderá não conseguir implementar novos clusters ou aumente horizontalmente clusters existentes ao adicionar mais nós de trabalho. O limite da quota atingido mais comuns é a quota de núcleos de CPU que existe a subscrição, região e níveis de série VM. Por exemplo, a sua subscrição pode ter um limite total de núcleos de 200, com um limite de 30 núcleos na sua região e um limite de 30 núcleos em instâncias VM. Pode [contacte o suporte para pedir um aumento de quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Depois de determinar o tamanho VM do cluster de destino, o dimensionamento e o tipo, verifique os limites de capacidade de quota atual da sua subscrição. Quando atingir um limite de cota, poderá não conseguir implementar novos clusters ou aumente horizontalmente clusters existentes ao adicionar mais nós de trabalho. O limite de quota único é a quota de núcleos de CPU que existe no nível de região para cada subscrição. Por exemplo, a sua subscrição pode ter o limite de 30 núcleos na região E.U.A. Leste. Se precisar de pedir um aumento de quota, execute os seguintes passos:
+
+1. Ir para o portal do Azure
+1. Clique em **ajuda e suporte** no lado esquerdo da parte inferior da página.
+1. Clique em **novo pedido de suporte**.
+1. Sobre o **novo pedido de suporte** página, em **Noções básicas** separador, selecione as seguintes opções:
+    - **Tipo de problema**: **Limites do serviço e subscrição (cotas)**
+    - **Subscrição**: a subscrição que pretende modificar
+    - **Tipo de quota**: **HDInsight**
+    
+    ![Criar um pedido de suporte para aumentar a quota de núcleos de HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+
+1. Clique em **Seguinte**.
+1. Sobre o **detalhes** página, introduza uma descrição do problema, selecione a gravidade do problema e selecione o método de contacto pretendido.
+1. Clique em **seguinte: Rever + criar**.
+1. Sobre o **rever + criar** separador, clique em **criar**.
+
+> [!Note]
+> Se precisar de aumentar a quota de núcleos de HDInsight numa região privada, [submeter um pedido de lista branca](https://aka.ms/canaryintwhitelist).
+
+Pode [contacte o suporte para pedir um aumento de quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 No entanto, existem alguns limites de quota fixo, por exemplo uma única subscrição do Azure pode ter no máximo, 10.000 núcleos. Para obter detalhes sobre estes limites, consulte [subscrição do Azure e limites do serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 

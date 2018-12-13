@@ -14,14 +14,14 @@ ms.date: 08/08/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8ebdb22ba5ca04a5c811b3b368055f5f4371c75f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 8c5d980f25e196add6885d250665eae7127456f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40208941"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273124"
 ---
-# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Início rápido: Política de nomenclatura para grupos no Azure Active Directory
+# <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Início rápido: Política de nomenclatura para os grupos no Azure Active Directory
 
 Neste início rápido, irá configurar a política de nomenclatura no inquilino do Azure Active Directory (Azure AD) para grupos do Office 365 criados pelo utilizador, para o ajudar a ordenar e procurar os grupos do seu inquilino. Por exemplo, pode utilizar a política de nomenclatura para:
 
@@ -50,7 +50,7 @@ Se lhe for pedido para aceder a um repositório não fidedigno, escreva **Y**. P
 
 ## <a name="set-up-naming-policy"></a>Configurar a política de nomenclatura
 
-### <a name="step-1-sign-in-using-powershell-cmdlets"></a>Passo 1: iniciar sessão com cmdlets do PowerShell
+### <a name="step-1-sign-in-using-powershell-cmdlets"></a>Passo 1: Inicie sessão com cmdlets do PowerShell
 
 1. Abra a aplicação Windows PowerShell. Não precisa de privilégios elevados.
 
@@ -64,7 +64,7 @@ Se lhe for pedido para aceder a um repositório não fidedigno, escreva **Y**. P
 
 3. Siga os passos em [Cmdlets do Azure Active Directory para configurar definições de grupo](groups-settings-cmdlets.md) para criar definições de grupo para este inquilino.
 
-### <a name="step-2-view-the-current-settings"></a>Passo 2: ver as definições atuais
+### <a name="step-2-view-the-current-settings"></a>Passo 2: Ver as definições atuais
 
 1. Veja as definições atuais da política de nomenclatura.
   
@@ -78,9 +78,9 @@ Se lhe for pedido para aceder a um repositório não fidedigno, escreva **Y**. P
   $Setting.Values
   ````
   
-### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>Passo 3: configurar a política de nomenclatura e quaisquer palavras bloqueadas personalizadas
+### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>Passo 3: Definir a política de nomes e quaisquer palavras bloqueadas personalizadas
 
-1. Defina os prefixos e sufixos de nomes de grupo no Azure AD PowerShell.
+1. Defina os prefixos e sufixos de nomes de grupo no Azure AD PowerShell. Para a funcionalidade funcione corretamente, [GroupName] têm de ser incluído na definição.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -102,25 +102,25 @@ Já está. Definiu a política de nomenclatura e adicionou palavras bloqueadas p
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-1. Defina os prefixos e sufixos de nomes de grupo no Azure AD PowerShell.
+1. Vazio os prefixos de nome de grupo e sufixos no Azure AD PowerShell.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =""
   ````
   
-2. Defina as palavras bloqueadas personalizadas que quer restringir. O exemplo seguinte ilustra como pode adicionar as suas próprias palavras personalizadas.
+2. Vazio as palavras bloqueadas personalizadas.
   
   ````
   $Setting["CustomBlockedWordsList"]=""
   ````
   
-3. Guarde as definições da nova política para serem aplicadas, como no exemplo a seguir.
+3. Guarde as definições.
   
   ````
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
   ````
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, aprendeu a utilizar cmdlets do PowerShell para definir a política de nomenclatura para o inquilino do Azure AD.
 

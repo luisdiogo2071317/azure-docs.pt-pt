@@ -1,5 +1,6 @@
 ---
-title: Introdução ao Azure Machine Learning para Visual Studio Code
+title: Utilizar o Visual Studio Code com
+titleSuffix: Azure Machine Learning service
 description: Saiba como instalar o Azure Machine Learning para Visual Studio Code e criar uma experimentação simples no Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c5d7d3c10b9c8c191144e1e396d28fc53f813623
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 898fd7d0416d1e1b27a25cabf524e72a7de44fde
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012679"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269599"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Introdução ao Azure Machine Learning para Visual Studio Code
 
@@ -24,11 +25,13 @@ Utilize a extensão do Azure Machine Learning no Visual Studio code para utiliza
 
 ## <a name="prerequisite"></a>Pré-requisito
 
+
++ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
+
 + Deve ser instalado o Visual Studio Code. VS Code é um editor de código fonte simples, poderoso, mas que é executado no seu ambiente de trabalho. Ele vem com suporte incorporado para o Python e muito mais.  [Saiba como instalar o VS Code](https://code.visualstudio.com/docs/setup/setup-overview).
 
 + [Instalar o Python 3.5 ou superior](https://www.anaconda.com/download/).
 
-+ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
 ## <a name="install-the-azure-machine-learning-for-vs-code-extension"></a>Instalar o Azure Machine Learning para a extensão do VS Code
 
@@ -40,7 +43,7 @@ Para trabalhar com o Azure Machine Learning, é necessário tornar o código VS 
 
 1. Inicie o VS Code.
 
-1. Num browser, visite: [do Azure Machine Learning para Visual Studio Code (pré-visualização)](https://aka.ms/vscodetoolsforai) extensão
+1. Num browser, visite: [O Azure Machine Learning para Visual Studio Code (pré-visualização)](https://aka.ms/vscodetoolsforai) extensão
 
 1. Na página da web, clique em **instalar**. 
 

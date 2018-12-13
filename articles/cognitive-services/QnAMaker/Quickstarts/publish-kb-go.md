@@ -11,14 +11,14 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 4f553578890016579e6653fa9b13bfbf98f44796
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: e7f0d3c756988cc890b6560181727b5c80b5548d
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078604"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162091"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Início Rápido: publicar uma base de dados de conhecimento no Criador de FAQ com o Go
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Início rápido: Publicar uma base de dados de conhecimento do QnA Maker com Go
 
 Este guia de introdução baseada em REST orienta-o através de publicação por meio de programação de sua base de dados de conhecimento (KB). A publicação emite a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 
@@ -34,10 +34,10 @@ Este início rápido chama as APIs do Criador de FAQ:
 
     ![ID da base de dados de conhecimento do Criador de FAQ](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    Se ainda não tiver uma base de dados de conhecimento, pode criar uma de exemplo para utilizar neste guia de introdução: [Criar uma nova base de dados de conhecimento](create-new-kb-csharp.md).
+    Se ainda não tiver uma base de dados de conhecimento, pode criar um exemplo de uma para utilizar para este início rápido: [Criar uma nova base de dados de conhecimento](create-new-kb-csharp.md).
 
 > [!NOTE] 
-> O ficheiro de solução concluída (s) está disponíveis a partir da [ **Azure-amostras/cognitivos-services-qnamaker-go** repositório do Github](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> O ficheiro de solução concluída (s) está disponíveis a partir da [ **Azure-amostras/cognitivos-services-qnamaker-go** repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-a-go-file"></a>Crie um ficheiro de Go
 

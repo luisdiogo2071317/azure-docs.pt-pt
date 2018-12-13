@@ -1,5 +1,6 @@
 ---
-title: 'Início Rápido: Criar um Balanceador de Carga Standard – Azure PowerShell | Microsoft Docs'
+title: 'Início rápido: Criar um balanceador de carga Standard - Azure PowerShell'
+titlesuffix: Azure Load Balancer
 description: Este início rápido mostra como criar um Balanceador de Carga Standard com o PowerShell
 services: load-balancer
 documentationcenter: na
@@ -13,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
-ms:custom: mvc
-ms.openlocfilehash: e4e66d18f9dcb7f020cdb881226f6e47118e5186
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms:custom: seodec18
+ms.openlocfilehash: 0db575ee6c04c0fb4639ea2e9e095200da781fe8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578557"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256320"
 ---
-# <a name="get-started"></a>Início Rápido: Criar um Balanceador de Carga Standard com o Azure PowerShell
+# <a name="get-started"></a>Início rápido: Criar um balanceador de carga Standard com o Azure PowerShell
 Este início rápido mostra-lhe como criar um Balanceador de Carga Standard com o Azure PowerShell. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o Windows Server e faça o balanceamento de carga de uma aplicação Web entre as VMs. Para saber mais sobre o Balanceador de Carga Standard, veja [O que é o Balanceador de Carga Standard](load-balancer-standard-overview.md).
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]

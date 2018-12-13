@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL | Microsoft Docs
+title: Criar aplicação ASP.NET com a base de dados do SQL - serviço de aplicações do Azure | Documentos da Microsoft
 description: Aprenda a implementar uma aplicação ASP.NET C# com uma base de dados do SQL Server no Azure.
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 783bf93c8507e76717a4293b2b29a9c11e9a1eed
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 14dbd723772caa0045e9744ddb726060e3a1b8cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353821"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257782"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL
 
@@ -408,7 +408,7 @@ Por predefinição, o portal mostra a página **Descrição Geral**. Esta págin
 
 [!INCLUDE [Clean up section](../../includes/clean-up-section-portal-web-app.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -4,9 +4,9 @@ description: Descrição geral do Azure ML Studio, uma ferramenta de arrastar e 
 keywords: azure machine learning, azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: garyericson
 ms.custom: seodec18
-ms.author: amlstudiodocs
+ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.component: studio
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: cc76c7c4b4db448e9ba5b6aaf9c876143aa0e65c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b1c0d3da6dba4bf56baaf583d89c58fdc13ef83f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091701"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250523"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta de colaboração, de arrastar e largar que pode utilizar para criar, testar e implementar soluções de análise preditiva nos seus dados. Machine Learning Studio publica modelos como serviços web que podem facilmente ser consumidos por aplicações personalizadas ou ferramentas de BI como o Excel.
@@ -41,7 +41,7 @@ Não existe nenhuma programação necessária, basta ligar visualmente os conjun
 > 
 > 
 
-![Diagrama do Azure ML Studio: criar experimentações, ler os dados de várias origens, escrever dados classificados, escrever modelos.][ml-studio-overview]
+![Diagrama de ML Studio do Azure: Criar experimentações, ler dados de várias origens, escrever dados classificados, escrever modelos.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Introdução ao Machine Learning Studio
 Quando entrar pela primeira vez no[Machine Learning Studio](https://studio.azureml.net), verá a página **inicial**. A partir daqui, pode ver a documentação, vídeos, webinars e localizar outros recursos importantes.
@@ -146,19 +146,19 @@ Na aprendizagem supervisionada, se estiver a dar formação sobre um modelo de d
 Depois de ter um modelo de preparação, avalie o modelo utilizando os restantes dados de teste. Utilize dados dos quais já conhece os resultados para saber se o seu modelo prevê com precisão.
 
 ## <a name="other-common-machine-learning-terms"></a>Outros termos comuns do Machine Learning
-* **algoritmo**: um conjunto de regras autónomo utilizado para resolver problemas através do processamento de dados, matemático ou raciocínio automatizado.
-* **deteção de anomalias**: um modelo que sinaliza eventos ou valores invulgares e ajuda-o a detetar problemas. Por exemplo, a deteção de fraudes de cartões de crédito procura compras invulgares.
-* **dados categóricos**: os dados que estão organizado por categorias e que podem ser divididos em grupos. Por exemplo, um conjunto de dados categórico para automóveis pode especificar o ano, a marca, o modelo e o preço.
-* **classificação**: um modelo para organizar os pontos de dados em categorias com base num conjunto de dados para os agrupamentos da categoria que são já conhecidos.
-* **engenharia da funcionalidade**: o processo de extração ou seleção das funcionalidades relacionadas com um conjunto de dados para melhorar o conjunto de dados e melhorar os resultados. Por exemplo, podem ser melhorados os dados das tarifas aéreas por dias da semana e feriados. Consulte o artigo [Seleção da funcionalidade e engenharia no Azure Machine Learning](../team-data-science-process/create-features.md).
-* **módulo**: um elemento funcional num modelo Machine Learning Studio, como o módulo de introdução de dados que permite introduzir e editar pequenos conjuntos de dados. Um algoritmo também é um tipo de módulo no Machine Learning Studio.
-* **modelo**: um modelo de aprendizagem supervisionado é o produto de uma experimentação de machine learning composta por dados de formação, um módulo de algoritmos e módulos funcionais, como um módulo do Modelo de Pontuação.
-* **dados numéricos**: Dados que representam medidas (dados contínuos) ou contagens (dados discretos). Também referidos como *dados quantitativos*.
-* **partição**: O método através do qual divide os dados em amostras. Consulte o artigo [Partição e amostras](https://msdn.microsoft.com/library/azure/dn905960.aspx) para obter mais informações.
-* **predição**: Uma predição é uma previsão de um valor ou valores de um modelo do Machine Learning. Também pode ver o termo "classificação preditiva". No entanto, as classificações preditivas não são o resultado final de um modelo. Uma avaliação do modelo está de acordo com a pontuação.
-* **regressão**: um modelo para prever um valor com base em variáveis independentes, por exemplo, prever o preço de um automóvel com base no respetivo ano e marca.
+* **algoritmo**: Um conjunto de regras utilizadas para resolver problemas através do processamento de dados, matemático ou raciocínio automatizado.
+* **Deteção de anomalias**: Um modelo que sinaliza eventos ou valores invulgares e ajuda-o a detetar problemas. Por exemplo, a deteção de fraudes de cartões de crédito procura compras invulgares.
+* **dados categóricos**: Dados que estão organizado por categorias e que podem ser divididos em grupos. Por exemplo, um conjunto de dados categórico para automóveis pode especificar o ano, a marca, o modelo e o preço.
+* **Classificação**: Um modelo para organizar os pontos de dados em categorias com base num conjunto de dados para a qual categoria agrupamentos são já conhecidos.
+* **"Feature Engineering"**: O processo de extração ou seleção das funcionalidades relacionadas com um conjunto de dados para melhorar o conjunto de dados e melhorar os resultados. Por exemplo, podem ser melhorados os dados das tarifas aéreas por dias da semana e feriados. Consulte o artigo [Seleção da funcionalidade e engenharia no Azure Machine Learning](../team-data-science-process/create-features.md).
+* **módulo**: Uma parte funcional num modelo de Machine Learning Studio, como o módulo de introdução de dados que lhe permite introduzir e editar pequenos conjuntos de dados. Um algoritmo também é um tipo de módulo no Machine Learning Studio.
+* **modelo**: Um modelo de aprendizagem supervisionado é o produto de uma experimentação do machine learning composta por dados de treinamento, um módulo de algoritmo e módulos funcionais, por exemplo, um módulo de modelo de pontuação.
+* **dados numéricos**: Dados que representam medidas (dados contínuos) ou contagem (dados discretos). Também referidos como *dados quantitativos*.
+* **partição**: O método pelo qual dividir os dados em amostras. Consulte o artigo [Partição e amostras](https://msdn.microsoft.com/library/azure/dn905960.aspx) para obter mais informações.
+* **predição**: Uma predição é uma previsão de um valor ou valores de um modelo de aprendizagem automática. Também pode ver o termo "classificação preditiva". No entanto, as classificações preditivas não são o resultado final de um modelo. Uma avaliação do modelo está de acordo com a pontuação.
+* **Regressão**: Um modelo para prever um valor com base nas variáveis independentes, por exemplo, prever o preço de um automóvel com base no respetivo ano e fazer.
 * **pontuação**: Um valor previsto gerado a partir de uma classificação de preparação ou modelo de regressão, utilizando o [módulo do modelo de pontuação](https://msdn.microsoft.com/library/azure/dn905995.aspx) no Machine Learning Studio. Os modelos de classificação também devolvem uma pontuação para indicar a probabilidade do valor previsto. Assim que tiver gerado pontuações de um modelo, pode avaliar exatidão o modelo utilizando o [módulo do modelo de avaliação](https://msdn.microsoft.com/library/azure/dn905915.aspx).
-* **exemplo**: Uma parte de um conjunto de dados que é representativo da totalidade. Exemplos podem ser selecionados aleatoriamente ou com base nas funcionalidades específicas do conjunto de dados.
+* **exemplo**: Uma parte de um conjunto de dados que se destina a ser representativo da totalidade. Exemplos podem ser selecionados aleatoriamente ou com base nas funcionalidades específicas do conjunto de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Pode saber as noções básicas de análise preditiva e do Machine Learning utilizando um [tutorial passo a passo](create-experiment.md) e [tendo amostras](sample-experiments.md).  

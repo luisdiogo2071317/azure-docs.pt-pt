@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fe096efba5419b283981f27e16c3e30a791412da
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979204"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322675"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão de serviços Cloud do Azure: Perguntas mais frequentes sobre (FAQ)
+# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuração e problemas de gerenciamento de serviços Cloud do Azure: Perguntas mais frequentes (FAQ)
 
 Este artigo contém perguntas freqüentes sobre problemas de configuração e gestão do [serviços Cloud do Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Também pode consultar o [página de tamanho de VM de serviços Cloud](cloud-services-sizes-specs.md) para informações de tamanho.
 
@@ -170,7 +170,7 @@ Pode especificar o tempo limite no ficheiro de definição (. csdef) do serviço
     </Endpoints>
   </WorkerRole>
 ```
-Ver [New: tempo limite de inatividade configuráveis, para o Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) para obter mais informações.
+Consulte [novos: Tempo limite de inatividade configuráveis, para o Azure Load Balancer](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) para obter mais informações.
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Como posso associar um endereço IP estático para o meu serviço em nuvem?
 Para configurar um endereço IP estático, terá de criar um IP reservado. Este IP reservado pode ser associado a um novo serviço Cloud ou a uma implementação existente. Consulte os seguintes documentos para obter mais detalhes:
@@ -244,7 +244,7 @@ Para contornar este problema, pode utilizar o Application Insights. Dimensioname
 
 Para obter mais detalhes sobre como usar uma métrica personalizada por meio do Application Insights para configurar o dimensionamento automático nos serviços Cloud, consulte [introdução ao dimensionamento automático por métrica personalizada no Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
 
-Para obter mais informações sobre como integrar o diagnóstico do Azure com o Application Insights para serviços em nuvem, consulte [enviar serviço de Cloud, máquinas virtuais ou recursos de infraestrutura do serviço de dados de diagnóstico para o Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+Para obter mais informações sobre como integrar o diagnóstico do Azure com o Application Insights para serviços em nuvem, consulte [enviar serviço de Cloud, máquinas virtuais ou recursos de infraestrutura do serviço de dados de diagnóstico para o Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
 Para obter mais informações sobre como ativar o Application Insights para serviços em nuvem, consulte [Application Insights para serviços Cloud do Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
@@ -303,7 +303,7 @@ Para obter mais informações sobre cenários de implementação de Antimalware 
 
 Pode ativar a SNI nos serviços Cloud utilizando um dos seguintes métodos:
 
-**Método 1: Utilizar o PowerShell**
+**Método 1: Utilize o PowerShell**
 
 O enlace de SNI pode ser configurado com o cmdlet do PowerShell **New-WebBinding** numa tarefa de arranque para uma instância de função de serviço em nuvem como abaixo:
     
@@ -318,7 +318,7 @@ Conforme descrito [aqui](https://technet.microsoft.com/library/ee790567.aspx), o
 |2 |Não SNI que utiliza a Central Store de certificado de ligação|
 |3|Armazenar a vinculação de SNI que utiliza certificados Central |
  
-**Método 2: Utilizar o código**
+**Método 2: Código de utilização**
 
 O enlace de SNI também podia ser configurado por meio do código na inicialização de função, tal como descrito nesta [mensagem de blogue](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 4c6765e54dc881c35e344f111e82721be0852052
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3bf2135e7d4cb0e34d6e38e8673d5d69f262979c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823763"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322402"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure Stream a monitorização dos dados para um hub de eventos para consumo por uma ferramenta externa
 
@@ -21,17 +21,17 @@ O Azure Monitor proporciona um pipeline individual para obter acesso a todos os 
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
-## <a name="what-data-can-i-send-into-an-event-hub"></a>Os dados que pode enviar para um hub de eventos? 
+## <a name="what-data-can-i-send-into-an-event-hub"></a>Os dados que pode enviar para um hub de eventos?
 
 No seu ambiente do Azure, existem vários "escalões" de dados de monitorização e o método de acesso aos dados de cada camada varia um pouco. Normalmente, estas camadas podem ser descritas como:
 
-- **Dados de monitorização de aplicações:** dados sobre o desempenho e a funcionalidade do código que escrevi e forem executadas no Azure. Exemplos de dados de monitorização de aplicações incluem rastreios de desempenho, registos de aplicações e telemetria de utilizador. Dados de monitorização da aplicação, normalmente, é recolhida em uma das seguintes formas:
+- **Dados de monitorização da aplicação:** Dados sobre o desempenho e a funcionalidade do código que escrevi e forem executadas no Azure. Exemplos de dados de monitorização de aplicações incluem rastreios de desempenho, registos de aplicações e telemetria de utilizador. Dados de monitorização da aplicação, normalmente, é recolhida em uma das seguintes formas:
   - Por instrumentar o seu código com um SDK, tais como o [SDK do Application Insights](../application-insights/app-insights-overview.md).
-  - Executando um agente de monitorização que escuta para registos de nova aplicação na máquina de execução da sua aplicação, tais como o [o agente de diagnóstico do Windows Azure](./azure-diagnostics.md) ou [o agente de diagnóstico do Linux Azure](../virtual-machines/extensions/diagnostics-linux.md).
-- **SO convidado, os dados de monitorização:** dados sobre o sistema operativo no qual a sua aplicação está em execução. Exemplos de dados de monitorização de SO convidado seria Linux syslog ou eventos de sistema do Windows. Para recolher este tipo de dados, tem de instalar um agente, como o [o agente de diagnóstico do Windows Azure](./azure-diagnostics.md) ou [o agente de diagnóstico do Linux Azure](../virtual-machines/extensions/diagnostics-linux.md).
-- **Dados de monitorização de recursos do Azure:** dados sobre o funcionamento de um recurso do Azure. Para alguns tipos de recursos do Azure, como máquinas virtuais, existe um SO convidado e aplicações para monitorizar dentro desse serviço do Azure. Outros recursos do Azure, tais como grupos de segurança de rede, o recurso de dados de monitorização é o escalão mais elevado de dados disponíveis (uma vez que não existe nenhum SO convidado ou a aplicação em execução nesses recursos). Estes dados podem ser coletados com [definições de diagnóstico de recursos](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
-- **Subscrição do Azure, os dados de monitorização:** dados sobre a operação e a gestão de uma subscrição do Azure, bem como dados sobre o estado de funcionamento e a operação do Azure em si. O [registo de atividades](./monitoring-overview-activity-logs.md) contém a subscrição a maioria dos dados, tais como incidentes de estado de funcionamento do serviço e do Azure Resource Manager auditorias de monitorização. Pode recolher estes dados a utilizar um perfil de registo.
-- **A monitorização dos dados de inquilino do Azure:** dados sobre o funcionamento dos serviços do Azure ao nível do inquilino, como o Azure Active Directory. Auditorias do Azure Active Directory e inícios de sessão são exemplos de dados de monitorização de inquilino. Estes dados podem ser recolhidos com uma definição de diagnóstico do inquilino.
+  - Executando um agente de monitorização que escuta para registos de nova aplicação na máquina de execução da sua aplicação, tais como o [o agente de diagnóstico do Windows Azure](./../azure-monitor/platform/diagnostics-extension-overview.md) ou [o agente de diagnóstico do Linux Azure](../virtual-machines/extensions/diagnostics-linux.md).
+- **Dados de monitorização de SO convidado:** Dados sobre o sistema operativo no qual a sua aplicação está em execução. Exemplos de dados de monitorização de SO convidado seria Linux syslog ou eventos de sistema do Windows. Para recolher este tipo de dados, tem de instalar um agente, como o [o agente de diagnóstico do Windows Azure](./../azure-monitor/platform/diagnostics-extension-overview.md) ou [o agente de diagnóstico do Linux Azure](../virtual-machines/extensions/diagnostics-linux.md).
+- **Recursos do Azure, os dados de monitorização:** Dados sobre o funcionamento de um recurso do Azure. Para alguns tipos de recursos do Azure, como máquinas virtuais, existe um SO convidado e aplicações para monitorizar dentro desse serviço do Azure. Outros recursos do Azure, tais como grupos de segurança de rede, o recurso de dados de monitorização é o escalão mais elevado de dados disponíveis (uma vez que não existe nenhum SO convidado ou a aplicação em execução nesses recursos). Estes dados podem ser coletados com [definições de diagnóstico de recursos](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+- **Subscrição do Azure, os dados de monitorização:** Dados sobre a operação e a gestão de uma subscrição do Azure, bem como dados sobre o estado de funcionamento e a operação do Azure em si. O [registo de atividades](./monitoring-overview-activity-logs.md) contém a subscrição a maioria dos dados, tais como incidentes de estado de funcionamento do serviço e do Azure Resource Manager auditorias de monitorização. Pode recolher estes dados a utilizar um perfil de registo.
+- **Dados de monitorização de um inquilino do Azure:** Dados sobre o funcionamento dos serviços do Azure ao nível do inquilino, como o Azure Active Directory. Auditorias do Azure Active Directory e inícios de sessão são exemplos de dados de monitorização de inquilino. Estes dados podem ser recolhidos com uma definição de diagnóstico do inquilino.
 
 Dados a partir de qualquer camada podem ser enviados para um hub de eventos, onde pode ser extraída para uma ferramenta de parceiro. As secções seguintes descrevem como configurar dados de cada camada para ser transmitido para um hub de eventos. Os passos partem do princípio de que já tem ativos nessa camada para serem monitorizados.
 
@@ -91,7 +91,7 @@ O [agente Linux do Azure diagnóstico](../virtual-machines/extensions/diagnostic
 
 ### <a name="windows-data"></a>Dados do Windows
 
-O [agente do diagnóstico do Windows Azure](./azure-diagnostics.md) pode ser utilizado para enviar dados a partir de uma máquina do Windows para um hub de eventos de monitorização. Fazer isso adicionando o hub de eventos como um sink numa secção sua privateConfig do ficheiro de configuração WAD. [Veja este artigo para saber mais sobre como adicionar o coletor de hub de eventos para o agente de diagnóstico do Windows Azure](./azure-diagnostics-streaming-event-hubs.md).
+O [agente do diagnóstico do Windows Azure](./../azure-monitor/platform/diagnostics-extension-overview.md) pode ser utilizado para enviar dados a partir de uma máquina do Windows para um hub de eventos de monitorização. Fazer isso adicionando o hub de eventos como um sink numa secção sua privateConfig do ficheiro de configuração WAD. [Veja este artigo para saber mais sobre como adicionar o coletor de hub de eventos para o agente de diagnóstico do Windows Azure](./../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md).
 
 > [!NOTE]
 > Não é possível configurar a transmissão em fluxo de dados de monitorização de SO de convidado para um hub de eventos no portal. Em vez disso, tem de editar manualmente o ficheiro de configuração.
@@ -114,10 +114,10 @@ Encaminhamento seus dados de monitorização para um hub de eventos com o Azure 
     2. Se não é possível instalar um suplemento na sua instância do Splunk (ex. Se utilizar um proxy ou em execução na Splunk Cloud), pode reencaminhar estes eventos para o coletor de eventos do Splunk HTTP usando [essa função que é acionada por mensagens novas no hub de eventos](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** -instruções sobre como configurar SumoLogic consumir dados de um hub de eventos é [disponível aqui](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 * **ArcSight** -conector de inteligente o Hub de eventos do Azure ArcSight está disponível como parte da [aqui a coleção de conector inteligente ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852).
-* **Servidor syslog** - se de que pretende transmitir dados do Azure Monitor diretamente para um servidor syslog, pode consultar [deste repositório do github](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+* **Servidor syslog** - se de que pretende transmitir dados do Azure Monitor diretamente para um servidor syslog, pode consultar [deste repositório do GitHub](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Próximos Passos
 * [Arquive o registo de atividades para uma conta de armazenamento](monitoring-archive-activity-log.md)
 * [Leia a visão geral do registo de atividades do Azure](monitoring-overview-activity-logs.md)
-* [Configurar um alerta com base num evento do registo de atividade](monitor-alerts-unified-log-webhook.md)
+* [Configurar um alerta com base num evento do registo de atividade](../azure-monitor/platform/alerts-log-webhook.md)
 

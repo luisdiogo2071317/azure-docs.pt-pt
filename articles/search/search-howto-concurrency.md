@@ -1,5 +1,5 @@
 ---
-title: Como gerir escritas simultâneas para recursos no Azure Search
+title: Como gerir escritas simultâneas para recursos - Azure Search
 description: Utilize a simultaneidade otimista para evitar colisões médio ar atualizações ou exclusões para índices da Azure Search, indexadores e origens de dados.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
-ms.openlocfilehash: 764c39b6619f42c5b765d53af4cbfbe43f1d8799
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec2018
+ms.openlocfilehash: 017f665f3d0d19746854e2cf566034f801b32a04
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967502"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310258"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Como gerir a simultaneidade no Azure Search
 
@@ -24,9 +25,9 @@ Gestão de recursos de pesquisa do Azure, como índices e fontes de dados, é im
 
 ## <a name="how-it-works"></a>Como funciona
 
-É implementada a simultaneidade otimista através do acesso a condição verifica em chamadas de API, escrever a índices, indexadores, origens de dados e recursos de synonymMap. 
+É implementada a simultaneidade otimista através do acesso a condição verifica em chamadas de API, escrever a índices, indexadores, origens de dados e recursos de synonymMap.
 
-Todos os recursos tenham uma [ *etiqueta de entidade (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) que fornece informações de versão do objeto. Ao selecionar a ETag em primeiro lugar, pode evitar atualizações em simultâneo num fluxo de trabalho normal (obter, modificar localmente, atualizar), garantindo sua cópia local de correspondências de ETag do recurso. 
+Todos os recursos tenham uma [ *etiqueta de entidade (ETag)* ](https://en.wikipedia.org/wiki/HTTP_ETag) que fornece informações de versão do objeto. Ao selecionar a ETag em primeiro lugar, pode evitar atualizações em simultâneo num fluxo de trabalho normal (obter, modificar localmente, atualizar), garantindo sua cópia local de correspondências de ETag do recurso.
 
 + A API de REST utiliza um [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) no cabeçalho do pedido.
 + O SDK de .NET define a ETag por meio de um objeto de accessCondition, definindo o [If-Match | O cabeçalho If-Match-nenhuma](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) no recurso. Qualquer objeto herdar a partir [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) tem um objeto de accessCondition.
@@ -34,7 +35,7 @@ Todos os recursos tenham uma [ *etiqueta de entidade (ETag)* ](https://en.wikipe
 Sempre que atualizar um recurso, a ETag é alterado automaticamente. Quando implementa o gerenciamento de simultaneidade, que está a fazer é colocar uma condição prévia no pedido de atualização que requer o recurso remoto para ter a mesma ETag como a cópia do recurso que modificou no cliente. Se um processo em simultâneo foi alterado o recurso remoto já, a ETag não corresponderá a pré-condição e o pedido irá falhar com HTTP 412. Se estiver a utilizar o SDK de .NET, isso se manifesta como um `CloudException` onde o `IsAccessConditionFailed()` método de extensão retorna true.
 
 > [!Note]
-> Existe apenas um mecanismo para a simultaneidade. É sempre usado, independentemente do que a API é atualizada para atualizações de recursos. 
+> Existe apenas um mecanismo para a simultaneidade. É sempre usado, independentemente do que a API é atualizada para atualizações de recursos.
 
 <a name="samplecode"></a>
 ## <a name="use-cases-and-sample-code"></a>Código de exemplo e casos de utilização
@@ -111,7 +112,7 @@ O código a seguir demonstra accessCondition verifica a existência de operaçõ
             {
                 indexForClient2.Fields.Add(new Field("b", DataType.Boolean));
                 serviceClient.Indexes.CreateOrUpdate(
-                    indexForClient2, 
+                    indexForClient2,
                     accessCondition: AccessCondition.IfNotChanged(indexForClient2));
 
                 Console.WriteLine("Whoops; This shouldn't happen");
@@ -167,9 +168,9 @@ O código a seguir demonstra accessCondition verifica a existência de operaçõ
 
 ## <a name="design-pattern"></a>padrão de design
 
-Um padrão de design para implementar a simultaneidade deve incluir um loop que repete a condição de acesso otimista verificar, um teste para a condição de acesso e, opcionalmente, obtém um recurso atualizado antes de tentar voltar a aplicar as alterações. 
+Um padrão de design para implementar a simultaneidade deve incluir um loop que repete a condição de acesso otimista verificar, um teste para a condição de acesso e, opcionalmente, obtém um recurso atualizado antes de tentar voltar a aplicar as alterações.
 
-Este fragmento de código ilustra a adição de um synonymMap para um índice que já existe. Esse código é a partir da [sinónimos (pré-visualização) C# tutorial do Azure Search](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk). 
+Este fragmento de código ilustra a adição de um synonymMap para um índice que já existe. Esse código é a partir da [sinónimos (pré-visualização) C# tutorial do Azure Search](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk).
 
 O trecho de código obtém o índice "Hotéis", verifica a versão de objeto numa operação de atualização, lança uma exceção se a condição falhar e, em seguida, repetem a operação (até três vezes), começando com a obtenção de índice do servidor para obter a versão mais recente.
 
@@ -211,10 +212,11 @@ Reveja os [sinónimos C# exemplo](https://github.com/Azure-Samples/search-dotnet
 
 Tente modificar qualquer um dos exemplos a seguir para incluir objetos ETags ou AccessCondition.
 
-+ [Exemplo de REST API no Github](https://github.com/Azure-Samples/search-rest-api-getting-started) 
-+ [Exemplo de SDK do .NET no Github](https://github.com/Azure-Samples/search-dotnet-getting-started). Esta solução inclui o projeto de "DotNetEtagsExplainer" que contém o código apresentado neste artigo.
++ [Exemplo de REST API no GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
++ [Exemplo de SDK do .NET no GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). Esta solução inclui o projeto de "DotNetEtagsExplainer" que contém o código apresentado neste artigo.
 
 ## <a name="see-also"></a>Consulte também
 
-  [Cabeçalhos comuns de solicitação e resposta HTTP](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)    
-  [Códigos de estado HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) [(REST API) de operações de índice](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+[Cabeçalhos comuns de solicitação e resposta HTTP](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
+[códigos de estado HTTP](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
+[(REST API) de operações de índice](https://docs.microsoft.com/rest/api/searchservice/index-operations)

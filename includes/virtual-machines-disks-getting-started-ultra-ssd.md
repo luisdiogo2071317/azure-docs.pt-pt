@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b28830ac2634ad2238d834238de83c9184bcd6f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2fd2fd42f41c4f9575ebabd7722ca3e1b6e8c686
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47010396"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194577"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>Ativar o SSDs Ultra do Azure
 
@@ -84,6 +84,6 @@ Assim que a VM está aprovisionada, pode particionar e formatar os discos de dad
 - Ultra SSD oferece suporte a ajustar os atributos de desempenho de disco (IOPS e débito) em tempo de execução sem desligar o disco da máquina virtual. Assim que tiver sido emitida uma operação de redimensionamento de desempenho de disco num disco, pode demorar até uma hora para que a alteração, na verdade, entre em vigor.
 - Aumentar a capacidade de disco necessitam de uma máquina virtual para ser desalocados.
 
-# <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Se quiser experimentar o novo tipo de disco e ainda não se inscreveu para a pré-visualização, ainda, [pedir acesso através desta pesquisa](https://aka.ms/UltraSSDPreviewSignUp).

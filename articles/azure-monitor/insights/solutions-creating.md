@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24ffe9eded908c82750ce5a6d6fbe87991bdae72
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 03a7454aec43963a093dc0d7fcc347dac3ef5d43
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872865"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192928"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Conceber e criar uma solução de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -58,7 +57,7 @@ Deve definir todas as consultas que acredita que serão úteis para os utilizado
 
 Se o problema potencialmente pode ser corrigido com um processo automatizado, normalmente, irá criar um runbook na automatização do Azure para realizar essa correção.  Os serviços mais do Azure podem ser geridos com [cmdlets](/powershell/azure/overview) que o runbook poderia aproveitar para fazer essa funcionalidade.
 
-Se sua solução requer funcionalidade externa em resposta a um alerta, em seguida, pode utilizar um [resposta do webhook](../../monitoring-and-diagnostics/alert-metric.md).  Isto permite-lhe chamar um serviço web externo enviar informações a partir do alerta.
+Se sua solução requer funcionalidade externa em resposta a um alerta, em seguida, pode utilizar um [resposta do webhook](../../azure-monitor/platform/alerts-metric.md).  Isto permite-lhe chamar um serviço web externo enviar informações a partir do alerta.
 
 ### <a name="views"></a>Vistas
 Vistas no Log Analytics são utilizadas para visualizar dados do repositório do Log Analytics.  Cada solução normalmente irá conter uma única vista com um [mosaico](../../azure-monitor/platform/view-designer-tiles.md) que é apresentado no dashboard principal do usuário.  A vista pode conter qualquer número de [partes de visualização](../../azure-monitor/platform/view-designer-parts.md) para fornecer visualizações diferentes dos dados recolhidos para o usuário.

@@ -1,5 +1,5 @@
 ---
-title: Enviar imagem do Docker para registo privado do Azure
+title: Enviar imagem do Docker para registo de contentores do Azure privado
 description: Enviar e extrair imagens do Docker para um registo privado de contentor do Azure com a CLI do Docker
 services: container-registry
 author: stevelas
@@ -8,13 +8,13 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24cccd4745d611196046168f0125e7ef2a184e15
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18, H1Hack27Feb2017
+ms.openlocfilehash: 3cbc9f30f180913fefa79f24612e50db75f5c9cd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576496"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260587"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Enviar a sua primeira imagem para um registo privado de contentor Docker com a CLI do Docker
 
@@ -127,5 +127,5 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 Agora que sabe as noções básicas, está pronto para começar a utilizar o seu registo! Implemente imagens de contentor a partir do registo para:
 
 * [Serviço Kubernetes do Azure (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
-* [Instâncias de contentor do Azure](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

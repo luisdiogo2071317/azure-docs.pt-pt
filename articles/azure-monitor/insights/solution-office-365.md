@@ -9,16 +9,15 @@ editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 1e819f819561c5fac722ca6954a10d80a482b5cd
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: cc2fe3c71a3da58a00a3b3c65e709f2e371872e8
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889366"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185210"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -51,14 +50,14 @@ Antes de iniciar este procedimento, recolha as seguintes informações.
 
 Na área de trabalho do Log Analytics:
 
-- Nome de área de trabalho: A área de trabalho onde serão recolhidos os dados do Office 365.
+- Nome da área de trabalho: A área de trabalho onde serão recolhidos os dados do Office 365.
 - Nome do grupo de recursos: O grupo de recursos que contém a área de trabalho.
 - ID de subscrição do Azure: A subscrição que contém a área de trabalho.
 
 Da sua subscrição do Office 365:
 
-- Nome de utilizador: Endereço de E-Mail de uma conta administrativa.
-- ID do inquilino: ID exclusivo para a subscrição do Office 365.
+- Nome de Utilizador: Endereço de e-mail de uma conta administrativa.
+- ID do Inquilino: ID exclusivo para a subscrição do Office 365.
 - ID de cliente: cadeia de caracteres de 16 que representa o cliente do Office 365.
 - Segredo do cliente: Cadeia encriptada necessária para autenticação.
 

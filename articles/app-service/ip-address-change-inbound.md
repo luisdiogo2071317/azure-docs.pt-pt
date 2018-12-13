@@ -1,5 +1,5 @@
 ---
-title: Como se preparar para uma alteração de endereço IP entrada - Azure
+title: Preparar a alteração de endereço IP de entrada - serviço de aplicações do Azure
 description: Se o endereço IP de entrada vai ser alterado, saiba o que fazer para que a sua aplicação continua a funcionar após a alteração.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 28741e858b0c938ec8b2b2ff983106c6b08e18fc
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 2a494b318011d601609033bc877134f0b0eeff09
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578223"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249333"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Como se preparar para uma alteração de endereço IP entrada
 
@@ -25,11 +26,11 @@ Se tiver recebido uma notificação de que está a alterar o endereço IP de ent
 
 * Opção 1: Se a sua aplicação de serviço de aplicações não tiver um domínio personalizado, é necessária nenhuma ação.
 
-* Opção 2: se apenas um registo CNAME (registo DNS que aponte para um URI) é configurado no seu Portal de registo de domínio (terceiros fornecedor DNS ou o DNS do Azure), é necessária nenhuma ação.
+* Opção 2: Se apenas um registo CNAME (registo DNS que aponte para um URI) é configurado no seu Portal de registo de domínio (terceiros fornecedor DNS ou o DNS do Azure), é necessária nenhuma ação.
 
 * Opção 3: Se um registo (registo DNS que aponte diretamente para o seu endereço IP) estiver configurado no seu Portal de registo de domínio (terceiros fornecedor DNS ou o DNS do Azure), substitua o endereço IP existente pelo novo. Pode encontrar o novo endereço IP ao seguir as instruções na secção seguinte.
 
-* Opção 4: Se o seu aplicativo estiver atrás de um balanceador de carga, filtro de IP ou qualquer outro mecanismo IP que requer o endereço IP da sua aplicação, substitua o endereço IP existente pelo novo. Pode encontrar o novo endereço IP ao seguir as instruções na secção seguinte.
+* Opção 4: Se a sua aplicação estiver atrás de um balanceador de carga, o filtro de IP, ou qualquer outro mecanismo IP que requer o endereço IP da sua aplicação, substitua o endereço IP existente pelo novo. Pode encontrar o novo endereço IP ao seguir as instruções na secção seguinte.
 
 ## <a name="find-the-new-inbound-ip-address-in-the-azure-portal"></a>Encontrar o endereço de IP de entrada novo no portal do Azure
 
@@ -41,7 +42,7 @@ O endereço IP de entrada novo que está a ser dado à sua aplicação estiver n
 
 3.  Selecione a sua aplicação de serviço de aplicações na lista.
 
-4.  Se a aplicação for uma aplicação de funções, veja [aplicação de funções endereço IP de entrada](../azure-functions/ip-addresses.md#function-app-inbound-ip-address).
+1.  Se a aplicação for uma aplicação de funções, veja [aplicação de funções endereço IP de entrada](../azure-functions/ip-addresses.md#function-app-inbound-ip-address).
 
 4.  Sob o **configurações** cabeçalho, clique em **propriedades** na navegação à esquerda e localize a seção rotulada **endereço Virtual IP**.
 

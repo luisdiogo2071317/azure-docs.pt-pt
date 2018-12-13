@@ -1,5 +1,5 @@
 ---
-title: Gerir um plano do serviço de aplicações no Azure | Documentos da Microsoft
+title: Gerir o plano do serviço de aplicações - Azure | Documentos da Microsoft
 description: Saiba como executar tarefas diferentes para gerir um plano do serviço de aplicações.
 keywords: serviço de aplicações, serviço de aplicações do azure, dimensionável, plano de serviço de aplicações, alterar, criar, gerir, gestão
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec18
+ms.openlocfilehash: 8f8e5f3d184073a73ca30764542dc56e45974120
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166071"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262134"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerir um plano do serviço de aplicações no Azure
 
@@ -35,7 +36,7 @@ Pode criar um plano do serviço de aplicações vazio ou pode criar um plano com
 
 1. Na [portal do Azure](https://portal.azure.com), selecione **New** > **Web + móvel**e, em seguida, selecione **aplicação Web** ou outro tipo de aplicação de serviço de aplicações.
 
-1. Selecione um plano de serviço de aplicações existente ou crie um plano para a nova aplicação.
+2. Selecione um plano de serviço de aplicações existente ou crie um plano para a nova aplicação.
 
    ![Crie uma aplicação no portal do Azure.][createWebApp]
 

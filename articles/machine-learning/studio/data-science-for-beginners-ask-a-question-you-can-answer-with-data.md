@@ -4,10 +4,9 @@ description: Aprenda a formular uma pergunta de ciência de dados pequenos em ci
 keywords: problemas de ciência de dados, perguntas sobre a ciência de dados, formule perguntas, as perguntas de regressão, perguntas de classificação, pergunta sharp
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: c6d42ed7920b634994adf5313656c77e2df6dd5b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f117a8c47d7c98f13101efe0ca5147ce8d8c25a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310842"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250983"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Fazer perguntas que podem ser respondidas com dados
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Ciência de dados para a série de iniciantes
@@ -38,18 +37,18 @@ Para obter o máximo proveito da série, assista a todos eles. [Aceda à lista d
 ## <a name="other-videos-in-this-series"></a>Outros vídeos desta série
 *Ciência de dados para principiantes* é uma introdução rápida à ciência dos dados em cinco vídeos curtos.
 
-* Vídeo 1: [respostas de ciência de dados de questões do 5](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 seg)*
-* Vídeo 2: [são os seus dados prontos para ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 seg)*
-* 3 de vídeo: Faça uma pergunta que pode ser respondidas com dados
-* Vídeo 4: [prever uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 seg)*
-* Vídeo 5: [copiar o trabalho de outras pessoas para fazer ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 seg)*
+* Vídeo 1: [Respostas de ciência de dados de questões do 5](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 seg)*
+* Vídeo 2: [Seus dados está pronto para ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 seg)*
+* Vídeo 3: Fazer perguntas que podem ser respondidas com dados
+* Vídeo 4: [Prever uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 seg)*
+* Vídeo 5: [Copiar o trabalho de outras pessoas para fazer ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 seg)*
 
-## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transcrição: Faça uma pergunta que pode ser respondidas com dados
+## <a name="transcript-ask-a-question-you-can-answer-with-data"></a>Transcrição: Fazer perguntas que podem ser respondidas com dados
 Bem-vindo ao terceiro vídeo da série "Ciência de dados para principiantes."  
 
 Este aqui, obterá algumas dicas para formular uma pergunta que pode ser respondidas com dados.
 
-Poderá receber mais fora neste vídeo, se primeiro, Assista aos vídeos anteriores dois desta série: "a ciência de dados de 5 perguntas pode responder a" e "É seus dados estão prontos para ciência de dados?"
+Poderá receber mais fora neste vídeo, se primeiro, Assista aos vídeos anteriores dois desta série: "A ciência de dados de 5 perguntas pode responder a" e "É seus dados estão prontos para ciência de dados?"
 
 ## <a name="ask-a-sharp-question"></a>Faça uma pergunta sharp
 Falamos sobre como a ciência de dados é o processo de uso (também denominado categorias ou rótulos) e os números para prever uma resposta a uma pergunta. Mas não pode ser qualquer pergunta; tem de ser um *sharp pergunta.*
@@ -62,7 +61,7 @@ Se fosse fazer uma pergunta de vaga, como "O que vai acontecer com meu stock?", 
 
 Mas se tivesse que fazer uma pergunta sharp, como "O que o preço de venda de meu stock serão próxima semana?", o genie não pode ajudar a mas dão-lhe um específico responder e prever o preço de venda.
 
-## <a name="examples-of-your-answer-target-data"></a>Exemplos da sua resposta: dados de destino
+## <a name="examples-of-your-answer-target-data"></a>Exemplos da sua resposta: Dados de destino
 Depois de formular a sua pergunta, verifique se tem exemplos da resposta nos seus dados.
 
 Se nossa pergunta é "O que o preço de venda de meu stock serão próxima semana?" em seguida, temos de certificar-se de que nossos dados incluem o histórico do preço das ações.

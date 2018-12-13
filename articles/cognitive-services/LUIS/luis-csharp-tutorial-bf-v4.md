@@ -1,5 +1,5 @@
 ---
-title: Bot comC#
+title: Bot - C# -v4
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Com o C#, crie um chatbot integrado com compreensão de idiomas (LUIS). Este chatbot utiliza a aplicação Recursos Humanos para implementar rapidamente uma solução de bot. O bot é criado com a versão 4 do Bot Framework e o bot de aplicação Web do Azure.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: diberry
-ms.openlocfilehash: 740dae77bd60a0d38370b0678d57d3479eafceb1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 113e5769ee6a58785a46182064684bea5825c12c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106265"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138943"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Tutorial: Bot de LUIS em C# com o Bot Framework 4.x e bot de aplicação Web do Azure
 Com C#, pode criar um chatbot integrado com compreensão de idiomas (LUIS). Este bot utiliza a aplicação HomeAutomation para implementar uma solução de bot. O bot é criado com o [bot de aplicação Web](https://docs.microsoft.com/azure/bot-service/) do Azure com a versão v4 do [Bot Framework](https://github.com/Microsoft/botbuilder-js).

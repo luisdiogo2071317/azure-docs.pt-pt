@@ -1,5 +1,5 @@
 ---
-title: 'Portal do Azure: Criar uma Instância Gerida do SQL | Microsoft Docs'
+title: 'Portal do Azure: Criar uma instância gerida de SQL | Documentos da Microsoft'
 description: Crie uma Instância Gerida do SQL, um ambiente de rede e uma VM cliente para acesso.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: d5be25abc634200e0c0afed6946b38fd163fb78e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: c45c4476bbe8d825071e335bfab9e7b73fc31d51
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890505"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256490"
 ---
-# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início Rápido: Criar uma Instância Gerida de Base de Dados SQL do Azure
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início rápido: Criar uma Instância Gerida de Base de Dados SQL do Azure
 
 Este guia de início rápido orienta-o ao longo da criação de uma [Instância Gerida](sql-database-managed-instance.md) de Base de Dados SQL do Azure no portal do Azure.
 
@@ -48,7 +48,7 @@ Os passos seguintes mostram como criar uma Instância Gerida.
    |**Início de sessão de administração da instância gerida**|Qualquer nome de utilizador válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não utilize "serveradmin", que é uma função ao nível do servidor reservada.|
    |**Palavra-passe**|Qualquer palavra-passe válida|A palavra-passe tem de ter, pelo menos, 16 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Localização**|A localização em que pretende criar a Instância Gerida|Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure).|
-   |**Rede virtual**|Selecione **criar nova rede virtual** ou uma rede virtual que criou anteriormente no grupo de recursos que forneceu anteriormente neste formulário.| Para configurar uma rede virtual para uma Instância Gerida com definições personalizadas, veja [Configure SQL Managed Instance virtual network environment template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) (Configurar modelo de ambiente de rede virtual de Instância Gerida SQL) no Github. Para obter informações sobre os requisitos para configurar o ambiente de rede para uma instância gerida, veja [configurar uma VNet para a instância gerida da base de dados SQL do Azure](sql-database-managed-instance-vnet-configuration.md). |
+   |**Rede virtual**|Selecione **criar nova rede virtual** ou uma rede virtual válido e uma sub-rede.| Se uma rede/sub-rede está desativado é deve ser [modificado para satisfazer os requisitos de rede](sql-database-managed-instance-vnet-configuration.md#modify-an-existing-virtual-network-for-managed-instances) antes de selecioná-lo como um destino para a nova instância gerida. Para obter informações sobre os requisitos para configurar o ambiente de rede para uma instância gerida, veja [configurar uma VNet para a instância gerida da base de dados SQL do Azure](sql-database-managed-instance-vnet-configuration.md). |
    |**Grupo de recursos**|Um grupo de recursos novo ou existente|Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições).|
 
    ![formulário da instância gerida](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

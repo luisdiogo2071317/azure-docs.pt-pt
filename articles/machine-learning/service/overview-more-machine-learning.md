@@ -1,5 +1,5 @@
 ---
-title: Compare a opções de produto da Microsoft de aprendizagem automática
+title: Comparação de aprendizagem automática opções de produto da Microsoft
 description: Compare a variedade de produtos da Microsoft para criar, implementar e gerir modelos de machine learning. Decida quais os produtos a escolher para a sua solução.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: a778a371e28b0406d43aa07bbc0c0c039654f7b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073776"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274129"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Quais são os produtos de aprendizagem da Microsoft?
 
@@ -41,8 +41,7 @@ A Microsoft disponibiliza várias opções de produtos para criar, implementar e
 
 Utilize o serviço Azure Machine Learning para preparar, implementar e gerir modelos de ML com Python e a CLI à escala da cloud.
 
->[!Note]
-> Pode experimentar o Azure Machine Learning gratuitamente. Não é necessário cartão de crédito nem subscrição do Azure. Comece já. https://azure.microsoft.com/free/
+Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](http://aka.ms/AMLFree) hoje mesmo.
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 

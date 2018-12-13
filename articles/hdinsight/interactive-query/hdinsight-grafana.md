@@ -6,23 +6,21 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/17/2018
-ms.openlocfilehash: 8103c06e3fec51316e367de903ed84d0023568bc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/11/2018
+ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308159"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322299"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Grafana de acesso no Azure HDInsight
 
 
 [O Grafana](https://grafana.com/) é um construtor gráfico e dashboard popular, o código-fonte aberto. O Grafana é recursos sofisticados; não só permite aos utilizadores criar personalizáveis e dashboards partilhável, ele também oferece dashboards baseadas num modelo com/script, integração de LDAP, várias origens de dados e muito mais.
 
-Atualmente, o Grafana é apenas suporte pelo tipo de cluster do Interactive Query no HDInsight do Azure.
-
+Atualmente, no Azure HDInsight, o Grafana é suportado com os tipos de cluster Hbase e o Interactive Query.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -65,7 +63,7 @@ Nesta secção, vai criar um cluster do Interactive Query no HDInsight com um mo
    
     ![Introdução ao grupo de recursos no HDInsight com Linux](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Grupo de recursos de cluster no Azure HDInsight")
     
-5. O mosaico indica igualmente o armazenamento predefinido associado ao cluster. Cada cluster tem uma dependência de [conta do Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md) ou de [conta do Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). É designada de conta de armazenamento predefinida. O cluster do HDInsight e a respetiva conta do Storage predefinida devem estar colocalizados na mesma região do Azure. A eliminação dos clusters não elimina a conta de armazenamento.
+5. O mosaico indica igualmente o armazenamento predefinido associado ao cluster. Cada cluster tem uma dependência de [conta do Armazenamento do Azure](../hdinsight-hadoop-use-blob-storage.md) ou de [conta do Azure Data Lake](../hdinsight-hadoop-use-data-lake-store.md). É designada de conta de armazenamento predefinida. Cluster do HDInsight e a sua conta do storage predefinida tem de ser colocalizados na mesma região do Azure. A eliminação dos clusters não elimina a conta de armazenamento.
     
 
 > [!NOTE]
@@ -76,16 +74,22 @@ Nesta secção, vai criar um cluster do Interactive Query no HDInsight com um mo
 ## <a name="access-the-grafana-dashboard"></a>Aceder ao dashboard da Grafana
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+
 2. Selecione **clusters do HDInsight**e, em seguida, selecione o nome do cluster que criou na última secção.
+
 3. Sob **ligações rápidas**, clique em **dashboard de clusters**.
 
     ![Portal de dashboard de cluster do HDInsight](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "dashboard de clusters do HDInsight no portal")
 
-4. No dashboard, clique nas **Grafana** mosaico.
+4. No dashboard, clique nas **Grafana** mosaico. Em alternativa, navegue para o `/grafana/` caminho do URL do seu cluster. Por exemplo, `https://<clustername>.azurehdinsight.net/grafana/`.
+
 5. Introduza as credenciais de utilizador do cluster de Hadoop.
-6. O dashboard da Grafana é semelhante a:
+
+6. O dashboard da Grafana aparece e este aspeto:
 
     ![O dashboard da Grafana do HDInsight](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "o dashboard da Grafana do HDInsight")
+
+   
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Depois de concluir o artigo, pode achar conveniente eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados. 
@@ -137,5 +141,3 @@ Se gostaria de saber mais sobre como criar ou gerir um cluster do HDInsight, con
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-

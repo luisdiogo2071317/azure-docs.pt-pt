@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 1512098c29c8916a0486ed66b438654ba29f0601
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/12/2018
+ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968242"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315643"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Limites de recursos de instância gerida da base de dados SQL do Azure de descrição geral
 
@@ -48,8 +48,8 @@ A instância gerida tem dois escalões de serviço - fins gerais e crítico para
 | **Funcionalidade** | **Fins gerais** | **Crítico para a empresa** |
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Memória | Gen4: 56GB a 156GB<br/>Gen5: 44GB a de 440GB<br/>\*Proporcional ao número de vCores | Gen4: 56GB a 156GB <br/> Gen5: 44GB a de 440GB<br/>\*Proporcional ao número de vCores |
-| Tamanho máximo de armazenamento | 8 TB | Gen 4: 1 TB <br/> Geração 5: <br/>-1 TB para 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
+| Memória | Gen4: 56GB - 156GB<br/>Gen5: 44GB A 440GB<br/>\*Proporcional ao número de vCores | Gen4: 56GB - 156GB <br/> Gen5: 44GB A 440GB<br/>\*Proporcional ao número de vCores |
+| Tamanho máximo de armazenamento | 8 TB | Geração 4: 1 TB <br/> Geração 5: <br/>-1 TB para 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
 | Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máx. de bases de dados por instância | 100 | 100 |
 | Ficheiros de base de dados máximo por instância | Até 280 | 32.767 ficheiros por base de dados |
@@ -70,6 +70,8 @@ Atualmente, a instância gerida suporta implementação apenas nos seguintes tip
 - [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Fornecedor de serviços cloud (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Enterprise programador/teste](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/)
 
 > [!NOTE]
 > Esta limitação é temporária. Novos tipos de subscrição vão ser ativados no futuro.
@@ -87,6 +89,8 @@ Na tabela a seguir são apresentados limites regionais predefinidos para subscri
 | :---| :--- | :--- |:--- |:--- |
 |"Pay-as-you-go"|1 *|4 *|4 *|1 *|
 |CSP |1 *|4 *|4 *|1 *|
+|Pay as you go programador/teste|1 *|4 *|4 *|1 *|
+|Enterprise Programador/Teste|1 *|4 *|4 *|1 *|
 |EA|3 * *|12 * *|12 * *|3 * *|
 
 \* Pode optar por implementar 1 BC ou 4 instâncias GP numa sub-rede, para que o número total de "unidades de instância" na sub-rede nunca exceda 4.

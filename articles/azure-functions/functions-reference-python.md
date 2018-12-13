@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 078a8995dc6f8ce9792f1d18661407f7c6d90029
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 619db07204b88609314d0d3d06709eaa93cb7a43
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856405"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188039"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de programadores de Python de funções do Azure
 
@@ -330,7 +330,37 @@ Em segundo plano, as ferramentas de núcleo irá utilizar o docker para executar
 > Se continuar a ter problemas, faça contato pelo [abrindo um problema](https://github.com/Azure/azure-functions-core-tools/issues/new) e incluir uma descrição do problema. 
 
 
-Para implementar uma aplicação de funções de Python no Azure, pode utilizar um [Travis CI de script personalizado](https://docs.travis-ci.com/user/deployment/script/) com o seu repositório do GitHub. Segue-se um exemplo `.travis.yaml` script para o processo de compilação e a publicação.
+Para criar as suas dependências e publicar através de um sistema de entrega contínua (CD) e integração contínua (CI), pode utilizar um [Pipeline do Azure](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml?view=vsts) ou [Travis CI de script personalizado](https://docs.travis-ci.com/user/deployment/script/). 
+
+Segue-se um exemplo `azure-pipelines.yml` script para o processo de compilação e a publicação.
+```yml
+pool:
+  vmImage: 'Ubuntu 16.04'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '8.x'
+
+- script: |
+    set -e
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
+    curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+    sudo apt-get install -y apt-transport-https
+    echo "install Azure CLI..."
+    sudo apt-get update && sudo apt-get install -y azure-cli
+    npm i -g azure-functions-core-tools --unsafe-perm true
+    echo "installing dotnet core"
+    curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 2.0
+- script: |
+    set -e
+    az login --service-principal --username "$(APP_ID)" --password "$(PASSWORD)" --tenant "$(TENANT_ID)" 
+    func settings add FUNCTIONS_WORKER_RUNTIME python
+    func extensions install
+    func azure functionapp publish $(APP_NAME) --build-native-deps
+```
+
+Segue-se um exemplo `.travis.yaml` script para o processo de compilação e a publicação.
 
 ```yml
 sudo: required

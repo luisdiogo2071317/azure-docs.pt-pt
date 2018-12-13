@@ -1,11 +1,10 @@
 ---
-title: Como escolher algoritmos de machine learning - Azure Machine Learning Studio | Documentos da Microsoft
+title: Como escolher algoritmos para o Azure Machine Learning Studio | Documentos da Microsoft
 description: Como escolher algoritmos do Azure Machine Learning Studio para o learning supervisionado e nas experimentações de clustering, classificação ou regressão.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: cgronlun
 tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
@@ -13,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 7ddfb98a884779385cde643e213bebb98b050436
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9e601464f97a7717a2ccef0e60172357d3169697
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312423"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256932"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Como escolher algoritmos para o Azure Machine Learning Studio
 
@@ -44,7 +43,7 @@ Leia as etiquetas de caminho e o algoritmo no gráfico, como "para  *&lt;etiquet
 Por vezes, nenhuma delas é um ajuste perfeito. Se se destinam a ser recomendações de regra de geral, para que não se preocupe a ser exata.
 Cientistas de dados de várias que falei com disse que a forma-se de que apenas para encontrar o melhor algoritmo é tentar todas elas.
 
-Eis um exemplo do [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) de uma experimentação que tenta vários algoritmos contra os mesmos dados e compara os resultados: [comparar classificadores de Roc: letras reconhecimento](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+Eis um exemplo do [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) de uma experimentação que tenta vários algoritmos contra os mesmos dados e compara os resultados: [Compare classificadores de Roc: Reconhecimento de letra](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Para transferir e imprimir um diagrama da descrição geral das funcionalidades do Machine Learning Studio, consulte o artigo [Diagrama da descrição geral das funcionalidades do Azure Machine Learning Studio](studio-overview-diagram.md).

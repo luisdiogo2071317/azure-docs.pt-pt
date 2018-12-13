@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7c8833f2c6d9a4ae8fdd9eba8ca6bb4f850b5ca7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d0c9d2084e3dd6b0b6b4bd85a60ad998b54f45a7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100791"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317496"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Ativar a encriptação de disco do Azure para VMs Linux IaaS 
 
@@ -59,13 +59,13 @@ Utilize o [ativar a encriptação de vm de az](/cli/azure/vm/encryption#az-vm-en
     > A sintaxe para o valor do parâmetro de disco-encriptação-Cofre de chaves é a cadeia de caracteres de identificador completo: / subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> </br>
 A sintaxe para o valor do parâmetro de chave de encriptação de chave é o URI completo para a KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Certifique-se de que os discos são encriptados:** para verificar o estado de encriptação de uma VM de IaaS, utilize o [show do az vm encryption](/cli/azure/vm/encryption#az-vm-encryption-show) comando. 
+- **Certifique-se de que os discos são encriptados:** Para verificar o estado de encriptação de uma VM de IaaS, utilize o [show do az vm encryption](/cli/azure/vm/encryption#az-vm-encryption-show) comando. 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
      ```
 
-- **Desativar a encriptação:** para desativar a encriptação, utilize o [desativar a encriptação de vm de az](/cli/azure/vm/encryption#az-vm-encryption-disable) comando. A desativação da encriptação só é permitida em volumes de dados para VMs do Linux.
+- **Desative a encriptação:** Para desativar a encriptação, utilize o [desativar a encriptação de vm de az](/cli/azure/vm/encryption#az-vm-encryption-disable) comando. A desativação da encriptação só é permitida em volumes de dados para VMs do Linux.
 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type DATA
@@ -74,7 +74,7 @@ A sintaxe para o valor do parâmetro de chave de encriptação de chave é o URI
 ### <a name="bkmk_RunningLinuxPSH"> </a> Ativar a encriptação numa VM do Linux em execução ou existente com o PowerShell
 Utilize o [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) cmdlet para ativar a encriptação numa máquina virtual de IaaS em execução no Azure. 
 
--  **Encriptar uma VM em execução:** o script a seguir inicializa as variáveis e executa o cmdlet Set-AzureRmVMDiskEncryptionExtension. O grupo de recursos, a VM e o Cofre de chaves, devem já foram criadas como pré-requisitos. Substitua MySecureRg MySecureVM e MySecureVault pelos seus valores. Terá de adicionar o parâmetro - VolumeType se de que está a encriptar discos de dados e não o disco do SO. 
+-  **Encripte uma VM em execução:** O script a seguir inicializa as variáveis e executa o cmdlet Set-AzureRmVMDiskEncryptionExtension. O grupo de recursos, a VM e o Cofre de chaves, devem já foram criadas como pré-requisitos. Substitua MySecureRg MySecureVM e MySecureVault pelos seus valores. Terá de adicionar o parâmetro - VolumeType se de que está a encriptar discos de dados e não o disco do SO. 
 
      ```azurepowershell-interactive
       $rgName = 'MySecureRg';
@@ -86,7 +86,7 @@ Utilize o [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.comp
 
       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
     ```
-- **Encriptar uma VM em execução usando KEK:** poderá ter de adicionar o parâmetro - VolumeType se de que está a encriptar discos de dados e não o disco do SO. 
+- **Encripte uma VM em execução usando KEK:** Terá de adicionar o parâmetro - VolumeType se de que está a encriptar discos de dados e não o disco do SO. 
 
      ```azurepowershell-interactive
      $rgName = 'MySecureRg';
@@ -105,13 +105,13 @@ Utilize o [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.comp
     >[!NOTE]
     > A sintaxe para o valor do parâmetro de disco-encriptação-Cofre de chaves é a cadeia de caracteres de identificador completo: / subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> A sintaxe para o valor do parâmetro de chave de encriptação de chave é o URI completo para a KEK como em: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
     
-- **Certifique-se de que os discos são encriptados:** para verificar o estado de encriptação de uma VM de IaaS, utilize o [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) cmdlet. 
+- **Certifique-se de que os discos são encriptados:** Para verificar o estado de encriptação de uma VM de IaaS, utilize o [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) cmdlet. 
     
      ```azurepowershell-interactive 
      Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName MySecureRg -VMName MySecureVM
      ```
     
-- **Desativar a encriptação de disco:** para desativar a encriptação, utilize o [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. A desativação da encriptação só é permitida em volumes de dados para VMs do Linux.
+- **Desative a encriptação de disco:** Para desativar a encriptação, utilize o [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. A desativação da encriptação só é permitida em volumes de dados para VMs do Linux.
      
      ```azurepowershell-interactive 
      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
@@ -173,7 +173,7 @@ Utilize o [ativar a encriptação do az vmss](/cli/azure/vmss/encryption#az-vmss
      az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
 
      ```
-- **Obter o estado de encriptação para um conjunto de dimensionamento de máquinas virtuais:** utilização [show de encriptação az vmss](/cli/azure/vmss/encryption#az-vmss-encryption-show)
+- **Obter o estado de encriptação para um conjunto de dimensionamento de máquinas virtuais:** Utilize [show de encriptação az vmss](/cli/azure/vmss/encryption#az-vmss-encryption-show)
 
     ```azurecli-interactive
      az vmss encryption show --resource-group "MySecureRG" --name "MySecureVmss"
@@ -199,7 +199,8 @@ Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-###  <a name="encrypt-virtual-machine-scale-sets-with-azure-powershell"></a>Encriptar conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
+### <a name="encrypt-virtual-machine-scale-sets-with-azure-powershell"></a>Encriptar conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
+
 Utilize o [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension) cmdlet para ativar a encriptação num conjunto de dimensionamento de máquinas virtuais do Windows. O grupo de recursos, a VM e o Cofre de chaves devem já foram criadas como pré-requisitos.
 
 -  **Encriptar um conjunto de dimensionamento de máquinas virtuais em execução**:
@@ -225,7 +226,7 @@ Utilize o [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurerm.co
      Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
     ```
 
-- **Obter o estado de encriptação para um conjunto de dimensionamento de máquinas virtuais:** utilize o [Get-AzureRmVmssVMDiskEncryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption) cmdlet.
+- **Obter o estado de encriptação para um conjunto de dimensionamento de máquinas virtuais:** Utilize o [Get-AzureRmVmssVMDiskEncryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption) cmdlet.
     
     ```powershell
     get-AzureRmVmssVMDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
@@ -237,7 +238,17 @@ Utilize o [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/azurerm.co
     Disable-AzureRmVmssDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
     ```
 
+### <a name="azure-resource-manager-templates-for-linux-virtual-machine-scale-sets"></a>Define modelos Azure Resource Manager para o dimensionamento de máquinas virtuais do Linux
 
+Para encriptar ou desencriptar o dimensionamento de máquinas virtuais do Linux conjuntos, utilize os modelos Azure Resource Manager e as instruções abaixo:
+
+- [Ativar a encriptação num conjunto de dimensionamento de máquinas virtuais do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+- [Implementar um conjunto de dimensionamento de VMs do Linux com uma jumpbox e ativar a encriptação no conjunto de dimensionamento de VM do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+- [Desative a encriptação num conjunto de dimensionamento de VM do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+     1. Clique em **Implementar no Azure**.
+     2. Preencha os campos obrigatórios em seguida, os Concordo com os termos e condições.
+     3. Clique em **Compra** para implementar o modelo.
 
 ## <a name="bkmk_EFA"> </a>Utilizar a funcionalidade de EncryptFormatAll para discos de dados em VMs do IaaS Linux
 O **EncryptFormatAll** parâmetro reduz o tempo para discos de dados do Linux ser encriptada. Partições determinados critérios de reunião serão formatadas (com o seu atual sistema de ficheiros). Em seguida, irá ser remontadas para onde estava antes da execução do comando. Se desejar excluir um disco de dados que satisfaça os critérios, poder desmontá-la antes de executar o comando.
@@ -271,7 +282,7 @@ Utilize o [ativar a encriptação de vm de az](/cli/azure/vm/encryption#az-vm-en
 ### <a name="bkmk_EFAPSH"> </a> Utilize o parâmetro de EncryptFormatAll com um cmdlet do PowerShell
 Utilize o [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) cmdlet com o [parâmetro EncryptFormatAll](https://www.powershellgallery.com/packages/AzureRM/5.0.0). 
 
-**Encriptar uma VM em execução usando EncryptFormatAll:** como exemplo, o script a seguir inicializa as variáveis e executa o cmdlet Set-AzureRmVMDiskEncryptionExtension com o parâmetro EncryptFormatAll. O grupo de recursos, a VM e o Cofre de chaves devem já foram criadas como pré-requisitos. Substitua MySecureRg MySecureVM e MySecureVault pelos seus valores.
+**Encripte uma VM em execução usando EncryptFormatAll:** Por exemplo, o script a seguir inicializa as variáveis e executa o cmdlet Set-AzureRmVMDiskEncryptionExtension com o parâmetro EncryptFormatAll. O grupo de recursos, a VM e o Cofre de chaves devem já foram criadas como pré-requisitos. Substitua MySecureRg MySecureVM e MySecureVault pelos seus valores.
   
    ```azurepowershell-interactive
      $rgName = 'MySecureRg';
@@ -360,7 +371,7 @@ Em contraste com a sintaxe do Powershell, a CLI não exigir que o utilizador for
  Quando utilizar o Powershell para encriptar um disco novo para Linux, uma nova versão de sequência tem de ser especificado. A versão de sequência tem de ser exclusivo. O script a seguir gera um GUID para a versão de sequência. 
  
 
--  **Criptografar volumes de dados de uma VM em execução:** o script a seguir inicializa as variáveis e executa o cmdlet Set-AzureRmVMDiskEncryptionExtension. O grupo de recursos, a VM e o Cofre de chaves devem já foram criadas como pré-requisitos. Substitua MySecureRg MySecureVM e MySecureVault pelos seus valores. Os valores aceitáveis para o parâmetro - VolumeType são todos os dados e SO. Se a VM foi anteriormente encriptada com um tipo de volume de "SO" ou "Todos", em seguida, o parâmetro - VolumeType deve ser alterado para todos, para que o sistema operacional e o novo disco de dados que serão incluídos.
+-  **Criptografe volumes de dados de uma VM em execução:** O script a seguir inicializa as variáveis e executa o cmdlet Set-AzureRmVMDiskEncryptionExtension. O grupo de recursos, a VM e o Cofre de chaves devem já foram criadas como pré-requisitos. Substitua MySecureRg MySecureVM e MySecureVault pelos seus valores. Os valores aceitáveis para o parâmetro - VolumeType são todos os dados e SO. Se a VM foi anteriormente encriptada com um tipo de volume de "SO" ou "Todos", em seguida, o parâmetro - VolumeType deve ser alterado para todos, para que o sistema operacional e o novo disco de dados que serão incluídos.
 
      ```azurepowershell-interactive
       $sequenceVersion = [Guid]::NewGuid();
@@ -373,7 +384,7 @@ Em contraste com a sintaxe do Powershell, a CLI não exigir que o utilizador for
 
       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion;
     ```
-- **Criptografar volumes de dados de uma VM em execução usando KEK:** os valores aceitáveis para o parâmetro - VolumeType são todos os dados e SO. Se a VM foi anteriormente encriptada com um tipo de volume de "SO" ou "Todos", em seguida, o parâmetro - VolumeType deve ser alterado para todos, para que o sistema operacional e o novo disco de dados que serão incluídos.
+- **Criptografe volumes de dados de uma VM em execução usando KEK:** Os valores aceitáveis para o parâmetro - VolumeType são todos os dados e SO. Se a VM foi anteriormente encriptada com um tipo de volume de "SO" ou "Todos", em seguida, o parâmetro - VolumeType deve ser alterado para todos, para que o sistema operacional e o novo disco de dados que serão incluídos.
 
      ```azurepowershell-interactive
      $rgName = 'MySecureRg';
@@ -399,16 +410,16 @@ Pode desativar a encriptação com o Azure PowerShell, CLI do Azure, ou com um m
 >[!IMPORTANT]
 >A desativação da encriptação com o Azure Disk Encryption em VMs do Linux só é suportada em volumes de dados. Não é suportada em dados ou volumes de sistema operacional se o volume do sistema operacional tenha sido criptografado.  
 
-- **Desativar a encriptação de disco com o Azure PowerShell:** para desativar a encriptação, utilize o [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. 
+- **Desative a encriptação de disco com o Azure PowerShell:** Para desativar a encriptação, utilize o [Disable-AzureRmVMDiskEncryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. 
      ```azurepowershell-interactive
      Disable-AzureRmVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM' [--volume-type {ALL, DATA, OS}]
      ```
 
-- **Desativar a encriptação com a CLI do Azure:** para desativar a encriptação, utilize o [desativar a encriptação de vm de az](/cli/azure/vm/encryption#az-vm-encryption-disable) comando. 
+- **Desative a encriptação com a CLI do Azure:** Para desativar a encriptação, utilize o [desativar a encriptação de vm de az](/cli/azure/vm/encryption#az-vm-encryption-disable) comando. 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
      ```
-- **Desativar a encriptação com um modelo do Resource Manager:** utilize o [desativar a encriptação numa VM do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) modelo para desativar a encriptação.
+- **Desative a encriptação com um modelo do Resource Manager:** Utilize o [desativar a encriptação numa VM do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) modelo para desativar a encriptação.
      1. Clique em **Implementar no Azure**.
      2. Selecione a subscrição, grupo de recursos, localização, VM, os termos legais e contrato.
      3.  Clique em **Compra** para desativar a encriptação de disco numa VM do Windows em execução. 
