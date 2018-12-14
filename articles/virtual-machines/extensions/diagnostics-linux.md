@@ -7,14 +7,14 @@ manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994807"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387051"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilize a extensão de diagnóstico do Linux para monitorizar métricas e registos
 
@@ -38,9 +38,7 @@ Esta extensão funciona com ambos os modelos de implementação do Azure.
 
 ## <a name="installing-the-extension-in-your-vm"></a>Instalar a extensão na VM
 
-Pode ativar esta extensão ao utilizar os cmdlets do Azure PowerShell, scripts da CLI do Azure ou modelos de implementação do Azure. Para obter mais informações, consulte [extensões funcionalidades](features-linux.md).
-
-O portal do Azure não pode ser utilizado para ativar ou configurar LAD 3.0. Em vez disso, ele instala e configura a versão 2.3. Gráficos de portais do Azure e alertas de trabalham com dados de ambas as versões da extensão.
+Pode ativar esta extensão utilizando cmdlets do Azure PowerShell, scripts da CLI do Azure, modelos ARM ou o portal do Azure. Para obter mais informações, consulte [extensões funcionalidades](features-linux.md).
 
 Estas instruções de instalação e um [configuração de exemplo para download](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configurar LAD 3.0 para:
 
@@ -55,7 +53,7 @@ A configuração que pode ser baixada é apenas um exemplo; modificá-lo para se
 
 * **O agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens da galeria do Azure VM Linux incluem a versão 2.2.7 ou posterior. Executar `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver a executar uma versão mais antiga do agente convidado, siga [estas instruções](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) atualizá-la.
 * **CLI do Azure**. [Configurar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) ambiente no seu computador.
-* O comando wget, se ainda não tiver: executar `sudo apt-get install wget`.
+* O comando de wget, se ainda não tiver: Execute `sudo apt-get install wget`.
 * Uma subscrição do Azure existente e uma conta de armazenamento existente na mesma para armazenar os dados.
 * Lista de distribuições suportadas de Linux está ativada https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
@@ -316,11 +314,11 @@ Elemento | Valor
 Coletores de | (opcional) Uma lista separada por vírgulas dos nomes dos sinks que LAD envia agregado resultados métrica. Todas as métricas agregadas são publicadas cada sink listada. Ver [sinksConfig](#sinksconfig). Exemplo: `"EHsink1, myjsonsink"`.
 tipo | Identifica o fornecedor real da métrica.
 classe | Em conjunto com "contador", identifica a métrica específica dentro do espaço de nomes do fornecedor.
-Contador | Em conjunto com "class", identifica a métrica específica dentro do espaço de nomes do fornecedor.
+counter | Em conjunto com "class", identifica a métrica específica dentro do espaço de nomes do fornecedor.
 counterSpecifier | Identifica a métrica específica dentro do espaço de nomes de métricas do Azure.
 condition | (opcional) Seleciona uma instância específica do objeto ao qual a métrica aplica-se ou seleciona a agregação de todas as instâncias desse objeto. Para obter mais informações, consulte a [ `builtin` definições de métricas](#metrics-supported-by-builtin).
 SampleRate como sendo | É o intervalo de 8601 que define a taxa em que os exemplos não processados para esta métrica são recolhidos. Se não definido, o intervalo de coleta é definido pelo valor de [sampleRateInSeconds](#ladcfg). A taxa de exemplo suportadas mais curta é 15 segundos (PT15S).
-unidade | Deve ser uma dessas cadeias de caracteres: "Count", "Bytes", "Segundos", "Percentagem", "CountPerSecond", "BytesPerSecond", "Milissegundo". Define a unidade para a métrica. Os consumidores dos dados recolhidos esperam que os valores de dados recolhidos para corresponder esta unidade. LAD ignora este campo.
+unidade | Deve ser um dessas cadeias de caracteres: "Count", "Bytes", "Segundos", "Percentagem", "CountPerSecond", "BytesPerSecond", "Milissegundo". Define a unidade para a métrica. Os consumidores dos dados recolhidos esperam que os valores de dados recolhidos para corresponder esta unidade. LAD ignora este campo.
 displayName | A etiqueta (no idioma especificado da definição de região associados) ser anexados a esses dados de métricas do Azure. LAD ignora este campo.
 
 O counterSpecifier é um identificador arbitrário. Os consumidores de métricas, como o gráfico portal do Azure e alertas de funcionalidade, utilize counterSpecifier como a "chave" que identifica uma métrica ou uma instância de uma métrica. Para `builtin` métricas, recomendamos que utilize os valores de counterSpecifier que começam com `/builtin/`. Se está a recolher uma instância específica de uma métrica, recomendamos que anexar o identificador da instância para o valor de counterSpecifier. Alguns exemplos:
@@ -432,7 +430,7 @@ O fornecedor de métrica de builtin é uma origem de métricas mais interessante
 
 A classe de processador de métricas fornece informações sobre a utilização de processador na VM. Ao agregar percentagens, o resultado é a média em todas as CPUs. Numa VM de vCPU de dois, se um vCPU foi 100% ocupado e o outro era 100% ocioso, o PercentIdleTime comunicada seria 50. Se cada vCPU estava ocupado para o mesmo período de 50%, o resultado comunicado também seria 50. Numa VM de vCPU de quatro, com um vCPU 100% ocupado e a outras pessoas ocioso, o PercentIdleTime comunicada seria 75.
 
-Contador | Significado
+counter | Significado
 ------- | -------
 PercentIdleTime | Percentagem de tempo durante a janela de agregação que processadores foram executando o loop de inatividade de kernel
 PercentProcessorTime | Percentagem de tempo de execução de um thread não inativo
@@ -450,7 +448,7 @@ Para obter uma única métrica agregada em todos os processadores, defina `"cond
 
 A classe de memória de métricas fornece informações sobre a utilização da memória, paginação e a troca.
 
-Contador | Significado
+counter | Significado
 ------- | -------
 AvailableMemory | Memória física disponível no MiB
 PercentAvailableMemory | Memória física disponível como uma percentagem do total de memória
@@ -470,7 +468,7 @@ Essa classe de métricas tem apenas uma única instância. O atributo "condiçã
 
 A classe de rede de métricas fornece informações sobre a atividade de rede nas interfaces de rede individuais desde o arranque. LAD não expõe as métricas de largura de banda, que podem ser obtidas a partir de métricas de anfitrião.
 
-Contador | Significado
+counter | Significado
 ------- | -------
 BytesTransmitted | Total de bytes enviados desde o arranque
 BytesReceived | Total de bytes recebidos desde o arranque
@@ -487,9 +485,9 @@ TotalCollisions | Número de colisões é comunicado pelas portas de rede desde 
 
 A classe de sistema de ficheiros de métricas fornece informações sobre a utilização do sistema de ficheiros. Valores absolutos e percentagem são comunicados como seria exibidos a um usuário comum (não raiz).
 
-Contador | Significado
+counter | Significado
 ------- | -------
-FreeSpace | Espaço em disco disponível em bytes
+EspaçoLivre | Espaço em disco disponível em bytes
 UsedSpace | Utilizada de espaço em disco, em bytes
 PercentFreeSpace | Percentagem de espaço livre
 PercentUsedSpace | Percentagem de espaço utilizado
@@ -508,7 +506,7 @@ Valores agregados em todos os sistemas de ficheiros podem ser obtidos através d
 
 A classe de disco de métricas fornece informações sobre a utilização de dispositivos de disco. Estas estatísticas aplicam-se para a unidade completa. Se existirem vários sistemas de ficheiros num dispositivo, os contadores para esse dispositivo são, efetivamente, agregados em todos eles.
 
-Contador | Significado
+counter | Significado
 ------- | -------
 ReadsPerSecond | Operações de leitura por segundo
 WritesPerSecond | Operações de escrita por segundo

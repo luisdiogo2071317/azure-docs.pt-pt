@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 427c3601d6a4ca65407a98d54b0206cde9af4235
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 18c35070707408f43fd0e5dfc5e3330ef62a914d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643279"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343161"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar funções duráveis como WebJobs
 
@@ -35,7 +35,7 @@ Para concluir os passos neste artigo:
 
 * [Instale o Visual Studio 2017 versão 15,6 ou posterior](https://docs.microsoft.com/visualstudio/install/) com o **desenvolvimento do Azure** carga de trabalho.
 
-  Se já tiver o Visual Studio, mas não tem essa carga de trabalho, adicione a carga de trabalho selecionando **ferramentas > obter ferramentas e funcionalidades**. 
+  Se já tiver o Visual Studio, mas não tem essa carga de trabalho, adicione a carga de trabalho selecionando **ferramentas > obter ferramentas e funcionalidades**.
 
   (Pode usar [Visual Studio Code](https://code.visualstudio.com/) em vez disso, mas algumas das instruções são específicas para o Visual Studio.)
 
@@ -43,7 +43,7 @@ Para concluir os passos neste artigo:
 
 ## <a name="webjobs-sdk-versions"></a>Versões do SDK de WebJobs
 
-Este artigo explica como desenvolver um projeto do SDK do WebJobs 2.x (equivalente as funções do Azure versão 1.x). Para obter informações sobre a versão 3.x, consulte [SDK do WebJobs 3.x](#webjobs-sdk-3x) mais adiante neste artigo. 
+Este artigo explica como desenvolver um projeto do SDK do WebJobs 2.x (equivalente as funções do Azure versão 1.x). Para obter informações sobre a versão 3.x, consulte [SDK do WebJobs 3.x](#webjobs-sdk-3x) mais adiante neste artigo.
 
 ## <a name="create-console-app"></a>Criar aplicação de consola
 
@@ -190,9 +190,9 @@ Esta secção fornece uma visão geral de como executar o [projeto de exemplo](h
 
 1. Se quiser ver registos no Application Insights ao executar localmente:
 
-  a. Criar um recurso do Application Insights, tipo de aplicação **gerais**.
+    a. Criar um recurso do Application Insights, tipo de aplicação **gerais**.
 
-  b. Guardar a chave de instrumentação na *App. config* ficheiro.
+    b. Guardar a chave de instrumentação na *App. config* ficheiro.
 
 1. Execute o projeto.
 
@@ -216,8 +216,8 @@ A principal alteração introduzida por 3.x é o uso do .NET Core em vez do .NET
 
 1. Escolha a versão de pré-lançamento 3.x dos pacotes seguintes:
 
-  * `Microsoft.Azure.WebJobs.Extensions`
-  * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
+    * `Microsoft.Azure.WebJobs.Extensions`
+    * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
 1. Alteração `Main` código de método para obter a cadeia de ligação de armazenamento e a chave de instrumentação do Application Insights de um *appSettings* de ficheiros, usando a estrutura de configuração do .NET Core.  Segue-se um exemplo:
 
@@ -235,7 +235,7 @@ A principal alteração introduzida por 3.x é o uso do .NET Core em vez do .NET
            var config = new JobHostConfiguration();
 
            config.DashboardConnectionString = "";
-           config.StorageConnectionString = 
+           config.StorageConnectionString =
                appSettingsConfig.GetConnectionString("AzureWebJobsStorage");
            var instrumentationKey =
                appSettingsConfig["APPINSIGHTS_INSTRUMENTATIONKEY"];
@@ -258,4 +258,3 @@ A principal alteração introduzida por 3.x é o uso do .NET Core em vez do .NET
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre o SDK de WebJobs, consulte [como utilizar o SDK do WebJobs](../../app-service/webjobs-sdk-how-to.md).
-

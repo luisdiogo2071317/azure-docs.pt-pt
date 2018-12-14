@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 768c26ad4d7eead2fcd81b9d9ea9270e1181bd91
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3c9514e39e061067b7332570e0eb6273924529e0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277442"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339217"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo com o Azure Monitor  
 
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como configurar alertas de registo utilizando a interface
 O termo **alertas de registo** para descrever os alertas em que o sinal é a consulta personalizada com base nos [do Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../../application-insights/app-insights-analytics.md). Saiba mais sobre funcionalidade, terminologia e tipos a partir [alertas - descrição geral de registo](../../azure-monitor/platform/alerts-unified-log.md).
 
 > [!NOTE]
-> Dados de registos populares [do Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) também está agora disponível na plataforma de métrica no Azure Monitor. Para a vista de detalhes, [alerta de métrica para os registos](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md)
+> Dados de registos populares [do Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) também está agora disponível na plataforma de métrica no Azure Monitor. Para a vista de detalhes, [alerta de métrica para os registos](../../azure-monitor/platform/alerts-metric-logs.md)
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Gerir alertas de registo a partir do portal do Azure
 

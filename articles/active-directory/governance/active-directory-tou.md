@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/10/2018
+ms.date: 12/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 448ef296af3ceaffffa1a4a69060916afd9abdc4
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6ec3ca7c1323b342612293c5ea3ca1443370c9b4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185686"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386390"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar com os termos de utilização.
@@ -313,6 +313,8 @@ As políticas de acesso condicional entram imediatamente em vigor. Quando isto a
 ## <a name="b2b-guests-preview"></a>Convidados B2B (pré-visualização)
 
 A maioria das organizações tem um processo para seus funcionários para aceitar os termos de suas organizações de instruções de utilização e a privacidade. Mas como pode impor os consentimentos mesmo para o Azure AD para empresas quando estes forem adicionados por meio do SharePoint ou equipas os convidados (B2B)? Utilizar acesso condicional e os termos de utilização, pode impor uma política diretamente para utilizadores convidados B2B. Durante o fluxo de resgate de convite, é apresentada ao utilizador com os termos de utilização. Este suporte está atualmente em pré-visualização.
+
+Termos de utilização só serão apresentados quando o utilizador tem uma conta de convidado no Azure AD. O SharePoint Online atualmente tem um [experiência de destinatário partilha externa ad-hoc](/sharepoint/what-s-new-in-sharing-in-targeted-release) para partilhar um documento ou uma pasta que não necessita do utilizador tem de ter uma conta de convidado. Neste caso, os termos de utilização não é apresentada.
 
 ![Todos os utilizadores convidados](./media/active-directory-tou/b2b-guests.png)
 

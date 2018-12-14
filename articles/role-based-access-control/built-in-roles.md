@@ -15,12 +15,12 @@ ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: f2143d15156c8f69430610eac2f467c5a6887300
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d6696d9bdd69b085b9c9ac0804da68cd91612f35
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017822"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386966"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
 [Controlo de acesso baseado em funções (RBAC)](overview.md) tem várias definições de função incorporada que pode atribuir aos utilizadores, grupos e principais de serviço. Atribuições de funções são a forma de controlar o acesso aos recursos no Azure. Se as [funções incorporadas](custom-roles.md) não suprirem as necessidades específicas da sua organização, pode criar as suas próprias funções personalizadas.
@@ -76,8 +76,8 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Utilizador de DevTest Labs](#devtest-labs-user) | Permite-lhe ligar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure DevTest Labs. |
 | [Contribuidor da zona DNS](#dns-zone-contributor) | Permite-lhe gerir zonas DNS e conjuntos de registos no DNS do Azure, mas não lhe permite controlar quem tem acesso aos mesmos. |
 | [Contribuinte de conta do DocumentDB](#documentdb-account-contributor) | Pode gerir contas do Azure Cosmos DB. O Azure Cosmos DB anteriormente é conhecido como o DocumentDB. |
-| [Contribuinte de EventSubscription EventGrid (pré-visualização)](#eventgrid-eventsubscription-contributor-preview) | Permite-lhe gerir operações de subscrição de evento EventGrid. |
-| [Leitor de EventSubscription EventGrid (pré-visualização)](#eventgrid-eventsubscription-reader-preview) | Permite que leia EventGrid subscrições de eventos. |
+| [Contribuinte de EventSubscription EventGrid (pré-visualização)](#eventgrid-eventsubscription-contributor-preview) | Permite-lhe gerir operações de subscrição de eventos do EventGrid. |
+| [Leitor de EventSubscription EventGrid (pré-visualização)](#eventgrid-eventsubscription-reader-preview) | Permite-lhe ler as subscrições de eventos do EventGrid. |
 | [Contribuinte de serviços de domínio do HDInsight](#hdinsight-domain-services-contributor) | Pode Ler, Criar, Modificar e Eliminar operações relacionadas com os Serviços de Domínio necessárias para o Pacote de Segurança HDInsight Enterprise |
 | [Contribuinte de conta de sistemas inteligentes](#intelligent-systems-account-contributor) | Permite-lhe gerir contas de Sistemas Inteligentes, mas não aceder-lhes. |
 | [Contribuinte do Cofre de chaves](#key-vault-contributor) | Permite-lhe gerir cofres de chaves, mas não o acesso aos mesmos. |
@@ -92,9 +92,9 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Operador de identidade gerido](#managed-identity-operator) | Ler e Atribuir a Identidade Atribuída ao Utilizador |
 | [Contribuinte do grupo de gestão](#management-group-contributor) | Função de Contribuinte do Grupo de Gestão |
 | [Leitor do grupo de gestão](#management-group-reader) | Função de Leitor de Grupo de Gestão |
-| [Contribuidor de monitorização](#monitoring-contributor) | Pode ler todos os dados de monitorização e editar as definições de monitorização. Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [Contribuidor de monitorização](#monitoring-contributor) | Pode ler todos os dados de monitorização e editar as definições de monitorização. Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 | [Monitorização de métricas de publicador](#monitoring-metrics-publisher) | Permite publicar métricas a respeito dos recursos do Azure |
-| [Leitor de monitorização](#monitoring-reader) | Pode ler todos os dados de monitorização (métricas, registos, etc.). Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [Leitor de monitorização](#monitoring-reader) | Pode ler todos os dados de monitorização (métricas, registos, etc.). Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 | [Contribuidor de Rede](#network-contributor) | Permite-lhe gerir redes, mas não aceder-lhes. |
 | [Contribuinte de conta APM do novo Relic](#new-relic-apm-account-contributor) | Permite-lhe gerir contas e aplicações do New Relic Application Performance Management, mas não aceder-lhes. |
 | [Leitor e acesso a dados](#reader-and-data-access) | Permite-lhe ver tudo, mas não lhe permitirá eliminar ou criar uma conta de armazenamento ou recurso contido. Também irá permitir acesso de leitura/gravação para todos os dados contidos numa conta de armazenamento através do acesso às chaves de conta de armazenamento. |
@@ -102,9 +102,9 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuinte de política de recurso (pré-visualização)](#resource-policy-contributor-preview) | (Pré-visualização) Os utilizadores substituídos de EA, com direitos para criar/modificar a política de recurso, criam pedidos de suporte e leem recursos/hierarquia. |
 | [Contribuinte de coleções de tarefa do Scheduler](#scheduler-job-collections-contributor) | Permite-lhe gerir coleções de tarefas do Scheduler, mas não aceder-lhes. |
 | [Contribuinte de serviços de pesquisa](#search-service-contributor) | Permite-lhe gerir serviços de Pesquisa, mas não aceder-lhes. |
-| [Administrador de segurança](#security-admin) | No Centro de segurança apenas: pode ver as políticas de segurança, visualizar os Estados de segurança, editar as políticas de segurança, ver alertas e recomendações, dispensar alertas e recomendações |
+| [Administrador de segurança](#security-admin) | No Centro de segurança apenas: Pode ver as políticas de segurança, visualizar os Estados de segurança, editar as políticas de segurança, ver alertas e recomendações, dispensar alertas e recomendações |
 | [Gestor de segurança (Legado)](#security-manager-legacy) | Esta é uma função legada. Utilize em vez disso, o administrador de segurança |
-| [Leitor de segurança](#security-reader) | No Centro de segurança apenas: pode ver recomendações e alertas, políticas de segurança, visualizar os Estados de segurança, mas não pode fazer alterações de vista |
+| [Leitor de segurança](#security-reader) | No Centro de segurança apenas: Pode ver recomendações e alertas, políticas de segurança, visualizar os Estados de segurança, mas não pode fazer alterações de vista |
 | [Contribuinte do site Recovery](#site-recovery-contributor) | Permite-lhe gerir o serviço do Site Recovery exceto a criação do cofre e atribuição de funções |
 | [Operador de recuperação de site](#site-recovery-operator) | Permite-lhe efetuar a ativação pós-falha mas não efetuar outras operações de gestão do Site Recovery |
 | [Leitor do site Recovery](#site-recovery-reader) | Permite-lhe ver o estado do Site Recovery mas não efetuar outras operações de gestão |
@@ -114,7 +114,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 | [Contribuidor de Conta de Armazenamento](#storage-account-contributor) | Permite-lhe gerir contas de armazenamento, mas não aceder às mesmas. |
 | [Função do serviço de operador de chave de conta de armazenamento](#storage-account-key-operator-service-role) | Os Operadores de Chave da Conta de Armazenamento têm permissão para listar e regenerar chaves em Contas de Armazenamento |
 | [Contribuinte de dados de Blob de armazenamento (pré-visualização)](#storage-blob-data-contributor-preview) | Permite acesso de leitura, escrita e eliminação a dados e contentores de blobs de Armazenamento do Azure |
-| [Proprietário de dados de Blob de armazenamento (pré-visualização)](#storage-blob-data-owner-preview) | Permite a leitura, escrita, eliminação e POSIX Superutilizador acesso a dados e contentores de BLOBs de armazenamento do Azure |
+| [Proprietário de dados de Blob de armazenamento (pré-visualização)](#storage-blob-data-owner-preview) | Permite a leitura, a escrita, a eliminação e o acesso de superutilizador POSIX aos contentores e aos dados do Azure Storage Blob |
 | [Leitor de dados de Blob de armazenamento (pré-visualização)](#storage-blob-data-reader-preview) | Permite o acesso de leitura de dados e contentores de blobs de Armazenamento do Azure. |
 | [Contribuinte de dados de fila de armazenamento (pré-visualização)](#storage-queue-data-contributor-preview) | Permite acesso de leitura, escrita e eliminação a filas e mensagens de filas de Armazenamento do Azure |
 | [Leitor de dados de fila de armazenamento (pré-visualização)](#storage-queue-data-reader-preview) | Permite acesso de leitura às filas e mensagens de fila de Armazenamento do Azure |
@@ -149,7 +149,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Authorization/*/Delete | Não é possível eliminar funções e as atribuições de funções |
 > | Microsoft.Authorization/*/Write | Não é possível criar funções e as atribuições de funções |
 > | Microsoft.Authorization/elevateAccess/Action | Garante ao chamador Administrador de Acesso dos Utilizadores acesso ao âmbito do inquilino |
-> | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar quaisquer artefactos de esquema |
+> | Microsoft.Blueprint/blueprintAssignments/write | Criar ou atualizar artefactos de esquema |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Eliminar quaisquer artefactos de esquema |
 
 ## <a name="reader"></a>Leitor
@@ -341,23 +341,23 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
-## <a name="azure-kubernetes-service-cluster-admin-role"></a>Função de administrador de Cluster do serviço Kubernetes do Azure
+## <a name="azure-kubernetes-service-cluster-admin-role"></a>Função de Administrador do Cluster do Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **Descrição** | Listar a ação de credenciais de administrador do cluster. |
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Ações** |  |
-> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Listar a credencial de clusterAdmin de um cluster gerido |
+> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Listar a credencial clusterAdmin de um cluster gerido |
 
-## <a name="azure-kubernetes-service-cluster-user-role"></a>Função de utilizador de Cluster do serviço Kubernetes do Azure
+## <a name="azure-kubernetes-service-cluster-user-role"></a>Função de Utilizador do Cluster do Azure Kubernetes Service
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **Descrição** | Listar a ação de credenciais de utilizador do cluster. |
 > | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | **Ações** |  |
-> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Listar a credencial de clusterUser de um cluster gerido |
+> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Listar a credencial clusterUser de um cluster gerido |
 
 ## <a name="azure-stack-registration-owner"></a>Proprietário do Registo do Azure Stack
 > [!div class="mx-tableFixed"]
@@ -940,11 +940,11 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
-## <a name="eventgrid-eventsubscription-contributor-preview"></a>Contribuinte de EventSubscription EventGrid (pré-visualização)
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>Contribuinte de EventSubscription EventGrid (Pré-visualização)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite-lhe gerir operações de subscrição de evento EventGrid. |
+> | **Descrição** | Permite-lhe gerir operações de subscrição de eventos do EventGrid. |
 > | **Id** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
@@ -957,11 +957,11 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 
-## <a name="eventgrid-eventsubscription-reader-preview"></a>Leitor de EventSubscription EventGrid (pré-visualização)
+## <a name="eventgrid-eventsubscription-reader-preview"></a>Leitor de EventSubscription EventGrid (Pré-visualização)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite que leia EventGrid subscrições de eventos. |
+> | **Descrição** | Permite-lhe ler as subscrições de eventos do EventGrid. |
 > | **Id** | 2414bbcf-6497-4FAF-8c65-045460748405 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
@@ -1194,7 +1194,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Pode ler todos os dados de monitorização e editar as definições de monitorização. Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+> | **Descrição** | Pode ler todos os dados de monitorização e editar as definições de monitorização. Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | **Ações** |  |
 > | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
@@ -1238,7 +1238,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Pode ler todos os dados de monitorização (métricas, registos, etc.). Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+> | **Descrição** | Pode ler todos os dados de monitorização (métricas, registos, etc.). Consulte também [começar com as funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **Ações** |  |
 > | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
@@ -1348,7 +1348,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | No Centro de segurança apenas: pode ver as políticas de segurança, visualizar os Estados de segurança, editar as políticas de segurança, ver alertas e recomendações, dispensar alertas e recomendações |
+> | **Descrição** | No Centro de segurança apenas: Pode ver as políticas de segurança, visualizar os Estados de segurança, editar as políticas de segurança, ver alertas e recomendações, dispensar alertas e recomendações |
 > | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
@@ -1394,7 +1394,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | No Centro de segurança apenas: pode ver recomendações e alertas, políticas de segurança, visualizar os Estados de segurança, mas não pode fazer alterações de vista |
+> | **Descrição** | No Centro de segurança apenas: Pode ver recomendações e alertas, políticas de segurança, visualizar os Estados de segurança, mas não pode fazer alterações de vista |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
@@ -1470,7 +1470,7 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Ler todos os itens susceptíveis de proteção |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Aplicar o ponto de recuperação |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Consolidação de ativação pós-falha |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Ativação pós-falha planeada |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Ativação Pós-falha Planeada |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Ler todos os itens protegidos |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Ler quaisquer pontos de recuperação de replicação |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Reparar replicação |
@@ -1697,11 +1697,11 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Clique
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Devolve um blob ou uma lista de blobs |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Devolve o resultado de escrever um blob |
 
-## <a name="storage-blob-data-owner-preview"></a>Proprietário de dados de Blob de armazenamento (pré-visualização)
+## <a name="storage-blob-data-owner-preview"></a>Proprietário dos Dados de Armazenamento de Blobs (Pré-visualização)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite a leitura, escrita, eliminação e POSIX Superutilizador acesso a dados e contentores de BLOBs de armazenamento do Azure |
+> | **Descrição** | Permite a leitura, a escrita, a eliminação e o acesso de superutilizador POSIX aos contentores e aos dados do Azure Storage Blob |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Ações** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Devolve o resultado da eliminação de um contentor |

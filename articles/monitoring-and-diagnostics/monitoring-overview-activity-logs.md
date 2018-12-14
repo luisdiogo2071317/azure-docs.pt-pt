@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 46b00e102cbf5e981ac7036de65232e869dc9651
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9b2566458bc32f9b1d7a36790fbdd5fbb2419ec1
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272710"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384302"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -33,11 +33,11 @@ O registo de atividade difere [registos de diagnóstico](monitoring-overview-of-
 Pode obter eventos de seu registo de atividades no portal do Azure, CLI, cmdlets do PowerShell e a API de REST do Azure Monitor.
 
 > [!NOTE]
-> [Os alertas mais recentes](monitoring-overview-alerts.md) oferecem uma experiência aprimorada, ao criar e gerir atividade regras de alerta de registo.  [Saiba mais](../azure-monitor/platform/alerts-activity-log.md).
+> [Os alertas mais recentes](../azure-monitor/platform/alerts-overview.md) oferecem uma experiência aprimorada, ao criar e gerir atividade regras de alerta de registo.  [Saiba mais](../azure-monitor/platform/alerts-activity-log.md).
 
 
 ## <a name="categories-in-the-activity-log"></a>Categorias no registo de atividades
-O registo de atividade contém várias categorias de dados. Para obter detalhes completos sobre esquemas uma destas categorias [veja este artigo](monitoring-activity-log-schema.md). Estas incluem:
+O registo de atividade contém várias categorias de dados. Para obter detalhes completos sobre esquemas uma destas categorias [veja este artigo](../azure-monitor/platform/activity-log-schema.md). Estas incluem:
 * **Administrativas** -nesta categoria contém o registo de todos os criar, operações de atualização, eliminação e ação executada através do Resource Manager. Os exemplos dos tipos de eventos que veria nesta categoria incluem "Criar máquina virtual" e "Eliminar grupo de segurança rede" todas as ações executadas por um utilizador ou aplicação com o Resource Manager é modelada como uma operação num tipo de recurso específico. Se o tipo de operação de escrita, eliminação ou ação, os registos de início e de êxito ou falha dessa operação é registada na categoria administrativa. A categoria administrativa também inclui todas as alterações ao controlo de acesso baseado em funções numa subscrição.
 * **Estado de funcionamento do serviço** -nesta categoria contém o registo de qualquer incidentes de estado de funcionamento do serviço que ocorreram no Azure. Um exemplo do tipo de evento, que veria nesta categoria é "do SQL Azure na região E.U.A. Leste está a sofrer um período de indisponibilidade." Eventos de estado de funcionamento do serviço têm cinco variedades: É necessária qualquer ação, recuperação assistido, incidente, manutenção, informações ou segurança e só serão apresentadas se tiver um recurso na subscrição que seria afetada pelo evento.
 * **Estado de funcionamento do recurso** -nesta categoria contém o registo de quaisquer eventos de estado de funcionamento do recurso que ocorreram aos recursos do Azure. Um exemplo do tipo de evento, que veria nesta categoria é o "Estado de funcionamento estado da Máquina Virtual foi alterado para indisponível." Eventos de estado de funcionamento de recursos podem representar um dos quatro Estados de estado de funcionamento: Disponível, indisponível, degradado e desconhecido. Além disso, os eventos de estado de funcionamento de recursos podem ser categorizados como sendo iniciado de plataforma ou utilizador.
@@ -48,7 +48,7 @@ O registo de atividade contém várias categorias de dados. Para obter detalhes 
 * **Política** -esta categoria não contém quaisquer eventos; está reservado para utilização futura. 
 
 ## <a name="event-schema-per-category"></a>Esquema de eventos por categoria
-[Consulte este artigo para compreender o esquema de eventos de registo de atividades por categoria.](monitoring-activity-log-schema.md)
+[Consulte este artigo para compreender o esquema de eventos de registo de atividades por categoria.](../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>O que pode fazer com o registo de atividades
 Aqui estão algumas das coisas que pode fazer com o registo de atividades:
@@ -60,7 +60,7 @@ Aqui estão algumas das coisas que pode fazer com o registo de atividades:
 * [Crie um alerta num evento do registo de atividade.](../azure-monitor/platform/activity-log-alerts.md)
 * [Stream-lo para um **Hub de eventos** ](monitoring-stream-activity-logs-event-hubs.md) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, como o Power BI.
 * Analise-o no Power BI com o [ **pacote de conteúdos do Power BI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Guardá-lo para um **conta de armazenamento** para inspeção de arquivamento ou manual](monitoring-archive-activity-log.md). Pode especificar o tempo (em dias) de retenção utilizando o **perfil de registo**.
+* [Guardá-lo para um **conta de armazenamento** para inspeção de arquivamento ou manual](../azure-monitor/platform/archive-activity-log.md). Pode especificar o tempo (em dias) de retenção utilizando o **perfil de registo**.
 * Consultá-los através do Cmdlet do PowerShell, CLI ou REST API.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Consultar o registo de atividades no portal do Azure

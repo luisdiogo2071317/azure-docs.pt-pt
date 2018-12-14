@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 61d427c22f2ac57627ac04a91748e4e6cf8c4e55
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: 6c6553ace250aa9cbc06dfdfea77fc5e1637cd41
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165363"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384824"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-edge-preview"></a>Tutorial: transferir dados com o Azure Data Box Edge (Pré-visualização)
+# <a name="tutorial-transfer-data-with-azure-data-box-edge-preview"></a>Tutorial: Transferir dados com o Edge de caixa de dados do Azure (pré-visualização)
 
-Este tutorial descreve como adicionar e ligar a partilhas no Data Box Edge. Assim que as partilhas forem adicionadas, o dispositivo Data Box Edge pode transferir dados para o Azure.
+Este tutorial descreve como adicionar e se conectar a compartilhamentos no seu dispositivo do Edge de caixa de dados. Depois de adicionar as partilhas, dados de caixa de borda pode transferir dados para o Azure.
 
 Este procedimento pode demorar cerca de 10 minutos a concluir. 
 
@@ -26,78 +26,85 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicionar uma partilha
-> * Ligar a uma partilha
+> * Ligar à partilha
 
 > [!IMPORTANT]
-> O Data Box Edge está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução. 
+> O Data Box Edge está em pré-visualização. Antes de pedir e implementar esta solução, reveja os [do Azure termos de serviço para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de adicionar partilhas ao Data Box Edge, certifique-se de que:
+Antes de adicionar partilhas de dados de caixa de borda, certifique-se de que:
+* Instalou o dispositivo físico, conforme descrito em [instalar o Azure dados caixa Edge](data-box-edge-deploy-install.md). 
 
-* Instalou o dispositivo físico conforme detalhado em [Instalar um Data Box Edge](data-box-edge-deploy-install.md). 
+* Ativar o dispositivo físico, tal como descrito em [ligue-se de que configurar e ative o Edge de caixa de dados do Azure](data-box-edge-deploy-connect-setup-activate.md). 
 
-    O dispositivo físico está ativado, conforme descrito em [Ligar e ativar o Azure Data Box Edge](data-box-edge-deploy-connect-setup-activate.md). O dispositivo está pronto para criar partilhas e transferir dados.
+* O dispositivo está pronto para criar partilhas e transferir dados.
 
 
 ## <a name="add-a-share"></a>Adicionar uma partilha
 
-Efetue os seguintes passos no [portal do Azure](https://portal.azure.com/) para criar uma partilha.
+Para criar uma partilha, faça o seguinte procedimento:
 
-1. Regresse ao portal do Azure. Aceda a **Todos os recursos** e procure o seu recurso Data Box Edge.
+1. Na [portal do Azure](https://portal.azure.com/), aceda à **todos os recursos**e, em seguida, procure o recurso de borda de caixa de dados.
     
-2. Na lista filtrada de recursos, selecione o recurso Data Box Edge e, em seguida, aceda a **Descrição Geral**. Clique em **+ Adicionar partilha** na barra de comando do dispositivo.
+1. Na lista filtrada de recursos, selecione o recurso de borda de caixa de dados.
+
+1. No painel esquerdo, selecione **descrição geral**e, em seguida, selecione **Adicionar partilha**.
    
    ![Adicionar uma partilha](./media/data-box-edge-deploy-add-shares/click-add-share.png)
 
-3. Em **Adicionar Partilha**, especifique as definições de partilha. Indique um nome exclusivo para a partilha. 
+1. Na **Adicionar partilha** painel, efetue o seguinte procedimento:
 
-   Os nomes das partilhas só podem ter números, letras minúsculas e hífenes. O nome da partilha tem de ter entre 3 e 63 carateres e começar com uma letra ou um número. Cada hífen tem de ser precedido e seguido de um caráter que não seja um hífen.
+    a. Na **nome** caixa, forneça um nome exclusivo para a sua partilha.  
+    O nome da partilha pode ter apenas letras minúsculas, números e hífenes. Tem de ter entre 3 e 63 carateres e começar com uma letra ou um numeral. Hífenes tem de ser precedidos e seguidos por uma letra ou um numeral.
     
-    1. Selecione um **Tipo** para a partilha. O tipo pode ser SMB ou NFS, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. 
+    b. Selecione um **Tipo** para a partilha.  
+    O tipo pode ser **SMB** ou **NFS**, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux.  
+    Dependendo se escolher a partilha SMB ou NFS, o resto das opções são ligeiramente diferentes. 
 
-    2. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes. 
-
-    3. Tem de fornecer uma conta de armazenamento onde a partilha irá residir. É criado um contentor na conta de armazenamento com o nome da partilha, se o contentor ainda não existir. Se o contentor já existir, é utilizado o contentor existente. 
+    c. Forneça uma conta de armazenamento onde será armazenada a partilha.  
+    Se ainda não existir um contentor, é criado na conta de armazenamento com o nome da partilha criada recentemente. Se o contentor já existir, é usado nesse contentor. 
     
-    4. Escolha o **Serviço de armazenamento** do blob de blocos, blob de páginas ou ficheiros. O tipo de serviço escolhido depende do formato no qual pretende que os dados residam no Azure. Por exemplo, neste exemplo, queremos que os dados sejam armazenados como blocos de blobs no Azure, por conseguinte, selecionamos Blob de Blocos. Se escolher o Blob de Páginas, certifique-se de que os dados têm um alinhamento de 512 bytes. Por exemplo, um VHDX tem sempre um alinhamento de 512 bytes.
+    d. Na **serviço de armazenamento** na lista pendente, selecione **Blob de blocos**, **BLOBs de páginas**, ou **ficheiros**.  
+    O tipo de serviço que selecionar depende do formato de que pretende que os dados para utilizar no Azure. Neste exemplo, uma vez que queremos armazenar os dados como blocos de BLOBs no Azure, selecionamos **Blob de blocos**. Se selecionar o Blob de páginas, certifique-se de que os dados estão alinhados de 512 bytes. Por exemplo, um VHDX tem sempre um alinhamento de 512 bytes.
    
-    5. Este passo depende de estar a criar uma partilha SMB ou NFS. 
+    e. Dependendo de se criar uma partilha SMB ou uma partilha NFS, efetue um dos seguintes passos: 
      
-        - **Se criar uma partilha SMB** - no campo de utilizador local Todos os privilégios, escolha **Criar novo** ou **Utilizar existente**. Se criar um novo utilizador local, forneça o **nome de utilizador**, a **palavra-passe** e, em seguida **confirme a palavra-passe**. Esta ação atribui as permissões ao utilizador local. Depois de ter atribuído as permissões aqui, pode utilizar o Explorador de Ficheiros para modificar estas permissões.
+    - **Partilha SMB**: Sob **todos os usuários de locais de privilégio**, selecione **criar nova** ou **utilizar existente**. Se criar um novo utilizador local, introduza um nome de utilizador e palavra-passe e, em seguida, confirme a palavra-passe. Esta ação atribui permissões para o usuário local. Depois de atribuir as permissões aqui, pode utilizar o Explorador de ficheiros de modificá-las.
 
-            Se marcar **permitir apenas operações de leitura** para esta partilha de dados, terá a opção de especificar utilizadores só de leitura.
+        Se selecionar a **permitir apenas operações de leitura** caixa de verificação para esta partilha de dados, pode especificar os utilizadores só de leitura.
 
-            ![Adicionar uma partilha SMB](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
+        ![Adicionar uma partilha SMB](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
    
-        - **Se criar uma partilha NFS** - tem de fornecer os endereços IP dos clientes permitidos que podem aceder à partilha.
+    - **Partilhar de NFS**: Introduza os endereços IP dos clientes permitidos que podem aceder à partilha.
 
-            ![Adicionar uma partilha NFS](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
+        ![Adicionar uma partilha NFS](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
    
-4. Clique em **Criar** para criar a partilha. 
+1. Selecione **criar** para criar a partilha. 
     
-    Será notificado de que a criação da partilha está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha. 
+    Foi notificado de que a criação de partilha está em curso. Depois de criar a partilha com as definições especificadas, o **partilhas** secção é atualizada com as novas informações de partilha. 
     
     ![Lista atualizada de partilhas](./media/data-box-edge-deploy-add-shares/updated-list-of-shares.png) 
 
 ## <a name="connect-to-the-share"></a>Ligar à partilha
 
-Pode agora ligar a uma ou mais partilhas que criou no passo anterior. Dependendo se tiver uma partilha SMB ou NFS, os passos podem ser diferentes. 
+Agora pode ligar a um ou mais das partilhas de que criou no último passo. Consoante a existência de SMB ou uma partilha NFS, as etapas podem variar. 
 
 ### <a name="connect-to-an-smb-share"></a>Ligar a uma partilha SMB
 
-Efetue estes passos no cliente do Windows Server ligado ao seu Data Box Edge para ligar às partilhas.
+No cliente do Windows Server ligada ao seu dispositivo Edge de caixa de dados, ligue-se para uma partilha SMB ao introduzir os comandos:
 
 
-1. Abra uma janela de comando. Na linha de comandos, escreva:
+1. Na janela de comando, digite:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-    Introduza a palavra-passe da partilha quando lhe for pedido. A saída de exemplo deste comando é apresentada aqui.
+1. Quando lhe for pedido para fazer isso, introduza a palavra-passe para a partilha.  
+   A saída de exemplo deste comando é apresentada aqui.
 
     ```powershell
     Microsoft Windows [Version 10.0.16299.192) 
-    (c) 2017 microsoft Corporation. All rights reserved . 
+    (c) 2017 Microsoft Corporation. All rights reserved. 
     
     C: \Users\DataBoxEdgeUser>net use \\10.10.10.60\newtestuser /u:Tota11yNewUser 
     Enter the password for 'TotallyNewUser' to connect to '10.10.10.60': 
@@ -107,7 +114,10 @@ Efetue estes passos no cliente do Windows Server ligado ao seu Data Box Edge par
     ```   
 
 
-2. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Clique em **OK**. Esta ação abre o Explorador de Ficheiros. Agora deve conseguir ver as partilhas que criou como pastas. Selecione e faça duplo clique numa partilha (pasta) para ver o conteúdo.
+1. No seu teclado, selecione Windows + R. 
+
+1. Na **execute** janela, especifique a `\\<device IP address>`e, em seguida, selecione **OK**.  
+   Explorador de ficheiros é aberto. Agora deve conseguir ver as partilhas que criou como pastas. No Explorador de ficheiros, faça duplo clique num compartilhamento (pasta) para ver o conteúdo.
  
     ![Ligar a uma partilha SMB](./media/data-box-edge-deploy-add-shares/connect-to-share2.png)
 
@@ -115,19 +125,20 @@ Efetue estes passos no cliente do Windows Server ligado ao seu Data Box Edge par
 
 ### <a name="connect-to-an-nfs-share"></a>Ligar a uma partilha NFS
 
-Efetue estes passos no seu cliente Linux ligado ao Data Box Edge.
+No seu cliente de Linux ligado ao seu dispositivo Edge de caixa de dados, efetue o seguinte procedimento:
 
-1. Certifique-se de que o cliente tem o cliente NFSv4 instalado. Para instalar o cliente NFS, utilize o seguinte comando:
+1. Certifique-se de que o cliente tem o cliente de NFSv4 instalado. Para instalar o cliente NFS, utilize o seguinte comando:
 
    `sudo apt-get install nfs-common`
 
     Para obter mais informações, aceda a [Instalar cliente NFSv4](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client).
 
-2. Depois de o cliente NFS estar instalado, utilize o comando seguinte para montar a partilha NFS que criou no seu dispositivo Data Box Edge:
+1. Depois do cliente NFS está instalado, monte a partilha NFS que criou no seu dispositivo do Edge de caixa de dados utilizando o seguinte comando:
 
    `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
 
-    Antes de montar as partilhas, certifique-se de que os diretórios que irão funcionar como pontos de montagem já foram criados. Estes diretórios não devem conter quaisquer ficheiros ou subpastas.
+    > [!IMPORTANT]
+    > Antes de montar a partilha, certifique-se de que já são criados os diretórios que atuará como mountpoints no seu computador local. Esses diretórios não devem conter quaisquer ficheiros ou subpastas.
 
     O exemplo seguinte mostra como ligar através de NFS a uma partilha no dispositivo Data Box Edge. O IP do dispositivo é `10.10.10.60`. A partilha `mylinuxshare2` é montada no ubuntuVM. O ponto de montagem da partilha é `/home/databoxubuntuhost/edge`.
 
@@ -135,19 +146,18 @@ Efetue estes passos no seu cliente Linux ligado ao Data Box Edge.
 
 > [!NOTE] 
 > Os seguintes avisos aplicam-se à versão de pré-visualização:
-> - Depois de um ficheiro ser criado nas partilhas, mudar o nome do ficheiro não é suportado. 
-> - A eliminação de um ficheiro de uma partilha não elimina a entrada na conta de armazenamento.
+> - Depois de criar um ficheiro na partilha, mudar o nome do ficheiro não é suportado. 
+> - Eliminar um ficheiro de uma partilha não elimina a entrada na conta de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, ficou a conhecer tópicos do Data Box Edge, como:
+Neste tutorial, aprendeu sobre os tópicos seguintes do Edge de caixa de dados:
 
 > [!div class="checklist"]
 > * Adicionar uma partilha
 > * Ligar a uma partilha
 
-
-Avance para o tutorial seguinte para saber como transformar os dados com o Data Box Edge.
+Para saber como transformar os seus dados através da utilização de dados de caixa de borda, avance para o tutorial seguinte:
 
 > [!div class="nextstepaction"]
 > [Transformar dados com o Data Box Edge](./data-box-edge-deploy-configure-compute.md)

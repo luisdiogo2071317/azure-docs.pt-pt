@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 1109e72d00ccddd6fc0f120ee71c88adaae72fed
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316995"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337602"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>O Windows Defender proteção avançada contra ameaças no Centro de segurança do Azure
 
@@ -27,7 +27,7 @@ Esta alteração oferece capacidades abrangentes de ponto final de deteção e r
 
 Os clientes do Centro de segurança do Azure agora podem utilizar funcionalidades do Windows Defender ATP:
 
-- **Sensores de deteção de violação de publicação de próxima geração**: sensores do Windows Defender ATP para servidores de Windows recolher uma grande diversidade de sinais comportamentais.
+- **Sensores de deteção de violação de publicação de próxima geração**: Sensores do Windows Defender ATP para servidores do Windows recolhem uma grande diversidade de sinais comportamentais.
 
 - **Deteção de violação de publicação com base na análise, com tecnologia de cloud**: Windows Defender ATP adapta-se rapidamente aos ameaças em constante mudança. Utiliza análise avançada e macrodados. Windows Defender ATP é Sim os amplificou pelo poder do gráfico de segurança inteligente com sinais no Windows, o Azure e o Office, para detetar ameaças desconhecidas. Ele fornece alertas acionáveis e que lhe permite responder rapidamente.
 
@@ -35,11 +35,11 @@ Os clientes do Centro de segurança do Azure agora podem utilizar funcionalidade
 
 Estas capacidades estão agora disponíveis no Centro de segurança do Azure:
 
-- **Automatizada integração**: sensor do Windows Defender ATP é ativada automaticamente para os servidores de Windows que são carregadas para o Centro de segurança do Azure.
+- **Automatizada integração**: O sensor do Windows Defender ATP é ativado automaticamente para os servidores de Windows que são carregadas para o Centro de segurança do Azure.
 
-- **Painel único de vidro**: consola o Centro de segurança do Azure apresenta os alertas do Windows Defender ATP.
+- **Painel único de vidro**: A consola do Centro de segurança do Azure apresenta os alertas do Windows Defender ATP.
 
-- **Detalhadas de investigação da máquina**: os clientes do Centro de segurança do Azure podem aceder a consola do Windows Defender ATP para efetuar uma investigação detalhada para descobrir o âmbito de uma violação.
+- **Detalhadas de investigação da máquina**: Os clientes do Centro de segurança do Azure podem aceder a consola do Windows Defender ATP para efetuar uma investigação detalhada para descobrir o âmbito de uma violação.
 
 ![Centro de segurança do Azure, exibindo uma lista de alertas e informações gerais sobre cada alerta](media/security-center-wdatp/image1.png)
 
@@ -105,6 +105,6 @@ Para gerar um alerta de teste do Windows Defender ATP benigno:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Definir políticas de segurança no Centro de segurança do Azure](security-center-azure-policy.md): Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
-- [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md): Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
-- [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md): saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
+- [Definir políticas de segurança no Centro de segurança do Azure](tutorial-security-policy.md): Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
+- [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md): Saiba como recomendações ajudá-lo a proteger os seus recursos do Azure.
+- [Monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md): Saiba como monitorizar o estado de funcionamento dos recursos do Azure.

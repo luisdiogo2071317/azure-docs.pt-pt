@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f852b04c2c666519f10e5e3bb148c50dae7add00
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d725c42a758a44fa872138dfaef7e1c05e4b688f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682525"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385691"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações em gráficos de métricas no Application Insights
 
 Anotações no [Explorador de métricas](app-insights-metrics-explorer.md) gráficos mostram onde implementou uma nova compilação ou outro evento significativo. Eles facilitam ver se as suas alterações tinham qualquer impacto no desempenho da sua aplicação. Eles podem ser criados automaticamente pelos [sistema de compilação de serviços do Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Também pode criar anotações para sinalizar a qualquer evento desejar [criá-los a partir do PowerShell](#create-annotations-from-powershell).
 
 > [!NOTE]
-> Este artigo reflete o preterido **experiência de métricas clássicas**. Anotações só estão atualmente disponíveis na experiência do clássica e no  **[livros](app-insights-usage-workbooks.md)**. Para saber mais sobre o currrent experiência de métricas, consulte [este artigo](../monitoring-and-diagnostics/monitoring-metric-charts.md).
+> Este artigo reflete o preterido **experiência de métricas clássicas**. Anotações só estão atualmente disponíveis na experiência do clássica e no  **[livros](app-insights-usage-workbooks.md)**. Para saber mais sobre o currrent experiência de métricas, consulte [este artigo](../azure-monitor/platform/metrics-charts.md).
 
 ![Exemplo de anotações com visível correlação com o tempo de resposta do servidor](./media/app-insights-annotations/00.png)
 

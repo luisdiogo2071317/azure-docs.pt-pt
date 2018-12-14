@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 54a88188a432a23476af6a1670635a23fb72eea7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643146"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341173"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e dimensionamento nas funções durável (funções do Azure)
 
@@ -33,7 +33,7 @@ Quando uma instância da orquestração precisa ser executado, as linhas apropri
 
 O **instâncias** é outra tabela de armazenamento do Azure que contém os Estados de todas as instâncias de orquestração dentro de um hub de tarefa. Como são criadas instâncias, novas linhas são adicionadas a esta tabela. A chave de partição desta tabela é o ID de instância da orquestração e a chave de linha é uma constante fixa. Há uma linha por instância de orquestração.
 
-Esta tabela é usada para satisfazer os pedidos de consulta de instância do [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API, bem como a [consultas de estado HTTP API](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status). Ele é mantido eventualmente consistente com o conteúdo do **histórico** tabela mencionado anteriormente. A utilização de uma tabela de armazenamento do Azure separada para atender com eficiência a operações de consulta de instância dessa maneira é influenciada pela [padrão de comando e segregação de responsabilidade de consulta (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+Esta tabela é usada para satisfazer os pedidos de consulta de instância do [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) (.NET) e `getStatus` (JavaScript) APIs, bem como a [consulta de estado HTTP API](durable-functions-http-api.md#get-instance-status). Ele é mantido eventualmente consistente com o conteúdo do **histórico** tabela mencionado anteriormente. A utilização de uma tabela de armazenamento do Azure separada para atender com eficiência a operações de consulta de instância dessa maneira é influenciada pela [padrão de comando e segregação de responsabilidade de consulta (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Acionadores da fila interna
 
@@ -53,10 +53,24 @@ Filas de controle contêm uma variedade de tipos de mensagem de ciclo de vida de
 
 As filas, tabelas e blobs utilizados pelas funções duráveis são criados por numa conta de armazenamento do Azure configurada. A conta a utilizar pode ser especificada utilizando o `durableTask/azureStorageConnectionStringName` definição **Host. JSON** ficheiro.
 
+### <a name="functions-1x"></a>Funções 1.x
+
 ```json
 {
   "durableTask": {
     "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+  }
+}
+```
+
+### <a name="functions-2x"></a>Funções 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+    }
   }
 }
 ```
@@ -67,6 +81,8 @@ Se não for especificado, a predefinição `AzureWebJobsStorage` é utilizada a 
 
 Funções de atividade são aumentados horizontalmente e sem estado automaticamente ao adicionar as VMs. Funções do Orchestrator, por outro lado, são *particionada* por um ou mais filas de controle. O número de filas do controlo está definido no **Host. JSON** ficheiro. Os seguintes conjuntos de Trecho de código do Host. JSON de exemplo da `durableTask/partitionCount` propriedade `3`.
 
+### <a name="functions-1x"></a>Funções 1.x
+
 ```json
 {
   "durableTask": {
@@ -74,6 +90,19 @@ Funções de atividade são aumentados horizontalmente e sem estado automaticame
   }
 }
 ```
+
+### <a name="functions-2x"></a>Funções 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "partitionCount": 3
+    }
+  }
+}
+```
+
 Um concentrador de tarefa pode ser configurado com entre 1 e 16 partições. Se não for especificado, o número de partições de predefinido é **4**.
 
 Ao aumentar horizontalmente para várias instâncias de anfitrião de função (normalmente em diferentes VMs), cada instância adquire um bloqueio em um das filas de controle. Esses bloqueios são implementados internamente como concessões de armazenamento de BLOBs e certifique-se de que uma instância da orquestração é executado apenas numa instância de host único por vez. Se um hub de tarefas estiver configurado com três filas de controle, instâncias de orquestração podem ser com balanceamento de carga entre VMs até três. VMs adicionais podem ser adicionadas para aumentar a capacidade de execução da função de atividade.
@@ -106,11 +135,26 @@ As funções do Azure suporta várias funções simultaneamente dentro de uma in
 
 Ambas as atividades função e orchestrator função limites de simultaneidade podem ser configurados no **Host. JSON** ficheiro. As definições relevantes são `durableTask/maxConcurrentActivityFunctions` e `durableTask/maxConcurrentOrchestratorFunctions` , respetivamente.
 
+### <a name="functions-1x"></a>Funções 1.x
+
 ```json
 {
   "durableTask": {
     "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10
+  }
+}
+```
+
+### <a name="functions-2x"></a>Funções 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10
+    }
   }
 }
 ```
@@ -121,15 +165,31 @@ No exemplo anterior, um máximo de 10 funções do orchestrator e 10 funções d
 > Estas definições são úteis para ajudar a gerir a memória e utilização da CPU numa única VM. No entanto, ao aumentar horizontalmente em várias VMs, cada VM terá seu próprio conjunto de limites. Estas definições não podem ser utilizadas para controlar a simultaneidade num nível global.
 
 ## <a name="orchestrator-function-replay"></a>Repetição de função do Orchestrator
+
 Como mencionado anteriormente, as funções do orchestrator são reproduzidas com o conteúdo do **histórico** tabela. Por predefinição, o código de função do orchestrator é reproduzido sempre que um lote de mensagens são removidos da fila de uma fila de controle.
 
 Esse comportamento de repetição agressiva pode ser desativado, permitindo **expandido sessões**. Quando sessões expandidas estiverem ativadas, as instâncias de função do orchestrator são guardadas na memória é possível processar mensagens de novas e mais tempo sem uma repetição completa. Sessões expandidas estão ativadas, definindo `durableTask/extendedSessionsEnabled` para `true` no **Host. JSON** ficheiro. O `durableTask/extendedSessionIdleTimeoutInSeconds` definição é utilizada para controlar o tempo que uma sessão ociosa será mantida na memória:
+
+### <a name="functions-1x"></a>Funções 1.x
 
 ```json
 {
   "durableTask": {
     "extendedSessionsEnabled": true,
     "extendedSessionIdleTimeoutInSeconds": 30
+  }
+}
+```
+
+### <a name="functions-2x"></a>Funções 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "extendedSessionsEnabled": true,
+      "extendedSessionIdleTimeoutInSeconds": 30
+    }
   }
 }
 ```
@@ -150,10 +210,10 @@ Por exemplo, se `durableTask/extendedSessionIdleTimeoutInSeconds` está definido
 
 Quando planear utilizar funções duráveis para uma aplicação de produção, é importante considerar os requisitos de desempenho logo no início do processo de planejamento. Esta secção abrange alguns cenários de utilização básica e os números de débito máximo esperado.
 
-* **Execução de atividade seqüencial**: este cenário descreve uma função de orquestrador que executa uma série de funções de atividade um após o outro. Ele se assemelhe mais à [encadeamento de função](durable-functions-sequence.md) exemplo.
-* **Execução da atividade em paralelo**: este cenário descreve uma função de orquestrador que executa muitas funções de atividade em paralelo utilizando o [fan-out, o fan-in](durable-functions-cloud-backup.md) padrão.
-* **Processamento de resposta em paralelo**: este cenário é a segunda metade do [fan-out, o fan-in](durable-functions-cloud-backup.md) padrão. Ele se concentra no desempenho do fan-in. É importante ter em atenção que ao contrário de fan-out, fan-in é feito por uma instância de função de orquestrador única e, por conseguinte, só pode ser executado numa única VM.
-* **Processamento de eventos externos**: este cenário representa uma instância de função de orquestrador único que aguarda [eventos externos](durable-functions-external-events.md), um de cada vez.
+* **Execução de atividade seqüencial**: Este cenário descreve uma função de orquestrador que executa uma série de funções de atividade um após o outro. Ele se assemelhe mais à [encadeamento de função](durable-functions-sequence.md) exemplo.
+* **Execução de atividade paralela**: Este cenário descreve uma função de orquestrador que executa muitas funções de atividade em paralelo utilizando a [fan-out, o fan-in](durable-functions-cloud-backup.md) padrão.
+* **Resposta de processamento paralelo**: Este cenário é a segunda metade dos [fan-out, o fan-in](durable-functions-cloud-backup.md) padrão. Ele se concentra no desempenho do fan-in. É importante ter em atenção que ao contrário de fan-out, fan-in é feito por uma instância de função de orquestrador única e, por conseguinte, só pode ser executado numa única VM.
+* **Processamento de eventos externos**: Este cenário representa uma instância de função de orquestrador único que aguarda [eventos externos](durable-functions-external-events.md), um de cada vez.
 
 > [!TIP]
 > Ao contrário de fan-out, as operações de fan-in são limitadas a uma única VM. Se a aplicação utiliza o fan-out, o padrão de fan-in e estiver preocupado com desempenho de fan-in, considere inferiores dividindo o fan-out da função de atividade em múltiplas [orquestrações secundárias](durable-functions-sub-orchestrations.md).

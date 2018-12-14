@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6855521475e24b7243a391abdc6e6cf707991159
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9b1d3506c400a3a2d8002feed0181deac39b3821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320697"
+ms.locfileid: "53344096"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como aprovisionar para arquitetura "multitenancy" 
 
@@ -139,7 +139,7 @@ Para fazer a limpeza, estas VMs será adicionado ao mesmo grupo de recursos que 
     ```azurecli-interactive
     az vm create \
     --resource-group contoso-us-resource-group \
-    --name ContosoSimDeviceEest \
+    --name ContosoSimDeviceEast \
     --location eastus \
     --image Canonical:UbuntuServer:18.04-LTS:18.04.201809110 \
     --admin-username contosoadmin \
@@ -327,28 +327,28 @@ O código de exemplo simula uma sequência de arranque de dispositivo que envia 
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-
-1. Open **~/azure-iot-sdk-c/provisioning\_adaptadores/cliente/hsm\_cliente\_key.c** em ambas as VMs. 
-
-    ```bash
-     vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
-    ```
-
-1. Procure a declaração das constantes `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Efetue as seguintes alterações para os ficheiros em ambas as VMs regionais e guarde os ficheiros.
-
-    Atualize o valor do `REGISTRATION_NAME` constante com o **ID de registo único para o seu dispositivo**.
-    
-    Atualize o valor do `SYMMETRIC_KEY_VALUE` constante com sua **derivado a chave do dispositivo**.
+1. Em ambas as VMs, encontre a chamada para `prov_dev_set_symmetric_key_info()` no **prov\_dev\_cliente\_Sample** que é comentado.
 
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-east";
-    static const char* const SYMMETRIC_KEY_VALUE = "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
+    Anule os comentários as chamadas de função e substitua os valores de marcador de posição (incluindo os parênteses angulares) com os IDs de registo único e as chaves de dispositivo derivada para cada dispositivo. As chaves mostradas a seguir são, por exemplo, apenas para fins. Utilize as teclas que gerou anteriormente.
+
+    E.U. a leste:
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-west";
-    static const char* const SYMMETRIC_KEY_VALUE = "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-east", "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=");
     ```
+
+    Oeste dos E.U.A.:
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-west", "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=");
+    ```
+
+    Guarde os ficheiros.
 
 1. Em ambas as VMs, navegue para a pasta de exemplo mostrada abaixo e criar o exemplo.
 
@@ -358,6 +358,13 @@ O código de exemplo simula uma sequência de arranque de dispositivo que envia 
     ```
 
 1. Depois da compilação for concluída com êxito, execute **prov\_dev\_cliente\_sample.exe** em ambas as VMs para simular um dispositivo de inquilino em cada região. Tenha em atenção que cada dispositivo é atribuído ao inquilino do hub IoT mais próximo de regiões do dispositivo simulado.
+
+    Execute a simulação:
+    ```bash
+    ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample
+    ```
+
+    Exemplo de saída do leste e.u.a. centro-VM:
 
     ```bash
     contosoadmin@ContosoSimDeviceEast:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
@@ -374,6 +381,7 @@ O código de exemplo simula uma sequência de arranque de dispositivo que envia 
 
     ```
 
+    Exemplo de saída da oeste-na VM:
     ```bash
     contosoadmin@ContosoSimDeviceWest:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
     Provisioning API Version: 1.2.9

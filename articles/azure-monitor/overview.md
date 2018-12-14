@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 2d1f96359512a3c2135909ebf69ec9ec3b801d61
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8b5b96f7a67dfbb33f470825b8ba4cabd3469dfc
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190565"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385198"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -35,11 +35,11 @@ O diagrama seguinte fornece uma visão geral do Azure Monitor. No centro do diag
 ## <a name="monitoring-data-platform"></a>Plataforma de dados de monitorização
 Todos os dados recolhidos pelo Monitor do Azure se encaixa em um dos dois tipos fundamentais, [métricas e registos](../azure-monitor/platform/data-collection.md). [Métricas](../azure-monitor/platform/data-collection.md#metrics) são valores numéricos que descrevem algum aspeto de um sistema num momento específico no tempo. Elas são simples e capaz de oferecer suporte a cenários em tempo real em tempo quase. [Registos](../azure-monitor/platform/data-collection.md#logs) contêm diferentes tipos de dados organizados em registos com diferentes conjuntos de propriedades de cada tipo. Telemetria, como eventos e rastreios são armazenadas como registos além do mais dados de desempenho para que ele possível combinar tudo para análise.
 
-Para muitos recursos do Azure, verá os dados recolhidos pelo direito de Monitor do Azure na sua página de descrição geral no portal do Azure. Dê uma olhada em qualquer máquina virtual por exemplo, e verá vários gráficos de métricas de desempenho a apresentar. Clique em qualquer um dos gráficos para abrir os dados no [Explorador de métricas](../monitoring-and-diagnostics/monitoring-metric-charts.md) no portal do Azure, que permite-lhe os valores de várias métricas do gráfico ao longo do tempo.  Pode ver os gráficos interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações.
+Para muitos recursos do Azure, verá os dados recolhidos pelo direito de Monitor do Azure na sua página de descrição geral no portal do Azure. Dê uma olhada em qualquer máquina virtual por exemplo, e verá vários gráficos de métricas de desempenho a apresentar. Clique em qualquer um dos gráficos para abrir os dados no [Explorador de métricas](../azure-monitor/platform/metrics-charts.md) no portal do Azure, que permite-lhe os valores de várias métricas do gráfico ao longo do tempo.  Pode ver os gráficos interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações.
 
 ![Métricas](media/overview/metrics.png)
 
-Dados de registo recolhidos pelo Monitor do Azure são armazenados no Log Analytics, que inclui um [linguagem de consulta avançada](../azure-monitor/log-query/log-query-overview.md) rapidamente obter, consolidar e analisar os dados recolhidos.  Pode criar e testar consultas através do [página do Log Analytics](../azure-monitor/log-query/portals.md) no portal do Azure e, em seguida, em qualquer um, analisar diretamente os dados através destas ferramentas ou guardar consultas para utilização com [visualizações](visualizations.md) ou [ regras de alerta](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Dados de registo recolhidos pelo Monitor do Azure são armazenados no Log Analytics, que inclui um [linguagem de consulta avançada](../azure-monitor/log-query/log-query-overview.md) rapidamente obter, consolidar e analisar os dados recolhidos.  Pode criar e testar consultas através do [página do Log Analytics](../azure-monitor/log-query/portals.md) no portal do Azure e, em seguida, em qualquer um, analisar diretamente os dados através destas ferramentas ou guardar consultas para utilização com [visualizações](visualizations.md) ou [ regras de alerta](../azure-monitor/platform/alerts-overview.md).
 
 A linguagem de consulta do Log Analytics é adequada para consultas de registo simples, mas também inclui funcionalidades avançadas, como agregações, associações e análises inteligentes. Pode aprender rapidamente a linguagem de consulta através de [várias lições](../azure-monitor/log-query/get-started-queries.md) que estão disponíveis.  É fornecida orientação específica para os utilizadores que já estejam familiarizados com [SQL](../azure-monitor/log-query/sql-cheatsheet.md) e [Splunk](../azure-monitor/log-query/splunk-cheatsheet.md).
 
@@ -94,7 +94,7 @@ Além de lhe permitir analisar dados de monitorização interativamente, uma sol
 
 
 ### <a name="alerts"></a>Alertas
-[Alertas no Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) notificado proativamente das condições críticas e potencialmente tentar tomar medidas corretivas. Regras de alerta com base em métricas fornecem quase em tempo real de alerta com base em valores numéricos, enquanto as regras com base em registos permitem para lógica complexa, em todos os dados de várias origens.
+[Alertas no Azure Monitor](../azure-monitor/platform/alerts-overview.md) notificado proativamente das condições críticas e potencialmente tentar tomar medidas corretivas. Regras de alerta com base em métricas fornecem quase em tempo real de alerta com base em valores numéricos, enquanto as regras com base em registos permitem para lógica complexa, em todos os dados de várias origens.
 
 Regras em utilização do Azure Monitor de alerta [grupos de ação](../azure-monitor/platform/action-groups.md), que contêm conjuntos de exclusivos de destinatários e ações que podem ser partilhadas entre várias regras. Com base nos seus requisitos, grupos de ação podem executar ações como através de webhooks ter alertas iniciar ações externas ou integrar com as suas ferramentas ITSM.
 

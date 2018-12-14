@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: d3183353cbadb821ac7f84c81f4da747be823e4f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 432f1a89979829bd43596d0d6a3ab7a2a3bfb996
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276728"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336487"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
@@ -29,7 +29,7 @@ Cada ação é constituída pelas seguintes propriedades:
 * **Tipo de ação**: A ação a efetuar. Os exemplos incluem enviar um e-mail de chamada, SMS, voz; ou acionar vários tipos de ações automatizadas. Ver tipos neste artigo. 
 * **Detalhes**: Os detalhes de correspondentes que variam de acordo com *tipo de ação*. 
 
-Para obter informações sobre como utilizar os modelos Azure Resource Manager para configurar grupos de ação, veja [modelos do Resource Manager de grupo de ação](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+Para obter informações sobre como utilizar os modelos Azure Resource Manager para configurar grupos de ação, veja [modelos do Resource Manager de grupo de ação](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Criar um grupo de ação com o portal do Azure ##
 1. Na [portal](https://portal.azure.com), selecione **Monitor**. O **Monitor** painel consolida todas as suas monitorização definições e dados numa vista.
@@ -73,7 +73,7 @@ Depois de criar um grupo de ação, é visível na **grupos de ação** secção
    - azureemail-noreply@microsoft.com
    - alerts-noreply@mail.windowsazure.com
 
-Pode ter até 1000 ações de e-mail num grupo de ação. Consulte a [informações de limitação de taxas](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) artigo
+Pode ter até 1000 ações de e-mail num grupo de ação. Consulte a [informações de limitação de taxas](./../../azure-monitor/platform/alerts-rate-limiting.md) artigo
 
 **ITSM** -pode ter até 10 ações do ITSM numa ação de ITSM do grupo de ação requer uma ligação de ITSM. Saiba como criar uma [ligação de ITSM](../../azure-monitor/platform/itsmc-overview.md).
 
@@ -83,10 +83,10 @@ Pode ter até 1000 ações de e-mail num grupo de ação. Consulte a [informaç�
 
 **Runbook** -pode ter até 10 ações do Runbook numa veja de grupo de ação para o [limites do serviço de subscrição do Azure](../../azure-subscription-service-limits.md) para limites em cargas de Runbook
 
-**SMS** -pode ter até 10 ações de SMS num grupo de ação que consulte o [informações de limitação de taxas](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) consulte o artigo a [comportamento de alertas do SMS](../../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md) artigo
+**SMS** -pode ter até 10 ações de SMS num grupo de ação que consulte o [informações de limitação de taxas](./../../azure-monitor/platform/alerts-rate-limiting.md) consulte o artigo a [comportamento de alertas do SMS](../../azure-monitor/platform/alerts-sms-behavior.md) artigo
 
 **Voz** -pode ter até 10 ações de voz num grupo de ação</dd>
-Consulte a [informações de limitação de taxas](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) artigo</dd>
+Consulte a [informações de limitação de taxas](./../../azure-monitor/platform/alerts-rate-limiting.md) artigo</dd>
 
 **Webhook** -pode ter até 10 ações de Webhook num grupo de ação. Lógica de repetição - o período de tempo limite para uma resposta é 10 segundos. A chamada de webhook será repetida um máximo de 2 horas quando os seguintes códigos de estado HTTP são devolvidos: 408, 429, 503, 504 ou o ponto final HTTP não responde. Da primeira repetição acontece após 10 segundos. A segunda e última repetição acontece após 100 segundos.
 
@@ -102,9 +102,9 @@ Para receber atualizações sobre as alterações a estes endereços IP, recomen
 
 
 ## <a name="next-steps"></a>Passos Seguintes ##
-* Saiba mais sobre [comportamento de alertas do SMS](../../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md).  
+* Saiba mais sobre [comportamento de alertas do SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Obter um [compreensão sobre o esquema de webhook de alerta de registo de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Saiba mais sobre [conector ITSM](../../azure-monitor/platform/itsmc-overview.md)
-* Saiba mais sobre [limitação de velocidade](../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) em alertas.
-* Obter um [descrição geral dos alertas de registo de atividade](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)e saiba como receber alertas.  
+* Saiba mais sobre [limitação de velocidade](../../azure-monitor/platform/alerts-rate-limiting.md) em alertas.
+* Obter um [descrição geral dos alertas de registo de atividade](../../azure-monitor/platform/alerts-overview.md)e saiba como receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de estado de funcionamento do serviço é lançada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9d75195656581021253b5787a8bfd46639cc1754
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323137"
+ms.locfileid: "53340062"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de alocação personalizado
 
@@ -449,20 +449,24 @@ Este código de exemplo simula uma sequência de arranque de dispositivo que env
 
 6. Clique com o botão direito do rato no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Arranque**. 
 
+
 #### <a name="simulate-the-contoso-toaster-device"></a>Simular o dispositivo de torradeira Contoso
 
-1. Na janela *Solution Explorer* (Explorador de Soluções) do Visual Studio, navegue até ao projeto **hsm\_security\_client** e expanda-o. Expanda **Source Files** (Ficheiros de Origem) e abra o **hsm\_client\_key.c**. 
-
-    Procure a declaração das constantes `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Faça as alterações seguintes ao ficheiro e guarde-o.
-
-    Atualize o valor do `REGISTRATION_NAME` constante com o ID de registo para o dispositivo de torradeira **breakroom499-contoso-tstrsd-007**.
-    
-    Atualize o valor da `SYMMETRIC_KEY_VALUE` constante com a chave de dispositivo que gerou para o dispositivo de torradeira. O valor **JC8F96eayuQwwz + PkE7IzjH2lIAjCUnAa61tDigBnSs =** só é fornecido como um exemplo.
+1. Para simular o dispositivo de torradeira, encontre a chamada para `prov_dev_set_symmetric_key_info()` no **prov\_dev\_cliente\_Sample** que é comentado.
 
     ```c
-    static const char* const REGISTRATION_NAME = "breakroom499-contoso-tstrsd-007";
-    static const char* const SYMMETRIC_KEY_VALUE = "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
+
+    Anule os comentários a chamada de função e substitua os valores de marcador de posição (incluindo os parênteses angulares) com o ID de registo de torradeira e a chave de dispositivo derivada que gerou anteriormente. O valor da chave **JC8F96eayuQwwz + PkE7IzjH2lIAjCUnAa61tDigBnSs =** mostrado abaixo só é fornecido como um exemplo.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("breakroom499-contoso-tstrsd-007", "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=");
+    ```
+   
+    Guarde o ficheiro.
 
 2. No menu do Visual Studio, selecione **Debug** (Depurar)  > **Start without debugging** (Iniciar sem depuração) para executar a solução. Na linha de comandos para recriar o projeto, clique em **Yes** (Sim) para recriar o projeto antes da execução.
 
@@ -485,20 +489,16 @@ Este código de exemplo simula uma sequência de arranque de dispositivo que env
 
 #### <a name="simulate-the-contoso-heat-pump-device"></a>Simular o dispositivo de calor bomba de Contoso
 
-1. No Visual Studio *Explorador de soluções* janela, navegue para o **hsm\_segurança\_cliente** do projeto e expandi-lo. Expanda **Source Files** (Ficheiros de Origem) e abra o **hsm\_client\_key.c**. 
-
-    Procure a declaração das constantes `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Faça as alterações seguintes ao ficheiro e guarde-o.
-
-    Atualize o valor do `REGISTRATION_NAME` constante com o ID de registo para o dispositivo de calor bomba **mainbuilding167-contoso-hpsd-088**.
-    
-    Atualize o valor da `SYMMETRIC_KEY_VALUE` constante com a chave de dispositivo que gerou para o dispositivo de torradeira. O valor **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** só é fornecido como um exemplo.
+1. Para simular o dispositivo de bombeamento de calor, atualize a chamada para `prov_dev_set_symmetric_key_info()` no **prov\_dev\_cliente\_Sample** novamente com o ID de registo de bombeamento de calor e a chave de dispositivo derivada gerou anteriormente . O valor da chave **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** mostrado abaixo também só é fornecido como um exemplo.
 
     ```c
-    static const char* const REGISTRATION_NAME = "mainbuilding167-contoso-hpsd-088";
-    static const char* const SYMMETRIC_KEY_VALUE = "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("mainbuilding167-contoso-hpsd-088", "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=");
     ```
+   
+    Guarde o ficheiro.
 
-7. No menu do Visual Studio, selecione **Debug** (Depurar)  > **Start without debugging** (Iniciar sem depuração) para executar a solução. Na linha de comandos para recriar o projeto, clique em **Yes** (Sim) para recriar o projeto antes da execução.
+2. No menu do Visual Studio, selecione **Debug** (Depurar)  > **Start without debugging** (Iniciar sem depuração) para executar a solução. Na linha de comandos para recriar o projeto, clique em **Yes** (Sim) para recriar o projeto antes da execução.
 
     O resultado seguinte é um exemplo de dispositivo simulado bomba de calor com êxito a arrancar e ligar-se para a instância de serviço de aprovisionamento a ser atribuído para o hub de IoT de calor bombas Contoso pela política de alocação personalizado:
 
@@ -515,8 +515,6 @@ Este código de exemplo simula uma sequência de arranque de dispositivo que env
 
     Press enter key to exit:
     ```
-
-
 
 
 ## <a name="troubleshooting-custom-allocation-policies"></a>Resolução de problemas de políticas de alocação personalizado

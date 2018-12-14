@@ -1,5 +1,5 @@
 ---
-title: Detalhes de configuração de rede para o Azure ExpressRoute
+title: Detalhes de configuração de rede para o Azure ExpressRoute - serviço de aplicações
 description: Detalhes de configuração de rede para o ambiente de serviço de aplicações do PowerApps em redes virtuais ligadas a um circuito do ExpressRoute do Azure.
 services: app-service
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 8dc6f595f312326f4082af9f875fefddc3a5fb8d
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a9af97bcd85833a140d6c668fe4c757c85d7447a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320714"
+ms.locfileid: "53337177"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Detalhes de configuração de rede para o ambiente de serviço de aplicações do PowerApps com o Azure ExpressRoute
 

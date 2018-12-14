@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 858d098f18604d1360af8509eb8a0cec6fa7d0c7
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354590"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53381632"
 ---
 ## <a name="prepare-your-web-app"></a>Preparar a sua aplicação Web
 
@@ -41,7 +41,7 @@ Confirme que a aplicação Web não está no escalão **F1** ou **D1**. O escal�
 
 ![Verificar o escalão de preço](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
 
-O SSL personalizado não é suportado nos escalões **F1** ou **D1**. Se precisar de aumentar verticalmente, siga os passos na secção seguinte. Caso contrário, feche a página **Aumentar verticalmente** e avance para [Carregar e vincular o certificado SSL](#upload).
+O SSL personalizado não é suportado nos escalões **F1** ou **D1**. Se precisar de aumentar verticalmente, siga os passos na secção seguinte. Caso contrário, feche o **aumentar verticalmente** página e a ignorar a [aumentar verticalmente o seu plano do serviço de aplicações](#scale-up-your-app-service-plan) secção.
 
 ### <a name="scale-up-your-app-service-plan"></a>Aumentar verticalmente o seu plano do Serviço de Aplicações
 

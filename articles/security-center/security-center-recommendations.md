@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3e8333b521832579a942d3fffb06103ad0431acc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d0c61f6e905ca109f3f178996a08f353c36e7880
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316622"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337211"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gerir recomendações de segurança no Centro de segurança do Azure
 Este documento explica como utilizar as recomendações no Centro de segurança do Azure para o ajudar a proteger os seus recursos do Azure.
@@ -34,13 +34,13 @@ O Centro de Segurança analisa periodicamente o estado de segurança dos seus re
 
 ## <a name="implementing-security-recommendations"></a>Implementar recomendações de segurança
 ### <a name="set-recommendations"></a>Recomendações de conjunto
-Na [definir políticas de segurança no Centro de segurança do Azure](security-center-azure-policy.md), vai aprender a:
+Na [definir políticas de segurança no Centro de segurança do Azure](tutorial-security-policy.md), vai aprender a:
 
 * Configure políticas de segurança.
 * Ative a recolha de dados.
 * Escolha quais as recomendações para ver como parte da sua política de segurança.
 
-Centro de recomendações de política atual em torno de atualizações do sistema, regras de linha de base, programas de antimalware [grupos de segurança de rede](../virtual-network/security-overview.md) em sub-redes e interfaces de rede, a auditoria de base de dados SQL, encriptação de dados transparente de banco de dados SQL, e firewalls de aplicações web.  [Definir políticas de segurança](security-center-azure-policy.md) fornece uma descrição de cada opção de recomendação.
+Centro de recomendações de política atual em torno de atualizações do sistema, regras de linha de base, programas de antimalware [grupos de segurança de rede](../virtual-network/security-overview.md) em sub-redes e interfaces de rede, a auditoria de base de dados SQL, encriptação de dados transparente de banco de dados SQL, e firewalls de aplicações web.  [Definir políticas de segurança](tutorial-security-policy.md) fornece uma descrição de cada opção de recomendação.
 
 ### <a name="monitor-recommendations"></a>Recomendações de monitor
 Após definir uma política de segurança, o Centro de Segurança analisa o estado de segurança dos seus recursos para identificar potenciais vulnerabilidades. O **recomendações** mosaico sob **descrição geral** permite-lhe determinar o número total de recomendações identificado pelo centro de segurança.
@@ -55,16 +55,16 @@ Pode filtrar recomendações. Para filtrar as recomendações, selecione **filtr
 
 As recomendações são apresentadas num formato de tabela em que cada linha representa uma recomendação específica. As colunas desta tabela são:
 
-* **Descrição**: explica a recomendação e o que precisa ser feito para resolver o problema.
-* **RECURSO**: lista os recursos aos quais se aplica esta recomendação.
-* **ESTADO**: descreve o estado atual da Recomendação:
+* **DESCRIÇÃO**: Explica a recomendação e o que precisa ser feito para resolver o problema.
+* **RECURSO**: Lista os recursos aos quais se aplica esta recomendação.
+* **ESTADO**: Descreve o estado atual da Recomendação:
   * **Abra**: A recomendação ainda não foi tratada.
   * **Em curso**: A recomendação está atualmente a ser aplicada aos recursos e é necessária nenhuma ação por si.
   * **Resolvido**: A recomendação já foi concluída (neste caso, a linha está a cinzento).
-* **GRAVIDADE**: descreve a gravidade dessa recomendação específica:
-  * **Alta**: uma vulnerabilidade existe com um recurso significativo (por exemplo, um aplicativo, uma VM ou um grupo de segurança de rede) e necessita de atenção.
-  * **Médio**: uma vulnerabilidade existe e passos não críticos ou adicionais são necessários para eliminá-la ou para concluir um processo.
-  * **Baixa**: uma vulnerabilidade existe que deve ser resolvido, mas não necessita de atenção imediata. (Por predefinição, as recomendações baixas não são apresentadas, mas pode filtrar por recomendações baixas se pretender vê-los.)
+* **GRAVIDADE**: Descreve a gravidade dessa recomendação específica:
+  * **Alta**: Uma vulnerabilidade existe com um recurso significativo (por exemplo, um aplicativo, uma VM ou um grupo de segurança de rede) e necessita de atenção.
+  * **Médio**: Existe uma vulnerabilidade e passos não críticos ou adicionais são necessários para eliminá-la ou para concluir um processo.
+  * **Baixa**: Uma vulnerabilidade existe que deve ser resolvido, mas não necessita de atenção imediata. (Por predefinição, as recomendações baixas não são apresentadas, mas pode filtrar por recomendações baixas se pretender vê-los.)
 
 Utilize a tabela abaixo como referência para ajudar a compreender as recomendações de disponibilidade e o que cada um deles faz se as aplicar.
 
@@ -135,7 +135,7 @@ Na tabela de recomendações acima, selecione uma recomendação e examiná-lo c
 ## <a name="next-steps"></a>Passos Seguintes
 Neste documento, foram introduzidas para recomendações de segurança no Centro de segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de segurança do Azure](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
+* [Definir políticas de segurança no Centro de segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Monitorizar soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.

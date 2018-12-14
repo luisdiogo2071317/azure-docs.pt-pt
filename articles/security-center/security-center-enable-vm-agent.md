@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a059cd5c22306c42adc4c7c8fcc4e52c3ebcd00
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c4fff902614b3979fcc28833c5352afe2bdd84b0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313576"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341502"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Ativar o agente VM no Centro de segurança do Azure
 O agente da VM tem de estar instalado em máquinas virtuais (VMs) para [ativar a recolha de dados](security-center-enable-data-collection.md).  Centro de segurança do Azure permite-lhe ver qual as VMs requerem o agente da VM e recomendará que ativar o agente da VM nessas VMS.
@@ -40,7 +40,7 @@ O Agente de VM é instalado por predefinição em VMs que são implementadas a p
 ## <a name="see-also"></a>Consulte também
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir recomendações de segurança no Centro de Segurança do Azure](security-center-recommendations.md) – Saiba como as recomendações o ajudam a proteger os seus recursos do Azure.
 * [Monitorização do estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.

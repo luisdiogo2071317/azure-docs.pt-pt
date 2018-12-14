@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: b552918f6b415bcd55c7c27c80ff721df77ca99f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 4a9f9c2592c7bf27e1caeb09dd492e4700768117
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276082"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383481"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos suportados para alertas de métricas no Azure Monitor
 
-Agora suporta o Monitor do Azure um [novo tipo de alerta de métrica](monitoring-overview-alerts.md) que apresenta vantagens consideráveis sobre o mais antigo [alertas de métricas clássicas](../azure-monitor/platform/alerts-classic.overview.md). As métricas estão disponíveis para [grande lista de serviços do Azure](monitoring-supported-metrics.md). Os alertas mais recente suportam um subconjunto (crescente) dos tipos de recursos. Este artigo lista esse subconjunto.
+Agora suporta o Monitor do Azure um [novo tipo de alerta de métrica](../azure-monitor/platform/alerts-overview.md) que apresenta vantagens consideráveis sobre o mais antigo [alertas de métricas clássicas](../azure-monitor/platform/alerts-classic.overview.md). As métricas estão disponíveis para [grande lista de serviços do Azure](monitoring-supported-metrics.md). Os alertas mais recente suportam um subconjunto (crescente) dos tipos de recursos. Este artigo lista esse subconjunto.
 
 
-Também pode utilizar alertas de métricas mais recente em populares registos do Log Analytics extraídos como métricas. Para obter mais informações, veja [alertas de métrica para os registos](monitoring-metric-alerts-logs.md).
+Também pode utilizar alertas de métricas mais recente em populares registos do Log Analytics extraídos como métricas. Para obter mais informações, veja [alertas de métrica para os registos](../azure-monitor/platform/alerts-metric-logs.md).
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST suporte
-Atualmente, pode criar alertas de métricas mais recente apenas no portal do Azure, [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/), ou [modelos do Resource Manager](monitoring-create-metric-alerts-with-templates.md). Suporte para configurar alertas mais recentes com as versões do PowerShell e CLI do Azure 2.0 e versões posteriores estará disponível brevemente.
+Atualmente, pode criar alertas de métricas mais recente apenas no portal do Azure, [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/), ou [modelos do Resource Manager](../azure-monitor/platform/alerts-metric-create-templates.md). Suporte para configurar alertas mais recentes com as versões do PowerShell e CLI do Azure 2.0 e versões posteriores estará disponível brevemente.
 
 ## <a name="metrics-and-dimensions-supported"></a>Métricas e dimensões suportadas
-Alertas de métricas mais recente suportam alertas de métricas que usam dimensões. Pode usar as dimensões para filtrar a métrica para o nível certo. Podem ser exploradas e visualizadas a partir de todas as métricas suportadas, juntamente com dimensões aplicáveis [do Azure Monitor - Explorador de métricas](monitoring-metric-charts.md).
+Alertas de métricas mais recente suportam alertas de métricas que usam dimensões. Pode usar as dimensões para filtrar a métrica para o nível certo. Podem ser exploradas e visualizadas a partir de todas as métricas suportadas, juntamente com dimensões aplicáveis [do Azure Monitor - Explorador de métricas](../azure-monitor/platform/metrics-charts.md).
 
 Eis a lista completa de origens de métrica de monitor do Azure suportadas pelos alertas mais recentes:
 
@@ -121,6 +121,6 @@ A operação de POSTAGEM contém o JSON payload seguinte e o esquema para todos 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre a nova [experiência de alertas](monitoring-overview-alerts.md).
+* Saiba mais sobre a nova [experiência de alertas](../azure-monitor/platform/alerts-overview.md).
 * Saiba mais sobre [alertas de registo no Azure](../azure-monitor/platform/alerts-unified-log.md).
-* Saiba mais sobre [alertas no Azure](monitoring-overview-alerts.md).
+* Saiba mais sobre [alertas no Azure](../azure-monitor/platform/alerts-overview.md).

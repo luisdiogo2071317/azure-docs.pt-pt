@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5a3c160fcb550fc4f0c92145733aa993b95bd112
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089349"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338895"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST do serviço de voz
 
@@ -34,7 +34,7 @@ Cada pedido para qualquer API REST de voz em texto ou texto para discurso requer
 | Cabeçalhos de autorização suportados | Conversão de voz em texto | Conversão de texto em voz |
 |------------------------|----------------|----------------|
 | OCP-Apim-Subscription-Key | Sim | Não |
-| Autorização: portador | Sim | Sim |
+| Autorização: Portador | Sim | Sim |
 
 Ao utilizar o `Ocp-Apim-Subscription-Key` cabeçalho, só é necessário para fornecer a chave de subscrição. Por exemplo:
 
@@ -322,9 +322,20 @@ A transferência (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latênci
 Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro segmento deve conter cabeçalho do arquivo de áudio. `request` está ligado um objeto HTTPWebRequest para o ponto final REST adequado. `audioFile` é o caminho para um arquivo de áudio no disco.
 
 ```csharp
+
+    HttpWebRequest request = null;
+    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+    request.SendChunked = true;
+    request.Accept = @"application/json;text/xml";
+    request.Method = "POST";
+    request.ProtocolVersion = HttpVersion.Version11;
+    request.Host = host;
+    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
+    request.AllowWriteStreamBuffering = false;
+
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-
     /*
     * Open a request stream and write 1024 byte chunks in the stream one at a time.
     */
@@ -424,20 +435,10 @@ Esta é uma resposta típica para `detailed` reconhecimento.
 
 ## <a name="text-to-speech-api"></a>API de texto para discurso
 
-Estas regiões são suportadas para voz com a API REST. Certifique-se de que seleciona o ponto final que corresponde à sua região de subscrição.
+A API REST do texto para discurso suporta vozes texto para discurso neurais e padrão, cada um deles suporta um idioma específico e dialect, identificado por localidade.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-O serviço de voz oferece suporte a saída de áudio de 24 KHz, juntamente com as saídas de 16 Khz eram suportados de voz do Bing. São suportados quatro formatos de saída de 24 KHz e dois vozes de 24 KHz.
-
-### <a name="voices"></a>Vozes
-
-| Região | Idioma   | Género | Mapear |
-|--------|------------|--------|---------|
-| en-US  | Inglês dos Estados Unidos | Feminino | "Microsoft Server voz texto para voz de voz (en-US, Jessa24kRUS)" |
-| en-US  | Inglês dos Estados Unidos | Masculino   | "Microsoft Server voz texto para voz de voz (en-US, Guy24kRUS)" |
-
-Uma lista completa de vozes disponíveis, consulte [idiomas suportados](language-support.md#text-to-speech).
+* Para obter uma lista completa de vozes, consulte [suporte de idiomas](language-support.md#text-to-speech).
+* Para obter informações sobre a disponibilidade regional, consulte [regiões](regions.md#text-to-speech).
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
 
@@ -452,7 +453,7 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para pedidos de voz e
 
 ### <a name="audio-outputs"></a>Saídas de áudio
 
-Esta é uma lista dos formatos de áudio suportados que são enviados em cada pedido como o `X-Microsoft-OutputFormat` cabeçalho. Cada incorpora uma velocidade de transmissão e o tipo de codificação.
+Esta é uma lista dos formatos de áudio suportados que são enviados em cada pedido como o `X-Microsoft-OutputFormat` cabeçalho. Cada incorpora uma velocidade de transmissão e o tipo de codificação. O serviço de voz suporta 24 KHz e 16 KHz saídas de áudio.
 
 |||
 |-|-|

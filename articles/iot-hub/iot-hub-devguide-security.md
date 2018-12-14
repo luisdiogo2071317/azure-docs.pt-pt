@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 5e671c4eb47b56adf62a23791c403257c2538973
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 87df2731d45ffa51bc2fd298aa1b678b10e38515
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018932"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344334"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -91,7 +91,7 @@ HTTPS implementa a autenticação, incluindo um token válido na **autorização
 
 Nome de utilizador (DeviceId é sensível a maiúsculas e minúsculas): `iothubname.azure-devices.net/DeviceId`
 
-Palavra-passe (pode gerar um token SAS com o [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ferramenta, o comando de extensão da CLI [az iot hub gerar--token sas](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), ou o [extensão IoT Toolkit do Azure para Visual Studio Code ](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)):
+Palavra-passe (pode gerar um token SAS com o [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ferramenta, o comando de extensão da CLI [az iot hub gerar--token sas](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), ou o [extensão do Kit de ferramentas do Azure IoT Hub para o Visual Studio Código](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente conhecido como a extensão IoT Toolkit do Azure)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -142,7 +142,7 @@ Seguem-se os valores esperados:
 | {URL-encoded-resourceURI} |Caso inferiores a codificação URL do recurso minúsculas URI |
 | {policyName} |O nome da política de acesso partilhado ao qual se refere este token. Ausente se o token refere-se às credenciais de registo do dispositivo. |
 
-**Tenha em atenção no prefixo**: prefixo o URI é calculado por segmento e não por caractere. Por exemplo `/a/b` é um prefixo para `/a/b/c` mas não para `/a/bc`.
+**Tenha em atenção no prefixo**: O prefixo URI é calculado por segmento e não por caractere. Por exemplo `/a/b` é um prefixo para `/a/b/c` mas não para `/a/bc`.
 
 O seguinte trecho de node. js mostra uma função chamada **generateSasToken** que computa o token de entradas `resourceUri, signingKey, policyName, expiresInMins`. As secções seguintes detalham como inicializar as diferentes entradas para os casos de utilização de token diferente.
 
@@ -272,7 +272,7 @@ O resultado, que concede acesso a todas as funcionalidades para device1, seria:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> É possível gerar um token SAS com o [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ferramenta, o comando de extensão da CLI [az iot hub gerar--token sas](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), ou o [extensão IoT Toolkit do Azure para Visual Studio Code ](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+> É possível gerar um token SAS com o [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) ferramenta, o comando de extensão da CLI [az iot hub gerar--token sas](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token), ou o [extensão do Kit de ferramentas do Azure IoT Hub para o Visual Studio Código](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ### <a name="use-a-shared-access-policy"></a>Utilizar uma política de acesso partilhado
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: c8bee6902fb74cb77c34395fd05c1c861b4f630e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 349d3a6eacf22a0ce3f842dd30df19964cdf7f23
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166139"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337330"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copiar dados de uma origem de OData com o Azure Data Factory
 
@@ -35,7 +35,7 @@ Pode copiar dados a partir de uma origem de OData para qualquer arquivo de dados
 Especificamente, oferece suporte a este conector de OData:
 
 - Versão 3.0 e 4.0 do OData.
-- Copiar dados utilizando um dos seguintes autenticações: **anónimo**, **básica**, ou **Windows**.
+- Cópia de dados ao utilizar uma das autenticações seguintes: **Anónimo**, **básica**, **Windows**, **Principal de serviço do AAD**, e **identidade de serviço gerida**.
 
 ## <a name="get-started"></a>Introdução
 
@@ -51,9 +51,16 @@ As seguintes propriedades são suportadas para um serviço ligado de OData:
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade tem de ser definida como **OData**. |Sim |
 | url | O URL de raiz do serviço OData. |Sim |
-| authenticationType | O tipo de autenticação utilizado para ligar à origem de OData. Valores permitidos são **anónimo**, **básica**, e **Windows**. OAuth não é suportado. | Sim |
+| authenticationType | O tipo de autenticação utilizado para ligar à origem de OData. Valores permitidos são **anónimo**, **básica**, **Windows**, **AadServicePrincipal**, e **ManagedServiceIdentity** . Utilizador com base OAuth não é suportada. | Sim |
 | userName | Especifique **nome de utilizador** se utilizar autenticação básica ou do Windows. | Não |
 | palavra-passe | Especifique **palavra-passe** para o utilizador da conta que especificou para **userName**. Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| servicePrincipalId | Especifique o ID de cliente. da aplicação do Azure Active Directory | Não |
+| aadServicePrincipalCredentialType | Especifique o tipo de credencial a utilizar para autenticação do principal de serviço. Valores permitidos são: `ServicePrincipalKey` ou `ServicePrincipalCert`. | Não |
+| servicePrincipalKey | Especifique a chave da aplicação do Azure Active Directory. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| servicePrincipalEmbeddedCert | Especifique o certificado com codificação base64 do seu aplicativo registado no Azure Active Directory. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| servicePrincipalEmbeddedCertPassword | Especifique a palavra-passe do certificado se o certificado estiver protegido com uma palavra-passe. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md).  | Não|
+| inquilino | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Não |
+| aadResourceId | Especifique o recurso do AAD que está a pedir para autorização.| Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Pode escolher o Runtime de integração do Azure ou um Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, é utilizada a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo 1: Utilizar a autenticação anónima**
@@ -123,6 +130,64 @@ As seguintes propriedades são suportadas para um serviço ligado de OData:
 }
 ```
 
+**Exemplo 4: Utilizar a autenticação de chave de principal de serviço**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of on-premises OData source>",
+            "authenticationType": "AadServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "aadServicePrincipalCredentialType": "ServicePrincipalKey",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "aadResourceId": "<AAD resource>"
+        }
+    },
+    "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
+    }
+}
+```
+
+**Exemplo 5: Utilizar a autenticação de certificado principal de serviço**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of on-premises OData source>",
+            "authenticationType": "AadServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "aadServicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalEmbeddedCert": { 
+                "type": "SecureString", 
+                "value": "<base64 encoded string of (.pfx) certificate data>"
+            },
+            "servicePrincipalEmbeddedCertPassword": { 
+                "type": "SecureString", 
+                "value": "<password of your certificate>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "aadResourceId": "<AAD resource e.g. https://tenant.sharepoint.com>"
+        }
+    },
+    "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
+    }
+}
+```
+
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
 Esta seção fornece uma lista de propriedades que suporta o conjunto de dados do OData.
@@ -169,7 +234,7 @@ Para copiar dados do OData, defina o **origem** tipo de atividade de cópia para
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **RelationalSource**. | Sim |
-| consulta | Opções de consulta de OData para filtrar os dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Tenha em atenção**: o conector de OData a copia dados de URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para obter mais informações, consulte [componentes do URL de OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| consulta | Opções de consulta de OData para filtrar os dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Tenha em atenção**: O conector de OData copia dados a partir do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para obter mais informações, consulte [componentes do URL de OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
 
 **Exemplo**
 
@@ -213,7 +278,7 @@ Quando copiar dados do OData, são utilizados os seguintes mapeamentos entre tip
 | Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
-| Edm.Decimal | decimal |
+| Edm.Decimal | Decimal |
 | Edm.Double | Valor de duplo |
 | Edm.Single | Único |
 | Edm.Guid | GUID |

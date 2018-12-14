@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 48295a48700ee8b7331ae9811b7dd43a0ec8fa69
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1d580e6468044f14b6a206911c4da237f774af3b
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959891"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386524"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Preparar para alteração de formato para os registos de diagnóstico do Azure Monitor arquivado para uma conta de armazenamento
 
 > [!WARNING]
-> Se enviar [registos de diagnóstico de recursos do Azure ou as métricas para uma conta de armazenamento com definições de diagnóstico de recursos](./monitoring-archive-diagnostic-logs.md) ou [perfis de registo de registos de atividade para uma conta de armazenamento com](./monitoring-archive-activity-log.md), o formato dos dados em a conta de armazenamento será alterado para linhas de JSON de 1 de Novembro de 2018. As instruções abaixo descrevem o impacto e como atualizar a sua ferramenta para lidar com o novo formato. 
+> Se enviar [registos de diagnóstico de recursos do Azure ou as métricas para uma conta de armazenamento com definições de diagnóstico de recursos](./../azure-monitor/platform/archive-diagnostic-logs.md) ou [perfis de registo de registos de atividade para uma conta de armazenamento com](./../azure-monitor/platform/archive-activity-log.md), o formato dos dados em a conta de armazenamento será alterado para linhas de JSON de 1 de Novembro de 2018. As instruções abaixo descrevem o impacto e como atualizar a sua ferramenta para lidar com o novo formato. 
 >
 > 
 
@@ -31,9 +31,9 @@ Monitor do Azure oferece uma funcionalidade que lhe permite enviar dados de diag
 * Definir uma definição de diagnóstico entre agora e 1 de Novembro continua emitir dados no formato atual até 1 de Novembro.
 * Esta alteração irá ocorrer ao mesmo tempo em todas as regiões de cloud pública. A alteração não irá ocorrer em clouds do Azure na China, Azure Alemanha ou do Azure Government ainda.
 * Esta alteração irá afetar os seguintes tipos de dados:
-  * [Registos de diagnóstico de recursos do Azure](./monitoring-archive-diagnostic-logs.md) ([ver a lista de recursos aqui](./monitoring-diagnostic-logs-schema.md))
+  * [Registos de diagnóstico de recursos do Azure](./../azure-monitor/platform/archive-diagnostic-logs.md) ([ver a lista de recursos aqui](./../azure-monitor/platform/tutorial-dashboards.md))
   * [Métricas de recurso do Azure que está a ser exportadas por definições de diagnóstico](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)
-  * [Dados de registo de atividade do Azure que está a ser exportados por perfis de registo](./monitoring-archive-activity-log.md)
+  * [Dados de registo de atividade do Azure que está a ser exportados por perfis de registo](./../azure-monitor/platform/archive-activity-log.md)
 * Esta alteração não afeta:
   * Registos de fluxo de rede
   * Registos do Azure service não disponibilizados através do Azure Monitor ainda (por exemplo, registos de diagnóstico do serviço de aplicações do Azure, os registos de análise de armazenamento)
@@ -135,5 +135,5 @@ Ferramentas personalizadas devem ser atualizadas para lidar com o formato atual 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [arquivar registos de diagnóstico de recursos para uma conta de armazenamento](./monitoring-archive-diagnostic-logs.md)
-* Saiba mais sobre [arquivamento de dados de registo de atividade para uma conta de armazenamento](./monitoring-archive-activity-log.md)
+* Saiba mais sobre [arquivar registos de diagnóstico de recursos para uma conta de armazenamento](./../azure-monitor/platform/archive-diagnostic-logs.md)
+* Saiba mais sobre [arquivamento de dados de registo de atividade para uma conta de armazenamento](./../azure-monitor/platform/archive-activity-log.md)

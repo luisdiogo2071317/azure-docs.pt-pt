@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 750c184dfc0adb92f26114d1911f27bc741ceb23
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 17402911fee5363d707547e73df7da30be6dcd0e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265267"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343807"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos do IoT Hub
 
@@ -36,7 +36,7 @@ Os métodos diretos são implementados no dispositivo e podem exigir a zero ou m
 > Quando invoca um método direto num dispositivo, os nomes das propriedades e valores podem apenas conter US-ASCII imprimível alfanumérico, exceto as no conjunto de seguinte: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
-Direcionar os métodos são síncronos e o êxito ou falhar após o período de tempo limite (predefinição: 30 segundos, definíveis cópia de segurança para 3600 segundos). Os métodos diretos são úteis em cenários interativos onde pretende que um dispositivo para agir se e apenas se o dispositivo está online e de recebimento de comandos. Por exemplo, ativando uma luz de um telefone. Nestes cenários, pretende ver um imediato êxito ou falha, para que o serviço em nuvem pode agir sobre o resultado assim que possível. O dispositivo pode retornar alguns corpo da mensagem como resultado do método, mas não é necessário para o método fazer isso. Não existe nenhuma garantia na ordem ou qualquer semântica de simultaneidade em chamadas de método.
+Direcionar os métodos são síncronos e o êxito ou falhar após o período de tempo limite (predefinição: 30 segundos, definível cópia de segurança para 3600 segundos). Os métodos diretos são úteis em cenários interativos onde pretende que um dispositivo para agir se e apenas se o dispositivo está online e de recebimento de comandos. Por exemplo, ativando uma luz de um telefone. Nestes cenários, pretende ver um imediato êxito ou falha, para que o serviço em nuvem pode agir sobre o resultado assim que possível. O dispositivo pode retornar alguns corpo da mensagem como resultado do método, mas não é necessário para o método fazer isso. Não existe nenhuma garantia na ordem ou qualquer semântica de simultaneidade em chamadas de método.
 
 Direcionar os métodos são apenas de HTTPS do lado da nuvem e MQTT ou AMQP do lado do dispositivo.
 
@@ -203,4 +203,4 @@ Agora, aprendeu a utilizar métodos diretos, poderá estar interessado no seguin
 Se quiser experimentar alguns dos conceitos descritos neste artigo, poderá estar interessado no tutorial seguinte do IoT Hub:
 
 * [Utilizar métodos diretos](quickstart-control-device-node.md)
-* [Gestão de dispositivos com o Kit de ferramentas do Azure IoT para o VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Gestão de dispositivos com o Kit de ferramentas do Azure IoT Hub para o VS Code](iot-hub-device-management-iot-toolkit.md)

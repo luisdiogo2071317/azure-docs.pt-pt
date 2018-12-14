@@ -8,23 +8,26 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0c3c2fdddada3b90c84b3f06f8639bde7db50f95
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f6a2d6a35200bc4dec169aae72415c1c2904c465
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073555"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341138"
 ---
 # <a name="speech-synthesis-markup-language"></a>Linguagem de marcação de síntese de voz
 
-O Speech Synthesis Markup Language (SSML) é uma linguagem de marcação baseada em XML que fornece uma forma de controlar a pronúncia e *prosody* de voz. Prosody refere-se ao ritmo e pitch de voz — suas músicas, se quiser. Pode especificar palavras foneticamente, fornecer indicações para interpretar números, insira a coloca em pausa, pitch de controle, volume e taxa de e muito mais.
+O Speech Synthesis Markup Language (SSML) é uma linguagem de marcação baseada em XML que fornece uma forma de controlar a pronúncia e *prosody* de voz. Prosody refere-se ao ritmo e pitch de voz — suas músicas, se quiser. Pode especificar palavras foneticamente, fornecer indicações para interpretar números, insira a coloca em pausa, pitch de controle, volume e taxa de e muito mais. Para obter mais informações, consulte [Speech Synthesis Markup Language (SSML) versão 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
 
-Para obter mais informações, consulte [Speech Synthesis Markup Language (SSML) versão 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) no W3C.
+Para obter uma lista completa de vozes (neurais e padrão), as localidades e idiomas suportados, consulte [suporte de idiomas](language-support.md#text-to-speech).
 
-Os exemplos seguintes mostram como utilizar SSML para necessidades comuns de síntese de voz:
+As secções seguintes fornecem exemplos para voz comuns as tarefas de síntese.
+
+>[!IMPORTANT]
+> Atualmente, a marcação de prosody só está disponível para vozes padrão.
 
 ## <a name="add-a-break"></a>Adicionar uma quebra de
 ```xml
@@ -90,5 +93,4 @@ Os exemplos seguintes mostram como utilizar SSML para necessidades comuns de sí
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como a reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)
+* [Suporte de idiomas: vozes, localidades e idiomas](language-support.md)

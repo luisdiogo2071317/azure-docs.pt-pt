@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 97f1c9e16ae6be9e6bece69d0923f6290a8cd072
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 73eda631d43da87b4472615c2b6a28244372c613
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024720"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339268"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>O Azure IoT-device SDK para C
 
@@ -75,11 +75,11 @@ Existem várias ferramentas de código-fonte aberto para ajudar a gerir o seu hu
 
 * Um aplicativo do Windows chamado [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-* Uma extensão do Visual Studio Code para várias plataformas chamada [Kit de ferramentas do Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+* Uma extensão do Visual Studio Code para várias plataformas chamada [Kit de ferramentas do Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente conhecido como Kit de ferramentas do Azure IoT).
 
 * Uma CLI de Python para várias plataformas chamada [a extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
-Este tutorial utiliza o gráfica *Explorador de dispositivos* ferramenta. Pode utilizar o *extensão IoT Toolkit do Azure para VS Code* se desenvolver no VS Code. Também pode utilizar o *a extensão de IoT do Azure CLI 2.0* ferramenta se preferir usar uma ferramenta CLI.
+Este tutorial utiliza o gráfica *Explorador de dispositivos* ferramenta. Pode utilizar o *extensão de Kit de ferramentas do Azure IoT Hub para o VS Code* se desenvolver no VS Code. Também pode utilizar o *a extensão de IoT do Azure CLI 2.0* ferramenta se preferir usar uma ferramenta CLI.
 
 A ferramenta Explorador do dispositivo usa as bibliotecas de serviço de IoT do Azure para executar várias funções no IoT Hub, incluindo a adição de dispositivos. Se utilizar a ferramenta Explorador do dispositivo para adicionar um dispositivo, obtém uma cadeia de ligação para o seu dispositivo. Precisa esta cadeia de ligação para executar as aplicações de exemplo.
 

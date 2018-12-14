@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f133af5ec077821607bf3e942c8a931808d34fc
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d515363e1413634d8222e043fff0b91aa464002c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953592"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337542"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Ligar redes virtuais a partir de modelos de implementação diferentes com o PowerShell
 
@@ -34,7 +34,7 @@ Os passos seguintes explicam as definições necessárias para configurar um gat
 
 ### <a name="pre"></a>Pré-requisitos
 
-* Ambas as VNets já foram criadas. Se precisar de criar uma rede virtual do resource manager, consulte [criar uma rede virtual](../virtual-network/quick-create-powershell.md#create-a-virtual-network). Para criar uma rede virtual clássica, veja [criar uma VNet clássica](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
+* Ambas as VNets já foram criadas. Se precisar de criar uma rede virtual do resource manager, consulte [criar um grupo de recursos e uma rede virtual](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Para criar uma rede virtual clássica, veja [criar uma VNet clássica](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
 * Os intervalos de endereços para as VNets não se sobrepõem entre si, ou se sobrepõe a qualquer um dos intervalos de outras ligações que os gateways podem ser ligados a.
 * Ter instalado os cmdlets do PowerShell mais recente. Ver [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) para obter mais informações. Certifique-se de que instalar a gestão de serviço (SM) e os cmdlets do Gestor de recursos (RM). 
 
@@ -263,7 +263,7 @@ Nesta secção, vai trabalhar com a VNet clássica. Substitua o endereço IP do 
 ## <a name="connect"></a>Secção 4 - criar uma ligação entre os gateways
 Criar uma ligação entre os gateways requer o PowerShell. Terá de adicionar a sua conta do Azure para utilizar a versão clássica dos cmdlets do PowerShell. Para tal, utilize **Add-AzureAccount**.
 
-1. Na consola do PowerShell, defina a chave partilhada. Antes de executar os cmdlets, consulte o ficheiro de configuração rede que transferiu para os nomes de exatos que o Azure espera ver. Ao especificar o nome de uma VNet que contenha espaços, utilize plicas à volta o valor.<br><br>No exemplo seguinte, **- VNetName** é o nome da VNet clássica e **- LocalNetworkSiteName** é o nome que especificou para o site de rede local. O **- SharedKey** é um valor que geram e especificar. No exemplo, utilizámos 'abc123', mas pode gerar e utilizar algo mais complexo. O importante é que o valor que especificar aqui tem de ser o mesmo valor que especificou no passo seguinte, quando criar a ligação. O retorno deve mostrar **Estado: concluída com êxito**.
+1. Na consola do PowerShell, defina a chave partilhada. Antes de executar os cmdlets, consulte o ficheiro de configuração rede que transferiu para os nomes de exatos que o Azure espera ver. Ao especificar o nome de uma VNet que contenha espaços, utilize plicas à volta o valor.<br><br>No exemplo seguinte, **- VNetName** é o nome da VNet clássica e **- LocalNetworkSiteName** é o nome que especificou para o site de rede local. O **- SharedKey** é um valor que geram e especificar. No exemplo, utilizámos 'abc123', mas pode gerar e utilizar algo mais complexo. O importante é que o valor que especificar aqui tem de ser o mesmo valor que especificou no passo seguinte, quando criar a ligação. O retorno deve mostrar **Estado: Com êxito**.
 
   ```azurepowershell
   Set-AzureVNetGatewayKey -VNetName ClassicVNet `

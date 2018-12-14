@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 61496d91c9ec2cd1dcf498df04d2dab6629e009c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7a55e28f34f36cd02b67e56c6262b9e1f06dde8f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642663"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338197"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Tratamento de erros nas funções durável (funções do Azure)
 
@@ -27,7 +27,7 @@ Qualquer exceção que é lançada numa função de atividade é marshalled volt
 
 Por exemplo, considere a seguinte função de orquestrador que transfira fundos entre contas para outro:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -38,16 +38,16 @@ public static async Task Run(DurableOrchestrationContext context)
 
     await context.CallActivityAsync("DebitAccount",
         new
-        { 
+        {
             Account = transferDetails.SourceAccount,
             Amount = transferDetails.Amount
         });
 
     try
     {
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.DestinationAccount,
                 Amount = transferDetails.Amount
             });
@@ -56,9 +56,9 @@ public static async Task Run(DurableOrchestrationContext context)
     {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.SourceAccount,
                 Amount = transferDetails.Amount
             });
@@ -66,7 +66,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
+### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -108,7 +108,7 @@ Se a chamada para o **CreditAccount** falha de função para a conta de destino,
 
 Quando chama as funções de atividade ou funções de frações de orquestração, pode especificar uma política de repetição automática. O exemplo seguinte tenta chamar uma função até três vezes e aguarda 5 segundos entre cada repetição:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -118,41 +118,41 @@ public static async Task Run(DurableOrchestrationContext context)
         maxNumberOfAttempts: 3);
 
     await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
-    
+
     // ...
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
+### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
 
 ```javascript
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const retryOptions = new df.RetryOptions(5000, 3);
-    
+
     yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
 
     // ...
 });
 ```
 
-O `CallActivityWithRetryAsync` (C#) ou `callActivityWithRetry` (JS) API utiliza um `RetryOptions` parâmetro. Suborchestration chama utilizando o `CallSubOrchestratorWithRetryAsync` (C#) ou `callSubOrchestratorWithRetry` API (JS), pode utilizar estas mesmas políticas de repetição.
+O `CallActivityWithRetryAsync` (.NET) ou `callActivityWithRetry` (JavaScript) API usa uma `RetryOptions` parâmetro. Suborchestration chama utilizando o `CallSubOrchestratorWithRetryAsync` (.NET) ou `callSubOrchestratorWithRetry` (JavaScript) API pode utilizar estas mesmas políticas de repetição.
 
 Existem várias opções para personalizar a política de repetição automática. Entre eles, incluem-se:
 
 * **Número máximo de tentativas**: O número máximo de tentativas de repetição.
-* **Primeiro intervalo de repetição**: A quantidade de tempo de espera antes de tentar da primeira repetição.
+* **Primeiro intervalo de repetição**: A quantidade de tempo de espera antes da primeira tentativa de repetição.
 * **Coeficiente de término**: O coeficiente utilizado para determinar a taxa de aumento do número de término. Predefinição é 1.
 * **Intervalo de repetição máximo**: A quantidade máxima de tempo de espera entre tentativas de repetição.
 * **Repetição do tempo limite**: A quantidade máxima de tempo para fazer tentativas. O comportamento padrão é repetir indefinidamente.
-* **Lidar com**: pode ser especificado um retorno de chamada definida pelo utilizador que determina se é ou não uma chamada de função deve ser repetida.
+* **Lidar com**: Pode ser especificado um retorno de chamada definida pelo utilizador que determina se é ou não uma chamada de função deve ser repetida.
 
 ## <a name="function-timeouts"></a>Tempos limite de função
 
-Pode querer abandonar uma chamada de função dentro de uma função de orquestrador, se estiver a demorar demasiado tempo a concluir. O modo adequado para fazer isso hoje é criar um [temporizador durável](durable-functions-timers.md) usando `context.CreateTimer` em conjunto com `Task.WhenAny`, como no exemplo a seguir:
+Pode querer abandonar uma chamada de função dentro de uma função de orquestrador, se estiver a demorar demasiado tempo a concluir. O modo adequado para fazer isso hoje é criar um [temporizador durável](durable-functions-timers.md) usando `context.CreateTimer` (.NET) ou `context.df.createTimer` (JavaScript) em conjunto com `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript), como no exemplo seguinte:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -181,7 +181,7 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
+### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
 
 ```javascript
 const df = require("durable-functions");

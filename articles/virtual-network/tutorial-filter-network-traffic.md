@@ -14,15 +14,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 06/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a731c1e0617fe0ccf9d571dd2b7d0c2ad107bc9e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
-ms.translationtype: HT
+ms.openlocfilehash: 68fdb158a7d4c723bffb54f33203120afb72a8ef
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901403"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385402"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego de rede com um grupo de segurança de rede através do Portal do Azure
 
@@ -38,7 +38,7 @@ Se preferir, pode concluir este tutorial com a [CLI do Azure](tutorial-filter-ne
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -220,7 +220,7 @@ Quando já não for necessário, elimine o grupo de recursos e todos os recursos
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza *myResourceGroup* em **ESCREVER O NOME DO GRUPO DE RECURSOS:** e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou um grupo de segurança de rede e associou-o a uma sub-rede de rede virtual. Para saber mais sobre os grupos de segurança de rede, veja [Descrição geral dos grupos de segurança de rede](security-overview.md) e [Manage a network security group](manage-network-security-group.md) (Gerir um grupo de segurança de rede).
 

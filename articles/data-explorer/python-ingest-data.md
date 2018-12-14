@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: ingerir dados com a biblioteca Python do Azure Data Explorer'
+title: 'Início rápido: Ingestão de dados usando a biblioteca de Python de Explorador de dados do Azure'
 description: Neste início rápido, irá aprender a ingerir (carregar) dados para o Azure Data Explorer com o Python.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: fe405416e166b69ebe6b72e519ace4930c3062d8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 390cdddf09f6880368d4d199eef41be19b54d9f0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871732"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339251"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Início Rápido: ingerir dados com a biblioteca Python do Azure Data Explorer
+# <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Início rápido: Ingestão de dados usando a biblioteca de Python de Explorador de dados do Azure
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer fornece duas bibliotecas de cliente para o Python: uma [biblioteca de ingestão](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) e [uma biblioteca de dados](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Estas bibliotecas permitem ingerir (carregar) dados para um cluster e consultar dados a partir do código. Neste início rápido, primeiro vai criar uma tabela e o mapeamento de dados num cluster de teste. Em seguida, vai colocar em fila a ingestão para o cluster e validar os resultados.
 
@@ -73,7 +73,7 @@ KUSTO_INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/
 KUSTO_DATABASE  = "<DatabaseName>"
 ```
 
-Agora construa a cadeia de ligação. Este exemplo utiliza a autenticação do dispositivo para aceder ao cluster. Também pode utilizar o certificado de aplicação do AAD, a chave de aplicação do AAD e o utilizador e a palavra-passe do AAD.
+Agora construa a cadeia de ligação. Este exemplo utiliza a autenticação do dispositivo para aceder ao cluster. Também pode utilizar [certificado de aplicação do AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [chave de aplicação do AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20), e [AAD utilizador e palavra-passe](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 Irá criar a tabela de destino e o mapeamento num passo posterior.
 
@@ -105,7 +105,7 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + CONTAINER + 
 
 ## <a name="create-a-table-on-your-test-cluster"></a>Criar uma tabela no cluster de teste
 
-Crie uma tabela que corresponda ao esquema dos dados no ficheiro StormEvents.csv. Quando este código é executado, devolve uma mensagem semelhante à seguinte: *Para iniciar sessão, utilize um browser para abrir a página https://microsoft.com/devicelogin e introduza o código F3W4VWZDM para autenticar*. Siga os passos para iniciar sessão e regresse para executar o próximo bloco de código. Os blocos de código subsequentes que estabelecerem uma ligação têm de iniciar sessão novamente.
+Crie uma tabela que corresponda ao esquema dos dados no ficheiro StormEvents.csv. Quando esse código é executado, ele retorna uma mensagem semelhante ao seguinte: *Para iniciar sessão, utilize um browser para abrir a página https://microsoft.com/devicelogin e introduza o código F3W4VWZDM para autenticar*. Siga os passos para iniciar sessão e regresse para executar o próximo bloco de código. Os blocos de código subsequentes que estabelecerem uma ligação têm de iniciar sessão novamente.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB_DATA)

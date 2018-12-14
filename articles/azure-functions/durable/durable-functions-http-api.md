@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a5e3bd655e0780861f4bf70c247df72e6acedd09
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642362"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340787"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs de HTTP nas funções duráveis (funções do Azure)
 
@@ -24,7 +24,6 @@ A extensão de tarefas durável expõe um conjunto de APIs HTTP que podem ser ut
 * Obter o estado de uma instância de orquestração.
 * Envie um evento para uma instância de orquestração espera.
 * Termine uma instância de orquestração em execução.
-
 
 Cada uma dessas APIs de HTTP é uma operação de webhook diretamente manipulada pela extensão de tarefas durável. Eles não são específicos para qualquer função na function app.
 
@@ -35,9 +34,15 @@ Cada uma dessas APIs de HTTP é uma operação de webhook diretamente manipulada
 
 O [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) classe expõe um [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) API que pode ser utilizado para gerar um payload de resposta HTTP que contém ligações para todas as operações suportadas. Eis um exemplo de função de Acionador de HTTP que demonstra como utilizar esta API:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
-Esta função de exemplo produz os seguintes dados de resposta JSON. O tipo de dados de todos os campos é `string`.
+### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
+
+Estas funções de exemplo produzem os dados de resposta JSON seguintes. O tipo de dados de todos os campos é `string`.
 
 | Campo             |Descrição                           |
 |-------------------|--------------------------------------|
@@ -63,8 +68,9 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
+
 > [!NOTE]
-> O formato dos URLs de webhook poderá ser diferente dependendo de qual versão do anfitrião de funções do Azure está a executar. O exemplo acima é para o anfitrião do 2.0 de funções do Azure.
+> O formato dos URLs de webhook poderá ser diferente dependendo de qual versão do anfitrião de funções do Azure está a executar. O exemplo acima é para o anfitrião de 2.x as funções do Azure.
 
 ## <a name="async-operation-tracking"></a>Operação assíncrona de controlo
 
@@ -91,8 +97,8 @@ Todas as APIs de HTTP implementados, com a extensão take, os seguintes parâmet
 | ligação | Cadeia de consulta    | O **nome** a cadeia de ligação para a conta de armazenamento. Se não for especificado, é assumida a cadeia de ligação predefinido para a aplicação de funções. |
 | systemKey  | Cadeia de consulta    | A chave de autorização necessária para invocar a API. |
 | showInput  | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a execução de entrada não será incluído no payload de resposta.|
-| showHistory| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído no payload de resposta.| 
-| showHistoryOutput| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, a atividade produz serão incluídos no histórico de execução de orquestração.| 
+| showHistory| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído no payload de resposta.|
+| showHistoryOutput| Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, a atividade produz serão incluídos no histórico de execução de orquestração.|
 | createdTimeFrom  | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias devolvidas que foram criados nesta ou após o carimbo de hora ISO8601 determinado.|
 | createdTimeTo    | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias devolvidas que foram criados em ou antes do carimbo de hora ISO8601 determinado.|
 | runtimeStatus    | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtros a lista de instâncias devolvidas com base no respetivo estado de runtime. Para ver a lista de valores de estado de runtime possíveis, consulte a [consultar instâncias](durable-functions-instance-management.md) tópico. |
@@ -140,7 +146,7 @@ O payload de resposta para o **HTTP 200** e **HTTP 202** casos é um objeto JSON
 | saída          | JSON      | A saída JSON da instância. Este campo é `null` se a instância não é um estado concluído. |
 | createdTime     | cadeia    | A hora em que a instância foi criada. Utiliza o ISO 8601 estendido notação. |
 | lastUpdatedTime | cadeia    | A hora em que a instância mantidas pela última vez. Utiliza o ISO 8601 estendido notação. |
-| historyEvents   | JSON      | Uma matriz JSON que contém o histórico de execução da orquestração. Este campo é `null` , a menos que o `showHistory` parâmetro de cadeia de caracteres de consulta está definido como `true`.  | 
+| historyEvents   | JSON      | Uma matriz JSON que contém o histórico de execução da orquestração. Este campo é `null` , a menos que o `showHistory` parâmetro de cadeia de caracteres de consulta está definido como `true`.  |
 
 Aqui está um payload de resposta de exemplo incluindo as orquestração histórico e a atividade saídas de execução (formatadas para legibilidade):
 
@@ -199,10 +205,9 @@ Aqui está um payload de resposta de exemplo incluindo as orquestração histór
 
 O **HTTP 202** resposta também inclui um **localização** cabeçalho de resposta que referencia o mesmo URL que o `statusQueryGetUri` campo mencionado anteriormente.
 
-
 ### <a name="get-all-instances-status"></a>Obter o estado de todas as instâncias
 
-Também pode consultar todos os Estados de instâncias. Remover o `instanceId` no pedido "Obter estado da instância". Os parâmetros são os mesmos que o "Estado de instância Get". 
+Também pode consultar todos os Estados de instâncias. Remover o `instanceId` no pedido "Obter estado da instância". Os parâmetros são os mesmos que o "Estado de instância Get".
 
 É importante lembrar que é que `connection` e `code` são opcionais. Se tiver a autenticação anónima a função de código não é necessário.
 Se não pretender utilizar uma cadeia de ligação de armazenamento de blob diferente que definido na definição da aplicação de AzureWebJobsStorage, em seguida, pode ignorar o parâmetro de cadeia de caracteres de consulta de ligação.
@@ -215,7 +220,7 @@ Para as funções 1.0, o formato do pedido é o seguinte:
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-O formato do Functions 2.0 tem todos os mesmos parâmetros, mas um prefixo de URL ligeiramente diferente: 
+O formato do Functions 2.0 tem todos os mesmos parâmetros, mas um prefixo de URL ligeiramente diferente:
 
 ```http
 GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
@@ -231,7 +236,7 @@ Para as funções 1.0, o formato do pedido é o seguinte:
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
-O formato do Functions 2.0 tem todos os mesmos parâmetros, mas um prefixo de URL ligeiramente diferente: 
+O formato do Functions 2.0 tem todos os mesmos parâmetros, mas um prefixo de URL ligeiramente diferente:
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
@@ -291,8 +296,8 @@ Eis um exemplo de payloads de resposta, incluindo o estado de orquestração (fo
 ```
 
 > [!NOTE]
-> Esta operação pode ser muito cara em termos de e/s de armazenamento de Azure se existirem muitas linhas da tabela de instâncias. Podem encontrar mais detalhes na tabela de instância na [desempenho e dimensionamento nas funções durável (funções do Azure)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentação.
-> 
+> Esta operação pode ser muito cara em termos de e/s de armazenamento de Azure se existirem muitas linhas da tabela de instâncias. Podem encontrar mais detalhes na tabela de instância na [desempenho e dimensionamento nas funções durável (funções do Azure)](durable-functions-perf-and-scale.md#instances-table) documentação.
+>
 
 #### <a name="request-with-paging"></a>Pedido com paginação
 
@@ -304,7 +309,7 @@ Para as funções 1.0, o formato do pedido é o seguinte:
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
 ```
 
-O formato do Functions 2.0 tem todos os mesmos parâmetros, mas um prefixo de URL ligeiramente diferente: 
+O formato do Functions 2.0 tem todos os mesmos parâmetros, mas um prefixo de URL ligeiramente diferente:
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
@@ -313,7 +318,6 @@ GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={conne
 Se existir a página seguinte, é devolvido um token de continuação no cabeçalho de resposta.  O nome do cabeçalho é `x-ms-continuation-token`.
 
 Se definir o valor de token de continuação no cabeçalho do pedido seguinte, pode obter a página seguinte.  Esta chave no cabeçalho do pedido é `x-ms-continuation-token`.
-
 
 ### <a name="raise-event"></a>Gerar evento
 
@@ -347,7 +351,7 @@ Vários valores de código de estado possível podem ser devolvidos.
 * **HTTP 202 (aceite)**: O evento registado foi aceite para processamento.
 * **O HTTP 400 (pedido incorreto)**: O conteúdo do pedido não era do tipo `application/json` ou não era um JSON válido.
 * **HTTP 404 (não encontrado)**: A instância especificada não foi encontrada.
-* **HTTP 410 (já não existe)**: A instância especificada foi concluída ou falhada e não pode processar todos os eventos gerados.
+* **HTTP 410 (ficaram no passado)**: A instância especificada foi concluída ou falhada e não pode processar todos os eventos gerados.
 
 Eis um exemplo de solicitação que envia a cadeia de caracteres do JSON `"incr"` a uma instância à espera de um evento chamado **operação**:
 
@@ -391,7 +395,7 @@ Vários valores de código de estado possível podem ser devolvidos.
 
 * **HTTP 202 (aceite)**: O pedido de encerramento foi aceite para processamento.
 * **HTTP 404 (não encontrado)**: A instância especificada não foi encontrada.
-* **HTTP 410 (já não existe)**: A instância especificada foi concluída ou falhada.
+* **HTTP 410 (ficaram no passado)**: A instância especificada foi concluída ou falhada.
 
 Eis um exemplo de solicitação que termina uma instância em execução e especifica um motivo de **buggy**:
 
@@ -405,7 +409,7 @@ As respostas para esta API não contêm qualquer conteúdo.
 
 Restaura uma instância da orquestração com falha num Estado de execução ao reproduzir as operações com falha mais recentes.
 
-#### <a name="request"></a>Pedir
+### <a name="request"></a>Pedir
 
 Para as funções 1.0, o formato do pedido é o seguinte:
 
@@ -425,13 +429,13 @@ O pedido parâmetros para esta API incluem o conjunto padrão mencionado anterio
 |-------------|-----------------|-----------|-------------|
 | reason      | Cadeia de consulta    | cadeia    | Opcional. O motivo de avanço rápido a instância de orquestração. |
 
-#### <a name="response"></a>Resposta
+### <a name="response"></a>Resposta
 
 Vários valores de código de estado possível podem ser devolvidos.
 
 * **HTTP 202 (aceite)**: O pedido de recuo foi aceite para processamento.
 * **HTTP 404 (não encontrado)**: A instância especificada não foi encontrada.
-* **HTTP 410 (já não existe)**: A instância especificada foi concluída ou foi terminada.
+* **HTTP 410 (ficaram no passado)**: A instância especificada foi concluída ou foi terminada.
 
 Eis um exemplo de solicitação que rewinds uma instância com falha e especifica um motivo de **fixo**:
 

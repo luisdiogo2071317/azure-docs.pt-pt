@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ca6eefa6ccba3fabebd125d88010817c66db52ab
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 14d50a17cf7816cb8e792128f8dd3965781657e5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642677"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339591"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Função de encadeamento de funções duráveis - exemplo de sequência de Hello
 
@@ -33,9 +33,10 @@ Este artigo explica as seguintes funções na aplicação de exemplo:
 As secções seguintes explicam a configuração e o código que são utilizados para c# scripts e JavaScript. O código para o desenvolvimento do Visual Studio é mostrado no final do artigo.
 
 > [!NOTE]
-> Funções duráveis está disponível no JavaScript apenas o runtime de funções do v2.
+> Funções duráveis do JavaScript estão disponíveis para o runtime de 2.x das funções apenas.
 
 ## <a name="e1hellosequence"></a>E1_HelloSequence
+
 ### <a name="functionjson-file"></a>ficheiro de Function
 
 Se utilizar o Visual Studio Code ou o portal do Azure para desenvolvimento, aqui está o conteúdo do *Function* ficheiro para a função de orquestrador. A maioria dos orchestrator *Function* ficheiros quase exatamente este aspeto.
@@ -47,7 +48,7 @@ O importante é o `orchestrationTrigger` tipo de enlace. Todas as funções do o
 > [!WARNING]
 > Para cumprir a regra "nenhuma e/s" das funções do orchestrator, não utilize qualquer entrada ou enlaces de saída, ao utilizar o `orchestrationTrigger` acionar a ligação.  Se outro de entrada ou enlaces de saída são necessários, em vez disso, devem ser utilizadas no contexto de `activityTrigger` funções, o que são chamadas pelo orchestrator.
 
-### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script c# (código de exemplo do portal Visual Studio Code e o Azure) 
+### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script c# (código de exemplo do portal Visual Studio Code e o Azure)
 
 Eis o código-fonte:
 
@@ -63,15 +64,16 @@ Eis o código-fonte:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-Todas as funções de orquestração de JavaScript têm de incluir o `durable-functions` módulo. Esta é uma biblioteca de JavaScript que traduz as ações da função de orquestração em protocolo de execução do durável para idiomas de out-of-proc. Existem três diferenças significativas entre uma função de orquestração e outras funções de JavaScript:
+Todas as funções de orquestração de JavaScript têm de incluir o [ `durable-functions` módulo](https://www.npmjs.com/package/durable-functions). Esta é uma biblioteca que permite escrever funções duráveis em JavaScript. Existem três diferenças significativas entre uma função de orquestração e outras funções de JavaScript:
 
 1. A função é um [função gerador.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
-2. A função é encapsulada numa chamada para o `durable-functions` módulo (aqui `df`).
-3. A função termina chamando `return`, e não `context.done`.
+2. A função é encapsulada numa chamada para o `durable-functions` do módulo `orchestrator` método (aqui `df`).
+3. A função tem de ser síncrona. Uma vez que o método "orchestrator" processa a chamada "context.done', a função deve simplesmente 'return'.
 
-O `context` objeto contém um `df` objeto permite que chame outro *atividade* funções e os parâmetros de entrada pass com seu `callActivityAsync` método. O código chama `E1_SayHello` três vezes numa sequência com valores de parâmetros diferentes, utilizando `yield` para indicar a execução deve aguardar nas chamadas de função de atividade assíncrona a serem retornados. O valor de cada chamada de retorno é adicionado para o `outputs` lista, que é devolvida no final da função.
+O `context` objeto contém um `df` objeto permite que chame outro *atividade* funções e os parâmetros de entrada pass com seu `callActivity` método. O código chama `E1_SayHello` três vezes numa sequência com valores de parâmetros diferentes, utilizando `yield` para indicar a execução deve aguardar nas chamadas de função de atividade assíncrona a serem retornados. O valor de cada chamada de retorno é adicionado para o `outputs` lista, que é devolvida no final da função.
 
 ## <a name="e1sayhello"></a>E1_SayHello
+
 ### <a name="functionjson-file"></a>ficheiro de Function
 
 O *Function* ficheiro para a função de atividade `E1_SayHello` é semelhante da `E1_HelloSequence` exceto que ele usa um `activityTrigger` enlace de tipo, em vez de um `orchestrationTrigger` tipo de enlace.
@@ -93,7 +95,7 @@ Esta função tem um parâmetro do tipo [DurableActivityContext](https://azure.g
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-Ao contrário de uma função de orquestração de JavaScript, uma função de atividade de JavaScript não precisa nenhuma configuração especial. A entrada transmitida a ele pela função orchestrator está localizada no `context.bindings` objeto no nome da `activitytrigger` vinculando - neste caso, `context.bindings.name`. O nome da ligação pode ser definido como um parâmetro da função exportado e acedidos diretamente, que é o que faz o código de exemplo.
+Ao contrário de uma função de orquestração de JavaScript, uma função de atividade não precisa nenhuma configuração especial. A entrada transmitida a ele pela função orchestrator está localizada no `context.bindings` objeto no nome da `activityTrigger` vinculando - neste caso, `context.bindings.name`. O nome da ligação pode ser definido como um parâmetro da função exportado e acedidos diretamente, que é o que faz o código de exemplo.
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
@@ -150,7 +152,7 @@ Eis a orquestração como um único arquivo c# num projeto do Visual Studio:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este exemplo tenha demonstrado uma orquestração simple de encadeamento de função. O exemplo seguinte mostra como implementar o padrão fan-out/fan-in. 
+Este exemplo tenha demonstrado uma orquestração simple de encadeamento de função. O exemplo seguinte mostra como implementar o padrão fan-out/fan-in.
 
 > [!div class="nextstepaction"]
 > [Executar o exemplo Fan-out/fan-in](durable-functions-cloud-backup.md)

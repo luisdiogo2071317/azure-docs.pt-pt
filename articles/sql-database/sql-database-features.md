@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 328dd39c3ff82666c327bc5d1d106a019fb2247b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 77291029dd15b887ea9d2fd3f0e3a31e71a2f537
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275827"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384365"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de recursos: Base de dados SQL do Azure e do SQL Server
 
@@ -79,7 +79,7 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [DMVs](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Maioria - Consulte DMVs individuais |  Sim - veja [diferenças do T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 |[Máscara de dados dinâmica](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[Sim](sql-database-dynamic-data-masking-get-started.md)| [Sim](sql-database-dynamic-data-masking-get-started.md) |
 | [Conjuntos elásticos](sql-database-elastic-pool.md) | Sim | Interno-uma única instância gerida, pode ter várias bases de dados que partilham o mesmo conjunto de recursos |
-| [Notificações de eventos](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Não, consulte [alertas](sql-database-insights-alerts-portal.md) | Sim |
+| [Notificações de eventos](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Não, consulte [alertas](sql-database-insights-alerts-portal.md) | Não |
 | [Expressões](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Sim | Sim |
 | [Eventos expandidos](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Alguns - consulte [estendido de eventos na base de dados SQL](sql-database-xevent-db-diff-from-svr.md) | Sim - veja [estendido diferenças de eventos](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [Procedimentos armazenados expandidos](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Não | Não |
@@ -109,6 +109,7 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Não | Não |
 | [Gestão baseada em políticas](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Não | Não |
 | [Predicados](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Sim | Sim |
+| [Notificações de consulta](https://docs.microsoft.com/sql/relational-databases/native-client/features/working-with-query-notifications) | Não | Sim |
 | [Serviços R](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Versão de pré-visualização; consulte [o que há de novo no machine learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Não |
 | [Governador de recursos](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Não | Sim |
 | [Instruções de RESTAURO](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Não | Sim - veja [restaurar diferenças](sql-database-managed-instance-transact-sql-information.md#restore-statement) |

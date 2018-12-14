@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 242eb906c95b373b2edd538be5f06756cac1e8c9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 47949ca5cd0fad498f3d383f4c530e75787387e2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256519"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344023"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementação de Git Local no Serviço de Aplicações do Azure
 
@@ -48,7 +48,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 A maneira mais fácil para ativar a implementação de Git local para a sua aplicação com o servidor de compilação Kudu é utilizar o Cloud Shell.
 
-### <a name="create-a-deployment-user"></a>Criar um utilizador de implementação
+### <a name="configure-a-deployment-user"></a>Configurar um utilizador de implementação
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
@@ -86,7 +86,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 
 ### <a name="deploy-your-project"></a>Implementar o seu projeto
 
-Regresse à _janela de terminal local_ e adicione um remoto do Azure ao seu repositório Git local. Substitua  _\<url >_ com o URL do Git remoto que recebeu do [ativar o Git para a sua aplicação](#enable-git-for-you-app).
+Regresse à _janela de terminal local_ e adicione um remoto do Azure ao seu repositório Git local. Substitua  _\<url >_ com o URL do Git remoto que recebeu do [ativar o Git para a sua aplicação](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>

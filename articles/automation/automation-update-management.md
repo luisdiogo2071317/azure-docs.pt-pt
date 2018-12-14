@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ccccad1cb510c4988092467c723e117a47456aaf
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 06006456a08c5eb499eff504fea5dcffdc11d662
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277510"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342396"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
 Pode utilizar a solução de gestão de atualizações na automatização do Azure para gerir atualizações do sistema operativo para os seus computadores Windows e Linux que estão implementados no Azure, em ambientes no local ou em outros fornecedores de cloud. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
 
-Pode ativar a gestão de atualizações para máquinas virtuais diretamente a partir da sua conta de automatização do Azure. Para saber como ativar a gestão de atualizações para máquinas virtuais a partir da sua conta de automatização, veja [gerir atualizações para várias máquinas virtuais](manage-update-multi.md). Também pode ativar a gestão de atualizações para uma única máquina de virtual a partir do painel de máquina virtual no portal do Azure. Este cenário está disponível para [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) máquinas virtuais.
+Pode ativar a gestão de atualizações para máquinas virtuais diretamente a partir da sua conta de automatização do Azure. Para saber como ativar a gestão de atualizações para máquinas virtuais a partir da sua conta de automatização, veja [gerir atualizações para várias máquinas virtuais](manage-update-multi.md). Também pode ativar a gestão de atualizações para uma máquina virtual a partir da página de máquina virtual no portal do Azure. Este cenário está disponível para [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) máquinas virtuais.
 
 ## <a name="solution-overview"></a>Descrição geral da solução
 
@@ -41,7 +41,7 @@ Assim que um CVE versão, demora 2 a 3 horas para o patch seja apresentado para 
 
 Depois de um computador realiza uma análise de conformidade de atualização, o agente reencaminha as informações em massa para o Azure Log Analytics. Num computador Windows, a análise de conformidade é executada a cada 12 horas por predefinição.
 
-Além do agendamento da análise, a análise da compatibilidade de atualização é iniciada dentro de 15 minutos, se o MMA ser reiniciado, antes da instalação da atualização e após a instalação de atualização.
+Além do agendamento da análise, a análise da compatibilidade de atualização é iniciada dentro de 15 minutos do MMA ser reiniciado, antes da instalação da atualização e após a instalação de atualização.
 
 Para um computador Linux, a análise de conformidade é realizada em três horas por predefinição. Se o agente MMA ser reiniciado, é iniciada uma análise de conformidade em 15 minutos.
 
@@ -148,7 +148,7 @@ Num computador Windows, pode rever as seguintes informações para verificar a c
 1. No painel de controlo, abra **Microsoft Monitoring Agent**. Sobre o **do Azure Log Analytics** guia, o agente apresenta a seguinte mensagem: **O Microsoft Monitoring Agent foi ligado com êxito para o Log Analytics**.
 2. Abra o registo de eventos do Windows. Aceda a **aplicativo e o Gestor de registos de serviços** e procure o evento ID 3000 e 5002 de ID de evento da origem **conector do serviço**. Estes eventos indicam que o computador tiver registrado com a área de trabalho do Log Analytics e está a receber a configuração.
 
-Se o agente não consegue comunicar com o Log Analytics e o agente estiver configurado para comunicar com a internet através de um servidor de firewall ou proxy, confirme se o servidor de firewall ou proxy está configurado corretamente. Para saber como verificar se o servidor de firewall ou proxy está configurado corretamente, veja [configuração de rede para o agente do Windows](../azure-monitor/platform/agent-windows.md) ou [configuração de rede para o agente Linux](../log-analytics/log-analytics-agent-linux.md).
+Se o agente não consegue comunicar com o Log Analytics e o agente está configurado para comunicar com a internet através de um servidor de firewall ou proxy, confirme que o servidor de firewall ou proxy está devidamente configurado. Para saber como verificar o servidor de firewall ou proxy está configurado corretamente, veja [configuração de rede para o agente do Windows](../azure-monitor/platform/agent-windows.md) ou [configuração de rede para o agente Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Se os sistemas Linux estiverem configurados para comunicar com um proxy ou Gateway do Log Analytics e está integração essa solução, a atualização a *proxy. Conf* permissões para conceder ao grupo omiuser permissão de leitura no ficheiro ao utilizar o comandos seguintes:
@@ -285,7 +285,7 @@ Gestão de atualizações que se baseia no Windows Update para transferir e inst
 
 ### <a name="pre-download-updates"></a>Atualizações de transferências de pré
 
-Para configurar automaticamente a transferir atualizações na diretiva de grupo, pode definir o [definição configurar atualizações automáticas](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) ao **3**. Transfere as atualizações necessárias em segundo plano, mas não instala-los. Isso mantém o gerenciamento de atualizações no controlo de agendas, mas permitir atualizações transferir fora da janela de manutenção de gestão de atualizações. Isso pode impedir **janela de manutenção excedida** erros na gestão de atualizações.
+Para configurar automaticamente a transferir atualizações na diretiva de grupo, pode definir o [definição configurar atualizações automáticas](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) ao **3**. Transfere as atualizações necessárias em segundo plano, mas não instalá-los. Isso mantém o gerenciamento de atualizações no controlo de agendas, mas permitir atualizações transferir fora da janela de manutenção de gestão de atualizações. Isso pode impedir **janela de manutenção excedida** erros na gestão de atualizações.
 
 Também pode definir isso com o PowerShell, execute o PowerShell seguinte num sistema que pretende transferir automaticamente as atualizações.
 
@@ -297,7 +297,7 @@ $WUSettings.Save()
 
 ### <a name="enable-updates-for-other-microsoft-products"></a>Ativar as atualizações para outros produtos da Microsoft
 
-Por predefinição, o Windows Update fornece apenas atualizações para Windows. Se habilitar **dar-me de atualizações para outros produtos Microsoft se eu atualizar o Windows**, são fornecidos com as atualizações para outros produtos, incluindo patches de segurança essas coisas para SQL Server ou outro software de terceiros primeiro. Esta opção não pode ser configurada pela diretiva de grupo. Execute o PowerShell seguinte nos sistemas que deseja ativar outros primeiro patches de terceiros em e gestão de atualizações irão honrar esta definição.
+Por predefinição, o Windows Update fornece apenas atualizações para Windows. Se habilitar **dar-me de atualizações para outros produtos Microsoft se eu atualizar o Windows**, é apresentada com as atualizações para outros produtos, incluindo patches de segurança essas coisas para SQL Server ou outro software de terceiros primeiro. Esta opção não pode ser configurada pela diretiva de grupo. Execute o PowerShell seguinte nos sistemas que deseja ativar outros primeiro patches de terceiros em e gestão de atualizações irão honrar esta definição.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -305,6 +305,11 @@ $ServiceManager.Services
 $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
 $ServiceManager.AddService2($ServiceId,7,"")
 ```
+
+## <a name="third-party"></a> Patches de terceiros no Windows
+
+Gestão de atualizações baseia-se no WSUS ou a atualização do Windows de correção suportada sistemas Windows. Ferramentas como o [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) permite-lhe publicar atualizações personalizadas no WSUS. Neste cenário permite a gestão de atualizações para máquinas de patch que usar o WSUS como seu repositório de atualização com o software de terceiros. Para saber como configurar o Updates Publisher, veja [instalar o Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Planeamento de rede
 
@@ -319,13 +324,13 @@ Os seguintes endereços são obrigatórios especificamente para a gestão de atu
 
 Para obter mais informações sobre as portas que requer a função de trabalho de Runbook híbrida, veja [portas de função da função de trabalho híbrida](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 
-Recomenda-se para utilizar os endereços listados quando definir exceções. Para endereços IP, pode baixar o [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Este ficheiro é atualizado semanalmente e reflete os intervalos implementados atualmente e as alterações futuras para os intervalos de IP.
+É recomendado para utilizar os endereços listados quando definir exceções. Para endereços IP, pode baixar o [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Este ficheiro é atualizado semanalmente e reflete os intervalos implementados atualmente e as alterações futuras para os intervalos de IP.
 
 ## <a name="search-logs"></a>Registos de pesquisa
 
 Além dos detalhes que são fornecidos no portal do Azure, pode fazer pesquisas contra os registos. Nas páginas de solução, selecione **do Log Analytics**. O **pesquisa de registos** painel abre-se.
 
-Também pode saber como personalizar as consultas ou utilizá-los a partir de diferentes clientes e mais, visite a página:  [Documentação do log Analytics procurar API](
+Também pode saber como personalizar as consultas ou utilizá-los a partir de diferentes clientes e mais, visite a página:  [Documentação da API de pesquisa do log Analytics](
 https://dev.loganalytics.io/).
 
 ### <a name="sample-queries"></a>Amostras de consultas
@@ -584,7 +589,7 @@ Como gestão de atualizações executa enriquecimento de atualização na cloud,
 
 No entanto, a gestão de atualizações ainda podem comunicar que a máquina como estando em não conformidade porque tem informações adicionais sobre a atualização relevante.
 
-Implantação de atualizações por classificação da atualização não funciona no CentOS prontos a utilizar. Para o SUSE, selecionando *apenas* "Outras atualizações" como a classificação pode resultar em alguma segurança atualiza também a ser instalada se as atualizações de segurança relacionados com o zypper (Gestor de pacotes) ou as respetivas dependências são necessárias em primeiro lugar. Esta é uma limitação de zypper. Em alguns casos, poderá ser necessário voltar a executar a implementação da atualização, certifique-se a verificação do registo de atualização.
+Implantação de atualizações por classificação da atualização não funciona no CentOS prontos a utilizar. Para o SUSE, selecionando *apenas* "Outras atualizações" como a classificação pode resultar em alguma segurança atualiza também a ser instalada se as atualizações de segurança relacionados com o zypper (Gestor de pacotes) ou as respetivas dependências são necessárias em primeiro lugar. Este comportamento é uma limitação do zypper. Em alguns casos, poderá ter de voltar a executar a implementação da atualização. Para verificar, verifique o registo de atualização.
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 

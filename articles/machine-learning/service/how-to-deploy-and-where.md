@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e7840bb3ac6449009b843bb74cc19b960b492205
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 649086c6c3279652b3708b5968969570801ebbc1
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310152"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385351"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -140,7 +140,7 @@ Quando chegar à implementação, o processo é ligeiramente diferente consoante
 * [Azure Container Instances](#aci)
 * [Serviços de Kubernetes do Azure](#aks)
 * [Project Brainwave (matrizes de porta de campos programáveis)](#fpga)
-* [Dispositivos do IoT Edge do Azure](#iot)
+* [Dispositivos do IoT Edge do Azure](#iotedge)
 
 ### <a id="aci"></a> Implementar no Azure Container Instances
 
@@ -259,27 +259,102 @@ Um dispositivo Azure IoT Edge é um Linux ou um dispositivo baseado em Windows q
 
 Módulos do IoT Edge do Azure são implementados para o seu dispositivo a partir de um registo de contentor. Quando cria uma imagem do seu modelo, são armazenado no registo de contentor para a área de trabalho.
 
-Utilize os seguintes passos para obter as credenciais do registo de contentor para sua área de trabalho do serviço do Azure Machine Learning:
+#### <a name="set-up-your-environment"></a>Configurar o ambiente
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/signin/index).
+* Um ambiente de desenvolvimento. Para obter mais informações, consulte a [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md) documento.
 
-1. Aceda à sua área de trabalho do serviço do Azure Machine Learning e selecione __descrição geral__. Para ir para as definições de registo de contentor, selecione o __Registro__ ligação.
+* Uma [IoT Hub do Azure](../../iot-hub/iot-hub-create-through-portal.md) na sua subscrição do Azure. 
 
-    ![Uma imagem da entrada de registo de contentor](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+* Um modelo preparado. Para obter um exemplo de como preparar um modelo, consulte a [preparar um modelo de classificação de imagem com o Azure Machine Learning](tutorial-train-models-with-aml.md) documento. Um modelo com formação prévia está disponível na [ferramentas de ia para o repositório do GitHub do Azure IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
-1. Uma vez no registo de contentor, selecione **chaves de acesso** e, em seguida, ative o utilizador de administrador.
+#### <a name="prepare-the-iot-device"></a>Preparar o dispositivo de IoT
+Tem de criar um hub IoT e registar um dispositivo ou reutilizá-lo com [este script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister).
 
-    ![Uma imagem do ecrã de chaves de acesso](./media/how-to-deploy-and-where/findaccesskey.png)
+``` bash
+ssh <yourusername>@<yourdeviceip>
+sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
+sudo chmod +x createNregister
+sudo ./createNregister <The Azure subscriptionID you wnat to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
+```
 
-1. Guarde os valores para **servidor de início de sessão**, **nome de utilizador**, e **palavra-passe**. 
+Guarde a cadeia de ligação resultante após "cs": "{copiar essa cadeia de caracteres}".
 
-Assim que tiver as credenciais, utilize os passos no [módulos de implementar o Azure IoT Edge do portal do Azure](../../iot-edge/how-to-deploy-modules-portal.md) documento para implementar a imagem no seu dispositivo. Quando configurar o __definições de registo__ para o dispositivo, utilize o __servidor de início de sessão__, __nome de utilizador__, e __palavra-passe__ sua área de trabalho registo de contentor.
+Inicializar o seu dispositivo baixando [este script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) num nó de extremidade de UbuntuX64 IoT ou DSVM para executar os comandos seguintes:
+
+```bash
+ssh <yourusername>@<yourdeviceip>
+sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge
+sudo chmod +x installIoTEdge
+sudo ./installIoTEdge
+```
+
+O nó do IoT Edge está pronto para receber a cadeia de ligação do hub IoT. Procure a linha ```device_connection_string:``` e cole a cadeia de ligação acima entre aspas.
+
+Também pode saber como registar o seu dispositivo e instalar o runtime do IoT passo a passo, seguindo o [início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux x64](../../iot-edge/quickstart-linux.md) documento.
+
+
+#### <a name="get-the-container-registry-credentials"></a>Obter as credenciais do registo de contentor
+Para implementar um módulo do IoT Edge para o seu dispositivo, o IoT do Azure tem as credenciais para que o serviço Azure Machine Learning armazena imagens do docker no registo de contentor.
+
+Pode obter facilmente as credenciais de registo de contentor necessário de duas formas:
+
++ **No Portal do Azure**:
+
+  1. Inicie sessão no [portal do Azure](https://portal.azure.com/signin/index).
+
+  1. Aceda à sua área de trabalho do serviço do Azure Machine Learning e selecione __descrição geral__. Para ir para as definições de registo de contentor, selecione o __Registro__ ligação.
+
+     ![Uma imagem da entrada de registo de contentor](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+
+  1. Uma vez no registo de contentor, selecione **chaves de acesso** e, em seguida, ative o utilizador de administrador.
+ 
+     ![Uma imagem do ecrã de chaves de acesso](./media/how-to-deploy-and-where/findaccesskey.png)
+
+  1. Guarde os valores para **servidor de início de sessão**, **nome de utilizador**, e **palavra-passe**. 
+
++ **Com um script de Python**:
+
+  1. Utilize o seguinte script de Python depois do código que executou acima para criar um contentor:
+
+     ```python
+     # Getting your container details
+     container_reg = ws.get_details()["containerRegistry"]
+     reg_name=container_reg.split("/")[-1]
+     container_url = "\"" + image.image_location + "\","
+     subscription_id = ws.subscription_id
+     from azure.mgmt.containerregistry import ContainerRegistryManagementClient
+     from azure.mgmt import containerregistry
+     client = ContainerRegistryManagementClient(ws._auth,subscription_id)
+     result= client.registries.list_credentials(resource_group_name, reg_name, custom_headers=None, raw=False)
+     username = result.username
+     password = result.passwords[0].value
+     print('ContainerURL{}'.format(image.image_location))
+     print('Servername: {}'.format(reg_name))
+     print('Username: {}'.format(username))
+     print('Password: {}'.format(password))
+     ```
+  1. Guarde os valores para os objetos ContainerURL, servername, nome de utilizador e palavra-passe. 
+
+     Estas credenciais são necessárias para fornecer o IoT Edge acesso de dispositivo a imagens no seu registo de contentor privado.
+
+#### <a name="deploy-the-model-to-the-device"></a>Implementar o modelo para o dispositivo
+
+Pode facilmente implementar um modelo, executando [este script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel) e fornecer as seguintes informações nos passos anteriores: registo de contentor Name, nome de utilizador, palavra-passe, url de localização da imagem, nome da implementação pretendida, nome do IoT Hub e o ID de dispositivo que criou. Pode fazê-lo na VM, seguindo estes passos: 
+
+```bash 
+wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel
+sudo chmod +x deploymodel
+sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationURL> <DeploymentID> <IoTHubname> <DeviceID>
+```
+
+Em alternativa, pode seguir os passos a [módulos de implementar o Azure IoT Edge do portal do Azure](../../iot-edge/how-to-deploy-modules-portal.md) documento para implementar a imagem no seu dispositivo. Quando configurar o __definições de registo__ para o dispositivo, utilize o __servidor de início de sessão__, __nome de utilizador__, e __palavra-passe__ sua área de trabalho registo de contentor.
 
 > [!NOTE]
 > Se não estiver familiarizado com o Azure IoT, consulte os seguintes documentos para obter informações sobre como começar com o serviço:
 >
 > * [Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux](../../iot-edge/quickstart-linux.md)
 > * [Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo Windows](../../iot-edge/quickstart.md)
+
 
 ## <a name="testing-web-service-deployments"></a>Implementações de serviço web de teste
 

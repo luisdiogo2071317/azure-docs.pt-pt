@@ -10,16 +10,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 90bf59dd7733864c345bbbb59b6236ae7b9a9c36
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b49959d167dbb735ebb9be9c75e91ef257c6a70
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248317"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383838"
 ---
-# <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrigir um ramo de registo fora de erro de memória no Azure HDInsight
+# <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrigir um Apache Hive fora do erro de memória no Azure HDInsight
 
-Saiba como corrigir um ramo de registo fora de erro de memória quando processar tabelas grandes ao configurar as definições de memória do Hive.
+Saiba como corrigir um Apache Hive fora do erro de memória (OOM) ao processar tabelas grandes ao configurar as definições de memória do Hive.
 
 ## <a name="run-hive-query-against-large-tables"></a>Executar a consulta do Hive com base em tabelas grandes
 
@@ -52,7 +52,7 @@ A consulta do Hive demorou 26 minutos a concluir num nó de cluster de HDInsight
     Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
     Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
 
-Ao utilizar o motor de execução Tez. A mesma consulta for executada durante 15 minutos e, em seguida, apresentou o seguinte erro:
+Por meio do mecanismo de execução do Apache Tez. A mesma consulta for executada durante 15 minutos e, em seguida, apresentou o seguinte erro:
 
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
@@ -101,11 +101,11 @@ O **hive.auto.convert.join.noconditionaltask** hive-site ficheiro foi definido c
 
 É provável que a associação de mapa foi a causa do espaço de área dinâmica para dados Java nosso de erro de memória. Conforme explicado na mensagem de blogue [definições de memória de Yarn do Hadoop no HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando Tez motor de execução é utilizado o heap espaço utilizado, na verdade, pertence ao contentor Tez. Ver a imagem seguinte, que descreve a memória de contentor do Tez.
 
-![Diagrama de memória de contentor do Tez: Hive fora do erro de memória](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
+![Diagrama de memória do Tez contentor: Hive fora do erro de memória](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
 Como sugere a mensagem de blogue, as seguintes definições de dois memória definem a memória de contentor para o heap: **hive.tez.container.size** e **hive.tez.java.opts**. A nossa experiência, fora de exceção de memória não significa que o tamanho do contentor é demasiado pequeno. Isso significa que o tamanho da pilha de Java (hive.tez.java.opts) é demasiado pequeno. Portanto, sempre que vir fora da memória, pode tentar aumentar **hive.tez.java.opts**. Se for necessário poderá ter de aumentar **hive.tez.container.size**. O **java.opts** definição deve ser cerca de 80% dos **container.size**.
 
-> [!NOTE]
+> [!NOTE]  
 > A definição **hive.tez.java.opts** tem de ser sempre menor do que **hive.tez.container.size**.
 > 
 > 
@@ -119,4 +119,4 @@ Com as novas definições, a consulta foi executado com êxito em menos de 10 mi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Recebendo um erro OOM não significa necessariamente que o tamanho do contentor é demasiado pequeno. Em vez disso, deve configurar as definições de memória para que o tamanho da pilha é aumentado e é, pelo menos, 80% do tamanho de memória do contentor. Para otimizar consultas do Hive, consulte [otimizar Hive consultas para o Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md).
+Recebendo um erro OOM não significa necessariamente que o tamanho do contentor é demasiado pequeno. Em vez disso, deve configurar as definições de memória para que o tamanho da pilha é aumentado e é, pelo menos, 80% do tamanho de memória do contentor. Para otimizar consultas do Hive, consulte [otimizar Apache Hive consultas para o Apache Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md).

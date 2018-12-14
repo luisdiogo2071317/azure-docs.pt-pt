@@ -1,59 +1,69 @@
 ---
-title: 'Procedimentos: ACLs de conjunto em arquivos e diretórios com o Explorador de armazenamento do Azure'
-description: Isso como, saiba como definir ACLs em arquivos e diretórios
+title: Definir permissões de geração 2 de armazenamento do Data Lake com o Explorador de armazenamento do Azure
+description: Este como, saiba como definir permissões com o Explorador de armazenamento do Azure em arquivos e diretórios dentro de seu Gen2 de armazenamento do Azure Data Lake conta de armazenamento com capacidade de (pré-visualização).
 services: storage
 author: roygara
 ms.custom: mvc
+ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/05/2018
+ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: c1bcb373fcf21906cbce9b7276e2a7dd7ebb7ed8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1b89553816b6ff8a8076d954274d8404f49154a6
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975912"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384858"
 ---
-# <a name="how-to-set-file-and-directory-level-permissions-using-azure-storage-explorer"></a>Como: definir permissões ao nível ficheiro e de diretório com o Explorador de armazenamento do Azure
+# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2-preview"></a>Definir permissões de nível de ficheiros e diretórios a utilizar o Explorador de armazenamento do Azure com a geração 2 de armazenamento do Azure Data Lake (pré-visualização)
 
-Este artigo mostra como definir o nível de ficheiros e diretórios ACLs por meio de versão para desktop do Explorador de armazenamento do Azure.
+Ficheiros armazenados na geração 2 de armazenamento do Azure Data Lake (pré-visualização) suporte bem permissões granulares e acesso, controlar a gestão de (ACL lista). Em conjunto, tudo bem permissões granulares e gestão de ACL permitem-lhe gerir o acesso aos seus dados num nível muito granular.
 
-Este artigo requer que instale o Explorador de armazenamento do Azure. Para instalar o Explorador de Armazenamento do Azure para Windows, Macintosh ou Linux, consulte [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
+Neste artigo, irá aprender a utilizar o Explorador de armazenamento do Azure para:
 
-## <a name="sign-in-to-storage-explorer"></a>Inicie sessão no Explorador de armazenamento
+> [!div class="checklist"]
+> * Definir as permissões ao nível do ficheiro
+> * Definir permissões de nível de diretório
+> * Adicionar utilizadores ou grupos a uma lista de controlo de acesso
 
-Na primeira execução, é mostrada a janela **Explorador de Armazenamento do Microsoft Azure – Ligar**. Embora o Explorador de armazenamento proporciona várias formas de ligar a contas de armazenamento, apenas uma forma é atualmente suportada para gerenciar ACLs.
+## <a name="prerequisites"></a>Pré-requisitos
 
-|Tarefa|Objetivo|
-|---|---|
-|Adicionar uma Conta do Azure | Redireciona-o para a página de início de sessão de organizações para o autenticar no Azure. Atualmente, é o único método de autenticação, que permite-lhe gerir ACLs de utilizar o Explorador de armazenamento.|
-
-Selecione **adicionar uma conta do Azure** e clique em **início de sessão.**. Siga as mensagens no ecrã para iniciar sessão na conta do Azure.
-
-![Explorador de Armazenamento do Microsoft Azure – Janela Ligar](media/storage-quickstart-blobs-storage-explorer/connect.png)
-
-Quando a ligação for concluída, o Explorador de Armazenamento do Azure é carregado com o separador **Explorador** mostrado. Esta vista fornece-lhe informações detalhadas de todas as contas de armazenamento do Azure, bem como do armazenamento local configurado através do [Emulador de Armazenamento do Azure](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), contas do [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou ambientes do [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-![Explorador de Armazenamento do Microsoft Azure – Janela Ligar](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
+Para melhor retratar o processo, é necessário que concluir nossa [guia de introdução do Explorador de armazenamento do Azure](data-lake-storage-Explorer.md). Isto garante a que sua conta de armazenamento irá estar no estado mais apropriado (sistema de ficheiros criado e dados carregados para o mesmo).
 
 ## <a name="managing-access"></a>Gerir o acesso
 
-Pode definir permissões na raiz do seu sistema de ficheiros. Para fazer isso, seu sistema de ficheiros com o botão direito e selecione **gerir permissões**.
+Pode definir permissões na raiz do seu sistema de ficheiros. Para fazer isso, seu sistema de ficheiros com o botão direito e selecione **gerir permissões**, concentrando-se até a **permissão Gerir** caixa de diálogo.
 
-Este irá abrir o **permissão Gerir** prompt.
+![Explorador de armazenamento do Microsoft Azure – gerir o acesso ao diretório](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
-![Explorador de armazenamento do Microsoft Azure – gerir o acesso ao diretório](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
+O **permissão Gerir** caixa de diálogo permite-lhe gerir permissões de proprietário e o grupo de proprietários. Ele também permite adicionar novos utilizadores e grupos para a lista de controlo de acesso para o qual, em seguida, pode alterar as permissões.
 
-O **gerir acesso** prompt permitirá para gerir as permissões de proprietário e o grupo proprietários, bem como adicionar novos utilizadores para a lista de controlo de acesso para o qual, em seguida, pode gerir as permissões. Para saber mais sobre as permissões, incluindo as permissões predefinidas, as permissões de acesso e seu comportamento, consulte nosso artigo sobre [controlo de acesso no data lake storage gen2](data-lake-storage-access-control.md#access-control-lists-on-files-and-directories). Efetuar seleções aqui não definir ACLs em qualquer item atualmente existente dentro do diretório.
+Para adicionar um novo utilizador ou grupo para a lista de controlo de acesso, selecione o **adicionar utilizador ou grupo** campo.
 
-É recomendável criar grupos de segurança e manter as permissões do grupo em vez de utilizadores individuais. Para obter detalhes sobre esta recomendação e outras práticas recomendadas, consulte nosso [melhores práticas para a geração 2 de armazenamento do data lake](data-lake-storage-best-practices.md) artigo.
+Introduza a entrada correspondente do Azure Active Directory (AAD) que pretende adicionar à lista e, em seguida, selecione **adicionar**.
 
-Pode gerir as permissões em diretórios individuais como arquivos individuais, permitindo que controle de acesso refinado. O processo de gerenciamento de permissões em ficheiros e diretórios é igual à descrita acima.
+O utilizador ou grupo aparecerão agora no **utilizadores e grupos:** campo, permitindo-lhe começar a gerir as respetivas permissões.
+
+> [!NOTE]
+> Ele é uma prática recomendada e recomendado, para criar um grupo de segurança no AAD e manter as permissões do grupo em vez de utilizadores individuais. Para obter detalhes sobre esta recomendação, bem como outras práticas recomendadas, consulte [melhores práticas para a geração 2 de armazenamento do Data Lake](data-lake-storage-best-practices.md).
+
+Existem duas categorias de permissões, pode atribuir: aceder a ACL e ACLs padrão.
+
+* **Acesso**: Acesso de controlo de ACLs de acesso a um objeto. Ficheiros e diretórios têm ACLs de acesso.
+
+* **Predefinido**: Um modelo de ACLs associado a um diretório que determina o ACLs de acesso para todos os itens subordinados que são criadas nesse diretório. Ficheiros não têm ACLs padrão.
+
+Dentro de nessas duas categorias, há três permissões, em seguida, pode atribuir em ficheiros ou diretórios: **Leia**, **escrever**, e **executar**.
+
+>[!NOTE]
+> Efetuar seleções aqui não definir permissões em qualquer item atualmente existente dentro do diretório. Tem de ir para cada item individual e definir as permissões manualmente, se o ficheiro já existe.
+
+Pode gerir as permissões em diretórios individuais, bem como arquivos individuais, o que são o que lhe permite o controlo de acesso detalhada. O processo de gerenciamento de permissões para ficheiros e diretórios é igual à descrita acima. Com o botão direito do ficheiro ou diretório que pretende gerir as permissões no e siga o mesmo processo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este procedimento, ficou a saber como definir permissões em ficheiros e diretórios usando **Explorador de armazenamento do Azure**. Para saber mais sobre listas de controlo de acesso e permissões, avance para o nosso artigo conceitual sobre o assunto.
+Este procedimento, ficou a saber como definir permissões em ficheiros e diretórios usando **Explorador de armazenamento do Azure**. Para obter mais informações sobre as ACLs, incluindo as ACLs padrão, acessar ACLs, seu comportamento e as respetivas permissões correspondentes, avance para o nosso artigo conceitual sobre o assunto.
 
 > [!div class="nextstepaction"]
-> [Controlo de HAccess na geração 2 de armazenamento do Azure Data Lake](data-lake-storage-access-control.md)
+> [Controlo de acesso na geração 2 de armazenamento do Azure Data Lake](data-lake-storage-access-control.md)

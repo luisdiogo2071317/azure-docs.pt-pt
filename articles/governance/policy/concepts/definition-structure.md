@@ -4,17 +4,17 @@ description: Descreve como a definição de política de recurso do Azure Policy
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c09f1f5af8ef417fc4ed195b8ff17cc23c744319
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: f1332e1622c34a33dd264a1115a0fd7f37ee8ba7
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313144"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383974"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -217,6 +217,7 @@ São suportados os seguintes campos:
 - `kind`
 - `type`
 - `location`
+  - Uso **global** para recursos que desconhecem de localização. Por exemplo, veja [exemplos - localizações permitidos](../samples/allowed-locations.md).
 - `identity.type`
   - Devolve o tipo de [identidade gerido](../../../active-directory/managed-identities-azure-resources/overview.md) ativada no recurso.
 - `tags`

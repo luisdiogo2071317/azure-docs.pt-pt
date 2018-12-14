@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: c8a932ac06b58a8e683e326f082a3a2c038dba66
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ac3b87f8db89df4b766fee1a27707877a2d12ba3
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273716"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383362"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>O registo de atividades do Azure para os Hubs de eventos do Stream
 Pode transmitir em fluxo a [registo de atividades do Azure](monitoring-overview-activity-logs.md) em tempo real para qualquer aplicativo, por qualquer um:
@@ -99,7 +99,7 @@ Se já existir um perfil de registo, tem primeiro de remover o perfil de registo
 O esquema para o registo de atividades está disponível no [monitorizar a atividade de subscrição com o registo de atividades do Azure](monitoring-overview-activity-logs.md). Cada evento é uma matriz de blobs JSON chamado *registos*.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Arquive o registo de atividades para uma conta de armazenamento](monitoring-archive-activity-log.md)
+* [Arquive o registo de atividades para uma conta de armazenamento](../azure-monitor/platform/archive-activity-log.md)
 * [Leia a visão geral do registo de atividades do Azure](monitoring-overview-activity-logs.md)
 * [Configurar um alerta com base num evento do registo de atividade](../azure-monitor/platform/alerts-log-webhook.md)
 

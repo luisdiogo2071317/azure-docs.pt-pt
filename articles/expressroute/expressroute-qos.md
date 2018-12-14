@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: cb9acb5434fad6cd7898be14404c5ed4125ab96a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e478475ea9b5a34315c9d46c2201263566398008
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141174"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336667"
 ---
 # <a name="expressroute-qos-requirements"></a>Requisitos do QoS do ExpressRoute
 O Skype para Empresas tem várias cargas de trabalho que exigem um tratamento do QoS diferenciado. Se planear consumir serviços de voz através do ExpressRoute, deve cumprir os requisitos descritos abaixo.
@@ -31,12 +31,12 @@ A tabela seguinte fornece uma lista de marcações DSCP utilizadas pelo Skype pa
 | --- | --- | --- |
 | **Voz** |EF (46) |Voz do Skype/Lync |
 | **Interativo** |AF41 (34) |Video, VBSS |
-| AF21 (18) |Partilha de aplicações | |
+| |AF21 (18) |Partilha de aplicações | 
 | **Predefinição** |AF11 (10) |Transferência de ficheiros |
-| CS0 (0) |Tudo o resto | |
+| |CS0 (0) |Tudo o resto |
 
-* Deve classificar as cargas de trabalho e marcar os valores DSCP corretos. Siga as orientações fornecidas [aqui](https://technet.microsoft.com/library/gg405409.aspx) para saber como configurar as marcações DSCP na sua rede.
-* Deve configurar e suportar várias filas do QoS na rede. Voz tem de ser uma classe autónoma e receber o tratamento EF especificado no RFC 3246. 
+* Deve classificar as cargas de trabalho e marcar os valores DSCP corretos. Siga as orientações fornecidas [aqui](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) para saber como configurar as marcações DSCP na sua rede.
+* Deve configurar e suportar várias filas do QoS na rede. Voz tem de ser uma classe autónoma e receber o tratamento EF especificado no [RFC 3246](https://www.ietf.org/rfc/rfc3246.txt). 
 * Pode decidir o mecanismo de colocação em fila, a política de deteção de congestionamento e a alocação de largura de banda por classe de tráfego. No entanto, a marcação DSCP para cargas de trabalho do Skype para Empresas tem de ser preservada. Se estiver a utilizar marcações DSCP não listadas acima, por exemplo, AF31 (26), terá de reescrever este valor DSCP para 0 antes de enviar o pacote à Microsoft. A Microsoft só envia pacotes marcados com o valor DSCP mostrado na tabela acima. 
 
 ## <a name="next-steps"></a>Passos Seguintes

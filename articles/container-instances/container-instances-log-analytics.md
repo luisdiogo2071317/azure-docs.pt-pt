@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 06123944072142187bfd5b875cbadd36b4d47bd2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958905"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337891"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registar instância de contentor com o Azure Log Analytics
 
@@ -44,7 +44,7 @@ Para obter o ID da área de trabalho do Log Analytics e uma chave primária:
 
 Agora que tem o ID da área de trabalho do Log Analytics e a chave primária, está pronto para criar um grupo de contentores com registo ativado.
 
-Os seguintes exemplos demonstram duas formas de criar um grupo de contentores com um único contentor [fluentd][fluentd]: CLI do Azure e CLI do Azure com um modelo YAML. O contentor Fluentd produz várias linhas de saída na sua configuração predefinida. Uma vez que este resultado é enviado para a sua área de trabalho do Log Analytics, funciona bem para demonstrar a visualização e a consulta dos registos.
+Os exemplos seguintes demonstram duas formas de criar um grupo de contentores com um único [fluentd] [ fluentd] contentor: CLI do Azure e CLI do Azure com um modelo YAML. O contentor Fluentd produz várias linhas de saída na sua configuração predefinida. Uma vez que este resultado é enviado para a sua área de trabalho do Log Analytics, funciona bem para demonstrar a visualização e a consulta dos registos.
 
 ### <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
@@ -135,7 +135,7 @@ ContainerInstanceLog_CL
 Para obter mais informações sobre como consultar os registos e configurar alertas no Azure Log Analytics, consulte:
 
 * [Noções sobre pesquisas de registo no Log Analytics](../log-analytics/log-analytics-log-search.md)
-* [Alertas unificados no Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+* [Alertas unificados no Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>Monitorizar a CPU e a memória do contentor

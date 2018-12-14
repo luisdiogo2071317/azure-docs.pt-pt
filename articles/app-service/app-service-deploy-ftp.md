@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: f48dc4d91fd5fafda88f518c27c79e151e5b1ebe
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3b8c97fa772467d1e0aff830eec51d212045be39
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260077"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339710"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementar a aplicação no serviço de aplicações do Azure com FTP/S
 
@@ -96,7 +96,7 @@ Um problema de aplicativo de tempo de execução normalmente resulta no conjunto
 Para determinar um problema de implementação ou tempo de execução, veja [implementação vs. problemas de runtime](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Não sou capaz de FTP e publicar o meu código. Como posso resolver o problema?
-Verifique se introduziu o nome de anfitrião correto e [credenciais](#step-1--set-deployment-credentials). Verifique também se as seguintes portas FTP no seu computador não estão bloqueadas por uma firewall:
+Verifique se introduziu o nome de anfitrião correto e [credenciais](#open-ftp-dashboard). Verifique também se as seguintes portas FTP no seu computador não estão bloqueadas por uma firewall:
 
 - Porta de ligação de controlo de FTP: 21
 - Porta de ligação de dados FTP: 989, 10001-10300

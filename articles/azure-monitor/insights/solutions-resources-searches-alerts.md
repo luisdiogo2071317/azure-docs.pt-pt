@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e060a18f1117a9392f867f0bf42ddfa80f68048d
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6f16325183f0a13382dd4533fd867a518f1750c3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277493"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344300"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar o Log Analytics guardar pesquisas e alertas para solução de gestão (pré-visualização)
 
@@ -26,7 +26,7 @@ ms.locfileid: "53277493"
 > Esta é a documentação preliminar para a criação de soluções de gestão que estão atualmente em pré-visualização. Qualquer esquema descrita abaixo está sujeitas a alterações.   
 
 
-[Soluções de gestão](solutions.md) normalmente, irá incluir [pesquisas guardadas](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para analisar dados recolhidos pela solução.  Podem também definir [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para notificar o utilizador ou efetuar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir o Log Analytics pesquisas guardadas e alertas numa [modelo de gestão de recursos](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) para que possam ser incluídos na [soluções de gestão](solutions-creating.md).
+[Soluções de gestão](solutions.md) normalmente, irá incluir [pesquisas guardadas](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para analisar dados recolhidos pela solução.  Podem também definir [alertas](../../azure-monitor/platform/alerts-overview.md) para notificar o utilizador ou efetuar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir o Log Analytics pesquisas guardadas e alertas numa [modelo de gestão de recursos](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) para que possam ser incluídos na [soluções de gestão](solutions-creating.md).
 
 > [!NOTE]
 > Os exemplos neste artigo utilizam parâmetros e variáveis que são necessárias ou comuns para soluções de gestão e descrito em [estrutura e compilação de uma solução de gestão no Azure](solutions-creating.md)  
@@ -89,7 +89,7 @@ Cada propriedade de uma procura guardada é descrita na tabela seguinte.
 [Alertas de registo do Azure](../../azure-monitor/platform/alerts-unified-log.md) são criados pelas regras de alertas do Azure que executam consultas de registo especificado em intervalos regulares.  Se os resultados da consulta corresponderem a critérios especificados, é criado um registo de alerta e uma ou mais ações são executadas usando [grupos de ação](../../azure-monitor/platform/action-groups.md).  
 
 > [!NOTE]
-> Todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics a partir de 14 de Maio de 2018, começaram a expandir para o Azure. Para obter mais informações, consulte [expandir alertas para o Azure](../../azure-monitor/platform/alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [grupo de ação - modelo do Azure Resource Manager](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics a partir de 14 de Maio de 2018, começaram a expandir para o Azure. Para obter mais informações, consulte [expandir alertas para o Azure](../../azure-monitor/platform/alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [grupo de ação - modelo do Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 Regras de alerta numa solução de gestão são formadas dos seguintes três recursos diferentes.
 
@@ -145,7 +145,7 @@ Uma agenda pode ter várias ações. Uma ação pode definir um ou mais processo
 Ações podem ser definidas com o recurso de [grupo de ação] ou recurso de ação.
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, começaram a todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics estender automaticamente para o Azure. Para obter mais informações, consulte [expandir alertas para o Azure](../../azure-monitor/platform/alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [grupo de ação - modelo do Azure Resource Manager](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partir de 14 de Maio de 2018, começaram a todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics estender automaticamente para o Azure. Para obter mais informações, consulte [expandir alertas para o Azure](../../azure-monitor/platform/alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [grupo de ação - modelo do Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 
 Existem dois tipos de recurso de ação especificada pelos **tipo** propriedade.  Uma agenda exige um deles **alerta** ação, que define os detalhes da regra de alerta e quais ações são executadas quando é criado um alerta. Recursos de ação tem um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -227,7 +227,7 @@ Esta secção é opcional.  Inclua nesta secção, se desejar suprimir alertas a
 #### <a name="azure-action-group"></a>Grupo de ação do Azure
 Todos os alertas no Azure, utilize o grupo de ação como o mecanismo predefinido para a manipulação de ações. Com o grupo de ação, pode especificar as suas ações de uma vez e, em seguida, associar o grupo de ação para múltiplos alertas - em todo o Azure. Sem a necessidade, repetidamente declarar as mesmas ações repetidamente. Os grupos de ação suportam várias ações - incluindo e-mail, SMS, chamada de voz, a ligação ITSM, Runbook de automatização, Webhook URI e muito mais. 
 
-Para o utilizador que tiver expandido o seus alertas no Azure - uma agenda já deve ter os detalhes do grupo de ação transmitidos juntamente com o limiar, para poder criar um alerta. Detalhes de email, URLs de Webhook, detalhes de automatização de Runbook e outras ações, tem de ser definido no lado primeiro antes, criando um alerta, um grupo de ação é possível criar [grupo de ação do Azure Monitor](../../azure-monitor/platform/action-groups.md) no Portal ou de utilização [grupo de ação - modelo do Resource](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+Para o utilizador que tiver expandido o seus alertas no Azure - uma agenda já deve ter os detalhes do grupo de ação transmitidos juntamente com o limiar, para poder criar um alerta. Detalhes de email, URLs de Webhook, detalhes de automatização de Runbook e outras ações, tem de ser definido no lado primeiro antes, criando um alerta, um grupo de ação é possível criar [grupo de ação do Azure Monitor](../../azure-monitor/platform/action-groups.md) no Portal ou de utilização [grupo de ação - modelo do Resource](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 | Nome do elemento | Necessário | Descrição |
 |:--|:--|:--|
@@ -241,7 +241,7 @@ Para o utilizador que tiver expandido o seus alertas no Azure - uma agenda já d
 Cada agenda tem um **alerta** ação.  Isso define os detalhes do alerta e, opcionalmente, ações de notificação e remediação.  Uma notificação envia um e-mail para um ou mais endereços.  Uma remediação inicia um runbook na automatização do Azure para tentar corrigir o problema detetado.
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, começaram a todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics estender automaticamente para o Azure. Para obter mais informações, consulte [expandir alertas para o Azure](../../azure-monitor/platform/alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [grupo de ação - modelo do Azure Resource Manager](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partir de 14 de Maio de 2018, começaram a todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics estender automaticamente para o Azure. Para obter mais informações, consulte [expandir alertas para o Azure](../../azure-monitor/platform/alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [grupo de ação - modelo do Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Esta secção é opcional incluí-lo se pretender que o alerta para enviar correio para um ou mais destinatários.
@@ -300,7 +300,7 @@ Segue-se um exemplo de uma solução que inclui os seguintes recursos:
 
 - Pesquisa guardada
 - Agenda
-- Grupo de ação
+- Grupo de ações
 
 O exemplo usa [parâmetros de solução padrão]( solutions-solution-file.md#parameters) variáveis que normalmente seriam usadas numa solução em vez de embutir valores nas definições de recursos.
 

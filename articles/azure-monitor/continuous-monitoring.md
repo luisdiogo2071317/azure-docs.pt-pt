@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 88a4c6dbe9311a054c6ed93df0005d32e6d21672
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: fa5c3d65daa86a678ec278bc49759e1de7da7f0c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271798"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386541"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitorização contínua com o Azure Monitor
 
@@ -64,13 +64,13 @@ Integração contínua / implementação contínua permite-lhe automaticamente i
 
 - Uso [Pipelines do Azure](/azure/devops/pipelines) para a implementação contínua de implementar e automatizar o processo inteiro da consolidação de código para produção com base em seus testes de CI/CD.
 - Uso [limites de qualidade](/devops/pipelines/release/approvals/gates) para integrar a monitorização em seu pré-implantação ou pós-implementação. Isto garante que está a cumprir as métricas chave de estado de funcionamento/desempenho (KPIs) à medida que seus aplicativos movem de desenvolvimento para a produção e as diferenças no ambiente de infraestrutura ou de escala é não afetar negativamente os KPIs.
-- [Manter a monitorização de instâncias separadas](../application-insights/app-insights-separate-resources.md) entre seus ambientes de implementação diferentes, como o desenvolvimento, teste, Canárias e Prod. Isto garante que os dados recolhidos são relevantes em toda a infra-estrutura e os aplicativos associados. Se precisar de correlacionar dados em ambientes, pode utilizar [vários recursos gráficos no Explorador de métricas](../monitoring-and-diagnostics/monitoring-metric-charts.md) ou crie [entre recursos consultas do Log Analytics](log-query/cross-workspace-query.md).
+- [Manter a monitorização de instâncias separadas](../application-insights/app-insights-separate-resources.md) entre seus ambientes de implementação diferentes, como o desenvolvimento, teste, Canárias e Prod. Isto garante que os dados recolhidos são relevantes em toda a infra-estrutura e os aplicativos associados. Se precisar de correlacionar dados em ambientes, pode utilizar [vários recursos gráficos no Explorador de métricas](../azure-monitor/platform/metrics-charts.md) ou crie [entre recursos consultas do Log Analytics](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Criar alertas acionáveis com as ações
 Um aspeto fundamental do monitoramento proativo é notificando os administradores de quaisquer problemas atuais e previstos. 
 
-- Crie [alertas no Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) com base em registos e métricas para identificar os Estados de falha previsível. Deve ter um objetivo de tornar todos os alertas acionáveis que significa que eles representam condições críticas reais e procurar o ressarcimento de reduzir os falsos positivos. Uso [limiares dinâmicos](platform/alerts-dynamic-thresholds.md) para calcular automaticamente as linhas de base de dados de métrica, em vez de definir seu próprio limiares estáticos. 
+- Crie [alertas no Azure Monitor](../azure-monitor/platform/alerts-overview.md) com base em registos e métricas para identificar os Estados de falha previsível. Deve ter um objetivo de tornar todos os alertas acionáveis que significa que eles representam condições críticas reais e procurar o ressarcimento de reduzir os falsos positivos. Uso [limiares dinâmicos](platform/alerts-dynamic-thresholds.md) para calcular automaticamente as linhas de base de dados de métrica, em vez de definir seu próprio limiares estáticos. 
 - Defina as ações de alertas utilizar a forma mais eficaz de notificar os administradores. Disponível [ações de notificação](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) são SMS, emails, notificações push ou chamadas de voz.
 - Utilização avançada mais ações para [ligar a sua ferramenta ITSM](platform/itsmc-overview.md) ou outros sistemas de gestão de alertas por meio [webhooks](platform/activity-log-alerts-webhook.md).
 - Remediar situações identificadas nos alertas, igualmente com [runbooks de automatização do Azure](../automation/automation-webhooks.md) ou [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) que pode ser iniciado a partir de um alerta através de webhooks. 

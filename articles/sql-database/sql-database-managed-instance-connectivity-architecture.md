@@ -12,16 +12,22 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: bf8b3ab62697857a636b7550376cfa0b6d4ebecd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 964f91f412645e141ca003d511480f6f6eb438a3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269537"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343310"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Arquitetura de conectividade de instância de gerida de base de dados SQL do Azure
 
 Este artigo fornece a visão geral de comunicação de instância gerida da base de dados SQL do Azure e explica a arquitetura de conectividade, bem como a forma como os diferentes componentes de função para direcionar o tráfego para a instância gerida.  
+
+O Azure SQL Database Managed Instance é colocado dentro da VNet do Azure e a sub-rede dedicada para instâncias geridas. Esta implementação permite que os seguintes cenários: 
+- Proteger o endereço IP privado.
+- Ligar-se para uma instância gerida diretamente a partir de uma rede no local.
+- Ligar uma instância gerida para o servidor ligado ou de outra no local o arquivo de dados.
+- A ligar uma instância gerida nos recursos do Azure.
 
 ## <a name="communication-overview"></a>Descrição geral da comunicação
 
@@ -66,12 +72,53 @@ Os clientes ligam a instância gerida com o nome de anfitrião que tenha um form
 
 Este endereço IP privado pertence para o Managed instância carga balanceador interno (ILB) que direciona o tráfego para o Gateway de instância gerida (GW). Como várias instâncias geridas poderia potencialmente executado dentro do mesmo cluster, o GW utiliza o nome de anfitrião da instância gerida para redirecionar o tráfego para o serviço de motor de SQL correto.
 
-Serviços de gestão e implementação ligar através de instância gerida [ponto final de gestão](sql-database-managed-instance-management-endpoint.md) que mapeia para o Balanceador de carga externo. O tráfego é encaminhado para os nós apenas se tiver recebido num conjunto predefinido de portas que são utilizados exclusivamente por componentes de gerenciamento de instância gerida. Firewall interno em nós está configurado para permitir tráfego apenas a partir de intervalos de IP específicos de Microsoft. Todas as comunicações entre os componentes de gestão e plano de gestão é mutuamente autenticado de certificado.
+Serviços de gestão e implementação ligar através de instância gerida [ponto final de gestão](#management-endpoint) que mapeia para o Balanceador de carga externo. O tráfego é encaminhado para os nós apenas se tiver recebido num conjunto predefinido de portas que são utilizados exclusivamente por componentes de gerenciamento de instância gerida. Firewall interno em nós está configurado para permitir tráfego apenas a partir de intervalos de IP específicos de Microsoft. Todas as comunicações entre os componentes de gestão e plano de gestão é mutuamente autenticado de certificado.
+
+## <a name="management-endpoint"></a>Ponto final de gestão
+
+O cluster virtual de instância gerida da base de dados SQL do Azure contém um ponto final de gestão que a Microsoft utiliza para gerir a instância gerida. O ponto final de gestão está protegido com firewall interno na verificação de certificado mútua e nível de rede no nível de aplicativo. Pode [encontrar o endereço de ip do ponto final de gestão](sql-database-managed-instance-find-management-endpoint-ip-address.md).
+
+Quando as ligações sejam iniciadas a partir de dentro da instância gerida (cópia de segurança, registo de auditoria), parece que origina o tráfego do endereço IP de público de ponto final de gestão. Pode limitar o acesso à serviços públicos de instância gerida através da definição de regras de firewall para permitir apenas o endereço de IP de instância gerida. Encontrar adicionar einformation sobre o método que pode [Verifique se o firewall interno da instância gerida](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+
+> [!NOTE]
+> Isso não se aplica à configuração de regras de firewall para serviços do Azure que estão na mesma região que a instância gerida, como a plataforma do Azure tem uma otimização para o tráfego que passa entre os serviços que sejam colocados.
+
+## <a name="network-requirements"></a>Requisitos da rede
+
+É possível implementar a instância gerida numa sub-rede dedicada (sub-rede da instância gerida) dentro da rede virtual que está em conformidade com os seguintes requisitos:
+- **Dedicado sub-rede**: A sub-rede de instância gerida não pode conter qualquer outro serviço de cloud associado à mesma, e não pode ser uma sub-rede de Gateway. Não será possível criar uma instância gerida numa sub-rede que contém os recursos que não seja a instância gerida e, posteriormente, pode não adicionar outros recursos na sub-rede.
+- **Compatível com o grupo de segurança de rede (NSG)**: Um NSG associado a uma sub-rede de instância gerida tem de conter regras mostradas nas tabelas seguintes (regras de segurança de entrada obrigatória e regras de segurança de saída obrigatórios) à frente de quaisquer outras regras. Pode utilizar um NSG para controlar totalmente o acesso para o ponto final de dados de instância gerida ao filtrar o tráfego na porta 1433. 
+- **Tabela de compatíveis rota definida pelo utilizador (UDR)**: A sub-rede de instância gerida tem de ter uma tabela de rotas de utilizador com **Internet de salto seguinte 0.0.0.0/0** como o UDR obrigatório atribuído ao mesmo. Além disso, pode adicionar um UDR que encaminha o tráfego que tem intervalos de IP privados no local como um destino através do gateway de rede virtual ou a aplicação de rede virtual (NVA). 
+- **DNS personalizado opcional**: Se não for especificado um DNS personalizado na rede virtual, endereço IP de resolução de recursiva do Azure (por exemplo, 168.63.129.16) tem de ser adicionado à lista. Para obter mais informações, consulte [configurar o DNS de personalizado](sql-database-managed-instance-custom-dns.md). O servidor DNS personalizado tem de ser capaz de resolver nomes de anfitriões para os seguintes domínios e os respetivos subdomínios: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, e *microsoftonline-p.com*. 
+- **Não existem pontos finais de serviço**: A sub-rede de instância gerida não pode ter um ponto de extremidade de serviço associado a si. Certifique-se de que a opção de pontos finais de serviço é desativada quando criar a rede virtual.
+- **Endereços IP suficientes**: A sub-rede de instância gerida tem de ter o mínimo de 16 endereços IP (recomendado mínimo é de 32 endereços IP). Para obter mais informações, consulte [determinar o tamanho da sub-rede para instâncias geridas](sql-database-managed-instance-determine-size-vnet-subnet.md). Pode implementar instâncias geridas na [da rede existente](sql-database-managed-instance-configure-vnet-subnet.md) depois de configurá-lo para satisfazer [instância gerida, requisitos de rede](#network-requirements), ou criar um [nova rede e sub-rede](sql-database-managed-instance-create-vnet-subnet.md).
+
+> [!IMPORTANT]
+> Não será capaz de implantar uma nova instância gerida, se a sub-rede de destino não é compatível com todos esses requisitos. Quando é criada uma instância gerida, uma *política de intenção de rede* é aplicado na sub-rede para impedir alterações não conformes para configuração de rede. Após a última instância é removida a partir da sub-rede, o *política de intenção de rede* é removido também
+
+### <a name="mandatory-inbound-security-rules"></a>Regras de segurança de entrada obrigatório 
+
+| Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
+|------------|----------------------------|--------|-----------------|-----------|------|
+|gestão  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |Qualquer        |Permitir |
+|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DE MI        |Qualquer        |Permitir |
+|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|Qualquer        |Permitir |
+
+### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórios 
+
+| Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
+|------------|--------------|--------|-----------------|-----------|------|
+|gestão  |80, 443, 12000|TCP     |Qualquer              |Qualquer        |Permitir |
+|mi_subnet   |Qualquer           |Qualquer     |Qualquer              |SUB-REDE DE MI  |Permitir |
+
+  > [!Note]
+  > Embora as regras de segurança de entrada obrigatório permitem tráfego a partir _qualquer_ origem nas portas 9000, 9003, 1438, 1440, 1452 estas portas são protegidas pelo firewall interno. Isso [artigo](sql-database-managed-instance-find-management-endpoint-ip-address.md) mostra como pode descobrir o endereço IP do ponto final de gestão e verifique se as regras de firewall. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para uma descrição geral, consulte [o que é uma instância gerida](sql-database-managed-instance.md)
-- Para obter mais informações sobre a configuração de VNet, veja [configuração de VNet de instância gerida](sql-database-managed-instance-vnet-configuration.md).
+- Saiba como [configurar a nova VNet](sql-database-managed-instance-create-vnet-subnet.md) ou [configurar VNet existente](sql-database-managed-instance-configure-vnet-subnet.md) onde pode implementar instâncias geridas.
+- [Calcular o tamanho da sub-rede](sql-database-managed-instance-determine-size-vnet-subnet.md) onde irá implementar instâncias geridas. 
 - Para um início rápido, veja como criar a instância gerida:
   - Do [portal do Azure](sql-database-managed-instance-get-started.md)
   - usando [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)

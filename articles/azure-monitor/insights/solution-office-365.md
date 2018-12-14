@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: cc2fe3c71a3da58a00a3b3c65e709f2e371872e8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 54fda4852e986749499b7fc8717308edf81915b2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185210"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338501"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -710,4 +710,4 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 ## <a name="next-steps"></a>Passos Seguintes
 * Utilizar as Pesquisas de Registos no [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para ver dados de atualizações detalhados.
 * [Criar seus próprios dashboards](../../azure-monitor/platform/dashboards.md) para exibir suas consultas de pesquisa favoritas do Office 365.
-* [Criar alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para ser notificado proativamente das atividades do Office 365 importantes.  
+* [Criar alertas](../../azure-monitor/platform/alerts-overview.md) para ser notificado proativamente das atividades do Office 365 importantes.  

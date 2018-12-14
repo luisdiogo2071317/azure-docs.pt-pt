@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: fe096efba5419b283981f27e16c3e30a791412da
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322675"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387000"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuração e problemas de gerenciamento de serviços Cloud do Azure: Perguntas mais frequentes (FAQ)
 
@@ -242,7 +242,7 @@ Dimensionamento automático com base em métricas de memória para serviços Clo
 
 Para contornar este problema, pode utilizar o Application Insights. Dimensionamento automático suporta o Application Insights como uma origem de métricas e pode dimensionar a contagem de instâncias de função com base nas métricas de convidado, como "Memória".  Terá de configurar o Application Insights no seu ficheiro de pacote de projeto de serviço em nuvem (. cspkg) e ativar a extensão de diagnóstico do Azure no serviço para implementar esse feito.
 
-Para obter mais detalhes sobre como usar uma métrica personalizada por meio do Application Insights para configurar o dimensionamento automático nos serviços Cloud, consulte [introdução ao dimensionamento automático por métrica personalizada no Azure](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+Para obter mais detalhes sobre como usar uma métrica personalizada por meio do Application Insights para configurar o dimensionamento automático nos serviços Cloud, consulte [introdução ao dimensionamento automático por métrica personalizada no Azure](../azure-monitor/platform/autoscale-custom-metric.md)
 
 Para obter mais informações sobre como integrar o diagnóstico do Azure com o Application Insights para serviços em nuvem, consulte [enviar serviço de Cloud, máquinas virtuais ou recursos de infraestrutura do serviço de dados de diagnóstico para o Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 

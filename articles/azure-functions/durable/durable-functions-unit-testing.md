@@ -8,37 +8,36 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 12/11/2018
 ms.author: kadimitr
-ms.openlocfilehash: 159abb533bcc6211b4eca8b2c60f96bf9800db1a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3dcc9e4880c65e868f1cd62d3c6e1567e82b6870
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642649"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337874"
 ---
 # <a name="durable-functions-unit-testing"></a>Teste de unidade de funções durável
 
-Teste de unidade é uma parte importante de práticas de desenvolvimento de software Moderno. Testes de unidade verificar o comportamento de lógica de negócios e proteger a introdução de alterações de última hora despercebidas no futuro. Funções duráveis facilmente podem crescer em complexidade, de modo a apresentar de testes de unidade irão ajudar a evitar alterações significativas. As secções seguintes explicam como a unidade de testar os tipos de três função - cliente de orquestração, Orchestrator e atividade de funções. 
+Teste de unidade é uma parte importante de práticas de desenvolvimento de software Moderno. Testes de unidade verificar o comportamento de lógica de negócios e proteger a introdução de alterações de última hora despercebidas no futuro. Funções duráveis facilmente podem crescer em complexidade, de modo a apresentar de testes de unidade irão ajudar a evitar alterações significativas. As secções seguintes explicam como a unidade de testar os tipos de três função - cliente de orquestração, Orchestrator e atividade de funções.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os exemplos neste artigo requerem conhecimento dos conceitos e estruturas seguintes: 
+Os exemplos neste artigo requerem conhecimento dos conceitos e estruturas seguintes:
 
 * Teste de unidade
 
-* Funções Duráveis 
+* Funções Duráveis
 
 * [xUnit](https://xunit.github.io/) -estrutura de testes
 
 * [moq](https://github.com/moq/moq4) -estrutura de simulação
 
-
-## <a name="base-classes-for-mocking"></a>Classes base para a simulação 
+## <a name="base-classes-for-mocking"></a>Classes base para a simulação
 
 Simulação é suportado por meio de três classes abstratas nas funções duráveis:
 
-* [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) 
+* [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html)
 
 * [DurableOrchestrationContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContextBase.html)
 
@@ -47,7 +46,7 @@ Simulação é suportado por meio de três classes abstratas nas funções durá
 Essas classes são classes base para [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html), [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html), e [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) que definem o cliente de orquestração , Orchestrator e métodos de atividade. As simulações irão definir o comportamento esperado para métodos de classe base para que o teste de unidade pode verificar a lógica de negócios. Há um fluxo de trabalho de dois passos para teste de unidade lógica de negócios no cliente de orquestração e o Orchestrator:
 
 1. Use as classes bases, em vez da implementação concreta, quando definir as assinaturas de cliente de orquestração e do Orchestrator.
-2. Os testes de unidade simular o comportamento das base classes e verifique se a lógica de negócios. 
+2. Os testes de unidade simular o comportamento das base classes e verifique se a lógica de negócios.
 
 Encontrar mais detalhes nos próximos parágrafos para testar as funções que utilizem a ligação do cliente de orquestração e o orquestrador de acionam a ligação.
 
@@ -57,9 +56,9 @@ Nesta secção, o teste de unidade validará a lógica da função de Acionador 
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-A tarefa de teste de unidade será para verificar o valor da `Retry-After` fornecido no payload de resposta de cabeçalho. Para que o teste de unidade irá simular algumas das [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) métodos para garantir um comportamento previsível. 
+A tarefa de teste de unidade será para verificar o valor da `Retry-After` fornecido no payload de resposta de cabeçalho. Para que o teste de unidade irá simular algumas das [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) métodos para garantir um comportamento previsível.
 
-Em primeiro lugar, é necessária, uma simulação da classe base [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). A simulação pode ser uma nova classe que implementa [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). No entanto, usando uma estrutura de simulação, como [moq](https://github.com/moq/moq4) simplifica o processo:    
+Em primeiro lugar, é necessária, uma simulação da classe base [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). A simulação pode ser uma nova classe que implementa [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). No entanto, usando uma estrutura de simulação, como [moq](https://github.com/moq/moq4) simplifica o processo:
 
 ```csharp
     // Mock DurableOrchestrationClientBase
@@ -85,10 +84,10 @@ Próxima `CreateCheckStatusResponse` é simulada para sempre devolver uma respos
         {
             StatusCode = HttpStatusCode.OK,
             Content = new StringContent(string.Empty),
-            Headers = 
-            { 
+            Headers =
+            {
                 RetryAfter = new RetryConditionHeaderValue(TimeSpan.FromSeconds(10))
-            } 
+            }
         });
 ```
 
@@ -110,10 +109,10 @@ Agora o `Run` método é chamado do teste de unidade:
             Content = new StringContent("{}", Encoding.UTF8, "application/json"),
             RequestUri = new Uri("http://localhost:7071/orchestrators/E1_HelloSequence"),
         },
-        durableOrchestrationClientBaseMock.Object, 
+        durableOrchestrationClientBaseMock.Object,
         functionName,
         traceWriterMock.Object);
- ``` 
+ ```
 
  O último passo é comparar o resultado com o valor esperado:
 
@@ -125,7 +124,7 @@ Agora o `Run` método é chamado do teste de unidade:
     Assert.Equal(TimeSpan.FromSeconds(10), result.Headers.RetryAfter.Delta);
 ```
 
-Depois de combinar todos os passos, o teste de unidade terá o seguinte código: 
+Depois de combinar todos os passos, o teste de unidade terá o seguinte código:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HttpStartTests.cs)]
 
@@ -172,7 +171,7 @@ Depois de combinar todos os passos, o teste de unidade terá o seguinte código:
 
 ## <a name="unit-testing-activity-functions"></a>Funções de atividade testes de unidade
 
-Funções de atividade podem ter suas unidades testadas da mesma forma como as funções de não duradoura. 
+Funções de atividade podem ter suas unidades testadas da mesma forma como as funções de não duradoura.
 
 Nesta secção, o teste de unidade irá validar o comportamento do `E1_SayHello` função de atividade:
 

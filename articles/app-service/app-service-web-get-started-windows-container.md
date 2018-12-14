@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9c77bbbf3d2149e905d77355579021d10094496c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0883784d5c7f833556a07f2bc6431470febdc4c7
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250863"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384161"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Executar um contentor do Windows personalizado no Azure (Pré-visualização)
 
-O [Serviço de Aplicações do Azure](app-service-web-overview.md) disponibiliza pilhas de aplicações predefinidas no Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente pré-configurado do Windows bloqueia o sistema operativo contra acesso administrativo, instalações de software, alterações ao Global Assembly Cache, etc. (veja [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md) (Funcionalidade do sistema operativo no Serviço de Aplicações do Azure). Se a sua aplicação precisar de mais acesso do que aquele que o ambiente pré-configurado permite, pode implementar um contentor do Windows personalizado. Este início rápido mostra como implementar uma aplicação ASP.NET numa imagem do Windows para [Docker Hub](https://hub.docker.com/) a partir do Visual Studio e executá-lo num contentor personalizado no Serviço de Aplicações do Azure.
+O [Serviço de Aplicações do Azure](app-service-web-overview.md) disponibiliza pilhas de aplicações predefinidas no Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente pré-configurado do Windows bloqueia o sistema operativo contra acesso administrativo, instalações de software, alterações ao Global Assembly Cache, etc. (veja [Operating system functionality on Azure App Service](operating-system-functionality.md) (Funcionalidade do sistema operativo no Serviço de Aplicações do Azure). Se a sua aplicação precisar de mais acesso do que aquele que o ambiente pré-configurado permite, pode implementar um contentor do Windows personalizado. Este início rápido mostra como implementar uma aplicação ASP.NET numa imagem do Windows para [Docker Hub](https://hub.docker.com/) a partir do Visual Studio e executá-lo num contentor personalizado no Serviço de Aplicações do Azure.
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 

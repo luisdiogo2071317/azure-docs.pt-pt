@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 0338ffa13d1b141bb40deaf43fd04fe37bfaf5d2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252118"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338588"
 ---
 # <a name="traffic-analytics"></a>Análise de tráfego
 
@@ -291,7 +291,7 @@ Algumas das informações que talvez queira obter após a análise de tráfego �
     ![Dashboard que mostra a distribuição de rede virtual](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - A topologia de rede Virtual mostra a faixa de opções principal para a seleção dos parâmetros como o da rede virtual (rede virtual do Inter ligações/Active/Inactive), ligações externas, fluxos ativos e fluxos maliciosos da rede virtual.
-- Pode filtrar a topologia de rede Virtual com base nas subscrições, áreas de trabalho, grupos de resouece e intervalo de tempo. Filtros adicionais que o ajudam a compreender o fluxo são: Fluxo de tipo (inter-Vnet, IntraVNET etc), direção de fluxo de mensagens em fila (entrada, saída), estado do fluxo (permitido, bloqueado) VNETs (destino e ligado), o tipo de ligação (Peering ou Gateway - P2S e S2S) e do NSG. Utilize estes filtros para se concentrar em VNets que pretende examinar em detalhes.
+- Pode filtrar a topologia de rede Virtual com base nas subscrições, áreas de trabalho, grupos de recursos e intervalo de tempo. Filtros adicionais que o ajudam a compreender o fluxo são: Fluxo de tipo (inter-Vnet, IntraVNET etc), direção de fluxo de mensagens em fila (entrada, saída), estado do fluxo (permitido, bloqueado) VNETs (destino e ligado), o tipo de ligação (Peering ou Gateway - P2S e S2S) e do NSG. Utilize estes filtros para se concentrar em VNets que pretende examinar em detalhes.
 - A topologia de rede Virtual mostra a distribuição de tráfego para uma rede virtual com respeito a fluxos (permitido/bloqueado/entrada/saída/Benign/maliciosos), protocolo de aplicação e grupos de segurança de rede, por exemplo:
 
     ![Topologia de rede virtual que mostra detalhes de distribuição e o fluxo de tráfego](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)

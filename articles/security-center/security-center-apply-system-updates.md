@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a0d0cbacfa03080d519e5d9e3592ad01ed58b933
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f3c055d55da06e6410520084a1c96baa78b91496
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316588"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341717"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Aplicar atualizações do sistema no Centro de segurança do Azure
 Centro de segurança do Azure monitoriza diárias máquinas virtuais (VMs) Windows e Linux e computadores para atualizações de sistema operativo em falta. Centro de segurança obtém uma lista de atualizações críticas e de segurança disponíveis do Windows Update ou Windows Server Update Services (WSUS), dependendo de qual o serviço está configurado num computador Windows. Centro de segurança também verifica as atualizações mais recentes nos sistemas Linux. Se a sua VM ou o computador está em falta uma atualização do sistema, o Centro de segurança recomendará que aplique as atualizações do sistema.
@@ -45,19 +45,19 @@ Neste exemplo, utilizamos **computação**.
 
   Na parte inferior do dashboard apresenta uma lista de todas as atualizações em falta em suas VMs e computadores e a gravidade da atualização em falta.  A lista inclui:
 
-    - NAME: Nome da atualização em falta.
-    - NÃO. DE VMs e computadores: número Total de VMs e computadores que estão em falta esta atualização.
-    - Estado: O estado atual da Recomendação:
+    - NOME: Nome da atualização em falta.
+    - NÃO. DE VMs e computadores: Número total de VMs e computadores que estão em falta esta atualização.
+    - ESTADO: O estado atual da Recomendação:
 
       - Abrir: A recomendação ainda não foi tratada.
-      - Em curso: A recomendação está atualmente a ser aplicada a esses recursos e é necessária nenhuma ação por si.
-      - Resolvido: A recomendação já foi concluída. (Quando o problema for resolvido, a entrada fica a cinzento).
+      - Em curso: A recomendação está atualmente a ser aplicada a esses recursos, e é necessária nenhuma ação por si.
+      - Resolvidos: A recomendação já foi concluída. (Quando o problema for resolvido, a entrada fica a cinzento).
 
     - GRAVIDADE: Descreve a gravidade dessa recomendação específica:
 
-      - Alto: Uma vulnerabilidade existe com um recurso significativo (aplicação, máquina virtual ou grupo de segurança de rede) e necessita de atenção.
-      - Médio: São necessários passos não críticos ou adicionais para concluir um processo ou eliminar uma vulnerabilidade.
-      - Baixa: Uma vulnerabilidade deve ser resolvida, mas não necessita de atenção imediata. (Por predefinição, as recomendações baixas não são apresentadas, mas pode filtrar por recomendações baixas se pretender visualizá-las).
+      - Alta: Uma vulnerabilidade existe com um recurso significativo (aplicação, máquina virtual ou grupo de segurança de rede) e necessita de atenção.
+      - Médio: Passos não críticos ou adicionais são necessários para concluir um processo ou eliminar uma vulnerabilidade.
+      - Baixo: Uma vulnerabilidade deve ser tratada, mas não necessita de atenção imediata. (Por predefinição, as recomendações baixas não são apresentadas, mas pode filtrar por recomendações baixas se pretender visualizá-las).
 
 3. Selecione uma atualização em falta na lista para ver os detalhes.
 
@@ -84,7 +84,7 @@ Reinicie a VM do Azure para concluir o processo.
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
 * [Monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.

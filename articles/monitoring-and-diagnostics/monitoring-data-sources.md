@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 7de2257a5e351cc1c2eac83a0fd0095807ae4afa
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: cf2dd013b0d6f8867129d2d53311af21af5a1fe2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320766"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385334"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consumir dados de monitorização do Azure
 
@@ -29,7 +29,7 @@ Nas plataformas do Azure, estamos a juntar dados de monitorização num único l
 | Métricas de armazenamento | Métricas | Storage do Azure | <ul><li>**Tabela de armazenamento:** [Análise de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Dados de faturação | Métricas | Todos os serviços do Azure | <ul><li>**REST API:** [Utilização de recursos do Azure e RateCard APIs](../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | Registo de Atividades | Eventos | Todos os serviços do Azure | <ul><li>**REST API:** [API de eventos de Monitor do Azure](https://docs.microsoft.com/rest/api/monitor/eventcategories)</li><li>**Hub de eventos ou blob de armazenamento:** [Perfil de registo](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
-| Registos de diagnóstico do Azure Monitor | Eventos | [Ver lista aqui](monitoring-diagnostic-logs-schema.md) | <ul><li>**Hub de eventos ou blob de armazenamento:** [Definições de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
+| Registos de diagnóstico do Azure Monitor | Eventos | [Ver lista aqui](../azure-monitor/platform/tutorial-dashboards.md) | <ul><li>**Hub de eventos ou blob de armazenamento:** [Definições de diagnóstico](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
 | Computação de registos do SO convidado (ex. IIS, o ETW, syslogs) | Eventos | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) e máquinas virtuais do Linux (v2), [serviços Cloud](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [do Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Tabela de armazenamento ou um blob:** [Diagnóstico do Windows ou Linux do Azure](../azure-monitor/platform/diagnostics-extension-to-storage.md)</li><li>**Hub de eventos:** [Diagnóstico do Windows Azure](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)</li></ul> |
 | Registos do serviço de aplicações | Eventos | Serviços aplicacionais | <ul><li>**Ficheiro, tabela ou armazenamento de BLOBs:** [Diagnóstico de aplicação Web](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
 | Registos de armazenamento | Eventos | Storage do Azure | <ul><li>**Tabela de armazenamento:** [Análise de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
@@ -39,7 +39,7 @@ Nas plataformas do Azure, estamos a juntar dados de monitorização num único l
 | Estado de Funcionamento de Recursos | Estado | Serviços suportados | <ul><li>**REST API:** [REST API do Estado de funcionamento do recurso](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
 | Alertas de métricas de Monitor do Azure | Notificações | [Ver lista aqui](monitoring-supported-metrics.md) | <ul><li>**Webhook:** [Alertas de métricas do Azure](../azure-monitor/platform/alerts-webhooks.md)</li></ul> |
 | Alertas de registo de atividade do Monitor do Azure | Notificações | Todos os serviços do Azure | <ul><li>**Webhook:** Alertas de registo de atividades do Azure</li></ul> |
-| Notificações de dimensionamento automático | Notificações | [Ver lista aqui](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Esquema de payload de webhook de notificação de dimensionamento automático](../azure-monitor/platform/autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
+| Notificações de dimensionamento automático | Notificações | [Ver lista aqui](../azure-monitor/platform/autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [Esquema de payload de webhook de notificação de dimensionamento automático](../azure-monitor/platform/autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
 | Alertas de consulta de pesquisa de registo | Notificações | Log Analytics | <ul><li>**Webhook:** [Ação do Webhook para regras de alerta de registo](../monitoring-and-diagnostics/../azure-monitor/platform/alerts-log-webhook.md)</li></ul> |
 | Alertas de métricas do Application Insights | Notificações | Application Insights | <ul><li>**Webhook:** [Alertas das informações de aplicação](../application-insights/app-insights-alerts.md)</li></ul> |
 | Testes web do Application Insights | Notificações | Application Insights | <ul><li>**Webhook:** [Alertas das informações de aplicação](../application-insights/app-insights-alerts.md)</li></ul> |

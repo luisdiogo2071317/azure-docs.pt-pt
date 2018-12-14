@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 4b8547435293f26c7f22ed6d5181c64fbabcd574
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0ab496b884506b013c6a4abb2dff1e1feff4fc72
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285040"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342991"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como realizar ações complexos com alertas do Azure Monitor
 
@@ -295,6 +295,6 @@ O processo para criar um alerta de métrica é semelhante à [criar um alerta de
 O Logic Apps tem uma série de conectores diferentes que permitem-lhe realizar ações numa ampla variedade de aplicativos e bancos de dados. Slack, SQL Server, Oracle, Salesforce, são apenas alguns exemplos. Para obter mais informações sobre conectores, consulte [conectores da aplicação lógica](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Obter um [descrição geral dos alertas de registo de atividades do Azure](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) e saiba como receber alertas.  
+* Obter um [descrição geral dos alertas de registo de atividades do Azure](../../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas quando for lançada uma notificação do Azure Service Health](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).

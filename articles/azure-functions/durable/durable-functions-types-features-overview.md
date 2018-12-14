@@ -8,18 +8,18 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/04/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 265314ebf2568bd586934d371e1e6c1d74e0b9bb
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642313"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336532"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Descrição geral dos tipos de função e funcionalidades para funções duráveis (funções do Azure)
 
-Funções duráveis do Azure proporciona uma orquestração com monitoração de estado de execução de função. Uma função durável é uma solução composta por diferentes funções do Azure. Cada uma dessas funções pode desempenhar funções diferentes, como parte de uma orquestração. O documento seguinte fornece uma descrição geral dos tipos de funções envolvidas numa orquestração de função durável. Ele também inclui alguns padrões comuns na conexão funções em conjunto.  Para começar agora mesmo, criar a primeira função durável na [ C# ](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md).
+Funções duráveis proporciona uma orquestração com monitoração de estado de execução de função. Uma função durável é uma solução composta por diferentes funções do Azure. Cada uma dessas funções pode desempenhar funções diferentes, como parte de uma orquestração. O documento seguinte fornece uma descrição geral dos tipos de funções envolvidas numa orquestração de função durável. Ele também inclui alguns padrões comuns na conexão funções em conjunto.  Para começar agora mesmo, criar a primeira função durável na [ C# ](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md).
 
 ![Tipos de funções duráveis][1]  
 
@@ -27,9 +27,11 @@ Funções duráveis do Azure proporciona uma orquestração com monitoração de
 
 ### <a name="activity-functions"></a>Funções de atividade
 
-Funções de atividade são a unidade básica de trabalho numa orquestração durável.  Funções de atividade são as funções e tarefas que está a ser orquestradas no processo.  Por exemplo, pode criar uma função durável para processar um pedido - Verifique o inventário, o cliente de cobrança e criar uma remessa.  Cada uma dessas tarefas seria uma função de atividade.  Funções de atividade não tem quaisquer restrições no tipo de trabalho, que pode fazer nos mesmos.  Eles podem ser escritos em qualquer idioma suportado pelas funções do Azure.  A estrutura de tarefa durável garante que cada função de chamada de atividade será executada pelo menos uma vez durante uma orquestração.
+Funções de atividade são a unidade básica de trabalho numa orquestração durável.  Funções de atividade são as funções e tarefas que está a ser orquestradas no processo.  Por exemplo, pode criar uma função durável para processar um pedido - Verifique o inventário, o cliente de cobrança e criar uma remessa.  Cada uma dessas tarefas seria uma função de atividade.  Funções de atividade não tem quaisquer restrições no tipo de trabalho, que pode fazer nos mesmos.  Eles podem ser escritos em qualquer [suportado pela funções duráveis](durable-functions-overview.md#language-support). A estrutura de tarefa durável garante que cada função de chamada de atividade será executada pelo menos uma vez durante uma orquestração.
 
-Uma função de atividade tem de ser acionada por um [acionador de atividade](durable-functions-bindings.md#activity-triggers).  Esta função irá receber uma [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como um parâmetro. Também é possível vincular o acionador para qualquer outro objeto para passar nas entradas para a função.  A função de atividade também pode retornar valores de volta para o orchestrator.  Se enviar ou retornar vários valores de uma função de atividade, pode [tirar partido das cadeias de identificação ou matrizes](durable-functions-bindings.md#passing-multiple-parameters).  Funções de atividade apenas podem ser acionadas a partir de uma instância de orquestração.  Enquanto parte do código pode ser compartilhado entre uma função de atividade e a outra função (como uma função acionada por HTTP), cada função só pode ter um acionador.
+Uma função de atividade tem de ser acionada por um [acionador de atividade](durable-functions-bindings.md#activity-triggers).  Funções de .NET irão receber uma [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como um parâmetro. Também é possível vincular o acionador para qualquer outro objeto para passar nas entradas para a função. No JavaScript, a entrada pode ser acessada por meio da `<activity trigger binding name>` propriedade no [ `context.bindings` objeto](../functions-reference-node.md#bindings).
+
+A função de atividade também pode retornar valores de volta para o orchestrator.  Se enviar ou retornar vários valores de uma função de atividade, pode [tirar partido das cadeias de identificação ou matrizes](durable-functions-bindings.md#passing-multiple-parameters).  Funções de atividade apenas podem ser acionadas a partir de uma instância de orquestração.  Enquanto parte do código pode ser compartilhado entre uma função de atividade e a outra função (como uma função acionada por HTTP), cada função só pode ter um acionador.
 
 Obter mais informações e exemplos podem ser encontrados no [artigo de associação de funções duráveis](durable-functions-bindings.md#activity-triggers).
 
@@ -79,7 +81,9 @@ Obter mais informações e exemplos podem ser encontrados no [artigo de tratamen
 
 Embora uma orquestração durável geralmente reside num contexto de uma aplicação de função única, existem padrões que lhe permite coordenar orquestrações em muitas aplicações de funções.  Mesmo que a comunicação entre aplicações poderá estar a ocorrer através de HTTP, usando a estrutura de durável para cada atividade significa que ainda pode manter um processo durável entre duas aplicações.
 
-Um exemplo de uma orquestração de aplicação de várias funções em c#, é apresentado abaixo.  Uma atividade iniciará a orquestração externa. Outra atividade, em seguida, irá obter e devolver o estado.  O orchestrator espera que o estado seja concluída antes de continuar.
+Exemplos de uma orquestração de aplicação de várias funções no C# e o JavaScript são apresentadas abaixo.  Uma atividade iniciará a orquestração externa. Outra atividade, em seguida, irá obter e devolver o estado.  O orchestrator espera que o estado seja concluída antes de continuar.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("OrchestratorA")]
@@ -128,6 +132,64 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
         return response.StatusCode == HttpStatusCode.OK;
     }
 }
+```
+
+#### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    // Do some work...
+
+    // Call a remote orchestration
+    const statusUrl = yield context.df.callActivity("StartRemoteOrchestration", "OrchestratorB");
+
+    // Wait for the remote orchestration to complete
+    while (true) {
+        const isComplete = yield context.df.callActivity("CheckIsComplete", statusUrl);
+        if (isComplete) {
+            break;
+        }
+
+        const waitTime = moment(context.df.currentUtcDateTime).add(1, "m").toDate();
+        yield context.df.createTimer(waitTime);
+    }
+
+    // B is done. Now go do more work...
+});
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, orchestratorName) {
+    const options = {
+        method: "POST",
+        uri: `https://appB.azurewebsites.net/orchestrations/${orchestratorName}`,
+        body: ""
+    };
+
+    const statusUrl = await request(options);
+    return statusUrl;
+};
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, statusUrl) {
+    const options = {
+        method: "GET",
+        uri: statusUrl,
+        resolveWithFullResponse: true,
+    };
+
+    const response = await request(options);
+    // 200 = Complete, 202 = Running
+    return response.statusCode === 200;
+};
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

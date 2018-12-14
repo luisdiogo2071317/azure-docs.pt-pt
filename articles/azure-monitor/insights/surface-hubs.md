@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 56234562f64073e2b772f6ebf302ddba9ea56188
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a006e9a9eb3fe4d9dc049e29eb404e5edf8f35c9
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189546"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342141"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Monitorizar o Surface Hubs com o Log Analytics para controlar o respetivo estado de funcionamento
 
@@ -82,8 +82,8 @@ Monitorização do Surface Hubs utilizar o Log Analytics é muito parecida com a
 
    ![Painel do Surface Hub](./media/surface-hubs/surface-hub-dashboard.png)
 
-Pode criar [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) com base em pesquisas de registos existentes ou personalizados. Utilizar os dados que do Log Analytics recolhe a partir de seu Surface Hubs, pode procurar problemas e alerta nas condições que definem para os seus dispositivos.
+Pode criar [alertas](../../azure-monitor/platform/alerts-overview.md) com base em pesquisas de registos existentes ou personalizados. Utilizar os dados que do Log Analytics recolhe a partir de seu Surface Hubs, pode procurar problemas e alerta nas condições que definem para os seus dispositivos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Uso [pesquisas de registos no Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para ver os dados detalhados do Surface Hub.
-* Crie [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para ser notificado quando ocorrer problemas no seu Surface Hubs.
+* Crie [alertas](../../azure-monitor/platform/alerts-overview.md) para ser notificado quando ocorrer problemas no seu Surface Hubs.

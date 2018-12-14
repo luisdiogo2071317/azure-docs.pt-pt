@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 1951b6d6815f5ca0e6f17fda0d6eb8e7d2dd4aca
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6b74d83de0495e3436c9bef623a827e8a1496767
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276473"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343309"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de métrica clássicas com o Azure Monitor
 
@@ -129,5 +129,5 @@ Estas secções mostram como utilizar o PowerShell comandos criar, ver e gerir a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar um alerta de métrica clássico com um modelo do Resource Manager](../../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md).
+- [Criar um alerta de métrica clássico com um modelo do Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
 - [Ter um alerta de métrica clássico notificar um sistema não pertencente ao Azure através de um webhook](../../azure-monitor/platform/alerts-webhooks.md).

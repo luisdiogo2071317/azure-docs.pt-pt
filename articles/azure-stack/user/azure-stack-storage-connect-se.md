@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ab498a108eba39088aa610188918934dd4ec1d3e
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078958"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386779"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Ligar o Explorador de armazenamento para uma subscrição do Azure Stack ou uma conta de armazenamento
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 Neste artigo, irá aprender a ligar às suas subscrições do Azure Stack e as contas de armazenamento com o Explorador de armazenamento. Explorador de armazenamento do Azure é uma aplicação autónoma que lhe permite trabalhar facilmente com dados do armazenamento do Azure Stack no Windows, macOS e Linux.
 
@@ -45,9 +45,16 @@ Para o Kit de desenvolvimento do Azure Stack, terá de exportar o certificado de
 
 2. Na **arquivo**, selecione **Adicionar/Remover Snap-in**e, em seguida, adicione **certificados** gerir **minha conta de usuário**.
 
-3. Sob **raiz da consola\certificado de consola (computador Local) \Trusted Root Certification Authorities\Certificates** encontrar **AzureStackSelfSignedRootCert**.
+3.  Sob **consola de certificação de raiz da consola\certificado (computador Local) \Trusted Raiz Fidedigna\Certificados**.
 
-    ![Carregue o certificado de raiz do Azure stack através de mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+    - Para o ASDK, encontrar **AzureStackSelfSignedRootCert**.
+
+        ![Carregue o certificado de raiz do Azure stack através de mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+
+    - Para um sistema integrado, localize o certificado de raiz dos seus certificados externos. 
+    
+        ![Carregue o certificado de raiz do Azure stack através de mmc.exe](./media/azure-stack-storage-connect-se/azure-stack-storage-cert-location-is.png)
+        
 
 4. O certificado com o botão direito, selecione **todas as tarefas** > **exportar**e, em seguida, siga as instruções para exportar o certificado com **X.509 com codificação Base 64 (. CER)**.
 

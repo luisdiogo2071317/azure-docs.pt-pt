@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 214598291e69acfec2064738f798a48180ad05a6
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: bb23dd98768c4aaa343082bbc2caae43071a5e1f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323000"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385674"
 ---
 # <a name="azure-security-white-papers"></a>Técnicos de segurança do Azure
 | | |
@@ -41,3 +41,5 @@ ms.locfileid: "53323000"
 |[Isolamento na cloud pública do Azure](azure-isolation.md)|Descreve como o Azure fornece isolamento contra utilizadores maliciosos e não maliciosos. Serve como um guia para arquitetar soluções na cloud ao proporcionar várias opções de isolamento para arquitetos. Foco principal é sobre os controlos de segurança do lado do cliente e não tenta SLAs de endereço, considerações de prática de DevOps e modelos de preços.|
 |[Descrição geral de conformidade do Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|Este documento transferível aborda ofertas de conformidade do Azure, incluindo certificações formais, atestados, validações, substituindo as autorizações e avaliações produzidas por firmas de auditorias de terceiros independentes, bem como uma contratual, autoavaliações e documentos de diretrizes de cliente produzidos pela Microsoft. <br/> Estados de descrição que serviços do lado do cliente do Azure estão no âmbito para a avaliação e fornece ligações para recursos que podem ser baixados para ajudar os clientes com seus próprios obrigações reguladoras de conformidade de cada oferta.|
 |[Gestão de segurança no Azure](azure-security-management.md)|Aborda os problemas de acesso remoto aos recursos do Azure. A natureza da administração de acesso remoto de demandas de cloud e, portanto, segurança é imprescindível. Aborda diretrizes de segurança geral, a configuração do cliente, as práticas recomendadas e princípios operacionais e os procedimentos. |
+|[Considerações de segurança do Azure Active Directory](https://aka.ms/aaddatawhitepaper) | O download do documento explica os diferentes componentes do Azure Active Directory e suas interações entre si. Descreve como os vários componentes protegerem, protegerem, encriptarem ou hash seus dados em trânsito (por exemplo, através da Internet) e como são protegido em repouso. Explica as várias localizações de datacenter do Azure AD e suas interações com diretórios no local, bem como os fluxos de e para o Azure AD. Por fim, ele descreve os procedimentos operacionais usados pela equipe de engenharia do Azure AD para gerenciar e proteger o serviço.|
+

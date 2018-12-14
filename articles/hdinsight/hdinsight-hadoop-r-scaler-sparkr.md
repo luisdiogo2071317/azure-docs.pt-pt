@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: da486b25a9a35cb4f00d6e5a4689d5be3d270e36
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013280"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386905"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinar ScaleR e SparkR no HDInsight
 
 Este documento mostra como prever a atrasos de chegada de voo com um **ScaleR** modelo de regressão logística. O exemplo utiliza o atraso e meteorologia dados de voo, associados através de **SparkR**.
 
-Apesar de ambos os pacotes serem executadas no motor de execução do Spark do Hadoop, eles ficam bloqueados de cada necessária suas próprias sessões de Spark respectivos de partilha de dados de dentro da memória. Até que esse problema é corrigido numa versão futura do ML Server, a solução é para manter a sessões de Spark não sobrepostos e trocar dados por meio de arquivos intermediários. As instruções aqui mostram que esses requisitos são simples alcançar.
+Apesar de ambos os pacotes serem executadas no motor de execução do Apache Hadoop Spark, eles ficam bloqueados de cada necessária suas próprias sessões de Spark respectivos de partilha de dados de dentro da memória. Até que esse problema é corrigido numa versão futura do ML Server, a solução é para manter a sessões de Spark não sobrepostos e trocar dados por meio de arquivos intermediários. As instruções aqui mostram que esses requisitos são simples alcançar.
 
 Neste exemplo foi inicialmente partilhado numa conversa em Strata 2016 Mario Inchiosa e Roni Burd. Pode encontrar esta conversa em [criando uma plataforma de ciência de dados escalonável com R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Em outro lugar de classificação
 
-Também podemos usar o modelo de classificação de dados noutra plataforma. Ao salvá-lo para um ficheiro RDS e, em seguida, transferir e importar esse RDS num ambiente, como o SQL Server R Services de classificação de destino. É importante certificar-se de que os níveis de fator de dados ser classificados correspondem no qual o modelo foi criado. Essa correspondência pode ser alcançada ao extrair e salvar as informações de coluna associadas com os dados de modelagem por meio do ScaleR `rxCreateColInfo()` função e, em seguida, aplicar essas informações de coluna para a origem de dados de entrada para predição. A seguir vamos guardar algumas linhas do conjunto de dados de teste e extrair e utilize as informações de coluna deste exemplo do script de predição:
+Também podemos usar o modelo de classificação de dados noutra plataforma. Ao salvá-lo para um ficheiro RDS e, em seguida, transferir e importar esse RDS num ambiente, como o MIcrosoft SQL Server R Services de classificação de destino. É importante certificar-se de que os níveis de fator de dados ser classificados correspondem no qual o modelo foi criado. Essa correspondência pode ser alcançada ao extrair e salvar as informações de coluna associadas com os dados de modelagem por meio do ScaleR `rxCreateColInfo()` função e, em seguida, aplicar essas informações de coluna para a origem de dados de entrada para predição. A seguir vamos guardar algumas linhas do conjunto de dados de teste e extrair e utilize as informações de coluna deste exemplo do script de predição:
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,7 +535,7 @@ Neste artigo, mostramos como é possível combinar o uso de SparkR para manipula
 
 ## <a name="next-steps-and-more-information"></a>Passos seguintes e obter mais informações
 
-- Para obter mais informações sobre a utilização do ML Server no Spark, consulte o [guia de introdução](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Para obter mais informações sobre a utilização do servidor de ML no Apache Spark, consulte o [guia de introdução](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
 - Para obter informações gerais sobre o ML Server, consulte a [introdução ao R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) artigo.
 

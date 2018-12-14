@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: aa1d5a4fc29b6fa5fc751edfd40e61d8762f6bd7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 300ccf5da3528be63ae618338b8953d05b0e799d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965347"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337466"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desenvolver e implementar o WebJobs com o Visual Studio - serviço de aplicações do Azure
 
@@ -142,7 +142,7 @@ Quando configurar uma aplicação de consola para a implementação de WebJobs, 
           "runMode": "Continuous"
         }
 
-Pode editar este ficheiro diretamente, e o Visual Studio fornece o IntelliSense. O esquema de ficheiro é armazenado em [ http://schemastore.org ](http://schemastore.org/schemas/json/webjob-publish-settings.json) e pode ser vista aqui.  
+Pode editar este ficheiro diretamente, e o Visual Studio fornece o IntelliSense. O esquema de ficheiro é armazenado em [ https://schemastore.org ](https://schemastore.org/schemas/json/webjob-publish-settings.json) e pode ser vista aqui.  
 
 ## <a id="webjobslist"></a>webjobs-list.json
 Quando liga um projeto habilitados para o WebJobs para um projeto web, o Visual Studio armazena o nome do projeto de WebJobs uma *webjobs list.json* arquivo no projeto da web *propriedades* pasta. A lista pode conter vários projetos de WebJobs, conforme mostrado no exemplo a seguir:
@@ -159,7 +159,7 @@ Quando liga um projeto habilitados para o WebJobs para um projeto web, o Visual 
           ]
         }
 
-Pode editar este ficheiro diretamente, e o Visual Studio fornece o IntelliSense. O esquema de ficheiro é armazenado em [ http://schemastore.org ](http://schemastore.org/schemas/json/webjobs-list.json) e pode ser vista aqui.
+Pode editar este ficheiro diretamente, e o Visual Studio fornece o IntelliSense. O esquema de ficheiro é armazenado em [ https://schemastore.org ](https://schemastore.org/schemas/json/webjobs-list.json) e pode ser vista aqui.
 
 ## <a id="deploy"></a>Implementar um projeto de WebJobs
 Um projeto de WebJobs que a ligação a um projeto web implementa automaticamente com o projeto de web. Para obter informações sobre a implantação do projeto de web, consulte **guias de procedimentos** > **implementar aplicação** na navegação à esquerda.

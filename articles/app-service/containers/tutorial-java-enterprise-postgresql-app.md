@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 2b8151117a9093cb58ffe6db45bc5ee1a9abd54b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259261"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344232"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutorial: Criar uma aplicação de web de Java EE e Postgres no Azure
 
-Neste tutorial mostram-lhe como criar uma aplicação web de Java Enterprise Edition (EE) no serviço de aplicações do Azure e ligá-la a uma base de dados Postgres. Quando tiver terminado, terá uma [WildFly](http://www.wildfly.org/about/) aplicação armazena os dados na [base de dados do Azure para Postgres](https://azure.microsoft.com/services/postgresql/) em execução no Azure [serviço de aplicações para Linux](app-service-linux-intro.md).
+Neste tutorial mostram-lhe como criar uma aplicação web de Java Enterprise Edition (EE) no serviço de aplicações do Azure e ligá-la a uma base de dados Postgres. Quando tiver terminado, terá uma [WildFly](https://www.wildfly.org/about/) aplicação armazena os dados na [base de dados do Azure para Postgres](https://azure.microsoft.com/services/postgresql/) em execução no Azure [serviço de aplicações para Linux](app-service-linux-intro.md).
 
 Neste tutorial, vai aprender a:
 > [!div class="checklist"]

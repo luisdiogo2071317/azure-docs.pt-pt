@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ce410e69427f29ce70f8b2136a08bd7e6d00113c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ecfab15860ffc690d341069b626e5d7579c00da4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249726"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340373"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar a inclusão do Centro de segurança do Azure com o PowerShell
 
@@ -40,7 +40,7 @@ Neste exemplo, vamos ativar o Centro de segurança de uma subscrição com o ID:
 
 5. Definir da organização [CISO como o contacto de segurança para os alertas ASC e eventos notáveis](security-center-provide-security-contact-details.md).
 
-6. Centro de segurança a atribuir [predefinido de políticas de segurança](security-center-azure-policy.md).
+6. Centro de segurança a atribuir [predefinido de políticas de segurança](tutorial-security-policy.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -111,6 +111,6 @@ Para saber mais sobre como pode utilizar o PowerShell para automatizar a adesão
 
 Para saber mais sobre o Centro de segurança, consulte o artigo seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.

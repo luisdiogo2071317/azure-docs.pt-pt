@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2c4730b3ec84ca14bcc3e93ed82faf37b15970d7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0d27b16690516becc586678f8cf3edea234feeea
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010376"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383404"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Compreender e resolver erros recebidos de WebHCat no HDInsight
 
@@ -22,18 +22,18 @@ Saiba mais sobre erros recebidos quando utiliza o WebHCat com o HDInsight e como
 
 ## <a name="what-is-webhcat"></a>O que é o WebHCat
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) é uma API REST para [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), uma tabela e a camada de gestão de armazenamento para o Hadoop. WebHCat é habilitado por padrão nos clusters do HDInsight e é utilizado por várias ferramentas para submeter tarefas, obter o estado da tarefa, etc. sem iniciar sessão para o cluster.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) é uma API REST para [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), uma tabela e a camada de gestão de armazenamento para o Apache Hadoop. WebHCat é habilitado por padrão nos clusters do HDInsight e é utilizado por várias ferramentas para submeter tarefas, obter o estado da tarefa, etc. sem iniciar sessão para o cluster.
 
 ## <a name="modifying-configuration"></a>Modificar configuração
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Vários dos erros listados neste documento ocorrerem porque foi excedido um máximo configurado. Quando o passo de resolução menciona que é possível alterar um valor, tem de utilizar um dos seguintes procedimentos para efetuar a alteração:
 
-* Para **Windows** clusters: utilizar uma ação de script para configurar o valor durante a criação do cluster. Para obter mais informações, consulte [desenvolver ações de script](hdinsight-hadoop-script-actions.md).
+* Para **Windows** clusters: Utilize uma ação de script para configurar o valor durante a criação do cluster. Para obter mais informações, consulte [desenvolver ações de script](hdinsight-hadoop-script-actions.md).
 
-* Para **Linux** clusters: Ambari de utilização (web ou REST API) para modificar o valor. Para obter mais informações, consulte [gerir o HDInsight com o Ambari](hdinsight-hadoop-manage-ambari.md)
+* Para **Linux** clusters: Utilize o Apache Ambari (web ou REST API) para modificar o valor. Para obter mais informações, consulte [gerir o HDInsight com o Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 ### <a name="default-configuration"></a>Configuração predefinida
@@ -62,7 +62,7 @@ Se os seguintes valores predefinidos são excedidos, pode degradar o desempenho 
 | --- | --- |
 | Este código de estado geralmente ocorre durante a ativação pós-falha entre o nó principal primário e secundário para o cluster |Aguardar dois minutos, em seguida, repita a operação |
 
-## <a name="bad-request-content-could-not-find-job"></a>Conteúdo de pedido inválido: não foi possível encontrar a tarefa
+## <a name="bad-request-content-could-not-find-job"></a>Pedido incorreto conteúdo: Não foi possível encontrar a tarefa
 
 **Código de estado HTTP**: 400
 

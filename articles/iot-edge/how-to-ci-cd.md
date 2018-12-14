@@ -4,45 +4,43 @@ description: Configurar a integração contínua e implementação contínua –
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 11/29/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4db5fce89df0b5974261788608b785cf16917f1a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074803"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386830"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implementação contínua para o Azure IoT Edge
 
-Pode adotar facilmente DevOps com as suas aplicações do Azure IoT Edge com as tarefas incorporadas do Azure IoT Edge em Pipelines do Azure ou [Plug-in do Azure IoT Edge do Jenkins](https://plugins.jenkins.io/azure-iot-edge) no seu servidor do Jenkins. Este artigo demonstra como pode utilizar a integração contínua e funcionalidades de implementação contínua do Pipelines do Azure e o servidor de DevOps do Azure para criar, testar e implementar aplicações de forma rápida e eficaz para o Azure IoT Edge. 
+Pode adotar facilmente DevOps com as suas aplicações do Azure IoT Edge com as tarefas incorporadas do Azure IoT Edge em Pipelines do Azure ou [Plug-in do Azure IoT Edge do Jenkins](https://plugins.jenkins.io/azure-iot-edge) no seu servidor do Jenkins. Este artigo demonstra como pode utilizar a integração contínua e os recursos de implementação contínua do Pipelines do Azure para criar, testar e implementar aplicações rápida e eficiente para o Azure IoT Edge. 
 
 Neste artigo, ficará a saber como:
 * Criar e verificar num exemplo de solução de IoT Edge.
 * Configure a integração contínua (CI) para criar a solução.
 * Configure a implementação contínua (CD) para implementar a solução e ver respostas.
 
-Irá demorar 20 minutos para concluir os passos neste artigo.
-
 ![Diagrama - CI e CD ramos para desenvolvimento e produção](./media/how-to-ci-cd/cd.png)
 
 
 ## <a name="create-a-sample-azure-iot-edge-solution-using-visual-studio-code"></a>Criar uma solução do Azure IoT Edge de exemplo com o Visual Studio Code
 
-Nesta secção, irá criar um exemplo do IoT Edge solução que contém testes de unidade que poderá ser executado como parte do processo de compilação. Antes de seguir as orientações nesta secção, conclua os passos na [desenvolver uma solução de IoT Edge com vários módulos no Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
+Nesta secção, irá criar um exemplo do IoT Edge solução que contém testes de unidade que poderá ser executado como parte do processo de compilação. Antes de seguir as orientações nesta secção, conclua os passos na [desenvolver uma solução de IoT Edge com vários módulos no Visual Studio Code](how-to-develop-multiple-modules-vscode.md).
 
-1. Na paleta de comandos do VS Code, escreva e execute o comando **do Azure IoT Edge: solução nova do IoT Edge**. Em seguida, selecione a pasta de área de trabalho, forneça o nome da solução (o nome predefinido é **EdgeSolution**) e criar um módulo de c# (**FilterModule**) como o primeiro módulo do utilizador nesta solução. Também tem de especificar o repositório de imagens do Docker para o seu primeiro módulo. O repositório de imagens padrão baseia-se um registo do Docker local (`localhost:5000/filtermodule`). Altere-o para o Azure Container Registry (`<your container registry address>/filtermodule`) ou o Hub do Docker para ainda mais a integração contínua.
+1. Na paleta de comandos do VS Code, escreva e execute o comando **Azure IoT Edge: Nova solução de IoT Edge**. Em seguida, selecione a pasta de área de trabalho, forneça o nome da solução (o nome predefinido é **EdgeSolution**) e criar um módulo de c# (**FilterModule**) como o primeiro módulo do utilizador nesta solução. Também tem de especificar o repositório de imagens do Docker para o seu primeiro módulo. O repositório de imagens padrão baseia-se um registo do Docker local (`localhost:5000/filtermodule`). Altere-o para o Azure Container Registry (`<your container registry address>/filtermodule`) ou o Hub do Docker para ainda mais a integração contínua.
 
     ![Configurar o Azure Container Registry](./media/how-to-ci-cd/acr.png)
 
-2. Janela do VS Code carregará a sua área de trabalho de solução de IoT Edge. Além disso, pode, opcionalmente, escreva e execute **do Azure IoT Edge: módulo do IoT Edge/adicionar** para adicionar mais módulos. Há uma `modules` pasta, um `.vscode` pasta e um arquivo de manifesto do modelo de implementação na pasta raiz. Todos os códigos de módulo de utilizador será subpastas na pasta `modules`. O `deployment.template.json` é o modelo de manifesto de implantação. Alguns dos parâmetros existentes neste ficheiro vão ser analisado a partir do `module.json`, que existe na pasta de cada módulo.
+2. Janela do VS Code carregará a sua área de trabalho de solução de IoT Edge. Além disso, pode, opcionalmente, escreva e executar **Azure IoT Edge: Adicionar módulo do IoT Edge** para adicionar mais módulos. Há uma `modules` pasta, um `.vscode` pasta e um arquivo de manifesto do modelo de implementação na pasta raiz. Todos os códigos de módulo de utilizador será subpastas na pasta `modules`. O `deployment.template.json` é o modelo de manifesto de implantação. Alguns dos parâmetros existentes neste ficheiro vão ser analisado a partir do `module.json`, que existe na pasta de cada módulo.
 
 3. Agora seu exemplo de solução de IoT Edge está pronto. O módulo c# padrão funciona como um módulo de mensagem de pipe. Na `deployment.template.json`, verá essa solução contém dois módulos. A mensagem será gerada a partir da `tempSensor` módulo e será ser encaminhado diretamente através de `FilterModule`, em seguida, enviadas ao seu hub IoT.
 
-4. Guardar esses projetos, em seguida, verificá-lo no seu repositório de repositórios do Azure ou servidor de DevOps do Azure.
+4. Guardar esses projetos, em seguida, confirmar em seus repositórios do Azure.
     
 > [!NOTE]
 > Para obter mais informações sobre como utilizar o Azure repositórios, consulte [compartilhar seu código com o Visual Studio e Azure repositórios](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -59,7 +57,7 @@ Nesta secção, irá criar um pipeline de compilação que está configurado par
 
     ![Criar um novo pipeline de compilação](./media/how-to-ci-cd/add-new-build.png)
 
-1. Se lhe for pedido, selecione **Git de DevOps do Azure** o tipo de origem. Em seguida, selecione o projeto, o repositório e o ramo em que o seu código está localizado. Escolher **continuar**.
+1. Se lhe for pedido, selecione repositórios do Azure para a sua origem. Em seguida, selecione o projeto, o repositório e o ramo em que o seu código está localizado. Escolher **continuar**.
 
     ![Selecione Azure repositórios Git](./media/how-to-ci-cd/select-vsts-git.png)
 
@@ -101,7 +99,7 @@ Nesta secção, irá criar um pipeline de compilação que está configurado par
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Configurar Pipelines do Azure para a implementação contínua
 Nesta secção, irá criar um pipeline de versão que está configurado para ser executada automaticamente quando o pipeline de compilação cai artefactos e ele mostrará os registos de implementação nos Pipelines do Azure.
 
-1. Na **versões** separador, escolha **+ novo pipeline**. Ou, se já tiver pipelines de versão, escolha o **+ novo** botão.  
+1. Na **versões** separador, escolha **+ novo pipeline**. Ou, se já tiver pipelines de versão, escolha o **+ novo** botão e clique em **+ novo pipeline de versões**.  
 
     ![Adicionar o pipeline de lançamento](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -109,7 +107,7 @@ Nesta secção, irá criar um pipeline de versão que está configurado para ser
 
     ![Começar com uma tarefa vazia](./media/how-to-ci-cd/start-with-empty-job.png)
 
-2. Em seguida, o pipeline de lançamento deve inicializar com uma fase: **fase 1**. Mudar o nome da **fase 1** ao **controle de qualidade** e tratá-lo como um ambiente de teste. Num pipeline de implementação contínua típico, ela existe, normalmente, várias fases, pode criar mais com base nas suas práticas de DevOps.
+2. Em seguida, o pipeline de lançamento seria inicializar com uma fase: **Fase 1**. Mudar o nome da **fase 1** ao **controle de qualidade** e tratá-lo como um ambiente de teste. Num pipeline de implementação contínua típico, ela existe, normalmente, várias fases, pode criar mais com base nas suas práticas de DevOps.
 
     ![Criar o estágio de ambiente de teste](./media/how-to-ci-cd/QA-env.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: API de .NET de Executor em massa, SDK e recursos'
+title: 'o Azure Cosmos DB: Em massa Executor .NET API, SDK e recursos'
 description: Saiba tudo sobre a API de .NET de Executor em massa e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK de .NET de Executor de em massa Azure Cosmos DB.
 author: tknandu
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: a0d2ab305f0ca819b8dba573a9570ff03682a947
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c239464a37637b21504227951d917977cfea6726
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875013"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343963"
 ---
-# <a name="net-bulk-executor-library-download-information"></a>Biblioteca de .NET em massa Executor: transferir informações 
+# <a name="net-bulk-executor-library-download-information"></a>Biblioteca de .NET em massa Executor: Transferir informações 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -27,7 +27,7 @@ ms.locfileid: "52875013"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [Em massa Executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Em massa Executor - Java](sql-api-sdk-bulk-executor-java.md)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Do Azure Cosmos DB: SQL Java API, SDK e recursos'
+title: 'o Azure Cosmos DB: SQL Java API, SDK e recursos'
 description: Saiba tudo sobre o SQL Java API e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK de Java do Azure Cosmos DB SQL.
 services: cosmos-db
 author: rnagpal
@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c8d7221e367abbbcb1a7968003c1cd25106b866
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: e5c733ecd65482e4b02a5d4e28784e84e63f2231
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871228"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340526"
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API de SQL: notas de versão e recursos
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -28,7 +28,7 @@ ms.locfileid: "52871228"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -36,7 +36,7 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 
 <table>
 
-<tr><td>**Transferência de SDK**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
+<tr><td>**Transferência de SDK**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
 
 <tr><td>**Documentação da API**</td><td>[Documentação de referência da API de Java](/java/api/com.microsoft.azure.documentdb)</td></tr>
 

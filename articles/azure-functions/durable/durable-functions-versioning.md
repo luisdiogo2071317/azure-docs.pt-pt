@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 9cd8e21ede794fcb46683ea7cedd2bf9ed833204
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: a90a6811b1c59538db98b85d950906dba2969d57
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643034"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338248"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Controle de versão em funções duráveis (funções do Azure)
 
@@ -121,25 +121,17 @@ Outra opção é parar todas as instâncias em trânsito. Isso pode ser feito ao
 
 O hub de tarefa pode ser configurado no *Host. JSON* ficheiros da seguinte forma:
 
+#### <a name="functions-1x"></a>Funções 1.x
+
 ```json
 {
-    "extensions": {
-        "durableTask": {
-            "HubName": "MyTaskHubV2"
-        }
+    "durableTask": {
+        "HubName": "MyTaskHubV2"
     }
 }
 ```
 
-> [!NOTE]
-> Para funções de V1 *Host. JSON* devem ser configuradas em vez disso, como este
->```json
->{
->    "durableTask": {
->        "HubName": "MyTaskHubV2"
->    }
->}
->```
+#### <a name="functions-2x"></a>Funções 2.x
 
 O valor predefinido é `DurableFunctionsHub`.
 

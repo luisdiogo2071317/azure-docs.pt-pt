@@ -9,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: d255894b7b9673f3a7d27414b4fb0c114d821747
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/12/2018
+ms.openlocfilehash: b3509917f0473795ec204c6672a630b2857ff37c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962152"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343926"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>O que é o serviço de migração de base de dados do Azure?
 O serviço de migração de base de dados do Azure é um serviço completamente gerido criado para permitir migrações totalmente integradas de várias origens de base de dados para plataformas de dados do Azure com o período de indisponibilidade mínimo (migrações online).
@@ -33,7 +33,9 @@ Para obter informações atualizadas sobre a disponibilidade regional do serviç
 Para obter informações atualizadas sobre os preços do serviço de migração de base de dados do Azure, veja [preços do Azure Database Migration Service](https://azure.microsoft.com/pricing/details/database-migration/).
 
 ## <a name="next-steps"></a>Passos Seguintes
+- [Estado de cenários de migração suportados pelo serviço de migração de base de dados do Azure](resource-scenario-status.md).
 - [Criar uma instância do serviço de migração de base de dados do Azure com o portal do Azure](quickstart-create-data-migration-service-portal.md).
 - [Migrar o SQL Server para a base de dados SQL do Azure](tutorial-sql-server-to-azure-sql.md).
 - [Descrição geral da pré-requisitos para utilizar o Azure Database Migration Service](pre-reqs.md).
 - [FAQ sobre como utilizar o Azure Database Migration Service](faq.md).
+- [Serviços e ferramentas disponíveis para cenários de migração de dados](dms-tools-matrix.md).

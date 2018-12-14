@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 3bf2135e7d4cb0e34d6e38e8673d5d69f262979c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a65611c1e84bdd01bac525012553e6cd7c7fc4e4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322402"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386864"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure Stream a monitorização dos dados para um hub de eventos para consumo por uma ferramenta externa
 
@@ -58,7 +58,7 @@ Para enviar dados de registo do Azure Active Directory num espaço de nomes de H
 
 ## <a name="azure-subscription-monitoring-data"></a>A monitorização dos dados de subscrição do Azure
 
-A monitorização dos dados de subscrição do Azure está disponível na [registo de atividades do Azure](./monitoring-overview-activity-logs.md). Contém o criar, atualizar e eliminar operações do Resource Manager, as alterações nos [estado de funcionamento do serviço do Azure](../service-health/service-health-overview.md) que pode afetar recursos na sua subscrição, o [estado de funcionamento do recurso](../service-health/resource-health-overview.md) Estado transições e vários outros tipos de eventos de nível de assinatura. [Este artigo fornece detalhes sobre todas as categorias de eventos que aparecem no registo de atividades do Azure](./monitoring-activity-log-schema.md).
+A monitorização dos dados de subscrição do Azure está disponível na [registo de atividades do Azure](./monitoring-overview-activity-logs.md). Contém o criar, atualizar e eliminar operações do Resource Manager, as alterações nos [estado de funcionamento do serviço do Azure](../service-health/service-health-overview.md) que pode afetar recursos na sua subscrição, o [estado de funcionamento do recurso](../service-health/resource-health-overview.md) Estado transições e vários outros tipos de eventos de nível de assinatura. [Este artigo fornece detalhes sobre todas as categorias de eventos que aparecem no registo de atividades do Azure](./../azure-monitor/platform/activity-log-schema.md).
 
 ### <a name="activity-log-data"></a>Dados de registo de atividade
 
@@ -117,7 +117,7 @@ Encaminhamento seus dados de monitorização para um hub de eventos com o Azure 
 * **Servidor syslog** - se de que pretende transmitir dados do Azure Monitor diretamente para um servidor syslog, pode consultar [deste repositório do GitHub](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Próximos Passos
-* [Arquive o registo de atividades para uma conta de armazenamento](monitoring-archive-activity-log.md)
+* [Arquive o registo de atividades para uma conta de armazenamento](../azure-monitor/platform/archive-activity-log.md)
 * [Leia a visão geral do registo de atividades do Azure](monitoring-overview-activity-logs.md)
 * [Configurar um alerta com base num evento do registo de atividade](../azure-monitor/platform/alerts-log-webhook.md)
 

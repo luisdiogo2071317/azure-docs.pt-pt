@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9cfb098fd8e6cb777b6cd968f92b20baabfab705
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6c101878c474e605106bb2fbb6ea6568f433e756
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313996"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338537"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização no Centro de segurança do Azure da integridade de ficheiros
 Saiba como configurar o monitoramento de integridade de ficheiros (FIM) no Centro de segurança do Azure com estas instruções.
@@ -136,7 +136,7 @@ O **alterações** separador (mostrado abaixo) apresenta uma lista de todas as a
 
   ![Definições][11]
 
-  **Configuração de área de trabalho** abre-se apresentar os três separadores: **Registro do Windows**, **ficheiros do Windows**, e **ficheiros do Linux**. Cada separador lista as entidades que possa editar nessa categoria. Para cada entidade listada, o Centro de segurança identifica se o FIM é ativado (true) ou não ativada (false).  Editar a entidade permite-lhe ativar ou desativar o FIM.
+  **Configuração de área de trabalho** abre-se apresentar os três separadores: **Registo do Windows**, **arquivos do Windows**, e **ficheiros do Linux**. Cada separador lista as entidades que possa editar nessa categoria. Para cada entidade listada, o Centro de segurança identifica se o FIM é ativado (true) ou não ativada (false).  Editar a entidade permite-lhe ativar ou desativar o FIM.
 
   ![Configuração de área de trabalho][12]
 
@@ -153,7 +153,7 @@ Sob **Editar para controlo de alterações** , pode:
 
 ## <a name="add-a-new-entity-to-monitor"></a>Adicionar uma nova entidade para monitorizar
 1. Retorno para o **dashboard de monitorização de integridade de ficheiro** e selecione **definições** na parte superior. **Configuração de área de trabalho** abre.
-2. Sob **configuração da área de trabalho**, selecione o separador para o tipo de entidade que pretende adicionar: registo do Windows, arquivos do Windows ou ficheiros do Linux. Neste exemplo, selecionamos **ficheiros do Linux**.
+2. Sob **configuração da área de trabalho**, selecione o separador para o tipo de entidade que pretende adicionar: Registo do Windows, arquivos do Windows ou ficheiros do Linux. Neste exemplo, selecionamos **ficheiros do Linux**.
 
   ![Adicione um novo item para monitorizar][14]
 
@@ -205,7 +205,7 @@ Pode desativar o FIM. FIM utiliza a solução de controlo de alterações do Azu
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a utilizar o monitoramento de integridade de ficheiros (FIM) no Centro de segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
+* [Definir políticas de segurança](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
 * [Gerir recomendações de segurança](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
 * [Monitorização de estado de funcionamento de segurança](security-center-monitoring.md)– Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Gerir e responder a alertas de segurança](security-center-managing-and-responding-alerts.md)– Saiba como gerir e responder a alertas de segurança.

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 0bb79c9d85e56308d9872baeb10868be8eaf7a5a
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 6ed4d0911dad8f8e36f941c4fa55622c49722377
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824919"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344402"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com o Azure Monitor
 O Azure Monitor proporciona várias formas de interagir com métricas, incluindo gráficos-las no portal, o acesso aos mesmos através da API REST ou consultando-os com o PowerShell ou CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis com o pipeline de métrico do Azure Monitor. Outras métricas poderão estar disponíveis no portal ou através de APIs herdadas. Esta lista abaixo inclui apenas as métricas disponíveis com o pipeline de métrico do Azure Monitor consolidado. Para consultar e aceder a estas métricas, utilize o [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -21,7 +21,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 >
-> *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
+> *Por exemplo*: A métrica "Mensagens recebidas" num Hub de eventos pode ser explorada e representada um por nível de fila. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
 >
 >
 
@@ -41,34 +41,34 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |CurrentConnections|Ligação: Ligações atuais|Contagem|Média|Número atual de ligações de cliente estabelecidas.|ServerResourceType|
 |CleanerCurrentPrice|Memória: Preço atual de limpeza|Contagem|Média|Preço atual de memória, $/byte/tempo, normalizado para 1000.|ServerResourceType|
 |CleanerMemoryShrinkable|Memória: Memória de limpeza Reduzível|Bytes|Média|Quantidade de memória, em bytes, sujeitos à remoção limpeza de segundo plano.|ServerResourceType|
-|CleanerMemoryNonshrinkable|Memória: Nonshrinkable de memória mais limpo|Bytes|Média|Quantidade de memória, em bytes, não são sujeitos à remoção limpeza de segundo plano.|ServerResourceType|
-|MemoryUsage|Memória: Utilização de memória|Bytes|Média|Utilização da memória do processo de servidor utilizado para calcular o preço de memória mais limpo. Igual ao contador Process\PrivateBytes mais o tamanho dos dados de mapeamento de memória, ignorando qualquer memória que foi mapeada ou alocada pelo mecanismo de análise dentro da memória do xVelocity (VertiPaq) em excesso do limite de memória do motor xVelocity.|ServerResourceType|
+|CleanerMemoryNonshrinkable|Memória: Mais limpo nonshrinkable de memória|Bytes|Média|Quantidade de memória, em bytes, não são sujeitos à remoção limpeza de segundo plano.|ServerResourceType|
+|MemoryUsage|Memória: Utilização da Memória|Bytes|Média|Utilização da memória do processo de servidor utilizado para calcular o preço de memória mais limpo. Igual ao contador Process\PrivateBytes mais o tamanho dos dados de mapeamento de memória, ignorando qualquer memória que foi mapeada ou alocada pelo mecanismo de análise dentro da memória do xVelocity (VertiPaq) em excesso do limite de memória do motor xVelocity.|ServerResourceType|
 |MemoryLimitHard|Memória: Limite de memória|Bytes|Média|Limite restrito da memória, do ficheiro de configuração.|ServerResourceType|
-|MemoryLimitHigh|Memória: Máximo limite de memória|Bytes|Média|Limite máximo de memória do ficheiro de configuração.|ServerResourceType|
-|MemoryLimitLow|Memória: Mínimo limite de memória|Bytes|Média|Limite mínimo de memória do ficheiro de configuração.|ServerResourceType|
+|MemoryLimitHigh|Memória: Máximo de limite de memória|Bytes|Média|Limite máximo de memória do ficheiro de configuração.|ServerResourceType|
+|MemoryLimitLow|Memória: Mínimo de limite de memória|Bytes|Média|Limite mínimo de memória do ficheiro de configuração.|ServerResourceType|
 |MemoryLimitVertiPaq|Memória: Limite de memória VertiPaq|Bytes|Média|Limite de memória do ficheiro de configuração.|ServerResourceType|
 |Quota|Memória: Quota|Bytes|Média|Quota de memória atual, em bytes. Quota de memória também é conhecido como uma reserva de memória ou de concessão de memória.|ServerResourceType|
 |QuotaBlocked|Memória: Quotas bloqueadas|Contagem|Média|Número atual de pedidos de quota que estão bloqueados até outras quotas de memória serem libertas.|ServerResourceType|
 |VertiPaqNonpaged|Memória: VertiPaq não paginado|Bytes|Média|Bytes de memória bloqueada no conjunto de trabalho para utilização pelo mecanismo de dentro da memória.|ServerResourceType|
 |VertiPaqPaged|Memória: VertiPaq paginado|Bytes|Média|Bytes de memória paga em utilização para dados na memória.|ServerResourceType|
-|RowsReadPerSec|Processamento: Linhas lidas por segundo|CountPerSecond|Média|Taxa de linhas lidas de todas as bases de dados relacionais.|ServerResourceType|
-|RowsConvertedPerSec|Processamento: Linhas convertidas por segundo|CountPerSecond|Média|Taxa de linhas convertidas durante o processamento.|ServerResourceType|
-|RowsWrittenPerSec|Processamento: Linhas escritas por segundo|CountPerSecond|Média|Taxa de linhas escritas durante o processamento.|ServerResourceType|
+|RowsReadPerSec|A processar: Linhas lidas por segundo|CountPerSecond|Média|Taxa de linhas lidas de todas as bases de dados relacionais.|ServerResourceType|
+|RowsConvertedPerSec|A processar: Linhas convertidas por segundo|CountPerSecond|Média|Taxa de linhas convertidas durante o processamento.|ServerResourceType|
+|RowsWrittenPerSec|A processar: Linhas escritas por segundo|CountPerSecond|Média|Taxa de linhas escritas durante o processamento.|ServerResourceType|
 |CommandPoolBusyThreads|Threads: Threads ocupadas do conjunto de comandos|Contagem|Média|Número de threads ocupados no conjunto de threads de comando.|ServerResourceType|
 |CommandPoolIdleThreads|Threads: Threads inativas do conjunto de comandos|Contagem|Média|Número de threads inativas no conjunto de threads de comando.|ServerResourceType|
 |LongParsingBusyThreads|Threads: Threads ocupadas de análise longa|Contagem|Média|Número de threads ocupados no conjunto de threads de análise longa.|ServerResourceType|
 |LongParsingIdleThreads|Threads: Threads Inativas de análise longa|Contagem|Média|Número de threads inativas no conjunto de threads de análise longa.|ServerResourceType|
-|LongParsingJobQueueLength|Threads: Comprimento da fila de tarefas de análise longa|Contagem|Média|Número de tarefas na fila do pool de threads de análise longa.|ServerResourceType|
-|ProcessingPoolBusyIOJobThreads|Threads: Threads de trabalho de e/s ocupadas do conjunto de processamento|Contagem|Média|Número de threads a executar tarefas de e/s no conjunto de threads de processamento.|ServerResourceType|
-|ProcessingPoolBusyNonIOThreads|Threads: Threads ocupadas de não-I/O do conjunto de processamento|Contagem|Média|Número de threads a executar tarefas de não-I/O no conjunto de threads de processamento.|ServerResourceType|
+|LongParsingJobQueueLength|Threads: Comprimento da fila de tarefas análise longa|Contagem|Média|Número de tarefas na fila do pool de threads de análise longa.|ServerResourceType|
+|ProcessingPoolBusyIOJobThreads|Threads: Threads de trabalho de e/s ocupados do conjunto de processamento|Contagem|Média|Número de threads a executar tarefas de e/s no conjunto de threads de processamento.|ServerResourceType|
+|ProcessingPoolBusyNonIOThreads|Threads: Pool de threads não-I/O ocupado a processar|Contagem|Média|Número de threads a executar tarefas de não-I/O no conjunto de threads de processamento.|ServerResourceType|
 |ProcessingPoolIOJobQueueLength|Threads: Comprimento de fila de trabalho de e/s do conjunto de processamento|Contagem|Média|Número de tarefas de e/s na fila do pool de threads de processamento.|ServerResourceType|
 |ProcessingPoolIdleIOJobThreads|Threads: Threads de trabalho de e/s inativas do conjunto de processamento|Contagem|Média|Número de threads inativas para tarefas de e/s no pool de threads de processamento.|ServerResourceType|
-|ProcessingPoolIdleNonIOThreads|Threads: Threads não-I/O inativas do conjunto de processamento|Contagem|Média|Número de threads inativas no conjunto de threads de processamento dedicadas a tarefas não-I/O.|ServerResourceType|
-|QueryPoolIdleThreads|Threads: Threads inativas do conjunto de consultas|Contagem|Média|Número de threads inativas para tarefas de e/s no pool de threads de processamento.|ServerResourceType|
-|QueryPoolJobQueueLength|Threads: Comprimento da fila de tarefa do conjunto de consultas|Contagem|Média|Número de tarefas na fila do pool de threads de consulta.|ServerResourceType|
-|ShortParsingBusyThreads|Threads: Threads ocupadas de análise curta|Contagem|Média|Número de threads ocupados no conjunto de threads de análise curta.|ServerResourceType|
-|ShortParsingIdleThreads|Threads: Threads Inativas de análise curta|Contagem|Média|Número de threads inativas no conjunto de threads de análise curta.|ServerResourceType|
-|ShortParsingJobQueueLength|Threads: Comprimento da fila de tarefas de análise curta|Contagem|Média|Número de tarefas na fila do pool de threads de análise curta.|ServerResourceType|
+|ProcessingPoolIdleNonIOThreads|Threads: Os threads não-I/O inativas do conjunto de processamento|Contagem|Média|Número de threads inativas no conjunto de threads de processamento dedicadas a tarefas não-I/O.|ServerResourceType|
+|QueryPoolIdleThreads|Threads: Consultar threads inativas do conjunto|Contagem|Média|Número de threads inativas para tarefas de e/s no pool de threads de processamento.|ServerResourceType|
+|QueryPoolJobQueueLength|Threads: Consultar comprimento da fila de tarefa de conjunto|Contagem|Média|Número de tarefas na fila do pool de threads de consulta.|ServerResourceType|
+|ShortParsingBusyThreads|Threads: Threads ocupadas de análise curtas|Contagem|Média|Número de threads ocupados no conjunto de threads de análise curta.|ServerResourceType|
+|ShortParsingIdleThreads|Threads: Threads Inativas de análise curtas|Contagem|Média|Número de threads inativas no conjunto de threads de análise curta.|ServerResourceType|
+|ShortParsingJobQueueLength|Threads: Comprimento da fila de tarefa análise curta|Contagem|Média|Número de tarefas na fila do pool de threads de análise curta.|ServerResourceType|
 |memory_thrashing_metric|Degradação de memória|Percentagem|Média|Degradação de memória média.|ServerResourceType|
 |mashup_engine_qpu_metric|Memória do motor QPU|Contagem|Média|Utilização QPU através de processos de motor de mashup|ServerResourceType|
 |mashup_engine_memory_metric|Memória do motor M|Bytes|Média|Utilização da memória através de processos de motor de mashup|ServerResourceType|
@@ -534,7 +534,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|Média|Armazenamento de registo de servidor utilizado|Nenhuma dimensão|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|Média|Limite de armazenamento de registo do servidor|Nenhuma dimensão|
 |active_connections|Ligações ativas|Contagem|Média|Ligações ativas|Nenhuma dimensão|
-|connections_failed|Ligações Falhadas|Contagem|Total|Ligações Falhadas|Nenhuma dimensão|
+|connections_failed|Ligações com Falhas|Contagem|Total|Ligações com Falhas|Nenhuma dimensão|
 |network_bytes_egress|Saída de Rede|Bytes|Total|Rede horizontalmente, através de ligações de Active Directory|Nenhuma dimensão|
 |network_bytes_ingress|Entrada de Rede|Bytes|Total|Na rede através de ligações de Active Directory|Nenhuma dimensão|
 
@@ -552,7 +552,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|Média|Armazenamento de registo de servidor utilizado|Nenhuma dimensão|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|Média|Limite de armazenamento de registo do servidor|Nenhuma dimensão|
 |active_connections|Ligações ativas|Contagem|Média|Ligações ativas|Nenhuma dimensão|
-|connections_failed|Ligações Falhadas|Contagem|Total|Ligações Falhadas|Nenhuma dimensão|
+|connections_failed|Ligações com Falhas|Contagem|Total|Ligações com Falhas|Nenhuma dimensão|
 |seconds_behind_master|Atraso de replicação em segundos|Contagem|Média|Atraso de replicação em segundos|Nenhuma dimensão|
 |network_bytes_egress|Saída de Rede|Bytes|Total|Rede horizontalmente, através de ligações de Active Directory|Nenhuma dimensão|
 |network_bytes_ingress|Entrada de Rede|Bytes|Total|Na rede através de ligações de Active Directory|Nenhuma dimensão|
@@ -571,7 +571,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|Média|Armazenamento de registo de servidor utilizado|Nenhuma dimensão|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|Média|Limite de armazenamento de registo do servidor|Nenhuma dimensão|
 |active_connections|Ligações ativas|Contagem|Média|Ligações ativas|Nenhuma dimensão|
-|connections_failed|Ligações Falhadas|Contagem|Total|Ligações Falhadas|Nenhuma dimensão|
+|connections_failed|Ligações com Falhas|Contagem|Total|Ligações com Falhas|Nenhuma dimensão|
 |network_bytes_egress|Saída de Rede|Bytes|Total|Rede horizontalmente, através de ligações de Active Directory|Nenhuma dimensão|
 |network_bytes_ingress|Entrada de Rede|Bytes|Total|Na rede através de ligações de Active Directory|Nenhuma dimensão|
 
@@ -761,7 +761,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ObservedMetricValue|Valor de Métrica observado|Contagem|Média|O valor calculador pelo dimensionamento automático quando este foi executado|MetricTriggerSource|
+|ObservedMetricValue|Valor de Métrica observado|Contagem|Média|O valor calculado pelo dimensionamento automático quando este foi executado|MetricTriggerSource|
 |MetricThreshold|Limiar de Métrica|Contagem|Média|O limiar de dimensionamento automático configurado quando este foi executado.|MetricTriggerRule|
 |ObservedCapacity|Capacidade observada|Contagem|Média|A capacidade reportada para dimensionamento automático quando este foi executado.|Nenhuma dimensão|
 |ScaleActionsInitiated|Ações de Dimensionamento Iniciadas|Contagem|Total|A direção da operação de dimensionamento.|ScaleDirection|
@@ -1068,15 +1068,15 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |outgoing.allpns.badorexpiredchannel|Erros de Canal Incorreto ou Expirado|Contagem|Total|Contagem de pushes falhados porque o canal/token/registrationId no registo expirou ou era inválido.|Nenhuma dimensão|
 |outgoing.wns.success|Notificações com Êxito do WNS|Contagem|Total|Contagem de todas as notificações com êxito.|Nenhuma dimensão|
 |Outgoing.WNS.invalidcredentials|Erros de Autorização do WNS (Credenciais Inválidas)|Contagem|Total|Contagem de pushes falhados porque o PNS não aceitou as credenciais fornecidas ou porque as credenciais estão bloqueadas. (Windows Live não reconhece as credenciais).|Nenhuma dimensão|
-|outgoing.wns.badchannel|Erro de Canal Incorreto do WNS|Contagem|Total|Contagem de pushes falhados porque o ChannelURI no registo não foi reconhecido (estado do WNS: 404 não encontrado).|Nenhuma dimensão|
-|outgoing.wns.expiredchannel|Erro de Canal Expirado do WNS|Contagem|Total|Contagem de pushes falhados porque o ChannelURI expirou (estado do WNS: 410 Já não existe).|Nenhuma dimensão|
-|Outgoing.WNS.throttled|Notificações Limitadas do WNS|Contagem|Total|Contagem de pushes falhados porque o WNS está a limitar esta aplicação (estado do WNS: 406 Não Aceitável).|Nenhuma dimensão|
+|outgoing.wns.badchannel|Erro de Canal Incorreto do WNS|Contagem|Total|Contagem de pushes falhados porque o ChannelURI do registo não foi reconhecido (estado do WNS: 404 não encontrado).|Nenhuma dimensão|
+|outgoing.wns.expiredchannel|Erro de Canal Expirado do WNS|Contagem|Total|Contagem de pushes falhados porque o ChannelURI expirou (estado do WNS: 410 já não existe).|Nenhuma dimensão|
+|Outgoing.WNS.throttled|Notificações Limitadas do WNS|Contagem|Total|Contagem de pushes falhados porque o WNS está a limitar esta aplicação (estado do WNS: 406 Não aceitável).|Nenhuma dimensão|
 |outgoing.wns.tokenproviderunreachable|Erros de Autorização do WNS (Inacessível)|Contagem|Total|O Windows Live não está acessível.|Nenhuma dimensão|
-|outgoing.wns.invalidtoken|Erros de Autorização do WNS (Token Inválido)|Contagem|Total|O token fornecido para o WNS não é válido (estado do WNS: 401 Não Autorizado).|Nenhuma dimensão|
+|outgoing.wns.invalidtoken|Erros de Autorização do WNS (Token Inválido)|Contagem|Total|O token fornecido para o WNS não é válido (estado do WNS: Não autorizado 401).|Nenhuma dimensão|
 |outgoing.wns.wrongtoken|Erros de Autorização do WNS (Token Incorreto)|Contagem|Total|O token fornecido para o WNS é válido mas para outra aplicação (estado do WNS: 403 Proibido). Isto pode acontecer se o ChannelURI do registo está associado a outra aplicação. Verifique se a aplicação de cliente está associada à mesma aplicação cujas credenciais estão no hub de notificação.|Nenhuma dimensão|
 |Outgoing.WNS.invalidnotificationformat|Formato de Notificação Inválido do WNS|Contagem|Total|O formato da notificação é inválido (estado do WNS: 400). Tenha em atenção que o WNS não rejeita todos os payloads inválidos.|Nenhuma dimensão|
 |Outgoing.WNS.invalidnotificationsize|Erro de Tamanho de Notificação Inválido do WNS|Contagem|Total|O payload de notificação é demasiado grande (estado do WNS: 413).|Nenhuma dimensão|
-|Outgoing.WNS.channelthrottled|Canal do WNS Limitado|Contagem|Total|A notificação foi removida porque o ChannelURI do registo está limitado (cabeçalho de resposta do WNS: X-WNS-NotificationStatus:channelThrottled).|Nenhuma dimensão|
+|Outgoing.WNS.channelthrottled|Canal do WNS Limitado|Contagem|Total|A notificação foi removida porque o ChannelURI do registo está limitado (cabeçalho de resposta do WNS: X notificationstatus: Channelthrottled de - WNS-).|Nenhuma dimensão|
 |outgoing.wns.channeldisconnected|Canal do WNS Desligado|Contagem|Total|A notificação foi removida porque o ChannelURI do registo está limitado (cabeçalho de resposta do WNS: X-WNS-DeviceConnectionStatus: desligado).|Nenhuma dimensão|
 |outgoing.wns.dropped|Notificações Removidas do WNS|Contagem|Total|A notificação foi removida porque o ChannelURI do registo está limitado (X-WNS-NotificationStatus: removido mas não X-WNS-DeviceConnectionStatus: desligado).|Nenhuma dimensão|
 |outgoing.wns.pnserror|Erros do WNS|Contagem|Total|As notificações não foram entregues devido a erros de comunicação com o WNS.|Nenhuma dimensão|
@@ -1089,21 +1089,21 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |outgoing.apns.pnserror|Erros do APNS|Contagem|Total|Contagem de pushes falhados devido a erros de comunicação com o APNS.|Nenhuma dimensão|
 |outgoing.gcm.success|Notificações com Êxito do GCM|Contagem|Total|Contagem de todas as notificações com êxito.|Nenhuma dimensão|
 |outgoing.gcm.invalidcredentials|Erros de Autorização do GCM (Credenciais Inválidas)|Contagem|Total|Contagem de pushes falhados porque o PNS não aceitou as credenciais fornecidas ou porque as credenciais estão bloqueadas.|Nenhuma dimensão|
-|outgoing.gcm.badchannel|Erro de Canal Incorreto do GCM|Contagem|Total|Contagem de pushes falhados porque o registrationId no registo não foi reconhecido (resultado do GCM: Registo Inválido).|Nenhuma dimensão|
+|outgoing.gcm.badchannel|Erro de Canal Incorreto do GCM|Contagem|Total|Contagem de pushes falhados porque o registrationId no registo não foi reconhecido (resultado do GCM: Registo inválido).|Nenhuma dimensão|
 |outgoing.gcm.expiredchannel|Erro de Canal Expirado do GCM|Contagem|Total|Contagem de pushes falhados porque o registrationId no registo expirou (resultado do GCM: NotRegistered).|Nenhuma dimensão|
-|outgoing.gcm.throttled|Notificações Limitadas do GCM|Contagem|Total|Contagem de pushes falhados porque o GCM limitou esta aplicação (código de estado do GCM: 501-599 ou resultado: Indisponível).|Nenhuma dimensão|
+|outgoing.gcm.throttled|Notificações Limitadas do GCM|Contagem|Total|Contagem de pushes falhados porque o GCM limitou esta aplicação (código de estado do GCM: 501-599 ou resultado: indisponível).|Nenhuma dimensão|
 |outgoing.gcm.invalidnotificationformat|Formato de Notificação Inválido do GCM|Contagem|Total|Contagem de pushes falhados porque o payload não estava formatado corretamente (resultado do GCM: InvalidDataKey ou InvalidTtl).|Nenhuma dimensão|
 |Outgoing.GCM.invalidnotificationsize|Erro de Tamanho de Notificação Inválido do GCM|Contagem|Total|Contagem de pushes falhados porque o payload era demasiado grande (resultado do GCM: MessageTooBig).|Nenhuma dimensão|
 |outgoing.gcm.wrongchannel|Erro de Canal Errado do GCM|Contagem|Total|Contagem de pushes falhados porque o registrationId no registo não está associado à aplicação atual (resultado do GCM: InvalidPackageName).|Nenhuma dimensão|
 |outgoing.gcm.pnserror|Erros do GCM|Contagem|Total|Contagem de pushes falhados devido a erros de comunicação com o GCM.|Nenhuma dimensão|
-|outgoing.gcm.authenticationerror|Erros de Autenticação do GCM|Contagem|Total|Contagem de pushes falhados porque o PNS não aceitou as credenciais fornecidas ou porque as credenciais estão bloqueadas ou o SenderId não está configurado corretamente na aplicação (resultado do GCM: MismatchedSenderId).|Nenhuma dimensão|
+|outgoing.gcm.authenticationerror|Erros de Autenticação do GCM|Contagem|Total|Contagem de pushes falhados porque o PNS não aceitou as credenciais fornecidas as credenciais estão bloqueadas ou o SenderId não está configurado corretamente na aplicação (resultado do GCM: MismatchedSenderId).|Nenhuma dimensão|
 |outgoing.mpns.success|Notificações com Êxito do MPNS|Contagem|Total|Contagem de todas as notificações com êxito.|Nenhuma dimensão|
 |outgoing.mpns.invalidcredentials|Credenciais Inválidas do MPNS|Contagem|Total|Contagem de pushes falhados porque o PNS não aceitou as credenciais fornecidas ou porque as credenciais estão bloqueadas.|Nenhuma dimensão|
-|outgoing.mpns.badchannel|Erro de Canal Incorreto do MPNS|Contagem|Total|Contagem de pushes falhados porque o ChannelURI no registo não foi reconhecido (estado do MPNS: 404 não encontrado).|Nenhuma dimensão|
-|Outgoing.mpns.throttled|Notificações Limitadas do MPNS|Contagem|Total|Contagem de pushes falhados porque o MPNS está a limitar esta aplicação (WNS MPNS: 406 Não Aceitável).|Nenhuma dimensão|
+|outgoing.mpns.badchannel|Erro de Canal Incorreto do MPNS|Contagem|Total|Contagem de pushes falhados porque o ChannelURI do registo não foi reconhecido (estado do MPNS: 404 não encontrado).|Nenhuma dimensão|
+|Outgoing.mpns.throttled|Notificações Limitadas do MPNS|Contagem|Total|Contagem de pushes falhados porque o MPNS está a limitar esta aplicação (WNS MPNS: 406 Não aceitável).|Nenhuma dimensão|
 |outgoing.mpns.invalidnotificationformat|Formato de Notificação Inválido do MPNS|Contagem|Total|Contagem de pushes falhados porque o payload da notificação era demasiado grande.|Nenhuma dimensão|
-|outgoing.mpns.channeldisconnected|Canal do MPNS Desligado|Contagem|Total|Contagem de pushes falhados porque o ChannelURI no registo foi desligado (estado do MPNS: 412 não encontrado).|Nenhuma dimensão|
-|outgoing.mpns.dropped|Notificações Removidas do MPNS|Contagem|Total|Contagem de pushes removidos pelo MPNS (cabeçalho de resposta do MPNS: X-NotificationStatus: QueueFull ou Suprimido).|Nenhuma dimensão|
+|outgoing.mpns.channeldisconnected|Canal do MPNS Desligado|Contagem|Total|Contagem de pushes falhados porque o ChannelURI do registo foi desligado (estado do MPNS: 412 não encontrado).|Nenhuma dimensão|
+|outgoing.mpns.dropped|Notificações Removidas do MPNS|Contagem|Total|Contagem de pushes removidos pelo MPNS (cabeçalho de resposta do MPNS: X-NotificationStatus: QueueFull ou suprimido).|Nenhuma dimensão|
 |outgoing.mpns.pnserror|Erros do MPNS|Contagem|Total|Contagem de pushes falhados devido a erros de comunicação com o MPNS.|Nenhuma dimensão|
 |outgoing.mpns.authenticationerror|Erros de Autenticação do MPNS|Contagem|Total|Contagem de pushes falhados porque o PNS não aceitou as credenciais fornecidas ou porque as credenciais estão bloqueadas.|Nenhuma dimensão|
 |notificationhub.pushes|Todas as Notificações Enviadas|Contagem|Total|Todas as notificações enviadas do hub de notificações|Nenhuma dimensão|
@@ -1192,7 +1192,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |QueryDuration|Duração de consulta|Milissegundos|Média|Duração de consulta de DAX no último intervalo|Nenhuma dimensão|
-|QueryPoolJobQueueLength|Threads: Comprimento de fila de tarefa do conjunto de consultas|Contagem|Média|Número de tarefas na fila do pool de threads de consulta.|Nenhuma dimensão|
+|QueryPoolJobQueueLength|Threads: Comprimento de fila da tarefa de conjunto de consulta|Contagem|Média|Número de tarefas na fila do pool de threads de consulta.|Nenhuma dimensão|
 |qpu_high_utilization_metric|Elevada utilização de QPU|Contagem|Total|Elevada utilização de QPU no último minuto, 1 para a utilização de QPU elevada, 0; caso contrário|Nenhuma dimensão|
 |memory_metric|Memória|Bytes|Média|Memória. Intervalo de 0 a 3 GB para A1, 0 a 5 GB para A2, 0 a 10 GB para A3, 0-25 GB para A4, 0-50 GB das séries a5 e 0-100 GB para A6|Nenhuma dimensão|
 |memory_thrashing_metric|Degradação de memória|Percentagem|Média|Degradação de memória média.|Nenhuma dimensão|
@@ -1262,7 +1262,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|Nenhuma dimensão|
 |armazenamento|Tamanho total da base de dados|Bytes|Máximo|Tamanho total da base de dados|Nenhuma dimensão|
 |connection_successful|Ligações com êxito|Contagem|Total|Ligações com êxito|Nenhuma dimensão|
-|connection_failed|Ligações Falhadas|Contagem|Total|Ligações Falhadas|Nenhuma dimensão|
+|connection_failed|Ligações com Falhas|Contagem|Total|Ligações com Falhas|Nenhuma dimensão|
 |blocked_by_firewall|Bloqueado pela Firewall|Contagem|Total|Bloqueado pela Firewall|Nenhuma dimensão|
 |Deadlock|Impasses|Contagem|Total|Impasses|Nenhuma dimensão|
 |storage_percent|Percentagem de tamanho da Base de Dados|Percentagem|Máximo|Percentagem de tamanho da Base de Dados|Nenhuma dimensão|
@@ -1571,5 +1571,5 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Leia sobre as métricas no Azure Monitor](../azure-monitor/platform/data-collection.md)
-* [Criar alertas em métricas](monitoring-overview-alerts.md)
+* [Criar alertas em métricas](../azure-monitor/platform/alerts-overview.md)
 * [Exportar métricas para o armazenamento, o Hub de eventos ou o Log Analytics](monitoring-overview-of-diagnostic-logs.md)

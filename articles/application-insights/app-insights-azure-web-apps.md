@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: 764ca0203a418ce29c942d38d8fad5bbc00c071b
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 00af4cc67dc7490727af46e12c387fb0f147371d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321754"
+ms.locfileid: "53339846"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Monitorizar o desempenho das aplicações Web do Azure
 No [Portal do Azure](https://portal.azure.com), pode configurar a monitorização de desempenho de aplicações para as suas [aplicações Web do Azure](../app-service/app-service-web-overview.md). O [Azure Application Insights](app-insights-overview.md) instrui a sua aplicação a enviar telemetria sobre as atividades para o serviço Application Insights, onde são armazenadas e analisadas. Aí, podem ser utilizados gráficos de métricas e ferramentas de pesquisa para ajudar a diagnosticar problemas, melhorar o desempenho e avaliar a utilização.
@@ -101,7 +101,7 @@ O Application Insights pode proporcionar telemetria mais detalhada, mediante a i
 * [Funções do Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitorize Funções do Azure com o Application Insights
 * [Ativar os diagnósticos do Azure](../azure-monitor/platform/diagnostics-extension-to-application-insights.md) para serem enviados para o Application Insights.
 * [Monitorizar as métricas de estado de funcionamento de serviço](../azure-monitor/platform/data-collection.md) para se certificar de que o serviço está disponível e a responder.
-* [Receber notificações de alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) sempre que ocorrem eventos operacionais ou quando as métricas ultrapassam um determinado limiar.
+* [Receber notificações de alertas](../azure-monitor/platform/alerts-overview.md) sempre que ocorrem eventos operacionais ou quando as métricas ultrapassam um determinado limiar.
 * Utilizar o [Application Insights para aplicações JavaScript e páginas Web](app-insights-javascript.md) para obter telemetria de clientes a partir dos browsers que visitam as páginas Web.
 * [Configurar os Testes Web de disponibilidade](app-insights-monitor-web-app-availability.md) para ser alertado se o seu site estiver em baixo.
 

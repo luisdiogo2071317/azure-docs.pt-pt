@@ -1,27 +1,31 @@
 ---
-title: Formatos e codecs Media Encoder Standard
+title: Codificador de multimédia Standard formatos e codecs - Azure
 description: Este tópico apresenta uma visão geral do Media Encoder Standard formatos e codecs.
 services: media-services
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 9c6e26b082fb52f7d23bb1a827af30483f7fbd4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe1d681fa5f9ab49fec9112398ed03c87c975176
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255715"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384739"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formatos e Codecs do Codificador de Multimédia Standard
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Versão 2](media-services-media-encoder-standard-formats.md)
+> * [Versão 3](../latest/media-encoder-standard-formats.md)
+
 Este documento contém uma lista do importar mais comuns e formatos de ficheiro de exportação que pode utilizar com o Media Encoder Standard.
 
 ## <a name="input-containerfile-formats"></a>Formatos de arquivo/contentor de entrada
@@ -52,8 +56,6 @@ Codificador de multimédia Standard suporta os seguintes formatos de áudio em c
 ou
 
 * Arquivos de ficheiros do MXF, do GXF e do QuickTime onde o áudio é executado como faixas PCM em separado, mas o mapeamento do canal (para estéreo ou 5.1) pode ser reduzido a partir dos metadados
-
-Será fornecido suporte para o mapeamento de canal explícita/fornecido pelo usuário num futuro próximo.
 
 ## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
 | Codecs de vídeo de entrada | Suportadas |

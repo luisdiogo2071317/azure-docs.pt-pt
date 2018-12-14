@@ -12,12 +12,12 @@ ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 3c91323e0fcf03b5ae05702ea473536739d37e26
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7df94a465cac03a65bd1df15bf5c1cabda315551
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998781"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336476"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-an-azure-sql-database-managed-instance"></a>Utilizar o PowerShell com o modelo Azure Resource Manager para criar uma instância de gerida de base de dados do Azure SQL
 
@@ -39,7 +39,7 @@ Nome da instância, o nome de utilizador do administrador do SQL, o VNet/sub-red
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este exemplo pressupõe que tenha [criado um ambiente de rede válido](../sql-database-managed-instance-vnet-configuration.md#create-a-new-virtual-network-for-a-managed-instance) da sua instância gerida. Este exemplo utiliza os commandlets [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) e [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) por isso, certifique-se de que tem instalado os módulos do PowerShell seguintes:
+Este exemplo pressupõe que tenha [criado um ambiente de rede válido](../sql-database-managed-instance-create-vnet-subnet.md) ou [modificado VNet existente](../sql-database-managed-instance-configure-vnet-subnet.md) da sua instância gerida. Este exemplo utiliza os commandlets [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) e [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) por isso, certifique-se de que tem instalado os módulos do PowerShell seguintes:
 
 ```
 Install-Module AzureRM.Network

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: a85ec0bf126aa7a25edffdaaf7c7f8a16a370c40
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d0b2ac54f70fedc409c386243e1755704c1c332c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014349"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386371"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>O Gestor de tráfego métricas e alertas
 
@@ -34,13 +34,13 @@ No exemplo abaixo, a figura 1 exibe todas as respostas de consulta que foram dev
   
 ![Métricas de Gestor de tráfego – visualização agregada de todas as consultas](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*Figura 1: Agregar vista com todas as consultas*
+*Figura 1: Visualização agregada com todas as consultas*
   
 Figura 2 apresenta as mesmas informações, no entanto, está dividida pelos pontos de extremidade. Como resultado, pode ver o volume de respostas de consulta em que foi devolvido um ponto de extremidade específico.
 
 ![Métricas de Gestor de tráfego – dividir o modo de exibição do volume de consulta por ponto final](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*Figura 2: O modo de divisão mostrado por ponto final devolvida um volume consulta*
+*Figura 2: Modo de divisão mostrado por ponto final devolvida um volume consulta*
 
 ## <a name="endpoint-status-by-endpoint"></a>Estado do ponto final pelo ponto final
 Uso [esta métrica](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) para compreender o estado de funcionamento dos pontos finais no perfil. Demora dois valores:
@@ -57,7 +57,7 @@ Esta métrica pode ser apresentada como um valor agregado que representa o estad
 
 ![Métricas de Gestor de tráfego – dividir a vista de estado do ponto final](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*Figura 4: O modo de divisão de métricas de estado do ponto final*
+*Figura 4: Modo de divisão de métricas de estado do ponto final*
 
 Pode consumir estas métricas através de [serviço do Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md)do portal, [REST API](https://docs.microsoft.com/rest/api/monitor/), [da CLI do Azure](https://docs.microsoft.com/cli/azure/monitor), e [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), ou a seção de métricas de experiência do portal do Gestor de tráfego.
 
@@ -66,4 +66,4 @@ Além de processamento e exibição de métricas do Gestor de tráfego, o Azure 
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [serviço do Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-- Saiba como [crie um novo gráfico através do Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-charts.md#create-a-new-chart)
+- Saiba como [crie um novo gráfico através do Azure Monitor](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)

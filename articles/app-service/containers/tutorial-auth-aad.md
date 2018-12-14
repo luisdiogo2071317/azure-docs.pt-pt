@@ -1,6 +1,6 @@
 ---
 title: Autenticar e autorizar utilizadores ponto-a-ponto no Linux - serviço de aplicações do Azure | Documentos da Microsoft
-description: Saiba como utilizar a autenticação e autorização do Serviço de Aplicações para proteger as suas aplicações do Serviço de Aplicações, incluindo o acesso a APIs remotas.
+description: Saiba como utilizar o serviço de aplicações de autenticação e autorização para proteger as suas aplicações de serviço de aplicações em execução no Linux, incluindo o acesso a APIs remotas.
 keywords: serviço de aplicações, serviço de aplicações do azure, authN, authZ, proteger, segurança, do azure, multicamadas, azure active directory, azure ad
 services: app-service\web
 documentationcenter: dotnet
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: aa57e6198050b7e250c42f4bb019009e59ca4ba7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9ceb6d388bd4ff3c21b7c3c85e83fea2940b69af
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254093"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337654"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto no serviço de aplicações do Azure no Linux
 

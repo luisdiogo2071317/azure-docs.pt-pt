@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 108b6cafa185788a66689a4d16bbfba7f30da6c3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6b76249c85f9b8c64435043a75e39601d445ab0c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271475"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384722"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns para a transição do portal do OMS para o portal do Azure para utilizadores do Log Analytics
 O log Analytics utilizado inicialmente o seu próprio portal chamado no portal do OMS para gerir a sua configuração e analisar os dados recolhidos.  Toda a funcionalidade deste portal foi movida para o portal do Azure onde irá continuar a ser desenvolvidas.
@@ -33,7 +33,7 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 ![Área de trabalho do Log Analytics](media/oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Como posso gerir as permissões?
-Se não tiver acesso à área de trabalho do Log Analytics no portal do Azure, tem de configurar as suas permissões usando [acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md). Para obter detalhes sobre a gestão de permissões de área de trabalho, consulte [gerir áreas de trabalho](manage-access.md#manage-accounts-and-users). Para obter informações sobre o gerenciamento de permissões para alertas, consulte [começar com as funções, permissões e segurança com o Azure Monitor](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+Se não tiver acesso à área de trabalho do Log Analytics no portal do Azure, tem de configurar as suas permissões usando [acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md). Para obter detalhes sobre a gestão de permissões de área de trabalho, consulte [gerir áreas de trabalho](manage-access.md#manage-accounts-and-users). Para obter informações sobre o gerenciamento de permissões para alertas, consulte [começar com as funções, permissões e segurança com o Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Como posso criar uma nova área de trabalho? 
 Na lista de áreas de trabalho no portal do Azure, clique em **adicionar** na lista de áreas de trabalho.  Para obter detalhes completos, veja [criar uma área de trabalho do Log Analytics no portal do Azure](../learn/quick-create-workspace.md).

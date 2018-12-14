@@ -1,6 +1,6 @@
 ---
 title: Criar aplicação de web PHP com MySQL no Linux - serviço de aplicações do Azure | Documentos da Microsoft
-description: Saiba como pôr aplicações PHP a funcionar no Azure, com ligação a uma base de dados MySQL no Azure.
+description: Saiba como pôr aplicações PHP a funcionar no serviço de aplicações do Azure no Linux, com ligação a uma base de dados MySQL no Azure.
 services: app-service\web
 author: cephalin
 manager: erikre
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a8fc0b9dee8b496eabf7efded7ab83be0b958244
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 5d9843eecfed56f09c3a6d659976ca1ce5f42d80
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274858"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342364"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Web PHP e MySQL no Serviço de Aplicações do Azure no Linux
 
@@ -194,7 +194,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > Pode ser ainda mais restritivo na sua regra de firewall ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
-No Cloud Shell, execute o comando novamente para permitir o acesso a partir do seu computador local, substituindo *\<your_ip_address>* pelo [seu endereço IP IPv4 local](http://www.whatsmyip.org/).
+No Cloud Shell, execute o comando novamente para permitir o acesso a partir do seu computador local, substituindo *\<your_ip_address>* pelo [seu endereço IP IPv4 local](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>

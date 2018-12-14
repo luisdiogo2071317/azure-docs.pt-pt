@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03a7454aec43963a093dc0d7fcc347dac3ef5d43
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 44335137eedb67d7ceca420a061880767b895cad
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192928"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339285"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Conceber e criar uma solução de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -53,7 +53,7 @@ Se necessitar de dados que não são acessíveis através de qualquer uma das or
 Deve definir todas as consultas que acredita que serão úteis para os utilizadores, mesmo que eles não são utilizados por quaisquer vistas ou alertas.  Estes vão estar disponíveis a eles como pesquisas guardadas no portal e também pode incluir os mesmos num [parte de visualização de lista de consultas](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) na vista personalizada.
 
 ### <a name="alerts"></a>Alertas
-[Alertas do Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) identificar problemas através de [pesquisas de registos](#log-searches) relativamente aos dados no repositório.  Eles ou notificar o utilizador ou executam automaticamente uma ação em resposta. Deve identificar diferentes condições de alerta para a sua aplicação e incluir regras de alerta correspondentes no seu ficheiro de solução.
+[Alertas do Log Analytics](../../azure-monitor/platform/alerts-overview.md) identificar problemas através de [pesquisas de registos](#log-searches) relativamente aos dados no repositório.  Eles ou notificar o utilizador ou executam automaticamente uma ação em resposta. Deve identificar diferentes condições de alerta para a sua aplicação e incluir regras de alerta correspondentes no seu ficheiro de solução.
 
 Se o problema potencialmente pode ser corrigido com um processo automatizado, normalmente, irá criar um runbook na automatização do Azure para realizar essa correção.  Os serviços mais do Azure podem ser geridos com [cmdlets](/powershell/azure/overview) que o runbook poderia aproveitar para fazer essa funcionalidade.
 

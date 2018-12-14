@@ -9,14 +9,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: ab4831a4a84e1f96624c5de1e53f9b8688a5c2cd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1544d60d94a73326d2cd0430de8a1f61aaefe373
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871672"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343977"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alterações de .NET SDK: Transferir e notas de versão
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do Feed de alterações de .NET: Transferir e notas de versão
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -27,7 +27,7 @@ ms.locfileid: "52871672"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -41,6 +41,11 @@ ms.locfileid: "52871672"
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="v2-builds"></a>compilações de v2
+
+### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
+* Foi adicionado suporte para a manipulação de divisão em coleções que utilizam o débito de base de dados partilhada.
+  * Esta versão corrige um problema que possam ocorrer durante a divisão em coleções com débito de base de dados partilhada, quando dividir o resultado em partição balanceamento novamente com o intervalo de chaves de partição de apenas um filho criado, em vez de dois. Quando isto acontecer, processador do Feed de alterações pode ficar bloqueado a eliminar a concessão para o intervalo de chaves de partição antigo e não a criar novas concessões. O problema é resolvido nesta versão.
+  * Alteração significativa secundárias: adicionar o novo método IChangeFeedDocumentClient.ReadOffersFeedAsync, que é utilizado para verificar se colleciton atribuiu débito dedicado ou partilha débito com outras coleções na base de dados. Fornecer uma implementação personalizada de IChangeFeedDocumentClient é um cenário avançado e pode ser utilizada para monitorizar todas as chamadas por processador do Feed de alterações para monitorizado e coleções da concessão. Com esta alteração, tem de ser alterada IChangeFeedDocumentClient implementação ao implementar o novo método.
 
 ### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
 * Feed adicionada nova propriedade ChangeFeedProcessorOptions.StartContinuation para suportar a alteração de partida do token de continuação do pedido. Esta opção só é utilizada quando a coleção de concessão está vazia ou uma concessão não tem ContinuationToken definido. Para concessões na coleção de concessão com ContinuationToken definido, é utilizado o ContinuationToken e ChangeFeedProcessorOptions.StartContinuation é ignorada.

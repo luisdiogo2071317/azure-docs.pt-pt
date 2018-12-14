@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4f2a8431e353246b1f7304e7bfe30d13a7b4af4b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: fb8e2b11ce6178c10fb9dc7d13c5c7d817ece821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139304"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344113"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Exemplos de consulta SQL para consultar dados do Azure Cosmos DB
 
@@ -1411,14 +1411,14 @@ As funções de verificação de tipo permitem-lhe verificar o tipo de uma expre
 
 | **Utilização** | **Descrição** |
 |-----------|------------|
-| [IS_ARRAY (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array) | Devolve um valor booleano que indica se o tipo do valor é uma matriz. |
-| [IS_BOOL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool) | Devolve um valor booleano que indica se o tipo do valor é um booleano. |
-| [IS_NULL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null) | Devolve um valor booleano que indica se o tipo do valor é nulo. |
-| [IS_NUMBER (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number) | Devolve um valor booleano que indica se o tipo do valor é um número. |
-| [IS_OBJECT (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object) | Devolve um valor booleano que indica se o tipo do valor é um objeto JSON. |
-| [IS_STRING (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string) | Devolve um valor booleano que indica se o tipo do valor é uma cadeia de caracteres. |
-| [IS_DEFINED (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined) | Devolve um valor booleano que indica se a propriedade foi atribuída um valor. |
-| [IS_PRIMITIVE (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive) | Devolve um valor booleano que indica se o tipo do valor é uma cadeia de caracteres, número, booleano ou null. |
+| [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Devolve um valor booleano que indica se o tipo do valor é uma matriz. |
+| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Devolve um valor booleano que indica se o tipo do valor é um booleano. |
+| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | Devolve um valor booleano que indica se o tipo do valor é nulo. |
+| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | Devolve um valor booleano que indica se o tipo do valor é um número. |
+| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | Devolve um valor booleano que indica se o tipo do valor é um objeto JSON. |
+| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | Devolve um valor booleano que indica se o tipo do valor é uma cadeia de caracteres. |
+| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | Devolve um valor booleano que indica se a propriedade foi atribuída um valor. |
+| [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | Devolve um valor booleano que indica se o tipo do valor é uma cadeia de caracteres, número, booleano ou null. |
 
 O uso dessas funções, agora, pode executar consultas conforme mostrado no exemplo a seguir:
 
@@ -1440,22 +1440,22 @@ As seguintes funções escalares realizar uma operação num valor de entrada de
 
 | Utilização | Descrição |
 | --- | --- |
-| [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) | Devolve o número de carateres da expressão de cadeia especificada |
-| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) | Devolve uma cadeia que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres. |
-| [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) | Devolve a parte de uma expressão de cadeia de caracteres. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) | Retorna um Booleano indicando se a primeira expressão de cadeia começa com o segundo |
-| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) | Retorna um Booleano indicando se a primeira expressão de cadeia termina com o segundo |
-| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) | Retorna um Booleano indicando se a primeira cadeia de expressão contém o segundo. |
-| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) | Devolve a posição inicial da primeira ocorrência da segunda cadeia de expressão dentro da primeira expressão de cadeia especificada ou -1 se a cadeia de caracteres não foi encontrada. |
-| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) | Devolve a parte esquerda de uma cadeia com o número especificado de carateres. |
-| [DIREITA (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) | Devolve a parte direita de uma cadeia de caracteres com o número especificado de carateres. |
-| [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) | Devolve uma expressão de cadeia de caracteres depois que ele remove espaços em branco à esquerda. |
-| [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) | Devolve uma expressão de cadeia de caracteres depois truncar todos os espaços em branco de à direita. |
-| [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) | Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em maiúsculas em minúsculas. |
-| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) | Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em minúsculas em maiúsculas. |
-| [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) | Substitui todas as ocorrências de um valor de cadeia especificada com outro valor de cadeia de caracteres. |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Devolve o número de carateres da expressão de cadeia especificada |
+| [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Devolve uma cadeia que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres. |
+| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | Devolve a parte de uma expressão de cadeia de caracteres. |
+| [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | Retorna um Booleano indicando se a primeira expressão de cadeia começa com o segundo |
+| [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | Retorna um Booleano indicando se a primeira expressão de cadeia termina com o segundo |
+| [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Retorna um Booleano indicando se a primeira cadeia de expressão contém o segundo. |
+| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | Devolve a posição inicial da primeira ocorrência da segunda cadeia de expressão dentro da primeira expressão de cadeia especificada ou -1 se a cadeia de caracteres não foi encontrada. |
+| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | Devolve a parte esquerda de uma cadeia com o número especificado de carateres. |
+| [DIREITA (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | Devolve a parte direita de uma cadeia de caracteres com o número especificado de carateres. |
+| [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | Devolve uma expressão de cadeia de caracteres depois que ele remove espaços em branco à esquerda. |
+| [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | Devolve uma expressão de cadeia de caracteres depois truncar todos os espaços em branco de à direita. |
+| [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em maiúsculas em minúsculas. |
+| [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | Devolve uma expressão de cadeia de caracteres após a conversão de dados de caráter em minúsculas em maiúsculas. |
+| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | Substitui todas as ocorrências de um valor de cadeia especificada com outro valor de cadeia de caracteres. |
 | [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) | Repete-se um valor de cadeia de caracteres um número de vezes especificado. |
-| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) | Devolve a ordem inversa de um valor de cadeia de caracteres. |
+| [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | Devolve a ordem inversa de um valor de cadeia de caracteres. |
 
 O uso dessas funções, agora, pode executar consultas semelhante ao seguinte. Por exemplo, pode retornar o nome de família em maiúsculas da seguinte forma:
 
@@ -1522,10 +1522,10 @@ As seguintes funções escalares executam uma operação num valor de entrada de
 
 | Utilização | Descrição |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Devolve o número de elementos da expressão de matriz especificada. |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Devolve uma matriz que é o resultado da concatenação de dois ou mais valores de matriz. |
-| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Devolve um valor booleano que indica se a matriz contém o valor especificado. Pode especificar se a correspondência total ou parcial. |
-| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Devolve a parte de uma expressão de matriz. |
+| [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |Devolve o número de elementos da expressão de matriz especificada. |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |Devolve uma matriz que é o resultado da concatenação de dois ou mais valores de matriz. |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |Devolve um valor booleano que indica se a matriz contém o valor especificado. Pode especificar se a correspondência total ou parcial. |
+| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](sql-api-query-reference.md#bk_array_slice) |Devolve a parte de uma expressão de matriz. |
 
 Funções de matriz podem ser utilizadas para manipular matrizes no JSON. Por exemplo, eis uma consulta que devolve todos os itens em que é um dos pais "Round Robin Wakefield". 
 

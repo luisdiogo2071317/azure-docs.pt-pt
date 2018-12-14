@@ -1,5 +1,5 @@
 ---
-title: 'Do Azure Cosmos DB: SQL Python API, SDK e recursos'
+title: 'o Azure Cosmos DB: SQL Python API, SDK e recursos'
 description: Saiba tudo sobre o SQL Python API e o SDK, incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão do SDK de Python do Azure Cosmos DB.
 services: cosmos-db
 author: rnagpal
@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f67d8242eb1b2e29cf96a8065a664fe7f6dd6da5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: cf796466d8d4156eb442e6b0d1b51cb70d0d30f3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875948"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337092"
 ---
-# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python do Cosmos DB do Azure para a API de SQL: notas de versão e recursos
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed de alterações de .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -28,7 +28,7 @@ ms.locfileid: "52875948"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 

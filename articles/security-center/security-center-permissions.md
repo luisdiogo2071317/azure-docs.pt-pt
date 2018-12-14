@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: e853ea6d05585fa764ad6e019a3a4390ed840263
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: de9186faa9c6228f1938a94016ef449ce8bb1899
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313451"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335936"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões no Centro de segurança do Azure
 
@@ -29,8 +29,8 @@ Centro de segurança avalia a configuração dos seus recursos para identificar 
 
 Além destas funções, há duas funções específicas do Centro de Segurança:
 
-* **Leitor de segurança**: um utilizador que pertence a esta função tem a ver direitos ao centro de segurança. O utilizador pode ver recomendações, alertas, uma política de segurança e Estados de segurança, mas não pode fazer alterações.
-* **Administrador de segurança**: um utilizador que pertence a esta função tem os mesmos direitos que o leitor de segurança e de que pode também atualizar a política de segurança e dispensar alertas e recomendações.
+* **Leitor de segurança**: Um utilizador que pertence a esta função tem a ver direitos ao centro de segurança. O utilizador pode ver recomendações, alertas, uma política de segurança e Estados de segurança, mas não pode fazer alterações.
+* **Administrador de segurança**: Um utilizador que pertence a esta função tem os mesmos direitos que o leitor de segurança e pode também atualizar a política de segurança e dispensar alertas e recomendações.
 
 > [!NOTE]
 > As funções de segurança, leitor de segurança e o administrador de segurança, tem acesso apenas no Centro de segurança. As funções de segurança não tem acesso a outras áreas de serviço do Azure como armazenamento, Web e móveis ou de Internet das coisas.
@@ -59,7 +59,7 @@ A tabela seguinte mostra as funções e permitido ações no Centro de seguranç
 ## <a name="next-steps"></a>Passos Seguintes
 Este artigo explicou como o Centro de segurança utiliza o RBAC para atribuir permissões a utilizadores e identificou as ações permitidas para cada função. Agora que está familiarizado com as atribuições de função necessárias para monitorizar o estado de segurança da sua subscrição, editar as políticas de segurança e aplicar recomendações, saiba como:
 
-- [Definir políticas de segurança no Centro de segurança](security-center-azure-policy.md)
+- [Definir políticas de segurança no Centro de segurança](tutorial-security-policy.md)
 - [Gerir recomendações de segurança no Centro de segurança](security-center-recommendations.md)
 - [Monitorizar o estado de funcionamento de segurança dos seus recursos do Azure](security-center-monitoring.md)
 - [Gerir e responder a alertas de segurança no Centro de Segurança](security-center-managing-and-responding-alerts.md)

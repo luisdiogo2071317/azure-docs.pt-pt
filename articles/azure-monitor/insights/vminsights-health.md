@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 7a11cc42c3d7fa8cd48de9338d0269d41cbc63f9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a2f654043146536ecf543ae2a0aa49537c2223e1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190599"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344045"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Compreender o estado de funcionamento das suas máquinas virtuais do Azure com o Azure Monitor para VMs (pré-visualização)
 Azure inclui vários serviços que executar individualmente uma tarefa ou função específica no espaço de monitorização, mas o fornecimento de uma perspectiva detalhada do Estado de funcionamento do sistema operativo alojada em máquinas virtuais do Azure não estava disponível.  Enquanto poderia monitorar para condições diferentes usando o Log Analytics ou no Azure Monitor, que não foram projetados para modelar e representam o estado de funcionamento dos componentes principais ou de estado de funcionamento geral da máquina virtual.  Com o Azure Monitor para a funcionalidade de estado de funcionamento de VMs, proativamente monitoriza a disponibilidade e desempenho do Windows ou Linux SO convidado com um modelo que representam os principais componentes e suas relações, os critérios que especifica como medir o estado de funcionamento desses componentes, e o alerte quando é detetada uma condição de mau estado de funcionamento.  
@@ -118,7 +118,7 @@ Sobre o **estado de funcionamento** separador, é possível saber o seguinte:
 * O número de VMs é mau estado de funcionamento devido a um problema detetado com um processador, disco, memória ou um adaptador de rede, categorizados por Estado de funcionamento?  
 * O número de VMs é mau estado de funcionamento devido a um problema detetado com um serviço de sistema operacional principal, categorizado por Estado de funcionamento?
 
-Aqui pode rapidamente identificar os principais problemas críticos detetados pelos critérios de estado de funcionamento de monitoramento proativo da VM e rever os detalhes de alerta de estado de funcionamento da VM e o artigo de conhecimento associado a intenção de auxiliar no diagnóstico e correção do problema.  Selecione qualquer uma das gravidades para abrir o [todos os alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) página filtrada por esse gravidade.
+Aqui pode rapidamente identificar os principais problemas críticos detetados pelos critérios de estado de funcionamento de monitoramento proativo da VM e rever os detalhes de alerta de estado de funcionamento da VM e o artigo de conhecimento associado a intenção de auxiliar no diagnóstico e correção do problema.  Selecione qualquer uma das gravidades para abrir o [todos os alertas](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) página filtrada por esse gravidade.
 
 O **distribuição VM pelo sistema operativo** lista mostra as VMs listadas por edição do Windows ou a distribuição de Linux, juntamente com suas versões. Em cada categoria de sistema operativo, as VMs são divididas de forma ainda mais com base no estado de funcionamento da VM. 
 
@@ -246,7 +246,7 @@ No exemplo acima, quando um seleciona **(disco lógico) de /mnt**, a árvore de 
 Para ver o estado de funcionamento atualizado, pode atualizar a página de diagnóstico de estado de funcionamento ao clicar o **atualizar** ligação.  Se existir uma atualização do Estado de funcionamento do critério de estado de funcionamento com base no intervalo de consulta predefinido, essa tarefa permite-lhe evitar espera e reflete o estado de funcionamento mais recente.  O **estado de funcionamento de critérios** é um filtro que lhe permite definir o âmbito os resultados com base no estado do Estado de funcionamento selecionado - bom estado de funcionamento, aviso, crítico, desconhecido e tudo.  O **última atualização** tempo no canto superior direito representa a última vez em quando a página de diagnóstico de estado de funcionamento foi atualizada.  
 
 ## <a name="alerting-and-alert-management"></a>Gestão de alerta e alerta 
-Monitor do Azure para a funcionalidade de estado de funcionamento de VMs integra [alertas do Azure](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) e emite um alerta quando os critérios de estado de funcionamento predefinido alterar de bom estado de funcionamento para um mau estado de funcionamento, quando a condição for detectada. Alertas são categorizados por gravidade - gravidade 0 a 4, com 0 representando o nível de gravidade mais elevado de gravidade.  
+Monitor do Azure para a funcionalidade de estado de funcionamento de VMs integra [alertas do Azure](../../azure-monitor/platform/alerts-overview.md) e emite um alerta quando os critérios de estado de funcionamento predefinido alterar de bom estado de funcionamento para um mau estado de funcionamento, quando a condição for detectada. Alertas são categorizados por gravidade - gravidade 0 a 4, com 0 representando o nível de gravidade mais elevado de gravidade.  
 
 Número total de alertas de estado de funcionamento da VM categorizados por gravidade está disponível na **estado de funcionamento** dashboard na secção **alertas**. Ao selecionar o número total de alertas ou o número correspondente a um nível de gravidade, o **alertas** página abre e apresenta uma lista de todos os alertas que correspondam a sua seleção.  Por exemplo, se tiver selecionado a linha correspondente **nível de gravidade 1**, em seguida, verá a vista seguinte:
 
@@ -254,7 +254,7 @@ Número total de alertas de estado de funcionamento da VM categorizados por grav
 
 Sobre o **alertas** página, ele apenas não tem como escopo para mostrar alertas correspondentes a sua seleção, mas também são filtradas pela **tipo de recurso** para mostrar apenas os alertas de estado de funcionamento gerados pelo recurso de máquina virtual.  Isto é refletido na lista de alertas, abaixo da coluna **recurso de destino**, onde ele mostra que a VM do Azure, o alerta foi gerado para quando a condição de mau estado de funcionamento dos critérios de estado de funcionamento específico foi cumprida.  
 
-Alertas a partir de outros tipos de recursos ou serviços não se destinam a serem incluídos nesta vista, como alertas de registo com base no Log Analytics consultas ou alerta de métrica que normalmente seria ver do padrão do Azure Monitor [todos os alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) página. 
+Alertas a partir de outros tipos de recursos ou serviços não se destinam a serem incluídos nesta vista, como alertas de registo com base no Log Analytics consultas ou alerta de métrica que normalmente seria ver do padrão do Azure Monitor [todos os alertas](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) página. 
 
 Pode filtrar esta vista ao selecionar os valores nos menus de lista pendente na parte superior da página.
 

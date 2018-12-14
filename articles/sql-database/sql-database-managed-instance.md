@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: e94b9e6d39a8a2694658a4231c54a027523af10c
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 57dd6fc822e0285b33368987d2af7c690d4f7786
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889247"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337823"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Utilizar a instância gerida do SQL da base de dados com as redes virtuais e quase 100% de compatibilidade
 
@@ -41,13 +41,13 @@ Para decidir entre o Azure SQL da base de dados única base de dados, instância
 Instância de gerida de base de dados de SQL do Azure combina os melhores recursos que estão disponíveis no Azure SQL Database e o motor de base de dados do SQL Server.
 
 > [!IMPORTANT]
-> Executa uma instância gerida com todas as funcionalidades da versão mais recente do SQL Server, incluindo operações online, correções de planos automática e outros aprimoramentos de desempenho do enterprise. Uma comparação dos recursos disponíveis é explicada na [comparação de funcionalidades: base de dados do Azure SQL em comparação com o SQL Server](sql-database-features.md).
+> Executa uma instância gerida com todas as funcionalidades da versão mais recente do SQL Server, incluindo operações online, correções de planos automática e outros aprimoramentos de desempenho do enterprise. Uma comparação dos recursos disponíveis é explicada na [comparação de funcionalidades: Base de dados SQL do Azure e do SQL Server](sql-database-features.md).
 
 | **Vantagens de PaaS** | **Continuidade do negócio** |
 | --- | --- |
 |Sem comprar hardware e gestão <br>Nenhuma sobrecarga de gerenciamento para gerir a infraestrutura subjacente <br>Aprovisionamento rápido e dimensionamento do serviço <br>Atualização de aplicação de patches e versão automatizada <br>Integração com outros serviços de dados de PaaS |tempo de atividade de 99,99% SLA  <br>Incorporado [elevada disponibilidade](sql-database-high-availability.md) <br>Os dados protegidos com [cópias de segurança automatizadas](sql-database-automated-backups.md) <br>Período de retenção de cópia de segurança configuráveis do cliente <br>Iniciado pelo utilizador [cópias de segurança](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Ponto de restauro de base de dados de tempo](sql-database-recovery-using-backups.md#point-in-time-restore) capacidade |
 |**Segurança e conformidade** | **Gestão**|
-|Ambiente isolado ([integração VNet](sql-database-managed-instance-vnet-configuration.md)único inquilino de serviço, dedicada de computação e armazenamento) <br>[Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD](sql-database-aad-authentication.md), único suporte de início de sessão <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Inícios de sessão do Azure AD</a> (**pré-visualização pública**) <br>Cumpre as normas de conformidade mesmo como base de dados SQL do Azure <br>[Auditoria de SQL](sql-database-managed-instance-auditing.md) <br>[Deteção de ameaças](sql-database-managed-instance-threat-detection.md) |API do Resource Manager do Azure para automatizar o serviço de aprovisionamento e dimensionamento <br>Funcionalidade de portal do Azure para o serviço de aprovisionamento e dimensionamento manual <br>Serviço de migração de dados
+|Ambiente isolado ([integração VNet](sql-database-managed-instance-connectivity-architecture.md)único inquilino de serviço, dedicada de computação e armazenamento) <br>[Encriptação de dados transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD](sql-database-aad-authentication.md), único suporte de início de sessão <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Inícios de sessão do Azure AD</a> (**pré-visualização pública**) <br>Cumpre as normas de conformidade mesmo como base de dados SQL do Azure <br>[Auditoria de SQL](sql-database-managed-instance-auditing.md) <br>[Deteção de ameaças](sql-database-managed-instance-threat-detection.md) |API do Resource Manager do Azure para automatizar o serviço de aprovisionamento e dimensionamento <br>Funcionalidade de portal do Azure para o serviço de aprovisionamento e dimensionamento manual <br>Serviço de migração de dados
 
 Os principais recursos de instância gerida são mostrados na tabela a seguir:
 
@@ -83,8 +83,8 @@ Encontrar mais informações sobre a diferença entre gerações de hardware no 
 
 Instância gerida está disponível em dois escalões de serviço:
 
-- **Fins gerais**: concebido para aplicações com o desempenho típico e requisitos de latência de e/s.
-- **Crítico para a empresa**: concebido para aplicações com requisitos de latência baixos e/s e o mínimo impacto das operações de manutenção subjacente na carga de trabalho.
+- **Fins gerais**: Concebido para aplicações com o desempenho típico e requisitos de latência de e/s.
+- **Crítico para a empresa**: Concebido para aplicações com requisitos de latência baixos e/s e o mínimo impacto das operações de manutenção subjacente na carga de trabalho.
 
 Ambas as camadas de serviço garantem 99,99% de disponibilidade e permitem-lhe selecionar o tamanho de armazenamento e a capacidade de computação de forma independente. Para obter mais informações sobre a arquitetura de elevada disponibilidade da base de dados do Azure SQL, consulte [elevada disponibilidade e a base de dados do Azure SQL](sql-database-high-availability.md).
 
@@ -122,15 +122,15 @@ Instância de gerida de base de dados de SQL do Azure combina os recursos avanç
 
 Instância gerida fornecem isolamento de segurança adicionais de outros inquilinos na nuvem do Azure. Isolamento de segurança inclui:
 
-- [Implementação de rede virtual nativo](sql-database-managed-instance-vnet-configuration.md) e a conectividade ao seu ambiente no local com o Express Route do Azure ou o Gateway de VPN
-- Ponto final SQL é exposto apenas por meio de um endereço IP privado, que permite conectividade segura do Azure privado ou redes híbridas
-- Inquilino único com a infraestrutura subjacente dedicada (computação, armazenamento)
+- [Implementação de rede virtual nativo](sql-database-managed-instance-connectivity-architecture.md) e a conectividade ao seu ambiente no local com o Express Route do Azure ou o Gateway de VPN.
+- Ponto final SQL é exposto apenas por meio de um endereço IP privado, que permite conectividade segura do Azure privado ou redes híbridas.
+- Inquilino único com a infraestrutura subjacente dedicada (computação, armazenamento).
 
 O diagrama seguinte descreve várias opções de conectividade para as suas aplicações:
 
 ![elevada disponibilidade](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
-Para obter mais detalhes sobre a integração de VNet e a imposição de políticas ao nível da sub-rede de rede, consulte [configurar uma VNet para a instância gerida da base de dados SQL do Azure](sql-database-managed-instance-vnet-configuration.md) e [ligar a sua aplicação à base de dados do Azure SQL Instância gerida](sql-database-managed-instance-connect-app.md).
+Para obter mais detalhes sobre a integração de VNet e a imposição de políticas ao nível da sub-rede de rede, consulte [arquitetura de VNet para a instância gerida da base de dados SQL do Azure](sql-database-managed-instance-connectivity-architecture.md) e [ligar a sua aplicação à base de dados do Azure SQL Instância gerida](sql-database-managed-instance-connect-app.md).
 
 > [!IMPORTANT]
 > Coloca a instância gerida vários na mesma sub-rede, onde quer que o que é permitido por seus requisitos de segurança, uma vez que irá fornecer benefícios adicionais. Instâncias collocating na mesma sub-rede irão significativamente simplificar a manutenção da infraestrutura de rede e reduzir a instância do provisionamento de tempo, uma vez que o aprovisionamento de longa duração está associado com o custo da instância gerida de primeira implementação numa sub-rede.
@@ -207,7 +207,7 @@ Gerido benefícios de instância de ser sempre up-até à data na nuvem, o que s
 
 - Elevada disponibilidade incorporada no e previamente configuradas usando tecnologia semelhante [grupos de Disponibilidade AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Cópias de segurança automáticas e o ponto no tempo. Pode iniciar o cliente `copy-only` cópias de segurança que não interferem com a cadeia de cópia de segurança automática.
-- Instância gerida não permite a especificação de caminhos físicos completa para todos os cenários correspondentes tenham de ser suportadas de forma diferente: Restaurar DB não suporta a WITH MOVE, criar DB não permite caminhos físicos, a inserção em massa funciona com Blobs do Azure, apenas, etc.
+- Instância gerida não permite a especificação de caminhos físicos completa para que todos os cenários correspondentes tenham de ser suportadas de forma diferente: RESTAURAR DB não suporta a com a mover, criar DB não permite caminhos físicos, a inserção em massa funciona com Blobs do Azure, apenas, etc.
 - Suporta a instância de geridos [autenticação do Azure AD](sql-database-aad-authentication.md) como alternativa de cloud para a autenticação do Windows.
 - Instância gerida gere automaticamente o grupo de ficheiros XTP e ficheiros de bases de dados que contém objetos de OLTP dentro da memória
 - Instância gerida suporta SQL Server Integration Services (SSIS) e pode anfitrião catálogo SSIS (SSISDB) que armazena os pacotes do SSIS, mas eles são executados num gerido do Azure-SSIS Integration Runtime (IR) no Azure Data Factory (ADF), consulte [Create Runtime de integração Azure-SSIS no ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar os recursos do SSIS na base de dados SQL e a instância gerida, veja [servidor lógico de comparar a base de dados do SQL e a instância gerida](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance).
@@ -234,7 +234,7 @@ A tabela seguinte mostra várias propriedades, acessíveis através de Transact 
 
 - Para saber como criar a sua primeira instância gerida, veja [guia de início rápido](sql-database-managed-instance-get-started.md).
 - Para funcionalidades e lista de comparação, veja [recursos comuns de SQL](sql-database-features.md).
-- Para obter mais informações sobre a configuração da VNet, veja [Configuração de VNet de Instância Gerida](sql-database-managed-instance-vnet-configuration.md).
+- Para obter mais informações sobre a configuração da VNet, veja [Configuração de VNet de Instância Gerida](sql-database-managed-instance-connectivity-architecture.md).
 - Para um início rápido que cria uma instância gerida e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma instância gerida](sql-database-managed-instance-get-started.md).
 - Para obter um tutorial, utilizando o Azure Database Migration Service (DMS) para migração, veja [Migração de Instância Gerida com o DMS](../dms/tutorial-sql-server-to-managed-instance.md).
 - Para avançadas de monitorização de desempenho da base de dados de instância gerida com inteligência incorporada de resolução de problemas, consulte [SQL Database do Azure Monitor, através da análise de SQL do Azure](../azure-monitor/insights/azure-sql.md)

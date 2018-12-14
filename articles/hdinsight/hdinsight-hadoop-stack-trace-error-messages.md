@@ -10,26 +10,26 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 880f5fc44978a6b46b3cbaefe41296903617b4e6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 371685ba8a65fe3ca9d8835f4afcacc8ff2e07ed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011413"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383258"
 ---
-# <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Índice de Hadoop no HDInsight, artigos de resolução de problemas
+# <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>Índice do Apache Hadoop no HDInsight, artigos de resolução de problemas
 Artigos estão organizados por tipos de erros.
 
 ## <a name="out-of-memory-error"></a>Sem erro de memória
-* [Corrigir um ramo de registo fora de erro de memória no HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md): corrigir um fora de erro de memória (OOM) de uma consulta do Hive. O cenário de clientes inclui uma consulta em muitas tabelas grandes.
+* [Corrigir um Apache Hive fora do erro de memória no HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md): Corrigi um fora de erro de memória (OOM) de uma consulta do Hive. O cenário de clientes inclui uma consulta em muitas tabelas grandes.
 
-## <a name="hive-query-performance"></a>Desempenho das consultas do Hive
-* [Otimizar as consultas do Hive do Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md): Este artigo aborda alguns métodos de otimização desempenho mais comuns do Hive pode aplicar a consultas do Hive.
-* [Resolução de problemas de desempenho de consulta do Hive num cluster de Hadoop do HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
+## <a name="apache-hive-query-performance"></a>Desempenho de consultas do Apache Hive
+* [Otimizar as consultas do Apache Hive para o Apache Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md): Este artigo aborda alguns métodos de otimização desempenho mais comuns do Hive pode aplicar a consultas do Hive.
+* [Resolução de problemas de desempenho de consulta Apache Hive num cluster de Hadoop do HDInsight](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
 
 ## <a name="more-troubleshooting-articles"></a>Mais artigos de resolução de problemas
 * [Informações sobre como utilizar o HDInsight no Linux](hdinsight-hadoop-linux-information.md)
-* [Registos de aplicações do YARN de acesso no Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Ativar capturas de área dinâmica para dados para serviços do Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Notas de versão para componentes do Hadoop no HDInsight do Azure](hdinsight-release-notes.md)
+* [Registos de aplicações do Apache Hadoop YARN de acesso no Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Ativar capturas de área dinâmica para dados dos serviços de Apache Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Notas de versão para componentes do Apache Hadoop no HDInsight do Azure](hdinsight-release-notes.md)
 

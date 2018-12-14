@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/10/2018
+ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 6aa13096b61fc1bf44d370b3d7dcc01a0df74e8d
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 74132c436670247f3eb84859216274d3e1363d07
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321346"
+ms.locfileid: "53338707"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD do Windows ou o VHDX para carregar para o Azure
 Antes de carregar um Windows máquinas virtuais (VM) no local para o Microsoft Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta **apenas as VMs de geração 1** que estejam no formato de ficheiro VHD e que tem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1,023 GB. Pode converter uma geração de VHD e um disco de expansão dinâmica com tamanho fixo do sistema de ficheiros de 1 VM a partir do VHDX. Mas não é possível alterar a geração de uma VM. Para obter mais informações, consulte [devo criar uma geração 1 ou 2 VM no Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -73,6 +73,16 @@ Na VM que pretende carregar para o Azure, executar todos os comandos nas etapas 
     ```PowerShell
     netsh winhttp reset proxy
     ```
+
+    Se a VM precisa trabalhar com qualquer proxy específico, tem de adicionar uma exceção de proxy para o endereço IP do Azure ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
+)), por isso, a VM tem conectividade para o Azure:
+    ```
+    $proxyAddress="<your proxy server>"
+    $proxyBypassList="<your list of bypasses>;168.63.129.16"
+
+    netsh winhttp set proxy $proxyAddress $proxyBypassList
+    ```
+
 3. Defina a política de SAN de disco para [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell

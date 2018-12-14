@@ -9,14 +9,14 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 460dfb168894d28d5fbc5e5585a6054917127931
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 984a027a1fe2f9c894701058452490bdf12b66c4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633569"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338741"
 ---
-# <a name="example-how-to-detect-language-in-text-analytics"></a>Exemplo: como detetar idiomas na Análise de Texto
+# <a name="example-how-to-detect-language-in-text-analytics"></a>Exemplo: Como detectar o idioma na análise de texto
 
 A [API de Deteção de Idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) avalia o texto de entrada e para cada documento e devolve os identificadores de idioma com uma pontuação que indica o nível de confiança da análise. A Análise de Texto reconhece até 120 idiomas.
 
@@ -52,17 +52,17 @@ Cada documento tem de ter menos de 5000 carateres e pode ter até 1000 itens (ID
             },                
             {
                 "id": "5",
-                "text": "Этот документ находится на английском языке."
+                "text": "Этот документ на английском языке."
             }
         ]
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>Passo 1: estruturar o pedido
+## <a name="step-1-structure-the-request"></a>Passo 1: O pedido de estrutura
 
 Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
 
-+ Crie um pedido **POST**. Reveja a documentação sobre a API para este pedido: [API de Deteção de Idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
++ Crie um pedido **POST**. Reveja a documentação da API para este pedido: [API de deteção de idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 
 + Definir o ponto final HTTP para deteção de idioma, usando um recurso de análise de texto no Azure ou um instanciadas [contentor de análise de texto](text-analytics-how-to-install-containers.md). Tem de incluir o recurso `/languages`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
 
@@ -73,14 +73,14 @@ Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Anál
 > [!Tip]
 > Utilize o [Postman](text-analytics-how-to-call-api.md) ou abra a **consola de teste da API** na [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) para estruturar um pedido e publicá-lo no serviço.
 
-## <a name="step-2-post-the-request"></a>Passo 2: publicar o pedido
+## <a name="step-2-post-the-request"></a>Passo 2: O pedido de POST
 
 A análise é realizada aquando da receção do pedido. O serviço aceita até 100 pedidos por minuto. Cada pedido pode ter um máximo de 1 MB.
 
 Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 
 
-## <a name="step-3-view-results"></a>Passo 3: ver resultados
+## <a name="step-3-view-results"></a>Passo 3: Ver resultados
 
 Todos os pedidos POST devolvem uma resposta formatada JSON com os IDs e as propriedades detetadas.
 

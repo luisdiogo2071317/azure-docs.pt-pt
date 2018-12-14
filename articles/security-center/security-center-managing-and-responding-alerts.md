@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50fa467a6405fdc6b99c78a8f57411abf3be6336
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 782e655edcb7cbac1965131bce4431dc5599328e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836632"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340634"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gerir e responder a alertas de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a utilizar o Centro de Segurança do Azure para gerir e responder a alertas de segurança.
 
 > [!NOTE]
-> Para ativar as deteções avançadas, atualize para o Centro de Segurança do Azure Standard. Está disponível uma avaliação gratuita. Para atualizar, selecione Escalão de Preço na [Política de Segurança](security-center-azure-policy.md). Veja [Preços do Centro de Segurança do Azure](security-center-pricing.md) para saber mais.
+> Para ativar as deteções avançadas, atualize para o Centro de Segurança do Azure Standard. Está disponível uma avaliação gratuita. Para atualizar, selecione Escalão de Preço na [Política de Segurança](tutorial-security-policy.md). Veja [Preços do Centro de Segurança do Azure](security-center-pricing.md) para saber mais.
 >
 >
 
@@ -51,14 +51,14 @@ Pode rever os alertas atuais ao observar o mosaico **Alertas de segurança**. Si
 
 Na parte inferior desta página encontram-se os detalhes de cada alerta. Para ordenar, clique na coluna pela qual pretende ordenar. A definição para cada coluna é indicada abaixo:
 
-* **Descrição**: uma breve explicação do alerta.
-* **Contagem**: uma lista de todos os alertas deste tipo específico que foram detetados num dia específico.
-* **Detetado por**: o serviço que foi responsável por ter acionado o alerta.
-* **Data**: a data em que o evento ocorreu.
-* **Estado**: o estado atual para esse alerta. Existem dois tipos de estados:
-  * **Ativo**: o alerta de segurança foi detetado.
-  * **Dispensado**: o alerta de segurança foi dispensado pelo utilizador. Este estado é normalmente utilizado para os alertas que foram investigadas e mitigado ou considerado como não sendo um ataque real.
-* **Gravidade**: o nível de gravidade, que pode ser alta, média ou baixa.
+* **Descrição**: Uma breve explicação do alerta.
+* **Contagem de**: Uma lista de todos os alertas deste tipo específico que foram detetados num dia específico.
+* **Detetado por**: O serviço que foi responsável por ter acionado o alerta.
+* **Data**: A data em que ocorreu o evento.
+* **estado**: O estado atual para esse alerta. Existem dois tipos de estados:
+  * **Active Directory**: Foi detetado o alerta de segurança.
+  * **Dispensado**: O alerta de segurança foi dispensado pelo utilizador. Este estado é normalmente utilizado para os alertas que foram investigadas e mitigado ou considerado como não sendo um ataque real.
+* **Gravidade**: O nível de gravidade, que pode ser alta, média ou baixa.
 
 > [!NOTE]
 > Os alertas de segurança gerados pelo Centro de Segurança também serão apresentado no Registo de Atividades do Azure. Para obter mais informações sobre como aceder ao Registo de Atividades do Azure, leia [Ver registos de atividades para auditar as ações em recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
@@ -70,13 +70,13 @@ Na parte inferior desta página encontram-se os detalhes de cada alerta. Para or
 > [!NOTE]
 > Gravidade do alerta é apresentada de forma diferente no portal e a API REST, as diferenças são assinaladas na lista abaixo.
 
--   **Alta**: há uma grande probabilidade de que o recurso é comprometido. Deve analisar o problema imediatamente. Centro de segurança tem alta confiança as más intenções e as descobertas utilizadas para emitir o alerta. Por exemplo, um alerta que Deteta a execução de uma ferramenta maliciosa conhecida, como o Mimikatz, uma ferramenta de comum usada para roubo de credenciais. 
--   **Médio (baixa na REST API)**: provavelmente se trata de uma atividade suspeita que possam indicar que um recurso é comprometido.
+-   **Alta**: Há uma grande probabilidade de que o recurso é comprometido. Deve analisar o problema imediatamente. Centro de segurança tem alta confiança as más intenções e as descobertas utilizadas para emitir o alerta. Por exemplo, um alerta que Deteta a execução de uma ferramenta maliciosa conhecida, como o Mimikatz, uma ferramenta de comum usada para roubo de credenciais. 
+-   **Médio (baixa na REST API)**: Isto é, provavelmente, uma atividade suspeita que possam indicar que um recurso é comprometido.
 Confiança do Centro de segurança na análise ou finding é médio e a confiança de más intenções é médio a alto. Normalmente, seriam o machine learning ou deteções de anomalias com base. Por exemplo, um tentativa de uma localização anómala de início de sessão.
--   **Baixa (informações na REST API)**: pode ser um positivo benigno ou um ataque de bloqueado. 
+-   **Baixa (informações na REST API)**: Pode ser um positivo benigno ou um ataque de bloqueado. 
     - Centro de segurança não é suficientemente seguro que a intenção é maliciosa e a atividade pode ser inofensiva. Por exemplo, o log claro é uma ação que pode ocorrer quando um atacante tenta ocultar os ataques, mas em muitos casos é uma operação de rotina realizada por administradores.
     - Centro de segurança não normalmente indicam quando foram bloqueados ataques, a menos que seja um caso interessante que sugerimos que examinar. 
--   **Informativo (silencioso na REST API)**: só conseguirá ver alertas informativos ao desagregar para um incidente de segurança ou, se usar a API de REST com um específico alertá-ID. Um incidente é geralmente constituído por um número de alertas, alguns dos quais podem aparecer na sua própria conta para ser apenas informativa, mas no contexto dos outros alertas podem ser digna de uma análise detalhada. 
+-   **(Silencioso na REST API) informativo**: Apenas verá alertas informativos quando desagregar para um incidente de segurança, ou se usar a API de REST com um ID de alerta específico. Um incidente é geralmente constituído por um número de alertas, alguns dos quais podem aparecer na sua própria conta para ser apenas informativa, mas no contexto dos outros alertas podem ser digna de uma análise detalhada. 
 
 ### <a name="filtering-alerts"></a>Filtragem de alertas
 Pode filtrar os alertas com base na data, no estado e na gravidade. A filtragem de alertas pode ser útil para cenários onde necessita de limitar o âmbito dos alertas de segurança mostrados. Por exemplo, pode pretender resolver alertas de segurança que ocorreram nas últimas 24 horas, porque está a investigar uma potencial violação no sistema.

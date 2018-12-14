@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: raynew
-ms.openlocfilehash: 67a236f592392744978b7d1d7f7e7d129515a9a0
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 50f9027301e4a04cd5624deee084429c803e04f4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321806"
+ms.locfileid: "53342719"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -59,7 +59,7 @@ China | Leste da China, Norte da China, China North2, Leste 2 da China
 > Para a região sul do Brasil, pode replicar e efetuar a ativação pós-falha para um dos seguintes: Centro-Sul, e.u.a. centro-oeste, E.U.A. leste, E.U.A. Leste 2, E.U.A. oeste, E.U.A. oeste 2 e e.u.a. Centro-Norte regiões.</br>
 > É importante observar que o Site Recovery só tenha ativada sul do Brasil ser utilizado como uma região de origem de onde as VMs podem ser protegidas. Não pode ser utilizado como uma região de DR de destino para qualquer uma das regiões do Azure, como o Centro-Sul. O motivo pelo qual a ser latência observado, devido à distância geográfica, que é recomendado que selecione a região de quaisquer outros América que não seja o sul do Brasil.  
 
-## <a name="cache-storage"></a>Armazenamento de cache
+## <a name="cache-storage"></a>Armazenamento em cache
 
 A tabela seguinte resume o suporte para a conta de armazenamento de cache utilizada pelo Site Recovery durante a replicação.
 
@@ -134,7 +134,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default 
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Replicar máquinas - armazenamento de convidado/sistema de ficheiros do Linux
 
-* Sistemas de ficheiros: ext3 ext4, ReiserFS (Suse Linux Enterprise Server apenas), XFS
+* Sistemas de ficheiros: ext3, ext4, ReiserFS (apenas o Suse Linux Enterprise Server), XFS, BTRFS
 * Gestor de volumes: LVM2
 * Software MultiPath i: Mapeador de dispositivo
 

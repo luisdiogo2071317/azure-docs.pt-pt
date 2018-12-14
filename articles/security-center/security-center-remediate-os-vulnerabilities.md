@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5de0c975b21131b50155a6e86f5710f741a3c7f7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317505"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344147"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Remediar configurações de segurança no Centro de segurança do Azure
 Centro de segurança do Azure diariamente analisa o sistema operativo (SO) das suas máquinas virtuais (VMs) e a computadores para uma configuração que poderia fazer com que as VMs e computadores mais vulneráveis a ataques. Centro de segurança recomenda que resolver vulnerabilidades quando a configuração do SO não coincide com as regras de configuração de segurança recomendadas e recomenda alterações de configuração para resolver estas vulnerabilidades.
@@ -49,14 +49,14 @@ Este exemplo aborda a recomendação "Remediar configurações de segurança" em
 
   Seção inferior do dashboard apresenta uma lista de todas as regras com falhas para as suas VMs e computadores e a gravidade da atualização em falta. A lista contém os seguintes elementos:
 
-  - **CCEID**: Identificador exclusivo do CCE o para a regra. Centro de segurança utiliza a enumeração de configuração comum (CCE) para atribuir os identificadores exclusivos para as regras de configuração.
+  - **CCEID**: O identificador exclusivo CCE para a regra. Centro de segurança utiliza a enumeração de configuração comum (CCE) para atribuir os identificadores exclusivos para as regras de configuração.
   - **Nome**: O nome da regra com falhas.
-  - **Tipo de regra**: A *chave de registo*, *política de segurança*, *política de auditoria*, ou *IIS* tipo de regra.
+  - **Tipo de regra**: O *chave de registo*, *política de segurança*, *política de auditoria*, ou *IIS* tipo de regra.
   - **Não. de VMs e computadores**: O número total de VMs e computadores que se aplica a regra com falhas.
-  - **Gravidade de regra**: valor o CCE *crítico*, *importante*, ou *aviso*.
-  - **Estado**: O estado atual da Recomendação:
+  - **Gravidade de regra**: O valor CCE *crítico*, *importante*, ou *aviso*.
+  - **estado**: O estado atual da Recomendação:
 
-    - **Aberto**: a recomendação ainda não foi tratada.
+    - **Abra**: A recomendação ainda não foi tratada.
     - **Em curso**: A recomendação está atualmente a ser aplicada aos recursos e é necessária nenhuma ação por si.
     - **Resolvido**: A recomendação foi aplicada. Quando o problema for resolvido, a entrada fica a cinzento.
 
@@ -67,16 +67,16 @@ Este exemplo aborda a recomendação "Remediar configurações de segurança" em
    A vista detalhada apresenta as seguintes informações:
 
    - **Nome**: O nome da regra.
-   - **CCIED**: Identificador exclusivo do CCE o para a regra.
-   - **Versão do SO**: versão do SO da VM ou do computador.
-   - **Gravidade de regra**: valor o CCE *crítico*, *importante*, ou *aviso*.
+   - **CCIED**: O identificador exclusivo CCE para a regra.
+   - **Versão do SO**: A versão do SO da VM ou do computador.
+   - **Gravidade de regra**: O valor CCE *crítico*, *importante*, ou *aviso*.
    - **Total de descrição**: A descrição da regra.
    - **Vulnerabilidade**: A explicação de vulnerabilidade ou risco se a regra não é aplicada.
    - **Impacto potencial**: O impacto comercial quando a regra é aplicada.
-   - **Contramedida**: os passos de remediação.
+   - **Contramedida**: Os passos de remediação.
    - **Valor esperado**: O valor que é esperado quando o Centro de segurança analisa a configuração do SO da VM contra a regra.
    - **Valor real**: O valor que é devolvido após uma análise da sua configuração do SO da VM contra a regra.
-   - **Operação de regra**: A operação de regra é utilizada pelo centro de segurança durante a análise da sua configuração do SO da VM contra a regra.
+   - **Operação de regra**: A operação de regra que é utilizada pelo centro de segurança durante a análise da sua configuração do SO da VM contra a regra.
 
 4. Na parte superior da janela de vista detalhada, selecione **pesquisa**.  
   Pesquisa abre uma lista de áreas de trabalho têm VMs e computadores com o erro de correspondência de configurações de segurança selecionado. A seleção de área de trabalho é mostrada apenas se a regra selecionada aplica-se a várias VMs que estão ligadas a diferentes áreas de trabalho.
@@ -101,7 +101,7 @@ Para rever as configurações específicas que estão a ser monitorizadas, veja 
 Para saber mais sobre o Centro de segurança, consulte os seguintes recursos:
 
 * Para obter uma lista de VMs do Linux e Windows suportados, consulte [plataformas suportadas no Centro de segurança do Azure](security-center-os-coverage.md).
-* Para saber como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos, veja [definir políticas de segurança no Centro de segurança do Azure](security-center-azure-policy.md).
+* Para saber como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos, veja [definir políticas de segurança no Centro de segurança do Azure](tutorial-security-policy.md).
 * Para saber como recomendações ajudá-lo a proteger os seus recursos do Azure, veja [recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md).
 * Para saber como monitorizar o estado de funcionamento dos seus recursos do Azure, veja [monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md).
 * Para saber como gerir e responder a alertas de segurança, veja [gerir e responder a alertas de segurança no Centro de segurança do Azure](security-center-managing-and-responding-alerts.md).

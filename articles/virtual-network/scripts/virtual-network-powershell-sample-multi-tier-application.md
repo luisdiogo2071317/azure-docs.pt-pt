@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 03/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
-ms.openlocfilehash: 3a57827616e4722b8520dcddb64e4e67fa8c79c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: ebc0e18ecea61705ea8cb925a25d4233bfc9a2cb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599902"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340509"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Criar uma rede para o exemplo de script de aplicações de várias camadas
 
@@ -32,10 +32,11 @@ Pode executar o script a partir do [Azure Cloud Shell](https://shell.azure.com/p
 
 ## <a name="sample-script"></a>Script de exemplo
 
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> Um ID de sub-rede é atribuído depois de criar uma rede virtual; especificamente, usando o cmdlet New-AzureRmVirtualNetwork com a - opção de sub-rede. Se configurar a sub-rede com o cmdlet New-AzureRmVirtualNetworkSubnetConfig antes da chamada para New-AzureRmVirtualNetwork, não verá o ID de sub-rede até depois de chamar o New-AzureRmVirtualNetwork.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 
-## <a name="clean-up-deployment"></a>Limpar a implementação 
+## <a name="clean-up-deployment"></a>Limpar a implementação
 
 Execute o seguinte comando para remover o grupo de recursos, a VM e todos os recursos relacionados:
 
@@ -59,7 +60,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Cria máquinas virtuais e anexa um NIC para cada VM. Este comando também especifica a imagem da máquina virtual a utilizar e as credenciais administrativas. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Elimina um grupo de recursos e todos os recursos contidos no mesmo. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/azure/overview).
 

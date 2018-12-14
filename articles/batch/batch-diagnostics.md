@@ -15,21 +15,21 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 379e5503900621381bbc27c6604cc8208cfdb80e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9e99e5f999c927ed0376a89b9f6d9f73fa8b2b2b
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076462"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384178"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas de lote, alertas e registos para a avaliação de diagnóstico e monitorização
 
  
-Este artigo explica como monitorizar uma conta do Batch utilizar funcionalidades do [do Azure Monitor](../azure-monitor/overview.md). Monitor do Azure recolhe [métricas](../azure-monitor/platform/data-collection.md#metrics) e [registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para recursos na sua conta do Batch. Recolha e consumir estes dados de diversas formas de monitorizar a sua conta do Batch e diagnosticar problemas. Também pode configurar [alertas de métricas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) , para receber notificações quando uma métrica de atinge um valor especificado. 
+Este artigo explica como monitorizar uma conta do Batch utilizar funcionalidades do [do Azure Monitor](../azure-monitor/overview.md). Monitor do Azure recolhe [métricas](../azure-monitor/platform/data-collection.md#metrics) e [registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para recursos na sua conta do Batch. Recolha e consumir estes dados de diversas formas de monitorizar a sua conta do Batch e diagnosticar problemas. Também pode configurar [alertas de métricas](../azure-monitor/platform/alerts-overview.md) , para receber notificações quando uma métrica de atinge um valor especificado. 
 
 ## <a name="batch-metrics"></a>Métricas de batch
 
-As métricas são dados de telemetria do Azure (também chamados de contadores de desempenho) emitidos por seus recursos do Azure que são consumidos pelo serviço do Azure Monitor. Métricas de exemplo numa conta do Batch incluem: agrupamento de eventos de criar, contagem de nós de baixa prioridade e eventos de conclusão de tarefas. 
+As métricas são dados de telemetria do Azure (também chamados de contadores de desempenho) emitidos por seus recursos do Azure que são consumidos pelo serviço do Azure Monitor. Métricas de exemplo numa conta do Batch incluem: Eventos, a contagem de nós de baixa prioridade e a tarefa de criação de conjunto concluir eventos. 
 
 Consulte a [lista de métricas suportadas do Batch](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
 
@@ -71,7 +71,7 @@ Para configurar um alerta de métrica no portal do:
 2. Sob **monitorização**, clique em **regras de alerta** > **Adicionar alerta de métrica**.
 3. Selecione uma métrica, uma condição de alerta (por exemplo, quando uma métrica excede um valor específico durante um período) e uma ou mais notificações.
 
-Pode também configurar uma quase em tempo real alerta com o [REST API](https://docs.microsoft.com/rest/api/monitor/). Para obter mais informações, consulte [descrição geral dos alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+Pode também configurar uma quase em tempo real alerta com o [REST API](https://docs.microsoft.com/rest/api/monitor/). Para obter mais informações, consulte [descrição geral dos alertas](../azure-monitor/platform/alerts-overview.md)
 
 ## <a name="batch-diagnostics"></a>Diagnóstico do batch
 
@@ -109,7 +109,7 @@ Outras opções de destino para os registos de diagnóstico:
 
     ![Diagnóstico do batch](media/batch-diagnostics/diagnostics-portal.png)
 
-Outras opções para ativar a recolha de registos incluem: utilizar o Azure Monitor no portal para configurar as definições de diagnóstico, utilize um [modelo do Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md), ou utilizar o Azure PowerShell ou a CLI do Azure. ver [recolher e consumir dados de registo dos seus recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+Outras opções para ativar a recolha de registos incluem: utilizar o Azure Monitor no portal para configurar as definições de diagnóstico, utilize um [modelo do Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md), ou utilizar o Azure PowerShell ou a CLI do Azure. ver [recolher e consumir dados de registo dos seus recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Registos do diagnóstico de acesso no armazenamento
@@ -133,7 +133,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 Cada arquivo de blob PT1H.json contém eventos formatada em JSON que ocorreram dentro da hora especificada no URL do blob (por exemplo, h=12 = 12). Durante a hora presente, os eventos são acrescentados ao ficheiro PT1H.json à medida que ocorrem. O valor de minuto (m = 00) é sempre 00, uma vez que os eventos de registo de diagnóstico são divididos em blobs individuais por hora. (Todas as horas são em formato UTC).
 
 
-Para obter mais informações sobre o esquema dos registos de diagnóstico na conta de armazenamento, consulte [registos de diagnóstico do Azure de arquivo](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+Para obter mais informações sobre o esquema dos registos de diagnóstico na conta de armazenamento, consulte [registos de diagnóstico do Azure de arquivo](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
 Para aceder programaticamente aos registos na sua conta de armazenamento, utilize as APIs de armazenamento. 
 

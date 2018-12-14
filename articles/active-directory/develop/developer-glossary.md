@@ -17,12 +17,12 @@ ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: 7ce11b3e54a8770a2b3d53e335afc57f52d3d14e
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b74c3d355a720948c22e90b1792dcd6139c101ea
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425314"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338214"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossário de programador do Azure Active Directory
 
@@ -41,7 +41,7 @@ Ver [referência de Token do Azure AD] [ AAD-Tokens-Claims] para obter mais deta
 
 ## <a name="application-id-client-id"></a>id da aplicação (id de cliente)
 
-Os problemas de identificador exclusivo do Azure AD para um registo de aplicação que identifica uma aplicação específica e as configurações associadas. Este id de aplicação ([id de cliente](https://tools.ietf.org/html/rfc6749#page-15)) é utilizado quando executar a autenticação de pedidos e é fornecido para as bibliotecas de autenticação no tempo de desenvolvimento. O id da aplicação (id de cliente) não é um segredo. 
+Os problemas de identificador exclusivo do Azure AD para um registo de aplicação que identifica uma aplicação específica e as configurações associadas. Este id de aplicação ([id de cliente](https://tools.ietf.org/html/rfc6749#page-15)) é utilizado quando executar a autenticação de pedidos e é fornecido para as bibliotecas de autenticação no tempo de desenvolvimento. O id da aplicação (id de cliente) não é um segredo.
 
 ## <a name="application-manifest"></a>manifesto da aplicação
 
@@ -102,7 +102,7 @@ Ver [referência de token do Azure AD] [ AAD-Tokens-Claims] para obter mais deta
 
 ## <a name="client-application"></a>Aplicação de cliente
 
-Conforme definido pela [Framework de autorização de OAuth2][OAuth2-Role-Def], pedidos de recursos em nome de protegidos de um aplicativo que faz com que o [proprietário do recurso](#resource-owner). O termo "cliente" não implica qualquer características de implementação de hardware específico (por exemplo, se o aplicativo é executado num servidor, uma área de trabalho ou outros dispositivos). 
+Conforme definido pela [Framework de autorização de OAuth2][OAuth2-Role-Def], pedidos de recursos em nome de protegidos de um aplicativo que faz com que o [proprietário do recurso](#resource-owner). O termo "cliente" não implica qualquer características de implementação de hardware específico (por exemplo, se o aplicativo é executado num servidor, uma área de trabalho ou outros dispositivos).
 
 Uma aplicação cliente solicita [autorização](#authorization) de um proprietário do recurso para participar de um [concessão de autorização de OAuth2](#authorization-grant) fluxo e pode aceder a APIs/dados em nome do proprietário do recurso. A estrutura de autorização de OAuth2 [define dois tipos de clientes][OAuth2-Client-Types], "Confidencial" e "public", com base na capacidade do cliente de manter a confidencialidade das suas credenciais. As aplicações podem implementar um [(confidencial) de cliente web](#web-client) que é executada num servidor web, uma [cliente nativo (público)](#native-client) instaladas num dispositivo, ou um [baseada no utilizador-agente de cliente (público)](#user-agent-based-client)que é executada no browser do dispositivo.
 
@@ -151,7 +151,7 @@ Conforme definido pela [Framework de autorização de OAuth2][OAuth2-Role-Def], 
 
 Conforme definido pela [Framework de autorização de OAuth2][OAuth2-Role-Def], protegida de um servidor que os anfitriões protegidos recursos, capazes de aceitar e responder a pedidos de recursos por [cliente aplicativos](#client-application) que apresentem um [token de acesso](#access-token). Também conhecido como um servidor de recurso protegido, ou aplicação de recurso.
 
-Um servidor de recurso expõe as APIs e impõe o acesso aos seus recursos protegidos através de [âmbitos](#scopes) e [funções](#roles), usando a estrutura de autorização do OAuth 2.0. Os exemplos incluem o Azure AD Graph API, que fornece acesso a dados de inquilino do Azure AD e as APIs do Office 365 que fornecem acesso a dados, como email e calendário. Ambas as opções também estão acessíveis através da [API do Microsoft Graph][Microsoft-Graph]. 
+Um servidor de recurso expõe as APIs e impõe o acesso aos seus recursos protegidos através de [âmbitos](#scopes) e [funções](#roles), usando a estrutura de autorização do OAuth 2.0. Os exemplos incluem o Azure AD Graph API, que fornece acesso a dados de inquilino do Azure AD e as APIs do Office 365 que fornecem acesso a dados, como email e calendário. Ambas as opções também estão acessíveis através da [API do Microsoft Graph][Microsoft-Graph].
 
 Assim como um aplicativo de cliente, a configuração de identidade da aplicação de recurso é estabelecida através de [registo](#application-registration) no inquilino do Azure AD, fornecendo a aplicação e o objeto principal do serviço. Algumas APIs disponibilizadas pela Microsoft, como o Azure AD Graph API, registou previamente disponibilizados em todos os inquilinos durante o aprovisionamento de principais de serviço.
 
@@ -219,7 +219,7 @@ Um tipo de [aplicação de cliente](#client-application) que executa o código t
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-O [Guia do programador do Azure AD] [ AAD-Dev-Guide] é a página de destino a utilizar para todos os tópicos do Azure AD relacionados ao desenvolvimento, incluindo uma descrição geral das [integração de aplicações] [ AAD-How-To-Integrate] e as noções básicas [autenticação do Azure AD e cenários de autenticação suportados][AAD-Auth-Scenarios]. Também pode encontrar exemplos de códigos e tutoriais sobre como obter a trabalhar rapidamente diante [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+O [Guia do programador do Azure AD] [ AAD-Dev-Guide] é a página de destino a utilizar para todos os tópicos do Azure AD relacionados ao desenvolvimento, incluindo uma descrição geral das [integração de aplicações] [ AAD-How-To-Integrate] e as noções básicas [autenticação do Azure AD e cenários de autenticação suportados][AAD-Auth-Scenarios]. Também pode encontrar exemplos de códigos e tutoriais sobre como obter a trabalhar rapidamente diante [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Utilize a seguinte secção de comentários para fornecer comentários e ajudar a refinar e moldar este conteúdo, incluindo pedidos de existência de novas definições ou atualizar os existentes!
 

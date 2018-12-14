@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f661b9e7239e45cdc0e8501553f1b14100deaa98
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 203a37071637a7e0e44b65240be4c4cae974d95f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192269"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335967"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Solução de estado de funcionamento de agente no Azure
 A solução de estado de funcionamento do agente no Azure ajuda-o a compreender, de todos os agentes que reportam diretamente para a área de trabalho do Log Analytics ou um grupo de gestão do System Center Operations Manager ligado ao Log Analytics, o que não respondem e submeter operacional dados.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
@@ -117,4 +117,4 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos q
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Veja o artigo [Alerts in Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) (Alertas no Log Analytics) para obter detalhes sobre a geração de alertas do Log Analytics. 
+* Veja o artigo [Alerts in Log Analytics](../../azure-monitor/platform/alerts-overview.md) (Alertas no Log Analytics) para obter detalhes sobre a geração de alertas do Log Analytics. 

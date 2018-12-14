@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 12/13/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: eafb37f9bd54e0928e2f6c7615fc7fe365897620
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3df107f8854469b50c5e8483515388b5c93fb244
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250608"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383277"
 ---
 # <a name="configure-expressroute-global-reach-preview"></a>Configurar o ExpressRoute alcance Global (pré-visualização)
 Este artigo ajuda-o a configurar o ExpressRoute alcance Global com o PowerShell. Para obter mais informações, consulte [alcance Global do ExpressRouteRoute](expressroute-global-reach.md).
@@ -66,22 +66,18 @@ $ckt_1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGro
 $ckt_2 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
 ```
 
-Execute o seguinte comando na circuito 1 e passar o ID de peering privado do circuito 2.
+Execute o seguinte comando na circuito 1 e passar o ID de peering privado do circuito 2. Ao executar o comando, tenha em atenção o seguinte:
 
-> [!NOTE]
-> O ID de peering privado é semelhante ao seguinte: */subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/ AzurePrivatePeering*
-> 
->
+* O ID de peering privado é semelhante ao seguinte exemplo: 
+
+  ```
+  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
+  ```
+* *-AddressPrefix* tem de ser/29 IPv4 sub-rede, por exemplo, "10.0.0.0/29". Endereços IP são utilizadas nesta sub-rede para estabelecer a conectividade entre os dois circuitos do ExpressRoute. Não deve usar os endereços nesta sub-rede nas redes virtuais do Azure ou na sua rede no local.
 
 ```powershell
 Add-AzureRmExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
 ```
-
-> [!IMPORTANT]
-> *-AddressPrefix* tem de ser/29 IPv4 sub-rede, por exemplo, "10.0.0.0/29". Endereços IP são utilizadas nesta sub-rede para estabelecer a conectividade entre os dois circuitos do ExpressRoute. Não deve usar os endereços nesta sub-rede nas redes virtuais do Azure ou na sua rede no local.
-> 
-
-
 
 Guarde a configuração no circuito 1 da seguinte forma:
 ```powershell

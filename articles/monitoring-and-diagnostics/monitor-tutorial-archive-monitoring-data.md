@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: ab91ac3eb115504727e5ee9e912d070262027cc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: eb99718fb2b39ded01abb075990fccb25a482cab
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834082"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386134"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arquivar os dados de métricas e de registos do Azure com o Armazenamento do Azure
 
@@ -103,7 +103,7 @@ Os dados de monitorização do seu recurso estão agora a ser encaminhados para 
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 >
-> *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
+> *Por exemplo*: A métrica "Mensagens recebidas" num Hub de eventos pode ser explorada e representada um por nível de fila. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
 >
 >
 
@@ -150,7 +150,7 @@ Os dados de monitorização das suas máquinas virtuais estão agora a ser encam
 
 Se tiver seguido os passos anteriores, os dados começaram a fluir para a sua conta de armazenamento.
 
-1. Para alguns tipos de dados, como, por exemplo, do Registo de Atividades, tem de haver alguma atividade que gere um evento na conta de armazenamento. Para gerar atividade no Registo de Atividades, siga [estas instruções](./monitor-quick-audit-notify-action-in-subscription.md). Poderá ter de aguardar até cinco minutos para que o evento apareça na conta de armazenamento.
+1. Para alguns tipos de dados, como, por exemplo, do Registo de Atividades, tem de haver alguma atividade que gere um evento na conta de armazenamento. Para gerar atividade no Registo de Atividades, siga [estas instruções](./../azure-monitor/platform/quick-audit-notify-action-subscription.md). Poderá ter de aguardar até cinco minutos para que o evento apareça na conta de armazenamento.
 
 2. No portal, navegue para a secção **Contas de Armazenamento**, que estão disponíveis na barra de navegação esquerda.
 

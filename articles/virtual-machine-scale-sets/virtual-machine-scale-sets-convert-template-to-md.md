@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: be56fd80229010090216413a7c1833d94e8bac25
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739571"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339880"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Converter um modelo de conjunto de dimensionamento de um modelo de conjunto de dimensionamento de disco gerido
 
@@ -126,7 +126,7 @@ Não existe nenhuma propriedade explícita na configuração de conjunto de dime
 
 ## <a name="data-disks"></a>Discos de dados
 
-Com as alterações acima, os dimensionamento conjunto utiliza discos geridos para o sistema operativo disco, mas e quanto a discos de dados? Para adicionar discos de dados, adicione a propriedade de "dataDisks" em "storageProfile" no mesmo nível, como "osDisk". O valor da propriedade é uma lista JSON de objetos, cada um deles tem propriedades "lun" (que tem de ser exclusivo por disco de dados numa VM), "createOption" ("vazia" está atualmente a única opção suportada) e "diskSizeGB" (o tamanho do disco em gigabytes; tem de ser maior que 0 e inferior a 1024) como no exemplo seguinte: 
+Com as alterações acima, os dimensionamento conjunto utiliza discos geridos para o sistema operativo disco, mas e quanto a discos de dados? Para adicionar discos de dados, adicione a propriedade de "dataDisks" em "storageProfile" no mesmo nível, como "osDisk". O valor da propriedade é uma lista JSON de objetos, cada um deles tem propriedades "lun" (que tem de ser exclusivo por disco de dados numa VM), "createOption" ("vazia" está atualmente a única opção suportada) e "diskSizeGB" (o tamanho do disco em gigabytes; tem de ser maior que 0 e inferior a 1024) como no exemplo seguinte:
 
 ```
 "dataDisks": [
@@ -144,7 +144,7 @@ Para saber mais sobre como utilizar discos de dados com conjuntos de dimensionam
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Por exemplo modelos do Resource Manager, utilizando conjuntos de dimensionamento, procure "vmss" na [repositório do github de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
+Por exemplo modelos do Resource Manager, utilizando conjuntos de dimensionamento, procure "vmss" na [repositório do GitHub de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 
 Para obter informações gerais, veja a [página de aterrissagem principal para conjuntos de dimensionamento](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

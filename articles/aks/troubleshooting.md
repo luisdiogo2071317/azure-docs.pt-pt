@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1fd8f7c8499b7f9223939b8d426f274e79fd190e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c20f2cc03565ce861dfc6317be8459fdafeef0bf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025353"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384110"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 Quando criar ou AKS Gestor de clusters, ocasionalmente, poderá encontrar problemas. Este artigo fornece detalhes sobre alguns problemas comuns e passos de resolução de problemas.
@@ -63,4 +63,27 @@ Certifique-se de que o padrão NSG não for modificado e a porta 22 está aberta
 
 É possível que está a obter este erro porque modificou as etiquetas em nós de agente dentro do cluster do AKS. Modificar e eliminar as etiquetas e outras propriedades de recursos no grupo de recursos MC_ * podem levar a resultados inesperados. Modificação de recursos em MC_ * do cluster do AKS divide o SLO.
 
+### <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>Como posso renovar o segredo do principal de serviço no meu cluster AKS?
 
+Por predefinição, clusters do AKS são criados com um serviço principais, que tem uma hora de expiração de um ano. Como perto da data de expiração de um ano, pode repor as credenciais para estender o principal de serviço para um período adicional de tempo.
+
+O exemplo seguinte executa as seguintes etapas:
+
+1. Obtém o ID de principal de serviço de cluster com o [show do az aks](/cli/azure/aks#az-aks-show) comando.
+1. Apresenta uma lista de serviço do cliente do principal secreta com o [lista de credencial do az ad sp](/cli/azure/ad/sp/credential#az-ad-sp-credential-list)
+1. Estende o principal de serviço para outra através de um ano a [ad de az sp reposição de credencial](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) comando. O segredo de cliente do principal de serviço tem de permanecer o mesmo para o cluster do AKS para serem executados corretamente.
+
+```azurecli
+# Get the service principal ID of your AKS cluster
+sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+
+# Get the existing service principal client secret
+key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
+
+# Reset the credentials for your AKS service principal and extend for 1 year
+az ad sp credential reset \
+    --name $sp_id \
+    --password $key_secret \
+    --years 1
+```

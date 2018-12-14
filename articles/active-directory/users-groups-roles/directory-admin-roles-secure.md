@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 7f2b4d870fdcf250f62d41fa4f3ea5bf13d323c3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847070"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387085"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -58,17 +58,17 @@ Este documento se concentra principalmente em criar um mapa para proteger identi
 
 ## <a name="develop-a-roadmap"></a>Desenvolver um Roteiro 
 
-A Microsoft recomenda que desenvolve e siga um plano para proteger o acesso privilegiado contra invasores de cibersegurança. Sempre pode ajustar o seu plano para suportar as suas funcionalidades existentes e requisitos específicos da sua organização. Cada fase do plano deve aumentar o custo e a dificuldade dos adversários em ataques ao acesso privilegiado para no local, na cloud e ativos híbrida. A Microsoft recomenda as quatro fases de mapa seguintes: esta opção recomendada agendas de plano mais eficiente e as implementações mais rápidas em primeiro lugar, com base nas experiências da Microsoft com a implementação de resposta de incidentes e de ataques informáticos. As linhas cronológicas para este plano são aproximadas.
+A Microsoft recomenda que desenvolve e siga um plano para proteger o acesso privilegiado contra invasores de cibersegurança. Sempre pode ajustar o seu plano para suportar as suas funcionalidades existentes e requisitos específicos da sua organização. Cada fase do plano deve aumentar o custo e a dificuldade dos adversários em ataques ao acesso privilegiado para no local, na cloud e ativos híbrida. A Microsoft recomenda as quatro fases de mapa seguintes: Esta opção recomendada agendas de plano mais eficazes e as implementações mais rápidas em primeiro lugar, com base nas experiências da Microsoft com a implementação de resposta de incidentes e de ataques informáticos. As linhas cronológicas para este plano são aproximadas.
 
 ![Fases do mapa com linhas de tempo](./media/directory-admin-roles-secure/roadmap-timeline.png)
 
-* Fase 1 (24-48 horas): itens críticos que recomendamos que faça agora mesmo
+* Fase 1 (24-48 horas): Itens críticos que recomendamos que faça agora mesmo
 
-* Fase 2 (2 a 4 semanas): atenuar as técnicas de ataque utilizadas com mais frequência
+* Fase 2 (2 a 4 semanas): Mitigar as técnicas de ataque utilizadas com mais frequência
 
-* Fase 3 (1 a 3 meses): criar visibilidade e controlo total da atividade de administração de compilação
+* Fase 3 (1 a 3 meses): Criar visibilidade e controlo total da atividade de administração de compilação
 
-* Fase 4 (seis meses e muito mais): continuar a criar defensas para proteger ainda mais a sua plataforma de segurança
+* Fase 4 (seis meses e muito mais): Continuar a criar defensas para proteger ainda mais a sua plataforma de segurança
 
 Essa estrutura de plano foi concebida para maximizar a utilização de tecnologias da Microsoft que já tenha implementado. Também pode tirar partido das tecnologias de chave de segurança atuais e futuras e integrar ferramentas de segurança de outros fornecedores que já tiver implementado ou que está pensando em implantar. 
 
@@ -121,9 +121,9 @@ Avalie as contas que são atribuídas ou elegíveis para a função de administr
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Ativar a autenticação multifator e registar todas as outras contas de administrador de não federadas de utilizador único de privilégios elevados 
 
-Exigir multi-factor Authentication (MFA) do Azure ao iniciar sessão para todos os utilizadores individuais que estão permanentemente atribuídos a uma ou mais das funções de administrador do Azure AD: Administrador Global, administrador com função privilegiada, administrador do Exchange Online e SharePoint Administrador online. Utilize o guia para habilitar [multi-factor Authentication (MFA) para as suas contas de administrador](../authentication/howto-mfa-userstates.md) e certifique-se de que todos esses utilizadores registarem no [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Podem encontrar mais informações no passo 2 e o passo 3 do guia [proteger o acesso a dados e serviços do Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Precisa do Azure multi-factor Authentication (MFA), no início de sessão para todos os utilizadores individuais que são permanentemente atribuídos a um ou mais funções de administrador do Azure AD: Administrador global, o administrador com função privilegiada, o administrador do Exchange Online e o administrador do SharePoint Online. Utilize o guia para habilitar [multi-factor Authentication (MFA) para as suas contas de administrador](../authentication/howto-mfa-userstates.md) e certifique-se de que todos esses utilizadores registarem no [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup). Podem encontrar mais informações no passo 2 e o passo 3 do guia [proteger o acesso a dados e serviços do Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
-## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: Atenuar as técnicas de ataque utilizadas com mais frequência
+## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: Mitigar as técnicas de ataque utilizadas com mais frequência
 
 ![Fase 2](./media/directory-admin-roles-secure/stage-two.png)
 
@@ -196,7 +196,7 @@ Executar com eficiência a resposta a incidentes é uma tarefa complexa. Por con
 
 #### <a name="secure-on-premises-privileged-administrative-accounts-if-not-already-done"></a>No local segura privilegiado contas administrativas, se não tiver feito
 
-Se o seu inquilino do Azure Active Directory está sincronizado com o Active Directory no local, em seguida, siga as orientações no [plano do acesso privilegiado segurança](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): fase 1. Isto inclui a criação de contas de administrador separada para os utilizadores que precisam para realizar tarefas administrativas de no local, a implementação de estações de trabalho de acesso privilegiado para administradores do Active Directory e criar palavras-passe de administrador local exclusivas para estações de trabalho e servidores.
+Se o seu inquilino do Azure Active Directory está sincronizado com o Active Directory no local, em seguida, siga as orientações no [plano do acesso privilegiado segurança](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Fase 1. Isto inclui a criação de contas de administrador separada para os utilizadores que precisam para realizar tarefas administrativas de no local, a implementação de estações de trabalho de acesso privilegiado para administradores do Active Directory e criar palavras-passe de administrador local exclusivas para estações de trabalho e servidores.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Passos adicionais para as organizações a gerir o acesso para o Azure
 
@@ -210,7 +210,7 @@ As contas Microsoft de outros programas, como Xbox Live e Outlook não devem ser
 
 #### <a name="monitor-azure-activity"></a>Monitorizar a atividade do Azure
 
-O registo de atividades do Azure fornece um histórico de eventos ao nível da subscrição no Azure. Oferece informações sobre quem criadas, atualizadas e eliminadas que recursos, e quando esses eventos ocorreram. Para obter mais informações, consulte [auditoria e receber notificações sobre ações importantes efetuadas na sua subscrição do Azure](../../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md).
+O registo de atividades do Azure fornece um histórico de eventos ao nível da subscrição no Azure. Oferece informações sobre quem criadas, atualizadas e eliminadas que recursos, e quando esses eventos ocorreram. Para obter mais informações, consulte [auditoria e receber notificações sobre ações importantes efetuadas na sua subscrição do Azure](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Passos adicionais para as organizações a gerir o acesso a outras aplicações na cloud através do Azure AD 
@@ -275,7 +275,7 @@ Pode transferir este relatório a partir da [gestão de incidentes de segurança
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>Continuar a proteger contas no local com privilégios administrativos
 
-Se o Azure Active Directory é ligado ao Active Directory no local, em seguida, siga as orientações a [plano do acesso privilegiado segurança](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): fase 2. Isto inclui a implementação de estações de trabalho de acesso privilegiado para todos os administradores, exigir a MFA, usando apenas suficiente administração para manutenção de DC, reduzir a superfície de ataque de domínios, implementar o ATA para a deteção de ataque.
+Se o Azure Active Directory é ligado ao Active Directory no local, em seguida, siga as orientações a [plano do acesso privilegiado segurança](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): Fase 2. Isto inclui a implementação de estações de trabalho de acesso privilegiado para todos os administradores, exigir a MFA, usando apenas suficiente administração para manutenção de DC, reduzir a superfície de ataque de domínios, implementar o ATA para a deteção de ataque.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Passos adicionais para as organizações a gerir o acesso para o Azure
 
@@ -390,52 +390,52 @@ Determinar se necessita [transferir a propriedade de uma subscrição do Azure p
 
 Para obter mais informações sobre como o Microsoft Office 365 lida com incidentes de segurança, consulte [gestão de incidentes de segurança no Microsoft Office 365](https://aka.ms/Office365SIM).
 
-## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>FAQ: Perguntas mais comuns que recebemos relativamente à proteção de acesso privilegiado  
+## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>FAQ: Perguntas comuns que recebemos relativamente à proteção de acesso privilegiado  
 
 
-**P:** o que devo fazer se eu ainda não Implementei quaisquer componentes de acesso seguro?
+**P:** O que devo fazer se eu ainda não Implementei quaisquer componentes de acesso seguro?
 
-**Resposta:** Definir conta do efeito de vidro break, pelo menos, dois, atribua o MFA às suas contas de administrador com privilégios e contas de utilizador em separado das contas de Administrador Global.
+**Resposta:** Definir a conta de efeito de vidro break, pelo menos, dois, atribuir MFA às suas contas de administrador com privilégios e contas de utilizador em separado das contas de Administrador Global.
 
 
-**P:** após uma falha, o que é o problema principal que precisa ser resolvidos primeiro?
+**P:** Depois de uma violação, o que é o problema principal que precisa ser resolvidos primeiro?
 
 **Resposta:** Certifique-se de que está a exigir a autenticação mais forte para indivíduos e altamente expostos.
 
 
-**P:** o que acontece se foram desativados nossos administradores com privilégios?
+**P:** O que acontece se foram desativados nossos administradores com privilégios?
 
-**Resposta:** criar uma conta de Administrador Global que é sempre mantida atualizada.
-
-
-**P:** o que acontece se existir apenas um administrador global à esquerda e eles não podem ser alcançados? 
-
-**Resposta:** utilize uma das suas contas de quebra de vidro para obter acesso privilegiado de imediato.
+**Resposta:** Crie uma conta de Administrador Global que é sempre mantida atualizada.
 
 
-**P:** como posso proteger administradores dentro da minha organização?
+**P:** O que acontece se houver apenas um global esquerda de administrador e não podem ser alcançados? 
 
-**Resposta:** ter administradores sempre realizar seus negócios diários como usuários padrão de "sem privilégios".
+**Resposta:** Utilize uma das suas contas de quebra de vidro para obter acesso privilegiado de imediato.
+
+
+**P:** Como posso proteger administradores dentro da minha organização?
+
+**Resposta:** Ter administradores sempre realizar seus negócios diários como usuários padrão de "sem privilégios".
  
 
-**P:** quais são as melhores práticas para a criação de contas de administrador no Azure AD?
+**P:** Quais são as melhores práticas para a criação de contas de administrador no Azure AD?
 
-**Resposta:** acesso para as tarefas administrativas específicas de privilegiado de reserva.
-
-
-**P:** quais ferramentas existem para reduzir o acesso de administrador persistentes?
-
-**Resposta:** funções de administrador Privileged Identity Management (PIM) e o Azure AD.
+**Resposta:** Acesso privilegiado de reserva para tarefas de administrador específico.
 
 
-**P:** o que é a posição da Microsoft em sincronizar as contas de administrador para o Azure AD?
+**P:** Quais ferramentas existem para reduzir o acesso de administrador persistentes?
 
-**Resposta:** camada 0 contas de administrador (incluindo contas, grupos e outros recursos que têm controlo administrativo direto ou indireto da floresta do AD, domínios ou controladores de domínio e todos os ativos) são utilizadas apenas para contas AD e locais são geralmente não sincronizados para o Azure AD para a nuvem. 
+**Resposta:** Funções de administrador do Identity Management (PIM) e o Azure AD com privilégios.
 
 
-**P:** como podemos manter os administradores da atribuição de acesso de administrador aleatório no portal?
+**P:** O que é a posição da Microsoft em sincronizar as contas de administrador para o Azure AD?
 
-**Resposta:** utilizar contas sem privilégios para todos os utilizadores e a maioria dos administradores. Comece com o desenvolvimento de uma impressão digital da organização para determinar qual devem ser privilegiadas a algumas contas de administrador. E monitorize os utilizadores administrativos recentemente criado.
+**Resposta:** Camada 0 contas de administrador (incluindo contas, grupos e outros recursos que têm controlo administrativo direto ou indireto da floresta do AD, domínios ou controladores de domínio e todos os ativos) são utilizadas apenas para contas AD e locais são geralmente não sincronizadas para o Azure AD para a nuvem. 
+
+
+**P:** Como podemos impedir que os administradores a atribuir acesso aleatório de administrador no portal do?
+
+**Resposta:** Utilize contas sem privilégios para todos os utilizadores e a maioria dos administradores. Comece com o desenvolvimento de uma impressão digital da organização para determinar qual devem ser privilegiadas a algumas contas de administrador. E monitorize os utilizadores administrativos recentemente criado.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

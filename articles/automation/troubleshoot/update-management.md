@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 7339592833db148acb38ce378fe4cf261977dd72
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 87edc2911a48aea1ff0d7ac826439fe547c7cd86
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275657"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342890"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas de gerenciamento de atualizações
 
@@ -73,6 +73,20 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+### <a name="nologs"></a>Cenário: Atualizar os dados de gestão não está a mostrar no Log Analytics para uma máquina
+
+#### <a name="issue"></a>Problema
+
+Tiver máquinas que mostram como **não avaliados** sob **conformidade**, mas ver dados de heartbeat no Log Analytics para o trabalho de Runbook híbrida, mas não a gestão de atualizações.
+
+#### <a name="cause"></a>Causa
+
+A função de trabalho de Runbook híbrida poderá ter de ser registado novamente e reinstalado.
+
+#### <a name="resolution"></a>Resolução
+
+Siga os passos indicados em [implementar um Runbook Worker híbrido Windows](../automation-windows-hrw-install.md) reinstalar a função de trabalho híbrida para Windows ou [implementar um Runbook Worker híbrido Linux](../automation-linux-hrw-install.md) para Linux.
 
 ## <a name="windows"></a>Windows
 
@@ -141,20 +155,6 @@ A função de trabalho de Runbook híbrida não foi capaz de gerar um certificad
 #### <a name="resolution"></a>Resolução
 
 Verifique se conta de sistema tem acesso de leitura à pasta **C:\ProgramData\Microsoft\Crypto\RSA** e tente novamente.
-
-### <a name="nologs"></a>Cenário: Atualizar os dados de gestão não está a mostrar no Log Analytics para uma máquina
-
-#### <a name="issue"></a>Problema
-
-Tiver máquinas que mostram como **não avaliados** sob **conformidade**, mas ver dados de heartbeat no Log Analytics para o trabalho de Runbook híbrida, mas não a gestão de atualizações.
-
-#### <a name="cause"></a>Causa
-
-A função de trabalho de Runbook híbrida poderá ter de ser registado novamente e reinstalado.
-
-#### <a name="resolution"></a>Resolução
-
-Siga os passos indicados em [implementar um Runbook Worker híbrido Windows](../automation-windows-hrw-install.md) para reinstalar a função de trabalho híbrida.
 
 ### <a name="hresult"></a>Cenário: Máquina mostra como não avaliados e mostra uma exceção de HResult
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7b633b1787fc34658a84a2810de6673f9530cbf3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5e6d7dffb831e4e6541b5ef91cfc4ae4bbe88167
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310655"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343144"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Adicionar uma firewall de aplicações web no Centro de segurança do Azure
 Centro de segurança do Azure poderá recomendar que adicionar uma firewall de aplicações web (WAF) a partir de um parceiro da Microsoft para proteger seus aplicativos web. Este documento explica como um exemplo de como aplicar esta recomendação.
@@ -46,7 +46,9 @@ Centro de segurança recomenda que Aprovisiona uma WAF para ajudar na defesa con
 
 6. **Nova Firewall de aplicações Web** é aberto, onde pode realizar **configuração de VM** passos de fornecer **informações da WAF**. Selecione **configuração da VM**.
 7. Sob **configuração da VM**, introduzir informações necessárias para acelerar a máquina virtual que executa o WAF.
+
    ![Configuração da VM][4]
+   
 8. Volte ao **nova Firewall de aplicações Web** e selecione **informações da WAF**. Sob **informações da WAF**, configurar o WAF em si. Passo 7 permite-lhe configurar a máquina virtual no qual o WAF é executado e passo 8 permite-lhe aprovisionar o WAF em si.
 
 ## <a name="finalize-application-protection"></a>Finalizar a proteção das aplicações
@@ -73,7 +75,7 @@ Este documento de mostrar como implementar a recomendação do Centro de seguran
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.

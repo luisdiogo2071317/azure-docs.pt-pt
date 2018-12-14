@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 79e4d15c79a7f905a33fe471bcfda3e7ca367b01
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0d2b7a5e3239cf46c41db0a086b804c34df5d6e2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996461"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386949"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorizar o estado, configurar o registo de diagnóstico e ative alertas para o Azure Logic Apps
 
@@ -155,7 +155,7 @@ Para refinar a sua consulta por adicionar um filtro, escolha **+ adicionar**.
 
 Juntamente com o Azure Log Analytics, pode expandir como utilizar dados de diagnóstico da sua aplicação lógica com outros serviços do Azure, por exemplo: 
 
-* [Arquivar registos do diagnóstico do Azure no armazenamento do Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Arquivar registos do diagnóstico do Azure no armazenamento do Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Registos de diagnóstico do Azure Stream para os Hubs de eventos do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
 Pode, em seguida, a monitorização utilizando a telemetria e de análise a partir de outros serviços, como get em tempo real [do Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) e [Power BI](../azure-monitor/platform/powerbi.md). Por exemplo:
@@ -174,7 +174,7 @@ Com base nas opções que pretende configurar, certifique-se de que primeiro [cr
 
 ## <a name="set-up-alerts-for-your-logic-app"></a>Configurar alertas para a aplicação lógica
 
-Para monitorizar métricas específicas ou em limites excedidos para a aplicação lógica, configure [alertas no Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md). Saiba mais sobre [métricas no Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
+Para monitorizar métricas específicas ou em limites excedidos para a aplicação lógica, configure [alertas no Azure](../azure-monitor/platform/alerts-overview.md). Saiba mais sobre [métricas no Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
 Posso configurar alertas sem [do Azure Log Analytics](../log-analytics/log-analytics-overview.md), siga estes passos. Para os critérios de alertas e ações, mais avançados [configurar o Log Analytics](#azure-diagnostics) demasiado.
 
@@ -247,7 +247,7 @@ Por exemplo, o `ActionCompleted` evento tem o `clientTrackingId` e `trackedPrope
 
 * `clientTrackingId`: Se não for fornecido, automaticamente, o Azure gera este ID e correlaciona eventos numa execução da aplicação lógica, incluindo quaisquer fluxos de trabalho aninhados que são chamados a partir da aplicação lógica. Pode especificar manualmente este ID a partir de um acionador, passando um `x-ms-client-tracking-id` cabeçalho com o valor de ID personalizado no pedido de Acionador. Pode utilizar um acionador de pedido, o acionador HTTP ou o acionador de webhook.
 
-* `trackedProperties`: Para acompanhar entradas ou saídas nos dados de diagnóstico, pode adicionar propriedades controladas para ações na definição de JSON da sua aplicação lógica. Propriedades controladas podem controlar apenas uma única ação entradas e saídas, mas pode usar o `correlation` propriedades de eventos para correlacionar entre ações numa execução.
+* `trackedProperties`: Para controlar as entradas ou saídas nos dados de diagnóstico, pode adicionar propriedades controladas para ações na definição de JSON da sua aplicação lógica. Propriedades controladas podem controlar apenas uma única ação entradas e saídas, mas pode usar o `correlation` propriedades de eventos para correlacionar entre ações numa execução.
 
   Para controlar uma ou mais propriedades, adicione o `trackedProperties` secção e as propriedades que pretende que a definição de ação. Por exemplo, suponha que pretende controlar dados como um "ID da ordem" na sua telemetria:
 

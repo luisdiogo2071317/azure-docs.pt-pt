@@ -1,6 +1,6 @@
 ---
 title: Enlaces de funções duráveis - Azure
-description: Como utilizar acionadores e enlaces para a extensão de Functons durável para as funções do Azure.
+description: Como utilizar acionadores e enlaces para a extensão de funções duráveis para as funções do Azure.
 services: functions
 author: kashimiz
 manager: jeconnoc
@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1a932e5548941a949120ab6c15c73c739a7dc8c3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 889d26be12fef62d37a471fbe0640a2b8ecdd99c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642320"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337194"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces de funções duráveis (funções do Azure)
 
@@ -27,7 +27,7 @@ O acionador de orquestração permite-lhe criar funções de orchestrator duráv
 
 Ao utilizar as ferramentas do Visual Studio das funções do Azure, o acionador de orquestração é configurado com o [OrchestrationTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationTriggerAttribute.html) atributo .NET.
 
-Quando escreve as funções do orchestrator em linguagens de scripts (por exemplo, no portal do Azure), o acionador de orquestração é definido pelo seguinte objeto JSON no `bindings` matriz do *Function* ficheiro:
+Quando escreve as funções do orchestrator em linguagens de scripts (por exemplo, JavaScript ou C# criação de scripts), o acionador de orquestração é definido pelo seguinte objeto JSON no `bindings` matriz do *Function* ficheiro:
 
 ```json
 {
@@ -54,12 +54,15 @@ Seguem-se algumas notas sobre o acionador de orquestração:
 > [!WARNING]
 > As funções do Orchestrator nunca devem usar qualquer entrada ou saída enlaces que não seja a orquestração acionar a ligação. Se o fizer, tem o potencial de causar problemas com a extensão de tarefas durável, pois essas ligações podem não obedecem a single-threading e regras de e/s.
 
-### <a name="trigger-usage"></a>Utilização de Acionador
+> [!WARNING]
+> As funções do JavaScript orchestrator nunca devem ser declaradas `async`.
+
+### <a name="trigger-usage-net"></a>Utilização do acionador (.NET)
 
 O acionador de orquestração de enlace suporta entradas e saídas. Seguem-se alguns aspetos a saber sobre a entrada e saída de manipulação:
 
-* **entradas** -as funções de orquestração suportam apenas [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) como um tipo de parâmetro. Não é suportada a desserialização de entradas diretamente na assinatura da função. Código tem de utilizar o [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) método para obtenção de entradas de função de orquestrador. Estas entradas tem de ser tipos serializáveis por JSON.
-* **produz** -os acionadores de orquestração suportam valores de saída, bem como as entradas. O valor de retorno da função é utilizado para atribuir o valor de saída e tem de ser serializável JSON. Se uma função retorna `Task` ou `void`, um `null` valor será guardado como a saída.
+* **entradas** -as funções de orquestração de .NET suportam apenas [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) como um tipo de parâmetro. Não é suportada a desserialização de entradas diretamente na assinatura da função. Código tem de utilizar o [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1)(.NET) ou `getInput` método (JavaScript) para obtenção de entradas de função de orquestrador. Estas entradas tem de ser tipos serializáveis por JSON.
+* **produz** -os acionadores de orquestração suportam valores de saída, bem como as entradas. O valor de retorno da função é utilizado para atribuir o valor de saída e tem de ser serializável JSON. Se uma função de .NET retorna `Task` ou `void`, um `null` valor será guardado como a saída.
 
 ### <a name="trigger-sample"></a>Exemplo de Acionador
 
@@ -76,7 +79,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -86,6 +89,9 @@ module.exports = df.orchestrator(function*(context) {
     return `Hello ${name}!`;
 });
 ```
+
+> [!NOTE]
+> O `context` objeto em JavaScript não representa o DurableOrchestrationContext, mas o [contexto de função como um todo.](../functions-reference-node.md#context-object). Pode acessar métodos de orquestração através da `context` do objeto `df` propriedade.
 
 > [!NOTE]
 > Devem utilizar JavaScript orquestradores `return`. O `durable-functions` biblioteca se encarrega de chamar o `context.done` método.
@@ -105,7 +111,7 @@ public static async Task<string> Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -121,7 +127,7 @@ module.exports = df.orchestrator(function*(context) {
 
 O acionador de atividade permite-lhe criar funções que são chamados por funções do orchestrator.
 
-Se estiver a utilizar o Visual Studio, o acionador de atividade é configurado com o [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) atributo .NET. 
+Se estiver a utilizar o Visual Studio, o acionador de atividade é configurado com o [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) atributo .NET.
 
 Se estiver a utilizar o VS Code ou o portal do Azure para desenvolvimento, o acionador de atividade é definido pelo seguinte objeto JSON no `bindings` matriz de *Function*:
 
@@ -150,13 +156,13 @@ Seguem-se algumas notas sobre o acionador de atividade:
 > [!WARNING]
 > O back-end de armazenamento para as funções de atividade é um detalhe de implementação e código do usuário não deve interagir com estas entidades de armazenamento diretamente.
 
-### <a name="trigger-usage"></a>Utilização de Acionador
+### <a name="trigger-usage-net"></a>Utilização do acionador (.NET)
 
 O acionador de atividade enlace suporta entradas e saídas, tal como o acionador de orquestração. Seguem-se alguns aspetos a saber sobre a entrada e saída de manipulação:
 
-* **entradas** -nativamente utilizarem funções de atividade [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como um tipo de parâmetro. Em alternativa, uma função de atividade pode ser declarada com qualquer tipo de parâmetro que é JSON serializável. Quando utiliza `DurableActivityContext`, pode chamar [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) buscar e anular a serialização a função de atividade de entrada.
-* **produz** -as funções de atividade suportam valores de saída, bem como as entradas. O valor de retorno da função é utilizado para atribuir o valor de saída e tem de ser serializável JSON. Se uma função retorna `Task` ou `void`, um `null` valor será guardado como a saída.
-* **Metadados** -as funções de atividade podem vincular a um `string instanceId` parâmetro para obter o ID de instância da orquestração principal.
+* **entradas** -as funções de atividade .NET utilizarem de forma nativa [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como um tipo de parâmetro. Em alternativa, uma função de atividade pode ser declarada com qualquer tipo de parâmetro que é JSON serializável. Quando utiliza `DurableActivityContext`, pode chamar [GetInput\<T >](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) buscar e anular a serialização a função de atividade de entrada.
+* **produz** -as funções de atividade suportam valores de saída, bem como as entradas. O valor de retorno da função é utilizado para atribuir o valor de saída e tem de ser serializável JSON. Se uma função de .NET retorna `Task` ou `void`, um `null` valor será guardado como a saída.
+* **Metadados** -as funções de atividade do .NET podem vincular a um `string instanceId` parâmetro para obter o ID de instância da orquestração principal.
 
 ### <a name="trigger-sample"></a>Exemplo de Acionador
 
@@ -173,17 +179,7 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
-
-```javascript
-module.exports = function(context) {
-    context.done(null, `Hello ${context.bindings.name}!`);
-};
-```
-
-O tipo de parâmetro padrão para o `ActivityTriggerAttribute` vinculação é `DurableActivityContext`. No entanto, os acionadores de atividade também tipos de suporte de ligação diretamente para o JSON serializeable (incluindo tipos primitivos), para que a mesma função pode ser simplificada como segue:
-
-#### <a name="c"></a>C#
+O tipo de parâmetro padrão para o .NET `ActivityTriggerAttribute` vinculação é `DurableActivityContext`. No entanto, os acionadores de atividade .NET também tipos de suporte de ligação diretamente para o JSON serializeable (incluindo tipos primitivos), para que a mesma função pode ser simplificada como segue:
 
 ```csharp
 [FunctionName("SayHello")]
@@ -193,17 +189,25 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
 
 ```javascript
-module.exports = function(context, name) {
-    context.done(null, `Hello ${name}!`);
+module.exports = async function(context) {
+    return `Hello ${context.bindings.name}!`;
 };
 ```
 
-### <a name="passing-multiple-parameters"></a>Passar vários parâmetros 
+Enlaces de JavaScript podem também ser passados como parâmetros adicionais, para que a mesma função pode ser simplificada da seguinte forma:
 
-Não é possível passar vários parâmetros para uma função de atividade diretamente. A recomendação neste caso, é passar uma matriz de objetos ou usar [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objetos.
+```javascript
+module.exports = async function(context, name) {
+    return `Hello ${name}!`;
+};
+```
+
+### <a name="passing-multiple-parameters"></a>Passar vários parâmetros
+
+Não é possível passar vários parâmetros para uma função de atividade diretamente. A recomendação neste caso, é passar uma matriz de objetos ou usar [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objetos no .NET.
 
 O exemplo a seguir está a utilizar novas funcionalidades do [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) adicionado com [c# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
@@ -222,7 +226,7 @@ public static async Task<dynamic> RunOrchestrator(
 [FunctionName("CourseRecommendations")]
 public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContext inputs)
 {
-    // parse input for student's major and year in university 
+    // parse input for student's major and year in university
     (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();
 
     // retrieve and return course recommendations by major and university year
@@ -242,6 +246,7 @@ public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContex
 ## <a name="orchestration-client"></a>Cliente de orquestração
 
 A ligação do cliente de orquestração permite-lhe escrever funções que interagem com as funções do orchestrator. Por exemplo, pode agir em instâncias de orquestração das seguintes formas:
+
 * Iniciá-los.
 * Consulte o respetivo estado.
 * Finalizá-los.
@@ -270,17 +275,20 @@ Se estiver usando linguagens de script (por exemplo, *. csx* ou *. js* arquivos)
 
 ### <a name="client-usage"></a>Utilização do cliente
 
-No c# das funções, geralmente liga para `DurableOrchestrationClient`, que lhe dá acesso total a todos os clientes APIs suportadas pelas funções durável. APIs no objeto cliente incluem:
+Nas funções de .NET, geralmente liga para `DurableOrchestrationClient`, que lhe dá acesso total a todos os clientes APIs suportadas pelas funções durável. No JavaScript, as mesmas APIs expostas pela `DurableOrchestrationClient` objeto devolvido do `getClient`. APIs no objeto cliente incluem:
 
 * [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
 * [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
 * [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_)
 * [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_)
-* [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_)
+* [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_) (atualmente apenas .NET)
 
-Em alternativa, é possível vincular à `IAsyncCollector<T>` em que `T` é [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) ou `JObject`.
+Em alternativa, podem ligar as funções de .NET `IAsyncCollector<T>` em que `T` é [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) ou `JObject`.
 
 Consulte a [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) documentação da API para obter mais informações sobre estas operações.
+
+> [!WARNING]
+> Ao desenvolver localmente em JavaScript, terá de definir a variável de ambiente `WEBSITE_HOSTNAME` para `localhost:<port>`, por ex. `localhost:7071` Para utilizar os métodos em `DurableOrchestrationClient`. Para obter mais informações sobre este requisito, consulte a [problema do GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ### <a name="client-sample-visual-studio-development"></a>Exemplo de cliente (desenvolvimento do Visual Studio)
 
@@ -315,9 +323,8 @@ Se não estiver a utilizar o Visual Studio para desenvolvimento, pode criar as s
       "type": "orchestrationClient",
       "direction": "in"
     }
-  ],
-  "disabled": false
-} 
+  ]
+}
 ```
 
 Seguem-se exemplos de idioma específico que inicie novas instâncias de função de orquestrador.
@@ -339,22 +346,18 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 
 O exemplo a seguir mostra como utilizar a ligação para iniciar uma nova instância de função a partir de uma função de JavaScript do cliente de orquestração durável:
 
-```js
-module.exports = function (context, input) {
-    var id = generateSomeUniqueId();
-    context.bindings.starter = [{
-        FunctionName: "HelloWorld",
-        Input: input,
-        InstanceId: id
-    }];
+```javascript
+const df = require("durable-functions");
 
-    context.done(null, id);
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    return instanceId = await client.startNew("HelloWorld", undefined, context.bindings.input);
 };
 ```
 
 Podem encontrar mais detalhes sobre como iniciar instâncias na [gerenciamento de instância](durable-functions-instance-management.md).
 
-<a name="host-json"></a>  
+<a name="host-json"></a>
 
 ## <a name="hostjson-settings"></a>definições de Host. JSON
 
@@ -364,4 +367,3 @@ Podem encontrar mais detalhes sobre como iniciar instâncias na [gerenciamento d
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre os comportamentos de ponto de verificação e repetição](durable-functions-checkpointing-and-replay.md)
-

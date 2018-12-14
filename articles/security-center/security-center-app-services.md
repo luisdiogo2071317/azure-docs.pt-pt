@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2018
+ms.date: 12/9/2018
 ms.author: rkarlin
-ms.openlocfilehash: f46837751901015fd80d3ecc7a620878cadb3f12
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b38ba140a1e2b853c07e1ffe53405b58663653b5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317879"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343875"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Proteger o serviço de aplicações com o Centro de segurança do Azure
 Este artigo ajuda-o a utilizar o Centro de segurança do Azure para monitorizar e proteger as suas aplicações em execução com base no serviço de aplicações.
 
-Serviço de aplicações permite-lhe criar e alojar aplicações web na linguagem de programação da sua preferência sem ter de gerir infraestrutura. Serviço de aplicações oferece dimensionamento automático e elevada disponibilidade, suporta Windows e Linux, os e implementações automáticas a partir do GitHub, Visual Studio Team Services ou qualquer repositório de Git. 
+Serviço de aplicações permite-lhe criar e alojar aplicações web na linguagem de programação da sua preferência sem ter de gerir infraestrutura. Serviço de aplicações oferece dimensionamento automático e elevada disponibilidade, suporta Windows e Linux, os e implementações automáticas a partir do GitHub, do Azure DevOps ou qualquer repositório de Git. 
 
 Vulnerabilidades em aplicativos web com freqüência são exploradas pelos atacantes, porque eles têm uma interface comum e dinâmica para quase todas as organizações na Internet. Pedidos de aplicações em execução com base no serviço de aplicações vai através de vários gateways implementadas nos centros de dados do Azure em todo o mundo, responsável pelo encaminhamento de cada pedido para seu aplicativo correspondente. 
 
@@ -34,7 +34,7 @@ Centro de segurança tira partido da escala da cloud para identificar ataques na
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para monitorizar e proteger o seu serviço de aplicações, tem de ter um plano de serviço de aplicações que estão associado com máquinas dedicadas. Estes planos são: Basic, Standard, Premium, Isolated ou Linux. Centro de segurança do Azure não suporta os planos gratuito, partilhado ou consumo. Para obter mais informações, consulte [planos do serviço de aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Para monitorizar e proteger o seu serviço de aplicações, tem de ter um plano de serviço de aplicações que estão associado com máquinas dedicadas. Estes planos são: Básico, Standard, Premium, isolados ou Linux. Centro de segurança do Azure não suporta os planos gratuito, partilhado ou consumo. Para obter mais informações, consulte [planos do serviço de aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 ## <a name="security-center-protection"></a>Proteção de centro de segurança
 
@@ -63,8 +63,8 @@ Para desativar a monitorização e recomendações para o serviço de aplicaçõ
 ## <a name="see-also"></a>Consulte também
 Neste artigo, aprendeu a utilizar as capacidades de monitorização no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md): saiba como configurar definições de segurança no Centro de Segurança do Azure.
-* [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md): saiba como gerir e responder a alertas de segurança.
-* [Monitorizar soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
-* [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md): encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Blogue de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre publicações no blogue acerca da segurança e conformidade do Azure.
+* [Definir políticas de segurança no Centro de segurança do Azure](tutorial-security-policy.md): Saiba como configurar definições de segurança no Centro de segurança do Azure.
+* [Gerir e responder a alertas de segurança no Centro de segurança do Azure](security-center-managing-and-responding-alerts.md): Saiba como gerir e responder a alertas de segurança.
+* [Monitorizar soluções de parceiros no Centro de segurança do Azure](security-center-partner-solutions.md): Saiba como monitorizar o estado de funcionamento das soluções dos seus parceiros.
+* [FAQ do Centro de segurança do Azure](security-center-faq.md): Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
+* [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): Encontre mensagens do blogue acerca da segurança e conformidade do Azure.

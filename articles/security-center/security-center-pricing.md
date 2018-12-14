@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
+ms.date: 12/11/2018
 ms.author: rkarlin
-ms.openlocfilehash: 08a16285a6e3e52fc9e2ddce6b6936dfd4639ba8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d0cdda4553808d1197d764d0a50e535515527443
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835578"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336446"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Atualizar para o escalão Standard do Centro de segurança para uma maior segurança
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Fornece visibilidade e controlo sobre a cloud cargas de trabalho híbrida, Active Directory defesas que reduzem sua exposição a ameaças e deteção inteligente para o ajudar a manter o ritmo com ataques cibernéticos a evoluir rapidamente.
@@ -33,8 +33,8 @@ Centro de segurança é disponibilizado em dois escalões:
 
 Para obter mais informações, consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="try-standard-free-for-60-days"></a>Experimente gratuitamente durante 60 dias do Standard
-O escalão Standard é gratuito durante os 60 dias iniciais. No final dos 60 dias, se optar por continuar a utilizar o serviço, será automaticamente começamos a cobrar pela utilização.
+## <a name="try-standard-free-for-30-days"></a>Experimente gratuitamente durante 30 dias do Standard
+O escalão Standard é gratuito durante os primeiros 30 dias. No final de 30 dias, se optar por continuar a utilizar o serviço, será automaticamente começamos a cobrar pela utilização.
 
 Pode atualizar uma subscrição do Azure completa para o escalão Standard, que é herdado por todos os recursos dentro da subscrição.
 

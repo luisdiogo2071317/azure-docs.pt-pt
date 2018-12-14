@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 8eb23528391ffeccdad6ba92345d28b31e18f0a3
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: cf315718377210e13a6634c0eaf8caab158bcc4d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322112"
+ms.locfileid: "53342226"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como o trabalho de alertas de métrica no Azure Monitor
 
-Alertas de métricas no Azure Monitor trabalham no topo de métricas multidimensionais. Estas métricas podem ser métricas de plataforma, [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md), [populares registos do Log Analytics convertido em métricas](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md), métricas padrão do Application Insights. Alertas de métricas avaliar em intervalos regulares para verificar se a condições de métrica de um ou mais séries de tempo são verdadeiros e notificá-lo quando são cumpridas das avaliações. Alertas de métricas com monitoração de estado, ou seja, eles apenas enviam notificações quando o estado é alterado.
+Alertas de métricas no Azure Monitor trabalham no topo de métricas multidimensionais. Estas métricas podem ser métricas de plataforma, [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md), [populares registos do Log Analytics convertido em métricas](../../azure-monitor/platform/alerts-metric-logs.md), métricas padrão do Application Insights. Alertas de métricas avaliar em intervalos regulares para verificar se a condições de métrica de um ou mais séries de tempo são verdadeiros e notificá-lo quando são cumpridas das avaliações. Alertas de métricas com monitoração de estado, ou seja, eles apenas enviam notificações quando o estado é alterado.
 
 ## <a name="how-do-metric-alerts-work"></a>Como funcionam os alertas de métricas
 
@@ -85,7 +85,7 @@ Pode especificar o âmbito da monitorização, um alerta de métrica único de u
 - todas as máquinas virtuais (numa região do Azure) num ou mais grupos de recursos numa subscrição
 - todas as máquinas virtuais (numa região do Azure) numa subscrição
 
-Criação de regras de alerta de métrica que monitorizam os vários recursos não é atualmente suportada através do portal do Azure. Pode criar estas regras através de [modelos Azure Resource Manager](../../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). Receberá notificações individuais para cada máquina virtual. 
+Criação de regras de alerta de métrica que monitorizam os vários recursos não é atualmente suportada através do portal do Azure. Pode criar estas regras através de [modelos Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). Receberá notificações individuais para cada máquina virtual. 
 
 ## <a name="typical-latency"></a>Latência típica
 
@@ -134,5 +134,5 @@ Se estiver a utilizam atualmente os alertas de métricas clássicas e estiver à
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Saiba como criar, ver e gerir alertas de métricas no Azure](alerts-metric.md)
-- [Saiba como implementar utilizando modelos Azure Resource Manager de alertas de métricas](../../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md)
+- [Saiba como implementar utilizando modelos Azure Resource Manager de alertas de métricas](../../azure-monitor/platform/alerts-metric-create-templates.md)
 - [Saiba mais sobre os grupos de ação](action-groups.md)

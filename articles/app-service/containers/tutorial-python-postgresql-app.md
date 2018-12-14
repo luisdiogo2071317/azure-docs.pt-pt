@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: dda5a0cda284effdb795d4fb1960ac5fb94799cc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 8846ec386ad1776172ae1949b5e0f26e03ddf1df
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276388"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337994"
 ---
 # <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Criar uma aplicação web Python e PostgreSQL no serviço de aplicações do Azure
 
@@ -205,7 +205,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 > [!NOTE]
 > Esta definição permite ligações de rede de todos os IPs na rede do Azure. Para utilização em produção, experimente configurar as regras de firewall o mais restritivas possível ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
-No Cloud Shell, execute o comando novamente para permitir o acesso a partir do seu computador local, substituindo *\<your_ip_address>* pelo [seu endereço IP IPv4 local](http://www.whatsmyip.org/).
+No Cloud Shell, execute o comando novamente para permitir o acesso a partir do seu computador local, substituindo *\<your_ip_address>* pelo [seu endereço IP IPv4 local](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
@@ -287,7 +287,7 @@ Django valida o `HTTP_HOST` cabeçalho em solicitações de entrada. Para a sua 
 ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
-Em seguida, não suporta a Django [servir ficheiros estáticos na produção](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), por isso terá de ativar esta opção manualmente. Para este tutorial, utilize [WhiteNoise](http://whitenoise.evans.io/en/stable/). O pacote de WhiteNoise já está incluído no _Requirements. txt_. Terá de configurar o Django usá-lo. 
+Em seguida, não suporta a Django [servir ficheiros estáticos na produção](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), por isso terá de ativar esta opção manualmente. Para este tutorial, utilize [WhiteNoise](https://whitenoise.evans.io/en/stable/). O pacote de WhiteNoise já está incluído no _Requirements. txt_. Terá de configurar o Django usá-lo. 
 
 No _azuresite/settings.py_, localizar o `MIDDLEWARE` definição e adicionar o `whitenoise.middleware.WhiteNoiseMiddleware` middleware à lista, logo abaixo do `django.middleware.security.SecurityMiddleware` middleware. Sua `MIDDLEWARE` definição deve ter o seguinte aspeto:
 
@@ -307,7 +307,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ```
 
-Para obter mais informações sobre como configurar WhiteNoise, consulte a [WhiteNoise documentação](http://whitenoise.evans.io/en/stable/).
+Para obter mais informações sobre como configurar WhiteNoise, consulte a [WhiteNoise documentação](https://whitenoise.evans.io/en/stable/).
 
 > [!IMPORTANT]
 > Secção de definições da base de dados já segue a prática recomendada de segurança do uso de variáveis de ambiente. Para obter recomendações de implantação completa, veja [documentação do Django: lista de verificação de implementação](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).

@@ -8,21 +8,21 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8cdcdd6c5e0201f8f6af39faab0a67a68920e568
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094581"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342103"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Suporte de idioma e região para a API de serviço de voz
 
-Diferentes idiomas são suportados para diferentes funções do serviço de voz. As tabelas seguintes resumem o suporte de idiomas.
+Diferentes idiomas são suportados para diferentes funções de serviços de voz. As tabelas seguintes resumem o suporte de idiomas.
 
-## <a name="speech-to-text"></a>Conversão de Voz em Texto
+## <a name="speech-to-text"></a>Conversão de voz em texto
 
 A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas. Estão disponíveis para cada idioma diferentes níveis de personalização.
 
@@ -60,9 +60,26 @@ A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas. Estão
  th-TH | Tailandês (Tailândia) | Não | Não | Não
 
 
-## <a name="text-to-speech"></a>Conversão de Texto em Voz
+## <a name="text-to-speech"></a>Conversão de texto em voz
 
-A API de síntese de voz oferece as seguintes vozes, cada um deles suporta um idioma específico e dialect, identificado por localidade.
+A API REST do texto para discurso dá suporte essas vozes, cada um deles suporta um idioma específico e dialect, identificado por localidade.
+
+### <a name="neural-voices-preview"></a>Vozes neurais (pré-visualização)
+
+Voz neural é um novo tipo de síntese de fala com tecnologia de redes neurais profundas. Quando utilizar uma voz neural, fala sintetizada é quase distinguir das gravações humanas.
+
+Vozes neurais podem ser utilizados para tornar as interações com chatbots e assistentes virtual mais natural e envolventes converter textos digital, como o e-livros em audiobooks e melhorar a sistemas de navegação no carro. Com o prosody natural de semelhante à humana e articulation clara de palavras, o vozes neurais reduzem significativamente fadiga escuta quando os utilizadores interagem com sistemas de IA.
+
+Para obter uma lista completa de vozes neurais e a disponibilidade regional, consulte [regiões](regions.md#neural-voices).
+
+| Região | Idioma | Género | Mapeamento de nome de serviço|
+|--------|----------|---------|--------------------|
+| en-US | English (US) | Masculino | "Microsoft Server voz texto para voz de voz (en-US, GuyNeural)" |
+| en-US | English (US) | Feminino | "Microsoft Server voz texto para voz de voz (en-US, JessaNeural)" |
+
+### <a name="standard-voices"></a>Vozes padrão
+
+Mais de 75 vozes standard estão disponíveis em mais de 45 idiomas e localidades, que permitem converter texto em fala sintetizada. Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-voices).
 
 Região | Idioma | Género | Mapeamento de nome de serviço
 -------|----------|---------|--------------------
@@ -157,7 +174,7 @@ Personalização de voz está disponível para nós inglês (en-US), continente 
 > [!NOTE]
 > Francês, alemão e italiano formação de voz começa com um conjunto de dados de mais de 2000 expressões com. Modelos de bilingue chinês-inglês também são suportados com um conjunto de dados inicial de expressões com mais de 2000.
 
-## <a name="speech-translation"></a>Tradução de Voz
+## <a name="speech-translation"></a>Tradução de voz
 
 O **tradução por voz** API suporta idiomas diferentes para a tradução de voz para voz e conversão de voz em texto. O idioma de origem tem de ser sempre partir da seguinte tabela de idiomas de voz. Os idiomas de destino disponíveis dependem se o destino de tradução é voz ou texto. Pode converter voz recebida em mais do que [60 idiomas](https://www.microsoft.com/translator/business/languages/). Um subconjunto de idiomas estão disponíveis para [síntese de fala](language-support.md#text-languages).
 

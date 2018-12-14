@@ -1,24 +1,24 @@
 ---
-title: Criar uma base de dados de conhecimento - QnA Maker
-titleSuffix: Azure Cognitive Services
-description: Adicionar chit-bate-papo ao seu bot torna mais conversacionais e apelativas. A ferramenta QnA Maker permite-lhe adicionar facilmente um conjunto preenchido previamente do chat-chit superior, em sua BDC. Isso pode ser um ponto de partida para chit-bate-papo o bot e economizar o tempo e o custo de escrevê-los a partir do zero.
+title: Criar uma base de dados de conhecimento
+titleSuffix: QnA Maker - Azure Cognitive Services
+description: Utilizar o portal do QnA Maker, para adicionar criar uma base de dados de conhecimento com chit-bate-papo. Isso torna seu aplicativo envolvente. Adicionar um conjunto preenchido previamente de chat-chit principal em sua BDC como ponto de partida para chit-bate-papo o bot e economizar o tempo e o custo de escrevê-los a partir do zero.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/11/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 059e959aec34503f31cbf87266d0633865cbff46
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4a4f3d44454e7851f74bbeb072a9d4dcd600a6ef
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098751"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338129"
 ---
-# <a name="create-a-knowledge-base-in-qna-maker"></a>Criar uma base de dados de conhecimento no QnA Maker
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-portal"></a>Início rápido: Criar uma base de dados de conhecimento através do portal do QnA Maker
 
 A ferramenta QnA Maker torna simples para adicionar as suas origens de dados existente durante a criação de uma base de dados de conhecimento. Pode criar uma nova base de dados de conhecimento do QnA Maker partir os seguintes tipos de documento:
 
@@ -27,17 +27,21 @@ A ferramenta QnA Maker torna simples para adicionar as suas origens de dados exi
 * Manuais de produtos
 * Documentos estruturados
 
-## <a name="steps"></a>Passos
+Inclua uma personalidade chit-bate-papo para tornar o seu conhecimento mais interessantes com os seus utilizadores.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+
+## <a name="create-a-new-knowledge-base"></a>Criar uma nova base de dados de conhecimento
 
 1. Iniciar sessão para o [portal do QnA Maker](https://qnamaker.ai) com as suas credenciais do Azure e selecione **criar uma base de dados de conhecimento**.
 
-2. Se ainda não tenha criado um serviço QnA Maker, selecione **criar um serviço QnA**. 
+1. Se ainda não tenha criado um serviço QnA Maker, selecione **criar um serviço QnA**. 
 
-3. Selecione o seu inquilino do Azure, o nome da subscrição do Azure e o nome de recurso do Azure associados com o serviço QnA Maker listas no **passo 2** no portal do QnA Maker. Selecione o serviço QnA Maker do Azure que irá alojar a Base de dados de conhecimento.
+1. Selecione o seu inquilino do Azure, o nome da subscrição do Azure e o nome de recurso do Azure associados com o serviço QnA Maker listas no **passo 2** no portal do QnA Maker. Selecione o serviço QnA Maker do Azure que irá alojar a Base de dados de conhecimento.
 
     ![Configurar o serviço QnA](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
 
-4. Introduza o nome da sua base de dados de conhecimento e as origens de dados para a nova base de dados de conhecimento.
+1. Introduza o nome da sua base de dados de conhecimento e as origens de dados para a nova base de dados de conhecimento.
 
     ![Origens de dados do conjunto](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
@@ -46,21 +50,23 @@ A ferramenta QnA Maker torna simples para adicionar as suas origens de dados exi
     - Carregar ficheiros para dados que pretende extraídos. Consulte a [obter informações sobre preços](https://aka.ms/qnamaker-pricing) pode adicionar ver o número de documentos.
     - Se pretender adicionar manualmente QnAs, pode avançar **passo 4** mostrado na imagem anterior.
 
-5. Adicione **Chit-bate-papo** para sua KB. Opte por adicionar o suporte para o bot, chit chat ao escolher entre uma as 3 personalidades predefinidas. 
+1. Adicione **Chit-bate-papo** para sua KB. Opte por adicionar o suporte para o bot, chit chat ao escolher entre uma as 3 personalidades. 
 
-    <!-- TBD: add back in when chit chat how-to is merged
-    ![Add chit-chat to KB ](../media/qnamaker-how-to-chitchat/create-kb-chit-chat.png)
-    -->
+    ![Adicionar chit-bate-papo para KB ](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
-6. Selecione **criar a sua BDC**.
+1. Selecione **criar a sua BDC**.
 
     ![Criar KB](../media/qnamaker-how-to-create-kb/create-kb.png)
 
-7. Demora alguns minutos para os dados a ser extraído.
+1. Demora alguns minutos para os dados a ser extraído.
 
     ![Extração](../media/qnamaker-how-to-create-kb/hang-tight-extraction.png)
 
-8. Quando a sua Base de dados de conhecimento é criado com êxito, será redirecionado para o **base de dados de conhecimento** página.
+1. Quando a sua Base de dados de conhecimento é criado com êxito, será redirecionado para o **base de dados de conhecimento** página.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando tiver terminado com a base de dados de conhecimento, removê-lo no portal do QnA Maker.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

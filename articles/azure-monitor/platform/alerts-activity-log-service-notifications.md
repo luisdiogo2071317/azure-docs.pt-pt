@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: b5c11517209b9dfea8a28ce09084abd76d789d78
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: bb427575d7cff69f0db778c5eb0e0bdf0671d8dd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270948"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343296"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do registo de atividade nas notificações do serviço
 ## <a name="overview"></a>Descrição geral
@@ -197,7 +197,7 @@ Depois de criar um alerta, é visível na **alertas** secção **Monitor**. Sele
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba como [configurar notificações de webhook para sistemas de gestão existentes do problema](../../service-health/service-health-alert-webhook-guide.md).
 - Saiba mais sobre [notificações de estado de funcionamento de serviço](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Saiba mais sobre [limitação de velocidade de notificação](../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md).
+- Saiba mais sobre [limitação de velocidade de notificação](../../azure-monitor/platform/alerts-rate-limiting.md).
 - Reveja os [esquema de webhook de alerta de registo de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Obter um [descrição geral dos alertas de registo de atividade](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)e saiba como receber alertas. 
+- Obter um [descrição geral dos alertas de registo de atividade](../../azure-monitor/platform/alerts-overview.md)e saiba como receber alertas. 
 - Saiba mais sobre [grupos de ação](../../azure-monitor/platform/action-groups.md).

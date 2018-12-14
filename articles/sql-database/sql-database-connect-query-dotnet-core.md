@@ -1,6 +1,6 @@
 ---
 title: Utilizar .NET Core para consultar a Base de Dados SQL do Azure | Microsoft Docs
-description: Este tópico mostra-lhe como utilizar o .NET Core para criar um programa que se liga a uma base de dados SQL do Azure e a consulta com instruções Transact-SQL.
+description: Este tópico mostra-lhe como utilizar o .NET Core para criar um programa que se liga a uma base de dados do SQL do Azure e a consulta com instruções Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,65 +11,73 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 646b75e845e1940a87a9a2f45aecda2840a96d81
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.date: 12/10/2018
+ms.openlocfilehash: 471d2b0b8d98651d4b9ef4e88df0e863715b0c88
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913075"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341784"
 ---
-# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o .NET Core (C#) para consultar uma base de dados SQL do Azure
+# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o .NET Core (C#) para consultar uma base de dados SQL do Azure
 
-Este início rápido demonstra como utilizar o [.NET Core](https://www.microsoft.com/net/) em Windows/Linux/macOS para criar um programa C# para ligar a uma base de dados SQL do Azure e como utilizar instruções Transact-SQL para consultar dados.
+Este início rápido demonstra como usar [.NET Core](https://www.microsoft.com/net/) e C# código para ligar a uma base de dados SQL do Azure e executar uma instrução de Transact-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, certifique-se de que tem o seguinte:
+Para este tutorial, terá de:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Uma [regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md) para o endereço IP público do computador que utilizar para este início rápido.
+- R [regra de firewall ao nível do servidor](sql-database-get-started-portal-firewall.md) para o endereço IP público do seu computador.
 
-- Já instalou o [.NET Core para o seu sistema operativo](https://www.microsoft.com/net/core). 
+- [.NET core para o seu sistema de operativo](https://www.microsoft.com/net/core) instalado. 
 
-## <a name="sql-server-connection-information"></a>Informações de ligação do servidor SQL
+> [!NOTE]
+> Este início rápido utiliza a *mySampleDatabase* base de dados. Se pretender utilizar uma base de dados diferente, terá de alterar as referências de base de dados e modificar a `SELECT` consulta o C# código.
+
+
+## <a name="get-sql-server-connection-information"></a>Obter as informações de ligação do SQL server
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-#### <a name="for-adonet"></a>Para ADO.NET
+#### <a name="get-adonet-connection-information-optional"></a>Obter as informações de ligação do ADO.NET (opcional)
 
-1. Continue ao clicar em **Mostrar cadeias de ligação da base de dados**.
+1. Navegue para o **mySampleDatabase** página e, em **definições**, selecione **cadeias de ligação**.
 
 2. Reveja a cadeia de ligação **ADO.NET** completa.
 
-    ![Cadeia de ligação de ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+    ![Cadeia de ligação de ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string2.png)
 
-> [!IMPORTANT]
-> Tem de ter implementada uma regra de firewall para o endereço IP público do computador no qual executar este tutorial. Se estiver num computador diferente ou tiver um endereço IP público diferente, crie uma [regra de firewall ao nível do servidor com o portal do Azure](sql-database-get-started-portal-firewall.md). 
->
+3. Copiar o **ADO.NET** cadeia de ligação, se pretende usá-lo.
   
-## <a name="create-a-new-net-project"></a>Criar um novo projeto .NET
+## <a name="create-a-new-net-core-project"></a>Criar um novo projeto .NET Core
 
-1. Abra uma linha de comandos e crie uma pasta com o nome *sqltest*. Navegue até à pasta que criou e execute o seguinte comando:
+1. Abra uma linha de comandos e crie uma pasta com o nome **sqltest**. Navegue para esta pasta e execute o seguinte comando.
 
-    ```
+    ```cmd
     dotnet new console
     ```
+    Esta ação cria a arquivos de projeto, incluindo um inicial de nova aplicação C# arquivo de código (**Program.cs**), um arquivo de configuração XML (**sqltest. csproj**) e for necessário binários.
 
-2. Abra ***sqltest.csproj*** com o seu editor de texto favorito e adicione System.Data.SqlClient como uma dependência, com o seguinte código:
+2. No editor de texto, abra **sqltest. csproj** e cole o seguinte XML entre o `<Project>` etiquetas. Esta ação adiciona `System.Data.SqlClient` como uma dependência.
 
     ```xml
     <ItemGroup>
-        <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
     </ItemGroup>
     ```
 
 ## <a name="insert-code-to-query-sql-database"></a>Inserir código para consultar a base de dados do SQL
 
-1. No seu ambiente de desenvolvimento ou editor de texto favorito, abra **Program.cs**
+1. No editor de texto, abra **Program.cs**.
 
-2. Substitua os conteúdos pelo código seguinte e adicione os valores corretos para o seu servidor, a sua base de dados, o seu utilizador e a sua palavra-passe.
+2. Substitua os conteúdos pelo código seguinte e adicione os valores adequados para o seu servidor, base de dados, nome de utilizador e palavra-passe.
+
+> [!NOTE]
+> Para utilizar uma cadeia de ligação do ADO.NET, substitua as 4 linhas no código de configuração do servidor, base de dados, nome de utilizador e palavra-passe com a linha abaixo. Na cadeia de caracteres, defina o nome de utilizador e palavra-passe.
+>
+>    `builder.ConnectionString="<your_ado_net_connection_string>";`
 
 ```csharp
 using System;
@@ -85,11 +93,12 @@ namespace sqltest
             try 
             { 
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "your_server.database.windows.net"; 
-                builder.UserID = "your_user";            
-                builder.Password = "your_password";     
-                builder.InitialCatalog = "your_database";
 
+                builder.DataSource = "<your_server.database.windows.net>"; 
+                builder.UserID = "<your_username>";            
+                builder.Password = "<your_password>";     
+                builder.InitialCatalog = "<your_database>";
+         
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
                     Console.WriteLine("\nQuery data example:");
@@ -119,7 +128,8 @@ namespace sqltest
             {
                 Console.WriteLine(e.ToString());
             }
-            Console.ReadLine();
+            Console.WriteLine("\nDone. Press enter.");
+            Console.ReadLine(); 
         }
     }
 }
@@ -127,19 +137,47 @@ namespace sqltest
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. Na linha de comandos, execute os comandos seguintes:
+1. Na linha de comandos, execute os seguintes comandos.
 
-   ```csharp
+   ```cmd
    dotnet restore
    dotnet run
    ```
 
-2. Confirme que as 20 linhas superiores são devolvidas e, em seguida, feche a janela da aplicação.
+2. Certifique-se de que as 20 linhas superiores são devolvidas.
 
+   ```text
+   Query data example:
+   =========================================
 
-## <a name="next-steps"></a>Passos seguintes
+   Road Frames HL Road Frame - Black, 58
+   Road Frames HL Road Frame - Red, 58
+   Helmets Sport-100 Helmet, Red
+   Helmets Sport-100 Helmet, Black
+   Socks Mountain Bike Socks, M
+   Socks Mountain Bike Socks, L
+   Helmets Sport-100 Helmet, Blue
+   Caps AWC Logo Cap
+   Jerseys Long-Sleeve Logo Jersey, S
+   Jerseys Long-Sleeve Logo Jersey, M
+   Jerseys Long-Sleeve Logo Jersey, L
+   Jerseys Long-Sleeve Logo Jersey, XL
+   Road Frames HL Road Frame - Red, 62
+   Road Frames HL Road Frame - Red, 44
+   Road Frames HL Road Frame - Red, 48
+   Road Frames HL Road Frame - Red, 52
+   Road Frames HL Road Frame - Red, 56
+   Road Frames LL Road Frame - Black, 58
+   Road Frames LL Road Frame - Black, 60
+   Road Frames LL Road Frame - Black, 62
+
+   Done. Press enter.
+   ```
+3. Prima **Enter** para fechar a janela de aplicativo.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Introdução ao .NET Core com Windows/Linux/macOS, utilizando a linha de comandos](/dotnet/core/tutorials/using-with-xplat-cli).
-- Aprenda a [ligar e consultar uma base de dados SQL do Azure utilizando o .NET framework e o Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
-- Aprenda a [Criar a sua primeira base de dados SQL do Azure com o SSMS](sql-database-design-first-database.md) ou a [Criar a sua primeira base de dados SQL do Azure com o .NET](sql-database-design-first-database-csharp.md).
+- Saiba como [ligar e consultar uma base de dados SQL do Azure com o .NET Framework e o Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
+- Saiba como [conceber a sua base de dados SQL do Azure primeiro com o SSMS](sql-database-design-first-database.md) ou [ criar uma base de dados SQL do Azure e estabelecer ligação com o C# e o ADO.NET](sql-database-design-first-database-csharp.md).
 - Para obter mais informações sobre o .NET, veja a [Documentação .NET](https://docs.microsoft.com/dotnet/).

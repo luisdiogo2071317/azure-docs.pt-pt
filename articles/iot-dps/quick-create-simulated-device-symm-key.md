@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 46eebf6b7d68267765ded5ff91610e94960c3679
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5899b2b667df4800bf98aa6ed7b70f2f8ba4f931
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323529"
+ms.locfileid: "53337109"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Início rápido: Aprovisionar um dispositivo simulado com chaves simétricas
 
@@ -165,22 +165,25 @@ Nesta secção, atualize o código de exemplo para enviar a sequência de arranq
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Clique com o botão direito do rato no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Arranque**. 
-
-7. Na janela *Solution Explorer* (Explorador de Soluções) do Visual Studio, navegue até ao projeto **hsm\_security\_client** e expanda-o. Expanda **Source Files** (Ficheiros de Origem) e abra o **hsm\_client\_key.c**. 
-
-    Procure a declaração das constantes `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Faça as alterações seguintes ao ficheiro e guarde-o.
-
-    Atualize o valor da constante `REGISTRATION_NAME` com o seu **ID de Registo**.
-    
-    Atualize o valor da constante `SYMMETRIC_KEY_VALUE` com a sua **Chave Primária**.
+6. Encontre a chamada para `prov_dev_set_symmetric_key_info()` no **prov\_dev\_cliente\_Sample** que é comentado.
 
     ```c
-    static const char* const REGISTRATION_NAME = "symm-key-device-007";
-    static const char* const SYMMETRIC_KEY_VALUE = "<enter your Symmetric primary key>";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-7. No menu do Visual Studio, selecione **Debug** (Depurar)  > **Start without debugging** (Iniciar sem depuração) para executar a solução. Na linha de comandos para recriar o projeto, clique em **Yes** (Sim) para recriar o projeto antes da execução.
+    Anule os comentários a chamada de função e substitua os valores de marcador de posição (incluindo os parênteses angulares) com o seu ID de registo e valores de chave primárias.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("symm-key-device-007", "your primary key here");
+    ```
+   
+    Guarde o ficheiro.
+
+7. Clique com o botão direito do rato no projeto **prov\_dev\_client\_sample** e selecione **Definir como Projeto de Arranque**. 
+
+8. No menu do Visual Studio, selecione **Debug** (Depurar)  > **Start without debugging** (Iniciar sem depuração) para executar a solução. Na linha de comandos para recriar o projeto, clique em **Yes** (Sim) para recriar o projeto antes da execução.
 
     O resultado seguinte é um exemplo do dispositivo simulado a arrancar com êxito e a ligar à instância do serviço de aprovisionamento para atribuição a um hub IoT:
 
@@ -198,7 +201,7 @@ Nesta secção, atualize o código de exemplo para enviar a sequência de arranq
     Press enter key to exit:
     ```
 
-8. No portal, navegue até ao hub IoT ao qual o dispositivo simulado foi atribuído e clique no separador **Dispositivos IoT**. Após o aprovisionamento bem-sucedido do dispositivo simulado no hub, o ID de dispositivo aparece no painel **Dispositivos IoT**, com o *ESTADO* **ativado**. Poderá ter de clicar no botão **Atualizar** na parte superior. 
+9. No portal, navegue até ao hub IoT ao qual o dispositivo simulado foi atribuído e clique no separador **Dispositivos IoT**. Após o aprovisionamento bem-sucedido do dispositivo simulado no hub, o ID de dispositivo aparece no painel **Dispositivos IoT**, com o *ESTADO* **ativado**. Poderá ter de clicar no botão **Atualizar** na parte superior. 
 
     ![O dispositivo é registado no hub IoT](./media/quick-create-simulated-device/hub-registration.png) 
 

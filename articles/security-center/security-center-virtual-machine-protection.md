@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 53a6ae828009db24b56a11b1fdcbea19842191f4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 454478fa02b8f4e71bc4efb61e1b8c194b927bc6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106622"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340832"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Proteger as máquinas e aplicações no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários. Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicações, redes, SQL e identidade e acesso.
@@ -74,20 +74,20 @@ Cada recomendação tem um conjunto de ações que pode realizar depois de a sel
 
 **Aplicar atualizações do sistema** tem um resumo das atualizações críticas num formato de gráfico, um para Windows e outro para Linux. A segunda parte tem uma tabela com as seguintes informações:
 
-- **NOME**: o nome da atualização em falta.
-- **N.º DE VMs e COMPUTADORES**: o número total de VMs e computadores nos quais esta atualização está em falta.
-- **GRAVIDADE da ATUALIZAÇÃO**: descreve a gravidade dessa recomendação específica:
+- **NOME**: Nome da atualização em falta.
+- **N.º DE VMs e computadores**: Número total de VMs e computadores que estão em falta esta atualização.
+- **GRAVIDADE DA ATUALIZAÇÃO**: Descreve a gravidade dessa recomendação específica:
 
-    - **Crítico**: uma vulnerabilidade existe com um recurso significativo (aplicação, máquina virtual ou grupo de segurança de rede) e necessita de atenção.
-    - **Importante**: passos não críticos ou adicionais são necessários para concluir um processo ou eliminar uma vulnerabilidade.
-    - **Moderado**: uma vulnerabilidade deve ser resolvida, mas não necessita de atenção imediata. (Por predefinição, as recomendações baixas não são apresentadas, mas pode filtrar por recomendações baixas se pretender visualizá-las).
+    - **Crítico**: Uma vulnerabilidade existe com um recurso significativo (aplicação, máquina virtual ou grupo de segurança de rede) e necessita de atenção.
+    - **Importante**: Passos não críticos ou adicionais são necessários para concluir um processo ou eliminar uma vulnerabilidade.
+    - **Moderado**: Uma vulnerabilidade deve ser tratada, mas não necessita de atenção imediata. (Por predefinição, as recomendações baixas não são apresentadas, mas pode filtrar por recomendações baixas se pretender visualizá-las).
 
 
-- **ESTADO**: o estado atual da recomendação:
+- **ESTADO**: O estado atual da Recomendação:
 
-    - **Aberto**: a recomendação ainda não foi tratada.
-    - **Em curso**: a recomendação está a ser aplicada a esses recursos e não tem de tomar qualquer medida.
-    - **Resolvido**: a recomendação já foi concluída. (Quando o problema for resolvido, a entrada fica a cinzento).
+    - **Abra**: A recomendação ainda não foi tratada.
+    - **Em curso**: A recomendação está atualmente a ser aplicada a esses recursos, e é necessária nenhuma ação por si.
+    - **Resolvido**: A recomendação já foi concluída. (Quando o problema for resolvido, a entrada fica a cinzento).
 
 Para ver os detalhes das recomendações, clique no nome da atualização em falta na lista.
 
@@ -249,7 +249,7 @@ Para saber mais sobre as recomendações que se aplicam a outros tipos de recurs
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
 

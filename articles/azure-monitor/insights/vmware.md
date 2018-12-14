@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 9ee835978325968e1a61633ca868ed091b5b2484
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3313d7490ed9a2f51831c76148a54b7ecf19d3b3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192520"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338809"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de monitorização de VMware (pré-visualização) no Log Analytics
 
@@ -163,7 +163,7 @@ A guardar consultas de pesquisa é uma funcionalidade padrão do Log Analytics e
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Criar alertas a partir de consultas
-Depois de criar as suas consultas, pode querer utilizar as consultas para o alertar quando ocorrem eventos específicos. Ver [alertas no Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para obter informações sobre como criar alertas. Para obter exemplos de consultas e outros exemplos de consulta de alerta, consulte a [VMware de Monitor de utilizar o Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) postagem de blog.
+Depois de criar as suas consultas, pode querer utilizar as consultas para o alertar quando ocorrem eventos específicos. Ver [alertas no Log Analytics](../../azure-monitor/platform/alerts-overview.md) para obter informações sobre como criar alertas. Para obter exemplos de consultas e outros exemplos de consulta de alerta, consulte a [VMware de Monitor de utilizar o Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) postagem de blog.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>O que é necessário no ESXi alojar definição? O impacto que ela terá no meu ambiente atual?
@@ -206,4 +206,4 @@ Pode haver vários motivos:
 ## <a name="next-steps"></a>Passos Seguintes
 * Uso [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics para ver o VMware detalhada alojar os dados.
 * [Criar seus próprios dashboards](../../azure-monitor/platform/dashboards.md) a mostrar dados de anfitrião do VMware.
-* [Criar alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) quando ocorrem eventos específicos de anfitriões de VMware.
+* [Criar alertas](../../azure-monitor/platform/alerts-overview.md) quando ocorrem eventos específicos de anfitriões de VMware.

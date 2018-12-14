@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
 ms.custom: hdinsightactive
-ms.openlocfilehash: 9daf0d45c9bb24192750991e7bf84fa3614c970d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4f51de6ded29f93d29dbf80dd68715f621b5cb06
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011039"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384620"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Instalar ou atualizar o Mono no HDInsight
 
@@ -52,7 +52,7 @@ Ao seguir o documento de ação de script, utilize o URI seguinte:
 
 Para especificar a versão do Mono que está instalada, utilize o número de versão no __parâmetros__ campo. Por exemplo, introduza `5.4` instalar Mono 5.4.
 
-> [!NOTE]
+> [!NOTE]  
 > Quando configurar o HDInsight com este script, marque o script como __persistentes__. Esta definição permite que o HDInsight aplicar o script para nós de trabalho adicionados por meio de operações de dimensionamento.
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -60,8 +60,8 @@ Para especificar a versão do Mono que está instalada, utilize o número de ver
 Aprendeu como atualizar ou instalar uma versão específica do Mono no HDInsight. Para obter mais informações sobre a utilização de aplicações .NET com Mono no HDInsight, consulte os seguintes documentos:
 
 * [Use o .NET para transmissão em fluxo MapReduce no HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [Use o .NET com o Hive e Pig no HDInsight](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
-* [Desenvolver soluções em c# com o Storm no HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
+* [Utilizar o .NET com o Apache Hive e Apache Pig no HDInsight](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Desenvolva C# soluções com o Apache Storm no HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
 * [Migrar soluções .NET para o HDInsight baseado em Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md)
 
-Para obter mais informações sobre como utilizar as ações de script, consulte [HDInsight baseado em Linux personalizar clusters com ação de script](hdinsight-hadoop-customize-cluster-linux.md)
+Para obter mais informações sobre como utilizar as ações de script, consulte [HDInsight baseado em Linux personalizar clusters com ação de script](hdinsight-hadoop-customize-cluster-linux.md).

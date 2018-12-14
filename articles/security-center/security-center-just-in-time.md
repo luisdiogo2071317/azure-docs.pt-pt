@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
+ms.date: 12/4/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6281b79e374db164bbd11b602e92336162cae089
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5c42c0d5597e1e14bbb7814ad635abcd086db804
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841766"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339047"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerir o acesso de máquina virtual com just-in-time
 
@@ -49,7 +49,11 @@ Quando um utilizador solicita acesso a uma VM, o Centro de segurança verifica s
 >
 >
 
-## <a name="using-jit-access-in-azure-security-center"></a>Utilizar o acesso JIT no Centro de segurança do Azure
+Pode acessar o JIT por meio de:
+- [Utilizar o acesso JIT no Centro de segurança do Azure](#jit-asc)
+- [Utilizar o acesso JIT num painel de VM do Azure](#jit-vm)
+
+## Utilizar o acesso JIT no Centro de segurança do Azure <a name="jit-asc"></a>
 
 1. Abra o dashboard **Centro de Segurança**.
 
@@ -121,7 +125,7 @@ Para editar uma política just-in-time existente de uma VM:
 3. Sob **configuração do acesso JIT da VM**, pode editar as definições existentes de uma porta já protegida ou adicionar uma nova porta personalizada. Para obter mais informações, consulte [configurar uma política de acesso just-in-time](#jit-config). 
   ![acesso JIT da vm](./media/security-center-just-in-time/edit-policy.png)
 
-## <a name="using-jit-access-in-an-azure-vm-blade"></a>Utilizar o acesso JIT num painel de VM do Azure
+## Utilizar o acesso JIT num painel de VM do Azure <a name="jit-vm"></a>
 
 Para sua comodidade, pode ligar a uma VM com o JIT diretamente a partir de dentro do painel da VM no Azure.
 
@@ -187,7 +191,7 @@ Atribuí-las *ações* para a função:
 -    No âmbito de uma subscrição ou grupo de recursos ou VM:
    - Microsoft.Compute/virtualMachines/write 
 
-Definir esses privilégios para permitir que um utilizador com êxito pedir acesso JIT para uma VM: atribuí-las *ações* ao usuário:
+Defina esses privilégios para permitir que um utilizador com êxito pedir acesso JIT para uma VM: Atribuí-las *ações* ao usuário:
 -   No âmbito de uma subscrição ou grupo de recursos que está associado com a VM:
    - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ iniciar/ação
 -    No âmbito de uma subscrição ou grupo de recursos ou VM:
@@ -264,7 +268,7 @@ Neste artigo, aprendeu como just-in-time o acesso à VM no Centro de segurança 
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-- [Definir políticas de segurança](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
+- [Definir políticas de segurança](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições do Azure e grupos de recursos.
 - [Gerir recomendações de segurança](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
 - [Monitorização de estado de funcionamento de segurança](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 - [Gerir e responder a alertas de segurança](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.

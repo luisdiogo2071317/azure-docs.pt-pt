@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f5237ab2b6970772e1f08264bb44223640c33a37
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 67995b4cc9c212f1798a37b54873bd349ac36576
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187267"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384926"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurar automatizada experimentações de machine learning
 
@@ -232,8 +232,9 @@ Propriedade |  Descrição | Valor Predefinido
 `run_configuration` |   Objeto de RunConfiguration.  Utilizada para execuções de remotas. |Nenhuma
 `data_script`  |    Caminho para um ficheiro que contém o método get_data.  É necessário para execução remota.   |Nenhuma
 `model_explainability` | _Opcional_ verdadeiro/falso <br/>  Experimente verdadeiro ativa para executar a importância de funcionalidade para cada iteração. Também pode utilizar o método explain_model() numa iteração específica para ativar a funcionalidade importância sob demanda para aquela iteração após a conclusão da experimentação. | Falso
-`enable_ensembling`|Sinalizador para ativar uma iteração ensembling depois de concluir todas as outras iterações.|
-`ensemble_iterations`|Número de iterações durante o qual escolhemos um pipeline ajustado para fazer parte do ensemble final.|
+`enable_ensembling`|Sinalizador para ativar uma iteração ensembling depois de concluir todas as outras iterações.| Verdadeiro 
+`ensemble_iterations`|Número de iterações durante o qual escolhemos um pipeline ajustado para fazer parte do ensemble final.| 15
+`experiment_timeout_minutes`| Limita a quantidade de tempo (minues) que pode levar a experimentação toda executar | Nenhuma
 
 ## <a name="data-pre-processing-and-featurization"></a>Processamento prévio de dados e featurization
 

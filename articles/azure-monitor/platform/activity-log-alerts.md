@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 7b210a774cfdb9b7f33ec08cc75886c77e3e6cc0
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 412ec0a7d2cd8574aadf6e9f104407792ddb29ed
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285551"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341530"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registo de atividades 
 
@@ -61,7 +61,7 @@ Para saber mais sobre os grupos de ação, veja [criar e gerir grupos de ação 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Obter um [descrição geral dos alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+- Obter um [descrição geral dos alertas](../../azure-monitor/platform/alerts-overview.md).
 - Saiba mais sobre [criar e modificar alertas do registo de atividade](../../azure-monitor/platform/alerts-activity-log.md).
 - Reveja os [esquema de webhook de alerta de registo de atividades](activity-log-alerts-webhook.md).
 - Saiba mais sobre [notificações de estado de funcionamento de serviço](../../monitoring-and-diagnostics/monitoring-service-notifications.md).

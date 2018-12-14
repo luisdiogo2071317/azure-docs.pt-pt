@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.openlocfilehash: 271d7518094982dcd1e973a7d51b231beae92b78
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 613001c8495ba6c6a259063b8d8d3bce21b66960
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185909"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336429"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Criar um dashboard personalizado para uso no Log Analytics
 
@@ -68,7 +68,7 @@ Existem três tipos de visualizações de mosaicos à sua escolha:
 
 | tipo de gráfico | O que faz |
 | --- | --- |
-| ![Gráfico de barras](./media/dashboards/oms-dashboards-bar-chart.png) |Apresenta uma linha cronológica de resultados da pesquisa de registos guardadas como um gráfico de barras ou uma lista de resultados por um campo dependendo se a sua pesquisa de registos agrega os resultados por um campo ou não. |
+| ![Gráfico de Barras](./media/dashboards/oms-dashboards-bar-chart.png) |Apresenta uma linha cronológica de resultados da pesquisa de registos guardadas como um gráfico de barras ou uma lista de resultados por um campo dependendo se a sua pesquisa de registos agrega os resultados por um campo ou não. |
 | ![métrica](./media/dashboards/oms-dashboards-metric.png) |Apresenta sua acertos de resultado de pesquisa de registo total como um número num mosaico. Mosaicos de métricos permitem-lhe definir um limiar que irá realçar o mosaico quando é atingido o limiar. |
 | ![Linha](./media/dashboards/oms-dashboards-line.png) |Apresenta uma linha cronológica de sua resultados de resultado de pesquisa de registos guardadas com valores como um gráfico de linhas. |
 
@@ -86,4 +86,4 @@ Para remover um mosaico, navegue para a vista de meu painel e clique em **person
 ![Remover um mosaico](./media/dashboards/oms-dashboards-remove-tile.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Crie [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) no Log Analytics para gerar notificações e a resolução de problemas.
+* Crie [alertas](../../azure-monitor/platform/alerts-overview.md) no Log Analytics para gerar notificações e a resolução de problemas.

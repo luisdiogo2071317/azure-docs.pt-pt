@@ -14,22 +14,22 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: efdc1cda9b52b6b79a3ccdcfd16542f7cb4b891a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838553"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341903"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>O armazenamento do Azure Stack: diferenças e considerações
+# <a name="azure-stack-storage-differences-and-considerations"></a>Armazenamento do Azure da pilha: Diferenças e considerações
 
-*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
+*Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 O armazenamento do Azure Stack é o conjunto de serviços de cloud de armazenamento no Microsoft Azure Stack. Armazenamento de pilha do Azure fornece BLOBs, tabela, fila e funcionalidade de gestão de conta com uma semântica consistente para o Azure.
 
 Este artigo resume as diferenças de armazenamento do Azure Stack conhecidas dos serviços de armazenamento do Azure. Ele também apresenta uma lista de aspetos a considerar ao implementar o Azure Stack. Para saber mais sobre das principais diferenças entre global do Azure e o Azure Stack, veja a [considerações da chave](azure-stack-considerations.md) artigo.
 
-## <a name="cheat-sheet-storage-differences"></a>Referência rápida: diferenças de armazenamento
+## <a name="cheat-sheet-storage-differences"></a>Referência rápida: Diferenças de armazenamento
 
 | Funcionalidade | (Global) do Azure | Azure Stack |
 | --- | --- | --- |
@@ -41,6 +41,7 @@ Este artigo resume as diferenças de armazenamento do Azure Stack conhecidas dos
 |Managed disks|Premium e standard suportados|Suportada quando utiliza a versão 1808 ou posterior.
 |Nome do blob|os 1024 carateres (2.048 bytes)|880 carateres (1,760 bytes)
 |Tamanho máximo de blob de bloco|4.75 TB (100 MB X 50 000 blocos)|4.75 TB (100 MB x 50 000 blocos) para a atualização 1802 ou a versão mais recente. 50 000 x 4 MB (aproximadamente, 195 GB) para versões anteriores.
+|Cópia do instantâneo de blob de página|Cópia de segurança do Azure discos não geridos VM ligados a uma VM em execução suportada|Ainda não é suportado.
 |Cópia do instantâneo incremental de blob de página|Premium e blobs de página do Azure standard suportados|Ainda não é suportado.
 |Camadas de armazenamento para armazenamento de BLOBs|Camadas frequente, esporádica e de camadas de armazenamento de arquivo.|Ainda não é suportado.
 Eliminação de forma recuperável para armazenamento de BLOBs|Pré-visualização|Ainda não é suportado.
@@ -62,21 +63,21 @@ APIs de serviços de armazenamento do Azure:
 
 a atualização 1802 ou mais recente:
 
- - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [07 de 2015-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+- [07 de 2015-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Versões anteriores:
 
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 APIs de gestão dos serviços de armazenamento do Azure:
 
- - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
 ## <a name="sdk-versions"></a>Versões do SDK
 
@@ -86,7 +87,7 @@ O armazenamento do Azure Stack suporta as seguintes bibliotecas de cliente:
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET           | De 6.2.0 para 8.7.0.          | Pacote de NuGet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>Versão do GitHub:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | ficheiro App. config              |
 | Java           | De 4.1.0 para 6.1.0           | Pacote maven:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>Versão do GitHub:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Configuração de cadeia de ligação      |
-| Node.js        | De 1.1.0 para 2.7.0           | Ligação do NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Por exemplo: executar "npm instalar azure-storage@2.7.0")<br> <br>Versão do Github:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Declaração de instância de serviço |
+| Node.js        | De 1.1.0 para 2.7.0           | Ligação do NPM:<br>https://www.npmjs.com/package/azure-storage<br>(Por exemplo: executar "npm instalar azure-storage@2.7.0")<br> <br>Versão do GitHub:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Declaração de instância de serviço |
 | C++            | De 2.4.0 para 3.1.0           | Pacote de NuGet:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>Versão do GitHub:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Configuração de cadeia de ligação      |
 | PHP            | De 0.15.0 para 1.0.0          | Versão do GitHub:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Instalar através do compositor (ver detalhes abaixo)                                                                                                                                                                                                                  | Configuração de cadeia de ligação      |
 | Python         | De 0.30.0 para 1.0.0          | Versão do GitHub:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Declaração de instância de serviço |

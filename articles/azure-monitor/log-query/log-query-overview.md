@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 26030764544189ae7b075711f0405bf5c0b4ab8f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc37b3b60a5ad7f4e2b4794e4fcb74c1a5004b75
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193829"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336888"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analisar dados do Log Analytics no Azure Monitor
 
@@ -39,12 +39,12 @@ Precisa de uma consulta de log para obter todos os dados do Log Analytics.  Este
 As diferentes formas que irá utilizar consultas do Log Analytics incluem o seguinte:
 
 - **Portais.** Pode executar análises interativas de dados de registo no [portal do Azure](../../azure-monitor/log-query/portals.md).  Isto permite-lhe editar a consulta e analisar os resultados numa variedade de formatos e visualizações.  
-- **Regras de alerta.** [Regras de alerta](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) identificar proativamente os problemas dos dados na sua área de trabalho.  Cada regra de alerta baseia-se uma pesquisa de registos que está a ser executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
+- **Regras de alerta.** [Regras de alerta](../../azure-monitor/platform/alerts-overview.md) identificar proativamente os problemas dos dados na sua área de trabalho.  Cada regra de alerta baseia-se uma pesquisa de registos que está a ser executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
 - **Dashboards.** Pode afixar os resultados de qualquer consulta numa [dashboard do Azure](../../azure-monitor/platform/dashboards.md) que permitem que visualize os dados de registos e de métricas em conjunto e, opcionalmente, partilhar com outros utilizadores do Azure. 
 - **Modos de exibição.**  Pode criar visualizações de dados a serem incluídos nos dashboards do utilizador com [estruturador de vistas](../../azure-monitor/platform/view-designer.md).  Consultas de registo que fornecem os dados utilizados pelo [mosaicos](../../azure-monitor/platform/view-designer-tiles.md) e [partes de visualização](../../azure-monitor/platform/view-designer-parts.md) em cada vista.  
 - **Exportar.**  Quando importa dados da área de trabalho do Log Analytics para o Excel ou [Power BI](../../azure-monitor/platform/powerbi.md), cria uma consulta de registo para definir os dados para exportar.
 - **PowerShell.** Pode executar um script do PowerShell a partir de uma linha de comando ou um runbook da automatização do Azure que utiliza [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) para recuperar dados do Log Analytics.  Este cmdlet requer uma consulta para determinar os dados a obter.
-- **API do log Analytics.**  O [a API de pesquisa de registos do Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) permite que qualquer cliente de REST API recuperar dados de registo de área de trabalho.  O pedido de API inclui uma consulta que é executada no Log Analytics para determinar os dados a obter.
+- **API do log Analytics.**  O [a API de pesquisa de registos do Log Analytics](../../azure-monitor/platform/alerts-overview.md) permite que qualquer cliente de REST API recuperar dados de registo de área de trabalho.  O pedido de API inclui uma consulta que é executada no Log Analytics para determinar os dados a obter.
 
 ![Pesquisas de registos](media/log-query-overview/queries-overview.png)
 

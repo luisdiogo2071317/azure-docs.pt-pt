@@ -1,21 +1,22 @@
 ---
-title: Início Rápido – Utilizar o Explorador de Armazenamento do Azure para criar um blob no armazenamento de objetos | Microsoft Docs
-description: Neste início rápido, irá aprender a utilizar o Explorador de armazenamento do Azure para criar um diretório e um ficheiro. Em seguida, saiba como transferir o ficheiro para o computador local e como visualizar todos os ficheiros num diretório. Também irá aprender a criar um instantâneo de um arquivo, gerir políticas de acesso de diretório e criar uma assinatura de acesso partilhado.
+title: 'Início rápido: Explorador de armazenamento do Azure de utilização para criar um blob no armazenamento de objetos com geração 2 de armazenamento do Azure Data Lake ativada'
+description: Neste início rápido, irá aprender a utilizar o Explorador de armazenamento do Azure para criar um sistema de ficheiros numa conta de geração 2 de armazenamento do Azure Data Lake, bem como um diretório e um ficheiro. Em seguida, saiba como transferir o ficheiro para o computador local e como visualizar todos os ficheiros num diretório.
 services: storage
 author: tamram
+ms.component: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: c5b674a33b400a1e920b10c839d4708897120a31
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e556dbe377f5bba6cbd727ac69c3d4fb9127a2c9
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975927"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385623"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Início Rápido – Utilizar o Explorador de Armazenamento do Azure para criar um blob no armazenamento de objetos | Microsoft Docs
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Início rápido: Utilize o Explorador de armazenamento do Azure para criar um blob no armazenamento de objetos
 
 Neste início rápido, irá aprender a utilizar [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para criar um diretório e um blob. Em seguida, saiba como transferir o blob para o computador local e como visualizar todos os blobs num diretório. Também irá aprender a criar um instantâneo de um blob, gerir políticas de acesso de diretório e criar uma assinatura de acesso partilhado.
 

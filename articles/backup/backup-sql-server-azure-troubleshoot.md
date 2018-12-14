@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: acbb54da9cf52a73acf11b43d702675544bcc5fa
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873806"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339523"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Resolver problemas de cópia de segurança do SQL Server no Azure
 
@@ -78,13 +78,13 @@ As tabelas a seguir são organizadas por código de erro.
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
 | Não é possível efetuar cópia de segurança, como o log de transação para a origem de dados está cheio. | O espaço do registo transacional de base de dados está cheio. | Para corrigir este problema, consulte a [documentação do SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Esta base de dados SQL não suporta o tipo de cópia de segurança solicitado. | Réplicas secundárias do sempre em AG não suportam cópias de segurança completas e diferenciais. | <ul><li>Se acionada uma cópia de segurança ad-hoc, acione as cópias de segurança no nó principal.</li><li>Se a cópia de segurança foi agendada pela política, certifique-se de que o nó principal está registado. Para registar o nó [siga os passos para detetar uma base de dados do SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> | 
+| Esta base de dados SQL não suporta o tipo de cópia de segurança solicitado. | Réplicas secundárias do sempre em AG não suportam cópias de segurança completas e diferenciais. | <ul><li>Se acionada uma cópia de segurança ad-hoc, acione as cópias de segurança no nó principal.</li><li>Se a cópia de segurança foi agendada pela política, certifique-se de que o nó principal está registado. Para registar o nó [siga os passos para detetar uma base de dados do SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>As falhas do restauro
 
 Os seguintes códigos de erro são apresentados quando tarefas de restauro.
 
-### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite 
+### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
@@ -107,7 +107,7 @@ Os seguintes códigos de erro são apresentados quando tarefas de restauro.
 
 São os seguintes códigos de erro para falhas de registo.
 
-### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError 
+### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
@@ -124,6 +124,16 @@ São os seguintes códigos de erro para falhas de registo.
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
 | O serviço de cópia de segurança do Azure utiliza o agente convidado da VM do Azure para fazer a cópia de segurança, mas o agente convidado não está disponível no servidor de destino. | Agente convidado não está ativado ou está danificado | [Instalar o agente convidado da VM](../virtual-machines/extensions/agent-windows.md) manualmente. |
+
+## <a name="configure-backup-failures"></a>Configurar a falhas de cópia de segurança
+
+O seguinte erro são códigos para configurar falhas de cópia de segurança.
+
+### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
+
+| Mensagem de erro | Causas possíveis | Ação recomendada |
+|---|---|---|
+| A intenção de Autoproteção foi removida ou é não é mais válida. | Ao ativar a proteção automática numa instância SQL **configurar a cópia de segurança** tarefas são executadas para todas as bases de dados nessa instância. Se desativar a proteção automática, enquanto as tarefas estiverem em execução, o **em curso** tarefas são canceladas com este código de erro. | Ative a proteção automática mais uma vez proteger todas as bases de dados restantes. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

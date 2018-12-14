@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 30d0818b57057785784c1fbda1c67ca0be10d769
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820312"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384773"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utilize o serviço importar/exportar do Azure para importar dados para ficheiros do Azure
 
@@ -29,7 +29,7 @@ Antes de criar uma tarefa de importação para transferir dados para ficheiros d
 - Ter, pelo menos, uma conta de armazenamento do Azure. Ver a lista de [contas de armazenamento e tipos de armazenamento suportadas para o serviço importar/exportar](storage-import-export-requirements.md). Para obter informações sobre como criar uma nova conta de armazenamento, consulte [como criar uma conta de armazenamento](storage-quickstart-create-account.md).
 - Têm um número adequado de discos [tipos suportados](storage-import-export-requirements.md#supported-disks). 
 - Ter um sistema Windows em execução uma [versão do SO suportado](storage-import-export-requirements.md#supported-operating-systems).
-- [Baixe o versão 2 do WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) no sistema Windows. Deszipe o para a pasta predefinida `waimportexport`. Por exemplo, `C:\WaImportExport`.
+- [Baixe o versão 2 do WAImportExport](https://aka.ms/waiev2) no sistema Windows. Deszipe o para a pasta predefinida `waimportexport`. Por exemplo, `C:\WaImportExport`.
 - Ter uma conta de FedEx/DHL. 
     - A conta tem de ser válida, deve ter o saldo e tem de ter capacidades de envio de devolução.
     - Gere um número de controlo para a tarefa de exportação.
@@ -50,14 +50,14 @@ Execute os seguintes passos para preparar as unidades.
 2. Crie um único volume NTFS em cada unidade. Atribua uma letra de unidade ao volume. Não utilize mountpoints.
 3. Modificar a *dataset.csv* ficheiro na pasta raiz onde a ferramenta reside. Dependendo se deseja importar um ficheiro ou pasta ou ambos, adicionar entradas no *dataset.csv* de ficheiros semelhantes aos exemplos seguintes.  
 
-    - **Para importar um ficheiro**: no exemplo a seguir, os dados a copiar residem na unidade c:. O ficheiro *MyFile1.txt* é copiado para a raiz do *MyAzureFileshare1*. Se o *MyAzureFileshare1* não existir, é criado na conta de armazenamento do Azure. Estrutura de pastas é mantida.
+    - **Para importar um ficheiro**: No exemplo a seguir, os dados a copiar residem na unidade c:. O ficheiro *MyFile1.txt* é copiado para a raiz do *MyAzureFileshare1*. Se o *MyAzureFileshare1* não existir, é criado na conta de armazenamento do Azure. Estrutura de pastas é mantida.
 
         ```
             BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
             "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
         ```
-    - **Para importar uma pasta**: todos os ficheiros e pastas sob *MyFolder2* são copiado para a partilha de ficheiros de recursivamente. Estrutura de pastas é mantida.
+    - **Para importar uma pasta**: Todos os ficheiros e pastas sob *MyFolder2* são copiado para a partilha de ficheiros de recursivamente. Estrutura de pastas é mantida.
 
         ```
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
@@ -77,14 +77,14 @@ Execute os seguintes passos para preparar as unidades.
 
     Este exemplo assume que dois discos estão anexados e volumes NTFS básicas G:\ e H:\ são criados. H:\is não encriptados quando g: já está encriptado. A ferramenta formata e encripta o disco que aloja o H:\ apenas (e não g:\).
 
-    - **Para um disco que não está encriptado**: especifique *Encrypt* para ativar a encriptação de disco BitLocker no disco.
+    - **Para um disco que não está encriptado**: Especifique *Encrypt* para ativar a encriptação de disco BitLocker no disco.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
         H,Format,SilentMode,Encrypt,
         ```
     
-    - **Para um disco que já é criptografado**: especifique *AlreadyEncrypted* e fornecer a chave do BitLocker.
+    - **Para um disco que já é criptografado**: Especifique *AlreadyEncrypted* e fornecer a chave do BitLocker.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -137,7 +137,7 @@ Execute os seguintes passos para criar uma tarefa de importação no portal do A
 
 3. Na **detalhes da tarefa**:
     
-    - Carregue os ficheiros de diário que criou durante precedente [passo 1: preparar as unidades](#step-1-prepare-the-drives). 
+    - Carregue os ficheiros de diário que criou durante anterior [passo 1: Preparar as unidades](#step-1-prepare-the-drives). 
     - Selecione a conta de armazenamento que serão importados para os dados. 
     - A localização de redução é preenchida automaticamente com base na região da conta de armazenamento selecionada.
    
@@ -162,7 +162,7 @@ Execute os seguintes passos para criar uma tarefa de importação no portal do A
 
         ![Criar tarefa de importação - passo 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Passo 3: Enviar as unidades para o datacenter do Azure 
+## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>Passo 3: Envie os discos para o datacenter do Azure 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 

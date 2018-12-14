@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: f36d0ec4446ee6591798c0d8926f41a4e177d81d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 21c1a92a71ac52a47a8b9d73d5e715afb6dc73d0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997061"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343416"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnosticar exceções nas aplicações web com o Application Insights
 Exceções na sua aplicação web em direto são enviadas pelos [Application Insights](app-insights-overview.md). Pode correlacionar pedidos com falhas com exceções e outros eventos no cliente e servidor, para que pode rapidamente a diagnosticar as causas.
@@ -25,9 +25,9 @@ Exceções na sua aplicação web em direto são enviadas pelos [Application Ins
 ## <a name="set-up-exception-reporting"></a>Configurar relatórios de exceção
 * Para ter exceções reportadas da sua aplicação de servidor:
   * Instale [SDK do Application Insights](app-insights-asp-net.md) em seu código de aplicação, ou
-  * Servidores web do IIS: execute [Application Insights Agent](app-insights-monitor-performance-live-website-now.md); ou
-  * Aplicações web do Azure: adicionar o [extensão do Application Insights](app-insights-azure-web-apps.md)
-  * Aplicações web Java: instalar o [agente Java](app-insights-java-agent.md)
+  * Servidores web do IIS: Execute [Application Insights agente](app-insights-monitor-performance-live-website-now.md); ou
+  * Aplicações web do Azure: Adicionar o [extensão do Application Insights](app-insights-azure-web-apps.md)
+  * Aplicações web de Java: Instalar o [agente Java](app-insights-java-agent.md)
 * Instalar o [fragmento do JavaScript](app-insights-javascript.md) nas suas páginas da web para capturar exceções do browser.
 * Em algumas estruturas de aplicativo ou com algumas definições, tem de efetuar alguns passos adicionais para capturar exceções mais:
   * [Formulários da Web](#web-forms)
@@ -50,14 +50,15 @@ Tenha em atenção que pode filtrar o relatório para mostrar apenas exceções.
 *Sem exceções que mostra? Ver [capturar exceções](#exceptions).*
 
 Clique num relatório de exceção para mostrar o rastreamento de pilha.
-Clique numa referência de linha no rastreio de pilha, para abrir o ficheiro de código relevante.  
+Clique numa referência de linha no rastreio de pilha, para abrir o ficheiro de código relevante.
 
 No código, tenha em atenção que o CodeLens mostra dados sobre as exceções:
 
 ![Notificação de CodeLens de exceções.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Diagnosticar falhas no portal do Azure
-Application Insights é fornecido com uma experiência APM organizada para ajudar a diagnosticar falhas nas suas aplicações monitorizadas. Para começar, clique na opção de falhas no menu de recursos do Application Insights, localizado na secção investigar. Deverá ver uma vista de ecrã inteiro, que mostra as tendências da taxa de falha para os seus pedidos, quantos deles estão a falhar e o número de utilizadores é afetado. No lado direito verá algumas das mais úteis distribuições específicas selecionado para operação, incluindo códigos de resposta de 3 principais tipos de exceção do 3 principais e 3 principais tipos de dependência a falhar a falhar. 
+Application Insights é fornecido com uma experiência APM organizada para ajudar a diagnosticar falhas nas suas aplicações monitorizadas. Para começar, clique na opção de falhas no menu de recursos do Application Insights, localizado na secção investigar.
+Deverá ver uma vista de ecrã inteiro, que mostra as tendências da taxa de falha para os seus pedidos, quantos deles estão a falhar e o número de utilizadores é afetado. No lado direito verá algumas das mais úteis distribuições específicas selecionado para operação, incluindo códigos de resposta de 3 principais tipos de exceção do 3 principais e 3 principais tipos de dependência a falhar a falhar.
 
 ![Falhas de triagem vista (Guia de operações)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
@@ -98,7 +99,7 @@ Detalhes do pedido não incluem os dados enviados para a aplicação numa chamad
 
 * [Instalar o SDK](app-insights-asp-net.md) no seu projeto de aplicativo.
 * Insira o código na sua aplicação chamar [Microsoft.ApplicationInsights.TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace). Envie os dados POST no parâmetro de mensagem. Existe um limite de tamanho permitido, portanto, deve tentar enviar apenas os dados essenciais.
-* Quando estiver a investigar uma solicitação com falha, localize os rastreios associados.  
+* Quando estiver a investigar uma solicitação com falha, localize os rastreios associados.
 
 ![Explorar](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
@@ -178,7 +179,7 @@ Mas se tiver redirecionamentos de Active Directory, adicione as seguintes linhas
 ```csharp
     void Application_Error(object sender, EventArgs e)
     {
-      if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError  () != null)
+      if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError () != null)
       {
          var ai = new TelemetryClient(); // or re-use an existing instance
 
@@ -199,12 +200,13 @@ Há um número de casos que não é possível processar os filtros de exceção.
 * Exceção acionada durante a inicialização do aplicativo.
 * Exceção lançada em tarefas em segundo plano.
 
-Todas as exceções *manipulado* pelo aplicativo ainda precisam ser rastreadas manualmente. Exceções sem tratamento provenientes de controladores normalmente resultam em 500 resposta de "Erro de servidor interno". Se esse tipo de resposta manualmente é construído como resultado da exceção processada (ou nenhuma exceção nada) é controlado em telemetria de pedido correspondente com `ResultCode` 500, no entanto o Application Insights SDK não consegue registar a exceção correspondente.
+Todas as exceções *manipulado* pelo aplicativo ainda precisam ser rastreadas manualmente.
+Exceções sem tratamento provenientes de controladores normalmente resultam em 500 resposta de "Erro de servidor interno". Se esse tipo de resposta manualmente é construído como resultado da exceção processada (ou nenhuma exceção nada) é controlado em telemetria de pedido correspondente com `ResultCode` 500, no entanto o Application Insights SDK não consegue registar a exceção correspondente.
 
 ### <a name="prior-versions-support"></a>Suporte de versões anteriores
 Se utilizar MVC 4 (e anterior) do Application Insights Web SDK 2.5 (e anterior), consulte os seguintes exemplos de acompanhar as exceções.
 
-Se o [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) é de configuração `Off`, em seguida, as exceções estarão disponíveis para o [módulo HTTP](https://msdn.microsoft.com/library/ms178468.aspx) para recolher. No entanto, se for `RemoteOnly` (predefinição), ou `On`, em seguida, a exceção será limpa e não está disponível para o Application Insights recolher automaticamente. Pode corrigir isso substituindo o [classe System.Web.Mvc.HandleErrorAttribute](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)e aplicar a classe substituída, conforme mostrado para as diferentes versões MVC abaixo ([origem da github](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Se o [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) é de configuração `Off`, em seguida, as exceções estarão disponíveis para o [módulo HTTP](https://msdn.microsoft.com/library/ms178468.aspx) para recolher. No entanto, se for `RemoteOnly` (predefinição), ou `On`, em seguida, a exceção será limpa e não está disponível para o Application Insights recolher automaticamente. Pode corrigir isso substituindo o [classe System.Web.Mvc.HandleErrorAttribute](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)e aplicar a classe substituída, conforme mostrado para as diferentes versões MVC abaixo ([origem da GitHub](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
 ```csharp
     using System;
@@ -222,7 +224,7 @@ Se o [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) é de conf
             {
                 //If customError is Off, then AI HTTPModule will report the exception
                 if (filterContext.HttpContext.IsCustomErrorEnabled)
-                {   //or reuse instance (recommended!). see note above  
+                {   //or reuse instance (recommended!). see note above
                     var ai = new TelemetryClient();
                     ai.TrackException(filterContext.Exception);
                 }
@@ -239,9 +241,9 @@ Substitua o atributo HandleError seu novo atributo em seus controladores.
 ```csharp
     namespace MVC2App.Controllers
     {
-       [AiHandleError]
-       public class HomeController : Controller
-       {
+        [AiHandleError]
+        public class HomeController : Controller
+        {
     ...
 ```
 
@@ -290,7 +292,8 @@ Há um número de casos que não é possível processar os filtros de exceção.
 * Exceção acionada durante a inicialização do aplicativo.
 * Exceção lançada em tarefas em segundo plano.
 
-Todas as exceções *manipulado* pelo aplicativo ainda precisam ser rastreadas manualmente. Exceções sem tratamento provenientes de controladores normalmente resultam em 500 resposta de "Erro de servidor interno". Se esse tipo de resposta manualmente é construído como resultado da exceção processada (ou nenhuma exceção nada) é controlado numa telemetria de pedido correspondente com `ResultCode` 500, no entanto o Application Insights SDK não consegue registar a exceção correspondente.
+Todas as exceções *manipulado* pelo aplicativo ainda precisam ser rastreadas manualmente.
+Exceções sem tratamento provenientes de controladores normalmente resultam em 500 resposta de "Erro de servidor interno". Se esse tipo de resposta manualmente é construído como resultado da exceção processada (ou nenhuma exceção nada) é controlado numa telemetria de pedido correspondente com `ResultCode` 500, no entanto o Application Insights SDK não consegue registar a exceção correspondente.
 
 ### <a name="prior-versions-support"></a>Suporte de versões anteriores
 Se usar WebAPI 1 (e anterior) do Application Insights Web SDK 2.5 (e anterior), consulte os seguintes exemplos de acompanhar as exceções.
@@ -311,7 +314,7 @@ Substitua System.Web.Http.Filters.ExceptionFilterAttribute:
             if (actionExecutedContext != null && actionExecutedContext.Exception != null)
             {  //or reuse instance (recommended!). see note above
                 var ai = new TelemetryClient();
-                ai.TrackException(actionExecutedContext.Exception);    
+                ai.TrackException(actionExecutedContext.Exception);
             }
             base.OnException(actionExecutedContext);
         }
@@ -481,7 +484,7 @@ Isto é diferente da contagem de "Exceções" calculada ao portal do Application
 
 ## <a name="video"></a>Vídeo
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Monitorizar o REST, SQL e outras chamadas para dependências](app-insights-asp-net-dependencies.md)

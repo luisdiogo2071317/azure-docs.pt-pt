@@ -17,14 +17,14 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422444"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337143"
 ---
-# <a name="support-and-help-options-for-developers"></a>Opções de ajuda e suporte para programadores 
+# <a name="support-and-help-options-for-developers"></a>Opções de ajuda e suporte para programadores
 
 Independentemente se estiver apenas a começar a integrar com o Azure Active Directory, as identidades da Microsoft ou o Microsoft Graph API, ou quando estiver a implementar um novo recurso ao seu aplicativo, há ocasiões em que precisa de obter ajuda da Comunidade ou compreender o Opções de suporte que já têm como um desenvolvedor. Este artigo ajuda-o a compreender estas opções, abaixo um resumo:
 
@@ -38,7 +38,7 @@ Independentemente se estiver apenas a começar a integrar com o Azure Active Dir
 
 ## <a name="search"></a>Pesquisa
 
-Se tiver dúvidas relacionadas com o desenvolvimento, poderá encontrar a resposta que precisa na nossa documentação, nosso [exemplos do github](https://github.com/azure-samples), ou respostas para [Stack Overflow](https://www.stackoverflow.com) perguntas.
+Se tiver dúvidas relacionadas com o desenvolvimento, poderá encontrar a resposta que precisa na nossa documentação, nosso [exemplos do GitHub](https://github.com/azure-samples), ou respostas para [Stack Overflow](https://www.stackoverflow.com) perguntas.
 
 ### <a name="scoped-search"></a>Procura de âmbito
 Para obter resultados mais rápidos, o âmbito da pesquisa para o Stack Overflow, nossa documentação e nossos exemplos de código através do seguinte no seu [mecanismo de pesquisa favorito](https://bing.com):
@@ -76,7 +76,7 @@ Se não conseguir encontrar uma resposta para o seu problema através da pesquis
 |Qualquer outra área relacionadas com a autenticação ou autorização tópicos |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
-> As seguintes mensagens de Stack Overflow contêm dicas sobre como fazer perguntas e sugestões sobre como adicionar o código-fonte - seguir essas diretrizes podem ajudar a aumentar as hipóteses de membros da Comunidade avaliar e responder rapidamente a sua pergunta:  
+> As seguintes mensagens de Stack Overflow contêm dicas sobre como fazer perguntas e sugestões sobre como adicionar o código-fonte - seguir essas diretrizes podem ajudar a aumentar as hipóteses de membros da Comunidade avaliar e responder rapidamente a sua pergunta:
 > - [Como posso fazer uma boa pergunta](https://stackoverflow.com/help/how-to-ask)
 > - [Como criar um mínimo, conclua e exemplo verificável](https://stackoverflow.com/help/mcve)
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 7dceed4d81f1e1767cbf91804573043d1204beee
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ad17b6ef032c7bc25a019d53f12cc33baa3163f3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838910"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340902"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Criar a sua primeira função durável em JavaScript
 
@@ -44,66 +44,35 @@ Para concluir este tutorial:
 
 [!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-create-function-app-vs-code.md)]
 
+## <a name="install-the-durable-functions-npm-package"></a>Instalar o pacote de npm de funções duráveis
+
+1. Instalar o `durable-functions` pacote de npm executando `npm install durable-functions` no diretório de raiz da aplicação de função.
+
 ## <a name="create-a-starter-function"></a>Criar uma função de iniciante
 
 Primeiro, crie uma função acionada por HTTP, que inicia uma orquestração de função durável.
 
-1. Em **Azure: Funções**, escolha o ícone Criar Função.
+1. De **Azure: As funções**, escolha o ícone de Create Function.
 
     ![Criar uma função](./media/quickstart-js-vscode/create-function.png)
 
-1. Selecione a pasta com o projeto da aplicação de funções e selecione o modelo de função **acionador HTTP**.
+2. Selecione a pasta com o projeto da aplicação de funções e selecione o modelo de função **acionador HTTP**.
 
     ![Escolher o modelo do acionador HTTP](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-1. Escreva `HttpStart` para o nome da função e prima Enter, em seguida selecione a autenticação **Anónima**.
+3. Escreva `HttpStart` para o nome da função e prima Enter, em seguida selecione a autenticação **Anónima**.
 
     ![Escolher autenticação anónima](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
     É criada uma função na linguagem que escolheu com o modelo de função acionada por HTTP.
 
-1. Substitua Index com o abaixo JavaScript:
+4. Substitua Index com o abaixo JavaScript:
 
-    ```javascript
-    const df = require("durable-functions");
-    
-    module.exports = async function (context, req) {
-        const client = df.getClient(context);
-        const instanceId = await client.startNew(req.params.functionName, undefined, req.body);
-    
-        context.log(`Started orchestration with ID = '${instanceId}'.`);
-    
-        return client.createCheckStatusResponse(context.bindingData.req, instanceId);
-    };
-    ```
+    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-1. Substitua Function com o abaixo JSON:
+5. Substitua Function com o abaixo JSON:
 
-    ```JSON
-    {
-      "bindings": [
-        {
-          "authLevel": "anonymous",
-          "name": "req",
-          "type": "httpTrigger",
-          "direction": "in",
-          "route": "orchestrators/{functionName}",
-          "methods": ["post"]
-        },
-        {
-          "name": "$return",
-          "type": "http",
-          "direction": "out"
-        },
-        {
-          "name": "starter",
-          "type": "orchestrationClient",
-          "direction": "in"
-        }
-      ],
-      "disabled": false
-    }
-    ```
+    [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
 Agora, criamos um ponto de entrada em nossa função durável. Vamos adicionar um orquestrador.
 
@@ -113,11 +82,11 @@ Em seguida, criar outra função para ser o orchestrator. Utilizamos o modelo de
 
 1. Repita os passos da secção anterior para criar uma segunda função usando o modelo de Acionador HTTP. Desta vez chamar a função de `OrchestratorFunction`.
 
-1. Abra o ficheiro Index js para a nova função e substitua os conteúdos com o código a seguir:
+2. Abra o ficheiro Index js para a nova função e substitua os conteúdos com o código a seguir:
 
     [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-1. Abra o ficheiro de Function e substituí-lo com o seguinte JSON:
+3. Abra o ficheiro de Function e substituí-lo com o seguinte JSON:
 
     [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
 
@@ -127,11 +96,11 @@ Adicionámos um orquestrador para coordenar as funções de atividade. Vamos ago
 
 1. Repita os passos das secções anteriores para criar uma terceira função usando o modelo de Acionador HTTP. Mas, desta vez chamar a função de `SayHello`.
 
-1. Abra o ficheiro Index js para a nova função e substitua os conteúdos com o código a seguir:
+2. Abra o ficheiro Index js para a nova função e substitua os conteúdos com o código a seguir:
 
     [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-1. Substitua Function com o abaixo JSON:
+3. Substitua Function com o abaixo JSON:
 
     [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
 
@@ -141,19 +110,20 @@ Agora adicionámos todos os componentes necessários para começar uma orquestra
 
 As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projeto de funções do Azure no seu computador de programação local. Deve instalar estas ferramentas ao iniciar uma função do Visual Studio Code pela primeira vez.  
 
-1. Instale o pacote de npm durable-funções executando `npm install durable-functions` no diretório de raiz da aplicação de função.
-
 1. Num computador Windows, inicie o emulador de armazenamento do Azure e certifique-se de que o **AzureWebJobsStorage** propriedade Settings é definida como `UseDevelopmentStorage=true`. Num computador Mac ou Linux, tem de definir o **AzureWebJobsStorage** propriedade para a cadeia de ligação de uma conta de armazenamento do Azure existente. Criar uma conta de armazenamento neste artigo.
 
-1. Para testar a sua função, defina um ponto de interrupção no código de função e prima F5 para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**. Se esta for a primeira vez com as funções durável, a extensão de funções durável é instalada e a compilação poderá demorar alguns segundos.
+2. Para testar a sua função, defina um ponto de interrupção no código de função e prima F5 para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**. Se esta for a primeira vez com as funções durável, a extensão de funções durável é instalada e a compilação poderá demorar alguns segundos.
 
-1. No painel **Terminal**, copie o ponto final do URL da sua função acionada por HTTP.
+    > [!NOTE]
+    > Funções duráveis do JavaScript é necessária a versão **1.7.0** ou superior da **Microsoft.Azure.WebJobs.Extensions.DurableTask** extensão. Verificar a versão da extensão de funções duráveis no seu `extensions.csproj` ficheiro cumpre este requisito. Se não existir, pare a aplicação de funções, alterar a versão e pressione F5 para reiniciar a aplicação de funções.
+
+3. No painel **Terminal**, copie o ponto final do URL da sua função acionada por HTTP.
 
     ![Resultado local do Azure](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-1. Cole o URL do pedido HTTP na barra de endereço do browser e ver o estado da sua orquestração.
+4. Cole o URL do pedido HTTP na barra de endereço do browser e ver o estado da sua orquestração.
 
-1. Para parar a depuração, prima Shift + F1.
+5. Para parar a depuração, prima Shift + F1.
 
 Depois de verificar que a função é executada corretamente no computador local, deve publicar o projeto no Azure.
 
@@ -165,9 +135,9 @@ Depois de verificar que a função é executada corretamente no computador local
 
 1. Copie o URL do acionador de HTTP no painel **Resultados**. O URL que chama a função acionada por HTTP deve estar no seguinte formato:
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>
+        http://<functionappname>.azurewebsites.net/orchestrators/<functionname>
 
-1. Cole este novo URL do pedido HTTP na barra de endereço do browser. Deve obter a mesma resposta como Estado, quando utilizar a aplicação publicada.
+2. Cole este novo URL do pedido HTTP na barra de endereço do browser. Deve obter a mesma resposta como Estado, quando utilizar a aplicação publicada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

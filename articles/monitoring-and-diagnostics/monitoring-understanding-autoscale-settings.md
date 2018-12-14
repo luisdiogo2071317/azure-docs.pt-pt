@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 36724c0934a68fa8b19b7fc69581275192f4ed36
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 2347d82b8c2f5a08b944577e5b06cde3b68617b3
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321328"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385011"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender as definições de Dimensionamento Automático
 Definições de dimensionamento automático ajudam a garantir que tenha a quantidade certa de recursos em execução para processar a carga flutuantes da sua aplicação. Pode configurar definições de dimensionamento automático para ser acionado com base nas métricas que indicam a carga e de desempenho ou acionadas numa data e hora agendadas. Este artigo analisa detalhadamente a anatomia de uma definição de dimensionamento automático. O artigo começa com o esquema e propriedades de uma configuração e, em seguida, percorre os tipos de perfis diferentes que podem ser configurados. Por fim, o artigo discute como a funcionalidade de dimensionamento automático no Azure avalia que perfil de executar um determinado momento.
@@ -305,7 +305,7 @@ Por exemplo, digamos que lá está definido de dimensionamento de máquinas virt
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre dimensionamento automático ao referir-se ao seguinte:
 
-* [Descrição geral do dimensionamento automático](monitoring-overview-autoscale.md)
+* [Descrição geral do dimensionamento automático](../azure-monitor/platform/autoscale-overview.md)
 * [Métricas comuns do Azure Monitor dimensionamento automático](../azure-monitor/platform/autoscale-common-metrics.md)
 * [Melhores práticas do dimensionamento automático do Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md)
 * [Utilizar ações de dimensionamento automático para enviar o e-mail e webhook notificações de alerta](../azure-monitor/platform/autoscale-webhook-email.md)

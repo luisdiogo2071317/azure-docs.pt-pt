@@ -7,17 +7,17 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.openlocfilehash: 2c4ee73306262846424e02592bc4de712743407f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f0765e010cb40a89f3f57d143c51bdfba72a4ba0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272223"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341938"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas Clássicos no Microsoft Azure?
 
 > [!NOTE]
-> Este artigo descreve como criar alertas de métricas clássicas mais antigas. Agora suporta o Monitor do Azure [mais recente alertas de métricas de quase em tempo real e uma nova experiência de alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md). 
+> Este artigo descreve como criar alertas de métricas clássicas mais antigas. Agora suporta o Monitor do Azure [mais recente alertas de métricas de quase em tempo real e uma nova experiência de alertas](../../azure-monitor/platform/alerts-overview.md). 
 >
 
 Alertas permitem-lhe configurar as condições sobre os dados e ser notificado quando as condições corresponderem aos dados monitorização mais recentes.
@@ -54,7 +54,7 @@ Existem dois tipos de alertas clássicos está disponíveis – alertas de métr
 
 * **Alertas de registo de atividade clássica** -um alerta de registo de transmissão em fluxo que aciona quando é gerado um evento de registo de atividades que corresponde ao filtrar os critérios que atribuiu. Estes alertas têm apenas um Estado, "Ativado," uma vez que o mecanismo de alerta simplesmente aplica-se os critérios de filtro para qualquer novo evento. Estes alertas podem ser utilizados para ser notificado quando um novo incidente do Service Health ocorre ou quando um utilizador ou aplicação realiza uma operação na sua subscrição, por exemplo, "Eliminar a máquina virtual."
 
-Para os dados de registo de diagnóstico disponíveis através do Azure Monitor, encaminhar os dados para o Log Analytics (anteriormente conhecido como OMS) e utilize um alerta de consulta do Log Analytics. Utiliza agora de análise de registo a [novo método de alerta](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) 
+Para os dados de registo de diagnóstico disponíveis através do Azure Monitor, encaminhar os dados para o Log Analytics (anteriormente conhecido como OMS) e utilize um alerta de consulta do Log Analytics. Utiliza agora de análise de registo a [novo método de alerta](../../azure-monitor/platform/alerts-overview.md) 
 
 O diagrama seguinte resume as origens de dados no Azure Monitor e, conceitualmente, como pode alertar fora dos dados.
 

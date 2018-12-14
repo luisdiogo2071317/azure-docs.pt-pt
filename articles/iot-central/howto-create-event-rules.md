@@ -1,19 +1,19 @@
 ---
 title: Criar e gerir regras de evento na sua aplicação do Azure IoT Central | Documentos da Microsoft
 description: As regras de eventos do Azure IoT Central permitem-lhe monitorizar os seus dispositivos em tempo real e invocar ações, tal como enviar um e-mail quando a regra for acionada automaticamente.
-author: ankitgupta
+author: ankitscribbles
 ms.author: ankitgup
 ms.date: 08/14/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0712b92e8288174e27e5ed5a5ab396d94e438e92
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: af85ff8272853be82bae5c79622295fddfc60ade
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958632"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337279"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de evento e configure as notificações na sua aplicação do Azure IoT Central
 

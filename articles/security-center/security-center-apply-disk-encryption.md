@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c8a2caf2826069824a993294f4eba514ea870d9c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: eaeb1e17cf6ddf0e0e9284360d3e4864bf50f27d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307380"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338929"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Aplicar encriptação de disco no Centro de segurança do Azure
 Centro de segurança do Azure recomenda que aplicar encriptação de disco se tiver discos da VM do Linux ou do Windows que não estão encriptados com o Azure Disk Encryption. Encriptação de disco permite-lhe encriptar os discos da VM de IaaS de Linux e Windows.  A encriptação é recomendada para o SO e os volumes de dados na sua VM.
@@ -56,7 +56,7 @@ Este documento de mostrar como implementar a recomendação do Centro de seguran
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de segurança do Azure](security-center-azure-policy.md) – Saiba como configurar as políticas de segurança.
+* [Definir políticas de segurança no Centro de segurança do Azure](tutorial-security-policy.md) – Saiba como configurar as políticas de segurança.
 * [Monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 90e0f39b7c67866dbe5647f1392b766c91fa81ce
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2d90c0c1ab1a6423a206345b7d7d6f34874d2366
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188814"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335732"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Recolher alertas do Nagios e do Zabbix no Log Analytics a partir do agente do Log Analytics para Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) são de código aberto, ferramentas de monitorização. Pode recolher alertas dessas ferramentas para o Log Analytics para analisá-los juntamente com [alertas a partir de outras origens](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).  Este artigo descreve como configurar o agente do Log Analytics para Linux recolher alertas a partir desses sistemas.
+[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) são de código aberto, ferramentas de monitorização. Pode recolher alertas dessas ferramentas para o Log Analytics para analisá-los juntamente com [alertas a partir de outras origens](../../azure-monitor/platform/alerts-overview.md).  Este artigo descreve como configurar o agente do Log Analytics para Linux recolher alertas a partir desses sistemas.
  
 ## <a name="prerequisites"></a>Pré-requisitos
 O agente do Log Analytics para Linux suporta recolher alertas do Nagios até versão 4.2.x e do Zabbix até versão 2.x.
@@ -116,5 +116,5 @@ Alertas de registos recolhidos pelo Zabbix têm uma **tipo** de **alerta** e um 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) no Log Analytics.
+* Saiba mais sobre [alertas](../../azure-monitor/platform/alerts-overview.md) no Log Analytics.
 * Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 

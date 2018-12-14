@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08b8d980b46ccbbce47c4f165a621daa14a95fa2
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b5083a2af335bd40dc55f7f325ac0a4ad125b682
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012917"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384236"
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Gerir clusters do HDInsight com a API de REST do Ambari
+# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gerir clusters do HDInsight com a API de REST do Apache Ambari
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Saiba como utilizar a API de REST do Ambari para gerir e monitorizar clusters do Hadoop no HDInsight do Azure.
+Saiba como utilizar a API de REST do Apache Ambari para gerir e monitorizar clusters do Apache Hadoop no HDInsight do Azure.
 
 Apache Ambari simplifica a gestão e monitorização de um cluster do Hadoop, fornecendo uma fácil de utilizar a IU da web e REST API. Ambari está incluído nos clusters do HDInsight que utilizam o sistema operativo Linux. Pode utilizar Ambari para monitorizar o cluster e fazer alterações de configuração.
 
-## <a id="whatis"></a>O que é o Ambari
+## <a id="whatis"></a>O que é o Apache Ambari
 
 [Apache Ambari](http://ambari.apache.org) fornece web da interface do Usuário que pode ser utilizada para gerir e monitorizar clusters do Hadoop. Os desenvolvedores podem integrar estas capacidades nas suas aplicações ao utilizar o [APIs de REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -32,7 +32,7 @@ Ambari é fornecido por predefinição com clusters do HDInsight baseado em Linu
 
 ## <a name="how-to-use-the-ambari-rest-api"></a>Como utilizar a API de REST do Ambari
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > As informações e os exemplos neste documento exigem um cluster do HDInsight que utiliza o sistema operativo Linux. Para obter mais informações, consulte [introdução ao HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 Os exemplos neste documento são fornecidos para o shell de Bourne (bash) e o PowerShell. Os exemplos de bash foram testados com a versão de bash GNU 4.3.11, mas devem trabalhar com outros shells do Unix. Os exemplos do PowerShell foram testados com o PowerShell 5.0, mas devem funcionar com o PowerShell 3.0 ou superior.
@@ -47,7 +47,7 @@ Se utilizar o Bash ou o PowerShell, também tem de ter [jq](https://stedolan.git
 
 É o URI de base para a API de REST do Ambari no HDInsight https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, onde **CLUSTERNAME** é o nome do seu cluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Embora o nome do cluster na parte de nome (FQDN) de domínio completamente qualificado do URI (CLUSTERNAME.azurehdinsight.net) seja maiúsculas de minúsculas, outras ocorrências no URI diferenciam maiúsculas de minúsculas. Por exemplo, se o seu cluster com o nome `MyCluster`, seguem-se URIs válido:
 > 
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/MyCluster`
@@ -64,7 +64,7 @@ Se utilizar o Bash ou o PowerShell, também tem de ter [jq](https://stedolan.git
 
 Ligar ao Ambari no HDInsight requer HTTPS. Utilize o nome de conta de administrador (a predefinição é **administrador**) e palavra-passe que indicou durante a criação do cluster.
 
-## <a name="examples-authentication-and-parsing-json"></a>Exemplos: Autenticação e analisar JSON
+## <a name="examples-authentication-and-parsing-json"></a>Exemplos: Autenticação e a analisar JSON
 
 Os exemplos seguintes demonstram como fazer um pedido GET relativamente a API de REST do Ambari base:
 
@@ -72,7 +72,7 @@ Os exemplos seguintes demonstram como fazer um pedido GET relativamente a API de
 curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os exemplos de Bash neste documento efetuam as seguintes suposições:
 >
 > * O nome de início de sessão para o cluster é o valor predefinido de `admin`.
@@ -85,7 +85,7 @@ $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/c
 $resp.Content
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os exemplos do PowerShell neste documento efetuam as seguintes suposições:
 >
 > * `$creds` é um objeto de credencial que contém o início de sessão de administrador e a palavra-passe para o cluster. Pode definir este valor usando `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` e as credenciais quando lhe for pedido.
@@ -131,10 +131,10 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.health_report
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Embora a maioria dos exemplos neste documento utiliza `ConvertFrom-Json` para apresentar elementos do documento de resposta, o [configuração de atualização Ambari](#example-update-ambari-configuration) exemplo utiliza jq. Jq é utilizado neste exemplo, para construir um novo modelo de documento de resposta JSON.
 
-Para obter uma referência completa da REST API, consulte [V1 de referência de API do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+Para obter uma referência completa da REST API, consulte [V1 de referência de API do Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 ## <a name="example-get-the-fqdn-of-cluster-nodes"></a>Exemplo: Obtenha o FQDN de nós de cluster
 
@@ -198,7 +198,7 @@ Ao trabalhar com o HDInsight, terá de saber o nome de domínio completamente qu
 
 ## <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a>Exemplo: Obtenha o endereço IP interno de nós de cluster
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os endereços IP retornados pelos exemplos nesta secção não estão diretamente acessíveis na Internet. Apenas estão acessíveis dentro da rede Virtual do Azure que contém o cluster do HDInsight.
 >
 > Para obter mais informações sobre como trabalhar com o HDInsight e redes virtuais, consulte [capacidades de estender o HDInsight ao utilizar uma rede Virtual do Azure personalizadas](hdinsight-extend-hadoop-virtual-network.md).
@@ -213,7 +213,7 @@ do
 done
 ```
 
-> [!TIP]
+> [!TIP]  
 > Exemplos anteriores solicitar-lhe a palavra-passe. Este exemplo é executado o `curl` várias vezes, de comando, para que a palavra-passe é fornecida como `$PASSWORD` para evitar várias avisos.
 
 ```powershell
@@ -230,7 +230,7 @@ foreach($item in $respObj.items) {
 }
 ```
 
-## <a name="example-get-the-default-storage"></a>Exemplo: Obtenha o armazenamento predefinido
+## <a name="example-get-the-default-storage"></a>Exemplo: Obter o armazenamento predefinido
 
 Quando cria um cluster do HDInsight, tem de utilizar uma conta de armazenamento do Azure ou o Data Lake Store como armazenamento predefinido para o cluster. Pode utilizar Ambari para recuperar essas informações depois do cluster ter sido criado. Por exemplo, se quiser leitura/escrita dados para o contentor fora do HDInsight.
 
@@ -248,7 +248,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties.'fs.defaultFS'
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Estes exemplos podem devolver a primeira configuração aplicada ao servidor (`service_config_version=1`) que contém essas informações. Se recupera um valor que foi modificado após a criação de cluster, terá de listar as versões de configuração e obter aquele mais recente.
 
 O valor de retorno é semelhante a um dos exemplos seguintes:
@@ -289,11 +289,11 @@ O valor de retorno é semelhante a um dos exemplos seguintes:
 
     O valor de retorno é semelhante ao `/clusters/CLUSTERNAME/`. Este valor é um caminho dentro da conta do Data Lake Store. Este caminho é a raiz do sistema de ficheiros compatível com HDFS para o cluster. 
 
-> [!NOTE]
+> [!NOTE]  
 > O `Get-AzureRmHDInsightCluster` cmdlet fornecido pelo [Azure PowerShell](/powershell/azure/overview) também devolve as informações de armazenamento para o cluster.
 
 
-## <a name="example-get-configuration"></a>Exemplo: Configuração do Get
+## <a name="example-get-configuration"></a>Exemplo: Obter configuração
 
 1. Obtenha as configurações que estão disponíveis para o seu cluster.
 
@@ -341,7 +341,7 @@ O valor de retorno é semelhante a um dos exemplos seguintes:
 
     Este exemplo retorna um documento JSON que contém a configuração atual para o `core-site` componente.
 
-## <a name="example-update-configuration"></a>Exemplo: Configuração de atualização
+## <a name="example-update-configuration"></a>Exemplo: Atualizar a configuração
 
 1. Obter a configuração atual, o que Ambari armazena como a "configuração pretendida":
 
@@ -392,7 +392,7 @@ O valor de retorno é semelhante a um dos exemplos seguintes:
     $resp.Content | jq --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Substitua **spark-thrift-sparkconf** e **inicial** com o componente e a etiqueta que pretende obter a configuração para.
    
     Jq é utilizada para transformar os dados obtidos a partir do HDInsight num novo modelo de configuração. Especificamente, esses exemplos efetuar as seguintes ações:
@@ -517,7 +517,7 @@ Neste momento, se examinar a IU web do Ambari, o serviço do Spark indica que el
     }
     ```
     
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > O `href` valor devolvido por este URI está a utilizar o endereço IP interno do nó de cluster. Para usá-lo de fora do cluster, substitua a parte '10.0.0.18:8080' com o FQDN do cluster. 
     
     Os seguintes comandos obtêm o estado do pedido:
@@ -572,5 +572,5 @@ Neste momento, se examinar a IU web do Ambari, o serviço do Spark indica que el
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter uma referência completa da REST API, consulte [V1 de referência de API do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+Para obter uma referência completa da REST API, consulte [V1 de referência de API do Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 

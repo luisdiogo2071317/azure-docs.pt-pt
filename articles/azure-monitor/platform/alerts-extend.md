@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 7896a205cd281f0d11724f6f549b9aa247180bac
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2028b9555ec20fc5e97511a2a908351b66aec216
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285019"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385504"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Expandir alertas do Log Analytics para alertas do Azure
 
@@ -27,7 +27,7 @@ Existem diversas vantagens de criar e gerir alertas no portal do Azure, tais com
 
 - Ao contrário no portal do Operations Management Suite, onde apenas 250 alertas pudessem ser criadas e visualizadas, alertas do Azure tem sem essa limitação.
 - Dos alertas do Azure, pode gerir, enumerar e ver todos os tipos de alerta. Anteriormente, apenas possível fazer isso para alertas do Log Analytics.
-- Pode limitar o acesso aos utilizadores apenas a monitorização e alertas, utilizando o [funções do Azure Monitor](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+- Pode limitar o acesso aos utilizadores apenas a monitorização e alertas, utilizando o [funções do Azure Monitor](../../azure-monitor/platform/roles-permissions-security.md).
 - Nos alertas do Azure, pode utilizar [grupos de ação](../../azure-monitor/platform/action-groups.md). Isto permite-lhe ter mais de uma ação para cada alerta. SMS, pode enviar uma chamada de voz, invocar um runbook da automatização do Azure, invocar um webhook e configurar um conector de gestão de serviço de TI (ITSM). 
 
 ## <a name="process-of-extending-your-alerts"></a>Processo de expandir os seus alertas
@@ -52,7 +52,7 @@ Depois dos alertas são expandidos para alertas do Azure, continuarem a estar di
 Quando tenta editar um alerta existente ou criar um novo alerta no portal do Operations Management Suite, será automaticamente redirecionado para alertas do Azure.  
 
 > [!NOTE]
-> Certifique-se de que as permissões atribuídas aos indivíduos que tem de adicionar ou editar os alertas são corretamente atribuídas no Azure. Para compreender quais as permissões que tem de conceder, veja [permissões para utilizar o Azure Monitor e alertas](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).  
+> Certifique-se de que as permissões atribuídas aos indivíduos que tem de adicionar ou editar os alertas são corretamente atribuídas no Azure. Para compreender quais as permissões que tem de conceder, veja [permissões para utilizar o Azure Monitor e alertas](../../azure-monitor/platform/roles-permissions-security.md).  
 > 
 
 Pode continuar a criar alertas a partir da [API do Log Analytics](../../azure-monitor/platform/api-alerts.md) e [modelo de recursos do Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Quando fizer isso, deve incluir grupos de ação.
@@ -60,5 +60,5 @@ Pode continuar a criar alertas a partir da [API do Log Analytics](../../azure-mo
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre as ferramentas para [iniciar expandir alertas do Log Analytics para o Azure](alerts-extend-tool.md).
-* Saiba mais sobre o [experiência de alertas do Azure](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+* Saiba mais sobre o [experiência de alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
 * Saiba como criar [alertas de registo nos alertas do Azure](alerts-unified-log.md).

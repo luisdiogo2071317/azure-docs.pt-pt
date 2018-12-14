@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0dc942b7e1779efab5b9fb2477b8358554bbb31d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7d579bfdaf38b6c06b26cfa7b36f8e4d2ac5a1f2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310101"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386269"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início rápido: Criar um pipeline de pesquisa cognitiva com habilidades e dados de exemplo
 
@@ -90,7 +90,7 @@ Primeiro, inscreva-se no serviço do Azure Search.
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurar o serviço Blob do Azure e carregar dados de exemplo
 
-O pipeline de melhoramento solicita as origens de dados do Azure suportadas pelos [Indexadores do Azure Search](search-indexer-overview.md). Para este exercício, vamos utilizar o armazenamento de blobs para demonstrar os vários tipos de conteúdo.
+O pipeline de melhoramento solicita as origens de dados do Azure suportadas pelos [Indexadores do Azure Search](search-indexer-overview.md). Tenha em atenção que o armazenamento de tabelas do Azure não é suportado para a pesquisa cognitiva. Para este exercício, vamos utilizar o armazenamento de blobs para demonstrar os vários tipos de conteúdo.
 
 1. A [transferência de dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) é constituída por um pequeno conjunto de ficheiros de diferentes tipos. 
 

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7af8015e424b4a9169a9b80ed5e7070a8fa6de1c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4322841f126e4aa017b4d901cbfb1afd39e5bccf
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643321"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342577"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Cenário de monitor em funções duráveis - exemplo de observador de Meteorologia
 
@@ -32,7 +32,7 @@ Este exemplo monitora condições de Meteorologia atual de uma localização e a
 * Monitores podem terminar quando alguma condição for cumprida, ou ser terminada por outro processo.
 * Monitores podem ter parâmetros. O exemplo mostra como o mesmo processo de monitorização de Meteorologia pode ser aplicado a qualquer pedida de localização e o número de telefone.
 * Monitores são dimensionáveis. Uma vez que cada monitor é uma instância de orquestração, vários monitores podem ser criados sem ter de criar novas funções ou definir mais de código.
-* Monitores integrar facilmente fluxos de trabalho maiores. Um monitor pode ser uma secção de uma função de orquestração mais complexa, ou uma [orquestração secundárias](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
+* Monitores integrar facilmente fluxos de trabalho maiores. Um monitor pode ser uma secção de uma função de orquestração mais complexa, ou uma [orquestração secundárias](durable-functions-sub-orchestrations.md).
 
 ## <a name="configuring-twilio-integration"></a>Configurar a integração do Twilio
 
@@ -59,7 +59,7 @@ Este artigo explica as seguintes funções na aplicação de exemplo:
 * `E3_SendGoodWeatherAlert`: Uma função de atividade que envia uma mensagem SMS através do Twilio.
 
 As secções seguintes explicam a configuração e o código que são utilizados para c# scripts e JavaScript. O código para o desenvolvimento do Visual Studio é mostrado no final do artigo.
- 
+
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>A meteorologia monitorização orquestração (código de exemplo do portal Visual Studio Code e o Azure)
 
 O **E3_Monitor** função usa o padrão *Function* para as funções do orchestrator.
@@ -72,7 +72,7 @@ Eis o código que implementa a função:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
+### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
@@ -83,7 +83,7 @@ Esta função de orquestrador executa as seguintes ações:
 3. Chamadas **E3_GetIsClear** para determinar se existem clara céu na localização pedida.
 4. Se a meteorologia estiver desmarcada, chama **E3_SendGoodWeatherAlert** para enviar uma notificação de SMS para o número de telefone pedida.
 5. Cria um temporizador durável para retomar a orquestração no próximo intervalo de consulta. Este exemplo utiliza um valor hard-coded para fins de brevidade.
-6. Continua a ser executado até que o [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) passes é enviada a hora de expiração do monitor ou um alerta SMS.
+6. Continua a ser executado até que o [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (C#) ou `currentUtcDateTime` (JavaScript) passa a hora de expiração do monitor ou um alerta SMS é enviado.
 
 Várias instâncias do orchestrator podem enviar para executar simultaneamente várias **MonitorRequests**. A localização para monitorizar e o número de telefone para enviar um alerta SMS podem ser especificados.
 
@@ -107,7 +107,7 @@ E Eis a implementação. Como os POCOs utilizados para transferência de dados, 
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
+### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -121,7 +121,7 @@ E aqui está o código que envia a mensagem SMS:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
+### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
@@ -134,8 +134,9 @@ POST https://{host}/orchestrators/E3_Monitor
 Content-Length: 77
 Content-Type: application/json
 
-{ "Location": { "City": "Redmond", "State": "WA" }, "Phone": "+1425XXXXXXX" }
+{ "location": { "city": "Redmond", "state": "WA" }, "phone": "+1425XXXXXXX" }
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Type: application/json; charset=utf-8
@@ -144,9 +145,6 @@ RetryAfter: 10
 
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
-
-   > [!NOTE]
-   > Atualmente, as funções de arranque de orquestração de JavaScript não é possível devolver o gerenciamento de instância URIs. Esta funcionalidade será adicionada numa versão posterior.
 
 O **E3_Monitor** instância é iniciado e as condições de Meteorologia atual para a localização do pedido de consulta. Se a meteorologia estiver desmarcada, ele chama uma função de atividade para enviar um alerta, caso contrário, ele define um temporizador. Quando o temporizador expira, será retomada a orquestração.
 
@@ -168,7 +166,7 @@ Pode ver registos de atividades da orquestração ao observar a função no port
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-A orquestração será [terminar](durable-functions-instance-management.md#terminating-instances) assim que o tempo limite for atingiu ou desmarque o céu é detetados. Também pode utilizar `TerminateAsync` dentro de outra função ou invocar a **terminatePostUri** webhook de HTTP POST referenciado na resposta 202 acima, substituindo `{text}` com o motivo de encerramento:
+A orquestração será [terminar](durable-functions-instance-management.md#terminating-instances) assim que o tempo limite for atingiu ou desmarque o céu é detetados. Também pode utilizar `TerminateAsync` (.NET) ou `terminate` (JavaScript) dentro de outra função ou invocar a **terminatePostUri** webhook de HTTP POST referenciado na resposta 202 acima, substituindo `{text}` com o motivo para terminação de:
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

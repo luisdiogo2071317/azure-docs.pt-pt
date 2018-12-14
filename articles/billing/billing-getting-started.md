@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: c19769dda281f4346c23b823ea00eac83790b618
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a110d14293b391a6856b56d0d8a84a24a90d33e1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582535"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341665"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitar custos inesperados com a faturação do Azure e a gestão de custos
 
-Quando se inscreve para o Azure, existem várias coisas que pode fazer para ter uma idéia melhor de seus gastos. O [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/) pode fornecer uma estimativa dos custos antes de criar um recurso do Azure. O [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) fornece-lhe a análise detalhada do custo atual e a previsão para a sua subscrição. Se pretende agrupar e compreender os custos para diferentes projetos ou equipas, observe [identificação de recursos](../azure-resource-manager/resource-group-using-tags.md). Se sua organização tiver um sistema de relatórios que preferir usar, veja a [APIs de faturação](billing-usage-rate-card-overview.md). 
+Quando se inscreve para o Azure, existem várias coisas que pode fazer para ter uma idéia melhor de seus gastos. O [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/) pode fornecer uma estimativa dos custos antes de criar um recurso do Azure. O [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) fornece-lhe a análise detalhada do custo atual e a previsão para a sua subscrição. Se pretende agrupar e compreender os custos para diferentes projetos ou equipas, observe [identificação de recursos](../azure-resource-manager/resource-group-using-tags.md). Se sua organização tiver um sistema de relatórios que preferir usar, veja a [APIs de faturação](billing-usage-rate-card-overview.md).
 
 - Se a sua subscrição for um Enterprise Agreement (EA), a pré-visualização pública para ver os custos no portal do Azure está disponível. Se a sua subscrição através do fornecedor de soluções Cloud (CSP) ou Azure Sponsorship, em seguida, alguns dos recursos seguintes podem não se aplicar a. Ver [recursos adicionais para o EA, o CSP e o patrocínio](#other-offers) para obter mais informações.
 
-- Se a sua subscrição é uma versão de avaliação gratuita [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), o Azure no Open (AIO) ou ao BizSpark, a sua subscrição é automaticamente desativada quando todos os seus créditos. Saiba mais sobre [limites de gastos](#spending-limit) para evitar que a sua subscrição unexpectantly desativada.
+- Se a sua subscrição é uma versão de avaliação gratuita [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), o Azure no Open (AIO) ou ao BizSpark, a sua subscrição é automaticamente desativada quando todos os seus créditos. Saiba mais sobre [limites de gastos](#spending-limit) para evitar que a sua subscrição foi desativada inesperadamente.
 
-- Se se inscreveu para obter [conta gratuita do Azure](https://azure.microsoft.com/free/), [pode usar alguns dos serviços mais populares do Azure gratuitamente durante 12 meses](billing-create-free-services-included-free-account.md). Juntamente com as recomendações apresentadas abaixo, veja [evitar ser cobrado gratuitamente conta](billing-avoid-charges-free-account.md).
+- Se o ter iniciado sessão no [conta gratuita do Azure](https://azure.microsoft.com/free/), [pode usar alguns dos serviços mais populares do Azure gratuitamente durante 12 meses](billing-create-free-services-included-free-account.md). Juntamente com as recomendações apresentadas abaixo, veja [evitar ser cobrado gratuitamente conta](billing-avoid-charges-free-account.md).
 
 > [!div class="nextstepaction"]
 > [Ajude a melhorar os documentos de faturação do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
@@ -75,17 +75,17 @@ Pode utilizar etiquetas para dados de faturação de grupo para os serviços sup
 
 ![Captura de ecrã que mostra como configurar etiquetas no portal](./media/billing-getting-started/tags.PNG)
 
-As etiquetas aparecem em todo o custo de diferente modos de exibição de relatórios. Por exemplo, eles são visíveis no seu [vista de análise de custos](#costs) imediatamente e [detalham. csv de utilização](#invoice-and-usage) após o primeiro período de faturação.
+As etiquetas aparecem em todo o custo de diferente modos de exibição de relatórios. Por exemplo, eles são visíveis no seu [vista de análise de custos](#costs) imediato e. csv de utilização em pormenor após o primeiro período de faturação.
 
 Para obter mais informações, consulte [utilizar etiquetas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
 
 ### <a name="costs"></a> Verifique o portal para análise detalhada do custo e gravar a taxa de regularmente
 
-Depois de obter seus serviços em execução, regularmente verificar quanto eles estão a causar custos. Pode ver os gastos atuais e gravar taxa no portal do Azure. 
+Depois de obter seus serviços em execução, regularmente verificar quanto eles estão a causar custos. Pode ver os gastos atuais e gravar taxa no portal do Azure.
 
-1. Visite o [painel de subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
+1. Visite o [subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
-2. Deve ver a divisão de custo e gravar taxa no painel de pop-up. Poderão não ser suportada para a sua oferta (seria exibido um aviso junto à parte superior).
+2. Caso seja suportado para a sua subscrição, veja a análise detalhada do custo e gravar a taxa.
 
     ![Captura de ecrã da taxa de grave e divisão no portal do Azure](./media/billing-getting-started/burn-rate.PNG)
 
@@ -95,15 +95,15 @@ Depois de obter seus serviços em execução, regularmente verificar quanto eles
 
 4. Pode filtrar por propriedades diferentes, como [etiquetas](#tags), grupo de recursos e o período de tempo. Clique em **aplicar** para confirmar os filtros e **transferir** se pretender exportar o modo de exibição para um ficheiro de valores de comma-separated (. csv).
 
-5. Além disso, pode clicar num recurso para ver diariamente gastar o histórico e quanto o recurso tem um custo por dia.
+5. Além disso, pode clicar num recurso para ver seu diariamente gastar o histórico e quanto o recurso tem um custo por dia.
 
     ![Captura de ecrã da vista de histórico de gastos no portal do Azure](./media/billing-getting-started/costhistory.PNG)
 
-Recomendamos que verifique os custos que vir com as estimativas que viu quando tiver selecionado os serviços. Se os custos são totalmente diferem das estimativas, volte a verificar o plano de preços (vs A1 A0 VM, por exemplo) que selecionou para os seus recursos. 
+Recomendamos que verifique os custos que vir com as estimativas que viu quando tiver selecionado os serviços. Se os custos estão totalmente diferentes em relação às estimativas, verifique novamente o plano de preços que selecionou para os seus recursos.
 
 ### <a name="consider-enabling-cost-cutting-features-like-auto-shutdown-for-vms"></a>Considere ativar funcionalidades de custos, como o encerramento automático para VMs
 
-Dependendo do seu cenário, é possível configurar o encerramento automático para as VMs no portal do Azure. Para obter mais informações, consulte [encerramento automático para VMs com o Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
+Dependendo do seu cenário, pode configurar o encerramento automático para as VMs no portal do Azure. Para obter mais informações, consulte [encerramento automático para VMs com o Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
 ![Captura de ecrã da opção de encerramento automático no portal](./media/billing-getting-started/auto-shutdown.PNG)
 
@@ -144,28 +144,29 @@ Fale com o seu Gestor de conta ou o parceiro do Azure para começar a utilizar.
 
 Se estiver a gerir IT para uma grande organização, recomendamos que leia [estrutura empresarial do Azure](/azure/architecture/cloud-adoption-guide/subscription-governance) e o [enterprise TI white paper](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (. pdf download, apenas em inglês).
 
-#### <a name="EA"></a> Modos de exibição no Portal do Azure de custos do contrato Enterprise da pré-visualização 
+#### <a name="EA"></a> Modos de exibição no portal do Azure de custos do contrato Enterprise da pré-visualização 
 
 Vistas de custo de Enterprise estão atualmente em pré-visualização pública. Itens a ter em conta:
-- Os custos de subscrição são baseiam-se na utilização e não conta valores pré-pagos, utilizações excedidas, quantidades incluídas, ajustes e impostos. Os custos reais são calculados ao nível da inscrição. 
-- Valores apresentados no portal do Azure podem estar atrasados em comparação com valores no portal da empresa.  
-- Se não está a ver os custos, tal poderá dever-se um dos seguintes motivos:
-    - Não tem permissão suficiente RBAC ao nível da subscrição. Para ver as vistas de custo de empresa, tem de ser um leitor de faturação, leitor, Contribuidor ou proprietário ao nível da subscrição.
-    - For um proprietário da conta e o administrador de inscrição desativou as "AO modo de exibição cobranças" definição.  Contacte o administrador de inscrição para obter acesso aos custos. 
-    - É um administrador do departamento e o administrador de inscrição desativou as "DA vista cobranças" definição.  Contacte o administrador de inscrição para obter acesso. 
-    - Tiver comprado o Azure através de um parceiro de canal e o parceiro não disponibilizadas informações sobre preços.  
-- Quando as definições relacionadas com acesso de custo são atualizadas no portal da empresa, existe um atraso de alguns minutos antes das alterações são refletidas no portal do Azure.
+
+- Os custos de subscrição são com base na utilização e não incluem valores pré-pagos, utilizações excedidas, quantidades incluídas, ajustes e impostos. Os custos reais são calculados ao nível da inscrição.
+- Montantes mostrados no portal do Azure podem ser diferentes do que está no portal da empresa. As atualizações no portal da empresa poderão demorar alguns minutos antes das alterações são mostradas no portal do Azure.
+- Se não forem os custos, poderá ser de um dos seguintes motivos:
+    - Não tem permissões ao nível da subscrição. Para ver as vistas de custo de empresa, tem de ser um leitor de faturação, leitor, Contribuidor ou proprietário ao nível da subscrição.
+    - É um proprietário de conta e o administrador de inscrição desativou as "AO modo de exibição cobranças" definição.  Contacte o administrador de inscrição para obter acesso aos custos. 
+    - É administrador de departamento e o administrador de inscrição desativou as "DA vista cobranças" definição.  Contacte o administrador de inscrição para obter acesso.
+    - Comprou o Azure através de um parceiro de canal e o parceiro não libertar informações de preços.  
+- Se atualizar definições relacionadas com os custos de acesso no portal da empresa, existe um atraso de alguns minutos antes das alterações são mostradas no portal do Azure.
 - Limite de gastos e orientações de nota fiscal não se aplicam às subscrições do EA.
 
 ### <a name="check-your-subscription-and-access"></a>Verifique a sua subscrição e acesso
 
-Os custos de visualização requerem [acesso no nível de subscrições para informações de faturação](billing-manage-access.md), mas apenas o administrador de conta pode aceder a [Centro de contas](https://account.azure.com/Subscriptions), alterar informações de faturação e gerir subscrições. O administrador de conta é a pessoa que correu o processo de inscrição. Para obter mais informações, consulte [adicionar ou alterar funções de administrador do Azure que gerem a subscrição ou os serviços](billing-add-change-azure-subscription-administrator.md).
+Para ver os custos, tem de ter [acesso no nível de subscrições para informações de faturação](billing-manage-access.md). Apenas o administrador de conta pode aceder a [Centro de contas](https://account.azure.com/Subscriptions), alterar as informações de faturas e gerir as subscrições. O administrador de conta é a pessoa que correu o processo de inscrição. Para obter mais informações, consulte [adicionar ou alterar funções de administrador do Azure que gerem a subscrição ou os serviços](billing-add-change-azure-subscription-administrator.md).
 
-Para ver se é o administrador de conta, vá para o [painel de subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e ver a lista de subscrições que tem acesso. Procure em **a minha função**. Se disser *administrador de conta*, em seguida, está ok. Se disser algo como *proprietário*, em seguida, não tiver todos os privilégios.
+Para ver se é o administrador de conta, aceda à [subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Ver a lista de subscrições que tem acesso. Procure em **a minha função**. Se disser *administrador de conta*, em seguida, está ok. Se disser algo como *proprietário*, em seguida, não tiver todos os privilégios.
 
 ![Captura de ecrã da sua função na vista de subscrições no portal do Azure](./media/billing-getting-started/sub-blade-view.PNG)
 
-Se não for o administrador de conta, alguém provavelmente lhe forneceu acesso parcial através de [controlo de acesso baseado em função de diretório do Azure Active Directory](../role-based-access-control/role-assignments-portal.md) (RBAC). Para gerir subscrições e faturação informações, de alterações [encontrar o administrador de conta](billing-subscription-transfer.md#whoisaa) e peça-lhe para executar as tarefas ou [transferir a subscrição para si](billing-subscription-transfer.md).
+Se não for o administrador de conta, alguém provavelmente lhe forneceu acesso parcial usando [controlo de acesso baseado em função de diretório do Azure Active Directory](../role-based-access-control/role-assignments-portal.md) (RBAC). Para gerir subscrições e faturação informações, de alterações [encontrar o administrador de conta](billing-subscription-transfer.md#whoisaa). Peça ao administrador de conta para realizar as tarefas ou [transferir a subscrição para si](billing-subscription-transfer.md).
 
 Se o seu administrador de conta não se encontra com a sua organização e tem de gerir a faturação, [contacte-nos](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

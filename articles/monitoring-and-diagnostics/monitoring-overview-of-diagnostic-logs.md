@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 5e18a4690eacaaeaa4422379fc8a4e3d2a02e717
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 89e9b7190a3c419c256513e477f85313e4f9f3bd
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134170"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384892"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -31,14 +31,14 @@ Estes registos são diferentes do [registo de atividades](monitoring-overview-ac
 
 Estes registos também diferem dos registos de diagnóstico de nível de sistema operacional convidado. Os registos de diagnóstico do SO convidado são esses recolhidos por um agente em execução numa máquina virtual ou outros suportado o tipo de recurso. Os registos de diagnóstico ao nível de recursos exigem sem agente e captura dados de recursos específicos da plataforma do Azure em si, enquanto os registos de diagnóstico de nível de sistema operacional convidado capturar os dados do sistema operativo e aplicações em execução numa máquina virtual.
 
-Nem todos os serviços suportam os registos de diagnóstico descritos aqui. [Este artigo contém uma lista de secção quais os serviços que suportam registos de diagnóstico](./monitoring-diagnostic-logs-schema.md).
+Nem todos os serviços suportam os registos de diagnóstico descritos aqui. [Este artigo contém uma lista de secção quais os serviços que suportam registos de diagnóstico](./../azure-monitor/platform/tutorial-dashboards.md).
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>O que pode fazer com os registos de diagnóstico
 Aqui estão algumas das coisas que pode fazer com os registos de diagnóstico:
 
 ![Colocação lógica dos registos de diagnóstico](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
-* Guarde-as para um [ **conta de armazenamento** ](monitoring-archive-diagnostic-logs.md) para inspeção de auditoria ou manual. Pode especificar o tempo (em dias) de retenção usando **definições de diagnóstico de recursos**.
+* Guarde-as para um [ **conta de armazenamento** ](../azure-monitor/platform/archive-diagnostic-logs.md) para inspeção de auditoria ou manual. Pode especificar o tempo (em dias) de retenção usando **definições de diagnóstico de recursos**.
 * [Stream-lhes **os Hubs de eventos** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, como o Power BI.
 * Analisá-los com [do Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md), onde os dados são gravados imediatamente ao Log Analytics sem a necessidade de primeiro escrever os dados para o armazenamento.  
 
@@ -68,13 +68,13 @@ Estas definições são facilmente configuradas a partir das definições de dia
 > [!NOTE]
 > Atualmente, o envio de métricas multidimensionais através das definições de diagnóstico não é suportado. As métricas com dimensões são exportadas como métricas dimensionais simples e agregadas em valores de dimensões.
 >
-> *Por exemplo*: a métrica “Mensagens Recebidas” num hub do Hub de Eventos pode ser explorada e representada ao nível da linha. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
+> *Por exemplo*: A métrica "Mensagens recebidas" num Hub de eventos pode ser explorada e representada um por nível de fila. No entanto, se for exportada através das definições de diagnóstico, a métrica será representada como todas as mensagens recebidas em todas as filas do hub do Hub de Eventos.
 >
 >
 
 ## <a name="how-to-enable-collection-of-diagnostic-logs"></a>Como ativar a recolha de registos de diagnóstico
 
-Recolha de registos de diagnóstico pode ser ativada [como parte da criação de um recurso num modelo do Resource Manager](./monitoring-enable-diagnostic-logs-using-template.md) ou depois de um recurso é criado da página desse recurso no portal. Também pode ativar a recolha em qualquer altura utilizando o Azure PowerShell ou CLI de comandos ou utilizando a API de REST do Azure Monitor.
+Recolha de registos de diagnóstico pode ser ativada [como parte da criação de um recurso num modelo do Resource Manager](./../azure-monitor/platform/diagnostic-logs-stream-template.md) ou depois de um recurso é criado da página desse recurso no portal. Também pode ativar a recolha em qualquer altura utilizando o Azure PowerShell ou CLI de comandos ou utilizando a API de REST do Azure Monitor.
 
 > [!TIP]
 > Estas instruções não poderão aplicar-se diretamente a todos os recursos. Veja as ligações de esquema na parte inferior desta página para entender as etapas especiais que podem ser aplicadas a determinados tipos de recursos.
@@ -229,7 +229,7 @@ Adicionar uma definição de diagnóstico abre a vista de definições de diagn�
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Serviços suportados, categorias e esquemas para os registos de diagnóstico
 
-[Veja este artigo](monitoring-diagnostic-logs-schema.md) para uma lista completa dos serviços suportados e as categorias de registo e os esquemas usados por esses serviços.
+[Veja este artigo](../azure-monitor/platform/tutorial-dashboards.md) para uma lista completa dos serviços suportados e as categorias de registo e os esquemas usados por esses serviços.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

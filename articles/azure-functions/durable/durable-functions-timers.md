@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad6ddacad322e4c2f952591be786d46cbcb95a21
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7af204ad76cb04c3d71c5108948be4036be1d1e4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642691"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338843"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores nas funções duráveis (funções do Azure)
 
 [Funções duráveis](durable-functions-overview.md) fornece *temporizadores duráveis* para utilização nas funções do orchestrator para implementar atrasos ou configurar tempos limite de ações de async. Temporizadores duráveis devem ser utilizados nas funções do orchestrator, em vez de `Thread.Sleep` e `Task.Delay` (c#), ou `setTimeout()` e `setInterval()` (JavaScript).
 
-Criar um temporizador durável ao chamar o [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) método na [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html). O método retorna uma tarefa que retoma uma data e hora especificadas.
+Criar um temporizador durável chamando o [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) método [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) no .NET, ou o `createTimer` método de `DurableOrchestrationContext` em JavaScript. O método retorna uma tarefa que retoma uma data e hora especificadas.
 
 ## <a name="timer-limitations"></a>Limitações de temporizador
 
@@ -29,13 +29,13 @@ Quando cria um temporizador que expira às 4:30 pm, a coloca em fila de Framewor
 
 > [!NOTE]
 > * Temporizadores duráveis não podem durar mais do que 7 dias devido a limitações no armazenamento do Azure. Estamos a trabalhar num [pedido de funcionalidade para aumentar a temporizadores, para além de 7 dias](https://github.com/Azure/azure-functions-durable-extension/issues/14).
-> * Utilize sempre [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) em vez de `DateTime.UtcNow` conforme mostrado nos exemplos abaixo ao computar um prazo relativo de um temporizador durável.
+> * Utilize sempre [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) em vez de `DateTime.UtcNow` no .NET e `currentUtcDateTime` em vez de `Date.now` ou `Date.UTC` em JavaScript, conforme mostrado nos exemplos abaixo ao computar um prazo relativo de um temporizador durável .
 
 ## <a name="usage-for-delay"></a>Utilização de atraso
 
 O exemplo a seguir ilustra como usar temporizadores duráveis para atrasar a execução. O exemplo está a emitir uma notificação de faturação de todos os dias para dez dias.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -51,7 +51,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript"></a>JavaScript
+### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
 
 ```js
 const df = require("durable-functions");
@@ -68,13 +68,13 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Evite loops infinitos nas funções do orchestrator. Para obter informações sobre como com segurança e eficiência implementar cenários de loop infinito, consulte [Orquestrações externas](durable-functions-eternal-orchestrations.md). 
+> Evite loops infinitos nas funções do orchestrator. Para obter informações sobre como com segurança e eficiência implementar cenários de loop infinito, consulte [Orquestrações externas](durable-functions-eternal-orchestrations.md).
 
 ## <a name="usage-for-timeout"></a>Utilização para o tempo limite
 
 Este exemplo ilustra como usar temporizadores duráveis para implementar tempos limite.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -105,7 +105,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript"></a>JavaScript
+### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
 
 ```js
 const df = require("durable-functions");
@@ -142,4 +142,3 @@ Para obter um exemplo mais aprofundado de como implementar tempos limite nas fun
 
 > [!div class="nextstepaction"]
 > [Saiba como gerar e manipular eventos externos](durable-functions-external-events.md)
-

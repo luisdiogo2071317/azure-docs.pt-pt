@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 68771362c1b3904453eb7c32f58d28122e8660c3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869472"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336905"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hubs de tarefas nas funções durável (funções do Azure)
 
@@ -27,7 +27,7 @@ Cada aplicação de função tem um hub de tarefa separada. Se várias aplicaç�
 
 ## <a name="azure-storage-resources"></a>Recursos de armazenamento do Azure
 
-Um concentrador de tarefa inclui os seguintes recursos de armazenamento: 
+Um concentrador de tarefa inclui os seguintes recursos de armazenamento:
 
 * Uma ou mais filas de controle.
 * Uma fila de item de trabalho.
@@ -41,7 +41,8 @@ Todos esses recursos são criados automaticamente na conta de armazenamento do A
 
 Hubs de tarefas são identificados por um nome que é declarado no *Host. JSON* ficheiro, conforme mostrado no exemplo a seguir:
 
-### <a name="hostjson-functions-v1"></a>o Host. JSON (funções v1)
+### <a name="hostjson-functions-1x"></a>Host. JSON (funções 1.x)
+
 ```json
 {
   "durableTask": {
@@ -49,7 +50,9 @@ Hubs de tarefas são identificados por um nome que é declarado no *Host. JSON* 
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>o Host. JSON (funções v2)
+
+### <a name="hostjson-functions-2x"></a>Host. JSON (funções 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -60,9 +63,11 @@ Hubs de tarefas são identificados por um nome que é declarado no *Host. JSON* 
   }
 }
 ```
+
 Hubs de tarefas também podem ser configurados com as definições de aplicação, conforme mostrado a seguir *Host. JSON* exemplo de ficheiro:
 
-### <a name="hostjson-functions-v1"></a>o Host. JSON (funções v1)
+### <a name="hostjson-functions-1x"></a>Host. JSON (funções 1.x)
+
 ```json
 {
   "durableTask": {
@@ -70,7 +75,9 @@ Hubs de tarefas também podem ser configurados com as definições de aplicaçã
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>o Host. JSON (funções v2)
+
+### <a name="hostjson-functions-2x"></a>Host. JSON (funções 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -81,13 +88,14 @@ Hubs de tarefas também podem ser configurados com as definições de aplicaçã
   }
 }
 ```
+
 O nome do hub de tarefas será definido para o valor da `MyTaskHub` definição de aplicação. O seguinte procedimento `local.settings.json` demonstra como definir o `MyTaskHub` definir como `samplehubname`:
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
-    "MyTaskHub" :  "samplehubname" 
+    "MyTaskHub" : "samplehubname"
   }
 }
 ```
@@ -111,9 +119,10 @@ public static async Task<HttpResponseMessage> Run(
     return starter.CreateCheckStatusResponse(req, instanceId);
 }
 ```
+
 E abaixo é a configuração necessária para JavaScript. A propriedade do hub de tarefas no `function.json` ficheiro é definido por meio da definição de aplicação:
 
-```javascript
+```json
 {
     "name": "input",
     "taskHub": "%MyTaskHub%",

@@ -1,6 +1,6 @@
 ---
 title: Criar aplicação ASP.NET com o contentor do Windows (pré-visualização) - serviço de aplicações do Azure | Documentos da Microsoft
-description: Saiba como implementar um contentor do Windows personalizado no Serviço de Aplicações do Azure.
+description: Saiba como implementar um contentor personalizado do Windows no serviço de aplicações do Azure e implementar software personalizado no contentor.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6c237db6968cf04766647375c43117b1281c2ae1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 96f83f86a03b4fa6b12962c28ce1488d4250ba5a
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250961"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384586"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrar uma aplicação ASP.NET para o Serviço de Aplicações do Azure com um contentor do Windows (Pré-visualização)
 
-O [Serviço de Aplicações do Azure](app-service-web-overview.md) disponibiliza pilhas de aplicações predefinidas no Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente pré-configurado do Windows bloqueia o sistema operativo contra acesso administrativo, instalações de software, alterações ao Global Assembly Cache, etc. (veja [Operating system functionality on Azure App Service](web-sites-available-operating-system-functionality.md) (Funcionalidade do sistema operativo no Serviço de Aplicações do Azure). No entanto, a utilização de um contentor personalizado do Windows no Serviço de Aplicações permite efetuar as alterações ao SO de que a aplicação precisa, pelo que é fácil migrar uma aplicação no local que requer uma configuração personalizada do SO e software. Este tutorial demonstra como migrar para o Serviço de Aplicações uma aplicação ASP.NET que utiliza tipos de letra personalizados instalados na biblioteca de tipos de letra do Windows. Implemente uma imagem do Windows configurada e personalizada do Visual Studio no [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), e, em seguida, execute-a no Serviço de Aplicações.
+O [Serviço de Aplicações do Azure](app-service-web-overview.md) disponibiliza pilhas de aplicações predefinidas no Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente pré-configurado do Windows bloqueia o sistema operativo contra acesso administrativo, instalações de software, alterações ao Global Assembly Cache, etc. (veja [Operating system functionality on Azure App Service](operating-system-functionality.md) (Funcionalidade do sistema operativo no Serviço de Aplicações do Azure). No entanto, a utilização de um contentor personalizado do Windows no Serviço de Aplicações permite efetuar as alterações ao SO de que a aplicação precisa, pelo que é fácil migrar uma aplicação no local que requer uma configuração personalizada do SO e software. Este tutorial demonstra como migrar para o Serviço de Aplicações uma aplicação ASP.NET que utiliza tipos de letra personalizados instalados na biblioteca de tipos de letra do Windows. Implemente uma imagem do Windows configurada e personalizada do Visual Studio no [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), e, em seguida, execute-a no Serviço de Aplicações.
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 

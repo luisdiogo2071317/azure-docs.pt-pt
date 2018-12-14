@@ -14,12 +14,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: b68cab9451503ed3634f1086c5711cca1eb6936f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 72d53f742c2a25d267c6e90a6814225d7f1a4cf9
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191279"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384399"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Gerir o Log Analytics com o PowerShell
 Pode utilizar o [cmdlets do PowerShell do Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para executar várias funções no Log Analytics numa linha de comandos ou como parte de um script.  Exemplos das tarefas que pode efetuar com o PowerShell:
@@ -213,7 +213,7 @@ Para a monitorização sem agente de recursos do Azure, os recursos tem de ter o
 
 Para obter os detalhes das métricas disponíveis, consulte [suportado métricas com o Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
-Para obter os detalhes dos registos disponíveis, consulte [suportada serviços e o esquema para os registos de diagnóstico](../../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+Para obter os detalhes dos registos disponíveis, consulte [suportada serviços e o esquema para os registos de diagnóstico](../../azure-monitor/platform/tutorial-dashboards.md).
 
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

@@ -1,18 +1,19 @@
 ---
-title: 'Como configurar o encaminhamento de circuito (peering) para o ExpressRoute: Azure: clássico | Documentos da Microsoft'
+title: 'Configure o peering para um circuito - ExpressRoute: Azure: clássico | Documentos da Microsoft'
 description: Este artigo explica-lhe os passos para criar e aprovisionar o peering privado, público e da Microsoft de um circuito ExpressRoute. Este artigo também mostra como verificar o estado, atualizar ou eliminar peerings no seu circuito.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/27/2018
-ms.author: cherylmc;ganesr
-ms.openlocfilehash: 6e099d0cdf659aa6ed2ccbef1381021ae55c72c2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/11/2018
+ms.author: cherylmc
+ms.custom: seodec18
+ms.openlocfilehash: fbf97c984a00d6bdd7f79c26094ae36348e00236
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261847"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342039"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Criar e modificar um peering para um circuito do ExpressRoute (clássico)
 > [!div class="op_single_selector"]
@@ -25,7 +26,7 @@ ms.locfileid: "51261847"
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
 > 
 
-Este artigo orienta-o pelos passos para criar e gerir a configuração de encaminhamento de um circuito do ExpressRoute com o PowerShell e o modelo de implementação clássica. Os passos abaixo também irão mostrar como verificar o estado, atualizar ou eliminar e retirar o aprovisionamento do peerings para um circuito ExpressRoute. Pode configurar um, dois ou todos os três peerings (Azure privado, Azure público e Microsoft) para um circuito do ExpressRoute. Pode configurar peerings em qualquer ordem que escolha. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez. 
+Este artigo orienta-o pelos passos para criar e gerir a configuração de peering/encaminhamento de mensagens em fila para um circuito do ExpressRoute com o PowerShell e o modelo de implementação clássica. Os passos abaixo também irão mostrar como verificar o estado, atualizar ou eliminar e retirar o aprovisionamento do peerings para um circuito ExpressRoute. Pode configurar um, dois ou todos os três peerings (Azure privado, Azure público e Microsoft) para um circuito do ExpressRoute. Pode configurar peerings em qualquer ordem que escolha. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez. 
 
 Estas instruções aplicam-se apenas aos circuitos criados com fornecedores de serviços que oferecem serviços de conectividade de camada 2. Se estiver a utilizar um fornecedor de serviços que oferece geridos de camada 3 serviços (normalmente uma VPN de IP, como MPLS), o seu fornecedor de conectividade irá configurar e gerir encaminhamento por si.
 
@@ -33,7 +34,7 @@ Estas instruções aplicam-se apenas aos circuitos criados com fornecedores de s
 
 **Acerca dos modelos de implementação do Azure**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos da configuração
 
@@ -328,9 +329,9 @@ Esta secção fornece instruções sobre como criar, obter, atualizar e eliminar
    * Uma sub-rede /30 para a ligação secundária. Esta tem de ser um prefixo IPv4 público válido detido por si e registado num RIR/TIR.
    * Um ID de VLAN válido para estabelecer este peering. Certifique-se de que nenhum peering no circuito utiliza o mesmo ID de VLAN.
    * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes.
-   * Prefixos anunciados: tem de fornecer uma lista de todos os prefixos que planeia anunciar durante a sessão de BGP. São aceites apenas prefixos de endereços IP públicos. Pode enviar uma lista separada por vírgulas se pretender enviar um conjunto de prefixos. Estes prefixos têm de ser registados para si num RIR/TIR.
-   * Cliente ASN: se estiver a anunciar prefixos que não estão registados para o número AS de peering, pode especificar o número AS no qual estão registados. **Opcional**.
-   * Nome do registo de encaminhamento: pode especificar o RIR/TIR de acordo com o número AS e os prefixos aos quais estão registados.
+   * Prefixos anunciados: Tem de fornecer uma lista de todos os prefixos que planeia anunciar durante a sessão BGP. São aceites apenas prefixos de endereços IP públicos. Pode enviar uma lista separada por vírgulas se pretender enviar um conjunto de prefixos. Estes prefixos têm de ser registados para si num RIR/TIR.
+   * Cliente ASN: Se estiver a anunciar prefixos que não estão registados para o peering número, pode especificar o número as no qual estão registados. **Opcional**.
+   * Nome do registo de encaminhamento: Pode especificar o RIR / IRR em relação aos quais o número e os prefixos são registados.
    * Um hash MD5, se optar por utilizar um. **Opcional.**
      
   Execute o cmdlet seguinte para configurar o peering da Microsoft para o seu circuito:

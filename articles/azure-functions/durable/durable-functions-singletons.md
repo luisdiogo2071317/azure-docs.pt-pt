@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 58e5b06d613ee3e3311b58af64abd2411c637449
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b083b9a09b478ca5ad68e19d3a2133fb529da851
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642614"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342957"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestradores de singleton nas funções durável (funções do Azure)
 
@@ -23,7 +23,9 @@ Para tarefas em segundo plano ou orquestrações de estilo de ator, muitas vezes
 
 ## <a name="singleton-example"></a>Exemplo de singleton
 
-O exemplo do c# seguinte mostra uma função de Acionador de HTTP que cria uma orquestração de tarefa em segundo plano singleton. O código garante que apenas uma instância não existe para um ID de instância especificada.
+O seguinte C# e exemplos de JavaScript mostram uma função de Acionador de HTTP que cria uma orquestração de tarefa em segundo plano singleton. O código garante que apenas uma instância não existe para um ID de instância especificada.
+
+### <a name="c"></a>C#
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -54,7 +56,39 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-Por predefinição, a instância IDs são aleatoriamente gerado GUIDs. Mas, neste caso, o ID de instância é passado encaminhar os dados da URL. O código chama [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) para verificar se uma instância com o ID especificado já está em execução. Se não for, é criada uma instância com esse ID.
+### <a name="javascript-functions-2x-only"></a>JavaScript (funciona apenas 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+modules.exports = async function(context, req) {
+    const client = df.getClient(context);
+
+    const instanceId = req.params.instanceId;
+    const functionName = req.params.functionsName;
+
+    // Check if an instance with the specified ID already exists.
+    const existingInstance = await client.getStatus(instanceId);
+    if (!existingInstance) {
+        // An instance with the specified ID doesn't exist, create one.
+        const eventData = req.body;
+        await client.startNew(functionName, instanceId, eventData);
+        context.log(`Started orchestration with ID = '${instanceId}'.`);
+        return client.createCheckStatusResponse(req, instanceId);
+    } else {
+        // An instance with the specified ID exists, don't create one.
+        return {
+            status: 409,
+            body: `An instance with ID '${instanceId}' already exists.`,
+        };
+    }
+};
+```
+
+Por predefinição, a instância IDs são aleatoriamente gerado GUIDs. Mas, neste caso, o ID de instância é passado encaminhar os dados da URL. O código chama [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) ou `getStatus` (JavaScript) para verificar se uma instância com o ID especificado já está em execução. Se não for, é criada uma instância com esse ID.
+
+> [!WARNING]
+> Ao desenvolver localmente em JavaScript, terá de definir a variável de ambiente `WEBSITE_HOSTNAME` para `localhost:<port>`, por ex. `localhost:7071` Para utilizar os métodos em `DurableOrchestrationClient`. Para obter mais informações sobre este requisito, consulte a [problema do GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 > [!NOTE]
 > Neste exemplo, existe uma condição de corrida potencial. Se duas instâncias da **HttpStartSingle** executadas simultaneamente, o resultado foi possível dois diferentes criar instâncias de singleton, que substitui o outro. Dependendo dos requisitos, isso pode ter efeitos de colaterais indesejáveis. Por esse motivo, é importante certificar-se de que não existem dois pedidos podem executar esta função de Acionador em simultâneo.

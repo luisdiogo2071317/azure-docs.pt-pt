@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: edfd2e9e03aefa4833c8472a43d4857f08b95780
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495483"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339404"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas mais frequentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure
 
@@ -112,7 +112,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
 1. **É possível registar Self-implementado VMs do SQL Server com o fornecedor de recursos de VM do SQL?**
 
-   Sim. Se tiver implementado o SQL Server a partir do seu próprio suporte, pode registar a VM do SQL com o fornecedor de recursos para obter os benefícios de capacidade de gerenciamento fornecidos pela extensão SQL IaaS. No entanto, são não é possível converter uma VM do SQL personalizada implementada para PAYG. 
+   Sim. Se implementada do SQL Server a partir do seu próprio suporte de dados e instalou a extensão SQL IaaS pode registar a sua VM do SQL Server com o fornecedor de recursos para obter os benefícios de capacidade de gerenciamento fornecidos pela extensão SQL IaaS. No entanto, é possível converter uma VM de SQL personalizada implementada para pay as you go.  
 
 ## <a name="administration"></a>Administração
 
@@ -122,7 +122,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
 1. **Pode desinstalar a instância predefinida do SQL Server?**
 
-   Sim, mas aqui estão algumas considerações. Conforme indicado na resposta anterior, funcionalidades que dependem da [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md) operam apenas na instância predefinida. Se desinstalar a instância predefinida, a extensão continua a procurar por ele e poderá gerar erros de registo de eventos. Estes erros são das duas seguintes origens: **gestão de credenciais do Microsoft SQL Server** e **agente IaaS do Microsoft SQL Server**. Um dos erros pode ser semelhante ao seguinte:
+   Sim, mas aqui estão algumas considerações. Conforme indicado na resposta anterior, funcionalidades que dependem da [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md) operam apenas na instância predefinida. Se desinstalar a instância predefinida, a extensão continua a procurar por ele e poderá gerar erros de registo de eventos. Estes erros são das duas seguintes origens: **Gestão de credenciais do Microsoft SQL Server** e **agente IaaS do Microsoft SQL Server**. Um dos erros pode ser semelhante ao seguinte:
 
       Ocorreu um erro relacionado com a rede ou específico da instância ao estabelecer uma ligação ao SQL Server. O servidor não foi encontrado ou não está acessível.
 
@@ -153,7 +153,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
 1. **O que é a diferença entre as VMs do SQL e o serviço de base de dados SQL?**
 
-   Conceitualmente, o SQL Server numa máquina virtual do Azure não, isso é diferente de executar o SQL Server num datacenter remoto. Por outro lado, [base de dados SQL](../../../sql-database/sql-database-technical-overview.md) oferece a base de dados-como-serviço. Base de dados SQL, não tem acesso aos computadores que alojam as bases de dados. Para obter uma comparação completa, consulte [escolha uma opção de SQL Server na nuvem: base de dados SQL do Azure (PaaS) ou o SQL Server em VMs do Azure (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
+   Conceitualmente, o SQL Server numa máquina virtual do Azure não, isso é diferente de executar o SQL Server num datacenter remoto. Por outro lado, [base de dados SQL](../../../sql-database/sql-database-technical-overview.md) oferece a base de dados-como-serviço. Base de dados SQL, não tem acesso aos computadores que alojam as bases de dados. Para obter uma comparação completa, consulte [escolher uma opção de SQL Server na nuvem: Base de dados SQL do Azure (PaaS) ou o SQL Server em VMs do Azure (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
 1. **Como posso instalar ferramentas de dados do SQL na minha VM do Azure?**
 

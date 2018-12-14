@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: e473326e9f337bfb2fd1202bc3b76e468dd6015e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 34506266ed4a2103f0d3bd7a8014b9a038b25491
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315082"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338044"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guia de Java Enterprise para o serviço de aplicações no Linux
 
-Serviço de aplicações do Azure no Linux permite que os programadores de Java para criar, implementar e dimensionar aplicações de Java Enterprise (JEE) num serviço totalmente gerido baseado em Linux.  O ambiente de tempo de execução Java Enterprise subjacente é o código-fonte aberto [Wildfly](http://wildfly.org/) servidor de aplicações.
+Serviço de aplicações do Azure no Linux permite que os programadores de Java para criar, implementar e dimensionar aplicações de Java Enterprise (JEE) num serviço totalmente gerido baseado em Linux.  O ambiente de tempo de execução Java Enterprise subjacente é o código-fonte aberto [Wildfly](https://wildfly.org/) servidor de aplicações.
 
 Este guia fornece os conceitos chave e instruções para desenvolvedores de Java empresariais usando-se no serviço de aplicações para Linux. Se nunca implementar aplicações Java com o serviço de aplicações do Azure para Linux, deverá concluir os [início rápido de Java](quickstart-java.md) primeiro. Perguntas sobre o serviço de aplicações para Linux que não sejam específicas para Java Enterprise são respondidas no [guia para programadores de Java](app-service-linux-java.md) e o [FAQ de Linux do serviço de aplicações](app-service-linux-faq.md).
 
@@ -115,5 +115,5 @@ Por predefinição, os web sockets estão ativadas no serviço de aplicações. 
 Serviço de aplicações fornece ferramentas para ajudar a resolver problemas com a sua aplicação.
 
 -   Ativar o registo ao clicar em **registos de diagnóstico** no painel de navegação esquerdo. Clique em **sistema de ficheiros** para definir o período de retenção e a quota de armazenamento e guardar as alterações. Pode encontrar estes registos em `/home/LogFiles/`.
--   [Utilizar o SSH para ligar à instância do aplicativo](/app-service-linux-ssh-support) para ver os registos para a execução de aplicativos.
+-   [Utilizar o SSH para ligar à instância do aplicativo](app-service-linux-ssh-support.md) para ver os registos para a execução de aplicativos.
 -   Registos de diagnóstico de verificação **registos de diagnóstico** painel do Portal ou através do comando da CLI do Azure: ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `

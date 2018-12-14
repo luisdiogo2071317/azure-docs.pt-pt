@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2ac1baea3c4ef677f9c0927a038e15828683b851
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f10365f4acf62ba4719e89932f18433e70925ebf
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308754"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341767"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Ativar grupos de segurança de rede no Centro de segurança do Azure
 Centro de segurança do Azure recomenda que ative um grupo de segurança de rede (NSG) se um não estiver já ativado. Os NSGs contêm uma lista de regras de lista de controlo de acesso (ACL) que permitem ou negam o tráfego de rede para as instâncias VM numa rede Virtual. Os NSGs podem ser associados a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando um NSG é associado a uma sub-rede, as regras da ACL são aplicadas a todas as instâncias de VM nessa sub-rede. Além disso, o tráfego para uma VM individual pode ser restrito ainda mais ao associar um NSG diretamente a essa VM. Para saber mais, veja [o que é um grupo de segurança de rede (NSG)?](../virtual-network/security-overview.md)
 
-Se não tiver NSGs ativados, o Centro de segurança apresenta dois recomendações para si: Ativar grupos de segurança de rede em sub-redes e ativar grupos de segurança de rede em máquinas virtuais. Escolha qual nível, a sub-rede ou a VM, para aplicar NSGs.
+Se não tiver NSGs ativados, o Centro de segurança apresenta dois recomendações para si: Ative grupos de segurança de rede em sub-redes e ativar grupos de segurança de rede em máquinas virtuais. Escolha qual nível, a sub-rede ou a VM, para aplicar NSGs.
 
 > [!NOTE]
 > Este documento apresenta o serviço ao utilizar um exemplo de implementação.  Não se trata de um guia passo-a-passo.
@@ -53,7 +53,7 @@ Este artigo mostrou como implementar a recomendação do Centro de segurança "A
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
-* [Definir políticas de segurança no Centro de Segurança do Azure](security-center-azure-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
+* [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md) – Saiba como o recomendações o ajudam a proteger os seus recursos do Azure.
 * [Monitorização de estado de funcionamento de segurança no Centro de segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.

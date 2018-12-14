@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1219090c4608d5c87bfe967444122b61d7fdbf5f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3b7b06b7ab9076b992e6e3349763d633f9b255ef
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326260"
+ms.locfileid: "53338163"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>O que é a extensão de diagnóstico do Azure
 A extensão de diagnóstico do Azure é um agente no Azure que permite a recolha de dados de diagnóstico num aplicativo implantado. Pode utilizar a extensão de diagnóstico de várias origens diferentes. Atualmente suportados são Web do serviço de Cloud do Azure (clássico) e funções de trabalho, máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais e o Service Fabric. Outros serviços do Azure têm métodos de diagnóstico diferentes. Ver [descrição geral da monitorização no Azure](../../azure-monitor/overview.md).
@@ -47,7 +47,7 @@ Também pode enviá-lo para [Application Insights](../../application-insights/ap
 ### <a name="azure-monitor"></a>Azure Monitor
 Tem também a opção de enviar seus dados para o Azure Monitor. Neste momento, este sink só é aplicável a contadores de desempenho. Permite-lhe enviar os contadores de desempenho recolhidos na sua VM, VMSS, ou serviço para o Azure Monitor, como métricas personalizadas em nuvem. Suporta o sink do Azure Monitor:
 * Obter todos os contadores de desempenho enviados para o Azure Monitor através do [métricas do Azure Monitor APIs.](https://docs.microsoft.com/rest/api/monitor/)
-* Alertas em todos os contadores de desempenho enviados para o Azure Monitor através do novo [experiência de alertas unificada](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) no Azure Monitor
+* Alertas em todos os contadores de desempenho enviados para o Azure Monitor através do novo [experiência de alertas unificada](../../azure-monitor/platform/alerts-overview.md) no Azure Monitor
 * Ao tratar o operador de caráter universal no contadores de desempenho como a dimensão de "Instância" em sua métrica.  Por exemplo, se recolheu o "disco lógico (\*) / DiskWrites/seg" contador deve ser capaz de filtro e dividir a dimensão de "Instância" plotagem ou alertar relativamente a escritas de disco/seg para cada disco lógico na VM (c:, d:, etc.)
 
 Para obter mais informações sobre como configurar este sink, veja o [documentação de esquema de diagnóstico do Azure.](diagnostics-extension-schema-1dot3.md)

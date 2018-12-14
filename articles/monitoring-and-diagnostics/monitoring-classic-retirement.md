@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 04dbc5c60e802e7861b9e2a98c51446281b7ae3f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: da866145f9c1ad39987b0f9a4449d4e5ff7f18f5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320612"
+ms.locfileid: "53337126"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Unificada alertas e monitorização no Azure Monitor substitui clássico alertas e monitorização
 
@@ -53,7 +53,7 @@ Clássico mais antigo, monitorização e alertas vai ser descontinuado a 30 de J
 - Plataforma (clássica) mais antiga e métricas personalizadas para o Application Insights, bem como alertas nos mesmos como atualmente disponíveis através do [alertas (clássica) secção](../azure-monitor/platform/alerts-classic.overview.md) do Azure, portal e acessível como [microsoft.insights/ alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) recursos
 - Alerta de anomalias de falha (clássica) mais antiga atualmente disponível na [deteção inteligente no Application Insights](../application-insights/app-insights-proactive-diagnostics.md) no portal do Azure; com alertas configurados mostrado na [alertas (clássica) secção](../azure-monitor/platform/alerts-classic.overview.md) do Azure Portal
 
-Todos os clássico monitorização e alertas de sistemas, incluindo correspondente [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../azure-monitor/platform/alerts-classic-portal.md), [CLI](../azure-monitor/platform/alerts-classic-portal.md), [página do portal do Azure](../azure-monitor/platform/alerts-classic-portal.md)e o [ Modelo do Resource](monitoring-enable-alerts-using-template.md) irá permanecer utilizável até o final de Junho de 2019. 
+Todos os clássico monitorização e alertas de sistemas, incluindo correspondente [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../azure-monitor/platform/alerts-classic-portal.md), [CLI](../azure-monitor/platform/alerts-classic-portal.md), [página do portal do Azure](../azure-monitor/platform/alerts-classic-portal.md)e o [ Modelo do Resource](../azure-monitor/platform/alerts-enable-template.md) irá permanecer utilizável até o final de Junho de 2019. 
 
 No final de Junho de 2019, no Azure Monitor:
 
@@ -76,4 +76,4 @@ Este artigo será links será continuamente atualizada & detalhes sobre a monito
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre o [novo unificada do Azure Monitor](../azure-monitor/overview.md).
-* Saiba mais sobre a nova [alertas do Azure](monitoring-overview-alerts.md).
+* Saiba mais sobre a nova [alertas do Azure](../azure-monitor/platform/alerts-overview.md).

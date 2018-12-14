@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
-ms.date: 12/11/2017
+ms.date: 12/13/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 952745c60f875c21ce64e4d1b0a819be60a76262
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 74376097aa56ebfcce5ed2a15c6f0257980fa2be
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309330"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386479"
 ---
 # <a name="create-an-aspnet-core-web-app-in-a-docker-container-from-azure-container-registry"></a>Criar uma aplicação Web do ASP.NET Core num contentor do Docker a partir do Azure Container Registry
 
@@ -30,13 +30,11 @@ Este script de exemplo cria um grupo de recursos, um plano do Serviço de Aplica
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Terá de CLI do Azure versão 2.0.52 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-linux-acr/deploy-linux-acr.sh?highlight=6-9 "Linux Azure Container Registry")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-linux-acr/deploy-linux-acr.sh "Linux Azure Container Registry")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

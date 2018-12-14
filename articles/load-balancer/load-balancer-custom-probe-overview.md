@@ -11,14 +11,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2018
+ms.date: 12/12/2018
 ms.author: kumud
-ms.openlocfilehash: d3e0fd510968abed55e0e3fea2a8689027713a2b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8ffc2a84850254451bb8356ceb0c08cd56823afd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310407"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344215"
 ---
 # <a name="load-balancer-health-probes"></a>As sondas de estado de funcionamento do Balanceador de carga
 
@@ -56,6 +56,9 @@ Ao usar [regras de balanceamento de carga de portas HA](load-balancer-ha-ports-o
 Deve ser não NAT ou de um Estado de funcionamento da pesquisa por meio da instância que recebe a sonda de estado de funcionamento para outra instância na sua VNet, como isso pode levar a falhas em cascata no seu cenário de proxy.
 
 Se desejar testar uma falha de sonda de estado de funcionamento ou marcar para baixo de uma instância individual, pode utilizar um grupo de segurança para a sonda de estado de funcionamento de bloqueio explícita (destino ou [origem](#probesource)).
+
+>[!IMPORTANT]
+> Não ative [carimbos de data / TCP](https://tools.ietf.org/html/rfc1323).  Ativar TCP carimbos fará com que sondas de estado de funcionamento para falhar devido a pacotes TCP, que está a ser ignorados pelo convidado da VM pilha de TCP de SO, o que resulta no balanceador de carga marcar o respetivo ponto de extremidade para baixo.
 
 ### <a name="tcpprobe"></a> Sonda TCP
 

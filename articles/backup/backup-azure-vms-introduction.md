@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
 ms.author: raynew
-ms.openlocfilehash: 7ebb71c6c5968f8f3548f1accd8d659039e6b545
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e38f245197f2b1bdb22a2866028ad10f4ec39ec1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871647"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343503"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planear a sua infraestrutura de cópias de segurança de VMs no Azure
 Este artigo fornece desempenho e sugestões de recursos para o ajudar a planear a sua infraestrutura de cópia de segurança de VM. Também define os aspetos fundamentais do serviço de cópia de segurança; esses aspectos podem ser fundamentais para determinar sua arquitetura, planejamento de capacidade e agendamento. Se tiver [preparar o ambiente](backup-azure-arm-vms-prepare.md), o planejamento é a próxima etapa antes de começar [para fazer uma cópia de segurança de VMs](backup-azure-arm-vms.md). Se precisar de mais informações sobre máquinas virtuais do Azure, consulte a [documentação das máquinas virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -99,16 +99,16 @@ Tempo total de cópia de segurança de menos de 24 horas é válido para cópias
 Cópia de segurança consiste em duas fases: instantâneos e a transferência de instantâneos para o cofre. Otimiza o serviço de cópia de segurança para armazenamento. Ao transferir dados de instantâneos para um cofre, o serviço apenas transfere as alterações incrementais partir do instantâneo anterior.  Para determinar as alterações incrementais, o serviço calcula a soma de verificação dos blocos. Se um bloco for alterado, o bloco é identificado como um bloco sejam enviados para o cofre. Em seguida, as explorações de serviço adicional em cada um dos blocos identificados, procurando por oportunidades minimizar os dados para transferir. Depois de avaliar todos os blocos alterados, o serviço une as alterações e envia-os para o cofre. Em alguns aplicativos herdados, as escritas pequenas, fragmentadas, não estão otimizadas para armazenamento. Se o instantâneo contém muitas gravações de pequenas e fragmentadas, o serviço gasta mais tempo a processar os dados escritos pelas aplicações. Para aplicações em execução dentro da VM, o bloco de recomendada de gravações de aplicativo mínimo é de 8 KB. Se o aplicativo usar um bloco de menos de 8 KB, o desempenho de cópia de segurança é afetado. Para obter ajuda com Ajuste seu aplicativo para melhorar o desempenho de cópia de segurança, consulte [otimização de aplicações para otimizar o desempenho com o armazenamento do Azure](../virtual-machines/windows/premium-storage-performance.md). Embora o artigo sobre o desempenho da cópia de segurança utiliza exemplos de armazenamento Premium, a documentação de orientação é aplicável para discos de armazenamento Standard.<br>
 Pode haver vários motivos para a hora da cópia de tempo:
   1. **Primeira cópia de segurança para um disco adicionado recentemente a uma VM já protegido** <br>
-    Se uma VM já está passando por cópia de segurança incremental, quando é adicionado um novo disco ou discos, em seguida, a cópia de segurança pode perder o SLA de 1 dia dependendo do tamanho do disco novo.
+    Se uma VM tiver sido concluída a cópia de segurança inicial e está a efetuar cópia de segurança incremental. Adicionar um novo disco ou discos pode perder o SLA de 1 dia dependendo do tamanho do disco novo.
   2. **Fragmentação** <br>
-    Se a aplicação de cliente está mal configurada que usa pequenas escritas fragmentadas.<br>
-  3. **Conta de armazenamento do cliente sobrecarregada** <br>
-      a. Se a cópia de segurança está agendada durante o tempo de aplicativo de produção do cliente.  
+    Se a carga de trabalho (aplicativo) em execução na VM executa pequenas escritas fragmentadas, em seguida, ele pode afetar negativamente desempenho de cópia de segurança. <br>
+  3. **Conta de armazenamento sobrecarregada** <br>
+      a. Se a cópia de segurança está agendada durante a utilização da aplicação de pré-visualização.  
       b. Se tiver mais do que 5 a 10 discos estão alojados na mesma conta de armazenamento.<br>
   4. **Modo de Check(CC) de consistência** <br>
       > 1 TB discos, se a cópia de segurança ocorre no modo de CC devido a motivos pelos quais mencionadas a seguir:<br>
-        a. Move o disco gerido como parte do cliente de reinício de VM.<br>
-        b. Cliente promove o instantâneo de blob de base.<br>
+        a. Move o disco gerido como parte do reinício da VM.<br>
+        b. Promova instantâneo de blob de base.<br>
 
 ## <a name="total-restore-time"></a>Tempo de restauração total
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a0aed1fd65444397b3ca084cc0100aa5af49c918
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a9794c25bd5f0acd48362611d13bac17fc502450
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839515"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341053"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Criar a sua primeira função durável em C\#
 
@@ -76,7 +76,7 @@ Visual Studio cria um projeto de aplicação de função vazia.  Ela contém os 
 
 Uma nova função durável será adicionada à aplicação.  Abra o ficheiro novo para exibir o conteúdo.  Esta função durável é uma função simples exemplo de encadeamento.  
 
-* O `RunOrchestrator` método é associado a função de orquestrador.  Esta função irá iniciar, crie uma lista e adicionar o resultado de três chamadas de funções à lista.  Quando as chamadas de três função forem concluídas, ela retornará a lista.  A função está chamando é o `SayHello` método (padrão, ele será chamado "<NameOfFile>_Hello").
+* O `RunOrchestrator` método é associado a função de orquestrador.  Esta função irá iniciar, crie uma lista e adicionar o resultado de três chamadas de funções à lista.  Quando as chamadas de três função forem concluídas, ela retornará a lista.  A função está chamando é o `SayHello` método (padrão, ele será chamado `<NameOfFile>_Hello`).
 * O `SayHello` a função devolve um hello.
 * O `HttpStart` método descreve a função que irá iniciar instâncias da orquestração.  Ela é associada a uma [acionador HTTP](../functions-bindings-http-webhook.md) que irá iniciar uma nova instância do orquestrador e devolve uma resposta da verificação de estado.
 
@@ -92,7 +92,7 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
 
     ![Tempo de execução local do Azure](./media/durable-functions-create-first-csharp/functions-vs-debugging.png)
 
-3. Cole o URL do pedido HTTP na barra de endereço do browser e execute o pedido. O exemplo apresentado em seguida mostra a resposta no browser relativamente ao pedido GET devolvido retornado pela função: 
+3. Cole o URL do pedido HTTP na barra de endereço do browser e execute o pedido. O exemplo apresentado em seguida mostra a resposta no browser relativamente ao pedido GET devolvido retornado pela função:
 
     ![Resposta da função localhost no browser](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 

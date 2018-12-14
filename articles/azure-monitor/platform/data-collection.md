@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: c9929149c029d15d496eac0eb530371418e1e1f2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3795db2928e23b16d93e544c4f148b049eccfdef
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323512"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384841"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>A monitorização dos dados recolhidos pelo Azure Monitor
 [O Azure Monitor](../overview.md) é um serviço que o ajuda a monitorizar as suas aplicações e os recursos que dependem. Central para esta função é um armazenamento de telemetria e outros dados de recursos monitorizados. Este artigo fornece uma descrição completa de como os dados são armazenados e usados pelo Azure Monitor.
@@ -96,9 +96,9 @@ Existem três fontes fundamentais de métricas recolhidas pelo Azure Monitor. To
 ### <a name="what-can-you-do-with-metrics"></a>O que pode fazer com a métrica?
 Tarefas que pode realizar com métricas incluem o seguinte:
 
-- Uso [Explorador de métricas](../../monitoring-and-diagnostics/monitoring-metric-charts.md) para analisar métricas recolhidas e desenhá-los num gráfico. Controlar o desempenho de um recurso (por exemplo, uma VM, Web site ou aplicação lógica) ao afixar gráficos para uma [dashboard do Azure](../../azure-portal/azure-portal-dashboards.md).
+- Uso [Explorador de métricas](../../azure-monitor/platform/metrics-charts.md) para analisar métricas recolhidas e desenhá-los num gráfico. Controlar o desempenho de um recurso (por exemplo, uma VM, Web site ou aplicação lógica) ao afixar gráficos para uma [dashboard do Azure](../../azure-portal/azure-portal-dashboards.md).
 - Configurar uma [regra de alerta de métrica](alerts-metric.md) que envia uma notificação ou demora [automatizada ação](action-groups.md) quando a métrica ultrapassa um limiar.
-- Uso [dimensionamento automático](../../monitoring-and-diagnostics/monitoring-overview-autoscale.md) para aumentar ou diminuir recursos com base numa métrica cruzar um limiar.
+- Uso [dimensionamento automático](../../azure-monitor/platform/autoscale-overview.md) para aumentar ou diminuir recursos com base numa métrica cruzar um limiar.
 - Métricas de rota para o Log Analytics para analisar dados de métricos com os dados de registo e para armazenar valores de métrica durante mais de 93 dias. 
 - Stream métricas para uma [Hub de eventos](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) para encaminhar sejam [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) ou a sistemas externos.
 - [Arquivo](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) o histórico de desempenho ou o estado de funcionamento do seu recurso de conformidade, auditoria ou criação de relatórios offline.
@@ -109,7 +109,7 @@ Tarefas que pode realizar com métricas incluem o seguinte:
 ### <a name="viewing-metrics"></a>Ver métricas
 Métricas no Azure são recolhidas na base de dados de métricas do Azure Monitor. Esta é uma série de tempo otimizada para os valores de métrica rápidos de obtenção e arquivos de 93 dias de base de dados. Copie as métricas para o Log Analytics para análise de longo prazo e tendências.
 
-Dados métricos são usados numa variedade de formas, conforme descrito acima. Uso [Explorador de métricas](../../monitoring-and-diagnostics/monitoring-metric-charts.md) diretamente analisar os dados no arquivo de métrico e os valores de várias métricas do gráfico ao longo do tempo. Pode ver os gráficos interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações. Também pode obter métricas utilizando o [do Azure de monitorização de REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Dados métricos são usados numa variedade de formas, conforme descrito acima. Uso [Explorador de métricas](../../azure-monitor/platform/metrics-charts.md) diretamente analisar os dados no arquivo de métrico e os valores de várias métricas do gráfico ao longo do tempo. Pode ver os gráficos interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações. Também pode obter métricas utilizando o [do Azure de monitorização de REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Explorador de Métricas](media/data-collection/metrics-explorer.png)
 
@@ -174,7 +174,7 @@ Pode obter orientações para recolher métricas de recursos do Azure ao [regist
 ### <a name="logs-to-metrics"></a>Registos para métricas
 Conforme descrito acima, as métricas estão mais responsivas do que os registos, para que possa criar alertas com menor latência e a um custo menor. O log Analytics recolhe uma quantidade significativa de dados numéricos que seriam adequado para as métricas, mas não estão armazenados na base de dados de métricas do Azure.  Um exemplo comum é que os dados de desempenho coletados por agentes e soluções de gestão. Alguns destes valores podem ser copiados para a base de dados de métricas, onde eles estão disponíveis para alertas e análise com o Explorador de métricas.
 
-A explicação desta funcionalidade está disponível em [criar alertas de métrica para os registos no Azure Monitor](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). A lista de valores de suporte está disponível em [suportado métricas com o Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
+A explicação desta funcionalidade está disponível em [criar alertas de métrica para os registos no Azure Monitor](../../azure-monitor/platform/alerts-metric-logs.md). A lista de valores de suporte está disponível em [suportado métricas com o Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Dados de Stream a sistemas externos
 Além de usar as ferramentas no Azure para analisar dados de monitorização, pode ter um requisito reencaminhá-lo para uma ferramenta externa, como um produto de management (SIEM) de eventos e informações de segurança. Este encaminhamento é geralmente feito diretamente a partir de recursos monitorizados através de [os Hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/). 

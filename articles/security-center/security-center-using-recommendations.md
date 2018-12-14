@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: rkarlin
-ms.openlocfilehash: 36e3e8c6c34099149cb13aa60efb6668fcc7d53c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d496f3f28cee711109c5c200102d48482bf6cd9c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958419"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340702"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Recomendações do Centro de segurança do Azure de utilização para melhorar a segurança
 Pode reduzir as chances de um evento de segurança significativos ao configurar uma política de segurança e, em seguida, implementar as recomendações fornecidas pelo centro de segurança do Azure. Este artigo mostra-lhe como utilizar políticas de segurança e recomendações no Centro de segurança para ajudar a mitigar um ataque de segurança.
@@ -30,7 +30,7 @@ Pode reduzir as chances de um evento de segurança significativos ao configurar 
 >
 
 ## <a name="managing-security-recommendations"></a>Gerir recomendações de segurança
-Uma política de segurança define o conjunto de controlos que são recomendados para recursos dentro da subscrição especificada ou o grupo de recursos. No Centro de segurança, define as políticas de acordo com os requisitos de segurança da sua empresa. Para obter mais informações, consulte [definir políticas de segurança no Centro de segurança](security-center-azure-policy.md).
+Uma política de segurança define o conjunto de controlos que são recomendados para recursos dentro da subscrição especificada ou o grupo de recursos. No Centro de segurança, define as políticas de acordo com os requisitos de segurança da sua empresa. Para obter mais informações, consulte [definir políticas de segurança no Centro de segurança](tutorial-security-policy.md).
 
 Políticas de segurança para grupos de recursos são herdadas do nível da subscrição.
 

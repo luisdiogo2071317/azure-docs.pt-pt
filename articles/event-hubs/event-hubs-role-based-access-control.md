@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c7d38538b3876ae91c0ae3794e14ab11f08993c6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 1324700445aebe672b2c5ae2b55ad9bc0bab13b2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162890"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384263"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controlo de acesso do Active Directory Directory Role-Based (pré-visualização)
 
@@ -68,6 +68,8 @@ Antes de poder executar o exemplo, edite o ficheiro App. config e, dependendo do
 - O URI de redirecionamento que especificou na sua aplicação nos passos anteriores.
  
 Ao executar o aplicativo de console, lhe for pedido para selecionar um cenário. Clique em **início de sessão do utilizador interativo** , escrevendo o respetivo número e pressionar ENTER. O aplicativo exibe uma janela de início de sessão, pede sua permissão aceder aos Hubs de eventos e, em seguida, utiliza o serviço para executar o cenário de envio/receção de mensagens em fila usando a identidade de início de sessão.
+
+A aplicação utiliza `ServiceAudience.EventHubsAudience` como a audiência do token. Quando utilizar outros idiomas ou SDKs onde o público-alvo não está disponível como uma constante, o valor correto a utilizar é `https://eventhubs.azure.net/`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

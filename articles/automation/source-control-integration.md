@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023752"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342243"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 
@@ -50,7 +50,7 @@ Sobre o **resumo de controlo de origem** página, preencha as informações e cl
 |Propriedade  |Descrição  |
 |---------|---------|
 |Nome do controlo de origem     | Um nome amigável para o controle de origem        |
-|Tipo de controlo de origem     | O tipo de origem do controle de origem. As opções disponíveis são:</br> Github</br>DevOps do Azure (Git)</br> DevOps do Azure (TFVC)        |
+|Tipo de controlo de origem     | O tipo de origem do controle de origem. As opções disponíveis são:</br> GitHub</br>DevOps do Azure (Git)</br> DevOps do Azure (TFVC)        |
 |Repositório     | O nome do repositório ou projeto. Este valor é extraído do repositório de controle de origem. Exemplo: $/ ContosoFinanceTFVCExample         |
 |Ramo     | O ramo para extrair os ficheiros de origem do. Direcionamento de ramo não está disponível para o tipo de controlo de origem TFVC.          |
 |Caminho da pasta     | A pasta que contém os runbooks para sincronizar. Exemplo: /Runbooks         |
@@ -62,7 +62,7 @@ Sobre o **resumo de controlo de origem** página, preencha as informações e cl
 
 ## <a name="syncing"></a>A sincronizar
 
-Configurar autosync quando configurar a integração do controlo de origem, a sincronização inicial é iniciado automaticamente. Se não foi definida a sincronização automática, selecione a origem da tabela no **(pré-visualização) de controle de fonte** página. Clique em **Iniciar sincronização** para iniciar o processo de sincronização.  
+Configurar autosync quando configurar a integração do controlo de origem, a sincronização inicial é iniciado automaticamente. Se não foi definida a sincronização automática, selecione a origem da tabela no **(pré-visualização) de controle de fonte** página. Clique em **Iniciar sincronização** para iniciar o processo de sincronização.
 
 Pode ver o estado da tarefa de sincronização atual ou aqueles anteriores ao clicar o **tarefas de sincronização** separador. Sobre o **controlo de origem** pendente, selecione um controlo de origem.
 

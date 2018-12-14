@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e6204933d6b9a4a6b296a141520fc8887c9181f1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 22e15f58f3d4e7f4db3ac3bd519dbb286a36ef95
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279723"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384144"
 ---
-# <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Portas utilizadas pelo serviços do Hadoop no HDInsight
+# <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portas utilizadas pelos serviços do Apache Hadoop no HDInsight
 
-Este documento fornece uma lista das portas utilizadas pelos serviços de Hadoop em execução em clusters do HDInsight baseado em Linux. Também fornece informações sobre as portas utilizadas para ligar ao cluster através de SSH.
+Este documento fornece uma lista das portas utilizadas pelos serviços de Apache Hadoop em execução em clusters do HDInsight baseado em Linux. Também fornece informações sobre as portas utilizadas para ligar ao cluster através de SSH.
 
 ## <a name="public-ports-vs-non-public-ports"></a>Portas públicas versus portas não público
 
@@ -26,7 +26,7 @@ Clusters do HDInsight baseado em Linux expõem somente três portas publicamente
 
 Internamente, o HDInsight é implementado por várias máquinas virtuais do Azure (nós dentro do cluster) em execução numa rede Virtual do Azure. De dentro da rede virtual, pode aceder a portas não são expostas através da internet. Por exemplo, se ligar a um de nós principais, através de SSH, do nó principal pode, em seguida, aceder diretamente serviços em execução em nós do cluster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Se não especificar uma rede Virtual do Azure como uma opção de configuração para o HDInsight, um é criado automaticamente. No entanto, não é possível associar outros computadores (como outras máquinas virtuais do Azure ou no seu computador de desenvolvimento do cliente) a esta rede virtual.
 
 
@@ -41,20 +41,20 @@ Todos os nós num cluster do HDInsight estão localizados numa rede Virtual do A
 | sshd |22 |SSH |Liga-se os clientes para sshd no nó principal primário. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |22 |SSH |Liga-se os clientes para sshd no nó de extremidade. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |23 |SSH |Liga-se os clientes para sshd no nó principal secundário. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| Ambari |443 |HTTPS |IU web do Ambari. Consulte [gerir o HDInsight com a IU Web do Ambari](hdinsight-hadoop-manage-ambari.md) |
-| Ambari |443 |HTTPS |API de REST do Ambari. Consulte [gerir o HDInsight com a API de REST do Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |API de REST do HCatalog. Ver [utilizar o Hive com o Curl](hadoop/apache-hadoop-use-pig-curl.md), [utilizar o Pig com o Curl](hadoop/apache-hadoop-use-pig-curl.md), [utilizar o MapReduce com Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| Ambari |443 |HTTPS |IU web do Ambari. Consulte [gerir o HDInsight com a IU do Apache Ambari Web](hdinsight-hadoop-manage-ambari.md) |
+| Ambari |443 |HTTPS |API de REST do Ambari. Consulte [gerir o HDInsight com a API de REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
+| WebHCat |443 |HTTPS |API de REST do HCatalog. Ver [utilizar o Apache Hive com o Curl](hadoop/apache-hadoop-use-pig-curl.md), [utilizar o Apache Pig com o Curl](hadoop/apache-hadoop-use-pig-curl.md), [utilizar o MapReduce com Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |Liga-se usar o ODBC do Hive. Ver [ligar o Excel ao HDInsight com o controlador Microsoft ODBC](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
-| HiveServer2 |443 |JDBC |Liga-se usando o JDBC do Hive. Consulte [ligar ao Hive no HDInsight com o controlador JDBC do Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
+| HiveServer2 |443 |JDBC |Liga ao ApacheHive usando o JDBC. Consulte [ligar ao Apache Hive no HDInsight com o controlador JDBC do Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 Seguem-se disponível para tipos de clusters específicos:
 
 | Serviço | Porta | Protocolo | Tipo de cluster | Descrição |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |API de REST de HBase. Consulte [introdução à utilização do HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |API de REST do Spark. Consulte [tarefas do Spark de submeter remotamente com o Livy](spark/apache-spark-livy-rest-interface.md) |
-| Servidor Spark Thrift |443 |HTTPS |Spark |Servidor Spark Thrift utilizado para submeter consultas do Hive. Consulte [utilizar Beeline com o Hive no HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
-| Storm |443 |HTTPS |Storm |IU da web Storm. Consulte [implementar e gerir topologias do Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |API de REST de HBase. Consulte [começar a utilizar o Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |API de REST do Spark. Consulte [das tarefas de submeter o Apache Spark remotamente com o Apache Livy](spark/apache-spark-livy-rest-interface.md) |
+| Servidor Spark Thrift |443 |HTTPS |Spark |Servidor Spark Thrift utilizado para submeter consultas do Hive. Consulte [utilizar Beeline com o Apache Hive no HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
+| Storm |443 |HTTPS |Storm |IU da web Storm. Consulte [implementar e gerir topologias do Apache Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Autenticação
 
@@ -67,10 +67,10 @@ Todos os serviços expostos publicamente na internet têm de ser autenticados:
 
 ## <a name="non-public-ports"></a>Portas não público
 
-> [!NOTE]
+> [!NOTE]  
 > Alguns serviços só estão disponíveis em tipos de clusters específicos. Por exemplo, o HBase só está disponível em tipos de clusters de HBase.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Alguns serviços executam apenas no nó um principal de cada vez. Se tentar ligar ao serviço no nó principal primário e receber um erro, tente novamente utilizando o nó principal secundário.
 
 ### <a name="ambari"></a>Ambari
