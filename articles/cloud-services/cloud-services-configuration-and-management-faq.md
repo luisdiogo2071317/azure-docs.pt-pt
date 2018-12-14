@@ -240,7 +240,7 @@ A subscrição do Azure tem um limite no número de núcleos que pode utilizar. 
 
 Dimensionamento automático com base em métricas de memória para serviços Cloud não é atualmente suportado. 
 
-Para contornar este problema, pode utilizar o Application Insights. Dimensionamento automático suporta o Application Insights como uma origem de métricas e pode dimensionar a contagem de instâncias de função com base nas métricas de convidado, como "Memória".  Terá de configurar o Application Insights no seu ficheiro de pacote de projeto de serviço em nuvem (. cspkg) e ativar a extensão de diagnóstico do Azure no serviço para implementar esse feito.
+Para contornar este problema, pode utilizar o Application Insights. Dimensionamento automático suporta o Application Insights como uma origem de métricas e pode dimensionar a contagem de instâncias de função com base nas métricas de convidado, como "Memória".  Terá de configurar o Application Insights no seu ficheiro de pacote de projeto de serviço em nuvem (*. cspkg) e ativar a extensão de diagnóstico do Azure no serviço para implementar esse feito.
 
 Para obter mais detalhes sobre como usar uma métrica personalizada por meio do Application Insights para configurar o dimensionamento automático nos serviços Cloud, consulte [introdução ao dimensionamento automático por métrica personalizada no Azure](../azure-monitor/platform/autoscale-custom-metric.md)
 

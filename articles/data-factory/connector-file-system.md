@@ -63,8 +63,8 @@ As seguintes propriedades são suportadas para o serviço de ligado de sistema d
 
 | Cenário | "host" na definição de serviço ligado | "folderPath" na definição do conjunto de dados |
 |:--- |:--- |:--- |
-| Pasta local no computador do Runtime de integração: <br/><br/>Exemplos: D:\\ \* ou D:\folder\subfolder\\* |No JSON: `D:\\`<br/>Na interface do Usuário: `D:\` |Em JSON: `.\\` ou `folder\\subfolder`<br>Na interface do Usuário: `.\` ou `folder\subfolder` |
-| Pasta remota partilhada: <br/><br/>Exemplos: \\ \\myserver\\partilhar\\ \* ou \\ \\myserver\\partilhar\\pasta\\subpasta\\* |No JSON: `\\\\myserver\\share`<br/>Na interface do Usuário: `\\myserver\share` |Em JSON: `.\\` ou `folder\\subfolder`<br/>Na interface do Usuário: `.\` ou `folder\subfolder` |
+| Pasta local no computador do Runtime de integração: <br/><br/>Exemplos: D:\\ \* ou D:\folder\subfolder\\ * |No JSON: `D:\\`<br/>Na interface do Usuário: `D:\` |Em JSON: `.\\` ou `folder\\subfolder`<br>Na interface do Usuário: `.\` ou `folder\subfolder` |
+| Pasta remota partilhada: <br/><br/>Exemplos: \\ \\myserver\\partilhar\\ \* ou \\ \\myserver\\partilhar\\pasta\\subpasta\\ * |No JSON: `\\\\myserver\\share`<br/>Na interface do Usuário: `\\myserver\share` |Em JSON: `.\\` ou `folder\\subfolder`<br/>Na interface do Usuário: `.\` ou `folder\subfolder` |
 
 >[!NOTE]
 >Durante a criação de através da interface do Usuário, não precisa de barra invertida duplo de entrada (`\\`) para o escape tal como faz via JSON, especifique a barra invertida única.

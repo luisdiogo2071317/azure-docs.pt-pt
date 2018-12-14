@@ -838,7 +838,7 @@ A CLI do Azure fornece um conjunto de código-fonte aberto, comandos de várias 
 Para obter informações sobre instalação, configuração e como utilizar a CLI Consulte comandos para executar tarefas do Azure
 
 * [Instalar a CLI clássica do Azure][xplat-cli]
-* [Implementar e gerir máquinas virtuais utilizando modelos Azure Resource Manager e a CLI do Azure] [./../linux/create-ssh-secured-vm-from-template.md]
+* [Implementar e gerir máquinas virtuais utilizando modelos Azure Resource Manager e a CLI do Azure] [../../linux/create-ssh-secured-vm-from-template.md]
 * [Utilizar a CLI clássica do Azure para Mac, Linux e Windows com o Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 Leia também o capítulo [CLI do Azure para VMs do Linux] [ deployment-guide-4.5.2] no [guia de implementação] [ planning-guide] sobre como utilizar a CLI do Azure para implementar a monitorização do Azure Extensão para SAP.
@@ -1668,7 +1668,7 @@ Na tabela a seguir SAP típico portas de comunicação são listadas. Basicament
 
 *) nn = número de instância do SAP
 
-*) sid = o ID de sistema de SAP
+**) sid = o ID de sistema de SAP
 
 Informações mais detalhadas sobre as portas necessárias para diferentes produtos SAP ou serviços por produtos SAP podem ser encontrados aqui <http://scn.sap.com/docs/DOC-17124>.
 Com este documento, deve ser capaz de abrir portas dedicadas no dispositivo de VPN é necessário para cenários e produtos específicos do SAP.

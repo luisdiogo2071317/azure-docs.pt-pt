@@ -115,7 +115,7 @@ Para criar um registo, tem primeiro de localizar o endereço IP virtual do seu s
      Guarde o endereço IP, uma vez que precisará dela quando criar um registo.
 2. Inicie sessão no Web site do seu DNS da entidade de registo e vá para a página para a gestão de DNS. Procurar ligações ou áreas do site identificadas como **nome de domínio**, **DNS**, ou **nome do servidor de gestão**.
 3. Localize agora onde pode selecionar ou introduzir um registo. Poderá ter de selecionar o tipo de registo de um menu pendente ou ir para uma página de definições avançadas.
-4. Selecione ou introduza o domínio ou subdomínio que irá utilizar este registo. Por exemplo, seleccione **www** se pretender criar um alias para **www.customdomain.com**. Se quiser criar uma entrada de carateres universais para todos os subdomínios, introduza "***'. Este irá cobrir como todos os subdomínios **mail.customdomain.com**, **login.customdomain.com**, e **www.customdomain.com**.
+4. Selecione ou introduza o domínio ou subdomínio que irá utilizar este registo. Por exemplo, seleccione **www** se pretender criar um alias para **www.customdomain.com**. Se quiser criar uma entrada de carateres universais para todos os subdomínios, introduza "*****'. Este irá cobrir como todos os subdomínios **mail.customdomain.com**, **login.customdomain.com**, e **www.customdomain.com**.
    
     Se pretender criar um registo para o domínio de raiz, poderá ser listado como o '**@**"símbolo nas ferramentas DNS da entidade de registo.
 5. Introduza o endereço IP do seu serviço cloud no campo fornecido. Isso associa a entrada de domínio utilizada no registo com o endereço IP da sua implementação do serviço cloud.
@@ -126,7 +126,7 @@ Por exemplo, o seguinte um registo por sua vez encaminha todo o tráfego dos **c
 | --- | --- |
 | \@ |137.135.70.239 |
 
-Este exemplo demonstra a criação de um registo para o domínio de raiz. Se quiser criar uma entrada de caráter universal para abranger todos os subdomínios, insira "***' como o subdomínio.
+Este exemplo demonstra a criação de um registo para o domínio de raiz. Se quiser criar uma entrada de caráter universal para abranger todos os subdomínios, insira "*****' como o subdomínio.
 
 > [!WARNING]
 > Endereços IP no Azure são dinâmicos por predefinição. Provavelmente irá querer utilizar um [reservado de endereços IP](../virtual-network/virtual-networks-reserved-public-ip.md) para se certificar de que o seu endereço IP não é alterada.
