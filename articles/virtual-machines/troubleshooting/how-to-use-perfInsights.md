@@ -119,9 +119,9 @@ Informações sobre a VM do Windows, discos ou configuração de agrupamentos de
 | Configuração da firewall            | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Configuração do SQL Server          | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
 | Rastreios de diagnóstico de desempenho *  | Sim                        | Sim                                | Sim                      | Sim                  | Sim                  |
-| Rastreio de contador de desempenho * *      |                            |                                    | Sim                      |                      | Sim                  |
-| Rastreio de contador do SMB * *              |                            |                                    |                          | Sim                  |                      |
-| Rastreio de contador do SQL Server * *       |                            |                                    | Sim                      |                      | Sim                  |
+| Rastreio de contador de desempenho **      |                            |                                    | Sim                      |                      | Sim                  |
+| Rastreio de contador do SMB **              |                            |                                    |                          | Sim                  |                      |
+| Rastreio de contador do SQL Server **       |                            |                                    | Sim                      |                      | Sim                  |
 | Rastreio de XPerf                       |                            |                                    |                          |                      | Sim                  |
 | Rastreio de StorPort                    |                            |                                    |                          |                      | Sim                  |
 | Rastreio de rede                     |                            |                                    |                          | Sim                  | Sim                  |
@@ -140,7 +140,7 @@ Executa um mecanismo baseado em regras em segundo plano para recolher dados e di
 > [!NOTE] 
 > Atualmente, são suportadas versões do Windows que incluem o .NET Framework 4.5 ou versões posteriores.
 
-### <a name="performance-counter-trace-"></a>Rastreio de contador de desempenho (*)
+### <a name="performance-counter-trace-"></a>Rastreio de contador de desempenho (\*\*)
 
 Recolhe os seguintes contadores de desempenho:
 
@@ -156,7 +156,7 @@ Recolhe os seguintes contadores de desempenho:
 #### <a name="for-azure-files"></a>Para os ficheiros do Azure
 Partilhas de cliente \SMB
 
-### <a name="diskspd-benchmark-trace-"></a>Rastreio de benchmark de Diskspd (*)
+### <a name="diskspd-benchmark-trace-"></a>Rastreio de benchmark de Diskspd (\*\*\*)
 Testes de carga de trabalho de e/s de Diskspd (disco do SO [escrita] e unidades de agrupamento [leitura/escrita])
 
 ## <a name="run-the-perfinsights-tool-on-your-vm"></a>Execute a ferramenta de PerfInsights na sua VM

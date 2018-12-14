@@ -271,7 +271,7 @@ Como está a mover dados de um arquivo de dados numa rede privada (no local) par
 1. Na janela **Configuração do Runtime de Integração**, selecione **Realizar movimento de dados e enviar atividades para computações externas** e clique em **Seguinte**. 
 
    ![Selecionar o tipo de runtime de integração](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. Selecione **Rede Privada** e clique em **Seguinte**. 
+1. Selecione ** Rede Privada** e clique em **Seguinte**. 
 
    ![Selecionar rede privada](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. Introduza **MySelfHostedIR** em **Nome** e clique em **Seguinte**. 
