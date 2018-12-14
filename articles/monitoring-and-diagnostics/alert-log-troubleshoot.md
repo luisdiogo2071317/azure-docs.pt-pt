@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: e11833feba9466fed6ea6b4f698ba2184ad129e2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: MT
+ms.openlocfilehash: 4593c19a05484f7075b7a4a15a6be2e6a1bc0d28
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962203"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271509"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Resolução de problemas de alertas de registo no Azure Monitor  
 ## <a name="overview"></a>Descrição geral
 Este artigo mostra-lhe como resolver problemas comuns detetados quando a configuração de alertas de registo no Azure monitor. Ele também fornece soluções para perguntas freqüentes sobre a funcionalidade ou configuração de alertas de registo. 
 
-O termo **alertas de registo** descreve os alertas que fire com base numa consulta personalizada na [do Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Saiba mais sobre funcionalidades, terminologia e tipos no [alertas - descrição geral de registo](monitor-alerts-unified-log.md).
+O termo **alertas de registo** descreve os alertas que fire com base numa consulta personalizada na [do Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Saiba mais sobre funcionalidades, terminologia e tipos no [alertas - descrição geral de registo](../azure-monitor/platform/alerts-unified-log.md).
 
 > [!NOTE]
-> Este artigo não considere casos em que o portal do Azure mostra e alerta acionado de regra e uma notificação realizadas por um grupo de ação associada (s). Para tais casos, consulte detalhes no artigo sobre [grupos de ação](monitoring-action-groups.md).
+> Este artigo não considere casos em que o portal do Azure mostra e alerta acionado de regra e uma notificação realizadas por um grupo de ação associada (s). Para tais casos, consulte detalhes no artigo sobre [grupos de ação](../azure-monitor/platform/action-groups.md).
 
 
 ## <a name="log-alert-didnt-fire"></a>Alerta de registo não são acionados
 
-Eis algumas razões comuns um configurado [regra de alerta de registo no Azure Monitor](alert-log.md) Estado não mostra [como *disparado* quando esperado](monitoring-alerts-managing-alert-states.md). 
+Eis algumas razões comuns um configurado [regra de alerta de registo no Azure Monitor](../azure-monitor/platform/alerts-log.md) Estado não mostra [como *disparado* quando esperado](monitoring-alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Tempo de ingestão de dados para os registos
 Alerta de registo executado periodicamente sua consulta com base na [do Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Uma vez que o Log Analytics processa muitos terabytes de dados a partir de milhares de clientes de origens variadas em todo o mundo, o serviço é suscetível a um atraso de tempo diferentes. Para obter mais informações, consulte [tempo de ingestão de dados no Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
@@ -35,14 +35,14 @@ Alerta de registo executado periodicamente sua consulta com base na [do Log Anal
 Para atenuar o atraso de ingestão de dados, o sistema deve aguardar e repete a consulta de alerta várias vezes se ele encontrar que os dados necessários não são ingeridos ainda. O sistema tem um tempo de espera aumentar exponencialmente definido. Os registo alerta apenas acionadores depois dos dados estão disponíveis para que eles atraso podem ser devido a ingestão de dados de registo lento. 
 
 ### <a name="incorrect-time-period-configured"></a>Período de hora incorreto configurado
-Conforme descrito no artigo [terminologia para alertas de registo](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), o tempo de configuração no declarado períoda Especifica o intervalo de tempo para a consulta. A consulta devolve apenas os registos que foram criados neste intervalo de tempo. Período de tempo restringe os dados obtidos para a consulta de registo evitar abusos e evita qualquer comando de tempo (como *há*) utilizado numa consulta de registo. Por exemplo, se o período de tempo é definido como 60 minutos, e a consulta é executada em 1 às 15:15, apenas os registos criados entre 12:15 e 1 às 15:15 são utilizados para a consulta de registo. Se a consulta de registo utiliza um comando de tempo como *há (1 dia)*, a consulta utiliza apenas dados entre 12:15 e 1 às 15:15 porque o período de tempo é definido como esse interval.*
+Conforme descrito no artigo [terminologia para alertas de registo](../azure-monitor/platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), o tempo de configuração no declarado períoda Especifica o intervalo de tempo para a consulta. A consulta devolve apenas os registos que foram criados neste intervalo de tempo. Período de tempo restringe os dados obtidos para a consulta de registo evitar abusos e evita qualquer comando de tempo (como *há*) utilizado numa consulta de registo. Por exemplo, se o período de tempo é definido como 60 minutos, e a consulta é executada em 1 às 15:15, apenas os registos criados entre 12:15 e 1 às 15:15 são utilizados para a consulta de registo. Se a consulta de registo utiliza um comando de tempo como *há (1 dia)*, a consulta utiliza apenas dados entre 12:15 e 1 às 15:15 porque o período de tempo é definido como esse interval.*
 
 Por conseguinte, a verificação esse período de tempo na configuração corresponde à sua consulta. Por exemplo, mencionado anteriormente, se a consulta de registo utiliza *há (1 dia)* como é mostrado com marcador verde, em seguida, o período de tempo deve ser definido como 24 horas ou 1440 minutos (como indicado em vermelho), para garantir que a consulta for executada conforme pretendido.
 
 ![Período de tempo](./media/monitor-alerts-unified/LogAlertTimePeriod.png)
 
 ### <a name="suppress-alerts-option-is-set"></a>Suprimir alertas a opção estiver definida
-Conforme descrito no passo 8 deste artigo [criar uma regra de alerta de registo no portal do Azure](alert-log.md#managing-log-alerts-from-the-azure-portal), os alertas de registo fornecem uma **suprimir alertas** opção para suprimir as ações de acionamento e de notificação para um período de configurado tempo. Como resultado, pode considerar que um alerta não são disparados enquanto na realidade ele fez, mas foi suprimido.  
+Conforme descrito no passo 8 deste artigo [criar uma regra de alerta de registo no portal do Azure](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal), os alertas de registo fornecem uma **suprimir alertas** opção para suprimir as ações de acionamento e de notificação para um período de configurado tempo. Como resultado, pode considerar que um alerta não são disparados enquanto na realidade ele fez, mas foi suprimido.  
 
 ![Suprimir Alertas](./media/monitor-alerts-unified/LogAlertSuppress.png)
 
@@ -71,7 +71,7 @@ Como agregação após é timestamp que os dados são ordenados na coluna timest
 - (Ou) reconfigurar a regra de alerta para utilizar a lógica de alerta com base na *total de violação* em vez disso adequadamente
  
 ## <a name="log-alert-fired-unnecessarily"></a>Alerta de registo acionado desnecessariamente
-Próxima detalhada são algumas razões comuns, por que um configurado [regra de alerta de registo no Azure Monitor](alert-log.md) podem ser acionadas quando visualizado no [alertas do Azure](monitoring-alerts-managing-alert-states.md), quando não espera que sejam acionados.
+Próxima detalhada são algumas razões comuns, por que um configurado [regra de alerta de registo no Azure Monitor](../azure-monitor/platform/alerts-log.md) podem ser acionadas quando visualizado no [alertas do Azure](monitoring-alerts-managing-alert-states.md), quando não espera que sejam acionados.
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerta acionada por dados parciais
 Análise que alimenta o Log Analytics e Application Insights está sujeitos aos atrasos de ingestão e de processamento; devido a que, ao tempo quando é executada a consulta de alerta de registo fornecida - pode haver um caso de dados não está disponível ou apenas alguns dados estejam disponíveis. Para obter mais informações, consulte [tempo de ingestão de dados no Log Analytics](../azure-monitor/platform/data-ingestion-time.md).
@@ -81,13 +81,13 @@ Dependendo de como a regra de alerta é configurada, pode haver enganássemos fi
 Por exemplo, se a regra de alerta de registo está configurada para acionar quando o número de resultados de uma consulta do analytics é inferior a 5, em seguida, o alerta for acionado quando não existe (zero registo) de dados ou resultados parciais (um registo). No entanto, após o atraso de ingestão de dados, a mesma consulta com dados completa pode fornecer um resultado de 10 registos.
 
 ### <a name="alert-query-output-misunderstood"></a>Saída de consulta de alerta mal compreendida
-Fornecer a lógica para alertas de registo numa consulta do analytics. A consulta do analytics pode utilizar várias grandes quantidades de dados e funções matemáticas.  O serviço de alerta executa a consulta em intervalos especificados com os dados para o período de tempo especificado. O serviço de alerta faz alterações sutis para consulta fornecida com base no tipo de alerta escolhido. Isso pode ser visto na seção "Consultar a ser executado" na *configurar lógica de sinal* ecrã, conforme mostrado abaixo: ![consulta a ser executado](./media/monitor-alerts-unified/LogAlertPreview.png)
+Fornecer a lógica para alertas de registo numa consulta do analytics. A consulta do analytics pode utilizar várias grandes quantidades de dados e funções matemáticas.  O serviço de alerta executa a consulta em intervalos especificados com os dados para o período de tempo especificado. O serviço de alerta faz alterações sutis para consulta fornecida com base no tipo de alerta escolhido. Isso pode ser visto na seção "Consultar a ser executado" na *lógica de sinal de configurar* ecrã, conforme mostrado abaixo: ![Consulta a ser executado](./media/monitor-alerts-unified/LogAlertPreview.png)
  
 O que é mostrado na **consulta a ser executado** caixa está o que é executado o serviço de alerta de registo. Pode executar a consulta declarada como timespan através de [portal do Analytics](../azure-monitor/log-query/portals.md) ou o [API de análise de](https://docs.microsoft.com/rest/api/loganalytics/) se quiser entender o que a consulta de alerta de saída pode ser antes de criar, na verdade, o alerta.
  
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [alertas de registo nos alertas do Azure](monitor-alerts-unified-log.md)
+* Saiba mais sobre [alertas de registo nos alertas do Azure](../azure-monitor/platform/alerts-unified-log.md)
 * Saiba mais sobre [Application Insights](../application-insights/app-insights-analytics.md)
 * Saiba mais sobre [do Log Analytics](../log-analytics/log-analytics-overview.md). 
 
