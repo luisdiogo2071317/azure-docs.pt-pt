@@ -13,6 +13,7 @@
 ## [Migrar o SQL Server para a Instância Gerida de BD SQL do Azure online](tutorial-sql-server-managed-instance-online.md)
 ## [Migrar o MySQL para a BD do Azure para MySQL online](tutorial-mysql-azure-mysql-online.md)
 ## [Migrar o PostgreSQL para o Azure DB para o PostgreSQL online](tutorial-postgresql-azure-postgresql-online.md)
+## [Migrar a API Mongo do MongoDB para o Azure Cosmos DB offline](tutorial-mongodb-cosmos-db.md)
 
 # Guias de procedimentos
 ## [Utilize o PowerShell para migrar o SQL Server para a DB SQL do Azure](howto-sql-server-to-azure-sql-powershell.md)
@@ -20,16 +21,17 @@
 ## [Monitorizar a atividade de migração](how-to-monitor-migration-activity.md)
 
 # Recursos
+## [Estado do cenário de migração de base de dados](resource-scenario-status.md)
+## [Descrição de pré-requisitos](pre-reqs.md)
+## [Topologias de rede para as migrações da Instância Gerida da BD SQL do Azure](resource-network-topologies.md)
 ## [Problemas Conhecidos - migração online para a BD SQL do Azure](known-issues-azure-sql-online.md)
 ## [Problemas Conhecidos - migração online para a BD do Azure para MySQL](known-issues-azure-mysql-online.md)
 ## [Problemas Conhecidos - Migração online para a BD do Azure para PostgreSQL](known-issues-azure-postgresql-online.md)
 ## [Serviço e ferramentas disponíveis para cenários de migração de dados](dms-tools-matrix.md)
-## [Descrição de pré-requisitos](pre-reqs.md)
-## [FAQ](faq.md)
-## [Topologias de rede para as migrações da Instância Gerida da BD SQL do Azure](resource-network-topologies.md)
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=database-migration)
-## [Preços](https://aka.ms/dms-pricing)
+## [Perguntas Mais Frequentes](faq.md)
 ## [Comentários da Voz do Utilizador](https://feedback.azure.com/forums/906100-azure-database-migration-service)
+## [Preços](https://aka.ms/dms-pricing)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=database-migration)
 ## [Guia de Migração de Bases de Dados](https://aka.ms/datamigration)
 ## [Assistente de Migração de Dados](https://aka.ms/dma)
 ## [Assistente de Migração do SQL Server](https://aka.ms/ssma)

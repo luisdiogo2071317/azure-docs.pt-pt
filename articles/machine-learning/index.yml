@@ -1,77 +1,71 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ef0ecc7a9e89168ed57c75ab24c3233692d77151
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 865f7421172c3302333b1cbf465f66806b296759
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863572"
-documentType: LandingData
-title: Documentação do Azure Machine Learning
-metadata:
-  title: Documentação do Azure Machine Learning - Tutoriais, Referência da API | Microsoft Docs
-  description: Aprenda a criar algoritmos inteligentes em aplicações, websites e bots para que possam ver, ouvir, falar, compreender e interpretar as necessidades dos utilizadores através de métodos naturais de comunicação. Os tutoriais, inícios rápidos, referências de API e exemplos mostram-lhe como.
-  services: machine-learning
-  author: j-martens
-  ms.service: machine-learning
-  ms.component: core
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 12/04/2018
-  ms.author: jmartens
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314385"
 abstract:
   description: Saiba como criar algoritmos inteligentes para aplicações e sites com estes produtos do Azure Machine Learning.  Os tutoriais, inícios rápidos, referências de API e exemplos mostram-lhe como.
+documentType: LandingData
+metadata:
+  author: j-martens
+  description: Aprenda a criar algoritmos inteligentes em aplicações, websites e bots para que possam ver, ouvir, falar, compreender e interpretar as necessidades dos utilizadores através de métodos naturais de comunicação. Os tutoriais, inícios rápidos, referências de API e exemplos mostram-lhe como.
+  ms.author: jmartens
+  ms.component: core
+  ms.date: 12/04/2018
+  ms.devlang: na
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  services: machine-learning
+  title: Documentação do Azure Machine Learning - Tutoriais, Referência da API | Microsoft Docs
 sections:
 - items:
-  - type: list
-    style: cards
-    className: cardsM
+  - className: cardsM
     columns: 2
     items:
     - href: /azure/machine-learning/service/overview-what-is-azure-ml
-      html: <p>Saiba como este serviço permite aos cientistas de dados desenvolver e gerir soluções de IA<br/> com as ferramentas CLI e Python e bibliotecas com uma variedade de serviços de dados e de computação do Azure. Saiba mais...</p>
+      html: <p>Saiba como este serviço permite aos cientistas de dados desenvolver e gerir soluções de IA<br/> com as ferramentas da CLI do Azure e do Python e bibliotecas com uma variedade de serviços de dados e de computação do Azure. Saiba mais...</p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
       title: Serviço Azure Machine Learning
-- title: Inícios rápidos e tutoriais
-  items:
-  - type: paragraph
-    text: 'Saiba como configurar e utilizar rapidamente o Serviço Azure Machine Learning:'
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/i_machine-learning.svg
-    rows:
-    - title: Introdução ao serviço no portal do Azure
-      values:
-      - href: /azure/machine-learning/service/quickstart-get-started
-    - title: Introdução ao serviço em Python
-      values:
-      - href: /azure/machine-learning/service/quickstart-create-workspace-with-python
-    - title: Preparar dados para modelação
-      values:
-      - href: /azure/machine-learning/service/tutorial-data-prep
-    - title: Criar o seu próprio modelo de machine learning
-      values:
-      - href: /azure/machine-learning/service/tutorial-train-models-with-aml
-    - title: Gerar e otimizar algoritmos automaticamente
-      values:
-      - href: /azure/machine-learning/service/tutorial-auto-train-models
-    - title: Implementar o seu modelo como serviço Web
-      values:
-      - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
-    - title: Consumir os seus modelos de machine learning
-      values:
-      - href: /azure/machine-learning/service/how-to-consume-web-service
-    - title: Criar e gerir pipelines de aprendizagem automática
-      values:
-      - href: /azure/machine-learning/service/how-to-create-your-first-pipeline
-- title: Outras tecnologias de aprendizagem automática da Microsoft
-  items:
-  - type: list
     style: cards
-    className: cardsM
+    type: list
+- items:
+  - text: 'Configure e comece a utilizar o serviço Azure Machine Learning:'
+    type: paragraph
+  - text: <b>Inícios rápidos:</b>
+    type: paragraph
+  - items:
+    - html: <a href="service/quickstart-create-workspace-with-python">Utilizar o Python para começar</a>
+    - html: <a href="service/quickstart-get-started">Utilizar o portal do Azure para começar</a>
+    style: unordered
+    type: list
+  - text: <b>Tutorial de classificação de imagens com dados MNIST:</b>
+    type: paragraph
+  - items:
+    - html: 'Parte 1: <a href="service/tutorial-train-models-with-aml">preparar o seu próprio modelo</a>'
+    - html: 'Parte 2: <a href="service/tutorial-deploy-models-with-aml">implementar esse modelo</a>'
+    style: unordered
+    type: list
+  - text: <b>Tutorial de modelação de regressão com dados de táxis de Nova Iorque:</b>
+    type: paragraph
+  - items:
+    - html: 'Parte 1: <a href="service/tutorial-data-prep">preparar dados para modelação</a>'
+    - html: 'Parte 2: <a href="service/tutorial-auto-train-models">permitir que o ML automatizado prepare modelos para si</a>'
+    style: unordered
+    type: list
+  - text: <b>Consuma os seus modelos:</b>
+    type: paragraph
+  - items:
+    - html: <a href="service/how-to-consume-web-service">Consumo de modelos de pedido/resposta</a>
+    - html: <a href="service/how-to-run-batch-predictions">Predições de lote com pipelines de ML</a>
+    style: unordered
+    type: list
+  title: Inícios rápidos e tutoriais
+- items:
+  - className: cardsM
     columns: 2
     items:
     - href: /azure/cognitive-services/
@@ -80,7 +74,7 @@ sections:
         src: /azure/machine-learning/media/index/cognitive-services.png
       title: Serviços Cognitivos
     - href: /azure/machine-learning/studio/
-      html: <p>Saiba como utilizar esta ferramenta de colaboração de arrastar e largar para criar, testar e implementar soluções de análise preditiva nos seus dados. Saiba mais... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      html: <p>Uma ferramenta de arrastar e largar e de colaboração para criar, testar e implementar soluções de análise preditiva nos seus dados com R ou Python. </p>
       image:
         src: /azure/machine-learning/media/index/machine-learning-studio.svg
       title: Azure Machine Learning Studio
@@ -104,3 +98,7 @@ sections:
       image:
         src: /azure/machine-learning/media/index/virtualmachine.svg
       title: Máquina Virtual de Ciência de Dados
+    style: cards
+    type: list
+  title: Outras tecnologias de aprendizagem automática da Microsoft
+title: Documentação do Azure Machine Learning
