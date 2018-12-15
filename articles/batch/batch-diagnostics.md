@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 9e99e5f999c927ed0376a89b9f6d9f73fa8b2b2b
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 8efa8088bca3eb6221c49ec5f14334342149795d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384178"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438443"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas de lote, alertas e registos para a avaliação de diagnóstico e monitorização
 
@@ -31,7 +31,7 @@ Este artigo explica como monitorizar uma conta do Batch utilizar funcionalidades
 
 As métricas são dados de telemetria do Azure (também chamados de contadores de desempenho) emitidos por seus recursos do Azure que são consumidos pelo serviço do Azure Monitor. Métricas de exemplo numa conta do Batch incluem: Eventos, a contagem de nós de baixa prioridade e a tarefa de criação de conjunto concluir eventos. 
 
-Consulte a [lista de métricas suportadas do Batch](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+Consulte a [lista de métricas suportadas do Batch](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
 As métricas são:
 

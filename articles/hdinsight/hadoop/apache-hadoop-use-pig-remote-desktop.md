@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9ab3c5399263e301760b7822488fe00145149d2a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 69eeadd8252d20dd25ac6d0abbbf0c6c158383d5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633347"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438630"
 ---
 # <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>Executar tarefas do Apache Pig a partir de uma ligação de ambiente de trabalho remoto
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
 Este documento fornece um passo a passo para utilizar o comando de Apache Pig para executar instruções em Pig Latin numa ligação de ambiente de trabalho remoto para um cluster do HDInsight baseado em Windows. PIg Latin permite-lhe criar aplicações de MapReduce com a descrição de transformações de dados, em vez do mapa e reduzir as funções.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Área de trabalho remota só está disponível em clusters do HDInsight que utilizam o Windows como o sistema operativo. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 >
-> Para o HDInsight 3.4 ou superior, consulte [utilizar o Pig com o HDInsight e SSH](apache-hadoop-use-pig-ssh.md) para obter informações sobre como executar interativamente as tarefas do Pig diretamente no cluster de uma linha de comandos.
+> Para o HDInsight 3.4 ou superior, consulte [utilizar o Apache Pig com o HDInsight e o SSH](apache-hadoop-use-pig-ssh.md) para obter informações sobre como executar interativamente as tarefas do Pig diretamente no cluster de uma linha de comandos.
 
 ## <a id="prereq"></a>Pré-requisitos
 Para concluir os passos neste artigo, terá de fazer o seguinte.
@@ -78,7 +78,7 @@ Ativar o ambiente de trabalho remoto para o cluster do HDInsight, em seguida, li
 
         STORE RESULT into 'wasb:///example/data/pigout'
 
-   > [!NOTE]
+   > [!NOTE]  
    > Os dados são armazenados no diretório especificado nos arquivos chamados **parte nnnnn**. Se já existir no diretório, receberá uma mensagem de erro.
    >
    >
@@ -119,9 +119,9 @@ Como pode ver, o comando de Pig permite-lhe executar as operações de MapReduce
 ## <a id="nextsteps"></a>Passos seguintes
 Para obter informações gerais sobre o Pig no HDInsight:
 
-* [Utilizar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Utilizar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
 
 Para obter informações sobre outras formas pode trabalhar com o Hadoop no HDInsight:
 
-* [Utilizar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md)
-* [Utilizar o MapReduce com o Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Utilizar o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Utilizar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)

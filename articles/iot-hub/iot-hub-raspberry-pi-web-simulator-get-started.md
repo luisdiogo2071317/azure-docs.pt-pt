@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a2d067f71b7b68944e479cfd27c1dbf414762af8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 6844fb9b6e85e77ad9c7a869a989214fffd05ece
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514881"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438749"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Ligar o simulador online de Raspberry Pi ao IoT Hub do Azure (node. js)
 
@@ -71,7 +71,7 @@ Existem três áreas no simulador web.
    * **Subconjuntos de validação/Expand** -no lado direito, há um botão para expandir/subconjuntos de validação a janela da consola.
 
 > [!NOTE] 
-Simulador web Raspberry Pi está agora disponível em versão de pré-visualização. Gostaríamos de ouvir a sua voz no [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). O código-fonte é público na [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+Simulador web Raspberry Pi está agora disponível em versão de pré-visualização. Gostaríamos de ouvir a sua voz no [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). O código-fonte é público na [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
 ![Descrição geral do simulador online do instalador de plataforma](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 

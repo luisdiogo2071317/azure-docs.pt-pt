@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 02029170046e3c70965e2f607aa6c00c7ca131e3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 48f178b7a94e8989f8a0154bea6195834b1ec35f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389052"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438681"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Ativar automaticamente as definições de diagnóstico durante a criação de recursos através de um modelo do Resource Manager
 Neste artigo vamos mostrar como pode usar uma [modelo Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar as definições de diagnóstico num recurso quando é criado. Isto permite-lhe iniciar automaticamente a transmissão em fluxo a registos de diagnóstico e métricas para os Hubs de eventos, arquivá-los numa conta de armazenamento, ou enviá-los para o Log Analytics, quando um recurso é criado.
 
 > [!WARNING]
-> O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./../../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md) 
+> O formato dos dados de registo na conta de armazenamento vai ser alterado para Linhas de JSON a 1 de novembro de 2018. [Leia este artigo para obter uma descrição do impacto e saber como atualizar a sua ferramenta para trabalhar com o novo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -116,7 +116,7 @@ Não-recursos de computação, terá de fazer duas coisas:
     ]
     ```
 
-Segue-se o blob de propriedades para a definição de diagnóstico [o formato descrito neste artigo](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Adicionar a `metrics` propriedade permitirá que também enviar métricas de recurso para essas mesmas saídas, fornecidas que [o recursos suporta métricas do Azure Monitor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+Segue-se o blob de propriedades para a definição de diagnóstico [o formato descrito neste artigo](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Adicionar a `metrics` propriedade permitirá que também enviar métricas de recurso para essas mesmas saídas, fornecidas que [o recursos suporta métricas do Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
 Eis um exemplo completo que cria uma aplicação lógica e ativa a transmissão em fluxo para os Hubs de eventos e de armazenamento numa conta de armazenamento.
 

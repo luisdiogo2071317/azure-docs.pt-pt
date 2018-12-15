@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 753a0ad72e1d4b60a93daa570ceecc25d21bb228
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6f1620c9977f997b4037fbf3f823c429e43b4f6a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634146"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436267"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Executar tarefas de MapReduce com o Apache Hadoop no HDInsight com o PowerShell
 
@@ -26,7 +26,7 @@ Este documento fornece um exemplo de utilização do Azure PowerShell para execu
 
 * **Um cluster do Azure HDInsight (Hadoop no HDInsight)**
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
 
 * **Uma estação de trabalho com o Azure PowerShell**.
@@ -37,15 +37,15 @@ O Azure PowerShell disponibiliza *cmdlets* que permitem-lhe executar remotamente
 
 Os cmdlets seguintes são utilizados quando executar tarefas de MapReduce num cluster do HDInsight remoto.
 
-* **Connect-AzureRmAccount**: autentica o Azure PowerShell para a sua subscrição do Azure.
+* **Connect-AzureRmAccount**: Efetua a autenticação do Azure PowerShell para a sua subscrição do Azure.
 
-* **Novo AzureRmHDInsightMapReduceJobDefinition**: cria uma nova *definição de tarefa* usando as informações de MapReduce especificadas.
+* **Novo AzureRmHDInsightMapReduceJobDefinition**: Cria uma nova *definição de tarefa* usando as informações de MapReduce especificadas.
 
-* **Start-AzureRmHDInsightJob**: envia a definição de tarefa ao HDInsight e inicia a tarefa. R *tarefa* objeto é devolvido.
+* **Start-AzureRmHDInsightJob**: Envia a definição de tarefa ao HDInsight e inicia a tarefa. R *tarefa* objeto é devolvido.
 
-* **Espera-AzureRmHDInsightJob**: usa o objeto de tarefa para verificar o estado da tarefa. Ele aguarda até que a tarefa é concluída ou o tempo de espera foi excedido.
+* **Espera-AzureRmHDInsightJob**: Usa o objeto de tarefa para verificar o estado da tarefa. Ele aguarda até que a tarefa é concluída ou o tempo de espera foi excedido.
 
-* **Get-AzureRmHDInsightJobOutput**: utilizado para obter o resultado da tarefa.
+* **Get-AzureRmHDInsightJobOutput**: Usada para recuperar o resultado da tarefa.
 
 Os passos seguintes demonstram como utilizar estes cmdlets para executar uma tarefa no seu cluster do HDInsight.
 
@@ -73,7 +73,7 @@ Os passos seguintes demonstram como utilizar estes cmdlets para executar uma tar
 
     Este resultado indica que a tarefa foi concluída com êxito.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Se o **ExitCode** é um valor diferente de 0, veja [resolução de problemas](#troubleshooting).
 
     Este exemplo também armazena os ficheiros transferidos para uma **output.txt** ficheiro no diretório que executar o script.
@@ -82,7 +82,7 @@ Os passos seguintes demonstram como utilizar estes cmdlets para executar uma tar
 
 Para ver as palavras e contagens de produzido pela tarefa, abra a **output.txt** ficheiro num editor de texto.
 
-> [!NOTE]
+> [!NOTE]  
 > Os ficheiros de saída de uma tarefa de MapReduce são imutáveis. Portanto, se voltar a executar este exemplo, terá de alterar o nome do ficheiro de saída.
 
 ## <a id="troubleshooting"></a>Resolução de Problemas
@@ -113,5 +113,5 @@ Para obter informações gerais sobre tarefas de MapReduce no HDInsight:
 
 Para obter informações sobre outras formas pode trabalhar com o Hadoop no HDInsight:
 
-* [Utilizar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md)
-* [Utilizar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md)
+* [Utilizar o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
+* [Utilizar o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
